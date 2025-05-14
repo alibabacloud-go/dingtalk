@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package crm_2_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,6 +33,11 @@ func (s *GetRelationUkSettingHeaders) SetXAcsDingtalkAccessToken(v string) *GetR
 }
 
 type GetRelationUkSettingRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// crm_customer
 	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
 
@@ -177,12 +178,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -191,6 +192,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 获取关系数据查重规则
+//
+// @param request - GetRelationUkSettingRequest
+//
+// @param headers - GetRelationUkSettingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetRelationUkSettingResponse
 func (client *Client) GetRelationUkSettingWithOptions(request *GetRelationUkSettingRequest, headers *GetRelationUkSettingHeaders, runtime *util.RuntimeOptions) (_result *GetRelationUkSettingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -234,6 +246,13 @@ func (client *Client) GetRelationUkSettingWithOptions(request *GetRelationUkSett
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取关系数据查重规则
+//
+// @param request - GetRelationUkSettingRequest
+//
+// @return GetRelationUkSettingResponse
 func (client *Client) GetRelationUkSetting(request *GetRelationUkSettingRequest) (_result *GetRelationUkSettingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetRelationUkSettingHeaders{}

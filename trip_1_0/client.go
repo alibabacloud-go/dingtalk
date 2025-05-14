@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package trip_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,7 +33,15 @@ func (s *GetTravelProcessDetailHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetTravelProcessDetailRequest struct {
-	ProcessCorpId     *string `json:"processCorpId,omitempty" xml:"processCorpId,omitempty"`
+	// example:
+	//
+	// dingLamaXHExxxxxx
+	ProcessCorpId *string `json:"processCorpId,omitempty" xml:"processCorpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1fbmtOweRdqLamaXHExxxxxx
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
 }
 
@@ -83,30 +87,110 @@ func (s *GetTravelProcessDetailResponseBody) SetSuccess(v bool) *GetTravelProces
 }
 
 type GetTravelProcessDetailResponseBodyResult struct {
-	BizCategoryId                *string                                                     `json:"bizCategoryId,omitempty" xml:"bizCategoryId,omitempty"`
-	BusinessId                   *string                                                     `json:"businessId,omitempty" xml:"businessId,omitempty"`
-	CorpId                       *string                                                     `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CostCenter                   *string                                                     `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
-	CostCenterId                 *string                                                     `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
-	CostCenterThirdPartyId       *string                                                     `json:"costCenterThirdPartyId,omitempty" xml:"costCenterThirdPartyId,omitempty"`
-	CreateTime                   *string                                                     `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	ExtFormComponent             []*GetTravelProcessDetailResponseBodyResultExtFormComponent `json:"extFormComponent,omitempty" xml:"extFormComponent,omitempty" type:"Repeated"`
-	FeeType                      *string                                                     `json:"feeType,omitempty" xml:"feeType,omitempty"`
-	InvoiceTitle                 *string                                                     `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
-	InvoiceTitleId               *string                                                     `json:"invoiceTitleId,omitempty" xml:"invoiceTitleId,omitempty"`
-	InvoiceTitleThirdPartyId     *string                                                     `json:"invoiceTitleThirdPartyId,omitempty" xml:"invoiceTitleThirdPartyId,omitempty"`
-	ItineraryProject             *string                                                     `json:"itineraryProject,omitempty" xml:"itineraryProject,omitempty"`
-	ItineraryProjectThirdPartyId *string                                                     `json:"itineraryProjectThirdPartyId,omitempty" xml:"itineraryProjectThirdPartyId,omitempty"`
-	Journeys                     []*GetTravelProcessDetailResponseBodyResultJourneys         `json:"journeys,omitempty" xml:"journeys,omitempty" type:"Repeated"`
-	MainProcessInstanceId        *string                                                     `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
-	Memo                         *string                                                     `json:"memo,omitempty" xml:"memo,omitempty"`
-	OriginatorId                 *string                                                     `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
-	ProcessInstanceId            *string                                                     `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	ProcessResult                *string                                                     `json:"processResult,omitempty" xml:"processResult,omitempty"`
-	ProcessStatus                *string                                                     `json:"processStatus,omitempty" xml:"processStatus,omitempty"`
-	Remark                       *string                                                     `json:"remark,omitempty" xml:"remark,omitempty"`
-	TravelCategory               *string                                                     `json:"travelCategory,omitempty" xml:"travelCategory,omitempty"`
-	Travelers                    []*string                                                   `json:"travelers,omitempty" xml:"travelers,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 2024-07-18 00:00:00
+	ArchiveTime *string `json:"archiveTime,omitempty" xml:"archiveTime,omitempty"`
+	// example:
+	//
+	// alitrip.business
+	BizCategoryId *string `json:"bizCategoryId,omitempty" xml:"bizCategoryId,omitempty"`
+	// example:
+	//
+	// 202310231720000276784
+	BusinessId *string `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	// example:
+	//
+	// ding123456xxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// it成本中心
+	CostCenter *string `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
+	// example:
+	//
+	// 成本中心id
+	CostCenterId *string `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
+	// example:
+	//
+	// c00001
+	CostCenterThirdPartyId *string `json:"costCenterThirdPartyId,omitempty" xml:"costCenterThirdPartyId,omitempty"`
+	// example:
+	//
+	// 2024-03-18 17:07:00
+	CreateTime       *string                                                     `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	ExtFormComponent []*GetTravelProcessDetailResponseBodyResultExtFormComponent `json:"extFormComponent,omitempty" xml:"extFormComponent,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 部门费用
+	FeeType *string `json:"feeType,omitempty" xml:"feeType,omitempty"`
+	// example:
+	//
+	// 发票抬头
+	InvoiceTitle *string `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
+	// example:
+	//
+	// 发票抬头id
+	InvoiceTitleId *string `json:"invoiceTitleId,omitempty" xml:"invoiceTitleId,omitempty"`
+	// example:
+	//
+	// i0001
+	InvoiceTitleThirdPartyId *string `json:"invoiceTitleThirdPartyId,omitempty" xml:"invoiceTitleThirdPartyId,omitempty"`
+	// example:
+	//
+	// 电商对接项目
+	ItineraryProject *string `json:"itineraryProject,omitempty" xml:"itineraryProject,omitempty"`
+	// example:
+	//
+	// y00001
+	ItineraryProjectThirdPartyId *string                                             `json:"itineraryProjectThirdPartyId,omitempty" xml:"itineraryProjectThirdPartyId,omitempty"`
+	Journeys                     []*GetTravelProcessDetailResponseBodyResultJourneys `json:"journeys,omitempty" xml:"journeys,omitempty" type:"Repeated"`
+	// example:
+	//
+	// AG3WERxWRFex63xxxxx
+	MainProcessInstanceId *string `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
+	// example:
+	//
+	// 坐飞机出差
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// example:
+	//
+	// staffidxxxxx
+	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	// example:
+	//
+	// staffIdxyy
+	OriginatorIdOnBehalf *string `json:"originatorIdOnBehalf,omitempty" xml:"originatorIdOnBehalf,omitempty"`
+	// example:
+	//
+	// NONE
+	ProcessBizAction *string `json:"processBizAction,omitempty" xml:"processBizAction,omitempty"`
+	// example:
+	//
+	// AG3U12xWRFex63hxxxxx
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// example:
+	//
+	// agree
+	ProcessResult *string `json:"processResult,omitempty" xml:"processResult,omitempty"`
+	// example:
+	//
+	// COMPLETED
+	ProcessStatus *string `json:"processStatus,omitempty" xml:"processStatus,omitempty"`
+	// example:
+	//
+	// 因公出差
+	Remark *string                                          `json:"remark,omitempty" xml:"remark,omitempty"`
+	Tasks  []*GetTravelProcessDetailResponseBodyResultTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 费用归属部门
+	TravelCategory *string   `json:"travelCategory,omitempty" xml:"travelCategory,omitempty"`
+	Travelers      []*string `json:"travelers,omitempty" xml:"travelers,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 2
+	TripDays *string `json:"tripDays,omitempty" xml:"tripDays,omitempty"`
 }
 
 func (s GetTravelProcessDetailResponseBodyResult) String() string {
@@ -115,6 +199,11 @@ func (s GetTravelProcessDetailResponseBodyResult) String() string {
 
 func (s GetTravelProcessDetailResponseBodyResult) GoString() string {
 	return s.String()
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetArchiveTime(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.ArchiveTime = &v
+	return s
 }
 
 func (s *GetTravelProcessDetailResponseBodyResult) SetBizCategoryId(v string) *GetTravelProcessDetailResponseBodyResult {
@@ -207,6 +296,16 @@ func (s *GetTravelProcessDetailResponseBodyResult) SetOriginatorId(v string) *Ge
 	return s
 }
 
+func (s *GetTravelProcessDetailResponseBodyResult) SetOriginatorIdOnBehalf(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.OriginatorIdOnBehalf = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResult) SetProcessBizAction(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.ProcessBizAction = &v
+	return s
+}
+
 func (s *GetTravelProcessDetailResponseBodyResult) SetProcessInstanceId(v string) *GetTravelProcessDetailResponseBodyResult {
 	s.ProcessInstanceId = &v
 	return s
@@ -227,6 +326,11 @@ func (s *GetTravelProcessDetailResponseBodyResult) SetRemark(v string) *GetTrave
 	return s
 }
 
+func (s *GetTravelProcessDetailResponseBodyResult) SetTasks(v []*GetTravelProcessDetailResponseBodyResultTasks) *GetTravelProcessDetailResponseBodyResult {
+	s.Tasks = v
+	return s
+}
+
 func (s *GetTravelProcessDetailResponseBodyResult) SetTravelCategory(v string) *GetTravelProcessDetailResponseBodyResult {
 	s.TravelCategory = &v
 	return s
@@ -237,13 +341,36 @@ func (s *GetTravelProcessDetailResponseBodyResult) SetTravelers(v []*string) *Ge
 	return s
 }
 
+func (s *GetTravelProcessDetailResponseBodyResult) SetTripDays(v string) *GetTravelProcessDetailResponseBodyResult {
+	s.TripDays = &v
+	return s
+}
+
 type GetTravelProcessDetailResponseBodyResultExtFormComponent struct {
-	BizAlias      *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// example:
+	//
+	// ""
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// example:
+	//
+	// MoneyField
 	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
-	ExtValue      *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	Id            *string `json:"id,omitempty" xml:"id,omitempty"`
-	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
-	Value         *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// "{\"upper\":\"玖元玖角玖分\",\"componentName\":\"MoneyField\"}"
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// example:
+	//
+	// MoneyField_18PDM5K773FK0
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 预估金额
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 9.99
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s GetTravelProcessDetailResponseBodyResultExtFormComponent) String() string {
@@ -285,25 +412,76 @@ func (s *GetTravelProcessDetailResponseBodyResultExtFormComponent) SetValue(v st
 }
 
 type GetTravelProcessDetailResponseBodyResultJourneys struct {
-	Arrival                      *GetTravelProcessDetailResponseBodyResultJourneysArrival   `json:"arrival,omitempty" xml:"arrival,omitempty" type:"Struct"`
-	CostCenter                   *string                                                    `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
-	CostCenterId                 *string                                                    `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
-	CostCenterThirdPartyId       *string                                                    `json:"costCenterThirdPartyId,omitempty" xml:"costCenterThirdPartyId,omitempty"`
-	Departure                    *GetTravelProcessDetailResponseBodyResultJourneysDeparture `json:"departure,omitempty" xml:"departure,omitempty" type:"Struct"`
-	EndTime                      *string                                                    `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	EndTimeAcc                   *string                                                    `json:"endTimeAcc,omitempty" xml:"endTimeAcc,omitempty"`
-	InvoiceTitle                 *string                                                    `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
-	InvoiceTitleId               *string                                                    `json:"invoiceTitleId,omitempty" xml:"invoiceTitleId,omitempty"`
-	InvoiceTitleThirdPartyId     *string                                                    `json:"invoiceTitleThirdPartyId,omitempty" xml:"invoiceTitleThirdPartyId,omitempty"`
-	ItineraryProject             *string                                                    `json:"itineraryProject,omitempty" xml:"itineraryProject,omitempty"`
-	ItineraryProjectId           *string                                                    `json:"itineraryProjectId,omitempty" xml:"itineraryProjectId,omitempty"`
-	ItineraryProjectThirdPartyId *string                                                    `json:"itineraryProjectThirdPartyId,omitempty" xml:"itineraryProjectThirdPartyId,omitempty"`
-	JourneyBizNo                 *string                                                    `json:"journeyBizNo,omitempty" xml:"journeyBizNo,omitempty"`
-	StartTime                    *string                                                    `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	StartTimeAcc                 *string                                                    `json:"startTimeAcc,omitempty" xml:"startTimeAcc,omitempty"`
-	TimeUnit                     *string                                                    `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
-	TravelType                   *string                                                    `json:"travelType,omitempty" xml:"travelType,omitempty"`
-	TripWay                      *string                                                    `json:"tripWay,omitempty" xml:"tripWay,omitempty"`
+	Arrival *GetTravelProcessDetailResponseBodyResultJourneysArrival `json:"arrival,omitempty" xml:"arrival,omitempty" type:"Struct"`
+	// example:
+	//
+	// 成本中心一
+	CostCenter *string `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
+	// example:
+	//
+	// 123
+	CostCenterId *string `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
+	// example:
+	//
+	// c00001
+	CostCenterThirdPartyId *string                                                    `json:"costCenterThirdPartyId,omitempty" xml:"costCenterThirdPartyId,omitempty"`
+	Departure              *GetTravelProcessDetailResponseBodyResultJourneysDeparture `json:"departure,omitempty" xml:"departure,omitempty" type:"Struct"`
+	// example:
+	//
+	// 2023-10-25
+	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 2024-03-12 10:54:00
+	EndTimeAcc *string `json:"endTimeAcc,omitempty" xml:"endTimeAcc,omitempty"`
+	// example:
+	//
+	// 发票抬头一
+	InvoiceTitle *string `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
+	// example:
+	//
+	// 123
+	InvoiceTitleId *string `json:"invoiceTitleId,omitempty" xml:"invoiceTitleId,omitempty"`
+	// example:
+	//
+	// i0001
+	InvoiceTitleThirdPartyId *string `json:"invoiceTitleThirdPartyId,omitempty" xml:"invoiceTitleThirdPartyId,omitempty"`
+	// example:
+	//
+	// 费用归属项目一
+	ItineraryProject *string `json:"itineraryProject,omitempty" xml:"itineraryProject,omitempty"`
+	// example:
+	//
+	// 123
+	ItineraryProjectId *string `json:"itineraryProjectId,omitempty" xml:"itineraryProjectId,omitempty"`
+	// example:
+	//
+	// y00001
+	ItineraryProjectThirdPartyId *string `json:"itineraryProjectThirdPartyId,omitempty" xml:"itineraryProjectThirdPartyId,omitempty"`
+	// example:
+	//
+	// 123455xxxxxxxx
+	JourneyBizNo *string `json:"journeyBizNo,omitempty" xml:"journeyBizNo,omitempty"`
+	// example:
+	//
+	// 2023-10-20
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 2024-03-12 10:54:00
+	StartTimeAcc *string `json:"startTimeAcc,omitempty" xml:"startTimeAcc,omitempty"`
+	// example:
+	//
+	// 天
+	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	// example:
+	//
+	// 飞机
+	TravelType *string `json:"travelType,omitempty" xml:"travelType,omitempty"`
+	// example:
+	//
+	// 单程
+	TripWay *string `json:"tripWay,omitempty" xml:"tripWay,omitempty"`
 }
 
 func (s GetTravelProcessDetailResponseBodyResultJourneys) String() string {
@@ -410,10 +588,25 @@ func (s *GetTravelProcessDetailResponseBodyResultJourneys) SetTripWay(v string) 
 }
 
 type GetTravelProcessDetailResponseBodyResultJourneysArrival struct {
-	Code             *string `json:"code,omitempty" xml:"code,omitempty"`
-	CountryCode      *string `json:"countryCode,omitempty" xml:"countryCode,omitempty"`
-	CountryName      *string `json:"countryName,omitempty" xml:"countryName,omitempty"`
-	Name             *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// TSN
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// example:
+	//
+	// CN
+	CountryCode *string `json:"countryCode,omitempty" xml:"countryCode,omitempty"`
+	// example:
+	//
+	// 中国
+	CountryName *string `json:"countryName,omitempty" xml:"countryName,omitempty"`
+	// example:
+	//
+	// 天津市
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 120000
 	NationalCityCode *string `json:"nationalCityCode,omitempty" xml:"nationalCityCode,omitempty"`
 }
 
@@ -451,10 +644,25 @@ func (s *GetTravelProcessDetailResponseBodyResultJourneysArrival) SetNationalCit
 }
 
 type GetTravelProcessDetailResponseBodyResultJourneysDeparture struct {
-	Code             *string `json:"code,omitempty" xml:"code,omitempty"`
-	CountryCode      *string `json:"countryCode,omitempty" xml:"countryCode,omitempty"`
-	CountryName      *string `json:"countryName,omitempty" xml:"countryName,omitempty"`
-	Name             *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// BJK
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// example:
+	//
+	// CN
+	CountryCode *string `json:"countryCode,omitempty" xml:"countryCode,omitempty"`
+	// example:
+	//
+	// 中国
+	CountryName *string `json:"countryName,omitempty" xml:"countryName,omitempty"`
+	// example:
+	//
+	// 北京市
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 110000
 	NationalCityCode *string `json:"nationalCityCode,omitempty" xml:"nationalCityCode,omitempty"`
 }
 
@@ -488,6 +696,107 @@ func (s *GetTravelProcessDetailResponseBodyResultJourneysDeparture) SetName(v st
 
 func (s *GetTravelProcessDetailResponseBodyResultJourneysDeparture) SetNationalCityCode(v string) *GetTravelProcessDetailResponseBodyResultJourneysDeparture {
 	s.NationalCityCode = &v
+	return s
+}
+
+type GetTravelProcessDetailResponseBodyResultTasks struct {
+	// example:
+	//
+	// 1918_5cd3
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// example:
+	//
+	// 2024-07-01 00:00:00
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// 2024-07-01 01:00:00
+	FinishTime *string `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	// example:
+	//
+	// 12374
+	OriginUserId *string `json:"originUserId,omitempty" xml:"originUserId,omitempty"`
+	// example:
+	//
+	// e7fh112WTTawy6dLtiIlqQ10051721014983
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// example:
+	//
+	// AGREE
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// COMPLETED
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 87882310449
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// aflow.dingtalk.com?procInsId=xxx&taskId=yyy&businessId=zzz
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// 2220314
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetTravelProcessDetailResponseBodyResultTasks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTravelProcessDetailResponseBodyResultTasks) GoString() string {
+	return s.String()
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultTasks) SetActivityId(v string) *GetTravelProcessDetailResponseBodyResultTasks {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultTasks) SetCreateTime(v string) *GetTravelProcessDetailResponseBodyResultTasks {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultTasks) SetFinishTime(v string) *GetTravelProcessDetailResponseBodyResultTasks {
+	s.FinishTime = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultTasks) SetOriginUserId(v string) *GetTravelProcessDetailResponseBodyResultTasks {
+	s.OriginUserId = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultTasks) SetProcessInstanceId(v string) *GetTravelProcessDetailResponseBodyResultTasks {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultTasks) SetResult(v string) *GetTravelProcessDetailResponseBodyResultTasks {
+	s.Result = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultTasks) SetStatus(v string) *GetTravelProcessDetailResponseBodyResultTasks {
+	s.Status = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultTasks) SetTaskId(v int64) *GetTravelProcessDetailResponseBodyResultTasks {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultTasks) SetUrl(v string) *GetTravelProcessDetailResponseBodyResultTasks {
+	s.Url = &v
+	return s
+}
+
+func (s *GetTravelProcessDetailResponseBodyResultTasks) SetUserId(v string) *GetTravelProcessDetailResponseBodyResultTasks {
+	s.UserId = &v
 	return s
 }
 
@@ -544,6 +853,11 @@ func (s *PreCheckTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *PreCheck
 }
 
 type PreCheckTemplateRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding60f2b247ac1cb24024f2f5cc6abecb85
 	CustomerCorpId *string `json:"customerCorpId,omitempty" xml:"customerCorpId,omitempty"`
 }
 
@@ -682,6 +996,11 @@ func (s *QueryTripProcessTemplatesHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type QueryTripProcessTemplatesRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingcd2016f425331dc1acaaa37764f94726
 	CustomerCorpId *string `json:"customerCorpId,omitempty" xml:"customerCorpId,omitempty"`
 }
 
@@ -820,11 +1139,32 @@ func (s *SyncBusinessSignInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Sync
 }
 
 type SyncBusinessSignInfoRequest struct {
-	BizTypeList          []*string                                          `json:"bizTypeList,omitempty" xml:"bizTypeList,omitempty" type:"Repeated"`
-	GmtOrgPay            *string                                            `json:"gmtOrgPay,omitempty" xml:"gmtOrgPay,omitempty"`
-	GmtSign              *string                                            `json:"gmtSign,omitempty" xml:"gmtSign,omitempty"`
-	OrgPayStatus         *string                                            `json:"orgPayStatus,omitempty" xml:"orgPayStatus,omitempty"`
-	SignStatus           *string                                            `json:"signStatus,omitempty" xml:"signStatus,omitempty"`
+	BizTypeList []*string `json:"bizTypeList,omitempty" xml:"bizTypeList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1661927020219
+	GmtOrgPay *string `json:"gmtOrgPay,omitempty" xml:"gmtOrgPay,omitempty"`
+	// example:
+	//
+	// 1661927020219
+	GmtSign *string `json:"gmtSign,omitempty" xml:"gmtSign,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ORG_PAY
+	OrgPayStatus *string `json:"orgPayStatus,omitempty" xml:"orgPayStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SIGN
+	SignStatus *string `json:"signStatus,omitempty" xml:"signStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding89233847892ndkas
 	TargetCorpId         *string                                            `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
 	TmcProductDetailList []*SyncBusinessSignInfoRequestTmcProductDetailList `json:"tmcProductDetailList,omitempty" xml:"tmcProductDetailList,omitempty" type:"Repeated"`
 	TmcProductList       []*SyncBusinessSignInfoRequestTmcProductList       `json:"tmcProductList,omitempty" xml:"tmcProductList,omitempty" type:"Repeated"`
@@ -879,9 +1219,13 @@ func (s *SyncBusinessSignInfoRequest) SetTmcProductList(v []*SyncBusinessSignInf
 }
 
 type SyncBusinessSignInfoRequestTmcProductDetailList struct {
+	// example:
+	//
+	// 1661927020219
 	GmtOrgPay *string `json:"gmtOrgPay,omitempty" xml:"gmtOrgPay,omitempty"`
 	PayType   *string `json:"payType,omitempty" xml:"payType,omitempty"`
-	Product   *string `json:"product,omitempty" xml:"product,omitempty"`
+	// This parameter is required.
+	Product *string `json:"product,omitempty" xml:"product,omitempty"`
 }
 
 func (s SyncBusinessSignInfoRequestTmcProductDetailList) String() string {
@@ -909,7 +1253,8 @@ func (s *SyncBusinessSignInfoRequestTmcProductDetailList) SetProduct(v string) *
 
 type SyncBusinessSignInfoRequestTmcProductList struct {
 	ProductDetailList []*SyncBusinessSignInfoRequestTmcProductListProductDetailList `json:"productDetailList,omitempty" xml:"productDetailList,omitempty" type:"Repeated"`
-	TmcCorpId         *string                                                       `json:"tmcCorpId,omitempty" xml:"tmcCorpId,omitempty"`
+	// This parameter is required.
+	TmcCorpId *string `json:"tmcCorpId,omitempty" xml:"tmcCorpId,omitempty"`
 }
 
 func (s SyncBusinessSignInfoRequestTmcProductList) String() string {
@@ -932,10 +1277,14 @@ func (s *SyncBusinessSignInfoRequestTmcProductList) SetTmcCorpId(v string) *Sync
 
 type SyncBusinessSignInfoRequestTmcProductListProductDetailList struct {
 	CategoryType *string `json:"categoryType,omitempty" xml:"categoryType,omitempty"`
-	GmtOrgPay    *string `json:"gmtOrgPay,omitempty" xml:"gmtOrgPay,omitempty"`
-	OpenStatus   *bool   `json:"openStatus,omitempty" xml:"openStatus,omitempty"`
-	PayType      *string `json:"payType,omitempty" xml:"payType,omitempty"`
-	Product      *string `json:"product,omitempty" xml:"product,omitempty"`
+	// example:
+	//
+	// 1661927020219
+	GmtOrgPay  *string `json:"gmtOrgPay,omitempty" xml:"gmtOrgPay,omitempty"`
+	OpenStatus *bool   `json:"openStatus,omitempty" xml:"openStatus,omitempty"`
+	PayType    *string `json:"payType,omitempty" xml:"payType,omitempty"`
+	// This parameter is required.
+	Product *string `json:"product,omitempty" xml:"product,omitempty"`
 }
 
 func (s SyncBusinessSignInfoRequestTmcProductListProductDetailList) String() string {
@@ -1047,17 +1396,51 @@ func (s *SyncCostCenterHeaders) SetXAcsDingtalkAccessToken(v string) *SyncCostCe
 }
 
 type SyncCostCenterRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding89233847892ndkas
 	ChannelCorpId *string `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
-	CostCenterId  *string `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
-	DeleteFlag    *bool   `json:"deleteFlag,omitempty" xml:"deleteFlag,omitempty"`
-	Extension     *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	GmtAction     *string `json:"gmtAction,omitempty" xml:"gmtAction,omitempty"`
-	Number        *string `json:"number,omitempty" xml:"number,omitempty"`
-	Scope         *int32  `json:"scope,omitempty" xml:"scope,omitempty"`
-	Source        *string `json:"source,omitempty" xml:"source,omitempty"`
-	ThirdPartId   *string `json:"thirdPartId,omitempty" xml:"thirdPartId,omitempty"`
-	Title         *string `json:"title,omitempty" xml:"title,omitempty"`
-	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	CostCenterId *string `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
+	// if can be null:
+	// false
+	DeleteFlag *bool `json:"deleteFlag,omitempty" xml:"deleteFlag,omitempty"`
+	// if can be null:
+	// true
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2022-02-21 11:11:11
+	GmtAction *string `json:"gmtAction,omitempty" xml:"gmtAction,omitempty"`
+	// example:
+	//
+	// 123456
+	Number *string `json:"number,omitempty" xml:"number,omitempty"`
+	// example:
+	//
+	// 1
+	Scope *int32 `json:"scope,omitempty" xml:"scope,omitempty"`
+	// example:
+	//
+	// 阿里商旅
+	Source      *string `json:"source,omitempty" xml:"source,omitempty"`
+	ThirdPartId *string `json:"thirdPartId,omitempty" xml:"thirdPartId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 默认成本中心
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20881001829000
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SyncCostCenterRequest) String() string {
@@ -1193,11 +1576,28 @@ func (s *SyncCostCenterEntityHeaders) SetXAcsDingtalkAccessToken(v string) *Sync
 }
 
 type SyncCostCenterEntityRequest struct {
-	ChannelCorpId *string                                  `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
-	CostCenterId  *string                                  `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
-	DelAll        *bool                                    `json:"delAll,omitempty" xml:"delAll,omitempty"`
-	EntityList    []*SyncCostCenterEntityRequestEntityList `json:"entityList,omitempty" xml:"entityList,omitempty" type:"Repeated"`
-	UserId        *string                                  `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding89233847892ndkas
+	ChannelCorpId *string `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	CostCenterId *string `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
+	// if can be null:
+	// true
+	DelAll     *bool                                    `json:"delAll,omitempty" xml:"delAll,omitempty"`
+	EntityList []*SyncCostCenterEntityRequestEntityList `json:"entityList,omitempty" xml:"entityList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20881001829000
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SyncCostCenterEntityRequest) String() string {
@@ -1234,7 +1634,9 @@ func (s *SyncCostCenterEntityRequest) SetUserId(v string) *SyncCostCenterEntityR
 }
 
 type SyncCostCenterEntityRequestEntityList struct {
-	EntityId   *string `json:"entityId,omitempty" xml:"entityId,omitempty"`
+	// This parameter is required.
+	EntityId *string `json:"entityId,omitempty" xml:"entityId,omitempty"`
+	// This parameter is required.
 	EntityType *string `json:"entityType,omitempty" xml:"entityType,omitempty"`
 }
 
@@ -1326,23 +1728,57 @@ func (s *SyncInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *SyncInvoiceHe
 }
 
 type SyncInvoiceRequest struct {
-	Address       *string   `json:"address,omitempty" xml:"address,omitempty"`
-	BankName      *string   `json:"bankName,omitempty" xml:"bankName,omitempty"`
-	BankNo        *string   `json:"bankNo,omitempty" xml:"bankNo,omitempty"`
-	ChannelCorpId *string   `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
-	DeleteFlag    *bool     `json:"deleteFlag,omitempty" xml:"deleteFlag,omitempty"`
-	GmtAction     *string   `json:"gmtAction,omitempty" xml:"gmtAction,omitempty"`
-	InvoiceId     *string   `json:"invoiceId,omitempty" xml:"invoiceId,omitempty"`
-	ProjectIds    []*string `json:"projectIds,omitempty" xml:"projectIds,omitempty" type:"Repeated"`
-	Scope         *int32    `json:"scope,omitempty" xml:"scope,omitempty"`
-	Source        *string   `json:"source,omitempty" xml:"source,omitempty"`
-	TaxNo         *string   `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
-	Tel           *string   `json:"tel,omitempty" xml:"tel,omitempty"`
-	ThirdPartId   *string   `json:"thirdPartId,omitempty" xml:"thirdPartId,omitempty"`
-	Title         *string   `json:"title,omitempty" xml:"title,omitempty"`
-	Type          *int32    `json:"type,omitempty" xml:"type,omitempty"`
-	UnitType      *int32    `json:"unitType,omitempty" xml:"unitType,omitempty"`
-	UserId        *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// example:
+	//
+	// xxx银行
+	BankName *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	BankNo   *string `json:"bankNo,omitempty" xml:"bankNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding89233847892ndkas
+	ChannelCorpId *string `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
+	DeleteFlag    *bool   `json:"deleteFlag,omitempty" xml:"deleteFlag,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2022-02-21 11:11:11
+	GmtAction *string `json:"gmtAction,omitempty" xml:"gmtAction,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	InvoiceId  *string   `json:"invoiceId,omitempty" xml:"invoiceId,omitempty"`
+	ProjectIds []*string `json:"projectIds,omitempty" xml:"projectIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	Scope  *int32  `json:"scope,omitempty" xml:"scope,omitempty"`
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	TaxNo  *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+	Tel    *string `json:"tel,omitempty" xml:"tel,omitempty"`
+	// example:
+	//
+	// 123456
+	ThirdPartId *string `json:"thirdPartId,omitempty" xml:"thirdPartId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 默认发票抬头
+	Title    *string `json:"title,omitempty" xml:"title,omitempty"`
+	Type     *int32  `json:"type,omitempty" xml:"type,omitempty"`
+	UnitType *int32  `json:"unitType,omitempty" xml:"unitType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20881001829000
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SyncInvoiceRequest) String() string {
@@ -1508,11 +1944,24 @@ func (s *SyncInvoiceEntityHeaders) SetXAcsDingtalkAccessToken(v string) *SyncInv
 }
 
 type SyncInvoiceEntityRequest struct {
-	ChannelCorpId *string                               `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
-	DelAll        *bool                                 `json:"delAll,omitempty" xml:"delAll,omitempty"`
-	EntityList    []*SyncInvoiceEntityRequestEntityList `json:"entityList,omitempty" xml:"entityList,omitempty" type:"Repeated"`
-	InvoiceId     *string                               `json:"invoiceId,omitempty" xml:"invoiceId,omitempty"`
-	UserId        *string                               `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding89233847892ndkas
+	ChannelCorpId *string `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
+	// if can be null:
+	// true
+	DelAll     *bool                                 `json:"delAll,omitempty" xml:"delAll,omitempty"`
+	EntityList []*SyncInvoiceEntityRequestEntityList `json:"entityList,omitempty" xml:"entityList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	InvoiceId *string `json:"invoiceId,omitempty" xml:"invoiceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20881001829000
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SyncInvoiceEntityRequest) String() string {
@@ -1549,7 +1998,9 @@ func (s *SyncInvoiceEntityRequest) SetUserId(v string) *SyncInvoiceEntityRequest
 }
 
 type SyncInvoiceEntityRequestEntityList struct {
-	EntityId   *string `json:"entityId,omitempty" xml:"entityId,omitempty"`
+	// This parameter is required.
+	EntityId *string `json:"entityId,omitempty" xml:"entityId,omitempty"`
+	// This parameter is required.
 	EntityType *string `json:"entityType,omitempty" xml:"entityType,omitempty"`
 }
 
@@ -1641,20 +2092,50 @@ func (s *SyncProjectHeaders) SetXAcsDingtalkAccessToken(v string) *SyncProjectHe
 }
 
 type SyncProjectRequest struct {
-	ChannelCorpId *string   `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
-	Code          *string   `json:"code,omitempty" xml:"code,omitempty"`
-	CostCenterId  *string   `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
-	DeleteFlag    *bool     `json:"deleteFlag,omitempty" xml:"deleteFlag,omitempty"`
-	Extension     *string   `json:"extension,omitempty" xml:"extension,omitempty"`
-	GmtAction     *string   `json:"gmtAction,omitempty" xml:"gmtAction,omitempty"`
-	InvoiceId     *string   `json:"invoiceId,omitempty" xml:"invoiceId,omitempty"`
-	ManagerIds    []*string `json:"managerIds,omitempty" xml:"managerIds,omitempty" type:"Repeated"`
-	ProjectId     *string   `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	ProjectName   *string   `json:"projectName,omitempty" xml:"projectName,omitempty"`
-	Scope         *int32    `json:"scope,omitempty" xml:"scope,omitempty"`
-	Source        *string   `json:"source,omitempty" xml:"source,omitempty"`
-	ThirdPartId   *string   `json:"thirdPartId,omitempty" xml:"thirdPartId,omitempty"`
-	UserId        *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding89233847892ndkas
+	ChannelCorpId *string `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
+	Code          *string `json:"code,omitempty" xml:"code,omitempty"`
+	CostCenterId  *string `json:"costCenterId,omitempty" xml:"costCenterId,omitempty"`
+	DeleteFlag    *bool   `json:"deleteFlag,omitempty" xml:"deleteFlag,omitempty"`
+	// if can be null:
+	// true
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2022-02-21 11:11:11
+	GmtAction  *string   `json:"gmtAction,omitempty" xml:"gmtAction,omitempty"`
+	InvoiceId  *string   `json:"invoiceId,omitempty" xml:"invoiceId,omitempty"`
+	ManagerIds []*string `json:"managerIds,omitempty" xml:"managerIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 默认项目
+	ProjectName *string `json:"projectName,omitempty" xml:"projectName,omitempty"`
+	// example:
+	//
+	// 1
+	Scope       *int32  `json:"scope,omitempty" xml:"scope,omitempty"`
+	Source      *string `json:"source,omitempty" xml:"source,omitempty"`
+	ThirdPartId *string `json:"thirdPartId,omitempty" xml:"thirdPartId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20881001829000
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SyncProjectRequest) String() string {
@@ -1805,11 +2286,28 @@ func (s *SyncProjectEntityHeaders) SetXAcsDingtalkAccessToken(v string) *SyncPro
 }
 
 type SyncProjectEntityRequest struct {
-	ChannelCorpId *string                               `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
-	DelAll        *bool                                 `json:"delAll,omitempty" xml:"delAll,omitempty"`
-	EntityList    []*SyncProjectEntityRequestEntityList `json:"entityList,omitempty" xml:"entityList,omitempty" type:"Repeated"`
-	ProjectId     *string                               `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	UserId        *string                               `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding89233847892ndkas
+	ChannelCorpId *string `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
+	// if can be null:
+	// true
+	DelAll     *bool                                 `json:"delAll,omitempty" xml:"delAll,omitempty"`
+	EntityList []*SyncProjectEntityRequestEntityList `json:"entityList,omitempty" xml:"entityList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20881001829000
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SyncProjectEntityRequest) String() string {
@@ -1846,7 +2344,9 @@ func (s *SyncProjectEntityRequest) SetUserId(v string) *SyncProjectEntityRequest
 }
 
 type SyncProjectEntityRequestEntityList struct {
-	EntityId   *string `json:"entityId,omitempty" xml:"entityId,omitempty"`
+	// This parameter is required.
+	EntityId *string `json:"entityId,omitempty" xml:"entityId,omitempty"`
+	// This parameter is required.
 	EntityType *string `json:"entityType,omitempty" xml:"entityType,omitempty"`
 }
 
@@ -1938,12 +2438,34 @@ func (s *SyncSecretKeyHeaders) SetXAcsDingtalkAccessToken(v string) *SyncSecretK
 }
 
 type SyncSecretKeyRequest struct {
-	ActionType      *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	SecretString    *string `json:"secretString,omitempty" xml:"secretString,omitempty"`
-	TargetCorpId    *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
-	TripAppKey      *string `json:"tripAppKey,omitempty" xml:"tripAppKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ADD
+	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// example:
+	//
+	// dnsuuiwenudsjid
+	SecretString *string `json:"secretString,omitempty" xml:"secretString,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding001
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	// example:
+	//
+	// dingduisdvfd
+	TripAppKey *string `json:"tripAppKey,omitempty" xml:"tripAppKey,omitempty"`
+	// example:
+	//
+	// dhsuibdusijue
 	TripAppSecurity *string `json:"tripAppSecurity,omitempty" xml:"tripAppSecurity,omitempty"`
-	TripCorpId      *string `json:"tripCorpId,omitempty" xml:"tripCorpId,omitempty"`
+	// example:
+	//
+	// isv001
+	TripCorpId *string `json:"tripCorpId,omitempty" xml:"tripCorpId,omitempty"`
 }
 
 func (s SyncSecretKeyRequest) String() string {
@@ -1985,8 +2507,11 @@ func (s *SyncSecretKeyRequest) SetTripCorpId(v string) *SyncSecretKeyRequest {
 }
 
 type SyncSecretKeyResponseBody struct {
-	Result  *SyncSecretKeyResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *string                          `json:"success,omitempty" xml:"success,omitempty"`
+	Result *SyncSecretKeyResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s SyncSecretKeyResponseBody) String() string {
@@ -2008,11 +2533,26 @@ func (s *SyncSecretKeyResponseBody) SetSuccess(v string) *SyncSecretKeyResponseB
 }
 
 type SyncSecretKeyResponseBodyResult struct {
-	SecretString    *string `json:"secretString,omitempty" xml:"secretString,omitempty"`
-	TargetCorpId    *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
-	TripAppKey      *string `json:"tripAppKey,omitempty" xml:"tripAppKey,omitempty"`
+	// example:
+	//
+	// dsiuuuuiasudnuai
+	SecretString *string `json:"secretString,omitempty" xml:"secretString,omitempty"`
+	// example:
+	//
+	// ding001
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	// example:
+	//
+	// dingwieudsiu
+	TripAppKey *string `json:"tripAppKey,omitempty" xml:"tripAppKey,omitempty"`
+	// example:
+	//
+	// dusuduiidvs
 	TripAppSecurity *string `json:"tripAppSecurity,omitempty" xml:"tripAppSecurity,omitempty"`
-	TripCorpId      *string `json:"tripCorpId,omitempty" xml:"tripCorpId,omitempty"`
+	// example:
+	//
+	// isv001
+	TripCorpId *string `json:"tripCorpId,omitempty" xml:"tripCorpId,omitempty"`
 }
 
 func (s SyncSecretKeyResponseBodyResult) String() string {
@@ -2101,32 +2641,95 @@ func (s *SyncTripOrderHeaders) SetXAcsDingtalkAccessToken(v string) *SyncTripOrd
 }
 
 type SyncTripOrderRequest struct {
-	BizExtension    *string                             `json:"bizExtension,omitempty" xml:"bizExtension,omitempty"`
-	ChannelType     *string                             `json:"channelType,omitempty" xml:"channelType,omitempty"`
-	Currency        *string                             `json:"currency,omitempty" xml:"currency,omitempty"`
-	DingUserId      *string                             `json:"dingUserId,omitempty" xml:"dingUserId,omitempty"`
-	DiscountAmount  *string                             `json:"discountAmount,omitempty" xml:"discountAmount,omitempty"`
-	EndorseFlag     *bool                               `json:"endorseFlag,omitempty" xml:"endorseFlag,omitempty"`
-	Event           *SyncTripOrderRequestEvent          `json:"event,omitempty" xml:"event,omitempty" type:"Struct"`
-	GmtOrder        *string                             `json:"gmtOrder,omitempty" xml:"gmtOrder,omitempty"`
-	GmtPay          *string                             `json:"gmtPay,omitempty" xml:"gmtPay,omitempty"`
-	GmtRefund       *string                             `json:"gmtRefund,omitempty" xml:"gmtRefund,omitempty"`
-	InvoiceApplyUrl *string                             `json:"invoiceApplyUrl,omitempty" xml:"invoiceApplyUrl,omitempty"`
-	JourneyBizNo    *string                             `json:"journeyBizNo,omitempty" xml:"journeyBizNo,omitempty"`
-	OrderDetails    []*SyncTripOrderRequestOrderDetails `json:"orderDetails,omitempty" xml:"orderDetails,omitempty" type:"Repeated"`
-	OrderNo         *string                             `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
-	OrderUrl        *string                             `json:"orderUrl,omitempty" xml:"orderUrl,omitempty"`
-	ProcessId       *string                             `json:"processId,omitempty" xml:"processId,omitempty"`
-	RealAmount      *string                             `json:"realAmount,omitempty" xml:"realAmount,omitempty"`
-	RefundAmount    *string                             `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
-	RelativeOrderNo *string                             `json:"relativeOrderNo,omitempty" xml:"relativeOrderNo,omitempty"`
-	Source          *string                             `json:"source,omitempty" xml:"source,omitempty"`
-	SupplyLogo      *string                             `json:"supplyLogo,omitempty" xml:"supplyLogo,omitempty"`
-	SupplyName      *string                             `json:"supplyName,omitempty" xml:"supplyName,omitempty"`
-	TargetCorpId    *string                             `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
-	TmcCorpId       *string                             `json:"tmcCorpId,omitempty" xml:"tmcCorpId,omitempty"`
-	TotalAmount     *string                             `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
-	Type            *string                             `json:"type,omitempty" xml:"type,omitempty"`
+	// if can be null:
+	// true
+	BizExtension *string `json:"bizExtension,omitempty" xml:"bizExtension,omitempty"`
+	// example:
+	//
+	// BUSSINESS
+	ChannelType *string `json:"channelType,omitempty" xml:"channelType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// CNY
+	Currency *string `json:"currency,omitempty" xml:"currency,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20881001829000
+	DingUserId *string `json:"dingUserId,omitempty" xml:"dingUserId,omitempty"`
+	// example:
+	//
+	// 0
+	DiscountAmount *string `json:"discountAmount,omitempty" xml:"discountAmount,omitempty"`
+	EndorseFlag    *bool   `json:"endorseFlag,omitempty" xml:"endorseFlag,omitempty"`
+	// This parameter is required.
+	Event *SyncTripOrderRequestEvent `json:"event,omitempty" xml:"event,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2022-05-15 10:10:10
+	GmtOrder *string `json:"gmtOrder,omitempty" xml:"gmtOrder,omitempty"`
+	// example:
+	//
+	// 2022-05-15 10:10:10
+	GmtPay *string `json:"gmtPay,omitempty" xml:"gmtPay,omitempty"`
+	// example:
+	//
+	// 2022-05-15 10:10:10
+	GmtRefund       *string `json:"gmtRefund,omitempty" xml:"gmtRefund,omitempty"`
+	InvoiceApplyUrl *string `json:"invoiceApplyUrl,omitempty" xml:"invoiceApplyUrl,omitempty"`
+	// example:
+	//
+	// 20220510170058192311
+	JourneyBizNo *string                             `json:"journeyBizNo,omitempty" xml:"journeyBizNo,omitempty"`
+	OrderDetails []*SyncTripOrderRequestOrderDetails `json:"orderDetails,omitempty" xml:"orderDetails,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20881001829000
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https:dingtalk.com/tripOrder/20220510170058192311
+	OrderUrl  *string `json:"orderUrl,omitempty" xml:"orderUrl,omitempty"`
+	ProcessId *string `json:"processId,omitempty" xml:"processId,omitempty"`
+	// example:
+	//
+	// 100.00
+	RealAmount *string `json:"realAmount,omitempty" xml:"realAmount,omitempty"`
+	// example:
+	//
+	// 0
+	RefundAmount *string `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
+	// example:
+	//
+	// 20881001829000
+	RelativeOrderNo *string `json:"relativeOrderNo,omitempty" xml:"relativeOrderNo,omitempty"`
+	Source          *string `json:"source,omitempty" xml:"source,omitempty"`
+	SupplyLogo      *string `json:"supplyLogo,omitempty" xml:"supplyLogo,omitempty"`
+	SupplyName      *string `json:"supplyName,omitempty" xml:"supplyName,omitempty"`
+	// example:
+	//
+	// ding32fff839a3e0105d
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	TmcCorpId    *string `json:"tmcCorpId,omitempty" xml:"tmcCorpId,omitempty"`
+	// example:
+	//
+	// 100.00
+	TotalAmount *string `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FLIGHT
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s SyncTripOrderRequest) String() string {
@@ -2268,7 +2871,17 @@ func (s *SyncTripOrderRequest) SetType(v string) *SyncTripOrderRequest {
 }
 
 type SyncTripOrderRequestEvent struct {
-	Action    *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// INIT
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2022-05-15 10:10:10
 	GmtAction *string `json:"gmtAction,omitempty" xml:"gmtAction,omitempty"`
 }
 
@@ -2291,37 +2904,118 @@ func (s *SyncTripOrderRequestEvent) SetGmtAction(v string) *SyncTripOrderRequest
 }
 
 type SyncTripOrderRequestOrderDetails struct {
-	ArrivalTime                 *string                                             `json:"arrivalTime,omitempty" xml:"arrivalTime,omitempty"`
-	CarColor                    *string                                             `json:"carColor,omitempty" xml:"carColor,omitempty"`
-	CarModel                    *string                                             `json:"carModel,omitempty" xml:"carModel,omitempty"`
-	CarNumber                   *string                                             `json:"carNumber,omitempty" xml:"carNumber,omitempty"`
-	CateringType                *string                                             `json:"cateringType,omitempty" xml:"cateringType,omitempty"`
-	CheckInTime                 *string                                             `json:"checkInTime,omitempty" xml:"checkInTime,omitempty"`
-	CheckOutTime                *string                                             `json:"checkOutTime,omitempty" xml:"checkOutTime,omitempty"`
-	DepartTime                  *string                                             `json:"departTime,omitempty" xml:"departTime,omitempty"`
-	DestinationCity             *string                                             `json:"destinationCity,omitempty" xml:"destinationCity,omitempty"`
-	DestinationCityCode         *string                                             `json:"destinationCityCode,omitempty" xml:"destinationCityCode,omitempty"`
-	DestinationStation          *string                                             `json:"destinationStation,omitempty" xml:"destinationStation,omitempty"`
-	DestinationTerminalBuilding *string                                             `json:"destinationTerminalBuilding,omitempty" xml:"destinationTerminalBuilding,omitempty"`
-	DetailAmount                *string                                             `json:"detailAmount,omitempty" xml:"detailAmount,omitempty"`
-	HotelAddress                *string                                             `json:"hotelAddress,omitempty" xml:"hotelAddress,omitempty"`
-	HotelCity                   *string                                             `json:"hotelCity,omitempty" xml:"hotelCity,omitempty"`
-	HotelLocation               *SyncTripOrderRequestOrderDetailsHotelLocation      `json:"hotelLocation,omitempty" xml:"hotelLocation,omitempty" type:"Struct"`
-	HotelName                   *string                                             `json:"hotelName,omitempty" xml:"hotelName,omitempty"`
-	OpenConsumerInfo            []*SyncTripOrderRequestOrderDetailsOpenConsumerInfo `json:"openConsumerInfo,omitempty" xml:"openConsumerInfo,omitempty" type:"Repeated"`
-	OriginCity                  *string                                             `json:"originCity,omitempty" xml:"originCity,omitempty"`
-	OriginCityCode              *string                                             `json:"originCityCode,omitempty" xml:"originCityCode,omitempty"`
-	OriginStation               *string                                             `json:"originStation,omitempty" xml:"originStation,omitempty"`
-	OriginTerminalBuilding      *string                                             `json:"originTerminalBuilding,omitempty" xml:"originTerminalBuilding,omitempty"`
-	RoomCount                   *int32                                              `json:"roomCount,omitempty" xml:"roomCount,omitempty"`
-	SeatInfo                    *string                                             `json:"seatInfo,omitempty" xml:"seatInfo,omitempty"`
-	ServiceType                 *string                                             `json:"serviceType,omitempty" xml:"serviceType,omitempty"`
-	SubSupplyLogo               *string                                             `json:"subSupplyLogo,omitempty" xml:"subSupplyLogo,omitempty"`
-	SubSupplyName               *string                                             `json:"subSupplyName,omitempty" xml:"subSupplyName,omitempty"`
-	TaxiType                    *string                                             `json:"taxiType,omitempty" xml:"taxiType,omitempty"`
-	Telephone                   *string                                             `json:"telephone,omitempty" xml:"telephone,omitempty"`
-	TransportNumber             *string                                             `json:"transportNumber,omitempty" xml:"transportNumber,omitempty"`
-	TypeDescription             *string                                             `json:"typeDescription,omitempty" xml:"typeDescription,omitempty"`
+	// example:
+	//
+	// 2022-05-20 12:20:00
+	ArrivalTime *string `json:"arrivalTime,omitempty" xml:"arrivalTime,omitempty"`
+	// example:
+	//
+	// 红色
+	CarColor *string `json:"carColor,omitempty" xml:"carColor,omitempty"`
+	// example:
+	//
+	// 帕萨特
+	CarModel *string `json:"carModel,omitempty" xml:"carModel,omitempty"`
+	// example:
+	//
+	// 浙A0Z***7
+	CarNumber *string `json:"carNumber,omitempty" xml:"carNumber,omitempty"`
+	// example:
+	//
+	// 单早
+	CateringType *string `json:"cateringType,omitempty" xml:"cateringType,omitempty"`
+	// example:
+	//
+	// 2022-05-20 14:00:00
+	CheckInTime *string `json:"checkInTime,omitempty" xml:"checkInTime,omitempty"`
+	// example:
+	//
+	// 2022-05-21 12:00:00
+	CheckOutTime *string `json:"checkOutTime,omitempty" xml:"checkOutTime,omitempty"`
+	// example:
+	//
+	// 2022-05-20 10:00:00
+	DepartTime *string `json:"departTime,omitempty" xml:"departTime,omitempty"`
+	// example:
+	//
+	// 杭州
+	DestinationCity *string `json:"destinationCity,omitempty" xml:"destinationCity,omitempty"`
+	// example:
+	//
+	// 151
+	DestinationCityCode *string `json:"destinationCityCode,omitempty" xml:"destinationCityCode,omitempty"`
+	// example:
+	//
+	// 杭州
+	DestinationStation *string `json:"destinationStation,omitempty" xml:"destinationStation,omitempty"`
+	// example:
+	//
+	// T3
+	DestinationTerminalBuilding *string `json:"destinationTerminalBuilding,omitempty" xml:"destinationTerminalBuilding,omitempty"`
+	DetailAmount                *string `json:"detailAmount,omitempty" xml:"detailAmount,omitempty"`
+	// example:
+	//
+	// 浙江省杭州市余杭区聚橙路文昌路
+	HotelAddress *string `json:"hotelAddress,omitempty" xml:"hotelAddress,omitempty"`
+	// example:
+	//
+	// 杭州
+	HotelCity     *string                                        `json:"hotelCity,omitempty" xml:"hotelCity,omitempty"`
+	HotelLocation *SyncTripOrderRequestOrderDetailsHotelLocation `json:"hotelLocation,omitempty" xml:"hotelLocation,omitempty" type:"Struct"`
+	// example:
+	//
+	// 亲橙客栈
+	HotelName        *string                                             `json:"hotelName,omitempty" xml:"hotelName,omitempty"`
+	OpenConsumerInfo []*SyncTripOrderRequestOrderDetailsOpenConsumerInfo `json:"openConsumerInfo,omitempty" xml:"openConsumerInfo,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 北京
+	OriginCity *string `json:"originCity,omitempty" xml:"originCity,omitempty"`
+	// example:
+	//
+	// 150
+	OriginCityCode *string `json:"originCityCode,omitempty" xml:"originCityCode,omitempty"`
+	// example:
+	//
+	// 北京
+	OriginStation *string `json:"originStation,omitempty" xml:"originStation,omitempty"`
+	// example:
+	//
+	// T3
+	OriginTerminalBuilding *string `json:"originTerminalBuilding,omitempty" xml:"originTerminalBuilding,omitempty"`
+	RoomCount              *int32  `json:"roomCount,omitempty" xml:"roomCount,omitempty"`
+	// example:
+	//
+	// 经济舱/7车12A
+	SeatInfo *string `json:"seatInfo,omitempty" xml:"seatInfo,omitempty"`
+	// example:
+	//
+	// REALTIME
+	ServiceType *string `json:"serviceType,omitempty" xml:"serviceType,omitempty"`
+	// example:
+	//
+	// http://dingtalk.com/static/logo.png
+	SubSupplyLogo *string `json:"subSupplyLogo,omitempty" xml:"subSupplyLogo,omitempty"`
+	// example:
+	//
+	// 国航
+	SubSupplyName *string `json:"subSupplyName,omitempty" xml:"subSupplyName,omitempty"`
+	// example:
+	//
+	// 专车
+	TaxiType *string `json:"taxiType,omitempty" xml:"taxiType,omitempty"`
+	// example:
+	//
+	// 2022-05-20 14:00:00
+	Telephone *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
+	// example:
+	//
+	// CA1762
+	TransportNumber *string `json:"transportNumber,omitempty" xml:"transportNumber,omitempty"`
+	// example:
+	//
+	// 商务标准间
+	TypeDescription *string `json:"typeDescription,omitempty" xml:"typeDescription,omitempty"`
 }
 
 func (s SyncTripOrderRequestOrderDetails) String() string {
@@ -2488,10 +3182,22 @@ func (s *SyncTripOrderRequestOrderDetails) SetTypeDescription(v string) *SyncTri
 }
 
 type SyncTripOrderRequestOrderDetailsHotelLocation struct {
-	Lat    *string `json:"lat,omitempty" xml:"lat,omitempty"`
-	Lon    *string `json:"lon,omitempty" xml:"lon,omitempty"`
+	// example:
+	//
+	// 30.278569
+	Lat *string `json:"lat,omitempty" xml:"lat,omitempty"`
+	// example:
+	//
+	// 120.023458
+	Lon *string `json:"lon,omitempty" xml:"lon,omitempty"`
+	// example:
+	//
+	// GCJ02
 	Source *string `json:"source,omitempty" xml:"source,omitempty"`
-	Url    *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// https://ditu.amap.com/place/B0FFIYYAIA
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s SyncTripOrderRequestOrderDetailsHotelLocation) String() string {
@@ -2577,7 +3283,10 @@ func (s *SyncTripOrderRequestOrderDetailsOpenConsumerInfo) SetUserId(v string) *
 
 type SyncTripOrderResponseBody struct {
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s SyncTripOrderResponseBody) String() string {
@@ -2831,8 +3540,16 @@ func (s *TripPlatformUnifiedEntryHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type TripPlatformUnifiedEntryRequest struct {
+	// example:
+	//
+	// {"projects":[{"thirdId":"00001","number":"00001","scope":1,"action":0,"name":"总务01项目"}]}
 	Messages *string `json:"messages,omitempty" xml:"messages,omitempty"`
-	Method   *string `json:"method,omitempty" xml:"method,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// partner_syncProject
+	Method *string `json:"method,omitempty" xml:"method,omitempty"`
 }
 
 func (s TripPlatformUnifiedEntryRequest) String() string {
@@ -2935,9 +3652,19 @@ func (s *UpgradeTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *UpgradeTe
 }
 
 type UpgradeTemplateRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingcd2016f425331dc1acaaa37764f94726
 	ChannelCorpId *string `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
 	ForceUpgrade  *bool   `json:"forceUpgrade,omitempty" xml:"forceUpgrade,omitempty"`
-	TmcCorpId     *string `json:"tmcCorpId,omitempty" xml:"tmcCorpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingcd2016f425331dc1acaaa37764f94726
+	TmcCorpId *string `json:"tmcCorpId,omitempty" xml:"tmcCorpId,omitempty"`
 }
 
 func (s UpgradeTemplateRequest) String() string {
@@ -3047,12 +3774,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -3061,6 +3788,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 获取差旅审批实例详情
+//
+// @param request - GetTravelProcessDetailRequest
+//
+// @param headers - GetTravelProcessDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTravelProcessDetailResponse
 func (client *Client) GetTravelProcessDetailWithOptions(request *GetTravelProcessDetailRequest, headers *GetTravelProcessDetailHeaders, runtime *util.RuntimeOptions) (_result *GetTravelProcessDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3108,6 +3846,13 @@ func (client *Client) GetTravelProcessDetailWithOptions(request *GetTravelProces
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取差旅审批实例详情
+//
+// @param request - GetTravelProcessDetailRequest
+//
+// @return GetTravelProcessDetailResponse
 func (client *Client) GetTravelProcessDetail(request *GetTravelProcessDetailRequest) (_result *GetTravelProcessDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTravelProcessDetailHeaders{}
@@ -3120,6 +3865,17 @@ func (client *Client) GetTravelProcessDetail(request *GetTravelProcessDetailRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 表单升级预校验
+//
+// @param request - PreCheckTemplateRequest
+//
+// @param headers - PreCheckTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PreCheckTemplateResponse
 func (client *Client) PreCheckTemplateWithOptions(request *PreCheckTemplateRequest, headers *PreCheckTemplateHeaders, runtime *util.RuntimeOptions) (_result *PreCheckTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3163,6 +3919,13 @@ func (client *Client) PreCheckTemplateWithOptions(request *PreCheckTemplateReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 表单升级预校验
+//
+// @param request - PreCheckTemplateRequest
+//
+// @return PreCheckTemplateResponse
 func (client *Client) PreCheckTemplate(request *PreCheckTemplateRequest) (_result *PreCheckTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PreCheckTemplateHeaders{}
@@ -3175,6 +3938,17 @@ func (client *Client) PreCheckTemplate(request *PreCheckTemplateRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询审批套件详情
+//
+// @param request - QueryTripProcessTemplatesRequest
+//
+// @param headers - QueryTripProcessTemplatesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryTripProcessTemplatesResponse
 func (client *Client) QueryTripProcessTemplatesWithOptions(request *QueryTripProcessTemplatesRequest, headers *QueryTripProcessTemplatesHeaders, runtime *util.RuntimeOptions) (_result *QueryTripProcessTemplatesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3218,6 +3992,13 @@ func (client *Client) QueryTripProcessTemplatesWithOptions(request *QueryTripPro
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询审批套件详情
+//
+// @param request - QueryTripProcessTemplatesRequest
+//
+// @return QueryTripProcessTemplatesResponse
 func (client *Client) QueryTripProcessTemplates(request *QueryTripProcessTemplatesRequest) (_result *QueryTripProcessTemplatesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryTripProcessTemplatesHeaders{}
@@ -3230,6 +4011,17 @@ func (client *Client) QueryTripProcessTemplates(request *QueryTripProcessTemplat
 	return _result, _err
 }
 
+// Summary:
+//
+// 同步服务商企业签约变更事件
+//
+// @param request - SyncBusinessSignInfoRequest
+//
+// @param headers - SyncBusinessSignInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncBusinessSignInfoResponse
 func (client *Client) SyncBusinessSignInfoWithOptions(request *SyncBusinessSignInfoRequest, headers *SyncBusinessSignInfoHeaders, runtime *util.RuntimeOptions) (_result *SyncBusinessSignInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3301,6 +4093,13 @@ func (client *Client) SyncBusinessSignInfoWithOptions(request *SyncBusinessSignI
 	return _result, _err
 }
 
+// Summary:
+//
+// 同步服务商企业签约变更事件
+//
+// @param request - SyncBusinessSignInfoRequest
+//
+// @return SyncBusinessSignInfoResponse
 func (client *Client) SyncBusinessSignInfo(request *SyncBusinessSignInfoRequest) (_result *SyncBusinessSignInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SyncBusinessSignInfoHeaders{}
@@ -3313,6 +4112,17 @@ func (client *Client) SyncBusinessSignInfo(request *SyncBusinessSignInfoRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 出差表单成本中心同步
+//
+// @param request - SyncCostCenterRequest
+//
+// @param headers - SyncCostCenterHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncCostCenterResponse
 func (client *Client) SyncCostCenterWithOptions(request *SyncCostCenterRequest, headers *SyncCostCenterHeaders, runtime *util.RuntimeOptions) (_result *SyncCostCenterResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3396,6 +4206,13 @@ func (client *Client) SyncCostCenterWithOptions(request *SyncCostCenterRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 出差表单成本中心同步
+//
+// @param request - SyncCostCenterRequest
+//
+// @return SyncCostCenterResponse
 func (client *Client) SyncCostCenter(request *SyncCostCenterRequest) (_result *SyncCostCenterResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SyncCostCenterHeaders{}
@@ -3408,6 +4225,17 @@ func (client *Client) SyncCostCenter(request *SyncCostCenterRequest) (_result *S
 	return _result, _err
 }
 
+// Summary:
+//
+// 出差表单成本中心可用范围
+//
+// @param request - SyncCostCenterEntityRequest
+//
+// @param headers - SyncCostCenterEntityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncCostCenterEntityResponse
 func (client *Client) SyncCostCenterEntityWithOptions(request *SyncCostCenterEntityRequest, headers *SyncCostCenterEntityHeaders, runtime *util.RuntimeOptions) (_result *SyncCostCenterEntityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3467,6 +4295,13 @@ func (client *Client) SyncCostCenterEntityWithOptions(request *SyncCostCenterEnt
 	return _result, _err
 }
 
+// Summary:
+//
+// 出差表单成本中心可用范围
+//
+// @param request - SyncCostCenterEntityRequest
+//
+// @return SyncCostCenterEntityResponse
 func (client *Client) SyncCostCenterEntity(request *SyncCostCenterEntityRequest) (_result *SyncCostCenterEntityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SyncCostCenterEntityHeaders{}
@@ -3479,6 +4314,17 @@ func (client *Client) SyncCostCenterEntity(request *SyncCostCenterEntityRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 出差表单发票抬头
+//
+// @param request - SyncInvoiceRequest
+//
+// @param headers - SyncInvoiceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncInvoiceResponse
 func (client *Client) SyncInvoiceWithOptions(request *SyncInvoiceRequest, headers *SyncInvoiceHeaders, runtime *util.RuntimeOptions) (_result *SyncInvoiceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3586,6 +4432,13 @@ func (client *Client) SyncInvoiceWithOptions(request *SyncInvoiceRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 出差表单发票抬头
+//
+// @param request - SyncInvoiceRequest
+//
+// @return SyncInvoiceResponse
 func (client *Client) SyncInvoice(request *SyncInvoiceRequest) (_result *SyncInvoiceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SyncInvoiceHeaders{}
@@ -3598,6 +4451,17 @@ func (client *Client) SyncInvoice(request *SyncInvoiceRequest) (_result *SyncInv
 	return _result, _err
 }
 
+// Summary:
+//
+// 出差表单发票抬头可用范围
+//
+// @param request - SyncInvoiceEntityRequest
+//
+// @param headers - SyncInvoiceEntityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncInvoiceEntityResponse
 func (client *Client) SyncInvoiceEntityWithOptions(request *SyncInvoiceEntityRequest, headers *SyncInvoiceEntityHeaders, runtime *util.RuntimeOptions) (_result *SyncInvoiceEntityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3657,6 +4521,13 @@ func (client *Client) SyncInvoiceEntityWithOptions(request *SyncInvoiceEntityReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 出差表单发票抬头可用范围
+//
+// @param request - SyncInvoiceEntityRequest
+//
+// @return SyncInvoiceEntityResponse
 func (client *Client) SyncInvoiceEntity(request *SyncInvoiceEntityRequest) (_result *SyncInvoiceEntityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SyncInvoiceEntityHeaders{}
@@ -3669,6 +4540,17 @@ func (client *Client) SyncInvoiceEntity(request *SyncInvoiceEntityRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 出差表单项目
+//
+// @param request - SyncProjectRequest
+//
+// @param headers - SyncProjectHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncProjectResponse
 func (client *Client) SyncProjectWithOptions(request *SyncProjectRequest, headers *SyncProjectHeaders, runtime *util.RuntimeOptions) (_result *SyncProjectResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3764,6 +4646,13 @@ func (client *Client) SyncProjectWithOptions(request *SyncProjectRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 出差表单项目
+//
+// @param request - SyncProjectRequest
+//
+// @return SyncProjectResponse
 func (client *Client) SyncProject(request *SyncProjectRequest) (_result *SyncProjectResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SyncProjectHeaders{}
@@ -3776,6 +4665,17 @@ func (client *Client) SyncProject(request *SyncProjectRequest) (_result *SyncPro
 	return _result, _err
 }
 
+// Summary:
+//
+// 出差表单项目可用范围
+//
+// @param request - SyncProjectEntityRequest
+//
+// @param headers - SyncProjectEntityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncProjectEntityResponse
 func (client *Client) SyncProjectEntityWithOptions(request *SyncProjectEntityRequest, headers *SyncProjectEntityHeaders, runtime *util.RuntimeOptions) (_result *SyncProjectEntityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3835,6 +4735,13 @@ func (client *Client) SyncProjectEntityWithOptions(request *SyncProjectEntityReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 出差表单项目可用范围
+//
+// @param request - SyncProjectEntityRequest
+//
+// @return SyncProjectEntityResponse
 func (client *Client) SyncProjectEntity(request *SyncProjectEntityRequest) (_result *SyncProjectEntityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SyncProjectEntityHeaders{}
@@ -3847,6 +4754,17 @@ func (client *Client) SyncProjectEntity(request *SyncProjectEntityRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 调用本接口同步公司密钥信息。
+//
+// @param request - SyncSecretKeyRequest
+//
+// @param headers - SyncSecretKeyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncSecretKeyResponse
 func (client *Client) SyncSecretKeyWithOptions(request *SyncSecretKeyRequest, headers *SyncSecretKeyHeaders, runtime *util.RuntimeOptions) (_result *SyncSecretKeyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3910,6 +4828,13 @@ func (client *Client) SyncSecretKeyWithOptions(request *SyncSecretKeyRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 调用本接口同步公司密钥信息。
+//
+// @param request - SyncSecretKeyRequest
+//
+// @return SyncSecretKeyResponse
 func (client *Client) SyncSecretKey(request *SyncSecretKeyRequest) (_result *SyncSecretKeyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SyncSecretKeyHeaders{}
@@ -3922,6 +4847,17 @@ func (client *Client) SyncSecretKey(request *SyncSecretKeyRequest) (_result *Syn
 	return _result, _err
 }
 
+// Summary:
+//
+// 同步出行订单变更事件
+//
+// @param request - SyncTripOrderRequest
+//
+// @param headers - SyncTripOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncTripOrderResponse
 func (client *Client) SyncTripOrderWithOptions(request *SyncTripOrderRequest, headers *SyncTripOrderHeaders, runtime *util.RuntimeOptions) (_result *SyncTripOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4065,6 +5001,13 @@ func (client *Client) SyncTripOrderWithOptions(request *SyncTripOrderRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 同步出行订单变更事件
+//
+// @param request - SyncTripOrderRequest
+//
+// @return SyncTripOrderResponse
 func (client *Client) SyncTripOrder(request *SyncTripOrderRequest) (_result *SyncTripOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SyncTripOrderHeaders{}
@@ -4077,6 +5020,17 @@ func (client *Client) SyncTripOrder(request *SyncTripOrderRequest) (_result *Syn
 	return _result, _err
 }
 
+// Summary:
+//
+// 预订管理产品线配置同步
+//
+// @param request - SyncTripProductConfigRequest
+//
+// @param headers - SyncTripProductConfigHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncTripProductConfigResponse
 func (client *Client) SyncTripProductConfigWithOptions(request *SyncTripProductConfigRequest, headers *SyncTripProductConfigHeaders, runtime *util.RuntimeOptions) (_result *SyncTripProductConfigResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4124,6 +5078,13 @@ func (client *Client) SyncTripProductConfigWithOptions(request *SyncTripProductC
 	return _result, _err
 }
 
+// Summary:
+//
+// 预订管理产品线配置同步
+//
+// @param request - SyncTripProductConfigRequest
+//
+// @return SyncTripProductConfigResponse
 func (client *Client) SyncTripProductConfig(request *SyncTripProductConfigRequest) (_result *SyncTripProductConfigResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SyncTripProductConfigHeaders{}
@@ -4136,6 +5097,17 @@ func (client *Client) SyncTripProductConfig(request *SyncTripProductConfigReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能差旅平台数据互通统一入口
+//
+// @param request - TripPlatformUnifiedEntryRequest
+//
+// @param headers - TripPlatformUnifiedEntryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TripPlatformUnifiedEntryResponse
 func (client *Client) TripPlatformUnifiedEntryWithOptions(request *TripPlatformUnifiedEntryRequest, headers *TripPlatformUnifiedEntryHeaders, runtime *util.RuntimeOptions) (_result *TripPlatformUnifiedEntryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4183,6 +5155,13 @@ func (client *Client) TripPlatformUnifiedEntryWithOptions(request *TripPlatformU
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能差旅平台数据互通统一入口
+//
+// @param request - TripPlatformUnifiedEntryRequest
+//
+// @return TripPlatformUnifiedEntryResponse
 func (client *Client) TripPlatformUnifiedEntry(request *TripPlatformUnifiedEntryRequest) (_result *TripPlatformUnifiedEntryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &TripPlatformUnifiedEntryHeaders{}
@@ -4195,6 +5174,17 @@ func (client *Client) TripPlatformUnifiedEntry(request *TripPlatformUnifiedEntry
 	return _result, _err
 }
 
+// Summary:
+//
+// 升级套件
+//
+// @param request - UpgradeTemplateRequest
+//
+// @param headers - UpgradeTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpgradeTemplateResponse
 func (client *Client) UpgradeTemplateWithOptions(request *UpgradeTemplateRequest, headers *UpgradeTemplateHeaders, runtime *util.RuntimeOptions) (_result *UpgradeTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4246,6 +5236,13 @@ func (client *Client) UpgradeTemplateWithOptions(request *UpgradeTemplateRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 升级套件
+//
+// @param request - UpgradeTemplateRequest
+//
+// @return UpgradeTemplateResponse
 func (client *Client) UpgradeTemplate(request *UpgradeTemplateRequest) (_result *UpgradeTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpgradeTemplateHeaders{}

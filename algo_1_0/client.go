@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package algo_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,9 +33,12 @@ func (s *NlpWordDistinguishHeaders) SetXAcsDingtalkAccessToken(v string) *NlpWor
 }
 
 type NlpWordDistinguishRequest struct {
+	// This parameter is required.
 	AttachExtractDecisionInfo *NlpWordDistinguishRequestAttachExtractDecisionInfo `json:"attachExtractDecisionInfo,omitempty" xml:"attachExtractDecisionInfo,omitempty" type:"Struct"`
-	IsvAppId                  *string                                             `json:"isvAppId,omitempty" xml:"isvAppId,omitempty"`
-	Text                      *string                                             `json:"text,omitempty" xml:"text,omitempty"`
+	// This parameter is required.
+	IsvAppId *string `json:"isvAppId,omitempty" xml:"isvAppId,omitempty"`
+	// This parameter is required.
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
 }
 
 func (s NlpWordDistinguishRequest) String() string {
@@ -68,9 +67,12 @@ func (s *NlpWordDistinguishRequest) SetText(v string) *NlpWordDistinguishRequest
 type NlpWordDistinguishRequestAttachExtractDecisionInfo struct {
 	BlackWords     []*string `json:"blackWords,omitempty" xml:"blackWords,omitempty" type:"Repeated"`
 	CandidateWords []*string `json:"candidateWords,omitempty" xml:"candidateWords,omitempty" type:"Repeated"`
-	CorpId         *string   `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	DeptIds        []*string `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
-	UserId         *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	DeptIds []*string `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s NlpWordDistinguishRequestAttachExtractDecisionInfo) String() string {
@@ -107,6 +109,7 @@ func (s *NlpWordDistinguishRequestAttachExtractDecisionInfo) SetUserId(v string)
 }
 
 type NlpWordDistinguishResponseBody struct {
+	// This parameter is required.
 	RequestId    *string                                       `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	WordEntities []*NlpWordDistinguishResponseBodyWordEntities `json:"wordEntities,omitempty" xml:"wordEntities,omitempty" type:"Repeated"`
 }
@@ -199,12 +202,17 @@ func (s *OkrOpenRecommendHeaders) SetXAcsDingtalkAccessToken(v string) *OkrOpenR
 }
 
 type OkrOpenRecommendRequest struct {
+	// This parameter is required.
 	CandidateOkrItems []*OkrOpenRecommendRequestCandidateOkrItems `json:"candidateOkrItems,omitempty" xml:"candidateOkrItems,omitempty" type:"Repeated"`
-	CorpId            *string                                     `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	DeptIds           []*string                                   `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
-	IsvAppId          *string                                     `json:"isvAppId,omitempty" xml:"isvAppId,omitempty"`
-	UserId            *string                                     `json:"userId,omitempty" xml:"userId,omitempty"`
-	Words             []*string                                   `json:"words,omitempty" xml:"words,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	DeptIds []*string `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	IsvAppId *string `json:"isvAppId,omitempty" xml:"isvAppId,omitempty"`
+	// This parameter is required.
+	UserId *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	Words  []*string `json:"words,omitempty" xml:"words,omitempty" type:"Repeated"`
 }
 
 func (s OkrOpenRecommendRequest) String() string {
@@ -247,8 +255,10 @@ func (s *OkrOpenRecommendRequest) SetWords(v []*string) *OkrOpenRecommendRequest
 
 type OkrOpenRecommendRequestCandidateOkrItems struct {
 	OkrInfos []*OkrOpenRecommendRequestCandidateOkrItemsOkrInfos `json:"okrInfos,omitempty" xml:"okrInfos,omitempty" type:"Repeated"`
-	Relation *string                                             `json:"relation,omitempty" xml:"relation,omitempty"`
-	UserId   *string                                             `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	Relation *string `json:"relation,omitempty" xml:"relation,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s OkrOpenRecommendRequestCandidateOkrItems) String() string {
@@ -340,7 +350,8 @@ func (s *OkrOpenRecommendRequestCandidateOkrItemsOkrInfosKeyResultInfos) SetWord
 
 type OkrOpenRecommendResponseBody struct {
 	OkrRecommendItems []*OkrOpenRecommendResponseBodyOkrRecommendItems `json:"okrRecommendItems,omitempty" xml:"okrRecommendItems,omitempty" type:"Repeated"`
-	RequestId         *string                                          `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// This parameter is required.
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
 func (s OkrOpenRecommendResponseBody) String() string {
@@ -364,9 +375,20 @@ func (s *OkrOpenRecommendResponseBody) SetRequestId(v string) *OkrOpenRecommendR
 type OkrOpenRecommendResponseBodyOkrRecommendItems struct {
 	KrResultRelatedResults  []*OkrOpenRecommendResponseBodyOkrRecommendItemsKrResultRelatedResults  `json:"krResultRelatedResults,omitempty" xml:"krResultRelatedResults,omitempty" type:"Repeated"`
 	ObjectiveRelatedResults []*OkrOpenRecommendResponseBodyOkrRecommendItemsObjectiveRelatedResults `json:"objectiveRelatedResults,omitempty" xml:"objectiveRelatedResults,omitempty" type:"Repeated"`
-	RelatedLevel            *int64                                                                  `json:"relatedLevel,omitempty" xml:"relatedLevel,omitempty"`
-	SemanticLevel           *int64                                                                  `json:"semanticLevel,omitempty" xml:"semanticLevel,omitempty"`
-	UserId                  *string                                                                 `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	RelatedLevel *int64 `json:"relatedLevel,omitempty" xml:"relatedLevel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3
+	SemanticLevel *int64 `json:"semanticLevel,omitempty" xml:"semanticLevel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s OkrOpenRecommendResponseBodyOkrRecommendItems) String() string {
@@ -403,9 +425,16 @@ func (s *OkrOpenRecommendResponseBodyOkrRecommendItems) SetUserId(v string) *Okr
 }
 
 type OkrOpenRecommendResponseBodyOkrRecommendItemsKrResultRelatedResults struct {
-	KrId          *string   `json:"krId,omitempty" xml:"krId,omitempty"`
-	SemanticLevel *int64    `json:"semanticLevel,omitempty" xml:"semanticLevel,omitempty"`
-	Words         []*string `json:"words,omitempty" xml:"words,omitempty" type:"Repeated"`
+	// This parameter is required.
+	KrId *string `json:"krId,omitempty" xml:"krId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3
+	SemanticLevel *int64 `json:"semanticLevel,omitempty" xml:"semanticLevel,omitempty"`
+	// This parameter is required.
+	Words []*string `json:"words,omitempty" xml:"words,omitempty" type:"Repeated"`
 }
 
 func (s OkrOpenRecommendResponseBodyOkrRecommendItemsKrResultRelatedResults) String() string {
@@ -432,9 +461,16 @@ func (s *OkrOpenRecommendResponseBodyOkrRecommendItemsKrResultRelatedResults) Se
 }
 
 type OkrOpenRecommendResponseBodyOkrRecommendItemsObjectiveRelatedResults struct {
-	ObjectiveId   *string   `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
-	SemanticLevel *int64    `json:"semanticLevel,omitempty" xml:"semanticLevel,omitempty"`
-	Words         []*string `json:"words,omitempty" xml:"words,omitempty" type:"Repeated"`
+	// This parameter is required.
+	ObjectiveId *string `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3
+	SemanticLevel *int64 `json:"semanticLevel,omitempty" xml:"semanticLevel,omitempty"`
+	// This parameter is required.
+	Words []*string `json:"words,omitempty" xml:"words,omitempty" type:"Repeated"`
 }
 
 func (s OkrOpenRecommendResponseBodyOkrRecommendItemsObjectiveRelatedResults) String() string {
@@ -504,12 +540,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -518,6 +554,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 自然语言处理之关键词识别
+//
+// @param request - NlpWordDistinguishRequest
+//
+// @param headers - NlpWordDistinguishHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return NlpWordDistinguishResponse
 func (client *Client) NlpWordDistinguishWithOptions(request *NlpWordDistinguishRequest, headers *NlpWordDistinguishHeaders, runtime *util.RuntimeOptions) (_result *NlpWordDistinguishResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -569,6 +616,13 @@ func (client *Client) NlpWordDistinguishWithOptions(request *NlpWordDistinguishR
 	return _result, _err
 }
 
+// Summary:
+//
+// 自然语言处理之关键词识别
+//
+// @param request - NlpWordDistinguishRequest
+//
+// @return NlpWordDistinguishResponse
 func (client *Client) NlpWordDistinguish(request *NlpWordDistinguishRequest) (_result *NlpWordDistinguishResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &NlpWordDistinguishHeaders{}
@@ -581,6 +635,17 @@ func (client *Client) NlpWordDistinguish(request *NlpWordDistinguishRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// # Okr内容推荐
+//
+// @param request - OkrOpenRecommendRequest
+//
+// @param headers - OkrOpenRecommendHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return OkrOpenRecommendResponse
 func (client *Client) OkrOpenRecommendWithOptions(request *OkrOpenRecommendRequest, headers *OkrOpenRecommendHeaders, runtime *util.RuntimeOptions) (_result *OkrOpenRecommendResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -644,6 +709,13 @@ func (client *Client) OkrOpenRecommendWithOptions(request *OkrOpenRecommendReque
 	return _result, _err
 }
 
+// Summary:
+//
+// # Okr内容推荐
+//
+// @param request - OkrOpenRecommendRequest
+//
+// @return OkrOpenRecommendResponse
 func (client *Client) OkrOpenRecommend(request *OkrOpenRecommendRequest) (_result *OkrOpenRecommendResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &OkrOpenRecommendHeaders{}

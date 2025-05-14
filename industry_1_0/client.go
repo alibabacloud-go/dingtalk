@@ -1,17 +1,320 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package industry_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
+
+type BatchGetTaskResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchGetTaskResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetTaskResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetTaskResultHeaders) SetCommonHeaders(v map[string]*string) *BatchGetTaskResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchGetTaskResultHeaders) SetXAcsDingtalkAccessToken(v string) *BatchGetTaskResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchGetTaskResultRequest struct {
+	TaskIds []*string `json:"taskIds,omitempty" xml:"taskIds,omitempty" type:"Repeated"`
+}
+
+func (s BatchGetTaskResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetTaskResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetTaskResultRequest) SetTaskIds(v []*string) *BatchGetTaskResultRequest {
+	s.TaskIds = v
+	return s
+}
+
+type BatchGetTaskResultResponseBody struct {
+	Tasks []*BatchGetTaskResultResponseBodyTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+}
+
+func (s BatchGetTaskResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetTaskResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetTaskResultResponseBody) SetTasks(v []*BatchGetTaskResultResponseBodyTasks) *BatchGetTaskResultResponseBody {
+	s.Tasks = v
+	return s
+}
+
+type BatchGetTaskResultResponseBodyTasks struct {
+	Result *BatchGetTaskResultResponseBodyTasksResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// example:
+	//
+	// COMPLETED
+	Status     *string `json:"status,omitempty" xml:"status,omitempty"`
+	StatusInfo *string `json:"statusInfo,omitempty" xml:"statusInfo,omitempty"`
+	// example:
+	//
+	// 4beae5155406457291fcbdd76c4e8da8
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s BatchGetTaskResultResponseBodyTasks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetTaskResultResponseBodyTasks) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetTaskResultResponseBodyTasks) SetResult(v *BatchGetTaskResultResponseBodyTasksResult) *BatchGetTaskResultResponseBodyTasks {
+	s.Result = v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasks) SetStatus(v string) *BatchGetTaskResultResponseBodyTasks {
+	s.Status = &v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasks) SetStatusInfo(v string) *BatchGetTaskResultResponseBodyTasks {
+	s.StatusInfo = &v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasks) SetTaskId(v string) *BatchGetTaskResultResponseBodyTasks {
+	s.TaskId = &v
+	return s
+}
+
+type BatchGetTaskResultResponseBodyTasksResult struct {
+	// example:
+	//
+	// https://industry-ai-prod.oss-cn-zhangjiakou.aliyuncs.com/4beae5155406457291fcbdd76c4e8da8.txt
+	AudioText          *string `json:"audioText,omitempty" xml:"audioText,omitempty"`
+	AudioTextFormatted *string `json:"audioTextFormatted,omitempty" xml:"audioTextFormatted,omitempty"`
+	// example:
+	//
+	// 2024-05-14
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// xxx项目
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// example:
+	//
+	// 1001
+	Id    *int64                                            `json:"id,omitempty" xml:"id,omitempty"`
+	Items []*BatchGetTaskResultResponseBodyTasksResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	// example:
+	//
+	// xxx项目会议
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	// example:
+	//
+	// 100
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s BatchGetTaskResultResponseBodyTasksResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetTaskResultResponseBodyTasksResult) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResult) SetAudioText(v string) *BatchGetTaskResultResponseBodyTasksResult {
+	s.AudioText = &v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResult) SetAudioTextFormatted(v string) *BatchGetTaskResultResponseBodyTasksResult {
+	s.AudioTextFormatted = &v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResult) SetDate(v string) *BatchGetTaskResultResponseBodyTasksResult {
+	s.Date = &v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResult) SetDesc(v string) *BatchGetTaskResultResponseBodyTasksResult {
+	s.Desc = &v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResult) SetId(v int64) *BatchGetTaskResultResponseBodyTasksResult {
+	s.Id = &v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResult) SetItems(v []*BatchGetTaskResultResponseBodyTasksResultItems) *BatchGetTaskResultResponseBodyTasksResult {
+	s.Items = v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResult) SetName(v string) *BatchGetTaskResultResponseBodyTasksResult {
+	s.Name = &v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResult) SetSummary(v string) *BatchGetTaskResultResponseBodyTasksResult {
+	s.Summary = &v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResult) SetTotal(v int64) *BatchGetTaskResultResponseBodyTasksResult {
+	s.Total = &v
+	return s
+}
+
+type BatchGetTaskResultResponseBodyTasksResultItems struct {
+	// example:
+	//
+	// 主持人有问好，并得到积极回应
+	Info *string `json:"info,omitempty" xml:"info,omitempty"`
+	// example:
+	//
+	// 是否有问好
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 10
+	Point          *int64                                                `json:"point,omitempty" xml:"point,omitempty"`
+	Reference      *string                                               `json:"reference,omitempty" xml:"reference,omitempty"`
+	ReferenceFrame []*string                                             `json:"referenceFrame,omitempty" xml:"referenceFrame,omitempty" type:"Repeated"`
+	Subs           []*BatchGetTaskResultResponseBodyTasksResultItemsSubs `json:"subs,omitempty" xml:"subs,omitempty" type:"Repeated"`
+}
+
+func (s BatchGetTaskResultResponseBodyTasksResultItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetTaskResultResponseBodyTasksResultItems) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResultItems) SetInfo(v string) *BatchGetTaskResultResponseBodyTasksResultItems {
+	s.Info = &v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResultItems) SetName(v string) *BatchGetTaskResultResponseBodyTasksResultItems {
+	s.Name = &v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResultItems) SetPoint(v int64) *BatchGetTaskResultResponseBodyTasksResultItems {
+	s.Point = &v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResultItems) SetReference(v string) *BatchGetTaskResultResponseBodyTasksResultItems {
+	s.Reference = &v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResultItems) SetReferenceFrame(v []*string) *BatchGetTaskResultResponseBodyTasksResultItems {
+	s.ReferenceFrame = v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResultItems) SetSubs(v []*BatchGetTaskResultResponseBodyTasksResultItemsSubs) *BatchGetTaskResultResponseBodyTasksResultItems {
+	s.Subs = v
+	return s
+}
+
+type BatchGetTaskResultResponseBodyTasksResultItemsSubs struct {
+	Point          *int64    `json:"point,omitempty" xml:"point,omitempty"`
+	Reference      *string   `json:"reference,omitempty" xml:"reference,omitempty"`
+	ReferenceFrame []*string `json:"referenceFrame,omitempty" xml:"referenceFrame,omitempty" type:"Repeated"`
+	SubInfo        *string   `json:"subInfo,omitempty" xml:"subInfo,omitempty"`
+	SubName        *string   `json:"subName,omitempty" xml:"subName,omitempty"`
+}
+
+func (s BatchGetTaskResultResponseBodyTasksResultItemsSubs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetTaskResultResponseBodyTasksResultItemsSubs) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResultItemsSubs) SetPoint(v int64) *BatchGetTaskResultResponseBodyTasksResultItemsSubs {
+	s.Point = &v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResultItemsSubs) SetReference(v string) *BatchGetTaskResultResponseBodyTasksResultItemsSubs {
+	s.Reference = &v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResultItemsSubs) SetReferenceFrame(v []*string) *BatchGetTaskResultResponseBodyTasksResultItemsSubs {
+	s.ReferenceFrame = v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResultItemsSubs) SetSubInfo(v string) *BatchGetTaskResultResponseBodyTasksResultItemsSubs {
+	s.SubInfo = &v
+	return s
+}
+
+func (s *BatchGetTaskResultResponseBodyTasksResultItemsSubs) SetSubName(v string) *BatchGetTaskResultResponseBodyTasksResultItemsSubs {
+	s.SubName = &v
+	return s
+}
+
+type BatchGetTaskResultResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchGetTaskResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s BatchGetTaskResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetTaskResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetTaskResultResponse) SetHeaders(v map[string]*string) *BatchGetTaskResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchGetTaskResultResponse) SetStatusCode(v int32) *BatchGetTaskResultResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchGetTaskResultResponse) SetBody(v *BatchGetTaskResultResponseBody) *BatchGetTaskResultResponse {
+	s.Body = v
+	return s
+}
 
 type BusinessMatchHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
@@ -37,9 +340,12 @@ func (s *BusinessMatchHeaders) SetXAcsDingtalkAccessToken(v string) *BusinessMat
 }
 
 type BusinessMatchRequest struct {
+	// This parameter is required.
 	BusinessInfo *string `json:"businessInfo,omitempty" xml:"businessInfo,omitempty"`
-	CorpName     *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
-	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BusinessMatchRequest) String() string {
@@ -135,7 +441,9 @@ func (s *BusinessMatchResultHeaders) SetXAcsDingtalkAccessToken(v string) *Busin
 }
 
 type BusinessMatchResultRequest struct {
+	// This parameter is required.
 	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// This parameter is required.
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -239,11 +547,32 @@ func (s *CampusAddRenterMemberHeaders) SetXAcsDingtalkAccessToken(v string) *Cam
 }
 
 type CampusAddRenterMemberRequest struct {
-	Extend   *string `json:"extend,omitempty" xml:"extend,omitempty"`
-	Mobile   *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
-	RenterId *int64  `json:"renterId,omitempty" xml:"renterId,omitempty"`
-	Type     *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// {"age":8}
+	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 158********
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三组
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 612355
+	RenterId *int64 `json:"renterId,omitempty" xml:"renterId,omitempty"`
+	// example:
+	//
+	// admin
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s CampusAddRenterMemberRequest) String() string {
@@ -361,23 +690,68 @@ func (s *CampusCreateCampusHeaders) SetXAcsDingtalkAccessToken(v string) *Campus
 }
 
 type CampusCreateCampusRequest struct {
-	Address              *string  `json:"address,omitempty" xml:"address,omitempty"`
-	Area                 *float64 `json:"area,omitempty" xml:"area,omitempty"`
-	BelongProjectGroupId *int64   `json:"belongProjectGroupId,omitempty" xml:"belongProjectGroupId,omitempty"`
-	CampusName           *string  `json:"campusName,omitempty" xml:"campusName,omitempty"`
-	Capacity             *int32   `json:"capacity,omitempty" xml:"capacity,omitempty"`
-	CityId               *int32   `json:"cityId,omitempty" xml:"cityId,omitempty"`
-	Country              *string  `json:"country,omitempty" xml:"country,omitempty"`
-	CountyId             *int32   `json:"countyId,omitempty" xml:"countyId,omitempty"`
-	CreatorUnionId       *string  `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
-	Description          *string  `json:"description,omitempty" xml:"description,omitempty"`
-	Extend               *string  `json:"extend,omitempty" xml:"extend,omitempty"`
-	Location             *string  `json:"location,omitempty" xml:"location,omitempty"`
-	OrderEndTime         *int64   `json:"orderEndTime,omitempty" xml:"orderEndTime,omitempty"`
-	OrderInfo            *string  `json:"orderInfo,omitempty" xml:"orderInfo,omitempty"`
-	OrderStartTime       *int64   `json:"orderStartTime,omitempty" xml:"orderStartTime,omitempty"`
-	ProvId               *int32   `json:"provId,omitempty" xml:"provId,omitempty"`
-	Telephone            *string  `json:"telephone,omitempty" xml:"telephone,omitempty"`
+	// example:
+	//
+	// 锦城街道和谐社区101号
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// example:
+	//
+	// 5200.13（平方千米）
+	Area *float64 `json:"area,omitempty" xml:"area,omitempty"`
+	// example:
+	//
+	// 0
+	BelongProjectGroupId *int64 `json:"belongProjectGroupId,omitempty" xml:"belongProjectGroupId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 绿城未来park
+	CampusName *string `json:"campusName,omitempty" xml:"campusName,omitempty"`
+	// example:
+	//
+	// 1000
+	Capacity *int32 `json:"capacity,omitempty" xml:"capacity,omitempty"`
+	// example:
+	//
+	// 371500
+	CityId *int32 `json:"cityId,omitempty" xml:"cityId,omitempty"`
+	// example:
+	//
+	// 中国
+	Country *string `json:"country,omitempty" xml:"country,omitempty"`
+	// example:
+	//
+	// 371502
+	CountyId *int32 `json:"countyId,omitempty" xml:"countyId,omitempty"`
+	// This parameter is required.
+	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	// example:
+	//
+	// 绿城未来park项目
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// example:
+	//
+	// {"creator":"dsy"}
+	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	// example:
+	//
+	// 123,456
+	Location     *string `json:"location,omitempty" xml:"location,omitempty"`
+	OrderEndTime *int64  `json:"orderEndTime,omitempty" xml:"orderEndTime,omitempty"`
+	OrderInfo    *string `json:"orderInfo,omitempty" xml:"orderInfo,omitempty"`
+	// example:
+	//
+	// 1655704317794
+	OrderStartTime *int64 `json:"orderStartTime,omitempty" xml:"orderStartTime,omitempty"`
+	// example:
+	//
+	// 370000（山东）
+	ProvId *int32 `json:"provId,omitempty" xml:"provId,omitempty"`
+	// example:
+	//
+	// 156xxxx4338
+	Telephone *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
 }
 
 func (s CampusCreateCampusRequest) String() string {
@@ -549,8 +923,16 @@ func (s *CampusCreateCampusGroupHeaders) SetXAcsDingtalkAccessToken(v string) *C
 }
 
 type CampusCreateCampusGroupRequest struct {
+	// example:
+	//
+	// 扩展信息
 	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
-	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试项目组
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CampusCreateCampusGroupRequest) String() string {
@@ -641,12 +1023,32 @@ func (s *CampusCreateRenterHeaders) SetXAcsDingtalkAccessToken(v string) *Campus
 }
 
 type CampusCreateRenterRequest struct {
+	// example:
+	//
+	// 231313
 	CreditCode *string `json:"creditCode,omitempty" xml:"creditCode,omitempty"`
-	EndTime    *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	Extend     *string `json:"extend,omitempty" xml:"extend,omitempty"`
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	StartTime  *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	State      *int32  `json:"state,omitempty" xml:"state,omitempty"`
+	// example:
+	//
+	// 1655704317794
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 扩展
+	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 钉钉
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1655704317794
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 1
+	State *int32 `json:"state,omitempty" xml:"state,omitempty"`
 }
 
 func (s CampusCreateRenterRequest) String() string {
@@ -688,6 +1090,9 @@ func (s *CampusCreateRenterRequest) SetState(v int32) *CampusCreateRenterRequest
 }
 
 type CampusCreateRenterResponseBody struct {
+	// example:
+	//
+	// 1001
 	RenterId *string `json:"renterId,omitempty" xml:"renterId,omitempty"`
 }
 
@@ -757,8 +1162,14 @@ func (s *CampusDelRenterMemberHeaders) SetXAcsDingtalkAccessToken(v string) *Cam
 }
 
 type CampusDelRenterMemberRequest struct {
-	RenterId *int64  `json:"renterId,omitempty" xml:"renterId,omitempty"`
-	UnionId  *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 124353123
+	RenterId *int64 `json:"renterId,omitempty" xml:"renterId,omitempty"`
+	// example:
+	//
+	// kindg****
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s CampusDelRenterMemberRequest) String() string {
@@ -849,6 +1260,11 @@ func (s *CampusDeleteCampusGroupHeaders) SetXAcsDingtalkAccessToken(v string) *C
 }
 
 type CampusDeleteCampusGroupRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12345
 	CampusProjectGroupId *int64 `json:"campusProjectGroupId,omitempty" xml:"campusProjectGroupId,omitempty"`
 }
 
@@ -935,6 +1351,11 @@ func (s *CampusDeleteRenterHeaders) SetXAcsDingtalkAccessToken(v string) *Campus
 }
 
 type CampusDeleteRenterRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1001
 	RenterId *int64 `json:"renterId,omitempty" xml:"renterId,omitempty"`
 }
 
@@ -998,6 +1419,11 @@ func (s *CampusGetCampusHeaders) SetXAcsDingtalkAccessToken(v string) *CampusGet
 }
 
 type CampusGetCampusRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11
 	CampusDeptId *int64 `json:"campusDeptId,omitempty" xml:"campusDeptId,omitempty"`
 }
 
@@ -1015,24 +1441,78 @@ func (s *CampusGetCampusRequest) SetCampusDeptId(v int64) *CampusGetCampusReques
 }
 
 type CampusGetCampusResponseBody struct {
-	Address              *string  `json:"address,omitempty" xml:"address,omitempty"`
-	Area                 *float64 `json:"area,omitempty" xml:"area,omitempty"`
-	BelongProjectGroupId *string  `json:"belongProjectGroupId,omitempty" xml:"belongProjectGroupId,omitempty"`
-	CampusCorpId         *string  `json:"campusCorpId,omitempty" xml:"campusCorpId,omitempty"`
-	CampusDeptId         *int64   `json:"campusDeptId,omitempty" xml:"campusDeptId,omitempty"`
-	CampusName           *string  `json:"campusName,omitempty" xml:"campusName,omitempty"`
-	Capacity             *string  `json:"capacity,omitempty" xml:"capacity,omitempty"`
-	CityId               *int32   `json:"cityId,omitempty" xml:"cityId,omitempty"`
-	Country              *string  `json:"country,omitempty" xml:"country,omitempty"`
-	CountyId             *int32   `json:"countyId,omitempty" xml:"countyId,omitempty"`
-	Description          *string  `json:"description,omitempty" xml:"description,omitempty"`
-	Extend               *string  `json:"extend,omitempty" xml:"extend,omitempty"`
-	Location             *string  `json:"location,omitempty" xml:"location,omitempty"`
-	OrderEndTime         *int64   `json:"orderEndTime,omitempty" xml:"orderEndTime,omitempty"`
-	OrderInfo            *string  `json:"orderInfo,omitempty" xml:"orderInfo,omitempty"`
-	OrderStartTime       *int64   `json:"orderStartTime,omitempty" xml:"orderStartTime,omitempty"`
-	ProvId               *int32   `json:"provId,omitempty" xml:"provId,omitempty"`
-	Telephone            *string  `json:"telephone,omitempty" xml:"telephone,omitempty"`
+	// example:
+	//
+	// ##街道
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// example:
+	//
+	// 1000
+	Area *float64 `json:"area,omitempty" xml:"area,omitempty"`
+	// example:
+	//
+	// 1011
+	BelongProjectGroupId *string `json:"belongProjectGroupId,omitempty" xml:"belongProjectGroupId,omitempty"`
+	// example:
+	//
+	// ding121212
+	CampusCorpId *string `json:"campusCorpId,omitempty" xml:"campusCorpId,omitempty"`
+	// example:
+	//
+	// 1001
+	CampusDeptId *int64 `json:"campusDeptId,omitempty" xml:"campusDeptId,omitempty"`
+	// example:
+	//
+	// 测试园区
+	CampusName *string `json:"campusName,omitempty" xml:"campusName,omitempty"`
+	// example:
+	//
+	// 100
+	Capacity *string `json:"capacity,omitempty" xml:"capacity,omitempty"`
+	// example:
+	//
+	// 2030
+	CityId *int32 `json:"cityId,omitempty" xml:"cityId,omitempty"`
+	// example:
+	//
+	// 中国
+	Country *string `json:"country,omitempty" xml:"country,omitempty"`
+	// example:
+	//
+	// 203040
+	CountyId *int32 `json:"countyId,omitempty" xml:"countyId,omitempty"`
+	// example:
+	//
+	// 描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// example:
+	//
+	// 扩展
+	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	// example:
+	//
+	// 120.1,28.1
+	Location *string `json:"location,omitempty" xml:"location,omitempty"`
+	// example:
+	//
+	// 1655704317794
+	OrderEndTime *int64 `json:"orderEndTime,omitempty" xml:"orderEndTime,omitempty"`
+	// example:
+	//
+	// 购买信息
+	OrderInfo *string `json:"orderInfo,omitempty" xml:"orderInfo,omitempty"`
+	// example:
+	//
+	// 1655704317794
+	OrderStartTime *int64 `json:"orderStartTime,omitempty" xml:"orderStartTime,omitempty"`
+	// example:
+	//
+	// 20
+	ProvId *int32 `json:"provId,omitempty" xml:"provId,omitempty"`
+	// example:
+	//
+	// 13914772123
+	Telephone *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
 }
 
 func (s CampusGetCampusResponseBody) String() string {
@@ -1186,6 +1666,11 @@ func (s *CampusGetCampusGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Camp
 }
 
 type CampusGetCampusGroupRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11
 	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
 }
 
@@ -1203,7 +1688,13 @@ func (s *CampusGetCampusGroupRequest) SetGroupId(v int64) *CampusGetCampusGroupR
 }
 
 type CampusGetCampusGroupResponseBody struct {
-	Extend           *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	// example:
+	//
+	// 项目扩展信息
+	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	// example:
+	//
+	// 测试项目组
 	ProjectGroupName *string `json:"projectGroupName,omitempty" xml:"projectGroupName,omitempty"`
 }
 
@@ -1278,6 +1769,11 @@ func (s *CampusGetRenterHeaders) SetXAcsDingtalkAccessToken(v string) *CampusGet
 }
 
 type CampusGetRenterRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1001
 	RenterId *int64 `json:"renterId,omitempty" xml:"renterId,omitempty"`
 }
 
@@ -1295,15 +1791,42 @@ func (s *CampusGetRenterRequest) SetRenterId(v int64) *CampusGetRenterRequest {
 }
 
 type CampusGetRenterResponseBody struct {
+	// example:
+	//
+	// ding121313
 	BindRenterCorpId *string `json:"bindRenterCorpId,omitempty" xml:"bindRenterCorpId,omitempty"`
-	BindTime         *int64  `json:"bindTime,omitempty" xml:"bindTime,omitempty"`
-	CreditCode       *string `json:"creditCode,omitempty" xml:"creditCode,omitempty"`
-	EndTime          *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	Extend           *string `json:"extend,omitempty" xml:"extend,omitempty"`
-	Name             *string `json:"name,omitempty" xml:"name,omitempty"`
-	RenterDeptId     *int64  `json:"renterDeptId,omitempty" xml:"renterDeptId,omitempty"`
-	StartTime        *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	State            *int32  `json:"state,omitempty" xml:"state,omitempty"`
+	// example:
+	//
+	// 1655704317794
+	BindTime *int64 `json:"bindTime,omitempty" xml:"bindTime,omitempty"`
+	// example:
+	//
+	// 231313
+	CreditCode *string `json:"creditCode,omitempty" xml:"creditCode,omitempty"`
+	// example:
+	//
+	// 1655704317794
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 扩展
+	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	// example:
+	//
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 101
+	RenterDeptId *int64 `json:"renterDeptId,omitempty" xml:"renterDeptId,omitempty"`
+	// example:
+	//
+	// 1655704317794
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 1
+	State *int32 `json:"state,omitempty" xml:"state,omitempty"`
 }
 
 func (s CampusGetRenterResponseBody) String() string {
@@ -1412,8 +1935,16 @@ func (s *CampusGetRenterMemberHeaders) SetXAcsDingtalkAccessToken(v string) *Cam
 }
 
 type CampusGetRenterMemberRequest struct {
-	RenterId *int64  `json:"renterId,omitempty" xml:"renterId,omitempty"`
-	UnionId  *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 1987215
+	RenterId *int64 `json:"renterId,omitempty" xml:"renterId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1iasndkjas8
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s CampusGetRenterMemberRequest) String() string {
@@ -1534,6 +2065,9 @@ func (s *CampusListCampusHeaders) SetXAcsDingtalkAccessToken(v string) *CampusLi
 }
 
 type CampusListCampusRequest struct {
+	// example:
+	//
+	// 12345
 	GroupDeptId *int64 `json:"groupDeptId,omitempty" xml:"groupDeptId,omitempty"`
 }
 
@@ -1568,23 +2102,74 @@ func (s *CampusListCampusResponseBody) SetResult(v []*CampusListCampusResponseBo
 }
 
 type CampusListCampusResponseBodyResult struct {
-	Address              *string  `json:"address,omitempty" xml:"address,omitempty"`
-	Area                 *float64 `json:"area,omitempty" xml:"area,omitempty"`
-	BelongProjectGroupId *int64   `json:"belongProjectGroupId,omitempty" xml:"belongProjectGroupId,omitempty"`
-	CampusCorpId         *string  `json:"campusCorpId,omitempty" xml:"campusCorpId,omitempty"`
-	CampusDeptId         *int64   `json:"campusDeptId,omitempty" xml:"campusDeptId,omitempty"`
-	CampusName           *string  `json:"campusName,omitempty" xml:"campusName,omitempty"`
-	CityId               *int32   `json:"cityId,omitempty" xml:"cityId,omitempty"`
-	Country              *string  `json:"country,omitempty" xml:"country,omitempty"`
-	CountyId             *int32   `json:"countyId,omitempty" xml:"countyId,omitempty"`
-	Description          *string  `json:"description,omitempty" xml:"description,omitempty"`
-	Extend               *string  `json:"extend,omitempty" xml:"extend,omitempty"`
-	Location             *string  `json:"location,omitempty" xml:"location,omitempty"`
-	OrderEndTime         *int64   `json:"orderEndTime,omitempty" xml:"orderEndTime,omitempty"`
-	OrderInfo            *string  `json:"orderInfo,omitempty" xml:"orderInfo,omitempty"`
-	OrderStartTime       *int64   `json:"orderStartTime,omitempty" xml:"orderStartTime,omitempty"`
-	ProvId               *int32   `json:"provId,omitempty" xml:"provId,omitempty"`
-	Telephone            *string  `json:"telephone,omitempty" xml:"telephone,omitempty"`
+	// example:
+	//
+	// 杭州市余杭区
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// example:
+	//
+	// 121212.1
+	Area *float64 `json:"area,omitempty" xml:"area,omitempty"`
+	// example:
+	//
+	// 1
+	BelongProjectGroupId *int64 `json:"belongProjectGroupId,omitempty" xml:"belongProjectGroupId,omitempty"`
+	// example:
+	//
+	// ding121212
+	CampusCorpId *string `json:"campusCorpId,omitempty" xml:"campusCorpId,omitempty"`
+	// example:
+	//
+	// 1
+	CampusDeptId *int64 `json:"campusDeptId,omitempty" xml:"campusDeptId,omitempty"`
+	// example:
+	//
+	// 测试园区
+	CampusName *string `json:"campusName,omitempty" xml:"campusName,omitempty"`
+	// example:
+	//
+	// 30450
+	CityId *int32 `json:"cityId,omitempty" xml:"cityId,omitempty"`
+	// example:
+	//
+	// 中国
+	Country *string `json:"country,omitempty" xml:"country,omitempty"`
+	// example:
+	//
+	// 304501
+	CountyId *int32 `json:"countyId,omitempty" xml:"countyId,omitempty"`
+	// example:
+	//
+	// 测试
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// example:
+	//
+	// 扩展
+	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	// example:
+	//
+	// 120.1321,28.1213
+	Location *string `json:"location,omitempty" xml:"location,omitempty"`
+	// example:
+	//
+	// 1655704317794
+	OrderEndTime *int64 `json:"orderEndTime,omitempty" xml:"orderEndTime,omitempty"`
+	// example:
+	//
+	// 规格1
+	OrderInfo *string `json:"orderInfo,omitempty" xml:"orderInfo,omitempty"`
+	// example:
+	//
+	// 1655704317794
+	OrderStartTime *int64 `json:"orderStartTime,omitempty" xml:"orderStartTime,omitempty"`
+	// example:
+	//
+	// 304
+	ProvId *int32 `json:"provId,omitempty" xml:"provId,omitempty"`
+	// example:
+	//
+	// 13914773133
+	Telephone *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
 }
 
 func (s CampusListCampusResponseBodyResult) String() string {
@@ -1750,9 +2335,18 @@ func (s *CampusListCampusGroupResponseBody) SetResult(v []*CampusListCampusGroup
 }
 
 type CampusListCampusGroupResponseBodyResult struct {
-	Extend      *string `json:"extend,omitempty" xml:"extend,omitempty"`
-	GroupDeptId *int64  `json:"groupDeptId,omitempty" xml:"groupDeptId,omitempty"`
-	GroupName   *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// example:
+	//
+	// 扩展
+	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	// example:
+	//
+	// 10101
+	GroupDeptId *int64 `json:"groupDeptId,omitempty" xml:"groupDeptId,omitempty"`
+	// example:
+	//
+	// 测试项目组
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
 }
 
 func (s CampusListCampusGroupResponseBodyResult) String() string {
@@ -1848,15 +2442,42 @@ func (s *CampusListRenterResponseBody) SetResult(v []*CampusListRenterResponseBo
 }
 
 type CampusListRenterResponseBodyResult struct {
+	// example:
+	//
+	// ding3242423
 	BindRenterCorpId *string `json:"bindRenterCorpId,omitempty" xml:"bindRenterCorpId,omitempty"`
-	BindTime         *int64  `json:"bindTime,omitempty" xml:"bindTime,omitempty"`
-	CreditCode       *string `json:"creditCode,omitempty" xml:"creditCode,omitempty"`
-	EndTime          *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	Extend           *string `json:"extend,omitempty" xml:"extend,omitempty"`
-	Name             *string `json:"name,omitempty" xml:"name,omitempty"`
-	RenterDeptId     *int64  `json:"renterDeptId,omitempty" xml:"renterDeptId,omitempty"`
-	StartTime        *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	State            *int32  `json:"state,omitempty" xml:"state,omitempty"`
+	// example:
+	//
+	// 1655704317794
+	BindTime *int64 `json:"bindTime,omitempty" xml:"bindTime,omitempty"`
+	// example:
+	//
+	// 1313131414
+	CreditCode *string `json:"creditCode,omitempty" xml:"creditCode,omitempty"`
+	// example:
+	//
+	// 1655704317794
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 扩展信息
+	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	// example:
+	//
+	// 测试租客
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 100
+	RenterDeptId *int64 `json:"renterDeptId,omitempty" xml:"renterDeptId,omitempty"`
+	// example:
+	//
+	// 1655704317794
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 1
+	State *int32 `json:"state,omitempty" xml:"state,omitempty"`
 }
 
 func (s CampusListRenterResponseBodyResult) String() string {
@@ -1965,6 +2586,9 @@ func (s *CampusListRenterMembersHeaders) SetXAcsDingtalkAccessToken(v string) *C
 }
 
 type CampusListRenterMembersRequest struct {
+	// example:
+	//
+	// 836213123
 	RenterId *int64 `json:"renterId,omitempty" xml:"renterId,omitempty"`
 }
 
@@ -2104,22 +2728,72 @@ func (s *CampusUpdateCampusHeaders) SetXAcsDingtalkAccessToken(v string) *Campus
 }
 
 type CampusUpdateCampusRequest struct {
-	Address              *string  `json:"address,omitempty" xml:"address,omitempty"`
-	Area                 *float64 `json:"area,omitempty" xml:"area,omitempty"`
-	BelongProjectGroupId *int64   `json:"belongProjectGroupId,omitempty" xml:"belongProjectGroupId,omitempty"`
-	CampusDeptId         *int64   `json:"campusDeptId,omitempty" xml:"campusDeptId,omitempty"`
-	CampusName           *string  `json:"campusName,omitempty" xml:"campusName,omitempty"`
-	Capacity             *int32   `json:"capacity,omitempty" xml:"capacity,omitempty"`
-	CityId               *int32   `json:"cityId,omitempty" xml:"cityId,omitempty"`
-	Country              *string  `json:"country,omitempty" xml:"country,omitempty"`
-	CountyId             *int32   `json:"countyId,omitempty" xml:"countyId,omitempty"`
-	Description          *string  `json:"description,omitempty" xml:"description,omitempty"`
-	Extend               *string  `json:"extend,omitempty" xml:"extend,omitempty"`
-	OrderEndTime         *int64   `json:"orderEndTime,omitempty" xml:"orderEndTime,omitempty"`
-	OrderInfo            *int64   `json:"orderInfo,omitempty" xml:"orderInfo,omitempty"`
-	OrderStartTime       *int64   `json:"orderStartTime,omitempty" xml:"orderStartTime,omitempty"`
-	ProvId               *int32   `json:"provId,omitempty" xml:"provId,omitempty"`
-	Telephone            *string  `json:"telephone,omitempty" xml:"telephone,omitempty"`
+	// example:
+	//
+	// 锦城街道和谐社区101号
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// example:
+	//
+	// 5200.13（平方米）
+	Area *float64 `json:"area,omitempty" xml:"area,omitempty"`
+	// example:
+	//
+	// 0
+	BelongProjectGroupId *int64 `json:"belongProjectGroupId,omitempty" xml:"belongProjectGroupId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12345
+	CampusDeptId *int64 `json:"campusDeptId,omitempty" xml:"campusDeptId,omitempty"`
+	// example:
+	//
+	// 绿城未来park
+	CampusName *string `json:"campusName,omitempty" xml:"campusName,omitempty"`
+	// example:
+	//
+	// 10000
+	Capacity *int32 `json:"capacity,omitempty" xml:"capacity,omitempty"`
+	// example:
+	//
+	// 371500
+	CityId *int32 `json:"cityId,omitempty" xml:"cityId,omitempty"`
+	// example:
+	//
+	// 中国
+	Country *string `json:"country,omitempty" xml:"country,omitempty"`
+	// example:
+	//
+	// 371502
+	CountyId *int32 `json:"countyId,omitempty" xml:"countyId,omitempty"`
+	// example:
+	//
+	// 绿城产业
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// example:
+	//
+	// {"creator":"dsy"}
+	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	// example:
+	//
+	// 1655704317794
+	OrderEndTime *int64 `json:"orderEndTime,omitempty" xml:"orderEndTime,omitempty"`
+	// example:
+	//
+	// 线下付款
+	OrderInfo *int64 `json:"orderInfo,omitempty" xml:"orderInfo,omitempty"`
+	// example:
+	//
+	// 1655704317794
+	OrderStartTime *int64 `json:"orderStartTime,omitempty" xml:"orderStartTime,omitempty"`
+	// example:
+	//
+	// 370000（山东）
+	ProvId *int32 `json:"provId,omitempty" xml:"provId,omitempty"`
+	// example:
+	//
+	// 156XXXX338
+	Telephone *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
 }
 
 func (s CampusUpdateCampusRequest) String() string {
@@ -2280,9 +2954,16 @@ func (s *CampusUpdateCampusGroupHeaders) SetXAcsDingtalkAccessToken(v string) *C
 }
 
 type CampusUpdateCampusGroupRequest struct {
-	CampusProjectGroupId *int64  `json:"campusProjectGroupId,omitempty" xml:"campusProjectGroupId,omitempty"`
-	Extend               *string `json:"extend,omitempty" xml:"extend,omitempty"`
-	Name                 *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	CampusProjectGroupId *int64 `json:"campusProjectGroupId,omitempty" xml:"campusProjectGroupId,omitempty"`
+	// example:
+	//
+	// 扩展信息
+	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	// example:
+	//
+	// 绿城未来park
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CampusUpdateCampusGroupRequest) String() string {
@@ -2378,13 +3059,38 @@ func (s *CampusUpdateRenterHeaders) SetXAcsDingtalkAccessToken(v string) *Campus
 }
 
 type CampusUpdateRenterRequest struct {
+	// example:
+	//
+	// 231313
 	CreditCode *string `json:"creditCode,omitempty" xml:"creditCode,omitempty"`
-	EndTime    *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	Extend     *string `json:"extend,omitempty" xml:"extend,omitempty"`
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	RenterId   *int64  `json:"renterId,omitempty" xml:"renterId,omitempty"`
-	StartTime  *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	State      *int32  `json:"state,omitempty" xml:"state,omitempty"`
+	// example:
+	//
+	// 16123523124
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 扩展
+	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 钉钉
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12352335
+	RenterId *int64 `json:"renterId,omitempty" xml:"renterId,omitempty"`
+	// example:
+	//
+	// 2183478412
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 0
+	State *int32 `json:"state,omitempty" xml:"state,omitempty"`
 }
 
 func (s CampusUpdateRenterRequest) String() string {
@@ -2431,6 +3137,9 @@ func (s *CampusUpdateRenterRequest) SetState(v int32) *CampusUpdateRenterRequest
 }
 
 type CampusUpdateRenterResponseBody struct {
+	// example:
+	//
+	// 1001
 	RenterId *string `json:"renterId,omitempty" xml:"renterId,omitempty"`
 }
 
@@ -2500,11 +3209,30 @@ func (s *CampusUpdateRenterMemberHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type CampusUpdateRenterMemberRequest struct {
-	Extend   *string `json:"extend,omitempty" xml:"extend,omitempty"`
-	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
-	RenterId *int64  `json:"renterId,omitempty" xml:"renterId,omitempty"`
-	Type     *string `json:"type,omitempty" xml:"type,omitempty"`
-	UnionId  *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 扩展
+	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	// example:
+	//
+	// 张三组
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 41239123
+	RenterId *int64 `json:"renterId,omitempty" xml:"renterId,omitempty"`
+	// example:
+	//
+	// 1
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// fksif91273
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s CampusUpdateRenterMemberRequest) String() string {
@@ -2586,6 +3314,963 @@ func (s *CampusUpdateRenterMemberResponse) SetBody(v *CampusUpdateRenterMemberRe
 	return s
 }
 
+type ChatAIAddDatasetPermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatAIAddDatasetPermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIAddDatasetPermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIAddDatasetPermissionHeaders) SetCommonHeaders(v map[string]*string) *ChatAIAddDatasetPermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatAIAddDatasetPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *ChatAIAddDatasetPermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatAIAddDatasetPermissionRequest struct {
+	// example:
+	//
+	// user
+	AuthorizationType  *string   `json:"authorizationType,omitempty" xml:"authorizationType,omitempty"`
+	AuthorizedObjectId []*string `json:"authorizedObjectId,omitempty" xml:"authorizedObjectId,omitempty" type:"Repeated"`
+	DatasetId          *int64    `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// example:
+	//
+	// 操作人id
+	OptUser *string `json:"optUser,omitempty" xml:"optUser,omitempty"`
+}
+
+func (s ChatAIAddDatasetPermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIAddDatasetPermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIAddDatasetPermissionRequest) SetAuthorizationType(v string) *ChatAIAddDatasetPermissionRequest {
+	s.AuthorizationType = &v
+	return s
+}
+
+func (s *ChatAIAddDatasetPermissionRequest) SetAuthorizedObjectId(v []*string) *ChatAIAddDatasetPermissionRequest {
+	s.AuthorizedObjectId = v
+	return s
+}
+
+func (s *ChatAIAddDatasetPermissionRequest) SetDatasetId(v int64) *ChatAIAddDatasetPermissionRequest {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatAIAddDatasetPermissionRequest) SetOptUser(v string) *ChatAIAddDatasetPermissionRequest {
+	s.OptUser = &v
+	return s
+}
+
+type ChatAIAddDatasetPermissionResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s ChatAIAddDatasetPermissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIAddDatasetPermissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIAddDatasetPermissionResponseBody) SetResult(v bool) *ChatAIAddDatasetPermissionResponseBody {
+	s.Result = &v
+	return s
+}
+
+type ChatAIAddDatasetPermissionResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ChatAIAddDatasetPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ChatAIAddDatasetPermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIAddDatasetPermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIAddDatasetPermissionResponse) SetHeaders(v map[string]*string) *ChatAIAddDatasetPermissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatAIAddDatasetPermissionResponse) SetStatusCode(v int32) *ChatAIAddDatasetPermissionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatAIAddDatasetPermissionResponse) SetBody(v *ChatAIAddDatasetPermissionResponseBody) *ChatAIAddDatasetPermissionResponse {
+	s.Body = v
+	return s
+}
+
+type ChatAIListDatasetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatAIListDatasetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIListDatasetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIListDatasetHeaders) SetCommonHeaders(v map[string]*string) *ChatAIListDatasetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatAIListDatasetHeaders) SetXAcsDingtalkAccessToken(v string) *ChatAIListDatasetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatAIListDatasetRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+}
+
+func (s ChatAIListDatasetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIListDatasetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIListDatasetRequest) SetAppId(v int64) *ChatAIListDatasetRequest {
+	s.AppId = &v
+	return s
+}
+
+type ChatAIListDatasetResponseBody struct {
+	Result []*ChatAIListDatasetResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s ChatAIListDatasetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIListDatasetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIListDatasetResponseBody) SetResult(v []*ChatAIListDatasetResponseBodyResult) *ChatAIListDatasetResponseBody {
+	s.Result = v
+	return s
+}
+
+type ChatAIListDatasetResponseBodyResult struct {
+	DatasetDesc  *string `json:"datasetDesc,omitempty" xml:"datasetDesc,omitempty"`
+	DatasetId    *int64  `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	DatasetName  *string `json:"datasetName,omitempty" xml:"datasetName,omitempty"`
+	MemoType     *string `json:"memoType,omitempty" xml:"memoType,omitempty"`
+	ResourceType *string `json:"resourceType,omitempty" xml:"resourceType,omitempty"`
+}
+
+func (s ChatAIListDatasetResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIListDatasetResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIListDatasetResponseBodyResult) SetDatasetDesc(v string) *ChatAIListDatasetResponseBodyResult {
+	s.DatasetDesc = &v
+	return s
+}
+
+func (s *ChatAIListDatasetResponseBodyResult) SetDatasetId(v int64) *ChatAIListDatasetResponseBodyResult {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatAIListDatasetResponseBodyResult) SetDatasetName(v string) *ChatAIListDatasetResponseBodyResult {
+	s.DatasetName = &v
+	return s
+}
+
+func (s *ChatAIListDatasetResponseBodyResult) SetMemoType(v string) *ChatAIListDatasetResponseBodyResult {
+	s.MemoType = &v
+	return s
+}
+
+func (s *ChatAIListDatasetResponseBodyResult) SetResourceType(v string) *ChatAIListDatasetResponseBodyResult {
+	s.ResourceType = &v
+	return s
+}
+
+type ChatAIListDatasetResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ChatAIListDatasetResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ChatAIListDatasetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIListDatasetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIListDatasetResponse) SetHeaders(v map[string]*string) *ChatAIListDatasetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatAIListDatasetResponse) SetStatusCode(v int32) *ChatAIListDatasetResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatAIListDatasetResponse) SetBody(v *ChatAIListDatasetResponseBody) *ChatAIListDatasetResponse {
+	s.Body = v
+	return s
+}
+
+type ChatAIQueryDatasetPermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatAIQueryDatasetPermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIQueryDatasetPermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIQueryDatasetPermissionHeaders) SetCommonHeaders(v map[string]*string) *ChatAIQueryDatasetPermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatAIQueryDatasetPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *ChatAIQueryDatasetPermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatAIQueryDatasetPermissionRequest struct {
+	// example:
+	//
+	// 数据集Id
+	DatasetId *string `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+}
+
+func (s ChatAIQueryDatasetPermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIQueryDatasetPermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIQueryDatasetPermissionRequest) SetDatasetId(v string) *ChatAIQueryDatasetPermissionRequest {
+	s.DatasetId = &v
+	return s
+}
+
+type ChatAIQueryDatasetPermissionResponseBody struct {
+	PermissionInfos []*ChatAIQueryDatasetPermissionResponseBodyPermissionInfos `json:"permissionInfos,omitempty" xml:"permissionInfos,omitempty" type:"Repeated"`
+}
+
+func (s ChatAIQueryDatasetPermissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIQueryDatasetPermissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIQueryDatasetPermissionResponseBody) SetPermissionInfos(v []*ChatAIQueryDatasetPermissionResponseBodyPermissionInfos) *ChatAIQueryDatasetPermissionResponseBody {
+	s.PermissionInfos = v
+	return s
+}
+
+type ChatAIQueryDatasetPermissionResponseBodyPermissionInfos struct {
+	PermissionType   *string   `json:"permissionType,omitempty" xml:"permissionType,omitempty"`
+	PermissionValues []*string `json:"permissionValues,omitempty" xml:"permissionValues,omitempty" type:"Repeated"`
+}
+
+func (s ChatAIQueryDatasetPermissionResponseBodyPermissionInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIQueryDatasetPermissionResponseBodyPermissionInfos) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIQueryDatasetPermissionResponseBodyPermissionInfos) SetPermissionType(v string) *ChatAIQueryDatasetPermissionResponseBodyPermissionInfos {
+	s.PermissionType = &v
+	return s
+}
+
+func (s *ChatAIQueryDatasetPermissionResponseBodyPermissionInfos) SetPermissionValues(v []*string) *ChatAIQueryDatasetPermissionResponseBodyPermissionInfos {
+	s.PermissionValues = v
+	return s
+}
+
+type ChatAIQueryDatasetPermissionResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ChatAIQueryDatasetPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ChatAIQueryDatasetPermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIQueryDatasetPermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIQueryDatasetPermissionResponse) SetHeaders(v map[string]*string) *ChatAIQueryDatasetPermissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatAIQueryDatasetPermissionResponse) SetStatusCode(v int32) *ChatAIQueryDatasetPermissionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatAIQueryDatasetPermissionResponse) SetBody(v *ChatAIQueryDatasetPermissionResponseBody) *ChatAIQueryDatasetPermissionResponse {
+	s.Body = v
+	return s
+}
+
+type ChatAIRemoveDatasetPermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatAIRemoveDatasetPermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIRemoveDatasetPermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIRemoveDatasetPermissionHeaders) SetCommonHeaders(v map[string]*string) *ChatAIRemoveDatasetPermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatAIRemoveDatasetPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *ChatAIRemoveDatasetPermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatAIRemoveDatasetPermissionRequest struct {
+	// example:
+	//
+	// user
+	AuthorizationType  *string   `json:"authorizationType,omitempty" xml:"authorizationType,omitempty"`
+	AuthorizedObjectId []*string `json:"authorizedObjectId,omitempty" xml:"authorizedObjectId,omitempty" type:"Repeated"`
+	DatasetId          *int64    `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// example:
+	//
+	// 操作人id
+	OptUser *string `json:"optUser,omitempty" xml:"optUser,omitempty"`
+}
+
+func (s ChatAIRemoveDatasetPermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIRemoveDatasetPermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIRemoveDatasetPermissionRequest) SetAuthorizationType(v string) *ChatAIRemoveDatasetPermissionRequest {
+	s.AuthorizationType = &v
+	return s
+}
+
+func (s *ChatAIRemoveDatasetPermissionRequest) SetAuthorizedObjectId(v []*string) *ChatAIRemoveDatasetPermissionRequest {
+	s.AuthorizedObjectId = v
+	return s
+}
+
+func (s *ChatAIRemoveDatasetPermissionRequest) SetDatasetId(v int64) *ChatAIRemoveDatasetPermissionRequest {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatAIRemoveDatasetPermissionRequest) SetOptUser(v string) *ChatAIRemoveDatasetPermissionRequest {
+	s.OptUser = &v
+	return s
+}
+
+type ChatAIRemoveDatasetPermissionResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s ChatAIRemoveDatasetPermissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIRemoveDatasetPermissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIRemoveDatasetPermissionResponseBody) SetResult(v bool) *ChatAIRemoveDatasetPermissionResponseBody {
+	s.Result = &v
+	return s
+}
+
+type ChatAIRemoveDatasetPermissionResponse struct {
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ChatAIRemoveDatasetPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ChatAIRemoveDatasetPermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAIRemoveDatasetPermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAIRemoveDatasetPermissionResponse) SetHeaders(v map[string]*string) *ChatAIRemoveDatasetPermissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatAIRemoveDatasetPermissionResponse) SetStatusCode(v int32) *ChatAIRemoveDatasetPermissionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatAIRemoveDatasetPermissionResponse) SetBody(v *ChatAIRemoveDatasetPermissionResponseBody) *ChatAIRemoveDatasetPermissionResponse {
+	s.Body = v
+	return s
+}
+
+type ChatAITextSentimentAnalysisHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatAITextSentimentAnalysisHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAITextSentimentAnalysisHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAITextSentimentAnalysisHeaders) SetCommonHeaders(v map[string]*string) *ChatAITextSentimentAnalysisHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatAITextSentimentAnalysisHeaders) SetXAcsDingtalkAccessToken(v string) *ChatAITextSentimentAnalysisHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatAITextSentimentAnalysisRequest struct {
+	History []*string `json:"history,omitempty" xml:"history,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s ChatAITextSentimentAnalysisRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAITextSentimentAnalysisRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAITextSentimentAnalysisRequest) SetHistory(v []*string) *ChatAITextSentimentAnalysisRequest {
+	s.History = v
+	return s
+}
+
+func (s *ChatAITextSentimentAnalysisRequest) SetText(v string) *ChatAITextSentimentAnalysisRequest {
+	s.Text = &v
+	return s
+}
+
+type ChatAITextSentimentAnalysisResponseBody struct {
+	Result *ChatAITextSentimentAnalysisResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s ChatAITextSentimentAnalysisResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAITextSentimentAnalysisResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAITextSentimentAnalysisResponseBody) SetResult(v *ChatAITextSentimentAnalysisResponseBodyResult) *ChatAITextSentimentAnalysisResponseBody {
+	s.Result = v
+	return s
+}
+
+type ChatAITextSentimentAnalysisResponseBodyResult struct {
+	Sentiment *string `json:"sentiment,omitempty" xml:"sentiment,omitempty"`
+}
+
+func (s ChatAITextSentimentAnalysisResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAITextSentimentAnalysisResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAITextSentimentAnalysisResponseBodyResult) SetSentiment(v string) *ChatAITextSentimentAnalysisResponseBodyResult {
+	s.Sentiment = &v
+	return s
+}
+
+type ChatAITextSentimentAnalysisResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ChatAITextSentimentAnalysisResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ChatAITextSentimentAnalysisResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAITextSentimentAnalysisResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAITextSentimentAnalysisResponse) SetHeaders(v map[string]*string) *ChatAITextSentimentAnalysisResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatAITextSentimentAnalysisResponse) SetStatusCode(v int32) *ChatAITextSentimentAnalysisResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatAITextSentimentAnalysisResponse) SetBody(v *ChatAITextSentimentAnalysisResponseBody) *ChatAITextSentimentAnalysisResponse {
+	s.Body = v
+	return s
+}
+
+type ChatAiQueryLogsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatAiQueryLogsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAiQueryLogsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAiQueryLogsHeaders) SetCommonHeaders(v map[string]*string) *ChatAiQueryLogsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatAiQueryLogsHeaders) SetXAcsDingtalkAccessToken(v string) *ChatAiQueryLogsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatAiQueryLogsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// example:
+	//
+	// 1744124223000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 123
+	ScenceId *int64 `json:"scenceId,omitempty" xml:"scenceId,omitempty"`
+	// example:
+	//
+	// 1744124223000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s ChatAiQueryLogsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAiQueryLogsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAiQueryLogsRequest) SetAppId(v int64) *ChatAiQueryLogsRequest {
+	s.AppId = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsRequest) SetEndTime(v int64) *ChatAiQueryLogsRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsRequest) SetPageNumber(v int64) *ChatAiQueryLogsRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsRequest) SetPageSize(v int64) *ChatAiQueryLogsRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsRequest) SetScenceId(v int64) *ChatAiQueryLogsRequest {
+	s.ScenceId = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsRequest) SetStartTime(v int64) *ChatAiQueryLogsRequest {
+	s.StartTime = &v
+	return s
+}
+
+type ChatAiQueryLogsResponseBody struct {
+	Data []*ChatAiQueryLogsResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 20
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 200
+	Total *int32 `json:"total,omitempty" xml:"total,omitempty"`
+	// example:
+	//
+	// 50
+	TotalPage *int32 `json:"totalPage,omitempty" xml:"totalPage,omitempty"`
+}
+
+func (s ChatAiQueryLogsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAiQueryLogsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAiQueryLogsResponseBody) SetData(v []*ChatAiQueryLogsResponseBodyData) *ChatAiQueryLogsResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *ChatAiQueryLogsResponseBody) SetPageNumber(v int32) *ChatAiQueryLogsResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsResponseBody) SetPageSize(v int32) *ChatAiQueryLogsResponseBody {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsResponseBody) SetTotal(v int32) *ChatAiQueryLogsResponseBody {
+	s.Total = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsResponseBody) SetTotalPage(v int32) *ChatAiQueryLogsResponseBody {
+	s.TotalPage = &v
+	return s
+}
+
+type ChatAiQueryLogsResponseBodyData struct {
+	AppName           *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	ExtendInfo        *string `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
+	FeedbackState     *int32  `json:"feedbackState,omitempty" xml:"feedbackState,omitempty"`
+	FeedbackStateDesc *string `json:"feedbackStateDesc,omitempty" xml:"feedbackStateDesc,omitempty"`
+	Question          *string `json:"question,omitempty" xml:"question,omitempty"`
+	QuestionTime      *int64  `json:"questionTime,omitempty" xml:"questionTime,omitempty"`
+	Response          *string `json:"response,omitempty" xml:"response,omitempty"`
+	Runtime           *int64  `json:"runtime,omitempty" xml:"runtime,omitempty"`
+	Scene             *string `json:"scene,omitempty" xml:"scene,omitempty"`
+	SessionType       *string `json:"sessionType,omitempty" xml:"sessionType,omitempty"`
+	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserName          *string `json:"userName,omitempty" xml:"userName,omitempty"`
+}
+
+func (s ChatAiQueryLogsResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAiQueryLogsResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAiQueryLogsResponseBodyData) SetAppName(v string) *ChatAiQueryLogsResponseBodyData {
+	s.AppName = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsResponseBodyData) SetExtendInfo(v string) *ChatAiQueryLogsResponseBodyData {
+	s.ExtendInfo = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsResponseBodyData) SetFeedbackState(v int32) *ChatAiQueryLogsResponseBodyData {
+	s.FeedbackState = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsResponseBodyData) SetFeedbackStateDesc(v string) *ChatAiQueryLogsResponseBodyData {
+	s.FeedbackStateDesc = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsResponseBodyData) SetQuestion(v string) *ChatAiQueryLogsResponseBodyData {
+	s.Question = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsResponseBodyData) SetQuestionTime(v int64) *ChatAiQueryLogsResponseBodyData {
+	s.QuestionTime = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsResponseBodyData) SetResponse(v string) *ChatAiQueryLogsResponseBodyData {
+	s.Response = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsResponseBodyData) SetRuntime(v int64) *ChatAiQueryLogsResponseBodyData {
+	s.Runtime = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsResponseBodyData) SetScene(v string) *ChatAiQueryLogsResponseBodyData {
+	s.Scene = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsResponseBodyData) SetSessionType(v string) *ChatAiQueryLogsResponseBodyData {
+	s.SessionType = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsResponseBodyData) SetUserId(v string) *ChatAiQueryLogsResponseBodyData {
+	s.UserId = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsResponseBodyData) SetUserName(v string) *ChatAiQueryLogsResponseBodyData {
+	s.UserName = &v
+	return s
+}
+
+type ChatAiQueryLogsResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ChatAiQueryLogsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ChatAiQueryLogsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAiQueryLogsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAiQueryLogsResponse) SetHeaders(v map[string]*string) *ChatAiQueryLogsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatAiQueryLogsResponse) SetStatusCode(v int32) *ChatAiQueryLogsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatAiQueryLogsResponse) SetBody(v *ChatAiQueryLogsResponseBody) *ChatAiQueryLogsResponse {
+	s.Body = v
+	return s
+}
+
+type ChatAiTravelListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatAiTravelListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAiTravelListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAiTravelListHeaders) SetCommonHeaders(v map[string]*string) *ChatAiTravelListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatAiTravelListHeaders) SetXAcsDingtalkAccessToken(v string) *ChatAiTravelListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatAiTravelListRequest struct {
+	ParamList []*ChatAiTravelListRequestParamList `json:"paramList,omitempty" xml:"paramList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// qaz12345900
+	TravelId *string `json:"travelId,omitempty" xml:"travelId,omitempty"`
+}
+
+func (s ChatAiTravelListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAiTravelListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAiTravelListRequest) SetParamList(v []*ChatAiTravelListRequestParamList) *ChatAiTravelListRequest {
+	s.ParamList = v
+	return s
+}
+
+func (s *ChatAiTravelListRequest) SetTravelId(v string) *ChatAiTravelListRequest {
+	s.TravelId = &v
+	return s
+}
+
+type ChatAiTravelListRequestParamList struct {
+	// example:
+	//
+	// qaz1234567
+	ItineraryId *string `json:"itineraryId,omitempty" xml:"itineraryId,omitempty"`
+	// example:
+	//
+	// {"lineNumber":1}
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s ChatAiTravelListRequestParamList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAiTravelListRequestParamList) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAiTravelListRequestParamList) SetItineraryId(v string) *ChatAiTravelListRequestParamList {
+	s.ItineraryId = &v
+	return s
+}
+
+func (s *ChatAiTravelListRequestParamList) SetValue(v string) *ChatAiTravelListRequestParamList {
+	s.Value = &v
+	return s
+}
+
+type ChatAiTravelListResponseBody struct {
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s ChatAiTravelListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAiTravelListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAiTravelListResponseBody) SetContent(v string) *ChatAiTravelListResponseBody {
+	s.Content = &v
+	return s
+}
+
+type ChatAiTravelListResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ChatAiTravelListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ChatAiTravelListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatAiTravelListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatAiTravelListResponse) SetHeaders(v map[string]*string) *ChatAiTravelListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatAiTravelListResponse) SetStatusCode(v int32) *ChatAiTravelListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatAiTravelListResponse) SetBody(v *ChatAiTravelListResponseBody) *ChatAiTravelListResponse {
+	s.Body = v
+	return s
+}
+
 type ChatFormGetDataForApiAccessHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2610,6 +4295,7 @@ func (s *ChatFormGetDataForApiAccessHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type ChatFormGetDataForApiAccessRequest struct {
+	// This parameter is required.
 	DingTalkTraceId *string `json:"dingTalkTraceId,omitempty" xml:"dingTalkTraceId,omitempty"`
 }
 
@@ -2627,6 +4313,7 @@ func (s *ChatFormGetDataForApiAccessRequest) SetDingTalkTraceId(v string) *ChatF
 }
 
 type ChatFormGetDataForApiAccessResponseBody struct {
+	// This parameter is required.
 	Data *string `json:"data,omitempty" xml:"data,omitempty"`
 }
 
@@ -2696,12 +4383,33 @@ func (s *ChatMemoAddGeneralFileHeaders) SetXAcsDingtalkAccessToken(v string) *Ch
 }
 
 type ChatMemoAddGeneralFileRequest struct {
-	BizId       *string                                 `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	DatasetId   *int64                                  `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
-	DownloadUrl *string                                 `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
-	FileDesc    *string                                 `json:"fileDesc,omitempty" xml:"fileDesc,omitempty"`
-	FileName    *string                                 `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	TagList     []*ChatMemoAddGeneralFileRequestTagList `json:"tagList,omitempty" xml:"tagList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// aaaaa
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	DatasetId *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://xxxxxxx.com/xxxxxx
+	DownloadUrl *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	// example:
+	//
+	// 这是一个财务制度相关的文件
+	FileDesc *string `json:"fileDesc,omitempty" xml:"fileDesc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// aaa.doc
+	FileName *string                                 `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	TagList  []*ChatMemoAddGeneralFileRequestTagList `json:"tagList,omitempty" xml:"tagList,omitempty" type:"Repeated"`
 }
 
 func (s ChatMemoAddGeneralFileRequest) String() string {
@@ -2743,6 +4451,9 @@ func (s *ChatMemoAddGeneralFileRequest) SetTagList(v []*ChatMemoAddGeneralFileRe
 }
 
 type ChatMemoAddGeneralFileRequestTagList struct {
+	// example:
+	//
+	// 产品名
 	TagName      *string   `json:"tagName,omitempty" xml:"tagName,omitempty"`
 	TagValueList []*string `json:"tagValueList,omitempty" xml:"tagValueList,omitempty" type:"Repeated"`
 }
@@ -2766,7 +4477,13 @@ func (s *ChatMemoAddGeneralFileRequestTagList) SetTagValueList(v []*string) *Cha
 }
 
 type ChatMemoAddGeneralFileResponseBody struct {
-	BizId   *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// example:
+	//
+	// xxxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// example:
+	//
+	// aaaa.doc
 	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
 }
 
@@ -2817,6 +4534,339 @@ func (s *ChatMemoAddGeneralFileResponse) SetBody(v *ChatMemoAddGeneralFileRespon
 	return s
 }
 
+type ChatMemoAddKnowledgeGraphNodeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatMemoAddKnowledgeGraphNodeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoAddKnowledgeGraphNodeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoAddKnowledgeGraphNodeHeaders) SetCommonHeaders(v map[string]*string) *ChatMemoAddKnowledgeGraphNodeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatMemoAddKnowledgeGraphNodeHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMemoAddKnowledgeGraphNodeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatMemoAddKnowledgeGraphNodeRequest struct {
+	// example:
+	//
+	// xxxxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	DatasetId *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// This parameter is required.
+	NodeInfo *ChatMemoAddKnowledgeGraphNodeRequestNodeInfo `json:"nodeInfo,omitempty" xml:"nodeInfo,omitempty" type:"Struct"`
+}
+
+func (s ChatMemoAddKnowledgeGraphNodeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoAddKnowledgeGraphNodeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoAddKnowledgeGraphNodeRequest) SetBizId(v string) *ChatMemoAddKnowledgeGraphNodeRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoAddKnowledgeGraphNodeRequest) SetDatasetId(v int64) *ChatMemoAddKnowledgeGraphNodeRequest {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatMemoAddKnowledgeGraphNodeRequest) SetNodeInfo(v *ChatMemoAddKnowledgeGraphNodeRequestNodeInfo) *ChatMemoAddKnowledgeGraphNodeRequest {
+	s.NodeInfo = v
+	return s
+}
+
+type ChatMemoAddKnowledgeGraphNodeRequestNodeInfo struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 人物
+	NodeLabel *string `json:"nodeLabel,omitempty" xml:"nodeLabel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 刘备
+	NodeName *string `json:"nodeName,omitempty" xml:"nodeName,omitempty"`
+	// example:
+	//
+	// {"年龄"：43}
+	PropertiesString *string `json:"propertiesString,omitempty" xml:"propertiesString,omitempty"`
+}
+
+func (s ChatMemoAddKnowledgeGraphNodeRequestNodeInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoAddKnowledgeGraphNodeRequestNodeInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoAddKnowledgeGraphNodeRequestNodeInfo) SetNodeLabel(v string) *ChatMemoAddKnowledgeGraphNodeRequestNodeInfo {
+	s.NodeLabel = &v
+	return s
+}
+
+func (s *ChatMemoAddKnowledgeGraphNodeRequestNodeInfo) SetNodeName(v string) *ChatMemoAddKnowledgeGraphNodeRequestNodeInfo {
+	s.NodeName = &v
+	return s
+}
+
+func (s *ChatMemoAddKnowledgeGraphNodeRequestNodeInfo) SetPropertiesString(v string) *ChatMemoAddKnowledgeGraphNodeRequestNodeInfo {
+	s.PropertiesString = &v
+	return s
+}
+
+type ChatMemoAddKnowledgeGraphNodeResponseBody struct {
+	// example:
+	//
+	// xxxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// example:
+	//
+	// aaaa.doc
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+}
+
+func (s ChatMemoAddKnowledgeGraphNodeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoAddKnowledgeGraphNodeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoAddKnowledgeGraphNodeResponseBody) SetBizId(v string) *ChatMemoAddKnowledgeGraphNodeResponseBody {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoAddKnowledgeGraphNodeResponseBody) SetMediaId(v string) *ChatMemoAddKnowledgeGraphNodeResponseBody {
+	s.MediaId = &v
+	return s
+}
+
+type ChatMemoAddKnowledgeGraphNodeResponse struct {
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ChatMemoAddKnowledgeGraphNodeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ChatMemoAddKnowledgeGraphNodeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoAddKnowledgeGraphNodeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoAddKnowledgeGraphNodeResponse) SetHeaders(v map[string]*string) *ChatMemoAddKnowledgeGraphNodeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatMemoAddKnowledgeGraphNodeResponse) SetStatusCode(v int32) *ChatMemoAddKnowledgeGraphNodeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatMemoAddKnowledgeGraphNodeResponse) SetBody(v *ChatMemoAddKnowledgeGraphNodeResponseBody) *ChatMemoAddKnowledgeGraphNodeResponse {
+	s.Body = v
+	return s
+}
+
+type ChatMemoAddKnowledgeGraphRelationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatMemoAddKnowledgeGraphRelationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoAddKnowledgeGraphRelationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoAddKnowledgeGraphRelationHeaders) SetCommonHeaders(v map[string]*string) *ChatMemoAddKnowledgeGraphRelationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatMemoAddKnowledgeGraphRelationHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMemoAddKnowledgeGraphRelationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatMemoAddKnowledgeGraphRelationRequest struct {
+	// example:
+	//
+	// xxxxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	DatasetId *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// This parameter is required.
+	RelationInfo *ChatMemoAddKnowledgeGraphRelationRequestRelationInfo `json:"relationInfo,omitempty" xml:"relationInfo,omitempty" type:"Struct"`
+}
+
+func (s ChatMemoAddKnowledgeGraphRelationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoAddKnowledgeGraphRelationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoAddKnowledgeGraphRelationRequest) SetBizId(v string) *ChatMemoAddKnowledgeGraphRelationRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoAddKnowledgeGraphRelationRequest) SetDatasetId(v int64) *ChatMemoAddKnowledgeGraphRelationRequest {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatMemoAddKnowledgeGraphRelationRequest) SetRelationInfo(v *ChatMemoAddKnowledgeGraphRelationRequestRelationInfo) *ChatMemoAddKnowledgeGraphRelationRequest {
+	s.RelationInfo = v
+	return s
+}
+
+type ChatMemoAddKnowledgeGraphRelationRequestRelationInfo struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
+	EndId *string `json:"endId,omitempty" xml:"endId,omitempty"`
+	// example:
+	//
+	// {"年龄"：43}
+	PropertiesString *string `json:"propertiesString,omitempty" xml:"propertiesString,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 出生于
+	RelationName *string `json:"relationName,omitempty" xml:"relationName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxxx
+	StartId *string `json:"startId,omitempty" xml:"startId,omitempty"`
+}
+
+func (s ChatMemoAddKnowledgeGraphRelationRequestRelationInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoAddKnowledgeGraphRelationRequestRelationInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoAddKnowledgeGraphRelationRequestRelationInfo) SetEndId(v string) *ChatMemoAddKnowledgeGraphRelationRequestRelationInfo {
+	s.EndId = &v
+	return s
+}
+
+func (s *ChatMemoAddKnowledgeGraphRelationRequestRelationInfo) SetPropertiesString(v string) *ChatMemoAddKnowledgeGraphRelationRequestRelationInfo {
+	s.PropertiesString = &v
+	return s
+}
+
+func (s *ChatMemoAddKnowledgeGraphRelationRequestRelationInfo) SetRelationName(v string) *ChatMemoAddKnowledgeGraphRelationRequestRelationInfo {
+	s.RelationName = &v
+	return s
+}
+
+func (s *ChatMemoAddKnowledgeGraphRelationRequestRelationInfo) SetStartId(v string) *ChatMemoAddKnowledgeGraphRelationRequestRelationInfo {
+	s.StartId = &v
+	return s
+}
+
+type ChatMemoAddKnowledgeGraphRelationResponseBody struct {
+	// example:
+	//
+	// xxxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// example:
+	//
+	// aaaa.doc
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+}
+
+func (s ChatMemoAddKnowledgeGraphRelationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoAddKnowledgeGraphRelationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoAddKnowledgeGraphRelationResponseBody) SetBizId(v string) *ChatMemoAddKnowledgeGraphRelationResponseBody {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoAddKnowledgeGraphRelationResponseBody) SetMediaId(v string) *ChatMemoAddKnowledgeGraphRelationResponseBody {
+	s.MediaId = &v
+	return s
+}
+
+type ChatMemoAddKnowledgeGraphRelationResponse struct {
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ChatMemoAddKnowledgeGraphRelationResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ChatMemoAddKnowledgeGraphRelationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoAddKnowledgeGraphRelationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoAddKnowledgeGraphRelationResponse) SetHeaders(v map[string]*string) *ChatMemoAddKnowledgeGraphRelationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatMemoAddKnowledgeGraphRelationResponse) SetStatusCode(v int32) *ChatMemoAddKnowledgeGraphRelationResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatMemoAddKnowledgeGraphRelationResponse) SetBody(v *ChatMemoAddKnowledgeGraphRelationResponseBody) *ChatMemoAddKnowledgeGraphRelationResponse {
+	s.Body = v
+	return s
+}
+
 type ChatMemoDeleteGeneralFileHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2841,8 +4891,18 @@ func (s *ChatMemoDeleteGeneralFileHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type ChatMemoDeleteGeneralFileRequest struct {
-	DatasetId *int64  `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
-	MediaId   *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	DatasetId *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// aaaa.doc
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
 }
 
 func (s ChatMemoDeleteGeneralFileRequest) String() string {
@@ -2864,6 +4924,9 @@ func (s *ChatMemoDeleteGeneralFileRequest) SetMediaId(v string) *ChatMemoDeleteG
 }
 
 type ChatMemoDeleteGeneralFileResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -2909,6 +4972,246 @@ func (s *ChatMemoDeleteGeneralFileResponse) SetBody(v *ChatMemoDeleteGeneralFile
 	return s
 }
 
+type ChatMemoDeleteKnowledgeGraphNodeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatMemoDeleteKnowledgeGraphNodeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoDeleteKnowledgeGraphNodeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphNodeHeaders) SetCommonHeaders(v map[string]*string) *ChatMemoDeleteKnowledgeGraphNodeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphNodeHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMemoDeleteKnowledgeGraphNodeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatMemoDeleteKnowledgeGraphNodeRequest struct {
+	// example:
+	//
+	// xxxxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	DatasetId *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxxx
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+}
+
+func (s ChatMemoDeleteKnowledgeGraphNodeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoDeleteKnowledgeGraphNodeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphNodeRequest) SetBizId(v string) *ChatMemoDeleteKnowledgeGraphNodeRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphNodeRequest) SetDatasetId(v int64) *ChatMemoDeleteKnowledgeGraphNodeRequest {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphNodeRequest) SetMediaId(v string) *ChatMemoDeleteKnowledgeGraphNodeRequest {
+	s.MediaId = &v
+	return s
+}
+
+type ChatMemoDeleteKnowledgeGraphNodeResponseBody struct {
+	// example:
+	//
+	// xxxxx
+	BizId   *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ChatMemoDeleteKnowledgeGraphNodeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoDeleteKnowledgeGraphNodeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphNodeResponseBody) SetBizId(v string) *ChatMemoDeleteKnowledgeGraphNodeResponseBody {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphNodeResponseBody) SetSuccess(v bool) *ChatMemoDeleteKnowledgeGraphNodeResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ChatMemoDeleteKnowledgeGraphNodeResponse struct {
+	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ChatMemoDeleteKnowledgeGraphNodeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ChatMemoDeleteKnowledgeGraphNodeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoDeleteKnowledgeGraphNodeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphNodeResponse) SetHeaders(v map[string]*string) *ChatMemoDeleteKnowledgeGraphNodeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphNodeResponse) SetStatusCode(v int32) *ChatMemoDeleteKnowledgeGraphNodeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphNodeResponse) SetBody(v *ChatMemoDeleteKnowledgeGraphNodeResponseBody) *ChatMemoDeleteKnowledgeGraphNodeResponse {
+	s.Body = v
+	return s
+}
+
+type ChatMemoDeleteKnowledgeGraphRelationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatMemoDeleteKnowledgeGraphRelationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoDeleteKnowledgeGraphRelationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphRelationHeaders) SetCommonHeaders(v map[string]*string) *ChatMemoDeleteKnowledgeGraphRelationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphRelationHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMemoDeleteKnowledgeGraphRelationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatMemoDeleteKnowledgeGraphRelationRequest struct {
+	// example:
+	//
+	// xxxxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	DatasetId *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxxx
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+}
+
+func (s ChatMemoDeleteKnowledgeGraphRelationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoDeleteKnowledgeGraphRelationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphRelationRequest) SetBizId(v string) *ChatMemoDeleteKnowledgeGraphRelationRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphRelationRequest) SetDatasetId(v int64) *ChatMemoDeleteKnowledgeGraphRelationRequest {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphRelationRequest) SetMediaId(v string) *ChatMemoDeleteKnowledgeGraphRelationRequest {
+	s.MediaId = &v
+	return s
+}
+
+type ChatMemoDeleteKnowledgeGraphRelationResponseBody struct {
+	// example:
+	//
+	// xxxxx
+	BizId   *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ChatMemoDeleteKnowledgeGraphRelationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoDeleteKnowledgeGraphRelationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphRelationResponseBody) SetBizId(v string) *ChatMemoDeleteKnowledgeGraphRelationResponseBody {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphRelationResponseBody) SetSuccess(v bool) *ChatMemoDeleteKnowledgeGraphRelationResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ChatMemoDeleteKnowledgeGraphRelationResponse struct {
+	Headers    map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ChatMemoDeleteKnowledgeGraphRelationResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ChatMemoDeleteKnowledgeGraphRelationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoDeleteKnowledgeGraphRelationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphRelationResponse) SetHeaders(v map[string]*string) *ChatMemoDeleteKnowledgeGraphRelationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphRelationResponse) SetStatusCode(v int32) *ChatMemoDeleteKnowledgeGraphRelationResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatMemoDeleteKnowledgeGraphRelationResponse) SetBody(v *ChatMemoDeleteKnowledgeGraphRelationResponseBody) *ChatMemoDeleteKnowledgeGraphRelationResponse {
+	s.Body = v
+	return s
+}
+
 type ChatMemoFaqAddHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2933,10 +5236,31 @@ func (s *ChatMemoFaqAddHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMemoFa
 }
 
 type ChatMemoFaqAddRequest struct {
-	Answer      *string `json:"answer,omitempty" xml:"answer,omitempty"`
-	BizId       *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	DatasetId   *int64  `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
-	Question    *string `json:"question,omitempty" xml:"question,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 办公室的电话是：13222333232
+	Answer *string `json:"answer,omitempty" xml:"answer,omitempty"`
+	// example:
+	//
+	// aaaaa
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	DatasetId *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 办公室的电话是多少
+	Question *string `json:"question,omitempty" xml:"question,omitempty"`
+	// example:
+	//
+	// https://xxxxxxx.com/xxxxxx
 	Redirection *string `json:"redirection,omitempty" xml:"redirection,omitempty"`
 }
 
@@ -2974,7 +5298,13 @@ func (s *ChatMemoFaqAddRequest) SetRedirection(v string) *ChatMemoFaqAddRequest 
 }
 
 type ChatMemoFaqAddResponseBody struct {
-	BizId   *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// example:
+	//
+	// xxxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// example:
+	//
+	// aaaa.doc
 	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
 }
 
@@ -3049,8 +5379,18 @@ func (s *ChatMemoFaqDeleteHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMem
 }
 
 type ChatMemoFaqDeleteRequest struct {
-	DatasetId *int64  `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
-	MediaId   *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	DatasetId *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// aaaa
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
 }
 
 func (s ChatMemoFaqDeleteRequest) String() string {
@@ -3072,6 +5412,9 @@ func (s *ChatMemoFaqDeleteRequest) SetMediaId(v string) *ChatMemoFaqDeleteReques
 }
 
 type ChatMemoFaqDeleteResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3141,9 +5484,24 @@ func (s *ChatMemoFaqListHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMemoF
 }
 
 type ChatMemoFaqListRequest struct {
-	DatasetId  *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	DatasetId *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s ChatMemoFaqListRequest) String() string {
@@ -3170,11 +5528,23 @@ func (s *ChatMemoFaqListRequest) SetPageSize(v int64) *ChatMemoFaqListRequest {
 }
 
 type ChatMemoFaqListResponseBody struct {
-	Data       []*ChatMemoFaqListResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	PageNumber *int32                             `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32                             `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	Total      *int32                             `json:"total,omitempty" xml:"total,omitempty"`
-	TotalPage  *int32                             `json:"totalPage,omitempty" xml:"totalPage,omitempty"`
+	Data []*ChatMemoFaqListResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 20
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 200
+	Total *int32 `json:"total,omitempty" xml:"total,omitempty"`
+	// example:
+	//
+	// 50
+	TotalPage *int32 `json:"totalPage,omitempty" xml:"totalPage,omitempty"`
 }
 
 func (s ChatMemoFaqListResponseBody) String() string {
@@ -3211,10 +5581,25 @@ func (s *ChatMemoFaqListResponseBody) SetTotalPage(v int32) *ChatMemoFaqListResp
 }
 
 type ChatMemoFaqListResponseBodyData struct {
-	Answer      *string `json:"answer,omitempty" xml:"answer,omitempty"`
-	BizId       *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	MediaId     *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	Question    *string `json:"question,omitempty" xml:"question,omitempty"`
+	// example:
+	//
+	// 办公室电话是：13223333233
+	Answer *string `json:"answer,omitempty" xml:"answer,omitempty"`
+	// example:
+	//
+	// xxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// example:
+	//
+	// yyyyyy-aaaaaa-bbbbb-cccccccccc.docx
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// example:
+	//
+	// 办公室电话是多少
+	Question *string `json:"question,omitempty" xml:"question,omitempty"`
+	// example:
+	//
+	// http://www.dingtalk.com/
 	Redirection *string `json:"redirection,omitempty" xml:"redirection,omitempty"`
 }
 
@@ -3304,9 +5689,24 @@ func (s *ChatMemoGetFileListHeaders) SetXAcsDingtalkAccessToken(v string) *ChatM
 }
 
 type ChatMemoGetFileListRequest struct {
-	DatasetId  *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	DatasetId *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s ChatMemoGetFileListRequest) String() string {
@@ -3333,11 +5733,23 @@ func (s *ChatMemoGetFileListRequest) SetPageSize(v int64) *ChatMemoGetFileListRe
 }
 
 type ChatMemoGetFileListResponseBody struct {
-	Data       []*ChatMemoGetFileListResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	PageNumber *int32                                 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32                                 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	Total      *int32                                 `json:"total,omitempty" xml:"total,omitempty"`
-	TotalPage  *int32                                 `json:"totalPage,omitempty" xml:"totalPage,omitempty"`
+	Data []*ChatMemoGetFileListResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 20
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 200
+	Total *int32 `json:"total,omitempty" xml:"total,omitempty"`
+	// example:
+	//
+	// 50
+	TotalPage *int32 `json:"totalPage,omitempty" xml:"totalPage,omitempty"`
 }
 
 func (s ChatMemoGetFileListResponseBody) String() string {
@@ -3374,11 +5786,23 @@ func (s *ChatMemoGetFileListResponseBody) SetTotalPage(v int32) *ChatMemoGetFile
 }
 
 type ChatMemoGetFileListResponseBodyData struct {
-	BizId    *string              `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	FileDesc *string              `json:"fileDesc,omitempty" xml:"fileDesc,omitempty"`
-	FileName *string              `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	MediaId  *string              `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	TagMap   map[string][]*string `json:"tagMap,omitempty" xml:"tagMap,omitempty"`
+	// example:
+	//
+	// xxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// example:
+	//
+	// 财务制度文件
+	FileDesc *string `json:"fileDesc,omitempty" xml:"fileDesc,omitempty"`
+	// example:
+	//
+	// aaaaa.doc
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// example:
+	//
+	// yyyyyy-aaaaaa-bbbbb-cccccccccc.docx
+	MediaId *string              `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	TagMap  map[string][]*string `json:"tagMap,omitempty" xml:"tagMap,omitempty"`
 }
 
 func (s ChatMemoGetFileListResponseBodyData) String() string {
@@ -3467,8 +5891,18 @@ func (s *ChatMemoGetFileStatusHeaders) SetXAcsDingtalkAccessToken(v string) *Cha
 }
 
 type ChatMemoGetFileStatusRequest struct {
-	DatasetId *int64  `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
-	MediaId   *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	DatasetId *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// aaaa.doc
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
 }
 
 func (s ChatMemoGetFileStatusRequest) String() string {
@@ -3490,7 +5924,13 @@ func (s *ChatMemoGetFileStatusRequest) SetMediaId(v string) *ChatMemoGetFileStat
 }
 
 type ChatMemoGetFileStatusResponseBody struct {
-	Status     *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// -1
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 待处理
 	StatusDesc *string `json:"statusDesc,omitempty" xml:"statusDesc,omitempty"`
 }
 
@@ -3541,6 +5981,653 @@ func (s *ChatMemoGetFileStatusResponse) SetBody(v *ChatMemoGetFileStatusResponse
 	return s
 }
 
+type ChatMemoQueryKnowledgeGraphNodeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatMemoQueryKnowledgeGraphNodeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoQueryKnowledgeGraphNodeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoQueryKnowledgeGraphNodeHeaders) SetCommonHeaders(v map[string]*string) *ChatMemoQueryKnowledgeGraphNodeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphNodeHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMemoQueryKnowledgeGraphNodeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatMemoQueryKnowledgeGraphNodeRequest struct {
+	// example:
+	//
+	// xxxxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	DatasetId *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxxx
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+}
+
+func (s ChatMemoQueryKnowledgeGraphNodeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoQueryKnowledgeGraphNodeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoQueryKnowledgeGraphNodeRequest) SetBizId(v string) *ChatMemoQueryKnowledgeGraphNodeRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphNodeRequest) SetDatasetId(v int64) *ChatMemoQueryKnowledgeGraphNodeRequest {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphNodeRequest) SetMediaId(v string) *ChatMemoQueryKnowledgeGraphNodeRequest {
+	s.MediaId = &v
+	return s
+}
+
+type ChatMemoQueryKnowledgeGraphNodeResponseBody struct {
+	// example:
+	//
+	// xxxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	NodeInfo *ChatMemoQueryKnowledgeGraphNodeResponseBodyNodeInfo `json:"nodeInfo,omitempty" xml:"nodeInfo,omitempty" type:"Struct"`
+}
+
+func (s ChatMemoQueryKnowledgeGraphNodeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoQueryKnowledgeGraphNodeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoQueryKnowledgeGraphNodeResponseBody) SetBizId(v string) *ChatMemoQueryKnowledgeGraphNodeResponseBody {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphNodeResponseBody) SetNodeInfo(v *ChatMemoQueryKnowledgeGraphNodeResponseBodyNodeInfo) *ChatMemoQueryKnowledgeGraphNodeResponseBody {
+	s.NodeInfo = v
+	return s
+}
+
+type ChatMemoQueryKnowledgeGraphNodeResponseBodyNodeInfo struct {
+	// example:
+	//
+	// xxxxxx
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 人物
+	NodeLabel *string `json:"nodeLabel,omitempty" xml:"nodeLabel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 刘备
+	NodeName *string `json:"nodeName,omitempty" xml:"nodeName,omitempty"`
+	// example:
+	//
+	// {"年龄"：43}
+	PropertiesString *string `json:"propertiesString,omitempty" xml:"propertiesString,omitempty"`
+}
+
+func (s ChatMemoQueryKnowledgeGraphNodeResponseBodyNodeInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoQueryKnowledgeGraphNodeResponseBodyNodeInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoQueryKnowledgeGraphNodeResponseBodyNodeInfo) SetMediaId(v string) *ChatMemoQueryKnowledgeGraphNodeResponseBodyNodeInfo {
+	s.MediaId = &v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphNodeResponseBodyNodeInfo) SetNodeLabel(v string) *ChatMemoQueryKnowledgeGraphNodeResponseBodyNodeInfo {
+	s.NodeLabel = &v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphNodeResponseBodyNodeInfo) SetNodeName(v string) *ChatMemoQueryKnowledgeGraphNodeResponseBodyNodeInfo {
+	s.NodeName = &v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphNodeResponseBodyNodeInfo) SetPropertiesString(v string) *ChatMemoQueryKnowledgeGraphNodeResponseBodyNodeInfo {
+	s.PropertiesString = &v
+	return s
+}
+
+type ChatMemoQueryKnowledgeGraphNodeResponse struct {
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ChatMemoQueryKnowledgeGraphNodeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ChatMemoQueryKnowledgeGraphNodeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoQueryKnowledgeGraphNodeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoQueryKnowledgeGraphNodeResponse) SetHeaders(v map[string]*string) *ChatMemoQueryKnowledgeGraphNodeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphNodeResponse) SetStatusCode(v int32) *ChatMemoQueryKnowledgeGraphNodeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphNodeResponse) SetBody(v *ChatMemoQueryKnowledgeGraphNodeResponseBody) *ChatMemoQueryKnowledgeGraphNodeResponse {
+	s.Body = v
+	return s
+}
+
+type ChatMemoQueryKnowledgeGraphRelationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatMemoQueryKnowledgeGraphRelationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoQueryKnowledgeGraphRelationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoQueryKnowledgeGraphRelationHeaders) SetCommonHeaders(v map[string]*string) *ChatMemoQueryKnowledgeGraphRelationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphRelationHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMemoQueryKnowledgeGraphRelationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatMemoQueryKnowledgeGraphRelationRequest struct {
+	// example:
+	//
+	// xxxxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	DatasetId *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxxx
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+}
+
+func (s ChatMemoQueryKnowledgeGraphRelationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoQueryKnowledgeGraphRelationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoQueryKnowledgeGraphRelationRequest) SetBizId(v string) *ChatMemoQueryKnowledgeGraphRelationRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphRelationRequest) SetDatasetId(v int64) *ChatMemoQueryKnowledgeGraphRelationRequest {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphRelationRequest) SetMediaId(v string) *ChatMemoQueryKnowledgeGraphRelationRequest {
+	s.MediaId = &v
+	return s
+}
+
+type ChatMemoQueryKnowledgeGraphRelationResponseBody struct {
+	// example:
+	//
+	// xxxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	RelationInfo *ChatMemoQueryKnowledgeGraphRelationResponseBodyRelationInfo `json:"relationInfo,omitempty" xml:"relationInfo,omitempty" type:"Struct"`
+}
+
+func (s ChatMemoQueryKnowledgeGraphRelationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoQueryKnowledgeGraphRelationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoQueryKnowledgeGraphRelationResponseBody) SetBizId(v string) *ChatMemoQueryKnowledgeGraphRelationResponseBody {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphRelationResponseBody) SetRelationInfo(v *ChatMemoQueryKnowledgeGraphRelationResponseBodyRelationInfo) *ChatMemoQueryKnowledgeGraphRelationResponseBody {
+	s.RelationInfo = v
+	return s
+}
+
+type ChatMemoQueryKnowledgeGraphRelationResponseBodyRelationInfo struct {
+	// example:
+	//
+	// xxxx
+	EndId *string `json:"endId,omitempty" xml:"endId,omitempty"`
+	// example:
+	//
+	// xxxxxx
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// example:
+	//
+	// {"年龄"：43}
+	PropertiesString *string `json:"propertiesString,omitempty" xml:"propertiesString,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 出生于
+	RelationName *string `json:"relationName,omitempty" xml:"relationName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
+	StartId *string `json:"startId,omitempty" xml:"startId,omitempty"`
+}
+
+func (s ChatMemoQueryKnowledgeGraphRelationResponseBodyRelationInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoQueryKnowledgeGraphRelationResponseBodyRelationInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoQueryKnowledgeGraphRelationResponseBodyRelationInfo) SetEndId(v string) *ChatMemoQueryKnowledgeGraphRelationResponseBodyRelationInfo {
+	s.EndId = &v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphRelationResponseBodyRelationInfo) SetMediaId(v string) *ChatMemoQueryKnowledgeGraphRelationResponseBodyRelationInfo {
+	s.MediaId = &v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphRelationResponseBodyRelationInfo) SetPropertiesString(v string) *ChatMemoQueryKnowledgeGraphRelationResponseBodyRelationInfo {
+	s.PropertiesString = &v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphRelationResponseBodyRelationInfo) SetRelationName(v string) *ChatMemoQueryKnowledgeGraphRelationResponseBodyRelationInfo {
+	s.RelationName = &v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphRelationResponseBodyRelationInfo) SetStartId(v string) *ChatMemoQueryKnowledgeGraphRelationResponseBodyRelationInfo {
+	s.StartId = &v
+	return s
+}
+
+type ChatMemoQueryKnowledgeGraphRelationResponse struct {
+	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ChatMemoQueryKnowledgeGraphRelationResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ChatMemoQueryKnowledgeGraphRelationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoQueryKnowledgeGraphRelationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoQueryKnowledgeGraphRelationResponse) SetHeaders(v map[string]*string) *ChatMemoQueryKnowledgeGraphRelationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphRelationResponse) SetStatusCode(v int32) *ChatMemoQueryKnowledgeGraphRelationResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatMemoQueryKnowledgeGraphRelationResponse) SetBody(v *ChatMemoQueryKnowledgeGraphRelationResponseBody) *ChatMemoQueryKnowledgeGraphRelationResponse {
+	s.Body = v
+	return s
+}
+
+type ChatMemoUpdateKnowledgeGraphNodeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatMemoUpdateKnowledgeGraphNodeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoUpdateKnowledgeGraphNodeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphNodeHeaders) SetCommonHeaders(v map[string]*string) *ChatMemoUpdateKnowledgeGraphNodeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphNodeHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMemoUpdateKnowledgeGraphNodeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatMemoUpdateKnowledgeGraphNodeRequest struct {
+	// example:
+	//
+	// xxxxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	DatasetId *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// This parameter is required.
+	NodeInfo *ChatMemoUpdateKnowledgeGraphNodeRequestNodeInfo `json:"nodeInfo,omitempty" xml:"nodeInfo,omitempty" type:"Struct"`
+}
+
+func (s ChatMemoUpdateKnowledgeGraphNodeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoUpdateKnowledgeGraphNodeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphNodeRequest) SetBizId(v string) *ChatMemoUpdateKnowledgeGraphNodeRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphNodeRequest) SetDatasetId(v int64) *ChatMemoUpdateKnowledgeGraphNodeRequest {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphNodeRequest) SetNodeInfo(v *ChatMemoUpdateKnowledgeGraphNodeRequestNodeInfo) *ChatMemoUpdateKnowledgeGraphNodeRequest {
+	s.NodeInfo = v
+	return s
+}
+
+type ChatMemoUpdateKnowledgeGraphNodeRequestNodeInfo struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxxxxx
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// example:
+	//
+	// {"年龄"：43}
+	PropertiesString *string `json:"propertiesString,omitempty" xml:"propertiesString,omitempty"`
+}
+
+func (s ChatMemoUpdateKnowledgeGraphNodeRequestNodeInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoUpdateKnowledgeGraphNodeRequestNodeInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphNodeRequestNodeInfo) SetMediaId(v string) *ChatMemoUpdateKnowledgeGraphNodeRequestNodeInfo {
+	s.MediaId = &v
+	return s
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphNodeRequestNodeInfo) SetPropertiesString(v string) *ChatMemoUpdateKnowledgeGraphNodeRequestNodeInfo {
+	s.PropertiesString = &v
+	return s
+}
+
+type ChatMemoUpdateKnowledgeGraphNodeResponseBody struct {
+	// example:
+	//
+	// xxxxx
+	BizId   *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ChatMemoUpdateKnowledgeGraphNodeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoUpdateKnowledgeGraphNodeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphNodeResponseBody) SetBizId(v string) *ChatMemoUpdateKnowledgeGraphNodeResponseBody {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphNodeResponseBody) SetSuccess(v bool) *ChatMemoUpdateKnowledgeGraphNodeResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ChatMemoUpdateKnowledgeGraphNodeResponse struct {
+	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ChatMemoUpdateKnowledgeGraphNodeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ChatMemoUpdateKnowledgeGraphNodeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoUpdateKnowledgeGraphNodeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphNodeResponse) SetHeaders(v map[string]*string) *ChatMemoUpdateKnowledgeGraphNodeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphNodeResponse) SetStatusCode(v int32) *ChatMemoUpdateKnowledgeGraphNodeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphNodeResponse) SetBody(v *ChatMemoUpdateKnowledgeGraphNodeResponseBody) *ChatMemoUpdateKnowledgeGraphNodeResponse {
+	s.Body = v
+	return s
+}
+
+type ChatMemoUpdateKnowledgeGraphRelationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChatMemoUpdateKnowledgeGraphRelationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoUpdateKnowledgeGraphRelationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphRelationHeaders) SetCommonHeaders(v map[string]*string) *ChatMemoUpdateKnowledgeGraphRelationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphRelationHeaders) SetXAcsDingtalkAccessToken(v string) *ChatMemoUpdateKnowledgeGraphRelationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChatMemoUpdateKnowledgeGraphRelationRequest struct {
+	// example:
+	//
+	// xxxxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	DatasetId *int64 `json:"datasetId,omitempty" xml:"datasetId,omitempty"`
+	// This parameter is required.
+	RelationInfo *ChatMemoUpdateKnowledgeGraphRelationRequestRelationInfo `json:"relationInfo,omitempty" xml:"relationInfo,omitempty" type:"Struct"`
+}
+
+func (s ChatMemoUpdateKnowledgeGraphRelationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoUpdateKnowledgeGraphRelationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphRelationRequest) SetBizId(v string) *ChatMemoUpdateKnowledgeGraphRelationRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphRelationRequest) SetDatasetId(v int64) *ChatMemoUpdateKnowledgeGraphRelationRequest {
+	s.DatasetId = &v
+	return s
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphRelationRequest) SetRelationInfo(v *ChatMemoUpdateKnowledgeGraphRelationRequestRelationInfo) *ChatMemoUpdateKnowledgeGraphRelationRequest {
+	s.RelationInfo = v
+	return s
+}
+
+type ChatMemoUpdateKnowledgeGraphRelationRequestRelationInfo struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxxx
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// example:
+	//
+	// {"年龄"：43}
+	PropertiesString *string `json:"propertiesString,omitempty" xml:"propertiesString,omitempty"`
+}
+
+func (s ChatMemoUpdateKnowledgeGraphRelationRequestRelationInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoUpdateKnowledgeGraphRelationRequestRelationInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphRelationRequestRelationInfo) SetMediaId(v string) *ChatMemoUpdateKnowledgeGraphRelationRequestRelationInfo {
+	s.MediaId = &v
+	return s
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphRelationRequestRelationInfo) SetPropertiesString(v string) *ChatMemoUpdateKnowledgeGraphRelationRequestRelationInfo {
+	s.PropertiesString = &v
+	return s
+}
+
+type ChatMemoUpdateKnowledgeGraphRelationResponseBody struct {
+	// example:
+	//
+	// xxxxx
+	BizId   *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ChatMemoUpdateKnowledgeGraphRelationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoUpdateKnowledgeGraphRelationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphRelationResponseBody) SetBizId(v string) *ChatMemoUpdateKnowledgeGraphRelationResponseBody {
+	s.BizId = &v
+	return s
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphRelationResponseBody) SetSuccess(v bool) *ChatMemoUpdateKnowledgeGraphRelationResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ChatMemoUpdateKnowledgeGraphRelationResponse struct {
+	Headers    map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ChatMemoUpdateKnowledgeGraphRelationResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ChatMemoUpdateKnowledgeGraphRelationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChatMemoUpdateKnowledgeGraphRelationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphRelationResponse) SetHeaders(v map[string]*string) *ChatMemoUpdateKnowledgeGraphRelationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphRelationResponse) SetStatusCode(v int32) *ChatMemoUpdateKnowledgeGraphRelationResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChatMemoUpdateKnowledgeGraphRelationResponse) SetBody(v *ChatMemoUpdateKnowledgeGraphRelationResponseBody) *ChatMemoUpdateKnowledgeGraphRelationResponse {
+	s.Body = v
+	return s
+}
+
 type CollegeActiveCollegeDeptGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3565,6 +6652,11 @@ func (s *CollegeActiveCollegeDeptGroupHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type CollegeActiveCollegeDeptGroupRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11111
 	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
@@ -3582,6 +6674,9 @@ func (s *CollegeActiveCollegeDeptGroupRequest) SetDeptId(v int64) *CollegeActive
 }
 
 type CollegeActiveCollegeDeptGroupResponseBody struct {
+	// example:
+	//
+	// 0134124
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -3651,10 +6746,30 @@ func (s *CollegeAddCollegeDeptHeaders) SetXAcsDingtalkAccessToken(v string) *Col
 }
 
 type CollegeAddCollegeDeptRequest struct {
-	DeptName   *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	DeptType   *string `json:"deptType,omitempty" xml:"deptType,omitempty"`
-	SortFactor *int64  `json:"sortFactor,omitempty" xml:"sortFactor,omitempty"`
-	SuperId    *int64  `json:"superId,omitempty" xml:"superId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 三年二班
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// class
+	DeptType *string `json:"deptType,omitempty" xml:"deptType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	SortFactor *int64 `json:"sortFactor,omitempty" xml:"sortFactor,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 22222
+	SuperId *int64 `json:"superId,omitempty" xml:"superId,omitempty"`
 }
 
 func (s CollegeAddCollegeDeptRequest) String() string {
@@ -3686,6 +6801,9 @@ func (s *CollegeAddCollegeDeptRequest) SetSuperId(v int64) *CollegeAddCollegeDep
 }
 
 type CollegeAddCollegeDeptResponseBody struct {
+	// example:
+	//
+	// 123123
 	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
@@ -3755,7 +6873,17 @@ func (s *CollegeAddManagerHeaders) SetXAcsDingtalkAccessToken(v string) *College
 }
 
 type CollegeAddManagerRequest struct {
-	DeptId *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11111
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12525
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -3778,6 +6906,9 @@ func (s *CollegeAddManagerRequest) SetUserId(v string) *CollegeAddManagerRequest
 }
 
 type CollegeAddManagerResponseBody struct {
+	// example:
+	//
+	// true
 	IsSuccessful *bool `json:"isSuccessful,omitempty" xml:"isSuccessful,omitempty"`
 }
 
@@ -3847,15 +6978,50 @@ func (s *CollegeAddStudentHeaders) SetXAcsDingtalkAccessToken(v string) *College
 }
 
 type CollegeAddStudentRequest struct {
-	DeptId        *int64             `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	EmpExtension  map[string]*string `json:"empExtension,omitempty" xml:"empExtension,omitempty"`
-	Gender        *string            `json:"gender,omitempty" xml:"gender,omitempty"`
-	IdentifyId    *string            `json:"identifyId,omitempty" xml:"identifyId,omitempty"`
-	Mobile        *string            `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	StartYear     *string            `json:"startYear,omitempty" xml:"startYear,omitempty"`
-	StudentName   *string            `json:"studentName,omitempty" xml:"studentName,omitempty"`
-	StudentNumber *string            `json:"studentNumber,omitempty" xml:"studentNumber,omitempty"`
-	UserId        *string            `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 6235234
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// ”city“:"Beijing"
+	EmpExtension map[string]*string `json:"empExtension,omitempty" xml:"empExtension,omitempty"`
+	// example:
+	//
+	// male
+	Gender *string `json:"gender,omitempty" xml:"gender,omitempty"`
+	// example:
+	//
+	// 11019xxxxxx0001
+	IdentifyId *string `json:"identifyId,omitempty" xml:"identifyId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 186xxxxxxxx
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// example:
+	//
+	// 2015
+	StartYear *string `json:"startYear,omitempty" xml:"startYear,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三
+	StudentName *string `json:"studentName,omitempty" xml:"studentName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// mf1922051
+	StudentNumber *string `json:"studentNumber,omitempty" xml:"studentNumber,omitempty"`
+	// example:
+	//
+	// 0324124
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CollegeAddStudentRequest) String() string {
@@ -3912,11 +7078,26 @@ func (s *CollegeAddStudentRequest) SetUserId(v string) *CollegeAddStudentRequest
 }
 
 type CollegeAddStudentResponseBody struct {
+	// example:
+	//
+	// NORMAL
 	DingMemberStatus *string `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
-	IsActive         *bool   `json:"isActive,omitempty" xml:"isActive,omitempty"`
-	StudentId        *int64  `json:"studentId,omitempty" xml:"studentId,omitempty"`
-	UnionId          *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId           *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// true
+	IsActive *bool `json:"isActive,omitempty" xml:"isActive,omitempty"`
+	// example:
+	//
+	// 1111111
+	StudentId *int64 `json:"studentId,omitempty" xml:"studentId,omitempty"`
+	// example:
+	//
+	// 11111111
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 0324124
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CollegeAddStudentResponseBody) String() string {
@@ -4005,8 +7186,23 @@ func (s *CollegeChangeStudentDeptHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type CollegeChangeStudentDeptRequest struct {
-	DeptId    *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11111
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 222222
 	NewDeptId *int64 `json:"newDeptId,omitempty" xml:"newDeptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 33333
 	StudentId *int64 `json:"studentId,omitempty" xml:"studentId,omitempty"`
 }
 
@@ -4034,6 +7230,9 @@ func (s *CollegeChangeStudentDeptRequest) SetStudentId(v int64) *CollegeChangeSt
 }
 
 type CollegeChangeStudentDeptResponseBody struct {
+	// example:
+	//
+	// true
 	IsSuccessful *bool `json:"isSuccessful,omitempty" xml:"isSuccessful,omitempty"`
 }
 
@@ -4103,6 +7302,11 @@ func (s *CollegeDeleteCollegeDeptHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type CollegeDeleteCollegeDeptRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11111
 	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
@@ -4120,6 +7324,9 @@ func (s *CollegeDeleteCollegeDeptRequest) SetDeptId(v int64) *CollegeDeleteColle
 }
 
 type CollegeDeleteCollegeDeptResponseBody struct {
+	// example:
+	//
+	// true
 	IsSuccessful *bool `json:"isSuccessful,omitempty" xml:"isSuccessful,omitempty"`
 }
 
@@ -4189,6 +7396,11 @@ func (s *CollegeListCollegeSubDeptHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type CollegeListCollegeSubDeptRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11111
 	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
@@ -4223,8 +7435,17 @@ func (s *CollegeListCollegeSubDeptResponseBody) SetCollegeDeptInfoSimpleList(v [
 }
 
 type CollegeListCollegeSubDeptResponseBodyCollegeDeptInfoSimpleList struct {
-	DeptId   *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// 01123
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// 三年二班
 	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// example:
+	//
+	// class
 	DeptType *string `json:"deptType,omitempty" xml:"deptType,omitempty"`
 }
 
@@ -4304,9 +7525,24 @@ func (s *CollegeListDeptManagerHeaders) SetXAcsDingtalkAccessToken(v string) *Co
 }
 
 type CollegeListDeptManagerRequest struct {
-	DeptId     *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1111
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s CollegeListDeptManagerRequest) String() string {
@@ -4334,7 +7570,10 @@ func (s *CollegeListDeptManagerRequest) SetPageSize(v int64) *CollegeListDeptMan
 
 type CollegeListDeptManagerResponseBody struct {
 	ManagerInfoSimpleList []*CollegeListDeptManagerResponseBodyManagerInfoSimpleList `json:"managerInfoSimpleList,omitempty" xml:"managerInfoSimpleList,omitempty" type:"Repeated"`
-	TotalCount            *int64                                                     `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// example:
+	//
+	// 1000
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s CollegeListDeptManagerResponseBody) String() string {
@@ -4356,9 +7595,15 @@ func (s *CollegeListDeptManagerResponseBody) SetTotalCount(v int64) *CollegeList
 }
 
 type CollegeListDeptManagerResponseBodyManagerInfoSimpleList struct {
-	IsActive *bool   `json:"isActive,omitempty" xml:"isActive,omitempty"`
-	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
-	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	IsActive *bool `json:"isActive,omitempty" xml:"isActive,omitempty"`
+	// example:
+	//
+	// 张三
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 0324124
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CollegeListDeptManagerResponseBodyManagerInfoSimpleList) String() string {
@@ -4437,10 +7682,26 @@ func (s *CollegeListStudentInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Co
 }
 
 type CollegeListStudentInfoRequest struct {
-	DeptId            *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// UNCHECKED
 	DingStudentStatus *string `json:"dingStudentStatus,omitempty" xml:"dingStudentStatus,omitempty"`
-	PageNumber        *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize          *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s CollegeListStudentInfoRequest) String() string {
@@ -4473,7 +7734,10 @@ func (s *CollegeListStudentInfoRequest) SetPageSize(v int64) *CollegeListStudent
 
 type CollegeListStudentInfoResponseBody struct {
 	StudentInfoSimpleList []*CollegeListStudentInfoResponseBodyStudentInfoSimpleList `json:"studentInfoSimpleList,omitempty" xml:"studentInfoSimpleList,omitempty" type:"Repeated"`
-	TotalCount            *int64                                                     `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// example:
+	//
+	// 10
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s CollegeListStudentInfoResponseBody) String() string {
@@ -4495,12 +7759,27 @@ func (s *CollegeListStudentInfoResponseBody) SetTotalCount(v int64) *CollegeList
 }
 
 type CollegeListStudentInfoResponseBodyStudentInfoSimpleList struct {
+	// example:
+	//
+	// NORMAL
 	DingMemberStatus *string `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
 	IsActive         *bool   `json:"isActive,omitempty" xml:"isActive,omitempty"`
-	StudentId        *int64  `json:"studentId,omitempty" xml:"studentId,omitempty"`
-	StudentName      *string `json:"studentName,omitempty" xml:"studentName,omitempty"`
-	UnionId          *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId           *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 1111111
+	StudentId *int64 `json:"studentId,omitempty" xml:"studentId,omitempty"`
+	// example:
+	//
+	// 张三
+	StudentName *string `json:"studentName,omitempty" xml:"studentName,omitempty"`
+	// example:
+	//
+	// 11111111
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 0324124
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CollegeListStudentInfoResponseBodyStudentInfoSimpleList) String() string {
@@ -4594,9 +7873,22 @@ func (s *CollegeListUncheckedStudentHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type CollegeListUncheckedStudentRequest struct {
-	DeptId     *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// 1111111
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s CollegeListUncheckedStudentRequest) String() string {
@@ -4624,7 +7916,10 @@ func (s *CollegeListUncheckedStudentRequest) SetPageSize(v int64) *CollegeListUn
 
 type CollegeListUncheckedStudentResponseBody struct {
 	StudentInfoSimpleList []*CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList `json:"studentInfoSimpleList,omitempty" xml:"studentInfoSimpleList,omitempty" type:"Repeated"`
-	TotalCount            *int64                                                          `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// example:
+	//
+	// 10
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s CollegeListUncheckedStudentResponseBody) String() string {
@@ -4646,12 +7941,27 @@ func (s *CollegeListUncheckedStudentResponseBody) SetTotalCount(v int64) *Colleg
 }
 
 type CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList struct {
+	// example:
+	//
+	// NORMAL
 	DingMemberStatus *string `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
 	IsActive         *bool   `json:"isActive,omitempty" xml:"isActive,omitempty"`
-	StudentId        *int64  `json:"studentId,omitempty" xml:"studentId,omitempty"`
-	StudentName      *string `json:"studentName,omitempty" xml:"studentName,omitempty"`
-	UnionId          *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId           *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 1111111
+	StudentId *int64 `json:"studentId,omitempty" xml:"studentId,omitempty"`
+	// example:
+	//
+	// 张三
+	StudentName *string `json:"studentName,omitempty" xml:"studentName,omitempty"`
+	// example:
+	//
+	// 11111111
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 0324124
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CollegeListUncheckedStudentResponseBodyStudentInfoSimpleList) String() string {
@@ -4745,6 +8055,11 @@ func (s *CollegeQueryCollegeDeptGroupInfoHeaders) SetXAcsDingtalkAccessToken(v s
 }
 
 type CollegeQueryCollegeDeptGroupInfoRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
 	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
@@ -4762,7 +8077,13 @@ func (s *CollegeQueryCollegeDeptGroupInfoRequest) SetDeptId(v int64) *CollegeQue
 }
 
 type CollegeQueryCollegeDeptGroupInfoResponseBody struct {
-	GroupName          *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// example:
+	//
+	// xxx全员群
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// example:
+	//
+	// 0124215
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -4837,6 +8158,11 @@ func (s *CollegeQueryCollegeDeptInfoHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type CollegeQueryCollegeDeptInfoRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
 	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
@@ -4854,11 +8180,26 @@ func (s *CollegeQueryCollegeDeptInfoRequest) SetDeptId(v int64) *CollegeQueryCol
 }
 
 type CollegeQueryCollegeDeptInfoResponseBody struct {
-	DeptId     *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	DeptName   *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	DeptType   *string `json:"deptType,omitempty" xml:"deptType,omitempty"`
-	SortFactor *int64  `json:"sortFactor,omitempty" xml:"sortFactor,omitempty"`
-	SuperId    *int64  `json:"superId,omitempty" xml:"superId,omitempty"`
+	// example:
+	//
+	// 01123
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// 三年二班
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// example:
+	//
+	// class
+	DeptType *string `json:"deptType,omitempty" xml:"deptType,omitempty"`
+	// example:
+	//
+	// 1
+	SortFactor *int64 `json:"sortFactor,omitempty" xml:"sortFactor,omitempty"`
+	// example:
+	//
+	// 0123123
+	SuperId *int64 `json:"superId,omitempty" xml:"superId,omitempty"`
 }
 
 func (s CollegeQueryCollegeDeptInfoResponseBody) String() string {
@@ -4947,7 +8288,17 @@ func (s *CollegeQueryStudentInfoByDeptHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type CollegeQueryStudentInfoByDeptRequest struct {
-	DeptId    *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11111
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 22222
 	StudentId *int64 `json:"studentId,omitempty" xml:"studentId,omitempty"`
 }
 
@@ -4970,18 +8321,54 @@ func (s *CollegeQueryStudentInfoByDeptRequest) SetStudentId(v int64) *CollegeQue
 }
 
 type CollegeQueryStudentInfoByDeptResponseBody struct {
-	DeptId           *int64                 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	DingMemberStatus *string                `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
-	EmpExtension     map[string]interface{} `json:"empExtension,omitempty" xml:"empExtension,omitempty"`
-	Gender           *string                `json:"gender,omitempty" xml:"gender,omitempty"`
-	IdentifyId       *string                `json:"identifyId,omitempty" xml:"identifyId,omitempty"`
-	IsActive         *bool                  `json:"isActive,omitempty" xml:"isActive,omitempty"`
-	StartYear        *string                `json:"startYear,omitempty" xml:"startYear,omitempty"`
-	StudentId        *int64                 `json:"studentId,omitempty" xml:"studentId,omitempty"`
-	StudentName      *string                `json:"studentName,omitempty" xml:"studentName,omitempty"`
-	StudentNumber    *string                `json:"studentNumber,omitempty" xml:"studentNumber,omitempty"`
-	UnionId          *string                `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId           *string                `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 01123
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	DingMemberStatus *string `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
+	// example:
+	//
+	// ”city“:"Beijing"
+	EmpExtension map[string]interface{} `json:"empExtension,omitempty" xml:"empExtension,omitempty"`
+	// example:
+	//
+	// male
+	Gender *string `json:"gender,omitempty" xml:"gender,omitempty"`
+	// example:
+	//
+	// 11019xxxxxx0001
+	IdentifyId *string `json:"identifyId,omitempty" xml:"identifyId,omitempty"`
+	// example:
+	//
+	// true
+	IsActive *bool `json:"isActive,omitempty" xml:"isActive,omitempty"`
+	// example:
+	//
+	// 2015
+	StartYear *string `json:"startYear,omitempty" xml:"startYear,omitempty"`
+	// example:
+	//
+	// 1111111
+	StudentId *int64 `json:"studentId,omitempty" xml:"studentId,omitempty"`
+	// example:
+	//
+	// 张三
+	StudentName *string `json:"studentName,omitempty" xml:"studentName,omitempty"`
+	// example:
+	//
+	// mf1922051
+	StudentNumber *string `json:"studentNumber,omitempty" xml:"studentNumber,omitempty"`
+	// example:
+	//
+	// 11111111
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 0324124
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CollegeQueryStudentInfoByDeptResponseBody) String() string {
@@ -5105,6 +8492,11 @@ func (s *CollegeQueryStudentInfoByMobileHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type CollegeQueryStudentInfoByMobileRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 187xxxxxxxx
 	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
 }
 
@@ -5123,16 +8515,46 @@ func (s *CollegeQueryStudentInfoByMobileRequest) SetMobile(v string) *CollegeQue
 
 type CollegeQueryStudentInfoByMobileResponseBody struct {
 	DeptStudentInfoList []*CollegeQueryStudentInfoByMobileResponseBodyDeptStudentInfoList `json:"deptStudentInfoList,omitempty" xml:"deptStudentInfoList,omitempty" type:"Repeated"`
-	DingMemberStatus    *string                                                           `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
-	EmpExtension        map[string]interface{}                                            `json:"empExtension,omitempty" xml:"empExtension,omitempty"`
-	Gender              *string                                                           `json:"gender,omitempty" xml:"gender,omitempty"`
-	IdentifyId          *string                                                           `json:"identifyId,omitempty" xml:"identifyId,omitempty"`
-	IsActive            *bool                                                             `json:"isActive,omitempty" xml:"isActive,omitempty"`
-	StartYear           *string                                                           `json:"startYear,omitempty" xml:"startYear,omitempty"`
-	StudentId           *int64                                                            `json:"studentId,omitempty" xml:"studentId,omitempty"`
-	StudentName         *string                                                           `json:"studentName,omitempty" xml:"studentName,omitempty"`
-	UnionId             *string                                                           `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId              *string                                                           `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	DingMemberStatus *string `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
+	// example:
+	//
+	// ”city“:"Beijing"
+	EmpExtension map[string]interface{} `json:"empExtension,omitempty" xml:"empExtension,omitempty"`
+	// example:
+	//
+	// male
+	Gender *string `json:"gender,omitempty" xml:"gender,omitempty"`
+	// example:
+	//
+	// 11019xxxxxx0001
+	IdentifyId *string `json:"identifyId,omitempty" xml:"identifyId,omitempty"`
+	// example:
+	//
+	// true
+	IsActive *bool `json:"isActive,omitempty" xml:"isActive,omitempty"`
+	// example:
+	//
+	// 2015
+	StartYear *string `json:"startYear,omitempty" xml:"startYear,omitempty"`
+	// example:
+	//
+	// 1111111
+	StudentId *int64 `json:"studentId,omitempty" xml:"studentId,omitempty"`
+	// example:
+	//
+	// 张三
+	StudentName *string `json:"studentName,omitempty" xml:"studentName,omitempty"`
+	// example:
+	//
+	// 11111111
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 0324124
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CollegeQueryStudentInfoByMobileResponseBody) String() string {
@@ -5199,8 +8621,17 @@ func (s *CollegeQueryStudentInfoByMobileResponseBody) SetUserId(v string) *Colle
 }
 
 type CollegeQueryStudentInfoByMobileResponseBodyDeptStudentInfoList struct {
-	DeptId        *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	MemberType    *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// example:
+	//
+	// 01123
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// student
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// example:
+	//
+	// mf1922051
 	StudentNumber *string `json:"studentNumber,omitempty" xml:"studentNumber,omitempty"`
 }
 
@@ -5280,6 +8711,11 @@ func (s *CollegeQueryStudentInfoByStudentIdHeaders) SetXAcsDingtalkAccessToken(v
 }
 
 type CollegeQueryStudentInfoByStudentIdRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 22222
 	StudentId *int64 `json:"studentId,omitempty" xml:"studentId,omitempty"`
 }
 
@@ -5298,16 +8734,46 @@ func (s *CollegeQueryStudentInfoByStudentIdRequest) SetStudentId(v int64) *Colle
 
 type CollegeQueryStudentInfoByStudentIdResponseBody struct {
 	DeptStudentInfoList []*CollegeQueryStudentInfoByStudentIdResponseBodyDeptStudentInfoList `json:"deptStudentInfoList,omitempty" xml:"deptStudentInfoList,omitempty" type:"Repeated"`
-	DingMemberStatus    *string                                                              `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
-	EmpExtension        map[string]interface{}                                               `json:"empExtension,omitempty" xml:"empExtension,omitempty"`
-	Gender              *string                                                              `json:"gender,omitempty" xml:"gender,omitempty"`
-	IdentifyId          *string                                                              `json:"identifyId,omitempty" xml:"identifyId,omitempty"`
-	IsActive            *bool                                                                `json:"isActive,omitempty" xml:"isActive,omitempty"`
-	StartYear           *string                                                              `json:"startYear,omitempty" xml:"startYear,omitempty"`
-	StudentId           *int64                                                               `json:"studentId,omitempty" xml:"studentId,omitempty"`
-	StudentName         *string                                                              `json:"studentName,omitempty" xml:"studentName,omitempty"`
-	UnionId             *string                                                              `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId              *string                                                              `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	DingMemberStatus *string `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
+	// example:
+	//
+	// ”city“:"Beijing"
+	EmpExtension map[string]interface{} `json:"empExtension,omitempty" xml:"empExtension,omitempty"`
+	// example:
+	//
+	// male
+	Gender *string `json:"gender,omitempty" xml:"gender,omitempty"`
+	// example:
+	//
+	// 11019xxxxxx0001
+	IdentifyId *string `json:"identifyId,omitempty" xml:"identifyId,omitempty"`
+	// example:
+	//
+	// true
+	IsActive *bool `json:"isActive,omitempty" xml:"isActive,omitempty"`
+	// example:
+	//
+	// 2015
+	StartYear *string `json:"startYear,omitempty" xml:"startYear,omitempty"`
+	// example:
+	//
+	// 1111111
+	StudentId *int64 `json:"studentId,omitempty" xml:"studentId,omitempty"`
+	// example:
+	//
+	// 张三
+	StudentName *string `json:"studentName,omitempty" xml:"studentName,omitempty"`
+	// example:
+	//
+	// 11111111
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 0324124
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CollegeQueryStudentInfoByStudentIdResponseBody) String() string {
@@ -5374,8 +8840,17 @@ func (s *CollegeQueryStudentInfoByStudentIdResponseBody) SetUserId(v string) *Co
 }
 
 type CollegeQueryStudentInfoByStudentIdResponseBodyDeptStudentInfoList struct {
-	DeptId        *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	MemberType    *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// example:
+	//
+	// 01123
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// student
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// example:
+	//
+	// mf1922051
 	StudentNumber *string `json:"studentNumber,omitempty" xml:"studentNumber,omitempty"`
 }
 
@@ -5455,9 +8930,24 @@ func (s *CollegeRemoveManagerHeaders) SetXAcsDingtalkAccessToken(v string) *Coll
 }
 
 type CollegeRemoveManagerRequest struct {
-	DeptId  *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	IsForce *bool   `json:"isForce,omitempty" xml:"isForce,omitempty"`
-	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11111
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	IsForce *bool `json:"isForce,omitempty" xml:"isForce,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12345
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CollegeRemoveManagerRequest) String() string {
@@ -5484,6 +8974,9 @@ func (s *CollegeRemoveManagerRequest) SetUserId(v string) *CollegeRemoveManagerR
 }
 
 type CollegeRemoveManagerResponseBody struct {
+	// example:
+	//
+	// true
 	IsSuccessful *bool `json:"isSuccessful,omitempty" xml:"isSuccessful,omitempty"`
 }
 
@@ -5553,7 +9046,17 @@ func (s *CollegeRemoveStudentHeaders) SetXAcsDingtalkAccessToken(v string) *Coll
 }
 
 type CollegeRemoveStudentRequest struct {
-	DeptId    *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1111
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2222
 	StudentId *int64 `json:"studentId,omitempty" xml:"studentId,omitempty"`
 }
 
@@ -5576,6 +9079,9 @@ func (s *CollegeRemoveStudentRequest) SetStudentId(v int64) *CollegeRemoveStuden
 }
 
 type CollegeRemoveStudentResponseBody struct {
+	// example:
+	//
+	// true
 	IsSuccessful *bool `json:"isSuccessful,omitempty" xml:"isSuccessful,omitempty"`
 }
 
@@ -5645,10 +9151,21 @@ func (s *CollegeUpdateCollegeDeptHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type CollegeUpdateCollegeDeptRequest struct {
-	DeptId     *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	DeptName   *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	SortFactor *int64  `json:"sortFactor,omitempty" xml:"sortFactor,omitempty"`
-	SuperId    *int64  `json:"superId,omitempty" xml:"superId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1111
+	DeptId   *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// example:
+	//
+	// 10
+	SortFactor *int64 `json:"sortFactor,omitempty" xml:"sortFactor,omitempty"`
+	// example:
+	//
+	// 22222
+	SuperId *int64 `json:"superId,omitempty" xml:"superId,omitempty"`
 }
 
 func (s CollegeUpdateCollegeDeptRequest) String() string {
@@ -5680,6 +9197,9 @@ func (s *CollegeUpdateCollegeDeptRequest) SetSuperId(v int64) *CollegeUpdateColl
 }
 
 type CollegeUpdateCollegeDeptResponseBody struct {
+	// example:
+	//
+	// true
 	IsSuccessful *bool `json:"isSuccessful,omitempty" xml:"isSuccessful,omitempty"`
 }
 
@@ -5749,8 +9269,21 @@ func (s *CollegeUpdateStudentDeptInfoHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type CollegeUpdateStudentDeptInfoRequest struct {
-	DeptId        *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	StudentId     *int64  `json:"studentId,omitempty" xml:"studentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11111
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 22222
+	StudentId *int64 `json:"studentId,omitempty" xml:"studentId,omitempty"`
+	// example:
+	//
+	// mf193121
 	StudentNumber *string `json:"studentNumber,omitempty" xml:"studentNumber,omitempty"`
 }
 
@@ -5778,6 +9311,9 @@ func (s *CollegeUpdateStudentDeptInfoRequest) SetStudentNumber(v string) *Colleg
 }
 
 type CollegeUpdateStudentDeptInfoResponseBody struct {
+	// example:
+	//
+	// true
 	IsSuccessful *bool `json:"isSuccessful,omitempty" xml:"isSuccessful,omitempty"`
 }
 
@@ -5847,12 +9383,32 @@ func (s *CollegeUpdateStudentInfoHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type CollegeUpdateStudentInfoRequest struct {
+	// example:
+	//
+	// "city":"beijing"
 	EmpExtension map[string]*string `json:"empExtension,omitempty" xml:"empExtension,omitempty"`
-	Gender       *string            `json:"gender,omitempty" xml:"gender,omitempty"`
-	IdentifyId   *string            `json:"identifyId,omitempty" xml:"identifyId,omitempty"`
-	StartYear    *string            `json:"startYear,omitempty" xml:"startYear,omitempty"`
-	StudentId    *int64             `json:"studentId,omitempty" xml:"studentId,omitempty"`
-	StudentName  *string            `json:"studentName,omitempty" xml:"studentName,omitempty"`
+	// example:
+	//
+	// male
+	Gender *string `json:"gender,omitempty" xml:"gender,omitempty"`
+	// example:
+	//
+	// 11019xxxxxx0001
+	IdentifyId *string `json:"identifyId,omitempty" xml:"identifyId,omitempty"`
+	// example:
+	//
+	// 2015
+	StartYear *string `json:"startYear,omitempty" xml:"startYear,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1111111
+	StudentId *int64 `json:"studentId,omitempty" xml:"studentId,omitempty"`
+	// example:
+	//
+	// 张三
+	StudentName *string `json:"studentName,omitempty" xml:"studentName,omitempty"`
 }
 
 func (s CollegeUpdateStudentInfoRequest) String() string {
@@ -5894,6 +9450,9 @@ func (s *CollegeUpdateStudentInfoRequest) SetStudentName(v string) *CollegeUpdat
 }
 
 type CollegeUpdateStudentInfoResponseBody struct {
+	// example:
+	//
+	// true
 	IsSuccessful *bool `json:"isSuccessful,omitempty" xml:"isSuccessful,omitempty"`
 }
 
@@ -5963,9 +9522,19 @@ func (s *CollegeUpdateStudentMoblieHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type CollegeUpdateStudentMoblieRequest struct {
-	IsForce   *bool   `json:"isForce,omitempty" xml:"isForce,omitempty"`
+	IsForce *bool `json:"isForce,omitempty" xml:"isForce,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 187xxxxxxxx
 	NewMobile *string `json:"newMobile,omitempty" xml:"newMobile,omitempty"`
-	StudentId *int64  `json:"studentId,omitempty" xml:"studentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 222222
+	StudentId *int64 `json:"studentId,omitempty" xml:"studentId,omitempty"`
 }
 
 func (s CollegeUpdateStudentMoblieRequest) String() string {
@@ -5992,6 +9561,9 @@ func (s *CollegeUpdateStudentMoblieRequest) SetStudentId(v int64) *CollegeUpdate
 }
 
 type CollegeUpdateStudentMoblieResponseBody struct {
+	// example:
+	//
+	// failed
 	UpdateResult *string `json:"updateResult,omitempty" xml:"updateResult,omitempty"`
 }
 
@@ -6062,8 +9634,13 @@ func (s *CustomizeContactCreateHeaders) SetXAcsDingtalkAccessToken(v string) *Cu
 
 type CustomizeContactCreateRequest struct {
 	ManagerIdList []*string `json:"managerIdList,omitempty" xml:"managerIdList,omitempty" type:"Repeated"`
-	Name          *string   `json:"name,omitempty" xml:"name,omitempty"`
-	Order         *int64    `json:"order,omitempty" xml:"order,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// A项目通讯录
+	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
+	Order *int64  `json:"order,omitempty" xml:"order,omitempty"`
 }
 
 func (s CustomizeContactCreateRequest) String() string {
@@ -6090,6 +9667,7 @@ func (s *CustomizeContactCreateRequest) SetOrder(v int64) *CustomizeContactCreat
 }
 
 type CustomizeContactCreateResponseBody struct {
+	// This parameter is required.
 	Content *CustomizeContactCreateResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
 }
 
@@ -6107,10 +9685,30 @@ func (s *CustomizeContactCreateResponseBody) SetContent(v *CustomizeContactCreat
 }
 
 type CustomizeContactCreateResponseBodyContent struct {
-	Code       *string `json:"code,omitempty" xml:"code,omitempty"`
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	Order      *int64  `json:"order,omitempty" xml:"order,omitempty"`
-	RootDeptId *int64  `json:"rootDeptId,omitempty" xml:"rootDeptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// alt:vndk1nd0
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// A项目通讯录
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Order *int64 `json:"order,omitempty" xml:"order,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 78933133
+	RootDeptId *int64 `json:"rootDeptId,omitempty" xml:"rootDeptId,omitempty"`
 }
 
 func (s CustomizeContactCreateResponseBodyContent) String() string {
@@ -6194,6 +9792,11 @@ func (s *CustomizeContactDeleteHeaders) SetXAcsDingtalkAccessToken(v string) *Cu
 }
 
 type CustomizeContactDeleteRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
 }
 
@@ -6280,13 +9883,17 @@ func (s *CustomizeContactDeptCreateHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type CustomizeContactDeptCreateRequest struct {
+	// This parameter is required.
 	Code          *string   `json:"code,omitempty" xml:"code,omitempty"`
 	ManagerIdList []*string `json:"managerIdList,omitempty" xml:"managerIdList,omitempty" type:"Repeated"`
-	Name          *string   `json:"name,omitempty" xml:"name,omitempty"`
-	Order         *int64    `json:"order,omitempty" xml:"order,omitempty"`
-	ParentDeptId  *int64    `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
-	RefId         *int64    `json:"refId,omitempty" xml:"refId,omitempty"`
-	Type          *int64    `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
+	Order *int64  `json:"order,omitempty" xml:"order,omitempty"`
+	// This parameter is required.
+	ParentDeptId *int64 `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
+	RefId        *int64 `json:"refId,omitempty" xml:"refId,omitempty"`
+	// This parameter is required.
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s CustomizeContactDeptCreateRequest) String() string {
@@ -6333,6 +9940,7 @@ func (s *CustomizeContactDeptCreateRequest) SetType(v int64) *CustomizeContactDe
 }
 
 type CustomizeContactDeptCreateResponseBody struct {
+	// This parameter is required.
 	Content *int64 `json:"content,omitempty" xml:"content,omitempty"`
 }
 
@@ -6402,8 +10010,18 @@ func (s *CustomizeContactDeptDeleteHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type CustomizeContactDeptDeleteRequest struct {
-	Code   *string `json:"code,omitempty" xml:"code,omitempty"`
-	DeptId *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// XXX
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 65722123
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
 func (s CustomizeContactDeptDeleteRequest) String() string {
@@ -6425,6 +10043,7 @@ func (s *CustomizeContactDeptDeleteRequest) SetDeptId(v int64) *CustomizeContact
 }
 
 type CustomizeContactDeptDeleteResponseBody struct {
+	// This parameter is required.
 	Content *bool `json:"content,omitempty" xml:"content,omitempty"`
 }
 
@@ -6494,8 +10113,18 @@ func (s *CustomizeContactDeptGroupCreateHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type CustomizeContactDeptGroupCreateRequest struct {
-	Code   *string `json:"code,omitempty" xml:"code,omitempty"`
-	DeptId *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// alt-contact:Mzc0ODAwMQ==
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 65725421
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
 func (s CustomizeContactDeptGroupCreateRequest) String() string {
@@ -6586,8 +10215,10 @@ func (s *CustomizeContactDeptInfoHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type CustomizeContactDeptInfoRequest struct {
-	Code   *string `json:"code,omitempty" xml:"code,omitempty"`
-	DeptId *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
 func (s CustomizeContactDeptInfoRequest) String() string {
@@ -6609,6 +10240,7 @@ func (s *CustomizeContactDeptInfoRequest) SetDeptId(v int64) *CustomizeContactDe
 }
 
 type CustomizeContactDeptInfoResponseBody struct {
+	// This parameter is required.
 	Content *CustomizeContactDeptInfoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
 }
 
@@ -6626,14 +10258,22 @@ func (s *CustomizeContactDeptInfoResponseBody) SetContent(v *CustomizeContactDep
 }
 
 type CustomizeContactDeptInfoResponseBodyContent struct {
-	Code          *string   `json:"code,omitempty" xml:"code,omitempty"`
-	Id            *int64    `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
 	ManagerIdList []*string `json:"managerIdList,omitempty" xml:"managerIdList,omitempty" type:"Repeated"`
-	Name          *string   `json:"name,omitempty" xml:"name,omitempty"`
-	Order         *int64    `json:"order,omitempty" xml:"order,omitempty"`
-	ParentDeptId  *int64    `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
-	RefId         *int64    `json:"refId,omitempty" xml:"refId,omitempty"`
-	Type          *int64    `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Order *int64 `json:"order,omitempty" xml:"order,omitempty"`
+	// This parameter is required.
+	ParentDeptId *int64 `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
+	// This parameter is required.
+	RefId *int64 `json:"refId,omitempty" xml:"refId,omitempty"`
+	// This parameter is required.
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s CustomizeContactDeptInfoResponseBodyContent) String() string {
@@ -6737,8 +10377,18 @@ func (s *CustomizeContactDeptListHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type CustomizeContactDeptListRequest struct {
-	Code   *string `json:"code,omitempty" xml:"code,omitempty"`
-	DeptId *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// XXXX
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 65722123
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
 func (s CustomizeContactDeptListRequest) String() string {
@@ -6760,6 +10410,7 @@ func (s *CustomizeContactDeptListRequest) SetDeptId(v int64) *CustomizeContactDe
 }
 
 type CustomizeContactDeptListResponseBody struct {
+	// This parameter is required.
 	Content []*CustomizeContactDeptListResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
 }
 
@@ -6777,14 +10428,22 @@ func (s *CustomizeContactDeptListResponseBody) SetContent(v []*CustomizeContactD
 }
 
 type CustomizeContactDeptListResponseBodyContent struct {
-	Code          *string   `json:"code,omitempty" xml:"code,omitempty"`
-	Id            *int64    `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
 	ManagerIdList []*string `json:"managerIdList,omitempty" xml:"managerIdList,omitempty" type:"Repeated"`
-	Name          *string   `json:"name,omitempty" xml:"name,omitempty"`
-	Order         *int64    `json:"order,omitempty" xml:"order,omitempty"`
-	ParentDeptId  *int64    `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
-	RefId         *int64    `json:"refId,omitempty" xml:"refId,omitempty"`
-	Type          *int64    `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Order *int64 `json:"order,omitempty" xml:"order,omitempty"`
+	// This parameter is required.
+	ParentDeptId *int64 `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
+	// This parameter is required.
+	RefId *int64 `json:"refId,omitempty" xml:"refId,omitempty"`
+	// This parameter is required.
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s CustomizeContactDeptListResponseBodyContent) String() string {
@@ -6888,12 +10547,15 @@ func (s *CustomizeContactDeptUpdateHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type CustomizeContactDeptUpdateRequest struct {
-	Code          *string   `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
 	DeptId        *int64    `json:"deptId,omitempty" xml:"deptId,omitempty"`
 	ManagerIdList []*string `json:"managerIdList,omitempty" xml:"managerIdList,omitempty" type:"Repeated"`
 	Name          *string   `json:"name,omitempty" xml:"name,omitempty"`
 	Order         *int64    `json:"order,omitempty" xml:"order,omitempty"`
-	ParentDeptId  *int64    `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
+	// This parameter is required.
+	ParentDeptId *int64 `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
 }
 
 func (s CustomizeContactDeptUpdateRequest) String() string {
@@ -6935,6 +10597,7 @@ func (s *CustomizeContactDeptUpdateRequest) SetParentDeptId(v int64) *CustomizeC
 }
 
 type CustomizeContactDeptUpdateResponseBody struct {
+	// This parameter is required.
 	Content *int64 `json:"content,omitempty" xml:"content,omitempty"`
 }
 
@@ -7004,8 +10667,15 @@ func (s *CustomizeContactEmpAddHeaders) SetXAcsDingtalkAccessToken(v string) *Cu
 }
 
 type CustomizeContactEmpAddRequest struct {
-	Code       *string   `json:"code,omitempty" xml:"code,omitempty"`
-	DeptId     *int64    `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 65722123
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
 	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
@@ -7033,6 +10703,7 @@ func (s *CustomizeContactEmpAddRequest) SetUserIdList(v []*string) *CustomizeCon
 }
 
 type CustomizeContactEmpAddResponseBody struct {
+	// This parameter is required.
 	Content *bool `json:"content,omitempty" xml:"content,omitempty"`
 }
 
@@ -7102,8 +10773,15 @@ func (s *CustomizeContactEmpDeleteHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type CustomizeContactEmpDeleteRequest struct {
-	Code       *string   `json:"code,omitempty" xml:"code,omitempty"`
-	DeptId     *int64    `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 65722123
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
 	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
@@ -7131,6 +10809,7 @@ func (s *CustomizeContactEmpDeleteRequest) SetUserIdList(v []*string) *Customize
 }
 
 type CustomizeContactEmpDeleteResponseBody struct {
+	// This parameter is required.
 	Content *bool `json:"content,omitempty" xml:"content,omitempty"`
 }
 
@@ -7200,6 +10879,11 @@ func (s *CustomizeContactEmpListHeaders) SetXAcsDingtalkAccessToken(v string) *C
 }
 
 type CustomizeContactEmpListRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 65722123
 	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
@@ -7217,6 +10901,7 @@ func (s *CustomizeContactEmpListRequest) SetDeptId(v int64) *CustomizeContactEmp
 }
 
 type CustomizeContactEmpListResponseBody struct {
+	// This parameter is required.
 	Content []*CustomizeContactEmpListResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
 }
 
@@ -7234,7 +10919,9 @@ func (s *CustomizeContactEmpListResponseBody) SetContent(v []*CustomizeContactEm
 }
 
 type CustomizeContactEmpListResponseBodyContent struct {
-	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -7326,10 +11013,30 @@ func (s *CustomizeContactListResponseBody) SetContent(v []*CustomizeContactListR
 }
 
 type CustomizeContactListResponseBodyContent struct {
-	Code       *string `json:"code,omitempty" xml:"code,omitempty"`
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	Order      *int64  `json:"order,omitempty" xml:"order,omitempty"`
-	RootDeptId *int64  `json:"rootDeptId,omitempty" xml:"rootDeptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// adsbggaixopxx
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// XX项目通讯录
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Order *int64 `json:"order,omitempty" xml:"order,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 97722112
+	RootDeptId *int64 `json:"rootDeptId,omitempty" xml:"rootDeptId,omitempty"`
 }
 
 func (s CustomizeContactListResponseBodyContent) String() string {
@@ -7413,10 +11120,21 @@ func (s *CustomizeContactUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *Cu
 }
 
 type CustomizeContactUpdateRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// alt-contact:MjkwMDAa
 	Code          *string   `json:"code,omitempty" xml:"code,omitempty"`
 	ManagerIdList []*string `json:"managerIdList,omitempty" xml:"managerIdList,omitempty" type:"Repeated"`
-	Name          *string   `json:"name,omitempty" xml:"name,omitempty"`
-	Order         *int64    `json:"order,omitempty" xml:"order,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// A项目通讯录
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Order *int64 `json:"order,omitempty" xml:"order,omitempty"`
 }
 
 func (s CustomizeContactUpdateRequest) String() string {
@@ -7534,13 +11252,34 @@ func (s *DIgitalStoreMessagePushRequest) SetMessageDataList(v []*DIgitalStoreMes
 }
 
 type DIgitalStoreMessagePushRequestMessageDataList struct {
-	CallbackKey   *string `json:"callbackKey,omitempty" xml:"callbackKey,omitempty"`
-	Content       *string `json:"content,omitempty" xml:"content,omitempty"`
-	NewCard       *bool   `json:"newCard,omitempty" xml:"newCard,omitempty"`
-	OutTraceId    *string `json:"outTraceId,omitempty" xml:"outTraceId,omitempty"`
+	// example:
+	//
+	// xxxxcallback
+	CallbackKey *string `json:"callbackKey,omitempty" xml:"callbackKey,omitempty"`
+	// example:
+	//
+	// {"key":"value"}
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// true
+	NewCard *bool `json:"newCard,omitempty" xml:"newCard,omitempty"`
+	// example:
+	//
+	// ysn138dh1712dsa
+	OutTraceId *string `json:"outTraceId,omitempty" xml:"outTraceId,omitempty"`
+	// example:
+	//
+	// StoreOrder
 	SceneCardCode *string `json:"sceneCardCode,omitempty" xml:"sceneCardCode,omitempty"`
-	SceneScope    *int64  `json:"sceneScope,omitempty" xml:"sceneScope,omitempty"`
-	SendNow       *bool   `json:"sendNow,omitempty" xml:"sendNow,omitempty"`
+	// example:
+	//
+	// 54774321
+	SceneScope *int64 `json:"sceneScope,omitempty" xml:"sceneScope,omitempty"`
+	// example:
+	//
+	// true
+	SendNow *bool `json:"sendNow,omitempty" xml:"sendNow,omitempty"`
 }
 
 func (s DIgitalStoreMessagePushRequestMessageDataList) String() string {
@@ -7604,6 +11343,9 @@ func (s *DIgitalStoreMessagePushShrinkRequest) SetMessageDataListShrink(v string
 }
 
 type DIgitalStoreMessagePushResponseBody struct {
+	// example:
+	//
+	// true
 	Content *bool `json:"content,omitempty" xml:"content,omitempty"`
 }
 
@@ -7673,12 +11415,27 @@ func (s *DigitalStoreCardRecordHeaders) SetXAcsDingtalkAccessToken(v string) *Di
 }
 
 type DigitalStoreCardRecordRequest struct {
-	BeginTime     *int64   `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
-	EndTime       *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	Ids           []*int64 `json:"ids,omitempty" xml:"ids,omitempty" type:"Repeated"`
-	PageNumber    *int32   `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize      *int32   `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SceneCardName *string  `json:"sceneCardName,omitempty" xml:"sceneCardName,omitempty"`
+	// example:
+	//
+	// 1696917858123
+	BeginTime *int64 `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
+	// example:
+	//
+	// 1696918858123
+	EndTime *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	Ids     []*int64 `json:"ids,omitempty" xml:"ids,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 场景卡片名称
+	SceneCardName *string `json:"sceneCardName,omitempty" xml:"sceneCardName,omitempty"`
 }
 
 func (s DigitalStoreCardRecordRequest) String() string {
@@ -7901,10 +11658,26 @@ func (s *DigitalStoreContactInfoHeaders) SetXAcsDingtalkAccessToken(v string) *D
 }
 
 type DigitalStoreContactInfoResponseBody struct {
-	Code       *string `json:"code,omitempty" xml:"code,omitempty"`
-	DingDeptId *int64  `json:"dingDeptId,omitempty" xml:"dingDeptId,omitempty"`
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	RootDeptId *int64  `json:"rootDeptId,omitempty" xml:"rootDeptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// codexxxxx
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// example:
+	//
+	// 123
+	DingDeptId *int64 `json:"dingDeptId,omitempty" xml:"dingDeptId,omitempty"`
+	// example:
+	//
+	// 门店通
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5647993312
+	RootDeptId *int64 `json:"rootDeptId,omitempty" xml:"rootDeptId,omitempty"`
 }
 
 func (s DigitalStoreContactInfoResponseBody) String() string {
@@ -7988,8 +11761,14 @@ func (s *DigitalStoreConversationsHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type DigitalStoreConversationsRequest struct {
+	// example:
+	//
+	// xxx店
 	ConversationTitle *string `json:"conversationTitle,omitempty" xml:"conversationTitle,omitempty"`
-	ConversationType  *string `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
+	// example:
+	//
+	// store
+	ConversationType *string `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
 }
 
 func (s DigitalStoreConversationsRequest) String() string {
@@ -8028,9 +11807,21 @@ func (s *DigitalStoreConversationsResponseBody) SetContent(v []*DigitalStoreConv
 }
 
 type DigitalStoreConversationsResponseBodyContent struct {
-	ConversationTitle  *string `json:"conversationTitle,omitempty" xml:"conversationTitle,omitempty"`
-	ConversationType   *string `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
-	Id                 *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// xxxx店
+	ConversationTitle *string `json:"conversationTitle,omitempty" xml:"conversationTitle,omitempty"`
+	// example:
+	//
+	// store
+	ConversationType *string `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
+	// example:
+	//
+	// 123
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// cid1234984881
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -8115,10 +11906,19 @@ func (s *DigitalStoreExportCardRecordHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type DigitalStoreExportCardRecordRequest struct {
-	BeginTime     *int64   `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
-	EndTime       *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	Ids           []*int64 `json:"ids,omitempty" xml:"ids,omitempty" type:"Repeated"`
-	SceneCardName *string  `json:"sceneCardName,omitempty" xml:"sceneCardName,omitempty"`
+	// example:
+	//
+	// 1696917858123
+	BeginTime *int64 `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
+	// example:
+	//
+	// 1696918858123
+	EndTime *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	Ids     []*int64 `json:"ids,omitempty" xml:"ids,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 场景卡片名称
+	SceneCardName *string `json:"sceneCardName,omitempty" xml:"sceneCardName,omitempty"`
 }
 
 func (s DigitalStoreExportCardRecordRequest) String() string {
@@ -8267,10 +12067,19 @@ func (s *DigitalStoreExportCardRecordDetailHeaders) SetXAcsDingtalkAccessToken(v
 }
 
 type DigitalStoreExportCardRecordDetailRequest struct {
-	BeginTime     *int64   `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
-	EndTime       *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	Ids           []*int64 `json:"ids,omitempty" xml:"ids,omitempty" type:"Repeated"`
-	SceneCardName *string  `json:"sceneCardName,omitempty" xml:"sceneCardName,omitempty"`
+	// example:
+	//
+	// 1696917858123
+	BeginTime *int64 `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
+	// example:
+	//
+	// 1696918858123
+	EndTime *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	Ids     []*int64 `json:"ids,omitempty" xml:"ids,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 场景卡片名称
+	SceneCardName *string `json:"sceneCardName,omitempty" xml:"sceneCardName,omitempty"`
 }
 
 func (s DigitalStoreExportCardRecordDetailRequest) String() string {
@@ -8419,6 +12228,11 @@ func (s *DigitalStoreGroupInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Dig
 }
 
 type DigitalStoreGroupInfoRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
 }
 
@@ -8436,8 +12250,19 @@ func (s *DigitalStoreGroupInfoRequest) SetGroupId(v int64) *DigitalStoreGroupInf
 }
 
 type DigitalStoreGroupInfoResponseBody struct {
-	GroupId     *int64   `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	GroupName   *string  `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 分组1
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// This parameter is required.
 	StoreIdList []*int64 `json:"storeIdList,omitempty" xml:"storeIdList,omitempty" type:"Repeated"`
 }
 
@@ -8517,6 +12342,7 @@ func (s *DigitalStoreGroupsHeaders) SetXAcsDingtalkAccessToken(v string) *Digita
 }
 
 type DigitalStoreGroupsResponseBody struct {
+	// This parameter is required.
 	Content []*DigitalStoreGroupsResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
 }
 
@@ -8534,7 +12360,17 @@ func (s *DigitalStoreGroupsResponseBody) SetContent(v []*DigitalStoreGroupsRespo
 }
 
 type DigitalStoreGroupsResponseBodyContent struct {
-	GroupId   *int64  `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 待装修门店
 	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
 }
 
@@ -8609,8 +12445,10 @@ func (s *DigitalStoreNodeInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Digi
 }
 
 type DigitalStoreNodeInfoRequest struct {
-	Code   *string `json:"code,omitempty" xml:"code,omitempty"`
-	NodeId *int64  `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// This parameter is required.
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	NodeId *int64 `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
 }
 
 func (s DigitalStoreNodeInfoRequest) String() string {
@@ -8632,11 +12470,34 @@ func (s *DigitalStoreNodeInfoRequest) SetNodeId(v int64) *DigitalStoreNodeInfoRe
 }
 
 type DigitalStoreNodeInfoResponseBody struct {
-	DingDeptId *int64  `json:"dingDeptId,omitempty" xml:"dingDeptId,omitempty"`
-	Id         *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	ParentId   *int64  `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	Type       *int64  `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 76644111
+	DingDeptId *int64 `json:"dingDeptId,omitempty" xml:"dingDeptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 6756433
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 华夏之心店
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 873366531
+	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s DigitalStoreNodeInfoResponseBody) String() string {
@@ -8725,11 +12586,30 @@ func (s *DigitalStoreRightsInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Di
 }
 
 type DigitalStoreRightsInfoResponseBody struct {
-	EndTime    *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	Quantity   *int64  `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	// example:
+	//
+	// 1659668620000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	Quantity *int64 `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	// example:
+	//
+	// RIGHT_MDT_LEVEL
 	RightsCode *string `json:"rightsCode,omitempty" xml:"rightsCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 高级版
 	RightsName *string `json:"rightsName,omitempty" xml:"rightsName,omitempty"`
-	StartTime  *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 1656990220000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
 }
 
 func (s DigitalStoreRightsInfoResponseBody) String() string {
@@ -8818,6 +12698,7 @@ func (s *DigitalStoreRolesHeaders) SetXAcsDingtalkAccessToken(v string) *Digital
 }
 
 type DigitalStoreRolesResponseBody struct {
+	// This parameter is required.
 	Content []*DigitalStoreRolesResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
 }
 
@@ -8835,11 +12716,34 @@ func (s *DigitalStoreRolesResponseBody) SetContent(v []*DigitalStoreRolesRespons
 }
 
 type DigitalStoreRolesResponseBodyContent struct {
-	Level    *int64  `json:"level,omitempty" xml:"level,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Level *int64 `json:"level,omitempty" xml:"level,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DS_XXXXX
 	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
-	RoleId   *int64  `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 店长
 	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
-	Source   *string `json:"source,omitempty" xml:"source,omitempty"`
+	// example:
+	//
+	// create
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
 }
 
 func (s DigitalStoreRolesResponseBodyContent) String() string {
@@ -8928,8 +12832,14 @@ func (s *DigitalStoreSceneScopeHeaders) SetXAcsDingtalkAccessToken(v string) *Di
 }
 
 type DigitalStoreSceneScopeRequest struct {
+	// example:
+	//
+	// cidxxa9122s733s1==
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	SceneCode          *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
+	// example:
+	//
+	// achieveAllocate
+	SceneCode *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
 }
 
 func (s DigitalStoreSceneScopeRequest) String() string {
@@ -8951,8 +12861,14 @@ func (s *DigitalStoreSceneScopeRequest) SetSceneCode(v string) *DigitalStoreScen
 }
 
 type DigitalStoreSceneScopeResponseBody struct {
+	// example:
+	//
+	// store
 	GroupConversationType *string `json:"groupConversationType,omitempty" xml:"groupConversationType,omitempty"`
-	ScopeId               *int64  `json:"scopeId,omitempty" xml:"scopeId,omitempty"`
+	// example:
+	//
+	// 536239912
+	ScopeId *int64 `json:"scopeId,omitempty" xml:"scopeId,omitempty"`
 }
 
 func (s DigitalStoreSceneScopeResponseBody) String() string {
@@ -9026,8 +12942,10 @@ func (s *DigitalStoreStoreInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Dig
 }
 
 type DigitalStoreStoreInfoRequest struct {
-	Code    *string `json:"code,omitempty" xml:"code,omitempty"`
-	StoreId *int64  `json:"storeId,omitempty" xml:"storeId,omitempty"`
+	// This parameter is required.
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	StoreId *int64 `json:"storeId,omitempty" xml:"storeId,omitempty"`
 }
 
 func (s DigitalStoreStoreInfoRequest) String() string {
@@ -9049,20 +12967,88 @@ func (s *DigitalStoreStoreInfoRequest) SetStoreId(v int64) *DigitalStoreStoreInf
 }
 
 type DigitalStoreStoreInfoResponseBody struct {
-	Address         *string `json:"address,omitempty" xml:"address,omitempty"`
-	BusinessHours   *string `json:"businessHours,omitempty" xml:"businessHours,omitempty"`
-	DingDeptId      *int64  `json:"dingDeptId,omitempty" xml:"dingDeptId,omitempty"`
-	Latitude        *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 余杭塘路xxxx号
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 9:00-22:00
+	BusinessHours *string `json:"businessHours,omitempty" xml:"businessHours,omitempty"`
+	// example:
+	//
+	// 64266411
+	DingDeptId *int64 `json:"dingDeptId,omitempty" xml:"dingDeptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	Latitude *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 余杭塘路xxxx号
 	LocationAddress *string `json:"locationAddress,omitempty" xml:"locationAddress,omitempty"`
-	Longitude       *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
-	Name            *string `json:"name,omitempty" xml:"name,omitempty"`
-	ParentId        *int64  `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	Status          *string `json:"status,omitempty" xml:"status,omitempty"`
-	StoreAcreage    *string `json:"storeAcreage,omitempty" xml:"storeAcreage,omitempty"`
-	StoreBandwidth  *string `json:"storeBandwidth,omitempty" xml:"storeBandwidth,omitempty"`
-	StoreCode       *string `json:"storeCode,omitempty" xml:"storeCode,omitempty"`
-	StoreId         *int64  `json:"storeId,omitempty" xml:"storeId,omitempty"`
-	Telephone       *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	Longitude *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 华夏之心店
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 873366531
+	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// CLOSED
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10平方米
+	StoreAcreage *string `json:"storeAcreage,omitempty" xml:"storeAcreage,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1千兆
+	StoreBandwidth *string `json:"storeBandwidth,omitempty" xml:"storeBandwidth,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxxxxxxxxx
+	StoreCode *string `json:"storeCode,omitempty" xml:"storeCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 6756433
+	StoreId *int64 `json:"storeId,omitempty" xml:"storeId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0571-123456
+	Telephone *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
 }
 
 func (s DigitalStoreStoreInfoResponseBody) String() string {
@@ -9196,8 +13182,10 @@ func (s *DigitalStoreSubNodesHeaders) SetXAcsDingtalkAccessToken(v string) *Digi
 }
 
 type DigitalStoreSubNodesRequest struct {
-	Code   *string `json:"code,omitempty" xml:"code,omitempty"`
-	NodeId *int64  `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// This parameter is required.
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	NodeId *int64 `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
 }
 
 func (s DigitalStoreSubNodesRequest) String() string {
@@ -9219,6 +13207,7 @@ func (s *DigitalStoreSubNodesRequest) SetNodeId(v int64) *DigitalStoreSubNodesRe
 }
 
 type DigitalStoreSubNodesResponseBody struct {
+	// This parameter is required.
 	Content []*DigitalStoreSubNodesResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
 }
 
@@ -9236,11 +13225,31 @@ func (s *DigitalStoreSubNodesResponseBody) SetContent(v []*DigitalStoreSubNodesR
 }
 
 type DigitalStoreSubNodesResponseBodyContent struct {
-	DingDeptId *int64  `json:"dingDeptId,omitempty" xml:"dingDeptId,omitempty"`
-	Id         *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	ParentId   *int64  `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	Type       *int64  `json:"type,omitempty" xml:"type,omitempty"`
+	DingDeptId *int64 `json:"dingDeptId,omitempty" xml:"dingDeptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 6756433
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 华夏之心店
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 873366531
+	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s DigitalStoreSubNodesResponseBodyContent) String() string {
@@ -9348,7 +13357,10 @@ func (s *DigitalStoreUpdateAuthInfoRequest) SetUpdateUserList(v []*DigitalStoreU
 type DigitalStoreUpdateAuthInfoRequestUpdateUserList struct {
 	RoleList     []*DigitalStoreUpdateAuthInfoRequestUpdateUserListRoleList     `json:"roleList,omitempty" xml:"roleList,omitempty" type:"Repeated"`
 	UserAuthList []*DigitalStoreUpdateAuthInfoRequestUpdateUserListUserAuthList `json:"userAuthList,omitempty" xml:"userAuthList,omitempty" type:"Repeated"`
-	UserId       *string                                                        `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 0998182231
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DigitalStoreUpdateAuthInfoRequestUpdateUserList) String() string {
@@ -9375,7 +13387,13 @@ func (s *DigitalStoreUpdateAuthInfoRequestUpdateUserList) SetUserId(v string) *D
 }
 
 type DigitalStoreUpdateAuthInfoRequestUpdateUserListRoleList struct {
-	RoleName     *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// example:
+	//
+	// 区域督导
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// example:
+	//
+	// 255
 	SourceRoleId *string `json:"sourceRoleId,omitempty" xml:"sourceRoleId,omitempty"`
 }
 
@@ -9398,7 +13416,13 @@ func (s *DigitalStoreUpdateAuthInfoRequestUpdateUserListRoleList) SetSourceRoleI
 }
 
 type DigitalStoreUpdateAuthInfoRequestUpdateUserListUserAuthList struct {
-	DingDeptId   *string `json:"dingDeptId,omitempty" xml:"dingDeptId,omitempty"`
+	// example:
+	//
+	// 8733901123
+	DingDeptId *string `json:"dingDeptId,omitempty" xml:"dingDeptId,omitempty"`
+	// example:
+	//
+	// 998383831
 	SourceDeptId *string `json:"sourceDeptId,omitempty" xml:"sourceDeptId,omitempty"`
 }
 
@@ -9490,7 +13514,17 @@ func (s *DigitalStoreUserInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Digi
 }
 
 type DigitalStoreUserInfoRequest struct {
-	Code   *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// alt;ss1331
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2311sds1
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -9513,11 +13547,25 @@ func (s *DigitalStoreUserInfoRequest) SetUserId(v string) *DigitalStoreUserInfoR
 }
 
 type DigitalStoreUserInfoResponseBody struct {
+	// example:
+	//
+	// 张三
 	Name       *string  `json:"name,omitempty" xml:"name,omitempty"`
 	RoleIdList []*int64 `json:"roleIdList,omitempty" xml:"roleIdList,omitempty" type:"Repeated"`
-	ScopeList  []*int64 `json:"scopeList,omitempty" xml:"scopeList,omitempty" type:"Repeated"`
-	StoreList  []*int64 `json:"storeList,omitempty" xml:"storeList,omitempty" type:"Repeated"`
-	UserId     *string  `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5647993312
+	ScopeList []*int64 `json:"scopeList,omitempty" xml:"scopeList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	StoreList []*int64 `json:"storeList,omitempty" xml:"storeList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 331222222
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DigitalStoreUserInfoResponseBody) String() string {
@@ -9606,8 +13654,18 @@ func (s *DigitalStoreUsersHeaders) SetXAcsDingtalkAccessToken(v string) *Digital
 }
 
 type DigitalStoreUsersRequest struct {
-	Code   *string `json:"code,omitempty" xml:"code,omitempty"`
-	NodeId *int64  `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// alt:1213ss
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1231
+	NodeId *int64 `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
 }
 
 func (s DigitalStoreUsersRequest) String() string {
@@ -9629,6 +13687,7 @@ func (s *DigitalStoreUsersRequest) SetNodeId(v int64) *DigitalStoreUsersRequest 
 }
 
 type DigitalStoreUsersResponseBody struct {
+	// This parameter is required.
 	Content []*DigitalStoreUsersResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
 }
 
@@ -9646,7 +13705,17 @@ func (s *DigitalStoreUsersResponseBody) SetContent(v []*DigitalStoreUsersRespons
 }
 
 type DigitalStoreUsersResponseBodyContent struct {
-	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 112121341231
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -9878,6 +13947,11 @@ func (s *ExternalQueryExternalAppOrgsHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type ExternalQueryExternalAppOrgsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ecological
 	ExternalType *string `json:"externalType,omitempty" xml:"externalType,omitempty"`
 }
 
@@ -9912,7 +13986,13 @@ func (s *ExternalQueryExternalAppOrgsResponseBody) SetResult(v []*ExternalQueryE
 }
 
 type ExternalQueryExternalAppOrgsResponseBodyResult struct {
-	CorpId   *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// ding121212
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 组织名
 	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
 }
 
@@ -9987,6 +14067,11 @@ func (s *ExternalQueryExternalBelongMainOrgHeaders) SetXAcsDingtalkAccessToken(v
 }
 
 type ExternalQueryExternalBelongMainOrgRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ecological
 	ExternalType *string `json:"externalType,omitempty" xml:"externalType,omitempty"`
 }
 
@@ -10079,6 +14164,11 @@ func (s *ExternalQueryExternalOrgsHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type ExternalQueryExternalOrgsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ecological
 	ExternalType *string `json:"externalType,omitempty" xml:"externalType,omitempty"`
 }
 
@@ -10113,7 +14203,13 @@ func (s *ExternalQueryExternalOrgsResponseBody) SetResult(v []*ExternalQueryExte
 }
 
 type ExternalQueryExternalOrgsResponseBodyResult struct {
-	CorpId   *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// ding121212
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 组织名
 	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
 }
 
@@ -10164,6 +14260,276 @@ func (s *ExternalQueryExternalOrgsResponse) SetBody(v *ExternalQueryExternalOrgs
 	return s
 }
 
+type GetTaskPackageResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTaskPackageResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskPackageResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskPackageResultHeaders) SetCommonHeaders(v map[string]*string) *GetTaskPackageResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTaskPackageResultHeaders) SetXAcsDingtalkAccessToken(v string) *GetTaskPackageResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTaskPackageResultRequest struct {
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	TaskPackageId *string `json:"taskPackageId,omitempty" xml:"taskPackageId,omitempty"`
+}
+
+func (s GetTaskPackageResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskPackageResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskPackageResultRequest) SetBizCode(v string) *GetTaskPackageResultRequest {
+	s.BizCode = &v
+	return s
+}
+
+func (s *GetTaskPackageResultRequest) SetTaskPackageId(v string) *GetTaskPackageResultRequest {
+	s.TaskPackageId = &v
+	return s
+}
+
+type GetTaskPackageResultResponseBody struct {
+	TaskPackageId *string                                  `json:"taskPackageId,omitempty" xml:"taskPackageId,omitempty"`
+	Tasks         []*GetTaskPackageResultResponseBodyTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+}
+
+func (s GetTaskPackageResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskPackageResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskPackageResultResponseBody) SetTaskPackageId(v string) *GetTaskPackageResultResponseBody {
+	s.TaskPackageId = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBody) SetTasks(v []*GetTaskPackageResultResponseBodyTasks) *GetTaskPackageResultResponseBody {
+	s.Tasks = v
+	return s
+}
+
+type GetTaskPackageResultResponseBodyTasks struct {
+	Result     *GetTaskPackageResultResponseBodyTasksResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Status     *string                                      `json:"status,omitempty" xml:"status,omitempty"`
+	StatusInfo *string                                      `json:"statusInfo,omitempty" xml:"statusInfo,omitempty"`
+	TaskId     *string                                      `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s GetTaskPackageResultResponseBodyTasks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskPackageResultResponseBodyTasks) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskPackageResultResponseBodyTasks) SetResult(v *GetTaskPackageResultResponseBodyTasksResult) *GetTaskPackageResultResponseBodyTasks {
+	s.Result = v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasks) SetStatus(v string) *GetTaskPackageResultResponseBodyTasks {
+	s.Status = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasks) SetStatusInfo(v string) *GetTaskPackageResultResponseBodyTasks {
+	s.StatusInfo = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasks) SetTaskId(v string) *GetTaskPackageResultResponseBodyTasks {
+	s.TaskId = &v
+	return s
+}
+
+type GetTaskPackageResultResponseBodyTasksResult struct {
+	AudioText          *string                                             `json:"audioText,omitempty" xml:"audioText,omitempty"`
+	AudioTextFormatted *string                                             `json:"audioTextFormatted,omitempty" xml:"audioTextFormatted,omitempty"`
+	Date               *string                                             `json:"date,omitempty" xml:"date,omitempty"`
+	Desc               *string                                             `json:"desc,omitempty" xml:"desc,omitempty"`
+	FormName           *string                                             `json:"formName,omitempty" xml:"formName,omitempty"`
+	Id                 *int64                                              `json:"id,omitempty" xml:"id,omitempty"`
+	Items              []*GetTaskPackageResultResponseBodyTasksResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	Name               *string                                             `json:"name,omitempty" xml:"name,omitempty"`
+	RawData            *string                                             `json:"rawData,omitempty" xml:"rawData,omitempty"`
+	Summary            *string                                             `json:"summary,omitempty" xml:"summary,omitempty"`
+	Total              *int64                                              `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetTaskPackageResultResponseBodyTasksResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskPackageResultResponseBodyTasksResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResult) SetAudioText(v string) *GetTaskPackageResultResponseBodyTasksResult {
+	s.AudioText = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResult) SetAudioTextFormatted(v string) *GetTaskPackageResultResponseBodyTasksResult {
+	s.AudioTextFormatted = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResult) SetDate(v string) *GetTaskPackageResultResponseBodyTasksResult {
+	s.Date = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResult) SetDesc(v string) *GetTaskPackageResultResponseBodyTasksResult {
+	s.Desc = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResult) SetFormName(v string) *GetTaskPackageResultResponseBodyTasksResult {
+	s.FormName = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResult) SetId(v int64) *GetTaskPackageResultResponseBodyTasksResult {
+	s.Id = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResult) SetItems(v []*GetTaskPackageResultResponseBodyTasksResultItems) *GetTaskPackageResultResponseBodyTasksResult {
+	s.Items = v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResult) SetName(v string) *GetTaskPackageResultResponseBodyTasksResult {
+	s.Name = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResult) SetRawData(v string) *GetTaskPackageResultResponseBodyTasksResult {
+	s.RawData = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResult) SetSummary(v string) *GetTaskPackageResultResponseBodyTasksResult {
+	s.Summary = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResult) SetTotal(v int64) *GetTaskPackageResultResponseBodyTasksResult {
+	s.Total = &v
+	return s
+}
+
+type GetTaskPackageResultResponseBodyTasksResultItems struct {
+	Advantages   *string `json:"advantages,omitempty" xml:"advantages,omitempty"`
+	FabReference *string `json:"fabReference,omitempty" xml:"fabReference,omitempty"`
+	Info         *string `json:"info,omitempty" xml:"info,omitempty"`
+	Name         *string `json:"name,omitempty" xml:"name,omitempty"`
+	Point        *int64  `json:"point,omitempty" xml:"point,omitempty"`
+	Reference    *string `json:"reference,omitempty" xml:"reference,omitempty"`
+	Res          *bool   `json:"res,omitempty" xml:"res,omitempty"`
+	Suggestion   *string `json:"suggestion,omitempty" xml:"suggestion,omitempty"`
+}
+
+func (s GetTaskPackageResultResponseBodyTasksResultItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskPackageResultResponseBodyTasksResultItems) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResultItems) SetAdvantages(v string) *GetTaskPackageResultResponseBodyTasksResultItems {
+	s.Advantages = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResultItems) SetFabReference(v string) *GetTaskPackageResultResponseBodyTasksResultItems {
+	s.FabReference = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResultItems) SetInfo(v string) *GetTaskPackageResultResponseBodyTasksResultItems {
+	s.Info = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResultItems) SetName(v string) *GetTaskPackageResultResponseBodyTasksResultItems {
+	s.Name = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResultItems) SetPoint(v int64) *GetTaskPackageResultResponseBodyTasksResultItems {
+	s.Point = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResultItems) SetReference(v string) *GetTaskPackageResultResponseBodyTasksResultItems {
+	s.Reference = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResultItems) SetRes(v bool) *GetTaskPackageResultResponseBodyTasksResultItems {
+	s.Res = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResultItems) SetSuggestion(v string) *GetTaskPackageResultResponseBodyTasksResultItems {
+	s.Suggestion = &v
+	return s
+}
+
+type GetTaskPackageResultResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetTaskPackageResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetTaskPackageResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskPackageResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskPackageResultResponse) SetHeaders(v map[string]*string) *GetTaskPackageResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTaskPackageResultResponse) SetStatusCode(v int32) *GetTaskPackageResultResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponse) SetBody(v *GetTaskPackageResultResponseBody) *GetTaskPackageResultResponse {
+	s.Body = v
+	return s
+}
+
 type HospitalDataCheckHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10188,14 +14554,38 @@ func (s *HospitalDataCheckHeaders) SetXAcsDingtalkAccessToken(v string) *Hospita
 }
 
 type HospitalDataCheckRequest struct {
-	AllDeptCount      *int64 `json:"allDeptCount,omitempty" xml:"allDeptCount,omitempty"`
-	AllDeptUserCount  *int64 `json:"allDeptUserCount,omitempty" xml:"allDeptUserCount,omitempty"`
-	AllGroupCount     *int64 `json:"allGroupCount,omitempty" xml:"allGroupCount,omitempty"`
+	// example:
+	//
+	// 1
+	AllDeptCount *int64 `json:"allDeptCount,omitempty" xml:"allDeptCount,omitempty"`
+	// example:
+	//
+	// 1
+	AllDeptUserCount *int64 `json:"allDeptUserCount,omitempty" xml:"allDeptUserCount,omitempty"`
+	// example:
+	//
+	// 1
+	AllGroupCount *int64 `json:"allGroupCount,omitempty" xml:"allGroupCount,omitempty"`
+	// example:
+	//
+	// 1
 	AllGroupUserCount *int64 `json:"allGroupUserCount,omitempty" xml:"allGroupUserCount,omitempty"`
-	DeptCount         *int64 `json:"deptCount,omitempty" xml:"deptCount,omitempty"`
-	DeptUserCount     *int64 `json:"deptUserCount,omitempty" xml:"deptUserCount,omitempty"`
-	GroupCount        *int64 `json:"groupCount,omitempty" xml:"groupCount,omitempty"`
-	GroupUserCount    *int64 `json:"groupUserCount,omitempty" xml:"groupUserCount,omitempty"`
+	// example:
+	//
+	// 1
+	DeptCount *int64 `json:"deptCount,omitempty" xml:"deptCount,omitempty"`
+	// example:
+	//
+	// 1
+	DeptUserCount *int64 `json:"deptUserCount,omitempty" xml:"deptUserCount,omitempty"`
+	// example:
+	//
+	// 1
+	GroupCount *int64 `json:"groupCount,omitempty" xml:"groupCount,omitempty"`
+	// example:
+	//
+	// 1
+	GroupUserCount *int64 `json:"groupUserCount,omitempty" xml:"groupUserCount,omitempty"`
 }
 
 func (s HospitalDataCheckRequest) String() string {
@@ -10364,10 +14754,13 @@ func (s *IndustryManufactureCommonEventHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type IndustryManufactureCommonEventRequest struct {
-	Action    *string                `json:"action,omitempty" xml:"action,omitempty"`
-	AppKey    *string                `json:"appKey,omitempty" xml:"appKey,omitempty"`
-	BizData   map[string]interface{} `json:"bizData,omitempty" xml:"bizData,omitempty"`
-	EventType []*string              `json:"eventType,omitempty" xml:"eventType,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
+	AppKey  *string                `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	BizData map[string]interface{} `json:"bizData,omitempty" xml:"bizData,omitempty"`
+	// This parameter is required.
+	EventType []*string `json:"eventType,omitempty" xml:"eventType,omitempty" type:"Repeated"`
 }
 
 func (s IndustryManufactureCommonEventRequest) String() string {
@@ -10622,10 +15015,13 @@ func (s *IndustryManufactureCostRecordListGetRequest) SetTokenGrantType(v int32)
 }
 
 type IndustryManufactureCostRecordListGetResponseBody struct {
-	HasMore    *bool                                                   `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	List       []*IndustryManufactureCostRecordListGetResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	NextCursor *int64                                                  `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	TotalCount *int64                                                  `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	HasMore *bool                                                   `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*IndustryManufactureCostRecordListGetResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// This parameter is required.
+	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	// This parameter is required.
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s IndustryManufactureCostRecordListGetResponseBody) String() string {
@@ -10657,25 +15053,44 @@ func (s *IndustryManufactureCostRecordListGetResponseBody) SetTotalCount(v int64
 }
 
 type IndustryManufactureCostRecordListGetResponseBodyList struct {
-	CorpId               *string  `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Count                *float32 `json:"count,omitempty" xml:"count,omitempty"`
-	Ext                  *string  `json:"ext,omitempty" xml:"ext,omitempty"`
-	GmtCreate            *int64   `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified          *int64   `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	InstanceId           *string  `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	IsDeleted            *string  `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	MaterialCostRecordNo *string  `json:"materialCostRecordNo,omitempty" xml:"materialCostRecordNo,omitempty"`
-	MaterialName         *string  `json:"materialName,omitempty" xml:"materialName,omitempty"`
-	MaterialNo           *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
-	Memo                 *string  `json:"memo,omitempty" xml:"memo,omitempty"`
-	OrderNo              *string  `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
-	Price                *float32 `json:"price,omitempty" xml:"price,omitempty"`
-	ProcessCode          *string  `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	ProductionTaskNo     *string  `json:"productionTaskNo,omitempty" xml:"productionTaskNo,omitempty"`
-	RealCount            *float32 `json:"realCount,omitempty" xml:"realCount,omitempty"`
-	RealPrice            *float32 `json:"realPrice,omitempty" xml:"realPrice,omitempty"`
-	Type                 *string  `json:"type,omitempty" xml:"type,omitempty"`
-	Unit                 *string  `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Count *float32 `json:"count,omitempty" xml:"count,omitempty"`
+	// This parameter is required.
+	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
+	// This parameter is required.
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	GmtModified *int64 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// This parameter is required.
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// This parameter is required.
+	IsDeleted *string `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// This parameter is required.
+	MaterialCostRecordNo *string `json:"materialCostRecordNo,omitempty" xml:"materialCostRecordNo,omitempty"`
+	// This parameter is required.
+	MaterialName *string `json:"materialName,omitempty" xml:"materialName,omitempty"`
+	// This parameter is required.
+	MaterialNo *string `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
+	// This parameter is required.
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// This parameter is required.
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// This parameter is required.
+	Price *float32 `json:"price,omitempty" xml:"price,omitempty"`
+	// This parameter is required.
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// This parameter is required.
+	ProductionTaskNo *string `json:"productionTaskNo,omitempty" xml:"productionTaskNo,omitempty"`
+	// This parameter is required.
+	RealCount *float32 `json:"realCount,omitempty" xml:"realCount,omitempty"`
+	// This parameter is required.
+	RealPrice *float32 `json:"realPrice,omitempty" xml:"realPrice,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s IndustryManufactureCostRecordListGetResponseBodyList) String() string {
@@ -10947,10 +15362,14 @@ func (s *IndustryManufactureFeeListGetRequest) SetType(v string) *IndustryManufa
 }
 
 type IndustryManufactureFeeListGetResponseBody struct {
-	HasMore    *bool                                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	List       []*IndustryManufactureFeeListGetResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	NextCursor *int64                                           `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	TotalCount *int64                                           `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	List []*IndustryManufactureFeeListGetResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// This parameter is required.
+	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	// This parameter is required.
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s IndustryManufactureFeeListGetResponseBody) String() string {
@@ -10982,23 +15401,40 @@ func (s *IndustryManufactureFeeListGetResponseBody) SetTotalCount(v int64) *Indu
 }
 
 type IndustryManufactureFeeListGetResponseBodyList struct {
-	Amount           *string  `json:"amount,omitempty" xml:"amount,omitempty"`
-	CorpId           *string  `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Count            *float32 `json:"count,omitempty" xml:"count,omitempty"`
-	Ext              *string  `json:"ext,omitempty" xml:"ext,omitempty"`
-	GmtCreate        *int64   `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified      *int64   `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	Id               *int64   `json:"id,omitempty" xml:"id,omitempty"`
-	InstanceId       *string  `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	IsDeleted        *string  `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	MaterialName     *string  `json:"materialName,omitempty" xml:"materialName,omitempty"`
-	MaterialNo       *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
-	PerAmount        *float32 `json:"perAmount,omitempty" xml:"perAmount,omitempty"`
-	ProcessCode      *string  `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	ProductionTaskNo *string  `json:"productionTaskNo,omitempty" xml:"productionTaskNo,omitempty"`
-	Title            *string  `json:"title,omitempty" xml:"title,omitempty"`
-	Type             *string  `json:"type,omitempty" xml:"type,omitempty"`
-	Unit             *string  `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Count *float32 `json:"count,omitempty" xml:"count,omitempty"`
+	// This parameter is required.
+	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
+	// This parameter is required.
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	GmtModified *int64 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// This parameter is required.
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// This parameter is required.
+	IsDeleted *string `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// This parameter is required.
+	MaterialName *string `json:"materialName,omitempty" xml:"materialName,omitempty"`
+	// This parameter is required.
+	MaterialNo *string `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
+	// This parameter is required.
+	PerAmount *float32 `json:"perAmount,omitempty" xml:"perAmount,omitempty"`
+	// This parameter is required.
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// This parameter is required.
+	ProductionTaskNo *string `json:"productionTaskNo,omitempty" xml:"productionTaskNo,omitempty"`
+	// This parameter is required.
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s IndustryManufactureFeeListGetResponseBodyList) String() string {
@@ -11157,12 +15593,14 @@ type IndustryManufactureLabourCostRequest struct {
 	MaterialNo      *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
 	MicroappAgentId *int64   `json:"microappAgentId,omitempty" xml:"microappAgentId,omitempty"`
 	OrgId           *int64   `json:"orgId,omitempty" xml:"orgId,omitempty"`
-	PageNumber      *int64   `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize        *int32   `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	ProcessNo       *string  `json:"processNo,omitempty" xml:"processNo,omitempty"`
-	StartTime       *int64   `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	SuiteKey        *string  `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
-	TokenGrantType  *int32   `json:"tokenGrantType,omitempty" xml:"tokenGrantType,omitempty"`
+	// This parameter is required.
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	PageSize       *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	ProcessNo      *string `json:"processNo,omitempty" xml:"processNo,omitempty"`
+	StartTime      *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	SuiteKey       *string `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
+	TokenGrantType *int32  `json:"tokenGrantType,omitempty" xml:"tokenGrantType,omitempty"`
 }
 
 func (s IndustryManufactureLabourCostRequest) String() string {
@@ -11254,10 +15692,13 @@ func (s *IndustryManufactureLabourCostRequest) SetTokenGrantType(v int32) *Indus
 }
 
 type IndustryManufactureLabourCostResponseBody struct {
-	HasMore    *bool                                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	List       []*IndustryManufactureLabourCostResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	NextCursor *int64                                           `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	TotalCount *int64                                           `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	HasMore *bool                                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*IndustryManufactureLabourCostResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// This parameter is required.
+	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	// This parameter is required.
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s IndustryManufactureLabourCostResponseBody) String() string {
@@ -11289,24 +15730,42 @@ func (s *IndustryManufactureLabourCostResponseBody) SetTotalCount(v int64) *Indu
 }
 
 type IndustryManufactureLabourCostResponseBodyList struct {
-	CorpId             *string  `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Ext                *string  `json:"ext,omitempty" xml:"ext,omitempty"`
-	GmtCreate          *int64   `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified        *int64   `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	InstanceId         *string  `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	LabourCostName     *string  `json:"labourCostName,omitempty" xml:"labourCostName,omitempty"`
-	LabourCostNo       *string  `json:"labourCostNo,omitempty" xml:"labourCostNo,omitempty"`
-	MaterialName       *string  `json:"materialName,omitempty" xml:"materialName,omitempty"`
-	MaterialNo         *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
-	ProcessCode        *string  `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	ProcessName        *string  `json:"processName,omitempty" xml:"processName,omitempty"`
-	ProcessNo          *string  `json:"processNo,omitempty" xml:"processNo,omitempty"`
-	QualifiedPrice     *float32 `json:"qualifiedPrice,omitempty" xml:"qualifiedPrice,omitempty"`
-	UnQualifiedInfo    *string  `json:"unQualifiedInfo,omitempty" xml:"unQualifiedInfo,omitempty"`
-	UnQualifiedPrice1  *float32 `json:"unQualifiedPrice1,omitempty" xml:"unQualifiedPrice1,omitempty"`
-	UnQualifiedPrice2  *float32 `json:"unQualifiedPrice2,omitempty" xml:"unQualifiedPrice2,omitempty"`
-	UnQualifiedReason1 *string  `json:"unQualifiedReason1,omitempty" xml:"unQualifiedReason1,omitempty"`
-	UnQualifiedReason2 *string  `json:"unQualifiedReason2,omitempty" xml:"unQualifiedReason2,omitempty"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
+	// This parameter is required.
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	GmtModified *int64 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// This parameter is required.
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// This parameter is required.
+	LabourCostName *string `json:"labourCostName,omitempty" xml:"labourCostName,omitempty"`
+	// This parameter is required.
+	LabourCostNo *string `json:"labourCostNo,omitempty" xml:"labourCostNo,omitempty"`
+	// This parameter is required.
+	MaterialName *string `json:"materialName,omitempty" xml:"materialName,omitempty"`
+	// This parameter is required.
+	MaterialNo *string `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
+	// This parameter is required.
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// This parameter is required.
+	ProcessName *string `json:"processName,omitempty" xml:"processName,omitempty"`
+	// This parameter is required.
+	ProcessNo *string `json:"processNo,omitempty" xml:"processNo,omitempty"`
+	// This parameter is required.
+	QualifiedPrice *float32 `json:"qualifiedPrice,omitempty" xml:"qualifiedPrice,omitempty"`
+	// This parameter is required.
+	UnQualifiedInfo *string `json:"unQualifiedInfo,omitempty" xml:"unQualifiedInfo,omitempty"`
+	// This parameter is required.
+	UnQualifiedPrice1 *float32 `json:"unQualifiedPrice1,omitempty" xml:"unQualifiedPrice1,omitempty"`
+	// This parameter is required.
+	UnQualifiedPrice2 *float32 `json:"unQualifiedPrice2,omitempty" xml:"unQualifiedPrice2,omitempty"`
+	// This parameter is required.
+	UnQualifiedReason1 *string `json:"unQualifiedReason1,omitempty" xml:"unQualifiedReason1,omitempty"`
+	// This parameter is required.
+	UnQualifiedReason2 *string `json:"unQualifiedReason2,omitempty" xml:"unQualifiedReason2,omitempty"`
 }
 
 func (s IndustryManufactureLabourCostResponseBodyList) String() string {
@@ -11460,22 +15919,23 @@ func (s *IndustryManufactureMaterialListHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type IndustryManufactureMaterialListRequest struct {
-	AppId           *int64   `json:"appId,omitempty" xml:"appId,omitempty"`
-	AppIds          []*int64 `json:"appIds,omitempty" xml:"appIds,omitempty" type:"Repeated"`
-	AppName         *string  `json:"appName,omitempty" xml:"appName,omitempty"`
-	CorpId          *string  `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CurrentPage     *int64   `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
-	Cursor          *int64   `json:"cursor,omitempty" xml:"cursor,omitempty"`
-	EndTime         *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	InstanceId      *string  `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	IsvOrgId        *int64   `json:"isvOrgId,omitempty" xml:"isvOrgId,omitempty"`
-	MaterialNo      *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
-	MicroappAgentId *int64   `json:"microappAgentId,omitempty" xml:"microappAgentId,omitempty"`
-	OrgId           *int64   `json:"orgId,omitempty" xml:"orgId,omitempty"`
-	PageSize        *int32   `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	StartTime       *int64   `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	SuiteKey        *string  `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
-	TokenGrantType  *int64   `json:"tokenGrantType,omitempty" xml:"tokenGrantType,omitempty"`
+	AppId   *int64   `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppIds  []*int64 `json:"appIds,omitempty" xml:"appIds,omitempty" type:"Repeated"`
+	AppName *string  `json:"appName,omitempty" xml:"appName,omitempty"`
+	// This parameter is required.
+	CorpId          *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CurrentPage     *int64  `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	Cursor          *int64  `json:"cursor,omitempty" xml:"cursor,omitempty"`
+	EndTime         *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	InstanceId      *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	IsvOrgId        *int64  `json:"isvOrgId,omitempty" xml:"isvOrgId,omitempty"`
+	MaterialNo      *string `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
+	MicroappAgentId *int64  `json:"microappAgentId,omitempty" xml:"microappAgentId,omitempty"`
+	OrgId           *int64  `json:"orgId,omitempty" xml:"orgId,omitempty"`
+	PageSize        *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	StartTime       *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	SuiteKey        *string `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
+	TokenGrantType  *int64  `json:"tokenGrantType,omitempty" xml:"tokenGrantType,omitempty"`
 }
 
 func (s IndustryManufactureMaterialListRequest) String() string {
@@ -11567,10 +16027,13 @@ func (s *IndustryManufactureMaterialListRequest) SetTokenGrantType(v int64) *Ind
 }
 
 type IndustryManufactureMaterialListResponseBody struct {
-	HasMore    *bool                                              `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	List       []*IndustryManufactureMaterialListResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	NextCursor *int64                                             `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	TotalCount *int64                                             `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	HasMore *bool                                              `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*IndustryManufactureMaterialListResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// This parameter is required.
+	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	// This parameter is required.
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s IndustryManufactureMaterialListResponseBody) String() string {
@@ -11602,18 +16065,30 @@ func (s *IndustryManufactureMaterialListResponseBody) SetTotalCount(v int64) *In
 }
 
 type IndustryManufactureMaterialListResponseBodyList struct {
-	Category      *string  `json:"category,omitempty" xml:"category,omitempty"`
-	CorpId        *string  `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Ext           *string  `json:"ext,omitempty" xml:"ext,omitempty"`
-	InstanceId    *string  `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	MaterialName  *string  `json:"materialName,omitempty" xml:"materialName,omitempty"`
-	MaterialNo    *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
-	ProcessCode   *string  `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	Specification *string  `json:"specification,omitempty" xml:"specification,omitempty"`
-	StockMaxWarn  *float32 `json:"stockMaxWarn,omitempty" xml:"stockMaxWarn,omitempty"`
-	StockMinWarn  *float32 `json:"stockMinWarn,omitempty" xml:"stockMinWarn,omitempty"`
-	Type          *string  `json:"type,omitempty" xml:"type,omitempty"`
-	Unit          *string  `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
+	// This parameter is required.
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// This parameter is required.
+	MaterialName *string `json:"materialName,omitempty" xml:"materialName,omitempty"`
+	// This parameter is required.
+	MaterialNo *string `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
+	// This parameter is required.
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// This parameter is required.
+	Specification *string `json:"specification,omitempty" xml:"specification,omitempty"`
+	// This parameter is required.
+	StockMaxWarn *float32 `json:"stockMaxWarn,omitempty" xml:"stockMaxWarn,omitempty"`
+	// This parameter is required.
+	StockMinWarn *float32 `json:"stockMinWarn,omitempty" xml:"stockMinWarn,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s IndustryManufactureMaterialListResponseBodyList) String() string {
@@ -11737,31 +16212,112 @@ func (s *IndustryManufactureMesDispatchTaskHeaders) SetXAcsDingtalkAccessToken(v
 }
 
 type IndustryManufactureMesDispatchTaskRequest struct {
-	Action               *string `json:"action,omitempty" xml:"action,omitempty"`
-	AppKey               *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
-	BaseDataName         *string `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
-	DefectsAmount        *string `json:"defectsAmount,omitempty" xml:"defectsAmount,omitempty"`
-	DispatchStaffName    *string `json:"dispatchStaffName,omitempty" xml:"dispatchStaffName,omitempty"`
-	DispatchStaffNo      *string `json:"dispatchStaffNo,omitempty" xml:"dispatchStaffNo,omitempty"`
-	FineAmount           *string `json:"fineAmount,omitempty" xml:"fineAmount,omitempty"`
-	Overdue              *int32  `json:"overdue,omitempty" xml:"overdue,omitempty"`
-	PlanQuantity         *int64  `json:"planQuantity,omitempty" xml:"planQuantity,omitempty"`
-	Priority             *int32  `json:"priority,omitempty" xml:"priority,omitempty"`
-	ProcessName          *string `json:"processName,omitempty" xml:"processName,omitempty"`
-	ProcessUuid          *string `json:"processUuid,omitempty" xml:"processUuid,omitempty"`
-	ProductCode          *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
-	ProductName          *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// add
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// opsoft
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// example:
+	//
+	// task
+	BaseDataName *string `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
+	// example:
+	//
+	// 3
+	DefectsAmount *string `json:"defectsAmount,omitempty" xml:"defectsAmount,omitempty"`
+	// example:
+	//
+	// 张三
+	DispatchStaffName *string `json:"dispatchStaffName,omitempty" xml:"dispatchStaffName,omitempty"`
+	// example:
+	//
+	// 170000000332
+	DispatchStaffNo *string `json:"dispatchStaffNo,omitempty" xml:"dispatchStaffNo,omitempty"`
+	// example:
+	//
+	// 20
+	FineAmount *string `json:"fineAmount,omitempty" xml:"fineAmount,omitempty"`
+	// example:
+	//
+	// 1
+	Overdue *int32 `json:"overdue,omitempty" xml:"overdue,omitempty"`
+	// example:
+	//
+	// 321
+	PlanQuantity *int64 `json:"planQuantity,omitempty" xml:"planQuantity,omitempty"`
+	// example:
+	//
+	// 1
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// example:
+	//
+	// 打磨
+	ProcessName *string `json:"processName,omitempty" xml:"processName,omitempty"`
+	// example:
+	//
+	// fsdfs3fsd2234wds
+	ProcessUuid *string `json:"processUuid,omitempty" xml:"processUuid,omitempty"`
+	// example:
+	//
+	// dingfsdfs3fsd2234wds
+	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	// example:
+	//
+	// 毛坯KM50二级盖
+	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	// example:
+	//
+	// 20*20*3
 	ProductSpecification *string `json:"productSpecification,omitempty" xml:"productSpecification,omitempty"`
-	ProjectCode          *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
-	ProjectId            *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	ProjectStatus        *string `json:"projectStatus,omitempty" xml:"projectStatus,omitempty"`
-	TaskOperators        *string `json:"taskOperators,omitempty" xml:"taskOperators,omitempty"`
-	TaskPlanEndTime      *string `json:"taskPlanEndTime,omitempty" xml:"taskPlanEndTime,omitempty"`
-	TaskPlanStartTime    *string `json:"taskPlanStartTime,omitempty" xml:"taskPlanStartTime,omitempty"`
-	TaskStatus           *string `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
-	TaskType             *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
-	TeamId               *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
-	Uuid                 *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// dingfsdfs3fsd2234wds
+	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	// example:
+	//
+	// 0220423001
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// example:
+	//
+	// WORKING
+	ProjectStatus *string `json:"projectStatus,omitempty" xml:"projectStatus,omitempty"`
+	// example:
+	//
+	// [{"userId":"123","name":"汉俊","planQuantity":30}]
+	TaskOperators *string `json:"taskOperators,omitempty" xml:"taskOperators,omitempty"`
+	// example:
+	//
+	// 2021-03-12 23:59:59
+	TaskPlanEndTime *string `json:"taskPlanEndTime,omitempty" xml:"taskPlanEndTime,omitempty"`
+	// example:
+	//
+	// 2021-03-12 23:59:59
+	TaskPlanStartTime *string `json:"taskPlanStartTime,omitempty" xml:"taskPlanStartTime,omitempty"`
+	// example:
+	//
+	// WORKING
+	TaskStatus *string `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
+	// example:
+	//
+	// NORMAL
+	TaskType *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	// example:
+	//
+	// dfsdfs3fsd2234wds
+	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// fsdfs3fsd2234wds
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s IndustryManufactureMesDispatchTaskRequest) String() string {
@@ -11984,17 +16540,55 @@ func (s *IndustryManufactureMesMaterialHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type IndustryManufactureMesMaterialRequest struct {
-	Action               *string                                            `json:"action,omitempty" xml:"action,omitempty"`
-	AppKey               *string                                            `json:"appKey,omitempty" xml:"appKey,omitempty"`
-	BaseDataName         *string                                            `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
-	Category             *string                                            `json:"category,omitempty" xml:"category,omitempty"`
-	ExtendData           []*IndustryManufactureMesMaterialRequestExtendData `json:"extendData,omitempty" xml:"extendData,omitempty" type:"Repeated"`
-	ProductCode          *string                                            `json:"productCode,omitempty" xml:"productCode,omitempty"`
-	ProductName          *string                                            `json:"productName,omitempty" xml:"productName,omitempty"`
-	ProductSpecification *string                                            `json:"productSpecification,omitempty" xml:"productSpecification,omitempty"`
-	Prop                 *string                                            `json:"prop,omitempty" xml:"prop,omitempty"`
-	Unit                 *string                                            `json:"unit,omitempty" xml:"unit,omitempty"`
-	Uuid                 *string                                            `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// add
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// opsoft
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// example:
+	//
+	// material
+	BaseDataName *string `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
+	// example:
+	//
+	// 紧压白茶,白茶,红茶
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// if can be null:
+	// true
+	ExtendData []*IndustryManufactureMesMaterialRequestExtendData `json:"extendData,omitempty" xml:"extendData,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 20220509028
+	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	// example:
+	//
+	// 毛坯SNR47端盖
+	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	// example:
+	//
+	// KM63
+	ProductSpecification *string `json:"productSpecification,omitempty" xml:"productSpecification,omitempty"`
+	// example:
+	//
+	// 原材料
+	Prop *string `json:"prop,omitempty" xml:"prop,omitempty"`
+	// example:
+	//
+	// 件
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 39C1E213-86B2-706B-9615-5B957DF8C15D
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s IndustryManufactureMesMaterialRequest) String() string {
@@ -12061,9 +16655,21 @@ func (s *IndustryManufactureMesMaterialRequest) SetUuid(v string) *IndustryManuf
 }
 
 type IndustryManufactureMesMaterialRequestExtendData struct {
-	Code      *string `json:"code,omitempty" xml:"code,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	Value     *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// staffName
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// example:
+	//
+	// 生产人员
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 张三
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// string
 	ValueType *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
 }
 
@@ -12182,24 +16788,84 @@ func (s *IndustryManufactureMesOutPlanHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type IndustryManufactureMesOutPlanRequest struct {
-	ApprovalStatus            *string `json:"approvalStatus,omitempty" xml:"approvalStatus,omitempty"`
-	Approver                  *string `json:"approver,omitempty" xml:"approver,omitempty"`
-	BaseDataName              *string `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
-	OutSourceProjectCode      *string `json:"outSourceProjectCode,omitempty" xml:"outSourceProjectCode,omitempty"`
-	OutSourceTeamId           *string `json:"outSourceTeamId,omitempty" xml:"outSourceTeamId,omitempty"`
-	Price                     *string `json:"price,omitempty" xml:"price,omitempty"`
+	// example:
+	//
+	// APPROVING
+	ApprovalStatus *string `json:"approvalStatus,omitempty" xml:"approvalStatus,omitempty"`
+	// example:
+	//
+	// [{"userId":"123","name":"汉俊"}]
+	Approver *string `json:"approver,omitempty" xml:"approver,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// wwPlan
+	BaseDataName *string `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// WWJH-20220728
+	OutSourceProjectCode *string `json:"outSourceProjectCode,omitempty" xml:"outSourceProjectCode,omitempty"`
+	// example:
+	//
+	// cid34444
+	OutSourceTeamId *string `json:"outSourceTeamId,omitempty" xml:"outSourceTeamId,omitempty"`
+	// example:
+	//
+	// 321
+	Price *string `json:"price,omitempty" xml:"price,omitempty"`
+	// example:
+	//
+	// 20220728_OP20
 	ProcessIdentificationCode *string `json:"processIdentificationCode,omitempty" xml:"processIdentificationCode,omitempty"`
-	ProcessUuids              *string `json:"processUuids,omitempty" xml:"processUuids,omitempty"`
-	ProductCode               *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
-	ProductName               *string `json:"productName,omitempty" xml:"productName,omitempty"`
-	ProductSpecification      *string `json:"productSpecification,omitempty" xml:"productSpecification,omitempty"`
-	ProjectCode               *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
-	ProjectId                 *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	SendPlanQuantity          *string `json:"sendPlanQuantity,omitempty" xml:"sendPlanQuantity,omitempty"`
-	SupplierCode              *string `json:"supplierCode,omitempty" xml:"supplierCode,omitempty"`
-	SupplierName              *string `json:"supplierName,omitempty" xml:"supplierName,omitempty"`
-	TotalWage                 *string `json:"totalWage,omitempty" xml:"totalWage,omitempty"`
-	Uuid                      *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// [{       "uuid": "1543878029936459777",       "name": "YF-盐雾",       "preProcess": "1470231820594245633"     }]
+	ProcessUuids *string `json:"processUuids,omitempty" xml:"processUuids,omitempty"`
+	// example:
+	//
+	// WL12345
+	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	// example:
+	//
+	// 毛坯KM63三级盖
+	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	// example:
+	//
+	// 5/16*13.5
+	ProductSpecification *string `json:"productSpecification,omitempty" xml:"productSpecification,omitempty"`
+	// example:
+	//
+	// 20220728_001
+	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	// example:
+	//
+	// 20220728_001
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// example:
+	//
+	// 321
+	SendPlanQuantity *string `json:"sendPlanQuantity,omitempty" xml:"sendPlanQuantity,omitempty"`
+	// example:
+	//
+	// GX002
+	SupplierCode *string `json:"supplierCode,omitempty" xml:"supplierCode,omitempty"`
+	// example:
+	//
+	// 北京供应
+	SupplierName *string `json:"supplierName,omitempty" xml:"supplierName,omitempty"`
+	// example:
+	//
+	// 20
+	TotalWage *string `json:"totalWage,omitempty" xml:"totalWage,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// C1E213-86B2-706B-9615-5B957DF8C15D
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s IndustryManufactureMesOutPlanRequest) String() string {
@@ -12387,35 +17053,128 @@ func (s *IndustryManufactureMesOutputHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type IndustryManufactureMesOutputRequest struct {
-	Action               *string `json:"action,omitempty" xml:"action,omitempty"`
-	AppKey               *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
-	ApproveStatus        *string `json:"approveStatus,omitempty" xml:"approveStatus,omitempty"`
-	BaseDataName         *string `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
-	DefectsAmount        *string `json:"defectsAmount,omitempty" xml:"defectsAmount,omitempty"`
-	DefectsReason        *string `json:"defectsReason,omitempty" xml:"defectsReason,omitempty"`
-	FineAmount           *string `json:"fineAmount,omitempty" xml:"fineAmount,omitempty"`
-	HasQualityTest       *string `json:"hasQualityTest,omitempty" xml:"hasQualityTest,omitempty"`
-	Overdue              *int32  `json:"overdue,omitempty" xml:"overdue,omitempty"`
-	PlanQuantity         *int64  `json:"planQuantity,omitempty" xml:"planQuantity,omitempty"`
-	Priority             *int32  `json:"priority,omitempty" xml:"priority,omitempty"`
-	ProcessName          *string `json:"processName,omitempty" xml:"processName,omitempty"`
-	ProcessUuid          *string `json:"processUuid,omitempty" xml:"processUuid,omitempty"`
-	ProductCode          *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
-	ProductName          *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// add
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// opsoft
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// example:
+	//
+	// AGREE
+	ApproveStatus *string `json:"approveStatus,omitempty" xml:"approveStatus,omitempty"`
+	// example:
+	//
+	// output
+	BaseDataName *string `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
+	// example:
+	//
+	// 3
+	DefectsAmount *string `json:"defectsAmount,omitempty" xml:"defectsAmount,omitempty"`
+	// example:
+	//
+	// [{"count":10,"reason":"工废"},{"count":20,"reason":"料废"}]
+	DefectsReason *string `json:"defectsReason,omitempty" xml:"defectsReason,omitempty"`
+	// example:
+	//
+	// 20
+	FineAmount *string `json:"fineAmount,omitempty" xml:"fineAmount,omitempty"`
+	// example:
+	//
+	// y
+	HasQualityTest *string `json:"hasQualityTest,omitempty" xml:"hasQualityTest,omitempty"`
+	// example:
+	//
+	// 1
+	Overdue *int32 `json:"overdue,omitempty" xml:"overdue,omitempty"`
+	// example:
+	//
+	// 321
+	PlanQuantity *int64 `json:"planQuantity,omitempty" xml:"planQuantity,omitempty"`
+	// example:
+	//
+	// 1
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// example:
+	//
+	// 打磨
+	ProcessName *string `json:"processName,omitempty" xml:"processName,omitempty"`
+	// example:
+	//
+	// fsdfs3fsd2234wds
+	ProcessUuid *string `json:"processUuid,omitempty" xml:"processUuid,omitempty"`
+	// example:
+	//
+	// dingfsdfs3fsd2234wds
+	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	// example:
+	//
+	// 毛坯KM50二级盖
+	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	// example:
+	//
+	// 20*20*3
 	ProductSpecification *string `json:"productSpecification,omitempty" xml:"productSpecification,omitempty"`
-	ProjectCode          *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
-	ProjectId            *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	ProjectStatus        *string `json:"projectStatus,omitempty" xml:"projectStatus,omitempty"`
-	QualityTestStatus    *string `json:"qualityTestStatus,omitempty" xml:"qualityTestStatus,omitempty"`
-	TaskPlanEndTime      *string `json:"taskPlanEndTime,omitempty" xml:"taskPlanEndTime,omitempty"`
-	TaskPlanStartTime    *string `json:"taskPlanStartTime,omitempty" xml:"taskPlanStartTime,omitempty"`
-	TaskStatus           *string `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
-	TaskType             *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
-	TaskUuid             *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
-	TeamId               *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
-	UserId               *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserName             *string `json:"userName,omitempty" xml:"userName,omitempty"`
-	Uuid                 *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// dingfsdfs3fsd2234wds
+	ProjectCode *string `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	// example:
+	//
+	// 0220423001
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// example:
+	//
+	// WORKING
+	ProjectStatus *string `json:"projectStatus,omitempty" xml:"projectStatus,omitempty"`
+	// example:
+	//
+	// VERIFIED
+	QualityTestStatus *string `json:"qualityTestStatus,omitempty" xml:"qualityTestStatus,omitempty"`
+	// example:
+	//
+	// 2021-03-12 23:59:59
+	TaskPlanEndTime *string `json:"taskPlanEndTime,omitempty" xml:"taskPlanEndTime,omitempty"`
+	// example:
+	//
+	// 2021-03-12 23:59:59
+	TaskPlanStartTime *string `json:"taskPlanStartTime,omitempty" xml:"taskPlanStartTime,omitempty"`
+	// example:
+	//
+	// WORKING
+	TaskStatus *string `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
+	// example:
+	//
+	// NORMAL
+	TaskType *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	// example:
+	//
+	// C1E213-86B2-706B-9615-5B957DF8C15D
+	TaskUuid *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
+	// example:
+	//
+	// dfsdfs3fsd2234wds
+	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
+	// example:
+	//
+	// 170000000332
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 张三
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// fsdfs3fsd2234wds
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s IndustryManufactureMesOutputRequest) String() string {
@@ -12658,19 +17417,61 @@ func (s *IndustryManufactureMesProcessHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type IndustryManufactureMesProcessRequest struct {
-	Action          *string                                           `json:"action,omitempty" xml:"action,omitempty"`
-	AppKey          *string                                           `json:"appKey,omitempty" xml:"appKey,omitempty"`
-	BaseDataName    *string                                           `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
-	ExtendData      []*IndustryManufactureMesProcessRequestExtendData `json:"extendData,omitempty" xml:"extendData,omitempty" type:"Repeated"`
-	Name            *string                                           `json:"name,omitempty" xml:"name,omitempty"`
-	NeedDispatch    *string                                           `json:"needDispatch,omitempty" xml:"needDispatch,omitempty"`
-	NeedQualityTest *string                                           `json:"needQualityTest,omitempty" xml:"needQualityTest,omitempty"`
-	No              *string                                           `json:"no,omitempty" xml:"no,omitempty"`
-	Price           *string                                           `json:"price,omitempty" xml:"price,omitempty"`
-	Prop            *string                                           `json:"prop,omitempty" xml:"prop,omitempty"`
-	Remark          *string                                           `json:"remark,omitempty" xml:"remark,omitempty"`
-	Sop             *string                                           `json:"sop,omitempty" xml:"sop,omitempty"`
-	Uuid            *string                                           `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// add
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// opsoft
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// example:
+	//
+	// process
+	BaseDataName *string                                           `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
+	ExtendData   []*IndustryManufactureMesProcessRequestExtendData `json:"extendData,omitempty" xml:"extendData,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 打磨
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// y
+	NeedDispatch *string `json:"needDispatch,omitempty" xml:"needDispatch,omitempty"`
+	// example:
+	//
+	// n
+	NeedQualityTest *string `json:"needQualityTest,omitempty" xml:"needQualityTest,omitempty"`
+	// example:
+	//
+	// 011354
+	No *string `json:"no,omitempty" xml:"no,omitempty"`
+	// example:
+	//
+	// 0.21
+	Price *string `json:"price,omitempty" xml:"price,omitempty"`
+	// example:
+	//
+	// 自制
+	Prop *string `json:"prop,omitempty" xml:"prop,omitempty"`
+	// example:
+	//
+	// 这里是备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// 止口面攻牙的操作方法
+	Sop *string `json:"sop,omitempty" xml:"sop,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 39C1E213-86B2-706B-9615-5B957DF8C15D
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s IndustryManufactureMesProcessRequest) String() string {
@@ -12747,9 +17548,21 @@ func (s *IndustryManufactureMesProcessRequest) SetUuid(v string) *IndustryManufa
 }
 
 type IndustryManufactureMesProcessRequestExtendData struct {
-	Code      *string `json:"code,omitempty" xml:"code,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	Value     *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// username
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// example:
+	//
+	// 生产人员
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 李四
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// string
 	ValueType *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
 }
 
@@ -12868,31 +17681,108 @@ func (s *IndustryManufactureMesProductionPlanHeaders) SetXAcsDingtalkAccessToken
 }
 
 type IndustryManufactureMesProductionPlanRequest struct {
-	Action               *string                                                  `json:"action,omitempty" xml:"action,omitempty"`
-	ActualEndTime        *string                                                  `json:"actualEndTime,omitempty" xml:"actualEndTime,omitempty"`
-	ActualStartTime      *string                                                  `json:"actualStartTime,omitempty" xml:"actualStartTime,omitempty"`
-	AppKey               *string                                                  `json:"appKey,omitempty" xml:"appKey,omitempty"`
-	BaseDataName         *string                                                  `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
-	BomUuid              *string                                                  `json:"bomUuid,omitempty" xml:"bomUuid,omitempty"`
-	Events               []*string                                                `json:"events,omitempty" xml:"events,omitempty" type:"Repeated"`
-	ExtendData           []*IndustryManufactureMesProductionPlanRequestExtendData `json:"extendData,omitempty" xml:"extendData,omitempty" type:"Repeated"`
-	No                   *string                                                  `json:"no,omitempty" xml:"no,omitempty"`
-	Overdue              *string                                                  `json:"overdue,omitempty" xml:"overdue,omitempty"`
-	PlanEndTime          *string                                                  `json:"planEndTime,omitempty" xml:"planEndTime,omitempty"`
-	PlanQuantity         *string                                                  `json:"planQuantity,omitempty" xml:"planQuantity,omitempty"`
-	PlanStartTime        *string                                                  `json:"planStartTime,omitempty" xml:"planStartTime,omitempty"`
-	ProcessUuids         *string                                                  `json:"processUuids,omitempty" xml:"processUuids,omitempty"`
-	ProductCode          *string                                                  `json:"productCode,omitempty" xml:"productCode,omitempty"`
-	ProductName          *string                                                  `json:"productName,omitempty" xml:"productName,omitempty"`
-	ProductSpecification *string                                                  `json:"productSpecification,omitempty" xml:"productSpecification,omitempty"`
-	QualifiedQuantity    *string                                                  `json:"qualifiedQuantity,omitempty" xml:"qualifiedQuantity,omitempty"`
-	SellOrderNo          *string                                                  `json:"sellOrderNo,omitempty" xml:"sellOrderNo,omitempty"`
-	Status               *string                                                  `json:"status,omitempty" xml:"status,omitempty"`
-	TeamList             *string                                                  `json:"teamList,omitempty" xml:"teamList,omitempty"`
-	Title                *string                                                  `json:"title,omitempty" xml:"title,omitempty"`
-	Type                 *string                                                  `json:"type,omitempty" xml:"type,omitempty"`
-	Unit                 *string                                                  `json:"unit,omitempty" xml:"unit,omitempty"`
-	Uuid                 *string                                                  `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// add
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// example:
+	//
+	// 2021-03-12 00:00:00
+	ActualEndTime *string `json:"actualEndTime,omitempty" xml:"actualEndTime,omitempty"`
+	// example:
+	//
+	// 2021-03-12 00:00:00
+	ActualStartTime *string `json:"actualStartTime,omitempty" xml:"actualStartTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// opsoft
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// productionplan
+	BaseDataName *string `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
+	// example:
+	//
+	// 39C1E213-86B2-706B-9615-5B957DF8C15D
+	BomUuid    *string                                                  `json:"bomUuid,omitempty" xml:"bomUuid,omitempty"`
+	Events     []*string                                                `json:"events,omitempty" xml:"events,omitempty" type:"Repeated"`
+	ExtendData []*IndustryManufactureMesProductionPlanRequestExtendData `json:"extendData,omitempty" xml:"extendData,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 20220509034
+	No *string `json:"no,omitempty" xml:"no,omitempty"`
+	// example:
+	//
+	// 0
+	Overdue *string `json:"overdue,omitempty" xml:"overdue,omitempty"`
+	// example:
+	//
+	// 2021-03-12 00:00:00
+	PlanEndTime *string `json:"planEndTime,omitempty" xml:"planEndTime,omitempty"`
+	// example:
+	//
+	// 321
+	PlanQuantity *string `json:"planQuantity,omitempty" xml:"planQuantity,omitempty"`
+	// example:
+	//
+	// 2021-03-12 00:00:00
+	PlanStartTime *string `json:"planStartTime,omitempty" xml:"planStartTime,omitempty"`
+	// example:
+	//
+	// { TODO       "uuid": "1543878029722550273",       "name": "YF-钣金",       "preProcess": ""     }
+	ProcessUuids *string `json:"processUuids,omitempty" xml:"processUuids,omitempty"`
+	// example:
+	//
+	// 011351
+	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	// example:
+	//
+	// 毛坯KM50三级盖
+	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	// example:
+	//
+	// KM50
+	ProductSpecification *string `json:"productSpecification,omitempty" xml:"productSpecification,omitempty"`
+	// example:
+	//
+	// 300
+	QualifiedQuantity *string `json:"qualifiedQuantity,omitempty" xml:"qualifiedQuantity,omitempty"`
+	// example:
+	//
+	// sell20220509034
+	SellOrderNo *string `json:"sellOrderNo,omitempty" xml:"sellOrderNo,omitempty"`
+	// example:
+	//
+	// WORKING
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// {     "processId1": ["teamId11", "teamId12", "teamId13"],     "processId2": ["teamId21", "teamId22", "teamId23"] }
+	TeamList *string `json:"teamList,omitempty" xml:"teamList,omitempty"`
+	// example:
+	//
+	// 毛坯KM50三级盖
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// NORMAL
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 个
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 39C1E213-86B2-706B-9615-5B957DF8C15D
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s IndustryManufactureMesProductionPlanRequest) String() string {
@@ -13029,9 +17919,21 @@ func (s *IndustryManufactureMesProductionPlanRequest) SetUuid(v string) *Industr
 }
 
 type IndustryManufactureMesProductionPlanRequestExtendData struct {
-	Code      *string `json:"code,omitempty" xml:"code,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	Value     *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// staffName
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// example:
+	//
+	// 生产人员
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 张三
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// string
 	ValueType *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
 }
 
@@ -13150,19 +18052,50 @@ func (s *IndustryManufactureMesSubCooperationTeamHeaders) SetXAcsDingtalkAccessT
 }
 
 type IndustryManufactureMesSubCooperationTeamRequest struct {
-	Action       *string                                                        `json:"action,omitempty" xml:"action,omitempty"`
-	AppKey       *string                                                        `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// add
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// libai
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// outTeam
 	BaseDataName *string                                                        `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
 	Events       []*string                                                      `json:"events,omitempty" xml:"events,omitempty" type:"Repeated"`
 	ExtendData   []*IndustryManufactureMesSubCooperationTeamRequestExtendData   `json:"extendData,omitempty" xml:"extendData,omitempty" type:"Repeated"`
 	GroupPlugins []*IndustryManufactureMesSubCooperationTeamRequestGroupPlugins `json:"groupPlugins,omitempty" xml:"groupPlugins,omitempty" type:"Repeated"`
-	GroupType    *string                                                        `json:"groupType,omitempty" xml:"groupType,omitempty"`
-	Leaders      []*IndustryManufactureMesSubCooperationTeamRequestLeaders      `json:"leaders,omitempty" xml:"leaders,omitempty" type:"Repeated"`
-	Members      []*IndustryManufactureMesSubCooperationTeamRequestMembers      `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	Name         *string                                                        `json:"name,omitempty" xml:"name,omitempty"`
-	OutCorpId    *string                                                        `json:"outCorpId,omitempty" xml:"outCorpId,omitempty"`
-	ProcessIds   []*string                                                      `json:"processIds,omitempty" xml:"processIds,omitempty" type:"Repeated"`
-	Uuid         *string                                                        `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// SUB_COOPERATION_GROUP
+	GroupType *string                                                   `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	Leaders   []*IndustryManufactureMesSubCooperationTeamRequestLeaders `json:"leaders,omitempty" xml:"leaders,omitempty" type:"Repeated"`
+	Members   []*IndustryManufactureMesSubCooperationTeamRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 打磨班组
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingfsdfs3fsd2234wds
+	OutCorpId  *string   `json:"outCorpId,omitempty" xml:"outCorpId,omitempty"`
+	ProcessIds []*string `json:"processIds,omitempty" xml:"processIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// d41d8cd98f00b204e9800998ecf8427e
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s IndustryManufactureMesSubCooperationTeamRequest) String() string {
@@ -13239,9 +18172,27 @@ func (s *IndustryManufactureMesSubCooperationTeamRequest) SetUuid(v string) *Ind
 }
 
 type IndustryManufactureMesSubCooperationTeamRequestExtendData struct {
-	Code      *string `json:"code,omitempty" xml:"code,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	Value     *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// school
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// example:
+	//
+	// 学校
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 北大
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// string
 	ValueType *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
 }
 
@@ -13274,7 +18225,9 @@ func (s *IndustryManufactureMesSubCooperationTeamRequestExtendData) SetValueType
 }
 
 type IndustryManufactureMesSubCooperationTeamRequestGroupPlugins struct {
+	// This parameter is required.
 	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -13297,7 +18250,17 @@ func (s *IndustryManufactureMesSubCooperationTeamRequestGroupPlugins) SetValue(v
 }
 
 type IndustryManufactureMesSubCooperationTeamRequestLeaders struct {
-	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1919442747879777
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -13320,7 +18283,17 @@ func (s *IndustryManufactureMesSubCooperationTeamRequestLeaders) SetUserId(v str
 }
 
 type IndustryManufactureMesSubCooperationTeamRequestMembers struct {
-	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 李四
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1919442747879777
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -13429,21 +18402,47 @@ func (s *IndustryManufactureMesTeamMgmtHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type IndustryManufactureMesTeamMgmtRequest struct {
-	Action       *string                                              `json:"action,omitempty" xml:"action,omitempty"`
-	AppKey       *string                                              `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// add
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// libai
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// team
 	BaseDataName *string                                              `json:"baseDataName,omitempty" xml:"baseDataName,omitempty"`
 	Events       []*string                                            `json:"events,omitempty" xml:"events,omitempty" type:"Repeated"`
 	ExtendData   []*IndustryManufactureMesTeamMgmtRequestExtendData   `json:"extendData,omitempty" xml:"extendData,omitempty" type:"Repeated"`
 	GroupConfig  map[string]interface{}                               `json:"groupConfig,omitempty" xml:"groupConfig,omitempty"`
 	GroupPlugins []*IndustryManufactureMesTeamMgmtRequestGroupPlugins `json:"groupPlugins,omitempty" xml:"groupPlugins,omitempty" type:"Repeated"`
-	GroupType    *string                                              `json:"groupType,omitempty" xml:"groupType,omitempty"`
-	Id           *string                                              `json:"id,omitempty" xml:"id,omitempty"`
-	Leaders      []*IndustryManufactureMesTeamMgmtRequestLeaders      `json:"leaders,omitempty" xml:"leaders,omitempty" type:"Repeated"`
-	Members      []*IndustryManufactureMesTeamMgmtRequestMembers      `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	Name         *string                                              `json:"name,omitempty" xml:"name,omitempty"`
-	ProcessIds   []*string                                            `json:"processIds,omitempty" xml:"processIds,omitempty" type:"Repeated"`
-	TagKey       *string                                              `json:"tagKey,omitempty" xml:"tagKey,omitempty"`
-	TagValues    []*string                                            `json:"tagValues,omitempty" xml:"tagValues,omitempty" type:"Repeated"`
+	// example:
+	//
+	// PROCESS
+	GroupType *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// d41d8cd98f00b204e9800998ecf8427e
+	Id      *string                                         `json:"id,omitempty" xml:"id,omitempty"`
+	Leaders []*IndustryManufactureMesTeamMgmtRequestLeaders `json:"leaders,omitempty" xml:"leaders,omitempty" type:"Repeated"`
+	Members []*IndustryManufactureMesTeamMgmtRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 打磨班组
+	Name       *string   `json:"name,omitempty" xml:"name,omitempty"`
+	ProcessIds []*string `json:"processIds,omitempty" xml:"processIds,omitempty" type:"Repeated"`
+	TagKey     *string   `json:"tagKey,omitempty" xml:"tagKey,omitempty"`
+	TagValues  []*string `json:"tagValues,omitempty" xml:"tagValues,omitempty" type:"Repeated"`
 }
 
 func (s IndustryManufactureMesTeamMgmtRequest) String() string {
@@ -13530,9 +18529,27 @@ func (s *IndustryManufactureMesTeamMgmtRequest) SetTagValues(v []*string) *Indus
 }
 
 type IndustryManufactureMesTeamMgmtRequestExtendData struct {
-	Code      *string `json:"code,omitempty" xml:"code,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	Value     *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// school
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// example:
+	//
+	// 学校
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 北大
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// string
 	ValueType *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
 }
 
@@ -13565,7 +18582,9 @@ func (s *IndustryManufactureMesTeamMgmtRequestExtendData) SetValueType(v string)
 }
 
 type IndustryManufactureMesTeamMgmtRequestGroupPlugins struct {
+	// This parameter is required.
 	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -13588,7 +18607,17 @@ func (s *IndustryManufactureMesTeamMgmtRequestGroupPlugins) SetValue(v string) *
 }
 
 type IndustryManufactureMesTeamMgmtRequestLeaders struct {
-	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1919442747879777
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -13611,7 +18640,17 @@ func (s *IndustryManufactureMesTeamMgmtRequestLeaders) SetUserId(v string) *Indu
 }
 
 type IndustryManufactureMesTeamMgmtRequestMembers struct {
-	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 李四
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1919442747879777
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -13634,9 +18673,11 @@ func (s *IndustryManufactureMesTeamMgmtRequestMembers) SetUserId(v string) *Indu
 }
 
 type IndustryManufactureMesTeamMgmtResponseBody struct {
-	DingOpenErrcode *int32                                            `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
-	ErrorMsg        *string                                           `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	Result          *IndustryManufactureMesTeamMgmtResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	DingOpenErrcode *int32 `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	// This parameter is required.
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// This parameter is required.
+	Result *IndustryManufactureMesTeamMgmtResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s IndustryManufactureMesTeamMgmtResponseBody) String() string {
@@ -13663,6 +18704,7 @@ func (s *IndustryManufactureMesTeamMgmtResponseBody) SetResult(v *IndustryManufa
 }
 
 type IndustryManufactureMesTeamMgmtResponseBodyResult struct {
+	// This parameter is required.
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 }
 
@@ -13732,22 +18774,25 @@ func (s *IndustryMmanufactureMaterialCostGetHeaders) SetXAcsDingtalkAccessToken(
 }
 
 type IndustryMmanufactureMaterialCostGetRequest struct {
-	AppId           *int64   `json:"appId,omitempty" xml:"appId,omitempty"`
-	AppIds          []*int64 `json:"appIds,omitempty" xml:"appIds,omitempty" type:"Repeated"`
-	AppName         *string  `json:"appName,omitempty" xml:"appName,omitempty"`
-	CorpId          *string  `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Cursor          *int64   `json:"cursor,omitempty" xml:"cursor,omitempty"`
-	EndTime         *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	InstanceId      *string  `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	IsvOrgId        *int64   `json:"isvOrgId,omitempty" xml:"isvOrgId,omitempty"`
-	MaterialNo      *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
-	MicroappAgentId *int64   `json:"microappAgentId,omitempty" xml:"microappAgentId,omitempty"`
-	OrgId           *int64   `json:"orgId,omitempty" xml:"orgId,omitempty"`
-	PageNumber      *int64   `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize        *int32   `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	StartTime       *int64   `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	SuiteKey        *string  `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
-	TokenGrantType  *int32   `json:"tokenGrantType,omitempty" xml:"tokenGrantType,omitempty"`
+	AppId   *int64   `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppIds  []*int64 `json:"appIds,omitempty" xml:"appIds,omitempty" type:"Repeated"`
+	AppName *string  `json:"appName,omitempty" xml:"appName,omitempty"`
+	// This parameter is required.
+	CorpId          *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Cursor          *int64  `json:"cursor,omitempty" xml:"cursor,omitempty"`
+	EndTime         *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	InstanceId      *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	IsvOrgId        *int64  `json:"isvOrgId,omitempty" xml:"isvOrgId,omitempty"`
+	MaterialNo      *string `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
+	MicroappAgentId *int64  `json:"microappAgentId,omitempty" xml:"microappAgentId,omitempty"`
+	OrgId           *int64  `json:"orgId,omitempty" xml:"orgId,omitempty"`
+	// This parameter is required.
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	PageSize       *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	StartTime      *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	SuiteKey       *string `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
+	TokenGrantType *int32  `json:"tokenGrantType,omitempty" xml:"tokenGrantType,omitempty"`
 }
 
 func (s IndustryMmanufactureMaterialCostGetRequest) String() string {
@@ -13839,10 +18884,13 @@ func (s *IndustryMmanufactureMaterialCostGetRequest) SetTokenGrantType(v int32) 
 }
 
 type IndustryMmanufactureMaterialCostGetResponseBody struct {
-	HasMore    *bool                                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	List       []*IndustryMmanufactureMaterialCostGetResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	NextCursor *int64                                                 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	TotalCount *int64                                                 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	HasMore *bool                                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*IndustryMmanufactureMaterialCostGetResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// This parameter is required.
+	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	// This parameter is required.
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s IndustryMmanufactureMaterialCostGetResponseBody) String() string {
@@ -13874,20 +18922,34 @@ func (s *IndustryMmanufactureMaterialCostGetResponseBody) SetTotalCount(v int64)
 }
 
 type IndustryMmanufactureMaterialCostGetResponseBodyList struct {
-	ActPrice       *float32 `json:"actPrice,omitempty" xml:"actPrice,omitempty"`
-	CorpId         *string  `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Count          *float32 `json:"count,omitempty" xml:"count,omitempty"`
-	Ext            *string  `json:"ext,omitempty" xml:"ext,omitempty"`
-	GmtCreate      *int64   `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified    *int64   `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	InstanceId     *string  `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	MaterialCostNo *string  `json:"materialCostNo,omitempty" xml:"materialCostNo,omitempty"`
-	MaterialName   *string  `json:"materialName,omitempty" xml:"materialName,omitempty"`
-	MaterialNo     *string  `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
-	Memo           *string  `json:"memo,omitempty" xml:"memo,omitempty"`
-	Price          *float32 `json:"price,omitempty" xml:"price,omitempty"`
-	ProcessCode    *string  `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	Unit           *string  `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	ActPrice *float32 `json:"actPrice,omitempty" xml:"actPrice,omitempty"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Count *float32 `json:"count,omitempty" xml:"count,omitempty"`
+	// This parameter is required.
+	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
+	// This parameter is required.
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	GmtModified *int64 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// This parameter is required.
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// This parameter is required.
+	MaterialCostNo *string `json:"materialCostNo,omitempty" xml:"materialCostNo,omitempty"`
+	// This parameter is required.
+	MaterialName *string `json:"materialName,omitempty" xml:"materialName,omitempty"`
+	// This parameter is required.
+	MaterialNo *string `json:"materialNo,omitempty" xml:"materialNo,omitempty"`
+	// This parameter is required.
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// This parameter is required.
+	Price *float32 `json:"price,omitempty" xml:"price,omitempty"`
+	// This parameter is required.
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s IndustryMmanufactureMaterialCostGetResponseBodyList) String() string {
@@ -14021,15 +19083,44 @@ func (s *PushDingMessageHeaders) SetXAcsDingtalkAccessToken(v string) *PushDingM
 }
 
 type PushDingMessageRequest struct {
-	AppId       *int64    `json:"appId,omitempty" xml:"appId,omitempty"`
-	Content     *string   `json:"content,omitempty" xml:"content,omitempty"`
-	MessageType *string   `json:"messageType,omitempty" xml:"messageType,omitempty"`
-	MessageUrl  *string   `json:"messageUrl,omitempty" xml:"messageUrl,omitempty"`
-	PictureUrl  *string   `json:"pictureUrl,omitempty" xml:"pictureUrl,omitempty"`
-	SingleTitle *string   `json:"singleTitle,omitempty" xml:"singleTitle,omitempty"`
-	SingleUrl   *string   `json:"singleUrl,omitempty" xml:"singleUrl,omitempty"`
-	Title       *string   `json:"title,omitempty" xml:"title,omitempty"`
-	UserIdList  []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 10001
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 消息内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// CARD
+	MessageType *string `json:"messageType,omitempty" xml:"messageType,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	MessageUrl *string `json:"messageUrl,omitempty" xml:"messageUrl,omitempty"`
+	// example:
+	//
+	// http://pic.616pic.com/ys_b_img/00/27/71/Uu8E6C2Edn.jpg
+	PictureUrl *string `json:"pictureUrl,omitempty" xml:"pictureUrl,omitempty"`
+	// example:
+	//
+	// 转跳链接
+	SingleTitle *string `json:"singleTitle,omitempty" xml:"singleTitle,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	SingleUrl *string `json:"singleUrl,omitempty" xml:"singleUrl,omitempty"`
+	// example:
+	//
+	// 消息title
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
 func (s PushDingMessageRequest) String() string {
@@ -14161,8 +19252,14 @@ func (s *QueryAllDepartmentHeaders) SetXAcsDingtalkAccessToken(v string) *QueryA
 }
 
 type QueryAllDepartmentRequest struct {
+	// example:
+	//
+	// 1
 	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 200
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryAllDepartmentRequest) String() string {
@@ -14184,10 +19281,19 @@ func (s *QueryAllDepartmentRequest) SetPageSize(v int32) *QueryAllDepartmentRequ
 }
 
 type QueryAllDepartmentResponseBody struct {
-	Content     []*QueryAllDepartmentResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	CurrentPage *int32                                   `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
-	TotalCount  *int64                                   `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
-	TotalPages  *int32                                   `json:"totalPages,omitempty" xml:"totalPages,omitempty"`
+	Content []*QueryAllDepartmentResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	CurrentPage *int32 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// example:
+	//
+	// 10
+	TotalPages *int32 `json:"totalPages,omitempty" xml:"totalPages,omitempty"`
 }
 
 func (s QueryAllDepartmentResponseBody) String() string {
@@ -14219,10 +19325,22 @@ func (s *QueryAllDepartmentResponseBody) SetTotalPages(v int32) *QueryAllDepartm
 }
 
 type QueryAllDepartmentResponseBodyContent struct {
-	DeptAndExt      *QueryAllDepartmentResponseBodyContentDeptAndExt        `json:"deptAndExt,omitempty" xml:"deptAndExt,omitempty" type:"Struct"`
+	// This parameter is required.
+	DeptAndExt *QueryAllDepartmentResponseBodyContentDeptAndExt `json:"deptAndExt,omitempty" xml:"deptAndExt,omitempty" type:"Struct"`
+	// This parameter is required.
 	GroupAndExtList []*QueryAllDepartmentResponseBodyContentGroupAndExtList `json:"groupAndExtList,omitempty" xml:"groupAndExtList,omitempty" type:"Repeated"`
-	Id              *int64                                                  `json:"id,omitempty" xml:"id,omitempty"`
-	Name            *string                                                 `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 130000
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 骨科
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s QueryAllDepartmentResponseBodyContent) String() string {
@@ -14254,7 +19372,9 @@ func (s *QueryAllDepartmentResponseBodyContent) SetName(v string) *QueryAllDepar
 }
 
 type QueryAllDepartmentResponseBodyContentDeptAndExt struct {
-	Department  *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment    `json:"department,omitempty" xml:"department,omitempty" type:"Struct"`
+	// This parameter is required.
+	Department *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment `json:"department,omitempty" xml:"department,omitempty" type:"Struct"`
+	// This parameter is required.
 	ExtendInfos []*QueryAllDepartmentResponseBodyContentDeptAndExtExtendInfos `json:"extendInfos,omitempty" xml:"extendInfos,omitempty" type:"Repeated"`
 }
 
@@ -14277,18 +19397,74 @@ func (s *QueryAllDepartmentResponseBodyContentDeptAndExt) SetExtendInfos(v []*Qu
 }
 
 type QueryAllDepartmentResponseBodyContentDeptAndExtDepartment struct {
-	DeptCode       *string  `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
-	DeptName       *string  `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	DeptOrder      *int64   `json:"deptOrder,omitempty" xml:"deptOrder,omitempty"`
-	DeptStatus     *int32   `json:"deptStatus,omitempty" xml:"deptStatus,omitempty"`
-	DeptType       *int32   `json:"deptType,omitempty" xml:"deptType,omitempty"`
-	GmtCreateStr   *string  `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
-	GmtModifiedStr *string  `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
-	Id             *int64   `json:"id,omitempty" xml:"id,omitempty"`
-	Name           *string  `json:"name,omitempty" xml:"name,omitempty"`
-	ParentDeptCode *string  `json:"parentDeptCode,omitempty" xml:"parentDeptCode,omitempty"`
-	Remark         *string  `json:"remark,omitempty" xml:"remark,omitempty"`
-	WardIdList     []*int64 `json:"wardIdList,omitempty" xml:"wardIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// asd123
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 骨科
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	DeptOrder *int64 `json:"deptOrder,omitempty" xml:"deptOrder,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	DeptStatus *int32 `json:"deptStatus,omitempty" xml:"deptStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	DeptType *int32 `json:"deptType,omitempty" xml:"deptType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtModifiedStr *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 130000
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 骨科
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// asd123
+	ParentDeptCode *string `json:"parentDeptCode,omitempty" xml:"parentDeptCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	WardIdList []*int64 `json:"wardIdList,omitempty" xml:"wardIdList,omitempty" type:"Repeated"`
 }
 
 func (s QueryAllDepartmentResponseBodyContentDeptAndExtDepartment) String() string {
@@ -14360,14 +19536,54 @@ func (s *QueryAllDepartmentResponseBodyContentDeptAndExtDepartment) SetWardIdLis
 }
 
 type QueryAllDepartmentResponseBodyContentDeptAndExtExtendInfos struct {
-	DeptCode              *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// asd123
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 科室、医务科、医生都不一样
 	DeptExtendDisplayName *string `json:"deptExtendDisplayName,omitempty" xml:"deptExtendDisplayName,omitempty"`
-	DeptExtendKey         *string `json:"deptExtendKey,omitempty" xml:"deptExtendKey,omitempty"`
-	DeptExtendValue       *string `json:"deptExtendValue,omitempty" xml:"deptExtendValue,omitempty"`
-	GmtCreateStr          *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
-	GmtModifiedStr        *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
-	Id                    *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	Status                *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 科室、医务科、医生都不一样
+	DeptExtendKey *string `json:"deptExtendKey,omitempty" xml:"deptExtendKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 科室、医务科、医生都不一样
+	DeptExtendValue *string `json:"deptExtendValue,omitempty" xml:"deptExtendValue,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtModifiedStr *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20000
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryAllDepartmentResponseBodyContentDeptAndExtExtendInfos) String() string {
@@ -14419,8 +19635,10 @@ func (s *QueryAllDepartmentResponseBodyContentDeptAndExtExtendInfos) SetStatus(v
 }
 
 type QueryAllDepartmentResponseBodyContentGroupAndExtList struct {
+	// This parameter is required.
 	ExtendInfos []*QueryAllDepartmentResponseBodyContentGroupAndExtListExtendInfos `json:"extendInfos,omitempty" xml:"extendInfos,omitempty" type:"Repeated"`
-	Group       *QueryAllDepartmentResponseBodyContentGroupAndExtListGroup         `json:"group,omitempty" xml:"group,omitempty" type:"Struct"`
+	// This parameter is required.
+	Group *QueryAllDepartmentResponseBodyContentGroupAndExtListGroup `json:"group,omitempty" xml:"group,omitempty" type:"Struct"`
 }
 
 func (s QueryAllDepartmentResponseBodyContentGroupAndExtList) String() string {
@@ -14442,14 +19660,54 @@ func (s *QueryAllDepartmentResponseBodyContentGroupAndExtList) SetGroup(v *Query
 }
 
 type QueryAllDepartmentResponseBodyContentGroupAndExtListExtendInfos struct {
-	DeptCode              *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// asd123
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 科室、医务科、医生都不一样
 	DeptExtendDisplayName *string `json:"deptExtendDisplayName,omitempty" xml:"deptExtendDisplayName,omitempty"`
-	DeptExtendKey         *string `json:"deptExtendKey,omitempty" xml:"deptExtendKey,omitempty"`
-	DeptExtendValue       *string `json:"deptExtendValue,omitempty" xml:"deptExtendValue,omitempty"`
-	GmtCreateStr          *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
-	GmtModifiedStr        *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
-	Id                    *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	Status                *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 科室、医务科、医生都不一样
+	DeptExtendKey *string `json:"deptExtendKey,omitempty" xml:"deptExtendKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 科室、医务科、医生都不一样
+	DeptExtendValue *string `json:"deptExtendValue,omitempty" xml:"deptExtendValue,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtModifiedStr *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20000
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryAllDepartmentResponseBodyContentGroupAndExtListExtendInfos) String() string {
@@ -14501,15 +19759,56 @@ func (s *QueryAllDepartmentResponseBodyContentGroupAndExtListExtendInfos) SetSta
 }
 
 type QueryAllDepartmentResponseBodyContentGroupAndExtListGroup struct {
-	DeptId         *int64                                                           `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	DeptStatus     *int32                                                           `json:"deptStatus,omitempty" xml:"deptStatus,omitempty"`
-	GmtCreateStr   *string                                                          `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
-	GmtModifiedStr *string                                                          `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
-	Id             *int64                                                           `json:"id,omitempty" xml:"id,omitempty"`
-	Leader         *QueryAllDepartmentResponseBodyContentGroupAndExtListGroupLeader `json:"leader,omitempty" xml:"leader,omitempty" type:"Struct"`
-	Name           *string                                                          `json:"name,omitempty" xml:"name,omitempty"`
-	ParentDeptCode *string                                                          `json:"parentDeptCode,omitempty" xml:"parentDeptCode,omitempty"`
-	Remark         *string                                                          `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 13000
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	DeptStatus *int32 `json:"deptStatus,omitempty" xml:"deptStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtModifiedStr *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 13001
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	Leader *QueryAllDepartmentResponseBodyContentGroupAndExtListGroupLeader `json:"leader,omitempty" xml:"leader,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三组
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 13000
+	ParentDeptCode *string `json:"parentDeptCode,omitempty" xml:"parentDeptCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 }
 
 func (s QueryAllDepartmentResponseBodyContentGroupAndExtListGroup) String() string {
@@ -14566,9 +19865,24 @@ func (s *QueryAllDepartmentResponseBodyContentGroupAndExtListGroup) SetRemark(v 
 }
 
 type QueryAllDepartmentResponseBodyContentGroupAndExtListGroupLeader struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 888asd
 	JobNumber *string `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 666abc
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryAllDepartmentResponseBodyContentGroupAndExtListGroupLeader) String() string {
@@ -14648,8 +19962,14 @@ func (s *QueryAllDoctorsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryAllD
 
 type QueryAllDoctorsRequest struct {
 	MonthMark *string `json:"monthMark,omitempty" xml:"monthMark,omitempty"`
-	PageNum   *int32  `json:"pageNum,omitempty" xml:"pageNum,omitempty"`
-	PageSize  *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 1
+	PageNum *int32 `json:"pageNum,omitempty" xml:"pageNum,omitempty"`
+	// example:
+	//
+	// 200
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryAllDoctorsRequest) String() string {
@@ -14676,10 +19996,17 @@ func (s *QueryAllDoctorsRequest) SetPageSize(v int32) *QueryAllDoctorsRequest {
 }
 
 type QueryAllDoctorsResponseBody struct {
-	Content     []*QueryAllDoctorsResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	CurrentPage *int32                                `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
-	TotalCount  *int64                                `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
-	TotalPages  *int32                                `json:"totalPages,omitempty" xml:"totalPages,omitempty"`
+	Content []*QueryAllDoctorsResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CurrentPage *int32 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	// This parameter is required.
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 32
+	TotalPages *int32 `json:"totalPages,omitempty" xml:"totalPages,omitempty"`
 }
 
 func (s QueryAllDoctorsResponseBody) String() string {
@@ -14711,18 +20038,78 @@ func (s *QueryAllDoctorsResponseBody) SetTotalPages(v int32) *QueryAllDoctorsRes
 }
 
 type QueryAllDoctorsResponseBodyContent struct {
-	AssessGroupId   *string `json:"assessGroupId,omitempty" xml:"assessGroupId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1758
+	AssessGroupId *string `json:"assessGroupId,omitempty" xml:"assessGroupId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三组
 	AssessGroupName *string `json:"assessGroupName,omitempty" xml:"assessGroupName,omitempty"`
-	DeptCode        *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
-	DeptType        *string `json:"deptType,omitempty" xml:"deptType,omitempty"`
-	GmtCreateStr    *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
-	GmtModifiedStr  *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
-	Id              *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	JobNum          *string `json:"jobNum,omitempty" xml:"jobNum,omitempty"`
-	Status          *int32  `json:"status,omitempty" xml:"status,omitempty"`
-	Uid             *string `json:"uid,omitempty" xml:"uid,omitempty"`
-	UserCode        *string `json:"userCode,omitempty" xml:"userCode,omitempty"`
-	UserName        *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1312312321
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3
+	DeptType *string `json:"deptType,omitempty" xml:"deptType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-06-08 21:57:10
+	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-06-08 21:57:10
+	GmtModifiedStr *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123345
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0001
+	JobNum *string `json:"jobNum,omitempty" xml:"jobNum,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// u0398812938821
+	Uid *string `json:"uid,omitempty" xml:"uid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// aaa12312312
+	UserCode *string `json:"userCode,omitempty" xml:"userCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 用户名称
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
 func (s QueryAllDoctorsResponseBodyContent) String() string {
@@ -14846,8 +20233,14 @@ func (s *QueryAllGroupHeaders) SetXAcsDingtalkAccessToken(v string) *QueryAllGro
 }
 
 type QueryAllGroupRequest struct {
+	// example:
+	//
+	// 1
 	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 200
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryAllGroupRequest) String() string {
@@ -14904,9 +20297,18 @@ func (s *QueryAllGroupResponseBody) SetTotalPages(v int64) *QueryAllGroupRespons
 }
 
 type QueryAllGroupResponseBodyContent struct {
-	DeptId *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	Id     *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 12
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// 1
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 医疗组1
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s QueryAllGroupResponseBodyContent) String() string {
@@ -14985,8 +20387,14 @@ func (s *QueryAllGroupsInDeptHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryAllGroupsInDeptRequest struct {
+	// example:
+	//
+	// 1
 	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 200
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryAllGroupsInDeptRequest) String() string {
@@ -15043,9 +20451,18 @@ func (s *QueryAllGroupsInDeptResponseBody) SetTotalPages(v int64) *QueryAllGroup
 }
 
 type QueryAllGroupsInDeptResponseBodyContent struct {
-	DeptId *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	Id     *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 12
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// 1
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 医疗组1
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s QueryAllGroupsInDeptResponseBodyContent) String() string {
@@ -15124,9 +20541,15 @@ func (s *QueryAllMemberByDeptHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryAllMemberByDeptRequest struct {
-	MonthMark  *string `json:"monthMark,omitempty" xml:"monthMark,omitempty"`
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	MonthMark *string `json:"monthMark,omitempty" xml:"monthMark,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 200
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryAllMemberByDeptRequest) String() string {
@@ -15153,10 +20576,17 @@ func (s *QueryAllMemberByDeptRequest) SetPageSize(v int32) *QueryAllMemberByDept
 }
 
 type QueryAllMemberByDeptResponseBody struct {
-	Content     []*QueryAllMemberByDeptResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	CurrentPage *int32                                     `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
-	TotalCount  *int64                                     `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
-	TotalPages  *int32                                     `json:"totalPages,omitempty" xml:"totalPages,omitempty"`
+	Content []*QueryAllMemberByDeptResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CurrentPage *int32 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	// This parameter is required.
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 32
+	TotalPages *int32 `json:"totalPages,omitempty" xml:"totalPages,omitempty"`
 }
 
 func (s QueryAllMemberByDeptResponseBody) String() string {
@@ -15188,8 +20618,23 @@ func (s *QueryAllMemberByDeptResponseBody) SetTotalPages(v int32) *QueryAllMembe
 }
 
 type QueryAllMemberByDeptResponseBodyContent struct {
-	JobNum   *string `json:"jobNum,omitempty" xml:"jobNum,omitempty"`
-	Uid      *string `json:"uid,omitempty" xml:"uid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0001
+	JobNum *string `json:"jobNum,omitempty" xml:"jobNum,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// u0398812938821
+	Uid *string `json:"uid,omitempty" xml:"uid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 用户名称
 	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
@@ -15269,9 +20714,15 @@ func (s *QueryAllMemberByGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 }
 
 type QueryAllMemberByGroupRequest struct {
-	MonthMark  *string `json:"monthMark,omitempty" xml:"monthMark,omitempty"`
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	MonthMark *string `json:"monthMark,omitempty" xml:"monthMark,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 200
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryAllMemberByGroupRequest) String() string {
@@ -15298,10 +20749,17 @@ func (s *QueryAllMemberByGroupRequest) SetPageSize(v int32) *QueryAllMemberByGro
 }
 
 type QueryAllMemberByGroupResponseBody struct {
-	Content     []*QueryAllMemberByGroupResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	CurrentPage *int32                                      `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
-	TotalCount  *int64                                      `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
-	TotalPages  *int32                                      `json:"totalPages,omitempty" xml:"totalPages,omitempty"`
+	Content []*QueryAllMemberByGroupResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CurrentPage *int32 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	// This parameter is required.
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 32
+	TotalPages *int32 `json:"totalPages,omitempty" xml:"totalPages,omitempty"`
 }
 
 func (s QueryAllMemberByGroupResponseBody) String() string {
@@ -15333,8 +20791,23 @@ func (s *QueryAllMemberByGroupResponseBody) SetTotalPages(v int32) *QueryAllMemb
 }
 
 type QueryAllMemberByGroupResponseBodyContent struct {
-	JobNum   *string `json:"jobNum,omitempty" xml:"jobNum,omitempty"`
-	Uid      *string `json:"uid,omitempty" xml:"uid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0001
+	JobNum *string `json:"jobNum,omitempty" xml:"jobNum,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// u0398812938821
+	Uid *string `json:"uid,omitempty" xml:"uid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 用户名称
 	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
@@ -15415,7 +20888,10 @@ func (s *QueryBizOptLogHeaders) SetXAcsDingtalkAccessToken(v string) *QueryBizOp
 
 type QueryBizOptLogRequest struct {
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 10000
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryBizOptLogRequest) String() string {
@@ -15437,8 +20913,9 @@ func (s *QueryBizOptLogRequest) SetNextToken(v int64) *QueryBizOptLogRequest {
 }
 
 type QueryBizOptLogResponseBody struct {
-	Content   []*QueryBizOptLogResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	NextToken *int64                               `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Content []*QueryBizOptLogResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// This parameter is required.
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryBizOptLogResponseBody) String() string {
@@ -15460,23 +20937,44 @@ func (s *QueryBizOptLogResponseBody) SetNextToken(v int64) *QueryBizOptLogRespon
 }
 
 type QueryBizOptLogResponseBodyContent struct {
-	BizType            *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	DataType           *int32  `json:"dataType,omitempty" xml:"dataType,omitempty"`
-	Id                 *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	OptAfterData       *string `json:"optAfterData,omitempty" xml:"optAfterData,omitempty"`
-	OptBeforeData      *string `json:"optBeforeData,omitempty" xml:"optBeforeData,omitempty"`
+	// example:
+	//
+	// 固定值 1-医疗组
+	BizType *int32 `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// example:
+	//
+	// 1-钉钉数据，2-自建数据
+	DataType *int32 `json:"dataType,omitempty" xml:"dataType,omitempty"`
+	// example:
+	//
+	// 23821
+	Id            *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	OptAfterData  *string `json:"optAfterData,omitempty" xml:"optAfterData,omitempty"`
+	OptBeforeData *string `json:"optBeforeData,omitempty" xml:"optBeforeData,omitempty"`
+	// example:
+	//
+	// 1-人员，2-部门
 	OptBizType         *int32  `json:"optBizType,omitempty" xml:"optBizType,omitempty"`
 	OptExtend          *string `json:"optExtend,omitempty" xml:"optExtend,omitempty"`
 	OptJobNumber       *string `json:"optJobNumber,omitempty" xml:"optJobNumber,omitempty"`
 	OptObjectCode      *string `json:"optObjectCode,omitempty" xml:"optObjectCode,omitempty"`
 	OptObjectName      *string `json:"optObjectName,omitempty" xml:"optObjectName,omitempty"`
 	OptObjectUserJobNo *string `json:"optObjectUserJobNo,omitempty" xml:"optObjectUserJobNo,omitempty"`
-	OptSuccess         *int32  `json:"optSuccess,omitempty" xml:"optSuccess,omitempty"`
-	OptTime            *int64  `json:"optTime,omitempty" xml:"optTime,omitempty"`
-	OptType            *int32  `json:"optType,omitempty" xml:"optType,omitempty"`
-	OptUserCode        *string `json:"optUserCode,omitempty" xml:"optUserCode,omitempty"`
-	OptUserName        *string `json:"optUserName,omitempty" xml:"optUserName,omitempty"`
-	Remark             *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// 1-成功，2-失败
+	OptSuccess *int32 `json:"optSuccess,omitempty" xml:"optSuccess,omitempty"`
+	// example:
+	//
+	// 1622191102012
+	OptTime *int64 `json:"optTime,omitempty" xml:"optTime,omitempty"`
+	// example:
+	//
+	// 0-删除，1-添加，2-修改，3-作废
+	OptType     *int32  `json:"optType,omitempty" xml:"optType,omitempty"`
+	OptUserCode *string `json:"optUserCode,omitempty" xml:"optUserCode,omitempty"`
+	OptUserName *string `json:"optUserName,omitempty" xml:"optUserName,omitempty"`
+	Remark      *string `json:"remark,omitempty" xml:"remark,omitempty"`
 }
 
 func (s QueryBizOptLogResponseBodyContent) String() string {
@@ -15601,6 +21099,95 @@ func (s *QueryBizOptLogResponse) SetBody(v *QueryBizOptLogResponseBody) *QueryBi
 	return s
 }
 
+type QueryChatAIOXMInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryChatAIOXMInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryChatAIOXMInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryChatAIOXMInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryChatAIOXMInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryChatAIOXMInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryChatAIOXMInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryChatAIOXMInfoRequest struct {
+	// example:
+	//
+	// 专属AI 平台信息Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+}
+
+func (s QueryChatAIOXMInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryChatAIOXMInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryChatAIOXMInfoRequest) SetCode(v string) *QueryChatAIOXMInfoRequest {
+	s.Code = &v
+	return s
+}
+
+type QueryChatAIOXMInfoResponseBody struct {
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s QueryChatAIOXMInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryChatAIOXMInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryChatAIOXMInfoResponseBody) SetResult(v string) *QueryChatAIOXMInfoResponseBody {
+	s.Result = &v
+	return s
+}
+
+type QueryChatAIOXMInfoResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryChatAIOXMInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryChatAIOXMInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryChatAIOXMInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryChatAIOXMInfoResponse) SetHeaders(v map[string]*string) *QueryChatAIOXMInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryChatAIOXMInfoResponse) SetStatusCode(v int32) *QueryChatAIOXMInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryChatAIOXMInfoResponse) SetBody(v *QueryChatAIOXMInfoResponseBody) *QueryChatAIOXMInfoResponse {
+	s.Body = v
+	return s
+}
+
 type QueryDepartmentExtendInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -15625,7 +21212,17 @@ func (s *QueryDepartmentExtendInfoHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type QueryDepartmentExtendInfoRequest struct {
-	DeptCode *int64  `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1000
+	DeptCode *int64 `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	PropCode *string `json:"propCode,omitempty" xml:"propCode,omitempty"`
 }
 
@@ -15665,14 +21262,54 @@ func (s *QueryDepartmentExtendInfoResponseBody) SetContent(v []*QueryDepartmentE
 }
 
 type QueryDepartmentExtendInfoResponseBodyContent struct {
-	DeptCode              *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1231
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a
 	DeptExtendDisplayName *string `json:"deptExtendDisplayName,omitempty" xml:"deptExtendDisplayName,omitempty"`
-	DeptExtendKey         *string `json:"deptExtendKey,omitempty" xml:"deptExtendKey,omitempty"`
-	DeptExtendValue       *string `json:"deptExtendValue,omitempty" xml:"deptExtendValue,omitempty"`
-	GmtCreateStr          *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
-	GmtModifiedStr        *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
-	Id                    *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	Status                *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2
+	DeptExtendKey *string `json:"deptExtendKey,omitempty" xml:"deptExtendKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	DeptExtendValue *string `json:"deptExtendValue,omitempty" xml:"deptExtendValue,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtModifiedStr *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1000
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryDepartmentExtendInfoResponseBodyContent) String() string {
@@ -15793,6 +21430,7 @@ func (s *QueryDepartmentInfoResponseBody) SetContent(v *QueryDepartmentInfoRespo
 }
 
 type QueryDepartmentInfoResponseBodyContent struct {
+	// This parameter is required.
 	Department  *QueryDepartmentInfoResponseBodyContentDepartment    `json:"department,omitempty" xml:"department,omitempty" type:"Struct"`
 	ExtendInfos []*QueryDepartmentInfoResponseBodyContentExtendInfos `json:"extendInfos,omitempty" xml:"extendInfos,omitempty" type:"Repeated"`
 }
@@ -15816,18 +21454,55 @@ func (s *QueryDepartmentInfoResponseBodyContent) SetExtendInfos(v []*QueryDepart
 }
 
 type QueryDepartmentInfoResponseBodyContentDepartment struct {
-	DeptCode       *string  `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
-	DeptName       *string  `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	DeptOrder      *int64   `json:"deptOrder,omitempty" xml:"deptOrder,omitempty"`
-	DeptStatus     *int32   `json:"deptStatus,omitempty" xml:"deptStatus,omitempty"`
-	DeptType       *int32   `json:"deptType,omitempty" xml:"deptType,omitempty"`
-	GmtCreateStr   *string  `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
-	GmtModifiedStr *string  `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
-	Id             *int64   `json:"id,omitempty" xml:"id,omitempty"`
-	Name           *string  `json:"name,omitempty" xml:"name,omitempty"`
-	ParentDeptCode *string  `json:"parentDeptCode,omitempty" xml:"parentDeptCode,omitempty"`
-	Remark         *string  `json:"remark,omitempty" xml:"remark,omitempty"`
-	WardIdList     []*int64 `json:"wardIdList,omitempty" xml:"wardIdList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 2341
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// example:
+	//
+	// 血液科
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// example:
+	//
+	// 2
+	DeptOrder *int64 `json:"deptOrder,omitempty" xml:"deptOrder,omitempty"`
+	// example:
+	//
+	// 0
+	DeptStatus *int32 `json:"deptStatus,omitempty" xml:"deptStatus,omitempty"`
+	// example:
+	//
+	// 3
+	DeptType *int32 `json:"deptType,omitempty" xml:"deptType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtModifiedStr *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
+	// example:
+	//
+	// 12321
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 血液科
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 3421
+	ParentDeptCode *string `json:"parentDeptCode,omitempty" xml:"parentDeptCode,omitempty"`
+	// example:
+	//
+	// 科室
+	Remark     *string  `json:"remark,omitempty" xml:"remark,omitempty"`
+	WardIdList []*int64 `json:"wardIdList,omitempty" xml:"wardIdList,omitempty" type:"Repeated"`
 }
 
 func (s QueryDepartmentInfoResponseBodyContentDepartment) String() string {
@@ -15899,14 +21574,44 @@ func (s *QueryDepartmentInfoResponseBodyContentDepartment) SetWardIdList(v []*in
 }
 
 type QueryDepartmentInfoResponseBodyContentExtendInfos struct {
-	DeptCode              *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// example:
+	//
+	// 科室主任
 	DeptExtendDisplayName *string `json:"deptExtendDisplayName,omitempty" xml:"deptExtendDisplayName,omitempty"`
-	DeptExtendKey         *string `json:"deptExtendKey,omitempty" xml:"deptExtendKey,omitempty"`
-	DeptExtendValue       *string `json:"deptExtendValue,omitempty" xml:"deptExtendValue,omitempty"`
-	GmtCreateStr          *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
-	GmtModifiedStr        *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
-	Id                    *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	Status                *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 1
+	DeptExtendKey *string `json:"deptExtendKey,omitempty" xml:"deptExtendKey,omitempty"`
+	// example:
+	//
+	// 1
+	DeptExtendValue *string `json:"deptExtendValue,omitempty" xml:"deptExtendValue,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtModifiedStr *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
+	// example:
+	//
+	// 10000
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryDepartmentInfoResponseBodyContentExtendInfos) String() string {
@@ -16010,6 +21715,9 @@ func (s *QueryDoctorDetailsByJobNumberHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type QueryDoctorDetailsByJobNumberRequest struct {
+	// example:
+	//
+	// 0
 	MonthMark *string `json:"monthMark,omitempty" xml:"monthMark,omitempty"`
 }
 
@@ -16370,14 +22078,52 @@ func (s *QueryGroupInfoResponseBodyContent) SetGroup(v *QueryGroupInfoResponseBo
 }
 
 type QueryGroupInfoResponseBodyContentExtendInfos struct {
-	DeptCode              *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 28765
+	DeptCode *string `json:"deptCode,omitempty" xml:"deptCode,omitempty"`
+	// example:
+	//
+	// 科室、医生都不一样
 	DeptExtendDisplayName *string `json:"deptExtendDisplayName,omitempty" xml:"deptExtendDisplayName,omitempty"`
-	DeptExtendKey         *string `json:"deptExtendKey,omitempty" xml:"deptExtendKey,omitempty"`
-	DeptExtendValue       *string `json:"deptExtendValue,omitempty" xml:"deptExtendValue,omitempty"`
-	GmtCreateStr          *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
-	GmtModifiedStr        *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
-	Id                    *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	Status                *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 科室、医生都不一样
+	DeptExtendKey *string `json:"deptExtendKey,omitempty" xml:"deptExtendKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 科室、医生都不一样
+	DeptExtendValue *string `json:"deptExtendValue,omitempty" xml:"deptExtendValue,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtModifiedStr *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10000
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryGroupInfoResponseBodyContentExtendInfos) String() string {
@@ -16429,15 +22175,39 @@ func (s *QueryGroupInfoResponseBodyContentExtendInfos) SetStatus(v int32) *Query
 }
 
 type QueryGroupInfoResponseBodyContentGroup struct {
-	DeptId         *int64                                        `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	DeptStatus     *int32                                        `json:"deptStatus,omitempty" xml:"deptStatus,omitempty"`
-	GmtCreateStr   *string                                       `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
-	GmtModifiedStr *string                                       `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
-	Id             *int64                                        `json:"id,omitempty" xml:"id,omitempty"`
-	Leader         *QueryGroupInfoResponseBodyContentGroupLeader `json:"leader,omitempty" xml:"leader,omitempty" type:"Struct"`
-	Name           *string                                       `json:"name,omitempty" xml:"name,omitempty"`
-	ParentDeptCode *string                                       `json:"parentDeptCode,omitempty" xml:"parentDeptCode,omitempty"`
-	Remark         *string                                       `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// 321222
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// 1
+	DeptStatus *int32 `json:"deptStatus,omitempty" xml:"deptStatus,omitempty"`
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// example:
+	//
+	// 2021-08-24 20:30:31
+	GmtModifiedStr *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
+	// example:
+	//
+	// 3212
+	Id     *int64                                        `json:"id,omitempty" xml:"id,omitempty"`
+	Leader *QueryGroupInfoResponseBodyContentGroupLeader `json:"leader,omitempty" xml:"leader,omitempty" type:"Struct"`
+	// example:
+	//
+	// 张三组
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1
+	ParentDeptCode *string `json:"parentDeptCode,omitempty" xml:"parentDeptCode,omitempty"`
+	// example:
+	//
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 }
 
 func (s QueryGroupInfoResponseBodyContentGroup) String() string {
@@ -16494,9 +22264,18 @@ func (s *QueryGroupInfoResponseBodyContentGroup) SetRemark(v string) *QueryGroup
 }
 
 type QueryGroupInfoResponseBodyContentGroupLeader struct {
+	// example:
+	//
+	// 3212
 	JobNumber *string `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 张三
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1234
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryGroupInfoResponseBodyContentGroupLeader) String() string {
@@ -16575,8 +22354,14 @@ func (s *QueryHospitalDistrictInfoHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type QueryHospitalDistrictInfoRequest struct {
+	// example:
+	//
+	// 1
 	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 100
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryHospitalDistrictInfoRequest) String() string {
@@ -16598,10 +22383,25 @@ func (s *QueryHospitalDistrictInfoRequest) SetPageSize(v int32) *QueryHospitalDi
 }
 
 type QueryHospitalDistrictInfoResponseBody struct {
-	Content     []*QueryHospitalDistrictInfoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	CurrentPage *int64                                          `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
-	TotalCount  *int64                                          `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
-	TotalPages  *int32                                          `json:"totalPages,omitempty" xml:"totalPages,omitempty"`
+	Content []*QueryHospitalDistrictInfoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2
+	CurrentPage *int64 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	TotalPages *int32 `json:"totalPages,omitempty" xml:"totalPages,omitempty"`
 }
 
 func (s QueryHospitalDistrictInfoResponseBody) String() string {
@@ -16633,14 +22433,54 @@ func (s *QueryHospitalDistrictInfoResponseBody) SetTotalPages(v int32) *QueryHos
 }
 
 type QueryHospitalDistrictInfoResponseBodyContent struct {
-	Address          *string `json:"address,omitempty" xml:"address,omitempty"`
-	Deleted          *int32  `json:"deleted,omitempty" xml:"deleted,omitempty"`
-	DistrictName     *string `json:"districtName,omitempty" xml:"districtName,omitempty"`
-	DistrictType     *int32  `json:"districtType,omitempty" xml:"districtType,omitempty"`
-	GmtCreate        *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified      *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	Id               *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	ParentDistrictId *int64  `json:"parentDistrictId,omitempty" xml:"parentDistrictId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 一楼
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Deleted *int32 `json:"deleted,omitempty" xml:"deleted,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 一病区
+	DistrictName *string `json:"districtName,omitempty" xml:"districtName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	DistrictType *int32 `json:"districtType,omitempty" xml:"districtType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-12-22 15:30:31
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-12-22 15:30:31
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	ParentDistrictId *int64 `json:"parentDistrictId,omitempty" xml:"parentDistrictId,omitempty"`
 }
 
 func (s QueryHospitalDistrictInfoResponseBodyContent) String() string {
@@ -16744,8 +22584,18 @@ func (s *QueryHospitalRoleUserInfoHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type QueryHospitalRoleUserInfoRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryHospitalRoleUserInfoRequest) String() string {
@@ -16767,10 +22617,25 @@ func (s *QueryHospitalRoleUserInfoRequest) SetPageSize(v int64) *QueryHospitalRo
 }
 
 type QueryHospitalRoleUserInfoResponseBody struct {
-	Content     []*QueryHospitalRoleUserInfoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	CurrentPage *int32                                          `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
-	TotalCount  *int64                                          `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
-	TotalPages  *int32                                          `json:"totalPages,omitempty" xml:"totalPages,omitempty"`
+	Content []*QueryHospitalRoleUserInfoResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	CurrentPage *int32 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	TotalPages *int32 `json:"totalPages,omitempty" xml:"totalPages,omitempty"`
 }
 
 func (s QueryHospitalRoleUserInfoResponseBody) String() string {
@@ -16802,14 +22667,49 @@ func (s *QueryHospitalRoleUserInfoResponseBody) SetTotalPages(v int32) *QueryHos
 }
 
 type QueryHospitalRoleUserInfoResponseBodyContent struct {
-	GmtCreate   *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-12-22 15:30:31
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-12-22 15:30:31
 	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	JobNumber   *string `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
-	RoleCode    *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
-	RoleName    *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
-	Status      *int32  `json:"status,omitempty" xml:"status,omitempty"`
-	UserCode    *string `json:"userCode,omitempty" xml:"userCode,omitempty"`
-	UserName    *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2783939
+	JobNumber *string `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sys_admin
+	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 管理员
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	Status   *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 7424792
+	UserCode *string `json:"userCode,omitempty" xml:"userCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
 func (s QueryHospitalRoleUserInfoResponseBodyContent) String() string {
@@ -16930,14 +22830,46 @@ func (s *QueryHospitalRolesResponseBody) SetContent(v []*QueryHospitalRolesRespo
 }
 
 type QueryHospitalRolesResponseBodyContent struct {
+	// This parameter is required.
 	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	Id        *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	IsDeleted *int64  `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	ReadOnly  *int64  `json:"readOnly,omitempty" xml:"readOnly,omitempty"`
-	Remark    *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	RoleCode  *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
-	RoleName  *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
-	Sort      *int64  `json:"sort,omitempty" xml:"sort,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	IsDeleted *int64 `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	ReadOnly *int64 `json:"readOnly,omitempty" xml:"readOnly,omitempty"`
+	// This parameter is required.
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sys_admin
+	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 系统管理员
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Sort *int64 `json:"sort,omitempty" xml:"sort,omitempty"`
 }
 
 func (s QueryHospitalRolesResponseBodyContent) String() string {
@@ -17041,6 +22973,7 @@ func (s *QueryJobCodeDictionaryHeaders) SetXAcsDingtalkAccessToken(v string) *Qu
 }
 
 type QueryJobCodeDictionaryResponseBody struct {
+	// This parameter is required.
 	Content []*QueryJobCodeDictionaryResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
 }
 
@@ -17058,10 +22991,30 @@ func (s *QueryJobCodeDictionaryResponseBody) SetContent(v []*QueryJobCodeDiction
 }
 
 type QueryJobCodeDictionaryResponseBodyContent struct {
-	Category    *string `json:"category,omitempty" xml:"category,omitempty"`
-	Code        *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 主任医师
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
-	DoctorType  *string `json:"doctorType,omitempty" xml:"doctorType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 医师
+	DoctorType *string `json:"doctorType,omitempty" xml:"doctorType,omitempty"`
 }
 
 func (s QueryJobCodeDictionaryResponseBodyContent) String() string {
@@ -17145,6 +23098,7 @@ func (s *QueryJobStatusCodeDictionaryHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type QueryJobStatusCodeDictionaryResponseBody struct {
+	// This parameter is required.
 	Content []*QueryJobStatusCodeDictionaryResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
 }
 
@@ -17162,8 +23116,23 @@ func (s *QueryJobStatusCodeDictionaryResponseBody) SetContent(v []*QueryJobStatu
 }
 
 type QueryJobStatusCodeDictionaryResponseBodyContent struct {
-	Category    *string `json:"category,omitempty" xml:"category,omitempty"`
-	Code        *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 主任医师
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 }
 
@@ -17243,9 +23212,11 @@ func (s *QueryMedicalEventsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryM
 }
 
 type QueryMedicalEventsResponseBody struct {
-	Content    []*QueryMedicalEventsResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	Success    *bool                                    `json:"success,omitempty" xml:"success,omitempty"`
-	TotalCount *int64                                   `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Content []*QueryMedicalEventsResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s QueryMedicalEventsResponseBody) String() string {
@@ -17272,9 +23243,11 @@ func (s *QueryMedicalEventsResponseBody) SetTotalCount(v int64) *QueryMedicalEve
 }
 
 type QueryMedicalEventsResponseBodyContent struct {
+	// This parameter is required.
 	Code    *string `json:"code,omitempty" xml:"code,omitempty"`
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	EventId *int64  `json:"eventId,omitempty" xml:"eventId,omitempty"`
+	// This parameter is required.
+	EventId *int64 `json:"eventId,omitempty" xml:"eventId,omitempty"`
 }
 
 func (s QueryMedicalEventsResponseBodyContent) String() string {
@@ -17353,6 +23326,7 @@ func (s *QueryUserCredentialsHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryUserCredentialsRequest struct {
+	// This parameter is required.
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -17387,8 +23361,14 @@ func (s *QueryUserCredentialsResponseBody) SetContent(v []*QueryUserCredentialsR
 }
 
 type QueryUserCredentialsResponseBodyContent struct {
+	// This parameter is required.
 	CredentialList []*QueryUserCredentialsResponseBodyContentCredentialList `json:"credentialList,omitempty" xml:"credentialList,omitempty" type:"Repeated"`
-	UserId         *string                                                  `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryUserCredentialsResponseBodyContent) String() string {
@@ -17410,8 +23390,23 @@ func (s *QueryUserCredentialsResponseBodyContent) SetUserId(v string) *QueryUser
 }
 
 type QueryUserCredentialsResponseBodyContentCredentialList struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 医生资格证书
 	CredentialName *string `json:"credentialName,omitempty" xml:"credentialName,omitempty"`
-	CredentialType *int32  `json:"credentialType,omitempty" xml:"credentialType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	CredentialType *int32 `json:"credentialType,omitempty" xml:"credentialType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2022-08-01
 	TermOfValidity *string `json:"termOfValidity,omitempty" xml:"termOfValidity,omitempty"`
 }
 
@@ -17508,13 +23503,48 @@ func (s *QueryUserExtInfoResponseBody) SetContent(v []*QueryUserExtInfoResponseB
 }
 
 type QueryUserExtInfoResponseBodyContent struct {
-	GmtCreate             *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified           *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	Status                *int32  `json:"status,omitempty" xml:"status,omitempty"`
-	UserCode              *string `json:"userCode,omitempty" xml:"userCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-12-22 15:30:31
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-12-22 15:30:31
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10320266246
+	UserCode *string `json:"userCode,omitempty" xml:"userCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 扩展属性描述
 	UserExtendDisplayName *string `json:"userExtendDisplayName,omitempty" xml:"userExtendDisplayName,omitempty"`
-	UserExtendKey         *string `json:"userExtendKey,omitempty" xml:"userExtendKey,omitempty"`
-	UserExtendValue       *string `json:"userExtendValue,omitempty" xml:"userExtendValue,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 扩展属性Key
+	UserExtendKey *string `json:"userExtendKey,omitempty" xml:"userExtendKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 扩展属性值
+	UserExtendValue *string `json:"userExtendValue,omitempty" xml:"userExtendValue,omitempty"`
 }
 
 func (s QueryUserExtInfoResponseBodyContent) String() string {
@@ -17613,8 +23643,9 @@ func (s *QueryUserExtendValuesHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 }
 
 type QueryUserExtendValuesRequest struct {
-	UserExtendKey *string   `json:"userExtendKey,omitempty" xml:"userExtendKey,omitempty"`
-	UserIds       []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	UserExtendKey *string `json:"userExtendKey,omitempty" xml:"userExtendKey,omitempty"`
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s QueryUserExtendValuesRequest) String() string {
@@ -17636,9 +23667,11 @@ func (s *QueryUserExtendValuesRequest) SetUserIds(v []*string) *QueryUserExtendV
 }
 
 type QueryUserExtendValuesResponseBody struct {
-	Content    []*QueryUserExtendValuesResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	Success    *bool                                       `json:"success,omitempty" xml:"success,omitempty"`
-	TotalCount *int64                                      `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Content []*QueryUserExtendValuesResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s QueryUserExtendValuesResponseBody) String() string {
@@ -17665,10 +23698,13 @@ func (s *QueryUserExtendValuesResponseBody) SetTotalCount(v int64) *QueryUserExt
 }
 
 type QueryUserExtendValuesResponseBodyContent struct {
+	// This parameter is required.
 	UserCode              *string `json:"userCode,omitempty" xml:"userCode,omitempty"`
 	UserExtendDisplayName *string `json:"userExtendDisplayName,omitempty" xml:"userExtendDisplayName,omitempty"`
-	UserExtendKey         *string `json:"userExtendKey,omitempty" xml:"userExtendKey,omitempty"`
-	UserExtendValue       *string `json:"userExtendValue,omitempty" xml:"userExtendValue,omitempty"`
+	// This parameter is required.
+	UserExtendKey *string `json:"userExtendKey,omitempty" xml:"userExtendKey,omitempty"`
+	// This parameter is required.
+	UserExtendValue *string `json:"userExtendValue,omitempty" xml:"userExtendValue,omitempty"`
 }
 
 func (s QueryUserExtendValuesResponseBodyContent) String() string {
@@ -17786,16 +23822,42 @@ func (s *QueryUserInfoResponseBody) SetContent(v *QueryUserInfoResponseBodyConte
 }
 
 type QueryUserInfoResponseBodyContent struct {
-	Comments      *string                                          `json:"comments,omitempty" xml:"comments,omitempty"`
-	Dept          []*QueryUserInfoResponseBodyContentDept          `json:"dept,omitempty" xml:"dept,omitempty" type:"Repeated"`
-	Group         []*QueryUserInfoResponseBodyContentGroup         `json:"group,omitempty" xml:"group,omitempty" type:"Repeated"`
-	Job           *QueryUserInfoResponseBodyContentJob             `json:"job,omitempty" xml:"job,omitempty" type:"Struct"`
-	JobNum        *string                                          `json:"jobNum,omitempty" xml:"jobNum,omitempty"`
-	JobStatus     *QueryUserInfoResponseBodyContentJobStatus       `json:"jobStatus,omitempty" xml:"jobStatus,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// comments
+	Comments *string `json:"comments,omitempty" xml:"comments,omitempty"`
+	// This parameter is required.
+	Dept []*QueryUserInfoResponseBodyContentDept `json:"dept,omitempty" xml:"dept,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Group []*QueryUserInfoResponseBodyContentGroup `json:"group,omitempty" xml:"group,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Job *QueryUserInfoResponseBodyContentJob `json:"job,omitempty" xml:"job,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0001
+	JobNum *string `json:"jobNum,omitempty" xml:"jobNum,omitempty"`
+	// This parameter is required.
+	JobStatus *QueryUserInfoResponseBodyContentJobStatus `json:"jobStatus,omitempty" xml:"jobStatus,omitempty" type:"Struct"`
+	// This parameter is required.
 	JobStatusList []*QueryUserInfoResponseBodyContentJobStatusList `json:"jobStatusList,omitempty" xml:"jobStatusList,omitempty" type:"Repeated"`
-	Uid           *string                                          `json:"uid,omitempty" xml:"uid,omitempty"`
-	UserName      *string                                          `json:"userName,omitempty" xml:"userName,omitempty"`
-	UserProb      *QueryUserInfoResponseBodyContentUserProb        `json:"userProb,omitempty" xml:"userProb,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// u0398812938821
+	Uid *string `json:"uid,omitempty" xml:"uid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 用户名称
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// This parameter is required.
+	UserProb *QueryUserInfoResponseBodyContentUserProb `json:"userProb,omitempty" xml:"userProb,omitempty" type:"Struct"`
 }
 
 func (s QueryUserInfoResponseBodyContent) String() string {
@@ -17857,11 +23919,27 @@ func (s *QueryUserInfoResponseBodyContent) SetUserProb(v *QueryUserInfoResponseB
 }
 
 type QueryUserInfoResponseBodyContentDept struct {
-	GmtCreateStr   *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// example:
+	//
+	// 2021-06-02 17:44:17
+	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// example:
+	//
+	// 2021-06-02 17:44:17
 	GmtModifiedStr *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
-	Id             *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
-	RelId          *int64  `json:"relId,omitempty" xml:"relId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 科室名称2
+	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
+	RelId *int64  `json:"relId,omitempty" xml:"relId,omitempty"`
 }
 
 func (s QueryUserInfoResponseBodyContentDept) String() string {
@@ -17898,13 +23976,39 @@ func (s *QueryUserInfoResponseBodyContentDept) SetRelId(v int64) *QueryUserInfoR
 }
 
 type QueryUserInfoResponseBodyContentGroup struct {
-	DeptId         *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	DeptName       *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	GmtCreateStr   *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 科室名称2
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// example:
+	//
+	// 2021-06-02 17:44:17
+	GmtCreateStr *string `json:"gmtCreateStr,omitempty" xml:"gmtCreateStr,omitempty"`
+	// example:
+	//
+	// 2021-06-02 17:44:17
 	GmtModifiedStr *string `json:"gmtModifiedStr,omitempty" xml:"gmtModifiedStr,omitempty"`
-	Id             *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
-	RelId          *int64  `json:"relId,omitempty" xml:"relId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 医疗组名称2
+	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
+	RelId *int64  `json:"relId,omitempty" xml:"relId,omitempty"`
 }
 
 func (s QueryUserInfoResponseBodyContentGroup) String() string {
@@ -17951,9 +24055,29 @@ func (s *QueryUserInfoResponseBodyContentGroup) SetRelId(v int64) *QueryUserInfo
 }
 
 type QueryUserInfoResponseBodyContentJob struct {
-	BizType     *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Category    *string `json:"category,omitempty" xml:"category,omitempty"`
-	Code        *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 分类
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// code1
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 展示名称
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 }
 
@@ -17986,9 +24110,29 @@ func (s *QueryUserInfoResponseBodyContentJob) SetDisplayName(v string) *QueryUse
 }
 
 type QueryUserInfoResponseBodyContentJobStatus struct {
-	BizType     *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Category    *string `json:"category,omitempty" xml:"category,omitempty"`
-	Code        *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 分类
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 标签Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 展示名称
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 }
 
@@ -18021,9 +24165,29 @@ func (s *QueryUserInfoResponseBodyContentJobStatus) SetDisplayName(v string) *Qu
 }
 
 type QueryUserInfoResponseBodyContentJobStatusList struct {
-	BizType     *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Category    *string `json:"category,omitempty" xml:"category,omitempty"`
-	Code        *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 分类
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 标签Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 展示名称
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 }
 
@@ -18056,9 +24220,29 @@ func (s *QueryUserInfoResponseBodyContentJobStatusList) SetDisplayName(v string)
 }
 
 type QueryUserInfoResponseBodyContentUserProb struct {
-	BizType     *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Category    *string `json:"category,omitempty" xml:"category,omitempty"`
-	Code        *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 分类
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 标签Code
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 展示名称
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 }
 
@@ -18160,8 +24344,23 @@ func (s *QueryUserProbCodeDictionaryResponseBody) SetContent(v []*QueryUserProbC
 }
 
 type QueryUserProbCodeDictionaryResponseBodyContent struct {
-	Category    *string `json:"category,omitempty" xml:"category,omitempty"`
-	Code        *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 主任医师
 	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
 }
 
@@ -18258,7 +24457,17 @@ func (s *QueryUserRolesResponseBody) SetContent(v []*QueryUserRolesResponseBodyC
 }
 
 type QueryUserRolesResponseBodyContent struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// roleCode
 	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// roleNem
 	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
 }
 
@@ -18334,7 +24543,9 @@ func (s *SaveUserExtendValuesHeaders) SetXAcsDingtalkAccessToken(v string) *Save
 
 type SaveUserExtendValuesRequest struct {
 	UserDisplayName *string `json:"userDisplayName,omitempty" xml:"userDisplayName,omitempty"`
-	UserExtendKey   *string `json:"userExtendKey,omitempty" xml:"userExtendKey,omitempty"`
+	// This parameter is required.
+	UserExtendKey *string `json:"userExtendKey,omitempty" xml:"userExtendKey,omitempty"`
+	// This parameter is required.
 	UserExtendValue *string `json:"userExtendValue,omitempty" xml:"userExtendValue,omitempty"`
 }
 
@@ -18362,6 +24573,7 @@ func (s *SaveUserExtendValuesRequest) SetUserExtendValue(v string) *SaveUserExte
 }
 
 type SaveUserExtendValuesResponseBody struct {
+	// This parameter is required.
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -18407,6 +24619,394 @@ func (s *SaveUserExtendValuesResponse) SetBody(v *SaveUserExtendValuesResponseBo
 	return s
 }
 
+type SubmitTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SubmitTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitTaskHeaders) SetCommonHeaders(v map[string]*string) *SubmitTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SubmitTaskHeaders) SetXAcsDingtalkAccessToken(v string) *SubmitTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SubmitTaskRequest struct {
+	// example:
+	//
+	// 1001
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// example:
+	//
+	// MEETING
+	BizCode *string                  `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	Data    []*SubmitTaskRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s SubmitTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitTaskRequest) SetAppId(v int64) *SubmitTaskRequest {
+	s.AppId = &v
+	return s
+}
+
+func (s *SubmitTaskRequest) SetBizCode(v string) *SubmitTaskRequest {
+	s.BizCode = &v
+	return s
+}
+
+func (s *SubmitTaskRequest) SetData(v []*SubmitTaskRequestData) *SubmitTaskRequest {
+	s.Data = v
+	return s
+}
+
+type SubmitTaskRequestData struct {
+	// example:
+	//
+	// 2024-05-14
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// xx项目
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// example:
+	//
+	// 根据不同业务类型，传业务需求的JSON字符串
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// audio
+	FileType *string   `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	FileUrl  []*string `json:"fileUrl,omitempty" xml:"fileUrl,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1001
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// xx项目会议
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s SubmitTaskRequestData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitTaskRequestData) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitTaskRequestData) SetDate(v string) *SubmitTaskRequestData {
+	s.Date = &v
+	return s
+}
+
+func (s *SubmitTaskRequestData) SetDesc(v string) *SubmitTaskRequestData {
+	s.Desc = &v
+	return s
+}
+
+func (s *SubmitTaskRequestData) SetExtension(v string) *SubmitTaskRequestData {
+	s.Extension = &v
+	return s
+}
+
+func (s *SubmitTaskRequestData) SetFileType(v string) *SubmitTaskRequestData {
+	s.FileType = &v
+	return s
+}
+
+func (s *SubmitTaskRequestData) SetFileUrl(v []*string) *SubmitTaskRequestData {
+	s.FileUrl = v
+	return s
+}
+
+func (s *SubmitTaskRequestData) SetId(v int64) *SubmitTaskRequestData {
+	s.Id = &v
+	return s
+}
+
+func (s *SubmitTaskRequestData) SetName(v string) *SubmitTaskRequestData {
+	s.Name = &v
+	return s
+}
+
+type SubmitTaskResponseBody struct {
+	Tasks []*SubmitTaskResponseBodyTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+}
+
+func (s SubmitTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitTaskResponseBody) SetTasks(v []*SubmitTaskResponseBodyTasks) *SubmitTaskResponseBody {
+	s.Tasks = v
+	return s
+}
+
+type SubmitTaskResponseBodyTasks struct {
+	// example:
+	//
+	// 1001
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 8ef16170b6e24d8fb77b832d7603b835
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s SubmitTaskResponseBodyTasks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitTaskResponseBodyTasks) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitTaskResponseBodyTasks) SetId(v int64) *SubmitTaskResponseBodyTasks {
+	s.Id = &v
+	return s
+}
+
+func (s *SubmitTaskResponseBodyTasks) SetTaskId(v string) *SubmitTaskResponseBodyTasks {
+	s.TaskId = &v
+	return s
+}
+
+type SubmitTaskResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SubmitTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SubmitTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitTaskResponse) SetHeaders(v map[string]*string) *SubmitTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SubmitTaskResponse) SetStatusCode(v int32) *SubmitTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SubmitTaskResponse) SetBody(v *SubmitTaskResponseBody) *SubmitTaskResponse {
+	s.Body = v
+	return s
+}
+
+type SubmitTaskPackageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SubmitTaskPackageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitTaskPackageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitTaskPackageHeaders) SetCommonHeaders(v map[string]*string) *SubmitTaskPackageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SubmitTaskPackageHeaders) SetXAcsDingtalkAccessToken(v string) *SubmitTaskPackageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SubmitTaskPackageRequest struct {
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// if can be null:
+	// false
+	AppSecret *string `json:"appSecret,omitempty" xml:"appSecret,omitempty"`
+	// This parameter is required.
+	BizCode         *string                         `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	Data            []*SubmitTaskPackageRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	Desc            *string                         `json:"desc,omitempty" xml:"desc,omitempty"`
+	FileType        *string                         `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	TaskPackageName *string                         `json:"taskPackageName,omitempty" xml:"taskPackageName,omitempty"`
+	UnionId         *string                         `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	Version         *string                         `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s SubmitTaskPackageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitTaskPackageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitTaskPackageRequest) SetAppId(v int64) *SubmitTaskPackageRequest {
+	s.AppId = &v
+	return s
+}
+
+func (s *SubmitTaskPackageRequest) SetAppSecret(v string) *SubmitTaskPackageRequest {
+	s.AppSecret = &v
+	return s
+}
+
+func (s *SubmitTaskPackageRequest) SetBizCode(v string) *SubmitTaskPackageRequest {
+	s.BizCode = &v
+	return s
+}
+
+func (s *SubmitTaskPackageRequest) SetData(v []*SubmitTaskPackageRequestData) *SubmitTaskPackageRequest {
+	s.Data = v
+	return s
+}
+
+func (s *SubmitTaskPackageRequest) SetDesc(v string) *SubmitTaskPackageRequest {
+	s.Desc = &v
+	return s
+}
+
+func (s *SubmitTaskPackageRequest) SetFileType(v string) *SubmitTaskPackageRequest {
+	s.FileType = &v
+	return s
+}
+
+func (s *SubmitTaskPackageRequest) SetTaskPackageName(v string) *SubmitTaskPackageRequest {
+	s.TaskPackageName = &v
+	return s
+}
+
+func (s *SubmitTaskPackageRequest) SetUnionId(v string) *SubmitTaskPackageRequest {
+	s.UnionId = &v
+	return s
+}
+
+func (s *SubmitTaskPackageRequest) SetVersion(v string) *SubmitTaskPackageRequest {
+	s.Version = &v
+	return s
+}
+
+type SubmitTaskPackageRequestData struct {
+	Extension   *string   `json:"extension,omitempty" xml:"extension,omitempty"`
+	FileUrl     *string   `json:"fileUrl,omitempty" xml:"fileUrl,omitempty"`
+	FileUrls    []*string `json:"fileUrls,omitempty" xml:"fileUrls,omitempty" type:"Repeated"`
+	TaskName    *string   `json:"taskName,omitempty" xml:"taskName,omitempty"`
+	TextContent *string   `json:"textContent,omitempty" xml:"textContent,omitempty"`
+}
+
+func (s SubmitTaskPackageRequestData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitTaskPackageRequestData) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitTaskPackageRequestData) SetExtension(v string) *SubmitTaskPackageRequestData {
+	s.Extension = &v
+	return s
+}
+
+func (s *SubmitTaskPackageRequestData) SetFileUrl(v string) *SubmitTaskPackageRequestData {
+	s.FileUrl = &v
+	return s
+}
+
+func (s *SubmitTaskPackageRequestData) SetFileUrls(v []*string) *SubmitTaskPackageRequestData {
+	s.FileUrls = v
+	return s
+}
+
+func (s *SubmitTaskPackageRequestData) SetTaskName(v string) *SubmitTaskPackageRequestData {
+	s.TaskName = &v
+	return s
+}
+
+func (s *SubmitTaskPackageRequestData) SetTextContent(v string) *SubmitTaskPackageRequestData {
+	s.TextContent = &v
+	return s
+}
+
+type SubmitTaskPackageResponseBody struct {
+	TaskIdList    []*string `json:"taskIdList,omitempty" xml:"taskIdList,omitempty" type:"Repeated"`
+	TaskPackageId *string   `json:"taskPackageId,omitempty" xml:"taskPackageId,omitempty"`
+}
+
+func (s SubmitTaskPackageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitTaskPackageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitTaskPackageResponseBody) SetTaskIdList(v []*string) *SubmitTaskPackageResponseBody {
+	s.TaskIdList = v
+	return s
+}
+
+func (s *SubmitTaskPackageResponseBody) SetTaskPackageId(v string) *SubmitTaskPackageResponseBody {
+	s.TaskPackageId = &v
+	return s
+}
+
+type SubmitTaskPackageResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SubmitTaskPackageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SubmitTaskPackageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitTaskPackageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitTaskPackageResponse) SetHeaders(v map[string]*string) *SubmitTaskPackageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SubmitTaskPackageResponse) SetStatusCode(v int32) *SubmitTaskPackageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SubmitTaskPackageResponse) SetBody(v *SubmitTaskPackageResponseBody) *SubmitTaskPackageResponse {
+	s.Body = v
+	return s
+}
+
 type SupplAddRoleHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -18431,8 +25031,10 @@ func (s *SupplAddRoleHeaders) SetXAcsDingtalkAccessToken(v string) *SupplAddRole
 }
 
 type SupplAddRoleRequest struct {
+	// This parameter is required.
 	ParentRoleGroupId *string `json:"parentRoleGroupId,omitempty" xml:"parentRoleGroupId,omitempty"`
-	RoleName          *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// This parameter is required.
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
 }
 
 func (s SupplAddRoleRequest) String() string {
@@ -18454,6 +25056,9 @@ func (s *SupplAddRoleRequest) SetRoleName(v string) *SupplAddRoleRequest {
 }
 
 type SupplAddRoleResponseBody struct {
+	// example:
+	//
+	// 1213
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -18523,9 +25128,27 @@ func (s *SupplyAddDeptHeaders) SetXAcsDingtalkAccessToken(v string) *SupplyAddDe
 }
 
 type SupplyAddDeptRequest struct {
-	DeptName       *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	PartnerNumber  *string `json:"partnerNumber,omitempty" xml:"partnerNumber,omitempty"`
-	SuperDeptId    *int64  `json:"superDeptId,omitempty" xml:"superDeptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 闪电供应商
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// example:
+	//
+	// G12345
+	PartnerNumber *string `json:"partnerNumber,omitempty" xml:"partnerNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1111
+	SuperDeptId *int64 `json:"superDeptId,omitempty" xml:"superDeptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUPPLY_CHAIN_DEPT_TYPE
 	SupplyDeptType *string `json:"supplyDeptType,omitempty" xml:"supplyDeptType,omitempty"`
 }
 
@@ -18575,6 +25198,7 @@ func (s *SupplyAddDeptResponseBody) SetResult(v *SupplyAddDeptResponseBodyResult
 }
 
 type SupplyAddDeptResponseBodyResult struct {
+	// This parameter is required.
 	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
@@ -18644,12 +25268,41 @@ func (s *SupplyAddMemberHeaders) SetXAcsDingtalkAccessToken(v string) *SupplyAdd
 }
 
 type SupplyAddMemberRequest struct {
-	IsPartnerManager *bool   `json:"isPartnerManager,omitempty" xml:"isPartnerManager,omitempty"`
-	MemberMobile     *string `json:"memberMobile,omitempty" xml:"memberMobile,omitempty"`
-	MemberName       *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
-	MemberTitle      *string `json:"memberTitle,omitempty" xml:"memberTitle,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// false
+	IsPartnerManager *bool `json:"isPartnerManager,omitempty" xml:"isPartnerManager,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 187xxxx0001
+	MemberMobile *string `json:"memberMobile,omitempty" xml:"memberMobile,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 李白
+	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+	// example:
+	//
+	// 经理
+	MemberTitle *string `json:"memberTitle,omitempty" xml:"memberTitle,omitempty"`
+	// example:
+	//
+	// 1001
 	MemberWorkNumber *string `json:"memberWorkNumber,omitempty" xml:"memberWorkNumber,omitempty"`
-	SupplyDeptId     *int64  `json:"supplyDeptId,omitempty" xml:"supplyDeptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1111
+	SupplyDeptId *int64 `json:"supplyDeptId,omitempty" xml:"supplyDeptId,omitempty"`
 }
 
 func (s SupplyAddMemberRequest) String() string {
@@ -18708,9 +25361,22 @@ func (s *SupplyAddMemberResponseBody) SetResult(v *SupplyAddMemberResponseBodyRe
 }
 
 type SupplyAddMemberResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// NORMAL
 	DingMemberStatus *string `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
-	UnionId          *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId           *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12345abc
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 12345abc
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SupplyAddMemberResponseBodyResult) String() string {
@@ -18789,7 +25455,17 @@ func (s *SupplyAddPartnerAdminsHeaders) SetXAcsDingtalkAccessToken(v string) *Su
 }
 
 type SupplyAddPartnerAdminsRequest struct {
-	DeptId *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -18881,8 +25557,15 @@ func (s *SupplyAddPartnerManagersHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type SupplyAddPartnerManagersRequest struct {
-	DeptId        *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	InterfaceId   *string `json:"interfaceId,omitempty" xml:"interfaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 56781213
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	InterfaceId *string `json:"interfaceId,omitempty" xml:"interfaceId,omitempty"`
+	// This parameter is required.
 	InterfaceType *string `json:"interfaceType,omitempty" xml:"interfaceType,omitempty"`
 }
 
@@ -18979,8 +25662,18 @@ func (s *SupplyAddPartnerTypeHeaders) SetXAcsDingtalkAccessToken(v string) *Supp
 }
 
 type SupplyAddPartnerTypeRequest struct {
-	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
-	SuperId *int64  `json:"superId,omitempty" xml:"superId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 标签名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 862
+	SuperId *int64 `json:"superId,omitempty" xml:"superId,omitempty"`
 }
 
 func (s SupplyAddPartnerTypeRequest) String() string {
@@ -19071,6 +25764,11 @@ func (s *SupplyChainDeleteDeptHeaders) SetXAcsDingtalkAccessToken(v string) *Sup
 }
 
 type SupplyChainDeleteDeptRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1111
 	SupplyDeptId *int64 `json:"supplyDeptId,omitempty" xml:"supplyDeptId,omitempty"`
 }
 
@@ -19157,6 +25855,11 @@ func (s *SupplyChainQueryDeptInfoHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type SupplyChainQueryDeptInfoRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1111
 	SupplyDeptId *int64 `json:"supplyDeptId,omitempty" xml:"supplyDeptId,omitempty"`
 }
 
@@ -19191,13 +25894,28 @@ func (s *SupplyChainQueryDeptInfoResponseBody) SetResult(v *SupplyChainQueryDept
 }
 
 type SupplyChainQueryDeptInfoResponseBodyResult struct {
-	DeptId              *int64                                                           `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	DeptType            *string                                                          `json:"deptType,omitempty" xml:"deptType,omitempty"`
-	HasSubDept          *bool                                                            `json:"hasSubDept,omitempty" xml:"hasSubDept,omitempty"`
-	Name                *string                                                          `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1111
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// ROOT
+	DeptType   *string `json:"deptType,omitempty" xml:"deptType,omitempty"`
+	HasSubDept *bool   `json:"hasSubDept,omitempty" xml:"hasSubDept,omitempty"`
+	// example:
+	//
+	// xxxx 有限公司
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 111111
 	PartnerNumber       *string                                                          `json:"partnerNumber,omitempty" xml:"partnerNumber,omitempty"`
 	PartnerTypeInfoList []*SupplyChainQueryDeptInfoResponseBodyResultPartnerTypeInfoList `json:"partnerTypeInfoList,omitempty" xml:"partnerTypeInfoList,omitempty" type:"Repeated"`
-	SuperId             *int64                                                           `json:"superId,omitempty" xml:"superId,omitempty"`
+	// example:
+	//
+	// 1111
+	SuperId *int64 `json:"superId,omitempty" xml:"superId,omitempty"`
 }
 
 func (s SupplyChainQueryDeptInfoResponseBodyResult) String() string {
@@ -19244,9 +25962,21 @@ func (s *SupplyChainQueryDeptInfoResponseBodyResult) SetSuperId(v int64) *Supply
 }
 
 type SupplyChainQueryDeptInfoResponseBodyResultPartnerTypeInfoList struct {
-	Id        *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	SuperId   *int64  `json:"superId,omitempty" xml:"superId,omitempty"`
+	// example:
+	//
+	// 111
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 11111
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1111
+	SuperId *int64 `json:"superId,omitempty" xml:"superId,omitempty"`
+	// example:
+	//
+	// 1111
 	SuperName *string `json:"superName,omitempty" xml:"superName,omitempty"`
 }
 
@@ -19331,11 +26061,25 @@ func (s *SupplyChainUpdateDeptInfoHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type SupplyChainUpdateDeptInfoRequest struct {
-	Name            *string  `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 123
 	PartnerNumber   *string  `json:"partnerNumber,omitempty" xml:"partnerNumber,omitempty"`
 	PartnerTypeList []*int64 `json:"partnerTypeList,omitempty" xml:"partnerTypeList,omitempty" type:"Repeated"`
-	SuperId         *int64   `json:"superId,omitempty" xml:"superId,omitempty"`
-	SupplyDeptId    *int64   `json:"supplyDeptId,omitempty" xml:"supplyDeptId,omitempty"`
+	// example:
+	//
+	// 1231
+	SuperId *int64 `json:"superId,omitempty" xml:"superId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 576488112
+	SupplyDeptId *int64 `json:"supplyDeptId,omitempty" xml:"supplyDeptId,omitempty"`
 }
 
 func (s SupplyChainUpdateDeptInfoRequest) String() string {
@@ -19441,10 +26185,24 @@ func (s *SupplyDeleteMemberHeaders) SetXAcsDingtalkAccessToken(v string) *Supply
 }
 
 type SupplyDeleteMemberRequest struct {
-	DeptId  *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	Mobile  *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// 13914772100
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// example:
+	//
+	// 01010
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 0101
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SupplyDeleteMemberRequest) String() string {
@@ -19545,7 +26303,17 @@ func (s *SupplyDeletePartnerAdminsHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type SupplyDeletePartnerAdminsRequest struct {
-	DeptId *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1111
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -19637,8 +26405,23 @@ func (s *SupplyDeletePartnerManagersHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type SupplyDeletePartnerManagersRequest struct {
-	DeptId        *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	InterfaceId   *string `json:"interfaceId,omitempty" xml:"interfaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1231
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12131
+	InterfaceId *string `json:"interfaceId,omitempty" xml:"interfaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user
 	InterfaceType *string `json:"interfaceType,omitempty" xml:"interfaceType,omitempty"`
 }
 
@@ -19735,6 +26518,11 @@ func (s *SupplyDeletePartnerTypeHeaders) SetXAcsDingtalkAccessToken(v string) *S
 }
 
 type SupplyDeletePartnerTypeRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	LabelId *int64 `json:"labelId,omitempty" xml:"labelId,omitempty"`
 }
 
@@ -19821,8 +26609,10 @@ func (s *SupplyDeleteRoleHeaders) SetXAcsDingtalkAccessToken(v string) *SupplyDe
 }
 
 type SupplyDeleteRoleRequest struct {
-	IsRoleGroup *bool   `json:"isRoleGroup,omitempty" xml:"isRoleGroup,omitempty"`
-	RoleId      *string `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// This parameter is required.
+	IsRoleGroup *bool `json:"isRoleGroup,omitempty" xml:"isRoleGroup,omitempty"`
+	// This parameter is required.
+	RoleId *string `json:"roleId,omitempty" xml:"roleId,omitempty"`
 }
 
 func (s SupplyDeleteRoleRequest) String() string {
@@ -19913,6 +26703,9 @@ func (s *SupplyGetMemberHeaders) SetXAcsDingtalkAccessToken(v string) *SupplyGet
 }
 
 type SupplyGetMemberRequest struct {
+	// example:
+	//
+	// 19912345678
 	Mobile  *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
@@ -19959,11 +26752,26 @@ func (s *SupplyGetMemberResponseBody) SetResult(v *SupplyGetMemberResponseBodyRe
 }
 
 type SupplyGetMemberResponseBodyResult struct {
-	DeptIdList       []*int64                                         `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
-	DingMemberStatus *string                                          `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
-	IsActive         *bool                                            `json:"isActive,omitempty" xml:"isActive,omitempty"`
-	MemberName       *string                                          `json:"memberName,omitempty" xml:"memberName,omitempty"`
-	MemberTitle      *string                                          `json:"memberTitle,omitempty" xml:"memberTitle,omitempty"`
+	DeptIdList []*int64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// NORMAL
+	DingMemberStatus *string `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
+	// example:
+	//
+	// true
+	IsActive *bool `json:"isActive,omitempty" xml:"isActive,omitempty"`
+	// example:
+	//
+	// 李白
+	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+	// example:
+	//
+	// 经理
+	MemberTitle *string `json:"memberTitle,omitempty" xml:"memberTitle,omitempty"`
+	// example:
+	//
+	// 123
 	MemberWorkNumber *string                                          `json:"memberWorkNumber,omitempty" xml:"memberWorkNumber,omitempty"`
 	RoleInfoList     []*SupplyGetMemberResponseBodyResultRoleInfoList `json:"roleInfoList,omitempty" xml:"roleInfoList,omitempty" type:"Repeated"`
 	SupplyNodeList   []*int64                                         `json:"supplyNodeList,omitempty" xml:"supplyNodeList,omitempty" type:"Repeated"`
@@ -20018,7 +26826,13 @@ func (s *SupplyGetMemberResponseBodyResult) SetSupplyNodeList(v []*int64) *Suppl
 }
 
 type SupplyGetMemberResponseBodyResultRoleInfoList struct {
-	RoleId   *string `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// example:
+	//
+	// 123
+	RoleId *string `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// example:
+	//
+	// 老板
 	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
 }
 
@@ -20093,8 +26907,23 @@ func (s *SupplyListDeptMembersHeaders) SetXAcsDingtalkAccessToken(v string) *Sup
 }
 
 type SupplyListDeptMembersRequest struct {
-	PageNumber   *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize     *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1111
 	SupplyDeptId *int64 `json:"supplyDeptId,omitempty" xml:"supplyDeptId,omitempty"`
 }
 
@@ -20122,6 +26951,9 @@ func (s *SupplyListDeptMembersRequest) SetSupplyDeptId(v int64) *SupplyListDeptM
 }
 
 type SupplyListDeptMembersResponseBody struct {
+	// example:
+	//
+	// true
 	HasMore *bool                                    `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 	List    []*SupplyListDeptMembersResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
 }
@@ -20145,13 +26977,34 @@ func (s *SupplyListDeptMembersResponseBody) SetList(v []*SupplyListDeptMembersRe
 }
 
 type SupplyListDeptMembersResponseBodyList struct {
+	// example:
+	//
+	// NORMAL
 	DingMemberStatus *string `json:"dingMemberStatus,omitempty" xml:"dingMemberStatus,omitempty"`
-	IsActive         *bool   `json:"isActive,omitempty" xml:"isActive,omitempty"`
-	MemberName       *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
-	MemberTitle      *string `json:"memberTitle,omitempty" xml:"memberTitle,omitempty"`
+	// example:
+	//
+	// true
+	IsActive *bool `json:"isActive,omitempty" xml:"isActive,omitempty"`
+	// example:
+	//
+	// 李白
+	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+	// example:
+	//
+	// 经理
+	MemberTitle *string `json:"memberTitle,omitempty" xml:"memberTitle,omitempty"`
+	// example:
+	//
+	// 123
 	MemberWorkNumber *string `json:"memberWorkNumber,omitempty" xml:"memberWorkNumber,omitempty"`
-	UnionId          *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId           *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 123abc
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 123344
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SupplyListDeptMembersResponseBodyList) String() string {
@@ -20250,6 +27103,11 @@ func (s *SupplyListPartnerAdminsHeaders) SetXAcsDingtalkAccessToken(v string) *S
 }
 
 type SupplyListPartnerAdminsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 56781123
 	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
@@ -20284,9 +27142,18 @@ func (s *SupplyListPartnerAdminsResponseBody) SetResult(v []*SupplyListPartnerAd
 }
 
 type SupplyListPartnerAdminsResponseBodyResult struct {
-	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 负责人名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 99292111
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 8782166278711
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SupplyListPartnerAdminsResponseBodyResult) String() string {
@@ -20365,6 +27232,9 @@ func (s *SupplyListPartnerManagersHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type SupplyListPartnerManagersRequest struct {
+	// example:
+	//
+	// 56781233
 	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
@@ -20399,11 +27269,26 @@ func (s *SupplyListPartnerManagersResponseBody) SetResult(v []*SupplyListPartner
 }
 
 type SupplyListPartnerManagersResponseBodyResult struct {
-	DeptId        *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	DeptName      *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// example:
+	//
+	// 56789123
+	DeptId *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// 对接部门名称
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// example:
+	//
+	// user
 	InterfaceType *string `json:"interfaceType,omitempty" xml:"interfaceType,omitempty"`
-	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserName      *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// example:
+	//
+	// 121234567
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 名称
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
 func (s SupplyListPartnerManagersResponseBodyResult) String() string {
@@ -20492,6 +27377,11 @@ func (s *SupplyListPartnerTypeHeaders) SetXAcsDingtalkAccessToken(v string) *Sup
 }
 
 type SupplyListPartnerTypeRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	LabelId *int64 `json:"labelId,omitempty" xml:"labelId,omitempty"`
 }
 
@@ -20526,9 +27416,18 @@ func (s *SupplyListPartnerTypeResponseBody) SetResult(v []*SupplyListPartnerType
 }
 
 type SupplyListPartnerTypeResponseBodyResult struct {
-	LabelId *int64  `json:"labelId,omitempty" xml:"labelId,omitempty"`
-	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
-	SuperId *int64  `json:"superId,omitempty" xml:"superId,omitempty"`
+	// example:
+	//
+	// 10
+	LabelId *int64 `json:"labelId,omitempty" xml:"labelId,omitempty"`
+	// example:
+	//
+	// 标签1
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1
+	SuperId *int64 `json:"superId,omitempty" xml:"superId,omitempty"`
 }
 
 func (s SupplyListPartnerTypeResponseBodyResult) String() string {
@@ -20607,6 +27506,11 @@ func (s *SupplyListRoleHeaders) SetXAcsDingtalkAccessToken(v string) *SupplyList
 }
 
 type SupplyListRoleRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
 	ParentRoleId *string `json:"parentRoleId,omitempty" xml:"parentRoleId,omitempty"`
 }
 
@@ -20641,9 +27545,15 @@ func (s *SupplyListRoleResponseBody) SetResult(v []*SupplyListRoleResponseBodyRe
 }
 
 type SupplyListRoleResponseBodyResult struct {
-	IsRoleGroup *bool   `json:"isRoleGroup,omitempty" xml:"isRoleGroup,omitempty"`
-	RoleId      *string `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	RoleName    *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	IsRoleGroup *bool `json:"isRoleGroup,omitempty" xml:"isRoleGroup,omitempty"`
+	// example:
+	//
+	// 123
+	RoleId *string `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// example:
+	//
+	// 老板
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
 }
 
 func (s SupplyListRoleResponseBodyResult) String() string {
@@ -20722,6 +27632,11 @@ func (s *SupplyListSubDeptHeaders) SetXAcsDingtalkAccessToken(v string) *SupplyL
 }
 
 type SupplyListSubDeptRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1111
 	SupplyDeptId *int64 `json:"supplyDeptId,omitempty" xml:"supplyDeptId,omitempty"`
 }
 
@@ -20756,13 +27671,28 @@ func (s *SupplyListSubDeptResponseBody) SetResult(v []*SupplyListSubDeptResponse
 }
 
 type SupplyListSubDeptResponseBodyResult struct {
-	DeptId              *int64                                                    `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	DeptType            *string                                                   `json:"deptType,omitempty" xml:"deptType,omitempty"`
-	HasSubDept          *bool                                                     `json:"hasSubDept,omitempty" xml:"hasSubDept,omitempty"`
-	Name                *string                                                   `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1111
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// ROOT
+	DeptType   *string `json:"deptType,omitempty" xml:"deptType,omitempty"`
+	HasSubDept *bool   `json:"hasSubDept,omitempty" xml:"hasSubDept,omitempty"`
+	// example:
+	//
+	// xxxx 有限公司
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 111111
 	PartnerNumber       *string                                                   `json:"partnerNumber,omitempty" xml:"partnerNumber,omitempty"`
 	PartnerTypeInfoList []*SupplyListSubDeptResponseBodyResultPartnerTypeInfoList `json:"partnerTypeInfoList,omitempty" xml:"partnerTypeInfoList,omitempty" type:"Repeated"`
-	SuperId             *int64                                                    `json:"superId,omitempty" xml:"superId,omitempty"`
+	// example:
+	//
+	// 1111
+	SuperId *int64 `json:"superId,omitempty" xml:"superId,omitempty"`
 }
 
 func (s SupplyListSubDeptResponseBodyResult) String() string {
@@ -20809,9 +27739,21 @@ func (s *SupplyListSubDeptResponseBodyResult) SetSuperId(v int64) *SupplyListSub
 }
 
 type SupplyListSubDeptResponseBodyResultPartnerTypeInfoList struct {
-	Id        *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	SuperId   *int64  `json:"superId,omitempty" xml:"superId,omitempty"`
+	// example:
+	//
+	// 111
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 11111
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1111
+	SuperId *int64 `json:"superId,omitempty" xml:"superId,omitempty"`
+	// example:
+	//
+	// 1111
 	SuperName *string `json:"superName,omitempty" xml:"superName,omitempty"`
 }
 
@@ -20896,6 +27838,11 @@ func (s *SupplyQueryPartnerTypeHeaders) SetXAcsDingtalkAccessToken(v string) *Su
 }
 
 type SupplyQueryPartnerTypeRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	LabelId *int64 `json:"labelId,omitempty" xml:"labelId,omitempty"`
 }
 
@@ -20930,9 +27877,18 @@ func (s *SupplyQueryPartnerTypeResponseBody) SetResult(v *SupplyQueryPartnerType
 }
 
 type SupplyQueryPartnerTypeResponseBodyResult struct {
-	LabelId *int64  `json:"labelId,omitempty" xml:"labelId,omitempty"`
-	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
-	SuperId *int64  `json:"superId,omitempty" xml:"superId,omitempty"`
+	// example:
+	//
+	// 21
+	LabelId *int64 `json:"labelId,omitempty" xml:"labelId,omitempty"`
+	// example:
+	//
+	// 标签1
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1
+	SuperId *int64 `json:"superId,omitempty" xml:"superId,omitempty"`
 }
 
 func (s SupplyQueryPartnerTypeResponseBodyResult) String() string {
@@ -21011,15 +27967,41 @@ func (s *SupplyUpdateMemberHeaders) SetXAcsDingtalkAccessToken(v string) *Supply
 }
 
 type SupplyUpdateMemberRequest struct {
-	IsCopyDept       *bool     `json:"isCopyDept,omitempty" xml:"isCopyDept,omitempty"`
-	MemberTitle      *string   `json:"memberTitle,omitempty" xml:"memberTitle,omitempty"`
-	MemberWorkNumber *string   `json:"memberWorkNumber,omitempty" xml:"memberWorkNumber,omitempty"`
-	Mobile           *string   `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	NewDeptId        *int64    `json:"newDeptId,omitempty" xml:"newDeptId,omitempty"`
-	OldDeptId        *int64    `json:"oldDeptId,omitempty" xml:"oldDeptId,omitempty"`
-	RoleIdList       []*string `json:"roleIdList,omitempty" xml:"roleIdList,omitempty" type:"Repeated"`
-	UnionId          *string   `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId           *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	IsCopyDept *bool `json:"isCopyDept,omitempty" xml:"isCopyDept,omitempty"`
+	// example:
+	//
+	// 财务
+	MemberTitle *string `json:"memberTitle,omitempty" xml:"memberTitle,omitempty"`
+	// example:
+	//
+	// 121212
+	MemberWorkNumber *string `json:"memberWorkNumber,omitempty" xml:"memberWorkNumber,omitempty"`
+	// example:
+	//
+	// 13914772100
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11
+	NewDeptId *int64 `json:"newDeptId,omitempty" xml:"newDeptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	OldDeptId  *int64    `json:"oldDeptId,omitempty" xml:"oldDeptId,omitempty"`
+	RoleIdList []*string `json:"roleIdList,omitempty" xml:"roleIdList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 111
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 1212
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SupplyUpdateMemberRequest) String() string {
@@ -21145,9 +28127,20 @@ func (s *SupplyUpdatePartnerTypeHeaders) SetXAcsDingtalkAccessToken(v string) *S
 }
 
 type SupplyUpdatePartnerTypeRequest struct {
-	LabelId *int64  `json:"labelId,omitempty" xml:"labelId,omitempty"`
-	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
-	SuperId *int64  `json:"superId,omitempty" xml:"superId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	LabelId *int64 `json:"labelId,omitempty" xml:"labelId,omitempty"`
+	// example:
+	//
+	// 标签名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 862
+	SuperId *int64 `json:"superId,omitempty" xml:"superId,omitempty"`
 }
 
 func (s SupplyUpdatePartnerTypeRequest) String() string {
@@ -21243,9 +28236,12 @@ func (s *SupplyUpdateRoleHeaders) SetXAcsDingtalkAccessToken(v string) *SupplyUp
 }
 
 type SupplyUpdateRoleRequest struct {
-	IsRoleGroup *bool   `json:"isRoleGroup,omitempty" xml:"isRoleGroup,omitempty"`
-	RoleId      *string `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	RoleName    *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// This parameter is required.
+	IsRoleGroup *bool `json:"isRoleGroup,omitempty" xml:"isRoleGroup,omitempty"`
+	// This parameter is required.
+	RoleId *string `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// This parameter is required.
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
 }
 
 func (s SupplyUpdateRoleRequest) String() string {
@@ -21341,10 +28337,25 @@ func (s *UpdateUserExtendInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Upda
 }
 
 type UpdateUserExtendInfoRequest struct {
-	Comments      *string   `json:"comments,omitempty" xml:"comments,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 备注, 当jobStatusCode为其他(0)时, 需要通过该字段补充状态
+	Comments *string `json:"comments,omitempty" xml:"comments,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	JobCode       *string   `json:"jobCode,omitempty" xml:"jobCode,omitempty"`
 	JobStatusCode []*string `json:"jobStatusCode,omitempty" xml:"jobStatusCode,omitempty" type:"Repeated"`
-	UserProbCode  *string   `json:"userProbCode,omitempty" xml:"userProbCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	UserProbCode *string `json:"userProbCode,omitempty" xml:"userProbCode,omitempty"`
 }
 
 func (s UpdateUserExtendInfoRequest) String() string {
@@ -21413,12 +28424,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -21427,6 +28438,90 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 批量查询任务结果
+//
+// @param request - BatchGetTaskResultRequest
+//
+// @param headers - BatchGetTaskResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchGetTaskResultResponse
+func (client *Client) BatchGetTaskResultWithOptions(request *BatchGetTaskResultRequest, headers *BatchGetTaskResultHeaders, runtime *util.RuntimeOptions) (_result *BatchGetTaskResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskIds)) {
+		body["taskIds"] = request.TaskIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchGetTaskResult"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/ai/taskResults/batchQuery"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchGetTaskResultResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量查询任务结果
+//
+// @param request - BatchGetTaskResultRequest
+//
+// @return BatchGetTaskResultResponse
+func (client *Client) BatchGetTaskResult(request *BatchGetTaskResultRequest) (_result *BatchGetTaskResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchGetTaskResultHeaders{}
+	_result = &BatchGetTaskResultResponse{}
+	_body, _err := client.BatchGetTaskResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 商机匹配
+//
+// @param request - BusinessMatchRequest
+//
+// @param headers - BusinessMatchHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BusinessMatchResponse
 func (client *Client) BusinessMatchWithOptions(request *BusinessMatchRequest, headers *BusinessMatchHeaders, runtime *util.RuntimeOptions) (_result *BusinessMatchResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21478,6 +28573,13 @@ func (client *Client) BusinessMatchWithOptions(request *BusinessMatchRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 商机匹配
+//
+// @param request - BusinessMatchRequest
+//
+// @return BusinessMatchResponse
 func (client *Client) BusinessMatch(request *BusinessMatchRequest) (_result *BusinessMatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BusinessMatchHeaders{}
@@ -21490,6 +28592,17 @@ func (client *Client) BusinessMatch(request *BusinessMatchRequest) (_result *Bus
 	return _result, _err
 }
 
+// Summary:
+//
+// 商机匹配结果查询
+//
+// @param request - BusinessMatchResultRequest
+//
+// @param headers - BusinessMatchResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BusinessMatchResultResponse
 func (client *Client) BusinessMatchResultWithOptions(request *BusinessMatchResultRequest, headers *BusinessMatchResultHeaders, runtime *util.RuntimeOptions) (_result *BusinessMatchResultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21537,6 +28650,13 @@ func (client *Client) BusinessMatchResultWithOptions(request *BusinessMatchResul
 	return _result, _err
 }
 
+// Summary:
+//
+// 商机匹配结果查询
+//
+// @param request - BusinessMatchResultRequest
+//
+// @return BusinessMatchResultResponse
 func (client *Client) BusinessMatchResult(request *BusinessMatchResultRequest) (_result *BusinessMatchResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BusinessMatchResultHeaders{}
@@ -21549,6 +28669,17 @@ func (client *Client) BusinessMatchResult(request *BusinessMatchResultRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加租客下成员
+//
+// @param request - CampusAddRenterMemberRequest
+//
+// @param headers - CampusAddRenterMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusAddRenterMemberResponse
 func (client *Client) CampusAddRenterMemberWithOptions(request *CampusAddRenterMemberRequest, headers *CampusAddRenterMemberHeaders, runtime *util.RuntimeOptions) (_result *CampusAddRenterMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21608,6 +28739,13 @@ func (client *Client) CampusAddRenterMemberWithOptions(request *CampusAddRenterM
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加租客下成员
+//
+// @param request - CampusAddRenterMemberRequest
+//
+// @return CampusAddRenterMemberResponse
 func (client *Client) CampusAddRenterMember(request *CampusAddRenterMemberRequest) (_result *CampusAddRenterMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusAddRenterMemberHeaders{}
@@ -21620,6 +28758,17 @@ func (client *Client) CampusAddRenterMember(request *CampusAddRenterMemberReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建园区
+//
+// @param request - CampusCreateCampusRequest
+//
+// @param headers - CampusCreateCampusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusCreateCampusResponse
 func (client *Client) CampusCreateCampusWithOptions(request *CampusCreateCampusRequest, headers *CampusCreateCampusHeaders, runtime *util.RuntimeOptions) (_result *CampusCreateCampusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21727,6 +28876,13 @@ func (client *Client) CampusCreateCampusWithOptions(request *CampusCreateCampusR
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建园区
+//
+// @param request - CampusCreateCampusRequest
+//
+// @return CampusCreateCampusResponse
 func (client *Client) CampusCreateCampus(request *CampusCreateCampusRequest) (_result *CampusCreateCampusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusCreateCampusHeaders{}
@@ -21739,6 +28895,17 @@ func (client *Client) CampusCreateCampus(request *CampusCreateCampusRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建园区项目组
+//
+// @param request - CampusCreateCampusGroupRequest
+//
+// @param headers - CampusCreateCampusGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusCreateCampusGroupResponse
 func (client *Client) CampusCreateCampusGroupWithOptions(request *CampusCreateCampusGroupRequest, headers *CampusCreateCampusGroupHeaders, runtime *util.RuntimeOptions) (_result *CampusCreateCampusGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21786,6 +28953,13 @@ func (client *Client) CampusCreateCampusGroupWithOptions(request *CampusCreateCa
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建园区项目组
+//
+// @param request - CampusCreateCampusGroupRequest
+//
+// @return CampusCreateCampusGroupResponse
 func (client *Client) CampusCreateCampusGroup(request *CampusCreateCampusGroupRequest) (_result *CampusCreateCampusGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusCreateCampusGroupHeaders{}
@@ -21798,6 +28972,17 @@ func (client *Client) CampusCreateCampusGroup(request *CampusCreateCampusGroupRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建租客
+//
+// @param request - CampusCreateRenterRequest
+//
+// @param headers - CampusCreateRenterHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusCreateRenterResponse
 func (client *Client) CampusCreateRenterWithOptions(request *CampusCreateRenterRequest, headers *CampusCreateRenterHeaders, runtime *util.RuntimeOptions) (_result *CampusCreateRenterResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21861,6 +29046,13 @@ func (client *Client) CampusCreateRenterWithOptions(request *CampusCreateRenterR
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建租客
+//
+// @param request - CampusCreateRenterRequest
+//
+// @return CampusCreateRenterResponse
 func (client *Client) CampusCreateRenter(request *CampusCreateRenterRequest) (_result *CampusCreateRenterResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusCreateRenterHeaders{}
@@ -21873,6 +29065,17 @@ func (client *Client) CampusCreateRenter(request *CampusCreateRenterRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 移除租客人员
+//
+// @param request - CampusDelRenterMemberRequest
+//
+// @param headers - CampusDelRenterMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusDelRenterMemberResponse
 func (client *Client) CampusDelRenterMemberWithOptions(request *CampusDelRenterMemberRequest, headers *CampusDelRenterMemberHeaders, runtime *util.RuntimeOptions) (_result *CampusDelRenterMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21920,6 +29123,13 @@ func (client *Client) CampusDelRenterMemberWithOptions(request *CampusDelRenterM
 	return _result, _err
 }
 
+// Summary:
+//
+// 移除租客人员
+//
+// @param request - CampusDelRenterMemberRequest
+//
+// @return CampusDelRenterMemberResponse
 func (client *Client) CampusDelRenterMember(request *CampusDelRenterMemberRequest) (_result *CampusDelRenterMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusDelRenterMemberHeaders{}
@@ -21932,6 +29142,17 @@ func (client *Client) CampusDelRenterMember(request *CampusDelRenterMemberReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除园区项目组
+//
+// @param request - CampusDeleteCampusGroupRequest
+//
+// @param headers - CampusDeleteCampusGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusDeleteCampusGroupResponse
 func (client *Client) CampusDeleteCampusGroupWithOptions(request *CampusDeleteCampusGroupRequest, headers *CampusDeleteCampusGroupHeaders, runtime *util.RuntimeOptions) (_result *CampusDeleteCampusGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21975,6 +29196,13 @@ func (client *Client) CampusDeleteCampusGroupWithOptions(request *CampusDeleteCa
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除园区项目组
+//
+// @param request - CampusDeleteCampusGroupRequest
+//
+// @return CampusDeleteCampusGroupResponse
 func (client *Client) CampusDeleteCampusGroup(request *CampusDeleteCampusGroupRequest) (_result *CampusDeleteCampusGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusDeleteCampusGroupHeaders{}
@@ -21987,6 +29215,17 @@ func (client *Client) CampusDeleteCampusGroup(request *CampusDeleteCampusGroupRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除租客
+//
+// @param request - CampusDeleteRenterRequest
+//
+// @param headers - CampusDeleteRenterHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusDeleteRenterResponse
 func (client *Client) CampusDeleteRenterWithOptions(request *CampusDeleteRenterRequest, headers *CampusDeleteRenterHeaders, runtime *util.RuntimeOptions) (_result *CampusDeleteRenterResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22030,6 +29269,13 @@ func (client *Client) CampusDeleteRenterWithOptions(request *CampusDeleteRenterR
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除租客
+//
+// @param request - CampusDeleteRenterRequest
+//
+// @return CampusDeleteRenterResponse
 func (client *Client) CampusDeleteRenter(request *CampusDeleteRenterRequest) (_result *CampusDeleteRenterResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusDeleteRenterHeaders{}
@@ -22042,6 +29288,17 @@ func (client *Client) CampusDeleteRenter(request *CampusDeleteRenterRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询园区详情
+//
+// @param request - CampusGetCampusRequest
+//
+// @param headers - CampusGetCampusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusGetCampusResponse
 func (client *Client) CampusGetCampusWithOptions(request *CampusGetCampusRequest, headers *CampusGetCampusHeaders, runtime *util.RuntimeOptions) (_result *CampusGetCampusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22085,6 +29342,13 @@ func (client *Client) CampusGetCampusWithOptions(request *CampusGetCampusRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询园区详情
+//
+// @param request - CampusGetCampusRequest
+//
+// @return CampusGetCampusResponse
 func (client *Client) CampusGetCampus(request *CampusGetCampusRequest) (_result *CampusGetCampusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusGetCampusHeaders{}
@@ -22097,6 +29361,17 @@ func (client *Client) CampusGetCampus(request *CampusGetCampusRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询园区项目组详情
+//
+// @param request - CampusGetCampusGroupRequest
+//
+// @param headers - CampusGetCampusGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusGetCampusGroupResponse
 func (client *Client) CampusGetCampusGroupWithOptions(request *CampusGetCampusGroupRequest, headers *CampusGetCampusGroupHeaders, runtime *util.RuntimeOptions) (_result *CampusGetCampusGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22140,6 +29415,13 @@ func (client *Client) CampusGetCampusGroupWithOptions(request *CampusGetCampusGr
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询园区项目组详情
+//
+// @param request - CampusGetCampusGroupRequest
+//
+// @return CampusGetCampusGroupResponse
 func (client *Client) CampusGetCampusGroup(request *CampusGetCampusGroupRequest) (_result *CampusGetCampusGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusGetCampusGroupHeaders{}
@@ -22152,6 +29434,17 @@ func (client *Client) CampusGetCampusGroup(request *CampusGetCampusGroupRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取租客详情
+//
+// @param request - CampusGetRenterRequest
+//
+// @param headers - CampusGetRenterHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusGetRenterResponse
 func (client *Client) CampusGetRenterWithOptions(request *CampusGetRenterRequest, headers *CampusGetRenterHeaders, runtime *util.RuntimeOptions) (_result *CampusGetRenterResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22195,6 +29488,13 @@ func (client *Client) CampusGetRenterWithOptions(request *CampusGetRenterRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取租客详情
+//
+// @param request - CampusGetRenterRequest
+//
+// @return CampusGetRenterResponse
 func (client *Client) CampusGetRenter(request *CampusGetRenterRequest) (_result *CampusGetRenterResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusGetRenterHeaders{}
@@ -22207,6 +29507,17 @@ func (client *Client) CampusGetRenter(request *CampusGetRenterRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询租客指定成员信息
+//
+// @param request - CampusGetRenterMemberRequest
+//
+// @param headers - CampusGetRenterMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusGetRenterMemberResponse
 func (client *Client) CampusGetRenterMemberWithOptions(request *CampusGetRenterMemberRequest, headers *CampusGetRenterMemberHeaders, runtime *util.RuntimeOptions) (_result *CampusGetRenterMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22254,6 +29565,13 @@ func (client *Client) CampusGetRenterMemberWithOptions(request *CampusGetRenterM
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询租客指定成员信息
+//
+// @param request - CampusGetRenterMemberRequest
+//
+// @return CampusGetRenterMemberResponse
 func (client *Client) CampusGetRenterMember(request *CampusGetRenterMemberRequest) (_result *CampusGetRenterMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusGetRenterMemberHeaders{}
@@ -22266,6 +29584,17 @@ func (client *Client) CampusGetRenterMember(request *CampusGetRenterMemberReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询园区列表
+//
+// @param request - CampusListCampusRequest
+//
+// @param headers - CampusListCampusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusListCampusResponse
 func (client *Client) CampusListCampusWithOptions(request *CampusListCampusRequest, headers *CampusListCampusHeaders, runtime *util.RuntimeOptions) (_result *CampusListCampusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22309,6 +29638,13 @@ func (client *Client) CampusListCampusWithOptions(request *CampusListCampusReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询园区列表
+//
+// @param request - CampusListCampusRequest
+//
+// @return CampusListCampusResponse
 func (client *Client) CampusListCampus(request *CampusListCampusRequest) (_result *CampusListCampusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusListCampusHeaders{}
@@ -22321,6 +29657,15 @@ func (client *Client) CampusListCampus(request *CampusListCampusRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询园区项目组列表
+//
+// @param headers - CampusListCampusGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusListCampusGroupResponse
 func (client *Client) CampusListCampusGroupWithOptions(headers *CampusListCampusGroupHeaders, runtime *util.RuntimeOptions) (_result *CampusListCampusGroupResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -22354,6 +29699,11 @@ func (client *Client) CampusListCampusGroupWithOptions(headers *CampusListCampus
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询园区项目组列表
+//
+// @return CampusListCampusGroupResponse
 func (client *Client) CampusListCampusGroup() (_result *CampusListCampusGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusListCampusGroupHeaders{}
@@ -22366,6 +29716,15 @@ func (client *Client) CampusListCampusGroup() (_result *CampusListCampusGroupRes
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取租客列表
+//
+// @param headers - CampusListRenterHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusListRenterResponse
 func (client *Client) CampusListRenterWithOptions(headers *CampusListRenterHeaders, runtime *util.RuntimeOptions) (_result *CampusListRenterResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -22399,6 +29758,11 @@ func (client *Client) CampusListRenterWithOptions(headers *CampusListRenterHeade
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取租客列表
+//
+// @return CampusListRenterResponse
 func (client *Client) CampusListRenter() (_result *CampusListRenterResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusListRenterHeaders{}
@@ -22411,6 +29775,17 @@ func (client *Client) CampusListRenter() (_result *CampusListRenterResponse, _er
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询租客下所有成员
+//
+// @param request - CampusListRenterMembersRequest
+//
+// @param headers - CampusListRenterMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusListRenterMembersResponse
 func (client *Client) CampusListRenterMembersWithOptions(request *CampusListRenterMembersRequest, headers *CampusListRenterMembersHeaders, runtime *util.RuntimeOptions) (_result *CampusListRenterMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22454,6 +29829,13 @@ func (client *Client) CampusListRenterMembersWithOptions(request *CampusListRent
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询租客下所有成员
+//
+// @param request - CampusListRenterMembersRequest
+//
+// @return CampusListRenterMembersResponse
 func (client *Client) CampusListRenterMembers(request *CampusListRenterMembersRequest) (_result *CampusListRenterMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusListRenterMembersHeaders{}
@@ -22466,6 +29848,17 @@ func (client *Client) CampusListRenterMembers(request *CampusListRenterMembersRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新园区项目
+//
+// @param request - CampusUpdateCampusRequest
+//
+// @param headers - CampusUpdateCampusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusUpdateCampusResponse
 func (client *Client) CampusUpdateCampusWithOptions(request *CampusUpdateCampusRequest, headers *CampusUpdateCampusHeaders, runtime *util.RuntimeOptions) (_result *CampusUpdateCampusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22569,6 +29962,13 @@ func (client *Client) CampusUpdateCampusWithOptions(request *CampusUpdateCampusR
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新园区项目
+//
+// @param request - CampusUpdateCampusRequest
+//
+// @return CampusUpdateCampusResponse
 func (client *Client) CampusUpdateCampus(request *CampusUpdateCampusRequest) (_result *CampusUpdateCampusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusUpdateCampusHeaders{}
@@ -22581,6 +29981,17 @@ func (client *Client) CampusUpdateCampus(request *CampusUpdateCampusRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新园区项目组
+//
+// @param request - CampusUpdateCampusGroupRequest
+//
+// @param headers - CampusUpdateCampusGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusUpdateCampusGroupResponse
 func (client *Client) CampusUpdateCampusGroupWithOptions(request *CampusUpdateCampusGroupRequest, headers *CampusUpdateCampusGroupHeaders, runtime *util.RuntimeOptions) (_result *CampusUpdateCampusGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22632,6 +30043,13 @@ func (client *Client) CampusUpdateCampusGroupWithOptions(request *CampusUpdateCa
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新园区项目组
+//
+// @param request - CampusUpdateCampusGroupRequest
+//
+// @return CampusUpdateCampusGroupResponse
 func (client *Client) CampusUpdateCampusGroup(request *CampusUpdateCampusGroupRequest) (_result *CampusUpdateCampusGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusUpdateCampusGroupHeaders{}
@@ -22644,6 +30062,17 @@ func (client *Client) CampusUpdateCampusGroup(request *CampusUpdateCampusGroupRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新租客
+//
+// @param request - CampusUpdateRenterRequest
+//
+// @param headers - CampusUpdateRenterHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusUpdateRenterResponse
 func (client *Client) CampusUpdateRenterWithOptions(request *CampusUpdateRenterRequest, headers *CampusUpdateRenterHeaders, runtime *util.RuntimeOptions) (_result *CampusUpdateRenterResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22711,6 +30140,13 @@ func (client *Client) CampusUpdateRenterWithOptions(request *CampusUpdateRenterR
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新租客
+//
+// @param request - CampusUpdateRenterRequest
+//
+// @return CampusUpdateRenterResponse
 func (client *Client) CampusUpdateRenter(request *CampusUpdateRenterRequest) (_result *CampusUpdateRenterResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusUpdateRenterHeaders{}
@@ -22723,6 +30159,17 @@ func (client *Client) CampusUpdateRenter(request *CampusUpdateRenterRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新租客下成员
+//
+// @param request - CampusUpdateRenterMemberRequest
+//
+// @param headers - CampusUpdateRenterMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CampusUpdateRenterMemberResponse
 func (client *Client) CampusUpdateRenterMemberWithOptions(request *CampusUpdateRenterMemberRequest, headers *CampusUpdateRenterMemberHeaders, runtime *util.RuntimeOptions) (_result *CampusUpdateRenterMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22782,6 +30229,13 @@ func (client *Client) CampusUpdateRenterMemberWithOptions(request *CampusUpdateR
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新租客下成员
+//
+// @param request - CampusUpdateRenterMemberRequest
+//
+// @return CampusUpdateRenterMemberResponse
 func (client *Client) CampusUpdateRenterMember(request *CampusUpdateRenterMemberRequest) (_result *CampusUpdateRenterMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CampusUpdateRenterMemberHeaders{}
@@ -22794,6 +30248,580 @@ func (client *Client) CampusUpdateRenterMember(request *CampusUpdateRenterMember
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加数据集权限
+//
+// @param request - ChatAIAddDatasetPermissionRequest
+//
+// @param headers - ChatAIAddDatasetPermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatAIAddDatasetPermissionResponse
+func (client *Client) ChatAIAddDatasetPermissionWithOptions(request *ChatAIAddDatasetPermissionRequest, headers *ChatAIAddDatasetPermissionHeaders, runtime *util.RuntimeOptions) (_result *ChatAIAddDatasetPermissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AuthorizationType)) {
+		body["authorizationType"] = request.AuthorizationType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AuthorizedObjectId)) {
+		body["authorizedObjectId"] = request.AuthorizedObjectId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		body["datasetId"] = request.DatasetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OptUser)) {
+		body["optUser"] = request.OptUser
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatAIAddDatasetPermission"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatai/dataset/permissions/add"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatAIAddDatasetPermissionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 添加数据集权限
+//
+// @param request - ChatAIAddDatasetPermissionRequest
+//
+// @return ChatAIAddDatasetPermissionResponse
+func (client *Client) ChatAIAddDatasetPermission(request *ChatAIAddDatasetPermissionRequest) (_result *ChatAIAddDatasetPermissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatAIAddDatasetPermissionHeaders{}
+	_result = &ChatAIAddDatasetPermissionResponse{}
+	_body, _err := client.ChatAIAddDatasetPermissionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取chatAI应用下的数据集列表
+//
+// @param request - ChatAIListDatasetRequest
+//
+// @param headers - ChatAIListDatasetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatAIListDatasetResponse
+func (client *Client) ChatAIListDatasetWithOptions(request *ChatAIListDatasetRequest, headers *ChatAIListDatasetHeaders, runtime *util.RuntimeOptions) (_result *ChatAIListDatasetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		query["appId"] = request.AppId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatAIListDataset"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatai/datasets"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatAIListDatasetResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取chatAI应用下的数据集列表
+//
+// @param request - ChatAIListDatasetRequest
+//
+// @return ChatAIListDatasetResponse
+func (client *Client) ChatAIListDataset(request *ChatAIListDatasetRequest) (_result *ChatAIListDatasetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatAIListDatasetHeaders{}
+	_result = &ChatAIListDatasetResponse{}
+	_body, _err := client.ChatAIListDatasetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询数据集权限明细
+//
+// @param request - ChatAIQueryDatasetPermissionRequest
+//
+// @param headers - ChatAIQueryDatasetPermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatAIQueryDatasetPermissionResponse
+func (client *Client) ChatAIQueryDatasetPermissionWithOptions(request *ChatAIQueryDatasetPermissionRequest, headers *ChatAIQueryDatasetPermissionHeaders, runtime *util.RuntimeOptions) (_result *ChatAIQueryDatasetPermissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		query["datasetId"] = request.DatasetId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatAIQueryDatasetPermission"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatai/dataset/permissions"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatAIQueryDatasetPermissionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询数据集权限明细
+//
+// @param request - ChatAIQueryDatasetPermissionRequest
+//
+// @return ChatAIQueryDatasetPermissionResponse
+func (client *Client) ChatAIQueryDatasetPermission(request *ChatAIQueryDatasetPermissionRequest) (_result *ChatAIQueryDatasetPermissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatAIQueryDatasetPermissionHeaders{}
+	_result = &ChatAIQueryDatasetPermissionResponse{}
+	_body, _err := client.ChatAIQueryDatasetPermissionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除数据集权限
+//
+// @param request - ChatAIRemoveDatasetPermissionRequest
+//
+// @param headers - ChatAIRemoveDatasetPermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatAIRemoveDatasetPermissionResponse
+func (client *Client) ChatAIRemoveDatasetPermissionWithOptions(request *ChatAIRemoveDatasetPermissionRequest, headers *ChatAIRemoveDatasetPermissionHeaders, runtime *util.RuntimeOptions) (_result *ChatAIRemoveDatasetPermissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AuthorizationType)) {
+		body["authorizationType"] = request.AuthorizationType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AuthorizedObjectId)) {
+		body["authorizedObjectId"] = request.AuthorizedObjectId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		body["datasetId"] = request.DatasetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OptUser)) {
+		body["optUser"] = request.OptUser
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatAIRemoveDatasetPermission"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatai/dataset/permissions/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatAIRemoveDatasetPermissionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除数据集权限
+//
+// @param request - ChatAIRemoveDatasetPermissionRequest
+//
+// @return ChatAIRemoveDatasetPermissionResponse
+func (client *Client) ChatAIRemoveDatasetPermission(request *ChatAIRemoveDatasetPermissionRequest) (_result *ChatAIRemoveDatasetPermissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatAIRemoveDatasetPermissionHeaders{}
+	_result = &ChatAIRemoveDatasetPermissionResponse{}
+	_body, _err := client.ChatAIRemoveDatasetPermissionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// # Chai文本情感分析
+//
+// @param request - ChatAITextSentimentAnalysisRequest
+//
+// @param headers - ChatAITextSentimentAnalysisHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatAITextSentimentAnalysisResponse
+func (client *Client) ChatAITextSentimentAnalysisWithOptions(request *ChatAITextSentimentAnalysisRequest, headers *ChatAITextSentimentAnalysisHeaders, runtime *util.RuntimeOptions) (_result *ChatAITextSentimentAnalysisResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.History)) {
+		body["history"] = request.History
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Text)) {
+		body["text"] = request.Text
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatAITextSentimentAnalysis"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatai/abilities/sentiments/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatAITextSentimentAnalysisResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// # Chai文本情感分析
+//
+// @param request - ChatAITextSentimentAnalysisRequest
+//
+// @return ChatAITextSentimentAnalysisResponse
+func (client *Client) ChatAITextSentimentAnalysis(request *ChatAITextSentimentAnalysisRequest) (_result *ChatAITextSentimentAnalysisResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatAITextSentimentAnalysisHeaders{}
+	_result = &ChatAITextSentimentAnalysisResponse{}
+	_body, _err := client.ChatAITextSentimentAnalysisWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取ChatAI问答日志
+//
+// @param request - ChatAiQueryLogsRequest
+//
+// @param headers - ChatAiQueryLogsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatAiQueryLogsResponse
+func (client *Client) ChatAiQueryLogsWithOptions(request *ChatAiQueryLogsRequest, headers *ChatAiQueryLogsHeaders, runtime *util.RuntimeOptions) (_result *ChatAiQueryLogsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		query["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScenceId)) {
+		query["scenceId"] = request.ScenceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatAiQueryLogs"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatai/logs/lists"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatAiQueryLogsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取ChatAI问答日志
+//
+// @param request - ChatAiQueryLogsRequest
+//
+// @return ChatAiQueryLogsResponse
+func (client *Client) ChatAiQueryLogs(request *ChatAiQueryLogsRequest) (_result *ChatAiQueryLogsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatAiQueryLogsHeaders{}
+	_result = &ChatAiQueryLogsResponse{}
+	_body, _err := client.ChatAiQueryLogsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取差旅单列表
+//
+// @param request - ChatAiTravelListRequest
+//
+// @param headers - ChatAiTravelListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatAiTravelListResponse
+func (client *Client) ChatAiTravelListWithOptions(request *ChatAiTravelListRequest, headers *ChatAiTravelListHeaders, runtime *util.RuntimeOptions) (_result *ChatAiTravelListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ParamList)) {
+		body["paramList"] = request.ParamList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TravelId)) {
+		body["travelId"] = request.TravelId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatAiTravelList"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/ai/travelLists/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatAiTravelListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取差旅单列表
+//
+// @param request - ChatAiTravelListRequest
+//
+// @return ChatAiTravelListResponse
+func (client *Client) ChatAiTravelList(request *ChatAiTravelListRequest) (_result *ChatAiTravelListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatAiTravelListHeaders{}
+	_result = &ChatAiTravelListResponse{}
+	_body, _err := client.ChatAiTravelListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// # ChatForm查询表单识别结果
+//
+// @param request - ChatFormGetDataForApiAccessRequest
+//
+// @param headers - ChatFormGetDataForApiAccessHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatFormGetDataForApiAccessResponse
 func (client *Client) ChatFormGetDataForApiAccessWithOptions(request *ChatFormGetDataForApiAccessRequest, headers *ChatFormGetDataForApiAccessHeaders, runtime *util.RuntimeOptions) (_result *ChatFormGetDataForApiAccessResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22837,6 +30865,13 @@ func (client *Client) ChatFormGetDataForApiAccessWithOptions(request *ChatFormGe
 	return _result, _err
 }
 
+// Summary:
+//
+// # ChatForm查询表单识别结果
+//
+// @param request - ChatFormGetDataForApiAccessRequest
+//
+// @return ChatFormGetDataForApiAccessResponse
 func (client *Client) ChatFormGetDataForApiAccess(request *ChatFormGetDataForApiAccessRequest) (_result *ChatFormGetDataForApiAccessResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ChatFormGetDataForApiAccessHeaders{}
@@ -22849,6 +30884,17 @@ func (client *Client) ChatFormGetDataForApiAccess(request *ChatFormGetDataForApi
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增普通文件
+//
+// @param request - ChatMemoAddGeneralFileRequest
+//
+// @param headers - ChatMemoAddGeneralFileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatMemoAddGeneralFileResponse
 func (client *Client) ChatMemoAddGeneralFileWithOptions(request *ChatMemoAddGeneralFileRequest, headers *ChatMemoAddGeneralFileHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoAddGeneralFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22912,6 +30958,13 @@ func (client *Client) ChatMemoAddGeneralFileWithOptions(request *ChatMemoAddGene
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增普通文件
+//
+// @param request - ChatMemoAddGeneralFileRequest
+//
+// @return ChatMemoAddGeneralFileResponse
 func (client *Client) ChatMemoAddGeneralFile(request *ChatMemoAddGeneralFileRequest) (_result *ChatMemoAddGeneralFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ChatMemoAddGeneralFileHeaders{}
@@ -22924,6 +30977,179 @@ func (client *Client) ChatMemoAddGeneralFile(request *ChatMemoAddGeneralFileRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增知识图谱节点
+//
+// @param request - ChatMemoAddKnowledgeGraphNodeRequest
+//
+// @param headers - ChatMemoAddKnowledgeGraphNodeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatMemoAddKnowledgeGraphNodeResponse
+func (client *Client) ChatMemoAddKnowledgeGraphNodeWithOptions(request *ChatMemoAddKnowledgeGraphNodeRequest, headers *ChatMemoAddKnowledgeGraphNodeHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoAddKnowledgeGraphNodeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		body["datasetId"] = request.DatasetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NodeInfo)) {
+		body["nodeInfo"] = request.NodeInfo
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatMemoAddKnowledgeGraphNode"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatmemo/nodes"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatMemoAddKnowledgeGraphNodeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 新增知识图谱节点
+//
+// @param request - ChatMemoAddKnowledgeGraphNodeRequest
+//
+// @return ChatMemoAddKnowledgeGraphNodeResponse
+func (client *Client) ChatMemoAddKnowledgeGraphNode(request *ChatMemoAddKnowledgeGraphNodeRequest) (_result *ChatMemoAddKnowledgeGraphNodeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatMemoAddKnowledgeGraphNodeHeaders{}
+	_result = &ChatMemoAddKnowledgeGraphNodeResponse{}
+	_body, _err := client.ChatMemoAddKnowledgeGraphNodeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 新增知识图谱关系
+//
+// @param request - ChatMemoAddKnowledgeGraphRelationRequest
+//
+// @param headers - ChatMemoAddKnowledgeGraphRelationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatMemoAddKnowledgeGraphRelationResponse
+func (client *Client) ChatMemoAddKnowledgeGraphRelationWithOptions(request *ChatMemoAddKnowledgeGraphRelationRequest, headers *ChatMemoAddKnowledgeGraphRelationHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoAddKnowledgeGraphRelationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		body["datasetId"] = request.DatasetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationInfo)) {
+		body["relationInfo"] = request.RelationInfo
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatMemoAddKnowledgeGraphRelation"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatmemo/relations"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatMemoAddKnowledgeGraphRelationResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 新增知识图谱关系
+//
+// @param request - ChatMemoAddKnowledgeGraphRelationRequest
+//
+// @return ChatMemoAddKnowledgeGraphRelationResponse
+func (client *Client) ChatMemoAddKnowledgeGraphRelation(request *ChatMemoAddKnowledgeGraphRelationRequest) (_result *ChatMemoAddKnowledgeGraphRelationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatMemoAddKnowledgeGraphRelationHeaders{}
+	_result = &ChatMemoAddKnowledgeGraphRelationResponse{}
+	_body, _err := client.ChatMemoAddKnowledgeGraphRelationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除普通文件
+//
+// @param request - ChatMemoDeleteGeneralFileRequest
+//
+// @param headers - ChatMemoDeleteGeneralFileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatMemoDeleteGeneralFileResponse
 func (client *Client) ChatMemoDeleteGeneralFileWithOptions(request *ChatMemoDeleteGeneralFileRequest, headers *ChatMemoDeleteGeneralFileHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoDeleteGeneralFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22971,6 +31197,13 @@ func (client *Client) ChatMemoDeleteGeneralFileWithOptions(request *ChatMemoDele
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除普通文件
+//
+// @param request - ChatMemoDeleteGeneralFileRequest
+//
+// @return ChatMemoDeleteGeneralFileResponse
 func (client *Client) ChatMemoDeleteGeneralFile(request *ChatMemoDeleteGeneralFileRequest) (_result *ChatMemoDeleteGeneralFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ChatMemoDeleteGeneralFileHeaders{}
@@ -22983,6 +31216,179 @@ func (client *Client) ChatMemoDeleteGeneralFile(request *ChatMemoDeleteGeneralFi
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除知识图谱节点
+//
+// @param request - ChatMemoDeleteKnowledgeGraphNodeRequest
+//
+// @param headers - ChatMemoDeleteKnowledgeGraphNodeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatMemoDeleteKnowledgeGraphNodeResponse
+func (client *Client) ChatMemoDeleteKnowledgeGraphNodeWithOptions(request *ChatMemoDeleteKnowledgeGraphNodeRequest, headers *ChatMemoDeleteKnowledgeGraphNodeHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoDeleteKnowledgeGraphNodeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		body["datasetId"] = request.DatasetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
+		body["mediaId"] = request.MediaId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatMemoDeleteKnowledgeGraphNode"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatmemo/nodes/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatMemoDeleteKnowledgeGraphNodeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除知识图谱节点
+//
+// @param request - ChatMemoDeleteKnowledgeGraphNodeRequest
+//
+// @return ChatMemoDeleteKnowledgeGraphNodeResponse
+func (client *Client) ChatMemoDeleteKnowledgeGraphNode(request *ChatMemoDeleteKnowledgeGraphNodeRequest) (_result *ChatMemoDeleteKnowledgeGraphNodeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatMemoDeleteKnowledgeGraphNodeHeaders{}
+	_result = &ChatMemoDeleteKnowledgeGraphNodeResponse{}
+	_body, _err := client.ChatMemoDeleteKnowledgeGraphNodeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除知识图谱关系
+//
+// @param request - ChatMemoDeleteKnowledgeGraphRelationRequest
+//
+// @param headers - ChatMemoDeleteKnowledgeGraphRelationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatMemoDeleteKnowledgeGraphRelationResponse
+func (client *Client) ChatMemoDeleteKnowledgeGraphRelationWithOptions(request *ChatMemoDeleteKnowledgeGraphRelationRequest, headers *ChatMemoDeleteKnowledgeGraphRelationHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoDeleteKnowledgeGraphRelationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		body["datasetId"] = request.DatasetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
+		body["mediaId"] = request.MediaId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatMemoDeleteKnowledgeGraphRelation"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatmemo/relations/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatMemoDeleteKnowledgeGraphRelationResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除知识图谱关系
+//
+// @param request - ChatMemoDeleteKnowledgeGraphRelationRequest
+//
+// @return ChatMemoDeleteKnowledgeGraphRelationResponse
+func (client *Client) ChatMemoDeleteKnowledgeGraphRelation(request *ChatMemoDeleteKnowledgeGraphRelationRequest) (_result *ChatMemoDeleteKnowledgeGraphRelationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatMemoDeleteKnowledgeGraphRelationHeaders{}
+	_result = &ChatMemoDeleteKnowledgeGraphRelationResponse{}
+	_body, _err := client.ChatMemoDeleteKnowledgeGraphRelationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 新增 FAQ
+//
+// @param request - ChatMemoFaqAddRequest
+//
+// @param headers - ChatMemoFaqAddHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatMemoFaqAddResponse
 func (client *Client) ChatMemoFaqAddWithOptions(request *ChatMemoFaqAddRequest, headers *ChatMemoFaqAddHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoFaqAddResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23042,6 +31448,13 @@ func (client *Client) ChatMemoFaqAddWithOptions(request *ChatMemoFaqAddRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增 FAQ
+//
+// @param request - ChatMemoFaqAddRequest
+//
+// @return ChatMemoFaqAddResponse
 func (client *Client) ChatMemoFaqAdd(request *ChatMemoFaqAddRequest) (_result *ChatMemoFaqAddResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ChatMemoFaqAddHeaders{}
@@ -23054,6 +31467,17 @@ func (client *Client) ChatMemoFaqAdd(request *ChatMemoFaqAddRequest) (_result *C
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除指定数据集中的FAQ
+//
+// @param request - ChatMemoFaqDeleteRequest
+//
+// @param headers - ChatMemoFaqDeleteHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatMemoFaqDeleteResponse
 func (client *Client) ChatMemoFaqDeleteWithOptions(request *ChatMemoFaqDeleteRequest, headers *ChatMemoFaqDeleteHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoFaqDeleteResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23101,6 +31525,13 @@ func (client *Client) ChatMemoFaqDeleteWithOptions(request *ChatMemoFaqDeleteReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除指定数据集中的FAQ
+//
+// @param request - ChatMemoFaqDeleteRequest
+//
+// @return ChatMemoFaqDeleteResponse
 func (client *Client) ChatMemoFaqDelete(request *ChatMemoFaqDeleteRequest) (_result *ChatMemoFaqDeleteResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ChatMemoFaqDeleteHeaders{}
@@ -23113,6 +31544,17 @@ func (client *Client) ChatMemoFaqDelete(request *ChatMemoFaqDeleteRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询指定数据集中的FAQ列表
+//
+// @param request - ChatMemoFaqListRequest
+//
+// @param headers - ChatMemoFaqListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatMemoFaqListResponse
 func (client *Client) ChatMemoFaqListWithOptions(request *ChatMemoFaqListRequest, headers *ChatMemoFaqListHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoFaqListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23164,6 +31606,13 @@ func (client *Client) ChatMemoFaqListWithOptions(request *ChatMemoFaqListRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询指定数据集中的FAQ列表
+//
+// @param request - ChatMemoFaqListRequest
+//
+// @return ChatMemoFaqListResponse
 func (client *Client) ChatMemoFaqList(request *ChatMemoFaqListRequest) (_result *ChatMemoFaqListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ChatMemoFaqListHeaders{}
@@ -23176,6 +31625,17 @@ func (client *Client) ChatMemoFaqList(request *ChatMemoFaqListRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询指定数据集中的文件列表
+//
+// @param request - ChatMemoGetFileListRequest
+//
+// @param headers - ChatMemoGetFileListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatMemoGetFileListResponse
 func (client *Client) ChatMemoGetFileListWithOptions(request *ChatMemoGetFileListRequest, headers *ChatMemoGetFileListHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoGetFileListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23227,6 +31687,13 @@ func (client *Client) ChatMemoGetFileListWithOptions(request *ChatMemoGetFileLis
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询指定数据集中的文件列表
+//
+// @param request - ChatMemoGetFileListRequest
+//
+// @return ChatMemoGetFileListResponse
 func (client *Client) ChatMemoGetFileList(request *ChatMemoGetFileListRequest) (_result *ChatMemoGetFileListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ChatMemoGetFileListHeaders{}
@@ -23239,6 +31706,17 @@ func (client *Client) ChatMemoGetFileList(request *ChatMemoGetFileListRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件状态
+//
+// @param request - ChatMemoGetFileStatusRequest
+//
+// @param headers - ChatMemoGetFileStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatMemoGetFileStatusResponse
 func (client *Client) ChatMemoGetFileStatusWithOptions(request *ChatMemoGetFileStatusRequest, headers *ChatMemoGetFileStatusHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoGetFileStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23286,6 +31764,13 @@ func (client *Client) ChatMemoGetFileStatusWithOptions(request *ChatMemoGetFileS
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件状态
+//
+// @param request - ChatMemoGetFileStatusRequest
+//
+// @return ChatMemoGetFileStatusResponse
 func (client *Client) ChatMemoGetFileStatus(request *ChatMemoGetFileStatusRequest) (_result *ChatMemoGetFileStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ChatMemoGetFileStatusHeaders{}
@@ -23298,6 +31783,341 @@ func (client *Client) ChatMemoGetFileStatus(request *ChatMemoGetFileStatusReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询知识图谱节点
+//
+// @param request - ChatMemoQueryKnowledgeGraphNodeRequest
+//
+// @param headers - ChatMemoQueryKnowledgeGraphNodeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatMemoQueryKnowledgeGraphNodeResponse
+func (client *Client) ChatMemoQueryKnowledgeGraphNodeWithOptions(request *ChatMemoQueryKnowledgeGraphNodeRequest, headers *ChatMemoQueryKnowledgeGraphNodeHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoQueryKnowledgeGraphNodeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		body["datasetId"] = request.DatasetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
+		body["mediaId"] = request.MediaId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatMemoQueryKnowledgeGraphNode"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatmemo/nodes/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatMemoQueryKnowledgeGraphNodeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询知识图谱节点
+//
+// @param request - ChatMemoQueryKnowledgeGraphNodeRequest
+//
+// @return ChatMemoQueryKnowledgeGraphNodeResponse
+func (client *Client) ChatMemoQueryKnowledgeGraphNode(request *ChatMemoQueryKnowledgeGraphNodeRequest) (_result *ChatMemoQueryKnowledgeGraphNodeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatMemoQueryKnowledgeGraphNodeHeaders{}
+	_result = &ChatMemoQueryKnowledgeGraphNodeResponse{}
+	_body, _err := client.ChatMemoQueryKnowledgeGraphNodeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询知识图谱关系
+//
+// @param request - ChatMemoQueryKnowledgeGraphRelationRequest
+//
+// @param headers - ChatMemoQueryKnowledgeGraphRelationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatMemoQueryKnowledgeGraphRelationResponse
+func (client *Client) ChatMemoQueryKnowledgeGraphRelationWithOptions(request *ChatMemoQueryKnowledgeGraphRelationRequest, headers *ChatMemoQueryKnowledgeGraphRelationHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoQueryKnowledgeGraphRelationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		body["datasetId"] = request.DatasetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
+		body["mediaId"] = request.MediaId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatMemoQueryKnowledgeGraphRelation"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatmemo/relations/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatMemoQueryKnowledgeGraphRelationResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询知识图谱关系
+//
+// @param request - ChatMemoQueryKnowledgeGraphRelationRequest
+//
+// @return ChatMemoQueryKnowledgeGraphRelationResponse
+func (client *Client) ChatMemoQueryKnowledgeGraphRelation(request *ChatMemoQueryKnowledgeGraphRelationRequest) (_result *ChatMemoQueryKnowledgeGraphRelationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatMemoQueryKnowledgeGraphRelationHeaders{}
+	_result = &ChatMemoQueryKnowledgeGraphRelationResponse{}
+	_body, _err := client.ChatMemoQueryKnowledgeGraphRelationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新知识图谱节点
+//
+// @param request - ChatMemoUpdateKnowledgeGraphNodeRequest
+//
+// @param headers - ChatMemoUpdateKnowledgeGraphNodeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatMemoUpdateKnowledgeGraphNodeResponse
+func (client *Client) ChatMemoUpdateKnowledgeGraphNodeWithOptions(request *ChatMemoUpdateKnowledgeGraphNodeRequest, headers *ChatMemoUpdateKnowledgeGraphNodeHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoUpdateKnowledgeGraphNodeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		body["datasetId"] = request.DatasetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NodeInfo)) {
+		body["nodeInfo"] = request.NodeInfo
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatMemoUpdateKnowledgeGraphNode"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatmemo/nodes"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatMemoUpdateKnowledgeGraphNodeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新知识图谱节点
+//
+// @param request - ChatMemoUpdateKnowledgeGraphNodeRequest
+//
+// @return ChatMemoUpdateKnowledgeGraphNodeResponse
+func (client *Client) ChatMemoUpdateKnowledgeGraphNode(request *ChatMemoUpdateKnowledgeGraphNodeRequest) (_result *ChatMemoUpdateKnowledgeGraphNodeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatMemoUpdateKnowledgeGraphNodeHeaders{}
+	_result = &ChatMemoUpdateKnowledgeGraphNodeResponse{}
+	_body, _err := client.ChatMemoUpdateKnowledgeGraphNodeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新知识图谱关系
+//
+// @param request - ChatMemoUpdateKnowledgeGraphRelationRequest
+//
+// @param headers - ChatMemoUpdateKnowledgeGraphRelationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChatMemoUpdateKnowledgeGraphRelationResponse
+func (client *Client) ChatMemoUpdateKnowledgeGraphRelationWithOptions(request *ChatMemoUpdateKnowledgeGraphRelationRequest, headers *ChatMemoUpdateKnowledgeGraphRelationHeaders, runtime *util.RuntimeOptions) (_result *ChatMemoUpdateKnowledgeGraphRelationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DatasetId)) {
+		body["datasetId"] = request.DatasetId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationInfo)) {
+		body["relationInfo"] = request.RelationInfo
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChatMemoUpdateKnowledgeGraphRelation"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatmemo/relations"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChatMemoUpdateKnowledgeGraphRelationResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新知识图谱关系
+//
+// @param request - ChatMemoUpdateKnowledgeGraphRelationRequest
+//
+// @return ChatMemoUpdateKnowledgeGraphRelationResponse
+func (client *Client) ChatMemoUpdateKnowledgeGraphRelation(request *ChatMemoUpdateKnowledgeGraphRelationRequest) (_result *ChatMemoUpdateKnowledgeGraphRelationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChatMemoUpdateKnowledgeGraphRelationHeaders{}
+	_result = &ChatMemoUpdateKnowledgeGraphRelationResponse{}
+	_body, _err := client.ChatMemoUpdateKnowledgeGraphRelationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 开启学段/学院/年级/专业\系/班级群
+//
+// @param request - CollegeActiveCollegeDeptGroupRequest
+//
+// @param headers - CollegeActiveCollegeDeptGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeActiveCollegeDeptGroupResponse
 func (client *Client) CollegeActiveCollegeDeptGroupWithOptions(request *CollegeActiveCollegeDeptGroupRequest, headers *CollegeActiveCollegeDeptGroupHeaders, runtime *util.RuntimeOptions) (_result *CollegeActiveCollegeDeptGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23341,6 +32161,13 @@ func (client *Client) CollegeActiveCollegeDeptGroupWithOptions(request *CollegeA
 	return _result, _err
 }
 
+// Summary:
+//
+// 开启学段/学院/年级/专业\系/班级群
+//
+// @param request - CollegeActiveCollegeDeptGroupRequest
+//
+// @return CollegeActiveCollegeDeptGroupResponse
 func (client *Client) CollegeActiveCollegeDeptGroup(request *CollegeActiveCollegeDeptGroupRequest) (_result *CollegeActiveCollegeDeptGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeActiveCollegeDeptGroupHeaders{}
@@ -23353,6 +32180,17 @@ func (client *Client) CollegeActiveCollegeDeptGroup(request *CollegeActiveColleg
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建学段/学院/年级/专业\系/班级
+//
+// @param request - CollegeAddCollegeDeptRequest
+//
+// @param headers - CollegeAddCollegeDeptHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeAddCollegeDeptResponse
 func (client *Client) CollegeAddCollegeDeptWithOptions(request *CollegeAddCollegeDeptRequest, headers *CollegeAddCollegeDeptHeaders, runtime *util.RuntimeOptions) (_result *CollegeAddCollegeDeptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23408,6 +32246,13 @@ func (client *Client) CollegeAddCollegeDeptWithOptions(request *CollegeAddColleg
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建学段/学院/年级/专业\系/班级
+//
+// @param request - CollegeAddCollegeDeptRequest
+//
+// @return CollegeAddCollegeDeptResponse
 func (client *Client) CollegeAddCollegeDept(request *CollegeAddCollegeDeptRequest) (_result *CollegeAddCollegeDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeAddCollegeDeptHeaders{}
@@ -23420,6 +32265,17 @@ func (client *Client) CollegeAddCollegeDept(request *CollegeAddCollegeDeptReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 往部门中添加负责人
+//
+// @param request - CollegeAddManagerRequest
+//
+// @param headers - CollegeAddManagerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeAddManagerResponse
 func (client *Client) CollegeAddManagerWithOptions(request *CollegeAddManagerRequest, headers *CollegeAddManagerHeaders, runtime *util.RuntimeOptions) (_result *CollegeAddManagerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23467,6 +32323,13 @@ func (client *Client) CollegeAddManagerWithOptions(request *CollegeAddManagerReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 往部门中添加负责人
+//
+// @param request - CollegeAddManagerRequest
+//
+// @return CollegeAddManagerResponse
 func (client *Client) CollegeAddManager(request *CollegeAddManagerRequest) (_result *CollegeAddManagerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeAddManagerHeaders{}
@@ -23479,6 +32342,17 @@ func (client *Client) CollegeAddManager(request *CollegeAddManagerRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 在班级中添加人员
+//
+// @param request - CollegeAddStudentRequest
+//
+// @param headers - CollegeAddStudentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeAddStudentResponse
 func (client *Client) CollegeAddStudentWithOptions(request *CollegeAddStudentRequest, headers *CollegeAddStudentHeaders, runtime *util.RuntimeOptions) (_result *CollegeAddStudentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23554,6 +32428,13 @@ func (client *Client) CollegeAddStudentWithOptions(request *CollegeAddStudentReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 在班级中添加人员
+//
+// @param request - CollegeAddStudentRequest
+//
+// @return CollegeAddStudentResponse
 func (client *Client) CollegeAddStudent(request *CollegeAddStudentRequest) (_result *CollegeAddStudentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeAddStudentHeaders{}
@@ -23566,6 +32447,17 @@ func (client *Client) CollegeAddStudent(request *CollegeAddStudentRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 移动学生到其他部门
+//
+// @param request - CollegeChangeStudentDeptRequest
+//
+// @param headers - CollegeChangeStudentDeptHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeChangeStudentDeptResponse
 func (client *Client) CollegeChangeStudentDeptWithOptions(request *CollegeChangeStudentDeptRequest, headers *CollegeChangeStudentDeptHeaders, runtime *util.RuntimeOptions) (_result *CollegeChangeStudentDeptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23617,6 +32509,13 @@ func (client *Client) CollegeChangeStudentDeptWithOptions(request *CollegeChange
 	return _result, _err
 }
 
+// Summary:
+//
+// 移动学生到其他部门
+//
+// @param request - CollegeChangeStudentDeptRequest
+//
+// @return CollegeChangeStudentDeptResponse
 func (client *Client) CollegeChangeStudentDept(request *CollegeChangeStudentDeptRequest) (_result *CollegeChangeStudentDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeChangeStudentDeptHeaders{}
@@ -23629,6 +32528,17 @@ func (client *Client) CollegeChangeStudentDept(request *CollegeChangeStudentDept
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除学段/学院/年级/专业\系/班级
+//
+// @param request - CollegeDeleteCollegeDeptRequest
+//
+// @param headers - CollegeDeleteCollegeDeptHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeDeleteCollegeDeptResponse
 func (client *Client) CollegeDeleteCollegeDeptWithOptions(request *CollegeDeleteCollegeDeptRequest, headers *CollegeDeleteCollegeDeptHeaders, runtime *util.RuntimeOptions) (_result *CollegeDeleteCollegeDeptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23672,6 +32582,13 @@ func (client *Client) CollegeDeleteCollegeDeptWithOptions(request *CollegeDelete
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除学段/学院/年级/专业\系/班级
+//
+// @param request - CollegeDeleteCollegeDeptRequest
+//
+// @return CollegeDeleteCollegeDeptResponse
 func (client *Client) CollegeDeleteCollegeDept(request *CollegeDeleteCollegeDeptRequest) (_result *CollegeDeleteCollegeDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeDeleteCollegeDeptHeaders{}
@@ -23684,6 +32601,17 @@ func (client *Client) CollegeDeleteCollegeDept(request *CollegeDeleteCollegeDept
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取下级节点列表
+//
+// @param request - CollegeListCollegeSubDeptRequest
+//
+// @param headers - CollegeListCollegeSubDeptHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeListCollegeSubDeptResponse
 func (client *Client) CollegeListCollegeSubDeptWithOptions(request *CollegeListCollegeSubDeptRequest, headers *CollegeListCollegeSubDeptHeaders, runtime *util.RuntimeOptions) (_result *CollegeListCollegeSubDeptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23727,6 +32655,13 @@ func (client *Client) CollegeListCollegeSubDeptWithOptions(request *CollegeListC
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取下级节点列表
+//
+// @param request - CollegeListCollegeSubDeptRequest
+//
+// @return CollegeListCollegeSubDeptResponse
 func (client *Client) CollegeListCollegeSubDept(request *CollegeListCollegeSubDeptRequest) (_result *CollegeListCollegeSubDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeListCollegeSubDeptHeaders{}
@@ -23739,6 +32674,17 @@ func (client *Client) CollegeListCollegeSubDept(request *CollegeListCollegeSubDe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取部门下所有负责人列表
+//
+// @param request - CollegeListDeptManagerRequest
+//
+// @param headers - CollegeListDeptManagerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeListDeptManagerResponse
 func (client *Client) CollegeListDeptManagerWithOptions(request *CollegeListDeptManagerRequest, headers *CollegeListDeptManagerHeaders, runtime *util.RuntimeOptions) (_result *CollegeListDeptManagerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23790,6 +32736,13 @@ func (client *Client) CollegeListDeptManagerWithOptions(request *CollegeListDept
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取部门下所有负责人列表
+//
+// @param request - CollegeListDeptManagerRequest
+//
+// @return CollegeListDeptManagerResponse
 func (client *Client) CollegeListDeptManager(request *CollegeListDeptManagerRequest) (_result *CollegeListDeptManagerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeListDeptManagerHeaders{}
@@ -23802,6 +32755,17 @@ func (client *Client) CollegeListDeptManager(request *CollegeListDeptManagerRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取班级下所有学生列表
+//
+// @param request - CollegeListStudentInfoRequest
+//
+// @param headers - CollegeListStudentInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeListStudentInfoResponse
 func (client *Client) CollegeListStudentInfoWithOptions(request *CollegeListStudentInfoRequest, headers *CollegeListStudentInfoHeaders, runtime *util.RuntimeOptions) (_result *CollegeListStudentInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23857,6 +32821,13 @@ func (client *Client) CollegeListStudentInfoWithOptions(request *CollegeListStud
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取班级下所有学生列表
+//
+// @param request - CollegeListStudentInfoRequest
+//
+// @return CollegeListStudentInfoResponse
 func (client *Client) CollegeListStudentInfo(request *CollegeListStudentInfoRequest) (_result *CollegeListStudentInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeListStudentInfoHeaders{}
@@ -23869,6 +32840,17 @@ func (client *Client) CollegeListStudentInfo(request *CollegeListStudentInfoRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页查询未加入组织的学生列表
+//
+// @param request - CollegeListUncheckedStudentRequest
+//
+// @param headers - CollegeListUncheckedStudentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeListUncheckedStudentResponse
 func (client *Client) CollegeListUncheckedStudentWithOptions(request *CollegeListUncheckedStudentRequest, headers *CollegeListUncheckedStudentHeaders, runtime *util.RuntimeOptions) (_result *CollegeListUncheckedStudentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23920,6 +32902,13 @@ func (client *Client) CollegeListUncheckedStudentWithOptions(request *CollegeLis
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页查询未加入组织的学生列表
+//
+// @param request - CollegeListUncheckedStudentRequest
+//
+// @return CollegeListUncheckedStudentResponse
 func (client *Client) CollegeListUncheckedStudent(request *CollegeListUncheckedStudentRequest) (_result *CollegeListUncheckedStudentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeListUncheckedStudentHeaders{}
@@ -23932,6 +32921,17 @@ func (client *Client) CollegeListUncheckedStudent(request *CollegeListUncheckedS
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取学段/学院/年级/专业\系/班级群群信息
+//
+// @param request - CollegeQueryCollegeDeptGroupInfoRequest
+//
+// @param headers - CollegeQueryCollegeDeptGroupInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeQueryCollegeDeptGroupInfoResponse
 func (client *Client) CollegeQueryCollegeDeptGroupInfoWithOptions(request *CollegeQueryCollegeDeptGroupInfoRequest, headers *CollegeQueryCollegeDeptGroupInfoHeaders, runtime *util.RuntimeOptions) (_result *CollegeQueryCollegeDeptGroupInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23975,6 +32975,13 @@ func (client *Client) CollegeQueryCollegeDeptGroupInfoWithOptions(request *Colle
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取学段/学院/年级/专业\系/班级群群信息
+//
+// @param request - CollegeQueryCollegeDeptGroupInfoRequest
+//
+// @return CollegeQueryCollegeDeptGroupInfoResponse
 func (client *Client) CollegeQueryCollegeDeptGroupInfo(request *CollegeQueryCollegeDeptGroupInfoRequest) (_result *CollegeQueryCollegeDeptGroupInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeQueryCollegeDeptGroupInfoHeaders{}
@@ -23987,6 +32994,17 @@ func (client *Client) CollegeQueryCollegeDeptGroupInfo(request *CollegeQueryColl
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取学段/学院/年级/专业\系/班级信息
+//
+// @param request - CollegeQueryCollegeDeptInfoRequest
+//
+// @param headers - CollegeQueryCollegeDeptInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeQueryCollegeDeptInfoResponse
 func (client *Client) CollegeQueryCollegeDeptInfoWithOptions(request *CollegeQueryCollegeDeptInfoRequest, headers *CollegeQueryCollegeDeptInfoHeaders, runtime *util.RuntimeOptions) (_result *CollegeQueryCollegeDeptInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24030,6 +33048,13 @@ func (client *Client) CollegeQueryCollegeDeptInfoWithOptions(request *CollegeQue
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取学段/学院/年级/专业\系/班级信息
+//
+// @param request - CollegeQueryCollegeDeptInfoRequest
+//
+// @return CollegeQueryCollegeDeptInfoResponse
 func (client *Client) CollegeQueryCollegeDeptInfo(request *CollegeQueryCollegeDeptInfoRequest) (_result *CollegeQueryCollegeDeptInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeQueryCollegeDeptInfoHeaders{}
@@ -24042,6 +33067,17 @@ func (client *Client) CollegeQueryCollegeDeptInfo(request *CollegeQueryCollegeDe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取指定部门下指定学生的信息
+//
+// @param request - CollegeQueryStudentInfoByDeptRequest
+//
+// @param headers - CollegeQueryStudentInfoByDeptHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeQueryStudentInfoByDeptResponse
 func (client *Client) CollegeQueryStudentInfoByDeptWithOptions(request *CollegeQueryStudentInfoByDeptRequest, headers *CollegeQueryStudentInfoByDeptHeaders, runtime *util.RuntimeOptions) (_result *CollegeQueryStudentInfoByDeptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24089,6 +33125,13 @@ func (client *Client) CollegeQueryStudentInfoByDeptWithOptions(request *CollegeQ
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取指定部门下指定学生的信息
+//
+// @param request - CollegeQueryStudentInfoByDeptRequest
+//
+// @return CollegeQueryStudentInfoByDeptResponse
 func (client *Client) CollegeQueryStudentInfoByDept(request *CollegeQueryStudentInfoByDeptRequest) (_result *CollegeQueryStudentInfoByDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeQueryStudentInfoByDeptHeaders{}
@@ -24101,6 +33144,17 @@ func (client *Client) CollegeQueryStudentInfoByDept(request *CollegeQueryStudent
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据手机号查询学生信息
+//
+// @param request - CollegeQueryStudentInfoByMobileRequest
+//
+// @param headers - CollegeQueryStudentInfoByMobileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeQueryStudentInfoByMobileResponse
 func (client *Client) CollegeQueryStudentInfoByMobileWithOptions(request *CollegeQueryStudentInfoByMobileRequest, headers *CollegeQueryStudentInfoByMobileHeaders, runtime *util.RuntimeOptions) (_result *CollegeQueryStudentInfoByMobileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24144,6 +33198,13 @@ func (client *Client) CollegeQueryStudentInfoByMobileWithOptions(request *Colleg
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据手机号查询学生信息
+//
+// @param request - CollegeQueryStudentInfoByMobileRequest
+//
+// @return CollegeQueryStudentInfoByMobileResponse
 func (client *Client) CollegeQueryStudentInfoByMobile(request *CollegeQueryStudentInfoByMobileRequest) (_result *CollegeQueryStudentInfoByMobileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeQueryStudentInfoByMobileHeaders{}
@@ -24156,6 +33217,17 @@ func (client *Client) CollegeQueryStudentInfoByMobile(request *CollegeQueryStude
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据studentId查询学生信息
+//
+// @param request - CollegeQueryStudentInfoByStudentIdRequest
+//
+// @param headers - CollegeQueryStudentInfoByStudentIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeQueryStudentInfoByStudentIdResponse
 func (client *Client) CollegeQueryStudentInfoByStudentIdWithOptions(request *CollegeQueryStudentInfoByStudentIdRequest, headers *CollegeQueryStudentInfoByStudentIdHeaders, runtime *util.RuntimeOptions) (_result *CollegeQueryStudentInfoByStudentIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24199,6 +33271,13 @@ func (client *Client) CollegeQueryStudentInfoByStudentIdWithOptions(request *Col
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据studentId查询学生信息
+//
+// @param request - CollegeQueryStudentInfoByStudentIdRequest
+//
+// @return CollegeQueryStudentInfoByStudentIdResponse
 func (client *Client) CollegeQueryStudentInfoByStudentId(request *CollegeQueryStudentInfoByStudentIdRequest) (_result *CollegeQueryStudentInfoByStudentIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeQueryStudentInfoByStudentIdHeaders{}
@@ -24211,6 +33290,17 @@ func (client *Client) CollegeQueryStudentInfoByStudentId(request *CollegeQuerySt
 	return _result, _err
 }
 
+// Summary:
+//
+// 从部门中移除负责人
+//
+// @param request - CollegeRemoveManagerRequest
+//
+// @param headers - CollegeRemoveManagerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeRemoveManagerResponse
 func (client *Client) CollegeRemoveManagerWithOptions(request *CollegeRemoveManagerRequest, headers *CollegeRemoveManagerHeaders, runtime *util.RuntimeOptions) (_result *CollegeRemoveManagerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24262,6 +33352,13 @@ func (client *Client) CollegeRemoveManagerWithOptions(request *CollegeRemoveMana
 	return _result, _err
 }
 
+// Summary:
+//
+// 从部门中移除负责人
+//
+// @param request - CollegeRemoveManagerRequest
+//
+// @return CollegeRemoveManagerResponse
 func (client *Client) CollegeRemoveManager(request *CollegeRemoveManagerRequest) (_result *CollegeRemoveManagerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeRemoveManagerHeaders{}
@@ -24274,6 +33371,17 @@ func (client *Client) CollegeRemoveManager(request *CollegeRemoveManagerRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 从部门中移除学生
+//
+// @param request - CollegeRemoveStudentRequest
+//
+// @param headers - CollegeRemoveStudentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeRemoveStudentResponse
 func (client *Client) CollegeRemoveStudentWithOptions(request *CollegeRemoveStudentRequest, headers *CollegeRemoveStudentHeaders, runtime *util.RuntimeOptions) (_result *CollegeRemoveStudentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24321,6 +33429,13 @@ func (client *Client) CollegeRemoveStudentWithOptions(request *CollegeRemoveStud
 	return _result, _err
 }
 
+// Summary:
+//
+// 从部门中移除学生
+//
+// @param request - CollegeRemoveStudentRequest
+//
+// @return CollegeRemoveStudentResponse
 func (client *Client) CollegeRemoveStudent(request *CollegeRemoveStudentRequest) (_result *CollegeRemoveStudentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeRemoveStudentHeaders{}
@@ -24333,6 +33448,17 @@ func (client *Client) CollegeRemoveStudent(request *CollegeRemoveStudentRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑学段/学院/年级/专业\系/班级
+//
+// @param request - CollegeUpdateCollegeDeptRequest
+//
+// @param headers - CollegeUpdateCollegeDeptHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeUpdateCollegeDeptResponse
 func (client *Client) CollegeUpdateCollegeDeptWithOptions(request *CollegeUpdateCollegeDeptRequest, headers *CollegeUpdateCollegeDeptHeaders, runtime *util.RuntimeOptions) (_result *CollegeUpdateCollegeDeptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24388,6 +33514,13 @@ func (client *Client) CollegeUpdateCollegeDeptWithOptions(request *CollegeUpdate
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑学段/学院/年级/专业\系/班级
+//
+// @param request - CollegeUpdateCollegeDeptRequest
+//
+// @return CollegeUpdateCollegeDeptResponse
 func (client *Client) CollegeUpdateCollegeDept(request *CollegeUpdateCollegeDeptRequest) (_result *CollegeUpdateCollegeDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeUpdateCollegeDeptHeaders{}
@@ -24400,6 +33533,17 @@ func (client *Client) CollegeUpdateCollegeDept(request *CollegeUpdateCollegeDept
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新学生的部门相关信息
+//
+// @param request - CollegeUpdateStudentDeptInfoRequest
+//
+// @param headers - CollegeUpdateStudentDeptInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeUpdateStudentDeptInfoResponse
 func (client *Client) CollegeUpdateStudentDeptInfoWithOptions(request *CollegeUpdateStudentDeptInfoRequest, headers *CollegeUpdateStudentDeptInfoHeaders, runtime *util.RuntimeOptions) (_result *CollegeUpdateStudentDeptInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24451,6 +33595,13 @@ func (client *Client) CollegeUpdateStudentDeptInfoWithOptions(request *CollegeUp
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新学生的部门相关信息
+//
+// @param request - CollegeUpdateStudentDeptInfoRequest
+//
+// @return CollegeUpdateStudentDeptInfoResponse
 func (client *Client) CollegeUpdateStudentDeptInfo(request *CollegeUpdateStudentDeptInfoRequest) (_result *CollegeUpdateStudentDeptInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeUpdateStudentDeptInfoHeaders{}
@@ -24463,6 +33614,17 @@ func (client *Client) CollegeUpdateStudentDeptInfo(request *CollegeUpdateStudent
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新班级下学生信息
+//
+// @param request - CollegeUpdateStudentInfoRequest
+//
+// @param headers - CollegeUpdateStudentInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeUpdateStudentInfoResponse
 func (client *Client) CollegeUpdateStudentInfoWithOptions(request *CollegeUpdateStudentInfoRequest, headers *CollegeUpdateStudentInfoHeaders, runtime *util.RuntimeOptions) (_result *CollegeUpdateStudentInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24526,6 +33688,13 @@ func (client *Client) CollegeUpdateStudentInfoWithOptions(request *CollegeUpdate
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新班级下学生信息
+//
+// @param request - CollegeUpdateStudentInfoRequest
+//
+// @return CollegeUpdateStudentInfoResponse
 func (client *Client) CollegeUpdateStudentInfo(request *CollegeUpdateStudentInfoRequest) (_result *CollegeUpdateStudentInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeUpdateStudentInfoHeaders{}
@@ -24538,6 +33707,17 @@ func (client *Client) CollegeUpdateStudentInfo(request *CollegeUpdateStudentInfo
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改学生手机号
+//
+// @param request - CollegeUpdateStudentMoblieRequest
+//
+// @param headers - CollegeUpdateStudentMoblieHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollegeUpdateStudentMoblieResponse
 func (client *Client) CollegeUpdateStudentMoblieWithOptions(request *CollegeUpdateStudentMoblieRequest, headers *CollegeUpdateStudentMoblieHeaders, runtime *util.RuntimeOptions) (_result *CollegeUpdateStudentMoblieResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24589,6 +33769,13 @@ func (client *Client) CollegeUpdateStudentMoblieWithOptions(request *CollegeUpda
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改学生手机号
+//
+// @param request - CollegeUpdateStudentMoblieRequest
+//
+// @return CollegeUpdateStudentMoblieResponse
 func (client *Client) CollegeUpdateStudentMoblie(request *CollegeUpdateStudentMoblieRequest) (_result *CollegeUpdateStudentMoblieResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollegeUpdateStudentMoblieHeaders{}
@@ -24601,6 +33788,17 @@ func (client *Client) CollegeUpdateStudentMoblie(request *CollegeUpdateStudentMo
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建自定义通讯录
+//
+// @param request - CustomizeContactCreateRequest
+//
+// @param headers - CustomizeContactCreateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CustomizeContactCreateResponse
 func (client *Client) CustomizeContactCreateWithOptions(request *CustomizeContactCreateRequest, headers *CustomizeContactCreateHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactCreateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24652,6 +33850,13 @@ func (client *Client) CustomizeContactCreateWithOptions(request *CustomizeContac
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建自定义通讯录
+//
+// @param request - CustomizeContactCreateRequest
+//
+// @return CustomizeContactCreateResponse
 func (client *Client) CustomizeContactCreate(request *CustomizeContactCreateRequest) (_result *CustomizeContactCreateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CustomizeContactCreateHeaders{}
@@ -24664,6 +33869,17 @@ func (client *Client) CustomizeContactCreate(request *CustomizeContactCreateRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除自定义通讯录
+//
+// @param request - CustomizeContactDeleteRequest
+//
+// @param headers - CustomizeContactDeleteHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CustomizeContactDeleteResponse
 func (client *Client) CustomizeContactDeleteWithOptions(request *CustomizeContactDeleteRequest, headers *CustomizeContactDeleteHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactDeleteResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24707,6 +33923,13 @@ func (client *Client) CustomizeContactDeleteWithOptions(request *CustomizeContac
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除自定义通讯录
+//
+// @param request - CustomizeContactDeleteRequest
+//
+// @return CustomizeContactDeleteResponse
 func (client *Client) CustomizeContactDelete(request *CustomizeContactDeleteRequest) (_result *CustomizeContactDeleteResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CustomizeContactDeleteHeaders{}
@@ -24719,6 +33942,17 @@ func (client *Client) CustomizeContactDelete(request *CustomizeContactDeleteRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建部门
+//
+// @param request - CustomizeContactDeptCreateRequest
+//
+// @param headers - CustomizeContactDeptCreateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CustomizeContactDeptCreateResponse
 func (client *Client) CustomizeContactDeptCreateWithOptions(request *CustomizeContactDeptCreateRequest, headers *CustomizeContactDeptCreateHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactDeptCreateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24786,6 +34020,13 @@ func (client *Client) CustomizeContactDeptCreateWithOptions(request *CustomizeCo
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建部门
+//
+// @param request - CustomizeContactDeptCreateRequest
+//
+// @return CustomizeContactDeptCreateResponse
 func (client *Client) CustomizeContactDeptCreate(request *CustomizeContactDeptCreateRequest) (_result *CustomizeContactDeptCreateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CustomizeContactDeptCreateHeaders{}
@@ -24798,6 +34039,17 @@ func (client *Client) CustomizeContactDeptCreate(request *CustomizeContactDeptCr
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除部门
+//
+// @param request - CustomizeContactDeptDeleteRequest
+//
+// @param headers - CustomizeContactDeptDeleteHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CustomizeContactDeptDeleteResponse
 func (client *Client) CustomizeContactDeptDeleteWithOptions(request *CustomizeContactDeptDeleteRequest, headers *CustomizeContactDeptDeleteHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactDeptDeleteResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24845,6 +34097,13 @@ func (client *Client) CustomizeContactDeptDeleteWithOptions(request *CustomizeCo
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除部门
+//
+// @param request - CustomizeContactDeptDeleteRequest
+//
+// @return CustomizeContactDeptDeleteResponse
 func (client *Client) CustomizeContactDeptDelete(request *CustomizeContactDeptDeleteRequest) (_result *CustomizeContactDeptDeleteResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CustomizeContactDeptDeleteHeaders{}
@@ -24857,6 +34116,17 @@ func (client *Client) CustomizeContactDeptDelete(request *CustomizeContactDeptDe
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建自定义通讯录某个部门的部门群
+//
+// @param request - CustomizeContactDeptGroupCreateRequest
+//
+// @param headers - CustomizeContactDeptGroupCreateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CustomizeContactDeptGroupCreateResponse
 func (client *Client) CustomizeContactDeptGroupCreateWithOptions(request *CustomizeContactDeptGroupCreateRequest, headers *CustomizeContactDeptGroupCreateHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactDeptGroupCreateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24904,6 +34174,13 @@ func (client *Client) CustomizeContactDeptGroupCreateWithOptions(request *Custom
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建自定义通讯录某个部门的部门群
+//
+// @param request - CustomizeContactDeptGroupCreateRequest
+//
+// @return CustomizeContactDeptGroupCreateResponse
 func (client *Client) CustomizeContactDeptGroupCreate(request *CustomizeContactDeptGroupCreateRequest) (_result *CustomizeContactDeptGroupCreateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CustomizeContactDeptGroupCreateHeaders{}
@@ -24916,6 +34193,17 @@ func (client *Client) CustomizeContactDeptGroupCreate(request *CustomizeContactD
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取部门详情
+//
+// @param request - CustomizeContactDeptInfoRequest
+//
+// @param headers - CustomizeContactDeptInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CustomizeContactDeptInfoResponse
 func (client *Client) CustomizeContactDeptInfoWithOptions(request *CustomizeContactDeptInfoRequest, headers *CustomizeContactDeptInfoHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactDeptInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24963,6 +34251,13 @@ func (client *Client) CustomizeContactDeptInfoWithOptions(request *CustomizeCont
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取部门详情
+//
+// @param request - CustomizeContactDeptInfoRequest
+//
+// @return CustomizeContactDeptInfoResponse
 func (client *Client) CustomizeContactDeptInfo(request *CustomizeContactDeptInfoRequest) (_result *CustomizeContactDeptInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CustomizeContactDeptInfoHeaders{}
@@ -24975,6 +34270,17 @@ func (client *Client) CustomizeContactDeptInfo(request *CustomizeContactDeptInfo
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取子部门列表
+//
+// @param request - CustomizeContactDeptListRequest
+//
+// @param headers - CustomizeContactDeptListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CustomizeContactDeptListResponse
 func (client *Client) CustomizeContactDeptListWithOptions(request *CustomizeContactDeptListRequest, headers *CustomizeContactDeptListHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactDeptListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -25022,6 +34328,13 @@ func (client *Client) CustomizeContactDeptListWithOptions(request *CustomizeCont
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取子部门列表
+//
+// @param request - CustomizeContactDeptListRequest
+//
+// @return CustomizeContactDeptListResponse
 func (client *Client) CustomizeContactDeptList(request *CustomizeContactDeptListRequest) (_result *CustomizeContactDeptListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CustomizeContactDeptListHeaders{}
@@ -25034,6 +34347,17 @@ func (client *Client) CustomizeContactDeptList(request *CustomizeContactDeptList
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新部门
+//
+// @param request - CustomizeContactDeptUpdateRequest
+//
+// @param headers - CustomizeContactDeptUpdateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CustomizeContactDeptUpdateResponse
 func (client *Client) CustomizeContactDeptUpdateWithOptions(request *CustomizeContactDeptUpdateRequest, headers *CustomizeContactDeptUpdateHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactDeptUpdateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -25097,6 +34421,13 @@ func (client *Client) CustomizeContactDeptUpdateWithOptions(request *CustomizeCo
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新部门
+//
+// @param request - CustomizeContactDeptUpdateRequest
+//
+// @return CustomizeContactDeptUpdateResponse
 func (client *Client) CustomizeContactDeptUpdate(request *CustomizeContactDeptUpdateRequest) (_result *CustomizeContactDeptUpdateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CustomizeContactDeptUpdateHeaders{}
@@ -25109,6 +34440,17 @@ func (client *Client) CustomizeContactDeptUpdate(request *CustomizeContactDeptUp
 	return _result, _err
 }
 
+// Summary:
+//
+// 普通部门下添加人员
+//
+// @param request - CustomizeContactEmpAddRequest
+//
+// @param headers - CustomizeContactEmpAddHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CustomizeContactEmpAddResponse
 func (client *Client) CustomizeContactEmpAddWithOptions(request *CustomizeContactEmpAddRequest, headers *CustomizeContactEmpAddHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactEmpAddResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -25160,6 +34502,13 @@ func (client *Client) CustomizeContactEmpAddWithOptions(request *CustomizeContac
 	return _result, _err
 }
 
+// Summary:
+//
+// 普通部门下添加人员
+//
+// @param request - CustomizeContactEmpAddRequest
+//
+// @return CustomizeContactEmpAddResponse
 func (client *Client) CustomizeContactEmpAdd(request *CustomizeContactEmpAddRequest) (_result *CustomizeContactEmpAddResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CustomizeContactEmpAddHeaders{}
@@ -25172,6 +34521,17 @@ func (client *Client) CustomizeContactEmpAdd(request *CustomizeContactEmpAddRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 普通部门下移除人员
+//
+// @param request - CustomizeContactEmpDeleteRequest
+//
+// @param headers - CustomizeContactEmpDeleteHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CustomizeContactEmpDeleteResponse
 func (client *Client) CustomizeContactEmpDeleteWithOptions(request *CustomizeContactEmpDeleteRequest, headers *CustomizeContactEmpDeleteHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactEmpDeleteResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -25223,6 +34583,13 @@ func (client *Client) CustomizeContactEmpDeleteWithOptions(request *CustomizeCon
 	return _result, _err
 }
 
+// Summary:
+//
+// 普通部门下移除人员
+//
+// @param request - CustomizeContactEmpDeleteRequest
+//
+// @return CustomizeContactEmpDeleteResponse
 func (client *Client) CustomizeContactEmpDelete(request *CustomizeContactEmpDeleteRequest) (_result *CustomizeContactEmpDeleteResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CustomizeContactEmpDeleteHeaders{}
@@ -25235,6 +34602,17 @@ func (client *Client) CustomizeContactEmpDelete(request *CustomizeContactEmpDele
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询部门下人员
+//
+// @param request - CustomizeContactEmpListRequest
+//
+// @param headers - CustomizeContactEmpListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CustomizeContactEmpListResponse
 func (client *Client) CustomizeContactEmpListWithOptions(request *CustomizeContactEmpListRequest, headers *CustomizeContactEmpListHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactEmpListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -25278,6 +34656,13 @@ func (client *Client) CustomizeContactEmpListWithOptions(request *CustomizeConta
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询部门下人员
+//
+// @param request - CustomizeContactEmpListRequest
+//
+// @return CustomizeContactEmpListResponse
 func (client *Client) CustomizeContactEmpList(request *CustomizeContactEmpListRequest) (_result *CustomizeContactEmpListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CustomizeContactEmpListHeaders{}
@@ -25290,6 +34675,15 @@ func (client *Client) CustomizeContactEmpList(request *CustomizeContactEmpListRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取自定义通讯录列表
+//
+// @param headers - CustomizeContactListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CustomizeContactListResponse
 func (client *Client) CustomizeContactListWithOptions(headers *CustomizeContactListHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactListResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -25323,6 +34717,11 @@ func (client *Client) CustomizeContactListWithOptions(headers *CustomizeContactL
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取自定义通讯录列表
+//
+// @return CustomizeContactListResponse
 func (client *Client) CustomizeContactList() (_result *CustomizeContactListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CustomizeContactListHeaders{}
@@ -25335,6 +34734,17 @@ func (client *Client) CustomizeContactList() (_result *CustomizeContactListRespo
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新自定义通讯录
+//
+// @param request - CustomizeContactUpdateRequest
+//
+// @param headers - CustomizeContactUpdateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CustomizeContactUpdateResponse
 func (client *Client) CustomizeContactUpdateWithOptions(request *CustomizeContactUpdateRequest, headers *CustomizeContactUpdateHeaders, runtime *util.RuntimeOptions) (_result *CustomizeContactUpdateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -25390,6 +34800,13 @@ func (client *Client) CustomizeContactUpdateWithOptions(request *CustomizeContac
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新自定义通讯录
+//
+// @param request - CustomizeContactUpdateRequest
+//
+// @return CustomizeContactUpdateResponse
 func (client *Client) CustomizeContactUpdate(request *CustomizeContactUpdateRequest) (_result *CustomizeContactUpdateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CustomizeContactUpdateHeaders{}
@@ -25402,6 +34819,17 @@ func (client *Client) CustomizeContactUpdate(request *CustomizeContactUpdateRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 门店通业务消息推送
+//
+// @param tmpReq - DIgitalStoreMessagePushRequest
+//
+// @param headers - DIgitalStoreMessagePushHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DIgitalStoreMessagePushResponse
 func (client *Client) DIgitalStoreMessagePushWithOptions(tmpReq *DIgitalStoreMessagePushRequest, headers *DIgitalStoreMessagePushHeaders, runtime *util.RuntimeOptions) (_result *DIgitalStoreMessagePushResponse, _err error) {
 	_err = util.ValidateModel(tmpReq)
 	if _err != nil {
@@ -25451,6 +34879,13 @@ func (client *Client) DIgitalStoreMessagePushWithOptions(tmpReq *DIgitalStoreMes
 	return _result, _err
 }
 
+// Summary:
+//
+// 门店通业务消息推送
+//
+// @param request - DIgitalStoreMessagePushRequest
+//
+// @return DIgitalStoreMessagePushResponse
 func (client *Client) DIgitalStoreMessagePush(request *DIgitalStoreMessagePushRequest) (_result *DIgitalStoreMessagePushResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DIgitalStoreMessagePushHeaders{}
@@ -25463,6 +34898,17 @@ func (client *Client) DIgitalStoreMessagePush(request *DIgitalStoreMessagePushRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 群运营-场景卡片发送记录列表
+//
+// @param request - DigitalStoreCardRecordRequest
+//
+// @param headers - DigitalStoreCardRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStoreCardRecordResponse
 func (client *Client) DigitalStoreCardRecordWithOptions(request *DigitalStoreCardRecordRequest, headers *DigitalStoreCardRecordHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreCardRecordResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -25526,6 +34972,13 @@ func (client *Client) DigitalStoreCardRecordWithOptions(request *DigitalStoreCar
 	return _result, _err
 }
 
+// Summary:
+//
+// 群运营-场景卡片发送记录列表
+//
+// @param request - DigitalStoreCardRecordRequest
+//
+// @return DigitalStoreCardRecordResponse
 func (client *Client) DigitalStoreCardRecord(request *DigitalStoreCardRecordRequest) (_result *DigitalStoreCardRecordResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DigitalStoreCardRecordHeaders{}
@@ -25538,6 +34991,15 @@ func (client *Client) DigitalStoreCardRecord(request *DigitalStoreCardRecordRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询组织中门店通通讯录基础信息
+//
+// @param headers - DigitalStoreContactInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStoreContactInfoResponse
 func (client *Client) DigitalStoreContactInfoWithOptions(headers *DigitalStoreContactInfoHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreContactInfoResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -25571,6 +35033,11 @@ func (client *Client) DigitalStoreContactInfoWithOptions(headers *DigitalStoreCo
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询组织中门店通通讯录基础信息
+//
+// @return DigitalStoreContactInfoResponse
 func (client *Client) DigitalStoreContactInfo() (_result *DigitalStoreContactInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DigitalStoreContactInfoHeaders{}
@@ -25583,6 +35050,17 @@ func (client *Client) DigitalStoreContactInfo() (_result *DigitalStoreContactInf
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取门店通相关会话列表（区域群、门店群）
+//
+// @param request - DigitalStoreConversationsRequest
+//
+// @param headers - DigitalStoreConversationsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStoreConversationsResponse
 func (client *Client) DigitalStoreConversationsWithOptions(request *DigitalStoreConversationsRequest, headers *DigitalStoreConversationsHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreConversationsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -25630,6 +35108,13 @@ func (client *Client) DigitalStoreConversationsWithOptions(request *DigitalStore
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取门店通相关会话列表（区域群、门店群）
+//
+// @param request - DigitalStoreConversationsRequest
+//
+// @return DigitalStoreConversationsResponse
 func (client *Client) DigitalStoreConversations(request *DigitalStoreConversationsRequest) (_result *DigitalStoreConversationsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DigitalStoreConversationsHeaders{}
@@ -25642,6 +35127,17 @@ func (client *Client) DigitalStoreConversations(request *DigitalStoreConversatio
 	return _result, _err
 }
 
+// Summary:
+//
+// 群运营-数据监控-导出列表
+//
+// @param request - DigitalStoreExportCardRecordRequest
+//
+// @param headers - DigitalStoreExportCardRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStoreExportCardRecordResponse
 func (client *Client) DigitalStoreExportCardRecordWithOptions(request *DigitalStoreExportCardRecordRequest, headers *DigitalStoreExportCardRecordHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreExportCardRecordResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -25697,6 +35193,13 @@ func (client *Client) DigitalStoreExportCardRecordWithOptions(request *DigitalSt
 	return _result, _err
 }
 
+// Summary:
+//
+// 群运营-数据监控-导出列表
+//
+// @param request - DigitalStoreExportCardRecordRequest
+//
+// @return DigitalStoreExportCardRecordResponse
 func (client *Client) DigitalStoreExportCardRecord(request *DigitalStoreExportCardRecordRequest) (_result *DigitalStoreExportCardRecordResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DigitalStoreExportCardRecordHeaders{}
@@ -25709,6 +35212,17 @@ func (client *Client) DigitalStoreExportCardRecord(request *DigitalStoreExportCa
 	return _result, _err
 }
 
+// Summary:
+//
+// 群运营-数据监控-导出明细
+//
+// @param request - DigitalStoreExportCardRecordDetailRequest
+//
+// @param headers - DigitalStoreExportCardRecordDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStoreExportCardRecordDetailResponse
 func (client *Client) DigitalStoreExportCardRecordDetailWithOptions(request *DigitalStoreExportCardRecordDetailRequest, headers *DigitalStoreExportCardRecordDetailHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreExportCardRecordDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -25764,6 +35278,13 @@ func (client *Client) DigitalStoreExportCardRecordDetailWithOptions(request *Dig
 	return _result, _err
 }
 
+// Summary:
+//
+// 群运营-数据监控-导出明细
+//
+// @param request - DigitalStoreExportCardRecordDetailRequest
+//
+// @return DigitalStoreExportCardRecordDetailResponse
 func (client *Client) DigitalStoreExportCardRecordDetail(request *DigitalStoreExportCardRecordDetailRequest) (_result *DigitalStoreExportCardRecordDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DigitalStoreExportCardRecordDetailHeaders{}
@@ -25776,6 +35297,17 @@ func (client *Client) DigitalStoreExportCardRecordDetail(request *DigitalStoreEx
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询门店通中的门店分组详情
+//
+// @param request - DigitalStoreGroupInfoRequest
+//
+// @param headers - DigitalStoreGroupInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStoreGroupInfoResponse
 func (client *Client) DigitalStoreGroupInfoWithOptions(request *DigitalStoreGroupInfoRequest, headers *DigitalStoreGroupInfoHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreGroupInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -25819,6 +35351,13 @@ func (client *Client) DigitalStoreGroupInfoWithOptions(request *DigitalStoreGrou
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询门店通中的门店分组详情
+//
+// @param request - DigitalStoreGroupInfoRequest
+//
+// @return DigitalStoreGroupInfoResponse
 func (client *Client) DigitalStoreGroupInfo(request *DigitalStoreGroupInfoRequest) (_result *DigitalStoreGroupInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DigitalStoreGroupInfoHeaders{}
@@ -25831,6 +35370,15 @@ func (client *Client) DigitalStoreGroupInfo(request *DigitalStoreGroupInfoReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询门店通中的分组列表
+//
+// @param headers - DigitalStoreGroupsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStoreGroupsResponse
 func (client *Client) DigitalStoreGroupsWithOptions(headers *DigitalStoreGroupsHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreGroupsResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -25864,6 +35412,11 @@ func (client *Client) DigitalStoreGroupsWithOptions(headers *DigitalStoreGroupsH
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询门店通中的分组列表
+//
+// @return DigitalStoreGroupsResponse
 func (client *Client) DigitalStoreGroups() (_result *DigitalStoreGroupsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DigitalStoreGroupsHeaders{}
@@ -25876,6 +35429,17 @@ func (client *Client) DigitalStoreGroups() (_result *DigitalStoreGroupsResponse,
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询门店通讯录某个节点信息
+//
+// @param request - DigitalStoreNodeInfoRequest
+//
+// @param headers - DigitalStoreNodeInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStoreNodeInfoResponse
 func (client *Client) DigitalStoreNodeInfoWithOptions(request *DigitalStoreNodeInfoRequest, headers *DigitalStoreNodeInfoHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreNodeInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -25923,6 +35487,13 @@ func (client *Client) DigitalStoreNodeInfoWithOptions(request *DigitalStoreNodeI
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询门店通讯录某个节点信息
+//
+// @param request - DigitalStoreNodeInfoRequest
+//
+// @return DigitalStoreNodeInfoResponse
 func (client *Client) DigitalStoreNodeInfo(request *DigitalStoreNodeInfoRequest) (_result *DigitalStoreNodeInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DigitalStoreNodeInfoHeaders{}
@@ -25935,6 +35506,15 @@ func (client *Client) DigitalStoreNodeInfo(request *DigitalStoreNodeInfoRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 门店通权益信息查询
+//
+// @param headers - DigitalStoreRightsInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStoreRightsInfoResponse
 func (client *Client) DigitalStoreRightsInfoWithOptions(headers *DigitalStoreRightsInfoHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreRightsInfoResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -25968,6 +35548,11 @@ func (client *Client) DigitalStoreRightsInfoWithOptions(headers *DigitalStoreRig
 	return _result, _err
 }
 
+// Summary:
+//
+// 门店通权益信息查询
+//
+// @return DigitalStoreRightsInfoResponse
 func (client *Client) DigitalStoreRightsInfo() (_result *DigitalStoreRightsInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DigitalStoreRightsInfoHeaders{}
@@ -25980,6 +35565,15 @@ func (client *Client) DigitalStoreRightsInfo() (_result *DigitalStoreRightsInfoR
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询门店通中的角色列表
+//
+// @param headers - DigitalStoreRolesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStoreRolesResponse
 func (client *Client) DigitalStoreRolesWithOptions(headers *DigitalStoreRolesHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreRolesResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -26013,6 +35607,11 @@ func (client *Client) DigitalStoreRolesWithOptions(headers *DigitalStoreRolesHea
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询门店通中的角色列表
+//
+// @return DigitalStoreRolesResponse
 func (client *Client) DigitalStoreRoles() (_result *DigitalStoreRolesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DigitalStoreRolesHeaders{}
@@ -26025,6 +35624,17 @@ func (client *Client) DigitalStoreRoles() (_result *DigitalStoreRolesResponse, _
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取门店通场景群的业务范围
+//
+// @param request - DigitalStoreSceneScopeRequest
+//
+// @param headers - DigitalStoreSceneScopeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStoreSceneScopeResponse
 func (client *Client) DigitalStoreSceneScopeWithOptions(request *DigitalStoreSceneScopeRequest, headers *DigitalStoreSceneScopeHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreSceneScopeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -26072,6 +35682,13 @@ func (client *Client) DigitalStoreSceneScopeWithOptions(request *DigitalStoreSce
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取门店通场景群的业务范围
+//
+// @param request - DigitalStoreSceneScopeRequest
+//
+// @return DigitalStoreSceneScopeResponse
 func (client *Client) DigitalStoreSceneScope(request *DigitalStoreSceneScopeRequest) (_result *DigitalStoreSceneScopeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DigitalStoreSceneScopeHeaders{}
@@ -26084,6 +35701,17 @@ func (client *Client) DigitalStoreSceneScope(request *DigitalStoreSceneScopeRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询门店通中的门店详情
+//
+// @param request - DigitalStoreStoreInfoRequest
+//
+// @param headers - DigitalStoreStoreInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStoreStoreInfoResponse
 func (client *Client) DigitalStoreStoreInfoWithOptions(request *DigitalStoreStoreInfoRequest, headers *DigitalStoreStoreInfoHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreStoreInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -26131,6 +35759,13 @@ func (client *Client) DigitalStoreStoreInfoWithOptions(request *DigitalStoreStor
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询门店通中的门店详情
+//
+// @param request - DigitalStoreStoreInfoRequest
+//
+// @return DigitalStoreStoreInfoResponse
 func (client *Client) DigitalStoreStoreInfo(request *DigitalStoreStoreInfoRequest) (_result *DigitalStoreStoreInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DigitalStoreStoreInfoHeaders{}
@@ -26143,6 +35778,17 @@ func (client *Client) DigitalStoreStoreInfo(request *DigitalStoreStoreInfoReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询门店通讯录某个节点下的子节点
+//
+// @param request - DigitalStoreSubNodesRequest
+//
+// @param headers - DigitalStoreSubNodesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStoreSubNodesResponse
 func (client *Client) DigitalStoreSubNodesWithOptions(request *DigitalStoreSubNodesRequest, headers *DigitalStoreSubNodesHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreSubNodesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -26190,6 +35836,13 @@ func (client *Client) DigitalStoreSubNodesWithOptions(request *DigitalStoreSubNo
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询门店通讯录某个节点下的子节点
+//
+// @param request - DigitalStoreSubNodesRequest
+//
+// @return DigitalStoreSubNodesResponse
 func (client *Client) DigitalStoreSubNodes(request *DigitalStoreSubNodesRequest) (_result *DigitalStoreSubNodesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DigitalStoreSubNodesHeaders{}
@@ -26202,6 +35855,17 @@ func (client *Client) DigitalStoreSubNodes(request *DigitalStoreSubNodesRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改人员管辖范围以及所属角色
+//
+// @param request - DigitalStoreUpdateAuthInfoRequest
+//
+// @param headers - DigitalStoreUpdateAuthInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStoreUpdateAuthInfoResponse
 func (client *Client) DigitalStoreUpdateAuthInfoWithOptions(request *DigitalStoreUpdateAuthInfoRequest, headers *DigitalStoreUpdateAuthInfoHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreUpdateAuthInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -26245,6 +35909,13 @@ func (client *Client) DigitalStoreUpdateAuthInfoWithOptions(request *DigitalStor
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改人员管辖范围以及所属角色
+//
+// @param request - DigitalStoreUpdateAuthInfoRequest
+//
+// @return DigitalStoreUpdateAuthInfoResponse
 func (client *Client) DigitalStoreUpdateAuthInfo(request *DigitalStoreUpdateAuthInfoRequest) (_result *DigitalStoreUpdateAuthInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DigitalStoreUpdateAuthInfoHeaders{}
@@ -26257,6 +35928,17 @@ func (client *Client) DigitalStoreUpdateAuthInfo(request *DigitalStoreUpdateAuth
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询门店通讯录人员信息
+//
+// @param request - DigitalStoreUserInfoRequest
+//
+// @param headers - DigitalStoreUserInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStoreUserInfoResponse
 func (client *Client) DigitalStoreUserInfoWithOptions(request *DigitalStoreUserInfoRequest, headers *DigitalStoreUserInfoHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreUserInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -26304,6 +35986,13 @@ func (client *Client) DigitalStoreUserInfoWithOptions(request *DigitalStoreUserI
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询门店通讯录人员信息
+//
+// @param request - DigitalStoreUserInfoRequest
+//
+// @return DigitalStoreUserInfoResponse
 func (client *Client) DigitalStoreUserInfo(request *DigitalStoreUserInfoRequest) (_result *DigitalStoreUserInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DigitalStoreUserInfoHeaders{}
@@ -26316,6 +36005,17 @@ func (client *Client) DigitalStoreUserInfo(request *DigitalStoreUserInfoRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询门店通讯录某个节点下的所有人员
+//
+// @param request - DigitalStoreUsersRequest
+//
+// @param headers - DigitalStoreUsersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStoreUsersResponse
 func (client *Client) DigitalStoreUsersWithOptions(request *DigitalStoreUsersRequest, headers *DigitalStoreUsersHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreUsersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -26363,6 +36063,13 @@ func (client *Client) DigitalStoreUsersWithOptions(request *DigitalStoreUsersReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询门店通讯录某个节点下的所有人员
+//
+// @param request - DigitalStoreUsersRequest
+//
+// @return DigitalStoreUsersResponse
 func (client *Client) DigitalStoreUsers(request *DigitalStoreUsersRequest) (_result *DigitalStoreUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DigitalStoreUsersHeaders{}
@@ -26375,6 +36082,17 @@ func (client *Client) DigitalStoreUsers(request *DigitalStoreUsersRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 群运营-数据监控-查询导出任务的记录列表
+//
+// @param request - DigitalStorelistExportTaskRecordRequest
+//
+// @param headers - DigitalStorelistExportTaskRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStorelistExportTaskRecordResponse
 func (client *Client) DigitalStorelistExportTaskRecordWithOptions(request *DigitalStorelistExportTaskRecordRequest, headers *DigitalStorelistExportTaskRecordHeaders, runtime *util.RuntimeOptions) (_result *DigitalStorelistExportTaskRecordResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -26422,6 +36140,13 @@ func (client *Client) DigitalStorelistExportTaskRecordWithOptions(request *Digit
 	return _result, _err
 }
 
+// Summary:
+//
+// 群运营-数据监控-查询导出任务的记录列表
+//
+// @param request - DigitalStorelistExportTaskRecordRequest
+//
+// @return DigitalStorelistExportTaskRecordResponse
 func (client *Client) DigitalStorelistExportTaskRecord(request *DigitalStorelistExportTaskRecordRequest) (_result *DigitalStorelistExportTaskRecordResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DigitalStorelistExportTaskRecordHeaders{}
@@ -26434,6 +36159,17 @@ func (client *Client) DigitalStorelistExportTaskRecord(request *DigitalStorelist
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询启用了当前应用的外部协作组织
+//
+// @param request - ExternalQueryExternalAppOrgsRequest
+//
+// @param headers - ExternalQueryExternalAppOrgsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExternalQueryExternalAppOrgsResponse
 func (client *Client) ExternalQueryExternalAppOrgsWithOptions(request *ExternalQueryExternalAppOrgsRequest, headers *ExternalQueryExternalAppOrgsHeaders, runtime *util.RuntimeOptions) (_result *ExternalQueryExternalAppOrgsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -26477,6 +36213,13 @@ func (client *Client) ExternalQueryExternalAppOrgsWithOptions(request *ExternalQ
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询启用了当前应用的外部协作组织
+//
+// @param request - ExternalQueryExternalAppOrgsRequest
+//
+// @return ExternalQueryExternalAppOrgsResponse
 func (client *Client) ExternalQueryExternalAppOrgs(request *ExternalQueryExternalAppOrgsRequest) (_result *ExternalQueryExternalAppOrgsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ExternalQueryExternalAppOrgsHeaders{}
@@ -26489,6 +36232,17 @@ func (client *Client) ExternalQueryExternalAppOrgs(request *ExternalQueryExterna
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询归属的主组织
+//
+// @param request - ExternalQueryExternalBelongMainOrgRequest
+//
+// @param headers - ExternalQueryExternalBelongMainOrgHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExternalQueryExternalBelongMainOrgResponse
 func (client *Client) ExternalQueryExternalBelongMainOrgWithOptions(request *ExternalQueryExternalBelongMainOrgRequest, headers *ExternalQueryExternalBelongMainOrgHeaders, runtime *util.RuntimeOptions) (_result *ExternalQueryExternalBelongMainOrgResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -26532,6 +36286,13 @@ func (client *Client) ExternalQueryExternalBelongMainOrgWithOptions(request *Ext
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询归属的主组织
+//
+// @param request - ExternalQueryExternalBelongMainOrgRequest
+//
+// @return ExternalQueryExternalBelongMainOrgResponse
 func (client *Client) ExternalQueryExternalBelongMainOrg(request *ExternalQueryExternalBelongMainOrgRequest) (_result *ExternalQueryExternalBelongMainOrgResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ExternalQueryExternalBelongMainOrgHeaders{}
@@ -26544,6 +36305,17 @@ func (client *Client) ExternalQueryExternalBelongMainOrg(request *ExternalQueryE
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询外部协作组织
+//
+// @param request - ExternalQueryExternalOrgsRequest
+//
+// @param headers - ExternalQueryExternalOrgsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExternalQueryExternalOrgsResponse
 func (client *Client) ExternalQueryExternalOrgsWithOptions(request *ExternalQueryExternalOrgsRequest, headers *ExternalQueryExternalOrgsHeaders, runtime *util.RuntimeOptions) (_result *ExternalQueryExternalOrgsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -26587,6 +36359,13 @@ func (client *Client) ExternalQueryExternalOrgsWithOptions(request *ExternalQuer
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询外部协作组织
+//
+// @param request - ExternalQueryExternalOrgsRequest
+//
+// @return ExternalQueryExternalOrgsResponse
 func (client *Client) ExternalQueryExternalOrgs(request *ExternalQueryExternalOrgsRequest) (_result *ExternalQueryExternalOrgsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ExternalQueryExternalOrgsHeaders{}
@@ -26599,6 +36378,94 @@ func (client *Client) ExternalQueryExternalOrgs(request *ExternalQueryExternalOr
 	return _result, _err
 }
 
+// Summary:
+//
+// getTaskPackageResult
+//
+// @param request - GetTaskPackageResultRequest
+//
+// @param headers - GetTaskPackageResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTaskPackageResultResponse
+func (client *Client) GetTaskPackageResultWithOptions(request *GetTaskPackageResultRequest, headers *GetTaskPackageResultHeaders, runtime *util.RuntimeOptions) (_result *GetTaskPackageResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		body["bizCode"] = request.BizCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskPackageId)) {
+		body["taskPackageId"] = request.TaskPackageId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTaskPackageResult"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/ai/taskPackages/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetTaskPackageResultResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// getTaskPackageResult
+//
+// @param request - GetTaskPackageResultRequest
+//
+// @return GetTaskPackageResultResponse
+func (client *Client) GetTaskPackageResult(request *GetTaskPackageResultRequest) (_result *GetTaskPackageResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTaskPackageResultHeaders{}
+	_result = &GetTaskPackageResultResponse{}
+	_body, _err := client.GetTaskPackageResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 医疗数据对账
+//
+// @param request - HospitalDataCheckRequest
+//
+// @param headers - HospitalDataCheckHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HospitalDataCheckResponse
 func (client *Client) HospitalDataCheckWithOptions(request *HospitalDataCheckRequest, headers *HospitalDataCheckHeaders, runtime *util.RuntimeOptions) (_result *HospitalDataCheckResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -26670,6 +36537,13 @@ func (client *Client) HospitalDataCheckWithOptions(request *HospitalDataCheckReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 医疗数据对账
+//
+// @param request - HospitalDataCheckRequest
+//
+// @return HospitalDataCheckResponse
 func (client *Client) HospitalDataCheck(request *HospitalDataCheckRequest) (_result *HospitalDataCheckResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HospitalDataCheckHeaders{}
@@ -26682,6 +36556,17 @@ func (client *Client) HospitalDataCheck(request *HospitalDataCheckRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 行业化制造业事件中心
+//
+// @param request - IndustryManufactureCommonEventRequest
+//
+// @param headers - IndustryManufactureCommonEventHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IndustryManufactureCommonEventResponse
 func (client *Client) IndustryManufactureCommonEventWithOptions(request *IndustryManufactureCommonEventRequest, headers *IndustryManufactureCommonEventHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureCommonEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -26737,6 +36622,13 @@ func (client *Client) IndustryManufactureCommonEventWithOptions(request *Industr
 	return _result, _err
 }
 
+// Summary:
+//
+// 行业化制造业事件中心
+//
+// @param request - IndustryManufactureCommonEventRequest
+//
+// @return IndustryManufactureCommonEventResponse
 func (client *Client) IndustryManufactureCommonEvent(request *IndustryManufactureCommonEventRequest) (_result *IndustryManufactureCommonEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IndustryManufactureCommonEventHeaders{}
@@ -26749,6 +36641,17 @@ func (client *Client) IndustryManufactureCommonEvent(request *IndustryManufactur
 	return _result, _err
 }
 
+// Summary:
+//
+// 物料成本开放服务
+//
+// @param request - IndustryManufactureCostRecordListGetRequest
+//
+// @param headers - IndustryManufactureCostRecordListGetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IndustryManufactureCostRecordListGetResponse
 func (client *Client) IndustryManufactureCostRecordListGetWithOptions(request *IndustryManufactureCostRecordListGetRequest, headers *IndustryManufactureCostRecordListGetHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureCostRecordListGetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -26860,6 +36763,13 @@ func (client *Client) IndustryManufactureCostRecordListGetWithOptions(request *I
 	return _result, _err
 }
 
+// Summary:
+//
+// 物料成本开放服务
+//
+// @param request - IndustryManufactureCostRecordListGetRequest
+//
+// @return IndustryManufactureCostRecordListGetResponse
 func (client *Client) IndustryManufactureCostRecordListGet(request *IndustryManufactureCostRecordListGetRequest) (_result *IndustryManufactureCostRecordListGetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IndustryManufactureCostRecordListGetHeaders{}
@@ -26872,6 +36782,17 @@ func (client *Client) IndustryManufactureCostRecordListGet(request *IndustryManu
 	return _result, _err
 }
 
+// Summary:
+//
+// 费用服务
+//
+// @param request - IndustryManufactureFeeListGetRequest
+//
+// @param headers - IndustryManufactureFeeListGetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IndustryManufactureFeeListGetResponse
 func (client *Client) IndustryManufactureFeeListGetWithOptions(request *IndustryManufactureFeeListGetRequest, headers *IndustryManufactureFeeListGetHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureFeeListGetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -26979,6 +36900,13 @@ func (client *Client) IndustryManufactureFeeListGetWithOptions(request *Industry
 	return _result, _err
 }
 
+// Summary:
+//
+// 费用服务
+//
+// @param request - IndustryManufactureFeeListGetRequest
+//
+// @return IndustryManufactureFeeListGetResponse
 func (client *Client) IndustryManufactureFeeListGet(request *IndustryManufactureFeeListGetRequest) (_result *IndustryManufactureFeeListGetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IndustryManufactureFeeListGetHeaders{}
@@ -26991,6 +36919,17 @@ func (client *Client) IndustryManufactureFeeListGet(request *IndustryManufacture
 	return _result, _err
 }
 
+// Summary:
+//
+// 行业化-制造业工价接口
+//
+// @param request - IndustryManufactureLabourCostRequest
+//
+// @param headers - IndustryManufactureLabourCostHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IndustryManufactureLabourCostResponse
 func (client *Client) IndustryManufactureLabourCostWithOptions(request *IndustryManufactureLabourCostRequest, headers *IndustryManufactureLabourCostHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureLabourCostResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -27094,6 +37033,13 @@ func (client *Client) IndustryManufactureLabourCostWithOptions(request *Industry
 	return _result, _err
 }
 
+// Summary:
+//
+// 行业化-制造业工价接口
+//
+// @param request - IndustryManufactureLabourCostRequest
+//
+// @return IndustryManufactureLabourCostResponse
 func (client *Client) IndustryManufactureLabourCost(request *IndustryManufactureLabourCostRequest) (_result *IndustryManufactureLabourCostResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IndustryManufactureLabourCostHeaders{}
@@ -27106,6 +37052,17 @@ func (client *Client) IndustryManufactureLabourCost(request *IndustryManufacture
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询行业物料列表
+//
+// @param request - IndustryManufactureMaterialListRequest
+//
+// @param headers - IndustryManufactureMaterialListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IndustryManufactureMaterialListResponse
 func (client *Client) IndustryManufactureMaterialListWithOptions(request *IndustryManufactureMaterialListRequest, headers *IndustryManufactureMaterialListHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureMaterialListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -27209,6 +37166,13 @@ func (client *Client) IndustryManufactureMaterialListWithOptions(request *Indust
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询行业物料列表
+//
+// @param request - IndustryManufactureMaterialListRequest
+//
+// @return IndustryManufactureMaterialListResponse
 func (client *Client) IndustryManufactureMaterialList(request *IndustryManufactureMaterialListRequest) (_result *IndustryManufactureMaterialListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IndustryManufactureMaterialListHeaders{}
@@ -27221,6 +37185,17 @@ func (client *Client) IndustryManufactureMaterialList(request *IndustryManufactu
 	return _result, _err
 }
 
+// Summary:
+//
+// 派工任务管理
+//
+// @param request - IndustryManufactureMesDispatchTaskRequest
+//
+// @param headers - IndustryManufactureMesDispatchTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IndustryManufactureMesDispatchTaskResponse
 func (client *Client) IndustryManufactureMesDispatchTaskWithOptions(request *IndustryManufactureMesDispatchTaskRequest, headers *IndustryManufactureMesDispatchTaskHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureMesDispatchTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -27360,6 +37335,13 @@ func (client *Client) IndustryManufactureMesDispatchTaskWithOptions(request *Ind
 	return _result, _err
 }
 
+// Summary:
+//
+// 派工任务管理
+//
+// @param request - IndustryManufactureMesDispatchTaskRequest
+//
+// @return IndustryManufactureMesDispatchTaskResponse
 func (client *Client) IndustryManufactureMesDispatchTask(request *IndustryManufactureMesDispatchTaskRequest) (_result *IndustryManufactureMesDispatchTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IndustryManufactureMesDispatchTaskHeaders{}
@@ -27372,6 +37354,17 @@ func (client *Client) IndustryManufactureMesDispatchTask(request *IndustryManufa
 	return _result, _err
 }
 
+// Summary:
+//
+// # MES系统物料管理
+//
+// @param request - IndustryManufactureMesMaterialRequest
+//
+// @param headers - IndustryManufactureMesMaterialHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IndustryManufactureMesMaterialResponse
 func (client *Client) IndustryManufactureMesMaterialWithOptions(request *IndustryManufactureMesMaterialRequest, headers *IndustryManufactureMesMaterialHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureMesMaterialResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -27455,6 +37448,13 @@ func (client *Client) IndustryManufactureMesMaterialWithOptions(request *Industr
 	return _result, _err
 }
 
+// Summary:
+//
+// # MES系统物料管理
+//
+// @param request - IndustryManufactureMesMaterialRequest
+//
+// @return IndustryManufactureMesMaterialResponse
 func (client *Client) IndustryManufactureMesMaterial(request *IndustryManufactureMesMaterialRequest) (_result *IndustryManufactureMesMaterialResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IndustryManufactureMesMaterialHeaders{}
@@ -27467,6 +37467,17 @@ func (client *Client) IndustryManufactureMesMaterial(request *IndustryManufactur
 	return _result, _err
 }
 
+// Summary:
+//
+// 生产委外工单管理
+//
+// @param request - IndustryManufactureMesOutPlanRequest
+//
+// @param headers - IndustryManufactureMesOutPlanHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IndustryManufactureMesOutPlanResponse
 func (client *Client) IndustryManufactureMesOutPlanWithOptions(request *IndustryManufactureMesOutPlanRequest, headers *IndustryManufactureMesOutPlanHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureMesOutPlanResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -27578,6 +37589,13 @@ func (client *Client) IndustryManufactureMesOutPlanWithOptions(request *Industry
 	return _result, _err
 }
 
+// Summary:
+//
+// 生产委外工单管理
+//
+// @param request - IndustryManufactureMesOutPlanRequest
+//
+// @return IndustryManufactureMesOutPlanResponse
 func (client *Client) IndustryManufactureMesOutPlan(request *IndustryManufactureMesOutPlanRequest) (_result *IndustryManufactureMesOutPlanResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IndustryManufactureMesOutPlanHeaders{}
@@ -27590,6 +37608,17 @@ func (client *Client) IndustryManufactureMesOutPlan(request *IndustryManufacture
 	return _result, _err
 }
 
+// Summary:
+//
+// 生产报工管理
+//
+// @param request - IndustryManufactureMesOutputRequest
+//
+// @param headers - IndustryManufactureMesOutputHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IndustryManufactureMesOutputResponse
 func (client *Client) IndustryManufactureMesOutputWithOptions(request *IndustryManufactureMesOutputRequest, headers *IndustryManufactureMesOutputHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureMesOutputResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -27745,6 +37774,13 @@ func (client *Client) IndustryManufactureMesOutputWithOptions(request *IndustryM
 	return _result, _err
 }
 
+// Summary:
+//
+// 生产报工管理
+//
+// @param request - IndustryManufactureMesOutputRequest
+//
+// @return IndustryManufactureMesOutputResponse
 func (client *Client) IndustryManufactureMesOutput(request *IndustryManufactureMesOutputRequest) (_result *IndustryManufactureMesOutputResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IndustryManufactureMesOutputHeaders{}
@@ -27757,6 +37793,17 @@ func (client *Client) IndustryManufactureMesOutput(request *IndustryManufactureM
 	return _result, _err
 }
 
+// Summary:
+//
+// # MES系统工序管理
+//
+// @param request - IndustryManufactureMesProcessRequest
+//
+// @param headers - IndustryManufactureMesProcessHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IndustryManufactureMesProcessResponse
 func (client *Client) IndustryManufactureMesProcessWithOptions(request *IndustryManufactureMesProcessRequest, headers *IndustryManufactureMesProcessHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureMesProcessResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -27848,6 +37895,13 @@ func (client *Client) IndustryManufactureMesProcessWithOptions(request *Industry
 	return _result, _err
 }
 
+// Summary:
+//
+// # MES系统工序管理
+//
+// @param request - IndustryManufactureMesProcessRequest
+//
+// @return IndustryManufactureMesProcessResponse
 func (client *Client) IndustryManufactureMesProcess(request *IndustryManufactureMesProcessRequest) (_result *IndustryManufactureMesProcessResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IndustryManufactureMesProcessHeaders{}
@@ -27860,6 +37914,17 @@ func (client *Client) IndustryManufactureMesProcess(request *IndustryManufacture
 	return _result, _err
 }
 
+// Summary:
+//
+// 生产工单管理
+//
+// @param request - IndustryManufactureMesProductionPlanRequest
+//
+// @param headers - IndustryManufactureMesProductionPlanHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IndustryManufactureMesProductionPlanResponse
 func (client *Client) IndustryManufactureMesProductionPlanWithOptions(request *IndustryManufactureMesProductionPlanRequest, headers *IndustryManufactureMesProductionPlanHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureMesProductionPlanResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -27999,6 +38064,13 @@ func (client *Client) IndustryManufactureMesProductionPlanWithOptions(request *I
 	return _result, _err
 }
 
+// Summary:
+//
+// 生产工单管理
+//
+// @param request - IndustryManufactureMesProductionPlanRequest
+//
+// @return IndustryManufactureMesProductionPlanResponse
 func (client *Client) IndustryManufactureMesProductionPlan(request *IndustryManufactureMesProductionPlanRequest) (_result *IndustryManufactureMesProductionPlanResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IndustryManufactureMesProductionPlanHeaders{}
@@ -28011,6 +38083,17 @@ func (client *Client) IndustryManufactureMesProductionPlan(request *IndustryManu
 	return _result, _err
 }
 
+// Summary:
+//
+// 生产委外合作班组管理
+//
+// @param request - IndustryManufactureMesSubCooperationTeamRequest
+//
+// @param headers - IndustryManufactureMesSubCooperationTeamHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IndustryManufactureMesSubCooperationTeamResponse
 func (client *Client) IndustryManufactureMesSubCooperationTeamWithOptions(request *IndustryManufactureMesSubCooperationTeamRequest, headers *IndustryManufactureMesSubCooperationTeamHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureMesSubCooperationTeamResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -28102,6 +38185,13 @@ func (client *Client) IndustryManufactureMesSubCooperationTeamWithOptions(reques
 	return _result, _err
 }
 
+// Summary:
+//
+// 生产委外合作班组管理
+//
+// @param request - IndustryManufactureMesSubCooperationTeamRequest
+//
+// @return IndustryManufactureMesSubCooperationTeamResponse
 func (client *Client) IndustryManufactureMesSubCooperationTeam(request *IndustryManufactureMesSubCooperationTeamRequest) (_result *IndustryManufactureMesSubCooperationTeamResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IndustryManufactureMesSubCooperationTeamHeaders{}
@@ -28114,6 +38204,17 @@ func (client *Client) IndustryManufactureMesSubCooperationTeam(request *Industry
 	return _result, _err
 }
 
+// Summary:
+//
+// # MES系统班组管理
+//
+// @param request - IndustryManufactureMesTeamMgmtRequest
+//
+// @param headers - IndustryManufactureMesTeamMgmtHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IndustryManufactureMesTeamMgmtResponse
 func (client *Client) IndustryManufactureMesTeamMgmtWithOptions(request *IndustryManufactureMesTeamMgmtRequest, headers *IndustryManufactureMesTeamMgmtHeaders, runtime *util.RuntimeOptions) (_result *IndustryManufactureMesTeamMgmtResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -28213,6 +38314,13 @@ func (client *Client) IndustryManufactureMesTeamMgmtWithOptions(request *Industr
 	return _result, _err
 }
 
+// Summary:
+//
+// # MES系统班组管理
+//
+// @param request - IndustryManufactureMesTeamMgmtRequest
+//
+// @return IndustryManufactureMesTeamMgmtResponse
 func (client *Client) IndustryManufactureMesTeamMgmt(request *IndustryManufactureMesTeamMgmtRequest) (_result *IndustryManufactureMesTeamMgmtResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IndustryManufactureMesTeamMgmtHeaders{}
@@ -28225,6 +38333,17 @@ func (client *Client) IndustryManufactureMesTeamMgmt(request *IndustryManufactur
 	return _result, _err
 }
 
+// Summary:
+//
+// 物料成本查询服务
+//
+// @param request - IndustryMmanufactureMaterialCostGetRequest
+//
+// @param headers - IndustryMmanufactureMaterialCostGetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IndustryMmanufactureMaterialCostGetResponse
 func (client *Client) IndustryMmanufactureMaterialCostGetWithOptions(request *IndustryMmanufactureMaterialCostGetRequest, headers *IndustryMmanufactureMaterialCostGetHeaders, runtime *util.RuntimeOptions) (_result *IndustryMmanufactureMaterialCostGetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -28328,6 +38447,13 @@ func (client *Client) IndustryMmanufactureMaterialCostGetWithOptions(request *In
 	return _result, _err
 }
 
+// Summary:
+//
+// 物料成本查询服务
+//
+// @param request - IndustryMmanufactureMaterialCostGetRequest
+//
+// @return IndustryMmanufactureMaterialCostGetResponse
 func (client *Client) IndustryMmanufactureMaterialCostGet(request *IndustryMmanufactureMaterialCostGetRequest) (_result *IndustryMmanufactureMaterialCostGetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IndustryMmanufactureMaterialCostGetHeaders{}
@@ -28340,6 +38466,17 @@ func (client *Client) IndustryMmanufactureMaterialCostGet(request *IndustryMmanu
 	return _result, _err
 }
 
+// Summary:
+//
+// 提供text和card两种形式工作通知消息
+//
+// @param request - PushDingMessageRequest
+//
+// @param headers - PushDingMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PushDingMessageResponse
 func (client *Client) PushDingMessageWithOptions(request *PushDingMessageRequest, headers *PushDingMessageHeaders, runtime *util.RuntimeOptions) (_result *PushDingMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -28415,6 +38552,13 @@ func (client *Client) PushDingMessageWithOptions(request *PushDingMessageRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 提供text和card两种形式工作通知消息
+//
+// @param request - PushDingMessageRequest
+//
+// @return PushDingMessageResponse
 func (client *Client) PushDingMessage(request *PushDingMessageRequest) (_result *PushDingMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PushDingMessageHeaders{}
@@ -28427,6 +38571,17 @@ func (client *Client) PushDingMessage(request *PushDingMessageRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取当前组织下的所有科室
+//
+// @param request - QueryAllDepartmentRequest
+//
+// @param headers - QueryAllDepartmentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryAllDepartmentResponse
 func (client *Client) QueryAllDepartmentWithOptions(request *QueryAllDepartmentRequest, headers *QueryAllDepartmentHeaders, runtime *util.RuntimeOptions) (_result *QueryAllDepartmentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -28474,6 +38629,13 @@ func (client *Client) QueryAllDepartmentWithOptions(request *QueryAllDepartmentR
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取当前组织下的所有科室
+//
+// @param request - QueryAllDepartmentRequest
+//
+// @return QueryAllDepartmentResponse
 func (client *Client) QueryAllDepartment(request *QueryAllDepartmentRequest) (_result *QueryAllDepartmentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryAllDepartmentHeaders{}
@@ -28486,6 +38648,17 @@ func (client *Client) QueryAllDepartment(request *QueryAllDepartmentRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询医院下的所有医生
+//
+// @param request - QueryAllDoctorsRequest
+//
+// @param headers - QueryAllDoctorsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryAllDoctorsResponse
 func (client *Client) QueryAllDoctorsWithOptions(request *QueryAllDoctorsRequest, headers *QueryAllDoctorsHeaders, runtime *util.RuntimeOptions) (_result *QueryAllDoctorsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -28537,6 +38710,13 @@ func (client *Client) QueryAllDoctorsWithOptions(request *QueryAllDoctorsRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询医院下的所有医生
+//
+// @param request - QueryAllDoctorsRequest
+//
+// @return QueryAllDoctorsResponse
 func (client *Client) QueryAllDoctors(request *QueryAllDoctorsRequest) (_result *QueryAllDoctorsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryAllDoctorsHeaders{}
@@ -28549,6 +38729,17 @@ func (client *Client) QueryAllDoctors(request *QueryAllDoctorsRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询所有医疗组
+//
+// @param request - QueryAllGroupRequest
+//
+// @param headers - QueryAllGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryAllGroupResponse
 func (client *Client) QueryAllGroupWithOptions(request *QueryAllGroupRequest, headers *QueryAllGroupHeaders, runtime *util.RuntimeOptions) (_result *QueryAllGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -28596,6 +38787,13 @@ func (client *Client) QueryAllGroupWithOptions(request *QueryAllGroupRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询所有医疗组
+//
+// @param request - QueryAllGroupRequest
+//
+// @return QueryAllGroupResponse
 func (client *Client) QueryAllGroup(request *QueryAllGroupRequest) (_result *QueryAllGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryAllGroupHeaders{}
@@ -28608,6 +38806,17 @@ func (client *Client) QueryAllGroup(request *QueryAllGroupRequest) (_result *Que
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询科室下的所有医疗组
+//
+// @param request - QueryAllGroupsInDeptRequest
+//
+// @param headers - QueryAllGroupsInDeptHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryAllGroupsInDeptResponse
 func (client *Client) QueryAllGroupsInDeptWithOptions(deptId *string, request *QueryAllGroupsInDeptRequest, headers *QueryAllGroupsInDeptHeaders, runtime *util.RuntimeOptions) (_result *QueryAllGroupsInDeptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -28655,6 +38864,13 @@ func (client *Client) QueryAllGroupsInDeptWithOptions(deptId *string, request *Q
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询科室下的所有医疗组
+//
+// @param request - QueryAllGroupsInDeptRequest
+//
+// @return QueryAllGroupsInDeptResponse
 func (client *Client) QueryAllGroupsInDept(deptId *string, request *QueryAllGroupsInDeptRequest) (_result *QueryAllGroupsInDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryAllGroupsInDeptHeaders{}
@@ -28667,6 +38883,17 @@ func (client *Client) QueryAllGroupsInDept(deptId *string, request *QueryAllGrou
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询科室下的所有人员
+//
+// @param request - QueryAllMemberByDeptRequest
+//
+// @param headers - QueryAllMemberByDeptHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryAllMemberByDeptResponse
 func (client *Client) QueryAllMemberByDeptWithOptions(deptId *string, request *QueryAllMemberByDeptRequest, headers *QueryAllMemberByDeptHeaders, runtime *util.RuntimeOptions) (_result *QueryAllMemberByDeptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -28718,6 +38945,13 @@ func (client *Client) QueryAllMemberByDeptWithOptions(deptId *string, request *Q
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询科室下的所有人员
+//
+// @param request - QueryAllMemberByDeptRequest
+//
+// @return QueryAllMemberByDeptResponse
 func (client *Client) QueryAllMemberByDept(deptId *string, request *QueryAllMemberByDeptRequest) (_result *QueryAllMemberByDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryAllMemberByDeptHeaders{}
@@ -28730,6 +38964,17 @@ func (client *Client) QueryAllMemberByDept(deptId *string, request *QueryAllMemb
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取医疗组下面的所有成员
+//
+// @param request - QueryAllMemberByGroupRequest
+//
+// @param headers - QueryAllMemberByGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryAllMemberByGroupResponse
 func (client *Client) QueryAllMemberByGroupWithOptions(groupId *string, request *QueryAllMemberByGroupRequest, headers *QueryAllMemberByGroupHeaders, runtime *util.RuntimeOptions) (_result *QueryAllMemberByGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -28781,6 +39026,13 @@ func (client *Client) QueryAllMemberByGroupWithOptions(groupId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取医疗组下面的所有成员
+//
+// @param request - QueryAllMemberByGroupRequest
+//
+// @return QueryAllMemberByGroupResponse
 func (client *Client) QueryAllMemberByGroup(groupId *string, request *QueryAllMemberByGroupRequest) (_result *QueryAllMemberByGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryAllMemberByGroupHeaders{}
@@ -28793,6 +39045,17 @@ func (client *Client) QueryAllMemberByGroup(groupId *string, request *QueryAllMe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取当前企业医疗通讯录的业务操作日志
+//
+// @param request - QueryBizOptLogRequest
+//
+// @param headers - QueryBizOptLogHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryBizOptLogResponse
 func (client *Client) QueryBizOptLogWithOptions(request *QueryBizOptLogRequest, headers *QueryBizOptLogHeaders, runtime *util.RuntimeOptions) (_result *QueryBizOptLogResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -28840,6 +39103,13 @@ func (client *Client) QueryBizOptLogWithOptions(request *QueryBizOptLogRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取当前企业医疗通讯录的业务操作日志
+//
+// @param request - QueryBizOptLogRequest
+//
+// @return QueryBizOptLogResponse
 func (client *Client) QueryBizOptLog(request *QueryBizOptLogRequest) (_result *QueryBizOptLogResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryBizOptLogHeaders{}
@@ -28852,6 +39122,90 @@ func (client *Client) QueryBizOptLog(request *QueryBizOptLogRequest) (_result *Q
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取专属AI平台信息
+//
+// @param request - QueryChatAIOXMInfoRequest
+//
+// @param headers - QueryChatAIOXMInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryChatAIOXMInfoResponse
+func (client *Client) QueryChatAIOXMInfoWithOptions(request *QueryChatAIOXMInfoRequest, headers *QueryChatAIOXMInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryChatAIOXMInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		body["code"] = request.Code
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryChatAIOXMInfo"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/chatai/oxm/infos/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryChatAIOXMInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取专属AI平台信息
+//
+// @param request - QueryChatAIOXMInfoRequest
+//
+// @return QueryChatAIOXMInfoResponse
+func (client *Client) QueryChatAIOXMInfo(request *QueryChatAIOXMInfoRequest) (_result *QueryChatAIOXMInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryChatAIOXMInfoHeaders{}
+	_result = &QueryChatAIOXMInfoResponse{}
+	_body, _err := client.QueryChatAIOXMInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询科室和医疗组的扩展信息
+//
+// @param request - QueryDepartmentExtendInfoRequest
+//
+// @param headers - QueryDepartmentExtendInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDepartmentExtendInfoResponse
 func (client *Client) QueryDepartmentExtendInfoWithOptions(request *QueryDepartmentExtendInfoRequest, headers *QueryDepartmentExtendInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryDepartmentExtendInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -28899,6 +39253,13 @@ func (client *Client) QueryDepartmentExtendInfoWithOptions(request *QueryDepartm
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询科室和医疗组的扩展信息
+//
+// @param request - QueryDepartmentExtendInfoRequest
+//
+// @return QueryDepartmentExtendInfoResponse
 func (client *Client) QueryDepartmentExtendInfo(request *QueryDepartmentExtendInfoRequest) (_result *QueryDepartmentExtendInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryDepartmentExtendInfoHeaders{}
@@ -28911,6 +39272,15 @@ func (client *Client) QueryDepartmentExtendInfo(request *QueryDepartmentExtendIn
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询部门详情
+//
+// @param headers - QueryDepartmentInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDepartmentInfoResponse
 func (client *Client) QueryDepartmentInfoWithOptions(deptId *string, headers *QueryDepartmentInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryDepartmentInfoResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -28944,6 +39314,11 @@ func (client *Client) QueryDepartmentInfoWithOptions(deptId *string, headers *Qu
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询部门详情
+//
+// @return QueryDepartmentInfoResponse
 func (client *Client) QueryDepartmentInfo(deptId *string) (_result *QueryDepartmentInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryDepartmentInfoHeaders{}
@@ -28956,6 +39331,17 @@ func (client *Client) QueryDepartmentInfo(deptId *string) (_result *QueryDepartm
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过工号查询人员信息
+//
+// @param request - QueryDoctorDetailsByJobNumberRequest
+//
+// @param headers - QueryDoctorDetailsByJobNumberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDoctorDetailsByJobNumberResponse
 func (client *Client) QueryDoctorDetailsByJobNumberWithOptions(jobNumber *string, request *QueryDoctorDetailsByJobNumberRequest, headers *QueryDoctorDetailsByJobNumberHeaders, runtime *util.RuntimeOptions) (_result *QueryDoctorDetailsByJobNumberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -28999,6 +39385,13 @@ func (client *Client) QueryDoctorDetailsByJobNumberWithOptions(jobNumber *string
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过工号查询人员信息
+//
+// @param request - QueryDoctorDetailsByJobNumberRequest
+//
+// @return QueryDoctorDetailsByJobNumberResponse
 func (client *Client) QueryDoctorDetailsByJobNumber(jobNumber *string, request *QueryDoctorDetailsByJobNumberRequest) (_result *QueryDoctorDetailsByJobNumberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryDoctorDetailsByJobNumberHeaders{}
@@ -29011,6 +39404,15 @@ func (client *Client) QueryDoctorDetailsByJobNumber(jobNumber *string, request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取医疗组详情
+//
+// @param headers - QueryGroupInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryGroupInfoResponse
 func (client *Client) QueryGroupInfoWithOptions(groupId *string, headers *QueryGroupInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryGroupInfoResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -29044,6 +39446,11 @@ func (client *Client) QueryGroupInfoWithOptions(groupId *string, headers *QueryG
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取医疗组详情
+//
+// @return QueryGroupInfoResponse
 func (client *Client) QueryGroupInfo(groupId *string) (_result *QueryGroupInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryGroupInfoHeaders{}
@@ -29056,6 +39463,17 @@ func (client *Client) QueryGroupInfo(groupId *string) (_result *QueryGroupInfoRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询医院的院区和病区信息
+//
+// @param request - QueryHospitalDistrictInfoRequest
+//
+// @param headers - QueryHospitalDistrictInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryHospitalDistrictInfoResponse
 func (client *Client) QueryHospitalDistrictInfoWithOptions(request *QueryHospitalDistrictInfoRequest, headers *QueryHospitalDistrictInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryHospitalDistrictInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -29103,6 +39521,13 @@ func (client *Client) QueryHospitalDistrictInfoWithOptions(request *QueryHospita
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询医院的院区和病区信息
+//
+// @param request - QueryHospitalDistrictInfoRequest
+//
+// @return QueryHospitalDistrictInfoResponse
 func (client *Client) QueryHospitalDistrictInfo(request *QueryHospitalDistrictInfoRequest) (_result *QueryHospitalDistrictInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryHospitalDistrictInfoHeaders{}
@@ -29115,6 +39540,17 @@ func (client *Client) QueryHospitalDistrictInfo(request *QueryHospitalDistrictIn
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询医院所有角色的人员
+//
+// @param request - QueryHospitalRoleUserInfoRequest
+//
+// @param headers - QueryHospitalRoleUserInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryHospitalRoleUserInfoResponse
 func (client *Client) QueryHospitalRoleUserInfoWithOptions(request *QueryHospitalRoleUserInfoRequest, headers *QueryHospitalRoleUserInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryHospitalRoleUserInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -29162,6 +39598,13 @@ func (client *Client) QueryHospitalRoleUserInfoWithOptions(request *QueryHospita
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询医院所有角色的人员
+//
+// @param request - QueryHospitalRoleUserInfoRequest
+//
+// @return QueryHospitalRoleUserInfoResponse
 func (client *Client) QueryHospitalRoleUserInfo(request *QueryHospitalRoleUserInfoRequest) (_result *QueryHospitalRoleUserInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryHospitalRoleUserInfoHeaders{}
@@ -29174,6 +39617,15 @@ func (client *Client) QueryHospitalRoleUserInfo(request *QueryHospitalRoleUserIn
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询医院的角色
+//
+// @param headers - QueryHospitalRolesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryHospitalRolesResponse
 func (client *Client) QueryHospitalRolesWithOptions(headers *QueryHospitalRolesHeaders, runtime *util.RuntimeOptions) (_result *QueryHospitalRolesResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -29207,6 +39659,11 @@ func (client *Client) QueryHospitalRolesWithOptions(headers *QueryHospitalRolesH
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询医院的角色
+//
+// @return QueryHospitalRolesResponse
 func (client *Client) QueryHospitalRoles() (_result *QueryHospitalRolesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryHospitalRolesHeaders{}
@@ -29219,6 +39676,15 @@ func (client *Client) QueryHospitalRoles() (_result *QueryHospitalRolesResponse,
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询职称字典表
+//
+// @param headers - QueryJobCodeDictionaryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryJobCodeDictionaryResponse
 func (client *Client) QueryJobCodeDictionaryWithOptions(headers *QueryJobCodeDictionaryHeaders, runtime *util.RuntimeOptions) (_result *QueryJobCodeDictionaryResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -29252,6 +39718,11 @@ func (client *Client) QueryJobCodeDictionaryWithOptions(headers *QueryJobCodeDic
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询职称字典表
+//
+// @return QueryJobCodeDictionaryResponse
 func (client *Client) QueryJobCodeDictionary() (_result *QueryJobCodeDictionaryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryJobCodeDictionaryHeaders{}
@@ -29264,6 +39735,15 @@ func (client *Client) QueryJobCodeDictionary() (_result *QueryJobCodeDictionaryR
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询工作状态字典表
+//
+// @param headers - QueryJobStatusCodeDictionaryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryJobStatusCodeDictionaryResponse
 func (client *Client) QueryJobStatusCodeDictionaryWithOptions(headers *QueryJobStatusCodeDictionaryHeaders, runtime *util.RuntimeOptions) (_result *QueryJobStatusCodeDictionaryResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -29297,6 +39777,11 @@ func (client *Client) QueryJobStatusCodeDictionaryWithOptions(headers *QueryJobS
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询工作状态字典表
+//
+// @return QueryJobStatusCodeDictionaryResponse
 func (client *Client) QueryJobStatusCodeDictionary() (_result *QueryJobStatusCodeDictionaryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryJobStatusCodeDictionaryHeaders{}
@@ -29309,6 +39794,15 @@ func (client *Client) QueryJobStatusCodeDictionary() (_result *QueryJobStatusCod
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询医疗行业事件
+//
+// @param headers - QueryMedicalEventsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMedicalEventsResponse
 func (client *Client) QueryMedicalEventsWithOptions(headers *QueryMedicalEventsHeaders, runtime *util.RuntimeOptions) (_result *QueryMedicalEventsResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -29342,6 +39836,11 @@ func (client *Client) QueryMedicalEventsWithOptions(headers *QueryMedicalEventsH
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询医疗行业事件
+//
+// @return QueryMedicalEventsResponse
 func (client *Client) QueryMedicalEvents() (_result *QueryMedicalEventsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryMedicalEventsHeaders{}
@@ -29354,6 +39853,17 @@ func (client *Client) QueryMedicalEvents() (_result *QueryMedicalEventsResponse,
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户的证书
+//
+// @param request - QueryUserCredentialsRequest
+//
+// @param headers - QueryUserCredentialsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryUserCredentialsResponse
 func (client *Client) QueryUserCredentialsWithOptions(request *QueryUserCredentialsRequest, headers *QueryUserCredentialsHeaders, runtime *util.RuntimeOptions) (_result *QueryUserCredentialsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -29397,6 +39907,13 @@ func (client *Client) QueryUserCredentialsWithOptions(request *QueryUserCredenti
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户的证书
+//
+// @param request - QueryUserCredentialsRequest
+//
+// @return QueryUserCredentialsResponse
 func (client *Client) QueryUserCredentials(request *QueryUserCredentialsRequest) (_result *QueryUserCredentialsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryUserCredentialsHeaders{}
@@ -29409,6 +39926,15 @@ func (client *Client) QueryUserCredentials(request *QueryUserCredentialsRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询人员的扩展信息
+//
+// @param headers - QueryUserExtInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryUserExtInfoResponse
 func (client *Client) QueryUserExtInfoWithOptions(userId *string, headers *QueryUserExtInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryUserExtInfoResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -29442,6 +39968,11 @@ func (client *Client) QueryUserExtInfoWithOptions(userId *string, headers *Query
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询人员的扩展信息
+//
+// @return QueryUserExtInfoResponse
 func (client *Client) QueryUserExtInfo(userId *string) (_result *QueryUserExtInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryUserExtInfoHeaders{}
@@ -29454,6 +39985,17 @@ func (client *Client) QueryUserExtInfo(userId *string) (_result *QueryUserExtInf
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户拓展字段
+//
+// @param request - QueryUserExtendValuesRequest
+//
+// @param headers - QueryUserExtendValuesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryUserExtendValuesResponse
 func (client *Client) QueryUserExtendValuesWithOptions(request *QueryUserExtendValuesRequest, headers *QueryUserExtendValuesHeaders, runtime *util.RuntimeOptions) (_result *QueryUserExtendValuesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -29501,6 +40043,13 @@ func (client *Client) QueryUserExtendValuesWithOptions(request *QueryUserExtendV
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户拓展字段
+//
+// @param request - QueryUserExtendValuesRequest
+//
+// @return QueryUserExtendValuesResponse
 func (client *Client) QueryUserExtendValues(request *QueryUserExtendValuesRequest) (_result *QueryUserExtendValuesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryUserExtendValuesHeaders{}
@@ -29513,6 +40062,17 @@ func (client *Client) QueryUserExtendValues(request *QueryUserExtendValuesReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询人员详情
+//
+// @param request - QueryUserInfoRequest
+//
+// @param headers - QueryUserInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryUserInfoResponse
 func (client *Client) QueryUserInfoWithOptions(userId *string, request *QueryUserInfoRequest, headers *QueryUserInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryUserInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -29556,6 +40116,13 @@ func (client *Client) QueryUserInfoWithOptions(userId *string, request *QueryUse
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询人员详情
+//
+// @param request - QueryUserInfoRequest
+//
+// @return QueryUserInfoResponse
 func (client *Client) QueryUserInfo(userId *string, request *QueryUserInfoRequest) (_result *QueryUserInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryUserInfoHeaders{}
@@ -29568,6 +40135,15 @@ func (client *Client) QueryUserInfo(userId *string, request *QueryUserInfoReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询人员属性字典表
+//
+// @param headers - QueryUserProbCodeDictionaryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryUserProbCodeDictionaryResponse
 func (client *Client) QueryUserProbCodeDictionaryWithOptions(headers *QueryUserProbCodeDictionaryHeaders, runtime *util.RuntimeOptions) (_result *QueryUserProbCodeDictionaryResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -29601,6 +40177,11 @@ func (client *Client) QueryUserProbCodeDictionaryWithOptions(headers *QueryUserP
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询人员属性字典表
+//
+// @return QueryUserProbCodeDictionaryResponse
 func (client *Client) QueryUserProbCodeDictionary() (_result *QueryUserProbCodeDictionaryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryUserProbCodeDictionaryHeaders{}
@@ -29613,6 +40194,15 @@ func (client *Client) QueryUserProbCodeDictionary() (_result *QueryUserProbCodeD
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询人员权限
+//
+// @param headers - QueryUserRolesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryUserRolesResponse
 func (client *Client) QueryUserRolesWithOptions(userId *string, headers *QueryUserRolesHeaders, runtime *util.RuntimeOptions) (_result *QueryUserRolesResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -29646,6 +40236,11 @@ func (client *Client) QueryUserRolesWithOptions(userId *string, headers *QueryUs
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询人员权限
+//
+// @return QueryUserRolesResponse
 func (client *Client) QueryUserRoles(userId *string) (_result *QueryUserRolesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryUserRolesHeaders{}
@@ -29658,6 +40253,17 @@ func (client *Client) QueryUserRoles(userId *string) (_result *QueryUserRolesRes
 	return _result, _err
 }
 
+// Summary:
+//
+// 保存用户拓展字段
+//
+// @param request - SaveUserExtendValuesRequest
+//
+// @param headers - SaveUserExtendValuesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SaveUserExtendValuesResponse
 func (client *Client) SaveUserExtendValuesWithOptions(userId *string, request *SaveUserExtendValuesRequest, headers *SaveUserExtendValuesHeaders, runtime *util.RuntimeOptions) (_result *SaveUserExtendValuesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -29709,6 +40315,13 @@ func (client *Client) SaveUserExtendValuesWithOptions(userId *string, request *S
 	return _result, _err
 }
 
+// Summary:
+//
+// 保存用户拓展字段
+//
+// @param request - SaveUserExtendValuesRequest
+//
+// @return SaveUserExtendValuesResponse
 func (client *Client) SaveUserExtendValues(userId *string, request *SaveUserExtendValuesRequest) (_result *SaveUserExtendValuesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SaveUserExtendValuesHeaders{}
@@ -29721,6 +40334,203 @@ func (client *Client) SaveUserExtendValues(userId *string, request *SaveUserExte
 	return _result, _err
 }
 
+// Summary:
+//
+// 提交ai解析任务
+//
+// @param request - SubmitTaskRequest
+//
+// @param headers - SubmitTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SubmitTaskResponse
+func (client *Client) SubmitTaskWithOptions(request *SubmitTaskRequest, headers *SubmitTaskHeaders, runtime *util.RuntimeOptions) (_result *SubmitTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		body["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		body["bizCode"] = request.BizCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Data)) {
+		body["data"] = request.Data
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SubmitTask"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/ai/tasks/submit"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SubmitTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 提交ai解析任务
+//
+// @param request - SubmitTaskRequest
+//
+// @return SubmitTaskResponse
+func (client *Client) SubmitTask(request *SubmitTaskRequest) (_result *SubmitTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SubmitTaskHeaders{}
+	_result = &SubmitTaskResponse{}
+	_body, _err := client.SubmitTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// submitTaskPackage
+//
+// @param request - SubmitTaskPackageRequest
+//
+// @param headers - SubmitTaskPackageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SubmitTaskPackageResponse
+func (client *Client) SubmitTaskPackageWithOptions(request *SubmitTaskPackageRequest, headers *SubmitTaskPackageHeaders, runtime *util.RuntimeOptions) (_result *SubmitTaskPackageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		body["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppSecret)) {
+		body["appSecret"] = request.AppSecret
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		body["bizCode"] = request.BizCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Data)) {
+		body["data"] = request.Data
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Desc)) {
+		body["desc"] = request.Desc
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileType)) {
+		body["fileType"] = request.FileType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskPackageName)) {
+		body["taskPackageName"] = request.TaskPackageName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Version)) {
+		body["version"] = request.Version
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SubmitTaskPackage"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/ai/taskPackages/submit"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SubmitTaskPackageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// submitTaskPackage
+//
+// @param request - SubmitTaskPackageRequest
+//
+// @return SubmitTaskPackageResponse
+func (client *Client) SubmitTaskPackage(request *SubmitTaskPackageRequest) (_result *SubmitTaskPackageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SubmitTaskPackageHeaders{}
+	_result = &SubmitTaskPackageResponse{}
+	_body, _err := client.SubmitTaskPackageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 增加角色或角色组
+//
+// @param request - SupplAddRoleRequest
+//
+// @param headers - SupplAddRoleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplAddRoleResponse
 func (client *Client) SupplAddRoleWithOptions(request *SupplAddRoleRequest, headers *SupplAddRoleHeaders, runtime *util.RuntimeOptions) (_result *SupplAddRoleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -29768,6 +40578,13 @@ func (client *Client) SupplAddRoleWithOptions(request *SupplAddRoleRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 增加角色或角色组
+//
+// @param request - SupplAddRoleRequest
+//
+// @return SupplAddRoleResponse
 func (client *Client) SupplAddRole(request *SupplAddRoleRequest) (_result *SupplAddRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplAddRoleHeaders{}
@@ -29780,6 +40597,17 @@ func (client *Client) SupplAddRole(request *SupplAddRoleRequest) (_result *Suppl
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增供应链节点
+//
+// @param request - SupplyAddDeptRequest
+//
+// @param headers - SupplyAddDeptHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyAddDeptResponse
 func (client *Client) SupplyAddDeptWithOptions(request *SupplyAddDeptRequest, headers *SupplyAddDeptHeaders, runtime *util.RuntimeOptions) (_result *SupplyAddDeptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -29835,6 +40663,13 @@ func (client *Client) SupplyAddDeptWithOptions(request *SupplyAddDeptRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增供应链节点
+//
+// @param request - SupplyAddDeptRequest
+//
+// @return SupplyAddDeptResponse
 func (client *Client) SupplyAddDept(request *SupplyAddDeptRequest) (_result *SupplyAddDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyAddDeptHeaders{}
@@ -29847,6 +40682,17 @@ func (client *Client) SupplyAddDept(request *SupplyAddDeptRequest) (_result *Sup
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加供应商人员
+//
+// @param request - SupplyAddMemberRequest
+//
+// @param headers - SupplyAddMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyAddMemberResponse
 func (client *Client) SupplyAddMemberWithOptions(request *SupplyAddMemberRequest, headers *SupplyAddMemberHeaders, runtime *util.RuntimeOptions) (_result *SupplyAddMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -29910,6 +40756,13 @@ func (client *Client) SupplyAddMemberWithOptions(request *SupplyAddMemberRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加供应商人员
+//
+// @param request - SupplyAddMemberRequest
+//
+// @return SupplyAddMemberResponse
 func (client *Client) SupplyAddMember(request *SupplyAddMemberRequest) (_result *SupplyAddMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyAddMemberHeaders{}
@@ -29922,6 +40775,17 @@ func (client *Client) SupplyAddMember(request *SupplyAddMemberRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加伙伴负责人
+//
+// @param request - SupplyAddPartnerAdminsRequest
+//
+// @param headers - SupplyAddPartnerAdminsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyAddPartnerAdminsResponse
 func (client *Client) SupplyAddPartnerAdminsWithOptions(request *SupplyAddPartnerAdminsRequest, headers *SupplyAddPartnerAdminsHeaders, runtime *util.RuntimeOptions) (_result *SupplyAddPartnerAdminsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -29969,6 +40833,13 @@ func (client *Client) SupplyAddPartnerAdminsWithOptions(request *SupplyAddPartne
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加伙伴负责人
+//
+// @param request - SupplyAddPartnerAdminsRequest
+//
+// @return SupplyAddPartnerAdminsResponse
 func (client *Client) SupplyAddPartnerAdmins(request *SupplyAddPartnerAdminsRequest) (_result *SupplyAddPartnerAdminsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyAddPartnerAdminsHeaders{}
@@ -29981,6 +40852,17 @@ func (client *Client) SupplyAddPartnerAdmins(request *SupplyAddPartnerAdminsRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加伙伴的对接人或对接部门
+//
+// @param request - SupplyAddPartnerManagersRequest
+//
+// @param headers - SupplyAddPartnerManagersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyAddPartnerManagersResponse
 func (client *Client) SupplyAddPartnerManagersWithOptions(request *SupplyAddPartnerManagersRequest, headers *SupplyAddPartnerManagersHeaders, runtime *util.RuntimeOptions) (_result *SupplyAddPartnerManagersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -30032,6 +40914,13 @@ func (client *Client) SupplyAddPartnerManagersWithOptions(request *SupplyAddPart
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加伙伴的对接人或对接部门
+//
+// @param request - SupplyAddPartnerManagersRequest
+//
+// @return SupplyAddPartnerManagersResponse
 func (client *Client) SupplyAddPartnerManagers(request *SupplyAddPartnerManagersRequest) (_result *SupplyAddPartnerManagersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyAddPartnerManagersHeaders{}
@@ -30044,6 +40933,17 @@ func (client *Client) SupplyAddPartnerManagers(request *SupplyAddPartnerManagers
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加伙伴标签
+//
+// @param request - SupplyAddPartnerTypeRequest
+//
+// @param headers - SupplyAddPartnerTypeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyAddPartnerTypeResponse
 func (client *Client) SupplyAddPartnerTypeWithOptions(request *SupplyAddPartnerTypeRequest, headers *SupplyAddPartnerTypeHeaders, runtime *util.RuntimeOptions) (_result *SupplyAddPartnerTypeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -30091,6 +40991,13 @@ func (client *Client) SupplyAddPartnerTypeWithOptions(request *SupplyAddPartnerT
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加伙伴标签
+//
+// @param request - SupplyAddPartnerTypeRequest
+//
+// @return SupplyAddPartnerTypeResponse
 func (client *Client) SupplyAddPartnerType(request *SupplyAddPartnerTypeRequest) (_result *SupplyAddPartnerTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyAddPartnerTypeHeaders{}
@@ -30103,6 +41010,17 @@ func (client *Client) SupplyAddPartnerType(request *SupplyAddPartnerTypeRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除上下游节点
+//
+// @param request - SupplyChainDeleteDeptRequest
+//
+// @param headers - SupplyChainDeleteDeptHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyChainDeleteDeptResponse
 func (client *Client) SupplyChainDeleteDeptWithOptions(request *SupplyChainDeleteDeptRequest, headers *SupplyChainDeleteDeptHeaders, runtime *util.RuntimeOptions) (_result *SupplyChainDeleteDeptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -30146,6 +41064,13 @@ func (client *Client) SupplyChainDeleteDeptWithOptions(request *SupplyChainDelet
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除上下游节点
+//
+// @param request - SupplyChainDeleteDeptRequest
+//
+// @return SupplyChainDeleteDeptResponse
 func (client *Client) SupplyChainDeleteDept(request *SupplyChainDeleteDeptRequest) (_result *SupplyChainDeleteDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyChainDeleteDeptHeaders{}
@@ -30158,6 +41083,17 @@ func (client *Client) SupplyChainDeleteDept(request *SupplyChainDeleteDeptReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询上下游节点信息
+//
+// @param request - SupplyChainQueryDeptInfoRequest
+//
+// @param headers - SupplyChainQueryDeptInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyChainQueryDeptInfoResponse
 func (client *Client) SupplyChainQueryDeptInfoWithOptions(request *SupplyChainQueryDeptInfoRequest, headers *SupplyChainQueryDeptInfoHeaders, runtime *util.RuntimeOptions) (_result *SupplyChainQueryDeptInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -30201,6 +41137,13 @@ func (client *Client) SupplyChainQueryDeptInfoWithOptions(request *SupplyChainQu
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询上下游节点信息
+//
+// @param request - SupplyChainQueryDeptInfoRequest
+//
+// @return SupplyChainQueryDeptInfoResponse
 func (client *Client) SupplyChainQueryDeptInfo(request *SupplyChainQueryDeptInfoRequest) (_result *SupplyChainQueryDeptInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyChainQueryDeptInfoHeaders{}
@@ -30213,6 +41156,17 @@ func (client *Client) SupplyChainQueryDeptInfo(request *SupplyChainQueryDeptInfo
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新上下游节点信息
+//
+// @param request - SupplyChainUpdateDeptInfoRequest
+//
+// @param headers - SupplyChainUpdateDeptInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyChainUpdateDeptInfoResponse
 func (client *Client) SupplyChainUpdateDeptInfoWithOptions(request *SupplyChainUpdateDeptInfoRequest, headers *SupplyChainUpdateDeptInfoHeaders, runtime *util.RuntimeOptions) (_result *SupplyChainUpdateDeptInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -30272,6 +41226,13 @@ func (client *Client) SupplyChainUpdateDeptInfoWithOptions(request *SupplyChainU
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新上下游节点信息
+//
+// @param request - SupplyChainUpdateDeptInfoRequest
+//
+// @return SupplyChainUpdateDeptInfoResponse
 func (client *Client) SupplyChainUpdateDeptInfo(request *SupplyChainUpdateDeptInfoRequest) (_result *SupplyChainUpdateDeptInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyChainUpdateDeptInfoHeaders{}
@@ -30284,6 +41245,17 @@ func (client *Client) SupplyChainUpdateDeptInfo(request *SupplyChainUpdateDeptIn
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除伙伴成员
+//
+// @param request - SupplyDeleteMemberRequest
+//
+// @param headers - SupplyDeleteMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyDeleteMemberResponse
 func (client *Client) SupplyDeleteMemberWithOptions(request *SupplyDeleteMemberRequest, headers *SupplyDeleteMemberHeaders, runtime *util.RuntimeOptions) (_result *SupplyDeleteMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -30339,6 +41311,13 @@ func (client *Client) SupplyDeleteMemberWithOptions(request *SupplyDeleteMemberR
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除伙伴成员
+//
+// @param request - SupplyDeleteMemberRequest
+//
+// @return SupplyDeleteMemberResponse
 func (client *Client) SupplyDeleteMember(request *SupplyDeleteMemberRequest) (_result *SupplyDeleteMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyDeleteMemberHeaders{}
@@ -30351,6 +41330,17 @@ func (client *Client) SupplyDeleteMember(request *SupplyDeleteMemberRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除伙伴负责人
+//
+// @param request - SupplyDeletePartnerAdminsRequest
+//
+// @param headers - SupplyDeletePartnerAdminsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyDeletePartnerAdminsResponse
 func (client *Client) SupplyDeletePartnerAdminsWithOptions(request *SupplyDeletePartnerAdminsRequest, headers *SupplyDeletePartnerAdminsHeaders, runtime *util.RuntimeOptions) (_result *SupplyDeletePartnerAdminsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -30398,6 +41388,13 @@ func (client *Client) SupplyDeletePartnerAdminsWithOptions(request *SupplyDelete
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除伙伴负责人
+//
+// @param request - SupplyDeletePartnerAdminsRequest
+//
+// @return SupplyDeletePartnerAdminsResponse
 func (client *Client) SupplyDeletePartnerAdmins(request *SupplyDeletePartnerAdminsRequest) (_result *SupplyDeletePartnerAdminsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyDeletePartnerAdminsHeaders{}
@@ -30410,6 +41407,17 @@ func (client *Client) SupplyDeletePartnerAdmins(request *SupplyDeletePartnerAdmi
 	return _result, _err
 }
 
+// Summary:
+//
+// 移除伙伴的对接人或对接部门
+//
+// @param request - SupplyDeletePartnerManagersRequest
+//
+// @param headers - SupplyDeletePartnerManagersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyDeletePartnerManagersResponse
 func (client *Client) SupplyDeletePartnerManagersWithOptions(request *SupplyDeletePartnerManagersRequest, headers *SupplyDeletePartnerManagersHeaders, runtime *util.RuntimeOptions) (_result *SupplyDeletePartnerManagersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -30461,6 +41469,13 @@ func (client *Client) SupplyDeletePartnerManagersWithOptions(request *SupplyDele
 	return _result, _err
 }
 
+// Summary:
+//
+// 移除伙伴的对接人或对接部门
+//
+// @param request - SupplyDeletePartnerManagersRequest
+//
+// @return SupplyDeletePartnerManagersResponse
 func (client *Client) SupplyDeletePartnerManagers(request *SupplyDeletePartnerManagersRequest) (_result *SupplyDeletePartnerManagersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyDeletePartnerManagersHeaders{}
@@ -30473,6 +41488,17 @@ func (client *Client) SupplyDeletePartnerManagers(request *SupplyDeletePartnerMa
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除伙伴标签
+//
+// @param request - SupplyDeletePartnerTypeRequest
+//
+// @param headers - SupplyDeletePartnerTypeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyDeletePartnerTypeResponse
 func (client *Client) SupplyDeletePartnerTypeWithOptions(request *SupplyDeletePartnerTypeRequest, headers *SupplyDeletePartnerTypeHeaders, runtime *util.RuntimeOptions) (_result *SupplyDeletePartnerTypeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -30516,6 +41542,13 @@ func (client *Client) SupplyDeletePartnerTypeWithOptions(request *SupplyDeletePa
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除伙伴标签
+//
+// @param request - SupplyDeletePartnerTypeRequest
+//
+// @return SupplyDeletePartnerTypeResponse
 func (client *Client) SupplyDeletePartnerType(request *SupplyDeletePartnerTypeRequest) (_result *SupplyDeletePartnerTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyDeletePartnerTypeHeaders{}
@@ -30528,6 +41561,17 @@ func (client *Client) SupplyDeletePartnerType(request *SupplyDeletePartnerTypeRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除角色或角色组
+//
+// @param request - SupplyDeleteRoleRequest
+//
+// @param headers - SupplyDeleteRoleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyDeleteRoleResponse
 func (client *Client) SupplyDeleteRoleWithOptions(request *SupplyDeleteRoleRequest, headers *SupplyDeleteRoleHeaders, runtime *util.RuntimeOptions) (_result *SupplyDeleteRoleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -30575,6 +41619,13 @@ func (client *Client) SupplyDeleteRoleWithOptions(request *SupplyDeleteRoleReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除角色或角色组
+//
+// @param request - SupplyDeleteRoleRequest
+//
+// @return SupplyDeleteRoleResponse
 func (client *Client) SupplyDeleteRole(request *SupplyDeleteRoleRequest) (_result *SupplyDeleteRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyDeleteRoleHeaders{}
@@ -30587,6 +41638,17 @@ func (client *Client) SupplyDeleteRole(request *SupplyDeleteRoleRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取供应链成员信息
+//
+// @param request - SupplyGetMemberRequest
+//
+// @param headers - SupplyGetMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyGetMemberResponse
 func (client *Client) SupplyGetMemberWithOptions(request *SupplyGetMemberRequest, headers *SupplyGetMemberHeaders, runtime *util.RuntimeOptions) (_result *SupplyGetMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -30638,6 +41700,13 @@ func (client *Client) SupplyGetMemberWithOptions(request *SupplyGetMemberRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取供应链成员信息
+//
+// @param request - SupplyGetMemberRequest
+//
+// @return SupplyGetMemberResponse
 func (client *Client) SupplyGetMember(request *SupplyGetMemberRequest) (_result *SupplyGetMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyGetMemberHeaders{}
@@ -30650,6 +41719,17 @@ func (client *Client) SupplyGetMember(request *SupplyGetMemberRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取供应链部门下成员
+//
+// @param request - SupplyListDeptMembersRequest
+//
+// @param headers - SupplyListDeptMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyListDeptMembersResponse
 func (client *Client) SupplyListDeptMembersWithOptions(request *SupplyListDeptMembersRequest, headers *SupplyListDeptMembersHeaders, runtime *util.RuntimeOptions) (_result *SupplyListDeptMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -30701,6 +41781,13 @@ func (client *Client) SupplyListDeptMembersWithOptions(request *SupplyListDeptMe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取供应链部门下成员
+//
+// @param request - SupplyListDeptMembersRequest
+//
+// @return SupplyListDeptMembersResponse
 func (client *Client) SupplyListDeptMembers(request *SupplyListDeptMembersRequest) (_result *SupplyListDeptMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyListDeptMembersHeaders{}
@@ -30713,6 +41800,17 @@ func (client *Client) SupplyListDeptMembers(request *SupplyListDeptMembersReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取伙伴负责人列表
+//
+// @param request - SupplyListPartnerAdminsRequest
+//
+// @param headers - SupplyListPartnerAdminsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyListPartnerAdminsResponse
 func (client *Client) SupplyListPartnerAdminsWithOptions(request *SupplyListPartnerAdminsRequest, headers *SupplyListPartnerAdminsHeaders, runtime *util.RuntimeOptions) (_result *SupplyListPartnerAdminsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -30756,6 +41854,13 @@ func (client *Client) SupplyListPartnerAdminsWithOptions(request *SupplyListPart
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取伙伴负责人列表
+//
+// @param request - SupplyListPartnerAdminsRequest
+//
+// @return SupplyListPartnerAdminsResponse
 func (client *Client) SupplyListPartnerAdmins(request *SupplyListPartnerAdminsRequest) (_result *SupplyListPartnerAdminsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyListPartnerAdminsHeaders{}
@@ -30768,6 +41873,17 @@ func (client *Client) SupplyListPartnerAdmins(request *SupplyListPartnerAdminsRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取伙伴的对接人/对接部门
+//
+// @param request - SupplyListPartnerManagersRequest
+//
+// @param headers - SupplyListPartnerManagersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyListPartnerManagersResponse
 func (client *Client) SupplyListPartnerManagersWithOptions(request *SupplyListPartnerManagersRequest, headers *SupplyListPartnerManagersHeaders, runtime *util.RuntimeOptions) (_result *SupplyListPartnerManagersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -30811,6 +41927,13 @@ func (client *Client) SupplyListPartnerManagersWithOptions(request *SupplyListPa
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取伙伴的对接人/对接部门
+//
+// @param request - SupplyListPartnerManagersRequest
+//
+// @return SupplyListPartnerManagersResponse
 func (client *Client) SupplyListPartnerManagers(request *SupplyListPartnerManagersRequest) (_result *SupplyListPartnerManagersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyListPartnerManagersHeaders{}
@@ -30823,6 +41946,17 @@ func (client *Client) SupplyListPartnerManagers(request *SupplyListPartnerManage
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询下级伙伴标签
+//
+// @param request - SupplyListPartnerTypeRequest
+//
+// @param headers - SupplyListPartnerTypeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyListPartnerTypeResponse
 func (client *Client) SupplyListPartnerTypeWithOptions(request *SupplyListPartnerTypeRequest, headers *SupplyListPartnerTypeHeaders, runtime *util.RuntimeOptions) (_result *SupplyListPartnerTypeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -30866,6 +42000,13 @@ func (client *Client) SupplyListPartnerTypeWithOptions(request *SupplyListPartne
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询下级伙伴标签
+//
+// @param request - SupplyListPartnerTypeRequest
+//
+// @return SupplyListPartnerTypeResponse
 func (client *Client) SupplyListPartnerType(request *SupplyListPartnerTypeRequest) (_result *SupplyListPartnerTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyListPartnerTypeHeaders{}
@@ -30878,6 +42019,17 @@ func (client *Client) SupplyListPartnerType(request *SupplyListPartnerTypeReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询角色组或角色
+//
+// @param request - SupplyListRoleRequest
+//
+// @param headers - SupplyListRoleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyListRoleResponse
 func (client *Client) SupplyListRoleWithOptions(request *SupplyListRoleRequest, headers *SupplyListRoleHeaders, runtime *util.RuntimeOptions) (_result *SupplyListRoleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -30921,6 +42073,13 @@ func (client *Client) SupplyListRoleWithOptions(request *SupplyListRoleRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询角色组或角色
+//
+// @param request - SupplyListRoleRequest
+//
+// @return SupplyListRoleResponse
 func (client *Client) SupplyListRole(request *SupplyListRoleRequest) (_result *SupplyListRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyListRoleHeaders{}
@@ -30933,6 +42092,17 @@ func (client *Client) SupplyListRole(request *SupplyListRoleRequest) (_result *S
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询下级节点列表
+//
+// @param request - SupplyListSubDeptRequest
+//
+// @param headers - SupplyListSubDeptHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyListSubDeptResponse
 func (client *Client) SupplyListSubDeptWithOptions(request *SupplyListSubDeptRequest, headers *SupplyListSubDeptHeaders, runtime *util.RuntimeOptions) (_result *SupplyListSubDeptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -30976,6 +42146,13 @@ func (client *Client) SupplyListSubDeptWithOptions(request *SupplyListSubDeptReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询下级节点列表
+//
+// @param request - SupplyListSubDeptRequest
+//
+// @return SupplyListSubDeptResponse
 func (client *Client) SupplyListSubDept(request *SupplyListSubDeptRequest) (_result *SupplyListSubDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyListSubDeptHeaders{}
@@ -30988,6 +42165,17 @@ func (client *Client) SupplyListSubDept(request *SupplyListSubDeptRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询伙伴标签
+//
+// @param request - SupplyQueryPartnerTypeRequest
+//
+// @param headers - SupplyQueryPartnerTypeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyQueryPartnerTypeResponse
 func (client *Client) SupplyQueryPartnerTypeWithOptions(request *SupplyQueryPartnerTypeRequest, headers *SupplyQueryPartnerTypeHeaders, runtime *util.RuntimeOptions) (_result *SupplyQueryPartnerTypeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -31031,6 +42219,13 @@ func (client *Client) SupplyQueryPartnerTypeWithOptions(request *SupplyQueryPart
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询伙伴标签
+//
+// @param request - SupplyQueryPartnerTypeRequest
+//
+// @return SupplyQueryPartnerTypeResponse
 func (client *Client) SupplyQueryPartnerType(request *SupplyQueryPartnerTypeRequest) (_result *SupplyQueryPartnerTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyQueryPartnerTypeHeaders{}
@@ -31043,6 +42238,17 @@ func (client *Client) SupplyQueryPartnerType(request *SupplyQueryPartnerTypeRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新供应商人员信息
+//
+// @param request - SupplyUpdateMemberRequest
+//
+// @param headers - SupplyUpdateMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyUpdateMemberResponse
 func (client *Client) SupplyUpdateMemberWithOptions(request *SupplyUpdateMemberRequest, headers *SupplyUpdateMemberHeaders, runtime *util.RuntimeOptions) (_result *SupplyUpdateMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -31118,6 +42324,13 @@ func (client *Client) SupplyUpdateMemberWithOptions(request *SupplyUpdateMemberR
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新供应商人员信息
+//
+// @param request - SupplyUpdateMemberRequest
+//
+// @return SupplyUpdateMemberResponse
 func (client *Client) SupplyUpdateMember(request *SupplyUpdateMemberRequest) (_result *SupplyUpdateMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyUpdateMemberHeaders{}
@@ -31130,6 +42343,17 @@ func (client *Client) SupplyUpdateMember(request *SupplyUpdateMemberRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新伙伴标签
+//
+// @param request - SupplyUpdatePartnerTypeRequest
+//
+// @param headers - SupplyUpdatePartnerTypeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyUpdatePartnerTypeResponse
 func (client *Client) SupplyUpdatePartnerTypeWithOptions(request *SupplyUpdatePartnerTypeRequest, headers *SupplyUpdatePartnerTypeHeaders, runtime *util.RuntimeOptions) (_result *SupplyUpdatePartnerTypeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -31181,6 +42405,13 @@ func (client *Client) SupplyUpdatePartnerTypeWithOptions(request *SupplyUpdatePa
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新伙伴标签
+//
+// @param request - SupplyUpdatePartnerTypeRequest
+//
+// @return SupplyUpdatePartnerTypeResponse
 func (client *Client) SupplyUpdatePartnerType(request *SupplyUpdatePartnerTypeRequest) (_result *SupplyUpdatePartnerTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyUpdatePartnerTypeHeaders{}
@@ -31193,6 +42424,17 @@ func (client *Client) SupplyUpdatePartnerType(request *SupplyUpdatePartnerTypeRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新角色或角色组
+//
+// @param request - SupplyUpdateRoleRequest
+//
+// @param headers - SupplyUpdateRoleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SupplyUpdateRoleResponse
 func (client *Client) SupplyUpdateRoleWithOptions(request *SupplyUpdateRoleRequest, headers *SupplyUpdateRoleHeaders, runtime *util.RuntimeOptions) (_result *SupplyUpdateRoleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -31244,6 +42486,13 @@ func (client *Client) SupplyUpdateRoleWithOptions(request *SupplyUpdateRoleReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新角色或角色组
+//
+// @param request - SupplyUpdateRoleRequest
+//
+// @return SupplyUpdateRoleResponse
 func (client *Client) SupplyUpdateRole(request *SupplyUpdateRoleRequest) (_result *SupplyUpdateRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SupplyUpdateRoleHeaders{}
@@ -31256,6 +42505,17 @@ func (client *Client) SupplyUpdateRole(request *SupplyUpdateRoleRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新医疗用户扩展信息
+//
+// @param request - UpdateUserExtendInfoRequest
+//
+// @param headers - UpdateUserExtendInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateUserExtendInfoResponse
 func (client *Client) UpdateUserExtendInfoWithOptions(userId *string, request *UpdateUserExtendInfoRequest, headers *UpdateUserExtendInfoHeaders, runtime *util.RuntimeOptions) (_result *UpdateUserExtendInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -31311,6 +42571,13 @@ func (client *Client) UpdateUserExtendInfoWithOptions(userId *string, request *U
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新医疗用户扩展信息
+//
+// @param request - UpdateUserExtendInfoRequest
+//
+// @return UpdateUserExtendInfoResponse
 func (client *Client) UpdateUserExtendInfo(userId *string, request *UpdateUserExtendInfoRequest) (_result *UpdateUserExtendInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateUserExtendInfoHeaders{}

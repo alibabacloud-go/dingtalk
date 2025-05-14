@@ -1,17 +1,573 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package datacenter_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
+
+type CloseDataDeliverHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CloseDataDeliverHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseDataDeliverHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CloseDataDeliverHeaders) SetCommonHeaders(v map[string]*string) *CloseDataDeliverHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CloseDataDeliverHeaders) SetXAcsDingtalkAccessToken(v string) *CloseDataDeliverHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CloseDataDeliverRequest struct {
+	// example:
+	//
+	// DELIVER-3e1a2d2f-fa76-45e8-XXXX-7fd29307c859
+	DeliverId *string `json:"deliverId,omitempty" xml:"deliverId,omitempty"`
+	// example:
+	//
+	// RT
+	DispatchingItemType *string `json:"dispatchingItemType,omitempty" xml:"dispatchingItemType,omitempty"`
+}
+
+func (s CloseDataDeliverRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseDataDeliverRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CloseDataDeliverRequest) SetDeliverId(v string) *CloseDataDeliverRequest {
+	s.DeliverId = &v
+	return s
+}
+
+func (s *CloseDataDeliverRequest) SetDispatchingItemType(v string) *CloseDataDeliverRequest {
+	s.DispatchingItemType = &v
+	return s
+}
+
+type CloseDataDeliverResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CloseDataDeliverResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseDataDeliverResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CloseDataDeliverResponseBody) SetResult(v string) *CloseDataDeliverResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *CloseDataDeliverResponseBody) SetSuccess(v bool) *CloseDataDeliverResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CloseDataDeliverResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CloseDataDeliverResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CloseDataDeliverResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseDataDeliverResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CloseDataDeliverResponse) SetHeaders(v map[string]*string) *CloseDataDeliverResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CloseDataDeliverResponse) SetStatusCode(v int32) *CloseDataDeliverResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CloseDataDeliverResponse) SetBody(v *CloseDataDeliverResponseBody) *CloseDataDeliverResponse {
+	s.Body = v
+	return s
+}
+
+type CreateDataDeliverHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateDataDeliverHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDataDeliverHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDataDeliverHeaders) SetCommonHeaders(v map[string]*string) *CreateDataDeliverHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateDataDeliverHeaders) SetXAcsDingtalkAccessToken(v string) *CreateDataDeliverHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateDataDeliverRequest struct {
+	Bizcode              *string `json:"bizcode,omitempty" xml:"bizcode,omitempty"`
+	Param                *string `json:"param,omitempty" xml:"param,omitempty"`
+	UserId               *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	DispatchingCycle     *string `json:"dispatchingCycle,omitempty" xml:"dispatchingCycle,omitempty"`
+	DispatchingItemType  *string `json:"dispatchingItemType,omitempty" xml:"dispatchingItemType,omitempty"`
+	DispatchingStartDate *int64  `json:"dispatchingStartDate,omitempty" xml:"dispatchingStartDate,omitempty"`
+}
+
+func (s CreateDataDeliverRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDataDeliverRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDataDeliverRequest) SetBizcode(v string) *CreateDataDeliverRequest {
+	s.Bizcode = &v
+	return s
+}
+
+func (s *CreateDataDeliverRequest) SetParam(v string) *CreateDataDeliverRequest {
+	s.Param = &v
+	return s
+}
+
+func (s *CreateDataDeliverRequest) SetUserId(v string) *CreateDataDeliverRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *CreateDataDeliverRequest) SetDispatchingCycle(v string) *CreateDataDeliverRequest {
+	s.DispatchingCycle = &v
+	return s
+}
+
+func (s *CreateDataDeliverRequest) SetDispatchingItemType(v string) *CreateDataDeliverRequest {
+	s.DispatchingItemType = &v
+	return s
+}
+
+func (s *CreateDataDeliverRequest) SetDispatchingStartDate(v int64) *CreateDataDeliverRequest {
+	s.DispatchingStartDate = &v
+	return s
+}
+
+type CreateDataDeliverResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateDataDeliverResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDataDeliverResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDataDeliverResponseBody) SetResult(v string) *CreateDataDeliverResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *CreateDataDeliverResponseBody) SetSuccess(v bool) *CreateDataDeliverResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateDataDeliverResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateDataDeliverResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateDataDeliverResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateDataDeliverResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateDataDeliverResponse) SetHeaders(v map[string]*string) *CreateDataDeliverResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateDataDeliverResponse) SetStatusCode(v int32) *CreateDataDeliverResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateDataDeliverResponse) SetBody(v *CreateDataDeliverResponseBody) *CreateDataDeliverResponse {
+	s.Body = v
+	return s
+}
+
+type CreateScreenHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateScreenHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateScreenHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateScreenHeaders) SetCommonHeaders(v map[string]*string) *CreateScreenHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateScreenHeaders) SetXAcsDingtalkAccessToken(v string) *CreateScreenHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateScreenRequest struct {
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+}
+
+func (s CreateScreenRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateScreenRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateScreenRequest) SetOperatorId(v string) *CreateScreenRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *CreateScreenRequest) SetTemplateId(v string) *CreateScreenRequest {
+	s.TemplateId = &v
+	return s
+}
+
+type CreateScreenResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateScreenResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateScreenResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateScreenResponseBody) SetResult(v string) *CreateScreenResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *CreateScreenResponseBody) SetSuccess(v bool) *CreateScreenResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateScreenResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateScreenResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateScreenResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateScreenResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateScreenResponse) SetHeaders(v map[string]*string) *CreateScreenResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateScreenResponse) SetStatusCode(v int32) *CreateScreenResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateScreenResponse) SetBody(v *CreateScreenResponseBody) *CreateScreenResponse {
+	s.Body = v
+	return s
+}
+
+type DataMarketIsvServiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DataMarketIsvServiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DataMarketIsvServiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DataMarketIsvServiceHeaders) SetCommonHeaders(v map[string]*string) *DataMarketIsvServiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DataMarketIsvServiceHeaders) SetXAcsDingtalkAccessToken(v string) *DataMarketIsvServiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DataMarketIsvServiceRequest struct {
+	// This parameter is required.
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// This parameter is required.
+	ApiId *string `json:"apiId,omitempty" xml:"apiId,omitempty"`
+	// This parameter is required.
+	Args *string `json:"args,omitempty" xml:"args,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DataMarketIsvServiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DataMarketIsvServiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DataMarketIsvServiceRequest) SetAccountId(v string) *DataMarketIsvServiceRequest {
+	s.AccountId = &v
+	return s
+}
+
+func (s *DataMarketIsvServiceRequest) SetApiId(v string) *DataMarketIsvServiceRequest {
+	s.ApiId = &v
+	return s
+}
+
+func (s *DataMarketIsvServiceRequest) SetArgs(v string) *DataMarketIsvServiceRequest {
+	s.Args = &v
+	return s
+}
+
+func (s *DataMarketIsvServiceRequest) SetUserId(v string) *DataMarketIsvServiceRequest {
+	s.UserId = &v
+	return s
+}
+
+type DataMarketIsvServiceResponseBody struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	Msg  *string `json:"msg,omitempty" xml:"msg,omitempty"`
+}
+
+func (s DataMarketIsvServiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DataMarketIsvServiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DataMarketIsvServiceResponseBody) SetCode(v string) *DataMarketIsvServiceResponseBody {
+	s.Code = &v
+	return s
+}
+
+func (s *DataMarketIsvServiceResponseBody) SetData(v string) *DataMarketIsvServiceResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *DataMarketIsvServiceResponseBody) SetMsg(v string) *DataMarketIsvServiceResponseBody {
+	s.Msg = &v
+	return s
+}
+
+type DataMarketIsvServiceResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DataMarketIsvServiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DataMarketIsvServiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DataMarketIsvServiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DataMarketIsvServiceResponse) SetHeaders(v map[string]*string) *DataMarketIsvServiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DataMarketIsvServiceResponse) SetStatusCode(v int32) *DataMarketIsvServiceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DataMarketIsvServiceResponse) SetBody(v *DataMarketIsvServiceResponseBody) *DataMarketIsvServiceResponse {
+	s.Body = v
+	return s
+}
+
+type DataMarketServiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DataMarketServiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DataMarketServiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DataMarketServiceHeaders) SetCommonHeaders(v map[string]*string) *DataMarketServiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DataMarketServiceHeaders) SetXAcsDingtalkAccessToken(v string) *DataMarketServiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DataMarketServiceRequest struct {
+	ApiId *string `json:"apiId,omitempty" xml:"apiId,omitempty"`
+	Args  *string `json:"args,omitempty" xml:"args,omitempty"`
+}
+
+func (s DataMarketServiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DataMarketServiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DataMarketServiceRequest) SetApiId(v string) *DataMarketServiceRequest {
+	s.ApiId = &v
+	return s
+}
+
+func (s *DataMarketServiceRequest) SetArgs(v string) *DataMarketServiceRequest {
+	s.Args = &v
+	return s
+}
+
+type DataMarketServiceResponseBody struct {
+	Code       *string `json:"code,omitempty" xml:"code,omitempty"`
+	Data       *string `json:"data,omitempty" xml:"data,omitempty"`
+	Msg        *string `json:"msg,omitempty" xml:"msg,omitempty"`
+	TotalQuota *int64  `json:"totalQuota,omitempty" xml:"totalQuota,omitempty"`
+	UsedQuota  *int64  `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+}
+
+func (s DataMarketServiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DataMarketServiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DataMarketServiceResponseBody) SetCode(v string) *DataMarketServiceResponseBody {
+	s.Code = &v
+	return s
+}
+
+func (s *DataMarketServiceResponseBody) SetData(v string) *DataMarketServiceResponseBody {
+	s.Data = &v
+	return s
+}
+
+func (s *DataMarketServiceResponseBody) SetMsg(v string) *DataMarketServiceResponseBody {
+	s.Msg = &v
+	return s
+}
+
+func (s *DataMarketServiceResponseBody) SetTotalQuota(v int64) *DataMarketServiceResponseBody {
+	s.TotalQuota = &v
+	return s
+}
+
+func (s *DataMarketServiceResponseBody) SetUsedQuota(v int64) *DataMarketServiceResponseBody {
+	s.UsedQuota = &v
+	return s
+}
+
+type DataMarketServiceResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DataMarketServiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DataMarketServiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DataMarketServiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DataMarketServiceResponse) SetHeaders(v map[string]*string) *DataMarketServiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DataMarketServiceResponse) SetStatusCode(v int32) *DataMarketServiceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DataMarketServiceResponse) SetBody(v *DataMarketServiceResponseBody) *DataMarketServiceResponse {
+	s.Body = v
+	return s
+}
 
 type GetAbnormalOperationHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
@@ -37,9 +593,16 @@ func (s *GetAbnormalOperationHeaders) SetXAcsDingtalkAccessToken(v string) *GetA
 }
 
 type GetAbnormalOperationRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetAbnormalOperationRequest) String() string {
@@ -66,6 +629,9 @@ func (s *GetAbnormalOperationRequest) SetSearchKey(v string) *GetAbnormalOperati
 }
 
 type GetAbnormalOperationResponseBody struct {
+	// example:
+	//
+	// [     {       "DEPARTMENT": "xx",       "IN_REASON": "xx",       "OUT_DATE": "2006-12-07",       "OUT_DEPARTMENT": "xx",       "IN_DATE": "2006-12-07",       "OUT_REASON": "xx"     }   ]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -141,9 +707,16 @@ func (s *GetAdministrativeLicensingHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type GetAdministrativeLicensingRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetAdministrativeLicensingRequest) String() string {
@@ -170,6 +743,9 @@ func (s *GetAdministrativeLicensingRequest) SetSearchKey(v string) *GetAdministr
 }
 
 type GetAdministrativeLicensingResponseBody struct {
+	// example:
+	//
+	// [     {       "LicenseNo": "梯4403331978",       "StartDate": "2022-05-10",       "Department": "深圳市市场监督管理局",       "Content": "注册代码:7;设备种类:电梯",       "LicenseName": "特种设备使用登记",       "EndDate": "2099-12-31"     },     {       "LicenseNo": "东水务审﹝2021﹞8267号",       "StartDate": "2021-06-11",       "Department": "东莞市水务局",       "Content": "水土保持方案审批准予行政许可决定",       "LicenseName": "",       "EndDate": "2026-12-31"     } ]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -245,9 +821,16 @@ func (s *GetAdministrativePenaltiesHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type GetAdministrativePenaltiesRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetAdministrativePenaltiesRequest) String() string {
@@ -274,6 +857,9 @@ func (s *GetAdministrativePenaltiesRequest) SetSearchKey(v string) *GetAdministr
 }
 
 type GetAdministrativePenaltiesResponseBody struct {
+	// example:
+	//
+	// [     {       "DATE_COL": "xx",       "NUMBER": "xx",       "ILLEGAL_TYPE": "xx",       "DEPARTMENT": "xx",       "PUBLIC_DATE": "xx",       "CONTENT": "xx",       "BASED_ON":"xx",       "DESCRIPTION":"xx"      }   ]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -349,9 +935,16 @@ func (s *GetBasicInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetBasicInfo
 }
 
 type GetBasicInfoRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetBasicInfoRequest) String() string {
@@ -378,6 +971,9 @@ func (s *GetBasicInfoRequest) SetSearchKey(v string) *GetBasicInfoRequest {
 }
 
 type GetBasicInfoResponseBody struct {
+	// example:
+	//
+	// [     {       "ENT_NAME": "xx",       "LEGAL_NAME": "xx",       "ES_DATE": "2006-12-07",       "ENT_STATUS": "在营",       "REG_CAP": "1000万人民币",       "REC_CAP": "1000万人民币",       "SOCIAL_CREDIT_CODE": "91330108793696828A",       "LICENSE_NUMBER": "330108000000965",       "ORG_NO": "793696828",       "TAX_NUM": "91330108793696828A",       "ENT_TYPE": "有限责任公司(非自然人投资或控股的法人独资)",       "INDUSTRY_NAME_LV1": "租赁和商务服务业",       "INDUSTRY_NAME_LV2": "商务服务业",       "OP_FROM": "2006-12-07",       "OP_TO": "2036-12-06",       "COLLEGUES_NUM": "6",       "ENT_NAME_ENG": "Hangzhou Ali Baba Advertising Co.,Ltd.",       "FORMER_NAMES": "xx",       "REG_ORG": "xx",       "REG_ORG_PROVINCE": "浙江省",       "REG_ORG_CITY": "杭州市",       "REG_ORG_DISTRICT": "滨江区",       "STD_REG_CAP": 10000000     }   ]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -453,9 +1049,16 @@ func (s *GetBiddingInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetBidding
 }
 
 type GetBiddingInfoRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetBiddingInfoRequest) String() string {
@@ -482,6 +1085,9 @@ func (s *GetBiddingInfoRequest) SetSearchKey(v string) *GetBiddingInfoRequest {
 }
 
 type GetBiddingInfoResponseBody struct {
+	// example:
+	//
+	// [{ "EntName":"企业名称", "BidTitle":"标文标题", "BidType":"招标方式", "RegionName":"地区", "BidIndustry":"标的所属行业", "PublicDate":"发布时间", "ProjectNum":"项目编号", "ProjectName":"项目名称", "ProjectAmount":"项目金额", "TenderEntName":"招标企业", "AgentEntName":"代理企业", "WinnerEntName":"中标企业", "Content":"正文", "InfoType":"标文类型", "SubType":"子类型", "OpeningTime":"开标时间" }]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -557,9 +1163,16 @@ func (s *GetBranchInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetBranchIn
 }
 
 type GetBranchInfoRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetBranchInfoRequest) String() string {
@@ -586,6 +1199,9 @@ func (s *GetBranchInfoRequest) SetSearchKey(v string) *GetBranchInfoRequest {
 }
 
 type GetBranchInfoResponseBody struct {
+	// example:
+	//
+	// [     {       "OperName": "李柯",       "EntStatus": "",       "EntName": "华为技术有限公司驻广州办事处",       "EsDate": ""     },     {       "OperName": "李实",       "EntStatus": "",       "EntName": "华为技术有限公司重庆分公司",       "EsDate": ""     } ]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -661,9 +1277,16 @@ func (s *GetChangeRecordHeaders) SetXAcsDingtalkAccessToken(v string) *GetChange
 }
 
 type GetChangeRecordRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetChangeRecordRequest) String() string {
@@ -690,6 +1313,9 @@ func (s *GetChangeRecordRequest) SetSearchKey(v string) *GetChangeRecordRequest 
 }
 
 type GetChangeRecordResponseBody struct {
+	// example:
+	//
+	// [         {             "Type":"投资人变更(包括出资额、出资方式、出资日期、投资人名称等)",             "ChangeDate":"2014-12-23",             "AfterContent":"股东名称:华为投资控股有限公司、出资额:3990813.182000、出资比例:100.000000;",             "BeforeContent":"股东名称:华为投资控股有限公司、出资额:3960813.182000、出资比例:100.000000;"         },         {             "Type":"期限变更(经营期限、营业期限、驻在期限、合伙期限等变更)",             "ChangeDate":"1997-12-04",             "AfterContent":"1987-09-15,2040-04-09",             "BeforeContent":"1987-09-15,1998-12-31"         } ]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -741,6 +1367,110 @@ func (s *GetChangeRecordResponse) SetBody(v *GetChangeRecordResponseBody) *GetCh
 	return s
 }
 
+type GetDataDeliverHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetDataDeliverHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDataDeliverHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetDataDeliverHeaders) SetCommonHeaders(v map[string]*string) *GetDataDeliverHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetDataDeliverHeaders) SetXAcsDingtalkAccessToken(v string) *GetDataDeliverHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetDataDeliverRequest struct {
+	// example:
+	//
+	// DELIVER-3e1a2d2f-fa76-45e8-XXXX-7fd29307c859
+	DeliverId *string `json:"deliverId,omitempty" xml:"deliverId,omitempty"`
+	// example:
+	//
+	// RT
+	DispatchingItemType *string `json:"dispatchingItemType,omitempty" xml:"dispatchingItemType,omitempty"`
+}
+
+func (s GetDataDeliverRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDataDeliverRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetDataDeliverRequest) SetDeliverId(v string) *GetDataDeliverRequest {
+	s.DeliverId = &v
+	return s
+}
+
+func (s *GetDataDeliverRequest) SetDispatchingItemType(v string) *GetDataDeliverRequest {
+	s.DispatchingItemType = &v
+	return s
+}
+
+type GetDataDeliverResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetDataDeliverResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDataDeliverResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetDataDeliverResponseBody) SetResult(v string) *GetDataDeliverResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *GetDataDeliverResponseBody) SetSuccess(v bool) *GetDataDeliverResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetDataDeliverResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetDataDeliverResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetDataDeliverResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDataDeliverResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetDataDeliverResponse) SetHeaders(v map[string]*string) *GetDataDeliverResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetDataDeliverResponse) SetStatusCode(v int32) *GetDataDeliverResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetDataDeliverResponse) SetBody(v *GetDataDeliverResponseBody) *GetDataDeliverResponse {
+	s.Body = v
+	return s
+}
+
 type GetDomainInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -765,9 +1495,16 @@ func (s *GetDomainInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetDomainIn
 }
 
 type GetDomainInfoRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetDomainInfoRequest) String() string {
@@ -794,6 +1531,9 @@ func (s *GetDomainInfoRequest) SetSearchKey(v string) *GetDomainInfoRequest {
 }
 
 type GetDomainInfoResponseBody struct {
+	// example:
+	//
+	// [{ "EntName":"企业名称" "Number":"备案号" "Domain":"域名" "SiteName":"网站名称" "HomeUrl":"网站首页链接" "CheckDate":"备案日期" }]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -869,9 +1609,16 @@ func (s *GetDoubleRandomHeaders) SetXAcsDingtalkAccessToken(v string) *GetDouble
 }
 
 type GetDoubleRandomRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetDoubleRandomRequest) String() string {
@@ -898,6 +1645,9 @@ func (s *GetDoubleRandomRequest) SetSearchKey(v string) *GetDoubleRandomRequest 
 }
 
 type GetDoubleRandomResponseBody struct {
+	// example:
+	//
+	// [     {       "InspectPlanId": "44030020191021",       "InspectTypeName": "定向",       "InspectPlanName": "2019能效标识生产企业计量监督抽查1",       "InspectItem": "",       "InspectResult": "",       "InspectDepartment": "深圳市市场监督管理局龙岗局",       "InspectDate": "2019-10-14",       "InspectTaskId": "44030020191021",       "InspectTaskName": "2019能效标识生产企业计量监督抽查1"     }   ]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -973,9 +1723,16 @@ func (s *GetEnvironmentalPenaltiesHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type GetEnvironmentalPenaltiesRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetEnvironmentalPenaltiesRequest) String() string {
@@ -1002,6 +1759,9 @@ func (s *GetEnvironmentalPenaltiesRequest) SetSearchKey(v string) *GetEnvironmen
 }
 
 type GetEnvironmentalPenaltiesResponseBody struct {
+	// example:
+	//
+	// [     {       "DEPARTMENT": "xx",       "ENT_NAME": "xx",       "EXEC_STATUS": "xx",       "PUNISH_BASIS": "xx",       "PUNISH_CONTENT": "xx",       "PUNISH_LAW": "xx",       "PUNISH_NUM": "xx",       "PUNISH_RES": "xx",       "PUNISH_DATE": "xx"      }   ]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -1053,6 +1813,115 @@ func (s *GetEnvironmentalPenaltiesResponse) SetBody(v *GetEnvironmentalPenalties
 	return s
 }
 
+type GetEventDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetEventDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEventDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetEventDataHeaders) SetCommonHeaders(v map[string]*string) *GetEventDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetEventDataHeaders) SetXAcsDingtalkAccessToken(v string) *GetEventDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetEventDataRequest struct {
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 819e50d7c32e9096
+	EventUid *string `json:"eventUid,omitempty" xml:"eventUid,omitempty"`
+	SubId    *string `json:"subId,omitempty" xml:"subId,omitempty"`
+}
+
+func (s GetEventDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEventDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetEventDataRequest) SetBizId(v string) *GetEventDataRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *GetEventDataRequest) SetEventUid(v string) *GetEventDataRequest {
+	s.EventUid = &v
+	return s
+}
+
+func (s *GetEventDataRequest) SetSubId(v string) *GetEventDataRequest {
+	s.SubId = &v
+	return s
+}
+
+type GetEventDataResponseBody struct {
+	Success *string                `json:"success,omitempty" xml:"success,omitempty"`
+	Value   map[string]interface{} `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetEventDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEventDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetEventDataResponseBody) SetSuccess(v string) *GetEventDataResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *GetEventDataResponseBody) SetValue(v map[string]interface{}) *GetEventDataResponseBody {
+	s.Value = v
+	return s
+}
+
+type GetEventDataResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetEventDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetEventDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEventDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetEventDataResponse) SetHeaders(v map[string]*string) *GetEventDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetEventDataResponse) SetStatusCode(v int32) *GetEventDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetEventDataResponse) SetBody(v *GetEventDataResponseBody) *GetEventDataResponse {
+	s.Body = v
+	return s
+}
+
 type GetHolderInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1077,9 +1946,16 @@ func (s *GetHolderInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetHolderIn
 }
 
 type GetHolderInfoRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetHolderInfoRequest) String() string {
@@ -1106,6 +1982,9 @@ func (s *GetHolderInfoRequest) SetSearchKey(v string) *GetHolderInfoRequest {
 }
 
 type GetHolderInfoResponseBody struct {
+	// example:
+	//
+	// [     {       "STOCK_TYPE": "企业法人",       "STOCK_NAME": "xxx",       "STOCK_PERCENT": "100.00%",       "SHOULD_CAPI": "1000.0",       "SHOULD_CAPI_TIME": "2007-09-28"     }   ]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -1181,9 +2060,16 @@ func (s *GetIntellectualPropertyHeaders) SetXAcsDingtalkAccessToken(v string) *G
 }
 
 type GetIntellectualPropertyRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetIntellectualPropertyRequest) String() string {
@@ -1210,6 +2096,9 @@ func (s *GetIntellectualPropertyRequest) SetSearchKey(v string) *GetIntellectual
 }
 
 type GetIntellectualPropertyResponseBody struct {
+	// example:
+	//
+	// [     {       "Status": "有效",       "Type": "专利",       "Pledgor": "齐风莲",       "Number": "91611024MA70X17M7E",       "Period": "2015年06月11日至2015年06月11日",       "PublicDate": "2015-06-18 00:00:00",       "Pawnee": "齐风莲",       "entName": "东兰县鸿发摩托车安全技术检验有限公司"     }   ]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -1285,9 +2174,16 @@ func (s *GetInvestmentAbroadHeaders) SetXAcsDingtalkAccessToken(v string) *GetIn
 }
 
 type GetInvestmentAbroadRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetInvestmentAbroadRequest) String() string {
@@ -1314,6 +2210,9 @@ func (s *GetInvestmentAbroadRequest) SetSearchKey(v string) *GetInvestmentAbroad
 }
 
 type GetInvestmentAbroadResponseBody struct {
+	// example:
+	//
+	// [     {       "InvestLicenseNo": "440301104818958",       "InvestStatus": "在营",       "InvestEsDate": "1998-11-25",       "InvestCreditCode": "914403007084643962",       "ShouldCap": "2000.0万人民币",       "EntName": "华为技术有限公司",       "InvestLegalName": "汤启兵",       "StockPercentage": "100.0%",       "InvestName": "深圳市华为技术服务有限公司",       "InvestRegCap": "2000.0万人民币"     }   ]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -1389,9 +2288,16 @@ func (s *GetJobInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetJobInfoHead
 }
 
 type GetJobInfoRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetJobInfoRequest) String() string {
@@ -1418,6 +2324,9 @@ func (s *GetJobInfoRequest) SetSearchKey(v string) *GetJobInfoRequest {
 }
 
 type GetJobInfoResponseBody struct {
+	// example:
+	//
+	// [     {       "DEPARTMENT": "xx",       "IN_REASON": "xx",       "OUT_DATE": "2006-12-07",       "OUT_DEPARTMENT": "xx",       "IN_DATE": "2006-12-07",       "OUT_REASON": "xx"     }   ]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -1493,9 +2402,16 @@ func (s *GetPatentInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetPatentIn
 }
 
 type GetPatentInfoRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetPatentInfoRequest) String() string {
@@ -1522,6 +2438,9 @@ func (s *GetPatentInfoRequest) SetSearchKey(v string) *GetPatentInfoRequest {
 }
 
 type GetPatentInfoResponseBody struct {
+	// example:
+	//
+	// [{"EntName":"企业名称", "PatentType":"专利类型", "PatentName":"专利名", "PatentStatus":"专利状态", "RequestNum":"申请号", "RequestDate":"申请日", "PublicNum":"公开(公告)号", "PublicDate":"公开(公告)日", "InventorList":"发明人", "PatenteeList":"专利权人", "CateNum":"分类号", "PrioNum":"优先权号", "PrioDate":"优先权日", "Agency":"专利代理机构", "Agent":"代理人", "Brief":"简要说明", "MainClaim":"主权项"}]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -1597,9 +2516,16 @@ func (s *GetPrincipalEmployeeHeaders) SetXAcsDingtalkAccessToken(v string) *GetP
 }
 
 type GetPrincipalEmployeeRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetPrincipalEmployeeRequest) String() string {
@@ -1626,6 +2552,9 @@ func (s *GetPrincipalEmployeeRequest) SetSearchKey(v string) *GetPrincipalEmploy
 }
 
 type GetPrincipalEmployeeResponseBody struct {
+	// example:
+	//
+	// [     {       "JobTitle": "董事长",       "Name": "梁华"     },     {       "JobTitle": "副董事长",       "Name": "孟晚舟"     },     {       "JobTitle": "副董事长",       "Name": "徐直军"     }   ]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -1701,9 +2630,16 @@ func (s *GetQeneralTaxpayerInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetQeneralTaxpayerInfoRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetQeneralTaxpayerInfoRequest) String() string {
@@ -1730,6 +2666,9 @@ func (s *GetQeneralTaxpayerInfoRequest) SetSearchKey(v string) *GetQeneralTaxpay
 }
 
 type GetQeneralTaxpayerInfoResponseBody struct {
+	// example:
+	//
+	// [     {       "DEPARTMENT":"xx"       "END_DATE":"2017-01-04"       "ENT_NAME":"xx"       "QUALIFICATION"       "START_DATE":"2017-01-04"       "TAXPAYER_NUM":"11"       "JUDGE_DATE":"2017-05-04"      }   ]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -1805,9 +2744,16 @@ func (s *GetQualificationCertHeaders) SetXAcsDingtalkAccessToken(v string) *GetQ
 }
 
 type GetQualificationCertRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetQualificationCertRequest) String() string {
@@ -1834,6 +2780,9 @@ func (s *GetQualificationCertRequest) SetSearchKey(v string) *GetQualificationCe
 }
 
 type GetQualificationCertResponseBody struct {
+	// example:
+	//
+	// [{"EntName":"企业名称", "CertType":"证书类型", "CertNum":"证书认证编号", "ValidStartDate":"有效期开始日期", "ValidEndDate":"有效期截止日期", "AuthorizeDate":"授权日期", "AuthorizeDepartment":"授权部门", "PubDate":"公示日期", "Province":"省份", "CertScope":"认证范围"} ]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -1909,9 +2858,16 @@ func (s *GetSeriousViolationHeaders) SetXAcsDingtalkAccessToken(v string) *GetSe
 }
 
 type GetSeriousViolationRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetSeriousViolationRequest) String() string {
@@ -1938,6 +2894,9 @@ func (s *GetSeriousViolationRequest) SetSearchKey(v string) *GetSeriousViolation
 }
 
 type GetSeriousViolationResponseBody struct {
+	// example:
+	//
+	// [     {       "IN_DATE": "xx",       "IN_DEPARTMENT": "xx",       "IN_REASON": "xx"      }   ]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -2013,9 +2972,16 @@ func (s *GetSoftwareCopyrightHeaders) SetXAcsDingtalkAccessToken(v string) *GetS
 }
 
 type GetSoftwareCopyrightRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetSoftwareCopyrightRequest) String() string {
@@ -2042,6 +3008,9 @@ func (s *GetSoftwareCopyrightRequest) SetSearchKey(v string) *GetSoftwareCopyrig
 }
 
 type GetSoftwareCopyrightResponseBody struct {
+	// example:
+	//
+	// [{ "EntName:企业名称", "CopyNum:登记号", "TypeNum:分类号", "ShortName:作品简称", "CopyName:作品全称", "Version:版本号", "SuccessDate:创作完成日期", "FirstDate:首次发表日期", "ApprovalDate:登记批准日期" }]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -2117,9 +3086,16 @@ func (s *GetTrademarkInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetTrade
 }
 
 type GetTrademarkInfoRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetTrademarkInfoRequest) String() string {
@@ -2146,6 +3122,9 @@ func (s *GetTrademarkInfoRequest) SetSearchKey(v string) *GetTrademarkInfoReques
 }
 
 type GetTrademarkInfoResponseBody struct {
+	// example:
+	//
+	// [{ "entName:企业名称", "trademarkName:商标名称", "regNum:商标注册号", "trademarkType:商标类型", "trademarkForm:商标形式", "trademarkStatus:商标状态", "applyDate:申请日期", "imageUrl:图片链接", "typeName:商标类型名", "period:专用权期限", "agent:代理人名称", "regPubNo:注册公告号", "regPubDate:注册公告日期", "firstPubNo:初审公告号", "firstPubDate:初审公告日期"}]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -2221,9 +3200,16 @@ func (s *GetWorkCopyrightHeaders) SetXAcsDingtalkAccessToken(v string) *GetWorkC
 }
 
 type GetWorkCopyrightRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s GetWorkCopyrightRequest) String() string {
@@ -2250,6 +3236,9 @@ func (s *GetWorkCopyrightRequest) SetSearchKey(v string) *GetWorkCopyrightReques
 }
 
 type GetWorkCopyrightResponseBody struct {
+	// example:
+	//
+	// [{ "EntName":"企业名称", "CopyName":"作品全称", "TypeName":"作品类别", "CopyNum":"登记号", "SuccessDate":"创作完成日期", "FirstDate":"首次发表日期", "ApprovalDate":"登记批准日期" }]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -2297,6 +3286,237 @@ func (s *GetWorkCopyrightResponse) SetStatusCode(v int32) *GetWorkCopyrightRespo
 }
 
 func (s *GetWorkCopyrightResponse) SetBody(v *GetWorkCopyrightResponseBody) *GetWorkCopyrightResponse {
+	s.Body = v
+	return s
+}
+
+type ListDataDeliversHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListDataDeliversHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListDataDeliversHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListDataDeliversHeaders) SetCommonHeaders(v map[string]*string) *ListDataDeliversHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListDataDeliversHeaders) SetXAcsDingtalkAccessToken(v string) *ListDataDeliversHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListDataDeliversRequest struct {
+	// example:
+	//
+	// RT
+	DispatchingItemType *string `json:"dispatchingItemType,omitempty" xml:"dispatchingItemType,omitempty"`
+}
+
+func (s ListDataDeliversRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListDataDeliversRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListDataDeliversRequest) SetDispatchingItemType(v string) *ListDataDeliversRequest {
+	s.DispatchingItemType = &v
+	return s
+}
+
+type ListDataDeliversResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ListDataDeliversResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListDataDeliversResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListDataDeliversResponseBody) SetResult(v string) *ListDataDeliversResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *ListDataDeliversResponseBody) SetSuccess(v bool) *ListDataDeliversResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ListDataDeliversResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListDataDeliversResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListDataDeliversResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListDataDeliversResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListDataDeliversResponse) SetHeaders(v map[string]*string) *ListDataDeliversResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListDataDeliversResponse) SetStatusCode(v int32) *ListDataDeliversResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListDataDeliversResponse) SetBody(v *ListDataDeliversResponseBody) *ListDataDeliversResponse {
+	s.Body = v
+	return s
+}
+
+type OperateChartConfigHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s OperateChartConfigHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OperateChartConfigHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *OperateChartConfigHeaders) SetCommonHeaders(v map[string]*string) *OperateChartConfigHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *OperateChartConfigHeaders) SetXAcsDingtalkAccessToken(v string) *OperateChartConfigHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type OperateChartConfigRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	ApiKey *string `json:"apiKey,omitempty" xml:"apiKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	CorpId *string                `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Param  map[string]interface{} `json:"param,omitempty" xml:"param,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 8ABvoWxoelSxcxZBsF3MeWBDe5oi8jmFtU790jhpRoLrfJDWO8UDHbUqvTb3pQA5
+	Ticket *string `json:"ticket,omitempty" xml:"ticket,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s OperateChartConfigRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OperateChartConfigRequest) GoString() string {
+	return s.String()
+}
+
+func (s *OperateChartConfigRequest) SetApiKey(v string) *OperateChartConfigRequest {
+	s.ApiKey = &v
+	return s
+}
+
+func (s *OperateChartConfigRequest) SetCorpId(v string) *OperateChartConfigRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *OperateChartConfigRequest) SetParam(v map[string]interface{}) *OperateChartConfigRequest {
+	s.Param = v
+	return s
+}
+
+func (s *OperateChartConfigRequest) SetTicket(v string) *OperateChartConfigRequest {
+	s.Ticket = &v
+	return s
+}
+
+func (s *OperateChartConfigRequest) SetUserId(v string) *OperateChartConfigRequest {
+	s.UserId = &v
+	return s
+}
+
+type OperateChartConfigResponseBody struct {
+	Result  map[string]*string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool              `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s OperateChartConfigResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OperateChartConfigResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *OperateChartConfigResponseBody) SetResult(v map[string]*string) *OperateChartConfigResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *OperateChartConfigResponseBody) SetSuccess(v bool) *OperateChartConfigResponseBody {
+	s.Success = &v
+	return s
+}
+
+type OperateChartConfigResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *OperateChartConfigResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s OperateChartConfigResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OperateChartConfigResponse) GoString() string {
+	return s.String()
+}
+
+func (s *OperateChartConfigResponse) SetHeaders(v map[string]*string) *OperateChartConfigResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *OperateChartConfigResponse) SetStatusCode(v int32) *OperateChartConfigResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *OperateChartConfigResponse) SetBody(v *OperateChartConfigResponseBody) *OperateChartConfigResponse {
 	s.Body = v
 	return s
 }
@@ -2394,6 +3614,7 @@ func (s *QueryActiveUserStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type QueryActiveUserStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -2434,11 +3655,16 @@ func (s *QueryActiveUserStatisticalDataResponseBody) SetMetaList(v []*QueryActiv
 }
 
 type QueryActiveUserStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryActiveUserStatisticalDataResponseBodyMetaList) String() string {
@@ -2527,9 +3753,10 @@ func (s *QueryAnhmdStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type QueryAnhmdStatisticalDataRequest struct {
-	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	StatDate   *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
 func (s QueryAnhmdStatisticalDataRequest) String() string {
@@ -2579,11 +3806,16 @@ func (s *QueryAnhmdStatisticalDataResponseBody) SetMetaList(v []*QueryAnhmdStati
 }
 
 type QueryAnhmdStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryAnhmdStatisticalDataResponseBodyMetaList) String() string {
@@ -2672,6 +3904,7 @@ func (s *QueryApprovalStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type QueryApprovalStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -2712,11 +3945,16 @@ func (s *QueryApprovalStatisticalDataResponseBody) SetMetaList(v []*QueryApprova
 }
 
 type QueryApprovalStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryApprovalStatisticalDataResponseBodyMetaList) String() string {
@@ -2805,6 +4043,7 @@ func (s *QueryAttendanceStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type QueryAttendanceStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -2845,11 +4084,16 @@ func (s *QueryAttendanceStatisticalDataResponseBody) SetMetaList(v []*QueryAtten
 }
 
 type QueryAttendanceStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryAttendanceStatisticalDataResponseBodyMetaList) String() string {
@@ -2938,6 +4182,7 @@ func (s *QueryBlackboardStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type QueryBlackboardStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -2978,11 +4223,16 @@ func (s *QueryBlackboardStatisticalDataResponseBody) SetMetaList(v []*QueryBlack
 }
 
 type QueryBlackboardStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryBlackboardStatisticalDataResponseBodyMetaList) String() string {
@@ -3071,6 +4321,7 @@ func (s *QueryCalendarStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type QueryCalendarStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -3111,11 +4362,16 @@ func (s *QueryCalendarStatisticalDataResponseBody) SetMetaList(v []*QueryCalenda
 }
 
 type QueryCalendarStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryCalendarStatisticalDataResponseBodyMetaList) String() string {
@@ -3180,6 +4436,114 @@ func (s *QueryCalendarStatisticalDataResponse) SetBody(v *QueryCalendarStatistic
 	return s
 }
 
+type QueryChartDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryChartDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryChartDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryChartDataHeaders) SetCommonHeaders(v map[string]*string) *QueryChartDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryChartDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryChartDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryChartDataRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ABC
+	Ticket *string `json:"ticket,omitempty" xml:"ticket,omitempty"`
+}
+
+func (s QueryChartDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryChartDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryChartDataRequest) SetCode(v string) *QueryChartDataRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *QueryChartDataRequest) SetTicket(v string) *QueryChartDataRequest {
+	s.Ticket = &v
+	return s
+}
+
+type QueryChartDataResponseBody struct {
+	Result  []interface{} `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success *string       `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryChartDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryChartDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryChartDataResponseBody) SetResult(v []interface{}) *QueryChartDataResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryChartDataResponseBody) SetSuccess(v string) *QueryChartDataResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryChartDataResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryChartDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryChartDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryChartDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryChartDataResponse) SetHeaders(v map[string]*string) *QueryChartDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryChartDataResponse) SetStatusCode(v int32) *QueryChartDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryChartDataResponse) SetBody(v *QueryChartDataResponseBody) *QueryChartDataResponse {
+	s.Body = v
+	return s
+}
+
 type QueryCheckinStatisticalDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3204,6 +4568,7 @@ func (s *QueryCheckinStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type QueryCheckinStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -3244,11 +4609,16 @@ func (s *QueryCheckinStatisticalDataResponseBody) SetMetaList(v []*QueryCheckinS
 }
 
 type QueryCheckinStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryCheckinStatisticalDataResponseBodyMetaList) String() string {
@@ -3337,6 +4707,7 @@ func (s *QueryCircleStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type QueryCircleStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -3377,11 +4748,16 @@ func (s *QueryCircleStatisticalDataResponseBody) SetMetaList(v []*QueryCircleSta
 }
 
 type QueryCircleStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryCircleStatisticalDataResponseBodyMetaList) String() string {
@@ -3470,9 +4846,12 @@ func (s *QueryCompanyBasicInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 }
 
 type QueryCompanyBasicInfoRequest struct {
-	Keyword    *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
-	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// This parameter is required.
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryCompanyBasicInfoRequest) String() string {
@@ -3592,7 +4971,9 @@ func (s *QueryDigitalDistrictOrgInfoHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type QueryDigitalDistrictOrgInfoRequest struct {
-	CorpIds   []*string `json:"corpIds,omitempty" xml:"corpIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpIds []*string `json:"corpIds,omitempty" xml:"corpIds,omitempty" type:"Repeated"`
+	// This parameter is required.
 	StatDates []*string `json:"statDates,omitempty" xml:"statDates,omitempty" type:"Repeated"`
 }
 
@@ -3690,6 +5071,7 @@ func (s *QueryDingReciveStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type QueryDingReciveStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -3730,11 +5112,16 @@ func (s *QueryDingReciveStatisticalDataResponseBody) SetMetaList(v []*QueryDingR
 }
 
 type QueryDingReciveStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryDingReciveStatisticalDataResponseBodyMetaList) String() string {
@@ -3823,6 +5210,7 @@ func (s *QueryDingSendStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type QueryDingSendStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -3863,11 +5251,16 @@ func (s *QueryDingSendStatisticalDataResponseBody) SetMetaList(v []*QueryDingSen
 }
 
 type QueryDingSendStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryDingSendStatisticalDataResponseBodyMetaList) String() string {
@@ -3956,6 +5349,7 @@ func (s *QueryDocumentStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type QueryDocumentStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -3996,11 +5390,16 @@ func (s *QueryDocumentStatisticalDataResponseBody) SetMetaList(v []*QueryDocumen
 }
 
 type QueryDocumentStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryDocumentStatisticalDataResponseBodyMetaList) String() string {
@@ -4065,6 +5464,111 @@ func (s *QueryDocumentStatisticalDataResponse) SetBody(v *QueryDocumentStatistic
 	return s
 }
 
+type QueryDpaasDataPackageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryDpaasDataPackageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDpaasDataPackageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDpaasDataPackageHeaders) SetCommonHeaders(v map[string]*string) *QueryDpaasDataPackageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryDpaasDataPackageHeaders) SetXAcsDingtalkAccessToken(v string) *QueryDpaasDataPackageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryDpaasDataPackageResponseBody struct {
+	Buy           *bool   `json:"buy,omitempty" xml:"buy,omitempty"`
+	EndDate       *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	Quota         *int64  `json:"quota,omitempty" xml:"quota,omitempty"`
+	StartDate     *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	Success       *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	UsedNum       *int64  `json:"usedNum,omitempty" xml:"usedNum,omitempty"`
+	WhiteCustomer *bool   `json:"whiteCustomer,omitempty" xml:"whiteCustomer,omitempty"`
+}
+
+func (s QueryDpaasDataPackageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDpaasDataPackageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDpaasDataPackageResponseBody) SetBuy(v bool) *QueryDpaasDataPackageResponseBody {
+	s.Buy = &v
+	return s
+}
+
+func (s *QueryDpaasDataPackageResponseBody) SetEndDate(v string) *QueryDpaasDataPackageResponseBody {
+	s.EndDate = &v
+	return s
+}
+
+func (s *QueryDpaasDataPackageResponseBody) SetQuota(v int64) *QueryDpaasDataPackageResponseBody {
+	s.Quota = &v
+	return s
+}
+
+func (s *QueryDpaasDataPackageResponseBody) SetStartDate(v string) *QueryDpaasDataPackageResponseBody {
+	s.StartDate = &v
+	return s
+}
+
+func (s *QueryDpaasDataPackageResponseBody) SetSuccess(v bool) *QueryDpaasDataPackageResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *QueryDpaasDataPackageResponseBody) SetUsedNum(v int64) *QueryDpaasDataPackageResponseBody {
+	s.UsedNum = &v
+	return s
+}
+
+func (s *QueryDpaasDataPackageResponseBody) SetWhiteCustomer(v bool) *QueryDpaasDataPackageResponseBody {
+	s.WhiteCustomer = &v
+	return s
+}
+
+type QueryDpaasDataPackageResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryDpaasDataPackageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryDpaasDataPackageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDpaasDataPackageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDpaasDataPackageResponse) SetHeaders(v map[string]*string) *QueryDpaasDataPackageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryDpaasDataPackageResponse) SetStatusCode(v int32) *QueryDpaasDataPackageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryDpaasDataPackageResponse) SetBody(v *QueryDpaasDataPackageResponseBody) *QueryDpaasDataPackageResponse {
+	s.Body = v
+	return s
+}
+
 type QueryDriveStatisticalDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4089,6 +5593,7 @@ func (s *QueryDriveStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type QueryDriveStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -4129,11 +5634,16 @@ func (s *QueryDriveStatisticalDataResponseBody) SetMetaList(v []*QueryDriveStati
 }
 
 type QueryDriveStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryDriveStatisticalDataResponseBodyMetaList) String() string {
@@ -4222,6 +5732,7 @@ func (s *QueryEmployeeTypeStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v s
 }
 
 type QueryEmployeeTypeStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -4262,11 +5773,16 @@ func (s *QueryEmployeeTypeStatisticalDataResponseBody) SetMetaList(v []*QueryEmp
 }
 
 type QueryEmployeeTypeStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryEmployeeTypeStatisticalDataResponseBodyMetaList) String() string {
@@ -4355,13 +5871,43 @@ func (s *QueryGeneralDataServiceHeaders) SetXAcsDingtalkAccessToken(v string) *Q
 }
 
 type QueryGeneralDataServiceRequest struct {
-	DeptId     *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	EndDate    *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	ServiceId  *string `json:"serviceId,omitempty" xml:"serviceId,omitempty"`
-	StartDate  *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 123
+	DeptId *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220803
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize    *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	ReturnTotal *bool  `json:"returnTotal,omitempty" xml:"returnTotal,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// API-7fa754fd-f53e-46ee-9b77-898aa6eb590c
+	ServiceId *string `json:"serviceId,omitempty" xml:"serviceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220801
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0234412313
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryGeneralDataServiceRequest) String() string {
@@ -4392,6 +5938,11 @@ func (s *QueryGeneralDataServiceRequest) SetPageSize(v int64) *QueryGeneralDataS
 	return s
 }
 
+func (s *QueryGeneralDataServiceRequest) SetReturnTotal(v bool) *QueryGeneralDataServiceRequest {
+	s.ReturnTotal = &v
+	return s
+}
+
 func (s *QueryGeneralDataServiceRequest) SetServiceId(v string) *QueryGeneralDataServiceRequest {
 	s.ServiceId = &v
 	return s
@@ -4410,6 +5961,7 @@ func (s *QueryGeneralDataServiceRequest) SetUserId(v string) *QueryGeneralDataSe
 type QueryGeneralDataServiceResponseBody struct {
 	DataList []map[string]interface{}                       `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
 	MetaList []*QueryGeneralDataServiceResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+	Total    *string                                        `json:"total,omitempty" xml:"total,omitempty"`
 }
 
 func (s QueryGeneralDataServiceResponseBody) String() string {
@@ -4430,10 +5982,19 @@ func (s *QueryGeneralDataServiceResponseBody) SetMetaList(v []*QueryGeneralDataS
 	return s
 }
 
+func (s *QueryGeneralDataServiceResponseBody) SetTotal(v string) *QueryGeneralDataServiceResponseBody {
+	s.Total = &v
+	return s
+}
+
 type QueryGeneralDataServiceResponseBodyMetaList struct {
+	// This parameter is required.
 	FieldDesc *string `json:"fieldDesc,omitempty" xml:"fieldDesc,omitempty"`
-	FieldId   *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
 	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// This parameter is required.
 	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
 }
 
@@ -4494,6 +6055,324 @@ func (s *QueryGeneralDataServiceResponse) SetBody(v *QueryGeneralDataServiceResp
 	return s
 }
 
+type QueryGeneralDataServiceBatchHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryGeneralDataServiceBatchHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGeneralDataServiceBatchHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGeneralDataServiceBatchHeaders) SetCommonHeaders(v map[string]*string) *QueryGeneralDataServiceBatchHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGeneralDataServiceBatchHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryGeneralDataServiceBatchRequest struct {
+	DeptIds []*string `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	EndDate *string                                       `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	Filters []*QueryGeneralDataServiceBatchRequestFilters `json:"filters,omitempty" xml:"filters,omitempty" type:"Repeated"`
+	// This parameter is required.
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	PageSize    *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	ReturnTotal *bool  `json:"returnTotal,omitempty" xml:"returnTotal,omitempty"`
+	// This parameter is required.
+	ServiceId *string `json:"serviceId,omitempty" xml:"serviceId,omitempty"`
+	// This parameter is required.
+	StartDate *string   `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	UserId    *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserIds   []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s QueryGeneralDataServiceBatchRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGeneralDataServiceBatchRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGeneralDataServiceBatchRequest) SetDeptIds(v []*string) *QueryGeneralDataServiceBatchRequest {
+	s.DeptIds = v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchRequest) SetEndDate(v string) *QueryGeneralDataServiceBatchRequest {
+	s.EndDate = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchRequest) SetFilters(v []*QueryGeneralDataServiceBatchRequestFilters) *QueryGeneralDataServiceBatchRequest {
+	s.Filters = v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchRequest) SetPageNumber(v int64) *QueryGeneralDataServiceBatchRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchRequest) SetPageSize(v int64) *QueryGeneralDataServiceBatchRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchRequest) SetReturnTotal(v bool) *QueryGeneralDataServiceBatchRequest {
+	s.ReturnTotal = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchRequest) SetServiceId(v string) *QueryGeneralDataServiceBatchRequest {
+	s.ServiceId = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchRequest) SetStartDate(v string) *QueryGeneralDataServiceBatchRequest {
+	s.StartDate = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchRequest) SetUserId(v string) *QueryGeneralDataServiceBatchRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchRequest) SetUserIds(v []*string) *QueryGeneralDataServiceBatchRequest {
+	s.UserIds = v
+	return s
+}
+
+type QueryGeneralDataServiceBatchRequestFilters struct {
+	FieldId  *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	Value    *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s QueryGeneralDataServiceBatchRequestFilters) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGeneralDataServiceBatchRequestFilters) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGeneralDataServiceBatchRequestFilters) SetFieldId(v string) *QueryGeneralDataServiceBatchRequestFilters {
+	s.FieldId = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchRequestFilters) SetOperator(v string) *QueryGeneralDataServiceBatchRequestFilters {
+	s.Operator = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchRequestFilters) SetValue(v string) *QueryGeneralDataServiceBatchRequestFilters {
+	s.Value = &v
+	return s
+}
+
+type QueryGeneralDataServiceBatchResponseBody struct {
+	DataList []map[string]interface{}                            `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	MetaList []*QueryGeneralDataServiceBatchResponseBodyMetaList `json:"metaList,omitempty" xml:"metaList,omitempty" type:"Repeated"`
+	Total    *int64                                              `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s QueryGeneralDataServiceBatchResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGeneralDataServiceBatchResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGeneralDataServiceBatchResponseBody) SetDataList(v []map[string]interface{}) *QueryGeneralDataServiceBatchResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchResponseBody) SetMetaList(v []*QueryGeneralDataServiceBatchResponseBodyMetaList) *QueryGeneralDataServiceBatchResponseBody {
+	s.MetaList = v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchResponseBody) SetTotal(v int64) *QueryGeneralDataServiceBatchResponseBody {
+	s.Total = &v
+	return s
+}
+
+type QueryGeneralDataServiceBatchResponseBodyMetaList struct {
+	// This parameter is required.
+	FieldDesc *string `json:"fieldDesc,omitempty" xml:"fieldDesc,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// This parameter is required.
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+}
+
+func (s QueryGeneralDataServiceBatchResponseBodyMetaList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGeneralDataServiceBatchResponseBodyMetaList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGeneralDataServiceBatchResponseBodyMetaList) SetFieldDesc(v string) *QueryGeneralDataServiceBatchResponseBodyMetaList {
+	s.FieldDesc = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchResponseBodyMetaList) SetFieldId(v string) *QueryGeneralDataServiceBatchResponseBodyMetaList {
+	s.FieldId = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchResponseBodyMetaList) SetFieldName(v string) *QueryGeneralDataServiceBatchResponseBodyMetaList {
+	s.FieldName = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchResponseBodyMetaList) SetFieldType(v string) *QueryGeneralDataServiceBatchResponseBodyMetaList {
+	s.FieldType = &v
+	return s
+}
+
+type QueryGeneralDataServiceBatchResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryGeneralDataServiceBatchResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryGeneralDataServiceBatchResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGeneralDataServiceBatchResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGeneralDataServiceBatchResponse) SetHeaders(v map[string]*string) *QueryGeneralDataServiceBatchResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchResponse) SetStatusCode(v int32) *QueryGeneralDataServiceBatchResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryGeneralDataServiceBatchResponse) SetBody(v *QueryGeneralDataServiceBatchResponseBody) *QueryGeneralDataServiceBatchResponse {
+	s.Body = v
+	return s
+}
+
+type QueryGeneralDataUpdateDateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryGeneralDataUpdateDateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGeneralDataUpdateDateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGeneralDataUpdateDateHeaders) SetCommonHeaders(v map[string]*string) *QueryGeneralDataUpdateDateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryGeneralDataUpdateDateHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGeneralDataUpdateDateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryGeneralDataUpdateDateRequest struct {
+	// This parameter is required.
+	ServiceId *string `json:"serviceId,omitempty" xml:"serviceId,omitempty"`
+}
+
+func (s QueryGeneralDataUpdateDateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGeneralDataUpdateDateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGeneralDataUpdateDateRequest) SetServiceId(v string) *QueryGeneralDataUpdateDateRequest {
+	s.ServiceId = &v
+	return s
+}
+
+type QueryGeneralDataUpdateDateResponseBody struct {
+	Success    *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	UpdateDate *string `json:"updateDate,omitempty" xml:"updateDate,omitempty"`
+}
+
+func (s QueryGeneralDataUpdateDateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGeneralDataUpdateDateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGeneralDataUpdateDateResponseBody) SetSuccess(v bool) *QueryGeneralDataUpdateDateResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *QueryGeneralDataUpdateDateResponseBody) SetUpdateDate(v string) *QueryGeneralDataUpdateDateResponseBody {
+	s.UpdateDate = &v
+	return s
+}
+
+type QueryGeneralDataUpdateDateResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryGeneralDataUpdateDateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryGeneralDataUpdateDateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryGeneralDataUpdateDateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryGeneralDataUpdateDateResponse) SetHeaders(v map[string]*string) *QueryGeneralDataUpdateDateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryGeneralDataUpdateDateResponse) SetStatusCode(v int32) *QueryGeneralDataUpdateDateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryGeneralDataUpdateDateResponse) SetBody(v *QueryGeneralDataUpdateDateResponseBody) *QueryGeneralDataUpdateDateResponse {
+	s.Body = v
+	return s
+}
+
 type QueryGroupLiveStatisticalDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4518,6 +6397,7 @@ func (s *QueryGroupLiveStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type QueryGroupLiveStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -4558,11 +6438,16 @@ func (s *QueryGroupLiveStatisticalDataResponseBody) SetMetaList(v []*QueryGroupL
 }
 
 type QueryGroupLiveStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryGroupLiveStatisticalDataResponseBodyMetaList) String() string {
@@ -4651,6 +6536,7 @@ func (s *QueryGroupMessageStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v s
 }
 
 type QueryGroupMessageStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -4691,11 +6577,16 @@ func (s *QueryGroupMessageStatisticalDataResponseBody) SetMetaList(v []*QueryGro
 }
 
 type QueryGroupMessageStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryGroupMessageStatisticalDataResponseBodyMetaList) String() string {
@@ -4784,6 +6675,7 @@ func (s *QueryHealthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type QueryHealthStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -4824,11 +6716,16 @@ func (s *QueryHealthStatisticalDataResponseBody) SetMetaList(v []*QueryHealthSta
 }
 
 type QueryHealthStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryHealthStatisticalDataResponseBodyMetaList) String() string {
@@ -4917,6 +6814,7 @@ func (s *QueryMailStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type QueryMailStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -4957,11 +6855,16 @@ func (s *QueryMailStatisticalDataResponseBody) SetMetaList(v []*QueryMailStatist
 }
 
 type QueryMailStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryMailStatisticalDataResponseBodyMetaList) String() string {
@@ -5148,7 +7051,13 @@ func (s *QueryOfficialDatasetFieldsHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type QueryOfficialDatasetFieldsRequest struct {
-	DsId   *string `json:"dsId,omitempty" xml:"dsId,omitempty"`
+	// example:
+	//
+	// ding3xxx__-PROC-42FF6625-9692-4003-B13C-307CAACEC354
+	DsId *string `json:"dsId,omitempty" xml:"dsId,omitempty"`
+	// example:
+	//
+	// 12345
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -5304,9 +7213,15 @@ func (s *QueryOfficialDatasetListHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type QueryOfficialDatasetListRequest struct {
-	Keyword    *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryOfficialDatasetListRequest) String() string {
@@ -5528,6 +7443,104 @@ func (s *QueryOfficialFormDataResponse) SetBody(v *QueryOfficialFormDataResponse
 	return s
 }
 
+type QueryOfficialFormDataDirectHoloHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryOfficialFormDataDirectHoloHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialFormDataDirectHoloHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialFormDataDirectHoloHeaders) SetCommonHeaders(v map[string]*string) *QueryOfficialFormDataDirectHoloHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryOfficialFormDataDirectHoloHeaders) SetXAcsDingtalkAccessToken(v string) *QueryOfficialFormDataDirectHoloHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryOfficialFormDataDirectHoloRequest struct {
+	Param  *string `json:"param,omitempty" xml:"param,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryOfficialFormDataDirectHoloRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialFormDataDirectHoloRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialFormDataDirectHoloRequest) SetParam(v string) *QueryOfficialFormDataDirectHoloRequest {
+	s.Param = &v
+	return s
+}
+
+func (s *QueryOfficialFormDataDirectHoloRequest) SetUserId(v string) *QueryOfficialFormDataDirectHoloRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryOfficialFormDataDirectHoloResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryOfficialFormDataDirectHoloResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialFormDataDirectHoloResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialFormDataDirectHoloResponseBody) SetResult(v string) *QueryOfficialFormDataDirectHoloResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *QueryOfficialFormDataDirectHoloResponseBody) SetSuccess(v bool) *QueryOfficialFormDataDirectHoloResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryOfficialFormDataDirectHoloResponse struct {
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryOfficialFormDataDirectHoloResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryOfficialFormDataDirectHoloResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOfficialFormDataDirectHoloResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOfficialFormDataDirectHoloResponse) SetHeaders(v map[string]*string) *QueryOfficialFormDataDirectHoloResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryOfficialFormDataDirectHoloResponse) SetStatusCode(v int32) *QueryOfficialFormDataDirectHoloResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryOfficialFormDataDirectHoloResponse) SetBody(v *QueryOfficialFormDataDirectHoloResponseBody) *QueryOfficialFormDataDirectHoloResponse {
+	s.Body = v
+	return s
+}
+
 type QueryOnlineUserStatisticalDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5552,6 +7565,7 @@ func (s *QueryOnlineUserStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type QueryOnlineUserStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -5592,11 +7606,16 @@ func (s *QueryOnlineUserStatisticalDataResponseBody) SetMetaList(v []*QueryOnlin
 }
 
 type QueryOnlineUserStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryOnlineUserStatisticalDataResponseBodyMetaList) String() string {
@@ -5685,6 +7704,7 @@ func (s *QueryRedEnvelopeReciveStatisticalDataHeaders) SetXAcsDingtalkAccessToke
 }
 
 type QueryRedEnvelopeReciveStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -5725,11 +7745,16 @@ func (s *QueryRedEnvelopeReciveStatisticalDataResponseBody) SetMetaList(v []*Que
 }
 
 type QueryRedEnvelopeReciveStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryRedEnvelopeReciveStatisticalDataResponseBodyMetaList) String() string {
@@ -5818,6 +7843,7 @@ func (s *QueryRedEnvelopeSendStatisticalDataHeaders) SetXAcsDingtalkAccessToken(
 }
 
 type QueryRedEnvelopeSendStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -5858,11 +7884,16 @@ func (s *QueryRedEnvelopeSendStatisticalDataResponseBody) SetMetaList(v []*Query
 }
 
 type QueryRedEnvelopeSendStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryRedEnvelopeSendStatisticalDataResponseBodyMetaList) String() string {
@@ -5951,6 +7982,7 @@ func (s *QueryReportStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type QueryReportStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -5991,11 +8023,16 @@ func (s *QueryReportStatisticalDataResponseBody) SetMetaList(v []*QueryReportSta
 }
 
 type QueryReportStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryReportStatisticalDataResponseBodyMetaList) String() string {
@@ -6060,6 +8097,278 @@ func (s *QueryReportStatisticalDataResponse) SetBody(v *QueryReportStatisticalDa
 	return s
 }
 
+type QueryScreenHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryScreenHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScreenHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScreenHeaders) SetCommonHeaders(v map[string]*string) *QueryScreenHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryScreenHeaders) SetXAcsDingtalkAccessToken(v string) *QueryScreenHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryScreenRequest struct {
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s QueryScreenRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScreenRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScreenRequest) SetOperatorId(v string) *QueryScreenRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type QueryScreenResponseBody struct {
+	Result  []*QueryScreenResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success *bool                            `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryScreenResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScreenResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScreenResponseBody) SetResult(v []*QueryScreenResponseBodyResult) *QueryScreenResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryScreenResponseBody) SetSuccess(v bool) *QueryScreenResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryScreenResponseBodyResult struct {
+	OperatePermission *string `json:"operatePermission,omitempty" xml:"operatePermission,omitempty"`
+	ScreenId          *int64  `json:"screenId,omitempty" xml:"screenId,omitempty"`
+	ScreenName        *string `json:"screenName,omitempty" xml:"screenName,omitempty"`
+	State             *string `json:"state,omitempty" xml:"state,omitempty"`
+	ThumbUrl          *string `json:"thumbUrl,omitempty" xml:"thumbUrl,omitempty"`
+}
+
+func (s QueryScreenResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScreenResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScreenResponseBodyResult) SetOperatePermission(v string) *QueryScreenResponseBodyResult {
+	s.OperatePermission = &v
+	return s
+}
+
+func (s *QueryScreenResponseBodyResult) SetScreenId(v int64) *QueryScreenResponseBodyResult {
+	s.ScreenId = &v
+	return s
+}
+
+func (s *QueryScreenResponseBodyResult) SetScreenName(v string) *QueryScreenResponseBodyResult {
+	s.ScreenName = &v
+	return s
+}
+
+func (s *QueryScreenResponseBodyResult) SetState(v string) *QueryScreenResponseBodyResult {
+	s.State = &v
+	return s
+}
+
+func (s *QueryScreenResponseBodyResult) SetThumbUrl(v string) *QueryScreenResponseBodyResult {
+	s.ThumbUrl = &v
+	return s
+}
+
+type QueryScreenResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryScreenResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryScreenResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScreenResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScreenResponse) SetHeaders(v map[string]*string) *QueryScreenResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryScreenResponse) SetStatusCode(v int32) *QueryScreenResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryScreenResponse) SetBody(v *QueryScreenResponseBody) *QueryScreenResponse {
+	s.Body = v
+	return s
+}
+
+type QueryScreenTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryScreenTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScreenTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScreenTemplateHeaders) SetCommonHeaders(v map[string]*string) *QueryScreenTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryScreenTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *QueryScreenTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryScreenTemplateRequest struct {
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	Sample     *bool   `json:"sample,omitempty" xml:"sample,omitempty"`
+}
+
+func (s QueryScreenTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScreenTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScreenTemplateRequest) SetOperatorId(v string) *QueryScreenTemplateRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *QueryScreenTemplateRequest) SetSample(v bool) *QueryScreenTemplateRequest {
+	s.Sample = &v
+	return s
+}
+
+type QueryScreenTemplateResponseBody struct {
+	Result  []*QueryScreenTemplateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success *bool                                    `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryScreenTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScreenTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScreenTemplateResponseBody) SetResult(v []*QueryScreenTemplateResponseBodyResult) *QueryScreenTemplateResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryScreenTemplateResponseBody) SetSuccess(v bool) *QueryScreenTemplateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryScreenTemplateResponseBodyResult struct {
+	PreviewUrl   *string `json:"previewUrl,omitempty" xml:"previewUrl,omitempty"`
+	ScreenSize   *string `json:"screenSize,omitempty" xml:"screenSize,omitempty"`
+	TemplateId   *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	TemplateName *string `json:"templateName,omitempty" xml:"templateName,omitempty"`
+	ThumbUrl     *string `json:"thumbUrl,omitempty" xml:"thumbUrl,omitempty"`
+}
+
+func (s QueryScreenTemplateResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScreenTemplateResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScreenTemplateResponseBodyResult) SetPreviewUrl(v string) *QueryScreenTemplateResponseBodyResult {
+	s.PreviewUrl = &v
+	return s
+}
+
+func (s *QueryScreenTemplateResponseBodyResult) SetScreenSize(v string) *QueryScreenTemplateResponseBodyResult {
+	s.ScreenSize = &v
+	return s
+}
+
+func (s *QueryScreenTemplateResponseBodyResult) SetTemplateId(v string) *QueryScreenTemplateResponseBodyResult {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *QueryScreenTemplateResponseBodyResult) SetTemplateName(v string) *QueryScreenTemplateResponseBodyResult {
+	s.TemplateName = &v
+	return s
+}
+
+func (s *QueryScreenTemplateResponseBodyResult) SetThumbUrl(v string) *QueryScreenTemplateResponseBodyResult {
+	s.ThumbUrl = &v
+	return s
+}
+
+type QueryScreenTemplateResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryScreenTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryScreenTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryScreenTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryScreenTemplateResponse) SetHeaders(v map[string]*string) *QueryScreenTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryScreenTemplateResponse) SetStatusCode(v int32) *QueryScreenTemplateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryScreenTemplateResponse) SetBody(v *QueryScreenTemplateResponseBody) *QueryScreenTemplateResponse {
+	s.Body = v
+	return s
+}
+
 type QuerySingleMessageStatisticalDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6084,6 +8393,7 @@ func (s *QuerySingleMessageStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v 
 }
 
 type QuerySingleMessageStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -6124,11 +8434,16 @@ func (s *QuerySingleMessageStatisticalDataResponseBody) SetMetaList(v []*QuerySi
 }
 
 type QuerySingleMessageStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QuerySingleMessageStatisticalDataResponseBodyMetaList) String() string {
@@ -6217,6 +8532,7 @@ func (s *QueryTelMeetingStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type QueryTelMeetingStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -6257,11 +8573,16 @@ func (s *QueryTelMeetingStatisticalDataResponseBody) SetMetaList(v []*QueryTelMe
 }
 
 type QueryTelMeetingStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryTelMeetingStatisticalDataResponseBodyMetaList) String() string {
@@ -6350,6 +8671,7 @@ func (s *QueryTodoStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type QueryTodoStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -6390,11 +8712,16 @@ func (s *QueryTodoStatisticalDataResponseBody) SetMetaList(v []*QueryTodoStatist
 }
 
 type QueryTodoStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryTodoStatisticalDataResponseBodyMetaList) String() string {
@@ -6459,6 +8786,152 @@ func (s *QueryTodoStatisticalDataResponse) SetBody(v *QueryTodoStatisticalDataRe
 	return s
 }
 
+type QueryTotalDataCountServiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryTotalDataCountServiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTotalDataCountServiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTotalDataCountServiceHeaders) SetCommonHeaders(v map[string]*string) *QueryTotalDataCountServiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryTotalDataCountServiceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryTotalDataCountServiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryTotalDataCountServiceRequest struct {
+	DeptIds []*string `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 20240611
+	EndDate    *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// API-xxxx
+	ServiceId *string `json:"serviceId,omitempty" xml:"serviceId,omitempty"`
+	// example:
+	//
+	// 20240611
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// example:
+	//
+	// 222
+	UserId  *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s QueryTotalDataCountServiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTotalDataCountServiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTotalDataCountServiceRequest) SetDeptIds(v []*string) *QueryTotalDataCountServiceRequest {
+	s.DeptIds = v
+	return s
+}
+
+func (s *QueryTotalDataCountServiceRequest) SetEndDate(v string) *QueryTotalDataCountServiceRequest {
+	s.EndDate = &v
+	return s
+}
+
+func (s *QueryTotalDataCountServiceRequest) SetPageNumber(v int64) *QueryTotalDataCountServiceRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryTotalDataCountServiceRequest) SetPageSize(v int64) *QueryTotalDataCountServiceRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryTotalDataCountServiceRequest) SetServiceId(v string) *QueryTotalDataCountServiceRequest {
+	s.ServiceId = &v
+	return s
+}
+
+func (s *QueryTotalDataCountServiceRequest) SetStartDate(v string) *QueryTotalDataCountServiceRequest {
+	s.StartDate = &v
+	return s
+}
+
+func (s *QueryTotalDataCountServiceRequest) SetUserId(v string) *QueryTotalDataCountServiceRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *QueryTotalDataCountServiceRequest) SetUserIds(v []*string) *QueryTotalDataCountServiceRequest {
+	s.UserIds = v
+	return s
+}
+
+type QueryTotalDataCountServiceResponseBody struct {
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+	Total   *int64  `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s QueryTotalDataCountServiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTotalDataCountServiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTotalDataCountServiceResponseBody) SetSuccess(v string) *QueryTotalDataCountServiceResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *QueryTotalDataCountServiceResponseBody) SetTotal(v int64) *QueryTotalDataCountServiceResponseBody {
+	s.Total = &v
+	return s
+}
+
+type QueryTotalDataCountServiceResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryTotalDataCountServiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryTotalDataCountServiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTotalDataCountServiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTotalDataCountServiceResponse) SetHeaders(v map[string]*string) *QueryTotalDataCountServiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryTotalDataCountServiceResponse) SetStatusCode(v int32) *QueryTotalDataCountServiceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryTotalDataCountServiceResponse) SetBody(v *QueryTotalDataCountServiceResponseBody) *QueryTotalDataCountServiceResponse {
+	s.Body = v
+	return s
+}
+
 type QueryVedioMeetingStatisticalDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6483,6 +8956,7 @@ func (s *QueryVedioMeetingStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v s
 }
 
 type QueryVedioMeetingStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -6523,11 +8997,16 @@ func (s *QueryVedioMeetingStatisticalDataResponseBody) SetMetaList(v []*QueryVed
 }
 
 type QueryVedioMeetingStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryVedioMeetingStatisticalDataResponseBodyMetaList) String() string {
@@ -6616,6 +9095,7 @@ func (s *QueryYydActiveDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v s
 }
 
 type QueryYydActiveDayStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -6656,11 +9136,16 @@ func (s *QueryYydActiveDayStatisticalDataResponseBody) SetMetaList(v []*QueryYyd
 }
 
 type QueryYydActiveDayStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydActiveDayStatisticalDataResponseBodyMetaList) String() string {
@@ -6749,6 +9234,7 @@ func (s *QueryYydActiveMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v
 }
 
 type QueryYydActiveMonthStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -6789,11 +9275,16 @@ func (s *QueryYydActiveMonthStatisticalDataResponseBody) SetMetaList(v []*QueryY
 }
 
 type QueryYydActiveMonthStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydActiveMonthStatisticalDataResponseBodyMetaList) String() string {
@@ -6882,6 +9373,7 @@ func (s *QueryYydActiveWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v 
 }
 
 type QueryYydActiveWeekStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -6922,11 +9414,16 @@ func (s *QueryYydActiveWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYy
 }
 
 type QueryYydActiveWeekStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydActiveWeekStatisticalDataResponseBodyMetaList) String() string {
@@ -7015,6 +9512,7 @@ func (s *QueryYydAppDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type QueryYydAppDayStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -7055,11 +9553,16 @@ func (s *QueryYydAppDayStatisticalDataResponseBody) SetMetaList(v []*QueryYydApp
 }
 
 type QueryYydAppDayStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydAppDayStatisticalDataResponseBodyMetaList) String() string {
@@ -7148,6 +9651,7 @@ func (s *QueryYydAppMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type QueryYydAppMonthStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -7188,11 +9692,16 @@ func (s *QueryYydAppMonthStatisticalDataResponseBody) SetMetaList(v []*QueryYydA
 }
 
 type QueryYydAppMonthStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydAppMonthStatisticalDataResponseBodyMetaList) String() string {
@@ -7281,6 +9790,7 @@ func (s *QueryYydAppStdStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type QueryYydAppStdStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -7321,11 +9831,16 @@ func (s *QueryYydAppStdStatisticalDataResponseBody) SetMetaList(v []*QueryYydApp
 }
 
 type QueryYydAppStdStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydAppStdStatisticalDataResponseBodyMetaList) String() string {
@@ -7414,6 +9929,7 @@ func (s *QueryYydAppWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type QueryYydAppWeekStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -7454,11 +9970,16 @@ func (s *QueryYydAppWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYydAp
 }
 
 type QueryYydAppWeekStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydAppWeekStatisticalDataResponseBodyMetaList) String() string {
@@ -7547,6 +10068,7 @@ func (s *QueryYydCalendarDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v
 }
 
 type QueryYydCalendarDayStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -7587,11 +10109,16 @@ func (s *QueryYydCalendarDayStatisticalDataResponseBody) SetMetaList(v []*QueryY
 }
 
 type QueryYydCalendarDayStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydCalendarDayStatisticalDataResponseBodyMetaList) String() string {
@@ -7680,6 +10207,7 @@ func (s *QueryYydCalendarMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken
 }
 
 type QueryYydCalendarMonthStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -7720,11 +10248,16 @@ func (s *QueryYydCalendarMonthStatisticalDataResponseBody) SetMetaList(v []*Quer
 }
 
 type QueryYydCalendarMonthStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydCalendarMonthStatisticalDataResponseBodyMetaList) String() string {
@@ -7813,6 +10346,7 @@ func (s *QueryYydCalendarWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(
 }
 
 type QueryYydCalendarWeekStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -7853,11 +10387,16 @@ func (s *QueryYydCalendarWeekStatisticalDataResponseBody) SetMetaList(v []*Query
 }
 
 type QueryYydCalendarWeekStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydCalendarWeekStatisticalDataResponseBodyMetaList) String() string {
@@ -7946,6 +10485,7 @@ func (s *QueryYydDingMsgDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v 
 }
 
 type QueryYydDingMsgDayStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -7986,11 +10526,16 @@ func (s *QueryYydDingMsgDayStatisticalDataResponseBody) SetMetaList(v []*QueryYy
 }
 
 type QueryYydDingMsgDayStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydDingMsgDayStatisticalDataResponseBodyMetaList) String() string {
@@ -8079,6 +10624,7 @@ func (s *QueryYydDingMsgMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(
 }
 
 type QueryYydDingMsgMonthStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -8119,11 +10665,16 @@ func (s *QueryYydDingMsgMonthStatisticalDataResponseBody) SetMetaList(v []*Query
 }
 
 type QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydDingMsgMonthStatisticalDataResponseBodyMetaList) String() string {
@@ -8212,6 +10763,7 @@ func (s *QueryYydDingMsgWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v
 }
 
 type QueryYydDingMsgWeekStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -8252,11 +10804,16 @@ func (s *QueryYydDingMsgWeekStatisticalDataResponseBody) SetMetaList(v []*QueryY
 }
 
 type QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydDingMsgWeekStatisticalDataResponseBodyMetaList) String() string {
@@ -8345,6 +10902,7 @@ func (s *QueryYydGroupMsgDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v
 }
 
 type QueryYydGroupMsgDayStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -8385,11 +10943,16 @@ func (s *QueryYydGroupMsgDayStatisticalDataResponseBody) SetMetaList(v []*QueryY
 }
 
 type QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydGroupMsgDayStatisticalDataResponseBodyMetaList) String() string {
@@ -8478,6 +11041,7 @@ func (s *QueryYydGroupMsgMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken
 }
 
 type QueryYydGroupMsgMonthStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -8518,11 +11082,16 @@ func (s *QueryYydGroupMsgMonthStatisticalDataResponseBody) SetMetaList(v []*Quer
 }
 
 type QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydGroupMsgMonthStatisticalDataResponseBodyMetaList) String() string {
@@ -8611,6 +11180,7 @@ func (s *QueryYydGroupMsgWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(
 }
 
 type QueryYydGroupMsgWeekStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -8651,11 +11221,16 @@ func (s *QueryYydGroupMsgWeekStatisticalDataResponseBody) SetMetaList(v []*Query
 }
 
 type QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydGroupMsgWeekStatisticalDataResponseBodyMetaList) String() string {
@@ -8744,6 +11319,7 @@ func (s *QueryYydLogDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type QueryYydLogDayStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -8784,11 +11360,16 @@ func (s *QueryYydLogDayStatisticalDataResponseBody) SetMetaList(v []*QueryYydLog
 }
 
 type QueryYydLogDayStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydLogDayStatisticalDataResponseBodyMetaList) String() string {
@@ -8877,6 +11458,7 @@ func (s *QueryYydLogMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type QueryYydLogMonthStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -8917,11 +11499,16 @@ func (s *QueryYydLogMonthStatisticalDataResponseBody) SetMetaList(v []*QueryYydL
 }
 
 type QueryYydLogMonthStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydLogMonthStatisticalDataResponseBodyMetaList) String() string {
@@ -9010,6 +11597,7 @@ func (s *QueryYydLogWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type QueryYydLogWeekStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -9050,11 +11638,16 @@ func (s *QueryYydLogWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYydLo
 }
 
 type QueryYydLogWeekStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydLogWeekStatisticalDataResponseBodyMetaList) String() string {
@@ -9143,6 +11736,7 @@ func (s *QueryYydMeetingDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v 
 }
 
 type QueryYydMeetingDayStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -9183,11 +11777,16 @@ func (s *QueryYydMeetingDayStatisticalDataResponseBody) SetMetaList(v []*QueryYy
 }
 
 type QueryYydMeetingDayStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydMeetingDayStatisticalDataResponseBodyMetaList) String() string {
@@ -9276,6 +11875,7 @@ func (s *QueryYydMeetingMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(
 }
 
 type QueryYydMeetingMonthStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -9316,11 +11916,16 @@ func (s *QueryYydMeetingMonthStatisticalDataResponseBody) SetMetaList(v []*Query
 }
 
 type QueryYydMeetingMonthStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydMeetingMonthStatisticalDataResponseBodyMetaList) String() string {
@@ -9409,6 +12014,7 @@ func (s *QueryYydMeetingWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v
 }
 
 type QueryYydMeetingWeekStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -9449,11 +12055,16 @@ func (s *QueryYydMeetingWeekStatisticalDataResponseBody) SetMetaList(v []*QueryY
 }
 
 type QueryYydMeetingWeekStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydMeetingWeekStatisticalDataResponseBodyMetaList) String() string {
@@ -9542,6 +12153,7 @@ func (s *QueryYydNoticeDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v s
 }
 
 type QueryYydNoticeDayStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -9582,11 +12194,16 @@ func (s *QueryYydNoticeDayStatisticalDataResponseBody) SetMetaList(v []*QueryYyd
 }
 
 type QueryYydNoticeDayStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydNoticeDayStatisticalDataResponseBodyMetaList) String() string {
@@ -9675,6 +12292,7 @@ func (s *QueryYydNoticeMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v
 }
 
 type QueryYydNoticeMonthStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -9715,11 +12333,16 @@ func (s *QueryYydNoticeMonthStatisticalDataResponseBody) SetMetaList(v []*QueryY
 }
 
 type QueryYydNoticeMonthStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydNoticeMonthStatisticalDataResponseBodyMetaList) String() string {
@@ -9808,6 +12431,7 @@ func (s *QueryYydNoticeWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v 
 }
 
 type QueryYydNoticeWeekStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -9848,11 +12472,16 @@ func (s *QueryYydNoticeWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYy
 }
 
 type QueryYydNoticeWeekStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydNoticeWeekStatisticalDataResponseBodyMetaList) String() string {
@@ -9941,6 +12570,7 @@ func (s *QueryYydSingleMsgDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(
 }
 
 type QueryYydSingleMsgDayStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -9981,11 +12611,16 @@ func (s *QueryYydSingleMsgDayStatisticalDataResponseBody) SetMetaList(v []*Query
 }
 
 type QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydSingleMsgDayStatisticalDataResponseBodyMetaList) String() string {
@@ -10074,6 +12709,7 @@ func (s *QueryYydSingleMsgMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToke
 }
 
 type QueryYydSingleMsgMonthStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -10114,11 +12750,16 @@ func (s *QueryYydSingleMsgMonthStatisticalDataResponseBody) SetMetaList(v []*Que
 }
 
 type QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydSingleMsgMonthStatisticalDataResponseBodyMetaList) String() string {
@@ -10207,6 +12848,7 @@ func (s *QueryYydSingleMsgWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken
 }
 
 type QueryYydSingleMsgWeekStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -10247,11 +12889,16 @@ func (s *QueryYydSingleMsgWeekStatisticalDataResponseBody) SetMetaList(v []*Quer
 }
 
 type QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydSingleMsgWeekStatisticalDataResponseBodyMetaList) String() string {
@@ -10340,6 +12987,7 @@ func (s *QueryYydToatlMsgDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v
 }
 
 type QueryYydToatlMsgDayStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -10380,11 +13028,16 @@ func (s *QueryYydToatlMsgDayStatisticalDataResponseBody) SetMetaList(v []*QueryY
 }
 
 type QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydToatlMsgDayStatisticalDataResponseBodyMetaList) String() string {
@@ -10473,6 +13126,7 @@ func (s *QueryYydToatlMsgMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken
 }
 
 type QueryYydToatlMsgMonthStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -10513,11 +13167,16 @@ func (s *QueryYydToatlMsgMonthStatisticalDataResponseBody) SetMetaList(v []*Quer
 }
 
 type QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydToatlMsgMonthStatisticalDataResponseBodyMetaList) String() string {
@@ -10606,6 +13265,7 @@ func (s *QueryYydToatlMsgWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(
 }
 
 type QueryYydToatlMsgWeekStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -10646,11 +13306,16 @@ func (s *QueryYydToatlMsgWeekStatisticalDataResponseBody) SetMetaList(v []*Query
 }
 
 type QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydToatlMsgWeekStatisticalDataResponseBodyMetaList) String() string {
@@ -10739,6 +13404,7 @@ func (s *QueryYydTodoDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type QueryYydTodoDayStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -10779,11 +13445,16 @@ func (s *QueryYydTodoDayStatisticalDataResponseBody) SetMetaList(v []*QueryYydTo
 }
 
 type QueryYydTodoDayStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydTodoDayStatisticalDataResponseBodyMetaList) String() string {
@@ -10872,6 +13543,7 @@ func (s *QueryYydTodoMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v s
 }
 
 type QueryYydTodoMonthStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -10912,11 +13584,16 @@ func (s *QueryYydTodoMonthStatisticalDataResponseBody) SetMetaList(v []*QueryYyd
 }
 
 type QueryYydTodoMonthStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydTodoMonthStatisticalDataResponseBodyMetaList) String() string {
@@ -11005,6 +13682,7 @@ func (s *QueryYydTodoWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type QueryYydTodoWeekStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -11045,11 +13723,16 @@ func (s *QueryYydTodoWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYydT
 }
 
 type QueryYydTodoWeekStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydTodoWeekStatisticalDataResponseBodyMetaList) String() string {
@@ -11138,6 +13821,7 @@ func (s *QueryYydTotalDayStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type QueryYydTotalDayStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -11178,11 +13862,16 @@ func (s *QueryYydTotalDayStatisticalDataResponseBody) SetMetaList(v []*QueryYydT
 }
 
 type QueryYydTotalDayStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydTotalDayStatisticalDataResponseBodyMetaList) String() string {
@@ -11271,6 +13960,7 @@ func (s *QueryYydTotalMonthStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v 
 }
 
 type QueryYydTotalMonthStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -11311,11 +14001,16 @@ func (s *QueryYydTotalMonthStatisticalDataResponseBody) SetMetaList(v []*QueryYy
 }
 
 type QueryYydTotalMonthStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydTotalMonthStatisticalDataResponseBodyMetaList) String() string {
@@ -11404,6 +14099,7 @@ func (s *QueryYydTotalStdStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type QueryYydTotalStdStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -11444,11 +14140,16 @@ func (s *QueryYydTotalStdStatisticalDataResponseBody) SetMetaList(v []*QueryYydT
 }
 
 type QueryYydTotalStdStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydTotalStdStatisticalDataResponseBodyMetaList) String() string {
@@ -11537,6 +14238,7 @@ func (s *QueryYydTotalWeekStatisticalDataHeaders) SetXAcsDingtalkAccessToken(v s
 }
 
 type QueryYydTotalWeekStatisticalDataRequest struct {
+	// This parameter is required.
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -11577,11 +14279,16 @@ func (s *QueryYydTotalWeekStatisticalDataResponseBody) SetMetaList(v []*QueryYyd
 }
 
 type QueryYydTotalWeekStatisticalDataResponseBodyMetaList struct {
+	// This parameter is required.
 	KpiCaliber *string `json:"kpiCaliber,omitempty" xml:"kpiCaliber,omitempty"`
-	KpiId      *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
-	KpiName    *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
-	Period     *string `json:"period,omitempty" xml:"period,omitempty"`
-	Unit       *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	KpiId *string `json:"kpiId,omitempty" xml:"kpiId,omitempty"`
+	// This parameter is required.
+	KpiName *string `json:"kpiName,omitempty" xml:"kpiName,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryYydTotalWeekStatisticalDataResponseBodyMetaList) String() string {
@@ -11670,9 +14377,16 @@ func (s *SearchCompanyHeaders) SetXAcsDingtalkAccessToken(v string) *SearchCompa
 }
 
 type SearchCompanyRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchKey  *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	SearchKey *string `json:"searchKey,omitempty" xml:"searchKey,omitempty"`
 }
 
 func (s SearchCompanyRequest) String() string {
@@ -11699,6 +14413,9 @@ func (s *SearchCompanyRequest) SetSearchKey(v string) *SearchCompanyRequest {
 }
 
 type SearchCompanyResponseBody struct {
+	// example:
+	//
+	// [     {       "ENT_NAME": "xx",       "SOCIAL_CREDIT_CODE": "xx",       "LICENSE_NUMBER": "xx",       "REG_CAP": "10000000.0",       "ES_DATE": "2006-12-07",       "LEGAL_NAME": "xx",       "ORG_NO": "xx",       "TAX_NUM": "xx",       "ENT_STATUS": "在营"     }   ]
 	Data  *string `json:"data,omitempty" xml:"data,omitempty"`
 	Total *int64  `json:"total,omitempty" xml:"total,omitempty"`
 }
@@ -11750,6 +14467,114 @@ func (s *SearchCompanyResponse) SetBody(v *SearchCompanyResponseBody) *SearchCom
 	return s
 }
 
+type SyncDataScreenHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncDataScreenHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncDataScreenHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncDataScreenHeaders) SetCommonHeaders(v map[string]*string) *SyncDataScreenHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncDataScreenHeaders) SetXAcsDingtalkAccessToken(v string) *SyncDataScreenHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncDataScreenRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	ScreenId *string `json:"screenId,omitempty" xml:"screenId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ABC
+	Ticket *string `json:"ticket,omitempty" xml:"ticket,omitempty"`
+}
+
+func (s SyncDataScreenRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncDataScreenRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncDataScreenRequest) SetScreenId(v string) *SyncDataScreenRequest {
+	s.ScreenId = &v
+	return s
+}
+
+func (s *SyncDataScreenRequest) SetTicket(v string) *SyncDataScreenRequest {
+	s.Ticket = &v
+	return s
+}
+
+type SyncDataScreenResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SyncDataScreenResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncDataScreenResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncDataScreenResponseBody) SetResult(v bool) *SyncDataScreenResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *SyncDataScreenResponseBody) SetSuccess(v bool) *SyncDataScreenResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SyncDataScreenResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncDataScreenResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SyncDataScreenResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncDataScreenResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncDataScreenResponse) SetHeaders(v map[string]*string) *SyncDataScreenResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncDataScreenResponse) SetStatusCode(v int32) *SyncDataScreenResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SyncDataScreenResponse) SetBody(v *SyncDataScreenResponseBody) *SyncDataScreenResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -11765,12 +14590,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -11779,6 +14604,428 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 关闭数据投递任务
+//
+// @param request - CloseDataDeliverRequest
+//
+// @param headers - CloseDataDeliverHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CloseDataDeliverResponse
+func (client *Client) CloseDataDeliverWithOptions(request *CloseDataDeliverRequest, headers *CloseDataDeliverHeaders, runtime *util.RuntimeOptions) (_result *CloseDataDeliverResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeliverId)) {
+		query["deliverId"] = request.DeliverId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DispatchingItemType)) {
+		query["dispatchingItemType"] = request.DispatchingItemType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CloseDataDeliver"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/dataDeliverServices/close"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CloseDataDeliverResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 关闭数据投递任务
+//
+// @param request - CloseDataDeliverRequest
+//
+// @return CloseDataDeliverResponse
+func (client *Client) CloseDataDeliver(request *CloseDataDeliverRequest) (_result *CloseDataDeliverResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CloseDataDeliverHeaders{}
+	_result = &CloseDataDeliverResponse{}
+	_body, _err := client.CloseDataDeliverWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建数据投递
+//
+// @param request - CreateDataDeliverRequest
+//
+// @param headers - CreateDataDeliverHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateDataDeliverResponse
+func (client *Client) CreateDataDeliverWithOptions(request *CreateDataDeliverRequest, headers *CreateDataDeliverHeaders, runtime *util.RuntimeOptions) (_result *CreateDataDeliverResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Bizcode)) {
+		query["bizcode"] = request.Bizcode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DispatchingCycle)) {
+		query["dispatchingCycle"] = request.DispatchingCycle
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DispatchingItemType)) {
+		query["dispatchingItemType"] = request.DispatchingItemType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DispatchingStartDate)) {
+		query["dispatchingStartDate"] = request.DispatchingStartDate
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		body["param"] = request.Param
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateDataDeliver"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/dataDeliveries"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateDataDeliverResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建数据投递
+//
+// @param request - CreateDataDeliverRequest
+//
+// @return CreateDataDeliverResponse
+func (client *Client) CreateDataDeliver(request *CreateDataDeliverRequest) (_result *CreateDataDeliverResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateDataDeliverHeaders{}
+	_result = &CreateDataDeliverResponse{}
+	_body, _err := client.CreateDataDeliverWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 新增数据大屏
+//
+// @param request - CreateScreenRequest
+//
+// @param headers - CreateScreenHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateScreenResponse
+func (client *Client) CreateScreenWithOptions(request *CreateScreenRequest, headers *CreateScreenHeaders, runtime *util.RuntimeOptions) (_result *CreateScreenResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		query["templateId"] = request.TemplateId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateScreen"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/screens"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateScreenResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 新增数据大屏
+//
+// @param request - CreateScreenRequest
+//
+// @return CreateScreenResponse
+func (client *Client) CreateScreen(request *CreateScreenRequest) (_result *CreateScreenResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateScreenHeaders{}
+	_result = &CreateScreenResponse{}
+	_body, _err := client.CreateScreenWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 数据流通中心获取数据服务
+//
+// @param request - DataMarketIsvServiceRequest
+//
+// @param headers - DataMarketIsvServiceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DataMarketIsvServiceResponse
+func (client *Client) DataMarketIsvServiceWithOptions(request *DataMarketIsvServiceRequest, headers *DataMarketIsvServiceHeaders, runtime *util.RuntimeOptions) (_result *DataMarketIsvServiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccountId)) {
+		body["accountId"] = request.AccountId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ApiId)) {
+		body["apiId"] = request.ApiId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Args)) {
+		body["args"] = request.Args
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DataMarketIsvService"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/isv/dataMarketServices/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DataMarketIsvServiceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 数据流通中心获取数据服务
+//
+// @param request - DataMarketIsvServiceRequest
+//
+// @return DataMarketIsvServiceResponse
+func (client *Client) DataMarketIsvService(request *DataMarketIsvServiceRequest) (_result *DataMarketIsvServiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DataMarketIsvServiceHeaders{}
+	_result = &DataMarketIsvServiceResponse{}
+	_body, _err := client.DataMarketIsvServiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 数据流通中心获取数据服务
+//
+// @param request - DataMarketServiceRequest
+//
+// @param headers - DataMarketServiceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DataMarketServiceResponse
+func (client *Client) DataMarketServiceWithOptions(request *DataMarketServiceRequest, headers *DataMarketServiceHeaders, runtime *util.RuntimeOptions) (_result *DataMarketServiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ApiId)) {
+		body["apiId"] = request.ApiId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Args)) {
+		body["args"] = request.Args
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DataMarketService"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/dataMarketServices/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DataMarketServiceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 数据流通中心获取数据服务
+//
+// @param request - DataMarketServiceRequest
+//
+// @return DataMarketServiceResponse
+func (client *Client) DataMarketService(request *DataMarketServiceRequest) (_result *DataMarketServiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DataMarketServiceHeaders{}
+	_result = &DataMarketServiceResponse{}
+	_body, _err := client.DataMarketServiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 工商-经营异常
+//
+// @param request - GetAbnormalOperationRequest
+//
+// @param headers - GetAbnormalOperationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAbnormalOperationResponse
 func (client *Client) GetAbnormalOperationWithOptions(request *GetAbnormalOperationRequest, headers *GetAbnormalOperationHeaders, runtime *util.RuntimeOptions) (_result *GetAbnormalOperationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11830,6 +15077,13 @@ func (client *Client) GetAbnormalOperationWithOptions(request *GetAbnormalOperat
 	return _result, _err
 }
 
+// Summary:
+//
+// 工商-经营异常
+//
+// @param request - GetAbnormalOperationRequest
+//
+// @return GetAbnormalOperationResponse
 func (client *Client) GetAbnormalOperation(request *GetAbnormalOperationRequest) (_result *GetAbnormalOperationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAbnormalOperationHeaders{}
@@ -11842,6 +15096,17 @@ func (client *Client) GetAbnormalOperation(request *GetAbnormalOperationRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工商-行政许可
+//
+// @param request - GetAdministrativeLicensingRequest
+//
+// @param headers - GetAdministrativeLicensingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAdministrativeLicensingResponse
 func (client *Client) GetAdministrativeLicensingWithOptions(request *GetAdministrativeLicensingRequest, headers *GetAdministrativeLicensingHeaders, runtime *util.RuntimeOptions) (_result *GetAdministrativeLicensingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11893,6 +15158,13 @@ func (client *Client) GetAdministrativeLicensingWithOptions(request *GetAdminist
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工商-行政许可
+//
+// @param request - GetAdministrativeLicensingRequest
+//
+// @return GetAdministrativeLicensingResponse
 func (client *Client) GetAdministrativeLicensing(request *GetAdministrativeLicensingRequest) (_result *GetAdministrativeLicensingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAdministrativeLicensingHeaders{}
@@ -11905,6 +15177,17 @@ func (client *Client) GetAdministrativeLicensing(request *GetAdministrativeLicen
 	return _result, _err
 }
 
+// Summary:
+//
+// 负面-行政处罚
+//
+// @param request - GetAdministrativePenaltiesRequest
+//
+// @param headers - GetAdministrativePenaltiesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAdministrativePenaltiesResponse
 func (client *Client) GetAdministrativePenaltiesWithOptions(request *GetAdministrativePenaltiesRequest, headers *GetAdministrativePenaltiesHeaders, runtime *util.RuntimeOptions) (_result *GetAdministrativePenaltiesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11956,6 +15239,13 @@ func (client *Client) GetAdministrativePenaltiesWithOptions(request *GetAdminist
 	return _result, _err
 }
 
+// Summary:
+//
+// 负面-行政处罚
+//
+// @param request - GetAdministrativePenaltiesRequest
+//
+// @return GetAdministrativePenaltiesResponse
 func (client *Client) GetAdministrativePenalties(request *GetAdministrativePenaltiesRequest) (_result *GetAdministrativePenaltiesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAdministrativePenaltiesHeaders{}
@@ -11968,6 +15258,17 @@ func (client *Client) GetAdministrativePenalties(request *GetAdministrativePenal
 	return _result, _err
 }
 
+// Summary:
+//
+// 工商-基础信息
+//
+// @param request - GetBasicInfoRequest
+//
+// @param headers - GetBasicInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetBasicInfoResponse
 func (client *Client) GetBasicInfoWithOptions(request *GetBasicInfoRequest, headers *GetBasicInfoHeaders, runtime *util.RuntimeOptions) (_result *GetBasicInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12019,6 +15320,13 @@ func (client *Client) GetBasicInfoWithOptions(request *GetBasicInfoRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 工商-基础信息
+//
+// @param request - GetBasicInfoRequest
+//
+// @return GetBasicInfoResponse
 func (client *Client) GetBasicInfo(request *GetBasicInfoRequest) (_result *GetBasicInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetBasicInfoHeaders{}
@@ -12031,6 +15339,17 @@ func (client *Client) GetBasicInfo(request *GetBasicInfoRequest) (_result *GetBa
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取经营-招投标信息
+//
+// @param request - GetBiddingInfoRequest
+//
+// @param headers - GetBiddingInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetBiddingInfoResponse
 func (client *Client) GetBiddingInfoWithOptions(request *GetBiddingInfoRequest, headers *GetBiddingInfoHeaders, runtime *util.RuntimeOptions) (_result *GetBiddingInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12082,6 +15401,13 @@ func (client *Client) GetBiddingInfoWithOptions(request *GetBiddingInfoRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取经营-招投标信息
+//
+// @param request - GetBiddingInfoRequest
+//
+// @return GetBiddingInfoResponse
 func (client *Client) GetBiddingInfo(request *GetBiddingInfoRequest) (_result *GetBiddingInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetBiddingInfoHeaders{}
@@ -12094,6 +15420,17 @@ func (client *Client) GetBiddingInfo(request *GetBiddingInfoRequest) (_result *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工商-分支机构
+//
+// @param request - GetBranchInfoRequest
+//
+// @param headers - GetBranchInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetBranchInfoResponse
 func (client *Client) GetBranchInfoWithOptions(request *GetBranchInfoRequest, headers *GetBranchInfoHeaders, runtime *util.RuntimeOptions) (_result *GetBranchInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12145,6 +15482,13 @@ func (client *Client) GetBranchInfoWithOptions(request *GetBranchInfoRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工商-分支机构
+//
+// @param request - GetBranchInfoRequest
+//
+// @return GetBranchInfoResponse
 func (client *Client) GetBranchInfo(request *GetBranchInfoRequest) (_result *GetBranchInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetBranchInfoHeaders{}
@@ -12157,6 +15501,17 @@ func (client *Client) GetBranchInfo(request *GetBranchInfoRequest) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工商-变更记录
+//
+// @param request - GetChangeRecordRequest
+//
+// @param headers - GetChangeRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetChangeRecordResponse
 func (client *Client) GetChangeRecordWithOptions(request *GetChangeRecordRequest, headers *GetChangeRecordHeaders, runtime *util.RuntimeOptions) (_result *GetChangeRecordResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12208,6 +15563,13 @@ func (client *Client) GetChangeRecordWithOptions(request *GetChangeRecordRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工商-变更记录
+//
+// @param request - GetChangeRecordRequest
+//
+// @return GetChangeRecordResponse
 func (client *Client) GetChangeRecord(request *GetChangeRecordRequest) (_result *GetChangeRecordResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetChangeRecordHeaders{}
@@ -12220,6 +15582,94 @@ func (client *Client) GetChangeRecord(request *GetChangeRecordRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取投递任务信息
+//
+// @param request - GetDataDeliverRequest
+//
+// @param headers - GetDataDeliverHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDataDeliverResponse
+func (client *Client) GetDataDeliverWithOptions(request *GetDataDeliverRequest, headers *GetDataDeliverHeaders, runtime *util.RuntimeOptions) (_result *GetDataDeliverResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeliverId)) {
+		query["deliverId"] = request.DeliverId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DispatchingItemType)) {
+		query["dispatchingItemType"] = request.DispatchingItemType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetDataDeliver"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/dataDeliverServices/infos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetDataDeliverResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取投递任务信息
+//
+// @param request - GetDataDeliverRequest
+//
+// @return GetDataDeliverResponse
+func (client *Client) GetDataDeliver(request *GetDataDeliverRequest) (_result *GetDataDeliverResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetDataDeliverHeaders{}
+	_result = &GetDataDeliverResponse{}
+	_body, _err := client.GetDataDeliverWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取知识产权-域名信息
+//
+// @param request - GetDomainInfoRequest
+//
+// @param headers - GetDomainInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDomainInfoResponse
 func (client *Client) GetDomainInfoWithOptions(request *GetDomainInfoRequest, headers *GetDomainInfoHeaders, runtime *util.RuntimeOptions) (_result *GetDomainInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12271,6 +15721,13 @@ func (client *Client) GetDomainInfoWithOptions(request *GetDomainInfoRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识产权-域名信息
+//
+// @param request - GetDomainInfoRequest
+//
+// @return GetDomainInfoResponse
 func (client *Client) GetDomainInfo(request *GetDomainInfoRequest) (_result *GetDomainInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDomainInfoHeaders{}
@@ -12283,6 +15740,17 @@ func (client *Client) GetDomainInfo(request *GetDomainInfoRequest) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工商-双随机抽查结果
+//
+// @param request - GetDoubleRandomRequest
+//
+// @param headers - GetDoubleRandomHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDoubleRandomResponse
 func (client *Client) GetDoubleRandomWithOptions(request *GetDoubleRandomRequest, headers *GetDoubleRandomHeaders, runtime *util.RuntimeOptions) (_result *GetDoubleRandomResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12334,6 +15802,13 @@ func (client *Client) GetDoubleRandomWithOptions(request *GetDoubleRandomRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工商-双随机抽查结果
+//
+// @param request - GetDoubleRandomRequest
+//
+// @return GetDoubleRandomResponse
 func (client *Client) GetDoubleRandom(request *GetDoubleRandomRequest) (_result *GetDoubleRandomResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDoubleRandomHeaders{}
@@ -12346,6 +15821,17 @@ func (client *Client) GetDoubleRandom(request *GetDoubleRandomRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 负面-环保处罚
+//
+// @param request - GetEnvironmentalPenaltiesRequest
+//
+// @param headers - GetEnvironmentalPenaltiesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetEnvironmentalPenaltiesResponse
 func (client *Client) GetEnvironmentalPenaltiesWithOptions(request *GetEnvironmentalPenaltiesRequest, headers *GetEnvironmentalPenaltiesHeaders, runtime *util.RuntimeOptions) (_result *GetEnvironmentalPenaltiesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12397,6 +15883,13 @@ func (client *Client) GetEnvironmentalPenaltiesWithOptions(request *GetEnvironme
 	return _result, _err
 }
 
+// Summary:
+//
+// 负面-环保处罚
+//
+// @param request - GetEnvironmentalPenaltiesRequest
+//
+// @return GetEnvironmentalPenaltiesResponse
 func (client *Client) GetEnvironmentalPenalties(request *GetEnvironmentalPenaltiesRequest) (_result *GetEnvironmentalPenaltiesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetEnvironmentalPenaltiesHeaders{}
@@ -12409,6 +15902,98 @@ func (client *Client) GetEnvironmentalPenalties(request *GetEnvironmentalPenalti
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取事件订阅的数据
+//
+// @param request - GetEventDataRequest
+//
+// @param headers - GetEventDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetEventDataResponse
+func (client *Client) GetEventDataWithOptions(request *GetEventDataRequest, headers *GetEventDataHeaders, runtime *util.RuntimeOptions) (_result *GetEventDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EventUid)) {
+		body["eventUid"] = request.EventUid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubId)) {
+		body["subId"] = request.SubId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetEventData"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/eventDatas/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetEventDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取事件订阅的数据
+//
+// @param request - GetEventDataRequest
+//
+// @return GetEventDataResponse
+func (client *Client) GetEventData(request *GetEventDataRequest) (_result *GetEventDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetEventDataHeaders{}
+	_result = &GetEventDataResponse{}
+	_body, _err := client.GetEventDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 工商-股东信息
+//
+// @param request - GetHolderInfoRequest
+//
+// @param headers - GetHolderInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetHolderInfoResponse
 func (client *Client) GetHolderInfoWithOptions(request *GetHolderInfoRequest, headers *GetHolderInfoHeaders, runtime *util.RuntimeOptions) (_result *GetHolderInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12460,6 +16045,13 @@ func (client *Client) GetHolderInfoWithOptions(request *GetHolderInfoRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 工商-股东信息
+//
+// @param request - GetHolderInfoRequest
+//
+// @return GetHolderInfoResponse
 func (client *Client) GetHolderInfo(request *GetHolderInfoRequest) (_result *GetHolderInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetHolderInfoHeaders{}
@@ -12472,6 +16064,17 @@ func (client *Client) GetHolderInfo(request *GetHolderInfoRequest) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工商-知识产权出质
+//
+// @param request - GetIntellectualPropertyRequest
+//
+// @param headers - GetIntellectualPropertyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetIntellectualPropertyResponse
 func (client *Client) GetIntellectualPropertyWithOptions(request *GetIntellectualPropertyRequest, headers *GetIntellectualPropertyHeaders, runtime *util.RuntimeOptions) (_result *GetIntellectualPropertyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12523,6 +16126,13 @@ func (client *Client) GetIntellectualPropertyWithOptions(request *GetIntellectua
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工商-知识产权出质
+//
+// @param request - GetIntellectualPropertyRequest
+//
+// @return GetIntellectualPropertyResponse
 func (client *Client) GetIntellectualProperty(request *GetIntellectualPropertyRequest) (_result *GetIntellectualPropertyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetIntellectualPropertyHeaders{}
@@ -12535,6 +16145,17 @@ func (client *Client) GetIntellectualProperty(request *GetIntellectualPropertyRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工商-对外投资
+//
+// @param request - GetInvestmentAbroadRequest
+//
+// @param headers - GetInvestmentAbroadHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetInvestmentAbroadResponse
 func (client *Client) GetInvestmentAbroadWithOptions(request *GetInvestmentAbroadRequest, headers *GetInvestmentAbroadHeaders, runtime *util.RuntimeOptions) (_result *GetInvestmentAbroadResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12586,6 +16207,13 @@ func (client *Client) GetInvestmentAbroadWithOptions(request *GetInvestmentAbroa
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工商-对外投资
+//
+// @param request - GetInvestmentAbroadRequest
+//
+// @return GetInvestmentAbroadResponse
 func (client *Client) GetInvestmentAbroad(request *GetInvestmentAbroadRequest) (_result *GetInvestmentAbroadResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetInvestmentAbroadHeaders{}
@@ -12598,6 +16226,17 @@ func (client *Client) GetInvestmentAbroad(request *GetInvestmentAbroadRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取经营-招聘信息
+//
+// @param request - GetJobInfoRequest
+//
+// @param headers - GetJobInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetJobInfoResponse
 func (client *Client) GetJobInfoWithOptions(request *GetJobInfoRequest, headers *GetJobInfoHeaders, runtime *util.RuntimeOptions) (_result *GetJobInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12649,6 +16288,13 @@ func (client *Client) GetJobInfoWithOptions(request *GetJobInfoRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取经营-招聘信息
+//
+// @param request - GetJobInfoRequest
+//
+// @return GetJobInfoResponse
 func (client *Client) GetJobInfo(request *GetJobInfoRequest) (_result *GetJobInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetJobInfoHeaders{}
@@ -12661,6 +16307,17 @@ func (client *Client) GetJobInfo(request *GetJobInfoRequest) (_result *GetJobInf
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识产权-专利信息
+//
+// @param request - GetPatentInfoRequest
+//
+// @param headers - GetPatentInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPatentInfoResponse
 func (client *Client) GetPatentInfoWithOptions(request *GetPatentInfoRequest, headers *GetPatentInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPatentInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12712,6 +16369,13 @@ func (client *Client) GetPatentInfoWithOptions(request *GetPatentInfoRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识产权-专利信息
+//
+// @param request - GetPatentInfoRequest
+//
+// @return GetPatentInfoResponse
 func (client *Client) GetPatentInfo(request *GetPatentInfoRequest) (_result *GetPatentInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPatentInfoHeaders{}
@@ -12724,6 +16388,17 @@ func (client *Client) GetPatentInfo(request *GetPatentInfoRequest) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工商-主要人员
+//
+// @param request - GetPrincipalEmployeeRequest
+//
+// @param headers - GetPrincipalEmployeeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPrincipalEmployeeResponse
 func (client *Client) GetPrincipalEmployeeWithOptions(request *GetPrincipalEmployeeRequest, headers *GetPrincipalEmployeeHeaders, runtime *util.RuntimeOptions) (_result *GetPrincipalEmployeeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12775,6 +16450,13 @@ func (client *Client) GetPrincipalEmployeeWithOptions(request *GetPrincipalEmplo
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工商-主要人员
+//
+// @param request - GetPrincipalEmployeeRequest
+//
+// @return GetPrincipalEmployeeResponse
 func (client *Client) GetPrincipalEmployee(request *GetPrincipalEmployeeRequest) (_result *GetPrincipalEmployeeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPrincipalEmployeeHeaders{}
@@ -12787,6 +16469,17 @@ func (client *Client) GetPrincipalEmployee(request *GetPrincipalEmployeeRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 经营-一般纳税人
+//
+// @param request - GetQeneralTaxpayerInfoRequest
+//
+// @param headers - GetQeneralTaxpayerInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetQeneralTaxpayerInfoResponse
 func (client *Client) GetQeneralTaxpayerInfoWithOptions(request *GetQeneralTaxpayerInfoRequest, headers *GetQeneralTaxpayerInfoHeaders, runtime *util.RuntimeOptions) (_result *GetQeneralTaxpayerInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12838,6 +16531,13 @@ func (client *Client) GetQeneralTaxpayerInfoWithOptions(request *GetQeneralTaxpa
 	return _result, _err
 }
 
+// Summary:
+//
+// 经营-一般纳税人
+//
+// @param request - GetQeneralTaxpayerInfoRequest
+//
+// @return GetQeneralTaxpayerInfoResponse
 func (client *Client) GetQeneralTaxpayerInfo(request *GetQeneralTaxpayerInfoRequest) (_result *GetQeneralTaxpayerInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetQeneralTaxpayerInfoHeaders{}
@@ -12850,6 +16550,17 @@ func (client *Client) GetQeneralTaxpayerInfo(request *GetQeneralTaxpayerInfoRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识产权-资质证书
+//
+// @param request - GetQualificationCertRequest
+//
+// @param headers - GetQualificationCertHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetQualificationCertResponse
 func (client *Client) GetQualificationCertWithOptions(request *GetQualificationCertRequest, headers *GetQualificationCertHeaders, runtime *util.RuntimeOptions) (_result *GetQualificationCertResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12901,6 +16612,13 @@ func (client *Client) GetQualificationCertWithOptions(request *GetQualificationC
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识产权-资质证书
+//
+// @param request - GetQualificationCertRequest
+//
+// @return GetQualificationCertResponse
 func (client *Client) GetQualificationCert(request *GetQualificationCertRequest) (_result *GetQualificationCertResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetQualificationCertHeaders{}
@@ -12913,6 +16631,17 @@ func (client *Client) GetQualificationCert(request *GetQualificationCertRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 负面-严重违法
+//
+// @param request - GetSeriousViolationRequest
+//
+// @param headers - GetSeriousViolationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSeriousViolationResponse
 func (client *Client) GetSeriousViolationWithOptions(request *GetSeriousViolationRequest, headers *GetSeriousViolationHeaders, runtime *util.RuntimeOptions) (_result *GetSeriousViolationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12964,6 +16693,13 @@ func (client *Client) GetSeriousViolationWithOptions(request *GetSeriousViolatio
 	return _result, _err
 }
 
+// Summary:
+//
+// 负面-严重违法
+//
+// @param request - GetSeriousViolationRequest
+//
+// @return GetSeriousViolationResponse
 func (client *Client) GetSeriousViolation(request *GetSeriousViolationRequest) (_result *GetSeriousViolationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSeriousViolationHeaders{}
@@ -12976,6 +16712,17 @@ func (client *Client) GetSeriousViolation(request *GetSeriousViolationRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识产权-软件著作权
+//
+// @param request - GetSoftwareCopyrightRequest
+//
+// @param headers - GetSoftwareCopyrightHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSoftwareCopyrightResponse
 func (client *Client) GetSoftwareCopyrightWithOptions(request *GetSoftwareCopyrightRequest, headers *GetSoftwareCopyrightHeaders, runtime *util.RuntimeOptions) (_result *GetSoftwareCopyrightResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13027,6 +16774,13 @@ func (client *Client) GetSoftwareCopyrightWithOptions(request *GetSoftwareCopyri
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识产权-软件著作权
+//
+// @param request - GetSoftwareCopyrightRequest
+//
+// @return GetSoftwareCopyrightResponse
 func (client *Client) GetSoftwareCopyright(request *GetSoftwareCopyrightRequest) (_result *GetSoftwareCopyrightResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSoftwareCopyrightHeaders{}
@@ -13039,6 +16793,17 @@ func (client *Client) GetSoftwareCopyright(request *GetSoftwareCopyrightRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识产权-商标信息
+//
+// @param request - GetTrademarkInfoRequest
+//
+// @param headers - GetTrademarkInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTrademarkInfoResponse
 func (client *Client) GetTrademarkInfoWithOptions(request *GetTrademarkInfoRequest, headers *GetTrademarkInfoHeaders, runtime *util.RuntimeOptions) (_result *GetTrademarkInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13090,6 +16855,13 @@ func (client *Client) GetTrademarkInfoWithOptions(request *GetTrademarkInfoReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识产权-商标信息
+//
+// @param request - GetTrademarkInfoRequest
+//
+// @return GetTrademarkInfoResponse
 func (client *Client) GetTrademarkInfo(request *GetTrademarkInfoRequest) (_result *GetTrademarkInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTrademarkInfoHeaders{}
@@ -13102,6 +16874,17 @@ func (client *Client) GetTrademarkInfo(request *GetTrademarkInfoRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识产权-作品著作权
+//
+// @param request - GetWorkCopyrightRequest
+//
+// @param headers - GetWorkCopyrightHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetWorkCopyrightResponse
 func (client *Client) GetWorkCopyrightWithOptions(request *GetWorkCopyrightRequest, headers *GetWorkCopyrightHeaders, runtime *util.RuntimeOptions) (_result *GetWorkCopyrightResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13153,6 +16936,13 @@ func (client *Client) GetWorkCopyrightWithOptions(request *GetWorkCopyrightReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识产权-作品著作权
+//
+// @param request - GetWorkCopyrightRequest
+//
+// @return GetWorkCopyrightResponse
 func (client *Client) GetWorkCopyright(request *GetWorkCopyrightRequest) (_result *GetWorkCopyrightResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetWorkCopyrightHeaders{}
@@ -13165,6 +16955,177 @@ func (client *Client) GetWorkCopyright(request *GetWorkCopyrightRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 数据投递列表
+//
+// @param request - ListDataDeliversRequest
+//
+// @param headers - ListDataDeliversHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListDataDeliversResponse
+func (client *Client) ListDataDeliversWithOptions(request *ListDataDeliversRequest, headers *ListDataDeliversHeaders, runtime *util.RuntimeOptions) (_result *ListDataDeliversResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DispatchingItemType)) {
+		query["dispatchingItemType"] = request.DispatchingItemType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListDataDelivers"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/dataDeliverServices/lists"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListDataDeliversResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 数据投递列表
+//
+// @param request - ListDataDeliversRequest
+//
+// @return ListDataDeliversResponse
+func (client *Client) ListDataDelivers(request *ListDataDeliversRequest) (_result *ListDataDeliversResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListDataDeliversHeaders{}
+	_result = &ListDataDeliversResponse{}
+	_body, _err := client.ListDataDeliversWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 操作表格配置
+//
+// @param request - OperateChartConfigRequest
+//
+// @param headers - OperateChartConfigHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return OperateChartConfigResponse
+func (client *Client) OperateChartConfigWithOptions(request *OperateChartConfigRequest, headers *OperateChartConfigHeaders, runtime *util.RuntimeOptions) (_result *OperateChartConfigResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ApiKey)) {
+		body["apiKey"] = request.ApiKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		body["param"] = request.Param
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Ticket)) {
+		body["ticket"] = request.Ticket
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("OperateChartConfig"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/chartConfigs/operate"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &OperateChartConfigResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 操作表格配置
+//
+// @param request - OperateChartConfigRequest
+//
+// @return OperateChartConfigResponse
+func (client *Client) OperateChartConfig(request *OperateChartConfigRequest) (_result *OperateChartConfigResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &OperateChartConfigHeaders{}
+	_result = &OperateChartConfigResponse{}
+	_body, _err := client.OperateChartConfigWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 企业授权信息
+//
+// @param headers - PostCorpAuthInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PostCorpAuthInfoResponse
 func (client *Client) PostCorpAuthInfoWithOptions(headers *PostCorpAuthInfoHeaders, runtime *util.RuntimeOptions) (_result *PostCorpAuthInfoResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -13198,6 +17159,11 @@ func (client *Client) PostCorpAuthInfoWithOptions(headers *PostCorpAuthInfoHeade
 	return _result, _err
 }
 
+// Summary:
+//
+// 企业授权信息
+//
+// @return PostCorpAuthInfoResponse
 func (client *Client) PostCorpAuthInfo() (_result *PostCorpAuthInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PostCorpAuthInfoHeaders{}
@@ -13210,6 +17176,17 @@ func (client *Client) PostCorpAuthInfo() (_result *PostCorpAuthInfoResponse, _er
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业用户激活状态统计数据
+//
+// @param request - QueryActiveUserStatisticalDataRequest
+//
+// @param headers - QueryActiveUserStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryActiveUserStatisticalDataResponse
 func (client *Client) QueryActiveUserStatisticalDataWithOptions(request *QueryActiveUserStatisticalDataRequest, headers *QueryActiveUserStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryActiveUserStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13253,6 +17230,13 @@ func (client *Client) QueryActiveUserStatisticalDataWithOptions(request *QueryAc
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业用户激活状态统计数据
+//
+// @param request - QueryActiveUserStatisticalDataRequest
+//
+// @return QueryActiveUserStatisticalDataResponse
 func (client *Client) QueryActiveUserStatisticalData(request *QueryActiveUserStatisticalDataRequest) (_result *QueryActiveUserStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryActiveUserStatisticalDataHeaders{}
@@ -13265,6 +17249,17 @@ func (client *Client) QueryActiveUserStatisticalData(request *QueryActiveUserSta
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取安恒密盾统计数据
+//
+// @param request - QueryAnhmdStatisticalDataRequest
+//
+// @param headers - QueryAnhmdStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryAnhmdStatisticalDataResponse
 func (client *Client) QueryAnhmdStatisticalDataWithOptions(request *QueryAnhmdStatisticalDataRequest, headers *QueryAnhmdStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryAnhmdStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13316,6 +17311,13 @@ func (client *Client) QueryAnhmdStatisticalDataWithOptions(request *QueryAnhmdSt
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取安恒密盾统计数据
+//
+// @param request - QueryAnhmdStatisticalDataRequest
+//
+// @return QueryAnhmdStatisticalDataResponse
 func (client *Client) QueryAnhmdStatisticalData(request *QueryAnhmdStatisticalDataRequest) (_result *QueryAnhmdStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryAnhmdStatisticalDataHeaders{}
@@ -13328,6 +17330,17 @@ func (client *Client) QueryAnhmdStatisticalData(request *QueryAnhmdStatisticalDa
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业审批统计数据
+//
+// @param request - QueryApprovalStatisticalDataRequest
+//
+// @param headers - QueryApprovalStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryApprovalStatisticalDataResponse
 func (client *Client) QueryApprovalStatisticalDataWithOptions(request *QueryApprovalStatisticalDataRequest, headers *QueryApprovalStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryApprovalStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13371,6 +17384,13 @@ func (client *Client) QueryApprovalStatisticalDataWithOptions(request *QueryAppr
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业审批统计数据
+//
+// @param request - QueryApprovalStatisticalDataRequest
+//
+// @return QueryApprovalStatisticalDataResponse
 func (client *Client) QueryApprovalStatisticalData(request *QueryApprovalStatisticalDataRequest) (_result *QueryApprovalStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryApprovalStatisticalDataHeaders{}
@@ -13383,6 +17403,17 @@ func (client *Client) QueryApprovalStatisticalData(request *QueryApprovalStatist
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业考勤统计数据
+//
+// @param request - QueryAttendanceStatisticalDataRequest
+//
+// @param headers - QueryAttendanceStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryAttendanceStatisticalDataResponse
 func (client *Client) QueryAttendanceStatisticalDataWithOptions(request *QueryAttendanceStatisticalDataRequest, headers *QueryAttendanceStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryAttendanceStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13426,6 +17457,13 @@ func (client *Client) QueryAttendanceStatisticalDataWithOptions(request *QueryAt
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业考勤统计数据
+//
+// @param request - QueryAttendanceStatisticalDataRequest
+//
+// @return QueryAttendanceStatisticalDataResponse
 func (client *Client) QueryAttendanceStatisticalData(request *QueryAttendanceStatisticalDataRequest) (_result *QueryAttendanceStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryAttendanceStatisticalDataHeaders{}
@@ -13438,6 +17476,17 @@ func (client *Client) QueryAttendanceStatisticalData(request *QueryAttendanceSta
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业公告统计数据
+//
+// @param request - QueryBlackboardStatisticalDataRequest
+//
+// @param headers - QueryBlackboardStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryBlackboardStatisticalDataResponse
 func (client *Client) QueryBlackboardStatisticalDataWithOptions(request *QueryBlackboardStatisticalDataRequest, headers *QueryBlackboardStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryBlackboardStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13481,6 +17530,13 @@ func (client *Client) QueryBlackboardStatisticalDataWithOptions(request *QueryBl
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业公告统计数据
+//
+// @param request - QueryBlackboardStatisticalDataRequest
+//
+// @return QueryBlackboardStatisticalDataResponse
 func (client *Client) QueryBlackboardStatisticalData(request *QueryBlackboardStatisticalDataRequest) (_result *QueryBlackboardStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryBlackboardStatisticalDataHeaders{}
@@ -13493,6 +17549,17 @@ func (client *Client) QueryBlackboardStatisticalData(request *QueryBlackboardSta
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业日程统计数据
+//
+// @param request - QueryCalendarStatisticalDataRequest
+//
+// @param headers - QueryCalendarStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCalendarStatisticalDataResponse
 func (client *Client) QueryCalendarStatisticalDataWithOptions(request *QueryCalendarStatisticalDataRequest, headers *QueryCalendarStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryCalendarStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13536,6 +17603,13 @@ func (client *Client) QueryCalendarStatisticalDataWithOptions(request *QueryCale
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业日程统计数据
+//
+// @param request - QueryCalendarStatisticalDataRequest
+//
+// @return QueryCalendarStatisticalDataResponse
 func (client *Client) QueryCalendarStatisticalData(request *QueryCalendarStatisticalDataRequest) (_result *QueryCalendarStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryCalendarStatisticalDataHeaders{}
@@ -13548,6 +17622,94 @@ func (client *Client) QueryCalendarStatisticalData(request *QueryCalendarStatist
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取图表数据
+//
+// @param request - QueryChartDataRequest
+//
+// @param headers - QueryChartDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryChartDataResponse
+func (client *Client) QueryChartDataWithOptions(request *QueryChartDataRequest, headers *QueryChartDataHeaders, runtime *util.RuntimeOptions) (_result *QueryChartDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		body["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Ticket)) {
+		body["ticket"] = request.Ticket
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryChartData"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/chartDatas/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryChartDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取图表数据
+//
+// @param request - QueryChartDataRequest
+//
+// @return QueryChartDataResponse
+func (client *Client) QueryChartData(request *QueryChartDataRequest) (_result *QueryChartDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryChartDataHeaders{}
+	_result = &QueryChartDataResponse{}
+	_body, _err := client.QueryChartDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取企业签到统计数据
+//
+// @param request - QueryCheckinStatisticalDataRequest
+//
+// @param headers - QueryCheckinStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCheckinStatisticalDataResponse
 func (client *Client) QueryCheckinStatisticalDataWithOptions(request *QueryCheckinStatisticalDataRequest, headers *QueryCheckinStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryCheckinStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13591,6 +17753,13 @@ func (client *Client) QueryCheckinStatisticalDataWithOptions(request *QueryCheck
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业签到统计数据
+//
+// @param request - QueryCheckinStatisticalDataRequest
+//
+// @return QueryCheckinStatisticalDataResponse
 func (client *Client) QueryCheckinStatisticalData(request *QueryCheckinStatisticalDataRequest) (_result *QueryCheckinStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryCheckinStatisticalDataHeaders{}
@@ -13603,6 +17772,17 @@ func (client *Client) QueryCheckinStatisticalData(request *QueryCheckinStatistic
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业全员圈统计数据
+//
+// @param request - QueryCircleStatisticalDataRequest
+//
+// @param headers - QueryCircleStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCircleStatisticalDataResponse
 func (client *Client) QueryCircleStatisticalDataWithOptions(request *QueryCircleStatisticalDataRequest, headers *QueryCircleStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryCircleStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13646,6 +17826,13 @@ func (client *Client) QueryCircleStatisticalDataWithOptions(request *QueryCircle
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业全员圈统计数据
+//
+// @param request - QueryCircleStatisticalDataRequest
+//
+// @return QueryCircleStatisticalDataResponse
 func (client *Client) QueryCircleStatisticalData(request *QueryCircleStatisticalDataRequest) (_result *QueryCircleStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryCircleStatisticalDataHeaders{}
@@ -13658,6 +17845,17 @@ func (client *Client) QueryCircleStatisticalData(request *QueryCircleStatistical
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过企业名称/社会统一信用代码/工商注册号，查询企业的基本画像信息。
+//
+// @param request - QueryCompanyBasicInfoRequest
+//
+// @param headers - QueryCompanyBasicInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCompanyBasicInfoResponse
 func (client *Client) QueryCompanyBasicInfoWithOptions(request *QueryCompanyBasicInfoRequest, headers *QueryCompanyBasicInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryCompanyBasicInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13709,6 +17907,13 @@ func (client *Client) QueryCompanyBasicInfoWithOptions(request *QueryCompanyBasi
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过企业名称/社会统一信用代码/工商注册号，查询企业的基本画像信息。
+//
+// @param request - QueryCompanyBasicInfoRequest
+//
+// @return QueryCompanyBasicInfoResponse
 func (client *Client) QueryCompanyBasicInfo(request *QueryCompanyBasicInfoRequest) (_result *QueryCompanyBasicInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryCompanyBasicInfoHeaders{}
@@ -13721,6 +17926,17 @@ func (client *Client) QueryCompanyBasicInfo(request *QueryCompanyBasicInfoReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取数字区县组织信息
+//
+// @param request - QueryDigitalDistrictOrgInfoRequest
+//
+// @param headers - QueryDigitalDistrictOrgInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDigitalDistrictOrgInfoResponse
 func (client *Client) QueryDigitalDistrictOrgInfoWithOptions(request *QueryDigitalDistrictOrgInfoRequest, headers *QueryDigitalDistrictOrgInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryDigitalDistrictOrgInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13768,6 +17984,13 @@ func (client *Client) QueryDigitalDistrictOrgInfoWithOptions(request *QueryDigit
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取数字区县组织信息
+//
+// @param request - QueryDigitalDistrictOrgInfoRequest
+//
+// @return QueryDigitalDistrictOrgInfoResponse
 func (client *Client) QueryDigitalDistrictOrgInfo(request *QueryDigitalDistrictOrgInfoRequest) (_result *QueryDigitalDistrictOrgInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryDigitalDistrictOrgInfoHeaders{}
@@ -13780,6 +18003,17 @@ func (client *Client) QueryDigitalDistrictOrgInfo(request *QueryDigitalDistrictO
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业DING接收及评论统计数据
+//
+// @param request - QueryDingReciveStatisticalDataRequest
+//
+// @param headers - QueryDingReciveStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDingReciveStatisticalDataResponse
 func (client *Client) QueryDingReciveStatisticalDataWithOptions(request *QueryDingReciveStatisticalDataRequest, headers *QueryDingReciveStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryDingReciveStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13823,6 +18057,13 @@ func (client *Client) QueryDingReciveStatisticalDataWithOptions(request *QueryDi
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业DING接收及评论统计数据
+//
+// @param request - QueryDingReciveStatisticalDataRequest
+//
+// @return QueryDingReciveStatisticalDataResponse
 func (client *Client) QueryDingReciveStatisticalData(request *QueryDingReciveStatisticalDataRequest) (_result *QueryDingReciveStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryDingReciveStatisticalDataHeaders{}
@@ -13835,6 +18076,17 @@ func (client *Client) QueryDingReciveStatisticalData(request *QueryDingReciveSta
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业DING发送统计数据
+//
+// @param request - QueryDingSendStatisticalDataRequest
+//
+// @param headers - QueryDingSendStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDingSendStatisticalDataResponse
 func (client *Client) QueryDingSendStatisticalDataWithOptions(request *QueryDingSendStatisticalDataRequest, headers *QueryDingSendStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryDingSendStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13878,6 +18130,13 @@ func (client *Client) QueryDingSendStatisticalDataWithOptions(request *QueryDing
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业DING发送统计数据
+//
+// @param request - QueryDingSendStatisticalDataRequest
+//
+// @return QueryDingSendStatisticalDataResponse
 func (client *Client) QueryDingSendStatisticalData(request *QueryDingSendStatisticalDataRequest) (_result *QueryDingSendStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryDingSendStatisticalDataHeaders{}
@@ -13890,6 +18149,17 @@ func (client *Client) QueryDingSendStatisticalData(request *QueryDingSendStatist
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业文档统计数据
+//
+// @param request - QueryDocumentStatisticalDataRequest
+//
+// @param headers - QueryDocumentStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDocumentStatisticalDataResponse
 func (client *Client) QueryDocumentStatisticalDataWithOptions(request *QueryDocumentStatisticalDataRequest, headers *QueryDocumentStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryDocumentStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13933,6 +18203,13 @@ func (client *Client) QueryDocumentStatisticalDataWithOptions(request *QueryDocu
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业文档统计数据
+//
+// @param request - QueryDocumentStatisticalDataRequest
+//
+// @return QueryDocumentStatisticalDataResponse
 func (client *Client) QueryDocumentStatisticalData(request *QueryDocumentStatisticalDataRequest) (_result *QueryDocumentStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryDocumentStatisticalDataHeaders{}
@@ -13945,6 +18222,76 @@ func (client *Client) QueryDocumentStatisticalData(request *QueryDocumentStatist
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询数据资产平台增购包购买信息
+//
+// @param headers - QueryDpaasDataPackageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDpaasDataPackageResponse
+func (client *Client) QueryDpaasDataPackageWithOptions(headers *QueryDpaasDataPackageHeaders, runtime *util.RuntimeOptions) (_result *QueryDpaasDataPackageResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryDpaasDataPackage"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/dpaas/dataPackages/purchaseInfos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryDpaasDataPackageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询数据资产平台增购包购买信息
+//
+// @return QueryDpaasDataPackageResponse
+func (client *Client) QueryDpaasDataPackage() (_result *QueryDpaasDataPackageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryDpaasDataPackageHeaders{}
+	_result = &QueryDpaasDataPackageResponse{}
+	_body, _err := client.QueryDpaasDataPackageWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取企业钉盘统计数据
+//
+// @param request - QueryDriveStatisticalDataRequest
+//
+// @param headers - QueryDriveStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDriveStatisticalDataResponse
 func (client *Client) QueryDriveStatisticalDataWithOptions(request *QueryDriveStatisticalDataRequest, headers *QueryDriveStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryDriveStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13988,6 +18335,13 @@ func (client *Client) QueryDriveStatisticalDataWithOptions(request *QueryDriveSt
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业钉盘统计数据
+//
+// @param request - QueryDriveStatisticalDataRequest
+//
+// @return QueryDriveStatisticalDataResponse
 func (client *Client) QueryDriveStatisticalData(request *QueryDriveStatisticalDataRequest) (_result *QueryDriveStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryDriveStatisticalDataHeaders{}
@@ -14000,6 +18354,17 @@ func (client *Client) QueryDriveStatisticalData(request *QueryDriveStatisticalDa
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业员工类型统计数据
+//
+// @param request - QueryEmployeeTypeStatisticalDataRequest
+//
+// @param headers - QueryEmployeeTypeStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryEmployeeTypeStatisticalDataResponse
 func (client *Client) QueryEmployeeTypeStatisticalDataWithOptions(request *QueryEmployeeTypeStatisticalDataRequest, headers *QueryEmployeeTypeStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryEmployeeTypeStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14043,6 +18408,13 @@ func (client *Client) QueryEmployeeTypeStatisticalDataWithOptions(request *Query
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业员工类型统计数据
+//
+// @param request - QueryEmployeeTypeStatisticalDataRequest
+//
+// @return QueryEmployeeTypeStatisticalDataResponse
 func (client *Client) QueryEmployeeTypeStatisticalData(request *QueryEmployeeTypeStatisticalDataRequest) (_result *QueryEmployeeTypeStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryEmployeeTypeStatisticalDataHeaders{}
@@ -14055,6 +18427,17 @@ func (client *Client) QueryEmployeeTypeStatisticalData(request *QueryEmployeeTyp
 	return _result, _err
 }
 
+// Summary:
+//
+// 数据资产平台数据服务接口
+//
+// @param request - QueryGeneralDataServiceRequest
+//
+// @param headers - QueryGeneralDataServiceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryGeneralDataServiceResponse
 func (client *Client) QueryGeneralDataServiceWithOptions(request *QueryGeneralDataServiceRequest, headers *QueryGeneralDataServiceHeaders, runtime *util.RuntimeOptions) (_result *QueryGeneralDataServiceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14075,6 +18458,10 @@ func (client *Client) QueryGeneralDataServiceWithOptions(request *QueryGeneralDa
 
 	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
 		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReturnTotal)) {
+		query["returnTotal"] = request.ReturnTotal
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ServiceId)) {
@@ -14122,6 +18509,13 @@ func (client *Client) QueryGeneralDataServiceWithOptions(request *QueryGeneralDa
 	return _result, _err
 }
 
+// Summary:
+//
+// 数据资产平台数据服务接口
+//
+// @param request - QueryGeneralDataServiceRequest
+//
+// @return QueryGeneralDataServiceResponse
 func (client *Client) QueryGeneralDataService(request *QueryGeneralDataServiceRequest) (_result *QueryGeneralDataServiceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryGeneralDataServiceHeaders{}
@@ -14134,6 +18528,199 @@ func (client *Client) QueryGeneralDataService(request *QueryGeneralDataServiceRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 数据资产平台数据服务接口(支持部门、员工维度批量拉取)
+//
+// @param request - QueryGeneralDataServiceBatchRequest
+//
+// @param headers - QueryGeneralDataServiceBatchHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryGeneralDataServiceBatchResponse
+func (client *Client) QueryGeneralDataServiceBatchWithOptions(request *QueryGeneralDataServiceBatchRequest, headers *QueryGeneralDataServiceBatchHeaders, runtime *util.RuntimeOptions) (_result *QueryGeneralDataServiceBatchResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptIds)) {
+		body["deptIds"] = request.DeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndDate)) {
+		body["endDate"] = request.EndDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Filters)) {
+		body["filters"] = request.Filters
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReturnTotal)) {
+		body["returnTotal"] = request.ReturnTotal
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ServiceId)) {
+		body["serviceId"] = request.ServiceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartDate)) {
+		body["startDate"] = request.StartDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryGeneralDataServiceBatch"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/dataServices/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryGeneralDataServiceBatchResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 数据资产平台数据服务接口(支持部门、员工维度批量拉取)
+//
+// @param request - QueryGeneralDataServiceBatchRequest
+//
+// @return QueryGeneralDataServiceBatchResponse
+func (client *Client) QueryGeneralDataServiceBatch(request *QueryGeneralDataServiceBatchRequest) (_result *QueryGeneralDataServiceBatchResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryGeneralDataServiceBatchHeaders{}
+	_result = &QueryGeneralDataServiceBatchResponse{}
+	_body, _err := client.QueryGeneralDataServiceBatchWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 数据资产平台数据服务接口(查询数据更新日期)
+//
+// @param request - QueryGeneralDataUpdateDateRequest
+//
+// @param headers - QueryGeneralDataUpdateDateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryGeneralDataUpdateDateResponse
+func (client *Client) QueryGeneralDataUpdateDateWithOptions(request *QueryGeneralDataUpdateDateRequest, headers *QueryGeneralDataUpdateDateHeaders, runtime *util.RuntimeOptions) (_result *QueryGeneralDataUpdateDateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ServiceId)) {
+		query["serviceId"] = request.ServiceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryGeneralDataUpdateDate"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/dataUpdateDates"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryGeneralDataUpdateDateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 数据资产平台数据服务接口(查询数据更新日期)
+//
+// @param request - QueryGeneralDataUpdateDateRequest
+//
+// @return QueryGeneralDataUpdateDateResponse
+func (client *Client) QueryGeneralDataUpdateDate(request *QueryGeneralDataUpdateDateRequest) (_result *QueryGeneralDataUpdateDateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryGeneralDataUpdateDateHeaders{}
+	_result = &QueryGeneralDataUpdateDateResponse{}
+	_body, _err := client.QueryGeneralDataUpdateDateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取企业群直播统计数据
+//
+// @param request - QueryGroupLiveStatisticalDataRequest
+//
+// @param headers - QueryGroupLiveStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryGroupLiveStatisticalDataResponse
 func (client *Client) QueryGroupLiveStatisticalDataWithOptions(request *QueryGroupLiveStatisticalDataRequest, headers *QueryGroupLiveStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryGroupLiveStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14177,6 +18764,13 @@ func (client *Client) QueryGroupLiveStatisticalDataWithOptions(request *QueryGro
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业群直播统计数据
+//
+// @param request - QueryGroupLiveStatisticalDataRequest
+//
+// @return QueryGroupLiveStatisticalDataResponse
 func (client *Client) QueryGroupLiveStatisticalData(request *QueryGroupLiveStatisticalDataRequest) (_result *QueryGroupLiveStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryGroupLiveStatisticalDataHeaders{}
@@ -14189,6 +18783,17 @@ func (client *Client) QueryGroupLiveStatisticalData(request *QueryGroupLiveStati
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业群聊统计数据
+//
+// @param request - QueryGroupMessageStatisticalDataRequest
+//
+// @param headers - QueryGroupMessageStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryGroupMessageStatisticalDataResponse
 func (client *Client) QueryGroupMessageStatisticalDataWithOptions(request *QueryGroupMessageStatisticalDataRequest, headers *QueryGroupMessageStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryGroupMessageStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14232,6 +18837,13 @@ func (client *Client) QueryGroupMessageStatisticalDataWithOptions(request *Query
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业群聊统计数据
+//
+// @param request - QueryGroupMessageStatisticalDataRequest
+//
+// @return QueryGroupMessageStatisticalDataResponse
 func (client *Client) QueryGroupMessageStatisticalData(request *QueryGroupMessageStatisticalDataRequest) (_result *QueryGroupMessageStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryGroupMessageStatisticalDataHeaders{}
@@ -14244,6 +18856,17 @@ func (client *Client) QueryGroupMessageStatisticalData(request *QueryGroupMessag
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业钉钉运动统计数据
+//
+// @param request - QueryHealthStatisticalDataRequest
+//
+// @param headers - QueryHealthStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryHealthStatisticalDataResponse
 func (client *Client) QueryHealthStatisticalDataWithOptions(request *QueryHealthStatisticalDataRequest, headers *QueryHealthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryHealthStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14287,6 +18910,13 @@ func (client *Client) QueryHealthStatisticalDataWithOptions(request *QueryHealth
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业钉钉运动统计数据
+//
+// @param request - QueryHealthStatisticalDataRequest
+//
+// @return QueryHealthStatisticalDataResponse
 func (client *Client) QueryHealthStatisticalData(request *QueryHealthStatisticalDataRequest) (_result *QueryHealthStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryHealthStatisticalDataHeaders{}
@@ -14299,6 +18929,17 @@ func (client *Client) QueryHealthStatisticalData(request *QueryHealthStatistical
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业邮箱统计数据
+//
+// @param request - QueryMailStatisticalDataRequest
+//
+// @param headers - QueryMailStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMailStatisticalDataResponse
 func (client *Client) QueryMailStatisticalDataWithOptions(request *QueryMailStatisticalDataRequest, headers *QueryMailStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryMailStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14342,6 +18983,13 @@ func (client *Client) QueryMailStatisticalDataWithOptions(request *QueryMailStat
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业邮箱统计数据
+//
+// @param request - QueryMailStatisticalDataRequest
+//
+// @return QueryMailStatisticalDataResponse
 func (client *Client) QueryMailStatisticalData(request *QueryMailStatisticalDataRequest) (_result *QueryMailStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryMailStatisticalDataHeaders{}
@@ -14354,6 +19002,17 @@ func (client *Client) QueryMailStatisticalData(request *QueryMailStatisticalData
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取官方数据集数据
+//
+// @param request - QueryOfficialDataRequest
+//
+// @param headers - QueryOfficialDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryOfficialDataResponse
 func (client *Client) QueryOfficialDataWithOptions(request *QueryOfficialDataRequest, headers *QueryOfficialDataHeaders, runtime *util.RuntimeOptions) (_result *QueryOfficialDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14401,6 +19060,13 @@ func (client *Client) QueryOfficialDataWithOptions(request *QueryOfficialDataReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取官方数据集数据
+//
+// @param request - QueryOfficialDataRequest
+//
+// @return QueryOfficialDataResponse
 func (client *Client) QueryOfficialData(request *QueryOfficialDataRequest) (_result *QueryOfficialDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryOfficialDataHeaders{}
@@ -14413,6 +19079,17 @@ func (client *Client) QueryOfficialData(request *QueryOfficialDataRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// # ISV获取官方数据集字段信息
+//
+// @param request - QueryOfficialDatasetFieldsRequest
+//
+// @param headers - QueryOfficialDatasetFieldsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryOfficialDatasetFieldsResponse
 func (client *Client) QueryOfficialDatasetFieldsWithOptions(request *QueryOfficialDatasetFieldsRequest, headers *QueryOfficialDatasetFieldsHeaders, runtime *util.RuntimeOptions) (_result *QueryOfficialDatasetFieldsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14460,6 +19137,13 @@ func (client *Client) QueryOfficialDatasetFieldsWithOptions(request *QueryOffici
 	return _result, _err
 }
 
+// Summary:
+//
+// # ISV获取官方数据集字段信息
+//
+// @param request - QueryOfficialDatasetFieldsRequest
+//
+// @return QueryOfficialDatasetFieldsResponse
 func (client *Client) QueryOfficialDatasetFields(request *QueryOfficialDatasetFieldsRequest) (_result *QueryOfficialDatasetFieldsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryOfficialDatasetFieldsHeaders{}
@@ -14472,6 +19156,17 @@ func (client *Client) QueryOfficialDatasetFields(request *QueryOfficialDatasetFi
 	return _result, _err
 }
 
+// Summary:
+//
+// # ISV获取官方数据集列表
+//
+// @param request - QueryOfficialDatasetListRequest
+//
+// @param headers - QueryOfficialDatasetListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryOfficialDatasetListResponse
 func (client *Client) QueryOfficialDatasetListWithOptions(request *QueryOfficialDatasetListRequest, headers *QueryOfficialDatasetListHeaders, runtime *util.RuntimeOptions) (_result *QueryOfficialDatasetListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14523,6 +19218,13 @@ func (client *Client) QueryOfficialDatasetListWithOptions(request *QueryOfficial
 	return _result, _err
 }
 
+// Summary:
+//
+// # ISV获取官方数据集列表
+//
+// @param request - QueryOfficialDatasetListRequest
+//
+// @return QueryOfficialDatasetListResponse
 func (client *Client) QueryOfficialDatasetList(request *QueryOfficialDatasetListRequest) (_result *QueryOfficialDatasetListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryOfficialDatasetListHeaders{}
@@ -14535,6 +19237,17 @@ func (client *Client) QueryOfficialDatasetList(request *QueryOfficialDatasetList
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取官方数据集数据
+//
+// @param request - QueryOfficialFormDataRequest
+//
+// @param headers - QueryOfficialFormDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryOfficialFormDataResponse
 func (client *Client) QueryOfficialFormDataWithOptions(request *QueryOfficialFormDataRequest, headers *QueryOfficialFormDataHeaders, runtime *util.RuntimeOptions) (_result *QueryOfficialFormDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14582,6 +19295,13 @@ func (client *Client) QueryOfficialFormDataWithOptions(request *QueryOfficialFor
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取官方数据集数据
+//
+// @param request - QueryOfficialFormDataRequest
+//
+// @return QueryOfficialFormDataResponse
 func (client *Client) QueryOfficialFormData(request *QueryOfficialFormDataRequest) (_result *QueryOfficialFormDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryOfficialFormDataHeaders{}
@@ -14594,6 +19314,94 @@ func (client *Client) QueryOfficialFormData(request *QueryOfficialFormDataReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取HOLO中官方OA表单数据集数据
+//
+// @param request - QueryOfficialFormDataDirectHoloRequest
+//
+// @param headers - QueryOfficialFormDataDirectHoloHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryOfficialFormDataDirectHoloResponse
+func (client *Client) QueryOfficialFormDataDirectHoloWithOptions(request *QueryOfficialFormDataDirectHoloRequest, headers *QueryOfficialFormDataDirectHoloHeaders, runtime *util.RuntimeOptions) (_result *QueryOfficialFormDataDirectHoloResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		body["param"] = request.Param
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryOfficialFormDataDirectHolo"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/oaDatas/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryOfficialFormDataDirectHoloResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取HOLO中官方OA表单数据集数据
+//
+// @param request - QueryOfficialFormDataDirectHoloRequest
+//
+// @return QueryOfficialFormDataDirectHoloResponse
+func (client *Client) QueryOfficialFormDataDirectHolo(request *QueryOfficialFormDataDirectHoloRequest) (_result *QueryOfficialFormDataDirectHoloResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryOfficialFormDataDirectHoloHeaders{}
+	_result = &QueryOfficialFormDataDirectHoloResponse{}
+	_body, _err := client.QueryOfficialFormDataDirectHoloWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取企业用户在线统计数据
+//
+// @param request - QueryOnlineUserStatisticalDataRequest
+//
+// @param headers - QueryOnlineUserStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryOnlineUserStatisticalDataResponse
 func (client *Client) QueryOnlineUserStatisticalDataWithOptions(request *QueryOnlineUserStatisticalDataRequest, headers *QueryOnlineUserStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryOnlineUserStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14637,6 +19445,13 @@ func (client *Client) QueryOnlineUserStatisticalDataWithOptions(request *QueryOn
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业用户在线统计数据
+//
+// @param request - QueryOnlineUserStatisticalDataRequest
+//
+// @return QueryOnlineUserStatisticalDataResponse
 func (client *Client) QueryOnlineUserStatisticalData(request *QueryOnlineUserStatisticalDataRequest) (_result *QueryOnlineUserStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryOnlineUserStatisticalDataHeaders{}
@@ -14649,6 +19464,17 @@ func (client *Client) QueryOnlineUserStatisticalData(request *QueryOnlineUserSta
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业接收红包统计数据
+//
+// @param request - QueryRedEnvelopeReciveStatisticalDataRequest
+//
+// @param headers - QueryRedEnvelopeReciveStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryRedEnvelopeReciveStatisticalDataResponse
 func (client *Client) QueryRedEnvelopeReciveStatisticalDataWithOptions(request *QueryRedEnvelopeReciveStatisticalDataRequest, headers *QueryRedEnvelopeReciveStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryRedEnvelopeReciveStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14692,6 +19518,13 @@ func (client *Client) QueryRedEnvelopeReciveStatisticalDataWithOptions(request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业接收红包统计数据
+//
+// @param request - QueryRedEnvelopeReciveStatisticalDataRequest
+//
+// @return QueryRedEnvelopeReciveStatisticalDataResponse
 func (client *Client) QueryRedEnvelopeReciveStatisticalData(request *QueryRedEnvelopeReciveStatisticalDataRequest) (_result *QueryRedEnvelopeReciveStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryRedEnvelopeReciveStatisticalDataHeaders{}
@@ -14704,6 +19537,17 @@ func (client *Client) QueryRedEnvelopeReciveStatisticalData(request *QueryRedEnv
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业发送红包统计数据
+//
+// @param request - QueryRedEnvelopeSendStatisticalDataRequest
+//
+// @param headers - QueryRedEnvelopeSendStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryRedEnvelopeSendStatisticalDataResponse
 func (client *Client) QueryRedEnvelopeSendStatisticalDataWithOptions(request *QueryRedEnvelopeSendStatisticalDataRequest, headers *QueryRedEnvelopeSendStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryRedEnvelopeSendStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14747,6 +19591,13 @@ func (client *Client) QueryRedEnvelopeSendStatisticalDataWithOptions(request *Qu
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业发送红包统计数据
+//
+// @param request - QueryRedEnvelopeSendStatisticalDataRequest
+//
+// @return QueryRedEnvelopeSendStatisticalDataResponse
 func (client *Client) QueryRedEnvelopeSendStatisticalData(request *QueryRedEnvelopeSendStatisticalDataRequest) (_result *QueryRedEnvelopeSendStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryRedEnvelopeSendStatisticalDataHeaders{}
@@ -14759,6 +19610,17 @@ func (client *Client) QueryRedEnvelopeSendStatisticalData(request *QueryRedEnvel
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业日志统计数据
+//
+// @param request - QueryReportStatisticalDataRequest
+//
+// @param headers - QueryReportStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryReportStatisticalDataResponse
 func (client *Client) QueryReportStatisticalDataWithOptions(request *QueryReportStatisticalDataRequest, headers *QueryReportStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryReportStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14802,6 +19664,13 @@ func (client *Client) QueryReportStatisticalDataWithOptions(request *QueryReport
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业日志统计数据
+//
+// @param request - QueryReportStatisticalDataRequest
+//
+// @return QueryReportStatisticalDataResponse
 func (client *Client) QueryReportStatisticalData(request *QueryReportStatisticalDataRequest) (_result *QueryReportStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryReportStatisticalDataHeaders{}
@@ -14814,6 +19683,167 @@ func (client *Client) QueryReportStatisticalData(request *QueryReportStatistical
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询数据大屏
+//
+// @param request - QueryScreenRequest
+//
+// @param headers - QueryScreenHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryScreenResponse
+func (client *Client) QueryScreenWithOptions(request *QueryScreenRequest, headers *QueryScreenHeaders, runtime *util.RuntimeOptions) (_result *QueryScreenResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryScreen"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/screens"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryScreenResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询数据大屏
+//
+// @param request - QueryScreenRequest
+//
+// @return QueryScreenResponse
+func (client *Client) QueryScreen(request *QueryScreenRequest) (_result *QueryScreenResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryScreenHeaders{}
+	_result = &QueryScreenResponse{}
+	_body, _err := client.QueryScreenWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询数据大屏模版
+//
+// @param request - QueryScreenTemplateRequest
+//
+// @param headers - QueryScreenTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryScreenTemplateResponse
+func (client *Client) QueryScreenTemplateWithOptions(request *QueryScreenTemplateRequest, headers *QueryScreenTemplateHeaders, runtime *util.RuntimeOptions) (_result *QueryScreenTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sample)) {
+		query["sample"] = request.Sample
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryScreenTemplate"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/screenTemplates"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryScreenTemplateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询数据大屏模版
+//
+// @param request - QueryScreenTemplateRequest
+//
+// @return QueryScreenTemplateResponse
+func (client *Client) QueryScreenTemplate(request *QueryScreenTemplateRequest) (_result *QueryScreenTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryScreenTemplateHeaders{}
+	_result = &QueryScreenTemplateResponse{}
+	_body, _err := client.QueryScreenTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取企业单聊统计数据
+//
+// @param request - QuerySingleMessageStatisticalDataRequest
+//
+// @param headers - QuerySingleMessageStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QuerySingleMessageStatisticalDataResponse
 func (client *Client) QuerySingleMessageStatisticalDataWithOptions(request *QuerySingleMessageStatisticalDataRequest, headers *QuerySingleMessageStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QuerySingleMessageStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14857,6 +19887,13 @@ func (client *Client) QuerySingleMessageStatisticalDataWithOptions(request *Quer
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业单聊统计数据
+//
+// @param request - QuerySingleMessageStatisticalDataRequest
+//
+// @return QuerySingleMessageStatisticalDataResponse
 func (client *Client) QuerySingleMessageStatisticalData(request *QuerySingleMessageStatisticalDataRequest) (_result *QuerySingleMessageStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QuerySingleMessageStatisticalDataHeaders{}
@@ -14869,6 +19906,17 @@ func (client *Client) QuerySingleMessageStatisticalData(request *QuerySingleMess
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业电话会议统计数据
+//
+// @param request - QueryTelMeetingStatisticalDataRequest
+//
+// @param headers - QueryTelMeetingStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryTelMeetingStatisticalDataResponse
 func (client *Client) QueryTelMeetingStatisticalDataWithOptions(request *QueryTelMeetingStatisticalDataRequest, headers *QueryTelMeetingStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryTelMeetingStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14912,6 +19960,13 @@ func (client *Client) QueryTelMeetingStatisticalDataWithOptions(request *QueryTe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业电话会议统计数据
+//
+// @param request - QueryTelMeetingStatisticalDataRequest
+//
+// @return QueryTelMeetingStatisticalDataResponse
 func (client *Client) QueryTelMeetingStatisticalData(request *QueryTelMeetingStatisticalDataRequest) (_result *QueryTelMeetingStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryTelMeetingStatisticalDataHeaders{}
@@ -14924,6 +19979,17 @@ func (client *Client) QueryTelMeetingStatisticalData(request *QueryTelMeetingSta
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业待办统计数据
+//
+// @param request - QueryTodoStatisticalDataRequest
+//
+// @param headers - QueryTodoStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryTodoStatisticalDataResponse
 func (client *Client) QueryTodoStatisticalDataWithOptions(request *QueryTodoStatisticalDataRequest, headers *QueryTodoStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryTodoStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14967,6 +20033,13 @@ func (client *Client) QueryTodoStatisticalDataWithOptions(request *QueryTodoStat
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业待办统计数据
+//
+// @param request - QueryTodoStatisticalDataRequest
+//
+// @return QueryTodoStatisticalDataResponse
 func (client *Client) QueryTodoStatisticalData(request *QueryTodoStatisticalDataRequest) (_result *QueryTodoStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryTodoStatisticalDataHeaders{}
@@ -14979,6 +20052,118 @@ func (client *Client) QueryTodoStatisticalData(request *QueryTodoStatisticalData
 	return _result, _err
 }
 
+// Summary:
+//
+// 数据资产平台查询数据记录数
+//
+// @param request - QueryTotalDataCountServiceRequest
+//
+// @param headers - QueryTotalDataCountServiceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryTotalDataCountServiceResponse
+func (client *Client) QueryTotalDataCountServiceWithOptions(request *QueryTotalDataCountServiceRequest, headers *QueryTotalDataCountServiceHeaders, runtime *util.RuntimeOptions) (_result *QueryTotalDataCountServiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptIds)) {
+		body["deptIds"] = request.DeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndDate)) {
+		body["endDate"] = request.EndDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ServiceId)) {
+		body["serviceId"] = request.ServiceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartDate)) {
+		body["startDate"] = request.StartDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryTotalDataCountService"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/datas/totalCounts/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryTotalDataCountServiceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 数据资产平台查询数据记录数
+//
+// @param request - QueryTotalDataCountServiceRequest
+//
+// @return QueryTotalDataCountServiceResponse
+func (client *Client) QueryTotalDataCountService(request *QueryTotalDataCountServiceRequest) (_result *QueryTotalDataCountServiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryTotalDataCountServiceHeaders{}
+	_result = &QueryTotalDataCountServiceResponse{}
+	_body, _err := client.QueryTotalDataCountServiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取企业视频会议统计数据
+//
+// @param request - QueryVedioMeetingStatisticalDataRequest
+//
+// @param headers - QueryVedioMeetingStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryVedioMeetingStatisticalDataResponse
 func (client *Client) QueryVedioMeetingStatisticalDataWithOptions(request *QueryVedioMeetingStatisticalDataRequest, headers *QueryVedioMeetingStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryVedioMeetingStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15022,6 +20207,13 @@ func (client *Client) QueryVedioMeetingStatisticalDataWithOptions(request *Query
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业视频会议统计数据
+//
+// @param request - QueryVedioMeetingStatisticalDataRequest
+//
+// @return QueryVedioMeetingStatisticalDataResponse
 func (client *Client) QueryVedioMeetingStatisticalData(request *QueryVedioMeetingStatisticalDataRequest) (_result *QueryVedioMeetingStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryVedioMeetingStatisticalDataHeaders{}
@@ -15034,6 +20226,17 @@ func (client *Client) QueryVedioMeetingStatisticalData(request *QueryVedioMeetin
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉参谋活跃分析（按日统计）指标接口
+//
+// @param request - QueryYydActiveDayStatisticalDataRequest
+//
+// @param headers - QueryYydActiveDayStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydActiveDayStatisticalDataResponse
 func (client *Client) QueryYydActiveDayStatisticalDataWithOptions(request *QueryYydActiveDayStatisticalDataRequest, headers *QueryYydActiveDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydActiveDayStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15077,6 +20280,13 @@ func (client *Client) QueryYydActiveDayStatisticalDataWithOptions(request *Query
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉参谋活跃分析（按日统计）指标接口
+//
+// @param request - QueryYydActiveDayStatisticalDataRequest
+//
+// @return QueryYydActiveDayStatisticalDataResponse
 func (client *Client) QueryYydActiveDayStatisticalData(request *QueryYydActiveDayStatisticalDataRequest) (_result *QueryYydActiveDayStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydActiveDayStatisticalDataHeaders{}
@@ -15089,6 +20299,17 @@ func (client *Client) QueryYydActiveDayStatisticalData(request *QueryYydActiveDa
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉参谋活跃分析（按月统计）指标接口
+//
+// @param request - QueryYydActiveMonthStatisticalDataRequest
+//
+// @param headers - QueryYydActiveMonthStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydActiveMonthStatisticalDataResponse
 func (client *Client) QueryYydActiveMonthStatisticalDataWithOptions(request *QueryYydActiveMonthStatisticalDataRequest, headers *QueryYydActiveMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydActiveMonthStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15132,6 +20353,13 @@ func (client *Client) QueryYydActiveMonthStatisticalDataWithOptions(request *Que
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉参谋活跃分析（按月统计）指标接口
+//
+// @param request - QueryYydActiveMonthStatisticalDataRequest
+//
+// @return QueryYydActiveMonthStatisticalDataResponse
 func (client *Client) QueryYydActiveMonthStatisticalData(request *QueryYydActiveMonthStatisticalDataRequest) (_result *QueryYydActiveMonthStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydActiveMonthStatisticalDataHeaders{}
@@ -15144,6 +20372,17 @@ func (client *Client) QueryYydActiveMonthStatisticalData(request *QueryYydActive
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉参谋活跃分析（按周统计）指标接口
+//
+// @param request - QueryYydActiveWeekStatisticalDataRequest
+//
+// @param headers - QueryYydActiveWeekStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydActiveWeekStatisticalDataResponse
 func (client *Client) QueryYydActiveWeekStatisticalDataWithOptions(request *QueryYydActiveWeekStatisticalDataRequest, headers *QueryYydActiveWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydActiveWeekStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15187,6 +20426,13 @@ func (client *Client) QueryYydActiveWeekStatisticalDataWithOptions(request *Quer
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉参谋活跃分析（按周统计）指标接口
+//
+// @param request - QueryYydActiveWeekStatisticalDataRequest
+//
+// @return QueryYydActiveWeekStatisticalDataResponse
 func (client *Client) QueryYydActiveWeekStatisticalData(request *QueryYydActiveWeekStatisticalDataRequest) (_result *QueryYydActiveWeekStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydActiveWeekStatisticalDataHeaders{}
@@ -15199,6 +20445,17 @@ func (client *Client) QueryYydActiveWeekStatisticalData(request *QueryYydActiveW
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋应用概况（按日统计）指标接口
+//
+// @param request - QueryYydAppDayStatisticalDataRequest
+//
+// @param headers - QueryYydAppDayStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydAppDayStatisticalDataResponse
 func (client *Client) QueryYydAppDayStatisticalDataWithOptions(request *QueryYydAppDayStatisticalDataRequest, headers *QueryYydAppDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydAppDayStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15242,6 +20499,13 @@ func (client *Client) QueryYydAppDayStatisticalDataWithOptions(request *QueryYyd
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋应用概况（按日统计）指标接口
+//
+// @param request - QueryYydAppDayStatisticalDataRequest
+//
+// @return QueryYydAppDayStatisticalDataResponse
 func (client *Client) QueryYydAppDayStatisticalData(request *QueryYydAppDayStatisticalDataRequest) (_result *QueryYydAppDayStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydAppDayStatisticalDataHeaders{}
@@ -15254,6 +20518,17 @@ func (client *Client) QueryYydAppDayStatisticalData(request *QueryYydAppDayStati
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋应用概况（按月统计）指标接口
+//
+// @param request - QueryYydAppMonthStatisticalDataRequest
+//
+// @param headers - QueryYydAppMonthStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydAppMonthStatisticalDataResponse
 func (client *Client) QueryYydAppMonthStatisticalDataWithOptions(request *QueryYydAppMonthStatisticalDataRequest, headers *QueryYydAppMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydAppMonthStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15297,6 +20572,13 @@ func (client *Client) QueryYydAppMonthStatisticalDataWithOptions(request *QueryY
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋应用概况（按月统计）指标接口
+//
+// @param request - QueryYydAppMonthStatisticalDataRequest
+//
+// @return QueryYydAppMonthStatisticalDataResponse
 func (client *Client) QueryYydAppMonthStatisticalData(request *QueryYydAppMonthStatisticalDataRequest) (_result *QueryYydAppMonthStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydAppMonthStatisticalDataHeaders{}
@@ -15309,6 +20591,17 @@ func (client *Client) QueryYydAppMonthStatisticalData(request *QueryYydAppMonthS
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋应用概况（累计）指标接口
+//
+// @param request - QueryYydAppStdStatisticalDataRequest
+//
+// @param headers - QueryYydAppStdStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydAppStdStatisticalDataResponse
 func (client *Client) QueryYydAppStdStatisticalDataWithOptions(request *QueryYydAppStdStatisticalDataRequest, headers *QueryYydAppStdStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydAppStdStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15352,6 +20645,13 @@ func (client *Client) QueryYydAppStdStatisticalDataWithOptions(request *QueryYyd
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋应用概况（累计）指标接口
+//
+// @param request - QueryYydAppStdStatisticalDataRequest
+//
+// @return QueryYydAppStdStatisticalDataResponse
 func (client *Client) QueryYydAppStdStatisticalData(request *QueryYydAppStdStatisticalDataRequest) (_result *QueryYydAppStdStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydAppStdStatisticalDataHeaders{}
@@ -15364,6 +20664,17 @@ func (client *Client) QueryYydAppStdStatisticalData(request *QueryYydAppStdStati
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋应用概况（按周统计）指标接口
+//
+// @param request - QueryYydAppWeekStatisticalDataRequest
+//
+// @param headers - QueryYydAppWeekStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydAppWeekStatisticalDataResponse
 func (client *Client) QueryYydAppWeekStatisticalDataWithOptions(request *QueryYydAppWeekStatisticalDataRequest, headers *QueryYydAppWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydAppWeekStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15407,6 +20718,13 @@ func (client *Client) QueryYydAppWeekStatisticalDataWithOptions(request *QueryYy
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋应用概况（按周统计）指标接口
+//
+// @param request - QueryYydAppWeekStatisticalDataRequest
+//
+// @return QueryYydAppWeekStatisticalDataResponse
 func (client *Client) QueryYydAppWeekStatisticalData(request *QueryYydAppWeekStatisticalDataRequest) (_result *QueryYydAppWeekStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydAppWeekStatisticalDataHeaders{}
@@ -15419,6 +20737,17 @@ func (client *Client) QueryYydAppWeekStatisticalData(request *QueryYydAppWeekSta
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋会议日程分析（按日统计）指标接口
+//
+// @param request - QueryYydCalendarDayStatisticalDataRequest
+//
+// @param headers - QueryYydCalendarDayStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydCalendarDayStatisticalDataResponse
 func (client *Client) QueryYydCalendarDayStatisticalDataWithOptions(request *QueryYydCalendarDayStatisticalDataRequest, headers *QueryYydCalendarDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydCalendarDayStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15462,6 +20791,13 @@ func (client *Client) QueryYydCalendarDayStatisticalDataWithOptions(request *Que
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋会议日程分析（按日统计）指标接口
+//
+// @param request - QueryYydCalendarDayStatisticalDataRequest
+//
+// @return QueryYydCalendarDayStatisticalDataResponse
 func (client *Client) QueryYydCalendarDayStatisticalData(request *QueryYydCalendarDayStatisticalDataRequest) (_result *QueryYydCalendarDayStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydCalendarDayStatisticalDataHeaders{}
@@ -15474,6 +20810,17 @@ func (client *Client) QueryYydCalendarDayStatisticalData(request *QueryYydCalend
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋会议日程分析（按月统计）指标接口
+//
+// @param request - QueryYydCalendarMonthStatisticalDataRequest
+//
+// @param headers - QueryYydCalendarMonthStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydCalendarMonthStatisticalDataResponse
 func (client *Client) QueryYydCalendarMonthStatisticalDataWithOptions(request *QueryYydCalendarMonthStatisticalDataRequest, headers *QueryYydCalendarMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydCalendarMonthStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15517,6 +20864,13 @@ func (client *Client) QueryYydCalendarMonthStatisticalDataWithOptions(request *Q
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋会议日程分析（按月统计）指标接口
+//
+// @param request - QueryYydCalendarMonthStatisticalDataRequest
+//
+// @return QueryYydCalendarMonthStatisticalDataResponse
 func (client *Client) QueryYydCalendarMonthStatisticalData(request *QueryYydCalendarMonthStatisticalDataRequest) (_result *QueryYydCalendarMonthStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydCalendarMonthStatisticalDataHeaders{}
@@ -15529,6 +20883,17 @@ func (client *Client) QueryYydCalendarMonthStatisticalData(request *QueryYydCale
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋会议日程分析（按周统计）指标接口
+//
+// @param request - QueryYydCalendarWeekStatisticalDataRequest
+//
+// @param headers - QueryYydCalendarWeekStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydCalendarWeekStatisticalDataResponse
 func (client *Client) QueryYydCalendarWeekStatisticalDataWithOptions(request *QueryYydCalendarWeekStatisticalDataRequest, headers *QueryYydCalendarWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydCalendarWeekStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15572,6 +20937,13 @@ func (client *Client) QueryYydCalendarWeekStatisticalDataWithOptions(request *Qu
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋会议日程分析（按周统计）指标接口
+//
+// @param request - QueryYydCalendarWeekStatisticalDataRequest
+//
+// @return QueryYydCalendarWeekStatisticalDataResponse
 func (client *Client) QueryYydCalendarWeekStatisticalData(request *QueryYydCalendarWeekStatisticalDataRequest) (_result *QueryYydCalendarWeekStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydCalendarWeekStatisticalDataHeaders{}
@@ -15584,6 +20956,17 @@ func (client *Client) QueryYydCalendarWeekStatisticalData(request *QueryYydCalen
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋钉消息分析（按日统计）指标接口
+//
+// @param request - QueryYydDingMsgDayStatisticalDataRequest
+//
+// @param headers - QueryYydDingMsgDayStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydDingMsgDayStatisticalDataResponse
 func (client *Client) QueryYydDingMsgDayStatisticalDataWithOptions(request *QueryYydDingMsgDayStatisticalDataRequest, headers *QueryYydDingMsgDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydDingMsgDayStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15627,6 +21010,13 @@ func (client *Client) QueryYydDingMsgDayStatisticalDataWithOptions(request *Quer
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋钉消息分析（按日统计）指标接口
+//
+// @param request - QueryYydDingMsgDayStatisticalDataRequest
+//
+// @return QueryYydDingMsgDayStatisticalDataResponse
 func (client *Client) QueryYydDingMsgDayStatisticalData(request *QueryYydDingMsgDayStatisticalDataRequest) (_result *QueryYydDingMsgDayStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydDingMsgDayStatisticalDataHeaders{}
@@ -15639,6 +21029,17 @@ func (client *Client) QueryYydDingMsgDayStatisticalData(request *QueryYydDingMsg
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋钉消息分析（按月统计）指标接口
+//
+// @param request - QueryYydDingMsgMonthStatisticalDataRequest
+//
+// @param headers - QueryYydDingMsgMonthStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydDingMsgMonthStatisticalDataResponse
 func (client *Client) QueryYydDingMsgMonthStatisticalDataWithOptions(request *QueryYydDingMsgMonthStatisticalDataRequest, headers *QueryYydDingMsgMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydDingMsgMonthStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15682,6 +21083,13 @@ func (client *Client) QueryYydDingMsgMonthStatisticalDataWithOptions(request *Qu
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋钉消息分析（按月统计）指标接口
+//
+// @param request - QueryYydDingMsgMonthStatisticalDataRequest
+//
+// @return QueryYydDingMsgMonthStatisticalDataResponse
 func (client *Client) QueryYydDingMsgMonthStatisticalData(request *QueryYydDingMsgMonthStatisticalDataRequest) (_result *QueryYydDingMsgMonthStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydDingMsgMonthStatisticalDataHeaders{}
@@ -15694,6 +21102,17 @@ func (client *Client) QueryYydDingMsgMonthStatisticalData(request *QueryYydDingM
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋钉消息分析（按周统计）指标接口
+//
+// @param request - QueryYydDingMsgWeekStatisticalDataRequest
+//
+// @param headers - QueryYydDingMsgWeekStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydDingMsgWeekStatisticalDataResponse
 func (client *Client) QueryYydDingMsgWeekStatisticalDataWithOptions(request *QueryYydDingMsgWeekStatisticalDataRequest, headers *QueryYydDingMsgWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydDingMsgWeekStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15737,6 +21156,13 @@ func (client *Client) QueryYydDingMsgWeekStatisticalDataWithOptions(request *Que
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋钉消息分析（按周统计）指标接口
+//
+// @param request - QueryYydDingMsgWeekStatisticalDataRequest
+//
+// @return QueryYydDingMsgWeekStatisticalDataResponse
 func (client *Client) QueryYydDingMsgWeekStatisticalData(request *QueryYydDingMsgWeekStatisticalDataRequest) (_result *QueryYydDingMsgWeekStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydDingMsgWeekStatisticalDataHeaders{}
@@ -15749,6 +21175,17 @@ func (client *Client) QueryYydDingMsgWeekStatisticalData(request *QueryYydDingMs
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋群聊分析（按日统计）指标接口
+//
+// @param request - QueryYydGroupMsgDayStatisticalDataRequest
+//
+// @param headers - QueryYydGroupMsgDayStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydGroupMsgDayStatisticalDataResponse
 func (client *Client) QueryYydGroupMsgDayStatisticalDataWithOptions(request *QueryYydGroupMsgDayStatisticalDataRequest, headers *QueryYydGroupMsgDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydGroupMsgDayStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15792,6 +21229,13 @@ func (client *Client) QueryYydGroupMsgDayStatisticalDataWithOptions(request *Que
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋群聊分析（按日统计）指标接口
+//
+// @param request - QueryYydGroupMsgDayStatisticalDataRequest
+//
+// @return QueryYydGroupMsgDayStatisticalDataResponse
 func (client *Client) QueryYydGroupMsgDayStatisticalData(request *QueryYydGroupMsgDayStatisticalDataRequest) (_result *QueryYydGroupMsgDayStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydGroupMsgDayStatisticalDataHeaders{}
@@ -15804,6 +21248,17 @@ func (client *Client) QueryYydGroupMsgDayStatisticalData(request *QueryYydGroupM
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋群聊分析（按月统计）指标接口
+//
+// @param request - QueryYydGroupMsgMonthStatisticalDataRequest
+//
+// @param headers - QueryYydGroupMsgMonthStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydGroupMsgMonthStatisticalDataResponse
 func (client *Client) QueryYydGroupMsgMonthStatisticalDataWithOptions(request *QueryYydGroupMsgMonthStatisticalDataRequest, headers *QueryYydGroupMsgMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydGroupMsgMonthStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15847,6 +21302,13 @@ func (client *Client) QueryYydGroupMsgMonthStatisticalDataWithOptions(request *Q
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋群聊分析（按月统计）指标接口
+//
+// @param request - QueryYydGroupMsgMonthStatisticalDataRequest
+//
+// @return QueryYydGroupMsgMonthStatisticalDataResponse
 func (client *Client) QueryYydGroupMsgMonthStatisticalData(request *QueryYydGroupMsgMonthStatisticalDataRequest) (_result *QueryYydGroupMsgMonthStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydGroupMsgMonthStatisticalDataHeaders{}
@@ -15859,6 +21321,17 @@ func (client *Client) QueryYydGroupMsgMonthStatisticalData(request *QueryYydGrou
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋群聊分析（按周统计）指标接口
+//
+// @param request - QueryYydGroupMsgWeekStatisticalDataRequest
+//
+// @param headers - QueryYydGroupMsgWeekStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydGroupMsgWeekStatisticalDataResponse
 func (client *Client) QueryYydGroupMsgWeekStatisticalDataWithOptions(request *QueryYydGroupMsgWeekStatisticalDataRequest, headers *QueryYydGroupMsgWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydGroupMsgWeekStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15902,6 +21375,13 @@ func (client *Client) QueryYydGroupMsgWeekStatisticalDataWithOptions(request *Qu
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋群聊分析（按周统计）指标接口
+//
+// @param request - QueryYydGroupMsgWeekStatisticalDataRequest
+//
+// @return QueryYydGroupMsgWeekStatisticalDataResponse
 func (client *Client) QueryYydGroupMsgWeekStatisticalData(request *QueryYydGroupMsgWeekStatisticalDataRequest) (_result *QueryYydGroupMsgWeekStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydGroupMsgWeekStatisticalDataHeaders{}
@@ -15914,6 +21394,17 @@ func (client *Client) QueryYydGroupMsgWeekStatisticalData(request *QueryYydGroup
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋日志分析（按日统计）指标接口
+//
+// @param request - QueryYydLogDayStatisticalDataRequest
+//
+// @param headers - QueryYydLogDayStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydLogDayStatisticalDataResponse
 func (client *Client) QueryYydLogDayStatisticalDataWithOptions(request *QueryYydLogDayStatisticalDataRequest, headers *QueryYydLogDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydLogDayStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15957,6 +21448,13 @@ func (client *Client) QueryYydLogDayStatisticalDataWithOptions(request *QueryYyd
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋日志分析（按日统计）指标接口
+//
+// @param request - QueryYydLogDayStatisticalDataRequest
+//
+// @return QueryYydLogDayStatisticalDataResponse
 func (client *Client) QueryYydLogDayStatisticalData(request *QueryYydLogDayStatisticalDataRequest) (_result *QueryYydLogDayStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydLogDayStatisticalDataHeaders{}
@@ -15969,6 +21467,17 @@ func (client *Client) QueryYydLogDayStatisticalData(request *QueryYydLogDayStati
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋日志分析（按月统计）指标接口
+//
+// @param request - QueryYydLogMonthStatisticalDataRequest
+//
+// @param headers - QueryYydLogMonthStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydLogMonthStatisticalDataResponse
 func (client *Client) QueryYydLogMonthStatisticalDataWithOptions(request *QueryYydLogMonthStatisticalDataRequest, headers *QueryYydLogMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydLogMonthStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16012,6 +21521,13 @@ func (client *Client) QueryYydLogMonthStatisticalDataWithOptions(request *QueryY
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋日志分析（按月统计）指标接口
+//
+// @param request - QueryYydLogMonthStatisticalDataRequest
+//
+// @return QueryYydLogMonthStatisticalDataResponse
 func (client *Client) QueryYydLogMonthStatisticalData(request *QueryYydLogMonthStatisticalDataRequest) (_result *QueryYydLogMonthStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydLogMonthStatisticalDataHeaders{}
@@ -16024,6 +21540,17 @@ func (client *Client) QueryYydLogMonthStatisticalData(request *QueryYydLogMonthS
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋日志分析（按周统计）指标接口
+//
+// @param request - QueryYydLogWeekStatisticalDataRequest
+//
+// @param headers - QueryYydLogWeekStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydLogWeekStatisticalDataResponse
 func (client *Client) QueryYydLogWeekStatisticalDataWithOptions(request *QueryYydLogWeekStatisticalDataRequest, headers *QueryYydLogWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydLogWeekStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16067,6 +21594,13 @@ func (client *Client) QueryYydLogWeekStatisticalDataWithOptions(request *QueryYy
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋日志分析（按周统计）指标接口
+//
+// @param request - QueryYydLogWeekStatisticalDataRequest
+//
+// @return QueryYydLogWeekStatisticalDataResponse
 func (client *Client) QueryYydLogWeekStatisticalData(request *QueryYydLogWeekStatisticalDataRequest) (_result *QueryYydLogWeekStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydLogWeekStatisticalDataHeaders{}
@@ -16079,6 +21613,17 @@ func (client *Client) QueryYydLogWeekStatisticalData(request *QueryYydLogWeekSta
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋钉会议分析（按日统计）指标接口
+//
+// @param request - QueryYydMeetingDayStatisticalDataRequest
+//
+// @param headers - QueryYydMeetingDayStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydMeetingDayStatisticalDataResponse
 func (client *Client) QueryYydMeetingDayStatisticalDataWithOptions(request *QueryYydMeetingDayStatisticalDataRequest, headers *QueryYydMeetingDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydMeetingDayStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16122,6 +21667,13 @@ func (client *Client) QueryYydMeetingDayStatisticalDataWithOptions(request *Quer
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋钉会议分析（按日统计）指标接口
+//
+// @param request - QueryYydMeetingDayStatisticalDataRequest
+//
+// @return QueryYydMeetingDayStatisticalDataResponse
 func (client *Client) QueryYydMeetingDayStatisticalData(request *QueryYydMeetingDayStatisticalDataRequest) (_result *QueryYydMeetingDayStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydMeetingDayStatisticalDataHeaders{}
@@ -16134,6 +21686,17 @@ func (client *Client) QueryYydMeetingDayStatisticalData(request *QueryYydMeeting
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋钉会议分析（按月统计）指标接口
+//
+// @param request - QueryYydMeetingMonthStatisticalDataRequest
+//
+// @param headers - QueryYydMeetingMonthStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydMeetingMonthStatisticalDataResponse
 func (client *Client) QueryYydMeetingMonthStatisticalDataWithOptions(request *QueryYydMeetingMonthStatisticalDataRequest, headers *QueryYydMeetingMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydMeetingMonthStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16177,6 +21740,13 @@ func (client *Client) QueryYydMeetingMonthStatisticalDataWithOptions(request *Qu
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋钉会议分析（按月统计）指标接口
+//
+// @param request - QueryYydMeetingMonthStatisticalDataRequest
+//
+// @return QueryYydMeetingMonthStatisticalDataResponse
 func (client *Client) QueryYydMeetingMonthStatisticalData(request *QueryYydMeetingMonthStatisticalDataRequest) (_result *QueryYydMeetingMonthStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydMeetingMonthStatisticalDataHeaders{}
@@ -16189,6 +21759,17 @@ func (client *Client) QueryYydMeetingMonthStatisticalData(request *QueryYydMeeti
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋钉会议分析（按周统计）指标接口
+//
+// @param request - QueryYydMeetingWeekStatisticalDataRequest
+//
+// @param headers - QueryYydMeetingWeekStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydMeetingWeekStatisticalDataResponse
 func (client *Client) QueryYydMeetingWeekStatisticalDataWithOptions(request *QueryYydMeetingWeekStatisticalDataRequest, headers *QueryYydMeetingWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydMeetingWeekStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16232,6 +21813,13 @@ func (client *Client) QueryYydMeetingWeekStatisticalDataWithOptions(request *Que
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋钉会议分析（按周统计）指标接口
+//
+// @param request - QueryYydMeetingWeekStatisticalDataRequest
+//
+// @return QueryYydMeetingWeekStatisticalDataResponse
 func (client *Client) QueryYydMeetingWeekStatisticalData(request *QueryYydMeetingWeekStatisticalDataRequest) (_result *QueryYydMeetingWeekStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydMeetingWeekStatisticalDataHeaders{}
@@ -16244,6 +21832,17 @@ func (client *Client) QueryYydMeetingWeekStatisticalData(request *QueryYydMeetin
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋通知分析（按日统计）指标接口
+//
+// @param request - QueryYydNoticeDayStatisticalDataRequest
+//
+// @param headers - QueryYydNoticeDayStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydNoticeDayStatisticalDataResponse
 func (client *Client) QueryYydNoticeDayStatisticalDataWithOptions(request *QueryYydNoticeDayStatisticalDataRequest, headers *QueryYydNoticeDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydNoticeDayStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16287,6 +21886,13 @@ func (client *Client) QueryYydNoticeDayStatisticalDataWithOptions(request *Query
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋通知分析（按日统计）指标接口
+//
+// @param request - QueryYydNoticeDayStatisticalDataRequest
+//
+// @return QueryYydNoticeDayStatisticalDataResponse
 func (client *Client) QueryYydNoticeDayStatisticalData(request *QueryYydNoticeDayStatisticalDataRequest) (_result *QueryYydNoticeDayStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydNoticeDayStatisticalDataHeaders{}
@@ -16299,6 +21905,17 @@ func (client *Client) QueryYydNoticeDayStatisticalData(request *QueryYydNoticeDa
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋通知分析（按月统计）指标接口
+//
+// @param request - QueryYydNoticeMonthStatisticalDataRequest
+//
+// @param headers - QueryYydNoticeMonthStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydNoticeMonthStatisticalDataResponse
 func (client *Client) QueryYydNoticeMonthStatisticalDataWithOptions(request *QueryYydNoticeMonthStatisticalDataRequest, headers *QueryYydNoticeMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydNoticeMonthStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16342,6 +21959,13 @@ func (client *Client) QueryYydNoticeMonthStatisticalDataWithOptions(request *Que
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋通知分析（按月统计）指标接口
+//
+// @param request - QueryYydNoticeMonthStatisticalDataRequest
+//
+// @return QueryYydNoticeMonthStatisticalDataResponse
 func (client *Client) QueryYydNoticeMonthStatisticalData(request *QueryYydNoticeMonthStatisticalDataRequest) (_result *QueryYydNoticeMonthStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydNoticeMonthStatisticalDataHeaders{}
@@ -16354,6 +21978,17 @@ func (client *Client) QueryYydNoticeMonthStatisticalData(request *QueryYydNotice
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋通知分析（按周统计）指标接口
+//
+// @param request - QueryYydNoticeWeekStatisticalDataRequest
+//
+// @param headers - QueryYydNoticeWeekStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydNoticeWeekStatisticalDataResponse
 func (client *Client) QueryYydNoticeWeekStatisticalDataWithOptions(request *QueryYydNoticeWeekStatisticalDataRequest, headers *QueryYydNoticeWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydNoticeWeekStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16397,6 +22032,13 @@ func (client *Client) QueryYydNoticeWeekStatisticalDataWithOptions(request *Quer
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋通知分析（按周统计）指标接口
+//
+// @param request - QueryYydNoticeWeekStatisticalDataRequest
+//
+// @return QueryYydNoticeWeekStatisticalDataResponse
 func (client *Client) QueryYydNoticeWeekStatisticalData(request *QueryYydNoticeWeekStatisticalDataRequest) (_result *QueryYydNoticeWeekStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydNoticeWeekStatisticalDataHeaders{}
@@ -16409,6 +22051,17 @@ func (client *Client) QueryYydNoticeWeekStatisticalData(request *QueryYydNoticeW
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋单聊分析（按日统计）指标接口
+//
+// @param request - QueryYydSingleMsgDayStatisticalDataRequest
+//
+// @param headers - QueryYydSingleMsgDayStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydSingleMsgDayStatisticalDataResponse
 func (client *Client) QueryYydSingleMsgDayStatisticalDataWithOptions(request *QueryYydSingleMsgDayStatisticalDataRequest, headers *QueryYydSingleMsgDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydSingleMsgDayStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16452,6 +22105,13 @@ func (client *Client) QueryYydSingleMsgDayStatisticalDataWithOptions(request *Qu
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋单聊分析（按日统计）指标接口
+//
+// @param request - QueryYydSingleMsgDayStatisticalDataRequest
+//
+// @return QueryYydSingleMsgDayStatisticalDataResponse
 func (client *Client) QueryYydSingleMsgDayStatisticalData(request *QueryYydSingleMsgDayStatisticalDataRequest) (_result *QueryYydSingleMsgDayStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydSingleMsgDayStatisticalDataHeaders{}
@@ -16464,6 +22124,17 @@ func (client *Client) QueryYydSingleMsgDayStatisticalData(request *QueryYydSingl
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋单聊分析（按月统计）指标接口
+//
+// @param request - QueryYydSingleMsgMonthStatisticalDataRequest
+//
+// @param headers - QueryYydSingleMsgMonthStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydSingleMsgMonthStatisticalDataResponse
 func (client *Client) QueryYydSingleMsgMonthStatisticalDataWithOptions(request *QueryYydSingleMsgMonthStatisticalDataRequest, headers *QueryYydSingleMsgMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydSingleMsgMonthStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16507,6 +22178,13 @@ func (client *Client) QueryYydSingleMsgMonthStatisticalDataWithOptions(request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋单聊分析（按月统计）指标接口
+//
+// @param request - QueryYydSingleMsgMonthStatisticalDataRequest
+//
+// @return QueryYydSingleMsgMonthStatisticalDataResponse
 func (client *Client) QueryYydSingleMsgMonthStatisticalData(request *QueryYydSingleMsgMonthStatisticalDataRequest) (_result *QueryYydSingleMsgMonthStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydSingleMsgMonthStatisticalDataHeaders{}
@@ -16519,6 +22197,17 @@ func (client *Client) QueryYydSingleMsgMonthStatisticalData(request *QueryYydSin
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋单聊分析（按周统计）指标接口
+//
+// @param request - QueryYydSingleMsgWeekStatisticalDataRequest
+//
+// @param headers - QueryYydSingleMsgWeekStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydSingleMsgWeekStatisticalDataResponse
 func (client *Client) QueryYydSingleMsgWeekStatisticalDataWithOptions(request *QueryYydSingleMsgWeekStatisticalDataRequest, headers *QueryYydSingleMsgWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydSingleMsgWeekStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16562,6 +22251,13 @@ func (client *Client) QueryYydSingleMsgWeekStatisticalDataWithOptions(request *Q
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋单聊分析（按周统计）指标接口
+//
+// @param request - QueryYydSingleMsgWeekStatisticalDataRequest
+//
+// @return QueryYydSingleMsgWeekStatisticalDataResponse
 func (client *Client) QueryYydSingleMsgWeekStatisticalData(request *QueryYydSingleMsgWeekStatisticalDataRequest) (_result *QueryYydSingleMsgWeekStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydSingleMsgWeekStatisticalDataHeaders{}
@@ -16574,6 +22270,17 @@ func (client *Client) QueryYydSingleMsgWeekStatisticalData(request *QueryYydSing
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋消息概览（按日统计）指标接口
+//
+// @param request - QueryYydToatlMsgDayStatisticalDataRequest
+//
+// @param headers - QueryYydToatlMsgDayStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydToatlMsgDayStatisticalDataResponse
 func (client *Client) QueryYydToatlMsgDayStatisticalDataWithOptions(request *QueryYydToatlMsgDayStatisticalDataRequest, headers *QueryYydToatlMsgDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydToatlMsgDayStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16617,6 +22324,13 @@ func (client *Client) QueryYydToatlMsgDayStatisticalDataWithOptions(request *Que
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋消息概览（按日统计）指标接口
+//
+// @param request - QueryYydToatlMsgDayStatisticalDataRequest
+//
+// @return QueryYydToatlMsgDayStatisticalDataResponse
 func (client *Client) QueryYydToatlMsgDayStatisticalData(request *QueryYydToatlMsgDayStatisticalDataRequest) (_result *QueryYydToatlMsgDayStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydToatlMsgDayStatisticalDataHeaders{}
@@ -16629,6 +22343,17 @@ func (client *Client) QueryYydToatlMsgDayStatisticalData(request *QueryYydToatlM
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋消息概览（按月统计）指标接口
+//
+// @param request - QueryYydToatlMsgMonthStatisticalDataRequest
+//
+// @param headers - QueryYydToatlMsgMonthStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydToatlMsgMonthStatisticalDataResponse
 func (client *Client) QueryYydToatlMsgMonthStatisticalDataWithOptions(request *QueryYydToatlMsgMonthStatisticalDataRequest, headers *QueryYydToatlMsgMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydToatlMsgMonthStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16672,6 +22397,13 @@ func (client *Client) QueryYydToatlMsgMonthStatisticalDataWithOptions(request *Q
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋消息概览（按月统计）指标接口
+//
+// @param request - QueryYydToatlMsgMonthStatisticalDataRequest
+//
+// @return QueryYydToatlMsgMonthStatisticalDataResponse
 func (client *Client) QueryYydToatlMsgMonthStatisticalData(request *QueryYydToatlMsgMonthStatisticalDataRequest) (_result *QueryYydToatlMsgMonthStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydToatlMsgMonthStatisticalDataHeaders{}
@@ -16684,6 +22416,17 @@ func (client *Client) QueryYydToatlMsgMonthStatisticalData(request *QueryYydToat
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋消息概览（按周统计）指标接口
+//
+// @param request - QueryYydToatlMsgWeekStatisticalDataRequest
+//
+// @param headers - QueryYydToatlMsgWeekStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydToatlMsgWeekStatisticalDataResponse
 func (client *Client) QueryYydToatlMsgWeekStatisticalDataWithOptions(request *QueryYydToatlMsgWeekStatisticalDataRequest, headers *QueryYydToatlMsgWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydToatlMsgWeekStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16727,6 +22470,13 @@ func (client *Client) QueryYydToatlMsgWeekStatisticalDataWithOptions(request *Qu
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋消息概览（按周统计）指标接口
+//
+// @param request - QueryYydToatlMsgWeekStatisticalDataRequest
+//
+// @return QueryYydToatlMsgWeekStatisticalDataResponse
 func (client *Client) QueryYydToatlMsgWeekStatisticalData(request *QueryYydToatlMsgWeekStatisticalDataRequest) (_result *QueryYydToatlMsgWeekStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydToatlMsgWeekStatisticalDataHeaders{}
@@ -16739,6 +22489,17 @@ func (client *Client) QueryYydToatlMsgWeekStatisticalData(request *QueryYydToatl
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋待办分析（按日统计）指标接口
+//
+// @param request - QueryYydTodoDayStatisticalDataRequest
+//
+// @param headers - QueryYydTodoDayStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydTodoDayStatisticalDataResponse
 func (client *Client) QueryYydTodoDayStatisticalDataWithOptions(request *QueryYydTodoDayStatisticalDataRequest, headers *QueryYydTodoDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydTodoDayStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16782,6 +22543,13 @@ func (client *Client) QueryYydTodoDayStatisticalDataWithOptions(request *QueryYy
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋待办分析（按日统计）指标接口
+//
+// @param request - QueryYydTodoDayStatisticalDataRequest
+//
+// @return QueryYydTodoDayStatisticalDataResponse
 func (client *Client) QueryYydTodoDayStatisticalData(request *QueryYydTodoDayStatisticalDataRequest) (_result *QueryYydTodoDayStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydTodoDayStatisticalDataHeaders{}
@@ -16794,6 +22562,17 @@ func (client *Client) QueryYydTodoDayStatisticalData(request *QueryYydTodoDaySta
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋待办分析（按月统计）指标接口
+//
+// @param request - QueryYydTodoMonthStatisticalDataRequest
+//
+// @param headers - QueryYydTodoMonthStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydTodoMonthStatisticalDataResponse
 func (client *Client) QueryYydTodoMonthStatisticalDataWithOptions(request *QueryYydTodoMonthStatisticalDataRequest, headers *QueryYydTodoMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydTodoMonthStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16837,6 +22616,13 @@ func (client *Client) QueryYydTodoMonthStatisticalDataWithOptions(request *Query
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋待办分析（按月统计）指标接口
+//
+// @param request - QueryYydTodoMonthStatisticalDataRequest
+//
+// @return QueryYydTodoMonthStatisticalDataResponse
 func (client *Client) QueryYydTodoMonthStatisticalData(request *QueryYydTodoMonthStatisticalDataRequest) (_result *QueryYydTodoMonthStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydTodoMonthStatisticalDataHeaders{}
@@ -16849,6 +22635,17 @@ func (client *Client) QueryYydTodoMonthStatisticalData(request *QueryYydTodoMont
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋待办分析（按周统计）指标接口
+//
+// @param request - QueryYydTodoWeekStatisticalDataRequest
+//
+// @param headers - QueryYydTodoWeekStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydTodoWeekStatisticalDataResponse
 func (client *Client) QueryYydTodoWeekStatisticalDataWithOptions(request *QueryYydTodoWeekStatisticalDataRequest, headers *QueryYydTodoWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydTodoWeekStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16892,6 +22689,13 @@ func (client *Client) QueryYydTodoWeekStatisticalDataWithOptions(request *QueryY
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉数字参谋待办分析（按周统计）指标接口
+//
+// @param request - QueryYydTodoWeekStatisticalDataRequest
+//
+// @return QueryYydTodoWeekStatisticalDataResponse
 func (client *Client) QueryYydTodoWeekStatisticalData(request *QueryYydTodoWeekStatisticalDataRequest) (_result *QueryYydTodoWeekStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydTodoWeekStatisticalDataHeaders{}
@@ -16904,6 +22708,17 @@ func (client *Client) QueryYydTodoWeekStatisticalData(request *QueryYydTodoWeekS
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉参谋全局概览（按日统计）指标接口
+//
+// @param request - QueryYydTotalDayStatisticalDataRequest
+//
+// @param headers - QueryYydTotalDayStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydTotalDayStatisticalDataResponse
 func (client *Client) QueryYydTotalDayStatisticalDataWithOptions(request *QueryYydTotalDayStatisticalDataRequest, headers *QueryYydTotalDayStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydTotalDayStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16947,6 +22762,13 @@ func (client *Client) QueryYydTotalDayStatisticalDataWithOptions(request *QueryY
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉参谋全局概览（按日统计）指标接口
+//
+// @param request - QueryYydTotalDayStatisticalDataRequest
+//
+// @return QueryYydTotalDayStatisticalDataResponse
 func (client *Client) QueryYydTotalDayStatisticalData(request *QueryYydTotalDayStatisticalDataRequest) (_result *QueryYydTotalDayStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydTotalDayStatisticalDataHeaders{}
@@ -16959,6 +22781,17 @@ func (client *Client) QueryYydTotalDayStatisticalData(request *QueryYydTotalDayS
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉参谋全局概览（按月统计）指标接口
+//
+// @param request - QueryYydTotalMonthStatisticalDataRequest
+//
+// @param headers - QueryYydTotalMonthStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydTotalMonthStatisticalDataResponse
 func (client *Client) QueryYydTotalMonthStatisticalDataWithOptions(request *QueryYydTotalMonthStatisticalDataRequest, headers *QueryYydTotalMonthStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydTotalMonthStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17002,6 +22835,13 @@ func (client *Client) QueryYydTotalMonthStatisticalDataWithOptions(request *Quer
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉参谋全局概览（按月统计）指标接口
+//
+// @param request - QueryYydTotalMonthStatisticalDataRequest
+//
+// @return QueryYydTotalMonthStatisticalDataResponse
 func (client *Client) QueryYydTotalMonthStatisticalData(request *QueryYydTotalMonthStatisticalDataRequest) (_result *QueryYydTotalMonthStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydTotalMonthStatisticalDataHeaders{}
@@ -17014,6 +22854,17 @@ func (client *Client) QueryYydTotalMonthStatisticalData(request *QueryYydTotalMo
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉参谋全局概览（累计）指标接口
+//
+// @param request - QueryYydTotalStdStatisticalDataRequest
+//
+// @param headers - QueryYydTotalStdStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydTotalStdStatisticalDataResponse
 func (client *Client) QueryYydTotalStdStatisticalDataWithOptions(request *QueryYydTotalStdStatisticalDataRequest, headers *QueryYydTotalStdStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydTotalStdStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17057,6 +22908,13 @@ func (client *Client) QueryYydTotalStdStatisticalDataWithOptions(request *QueryY
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉参谋全局概览（累计）指标接口
+//
+// @param request - QueryYydTotalStdStatisticalDataRequest
+//
+// @return QueryYydTotalStdStatisticalDataResponse
 func (client *Client) QueryYydTotalStdStatisticalData(request *QueryYydTotalStdStatisticalDataRequest) (_result *QueryYydTotalStdStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydTotalStdStatisticalDataHeaders{}
@@ -17069,6 +22927,17 @@ func (client *Client) QueryYydTotalStdStatisticalData(request *QueryYydTotalStdS
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉参谋全局概览（按周统计）指标接口
+//
+// @param request - QueryYydTotalWeekStatisticalDataRequest
+//
+// @param headers - QueryYydTotalWeekStatisticalDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryYydTotalWeekStatisticalDataResponse
 func (client *Client) QueryYydTotalWeekStatisticalDataWithOptions(request *QueryYydTotalWeekStatisticalDataRequest, headers *QueryYydTotalWeekStatisticalDataHeaders, runtime *util.RuntimeOptions) (_result *QueryYydTotalWeekStatisticalDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17112,6 +22981,13 @@ func (client *Client) QueryYydTotalWeekStatisticalDataWithOptions(request *Query
 	return _result, _err
 }
 
+// Summary:
+//
+// 亚运钉参谋全局概览（按周统计）指标接口
+//
+// @param request - QueryYydTotalWeekStatisticalDataRequest
+//
+// @return QueryYydTotalWeekStatisticalDataResponse
 func (client *Client) QueryYydTotalWeekStatisticalData(request *QueryYydTotalWeekStatisticalDataRequest) (_result *QueryYydTotalWeekStatisticalDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryYydTotalWeekStatisticalDataHeaders{}
@@ -17124,6 +23000,17 @@ func (client *Client) QueryYydTotalWeekStatisticalData(request *QueryYydTotalWee
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过关键词搜索企业
+//
+// @param request - SearchCompanyRequest
+//
+// @param headers - SearchCompanyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchCompanyResponse
 func (client *Client) SearchCompanyWithOptions(request *SearchCompanyRequest, headers *SearchCompanyHeaders, runtime *util.RuntimeOptions) (_result *SearchCompanyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17175,11 +23062,95 @@ func (client *Client) SearchCompanyWithOptions(request *SearchCompanyRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过关键词搜索企业
+//
+// @param request - SearchCompanyRequest
+//
+// @return SearchCompanyResponse
 func (client *Client) SearchCompany(request *SearchCompanyRequest) (_result *SearchCompanyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchCompanyHeaders{}
 	_result = &SearchCompanyResponse{}
 	_body, _err := client.SearchCompanyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 同步数据大屏
+//
+// @param request - SyncDataScreenRequest
+//
+// @param headers - SyncDataScreenHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncDataScreenResponse
+func (client *Client) SyncDataScreenWithOptions(request *SyncDataScreenRequest, headers *SyncDataScreenHeaders, runtime *util.RuntimeOptions) (_result *SyncDataScreenResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ScreenId)) {
+		body["screenId"] = request.ScreenId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Ticket)) {
+		body["ticket"] = request.Ticket
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncDataScreen"),
+		Version:     tea.String("datacenter_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/datacenter/dataScreens/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SyncDataScreenResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 同步数据大屏
+//
+// @param request - SyncDataScreenRequest
+//
+// @return SyncDataScreenResponse
+func (client *Client) SyncDataScreen(request *SyncDataScreenRequest) (_result *SyncDataScreenResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncDataScreenHeaders{}
+	_result = &SyncDataScreenResponse{}
+	_body, _err := client.SyncDataScreenWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

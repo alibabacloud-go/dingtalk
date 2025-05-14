@@ -1,21 +1,26 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package report_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
 type UserMapValue struct {
+	// example:
+	//
+	// user123
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 张三
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// xxx
 	DeptId *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
@@ -66,21 +71,47 @@ func (s *CreateTemplatesHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTem
 }
 
 type CreateTemplatesRequest struct {
-	AllowAddReceivers           *bool                           `json:"allowAddReceivers,omitempty" xml:"allowAddReceivers,omitempty"`
-	AllowEdit                   *bool                           `json:"allowEdit,omitempty" xml:"allowEdit,omitempty"`
-	AllowGetLocation            *bool                           `json:"allowGetLocation,omitempty" xml:"allowGetLocation,omitempty"`
-	AuthDeptIds                 []*string                       `json:"authDeptIds,omitempty" xml:"authDeptIds,omitempty" type:"Repeated"`
-	AuthUserIds                 []*string                       `json:"authUserIds,omitempty" xml:"authUserIds,omitempty" type:"Repeated"`
-	Creator                     *string                         `json:"creator,omitempty" xml:"creator,omitempty"`
-	DefaultReceivedCids         []*string                       `json:"defaultReceivedCids,omitempty" xml:"defaultReceivedCids,omitempty" type:"Repeated"`
-	DefaultReceivedMasterLevels []*string                       `json:"defaultReceivedMasterLevels,omitempty" xml:"defaultReceivedMasterLevels,omitempty" type:"Repeated"`
-	DefaultReceivers            []*string                       `json:"defaultReceivers,omitempty" xml:"defaultReceivers,omitempty" type:"Repeated"`
-	Fields                      []*CreateTemplatesRequestFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
-	Logo                        *string                         `json:"logo,omitempty" xml:"logo,omitempty"`
-	MaxWordCount                *int32                          `json:"maxWordCount,omitempty" xml:"maxWordCount,omitempty"`
-	MinWordCount                *int32                          `json:"minWordCount,omitempty" xml:"minWordCount,omitempty"`
-	Name                        *string                         `json:"name,omitempty" xml:"name,omitempty"`
-	TemplateManagers            []*string                       `json:"templateManagers,omitempty" xml:"templateManagers,omitempty" type:"Repeated"`
+	AllowAddReceivers *bool     `json:"allowAddReceivers,omitempty" xml:"allowAddReceivers,omitempty"`
+	AllowEdit         *bool     `json:"allowEdit,omitempty" xml:"allowEdit,omitempty"`
+	AllowGetLocation  *bool     `json:"allowGetLocation,omitempty" xml:"allowGetLocation,omitempty"`
+	AuthDeptIds       []*string `json:"authDeptIds,omitempty" xml:"authDeptIds,omitempty" type:"Repeated"`
+	AuthUserIds       []*string `json:"authUserIds,omitempty" xml:"authUserIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 182942
+	Creator                     *string   `json:"creator,omitempty" xml:"creator,omitempty"`
+	DefaultReceivedCids         []*string `json:"defaultReceivedCids,omitempty" xml:"defaultReceivedCids,omitempty" type:"Repeated"`
+	DefaultReceivedMasterLevels []*string `json:"defaultReceivedMasterLevels,omitempty" xml:"defaultReceivedMasterLevels,omitempty" type:"Repeated"`
+	DefaultReceivers            []*string `json:"defaultReceivers,omitempty" xml:"defaultReceivers,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Fields []*CreateTemplatesRequestFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	// example:
+	//
+	// https://xxx.jpg
+	Logo *string `json:"logo,omitempty" xml:"logo,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// 1000
+	MaxWordCount *int32 `json:"maxWordCount,omitempty" xml:"maxWordCount,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// 1
+	MinWordCount *int32 `json:"minWordCount,omitempty" xml:"minWordCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 工作日报
+	Name             *string   `json:"name,omitempty" xml:"name,omitempty"`
+	TemplateManagers []*string `json:"templateManagers,omitempty" xml:"templateManagers,omitempty" type:"Repeated"`
 }
 
 func (s CreateTemplatesRequest) String() string {
@@ -167,12 +198,29 @@ func (s *CreateTemplatesRequest) SetTemplateManagers(v []*string) *CreateTemplat
 }
 
 type CreateTemplatesRequestFields struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	DataType  *int32                                 `json:"dataType,omitempty" xml:"dataType,omitempty"`
 	DataValue *CreateTemplatesRequestFieldsDataValue `json:"dataValue,omitempty" xml:"dataValue,omitempty" type:"Struct"`
-	FieldName *string                                `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
-	Need      *bool                                  `json:"need,omitempty" xml:"need,omitempty"`
-	Order     *int32                                 `json:"order,omitempty" xml:"order,omitempty"`
-	Sort      *int32                                 `json:"sort,omitempty" xml:"sort,omitempty"`
+	// This parameter is required.
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// This parameter is required.
+	Need *bool `json:"need,omitempty" xml:"need,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Order *int32 `json:"order,omitempty" xml:"order,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Sort *int32 `json:"sort,omitempty" xml:"sort,omitempty"`
 }
 
 func (s CreateTemplatesRequestFields) String() string {
@@ -244,7 +292,10 @@ func (s *CreateTemplatesRequestFieldsDataValue) SetPlaceholder(v string) *Create
 
 type CreateTemplatesRequestFieldsDataValueOpenInfo struct {
 	Attribute map[string]*string `json:"attribute,omitempty" xml:"attribute,omitempty"`
-	OpenId    *string            `json:"openId,omitempty" xml:"openId,omitempty"`
+	// example:
+	//
+	// abc
+	OpenId *string `json:"openId,omitempty" xml:"openId,omitempty"`
 }
 
 func (s CreateTemplatesRequestFieldsDataValueOpenInfo) String() string {
@@ -266,6 +317,7 @@ func (s *CreateTemplatesRequestFieldsDataValueOpenInfo) SetOpenId(v string) *Cre
 }
 
 type CreateTemplatesResponseBody struct {
+	// This parameter is required.
 	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
 
@@ -335,11 +387,36 @@ func (s *GetSendAndReceiveReportListHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type GetSendAndReceiveReportListRequest struct {
-	EndTime         *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	MaxResults      *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken       *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1507564800000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user123
 	OperationUserId *string `json:"operationUserId,omitempty" xml:"operationUserId,omitempty"`
-	StartTime       *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1507564800000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
 }
 
 func (s GetSendAndReceiveReportListRequest) String() string {
@@ -376,10 +453,16 @@ func (s *GetSendAndReceiveReportListRequest) SetStartTime(v int64) *GetSendAndRe
 }
 
 type GetSendAndReceiveReportListResponseBody struct {
-	DataList   []*GetSendAndReceiveReportListResponseBodyDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
-	HasMore    *bool                                              `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	MaxResults *int32                                             `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *int64                                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	DataList []*GetSendAndReceiveReportListResponseBodyDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	HasMore  *bool                                              `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 10
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GetSendAndReceiveReportListResponseBody) String() string {
@@ -411,11 +494,29 @@ func (s *GetSendAndReceiveReportListResponseBody) SetNextToken(v int64) *GetSend
 }
 
 type GetSendAndReceiveReportListResponseBodyDataList struct {
-	CreateTime   *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId    *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	CreatorName  *string `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
-	ModifiedTime *int64  `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ReportId     *string `json:"reportId,omitempty" xml:"reportId,omitempty"`
+	// example:
+	//
+	// 1507564800000
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// user123
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// 张三
+	CreatorName *string `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
+	// example:
+	//
+	// 1507564800000
+	ModifiedTime *int64 `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// xxxxxx
+	ReportId *string `json:"reportId,omitempty" xml:"reportId,omitempty"`
+	// example:
+	//
+	// 日报
 	TemplateName *string `json:"templateName,omitempty" xml:"templateName,omitempty"`
 }
 
@@ -510,11 +611,36 @@ func (s *GetSubmitStatisticsHeaders) SetXAcsDingtalkAccessToken(v string) *GetSu
 }
 
 type GetSubmitStatisticsRequest struct {
-	EndTime         *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1507564800000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user123
 	OperationUserId *string `json:"operationUserId,omitempty" xml:"operationUserId,omitempty"`
-	RemindId        *int64  `json:"remindId,omitempty" xml:"remindId,omitempty"`
-	StartTime       *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	TemplateId      *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	RemindId *int64 `json:"remindId,omitempty" xml:"remindId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1507564800000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 18xxxxx
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
 
 func (s GetSubmitStatisticsRequest) String() string {
@@ -551,13 +677,19 @@ func (s *GetSubmitStatisticsRequest) SetTemplateId(v string) *GetSubmitStatistic
 }
 
 type GetSubmitStatisticsResponseBody struct {
-	ShouldRemindTimes *int32                            `json:"shouldRemindTimes,omitempty" xml:"shouldRemindTimes,omitempty"`
-	TemplateName      *string                           `json:"templateName,omitempty" xml:"templateName,omitempty"`
-	UserDeptMap       map[string]*string                `json:"userDeptMap,omitempty" xml:"userDeptMap,omitempty"`
-	UserIdCountMap    map[string]*int64                 `json:"userIdCountMap,omitempty" xml:"userIdCountMap,omitempty"`
-	UserIdStatusMap   map[string]map[string]interface{} `json:"userIdStatusMap,omitempty" xml:"userIdStatusMap,omitempty"`
-	UserIds           []*string                         `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
-	UserMap           map[string]*UserMapValue          `json:"userMap,omitempty" xml:"userMap,omitempty"`
+	// example:
+	//
+	// 3
+	ShouldRemindTimes *int32 `json:"shouldRemindTimes,omitempty" xml:"shouldRemindTimes,omitempty"`
+	// example:
+	//
+	// 日报
+	TemplateName    *string                           `json:"templateName,omitempty" xml:"templateName,omitempty"`
+	UserDeptMap     map[string]*string                `json:"userDeptMap,omitempty" xml:"userDeptMap,omitempty"`
+	UserIdCountMap  map[string]*int64                 `json:"userIdCountMap,omitempty" xml:"userIdCountMap,omitempty"`
+	UserIdStatusMap map[string]map[string]interface{} `json:"userIdStatusMap,omitempty" xml:"userIdStatusMap,omitempty"`
+	UserIds         []*string                         `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	UserMap         map[string]*UserMapValue          `json:"userMap,omitempty" xml:"userMap,omitempty"`
 }
 
 func (s GetSubmitStatisticsResponseBody) String() string {
@@ -656,10 +788,30 @@ func (s *QueryRemindResultsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryR
 }
 
 type QueryRemindResultsRequest struct {
-	MaxResults      *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken       *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user123
 	OperationUserId *string `json:"operationUserId,omitempty" xml:"operationUserId,omitempty"`
-	TemplateId      *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 18xxxx
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
 
 func (s QueryRemindResultsRequest) String() string {
@@ -691,9 +843,12 @@ func (s *QueryRemindResultsRequest) SetTemplateId(v string) *QueryRemindResultsR
 }
 
 type QueryRemindResultsResponseBody struct {
-	DataList  []*QueryRemindResultsResponseBodyDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
-	HasMore   *bool                                     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextToken *int64                                    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	DataList []*QueryRemindResultsResponseBodyDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	HasMore  *bool                                     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// 20
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryRemindResultsResponseBody) String() string {
@@ -720,14 +875,26 @@ func (s *QueryRemindResultsResponseBody) SetNextToken(v int64) *QueryRemindResul
 }
 
 type QueryRemindResultsResponseBodyDataList struct {
-	CreatorId     *string                                           `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	EndDateTime   []*string                                         `json:"endDateTime,omitempty" xml:"endDateTime,omitempty" type:"Repeated"`
-	ModifierId    *string                                           `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	PeriodType    *int32                                            `json:"periodType,omitempty" xml:"periodType,omitempty"`
-	RemindId      *int64                                            `json:"remindId,omitempty" xml:"remindId,omitempty"`
-	StartDateTime []*string                                         `json:"startDateTime,omitempty" xml:"startDateTime,omitempty" type:"Repeated"`
-	TemplateId    *string                                           `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	ToGroups      []*QueryRemindResultsResponseBodyDataListToGroups `json:"toGroups,omitempty" xml:"toGroups,omitempty" type:"Repeated"`
+	// example:
+	//
+	// user123
+	CreatorId   *string   `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	EndDateTime []*string `json:"endDateTime,omitempty" xml:"endDateTime,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 18xxxx
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// 1
+	PeriodType    *int32    `json:"periodType,omitempty" xml:"periodType,omitempty"`
+	RemindId      *int64    `json:"remindId,omitempty" xml:"remindId,omitempty"`
+	StartDateTime []*string `json:"startDateTime,omitempty" xml:"startDateTime,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 123456
+	TemplateId *string                                           `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	ToGroups   []*QueryRemindResultsResponseBodyDataListToGroups `json:"toGroups,omitempty" xml:"toGroups,omitempty" type:"Repeated"`
 }
 
 func (s QueryRemindResultsResponseBodyDataList) String() string {
@@ -779,6 +946,9 @@ func (s *QueryRemindResultsResponseBodyDataList) SetToGroups(v []*QueryRemindRes
 }
 
 type QueryRemindResultsResponseBodyDataListToGroups struct {
+	// example:
+	//
+	// xxx群
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -848,6 +1018,15 @@ func (s *QueryReportDetailHeaders) SetXAcsDingtalkAccessToken(v string) *QueryRe
 }
 
 type QueryReportDetailRequest struct {
+	// example:
+	//
+	// TEXT
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 18XXXX
 	ReportId *string `json:"reportId,omitempty" xml:"reportId,omitempty"`
 }
 
@@ -859,21 +1038,50 @@ func (s QueryReportDetailRequest) GoString() string {
 	return s.String()
 }
 
+func (s *QueryReportDetailRequest) SetFormat(v string) *QueryReportDetailRequest {
+	s.Format = &v
+	return s
+}
+
 func (s *QueryReportDetailRequest) SetReportId(v string) *QueryReportDetailRequest {
 	s.ReportId = &v
 	return s
 }
 
 type QueryReportDetailResponseBody struct {
-	Content      []*QueryReportDetailResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
-	CreateTime   *int64                                  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId    *string                                 `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	CreatorName  *string                                 `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
-	DeptName     *string                                 `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	ModifiedTime *int64                                  `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	Remark       *string                                 `json:"remark,omitempty" xml:"remark,omitempty"`
-	ReportId     *string                                 `json:"reportId,omitempty" xml:"reportId,omitempty"`
-	TemplateName *string                                 `json:"templateName,omitempty" xml:"templateName,omitempty"`
+	Content []*QueryReportDetailResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1507564800000
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// user123
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// 张三
+	CreatorName *string `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
+	// example:
+	//
+	// 部门1
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// example:
+	//
+	// 1507564800000
+	ModifiedTime *int64 `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// 这是备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// 18XXXX
+	ReportId *string `json:"reportId,omitempty" xml:"reportId,omitempty"`
+	// example:
+	//
+	// 日报
+	TemplateName *string `json:"templateName,omitempty" xml:"templateName,omitempty"`
 }
 
 func (s QueryReportDetailResponseBody) String() string {
@@ -931,10 +1139,22 @@ func (s *QueryReportDetailResponseBody) SetTemplateName(v string) *QueryReportDe
 
 type QueryReportDetailResponseBodyContent struct {
 	Images []*string `json:"images,omitempty" xml:"images,omitempty" type:"Repeated"`
-	Key    *string   `json:"key,omitempty" xml:"key,omitempty"`
-	Sort   *string   `json:"sort,omitempty" xml:"sort,omitempty"`
-	Type   *string   `json:"type,omitempty" xml:"type,omitempty"`
-	Value  *string   `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// 今日工作
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// 0
+	Sort *string `json:"sort,omitempty" xml:"sort,omitempty"`
+	// example:
+	//
+	// 1
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 开发工作
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s QueryReportDetailResponseBodyContent) String() string {
@@ -1014,12 +1234,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -1028,6 +1248,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 创建模板
+//
+// @param request - CreateTemplatesRequest
+//
+// @param headers - CreateTemplatesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateTemplatesResponse
 func (client *Client) CreateTemplatesWithOptions(request *CreateTemplatesRequest, headers *CreateTemplatesHeaders, runtime *util.RuntimeOptions) (_result *CreateTemplatesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1127,6 +1358,13 @@ func (client *Client) CreateTemplatesWithOptions(request *CreateTemplatesRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建模板
+//
+// @param request - CreateTemplatesRequest
+//
+// @return CreateTemplatesResponse
 func (client *Client) CreateTemplates(request *CreateTemplatesRequest) (_result *CreateTemplatesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateTemplatesHeaders{}
@@ -1139,6 +1377,17 @@ func (client *Client) CreateTemplates(request *CreateTemplatesRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询员工提交和收到的日志列表
+//
+// @param request - GetSendAndReceiveReportListRequest
+//
+// @param headers - GetSendAndReceiveReportListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSendAndReceiveReportListResponse
 func (client *Client) GetSendAndReceiveReportListWithOptions(request *GetSendAndReceiveReportListRequest, headers *GetSendAndReceiveReportListHeaders, runtime *util.RuntimeOptions) (_result *GetSendAndReceiveReportListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1198,6 +1447,13 @@ func (client *Client) GetSendAndReceiveReportListWithOptions(request *GetSendAnd
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询员工提交和收到的日志列表
+//
+// @param request - GetSendAndReceiveReportListRequest
+//
+// @return GetSendAndReceiveReportListResponse
 func (client *Client) GetSendAndReceiveReportList(request *GetSendAndReceiveReportListRequest) (_result *GetSendAndReceiveReportListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSendAndReceiveReportListHeaders{}
@@ -1210,6 +1466,17 @@ func (client *Client) GetSendAndReceiveReportList(request *GetSendAndReceiveRepo
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取指定周期的提交统计结果
+//
+// @param request - GetSubmitStatisticsRequest
+//
+// @param headers - GetSubmitStatisticsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSubmitStatisticsResponse
 func (client *Client) GetSubmitStatisticsWithOptions(request *GetSubmitStatisticsRequest, headers *GetSubmitStatisticsHeaders, runtime *util.RuntimeOptions) (_result *GetSubmitStatisticsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1269,6 +1536,13 @@ func (client *Client) GetSubmitStatisticsWithOptions(request *GetSubmitStatistic
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取指定周期的提交统计结果
+//
+// @param request - GetSubmitStatisticsRequest
+//
+// @return GetSubmitStatisticsResponse
 func (client *Client) GetSubmitStatistics(request *GetSubmitStatisticsRequest) (_result *GetSubmitStatisticsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSubmitStatisticsHeaders{}
@@ -1281,6 +1555,17 @@ func (client *Client) GetSubmitStatistics(request *GetSubmitStatisticsRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取创建的统计规则信息
+//
+// @param request - QueryRemindResultsRequest
+//
+// @param headers - QueryRemindResultsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryRemindResultsResponse
 func (client *Client) QueryRemindResultsWithOptions(request *QueryRemindResultsRequest, headers *QueryRemindResultsHeaders, runtime *util.RuntimeOptions) (_result *QueryRemindResultsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1336,6 +1621,13 @@ func (client *Client) QueryRemindResultsWithOptions(request *QueryRemindResultsR
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取创建的统计规则信息
+//
+// @param request - QueryRemindResultsRequest
+//
+// @return QueryRemindResultsResponse
 func (client *Client) QueryRemindResults(request *QueryRemindResultsRequest) (_result *QueryRemindResultsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryRemindResultsHeaders{}
@@ -1348,12 +1640,27 @@ func (client *Client) QueryRemindResults(request *QueryRemindResultsRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取日志详情
+//
+// @param request - QueryReportDetailRequest
+//
+// @param headers - QueryReportDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryReportDetailResponse
 func (client *Client) QueryReportDetailWithOptions(request *QueryReportDetailRequest, headers *QueryReportDetailHeaders, runtime *util.RuntimeOptions) (_result *QueryReportDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Format)) {
+		query["format"] = request.Format
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ReportId)) {
 		query["reportId"] = request.ReportId
 	}
@@ -1391,6 +1698,13 @@ func (client *Client) QueryReportDetailWithOptions(request *QueryReportDetailReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取日志详情
+//
+// @param request - QueryReportDetailRequest
+//
+// @return QueryReportDetailResponse
 func (client *Client) QueryReportDetail(request *QueryReportDetailRequest) (_result *QueryReportDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryReportDetailHeaders{}

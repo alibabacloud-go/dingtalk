@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package finance_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,14 +33,48 @@ func (s *ApplyBatchPayHeaders) SetXAcsDingtalkAccessToken(v string) *ApplyBatchP
 }
 
 type ApplyBatchPayRequest struct {
-	AccountId       *string                `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	OrderNo         *string                `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
-	PassBackParams  map[string]interface{} `json:"passBackParams,omitempty" xml:"passBackParams,omitempty"`
-	PayTerminal     *string                `json:"payTerminal,omitempty" xml:"payTerminal,omitempty"`
-	ReturnUrl       *string                `json:"returnUrl,omitempty" xml:"returnUrl,omitempty"`
-	StaffId         *string                `json:"staffId,omitempty" xml:"staffId,omitempty"`
-	TransAmount     *string                `json:"transAmount,omitempty" xml:"transAmount,omitempty"`
-	TransExpireTime *string                `json:"transExpireTime,omitempty" xml:"transExpireTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021070712440326300185114
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20210909153300000002734753314700
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// example:
+	//
+	// map
+	PassBackParams map[string]interface{} `json:"passBackParams,omitempty" xml:"passBackParams,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PC
+	PayTerminal *string `json:"payTerminal,omitempty" xml:"payTerminal,omitempty"`
+	// example:
+	//
+	// http://xx
+	ReturnUrl *string `json:"returnUrl,omitempty" xml:"returnUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 8754214873
+	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10.00
+	TransAmount *string `json:"transAmount,omitempty" xml:"transAmount,omitempty"`
+	// example:
+	//
+	// yyyy-MM-dd HH:mm:ss
+	TransExpireTime *string `json:"transExpireTime,omitempty" xml:"transExpireTime,omitempty"`
 }
 
 func (s ApplyBatchPayRequest) String() string {
@@ -96,7 +126,17 @@ func (s *ApplyBatchPayRequest) SetTransExpireTime(v string) *ApplyBatchPayReques
 }
 
 type ApplyBatchPayResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20210909153300000002734753314700
 	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// payData
 	PayData *string `json:"payData,omitempty" xml:"payData,omitempty"`
 }
 
@@ -171,6 +211,14 @@ func (s *CloseLoanEntranceHeaders) SetXAcsDingtalkAccessToken(v string) *CloseLo
 }
 
 type CloseLoanEntranceRequest struct {
+	// This parameter is required.
+	//
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// 1a23qdfa
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
@@ -188,8 +236,16 @@ func (s *CloseLoanEntranceRequest) SetRequestId(v string) *CloseLoanEntranceRequ
 }
 
 type CloseLoanEntranceResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1a23qdfa
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Result    *string `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// Y
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
 func (s CloseLoanEntranceResponseBody) String() string {
@@ -263,23 +319,57 @@ func (s *ConsultCreateSubInstitutionHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type ConsultCreateSubInstitutionRequest struct {
-	BindingAlipayLogonId *string                                                 `json:"bindingAlipayLogonId,omitempty" xml:"bindingAlipayLogonId,omitempty"`
-	ContactInfo          *ConsultCreateSubInstitutionRequestContactInfo          `json:"contactInfo,omitempty" xml:"contactInfo,omitempty" type:"Struct"`
-	InstId               *string                                                 `json:"instId,omitempty" xml:"instId,omitempty"`
-	LegalPersonCertInfo  *ConsultCreateSubInstitutionRequestLegalPersonCertInfo  `json:"legalPersonCertInfo,omitempty" xml:"legalPersonCertInfo,omitempty" type:"Struct"`
-	OutTradeNo           *string                                                 `json:"outTradeNo,omitempty" xml:"outTradeNo,omitempty"`
-	PayChannel           *string                                                 `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
-	QualificationInfos   []*ConsultCreateSubInstitutionRequestQualificationInfos `json:"qualificationInfos,omitempty" xml:"qualificationInfos,omitempty" type:"Repeated"`
-	Services             []*string                                               `json:"services,omitempty" xml:"services,omitempty" type:"Repeated"`
-	SettleInfo           *ConsultCreateSubInstitutionRequestSettleInfo           `json:"settleInfo,omitempty" xml:"settleInfo,omitempty" type:"Struct"`
-	Solution             *string                                                 `json:"solution,omitempty" xml:"solution,omitempty"`
-	SubInstAddressInfo   *ConsultCreateSubInstitutionRequestSubInstAddressInfo   `json:"subInstAddressInfo,omitempty" xml:"subInstAddressInfo,omitempty" type:"Struct"`
-	SubInstAuthInfo      *ConsultCreateSubInstitutionRequestSubInstAuthInfo      `json:"subInstAuthInfo,omitempty" xml:"subInstAuthInfo,omitempty" type:"Struct"`
-	SubInstBasicInfo     *ConsultCreateSubInstitutionRequestSubInstBasicInfo     `json:"subInstBasicInfo,omitempty" xml:"subInstBasicInfo,omitempty" type:"Struct"`
-	SubInstCertifyInfo   *ConsultCreateSubInstitutionRequestSubInstCertifyInfo   `json:"subInstCertifyInfo,omitempty" xml:"subInstCertifyInfo,omitempty" type:"Struct"`
-	SubInstId            *string                                                 `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
-	SubInstInvoiceInfo   *ConsultCreateSubInstitutionRequestSubInstInvoiceInfo   `json:"subInstInvoiceInfo,omitempty" xml:"subInstInvoiceInfo,omitempty" type:"Struct"`
-	SubInstShopInfo      *ConsultCreateSubInstitutionRequestSubInstShopInfo      `json:"subInstShopInfo,omitempty" xml:"subInstShopInfo,omitempty" type:"Struct"`
+	// example:
+	//
+	// asdf@163.com
+	BindingAlipayLogonId *string `json:"bindingAlipayLogonId,omitempty" xml:"bindingAlipayLogonId,omitempty"`
+	// This parameter is required.
+	ContactInfo *ConsultCreateSubInstitutionRequestContactInfo `json:"contactInfo,omitempty" xml:"contactInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202111090001
+	InstId *string `json:"instId,omitempty" xml:"instId,omitempty"`
+	// This parameter is required.
+	LegalPersonCertInfo *ConsultCreateSubInstitutionRequestLegalPersonCertInfo `json:"legalPersonCertInfo,omitempty" xml:"legalPersonCertInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021000001
+	OutTradeNo *string `json:"outTradeNo,omitempty" xml:"outTradeNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	PayChannel         *string                                                 `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
+	QualificationInfos []*ConsultCreateSubInstitutionRequestQualificationInfos `json:"qualificationInfos,omitempty" xml:"qualificationInfos,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Services []*string `json:"services,omitempty" xml:"services,omitempty" type:"Repeated"`
+	// This parameter is required.
+	SettleInfo *ConsultCreateSubInstitutionRequestSettleInfo `json:"settleInfo,omitempty" xml:"settleInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// S001
+	Solution           *string                                               `json:"solution,omitempty" xml:"solution,omitempty"`
+	SubInstAddressInfo *ConsultCreateSubInstitutionRequestSubInstAddressInfo `json:"subInstAddressInfo,omitempty" xml:"subInstAddressInfo,omitempty" type:"Struct"`
+	SubInstAuthInfo    *ConsultCreateSubInstitutionRequestSubInstAuthInfo    `json:"subInstAuthInfo,omitempty" xml:"subInstAuthInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	SubInstBasicInfo *ConsultCreateSubInstitutionRequestSubInstBasicInfo `json:"subInstBasicInfo,omitempty" xml:"subInstBasicInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	SubInstCertifyInfo *ConsultCreateSubInstitutionRequestSubInstCertifyInfo `json:"subInstCertifyInfo,omitempty" xml:"subInstCertifyInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1001
+	SubInstId          *string                                               `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
+	SubInstInvoiceInfo *ConsultCreateSubInstitutionRequestSubInstInvoiceInfo `json:"subInstInvoiceInfo,omitempty" xml:"subInstInvoiceInfo,omitempty" type:"Struct"`
+	SubInstShopInfo    *ConsultCreateSubInstitutionRequestSubInstShopInfo    `json:"subInstShopInfo,omitempty" xml:"subInstShopInfo,omitempty" type:"Struct"`
 }
 
 func (s ConsultCreateSubInstitutionRequest) String() string {
@@ -376,8 +466,18 @@ func (s *ConsultCreateSubInstitutionRequest) SetSubInstShopInfo(v *ConsultCreate
 }
 
 type ConsultCreateSubInstitutionRequestContactInfo struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 李某某
 	ContactName *string `json:"contactName,omitempty" xml:"contactName,omitempty"`
-	Mobile      *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 13900000000
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
 }
 
 func (s ConsultCreateSubInstitutionRequestContactInfo) String() string {
@@ -399,11 +499,30 @@ func (s *ConsultCreateSubInstitutionRequestContactInfo) SetMobile(v string) *Con
 }
 
 type ConsultCreateSubInstitutionRequestLegalPersonCertInfo struct {
-	CertBackImage  *string `json:"certBackImage,omitempty" xml:"certBackImage,omitempty"`
+	// example:
+	//
+	// ossUrl
+	CertBackImage *string `json:"certBackImage,omitempty" xml:"certBackImage,omitempty"`
+	// example:
+	//
+	// ossUrl
 	CertFrontImage *string `json:"certFrontImage,omitempty" xml:"certFrontImage,omitempty"`
-	CertName       *string `json:"certName,omitempty" xml:"certName,omitempty"`
-	CertType       *string `json:"certType,omitempty" xml:"certType,omitempty"`
-	IdCardNo       *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 李某某
+	CertName *string `json:"certName,omitempty" xml:"certName,omitempty"`
+	// example:
+	//
+	// 100
+	CertType *string `json:"certType,omitempty" xml:"certType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 330104200010109999
+	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
 }
 
 func (s ConsultCreateSubInstitutionRequestLegalPersonCertInfo) String() string {
@@ -440,8 +559,18 @@ func (s *ConsultCreateSubInstitutionRequestLegalPersonCertInfo) SetIdCardNo(v st
 }
 
 type ConsultCreateSubInstitutionRequestQualificationInfos struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ossUrl
 	QualificationImage *string `json:"qualificationImage,omitempty" xml:"qualificationImage,omitempty"`
-	QualificationType  *string `json:"qualificationType,omitempty" xml:"qualificationType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 301
+	QualificationType *string `json:"qualificationType,omitempty" xml:"qualificationType,omitempty"`
 }
 
 func (s ConsultCreateSubInstitutionRequestQualificationInfos) String() string {
@@ -463,17 +592,54 @@ func (s *ConsultCreateSubInstitutionRequestQualificationInfos) SetQualificationT
 }
 
 type ConsultCreateSubInstitutionRequestSettleInfo struct {
-	AccountId         *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	AccountName       *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
-	AccountType       *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	BankBranchName    *string `json:"bankBranchName,omitempty" xml:"bankBranchName,omitempty"`
-	BankCity          *string `json:"bankCity,omitempty" xml:"bankCity,omitempty"`
-	BankCode          *string `json:"bankCode,omitempty" xml:"bankCode,omitempty"`
-	BankName          *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
-	BankProvince      *string `json:"bankProvince,omitempty" xml:"bankProvince,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 622202120200000000
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// example:
+	//
+	// 李某某
+	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
+	// example:
+	//
+	// DEBIT_CARD
+	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
+	// example:
+	//
+	// 城东支行
+	BankBranchName *string `json:"bankBranchName,omitempty" xml:"bankBranchName,omitempty"`
+	// example:
+	//
+	// 杭州市
+	BankCity *string `json:"bankCity,omitempty" xml:"bankCity,omitempty"`
+	// example:
+	//
+	// 313791000023
+	BankCode *string `json:"bankCode,omitempty" xml:"bankCode,omitempty"`
+	// example:
+	//
+	// 工商银行
+	BankName *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	// example:
+	//
+	// 浙江省
+	BankProvince *string `json:"bankProvince,omitempty" xml:"bankProvince,omitempty"`
+	// example:
+	//
+	// ICBC
 	BankShortNameCode *string `json:"bankShortNameCode,omitempty" xml:"bankShortNameCode,omitempty"`
-	Type              *string `json:"type,omitempty" xml:"type,omitempty"`
-	UsageType         *string `json:"usageType,omitempty" xml:"usageType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// TO_PRI
+	UsageType *string `json:"usageType,omitempty" xml:"usageType,omitempty"`
 }
 
 func (s ConsultCreateSubInstitutionRequestSettleInfo) String() string {
@@ -540,9 +706,21 @@ func (s *ConsultCreateSubInstitutionRequestSettleInfo) SetUsageType(v string) *C
 }
 
 type ConsultCreateSubInstitutionRequestSubInstAddressInfo struct {
-	Address      *string `json:"address,omitempty" xml:"address,omitempty"`
-	CityCode     *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// example:
+	//
+	// 未来park
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// example:
+	//
+	// 330100
+	CityCode *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// example:
+	//
+	// 330104
 	DistrictCode *string `json:"districtCode,omitempty" xml:"districtCode,omitempty"`
+	// example:
+	//
+	// 330000
 	ProvinceCode *string `json:"provinceCode,omitempty" xml:"provinceCode,omitempty"`
 }
 
@@ -575,6 +753,9 @@ func (s *ConsultCreateSubInstitutionRequestSubInstAddressInfo) SetProvinceCode(v
 }
 
 type ConsultCreateSubInstitutionRequestSubInstAuthInfo struct {
+	// example:
+	//
+	// ossUrl
 	AuthorizationLetterUrl *string `json:"authorizationLetterUrl,omitempty" xml:"authorizationLetterUrl,omitempty"`
 }
 
@@ -592,10 +773,28 @@ func (s *ConsultCreateSubInstitutionRequestSubInstAuthInfo) SetAuthorizationLett
 }
 
 type ConsultCreateSubInstitutionRequestSubInstBasicInfo struct {
-	AliasName   *string `json:"aliasName,omitempty" xml:"aliasName,omitempty"`
-	Mcc         *string `json:"mcc,omitempty" xml:"mcc,omitempty"`
+	// example:
+	//
+	// 一食堂
+	AliasName *string `json:"aliasName,omitempty" xml:"aliasName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5812
+	Mcc *string `json:"mcc,omitempty" xml:"mcc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 食堂
 	SubInstName *string `json:"subInstName,omitempty" xml:"subInstName,omitempty"`
-	Type        *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 01
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s ConsultCreateSubInstitutionRequestSubInstBasicInfo) String() string {
@@ -627,9 +826,22 @@ func (s *ConsultCreateSubInstitutionRequestSubInstBasicInfo) SetType(v string) *
 }
 
 type ConsultCreateSubInstitutionRequestSubInstCertifyInfo struct {
+	// example:
+	//
+	// ossUrl
 	CertImage *string `json:"certImage,omitempty" xml:"certImage,omitempty"`
-	CertNo    *string `json:"certNo,omitempty" xml:"certNo,omitempty"`
-	CertType  *string `json:"certType,omitempty" xml:"certType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 331081198611111111
+	CertNo *string `json:"certNo,omitempty" xml:"certNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 201
+	CertType *string `json:"certType,omitempty" xml:"certType,omitempty"`
 }
 
 func (s ConsultCreateSubInstitutionRequestSubInstCertifyInfo) String() string {
@@ -656,19 +868,55 @@ func (s *ConsultCreateSubInstitutionRequestSubInstCertifyInfo) SetCertType(v str
 }
 
 type ConsultCreateSubInstitutionRequestSubInstInvoiceInfo struct {
-	AcceptElectronic      *bool                                                            `json:"acceptElectronic,omitempty" xml:"acceptElectronic,omitempty"`
-	Address               *string                                                          `json:"address,omitempty" xml:"address,omitempty"`
-	AutoInvoice           *bool                                                            `json:"autoInvoice,omitempty" xml:"autoInvoice,omitempty"`
-	BankAccount           *string                                                          `json:"bankAccount,omitempty" xml:"bankAccount,omitempty"`
-	BankName              *string                                                          `json:"bankName,omitempty" xml:"bankName,omitempty"`
-	MailAddress           *ConsultCreateSubInstitutionRequestSubInstInvoiceInfoMailAddress `json:"mailAddress,omitempty" xml:"mailAddress,omitempty" type:"Struct"`
-	MailName              *string                                                          `json:"mailName,omitempty" xml:"mailName,omitempty"`
-	MailPhone             *string                                                          `json:"mailPhone,omitempty" xml:"mailPhone,omitempty"`
-	TaxNo                 *string                                                          `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
-	TaxPayerQualification *string                                                          `json:"taxPayerQualification,omitempty" xml:"taxPayerQualification,omitempty"`
-	TaxPayerValidDate     *string                                                          `json:"taxPayerValidDate,omitempty" xml:"taxPayerValidDate,omitempty"`
-	Telephone             *string                                                          `json:"telephone,omitempty" xml:"telephone,omitempty"`
-	Title                 *string                                                          `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// true
+	AcceptElectronic *bool `json:"acceptElectronic,omitempty" xml:"acceptElectronic,omitempty"`
+	// example:
+	//
+	// 浙江省杭州市西湖区西溪路蚂蚁金服
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// example:
+	//
+	// false
+	AutoInvoice *bool `json:"autoInvoice,omitempty" xml:"autoInvoice,omitempty"`
+	// example:
+	//
+	// 1234567812345678123
+	BankAccount *string `json:"bankAccount,omitempty" xml:"bankAccount,omitempty"`
+	// example:
+	//
+	// 中国银行
+	BankName    *string                                                          `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	MailAddress *ConsultCreateSubInstitutionRequestSubInstInvoiceInfoMailAddress `json:"mailAddress,omitempty" xml:"mailAddress,omitempty" type:"Struct"`
+	// example:
+	//
+	// 张三
+	MailName *string `json:"mailName,omitempty" xml:"mailName,omitempty"`
+	// example:
+	//
+	// 057162288888
+	MailPhone *string `json:"mailPhone,omitempty" xml:"mailPhone,omitempty"`
+	// example:
+	//
+	// 51010482542598631219
+	TaxNo *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+	// example:
+	//
+	// 01
+	TaxPayerQualification *string `json:"taxPayerQualification,omitempty" xml:"taxPayerQualification,omitempty"`
+	// example:
+	//
+	// 19981011
+	TaxPayerValidDate *string `json:"taxPayerValidDate,omitempty" xml:"taxPayerValidDate,omitempty"`
+	// example:
+	//
+	// 057162288888
+	Telephone *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
+	// example:
+	//
+	// **有限公司
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s ConsultCreateSubInstitutionRequestSubInstInvoiceInfo) String() string {
@@ -745,9 +993,21 @@ func (s *ConsultCreateSubInstitutionRequestSubInstInvoiceInfo) SetTitle(v string
 }
 
 type ConsultCreateSubInstitutionRequestSubInstInvoiceInfoMailAddress struct {
-	Address      *string `json:"address,omitempty" xml:"address,omitempty"`
-	CityCode     *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// example:
+	//
+	// 未来park
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// example:
+	//
+	// 330100
+	CityCode *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// example:
+	//
+	// 330104
 	DistrictCode *string `json:"districtCode,omitempty" xml:"districtCode,omitempty"`
+	// example:
+	//
+	// 330000
 	ProvinceCode *string `json:"provinceCode,omitempty" xml:"provinceCode,omitempty"`
 }
 
@@ -803,6 +1063,11 @@ func (s *ConsultCreateSubInstitutionRequestSubInstShopInfo) SetOutDoorImages(v [
 }
 
 type ConsultCreateSubInstitutionResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202110110000001
 	OrderId *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
 }
 
@@ -872,16 +1137,57 @@ func (s *CreatWithholdingOrderAndPayHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type CreatWithholdingOrderAndPayRequest struct {
-	Amount                        *string                                                            `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10.01
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202111090001
 	InstId                        *string                                                            `json:"instId,omitempty" xml:"instId,omitempty"`
 	OtherPayChannelDetailInfoList []*CreatWithholdingOrderAndPayRequestOtherPayChannelDetailInfoList `json:"otherPayChannelDetailInfoList,omitempty" xml:"otherPayChannelDetailInfoList,omitempty" type:"Repeated"`
-	OutTradeNo                    *string                                                            `json:"outTradeNo,omitempty" xml:"outTradeNo,omitempty"`
-	PayChannel                    *string                                                            `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
-	PayerUserId                   *string                                                            `json:"payerUserId,omitempty" xml:"payerUserId,omitempty"`
-	Remark                        *string                                                            `json:"remark,omitempty" xml:"remark,omitempty"`
-	SubInstId                     *string                                                            `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
-	TimeOutExpress                *string                                                            `json:"timeOutExpress,omitempty" xml:"timeOutExpress,omitempty"`
-	Title                         *string                                                            `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021113000001
+	OutTradeNo *string `json:"outTradeNo,omitempty" xml:"outTradeNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	PayChannel *string `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2120493284
+	PayerUserId *string `json:"payerUserId,omitempty" xml:"payerUserId,omitempty"`
+	// example:
+	//
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1001
+	SubInstId *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
+	// example:
+	//
+	// 15m
+	TimeOutExpress *string `json:"timeOutExpress,omitempty" xml:"timeOutExpress,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 餐费
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreatWithholdingOrderAndPayRequest) String() string {
@@ -943,12 +1249,38 @@ func (s *CreatWithholdingOrderAndPayRequest) SetTitle(v string) *CreatWithholdin
 }
 
 type CreatWithholdingOrderAndPayRequestOtherPayChannelDetailInfoList struct {
-	Amount                 *string                                                                                  `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5.00
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
 	FundToolDetailInfoList []*CreatWithholdingOrderAndPayRequestOtherPayChannelDetailInfoListFundToolDetailInfoList `json:"fundToolDetailInfoList,omitempty" xml:"fundToolDetailInfoList,omitempty" type:"Repeated"`
-	PayChannelName         *string                                                                                  `json:"payChannelName,omitempty" xml:"payChannelName,omitempty"`
-	PayChannelOrderNo      *string                                                                                  `json:"payChannelOrderNo,omitempty" xml:"payChannelOrderNo,omitempty"`
-	PayChannelType         *string                                                                                  `json:"payChannelType,omitempty" xml:"payChannelType,omitempty"`
-	PromotionAmount        *string                                                                                  `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 支付宝
+	PayChannelName *string `json:"payChannelName,omitempty" xml:"payChannelName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021110100001
+	PayChannelOrderNo *string `json:"payChannelOrderNo,omitempty" xml:"payChannelOrderNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	PayChannelType *string `json:"payChannelType,omitempty" xml:"payChannelType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 4.00
+	PromotionAmount *string `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
 }
 
 func (s CreatWithholdingOrderAndPayRequestOtherPayChannelDetailInfoList) String() string {
@@ -990,12 +1322,37 @@ func (s *CreatWithholdingOrderAndPayRequestOtherPayChannelDetailInfoList) SetPro
 }
 
 type CreatWithholdingOrderAndPayRequestOtherPayChannelDetailInfoListFundToolDetailInfoList struct {
-	Amount            *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	ExtInfo           *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	FundToolName      *string `json:"fundToolName,omitempty" xml:"fundToolName,omitempty"`
-	GmtCreate         *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtFinish         *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
-	PromotionFundTool *bool   `json:"promotionFundTool,omitempty" xml:"promotionFundTool,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5.00
+	Amount  *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 余额
+	FundToolName *string `json:"fundToolName,omitempty" xml:"fundToolName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-11-15 10:10:10
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-11-15 10:10:11
+	GmtFinish *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// false
+	PromotionFundTool *bool `json:"promotionFundTool,omitempty" xml:"promotionFundTool,omitempty"`
 }
 
 func (s CreatWithholdingOrderAndPayRequestOtherPayChannelDetailInfoListFundToolDetailInfoList) String() string {
@@ -1037,18 +1394,74 @@ func (s *CreatWithholdingOrderAndPayRequestOtherPayChannelDetailInfoListFundTool
 }
 
 type CreatWithholdingOrderAndPayResponseBody struct {
-	Amount              *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	GmtPay              *string `json:"gmtPay,omitempty" xml:"gmtPay,omitempty"`
-	InstId              *string `json:"instId,omitempty" xml:"instId,omitempty"`
-	OrderNo             *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
-	OutTradeNo          *string `json:"outTradeNo,omitempty" xml:"outTradeNo,omitempty"`
-	PayChannel          *string `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10.01
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// example:
+	//
+	// 2021-11-15 10:10:10
+	GmtPay *string `json:"gmtPay,omitempty" xml:"gmtPay,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202111010001
+	InstId *string `json:"instId,omitempty" xml:"instId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202121241343151
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202111020001
+	OutTradeNo *string `json:"outTradeNo,omitempty" xml:"outTradeNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	PayChannel *string `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 13****09
 	PayChannelAccountNo *string `json:"payChannelAccountNo,omitempty" xml:"payChannelAccountNo,omitempty"`
-	PayerStaffId        *string `json:"payerStaffId,omitempty" xml:"payerStaffId,omitempty"`
-	Remark              *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	Status              *string `json:"status,omitempty" xml:"status,omitempty"`
-	SubInstId           *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
-	Title               *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123124
+	PayerStaffId *string `json:"payerStaffId,omitempty" xml:"payerStaffId,omitempty"`
+	// example:
+	//
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUCCESS
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1001
+	SubInstId *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 餐费
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreatWithholdingOrderAndPayResponseBody) String() string {
@@ -1172,15 +1585,51 @@ func (s *CreateAcquireRefundOrderHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type CreateAcquireRefundOrderRequest struct {
-	InstId                        *string                                                         `json:"instId,omitempty" xml:"instId,omitempty"`
-	OperatorUserId                *string                                                         `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202111090001
+	InstId *string `json:"instId,omitempty" xml:"instId,omitempty"`
+	// example:
+	//
+	// 2120493284
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021113000001
 	OriginOutTradeNo              *string                                                         `json:"originOutTradeNo,omitempty" xml:"originOutTradeNo,omitempty"`
 	OtherPayChannelDetailInfoList []*CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList `json:"otherPayChannelDetailInfoList,omitempty" xml:"otherPayChannelDetailInfoList,omitempty" type:"Repeated"`
-	OutRefundNo                   *string                                                         `json:"outRefundNo,omitempty" xml:"outRefundNo,omitempty"`
-	RefundAmount                  *string                                                         `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
-	Remark                        *string                                                         `json:"remark,omitempty" xml:"remark,omitempty"`
-	SubInstId                     *string                                                         `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
-	Title                         *string                                                         `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// r2021113000001
+	OutRefundNo *string `json:"outRefundNo,omitempty" xml:"outRefundNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10.01
+	RefundAmount *string `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
+	// example:
+	//
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1001
+	SubInstId *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 餐费
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateAcquireRefundOrderRequest) String() string {
@@ -1237,12 +1686,38 @@ func (s *CreateAcquireRefundOrderRequest) SetTitle(v string) *CreateAcquireRefun
 }
 
 type CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList struct {
-	Amount                 *string                                                                               `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5.00
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
 	FundToolDetailInfoList []*CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList `json:"fundToolDetailInfoList,omitempty" xml:"fundToolDetailInfoList,omitempty" type:"Repeated"`
-	PayChannelName         *string                                                                               `json:"payChannelName,omitempty" xml:"payChannelName,omitempty"`
-	PayChannelOrderNo      *string                                                                               `json:"payChannelOrderNo,omitempty" xml:"payChannelOrderNo,omitempty"`
-	PayChannelType         *string                                                                               `json:"payChannelType,omitempty" xml:"payChannelType,omitempty"`
-	PromotionAmount        *string                                                                               `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 支付宝
+	PayChannelName *string `json:"payChannelName,omitempty" xml:"payChannelName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021110100001
+	PayChannelOrderNo *string `json:"payChannelOrderNo,omitempty" xml:"payChannelOrderNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	PayChannelType *string `json:"payChannelType,omitempty" xml:"payChannelType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 4.00
+	PromotionAmount *string `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
 }
 
 func (s CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList) String() string {
@@ -1284,12 +1759,37 @@ func (s *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoList) SetPromot
 }
 
 type CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList struct {
-	Amount            *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	ExtInfo           *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	FundToolName      *string `json:"fundToolName,omitempty" xml:"fundToolName,omitempty"`
-	GmtCreate         *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtFinish         *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
-	PromotionFundTool *bool   `json:"promotionFundTool,omitempty" xml:"promotionFundTool,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5.00
+	Amount  *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 余额
+	FundToolName *string `json:"fundToolName,omitempty" xml:"fundToolName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-11-15 10:10:10
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-11-15 10:10:11
+	GmtFinish *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// false
+	PromotionFundTool *bool `json:"promotionFundTool,omitempty" xml:"promotionFundTool,omitempty"`
 }
 
 func (s CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDetailInfoList) String() string {
@@ -1331,9 +1831,24 @@ func (s *CreateAcquireRefundOrderRequestOtherPayChannelDetailInfoListFundToolDet
 }
 
 type CreateAcquireRefundOrderResponseBody struct {
-	OutRefundNo   *string `json:"outRefundNo,omitempty" xml:"outRefundNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// r2021113000001
+	OutRefundNo *string `json:"outRefundNo,omitempty" xml:"outRefundNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202111110000111
 	RefundOrderNo *string `json:"refundOrderNo,omitempty" xml:"refundOrderNo,omitempty"`
-	Status        *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUCCESS
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s CreateAcquireRefundOrderResponseBody) String() string {
@@ -1412,15 +1927,54 @@ func (s *CreateBatchTradeOrderHeaders) SetXAcsDingtalkAccessToken(v string) *Cre
 }
 
 type CreateBatchTradeOrderRequest struct {
-	AccountId         *string                                          `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	AccountNo         *string                                          `json:"accountNo,omitempty" xml:"accountNo,omitempty"`
-	BatchRemark       *string                                          `json:"batchRemark,omitempty" xml:"batchRemark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021070712440326300185114
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 13****9
+	AccountNo *string `json:"accountNo,omitempty" xml:"accountNo,omitempty"`
+	// example:
+	//
+	// 备注
+	BatchRemark *string `json:"batchRemark,omitempty" xml:"batchRemark,omitempty"`
+	// This parameter is required.
 	BatchTradeDetails []*CreateBatchTradeOrderRequestBatchTradeDetails `json:"batchTradeDetails,omitempty" xml:"batchTradeDetails,omitempty" type:"Repeated"`
-	OutBatchNo        *string                                          `json:"outBatchNo,omitempty" xml:"outBatchNo,omitempty"`
-	StaffId           *string                                          `json:"staffId,omitempty" xml:"staffId,omitempty"`
-	TotalAmount       *string                                          `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
-	TotalCount        *int64                                           `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
-	TradeTitle        *string                                          `json:"tradeTitle,omitempty" xml:"tradeTitle,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20210901001
+	OutBatchNo *string `json:"outBatchNo,omitempty" xml:"outBatchNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 8476212471
+	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.00
+	TotalAmount *string `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 工资
+	TradeTitle *string `json:"tradeTitle,omitempty" xml:"tradeTitle,omitempty"`
 }
 
 func (s CreateBatchTradeOrderRequest) String() string {
@@ -1477,12 +2031,40 @@ func (s *CreateBatchTradeOrderRequest) SetTradeTitle(v string) *CreateBatchTrade
 }
 
 type CreateBatchTradeOrderRequestBatchTradeDetails struct {
-	Amount           *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	Memo             *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.00
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// example:
+	//
+	// 工资
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试
 	PayeeAccountName *string `json:"payeeAccountName,omitempty" xml:"payeeAccountName,omitempty"`
-	PayeeAccountNo   *string `json:"payeeAccountNo,omitempty" xml:"payeeAccountNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 13000000000
+	PayeeAccountNo *string `json:"payeeAccountNo,omitempty" xml:"payeeAccountNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
 	PayeeAccountType *string `json:"payeeAccountType,omitempty" xml:"payeeAccountType,omitempty"`
-	SerialNo         *int64  `json:"serialNo,omitempty" xml:"serialNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	SerialNo *int64 `json:"serialNo,omitempty" xml:"serialNo,omitempty"`
 }
 
 func (s CreateBatchTradeOrderRequestBatchTradeDetails) String() string {
@@ -1524,9 +2106,11 @@ func (s *CreateBatchTradeOrderRequestBatchTradeDetails) SetSerialNo(v int64) *Cr
 }
 
 type CreateBatchTradeOrderResponseBody struct {
-	OrderNo     *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// This parameter is required.
 	OrderStatus *string `json:"orderStatus,omitempty" xml:"orderStatus,omitempty"`
-	OutBatchNo  *string `json:"outBatchNo,omitempty" xml:"outBatchNo,omitempty"`
+	// This parameter is required.
+	OutBatchNo *string `json:"outBatchNo,omitempty" xml:"outBatchNo,omitempty"`
 }
 
 func (s CreateBatchTradeOrderResponseBody) String() string {
@@ -1605,23 +2189,57 @@ func (s *CreateSubInstitutionHeaders) SetXAcsDingtalkAccessToken(v string) *Crea
 }
 
 type CreateSubInstitutionRequest struct {
-	BindingAlipayLogonId *string                                          `json:"bindingAlipayLogonId,omitempty" xml:"bindingAlipayLogonId,omitempty"`
-	ContactInfo          *CreateSubInstitutionRequestContactInfo          `json:"contactInfo,omitempty" xml:"contactInfo,omitempty" type:"Struct"`
-	InstId               *string                                          `json:"instId,omitempty" xml:"instId,omitempty"`
-	LegalPersonCertInfo  *CreateSubInstitutionRequestLegalPersonCertInfo  `json:"legalPersonCertInfo,omitempty" xml:"legalPersonCertInfo,omitempty" type:"Struct"`
-	OutTradeNo           *string                                          `json:"outTradeNo,omitempty" xml:"outTradeNo,omitempty"`
-	PayChannel           *string                                          `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
-	QualificationInfos   []*CreateSubInstitutionRequestQualificationInfos `json:"qualificationInfos,omitempty" xml:"qualificationInfos,omitempty" type:"Repeated"`
-	Services             []*string                                        `json:"services,omitempty" xml:"services,omitempty" type:"Repeated"`
-	SettleInfo           *CreateSubInstitutionRequestSettleInfo           `json:"settleInfo,omitempty" xml:"settleInfo,omitempty" type:"Struct"`
-	Solution             *string                                          `json:"solution,omitempty" xml:"solution,omitempty"`
-	SubInstAddressInfo   *CreateSubInstitutionRequestSubInstAddressInfo   `json:"subInstAddressInfo,omitempty" xml:"subInstAddressInfo,omitempty" type:"Struct"`
-	SubInstAuthInfo      *CreateSubInstitutionRequestSubInstAuthInfo      `json:"subInstAuthInfo,omitempty" xml:"subInstAuthInfo,omitempty" type:"Struct"`
-	SubInstBasicInfo     *CreateSubInstitutionRequestSubInstBasicInfo     `json:"subInstBasicInfo,omitempty" xml:"subInstBasicInfo,omitempty" type:"Struct"`
-	SubInstCertifyInfo   *CreateSubInstitutionRequestSubInstCertifyInfo   `json:"subInstCertifyInfo,omitempty" xml:"subInstCertifyInfo,omitempty" type:"Struct"`
-	SubInstId            *string                                          `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
-	SubInstInvoiceInfo   *CreateSubInstitutionRequestSubInstInvoiceInfo   `json:"subInstInvoiceInfo,omitempty" xml:"subInstInvoiceInfo,omitempty" type:"Struct"`
-	SubInstShopInfo      *CreateSubInstitutionRequestSubInstShopInfo      `json:"subInstShopInfo,omitempty" xml:"subInstShopInfo,omitempty" type:"Struct"`
+	// example:
+	//
+	// asdf@163.com
+	BindingAlipayLogonId *string `json:"bindingAlipayLogonId,omitempty" xml:"bindingAlipayLogonId,omitempty"`
+	// This parameter is required.
+	ContactInfo *CreateSubInstitutionRequestContactInfo `json:"contactInfo,omitempty" xml:"contactInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202111090001
+	InstId *string `json:"instId,omitempty" xml:"instId,omitempty"`
+	// This parameter is required.
+	LegalPersonCertInfo *CreateSubInstitutionRequestLegalPersonCertInfo `json:"legalPersonCertInfo,omitempty" xml:"legalPersonCertInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021000001
+	OutTradeNo *string `json:"outTradeNo,omitempty" xml:"outTradeNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	PayChannel         *string                                          `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
+	QualificationInfos []*CreateSubInstitutionRequestQualificationInfos `json:"qualificationInfos,omitempty" xml:"qualificationInfos,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Services []*string `json:"services,omitempty" xml:"services,omitempty" type:"Repeated"`
+	// This parameter is required.
+	SettleInfo *CreateSubInstitutionRequestSettleInfo `json:"settleInfo,omitempty" xml:"settleInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// S001
+	Solution           *string                                        `json:"solution,omitempty" xml:"solution,omitempty"`
+	SubInstAddressInfo *CreateSubInstitutionRequestSubInstAddressInfo `json:"subInstAddressInfo,omitempty" xml:"subInstAddressInfo,omitempty" type:"Struct"`
+	SubInstAuthInfo    *CreateSubInstitutionRequestSubInstAuthInfo    `json:"subInstAuthInfo,omitempty" xml:"subInstAuthInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	SubInstBasicInfo *CreateSubInstitutionRequestSubInstBasicInfo `json:"subInstBasicInfo,omitempty" xml:"subInstBasicInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	SubInstCertifyInfo *CreateSubInstitutionRequestSubInstCertifyInfo `json:"subInstCertifyInfo,omitempty" xml:"subInstCertifyInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1001
+	SubInstId          *string                                        `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
+	SubInstInvoiceInfo *CreateSubInstitutionRequestSubInstInvoiceInfo `json:"subInstInvoiceInfo,omitempty" xml:"subInstInvoiceInfo,omitempty" type:"Struct"`
+	SubInstShopInfo    *CreateSubInstitutionRequestSubInstShopInfo    `json:"subInstShopInfo,omitempty" xml:"subInstShopInfo,omitempty" type:"Struct"`
 }
 
 func (s CreateSubInstitutionRequest) String() string {
@@ -1718,8 +2336,18 @@ func (s *CreateSubInstitutionRequest) SetSubInstShopInfo(v *CreateSubInstitution
 }
 
 type CreateSubInstitutionRequestContactInfo struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 李某某
 	ContactName *string `json:"contactName,omitempty" xml:"contactName,omitempty"`
-	Mobile      *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 13900000000
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
 }
 
 func (s CreateSubInstitutionRequestContactInfo) String() string {
@@ -1741,11 +2369,30 @@ func (s *CreateSubInstitutionRequestContactInfo) SetMobile(v string) *CreateSubI
 }
 
 type CreateSubInstitutionRequestLegalPersonCertInfo struct {
-	CertBackImage  *string `json:"certBackImage,omitempty" xml:"certBackImage,omitempty"`
+	// example:
+	//
+	// ossUrl
+	CertBackImage *string `json:"certBackImage,omitempty" xml:"certBackImage,omitempty"`
+	// example:
+	//
+	// ossUrl
 	CertFrontImage *string `json:"certFrontImage,omitempty" xml:"certFrontImage,omitempty"`
-	CertName       *string `json:"certName,omitempty" xml:"certName,omitempty"`
-	CertType       *string `json:"certType,omitempty" xml:"certType,omitempty"`
-	IdCardNo       *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 李某某
+	CertName *string `json:"certName,omitempty" xml:"certName,omitempty"`
+	// example:
+	//
+	// 100
+	CertType *string `json:"certType,omitempty" xml:"certType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 330104200010109999
+	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
 }
 
 func (s CreateSubInstitutionRequestLegalPersonCertInfo) String() string {
@@ -1782,8 +2429,18 @@ func (s *CreateSubInstitutionRequestLegalPersonCertInfo) SetIdCardNo(v string) *
 }
 
 type CreateSubInstitutionRequestQualificationInfos struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ossUrl
 	QualificationImage *string `json:"qualificationImage,omitempty" xml:"qualificationImage,omitempty"`
-	QualificationType  *string `json:"qualificationType,omitempty" xml:"qualificationType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 301
+	QualificationType *string `json:"qualificationType,omitempty" xml:"qualificationType,omitempty"`
 }
 
 func (s CreateSubInstitutionRequestQualificationInfos) String() string {
@@ -1805,17 +2462,54 @@ func (s *CreateSubInstitutionRequestQualificationInfos) SetQualificationType(v s
 }
 
 type CreateSubInstitutionRequestSettleInfo struct {
-	AccountId         *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	AccountName       *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
-	AccountType       *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	BankBranchName    *string `json:"bankBranchName,omitempty" xml:"bankBranchName,omitempty"`
-	BankCity          *string `json:"bankCity,omitempty" xml:"bankCity,omitempty"`
-	BankCode          *string `json:"bankCode,omitempty" xml:"bankCode,omitempty"`
-	BankName          *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
-	BankProvince      *string `json:"bankProvince,omitempty" xml:"bankProvince,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 622202120200000000
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// example:
+	//
+	// 李某某
+	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
+	// example:
+	//
+	// DEBIT_CARD
+	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
+	// example:
+	//
+	// 城东支行
+	BankBranchName *string `json:"bankBranchName,omitempty" xml:"bankBranchName,omitempty"`
+	// example:
+	//
+	// 杭州市
+	BankCity *string `json:"bankCity,omitempty" xml:"bankCity,omitempty"`
+	// example:
+	//
+	// 313791000023
+	BankCode *string `json:"bankCode,omitempty" xml:"bankCode,omitempty"`
+	// example:
+	//
+	// 工商银行
+	BankName *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	// example:
+	//
+	// 浙江省
+	BankProvince *string `json:"bankProvince,omitempty" xml:"bankProvince,omitempty"`
+	// example:
+	//
+	// ICBC
 	BankShortNameCode *string `json:"bankShortNameCode,omitempty" xml:"bankShortNameCode,omitempty"`
-	Type              *string `json:"type,omitempty" xml:"type,omitempty"`
-	UsageType         *string `json:"usageType,omitempty" xml:"usageType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// TO_PRI
+	UsageType *string `json:"usageType,omitempty" xml:"usageType,omitempty"`
 }
 
 func (s CreateSubInstitutionRequestSettleInfo) String() string {
@@ -1882,9 +2576,21 @@ func (s *CreateSubInstitutionRequestSettleInfo) SetUsageType(v string) *CreateSu
 }
 
 type CreateSubInstitutionRequestSubInstAddressInfo struct {
-	Address      *string `json:"address,omitempty" xml:"address,omitempty"`
-	CityCode     *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// example:
+	//
+	// 未来park
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// example:
+	//
+	// 330100
+	CityCode *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// example:
+	//
+	// 330104
 	DistrictCode *string `json:"districtCode,omitempty" xml:"districtCode,omitempty"`
+	// example:
+	//
+	// 330000
 	ProvinceCode *string `json:"provinceCode,omitempty" xml:"provinceCode,omitempty"`
 }
 
@@ -1917,6 +2623,9 @@ func (s *CreateSubInstitutionRequestSubInstAddressInfo) SetProvinceCode(v string
 }
 
 type CreateSubInstitutionRequestSubInstAuthInfo struct {
+	// example:
+	//
+	// ossUrl
 	AuthorizationLetterUrl *string `json:"authorizationLetterUrl,omitempty" xml:"authorizationLetterUrl,omitempty"`
 }
 
@@ -1934,10 +2643,28 @@ func (s *CreateSubInstitutionRequestSubInstAuthInfo) SetAuthorizationLetterUrl(v
 }
 
 type CreateSubInstitutionRequestSubInstBasicInfo struct {
-	AliasName   *string `json:"aliasName,omitempty" xml:"aliasName,omitempty"`
-	Mcc         *string `json:"mcc,omitempty" xml:"mcc,omitempty"`
+	// example:
+	//
+	// 一食堂
+	AliasName *string `json:"aliasName,omitempty" xml:"aliasName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5812
+	Mcc *string `json:"mcc,omitempty" xml:"mcc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 食堂
 	SubInstName *string `json:"subInstName,omitempty" xml:"subInstName,omitempty"`
-	Type        *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 01
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s CreateSubInstitutionRequestSubInstBasicInfo) String() string {
@@ -1969,9 +2696,22 @@ func (s *CreateSubInstitutionRequestSubInstBasicInfo) SetType(v string) *CreateS
 }
 
 type CreateSubInstitutionRequestSubInstCertifyInfo struct {
+	// example:
+	//
+	// ossUrl
 	CertImage *string `json:"certImage,omitempty" xml:"certImage,omitempty"`
-	CertNo    *string `json:"certNo,omitempty" xml:"certNo,omitempty"`
-	CertType  *string `json:"certType,omitempty" xml:"certType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 331081198611111111
+	CertNo *string `json:"certNo,omitempty" xml:"certNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 201
+	CertType *string `json:"certType,omitempty" xml:"certType,omitempty"`
 }
 
 func (s CreateSubInstitutionRequestSubInstCertifyInfo) String() string {
@@ -1998,19 +2738,55 @@ func (s *CreateSubInstitutionRequestSubInstCertifyInfo) SetCertType(v string) *C
 }
 
 type CreateSubInstitutionRequestSubInstInvoiceInfo struct {
-	AcceptElectronic      *bool                                                     `json:"acceptElectronic,omitempty" xml:"acceptElectronic,omitempty"`
-	Address               *string                                                   `json:"address,omitempty" xml:"address,omitempty"`
-	AutoInvoice           *bool                                                     `json:"autoInvoice,omitempty" xml:"autoInvoice,omitempty"`
-	BankAccount           *string                                                   `json:"bankAccount,omitempty" xml:"bankAccount,omitempty"`
-	BankName              *string                                                   `json:"bankName,omitempty" xml:"bankName,omitempty"`
-	MailAddress           *CreateSubInstitutionRequestSubInstInvoiceInfoMailAddress `json:"mailAddress,omitempty" xml:"mailAddress,omitempty" type:"Struct"`
-	MailName              *string                                                   `json:"mailName,omitempty" xml:"mailName,omitempty"`
-	MailPhone             *string                                                   `json:"mailPhone,omitempty" xml:"mailPhone,omitempty"`
-	TaxNo                 *string                                                   `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
-	TaxPayerQualification *string                                                   `json:"taxPayerQualification,omitempty" xml:"taxPayerQualification,omitempty"`
-	TaxPayerValidDate     *string                                                   `json:"taxPayerValidDate,omitempty" xml:"taxPayerValidDate,omitempty"`
-	Telephone             *string                                                   `json:"telephone,omitempty" xml:"telephone,omitempty"`
-	Title                 *string                                                   `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// true
+	AcceptElectronic *bool `json:"acceptElectronic,omitempty" xml:"acceptElectronic,omitempty"`
+	// example:
+	//
+	// 浙江省杭州市西湖区西溪路蚂蚁金服
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// example:
+	//
+	// false
+	AutoInvoice *bool `json:"autoInvoice,omitempty" xml:"autoInvoice,omitempty"`
+	// example:
+	//
+	// 1234567812345678123
+	BankAccount *string `json:"bankAccount,omitempty" xml:"bankAccount,omitempty"`
+	// example:
+	//
+	// 中国银行
+	BankName    *string                                                   `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	MailAddress *CreateSubInstitutionRequestSubInstInvoiceInfoMailAddress `json:"mailAddress,omitempty" xml:"mailAddress,omitempty" type:"Struct"`
+	// example:
+	//
+	// 张三
+	MailName *string `json:"mailName,omitempty" xml:"mailName,omitempty"`
+	// example:
+	//
+	// 057162288888
+	MailPhone *string `json:"mailPhone,omitempty" xml:"mailPhone,omitempty"`
+	// example:
+	//
+	// 51010482542598631219
+	TaxNo *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+	// example:
+	//
+	// 01
+	TaxPayerQualification *string `json:"taxPayerQualification,omitempty" xml:"taxPayerQualification,omitempty"`
+	// example:
+	//
+	// 19981011
+	TaxPayerValidDate *string `json:"taxPayerValidDate,omitempty" xml:"taxPayerValidDate,omitempty"`
+	// example:
+	//
+	// 057162288888
+	Telephone *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
+	// example:
+	//
+	// **有限公司
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateSubInstitutionRequestSubInstInvoiceInfo) String() string {
@@ -2087,9 +2863,21 @@ func (s *CreateSubInstitutionRequestSubInstInvoiceInfo) SetTitle(v string) *Crea
 }
 
 type CreateSubInstitutionRequestSubInstInvoiceInfoMailAddress struct {
-	Address      *string `json:"address,omitempty" xml:"address,omitempty"`
-	CityCode     *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// example:
+	//
+	// 未来park
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// example:
+	//
+	// 330100
+	CityCode *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// example:
+	//
+	// 330104
 	DistrictCode *string `json:"districtCode,omitempty" xml:"districtCode,omitempty"`
+	// example:
+	//
+	// 330000
 	ProvinceCode *string `json:"provinceCode,omitempty" xml:"provinceCode,omitempty"`
 }
 
@@ -2145,6 +2933,11 @@ func (s *CreateSubInstitutionRequestSubInstShopInfo) SetOutDoorImages(v []*strin
 }
 
 type CreateSubInstitutionResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202110110000001
 	OrderId *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
 }
 
@@ -2214,17 +3007,57 @@ func (s *CreateUserCodeInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *Cr
 }
 
 type CreateUserCodeInstanceRequest struct {
-	AvailableTimes       []*CreateUserCodeInstanceRequestAvailableTimes `json:"availableTimes,omitempty" xml:"availableTimes,omitempty" type:"Repeated"`
-	CodeIdentity         *string                                        `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
-	CodeValue            *string                                        `json:"codeValue,omitempty" xml:"codeValue,omitempty"`
-	CodeValueType        *string                                        `json:"codeValueType,omitempty" xml:"codeValueType,omitempty"`
-	CorpId               *string                                        `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	ExtInfo              map[string]interface{}                         `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	GmtExpired           *string                                        `json:"gmtExpired,omitempty" xml:"gmtExpired,omitempty"`
-	RequestId            *string                                        `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Status               *string                                        `json:"status,omitempty" xml:"status,omitempty"`
-	UserCorpRelationType *string                                        `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
-	UserIdentity         *string                                        `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
+	// This parameter is required.
+	AvailableTimes []*CreateUserCodeInstanceRequestAvailableTimes `json:"availableTimes,omitempty" xml:"availableTimes,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TEST
+	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	CodeValue    *string `json:"codeValue,omitempty" xml:"codeValue,omitempty"`
+	// example:
+	//
+	// DING_STATIC
+	CodeValueType *string `json:"codeValueType,omitempty" xml:"codeValueType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// corpid1234
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// yyyy-MM-dd HH:mm:ss
+	GmtExpired *string `json:"gmtExpired,omitempty" xml:"gmtExpired,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202102021212
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// OPEN
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// INTERNAL_STAFF
+	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 86-xxxxxx
+	UserIdentity *string `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
 }
 
 func (s CreateUserCodeInstanceRequest) String() string {
@@ -2291,7 +3124,17 @@ func (s *CreateUserCodeInstanceRequest) SetUserIdentity(v string) *CreateUserCod
 }
 
 type CreateUserCodeInstanceRequestAvailableTimes struct {
-	GmtEnd   *string `json:"gmtEnd,omitempty" xml:"gmtEnd,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// yyyy-MM-dd HH:mm:ss
+	GmtEnd *string `json:"gmtEnd,omitempty" xml:"gmtEnd,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// yyyy-MM-dd HH:mm:ss
 	GmtStart *string `json:"gmtStart,omitempty" xml:"gmtStart,omitempty"`
 }
 
@@ -2315,7 +3158,12 @@ func (s *CreateUserCodeInstanceRequestAvailableTimes) SetGmtStart(v string) *Cre
 
 type CreateUserCodeInstanceResponseBody struct {
 	CodeDetailUrl *string `json:"codeDetailUrl,omitempty" xml:"codeDetailUrl,omitempty"`
-	CodeId        *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// codexxxxxx
+	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
 }
 
 func (s CreateUserCodeInstanceResponseBody) String() string {
@@ -2412,16 +3260,46 @@ func (s *DecodePayCodeRequest) SetRequestId(v string) *DecodePayCodeRequest {
 }
 
 type DecodePayCodeResponseBody struct {
-	AlipayCode           *string `json:"alipayCode,omitempty" xml:"alipayCode,omitempty"`
-	CodeId               *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
-	CodeIdentity         *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
-	CodeType             *string `json:"codeType,omitempty" xml:"codeType,omitempty"`
-	CorpId               *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	ExtInfo              *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	OutBizId             *string `json:"outBizId,omitempty" xml:"outBizId,omitempty"`
+	// example:
+	//
+	// 2512345678
+	AlipayCode *string `json:"alipayCode,omitempty" xml:"alipayCode,omitempty"`
+	// example:
+	//
+	// codeIdxxxxx
+	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
+	// example:
+	//
+	// DT_VISITOR
+	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	// example:
+	//
+	// PURE_IDENTIFY_CODE
+	CodeType *string `json:"codeType,omitempty" xml:"codeType,omitempty"`
+	// example:
+	//
+	// ding1234
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// {"authRules":{}}
+	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// example:
+	//
+	// xxxxx
+	OutBizId *string `json:"outBizId,omitempty" xml:"outBizId,omitempty"`
+	// example:
+	//
+	// INTERNAL_STAFF
 	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
-	UserId               *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserInCorp           *bool   `json:"userInCorp,omitempty" xml:"userInCorp,omitempty"`
+	// example:
+	//
+	// staffId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// true
+	UserInCorp *bool `json:"userInCorp,omitempty" xml:"userInCorp,omitempty"`
 }
 
 func (s DecodePayCodeResponseBody) String() string {
@@ -2511,6 +3389,218 @@ func (s *DecodePayCodeResponse) SetBody(v *DecodePayCodeResponseBody) *DecodePay
 	return s
 }
 
+type FinanceLoanNotifyRegisterHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s FinanceLoanNotifyRegisterHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FinanceLoanNotifyRegisterHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *FinanceLoanNotifyRegisterHeaders) SetCommonHeaders(v map[string]*string) *FinanceLoanNotifyRegisterHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *FinanceLoanNotifyRegisterHeaders) SetXAcsDingtalkAccessToken(v string) *FinanceLoanNotifyRegisterHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type FinanceLoanNotifyRegisterRequest struct {
+	// example:
+	//
+	// 2024-06-18 14:53:33
+	CompleteTime *string `json:"completeTime,omitempty" xml:"completeTime,omitempty"`
+	// example:
+	//
+	// {}
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// 330725189509101234
+	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
+	// example:
+	//
+	// 中原消费金融
+	OpenChannelName *string `json:"openChannelName,omitempty" xml:"openChannelName,omitempty"`
+	// example:
+	//
+	// XFD201909210001
+	OpenProductCode *string `json:"openProductCode,omitempty" xml:"openProductCode,omitempty"`
+	// example:
+	//
+	// 员工贷
+	OpenProductName *string `json:"openProductName,omitempty" xml:"openProductName,omitempty"`
+	// example:
+	//
+	// ZYXJ_XFD
+	OpenProductType *string `json:"openProductType,omitempty" xml:"openProductType,omitempty"`
+	// example:
+	//
+	// 0
+	ProcessingStatus *string `json:"processingStatus,omitempty" xml:"processingStatus,omitempty"`
+	// example:
+	//
+	// ZRSB2020
+	RefuseCode *string `json:"refuseCode,omitempty" xml:"refuseCode,omitempty"`
+	// example:
+	//
+	// 进件准入失败
+	RefuseReason *string `json:"refuseReason,omitempty" xml:"refuseReason,omitempty"`
+	// example:
+	//
+	// 2024061814654041710801
+	RegisterNo *string `json:"registerNo,omitempty" xml:"registerNo,omitempty"`
+	// example:
+	//
+	// 0
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 2024-06-18 14:53:33
+	SubmitTime *string `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
+	// example:
+	//
+	// 18092149430
+	UserMobile *string `json:"userMobile,omitempty" xml:"userMobile,omitempty"`
+}
+
+func (s FinanceLoanNotifyRegisterRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FinanceLoanNotifyRegisterRequest) GoString() string {
+	return s.String()
+}
+
+func (s *FinanceLoanNotifyRegisterRequest) SetCompleteTime(v string) *FinanceLoanNotifyRegisterRequest {
+	s.CompleteTime = &v
+	return s
+}
+
+func (s *FinanceLoanNotifyRegisterRequest) SetExtension(v string) *FinanceLoanNotifyRegisterRequest {
+	s.Extension = &v
+	return s
+}
+
+func (s *FinanceLoanNotifyRegisterRequest) SetIdCardNo(v string) *FinanceLoanNotifyRegisterRequest {
+	s.IdCardNo = &v
+	return s
+}
+
+func (s *FinanceLoanNotifyRegisterRequest) SetOpenChannelName(v string) *FinanceLoanNotifyRegisterRequest {
+	s.OpenChannelName = &v
+	return s
+}
+
+func (s *FinanceLoanNotifyRegisterRequest) SetOpenProductCode(v string) *FinanceLoanNotifyRegisterRequest {
+	s.OpenProductCode = &v
+	return s
+}
+
+func (s *FinanceLoanNotifyRegisterRequest) SetOpenProductName(v string) *FinanceLoanNotifyRegisterRequest {
+	s.OpenProductName = &v
+	return s
+}
+
+func (s *FinanceLoanNotifyRegisterRequest) SetOpenProductType(v string) *FinanceLoanNotifyRegisterRequest {
+	s.OpenProductType = &v
+	return s
+}
+
+func (s *FinanceLoanNotifyRegisterRequest) SetProcessingStatus(v string) *FinanceLoanNotifyRegisterRequest {
+	s.ProcessingStatus = &v
+	return s
+}
+
+func (s *FinanceLoanNotifyRegisterRequest) SetRefuseCode(v string) *FinanceLoanNotifyRegisterRequest {
+	s.RefuseCode = &v
+	return s
+}
+
+func (s *FinanceLoanNotifyRegisterRequest) SetRefuseReason(v string) *FinanceLoanNotifyRegisterRequest {
+	s.RefuseReason = &v
+	return s
+}
+
+func (s *FinanceLoanNotifyRegisterRequest) SetRegisterNo(v string) *FinanceLoanNotifyRegisterRequest {
+	s.RegisterNo = &v
+	return s
+}
+
+func (s *FinanceLoanNotifyRegisterRequest) SetStatus(v string) *FinanceLoanNotifyRegisterRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *FinanceLoanNotifyRegisterRequest) SetSubmitTime(v string) *FinanceLoanNotifyRegisterRequest {
+	s.SubmitTime = &v
+	return s
+}
+
+func (s *FinanceLoanNotifyRegisterRequest) SetUserMobile(v string) *FinanceLoanNotifyRegisterRequest {
+	s.UserMobile = &v
+	return s
+}
+
+type FinanceLoanNotifyRegisterResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s FinanceLoanNotifyRegisterResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FinanceLoanNotifyRegisterResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *FinanceLoanNotifyRegisterResponseBody) SetRequestId(v string) *FinanceLoanNotifyRegisterResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *FinanceLoanNotifyRegisterResponseBody) SetResult(v string) *FinanceLoanNotifyRegisterResponseBody {
+	s.Result = &v
+	return s
+}
+
+type FinanceLoanNotifyRegisterResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *FinanceLoanNotifyRegisterResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s FinanceLoanNotifyRegisterResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FinanceLoanNotifyRegisterResponse) GoString() string {
+	return s.String()
+}
+
+func (s *FinanceLoanNotifyRegisterResponse) SetHeaders(v map[string]*string) *FinanceLoanNotifyRegisterResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *FinanceLoanNotifyRegisterResponse) SetStatusCode(v int32) *FinanceLoanNotifyRegisterResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *FinanceLoanNotifyRegisterResponse) SetBody(v *FinanceLoanNotifyRegisterResponseBody) *FinanceLoanNotifyRegisterResponse {
+	s.Body = v
+	return s
+}
+
 type ModifySubInstitutionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2535,22 +3625,51 @@ func (s *ModifySubInstitutionHeaders) SetXAcsDingtalkAccessToken(v string) *Modi
 }
 
 type ModifySubInstitutionRequest struct {
-	BindingAlipayLogonId *string                                          `json:"bindingAlipayLogonId,omitempty" xml:"bindingAlipayLogonId,omitempty"`
-	ContactInfo          *ModifySubInstitutionRequestContactInfo          `json:"contactInfo,omitempty" xml:"contactInfo,omitempty" type:"Struct"`
-	InstId               *string                                          `json:"instId,omitempty" xml:"instId,omitempty"`
-	LegalPersonCertInfo  *ModifySubInstitutionRequestLegalPersonCertInfo  `json:"legalPersonCertInfo,omitempty" xml:"legalPersonCertInfo,omitempty" type:"Struct"`
-	OutTradeNo           *string                                          `json:"outTradeNo,omitempty" xml:"outTradeNo,omitempty"`
-	PayChannel           *string                                          `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
-	QualificationInfos   []*ModifySubInstitutionRequestQualificationInfos `json:"qualificationInfos,omitempty" xml:"qualificationInfos,omitempty" type:"Repeated"`
-	Services             []*string                                        `json:"services,omitempty" xml:"services,omitempty" type:"Repeated"`
-	SettleInfo           *ModifySubInstitutionRequestSettleInfo           `json:"settleInfo,omitempty" xml:"settleInfo,omitempty" type:"Struct"`
-	SubInstAddressInfo   *ModifySubInstitutionRequestSubInstAddressInfo   `json:"subInstAddressInfo,omitempty" xml:"subInstAddressInfo,omitempty" type:"Struct"`
-	SubInstAuthInfo      *ModifySubInstitutionRequestSubInstAuthInfo      `json:"subInstAuthInfo,omitempty" xml:"subInstAuthInfo,omitempty" type:"Struct"`
-	SubInstBasicInfo     *ModifySubInstitutionRequestSubInstBasicInfo     `json:"subInstBasicInfo,omitempty" xml:"subInstBasicInfo,omitempty" type:"Struct"`
-	SubInstCertifyInfo   *ModifySubInstitutionRequestSubInstCertifyInfo   `json:"subInstCertifyInfo,omitempty" xml:"subInstCertifyInfo,omitempty" type:"Struct"`
-	SubInstId            *string                                          `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
-	SubInstInvoiceInfo   *ModifySubInstitutionRequestSubInstInvoiceInfo   `json:"subInstInvoiceInfo,omitempty" xml:"subInstInvoiceInfo,omitempty" type:"Struct"`
-	SubInstShopInfo      *ModifySubInstitutionRequestSubInstShopInfo      `json:"subInstShopInfo,omitempty" xml:"subInstShopInfo,omitempty" type:"Struct"`
+	// example:
+	//
+	// asdf@163.com
+	BindingAlipayLogonId *string `json:"bindingAlipayLogonId,omitempty" xml:"bindingAlipayLogonId,omitempty"`
+	// This parameter is required.
+	ContactInfo *ModifySubInstitutionRequestContactInfo `json:"contactInfo,omitempty" xml:"contactInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202111090001
+	InstId *string `json:"instId,omitempty" xml:"instId,omitempty"`
+	// This parameter is required.
+	LegalPersonCertInfo *ModifySubInstitutionRequestLegalPersonCertInfo `json:"legalPersonCertInfo,omitempty" xml:"legalPersonCertInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021000001
+	OutTradeNo *string `json:"outTradeNo,omitempty" xml:"outTradeNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	PayChannel         *string                                          `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
+	QualificationInfos []*ModifySubInstitutionRequestQualificationInfos `json:"qualificationInfos,omitempty" xml:"qualificationInfos,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Services []*string `json:"services,omitempty" xml:"services,omitempty" type:"Repeated"`
+	// This parameter is required.
+	SettleInfo         *ModifySubInstitutionRequestSettleInfo         `json:"settleInfo,omitempty" xml:"settleInfo,omitempty" type:"Struct"`
+	SubInstAddressInfo *ModifySubInstitutionRequestSubInstAddressInfo `json:"subInstAddressInfo,omitempty" xml:"subInstAddressInfo,omitempty" type:"Struct"`
+	SubInstAuthInfo    *ModifySubInstitutionRequestSubInstAuthInfo    `json:"subInstAuthInfo,omitempty" xml:"subInstAuthInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	SubInstBasicInfo *ModifySubInstitutionRequestSubInstBasicInfo `json:"subInstBasicInfo,omitempty" xml:"subInstBasicInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	SubInstCertifyInfo *ModifySubInstitutionRequestSubInstCertifyInfo `json:"subInstCertifyInfo,omitempty" xml:"subInstCertifyInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1001
+	SubInstId          *string                                        `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
+	SubInstInvoiceInfo *ModifySubInstitutionRequestSubInstInvoiceInfo `json:"subInstInvoiceInfo,omitempty" xml:"subInstInvoiceInfo,omitempty" type:"Struct"`
+	SubInstShopInfo    *ModifySubInstitutionRequestSubInstShopInfo    `json:"subInstShopInfo,omitempty" xml:"subInstShopInfo,omitempty" type:"Struct"`
 }
 
 func (s ModifySubInstitutionRequest) String() string {
@@ -2642,8 +3761,18 @@ func (s *ModifySubInstitutionRequest) SetSubInstShopInfo(v *ModifySubInstitution
 }
 
 type ModifySubInstitutionRequestContactInfo struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 李某某
 	ContactName *string `json:"contactName,omitempty" xml:"contactName,omitempty"`
-	Mobile      *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 13900000000
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
 }
 
 func (s ModifySubInstitutionRequestContactInfo) String() string {
@@ -2665,11 +3794,30 @@ func (s *ModifySubInstitutionRequestContactInfo) SetMobile(v string) *ModifySubI
 }
 
 type ModifySubInstitutionRequestLegalPersonCertInfo struct {
-	CertBackImage  *string `json:"certBackImage,omitempty" xml:"certBackImage,omitempty"`
+	// example:
+	//
+	// ossUrl
+	CertBackImage *string `json:"certBackImage,omitempty" xml:"certBackImage,omitempty"`
+	// example:
+	//
+	// ossUrl
 	CertFrontImage *string `json:"certFrontImage,omitempty" xml:"certFrontImage,omitempty"`
-	CertName       *string `json:"certName,omitempty" xml:"certName,omitempty"`
-	CertType       *string `json:"certType,omitempty" xml:"certType,omitempty"`
-	IdCardNo       *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 李某某
+	CertName *string `json:"certName,omitempty" xml:"certName,omitempty"`
+	// example:
+	//
+	// 100
+	CertType *string `json:"certType,omitempty" xml:"certType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 330104200010109999
+	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
 }
 
 func (s ModifySubInstitutionRequestLegalPersonCertInfo) String() string {
@@ -2706,8 +3854,18 @@ func (s *ModifySubInstitutionRequestLegalPersonCertInfo) SetIdCardNo(v string) *
 }
 
 type ModifySubInstitutionRequestQualificationInfos struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ossUrl
 	QualificationImage *string `json:"qualificationImage,omitempty" xml:"qualificationImage,omitempty"`
-	QualificationType  *string `json:"qualificationType,omitempty" xml:"qualificationType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 301
+	QualificationType *string `json:"qualificationType,omitempty" xml:"qualificationType,omitempty"`
 }
 
 func (s ModifySubInstitutionRequestQualificationInfos) String() string {
@@ -2729,17 +3887,54 @@ func (s *ModifySubInstitutionRequestQualificationInfos) SetQualificationType(v s
 }
 
 type ModifySubInstitutionRequestSettleInfo struct {
-	AccountId         *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	AccountName       *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
-	AccountType       *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	BankBranchName    *string `json:"bankBranchName,omitempty" xml:"bankBranchName,omitempty"`
-	BankCity          *string `json:"bankCity,omitempty" xml:"bankCity,omitempty"`
-	BankCode          *string `json:"bankCode,omitempty" xml:"bankCode,omitempty"`
-	BankName          *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
-	BankProvince      *string `json:"bankProvince,omitempty" xml:"bankProvince,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 622202120200000000
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// example:
+	//
+	// 李某某
+	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
+	// example:
+	//
+	// DEBIT_CARD
+	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
+	// example:
+	//
+	// 城东支行
+	BankBranchName *string `json:"bankBranchName,omitempty" xml:"bankBranchName,omitempty"`
+	// example:
+	//
+	// 杭州市
+	BankCity *string `json:"bankCity,omitempty" xml:"bankCity,omitempty"`
+	// example:
+	//
+	// 313791000023
+	BankCode *string `json:"bankCode,omitempty" xml:"bankCode,omitempty"`
+	// example:
+	//
+	// 工商银行
+	BankName *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	// example:
+	//
+	// 浙江省
+	BankProvince *string `json:"bankProvince,omitempty" xml:"bankProvince,omitempty"`
+	// example:
+	//
+	// ICBC
 	BankShortNameCode *string `json:"bankShortNameCode,omitempty" xml:"bankShortNameCode,omitempty"`
-	Type              *string `json:"type,omitempty" xml:"type,omitempty"`
-	UsageType         *string `json:"usageType,omitempty" xml:"usageType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// TO_PRI
+	UsageType *string `json:"usageType,omitempty" xml:"usageType,omitempty"`
 }
 
 func (s ModifySubInstitutionRequestSettleInfo) String() string {
@@ -2806,9 +4001,21 @@ func (s *ModifySubInstitutionRequestSettleInfo) SetUsageType(v string) *ModifySu
 }
 
 type ModifySubInstitutionRequestSubInstAddressInfo struct {
-	Address      *string `json:"address,omitempty" xml:"address,omitempty"`
-	CityCode     *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// example:
+	//
+	// 未来park
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// example:
+	//
+	// 330100
+	CityCode *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// example:
+	//
+	// 330104
 	DistrictCode *string `json:"districtCode,omitempty" xml:"districtCode,omitempty"`
+	// example:
+	//
+	// 330000
 	ProvinceCode *string `json:"provinceCode,omitempty" xml:"provinceCode,omitempty"`
 }
 
@@ -2841,6 +4048,9 @@ func (s *ModifySubInstitutionRequestSubInstAddressInfo) SetProvinceCode(v string
 }
 
 type ModifySubInstitutionRequestSubInstAuthInfo struct {
+	// example:
+	//
+	// ossUrl
 	AuthorizationLetterUrl *string `json:"authorizationLetterUrl,omitempty" xml:"authorizationLetterUrl,omitempty"`
 }
 
@@ -2858,10 +4068,28 @@ func (s *ModifySubInstitutionRequestSubInstAuthInfo) SetAuthorizationLetterUrl(v
 }
 
 type ModifySubInstitutionRequestSubInstBasicInfo struct {
-	AliasName   *string `json:"aliasName,omitempty" xml:"aliasName,omitempty"`
-	Mcc         *string `json:"mcc,omitempty" xml:"mcc,omitempty"`
+	// example:
+	//
+	// 一食堂
+	AliasName *string `json:"aliasName,omitempty" xml:"aliasName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5812
+	Mcc *string `json:"mcc,omitempty" xml:"mcc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 食堂
 	SubInstName *string `json:"subInstName,omitempty" xml:"subInstName,omitempty"`
-	Type        *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 01
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s ModifySubInstitutionRequestSubInstBasicInfo) String() string {
@@ -2893,9 +4121,22 @@ func (s *ModifySubInstitutionRequestSubInstBasicInfo) SetType(v string) *ModifyS
 }
 
 type ModifySubInstitutionRequestSubInstCertifyInfo struct {
+	// example:
+	//
+	// ossUrl
 	CertImage *string `json:"certImage,omitempty" xml:"certImage,omitempty"`
-	CertNo    *string `json:"certNo,omitempty" xml:"certNo,omitempty"`
-	CertType  *string `json:"certType,omitempty" xml:"certType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 331081198611111111
+	CertNo *string `json:"certNo,omitempty" xml:"certNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 201
+	CertType *string `json:"certType,omitempty" xml:"certType,omitempty"`
 }
 
 func (s ModifySubInstitutionRequestSubInstCertifyInfo) String() string {
@@ -2922,19 +4163,55 @@ func (s *ModifySubInstitutionRequestSubInstCertifyInfo) SetCertType(v string) *M
 }
 
 type ModifySubInstitutionRequestSubInstInvoiceInfo struct {
-	AcceptElectronic      *bool                                                     `json:"acceptElectronic,omitempty" xml:"acceptElectronic,omitempty"`
-	Address               *string                                                   `json:"address,omitempty" xml:"address,omitempty"`
-	AutoInvoice           *bool                                                     `json:"autoInvoice,omitempty" xml:"autoInvoice,omitempty"`
-	BankAccount           *string                                                   `json:"bankAccount,omitempty" xml:"bankAccount,omitempty"`
-	BankName              *string                                                   `json:"bankName,omitempty" xml:"bankName,omitempty"`
-	MailAddress           *ModifySubInstitutionRequestSubInstInvoiceInfoMailAddress `json:"mailAddress,omitempty" xml:"mailAddress,omitempty" type:"Struct"`
-	MailName              *string                                                   `json:"mailName,omitempty" xml:"mailName,omitempty"`
-	MailPhone             *string                                                   `json:"mailPhone,omitempty" xml:"mailPhone,omitempty"`
-	TaxNo                 *string                                                   `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
-	TaxPayerQualification *string                                                   `json:"taxPayerQualification,omitempty" xml:"taxPayerQualification,omitempty"`
-	TaxPayerValidDate     *string                                                   `json:"taxPayerValidDate,omitempty" xml:"taxPayerValidDate,omitempty"`
-	Telephone             *string                                                   `json:"telephone,omitempty" xml:"telephone,omitempty"`
-	Title                 *string                                                   `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// true
+	AcceptElectronic *bool `json:"acceptElectronic,omitempty" xml:"acceptElectronic,omitempty"`
+	// example:
+	//
+	// 浙江省杭州市西湖区西溪路蚂蚁金服
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// example:
+	//
+	// false
+	AutoInvoice *bool `json:"autoInvoice,omitempty" xml:"autoInvoice,omitempty"`
+	// example:
+	//
+	// 1234567812345678123
+	BankAccount *string `json:"bankAccount,omitempty" xml:"bankAccount,omitempty"`
+	// example:
+	//
+	// 中国银行
+	BankName    *string                                                   `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	MailAddress *ModifySubInstitutionRequestSubInstInvoiceInfoMailAddress `json:"mailAddress,omitempty" xml:"mailAddress,omitempty" type:"Struct"`
+	// example:
+	//
+	// 张三
+	MailName *string `json:"mailName,omitempty" xml:"mailName,omitempty"`
+	// example:
+	//
+	// 057162288888
+	MailPhone *string `json:"mailPhone,omitempty" xml:"mailPhone,omitempty"`
+	// example:
+	//
+	// 51010482542598631219
+	TaxNo *string `json:"taxNo,omitempty" xml:"taxNo,omitempty"`
+	// example:
+	//
+	// 01
+	TaxPayerQualification *string `json:"taxPayerQualification,omitempty" xml:"taxPayerQualification,omitempty"`
+	// example:
+	//
+	// 19981011
+	TaxPayerValidDate *string `json:"taxPayerValidDate,omitempty" xml:"taxPayerValidDate,omitempty"`
+	// example:
+	//
+	// 057162288888
+	Telephone *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
+	// example:
+	//
+	// **有限公司
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s ModifySubInstitutionRequestSubInstInvoiceInfo) String() string {
@@ -3011,9 +4288,21 @@ func (s *ModifySubInstitutionRequestSubInstInvoiceInfo) SetTitle(v string) *Modi
 }
 
 type ModifySubInstitutionRequestSubInstInvoiceInfoMailAddress struct {
-	Address      *string `json:"address,omitempty" xml:"address,omitempty"`
-	CityCode     *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// example:
+	//
+	// 未来park
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// example:
+	//
+	// 330100
+	CityCode *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// example:
+	//
+	// 330104
 	DistrictCode *string `json:"districtCode,omitempty" xml:"districtCode,omitempty"`
+	// example:
+	//
+	// 330000
 	ProvinceCode *string `json:"provinceCode,omitempty" xml:"provinceCode,omitempty"`
 }
 
@@ -3069,6 +4358,9 @@ func (s *ModifySubInstitutionRequestSubInstShopInfo) SetOutDoorImages(v []*strin
 }
 
 type ModifySubInstitutionResponseBody struct {
+	// example:
+	//
+	// 202110110000001
 	OrderId *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
 }
 
@@ -3138,23 +4430,98 @@ func (s *NotifyPayCodePayResultHeaders) SetXAcsDingtalkAccessToken(v string) *No
 }
 
 type NotifyPayCodePayResultRequest struct {
-	Amount               *string                                              `json:"amount,omitempty" xml:"amount,omitempty"`
-	ChargeAmount         *string                                              `json:"chargeAmount,omitempty" xml:"chargeAmount,omitempty"`
-	CorpId               *string                                              `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	ExtInfo              *string                                              `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	GmtTradeCreate       *string                                              `json:"gmtTradeCreate,omitempty" xml:"gmtTradeCreate,omitempty"`
-	GmtTradeFinish       *string                                              `json:"gmtTradeFinish,omitempty" xml:"gmtTradeFinish,omitempty"`
-	MerchantName         *string                                              `json:"merchantName,omitempty" xml:"merchantName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234.56
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.00, 没有传0.00
+	ChargeAmount *string `json:"chargeAmount,omitempty" xml:"chargeAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding1234
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// { "akey": "avalue“}
+	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-01-01 11:11:11
+	GmtTradeCreate *string `json:"gmtTradeCreate,omitempty" xml:"gmtTradeCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-01-01 11:11:11
+	GmtTradeFinish *string `json:"gmtTradeFinish,omitempty" xml:"gmtTradeFinish,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// XX公司食堂
+	MerchantName *string `json:"merchantName,omitempty" xml:"merchantName,omitempty"`
+	// This parameter is required.
 	PayChannelDetailList []*NotifyPayCodePayResultRequestPayChannelDetailList `json:"payChannelDetailList,omitempty" xml:"payChannelDetailList,omitempty" type:"Repeated"`
-	PayCode              *string                                              `json:"payCode,omitempty" xml:"payCode,omitempty"`
-	PromotionAmount      *string                                              `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
-	Remark               *string                                              `json:"remark,omitempty" xml:"remark,omitempty"`
-	Title                *string                                              `json:"title,omitempty" xml:"title,omitempty"`
-	TradeErrorCode       *string                                              `json:"tradeErrorCode,omitempty" xml:"tradeErrorCode,omitempty"`
-	TradeErrorMsg        *string                                              `json:"tradeErrorMsg,omitempty" xml:"tradeErrorMsg,omitempty"`
-	TradeNo              *string                                              `json:"tradeNo,omitempty" xml:"tradeNo,omitempty"`
-	TradeStatus          *string                                              `json:"tradeStatus,omitempty" xml:"tradeStatus,omitempty"`
-	UserId               *string                                              `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 261234567890
+	PayCode *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.23，没有传0.00
+	PromotionAmount *string `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 晚餐100.0元
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// BALANCE_NOT_ENOUGH
+	TradeErrorCode *string `json:"tradeErrorCode,omitempty" xml:"tradeErrorCode,omitempty"`
+	// example:
+	//
+	// 余额不足，请充值
+	TradeErrorMsg *string `json:"tradeErrorMsg,omitempty" xml:"tradeErrorMsg,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202101012345678
+	TradeNo *string `json:"tradeNo,omitempty" xml:"tradeNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUCCESS/FAIL
+	TradeStatus *string `json:"tradeStatus,omitempty" xml:"tradeStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// userId1234
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s NotifyPayCodePayResultRequest) String() string {
@@ -3251,14 +4618,46 @@ func (s *NotifyPayCodePayResultRequest) SetUserId(v string) *NotifyPayCodePayRes
 }
 
 type NotifyPayCodePayResultRequestPayChannelDetailList struct {
-	Amount             *string                                                                `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.23
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
 	FundToolDetailList []*NotifyPayCodePayResultRequestPayChannelDetailListFundToolDetailList `json:"fundToolDetailList,omitempty" xml:"fundToolDetailList,omitempty" type:"Repeated"`
-	GmtCreate          *string                                                                `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtFinish          *string                                                                `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
-	PayChannelName     *string                                                                `json:"payChannelName,omitempty" xml:"payChannelName,omitempty"`
-	PayChannelOrderNo  *string                                                                `json:"payChannelOrderNo,omitempty" xml:"payChannelOrderNo,omitempty"`
-	PayChannelType     *string                                                                `json:"payChannelType,omitempty" xml:"payChannelType,omitempty"`
-	PromotionAmount    *string                                                                `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
+	// example:
+	//
+	// 2021-01-01 11:11:11
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 2021-01-01 11:11:11
+	GmtFinish *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 卡余额
+	PayChannelName *string `json:"payChannelName,omitempty" xml:"payChannelName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20211234
+	PayChannelOrderNo *string `json:"payChannelOrderNo,omitempty" xml:"payChannelOrderNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY|BALANCE
+	PayChannelType *string `json:"payChannelType,omitempty" xml:"payChannelType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.00
+	PromotionAmount *string `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
 }
 
 func (s NotifyPayCodePayResultRequestPayChannelDetailList) String() string {
@@ -3310,12 +4709,40 @@ func (s *NotifyPayCodePayResultRequestPayChannelDetailList) SetPromotionAmount(v
 }
 
 type NotifyPayCodePayResultRequestPayChannelDetailListFundToolDetailList struct {
-	Amount            *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	ExtInfo           *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	FundToolName      *string `json:"fundToolName,omitempty" xml:"fundToolName,omitempty"`
-	GmtCreate         *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtFinish         *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
-	PromotionFundTool *bool   `json:"promotionFundTool,omitempty" xml:"promotionFundTool,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// example:
+	//
+	// {"key":"value"}
+	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 优惠券
+	FundToolName *string `json:"fundToolName,omitempty" xml:"fundToolName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-01-01
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-01-01 11:11:11
+	GmtFinish *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	PromotionFundTool *bool `json:"promotionFundTool,omitempty" xml:"promotionFundTool,omitempty"`
 }
 
 func (s NotifyPayCodePayResultRequestPayChannelDetailListFundToolDetailList) String() string {
@@ -3357,6 +4784,11 @@ func (s *NotifyPayCodePayResultRequestPayChannelDetailListFundToolDetailList) Se
 }
 
 type NotifyPayCodePayResultResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUCCESS
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3426,16 +4858,62 @@ func (s *NotifyPayCodeRefundResultHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type NotifyPayCodeRefundResultRequest struct {
-	CorpId                *string                                                 `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	GmtRefund             *string                                                 `json:"gmtRefund,omitempty" xml:"gmtRefund,omitempty"`
-	PayChannelDetailList  []*NotifyPayCodeRefundResultRequestPayChannelDetailList `json:"payChannelDetailList,omitempty" xml:"payChannelDetailList,omitempty" type:"Repeated"`
-	PayCode               *string                                                 `json:"payCode,omitempty" xml:"payCode,omitempty"`
-	RefundAmount          *string                                                 `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
-	RefundOrderNo         *string                                                 `json:"refundOrderNo,omitempty" xml:"refundOrderNo,omitempty"`
-	RefundPromotionAmount *string                                                 `json:"refundPromotionAmount,omitempty" xml:"refundPromotionAmount,omitempty"`
-	Remark                *string                                                 `json:"remark,omitempty" xml:"remark,omitempty"`
-	TradeNo               *string                                                 `json:"tradeNo,omitempty" xml:"tradeNo,omitempty"`
-	UserId                *string                                                 `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding1234
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-11-11 11:11:11
+	GmtRefund *string `json:"gmtRefund,omitempty" xml:"gmtRefund,omitempty"`
+	// This parameter is required.
+	PayChannelDetailList []*NotifyPayCodeRefundResultRequestPayChannelDetailList `json:"payChannelDetailList,omitempty" xml:"payChannelDetailList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// payCode
+	PayCode *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.00
+	RefundAmount *string `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// refundOrderNo
+	RefundOrderNo *string `json:"refundOrderNo,omitempty" xml:"refundOrderNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.00
+	RefundPromotionAmount *string `json:"refundPromotionAmount,omitempty" xml:"refundPromotionAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 晚餐退款
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// tradeNo
+	TradeNo *string `json:"tradeNo,omitempty" xml:"tradeNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s NotifyPayCodeRefundResultRequest) String() string {
@@ -3497,13 +4975,44 @@ func (s *NotifyPayCodeRefundResultRequest) SetUserId(v string) *NotifyPayCodeRef
 }
 
 type NotifyPayCodeRefundResultRequestPayChannelDetailList struct {
-	Amount                  *string                                                                   `json:"amount,omitempty" xml:"amount,omitempty"`
-	FundToolDetailList      []*NotifyPayCodeRefundResultRequestPayChannelDetailListFundToolDetailList `json:"fundToolDetailList,omitempty" xml:"fundToolDetailList,omitempty" type:"Repeated"`
-	PayChannelName          *string                                                                   `json:"payChannelName,omitempty" xml:"payChannelName,omitempty"`
-	PayChannelOrderNo       *string                                                                   `json:"payChannelOrderNo,omitempty" xml:"payChannelOrderNo,omitempty"`
-	PayChannelRefundOrderNo *string                                                                   `json:"payChannelRefundOrderNo,omitempty" xml:"payChannelRefundOrderNo,omitempty"`
-	PayChannelType          *string                                                                   `json:"payChannelType,omitempty" xml:"payChannelType,omitempty"`
-	PromotionAmount         *string                                                                   `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.00
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	FundToolDetailList []*NotifyPayCodeRefundResultRequestPayChannelDetailListFundToolDetailList `json:"fundToolDetailList,omitempty" xml:"fundToolDetailList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	PayChannelName *string `json:"payChannelName,omitempty" xml:"payChannelName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20210531123456
+	PayChannelOrderNo *string `json:"payChannelOrderNo,omitempty" xml:"payChannelOrderNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021053112345678
+	PayChannelRefundOrderNo *string `json:"payChannelRefundOrderNo,omitempty" xml:"payChannelRefundOrderNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	PayChannelType *string `json:"payChannelType,omitempty" xml:"payChannelType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.00
+	PromotionAmount *string `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
 }
 
 func (s NotifyPayCodeRefundResultRequestPayChannelDetailList) String() string {
@@ -3550,12 +5059,37 @@ func (s *NotifyPayCodeRefundResultRequestPayChannelDetailList) SetPromotionAmoun
 }
 
 type NotifyPayCodeRefundResultRequestPayChannelDetailListFundToolDetailList struct {
-	Amount            *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	ExtInfo           *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	FundToolName      *string `json:"fundToolName,omitempty" xml:"fundToolName,omitempty"`
-	GmtCreate         *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtFinish         *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
-	PromotionFundTool *bool   `json:"promotionFundTool,omitempty" xml:"promotionFundTool,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.00
+	Amount  *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 余额
+	FundToolName *string `json:"fundToolName,omitempty" xml:"fundToolName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-05-31 11:11:11
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-05-31 11:11:11
+	GmtFinish *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	PromotionFundTool *bool `json:"promotionFundTool,omitempty" xml:"promotionFundTool,omitempty"`
 }
 
 func (s NotifyPayCodeRefundResultRequestPayChannelDetailListFundToolDetailList) String() string {
@@ -3597,6 +5131,11 @@ func (s *NotifyPayCodeRefundResultRequestPayChannelDetailListFundToolDetailList)
 }
 
 type NotifyPayCodeRefundResultResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUCCESS
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3666,16 +5205,55 @@ func (s *NotifyVerifyResultHeaders) SetXAcsDingtalkAccessToken(v string) *Notify
 }
 
 type NotifyVerifyResultRequest struct {
-	CorpId               *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	PayCode              *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
-	Remark               *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// corpxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 261234567890
+	PayCode *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
+	Remark  *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// INTERNAL_STAFF
 	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
-	UserIdentity         *string `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
-	VerifyEvent          *string `json:"verifyEvent,omitempty" xml:"verifyEvent,omitempty"`
-	VerifyLocation       *string `json:"verifyLocation,omitempty" xml:"verifyLocation,omitempty"`
-	VerifyNo             *string `json:"verifyNo,omitempty" xml:"verifyNo,omitempty"`
-	VerifyResult         *bool   `json:"verifyResult,omitempty" xml:"verifyResult,omitempty"`
-	VerifyTime           *string `json:"verifyTime,omitempty" xml:"verifyTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxxxx
+	UserIdentity *string `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
+	// example:
+	//
+	// 门禁验证
+	VerifyEvent *string `json:"verifyEvent,omitempty" xml:"verifyEvent,omitempty"`
+	// example:
+	//
+	// 1号食堂
+	VerifyLocation *string `json:"verifyLocation,omitempty" xml:"verifyLocation,omitempty"`
+	// example:
+	//
+	// 202112120003232
+	VerifyNo *string `json:"verifyNo,omitempty" xml:"verifyNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 是否通过
+	VerifyResult *bool `json:"verifyResult,omitempty" xml:"verifyResult,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-01-01 12:12:12
+	VerifyTime *string `json:"verifyTime,omitempty" xml:"verifyTime,omitempty"`
 }
 
 func (s NotifyVerifyResultRequest) String() string {
@@ -3737,6 +5315,11 @@ func (s *NotifyVerifyResultRequest) SetVerifyTime(v string) *NotifyVerifyResultR
 }
 
 type NotifyVerifyResultResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUCCESS
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3806,17 +5389,57 @@ func (s *PreCreateGroupBillOrderHeaders) SetXAcsDingtalkAccessToken(v string) *P
 }
 
 type PreCreateGroupBillOrderRequest struct {
-	BillItemList    []*PreCreateGroupBillOrderRequestBillItemList `json:"billItemList,omitempty" xml:"billItemList,omitempty" type:"Repeated"`
-	ExtParams       map[string]*string                            `json:"extParams,omitempty" xml:"extParams,omitempty"`
-	HeadCount       *int64                                        `json:"headCount,omitempty" xml:"headCount,omitempty"`
-	IsAverageAmount *int32                                        `json:"isAverageAmount,omitempty" xml:"isAverageAmount,omitempty"`
-	MerchantId      *string                                       `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
-	OpenCid         *string                                       `json:"openCid,omitempty" xml:"openCid,omitempty"`
-	OutBizNo        *string                                       `json:"outBizNo,omitempty" xml:"outBizNo,omitempty"`
-	PayeeCorpId     *string                                       `json:"payeeCorpId,omitempty" xml:"payeeCorpId,omitempty"`
-	PayeeUnionId    *string                                       `json:"payeeUnionId,omitempty" xml:"payeeUnionId,omitempty"`
-	Remark          *string                                       `json:"remark,omitempty" xml:"remark,omitempty"`
-	TotalAmount     *string                                       `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
+	// This parameter is required.
+	BillItemList []*PreCreateGroupBillOrderRequestBillItemList `json:"billItemList,omitempty" xml:"billItemList,omitempty" type:"Repeated"`
+	ExtParams    map[string]*string                            `json:"extParams,omitempty" xml:"extParams,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2
+	HeadCount *int64 `json:"headCount,omitempty" xml:"headCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	IsAverageAmount *int32 `json:"isAverageAmount,omitempty" xml:"isAverageAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dhqhadsnkj2qweqsw2
+	MerchantId *string `json:"merchantId,omitempty" xml:"merchantId,omitempty"`
+	// example:
+	//
+	// opemcesdjuwqw2uwnedj==
+	OpenCid *string `json:"openCid,omitempty" xml:"openCid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20230918291921929193911
+	OutBizNo *string `json:"outBizNo,omitempty" xml:"outBizNo,omitempty"`
+	// example:
+	//
+	// ding32fff839a3e0105d
+	PayeeCorpId *string `json:"payeeCorpId,omitempty" xml:"payeeCorpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ECEjwiiwenwnw2q2sdd
+	PayeeUnionId *string `json:"payeeUnionId,omitempty" xml:"payeeUnionId,omitempty"`
+	// example:
+	//
+	// 饿了么拼单-测试
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10.24
+	TotalAmount *string `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
 }
 
 func (s PreCreateGroupBillOrderRequest) String() string {
@@ -3883,7 +5506,17 @@ func (s *PreCreateGroupBillOrderRequest) SetTotalAmount(v string) *PreCreateGrou
 }
 
 type PreCreateGroupBillOrderRequestBillItemList struct {
-	Amount       *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5.12
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cshadbikahdksnajhada
 	PayerUnionId *string `json:"payerUnionId,omitempty" xml:"payerUnionId,omitempty"`
 }
 
@@ -3929,6 +5562,9 @@ func (s *PreCreateGroupBillOrderResponseBody) SetSuccess(v bool) *PreCreateGroup
 }
 
 type PreCreateGroupBillOrderResponseBodyResult struct {
+	// example:
+	//
+	// 2023100914312930910100002107362525
 	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
 }
 
@@ -3998,6 +5634,11 @@ func (s *QueryAcquireRefundOrderHeaders) SetXAcsDingtalkAccessToken(v string) *Q
 }
 
 type QueryAcquireRefundOrderRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202100001
 	OutRefundNo *string `json:"outRefundNo,omitempty" xml:"outRefundNo,omitempty"`
 }
 
@@ -4015,20 +5656,86 @@ func (s *QueryAcquireRefundOrderRequest) SetOutRefundNo(v string) *QueryAcquireR
 }
 
 type QueryAcquireRefundOrderResponseBody struct {
-	Amount              *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	GmtCreate           *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtRefund           *string `json:"gmtRefund,omitempty" xml:"gmtRefund,omitempty"`
-	InstId              *string `json:"instId,omitempty" xml:"instId,omitempty"`
-	OrderNo             *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
-	OriginOutTradeNo    *string `json:"originOutTradeNo,omitempty" xml:"originOutTradeNo,omitempty"`
-	OutRefundNo         *string `json:"outRefundNo,omitempty" xml:"outRefundNo,omitempty"`
-	PayChannel          *string `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10.01
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-11-15 10:10:09
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 2021-11-15 10:10:10
+	GmtRefund *string `json:"gmtRefund,omitempty" xml:"gmtRefund,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202111010001
+	InstId *string `json:"instId,omitempty" xml:"instId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202121241343151
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202111020001
+	OriginOutTradeNo *string `json:"originOutTradeNo,omitempty" xml:"originOutTradeNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// r202111020001
+	OutRefundNo *string `json:"outRefundNo,omitempty" xml:"outRefundNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	PayChannel *string `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 13****09
 	PayChannelAccountNo *string `json:"payChannelAccountNo,omitempty" xml:"payChannelAccountNo,omitempty"`
-	PayerUserId         *string `json:"payerUserId,omitempty" xml:"payerUserId,omitempty"`
-	Remark              *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	Status              *string `json:"status,omitempty" xml:"status,omitempty"`
-	SubInstId           *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
-	Title               *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123124
+	PayerUserId *string `json:"payerUserId,omitempty" xml:"payerUserId,omitempty"`
+	// example:
+	//
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUCCESS
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1001
+	SubInstId *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 餐费
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryAcquireRefundOrderResponseBody) String() string {
@@ -4162,9 +5869,24 @@ func (s *QueryBatchTradeDetailListHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type QueryBatchTradeDetailListRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20210901001
 	OutBatchNo *string `json:"outBatchNo,omitempty" xml:"outBatchNo,omitempty"`
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 50
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryBatchTradeDetailListRequest) String() string {
@@ -4191,11 +5913,30 @@ func (s *QueryBatchTradeDetailListRequest) SetPageSize(v int32) *QueryBatchTrade
 }
 
 type QueryBatchTradeDetailListResponseBody struct {
+	// This parameter is required.
 	BatchTradeDetailList []*QueryBatchTradeDetailListResponseBodyBatchTradeDetailList `json:"batchTradeDetailList,omitempty" xml:"batchTradeDetailList,omitempty" type:"Repeated"`
-	PageNumber           *int32                                                       `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize             *int32                                                       `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	Total                *int32                                                       `json:"total,omitempty" xml:"total,omitempty"`
-	TotalPageNumber      *int32                                                       `json:"totalPageNumber,omitempty" xml:"totalPageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 1
+	Total *int32 `json:"total,omitempty" xml:"total,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	TotalPageNumber *int32 `json:"totalPageNumber,omitempty" xml:"totalPageNumber,omitempty"`
 }
 
 func (s QueryBatchTradeDetailListResponseBody) String() string {
@@ -4232,16 +5973,66 @@ func (s *QueryBatchTradeDetailListResponseBody) SetTotalPageNumber(v int32) *Que
 }
 
 type QueryBatchTradeDetailListResponseBodyBatchTradeDetailList struct {
-	Amount           *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	DetailNo         *string `json:"detailNo,omitempty" xml:"detailNo,omitempty"`
-	GmtCreate        *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtFinish        *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
-	Memo             *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.00
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20210909153300000002734746770740
+	DetailNo *string `json:"detailNo,omitempty" xml:"detailNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-09-29 14:46:48
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-09-29 16:05:00
+	GmtFinish *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 收款人
 	PayeeAccountName *string `json:"payeeAccountName,omitempty" xml:"payeeAccountName,omitempty"`
-	PayeeAccountNo   *string `json:"payeeAccountNo,omitempty" xml:"payeeAccountNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 13900000000
+	PayeeAccountNo *string `json:"payeeAccountNo,omitempty" xml:"payeeAccountNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
 	PayeeAccountType *string `json:"payeeAccountType,omitempty" xml:"payeeAccountType,omitempty"`
-	SerialNo         *int64  `json:"serialNo,omitempty" xml:"serialNo,omitempty"`
-	Status           *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	SerialNo *int64 `json:"serialNo,omitempty" xml:"serialNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUCCESS
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryBatchTradeDetailListResponseBodyBatchTradeDetailList) String() string {
@@ -4355,6 +6146,7 @@ func (s *QueryBatchTradeOrderHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryBatchTradeOrderRequest struct {
+	// This parameter is required.
 	OutBatchNos []*string `json:"outBatchNos,omitempty" xml:"outBatchNos,omitempty" type:"Repeated"`
 }
 
@@ -4372,6 +6164,7 @@ func (s *QueryBatchTradeOrderRequest) SetOutBatchNos(v []*string) *QueryBatchTra
 }
 
 type QueryBatchTradeOrderResponseBody struct {
+	// This parameter is required.
 	BatchTradeOrderVOs []*QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs `json:"batchTradeOrderVOs,omitempty" xml:"batchTradeOrderVOs,omitempty" type:"Repeated"`
 }
 
@@ -4389,20 +6182,90 @@ func (s *QueryBatchTradeOrderResponseBody) SetBatchTradeOrderVOs(v []*QueryBatch
 }
 
 type QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs struct {
-	AlipayTransId   *string `json:"alipayTransId,omitempty" xml:"alipayTransId,omitempty"`
-	FailAmount      *string `json:"failAmount,omitempty" xml:"failAmount,omitempty"`
-	FailCount       *int64  `json:"failCount,omitempty" xml:"failCount,omitempty"`
-	FailReason      *string `json:"failReason,omitempty" xml:"failReason,omitempty"`
-	GmtFinish       *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
-	GmtSubmit       *string `json:"gmtSubmit,omitempty" xml:"gmtSubmit,omitempty"`
-	OutBatchNo      *string `json:"outBatchNo,omitempty" xml:"outBatchNo,omitempty"`
-	PayerStaffId    *string `json:"payerStaffId,omitempty" xml:"payerStaffId,omitempty"`
-	PaymentAmount   *string `json:"paymentAmount,omitempty" xml:"paymentAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021090102102122200002121
+	AlipayTransId *string `json:"alipayTransId,omitempty" xml:"alipayTransId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	FailAmount *string `json:"failAmount,omitempty" xml:"failAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	FailCount *int64 `json:"failCount,omitempty" xml:"failCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 收款人不存在
+	FailReason *string `json:"failReason,omitempty" xml:"failReason,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-09-01 12:00:00
+	GmtFinish *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-09-01 11:00:00
+	GmtSubmit *string `json:"gmtSubmit,omitempty" xml:"gmtSubmit,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20210901001
+	OutBatchNo *string `json:"outBatchNo,omitempty" xml:"outBatchNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 213654465
+	PayerStaffId *string `json:"payerStaffId,omitempty" xml:"payerStaffId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.00
+	PaymentAmount *string `json:"paymentAmount,omitempty" xml:"paymentAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// CNY
 	PaymentCurrency *string `json:"paymentCurrency,omitempty" xml:"paymentCurrency,omitempty"`
-	Status          *string `json:"status,omitempty" xml:"status,omitempty"`
-	SuccessAmount   *string `json:"successAmount,omitempty" xml:"successAmount,omitempty"`
-	SuccessCount    *int64  `json:"successCount,omitempty" xml:"successCount,omitempty"`
-	TotalAmount     *string `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUCCESS
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.00
+	SuccessAmount *string `json:"successAmount,omitempty" xml:"successAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	SuccessCount *int64 `json:"successCount,omitempty" xml:"successCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.00
+	TotalAmount *string `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
 }
 
 func (s QueryBatchTradeOrderResponseBodyBatchTradeOrderVOs) String() string {
@@ -4536,6 +6399,7 @@ func (s *QueryPayAccountListHeaders) SetXAcsDingtalkAccessToken(v string) *Query
 }
 
 type QueryPayAccountListResponseBody struct {
+	// This parameter is required.
 	PayAccountVOList []*QueryPayAccountListResponseBodyPayAccountVOList `json:"payAccountVOList,omitempty" xml:"payAccountVOList,omitempty" type:"Repeated"`
 }
 
@@ -4553,12 +6417,42 @@ func (s *QueryPayAccountListResponseBody) SetPayAccountVOList(v []*QueryPayAccou
 }
 
 type QueryPayAccountListResponseBodyPayAccountVOList struct {
-	AccountClass  *string `json:"accountClass,omitempty" xml:"accountClass,omitempty"`
-	AccountId     *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	AccountName   *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
-	AccountNo     *string `json:"accountNo,omitempty" xml:"accountNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// B
+	AccountClass *string `json:"accountClass,omitempty" xml:"accountClass,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20210912001
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// test
+	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 139****1
+	AccountNo *string `json:"accountNo,omitempty" xml:"accountNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 备注
 	AccountRemark *string `json:"accountRemark,omitempty" xml:"accountRemark,omitempty"`
-	AccountType   *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
 }
 
 func (s QueryPayAccountListResponseBodyPayAccountVOList) String() string {
@@ -4652,10 +6546,26 @@ func (s *QueryRegisterOrderHeaders) SetXAcsDingtalkAccessToken(v string) *QueryR
 }
 
 type QueryRegisterOrderRequest struct {
-	InstId     *string `json:"instId,omitempty" xml:"instId,omitempty"`
-	OrderId    *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202111090001
+	InstId *string `json:"instId,omitempty" xml:"instId,omitempty"`
+	// example:
+	//
+	// 20211222000000001
+	OrderId *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	// example:
+	//
+	// 202112220001
 	OutTradeNo *string `json:"outTradeNo,omitempty" xml:"outTradeNo,omitempty"`
-	SubInstId  *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3
+	SubInstId *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
 }
 
 func (s QueryRegisterOrderRequest) String() string {
@@ -4798,11 +6708,36 @@ func (s *QueryUserAgreementHeaders) SetXAcsDingtalkAccessToken(v string) *QueryU
 }
 
 type QueryUserAgreementRequest struct {
-	BizCode   *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	BizScene  *string `json:"bizScene,omitempty" xml:"bizScene,omitempty"`
-	InstId    *string `json:"instId,omitempty" xml:"instId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TRADE
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// WITHHOLDING
+	BizScene *string `json:"bizScene,omitempty" xml:"bizScene,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202111090001
+	InstId *string `json:"instId,omitempty" xml:"instId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1001
 	SubInstId *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2120493284
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryUserAgreementRequest) String() string {
@@ -4839,18 +6774,78 @@ func (s *QueryUserAgreementRequest) SetUserId(v string) *QueryUserAgreementReque
 }
 
 type QueryUserAgreementResponseBody struct {
-	AgreementNo           *string `json:"agreementNo,omitempty" xml:"agreementNo,omitempty"`
-	CorpId                *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	GmtExpire             *string `json:"gmtExpire,omitempty" xml:"gmtExpire,omitempty"`
-	GmtSign               *string `json:"gmtSign,omitempty" xml:"gmtSign,omitempty"`
-	GmtValid              *string `json:"gmtValid,omitempty" xml:"gmtValid,omitempty"`
-	InstId                *string `json:"instId,omitempty" xml:"instId,omitempty"`
-	PayChannel            *string `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 201220123212312
+	AgreementNo *string `json:"agreementNo,omitempty" xml:"agreementNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding123123234234
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-11-11 10:10:10
+	GmtExpire *string `json:"gmtExpire,omitempty" xml:"gmtExpire,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-11-11 10:10:10
+	GmtSign *string `json:"gmtSign,omitempty" xml:"gmtSign,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-11-11 10:10:10
+	GmtValid *string `json:"gmtValid,omitempty" xml:"gmtValid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021000001
+	InstId *string `json:"instId,omitempty" xml:"instId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	PayChannel *string `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// *川
 	PayChannelAccountName *string `json:"payChannelAccountName,omitempty" xml:"payChannelAccountName,omitempty"`
-	PayChannelAccountNo   *string `json:"payChannelAccountNo,omitempty" xml:"payChannelAccountNo,omitempty"`
-	Status                *string `json:"status,omitempty" xml:"status,omitempty"`
-	SubInstId             *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
-	UserId                *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 139*****0
+	PayChannelAccountNo *string `json:"payChannelAccountNo,omitempty" xml:"payChannelAccountNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUCCESS
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 101
+	SubInstId *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 54646545
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryUserAgreementResponseBody) String() string {
@@ -4974,6 +6969,11 @@ func (s *QueryUserAlipayAccountHeaders) SetXAcsDingtalkAccessToken(v string) *Qu
 }
 
 type QueryUserAlipayAccountResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2088894773487
 	AlipayUid *string `json:"alipayUid,omitempty" xml:"alipayUid,omitempty"`
 }
 
@@ -5043,6 +7043,11 @@ func (s *QueryWithholdingOrderHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 }
 
 type QueryWithholdingOrderRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202100001
 	OutTradeNo *string `json:"outTradeNo,omitempty" xml:"outTradeNo,omitempty"`
 }
 
@@ -5060,19 +7065,80 @@ func (s *QueryWithholdingOrderRequest) SetOutTradeNo(v string) *QueryWithholding
 }
 
 type QueryWithholdingOrderResponseBody struct {
-	Amount              *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	GmtCreate           *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtPay              *string `json:"gmtPay,omitempty" xml:"gmtPay,omitempty"`
-	InstId              *string `json:"instId,omitempty" xml:"instId,omitempty"`
-	OrderNo             *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
-	OutTradeNo          *string `json:"outTradeNo,omitempty" xml:"outTradeNo,omitempty"`
-	PayChannel          *string `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10.01
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-11-15 10:10:09
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 2021-11-15 10:10:10
+	GmtPay *string `json:"gmtPay,omitempty" xml:"gmtPay,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202111010001
+	InstId *string `json:"instId,omitempty" xml:"instId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202121241343151
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202111020001
+	OutTradeNo *string `json:"outTradeNo,omitempty" xml:"outTradeNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	PayChannel *string `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 13****09
 	PayChannelAccountNo *string `json:"payChannelAccountNo,omitempty" xml:"payChannelAccountNo,omitempty"`
-	PayerUserId         *string `json:"payerUserId,omitempty" xml:"payerUserId,omitempty"`
-	Remark              *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	Status              *string `json:"status,omitempty" xml:"status,omitempty"`
-	SubInstId           *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
-	Title               *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123124
+	PayerUserId *string `json:"payerUserId,omitempty" xml:"payerUserId,omitempty"`
+	// example:
+	//
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUCCESS
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1001
+	SubInstId *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 餐费
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryWithholdingOrderResponseBody) String() string {
@@ -5201,10 +7267,25 @@ func (s *SaveCorpPayCodeHeaders) SetXAcsDingtalkAccessToken(v string) *SaveCorpP
 }
 
 type SaveCorpPayCodeRequest struct {
-	CodeIdentity *string            `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
-	CorpId       *string            `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	ExtInfo      map[string]*string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	Status       *string            `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// H_FISH_CANTEEN
+	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingxxxx
+	CorpId  *string            `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ExtInfo map[string]*string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// OPEN
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s SaveCorpPayCodeRequest) String() string {
@@ -5323,12 +7404,36 @@ func (s *UnsignUserAgreementHeaders) SetXAcsDingtalkAccessToken(v string) *Unsig
 }
 
 type UnsignUserAgreementRequest struct {
+	// example:
+	//
+	// 23021_12342134
 	AgreementNo *string `json:"agreementNo,omitempty" xml:"agreementNo,omitempty"`
-	BizCode     *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	BizScene    *string `json:"bizScene,omitempty" xml:"bizScene,omitempty"`
-	InstId      *string `json:"instId,omitempty" xml:"instId,omitempty"`
-	SubInstId   *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// TRADE
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// example:
+	//
+	// WITHHOLDING
+	BizScene *string `json:"bizScene,omitempty" xml:"bizScene,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202111090001
+	InstId *string `json:"instId,omitempty" xml:"instId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1001
+	SubInstId *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2120493284
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UnsignUserAgreementRequest) String() string {
@@ -5416,16 +7521,47 @@ func (s *UpateUserCodeInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *Upa
 }
 
 type UpateUserCodeInstanceRequest struct {
-	AvailableTimes       []*UpateUserCodeInstanceRequestAvailableTimes `json:"availableTimes,omitempty" xml:"availableTimes,omitempty" type:"Repeated"`
-	CodeId               *string                                       `json:"codeId,omitempty" xml:"codeId,omitempty"`
-	CodeIdentity         *string                                       `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
-	CodeValue            *string                                       `json:"codeValue,omitempty" xml:"codeValue,omitempty"`
-	CorpId               *string                                       `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	ExtInfo              map[string]interface{}                        `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	GmtExpired           *string                                       `json:"gmtExpired,omitempty" xml:"gmtExpired,omitempty"`
-	Status               *string                                       `json:"status,omitempty" xml:"status,omitempty"`
-	UserCorpRelationType *string                                       `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
-	UserIdentity         *string                                       `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
+	// This parameter is required.
+	AvailableTimes []*UpateUserCodeInstanceRequestAvailableTimes `json:"availableTimes,omitempty" xml:"availableTimes,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ccodexxxxx
+	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TEST
+	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	CodeValue    *string `json:"codeValue,omitempty" xml:"codeValue,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// corpIdxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// This parameter is required.
+	GmtExpired *string `json:"gmtExpired,omitempty" xml:"gmtExpired,omitempty"`
+	// example:
+	//
+	// OPEN
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// INTERNAL_STAFF
+	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 86-xxxxxx
+	UserIdentity *string `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
 }
 
 func (s UpateUserCodeInstanceRequest) String() string {
@@ -5487,7 +7623,17 @@ func (s *UpateUserCodeInstanceRequest) SetUserIdentity(v string) *UpateUserCodeI
 }
 
 type UpateUserCodeInstanceRequestAvailableTimes struct {
-	GmtEnd   *string `json:"gmtEnd,omitempty" xml:"gmtEnd,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// yyyy-MM-dd HH:mm:ss
+	GmtEnd *string `json:"gmtEnd,omitempty" xml:"gmtEnd,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// yyyy-MM-dd HH:mm:ss
 	GmtStart *string `json:"gmtStart,omitempty" xml:"gmtStart,omitempty"`
 }
 
@@ -5510,6 +7656,9 @@ func (s *UpateUserCodeInstanceRequestAvailableTimes) SetGmtStart(v string) *Upat
 }
 
 type UpateUserCodeInstanceResponseBody struct {
+	// example:
+	//
+	// codexxxxxx
 	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
 }
 
@@ -5579,18 +7728,66 @@ func (s *UpdateInvoiceVerifyStatusHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type UpdateInvoiceVerifyStatusRequest struct {
-	BizId           *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	CheckingResult  *int32  `json:"checkingResult,omitempty" xml:"checkingResult,omitempty"`
-	CheckingStatus  *int32  `json:"checkingStatus,omitempty" xml:"checkingStatus,omitempty"`
-	Code            *string `json:"code,omitempty" xml:"code,omitempty"`
-	CorpId          *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Extension       *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	InvoiceCode     *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	InvoiceNo       *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	InvoiceStatus   *int32  `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lpKgSTzGSy
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// example:
+	//
+	// 1
+	CheckingResult *int32 `json:"checkingResult,omitempty" xml:"checkingResult,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	CheckingStatus *int32 `json:"checkingStatus,omitempty" xml:"checkingStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 200
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding673cxxxxxxxxxxxx85
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// {"restCheckTimes":10,"noticeFlag":1}
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// 034012100111
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 61235725
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// example:
+	//
+	// 1
+	InvoiceStatus *int32 `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1299999
 	InvoiceVerifyId *string `json:"invoiceVerifyId,omitempty" xml:"invoiceVerifyId,omitempty"`
-	Msg             *string `json:"msg,omitempty" xml:"msg,omitempty"`
-	UnionId         *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	Msg *string `json:"msg,omitempty" xml:"msg,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// BPq7qiSIH8PJHlB9kPuii1NQiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s UpdateInvoiceVerifyStatusRequest) String() string {
@@ -5731,7 +7928,8 @@ func (s *UploadInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *UploadInvoi
 }
 
 type UploadInvoiceRequest struct {
-	Extension    *UploadInvoiceRequestExtension    `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
+	Extension *UploadInvoiceRequestExtension `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
+	// This parameter is required.
 	Invoices     []*UploadInvoiceRequestInvoices   `json:"invoices,omitempty" xml:"invoices,omitempty" type:"Repeated"`
 	UserIdentity *UploadInvoiceRequestUserIdentity `json:"userIdentity,omitempty" xml:"userIdentity,omitempty" type:"Struct"`
 }
@@ -5760,11 +7958,23 @@ func (s *UploadInvoiceRequest) SetUserIdentity(v *UploadInvoiceRequestUserIdenti
 }
 
 type UploadInvoiceRequestExtension struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TRIP
 	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
 	// Deprecated
+	//
+	// example:
+	//
+	// 111924191922
 	OrderNo     *string   `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
 	OrderNoList []*string `json:"orderNoList,omitempty" xml:"orderNoList,omitempty" type:"Repeated"`
-	OrderType   *string   `json:"orderType,omitempty" xml:"orderType,omitempty"`
+	// example:
+	//
+	// HOTEL
+	OrderType *string `json:"orderType,omitempty" xml:"orderType,omitempty"`
 }
 
 func (s UploadInvoiceRequestExtension) String() string {
@@ -5796,19 +8006,68 @@ func (s *UploadInvoiceRequestExtension) SetOrderType(v string) *UploadInvoiceReq
 }
 
 type UploadInvoiceRequestInvoices struct {
-	InvoiceAmount    *string `json:"invoiceAmount,omitempty" xml:"invoiceAmount,omitempty"`
-	InvoiceCode      *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	InvoiceDate      *string `json:"invoiceDate,omitempty" xml:"invoiceDate,omitempty"`
-	InvoiceNo        *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	InvoiceType      *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
-	LogoUrl          *string `json:"logoUrl,omitempty" xml:"logoUrl,omitempty"`
-	PayeeName        *string `json:"payeeName,omitempty" xml:"payeeName,omitempty"`
-	PayeeTaxNo       *string `json:"payeeTaxNo,omitempty" xml:"payeeTaxNo,omitempty"`
-	PayerName        *string `json:"payerName,omitempty" xml:"payerName,omitempty"`
-	PayerTaxNo       *string `json:"payerTaxNo,omitempty" xml:"payerTaxNo,omitempty"`
-	PdfUrl           *string `json:"pdfUrl,omitempty" xml:"pdfUrl,omitempty"`
-	TaxAmount        *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	VerifyCode       *string `json:"verifyCode,omitempty" xml:"verifyCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100.00
+	InvoiceAmount *string `json:"invoiceAmount,omitempty" xml:"invoiceAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 033002000712
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2022-02-21
+	InvoiceDate *string `json:"invoiceDate,omitempty" xml:"invoiceDate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20532643
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// This parameter is required.
+	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	LogoUrl     *string `json:"logoUrl,omitempty" xml:"logoUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 小钉科技有限公司
+	PayeeName *string `json:"payeeName,omitempty" xml:"payeeName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 91330100MA28XNB274
+	PayeeTaxNo *string `json:"payeeTaxNo,omitempty" xml:"payeeTaxNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 小钉科技有限公司
+	PayerName *string `json:"payerName,omitempty" xml:"payerName,omitempty"`
+	// example:
+	//
+	// 91330100MA28XNB274
+	PayerTaxNo *string `json:"payerTaxNo,omitempty" xml:"payerTaxNo,omitempty"`
+	// This parameter is required.
+	PdfUrl *string `json:"pdfUrl,omitempty" xml:"pdfUrl,omitempty"`
+	// example:
+	//
+	// 0.50
+	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	// example:
+	//
+	// 增值税普通发票必填，示例：52501101414266612380
+	VerifyCode *string `json:"verifyCode,omitempty" xml:"verifyCode,omitempty"`
+	// example:
+	//
+	// 99.50
 	WithoutTaxAmount *string `json:"withoutTaxAmount,omitempty" xml:"withoutTaxAmount,omitempty"`
 }
 
@@ -5891,12 +8150,32 @@ func (s *UploadInvoiceRequestInvoices) SetWithoutTaxAmount(v string) *UploadInvo
 }
 
 type UploadInvoiceRequestUserIdentity struct {
-	Mobile          *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// example:
+	//
+	// 95188
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// example:
+	//
+	// 86
 	MobileStateCode *string `json:"mobileStateCode,omitempty" xml:"mobileStateCode,omitempty"`
-	TargetCorpId    *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
-	Type            *string `json:"type,omitempty" xml:"type,omitempty"`
-	UnionId         *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// dinng1123434
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// STAFF_ID
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// akdfwiiw
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 02734930
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UploadInvoiceRequestUserIdentity) String() string {
@@ -5955,6 +8234,7 @@ func (s *UploadInvoiceResponseBody) SetResult(v *UploadInvoiceResponseBodyResult
 }
 
 type UploadInvoiceResponseBodyResult struct {
+	// This parameter is required.
 	Results []*UploadInvoiceResponseBodyResultResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
 }
 
@@ -5972,11 +8252,36 @@ func (s *UploadInvoiceResponseBodyResult) SetResults(v []*UploadInvoiceResponseB
 }
 
 type UploadInvoiceResponseBodyResultResults struct {
-	ErrCode     *string `json:"errCode,omitempty" xml:"errCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20006
+	ErrCode *string `json:"errCode,omitempty" xml:"errCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 033002000712
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	InvoiceNo   *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	Reason      *string `json:"reason,omitempty" xml:"reason,omitempty"`
-	Success     *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20532643
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// duplicateInvoice
+	Reason *string `json:"reason,omitempty" xml:"reason,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UploadInvoiceResponseBodyResultResults) String() string {
@@ -6065,8 +8370,9 @@ func (s *UploadInvoiceByAuthHeaders) SetXAcsDingtalkAccessToken(v string) *Uploa
 }
 
 type UploadInvoiceByAuthRequest struct {
-	Extension *UploadInvoiceByAuthRequestExtension  `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
-	Invoices  []*UploadInvoiceByAuthRequestInvoices `json:"invoices,omitempty" xml:"invoices,omitempty" type:"Repeated"`
+	Extension *UploadInvoiceByAuthRequestExtension `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
+	// This parameter is required.
+	Invoices []*UploadInvoiceByAuthRequestInvoices `json:"invoices,omitempty" xml:"invoices,omitempty" type:"Repeated"`
 }
 
 func (s UploadInvoiceByAuthRequest) String() string {
@@ -6088,8 +8394,19 @@ func (s *UploadInvoiceByAuthRequest) SetInvoices(v []*UploadInvoiceByAuthRequest
 }
 
 type UploadInvoiceByAuthRequestExtension struct {
-	BizCode   *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	OrderNo   *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TRIP
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// example:
+	//
+	// 111924191922
+	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	// example:
+	//
+	// HOTEL
 	OrderType *string `json:"orderType,omitempty" xml:"orderType,omitempty"`
 }
 
@@ -6117,19 +8434,72 @@ func (s *UploadInvoiceByAuthRequestExtension) SetOrderType(v string) *UploadInvo
 }
 
 type UploadInvoiceByAuthRequestInvoices struct {
-	InvoiceAmount    *string `json:"invoiceAmount,omitempty" xml:"invoiceAmount,omitempty"`
-	InvoiceCode      *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	InvoiceDate      *string `json:"invoiceDate,omitempty" xml:"invoiceDate,omitempty"`
-	InvoiceNo        *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	InvoiceType      *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
-	LogoUrl          *string `json:"logoUrl,omitempty" xml:"logoUrl,omitempty"`
-	PayeeName        *string `json:"payeeName,omitempty" xml:"payeeName,omitempty"`
-	PayeeTaxNo       *string `json:"payeeTaxNo,omitempty" xml:"payeeTaxNo,omitempty"`
-	PayerName        *string `json:"payerName,omitempty" xml:"payerName,omitempty"`
-	PayerTaxNo       *string `json:"payerTaxNo,omitempty" xml:"payerTaxNo,omitempty"`
-	PdfUrl           *string `json:"pdfUrl,omitempty" xml:"pdfUrl,omitempty"`
-	TaxAmount        *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	VerifyCode       *string `json:"verifyCode,omitempty" xml:"verifyCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100.00
+	InvoiceAmount *string `json:"invoiceAmount,omitempty" xml:"invoiceAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 033002000712
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2022-02-21
+	InvoiceDate *string `json:"invoiceDate,omitempty" xml:"invoiceDate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20532643
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// This parameter is required.
+	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	LogoUrl     *string `json:"logoUrl,omitempty" xml:"logoUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 小钉科技有限公司
+	PayeeName *string `json:"payeeName,omitempty" xml:"payeeName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 91330100MA28XNB274
+	PayeeTaxNo *string `json:"payeeTaxNo,omitempty" xml:"payeeTaxNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 小钉科技有限公司
+	PayerName *string `json:"payerName,omitempty" xml:"payerName,omitempty"`
+	// example:
+	//
+	// 91330100MA28XNB274
+	PayerTaxNo *string `json:"payerTaxNo,omitempty" xml:"payerTaxNo,omitempty"`
+	// This parameter is required.
+	PdfUrl *string `json:"pdfUrl,omitempty" xml:"pdfUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.50
+	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	// example:
+	//
+	// 增值税普通发票必填，示例：52501101414266612380
+	VerifyCode *string `json:"verifyCode,omitempty" xml:"verifyCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 99.50
 	WithoutTaxAmount *string `json:"withoutTaxAmount,omitempty" xml:"withoutTaxAmount,omitempty"`
 }
 
@@ -6229,6 +8599,7 @@ func (s *UploadInvoiceByAuthResponseBody) SetResult(v *UploadInvoiceByAuthRespon
 }
 
 type UploadInvoiceByAuthResponseBodyResult struct {
+	// This parameter is required.
 	Results []*UploadInvoiceByAuthResponseBodyResultResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
 }
 
@@ -6246,11 +8617,36 @@ func (s *UploadInvoiceByAuthResponseBodyResult) SetResults(v []*UploadInvoiceByA
 }
 
 type UploadInvoiceByAuthResponseBodyResultResults struct {
-	ErrCode     *string `json:"errCode,omitempty" xml:"errCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20006
+	ErrCode *string `json:"errCode,omitempty" xml:"errCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 033002000712
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	InvoiceNo   *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	Reason      *string `json:"reason,omitempty" xml:"reason,omitempty"`
-	Success     *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20532643
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// duplicateInvoice
+	Reason *string `json:"reason,omitempty" xml:"reason,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UploadInvoiceByAuthResponseBodyResultResults) String() string {
@@ -6339,9 +8735,20 @@ func (s *UploadInvoiceByMobileHeaders) SetXAcsDingtalkAccessToken(v string) *Upl
 }
 
 type UploadInvoiceByMobileRequest struct {
-	Invoices        []*UploadInvoiceByMobileRequestInvoices `json:"invoices,omitempty" xml:"invoices,omitempty" type:"Repeated"`
-	Mobile          *string                                 `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	MobileStateCode *string                                 `json:"mobileStateCode,omitempty" xml:"mobileStateCode,omitempty"`
+	// This parameter is required.
+	Invoices []*UploadInvoiceByMobileRequestInvoices `json:"invoices,omitempty" xml:"invoices,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 13600000000
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 86
+	MobileStateCode *string `json:"mobileStateCode,omitempty" xml:"mobileStateCode,omitempty"`
 }
 
 func (s UploadInvoiceByMobileRequest) String() string {
@@ -6368,19 +8775,72 @@ func (s *UploadInvoiceByMobileRequest) SetMobileStateCode(v string) *UploadInvoi
 }
 
 type UploadInvoiceByMobileRequestInvoices struct {
-	InvoiceAmount    *string `json:"invoiceAmount,omitempty" xml:"invoiceAmount,omitempty"`
-	InvoiceCode      *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	InvoiceDate      *string `json:"invoiceDate,omitempty" xml:"invoiceDate,omitempty"`
-	InvoiceNo        *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	InvoiceType      *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
-	LogoUrl          *string `json:"logoUrl,omitempty" xml:"logoUrl,omitempty"`
-	PayeeName        *string `json:"payeeName,omitempty" xml:"payeeName,omitempty"`
-	PayeeTaxNo       *string `json:"payeeTaxNo,omitempty" xml:"payeeTaxNo,omitempty"`
-	PayerName        *string `json:"payerName,omitempty" xml:"payerName,omitempty"`
-	PayerTaxNo       *string `json:"payerTaxNo,omitempty" xml:"payerTaxNo,omitempty"`
-	PdfUrl           *string `json:"pdfUrl,omitempty" xml:"pdfUrl,omitempty"`
-	TaxAmount        *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
-	VerifyCode       *string `json:"verifyCode,omitempty" xml:"verifyCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100.00
+	InvoiceAmount *string `json:"invoiceAmount,omitempty" xml:"invoiceAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 033002000712
+	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2022-02-21
+	InvoiceDate *string `json:"invoiceDate,omitempty" xml:"invoiceDate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20532643
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// This parameter is required.
+	InvoiceType *string `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
+	LogoUrl     *string `json:"logoUrl,omitempty" xml:"logoUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 小钉科技有限公司
+	PayeeName *string `json:"payeeName,omitempty" xml:"payeeName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 91330100MA28XNB274
+	PayeeTaxNo *string `json:"payeeTaxNo,omitempty" xml:"payeeTaxNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 小钉科技有限公司
+	PayerName *string `json:"payerName,omitempty" xml:"payerName,omitempty"`
+	// example:
+	//
+	// 91330100MA28XNB274
+	PayerTaxNo *string `json:"payerTaxNo,omitempty" xml:"payerTaxNo,omitempty"`
+	// This parameter is required.
+	PdfUrl *string `json:"pdfUrl,omitempty" xml:"pdfUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.50
+	TaxAmount *string `json:"taxAmount,omitempty" xml:"taxAmount,omitempty"`
+	// example:
+	//
+	// 增值税普通发票必填，示例：52501101414266612380
+	VerifyCode *string `json:"verifyCode,omitempty" xml:"verifyCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 99.50
 	WithoutTaxAmount *string `json:"withoutTaxAmount,omitempty" xml:"withoutTaxAmount,omitempty"`
 }
 
@@ -6480,6 +8940,7 @@ func (s *UploadInvoiceByMobileResponseBody) SetResult(v *UploadInvoiceByMobileRe
 }
 
 type UploadInvoiceByMobileResponseBodyResult struct {
+	// This parameter is required.
 	Results []*UploadInvoiceByMobileResponseBodyResultResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
 }
 
@@ -6497,11 +8958,36 @@ func (s *UploadInvoiceByMobileResponseBodyResult) SetResults(v []*UploadInvoiceB
 }
 
 type UploadInvoiceByMobileResponseBodyResultResults struct {
-	ErrCode     *string `json:"errCode,omitempty" xml:"errCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20006
+	ErrCode *string `json:"errCode,omitempty" xml:"errCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 033002000712
 	InvoiceCode *string `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	InvoiceNo   *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
-	Reason      *string `json:"reason,omitempty" xml:"reason,omitempty"`
-	Success     *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20532643
+	InvoiceNo *string `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// duplicateInvoice
+	Reason *string `json:"reason,omitempty" xml:"reason,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UploadInvoiceByMobileResponseBodyResultResults) String() string {
@@ -6590,11 +9076,36 @@ func (s *UploadRegisterImageHeaders) SetXAcsDingtalkAccessToken(v string) *Uploa
 }
 
 type UploadRegisterImageRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// byte[]转Base64
 	ImageContent *string `json:"imageContent,omitempty" xml:"imageContent,omitempty"`
-	ImageName    *string `json:"imageName,omitempty" xml:"imageName,omitempty"`
-	ImageType    *string `json:"imageType,omitempty" xml:"imageType,omitempty"`
-	InstId       *string `json:"instId,omitempty" xml:"instId,omitempty"`
-	PayChannel   *string `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// test
+	ImageName *string `json:"imageName,omitempty" xml:"imageName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// JPG
+	ImageType *string `json:"imageType,omitempty" xml:"imageType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12020001
+	InstId *string `json:"instId,omitempty" xml:"instId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	PayChannel *string `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
 }
 
 func (s UploadRegisterImageRequest) String() string {
@@ -6631,6 +9142,11 @@ func (s *UploadRegisterImageRequest) SetPayChannel(v string) *UploadRegisterImag
 }
 
 type UploadRegisterImageResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ossUrl
 	OssUrl *string `json:"ossUrl,omitempty" xml:"ossUrl,omitempty"`
 }
 
@@ -6700,18 +9216,74 @@ func (s *UserAgreementPageSignHeaders) SetXAcsDingtalkAccessToken(v string) *Use
 }
 
 type UserAgreementPageSignRequest struct {
-	BizCode                *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	BizScene               *string `json:"bizScene,omitempty" xml:"bizScene,omitempty"`
-	InstId                 *string `json:"instId,omitempty" xml:"instId,omitempty"`
-	PayChannel             *string `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
-	Remark                 *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	ReturnUrl              *string `json:"returnUrl,omitempty" xml:"returnUrl,omitempty"`
-	SignScene              *string `json:"signScene,omitempty" xml:"signScene,omitempty"`
-	SubInstId              *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
-	SubMerchantName        *string `json:"subMerchantName,omitempty" xml:"subMerchantName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TRADE
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// WITHHOLDING
+	BizScene *string `json:"bizScene,omitempty" xml:"bizScene,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202111090001
+	InstId *string `json:"instId,omitempty" xml:"instId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 支付宝
+	PayChannel *string `json:"payChannel,omitempty" xml:"payChannel,omitempty"`
+	// example:
+	//
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// http://****.com
+	ReturnUrl *string `json:"returnUrl,omitempty" xml:"returnUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 详见支付宝接口文档https://opendocs.alipay.com/open/20190319114403226822/signscene
+	SignScene *string `json:"signScene,omitempty" xml:"signScene,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1001
+	SubInstId *string `json:"subInstId,omitempty" xml:"subInstId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 滴滴出行
+	SubMerchantName *string `json:"subMerchantName,omitempty" xml:"subMerchantName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 免密付车费，单次最高500元
 	SubMerchantServiceDesc *string `json:"subMerchantServiceDesc,omitempty" xml:"subMerchantServiceDesc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 滴滴出行免密支付
 	SubMerchantServiceName *string `json:"subMerchantServiceName,omitempty" xml:"subMerchantServiceName,omitempty"`
-	UserId                 *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2120493284
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UserAgreementPageSignRequest) String() string {
@@ -6783,6 +9355,11 @@ func (s *UserAgreementPageSignRequest) SetUserId(v string) *UserAgreementPageSig
 }
 
 type UserAgreementPageSignResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 略
 	PageData *string `json:"pageData,omitempty" xml:"pageData,omitempty"`
 }
 
@@ -6843,12 +9420,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -6857,6 +9434,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 批量付款
+//
+// @param request - ApplyBatchPayRequest
+//
+// @param headers - ApplyBatchPayHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ApplyBatchPayResponse
 func (client *Client) ApplyBatchPayWithOptions(request *ApplyBatchPayRequest, headers *ApplyBatchPayHeaders, runtime *util.RuntimeOptions) (_result *ApplyBatchPayResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6928,6 +9516,13 @@ func (client *Client) ApplyBatchPayWithOptions(request *ApplyBatchPayRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量付款
+//
+// @param request - ApplyBatchPayRequest
+//
+// @return ApplyBatchPayResponse
 func (client *Client) ApplyBatchPay(request *ApplyBatchPayRequest) (_result *ApplyBatchPayResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ApplyBatchPayHeaders{}
@@ -6940,6 +9535,17 @@ func (client *Client) ApplyBatchPay(request *ApplyBatchPayRequest) (_result *App
 	return _result, _err
 }
 
+// Summary:
+//
+// 助贷业务关闭借款入口
+//
+// @param request - CloseLoanEntranceRequest
+//
+// @param headers - CloseLoanEntranceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CloseLoanEntranceResponse
 func (client *Client) CloseLoanEntranceWithOptions(request *CloseLoanEntranceRequest, headers *CloseLoanEntranceHeaders, runtime *util.RuntimeOptions) (_result *CloseLoanEntranceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6983,6 +9589,13 @@ func (client *Client) CloseLoanEntranceWithOptions(request *CloseLoanEntranceReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 助贷业务关闭借款入口
+//
+// @param request - CloseLoanEntranceRequest
+//
+// @return CloseLoanEntranceResponse
 func (client *Client) CloseLoanEntrance(request *CloseLoanEntranceRequest) (_result *CloseLoanEntranceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CloseLoanEntranceHeaders{}
@@ -6995,6 +9608,17 @@ func (client *Client) CloseLoanEntrance(request *CloseLoanEntranceRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 子机构创建进件预校验
+//
+// @param request - ConsultCreateSubInstitutionRequest
+//
+// @param headers - ConsultCreateSubInstitutionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ConsultCreateSubInstitutionResponse
 func (client *Client) ConsultCreateSubInstitutionWithOptions(request *ConsultCreateSubInstitutionRequest, headers *ConsultCreateSubInstitutionHeaders, runtime *util.RuntimeOptions) (_result *ConsultCreateSubInstitutionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7102,6 +9726,13 @@ func (client *Client) ConsultCreateSubInstitutionWithOptions(request *ConsultCre
 	return _result, _err
 }
 
+// Summary:
+//
+// 子机构创建进件预校验
+//
+// @param request - ConsultCreateSubInstitutionRequest
+//
+// @return ConsultCreateSubInstitutionResponse
 func (client *Client) ConsultCreateSubInstitution(request *ConsultCreateSubInstitutionRequest) (_result *ConsultCreateSubInstitutionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ConsultCreateSubInstitutionHeaders{}
@@ -7114,6 +9745,17 @@ func (client *Client) ConsultCreateSubInstitution(request *ConsultCreateSubInsti
 	return _result, _err
 }
 
+// Summary:
+//
+// 发起代扣交易
+//
+// @param request - CreatWithholdingOrderAndPayRequest
+//
+// @param headers - CreatWithholdingOrderAndPayHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreatWithholdingOrderAndPayResponse
 func (client *Client) CreatWithholdingOrderAndPayWithOptions(request *CreatWithholdingOrderAndPayRequest, headers *CreatWithholdingOrderAndPayHeaders, runtime *util.RuntimeOptions) (_result *CreatWithholdingOrderAndPayResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7193,6 +9835,13 @@ func (client *Client) CreatWithholdingOrderAndPayWithOptions(request *CreatWithh
 	return _result, _err
 }
 
+// Summary:
+//
+// 发起代扣交易
+//
+// @param request - CreatWithholdingOrderAndPayRequest
+//
+// @return CreatWithholdingOrderAndPayResponse
 func (client *Client) CreatWithholdingOrderAndPay(request *CreatWithholdingOrderAndPayRequest) (_result *CreatWithholdingOrderAndPayResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreatWithholdingOrderAndPayHeaders{}
@@ -7205,6 +9854,17 @@ func (client *Client) CreatWithholdingOrderAndPay(request *CreatWithholdingOrder
 	return _result, _err
 }
 
+// Summary:
+//
+// 收单退款交易
+//
+// @param request - CreateAcquireRefundOrderRequest
+//
+// @param headers - CreateAcquireRefundOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateAcquireRefundOrderResponse
 func (client *Client) CreateAcquireRefundOrderWithOptions(request *CreateAcquireRefundOrderRequest, headers *CreateAcquireRefundOrderHeaders, runtime *util.RuntimeOptions) (_result *CreateAcquireRefundOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7280,6 +9940,13 @@ func (client *Client) CreateAcquireRefundOrderWithOptions(request *CreateAcquire
 	return _result, _err
 }
 
+// Summary:
+//
+// 收单退款交易
+//
+// @param request - CreateAcquireRefundOrderRequest
+//
+// @return CreateAcquireRefundOrderResponse
 func (client *Client) CreateAcquireRefundOrder(request *CreateAcquireRefundOrderRequest) (_result *CreateAcquireRefundOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateAcquireRefundOrderHeaders{}
@@ -7292,6 +9959,17 @@ func (client *Client) CreateAcquireRefundOrder(request *CreateAcquireRefundOrder
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建批量支付单
+//
+// @param request - CreateBatchTradeOrderRequest
+//
+// @param headers - CreateBatchTradeOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateBatchTradeOrderResponse
 func (client *Client) CreateBatchTradeOrderWithOptions(request *CreateBatchTradeOrderRequest, headers *CreateBatchTradeOrderHeaders, runtime *util.RuntimeOptions) (_result *CreateBatchTradeOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7367,6 +10045,13 @@ func (client *Client) CreateBatchTradeOrderWithOptions(request *CreateBatchTrade
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建批量支付单
+//
+// @param request - CreateBatchTradeOrderRequest
+//
+// @return CreateBatchTradeOrderResponse
 func (client *Client) CreateBatchTradeOrder(request *CreateBatchTradeOrderRequest) (_result *CreateBatchTradeOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateBatchTradeOrderHeaders{}
@@ -7379,6 +10064,17 @@ func (client *Client) CreateBatchTradeOrder(request *CreateBatchTradeOrderReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建子机构
+//
+// @param request - CreateSubInstitutionRequest
+//
+// @param headers - CreateSubInstitutionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateSubInstitutionResponse
 func (client *Client) CreateSubInstitutionWithOptions(request *CreateSubInstitutionRequest, headers *CreateSubInstitutionHeaders, runtime *util.RuntimeOptions) (_result *CreateSubInstitutionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7486,6 +10182,13 @@ func (client *Client) CreateSubInstitutionWithOptions(request *CreateSubInstitut
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建子机构
+//
+// @param request - CreateSubInstitutionRequest
+//
+// @return CreateSubInstitutionResponse
 func (client *Client) CreateSubInstitution(request *CreateSubInstitutionRequest) (_result *CreateSubInstitutionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateSubInstitutionHeaders{}
@@ -7498,6 +10201,17 @@ func (client *Client) CreateSubInstitution(request *CreateSubInstitutionRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建用户码实例
+//
+// @param request - CreateUserCodeInstanceRequest
+//
+// @param headers - CreateUserCodeInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateUserCodeInstanceResponse
 func (client *Client) CreateUserCodeInstanceWithOptions(request *CreateUserCodeInstanceRequest, headers *CreateUserCodeInstanceHeaders, runtime *util.RuntimeOptions) (_result *CreateUserCodeInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7581,6 +10295,13 @@ func (client *Client) CreateUserCodeInstanceWithOptions(request *CreateUserCodeI
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建用户码实例
+//
+// @param request - CreateUserCodeInstanceRequest
+//
+// @return CreateUserCodeInstanceResponse
 func (client *Client) CreateUserCodeInstance(request *CreateUserCodeInstanceRequest) (_result *CreateUserCodeInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateUserCodeInstanceHeaders{}
@@ -7593,6 +10314,17 @@ func (client *Client) CreateUserCodeInstance(request *CreateUserCodeInstanceRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 解码付款码
+//
+// @param request - DecodePayCodeRequest
+//
+// @param headers - DecodePayCodeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DecodePayCodeResponse
 func (client *Client) DecodePayCodeWithOptions(request *DecodePayCodeRequest, headers *DecodePayCodeHeaders, runtime *util.RuntimeOptions) (_result *DecodePayCodeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7640,6 +10372,13 @@ func (client *Client) DecodePayCodeWithOptions(request *DecodePayCodeRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 解码付款码
+//
+// @param request - DecodePayCodeRequest
+//
+// @return DecodePayCodeResponse
 func (client *Client) DecodePayCode(request *DecodePayCodeRequest) (_result *DecodePayCodeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DecodePayCodeHeaders{}
@@ -7652,6 +10391,142 @@ func (client *Client) DecodePayCode(request *DecodePayCodeRequest) (_result *Dec
 	return _result, _err
 }
 
+// Summary:
+//
+// 企业金融助贷业务进件通知接口
+//
+// @param request - FinanceLoanNotifyRegisterRequest
+//
+// @param headers - FinanceLoanNotifyRegisterHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return FinanceLoanNotifyRegisterResponse
+func (client *Client) FinanceLoanNotifyRegisterWithOptions(request *FinanceLoanNotifyRegisterRequest, headers *FinanceLoanNotifyRegisterHeaders, runtime *util.RuntimeOptions) (_result *FinanceLoanNotifyRegisterResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CompleteTime)) {
+		body["completeTime"] = request.CompleteTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extension)) {
+		body["extension"] = request.Extension
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IdCardNo)) {
+		body["idCardNo"] = request.IdCardNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenChannelName)) {
+		body["openChannelName"] = request.OpenChannelName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenProductCode)) {
+		body["openProductCode"] = request.OpenProductCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenProductName)) {
+		body["openProductName"] = request.OpenProductName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenProductType)) {
+		body["openProductType"] = request.OpenProductType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessingStatus)) {
+		body["processingStatus"] = request.ProcessingStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RefuseCode)) {
+		body["refuseCode"] = request.RefuseCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RefuseReason)) {
+		body["refuseReason"] = request.RefuseReason
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RegisterNo)) {
+		body["registerNo"] = request.RegisterNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubmitTime)) {
+		body["submitTime"] = request.SubmitTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserMobile)) {
+		body["userMobile"] = request.UserMobile
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("FinanceLoanNotifyRegister"),
+		Version:     tea.String("finance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/finance/loans/notifications/register"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &FinanceLoanNotifyRegisterResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 企业金融助贷业务进件通知接口
+//
+// @param request - FinanceLoanNotifyRegisterRequest
+//
+// @return FinanceLoanNotifyRegisterResponse
+func (client *Client) FinanceLoanNotifyRegister(request *FinanceLoanNotifyRegisterRequest) (_result *FinanceLoanNotifyRegisterResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &FinanceLoanNotifyRegisterHeaders{}
+	_result = &FinanceLoanNotifyRegisterResponse{}
+	_body, _err := client.FinanceLoanNotifyRegisterWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 修改子机构信息
+//
+// @param request - ModifySubInstitutionRequest
+//
+// @param headers - ModifySubInstitutionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ModifySubInstitutionResponse
 func (client *Client) ModifySubInstitutionWithOptions(request *ModifySubInstitutionRequest, headers *ModifySubInstitutionHeaders, runtime *util.RuntimeOptions) (_result *ModifySubInstitutionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7755,6 +10630,13 @@ func (client *Client) ModifySubInstitutionWithOptions(request *ModifySubInstitut
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改子机构信息
+//
+// @param request - ModifySubInstitutionRequest
+//
+// @return ModifySubInstitutionResponse
 func (client *Client) ModifySubInstitution(request *ModifySubInstitutionRequest) (_result *ModifySubInstitutionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ModifySubInstitutionHeaders{}
@@ -7767,6 +10649,17 @@ func (client *Client) ModifySubInstitution(request *ModifySubInstitutionRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 通知付款码支付结果
+//
+// @param request - NotifyPayCodePayResultRequest
+//
+// @param headers - NotifyPayCodePayResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return NotifyPayCodePayResultResponse
 func (client *Client) NotifyPayCodePayResultWithOptions(request *NotifyPayCodePayResultRequest, headers *NotifyPayCodePayResultHeaders, runtime *util.RuntimeOptions) (_result *NotifyPayCodePayResultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7874,6 +10767,13 @@ func (client *Client) NotifyPayCodePayResultWithOptions(request *NotifyPayCodePa
 	return _result, _err
 }
 
+// Summary:
+//
+// 通知付款码支付结果
+//
+// @param request - NotifyPayCodePayResultRequest
+//
+// @return NotifyPayCodePayResultResponse
 func (client *Client) NotifyPayCodePayResult(request *NotifyPayCodePayResultRequest) (_result *NotifyPayCodePayResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &NotifyPayCodePayResultHeaders{}
@@ -7886,6 +10786,17 @@ func (client *Client) NotifyPayCodePayResult(request *NotifyPayCodePayResultRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 通知付款码退款结果
+//
+// @param request - NotifyPayCodeRefundResultRequest
+//
+// @param headers - NotifyPayCodeRefundResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return NotifyPayCodeRefundResultResponse
 func (client *Client) NotifyPayCodeRefundResultWithOptions(request *NotifyPayCodeRefundResultRequest, headers *NotifyPayCodeRefundResultHeaders, runtime *util.RuntimeOptions) (_result *NotifyPayCodeRefundResultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7965,6 +10876,13 @@ func (client *Client) NotifyPayCodeRefundResultWithOptions(request *NotifyPayCod
 	return _result, _err
 }
 
+// Summary:
+//
+// 通知付款码退款结果
+//
+// @param request - NotifyPayCodeRefundResultRequest
+//
+// @return NotifyPayCodeRefundResultResponse
 func (client *Client) NotifyPayCodeRefundResult(request *NotifyPayCodeRefundResultRequest) (_result *NotifyPayCodeRefundResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &NotifyPayCodeRefundResultHeaders{}
@@ -7977,6 +10895,17 @@ func (client *Client) NotifyPayCodeRefundResult(request *NotifyPayCodeRefundResu
 	return _result, _err
 }
 
+// Summary:
+//
+// 上报码验证结果
+//
+// @param request - NotifyVerifyResultRequest
+//
+// @param headers - NotifyVerifyResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return NotifyVerifyResultResponse
 func (client *Client) NotifyVerifyResultWithOptions(request *NotifyVerifyResultRequest, headers *NotifyVerifyResultHeaders, runtime *util.RuntimeOptions) (_result *NotifyVerifyResultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8056,6 +10985,13 @@ func (client *Client) NotifyVerifyResultWithOptions(request *NotifyVerifyResultR
 	return _result, _err
 }
 
+// Summary:
+//
+// 上报码验证结果
+//
+// @param request - NotifyVerifyResultRequest
+//
+// @return NotifyVerifyResultResponse
 func (client *Client) NotifyVerifyResult(request *NotifyVerifyResultRequest) (_result *NotifyVerifyResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &NotifyVerifyResultHeaders{}
@@ -8068,6 +11004,17 @@ func (client *Client) NotifyVerifyResult(request *NotifyVerifyResultRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 预创建群收款订单返回订单号
+//
+// @param request - PreCreateGroupBillOrderRequest
+//
+// @param headers - PreCreateGroupBillOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PreCreateGroupBillOrderResponse
 func (client *Client) PreCreateGroupBillOrderWithOptions(request *PreCreateGroupBillOrderRequest, headers *PreCreateGroupBillOrderHeaders, runtime *util.RuntimeOptions) (_result *PreCreateGroupBillOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8151,6 +11098,13 @@ func (client *Client) PreCreateGroupBillOrderWithOptions(request *PreCreateGroup
 	return _result, _err
 }
 
+// Summary:
+//
+// 预创建群收款订单返回订单号
+//
+// @param request - PreCreateGroupBillOrderRequest
+//
+// @return PreCreateGroupBillOrderResponse
 func (client *Client) PreCreateGroupBillOrder(request *PreCreateGroupBillOrderRequest) (_result *PreCreateGroupBillOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PreCreateGroupBillOrderHeaders{}
@@ -8163,6 +11117,17 @@ func (client *Client) PreCreateGroupBillOrder(request *PreCreateGroupBillOrderRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询收单退款交易
+//
+// @param request - QueryAcquireRefundOrderRequest
+//
+// @param headers - QueryAcquireRefundOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryAcquireRefundOrderResponse
 func (client *Client) QueryAcquireRefundOrderWithOptions(request *QueryAcquireRefundOrderRequest, headers *QueryAcquireRefundOrderHeaders, runtime *util.RuntimeOptions) (_result *QueryAcquireRefundOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8206,6 +11171,13 @@ func (client *Client) QueryAcquireRefundOrderWithOptions(request *QueryAcquireRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询收单退款交易
+//
+// @param request - QueryAcquireRefundOrderRequest
+//
+// @return QueryAcquireRefundOrderResponse
 func (client *Client) QueryAcquireRefundOrder(request *QueryAcquireRefundOrderRequest) (_result *QueryAcquireRefundOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryAcquireRefundOrderHeaders{}
@@ -8218,6 +11190,17 @@ func (client *Client) QueryAcquireRefundOrder(request *QueryAcquireRefundOrderRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询批量付款明细列表
+//
+// @param request - QueryBatchTradeDetailListRequest
+//
+// @param headers - QueryBatchTradeDetailListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryBatchTradeDetailListResponse
 func (client *Client) QueryBatchTradeDetailListWithOptions(request *QueryBatchTradeDetailListRequest, headers *QueryBatchTradeDetailListHeaders, runtime *util.RuntimeOptions) (_result *QueryBatchTradeDetailListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8269,6 +11252,13 @@ func (client *Client) QueryBatchTradeDetailListWithOptions(request *QueryBatchTr
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询批量付款明细列表
+//
+// @param request - QueryBatchTradeDetailListRequest
+//
+// @return QueryBatchTradeDetailListResponse
 func (client *Client) QueryBatchTradeDetailList(request *QueryBatchTradeDetailListRequest) (_result *QueryBatchTradeDetailListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryBatchTradeDetailListHeaders{}
@@ -8281,6 +11271,17 @@ func (client *Client) QueryBatchTradeDetailList(request *QueryBatchTradeDetailLi
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据请求对象查询批量交易订单信息
+//
+// @param request - QueryBatchTradeOrderRequest
+//
+// @param headers - QueryBatchTradeOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryBatchTradeOrderResponse
 func (client *Client) QueryBatchTradeOrderWithOptions(request *QueryBatchTradeOrderRequest, headers *QueryBatchTradeOrderHeaders, runtime *util.RuntimeOptions) (_result *QueryBatchTradeOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8324,6 +11325,13 @@ func (client *Client) QueryBatchTradeOrderWithOptions(request *QueryBatchTradeOr
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据请求对象查询批量交易订单信息
+//
+// @param request - QueryBatchTradeOrderRequest
+//
+// @return QueryBatchTradeOrderResponse
 func (client *Client) QueryBatchTradeOrder(request *QueryBatchTradeOrderRequest) (_result *QueryBatchTradeOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryBatchTradeOrderHeaders{}
@@ -8336,6 +11344,15 @@ func (client *Client) QueryBatchTradeOrder(request *QueryBatchTradeOrderRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询付款账号列表
+//
+// @param headers - QueryPayAccountListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryPayAccountListResponse
 func (client *Client) QueryPayAccountListWithOptions(headers *QueryPayAccountListHeaders, runtime *util.RuntimeOptions) (_result *QueryPayAccountListResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -8369,6 +11386,11 @@ func (client *Client) QueryPayAccountListWithOptions(headers *QueryPayAccountLis
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询付款账号列表
+//
+// @return QueryPayAccountListResponse
 func (client *Client) QueryPayAccountList() (_result *QueryPayAccountListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryPayAccountListHeaders{}
@@ -8381,6 +11403,17 @@ func (client *Client) QueryPayAccountList() (_result *QueryPayAccountListRespons
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询子机构申请单状态
+//
+// @param request - QueryRegisterOrderRequest
+//
+// @param headers - QueryRegisterOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryRegisterOrderResponse
 func (client *Client) QueryRegisterOrderWithOptions(request *QueryRegisterOrderRequest, headers *QueryRegisterOrderHeaders, runtime *util.RuntimeOptions) (_result *QueryRegisterOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8436,6 +11469,13 @@ func (client *Client) QueryRegisterOrderWithOptions(request *QueryRegisterOrderR
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询子机构申请单状态
+//
+// @param request - QueryRegisterOrderRequest
+//
+// @return QueryRegisterOrderResponse
 func (client *Client) QueryRegisterOrder(request *QueryRegisterOrderRequest) (_result *QueryRegisterOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryRegisterOrderHeaders{}
@@ -8448,6 +11488,17 @@ func (client *Client) QueryRegisterOrder(request *QueryRegisterOrderRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户协议
+//
+// @param request - QueryUserAgreementRequest
+//
+// @param headers - QueryUserAgreementHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryUserAgreementResponse
 func (client *Client) QueryUserAgreementWithOptions(request *QueryUserAgreementRequest, headers *QueryUserAgreementHeaders, runtime *util.RuntimeOptions) (_result *QueryUserAgreementResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8507,6 +11558,13 @@ func (client *Client) QueryUserAgreementWithOptions(request *QueryUserAgreementR
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户协议
+//
+// @param request - QueryUserAgreementRequest
+//
+// @return QueryUserAgreementResponse
 func (client *Client) QueryUserAgreement(request *QueryUserAgreementRequest) (_result *QueryUserAgreementResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryUserAgreementHeaders{}
@@ -8519,6 +11577,15 @@ func (client *Client) QueryUserAgreement(request *QueryUserAgreementRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户绑定支付宝信息
+//
+// @param headers - QueryUserAlipayAccountHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryUserAlipayAccountResponse
 func (client *Client) QueryUserAlipayAccountWithOptions(headers *QueryUserAlipayAccountHeaders, runtime *util.RuntimeOptions) (_result *QueryUserAlipayAccountResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -8552,6 +11619,11 @@ func (client *Client) QueryUserAlipayAccountWithOptions(headers *QueryUserAlipay
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户绑定支付宝信息
+//
+// @return QueryUserAlipayAccountResponse
 func (client *Client) QueryUserAlipayAccount() (_result *QueryUserAlipayAccountResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryUserAlipayAccountHeaders{}
@@ -8564,6 +11636,17 @@ func (client *Client) QueryUserAlipayAccount() (_result *QueryUserAlipayAccountR
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询代扣交易订单信息
+//
+// @param request - QueryWithholdingOrderRequest
+//
+// @param headers - QueryWithholdingOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryWithholdingOrderResponse
 func (client *Client) QueryWithholdingOrderWithOptions(request *QueryWithholdingOrderRequest, headers *QueryWithholdingOrderHeaders, runtime *util.RuntimeOptions) (_result *QueryWithholdingOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8607,6 +11690,13 @@ func (client *Client) QueryWithholdingOrderWithOptions(request *QueryWithholding
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询代扣交易订单信息
+//
+// @param request - QueryWithholdingOrderRequest
+//
+// @return QueryWithholdingOrderResponse
 func (client *Client) QueryWithholdingOrder(request *QueryWithholdingOrderRequest) (_result *QueryWithholdingOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryWithholdingOrderHeaders{}
@@ -8619,6 +11709,17 @@ func (client *Client) QueryWithholdingOrder(request *QueryWithholdingOrderReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 保存付款码企业配置信息
+//
+// @param request - SaveCorpPayCodeRequest
+//
+// @param headers - SaveCorpPayCodeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SaveCorpPayCodeResponse
 func (client *Client) SaveCorpPayCodeWithOptions(request *SaveCorpPayCodeRequest, headers *SaveCorpPayCodeHeaders, runtime *util.RuntimeOptions) (_result *SaveCorpPayCodeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8674,6 +11775,13 @@ func (client *Client) SaveCorpPayCodeWithOptions(request *SaveCorpPayCodeRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 保存付款码企业配置信息
+//
+// @param request - SaveCorpPayCodeRequest
+//
+// @return SaveCorpPayCodeResponse
 func (client *Client) SaveCorpPayCode(request *SaveCorpPayCodeRequest) (_result *SaveCorpPayCodeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SaveCorpPayCodeHeaders{}
@@ -8686,6 +11794,17 @@ func (client *Client) SaveCorpPayCode(request *SaveCorpPayCodeRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 解约用户协议
+//
+// @param request - UnsignUserAgreementRequest
+//
+// @param headers - UnsignUserAgreementHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UnsignUserAgreementResponse
 func (client *Client) UnsignUserAgreementWithOptions(request *UnsignUserAgreementRequest, headers *UnsignUserAgreementHeaders, runtime *util.RuntimeOptions) (_result *UnsignUserAgreementResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8749,6 +11868,13 @@ func (client *Client) UnsignUserAgreementWithOptions(request *UnsignUserAgreemen
 	return _result, _err
 }
 
+// Summary:
+//
+// 解约用户协议
+//
+// @param request - UnsignUserAgreementRequest
+//
+// @return UnsignUserAgreementResponse
 func (client *Client) UnsignUserAgreement(request *UnsignUserAgreementRequest) (_result *UnsignUserAgreementResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UnsignUserAgreementHeaders{}
@@ -8761,6 +11887,17 @@ func (client *Client) UnsignUserAgreement(request *UnsignUserAgreementRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新用户码实例
+//
+// @param request - UpateUserCodeInstanceRequest
+//
+// @param headers - UpateUserCodeInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpateUserCodeInstanceResponse
 func (client *Client) UpateUserCodeInstanceWithOptions(request *UpateUserCodeInstanceRequest, headers *UpateUserCodeInstanceHeaders, runtime *util.RuntimeOptions) (_result *UpateUserCodeInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8840,6 +11977,13 @@ func (client *Client) UpateUserCodeInstanceWithOptions(request *UpateUserCodeIns
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新用户码实例
+//
+// @param request - UpateUserCodeInstanceRequest
+//
+// @return UpateUserCodeInstanceResponse
 func (client *Client) UpateUserCodeInstance(request *UpateUserCodeInstanceRequest) (_result *UpateUserCodeInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpateUserCodeInstanceHeaders{}
@@ -8852,6 +11996,17 @@ func (client *Client) UpateUserCodeInstance(request *UpateUserCodeInstanceReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 用来给第三方企业提供发票验真结果更新的oapi
+//
+// @param request - UpdateInvoiceVerifyStatusRequest
+//
+// @param headers - UpdateInvoiceVerifyStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateInvoiceVerifyStatusResponse
 func (client *Client) UpdateInvoiceVerifyStatusWithOptions(request *UpdateInvoiceVerifyStatusRequest, headers *UpdateInvoiceVerifyStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateInvoiceVerifyStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8939,6 +12094,13 @@ func (client *Client) UpdateInvoiceVerifyStatusWithOptions(request *UpdateInvoic
 	return _result, _err
 }
 
+// Summary:
+//
+// 用来给第三方企业提供发票验真结果更新的oapi
+//
+// @param request - UpdateInvoiceVerifyStatusRequest
+//
+// @return UpdateInvoiceVerifyStatusResponse
 func (client *Client) UpdateInvoiceVerifyStatus(request *UpdateInvoiceVerifyStatusRequest) (_result *UpdateInvoiceVerifyStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateInvoiceVerifyStatusHeaders{}
@@ -8951,6 +12113,17 @@ func (client *Client) UpdateInvoiceVerifyStatus(request *UpdateInvoiceVerifyStat
 	return _result, _err
 }
 
+// Summary:
+//
+// 上传发票
+//
+// @param request - UploadInvoiceRequest
+//
+// @param headers - UploadInvoiceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UploadInvoiceResponse
 func (client *Client) UploadInvoiceWithOptions(request *UploadInvoiceRequest, headers *UploadInvoiceHeaders, runtime *util.RuntimeOptions) (_result *UploadInvoiceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9002,6 +12175,13 @@ func (client *Client) UploadInvoiceWithOptions(request *UploadInvoiceRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 上传发票
+//
+// @param request - UploadInvoiceRequest
+//
+// @return UploadInvoiceResponse
 func (client *Client) UploadInvoice(request *UploadInvoiceRequest) (_result *UploadInvoiceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UploadInvoiceHeaders{}
@@ -9014,6 +12194,17 @@ func (client *Client) UploadInvoice(request *UploadInvoiceRequest) (_result *Upl
 	return _result, _err
 }
 
+// Summary:
+//
+// 用户授权上传发票oapi
+//
+// @param request - UploadInvoiceByAuthRequest
+//
+// @param headers - UploadInvoiceByAuthHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UploadInvoiceByAuthResponse
 func (client *Client) UploadInvoiceByAuthWithOptions(request *UploadInvoiceByAuthRequest, headers *UploadInvoiceByAuthHeaders, runtime *util.RuntimeOptions) (_result *UploadInvoiceByAuthResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9061,6 +12252,13 @@ func (client *Client) UploadInvoiceByAuthWithOptions(request *UploadInvoiceByAut
 	return _result, _err
 }
 
+// Summary:
+//
+// 用户授权上传发票oapi
+//
+// @param request - UploadInvoiceByAuthRequest
+//
+// @return UploadInvoiceByAuthResponse
 func (client *Client) UploadInvoiceByAuth(request *UploadInvoiceByAuthRequest) (_result *UploadInvoiceByAuthResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UploadInvoiceByAuthHeaders{}
@@ -9073,6 +12271,17 @@ func (client *Client) UploadInvoiceByAuth(request *UploadInvoiceByAuthRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过手机号上传发票
+//
+// @param request - UploadInvoiceByMobileRequest
+//
+// @param headers - UploadInvoiceByMobileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UploadInvoiceByMobileResponse
 func (client *Client) UploadInvoiceByMobileWithOptions(request *UploadInvoiceByMobileRequest, headers *UploadInvoiceByMobileHeaders, runtime *util.RuntimeOptions) (_result *UploadInvoiceByMobileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9124,6 +12333,13 @@ func (client *Client) UploadInvoiceByMobileWithOptions(request *UploadInvoiceByM
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过手机号上传发票
+//
+// @param request - UploadInvoiceByMobileRequest
+//
+// @return UploadInvoiceByMobileResponse
 func (client *Client) UploadInvoiceByMobile(request *UploadInvoiceByMobileRequest) (_result *UploadInvoiceByMobileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UploadInvoiceByMobileHeaders{}
@@ -9136,6 +12352,17 @@ func (client *Client) UploadInvoiceByMobile(request *UploadInvoiceByMobileReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 上传进件中的图片获得图片链接
+//
+// @param request - UploadRegisterImageRequest
+//
+// @param headers - UploadRegisterImageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UploadRegisterImageResponse
 func (client *Client) UploadRegisterImageWithOptions(request *UploadRegisterImageRequest, headers *UploadRegisterImageHeaders, runtime *util.RuntimeOptions) (_result *UploadRegisterImageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9195,6 +12422,13 @@ func (client *Client) UploadRegisterImageWithOptions(request *UploadRegisterImag
 	return _result, _err
 }
 
+// Summary:
+//
+// 上传进件中的图片获得图片链接
+//
+// @param request - UploadRegisterImageRequest
+//
+// @return UploadRegisterImageResponse
 func (client *Client) UploadRegisterImage(request *UploadRegisterImageRequest) (_result *UploadRegisterImageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UploadRegisterImageHeaders{}
@@ -9207,6 +12441,17 @@ func (client *Client) UploadRegisterImage(request *UploadRegisterImageRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 用户协议签约
+//
+// @param request - UserAgreementPageSignRequest
+//
+// @param headers - UserAgreementPageSignHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UserAgreementPageSignResponse
 func (client *Client) UserAgreementPageSignWithOptions(request *UserAgreementPageSignRequest, headers *UserAgreementPageSignHeaders, runtime *util.RuntimeOptions) (_result *UserAgreementPageSignResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9294,6 +12539,13 @@ func (client *Client) UserAgreementPageSignWithOptions(request *UserAgreementPag
 	return _result, _err
 }
 
+// Summary:
+//
+// 用户协议签约
+//
+// @param request - UserAgreementPageSignRequest
+//
+// @return UserAgreementPageSignResponse
 func (client *Client) UserAgreementPageSign(request *UserAgreementPageSignRequest) (_result *UserAgreementPageSignResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UserAgreementPageSignHeaders{}

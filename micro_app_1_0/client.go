@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package micro_app_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,10 +33,14 @@ func (s *AddAppRolesToMemberHeaders) SetXAcsDingtalkAccessToken(v string) *AddAp
 }
 
 type AddAppRolesToMemberRequest struct {
-	MemberId   *string                               `json:"memberId,omitempty" xml:"memberId,omitempty"`
-	MemberType *string                               `json:"memberType,omitempty" xml:"memberType,omitempty"`
-	OpUserId   *string                               `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	RoleList   []*AddAppRolesToMemberRequestRoleList `json:"roleList,omitempty" xml:"roleList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// This parameter is required.
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	RoleList []*AddAppRolesToMemberRequestRoleList `json:"roleList,omitempty" xml:"roleList,omitempty" type:"Repeated"`
 }
 
 func (s AddAppRolesToMemberRequest) String() string {
@@ -72,7 +72,9 @@ func (s *AddAppRolesToMemberRequest) SetRoleList(v []*AddAppRolesToMemberRequest
 }
 
 type AddAppRolesToMemberRequestRoleList struct {
-	RoleId       *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// This parameter is required.
+	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// This parameter is required.
 	ScopeVersion *int64 `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
 }
 
@@ -112,11 +114,26 @@ func (s *AddAppRolesToMemberResponseBody) SetResult(v []*AddAppRolesToMemberResp
 }
 
 type AddAppRolesToMemberResponseBodyResult struct {
-	LatestScopeVersion *int64  `json:"latestScopeVersion,omitempty" xml:"latestScopeVersion,omitempty"`
-	RoleId             *int64  `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	SubErrorCode       *string `json:"subErrorCode,omitempty" xml:"subErrorCode,omitempty"`
-	SubErrorMsg        *string `json:"subErrorMsg,omitempty" xml:"subErrorMsg,omitempty"`
-	Success            *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// 123
+	LatestScopeVersion *int64 `json:"latestScopeVersion,omitempty" xml:"latestScopeVersion,omitempty"`
+	// example:
+	//
+	// 123
+	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// example:
+	//
+	// userNoPrivilegeToManageApp
+	SubErrorCode *string `json:"subErrorCode,omitempty" xml:"subErrorCode,omitempty"`
+	// example:
+	//
+	// 传入的角色范围数据版本号不合法
+	SubErrorMsg *string `json:"subErrorMsg,omitempty" xml:"subErrorMsg,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s AddAppRolesToMemberResponseBodyResult) String() string {
@@ -205,9 +222,20 @@ func (s *AddAppToWorkBenchGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Ad
 }
 
 type AddAppToWorkBenchGroupRequest struct {
-	ComponentId      *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// namexx
+	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
+	// example:
+	//
+	// corpxxxx
 	EcologicalCorpId *string `json:"ecologicalCorpId,omitempty" xml:"ecologicalCorpId,omitempty"`
-	OpUnionId        *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	// example:
+	//
+	// xxxx
+	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
 }
 
 func (s AddAppToWorkBenchGroupRequest) String() string {
@@ -234,6 +262,9 @@ func (s *AddAppToWorkBenchGroupRequest) SetOpUnionId(v string) *AddAppToWorkBenc
 }
 
 type AddAppToWorkBenchGroupResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -303,8 +334,10 @@ func (s *AddMemberToAppRoleHeaders) SetXAcsDingtalkAccessToken(v string) *AddMem
 }
 
 type AddMemberToAppRoleRequest struct {
-	DeptIdList   []*int64  `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
-	OpUserId     *string   `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	DeptIdList []*int64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
 	ScopeVersion *int64    `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
 	UserIdList   []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
@@ -338,6 +371,9 @@ func (s *AddMemberToAppRoleRequest) SetUserIdList(v []*string) *AddMemberToAppRo
 }
 
 type AddMemberToAppRoleResponseBody struct {
+	// example:
+	//
+	// 123
 	LatestScopeVersion *int64 `json:"latestScopeVersion,omitempty" xml:"latestScopeVersion,omitempty"`
 }
 
@@ -746,18 +782,26 @@ func (s *CreateApaasAppHeaders) SetXAcsDingtalkAccessToken(v string) *CreateApaa
 }
 
 type CreateApaasAppRequest struct {
-	AppDesc            *string `json:"appDesc,omitempty" xml:"appDesc,omitempty"`
-	AppIcon            *string `json:"appIcon,omitempty" xml:"appIcon,omitempty"`
-	AppName            *string `json:"appName,omitempty" xml:"appName,omitempty"`
-	BizAppId           *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
-	HomepageEditLink   *string `json:"homepageEditLink,omitempty" xml:"homepageEditLink,omitempty"`
-	HomepageLink       *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
-	IsShortCut         *int32  `json:"isShortCut,omitempty" xml:"isShortCut,omitempty"`
-	OmpLink            *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
-	OpUserId           *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	AppDesc *string `json:"appDesc,omitempty" xml:"appDesc,omitempty"`
+	// This parameter is required.
+	AppIcon *string `json:"appIcon,omitempty" xml:"appIcon,omitempty"`
+	// This parameter is required.
+	AppName *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	// This parameter is required.
+	BizAppId         *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
+	HomepageEditLink *string `json:"homepageEditLink,omitempty" xml:"homepageEditLink,omitempty"`
+	// This parameter is required.
+	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	IsShortCut   *int32  `json:"isShortCut,omitempty" xml:"isShortCut,omitempty"`
+	OmpLink      *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	// This parameter is required.
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
 	PcHomepageEditLink *string `json:"pcHomepageEditLink,omitempty" xml:"pcHomepageEditLink,omitempty"`
-	PcHomepageLink     *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
-	TemplateKey        *string `json:"templateKey,omitempty" xml:"templateKey,omitempty"`
+	// This parameter is required.
+	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
+	TemplateKey    *string `json:"templateKey,omitempty" xml:"templateKey,omitempty"`
 }
 
 func (s CreateApaasAppRequest) String() string {
@@ -829,7 +873,13 @@ func (s *CreateApaasAppRequest) SetTemplateKey(v string) *CreateApaasAppRequest 
 }
 
 type CreateApaasAppResponseBody struct {
-	AgentId  *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// This parameter is required.
 	BizAppId *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
 }
 
@@ -904,16 +954,46 @@ func (s *CreateInnerAppHeaders) SetXAcsDingtalkAccessToken(v string) *CreateInne
 }
 
 type CreateInnerAppRequest struct {
-	Desc           *string   `json:"desc,omitempty" xml:"desc,omitempty"`
-	DevelopType    *int32    `json:"developType,omitempty" xml:"developType,omitempty"`
-	HomepageLink   *string   `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
-	Icon           *string   `json:"icon,omitempty" xml:"icon,omitempty"`
-	IpWhiteList    []*string `json:"ipWhiteList,omitempty" xml:"ipWhiteList,omitempty" type:"Repeated"`
-	Name           *string   `json:"name,omitempty" xml:"name,omitempty"`
-	OmpLink        *string   `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
-	OpUnionId      *string   `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
-	PcHomepageLink *string   `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
-	ScopeType      *string   `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// descxxx
+	Desc        *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	DevelopType *int32  `json:"developType,omitempty" xml:"developType,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	// example:
+	//
+	// mediaxxx
+	Icon        *string   `json:"icon,omitempty" xml:"icon,omitempty"`
+	IpWhiteList []*string `json:"ipWhiteList,omitempty" xml:"ipWhiteList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// namexx
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
+	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
+	// example:
+	//
+	// BASE
+	ScopeType *string `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
 }
 
 func (s CreateInnerAppRequest) String() string {
@@ -975,6 +1055,9 @@ func (s *CreateInnerAppRequest) SetScopeType(v string) *CreateInnerAppRequest {
 }
 
 type CreateInnerAppResponseBody struct {
+	// example:
+	//
+	// 111
 	AgentId   *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
 	AppKey    *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
 	AppSecret *string `json:"appSecret,omitempty" xml:"appSecret,omitempty"`
@@ -1056,6 +1139,7 @@ func (s *DeleteAppRoleHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteAppRo
 }
 
 type DeleteAppRoleRequest struct {
+	// This parameter is required.
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
@@ -1073,6 +1157,9 @@ func (s *DeleteAppRoleRequest) SetOpUserId(v string) *DeleteAppRoleRequest {
 }
 
 type DeleteAppRoleResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1142,6 +1229,11 @@ func (s *DeleteInnerAppHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteInne
 }
 
 type DeleteInnerAppRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
 	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
 }
 
@@ -1159,6 +1251,9 @@ func (s *DeleteInnerAppRequest) SetOpUnionId(v string) *DeleteInnerAppRequest {
 }
 
 type DeleteInnerAppResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1228,8 +1323,15 @@ func (s *GetApaasAppHeaders) SetXAcsDingtalkAccessToken(v string) *GetApaasAppHe
 }
 
 type GetApaasAppResponseBody struct {
-	AgentId       *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	BizAppId      *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// This parameter is required.
+	BizAppId *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
+	// This parameter is required.
 	PublishStatus *string `json:"publishStatus,omitempty" xml:"publishStatus,omitempty"`
 }
 
@@ -1309,10 +1411,22 @@ func (s *GetAppResourceUseInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Get
 }
 
 type GetAppResourceUseInfoRequest struct {
+	// example:
+	//
+	// api_count
 	BenefitCode *string `json:"benefitCode,omitempty" xml:"benefitCode,omitempty"`
-	EndTime     *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	PeriodType  *string `json:"periodType,omitempty" xml:"periodType,omitempty"`
-	StartTime   *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 202302
+	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// month
+	PeriodType *string `json:"periodType,omitempty" xml:"periodType,omitempty"`
+	// example:
+	//
+	// 202301
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
 }
 
 func (s GetAppResourceUseInfoRequest) String() string {
@@ -1373,9 +1487,18 @@ func (s *GetAppResourceUseInfoResponse) SetBody(v []*GetAppResourceUseInfoRespon
 }
 
 type GetAppResourceUseInfoResponseBody struct {
-	Period   *string `json:"period,omitempty" xml:"period,omitempty"`
-	UsedNum  *int64  `json:"usedNum,omitempty" xml:"usedNum,omitempty"`
-	QuotaNum *int64  `json:"quotaNum,omitempty" xml:"quotaNum,omitempty"`
+	// example:
+	//
+	// 202301
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// example:
+	//
+	// 8511
+	UsedNum *int64 `json:"usedNum,omitempty" xml:"usedNum,omitempty"`
+	// example:
+	//
+	// 10000
+	QuotaNum *int64 `json:"quotaNum,omitempty" xml:"quotaNum,omitempty"`
 }
 
 func (s GetAppResourceUseInfoResponseBody) String() string {
@@ -1425,13 +1548,28 @@ func (s *GetAppRoleScopeByRoleIdHeaders) SetXAcsDingtalkAccessToken(v string) *G
 }
 
 type GetAppRoleScopeByRoleIdResponseBody struct {
-	CanManageRole *bool     `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
-	DeptIdList    []*int64  `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
-	RoleId        *int64    `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	RoleName      *string   `json:"roleName,omitempty" xml:"roleName,omitempty"`
-	ScopeType     *string   `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
-	ScopeVersion  *string   `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
-	UserIdList    []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// false
+	CanManageRole *bool    `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
+	DeptIdList    []*int64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 123
+	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// example:
+	//
+	// 财务
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// example:
+	//
+	// PART_VISIBLE
+	ScopeType *string `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+	// example:
+	//
+	// 123
+	ScopeVersion *string   `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
+	UserIdList   []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
 func (s GetAppRoleScopeByRoleIdResponseBody) String() string {
@@ -1530,8 +1668,14 @@ func (s *GetInnerAppHeaders) SetXAcsDingtalkAccessToken(v string) *GetInnerAppHe
 }
 
 type GetInnerAppRequest struct {
+	// example:
+	//
+	// corpxxxx
 	EcologicalCorpId *string `json:"ecologicalCorpId,omitempty" xml:"ecologicalCorpId,omitempty"`
-	OpUnionId        *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	// example:
+	//
+	// xxxx
+	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
 }
 
 func (s GetInnerAppRequest) String() string {
@@ -1553,16 +1697,45 @@ func (s *GetInnerAppRequest) SetOpUnionId(v string) *GetInnerAppRequest {
 }
 
 type GetInnerAppResponseBody struct {
-	AgentId        *int64    `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	AppKey         *string   `json:"appKey,omitempty" xml:"appKey,omitempty"`
-	AppSecret      *string   `json:"appSecret,omitempty" xml:"appSecret,omitempty"`
-	Desc           *string   `json:"desc,omitempty" xml:"desc,omitempty"`
-	HomepageLink   *string   `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
-	Icon           *string   `json:"icon,omitempty" xml:"icon,omitempty"`
-	IpWhiteList    []*string `json:"ipWhiteList,omitempty" xml:"ipWhiteList,omitempty" type:"Repeated"`
-	Name           *string   `json:"name,omitempty" xml:"name,omitempty"`
-	OmpLink        *string   `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
-	PcHomepageLink *string   `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
+	// example:
+	//
+	// 1
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// example:
+	//
+	// aooxxx
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// aaaxxxxx
+	AppSecret *string `json:"appSecret,omitempty" xml:"appSecret,omitempty"`
+	// example:
+	//
+	// desc
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	// example:
+	//
+	// icon
+	Icon        *string   `json:"icon,omitempty" xml:"icon,omitempty"`
+	IpWhiteList []*string `json:"ipWhiteList,omitempty" xml:"ipWhiteList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
 }
 
 func (s GetInnerAppResponseBody) String() string {
@@ -1676,6 +1849,9 @@ func (s *GetMicroAppScopeHeaders) SetXAcsDingtalkAccessToken(v string) *GetMicro
 }
 
 type GetMicroAppScopeResponseBody struct {
+	// example:
+	//
+	// true
 	Result *GetMicroAppScopeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -1693,10 +1869,14 @@ func (s *GetMicroAppScopeResponseBody) SetResult(v *GetMicroAppScopeResponseBody
 }
 
 type GetMicroAppScopeResponseBodyResult struct {
-	DeptIds          []*int64  `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
-	OnlyAdminVisible *bool     `json:"onlyAdminVisible,omitempty" xml:"onlyAdminVisible,omitempty"`
-	RoleIds          []*int64  `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
-	UserIds          []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	DeptIds []*int64 `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OnlyAdminVisible *bool `json:"onlyAdminVisible,omitempty" xml:"onlyAdminVisible,omitempty"`
+	// This parameter is required.
+	RoleIds []*int64 `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s GetMicroAppScopeResponseBodyResult) String() string {
@@ -1780,6 +1960,9 @@ func (s *GetMicroAppUserAccessHeaders) SetXAcsDingtalkAccessToken(v string) *Get
 }
 
 type GetMicroAppUserAccessResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1935,15 +2118,49 @@ func (s *ListAllAppResponseBody) SetAppList(v []*ListAllAppResponseBodyAppList) 
 }
 
 type ListAllAppResponseBodyAppList struct {
-	AgentId        *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	AppId          *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
-	AppStatus      *int32  `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
-	Desc           *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	DevelopType    *int32  `json:"developType,omitempty" xml:"developType,omitempty"`
-	HomepageLink   *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
-	Icon           *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
-	OmpLink        *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// This parameter is required.
+	AppStatus *int32 `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
+	// example:
+	//
+	// desc
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	DevelopType *int32 `json:"developType,omitempty" xml:"developType,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	// example:
+	//
+	// icon
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// example:
+	//
+	// name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
 	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
 }
 
@@ -2075,15 +2292,53 @@ func (s *ListAllInnerAppsResponseBody) SetAppList(v []*ListAllInnerAppsResponseB
 }
 
 type ListAllInnerAppsResponseBodyAppList struct {
-	AgentId        *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	AppId          *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
-	AppStatus      *int32  `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
-	Desc           *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	DevelopType    *int32  `json:"developType,omitempty" xml:"developType,omitempty"`
-	HomepageLink   *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
-	Icon           *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
-	OmpLink        *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	AppStatus *int32 `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
+	// example:
+	//
+	// desc
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	DevelopType *int32 `json:"developType,omitempty" xml:"developType,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	// example:
+	//
+	// icon
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// example:
+	//
+	// name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
 	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
 }
 
@@ -2221,9 +2476,15 @@ func (s *ListAppRoleScopesRequest) SetSize(v int64) *ListAppRoleScopesRequest {
 }
 
 type ListAppRoleScopesResponseBody struct {
-	DataList  []*ListAppRoleScopesResponseBodyDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
-	HasMore   *bool                                    `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextToken *int64                                   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	DataList []*ListAppRoleScopesResponseBodyDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// 0
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListAppRoleScopesResponseBody) String() string {
@@ -2250,13 +2511,28 @@ func (s *ListAppRoleScopesResponseBody) SetNextToken(v int64) *ListAppRoleScopes
 }
 
 type ListAppRoleScopesResponseBodyDataList struct {
-	CanManageRole *bool     `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
-	DeptIdList    []*int64  `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
-	RoleId        *int64    `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	RoleName      *string   `json:"roleName,omitempty" xml:"roleName,omitempty"`
-	ScopeType     *string   `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
-	ScopeVersion  *int64    `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
-	UserIdList    []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// false
+	CanManageRole *bool    `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
+	DeptIdList    []*int64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 123
+	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// example:
+	//
+	// 财务
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// example:
+	//
+	// PART_VISIBLE
+	ScopeType *string `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+	// example:
+	//
+	// 123
+	ScopeVersion *int64    `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
+	UserIdList   []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
 func (s ListAppRoleScopesResponseBodyDataList) String() string {
@@ -2355,6 +2631,9 @@ func (s *ListInnerAppHeaders) SetXAcsDingtalkAccessToken(v string) *ListInnerApp
 }
 
 type ListInnerAppRequest struct {
+	// example:
+	//
+	// xxxx
 	EcologicalCorpId *string `json:"ecologicalCorpId,omitempty" xml:"ecologicalCorpId,omitempty"`
 }
 
@@ -2389,12 +2668,35 @@ func (s *ListInnerAppResponseBody) SetAppList(v []*ListInnerAppResponseBodyAppLi
 }
 
 type ListInnerAppResponseBodyAppList struct {
-	AgentId        *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	Desc           *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	HomepageLink   *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
-	Icon           *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
-	OmpLink        *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// example:
+	//
+	// desc
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	// example:
+	//
+	// icon
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// example:
+	//
+	// name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
 	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
 }
 
@@ -2511,14 +2813,40 @@ func (s *ListInnerAppVersionResponseBody) SetAppVersionList(v []*ListInnerAppVer
 }
 
 type ListInnerAppVersionResponseBodyAppVersionList struct {
-	AppVersion     *string `json:"appVersion,omitempty" xml:"appVersion,omitempty"`
-	AppVersionId   *int64  `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
-	AppVersionType *int32  `json:"appVersionType,omitempty" xml:"appVersionType,omitempty"`
-	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	EntranceLink   *string `json:"entranceLink,omitempty" xml:"entranceLink,omitempty"`
-	MiniAppId      *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	MiniAppOnPc    *bool   `json:"miniAppOnPc,omitempty" xml:"miniAppOnPc,omitempty"`
-	ModifyTime     *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.0.1
+	AppVersion *string `json:"appVersion,omitempty" xml:"appVersion,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	AppVersionId *int64 `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	AppVersionType *int32 `json:"appVersionType,omitempty" xml:"appVersionType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2023-01-01 00:00:00
+	CreateTime   *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	EntranceLink *string `json:"entranceLink,omitempty" xml:"entranceLink,omitempty"`
+	// This parameter is required.
+	MiniAppId   *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	MiniAppOnPc *bool   `json:"miniAppOnPc,omitempty" xml:"miniAppOnPc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2023-01-01 00:00:00
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
 }
 
 func (s ListInnerAppVersionResponseBodyAppVersionList) String() string {
@@ -2639,9 +2967,18 @@ func (s *ListRoleInfoByUserResponseBody) SetResult(v []*ListRoleInfoByUserRespon
 }
 
 type ListRoleInfoByUserResponseBodyResult struct {
-	CanManageRole *bool   `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
-	RoleId        *int64  `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	RoleName      *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// example:
+	//
+	// false
+	CanManageRole *bool `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
+	// example:
+	//
+	// 123
+	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// example:
+	//
+	// 财务
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
 }
 
 func (s ListRoleInfoByUserResponseBodyResult) String() string {
@@ -2737,16 +3074,58 @@ func (s *ListUserVilebleAppResponseBody) SetAppList(v []*ListUserVilebleAppRespo
 }
 
 type ListUserVilebleAppResponseBodyAppList struct {
-	AgentId        *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	AppId          *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
-	AppStatus      *int32  `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
-	Desc           *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	DevelopType    *int32  `json:"developType,omitempty" xml:"developType,omitempty"`
-	HomepageLink   *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
-	Icon           *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
-	OmpLink        *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	AppStatus *int32 `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
+	// example:
+	//
+	// desc
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	DevelopType *int32 `json:"developType,omitempty" xml:"developType,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	// example:
+	//
+	// icon
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// example:
+	//
+	// name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
 	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
+	// example:
+	//
+	// unifiedAppId
+	UnifiedAppId *string `json:"unifiedAppId,omitempty" xml:"unifiedAppId,omitempty"`
 }
 
 func (s ListUserVilebleAppResponseBodyAppList) String() string {
@@ -2807,6 +3186,11 @@ func (s *ListUserVilebleAppResponseBodyAppList) SetPcHomepageLink(v string) *Lis
 	return s
 }
 
+func (s *ListUserVilebleAppResponseBodyAppList) SetUnifiedAppId(v string) *ListUserVilebleAppResponseBodyAppList {
+	s.UnifiedAppId = &v
+	return s
+}
+
 type ListUserVilebleAppResponse struct {
 	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
 	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
@@ -2860,8 +3244,18 @@ func (s *PageInnerAppHistoryVersionHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type PageInnerAppHistoryVersionRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s PageInnerAppHistoryVersionRequest) String() string {
@@ -2884,7 +3278,10 @@ func (s *PageInnerAppHistoryVersionRequest) SetPageSize(v int32) *PageInnerAppHi
 
 type PageInnerAppHistoryVersionResponseBody struct {
 	MiniAppVersionList []*PageInnerAppHistoryVersionResponseBodyMiniAppVersionList `json:"miniAppVersionList,omitempty" xml:"miniAppVersionList,omitempty" type:"Repeated"`
-	TotalCount         *int64                                                      `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// example:
+	//
+	// 1
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s PageInnerAppHistoryVersionResponseBody) String() string {
@@ -2906,13 +3303,42 @@ func (s *PageInnerAppHistoryVersionResponseBody) SetTotalCount(v int64) *PageInn
 }
 
 type PageInnerAppHistoryVersionResponseBodyMiniAppVersionList struct {
-	AppVersion     *string `json:"appVersion,omitempty" xml:"appVersion,omitempty"`
-	AppVersionId   *int64  `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
-	AppVersionType *int32  `json:"appVersionType,omitempty" xml:"appVersionType,omitempty"`
-	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	MiniAppId      *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	MiniAppOnPc    *bool   `json:"miniAppOnPc,omitempty" xml:"miniAppOnPc,omitempty"`
-	ModifyTime     *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.0.1
+	AppVersion *string `json:"appVersion,omitempty" xml:"appVersion,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	AppVersionId *int64 `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	AppVersionType *int32 `json:"appVersionType,omitempty" xml:"appVersionType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2023-01-01 00:00:00
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// 1
+	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	// This parameter is required.
+	MiniAppOnPc *bool `json:"miniAppOnPc,omitempty" xml:"miniAppOnPc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2023-01-01 00:00:00
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
 }
 
 func (s PageInnerAppHistoryVersionResponseBodyMiniAppVersionList) String() string {
@@ -3011,10 +3437,23 @@ func (s *PublishInnerAppVersionHeaders) SetXAcsDingtalkAccessToken(v string) *Pu
 }
 
 type PublishInnerAppVersionRequest struct {
-	AppVersionId *int64  `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
-	MiniAppOnPc  *bool   `json:"miniAppOnPc,omitempty" xml:"miniAppOnPc,omitempty"`
-	OpUnionId    *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
-	PublishType  *string `json:"publishType,omitempty" xml:"publishType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	AppVersionId *int64 `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
+	MiniAppOnPc  *bool  `json:"miniAppOnPc,omitempty" xml:"miniAppOnPc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	// example:
+	//
+	// online
+	PublishType *string `json:"publishType,omitempty" xml:"publishType,omitempty"`
 }
 
 func (s PublishInnerAppVersionRequest) String() string {
@@ -3115,9 +3554,12 @@ func (s *RebuildRoleScopeForAppRoleHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type RebuildRoleScopeForAppRoleRequest struct {
-	DeptIdList   []*int64  `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
-	OpUserId     *string   `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	ScopeType    *string   `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+	DeptIdList []*int64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	ScopeType *string `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+	// This parameter is required.
 	ScopeVersion *int64    `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
 	UserIdList   []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
@@ -3156,6 +3598,9 @@ func (s *RebuildRoleScopeForAppRoleRequest) SetUserIdList(v []*string) *RebuildR
 }
 
 type RebuildRoleScopeForAppRoleResponseBody struct {
+	// example:
+	//
+	// 123
 	LatestScopeVersion *int64 `json:"latestScopeVersion,omitempty" xml:"latestScopeVersion,omitempty"`
 }
 
@@ -3225,9 +3670,14 @@ func (s *RegisterCustomAppRoleHeaders) SetXAcsDingtalkAccessToken(v string) *Reg
 }
 
 type RegisterCustomAppRoleRequest struct {
-	CanManageRole *bool   `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
-	OpUserId      *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	RoleName      *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// example:
+	//
+	// false
+	CanManageRole *bool `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
+	// This parameter is required.
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
 }
 
 func (s RegisterCustomAppRoleRequest) String() string {
@@ -3254,7 +3704,13 @@ func (s *RegisterCustomAppRoleRequest) SetRoleName(v string) *RegisterCustomAppR
 }
 
 type RegisterCustomAppRoleResponseBody struct {
-	RoleId       *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// example:
+	//
+	// 123
+	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// example:
+	//
+	// 123123123
 	ScopeVersion *int64 `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
 }
 
@@ -3329,7 +3785,9 @@ func (s *RemoveApaasAppHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveApaa
 }
 
 type RemoveApaasAppRequest struct {
+	// This parameter is required.
 	BizAppId *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
+	// This parameter is required.
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
@@ -3352,6 +3810,7 @@ func (s *RemoveApaasAppRequest) SetOpUserId(v string) *RemoveApaasAppRequest {
 }
 
 type RemoveApaasAppResponseBody struct {
+	// This parameter is required.
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3421,8 +3880,10 @@ func (s *RemoveMemberForAppRoleHeaders) SetXAcsDingtalkAccessToken(v string) *Re
 }
 
 type RemoveMemberForAppRoleRequest struct {
-	DeptIdList   []*int64  `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
-	OpUserId     *string   `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	DeptIdList []*int64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
 	ScopeVersion *int64    `json:"scopeVersion,omitempty" xml:"scopeVersion,omitempty"`
 	UserIdList   []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
@@ -3456,6 +3917,9 @@ func (s *RemoveMemberForAppRoleRequest) SetUserIdList(v []*string) *RemoveMember
 }
 
 type RemoveMemberForAppRoleResponseBody struct {
+	// example:
+	//
+	// 123
 	LatestScopeVersion *int64 `json:"latestScopeVersion,omitempty" xml:"latestScopeVersion,omitempty"`
 }
 
@@ -3525,8 +3989,18 @@ func (s *RollbackInnerAppVersionHeaders) SetXAcsDingtalkAccessToken(v string) *R
 }
 
 type RollbackInnerAppVersionRequest struct {
-	AppVersionId *int64  `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
-	OpUnionId    *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	AppVersionId *int64 `json:"appVersionId,omitempty" xml:"appVersionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
 }
 
 func (s RollbackInnerAppVersionRequest) String() string {
@@ -3670,6 +4144,9 @@ func (s *SetMicroAppScopeRequest) SetOnlyAdminVisible(v bool) *SetMicroAppScopeR
 }
 
 type SetMicroAppScopeResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3739,11 +4216,15 @@ func (s *UpdateApaasAppHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateApaa
 }
 
 type UpdateApaasAppRequest struct {
-	AppIcon   *string `json:"appIcon,omitempty" xml:"appIcon,omitempty"`
+	// This parameter is required.
+	AppIcon *string `json:"appIcon,omitempty" xml:"appIcon,omitempty"`
+	// This parameter is required.
 	AppName   *string `json:"appName,omitempty" xml:"appName,omitempty"`
 	AppStatus *int32  `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
-	BizAppId  *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
-	OpUserId  *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	BizAppId *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
+	// This parameter is required.
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s UpdateApaasAppRequest) String() string {
@@ -3780,7 +4261,13 @@ func (s *UpdateApaasAppRequest) SetOpUserId(v string) *UpdateApaasAppRequest {
 }
 
 type UpdateApaasAppResponseBody struct {
-	AgentId  *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// This parameter is required.
 	BizAppId *string `json:"bizAppId,omitempty" xml:"bizAppId,omitempty"`
 }
 
@@ -3857,7 +4344,8 @@ func (s *UpdateAppRoleInfoHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateA
 type UpdateAppRoleInfoRequest struct {
 	CanManageRole *bool   `json:"canManageRole,omitempty" xml:"canManageRole,omitempty"`
 	NewRoleName   *string `json:"newRoleName,omitempty" xml:"newRoleName,omitempty"`
-	OpUserId      *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s UpdateAppRoleInfoRequest) String() string {
@@ -3884,6 +4372,9 @@ func (s *UpdateAppRoleInfoRequest) SetOpUserId(v string) *UpdateAppRoleInfoReque
 }
 
 type UpdateAppRoleInfoResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3953,14 +4444,37 @@ func (s *UpdateInnerAppHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateInne
 }
 
 type UpdateInnerAppRequest struct {
-	Desc           *string   `json:"desc,omitempty" xml:"desc,omitempty"`
-	HomepageLink   *string   `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
-	Icon           *string   `json:"icon,omitempty" xml:"icon,omitempty"`
-	IpWhiteList    []*string `json:"ipWhiteList,omitempty" xml:"ipWhiteList,omitempty" type:"Repeated"`
-	Name           *string   `json:"name,omitempty" xml:"name,omitempty"`
-	OmpLink        *string   `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
-	OpUnionId      *string   `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
-	PcHomepageLink *string   `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
+	// example:
+	//
+	// descxxx
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	// example:
+	//
+	// mediaxxx
+	Icon        *string   `json:"icon,omitempty" xml:"icon,omitempty"`
+	IpWhiteList []*string `json:"ipWhiteList,omitempty" xml:"ipWhiteList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// namexx
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
+	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
 }
 
 func (s UpdateInnerAppRequest) String() string {
@@ -4012,6 +4526,9 @@ func (s *UpdateInnerAppRequest) SetPcHomepageLink(v string) *UpdateInnerAppReque
 }
 
 type UpdateInnerAppResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -4072,12 +4589,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
@@ -4087,6 +4604,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 给指定成员添加角色
+//
+// @param request - AddAppRolesToMemberRequest
+//
+// @param headers - AddAppRolesToMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddAppRolesToMemberResponse
 func (client *Client) AddAppRolesToMemberWithOptions(agentId *string, request *AddAppRolesToMemberRequest, headers *AddAppRolesToMemberHeaders, runtime *util.RuntimeOptions) (_result *AddAppRolesToMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4142,6 +4670,13 @@ func (client *Client) AddAppRolesToMemberWithOptions(agentId *string, request *A
 	return _result, _err
 }
 
+// Summary:
+//
+// 给指定成员添加角色
+//
+// @param request - AddAppRolesToMemberRequest
+//
+// @return AddAppRolesToMemberResponse
 func (client *Client) AddAppRolesToMember(agentId *string, request *AddAppRolesToMemberRequest) (_result *AddAppRolesToMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddAppRolesToMemberHeaders{}
@@ -4154,6 +4689,17 @@ func (client *Client) AddAppRolesToMember(agentId *string, request *AddAppRolesT
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加应用到工作台分组
+//
+// @param request - AddAppToWorkBenchGroupRequest
+//
+// @param headers - AddAppToWorkBenchGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddAppToWorkBenchGroupResponse
 func (client *Client) AddAppToWorkBenchGroupWithOptions(agentId *string, request *AddAppToWorkBenchGroupRequest, headers *AddAppToWorkBenchGroupHeaders, runtime *util.RuntimeOptions) (_result *AddAppToWorkBenchGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4205,6 +4751,13 @@ func (client *Client) AddAppToWorkBenchGroupWithOptions(agentId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加应用到工作台分组
+//
+// @param request - AddAppToWorkBenchGroupRequest
+//
+// @return AddAppToWorkBenchGroupResponse
 func (client *Client) AddAppToWorkBenchGroup(agentId *string, request *AddAppToWorkBenchGroupRequest) (_result *AddAppToWorkBenchGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddAppToWorkBenchGroupHeaders{}
@@ -4217,6 +4770,17 @@ func (client *Client) AddAppToWorkBenchGroup(agentId *string, request *AddAppToW
 	return _result, _err
 }
 
+// Summary:
+//
+// 给指定角色添加人员
+//
+// @param request - AddMemberToAppRoleRequest
+//
+// @param headers - AddMemberToAppRoleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddMemberToAppRoleResponse
 func (client *Client) AddMemberToAppRoleWithOptions(agentId *string, roleId *string, request *AddMemberToAppRoleRequest, headers *AddMemberToAppRoleHeaders, runtime *util.RuntimeOptions) (_result *AddMemberToAppRoleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4272,6 +4836,13 @@ func (client *Client) AddMemberToAppRoleWithOptions(agentId *string, roleId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 给指定角色添加人员
+//
+// @param request - AddMemberToAppRoleRequest
+//
+// @return AddMemberToAppRoleResponse
 func (client *Client) AddMemberToAppRole(agentId *string, roleId *string, request *AddMemberToAppRoleRequest) (_result *AddMemberToAppRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddMemberToAppRoleHeaders{}
@@ -4284,6 +4855,15 @@ func (client *Client) AddMemberToAppRole(agentId *string, roleId *string, reques
 	return _result, _err
 }
 
+// Summary:
+//
+// # AnheiP
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AnheiPResponse
 func (client *Client) AnheiPWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *AnheiPResponse, _err error) {
 	req := &openapi.OpenApiRequest{
 		Headers: headers,
@@ -4308,6 +4888,11 @@ func (client *Client) AnheiPWithOptions(headers map[string]*string, runtime *uti
 	return _result, _err
 }
 
+// Summary:
+//
+// # AnheiP
+//
+// @return AnheiPResponse
 func (client *Client) AnheiP() (_result *AnheiPResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -4320,6 +4905,15 @@ func (client *Client) AnheiP() (_result *AnheiPResponse, _err error) {
 	return _result, _err
 }
 
+// Summary:
+//
+// # AnheiTest888
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AnheiTest888Response
 func (client *Client) AnheiTest888WithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *AnheiTest888Response, _err error) {
 	req := &openapi.OpenApiRequest{
 		Headers: headers,
@@ -4344,6 +4938,11 @@ func (client *Client) AnheiTest888WithOptions(headers map[string]*string, runtim
 	return _result, _err
 }
 
+// Summary:
+//
+// # AnheiTest888
+//
+// @return AnheiTest888Response
 func (client *Client) AnheiTest888() (_result *AnheiTest888Response, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -4356,6 +4955,15 @@ func (client *Client) AnheiTest888() (_result *AnheiTest888Response, _err error)
 	return _result, _err
 }
 
+// Summary:
+//
+// # AnheiTestB
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AnheiTestBResponse
 func (client *Client) AnheiTestBWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *AnheiTestBResponse, _err error) {
 	req := &openapi.OpenApiRequest{
 		Headers: headers,
@@ -4380,6 +4988,11 @@ func (client *Client) AnheiTestBWithOptions(headers map[string]*string, runtime 
 	return _result, _err
 }
 
+// Summary:
+//
+// # AnheiTestB
+//
+// @return AnheiTestBResponse
 func (client *Client) AnheiTestB() (_result *AnheiTestBResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -4392,6 +5005,15 @@ func (client *Client) AnheiTestB() (_result *AnheiTestBResponse, _err error) {
 	return _result, _err
 }
 
+// Summary:
+//
+// 暗黑测试
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AnheiTestNineResponse
 func (client *Client) AnheiTestNineWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *AnheiTestNineResponse, _err error) {
 	req := &openapi.OpenApiRequest{
 		Headers: headers,
@@ -4416,6 +5038,11 @@ func (client *Client) AnheiTestNineWithOptions(headers map[string]*string, runti
 	return _result, _err
 }
 
+// Summary:
+//
+// 暗黑测试
+//
+// @return AnheiTestNineResponse
 func (client *Client) AnheiTestNine() (_result *AnheiTestNineResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -4428,6 +5055,17 @@ func (client *Client) AnheiTestNine() (_result *AnheiTestNineResponse, _err erro
 	return _result, _err
 }
 
+// Summary:
+//
+// 应用状态管理测试
+//
+// @param request - AppStatusManagerTestRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AppStatusManagerTestResponse
 func (client *Client) AppStatusManagerTestWithOptions(request *AppStatusManagerTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *AppStatusManagerTestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4462,6 +5100,13 @@ func (client *Client) AppStatusManagerTestWithOptions(request *AppStatusManagerT
 	return _result, _err
 }
 
+// Summary:
+//
+// 应用状态管理测试
+//
+// @param request - AppStatusManagerTestRequest
+//
+// @return AppStatusManagerTestResponse
 func (client *Client) AppStatusManagerTest(request *AppStatusManagerTestRequest) (_result *AppStatusManagerTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -4474,6 +5119,15 @@ func (client *Client) AppStatusManagerTest(request *AppStatusManagerTestRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 能力开放中心录入测试数据
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AyunTestResponse
 func (client *Client) AyunTestWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *AyunTestResponse, _err error) {
 	req := &openapi.OpenApiRequest{
 		Headers: headers,
@@ -4498,6 +5152,11 @@ func (client *Client) AyunTestWithOptions(headers map[string]*string, runtime *u
 	return _result, _err
 }
 
+// Summary:
+//
+// 能力开放中心录入测试数据
+//
+// @return AyunTestResponse
 func (client *Client) AyunTest() (_result *AyunTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -4510,6 +5169,15 @@ func (client *Client) AyunTest() (_result *AyunTestResponse, _err error) {
 	return _result, _err
 }
 
+// Summary:
+//
+// openAPI录入上线后的测试
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AyunTestOnlineResponse
 func (client *Client) AyunTestOnlineWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *AyunTestOnlineResponse, _err error) {
 	req := &openapi.OpenApiRequest{
 		Headers: headers,
@@ -4534,6 +5202,11 @@ func (client *Client) AyunTestOnlineWithOptions(headers map[string]*string, runt
 	return _result, _err
 }
 
+// Summary:
+//
+// openAPI录入上线后的测试
+//
+// @return AyunTestOnlineResponse
 func (client *Client) AyunTestOnline() (_result *AyunTestOnlineResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -4546,6 +5219,17 @@ func (client *Client) AyunTestOnline() (_result *AyunTestOnlineResponse, _err er
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建Apaas应用
+//
+// @param request - CreateApaasAppRequest
+//
+// @param headers - CreateApaasAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateApaasAppResponse
 func (client *Client) CreateApaasAppWithOptions(request *CreateApaasAppRequest, headers *CreateApaasAppHeaders, runtime *util.RuntimeOptions) (_result *CreateApaasAppResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4633,6 +5317,13 @@ func (client *Client) CreateApaasAppWithOptions(request *CreateApaasAppRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建Apaas应用
+//
+// @param request - CreateApaasAppRequest
+//
+// @return CreateApaasAppResponse
 func (client *Client) CreateApaasApp(request *CreateApaasAppRequest) (_result *CreateApaasAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateApaasAppHeaders{}
@@ -4645,6 +5336,17 @@ func (client *Client) CreateApaasApp(request *CreateApaasAppRequest) (_result *C
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建企业内部应用
+//
+// @param request - CreateInnerAppRequest
+//
+// @param headers - CreateInnerAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateInnerAppResponse
 func (client *Client) CreateInnerAppWithOptions(request *CreateInnerAppRequest, headers *CreateInnerAppHeaders, runtime *util.RuntimeOptions) (_result *CreateInnerAppResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4724,6 +5426,13 @@ func (client *Client) CreateInnerAppWithOptions(request *CreateInnerAppRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建企业内部应用
+//
+// @param request - CreateInnerAppRequest
+//
+// @return CreateInnerAppResponse
 func (client *Client) CreateInnerApp(request *CreateInnerAppRequest) (_result *CreateInnerAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateInnerAppHeaders{}
@@ -4736,6 +5445,17 @@ func (client *Client) CreateInnerApp(request *CreateInnerAppRequest) (_result *C
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除应用角色
+//
+// @param request - DeleteAppRoleRequest
+//
+// @param headers - DeleteAppRoleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteAppRoleResponse
 func (client *Client) DeleteAppRoleWithOptions(agentId *string, roleId *string, request *DeleteAppRoleRequest, headers *DeleteAppRoleHeaders, runtime *util.RuntimeOptions) (_result *DeleteAppRoleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4779,6 +5499,13 @@ func (client *Client) DeleteAppRoleWithOptions(agentId *string, roleId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除应用角色
+//
+// @param request - DeleteAppRoleRequest
+//
+// @return DeleteAppRoleResponse
 func (client *Client) DeleteAppRole(agentId *string, roleId *string, request *DeleteAppRoleRequest) (_result *DeleteAppRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteAppRoleHeaders{}
@@ -4791,6 +5518,17 @@ func (client *Client) DeleteAppRole(agentId *string, roleId *string, request *De
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除企业内部应用
+//
+// @param request - DeleteInnerAppRequest
+//
+// @param headers - DeleteInnerAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteInnerAppResponse
 func (client *Client) DeleteInnerAppWithOptions(agentId *string, request *DeleteInnerAppRequest, headers *DeleteInnerAppHeaders, runtime *util.RuntimeOptions) (_result *DeleteInnerAppResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4834,6 +5572,13 @@ func (client *Client) DeleteInnerAppWithOptions(agentId *string, request *Delete
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除企业内部应用
+//
+// @param request - DeleteInnerAppRequest
+//
+// @return DeleteInnerAppResponse
 func (client *Client) DeleteInnerApp(agentId *string, request *DeleteInnerAppRequest) (_result *DeleteInnerAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteInnerAppHeaders{}
@@ -4846,6 +5591,15 @@ func (client *Client) DeleteInnerApp(agentId *string, request *DeleteInnerAppReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询Apaas应用
+//
+// @param headers - GetApaasAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetApaasAppResponse
 func (client *Client) GetApaasAppWithOptions(bizAppId *string, headers *GetApaasAppHeaders, runtime *util.RuntimeOptions) (_result *GetApaasAppResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -4879,6 +5633,11 @@ func (client *Client) GetApaasAppWithOptions(bizAppId *string, headers *GetApaas
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询Apaas应用
+//
+// @return GetApaasAppResponse
 func (client *Client) GetApaasApp(bizAppId *string) (_result *GetApaasAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetApaasAppHeaders{}
@@ -4891,6 +5650,17 @@ func (client *Client) GetApaasApp(bizAppId *string) (_result *GetApaasAppRespons
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取应用资源用量信息
+//
+// @param request - GetAppResourceUseInfoRequest
+//
+// @param headers - GetAppResourceUseInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAppResourceUseInfoResponse
 func (client *Client) GetAppResourceUseInfoWithOptions(request *GetAppResourceUseInfoRequest, headers *GetAppResourceUseInfoHeaders, runtime *util.RuntimeOptions) (_result *GetAppResourceUseInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4946,6 +5716,13 @@ func (client *Client) GetAppResourceUseInfoWithOptions(request *GetAppResourceUs
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取应用资源用量信息
+//
+// @param request - GetAppResourceUseInfoRequest
+//
+// @return GetAppResourceUseInfoResponse
 func (client *Client) GetAppResourceUseInfo(request *GetAppResourceUseInfoRequest) (_result *GetAppResourceUseInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAppResourceUseInfoHeaders{}
@@ -4958,6 +5735,15 @@ func (client *Client) GetAppResourceUseInfo(request *GetAppResourceUseInfoReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询指定角色的角色范围
+//
+// @param headers - GetAppRoleScopeByRoleIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAppRoleScopeByRoleIdResponse
 func (client *Client) GetAppRoleScopeByRoleIdWithOptions(agentId *string, roleId *string, headers *GetAppRoleScopeByRoleIdHeaders, runtime *util.RuntimeOptions) (_result *GetAppRoleScopeByRoleIdResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -4991,6 +5777,11 @@ func (client *Client) GetAppRoleScopeByRoleIdWithOptions(agentId *string, roleId
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询指定角色的角色范围
+//
+// @return GetAppRoleScopeByRoleIdResponse
 func (client *Client) GetAppRoleScopeByRoleId(agentId *string, roleId *string) (_result *GetAppRoleScopeByRoleIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAppRoleScopeByRoleIdHeaders{}
@@ -5003,6 +5794,17 @@ func (client *Client) GetAppRoleScopeByRoleId(agentId *string, roleId *string) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业内部H5应用
+//
+// @param request - GetInnerAppRequest
+//
+// @param headers - GetInnerAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetInnerAppResponse
 func (client *Client) GetInnerAppWithOptions(agentId *string, request *GetInnerAppRequest, headers *GetInnerAppHeaders, runtime *util.RuntimeOptions) (_result *GetInnerAppResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5050,6 +5852,13 @@ func (client *Client) GetInnerAppWithOptions(agentId *string, request *GetInnerA
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业内部H5应用
+//
+// @param request - GetInnerAppRequest
+//
+// @return GetInnerAppResponse
 func (client *Client) GetInnerApp(agentId *string, request *GetInnerAppRequest) (_result *GetInnerAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetInnerAppHeaders{}
@@ -5062,6 +5871,15 @@ func (client *Client) GetInnerApp(agentId *string, request *GetInnerAppRequest) 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取应用可见范围
+//
+// @param headers - GetMicroAppScopeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetMicroAppScopeResponse
 func (client *Client) GetMicroAppScopeWithOptions(agentId *string, headers *GetMicroAppScopeHeaders, runtime *util.RuntimeOptions) (_result *GetMicroAppScopeResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -5095,6 +5913,11 @@ func (client *Client) GetMicroAppScopeWithOptions(agentId *string, headers *GetM
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取应用可见范围
+//
+// @return GetMicroAppScopeResponse
 func (client *Client) GetMicroAppScope(agentId *string) (_result *GetMicroAppScopeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetMicroAppScopeHeaders{}
@@ -5107,6 +5930,15 @@ func (client *Client) GetMicroAppScope(agentId *string) (_result *GetMicroAppSco
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户对应用的管理权限
+//
+// @param headers - GetMicroAppUserAccessHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetMicroAppUserAccessResponse
 func (client *Client) GetMicroAppUserAccessWithOptions(agentId *string, userId *string, headers *GetMicroAppUserAccessHeaders, runtime *util.RuntimeOptions) (_result *GetMicroAppUserAccessResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -5140,6 +5972,11 @@ func (client *Client) GetMicroAppUserAccessWithOptions(agentId *string, userId *
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户对应用的管理权限
+//
+// @return GetMicroAppUserAccessResponse
 func (client *Client) GetMicroAppUserAccess(agentId *string, userId *string) (_result *GetMicroAppUserAccessResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetMicroAppUserAccessHeaders{}
@@ -5152,6 +5989,15 @@ func (client *Client) GetMicroAppUserAccess(agentId *string, userId *string) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 用户是否拥有开发者权限
+//
+// @param headers - GetUserAppDevAccessHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserAppDevAccessResponse
 func (client *Client) GetUserAppDevAccessWithOptions(userId *string, headers *GetUserAppDevAccessHeaders, runtime *util.RuntimeOptions) (_result *GetUserAppDevAccessResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -5185,6 +6031,11 @@ func (client *Client) GetUserAppDevAccessWithOptions(userId *string, headers *Ge
 	return _result, _err
 }
 
+// Summary:
+//
+// 用户是否拥有开发者权限
+//
+// @return GetUserAppDevAccessResponse
 func (client *Client) GetUserAppDevAccess(userId *string) (_result *GetUserAppDevAccessResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUserAppDevAccessHeaders{}
@@ -5197,6 +6048,15 @@ func (client *Client) GetUserAppDevAccess(userId *string) (_result *GetUserAppDe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业所有应用列表
+//
+// @param headers - ListAllAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListAllAppResponse
 func (client *Client) ListAllAppWithOptions(headers *ListAllAppHeaders, runtime *util.RuntimeOptions) (_result *ListAllAppResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -5230,6 +6090,11 @@ func (client *Client) ListAllAppWithOptions(headers *ListAllAppHeaders, runtime 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业所有应用列表
+//
+// @return ListAllAppResponse
 func (client *Client) ListAllApp() (_result *ListAllAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListAllAppHeaders{}
@@ -5242,6 +6107,15 @@ func (client *Client) ListAllApp() (_result *ListAllAppResponse, _err error) {
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业所有内部应用列表
+//
+// @param headers - ListAllInnerAppsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListAllInnerAppsResponse
 func (client *Client) ListAllInnerAppsWithOptions(headers *ListAllInnerAppsHeaders, runtime *util.RuntimeOptions) (_result *ListAllInnerAppsResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -5275,6 +6149,11 @@ func (client *Client) ListAllInnerAppsWithOptions(headers *ListAllInnerAppsHeade
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业所有内部应用列表
+//
+// @return ListAllInnerAppsResponse
 func (client *Client) ListAllInnerApps() (_result *ListAllInnerAppsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListAllInnerAppsHeaders{}
@@ -5287,6 +6166,17 @@ func (client *Client) ListAllInnerApps() (_result *ListAllInnerAppsResponse, _er
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业应用的角色完整信息
+//
+// @param request - ListAppRoleScopesRequest
+//
+// @param headers - ListAppRoleScopesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListAppRoleScopesResponse
 func (client *Client) ListAppRoleScopesWithOptions(agentId *string, request *ListAppRoleScopesRequest, headers *ListAppRoleScopesHeaders, runtime *util.RuntimeOptions) (_result *ListAppRoleScopesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5334,6 +6224,13 @@ func (client *Client) ListAppRoleScopesWithOptions(agentId *string, request *Lis
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业应用的角色完整信息
+//
+// @param request - ListAppRoleScopesRequest
+//
+// @return ListAppRoleScopesResponse
 func (client *Client) ListAppRoleScopes(agentId *string, request *ListAppRoleScopesRequest) (_result *ListAppRoleScopesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListAppRoleScopesHeaders{}
@@ -5346,6 +6243,17 @@ func (client *Client) ListAppRoleScopes(agentId *string, request *ListAppRoleSco
 	return _result, _err
 }
 
+// Summary:
+//
+// 列出企业内部H5应用
+//
+// @param request - ListInnerAppRequest
+//
+// @param headers - ListInnerAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListInnerAppResponse
 func (client *Client) ListInnerAppWithOptions(request *ListInnerAppRequest, headers *ListInnerAppHeaders, runtime *util.RuntimeOptions) (_result *ListInnerAppResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5389,6 +6297,13 @@ func (client *Client) ListInnerAppWithOptions(request *ListInnerAppRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 列出企业内部H5应用
+//
+// @param request - ListInnerAppRequest
+//
+// @return ListInnerAppResponse
 func (client *Client) ListInnerApp(request *ListInnerAppRequest) (_result *ListInnerAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListInnerAppHeaders{}
@@ -5401,6 +6316,15 @@ func (client *Client) ListInnerApp(request *ListInnerAppRequest) (_result *ListI
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业内部小程序的版本列表
+//
+// @param headers - ListInnerAppVersionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListInnerAppVersionResponse
 func (client *Client) ListInnerAppVersionWithOptions(agentId *string, headers *ListInnerAppVersionHeaders, runtime *util.RuntimeOptions) (_result *ListInnerAppVersionResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -5434,6 +6358,11 @@ func (client *Client) ListInnerAppVersionWithOptions(agentId *string, headers *L
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业内部小程序的版本列表
+//
+// @return ListInnerAppVersionResponse
 func (client *Client) ListInnerAppVersion(agentId *string) (_result *ListInnerAppVersionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListInnerAppVersionHeaders{}
@@ -5446,6 +6375,15 @@ func (client *Client) ListInnerAppVersion(agentId *string) (_result *ListInnerAp
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户在应用中的角色信息列表
+//
+// @param headers - ListRoleInfoByUserHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListRoleInfoByUserResponse
 func (client *Client) ListRoleInfoByUserWithOptions(agentId *string, userId *string, headers *ListRoleInfoByUserHeaders, runtime *util.RuntimeOptions) (_result *ListRoleInfoByUserResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -5479,6 +6417,11 @@ func (client *Client) ListRoleInfoByUserWithOptions(agentId *string, userId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户在应用中的角色信息列表
+//
+// @return ListRoleInfoByUserResponse
 func (client *Client) ListRoleInfoByUser(agentId *string, userId *string) (_result *ListRoleInfoByUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListRoleInfoByUserHeaders{}
@@ -5491,6 +6434,15 @@ func (client *Client) ListRoleInfoByUser(agentId *string, userId *string) (_resu
 	return _result, _err
 }
 
+// Summary:
+//
+// 列出用户可见的企业应用
+//
+// @param headers - ListUserVilebleAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListUserVilebleAppResponse
 func (client *Client) ListUserVilebleAppWithOptions(userId *string, headers *ListUserVilebleAppHeaders, runtime *util.RuntimeOptions) (_result *ListUserVilebleAppResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -5524,6 +6476,11 @@ func (client *Client) ListUserVilebleAppWithOptions(userId *string, headers *Lis
 	return _result, _err
 }
 
+// Summary:
+//
+// 列出用户可见的企业应用
+//
+// @return ListUserVilebleAppResponse
 func (client *Client) ListUserVilebleApp(userId *string) (_result *ListUserVilebleAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListUserVilebleAppHeaders{}
@@ -5536,6 +6493,17 @@ func (client *Client) ListUserVilebleApp(userId *string) (_result *ListUserVileb
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业内部小程序历史版本列表
+//
+// @param request - PageInnerAppHistoryVersionRequest
+//
+// @param headers - PageInnerAppHistoryVersionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PageInnerAppHistoryVersionResponse
 func (client *Client) PageInnerAppHistoryVersionWithOptions(agentId *string, request *PageInnerAppHistoryVersionRequest, headers *PageInnerAppHistoryVersionHeaders, runtime *util.RuntimeOptions) (_result *PageInnerAppHistoryVersionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5583,6 +6551,13 @@ func (client *Client) PageInnerAppHistoryVersionWithOptions(agentId *string, req
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业内部小程序历史版本列表
+//
+// @param request - PageInnerAppHistoryVersionRequest
+//
+// @return PageInnerAppHistoryVersionResponse
 func (client *Client) PageInnerAppHistoryVersion(agentId *string, request *PageInnerAppHistoryVersionRequest) (_result *PageInnerAppHistoryVersionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PageInnerAppHistoryVersionHeaders{}
@@ -5595,6 +6570,17 @@ func (client *Client) PageInnerAppHistoryVersion(agentId *string, request *PageI
 	return _result, _err
 }
 
+// Summary:
+//
+// 发布企业内部小程序版本
+//
+// @param request - PublishInnerAppVersionRequest
+//
+// @param headers - PublishInnerAppVersionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PublishInnerAppVersionResponse
 func (client *Client) PublishInnerAppVersionWithOptions(agentId *string, request *PublishInnerAppVersionRequest, headers *PublishInnerAppVersionHeaders, runtime *util.RuntimeOptions) (_result *PublishInnerAppVersionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5650,6 +6636,13 @@ func (client *Client) PublishInnerAppVersionWithOptions(agentId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 发布企业内部小程序版本
+//
+// @param request - PublishInnerAppVersionRequest
+//
+// @return PublishInnerAppVersionResponse
 func (client *Client) PublishInnerAppVersion(agentId *string, request *PublishInnerAppVersionRequest) (_result *PublishInnerAppVersionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PublishInnerAppVersionHeaders{}
@@ -5662,6 +6655,17 @@ func (client *Client) PublishInnerAppVersion(agentId *string, request *PublishIn
 	return _result, _err
 }
 
+// Summary:
+//
+// 重设角色范围
+//
+// @param request - RebuildRoleScopeForAppRoleRequest
+//
+// @param headers - RebuildRoleScopeForAppRoleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RebuildRoleScopeForAppRoleResponse
 func (client *Client) RebuildRoleScopeForAppRoleWithOptions(agentId *string, roleId *string, request *RebuildRoleScopeForAppRoleRequest, headers *RebuildRoleScopeForAppRoleHeaders, runtime *util.RuntimeOptions) (_result *RebuildRoleScopeForAppRoleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5721,6 +6725,13 @@ func (client *Client) RebuildRoleScopeForAppRoleWithOptions(agentId *string, rol
 	return _result, _err
 }
 
+// Summary:
+//
+// 重设角色范围
+//
+// @param request - RebuildRoleScopeForAppRoleRequest
+//
+// @return RebuildRoleScopeForAppRoleResponse
 func (client *Client) RebuildRoleScopeForAppRole(agentId *string, roleId *string, request *RebuildRoleScopeForAppRoleRequest) (_result *RebuildRoleScopeForAppRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RebuildRoleScopeForAppRoleHeaders{}
@@ -5733,6 +6744,17 @@ func (client *Client) RebuildRoleScopeForAppRole(agentId *string, roleId *string
 	return _result, _err
 }
 
+// Summary:
+//
+// 注册自定义应用角色
+//
+// @param request - RegisterCustomAppRoleRequest
+//
+// @param headers - RegisterCustomAppRoleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RegisterCustomAppRoleResponse
 func (client *Client) RegisterCustomAppRoleWithOptions(agentId *string, request *RegisterCustomAppRoleRequest, headers *RegisterCustomAppRoleHeaders, runtime *util.RuntimeOptions) (_result *RegisterCustomAppRoleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5784,6 +6806,13 @@ func (client *Client) RegisterCustomAppRoleWithOptions(agentId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 注册自定义应用角色
+//
+// @param request - RegisterCustomAppRoleRequest
+//
+// @return RegisterCustomAppRoleResponse
 func (client *Client) RegisterCustomAppRole(agentId *string, request *RegisterCustomAppRoleRequest) (_result *RegisterCustomAppRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RegisterCustomAppRoleHeaders{}
@@ -5796,6 +6825,17 @@ func (client *Client) RegisterCustomAppRole(agentId *string, request *RegisterCu
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除apaas应用
+//
+// @param request - RemoveApaasAppRequest
+//
+// @param headers - RemoveApaasAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RemoveApaasAppResponse
 func (client *Client) RemoveApaasAppWithOptions(request *RemoveApaasAppRequest, headers *RemoveApaasAppHeaders, runtime *util.RuntimeOptions) (_result *RemoveApaasAppResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5843,6 +6883,13 @@ func (client *Client) RemoveApaasAppWithOptions(request *RemoveApaasAppRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除apaas应用
+//
+// @param request - RemoveApaasAppRequest
+//
+// @return RemoveApaasAppResponse
 func (client *Client) RemoveApaasApp(request *RemoveApaasAppRequest) (_result *RemoveApaasAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RemoveApaasAppHeaders{}
@@ -5855,6 +6902,17 @@ func (client *Client) RemoveApaasApp(request *RemoveApaasAppRequest) (_result *R
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除指定角色下的成员
+//
+// @param request - RemoveMemberForAppRoleRequest
+//
+// @param headers - RemoveMemberForAppRoleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RemoveMemberForAppRoleResponse
 func (client *Client) RemoveMemberForAppRoleWithOptions(agentId *string, roleId *string, request *RemoveMemberForAppRoleRequest, headers *RemoveMemberForAppRoleHeaders, runtime *util.RuntimeOptions) (_result *RemoveMemberForAppRoleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5910,6 +6968,13 @@ func (client *Client) RemoveMemberForAppRoleWithOptions(agentId *string, roleId 
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除指定角色下的成员
+//
+// @param request - RemoveMemberForAppRoleRequest
+//
+// @return RemoveMemberForAppRoleResponse
 func (client *Client) RemoveMemberForAppRole(agentId *string, roleId *string, request *RemoveMemberForAppRoleRequest) (_result *RemoveMemberForAppRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RemoveMemberForAppRoleHeaders{}
@@ -5922,6 +6987,17 @@ func (client *Client) RemoveMemberForAppRole(agentId *string, roleId *string, re
 	return _result, _err
 }
 
+// Summary:
+//
+// 回滚企业内部小程序版本
+//
+// @param request - RollbackInnerAppVersionRequest
+//
+// @param headers - RollbackInnerAppVersionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RollbackInnerAppVersionResponse
 func (client *Client) RollbackInnerAppVersionWithOptions(agentId *string, request *RollbackInnerAppVersionRequest, headers *RollbackInnerAppVersionHeaders, runtime *util.RuntimeOptions) (_result *RollbackInnerAppVersionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5969,6 +7045,13 @@ func (client *Client) RollbackInnerAppVersionWithOptions(agentId *string, reques
 	return _result, _err
 }
 
+// Summary:
+//
+// 回滚企业内部小程序版本
+//
+// @param request - RollbackInnerAppVersionRequest
+//
+// @return RollbackInnerAppVersionResponse
 func (client *Client) RollbackInnerAppVersion(agentId *string, request *RollbackInnerAppVersionRequest) (_result *RollbackInnerAppVersionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RollbackInnerAppVersionHeaders{}
@@ -5981,6 +7064,17 @@ func (client *Client) RollbackInnerAppVersion(agentId *string, request *Rollback
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置应用可见范围
+//
+// @param request - SetMicroAppScopeRequest
+//
+// @param headers - SetMicroAppScopeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetMicroAppScopeResponse
 func (client *Client) SetMicroAppScopeWithOptions(agentId *string, request *SetMicroAppScopeRequest, headers *SetMicroAppScopeHeaders, runtime *util.RuntimeOptions) (_result *SetMicroAppScopeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6048,6 +7142,13 @@ func (client *Client) SetMicroAppScopeWithOptions(agentId *string, request *SetM
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置应用可见范围
+//
+// @param request - SetMicroAppScopeRequest
+//
+// @return SetMicroAppScopeResponse
 func (client *Client) SetMicroAppScope(agentId *string, request *SetMicroAppScopeRequest) (_result *SetMicroAppScopeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SetMicroAppScopeHeaders{}
@@ -6060,6 +7161,17 @@ func (client *Client) SetMicroAppScope(agentId *string, request *SetMicroAppScop
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新apaas应用
+//
+// @param request - UpdateApaasAppRequest
+//
+// @param headers - UpdateApaasAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateApaasAppResponse
 func (client *Client) UpdateApaasAppWithOptions(request *UpdateApaasAppRequest, headers *UpdateApaasAppHeaders, runtime *util.RuntimeOptions) (_result *UpdateApaasAppResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6119,6 +7231,13 @@ func (client *Client) UpdateApaasAppWithOptions(request *UpdateApaasAppRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新apaas应用
+//
+// @param request - UpdateApaasAppRequest
+//
+// @return UpdateApaasAppResponse
 func (client *Client) UpdateApaasApp(request *UpdateApaasAppRequest) (_result *UpdateApaasAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateApaasAppHeaders{}
@@ -6131,6 +7250,17 @@ func (client *Client) UpdateApaasApp(request *UpdateApaasAppRequest) (_result *U
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新应用角色信息
+//
+// @param request - UpdateAppRoleInfoRequest
+//
+// @param headers - UpdateAppRoleInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateAppRoleInfoResponse
 func (client *Client) UpdateAppRoleInfoWithOptions(agentId *string, roleId *string, request *UpdateAppRoleInfoRequest, headers *UpdateAppRoleInfoHeaders, runtime *util.RuntimeOptions) (_result *UpdateAppRoleInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6182,6 +7312,13 @@ func (client *Client) UpdateAppRoleInfoWithOptions(agentId *string, roleId *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新应用角色信息
+//
+// @param request - UpdateAppRoleInfoRequest
+//
+// @return UpdateAppRoleInfoResponse
 func (client *Client) UpdateAppRoleInfo(agentId *string, roleId *string, request *UpdateAppRoleInfoRequest) (_result *UpdateAppRoleInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateAppRoleInfoHeaders{}
@@ -6194,6 +7331,17 @@ func (client *Client) UpdateAppRoleInfo(agentId *string, roleId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新企业内部应用
+//
+// @param request - UpdateInnerAppRequest
+//
+// @param headers - UpdateInnerAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateInnerAppResponse
 func (client *Client) UpdateInnerAppWithOptions(agentId *string, request *UpdateInnerAppRequest, headers *UpdateInnerAppHeaders, runtime *util.RuntimeOptions) (_result *UpdateInnerAppResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6265,6 +7413,13 @@ func (client *Client) UpdateInnerAppWithOptions(agentId *string, request *Update
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新企业内部应用
+//
+// @param request - UpdateInnerAppRequest
+//
+// @return UpdateInnerAppResponse
 func (client *Client) UpdateInnerApp(agentId *string, request *UpdateInnerAppRequest) (_result *UpdateInnerAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateInnerAppHeaders{}

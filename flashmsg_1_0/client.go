@@ -1,19 +1,18 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package flashmsg_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
 type PrivateFieldMapValue struct {
+	// example:
+	//
+	// XXX发了一条闪读消息，请于今天 12:00前查看
 	TipTitle     *string            `json:"tipTitle,omitempty" xml:"tipTitle,omitempty"`
 	IsDingSend   *bool              `json:"isDingSend,omitempty" xml:"isDingSend,omitempty"`
 	IsRead       *bool              `json:"isRead,omitempty" xml:"isRead,omitempty"`
@@ -78,11 +77,32 @@ func (s *AddPluginRuleHeaders) SetXAcsDingtalkAccessToken(v string) *AddPluginRu
 }
 
 type AddPluginRuleRequest struct {
-	ChatType *string                      `json:"chatType,omitempty" xml:"chatType,omitempty"`
-	Code     *string                      `json:"code,omitempty" xml:"code,omitempty"`
-	ItemType *string                      `json:"itemType,omitempty" xml:"itemType,omitempty"`
-	Rules    []*AddPluginRuleRequestRules `json:"rules,omitempty" xml:"rules,omitempty" type:"Repeated"`
-	UserId   *string                      `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// group_chat
+	ChatType *string `json:"chatType,omitempty" xml:"chatType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// -10050
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// group
+	ItemType *string `json:"itemType,omitempty" xml:"itemType,omitempty"`
+	// This parameter is required.
+	Rules []*AddPluginRuleRequestRules `json:"rules,omitempty" xml:"rules,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0847493113802787
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AddPluginRuleRequest) String() string {
@@ -119,7 +139,17 @@ func (s *AddPluginRuleRequest) SetUserId(v string) *AddPluginRuleRequest {
 }
 
 type AddPluginRuleRequestRules struct {
-	ItemId   *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	ItemId *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 管理员角色
 	ItemName *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
 }
 
@@ -211,8 +241,14 @@ func (s *DeletePlguinRuleHeaders) SetXAcsDingtalkAccessToken(v string) *DeletePl
 }
 
 type DeletePlguinRuleRequest struct {
+	// This parameter is required.
 	BizIdList []*string `json:"bizIdList,omitempty" xml:"bizIdList,omitempty" type:"Repeated"`
-	UserId    *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0847493113802787
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DeletePlguinRuleRequest) String() string {
@@ -303,6 +339,7 @@ func (s *GetBaseProfileListHeaders) SetXAcsDingtalkAccessToken(v string) *GetBas
 }
 
 type GetBaseProfileListRequest struct {
+	// This parameter is required.
 	Body []*string `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
 }
 
@@ -430,8 +467,16 @@ func (s *GetConversationHeaders) SetXAcsDingtalkAccessToken(v string) *GetConver
 }
 
 type GetConversationRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidjyErBTyw0FnIQQigHAbcGCg==
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 080854121612617211
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetConversationRequest) String() string {
@@ -557,10 +602,24 @@ func (s *GetMemberListHeaders) SetXAcsDingtalkAccessToken(v string) *GetMemberLi
 }
 
 type GetMemberListRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidjyErBTyw0FnIQQXXX2223==
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	PageNumber         *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize           *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 08474931138022787
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetMemberListRequest) String() string {
@@ -661,12 +720,34 @@ func (s *QueryPluginRuleHeaders) SetXAcsDingtalkAccessToken(v string) *QueryPlug
 }
 
 type QueryPluginRuleRequest struct {
-	ChatType   *string `json:"chatType,omitempty" xml:"chatType,omitempty"`
-	Code       *string `json:"code,omitempty" xml:"code,omitempty"`
-	ItemId     *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
-	ItemType   *string `json:"itemType,omitempty" xml:"itemType,omitempty"`
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// group_chat
+	ChatType *string `json:"chatType,omitempty" xml:"chatType,omitempty"`
+	// example:
+	//
+	// -10050
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// example:
+	//
+	// 100
+	ItemId *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	// example:
+	//
+	// group
+	ItemType *string `json:"itemType,omitempty" xml:"itemType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryPluginRuleRequest) String() string {
@@ -859,12 +940,26 @@ func (s *SendDingTipHeaders) SetXAcsDingtalkAccessToken(v string) *SendDingTipHe
 }
 
 type SendDingTipRequest struct {
-	Extension      map[string]*string      `json:"extension,omitempty" xml:"extension,omitempty"`
-	Link           *SendDingTipRequestLink `json:"link,omitempty" xml:"link,omitempty" type:"Struct"`
-	MessageId      *string                 `json:"messageId,omitempty" xml:"messageId,omitempty"`
-	ReceiverUserId []*string               `json:"receiverUserId,omitempty" xml:"receiverUserId,omitempty" type:"Repeated"`
-	SenderUserId   *string                 `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
-	TextContent    *string                 `json:"textContent,omitempty" xml:"textContent,omitempty"`
+	Extension map[string]*string      `json:"extension,omitempty" xml:"extension,omitempty"`
+	Link      *SendDingTipRequestLink `json:"link,omitempty" xml:"link,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// msg_f9aae78558b34e20a5badead4c29244c_223
+	MessageId *string `json:"messageId,omitempty" xml:"messageId,omitempty"`
+	// This parameter is required.
+	ReceiverUserId []*string `json:"receiverUserId,omitempty" xml:"receiverUserId,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 080854121612261721
+	SenderUserId *string `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 您有一条闪读消息，请注意查收XX
+	TextContent *string `json:"textContent,omitempty" xml:"textContent,omitempty"`
 }
 
 func (s SendDingTipRequest) String() string {
@@ -906,10 +1001,23 @@ func (s *SendDingTipRequest) SetTextContent(v string) *SendDingTipRequest {
 }
 
 type SendDingTipRequestLink struct {
-	Extension  map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
-	LinkUrl    *string            `json:"linkUrl,omitempty" xml:"linkUrl,omitempty"`
-	PicMediaId *string            `json:"picMediaId,omitempty" xml:"picMediaId,omitempty"`
-	Text       *string            `json:"text,omitempty" xml:"text,omitempty"`
+	Extension map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingtalk://dingtalkclient/page/link?pc_slide=true
+	LinkUrl *string `json:"linkUrl,omitempty" xml:"linkUrl,omitempty"`
+	// example:
+	//
+	// @lQLPDhrngMo4hi3NAZDNAZCwqp0RL2MfbesBqImWncBnAA2BCD
+	PicMediaId *string `json:"picMediaId,omitempty" xml:"picMediaId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 今天 10:00后超期
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
 }
 
 func (s SendDingTipRequestLink) String() string {
@@ -1010,13 +1118,27 @@ func (s *SendMessageTipHeaders) SetXAcsDingtalkAccessToken(v string) *SendMessag
 }
 
 type SendMessageTipRequest struct {
-	DefaultView        *SendMessageTipRequestDefaultView `json:"defaultView,omitempty" xml:"defaultView,omitempty" type:"Struct"`
-	MessageId          *string                           `json:"messageId,omitempty" xml:"messageId,omitempty"`
+	DefaultView *SendMessageTipRequestDefaultView `json:"defaultView,omitempty" xml:"defaultView,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// msg_f9aae78558b34e20a5badead4c29244c_123
+	MessageId *string `json:"messageId,omitempty" xml:"messageId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidVcYPzxnAySJOMhYX2QDbLwUA==
 	OpenConversationId *string                           `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	PrivateFieldMap    map[string]*PrivateFieldMapValue  `json:"privateFieldMap,omitempty" xml:"privateFieldMap,omitempty"`
 	PublicField        *SendMessageTipRequestPublicField `json:"publicField,omitempty" xml:"publicField,omitempty" type:"Struct"`
-	ReceiverUserId     []*string                         `json:"receiverUserId,omitempty" xml:"receiverUserId,omitempty" type:"Repeated"`
-	SenderUserId       *string                           `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
+	// This parameter is required.
+	ReceiverUserId []*string `json:"receiverUserId,omitempty" xml:"receiverUserId,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 0808541222161261721
+	SenderUserId *string `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
 }
 
 func (s SendMessageTipRequest) String() string {
@@ -1063,17 +1185,26 @@ func (s *SendMessageTipRequest) SetSenderUserId(v string) *SendMessageTipRequest
 }
 
 type SendMessageTipRequestDefaultView struct {
-	ActionName         *string `json:"actionName,omitempty" xml:"actionName,omitempty"`
-	ActionUrl          *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
-	AuthCode           *string `json:"authCode,omitempty" xml:"authCode,omitempty"`
-	AuthMediaId        *string `json:"authMediaId,omitempty" xml:"authMediaId,omitempty"`
-	CardTitle          *string `json:"cardTitle,omitempty" xml:"cardTitle,omitempty"`
-	CardTitleColor     *string `json:"cardTitleColor,omitempty" xml:"cardTitleColor,omitempty"`
+	ActionName  *string `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	ActionUrl   *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
+	AuthCode    *string `json:"authCode,omitempty" xml:"authCode,omitempty"`
+	AuthMediaId *string `json:"authMediaId,omitempty" xml:"authMediaId,omitempty"`
+	// example:
+	//
+	// 闪读消息卡片1
+	CardTitle      *string `json:"cardTitle,omitempty" xml:"cardTitle,omitempty"`
+	CardTitleColor *string `json:"cardTitleColor,omitempty" xml:"cardTitleColor,omitempty"`
+	// example:
+	//
+	// 查看详情
 	Desc               *string `json:"desc,omitempty" xml:"desc,omitempty"`
 	MediaId            *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
 	NeedShowUpdateTail *string `json:"needShowUpdateTail,omitempty" xml:"needShowUpdateTail,omitempty"`
 	Summary            *string `json:"summary,omitempty" xml:"summary,omitempty"`
-	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 闪读消息卡片2
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s SendMessageTipRequestDefaultView) String() string {
@@ -1140,12 +1271,24 @@ func (s *SendMessageTipRequestDefaultView) SetTitle(v string) *SendMessageTipReq
 }
 
 type SendMessageTipRequestPublicField struct {
-	DetailUrl        *string            `json:"detailUrl,omitempty" xml:"detailUrl,omitempty"`
-	DurationDesc     *string            `json:"durationDesc,omitempty" xml:"durationDesc,omitempty"`
-	Extension        map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
-	IsExpired        *bool              `json:"isExpired,omitempty" xml:"isExpired,omitempty"`
-	ReadActionUrl    *string            `json:"readActionUrl,omitempty" xml:"readActionUrl,omitempty"`
-	ReadProgressDesc *string            `json:"readProgressDesc,omitempty" xml:"readProgressDesc,omitempty"`
+	// example:
+	//
+	// dingtalk://dingtalkclient/page/link33
+	DetailUrl *string `json:"detailUrl,omitempty" xml:"detailUrl,omitempty"`
+	// example:
+	//
+	// 限时阅读5分钟
+	DurationDesc *string            `json:"durationDesc,omitempty" xml:"durationDesc,omitempty"`
+	Extension    map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
+	IsExpired    *bool              `json:"isExpired,omitempty" xml:"isExpired,omitempty"`
+	// example:
+	//
+	// dingtalk://dingtalkclient/page/linkxx
+	ReadActionUrl *string `json:"readActionUrl,omitempty" xml:"readActionUrl,omitempty"`
+	// example:
+	//
+	// 已查收 0/1
+	ReadProgressDesc *string `json:"readProgressDesc,omitempty" xml:"readProgressDesc,omitempty"`
 }
 
 func (s SendMessageTipRequestPublicField) String() string {
@@ -1276,12 +1419,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -1290,6 +1433,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 添加插件规则
+//
+// @param request - AddPluginRuleRequest
+//
+// @param headers - AddPluginRuleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddPluginRuleResponse
 func (client *Client) AddPluginRuleWithOptions(request *AddPluginRuleRequest, headers *AddPluginRuleHeaders, runtime *util.RuntimeOptions) (_result *AddPluginRuleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1349,6 +1503,13 @@ func (client *Client) AddPluginRuleWithOptions(request *AddPluginRuleRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加插件规则
+//
+// @param request - AddPluginRuleRequest
+//
+// @return AddPluginRuleResponse
 func (client *Client) AddPluginRule(request *AddPluginRuleRequest) (_result *AddPluginRuleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddPluginRuleHeaders{}
@@ -1361,6 +1522,17 @@ func (client *Client) AddPluginRule(request *AddPluginRuleRequest) (_result *Add
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除插件规则
+//
+// @param request - DeletePlguinRuleRequest
+//
+// @param headers - DeletePlguinRuleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeletePlguinRuleResponse
 func (client *Client) DeletePlguinRuleWithOptions(request *DeletePlguinRuleRequest, headers *DeletePlguinRuleHeaders, runtime *util.RuntimeOptions) (_result *DeletePlguinRuleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1408,6 +1580,13 @@ func (client *Client) DeletePlguinRuleWithOptions(request *DeletePlguinRuleReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除插件规则
+//
+// @param request - DeletePlguinRuleRequest
+//
+// @return DeletePlguinRuleResponse
 func (client *Client) DeletePlguinRule(request *DeletePlguinRuleRequest) (_result *DeletePlguinRuleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeletePlguinRuleHeaders{}
@@ -1420,6 +1599,17 @@ func (client *Client) DeletePlguinRule(request *DeletePlguinRuleRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 闪读用户基础信息查询
+//
+// @param request - GetBaseProfileListRequest
+//
+// @param headers - GetBaseProfileListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetBaseProfileListResponse
 func (client *Client) GetBaseProfileListWithOptions(request *GetBaseProfileListRequest, headers *GetBaseProfileListHeaders, runtime *util.RuntimeOptions) (_result *GetBaseProfileListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1458,6 +1648,13 @@ func (client *Client) GetBaseProfileListWithOptions(request *GetBaseProfileListR
 	return _result, _err
 }
 
+// Summary:
+//
+// 闪读用户基础信息查询
+//
+// @param request - GetBaseProfileListRequest
+//
+// @return GetBaseProfileListResponse
 func (client *Client) GetBaseProfileList(request *GetBaseProfileListRequest) (_result *GetBaseProfileListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetBaseProfileListHeaders{}
@@ -1470,6 +1667,17 @@ func (client *Client) GetBaseProfileList(request *GetBaseProfileListRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 获得闪读会话信息
+//
+// @param request - GetConversationRequest
+//
+// @param headers - GetConversationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetConversationResponse
 func (client *Client) GetConversationWithOptions(request *GetConversationRequest, headers *GetConversationHeaders, runtime *util.RuntimeOptions) (_result *GetConversationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1517,6 +1725,13 @@ func (client *Client) GetConversationWithOptions(request *GetConversationRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获得闪读会话信息
+//
+// @param request - GetConversationRequest
+//
+// @return GetConversationResponse
 func (client *Client) GetConversation(request *GetConversationRequest) (_result *GetConversationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetConversationHeaders{}
@@ -1529,6 +1744,17 @@ func (client *Client) GetConversation(request *GetConversationRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获得成员ID列表
+//
+// @param request - GetMemberListRequest
+//
+// @param headers - GetMemberListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetMemberListResponse
 func (client *Client) GetMemberListWithOptions(request *GetMemberListRequest, headers *GetMemberListHeaders, runtime *util.RuntimeOptions) (_result *GetMemberListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1584,6 +1810,13 @@ func (client *Client) GetMemberListWithOptions(request *GetMemberListRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 获得成员ID列表
+//
+// @param request - GetMemberListRequest
+//
+// @return GetMemberListResponse
 func (client *Client) GetMemberList(request *GetMemberListRequest) (_result *GetMemberListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetMemberListHeaders{}
@@ -1596,6 +1829,17 @@ func (client *Client) GetMemberList(request *GetMemberListRequest) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询插件规则
+//
+// @param request - QueryPluginRuleRequest
+//
+// @param headers - QueryPluginRuleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryPluginRuleResponse
 func (client *Client) QueryPluginRuleWithOptions(request *QueryPluginRuleRequest, headers *QueryPluginRuleHeaders, runtime *util.RuntimeOptions) (_result *QueryPluginRuleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1659,6 +1903,13 @@ func (client *Client) QueryPluginRuleWithOptions(request *QueryPluginRuleRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询插件规则
+//
+// @param request - QueryPluginRuleRequest
+//
+// @return QueryPluginRuleResponse
 func (client *Client) QueryPluginRule(request *QueryPluginRuleRequest) (_result *QueryPluginRuleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryPluginRuleHeaders{}
@@ -1671,6 +1922,17 @@ func (client *Client) QueryPluginRule(request *QueryPluginRuleRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送Ding提示消息
+//
+// @param request - SendDingTipRequest
+//
+// @param headers - SendDingTipHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendDingTipResponse
 func (client *Client) SendDingTipWithOptions(request *SendDingTipRequest, headers *SendDingTipHeaders, runtime *util.RuntimeOptions) (_result *SendDingTipResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1734,6 +1996,13 @@ func (client *Client) SendDingTipWithOptions(request *SendDingTipRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送Ding提示消息
+//
+// @param request - SendDingTipRequest
+//
+// @return SendDingTipResponse
 func (client *Client) SendDingTip(request *SendDingTipRequest) (_result *SendDingTipResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendDingTipHeaders{}
@@ -1746,6 +2015,17 @@ func (client *Client) SendDingTip(request *SendDingTipRequest) (_result *SendDin
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送闪读消息提示
+//
+// @param request - SendMessageTipRequest
+//
+// @param headers - SendMessageTipHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendMessageTipResponse
 func (client *Client) SendMessageTipWithOptions(request *SendMessageTipRequest, headers *SendMessageTipHeaders, runtime *util.RuntimeOptions) (_result *SendMessageTipResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1813,6 +2093,13 @@ func (client *Client) SendMessageTipWithOptions(request *SendMessageTipRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送闪读消息提示
+//
+// @param request - SendMessageTipRequest
+//
+// @return SendMessageTipResponse
 func (client *Client) SendMessageTip(request *SendMessageTipRequest) (_result *SendMessageTipResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendMessageTipHeaders{}

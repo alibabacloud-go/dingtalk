@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package org_culture_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,12 +33,39 @@ func (s *AssignOrgHoldingToEmpHoldingBatchHeaders) SetXAcsDingtalkAccessToken(v 
 }
 
 type AssignOrgHoldingToEmpHoldingBatchRequest struct {
-	Remark               *string                                                   `json:"remark,omitempty" xml:"remark,omitempty"`
-	SendOrgCultureInform *bool                                                     `json:"sendOrgCultureInform,omitempty" xml:"sendOrgCultureInform,omitempty"`
-	SingleAmount         *int64                                                    `json:"singleAmount,omitempty" xml:"singleAmount,omitempty"`
-	SourceUsage          *string                                                   `json:"sourceUsage,omitempty" xml:"sourceUsage,omitempty"`
-	TargetUsage          *string                                                   `json:"targetUsage,omitempty" xml:"targetUsage,omitempty"`
-	TargetUserList       []*AssignOrgHoldingToEmpHoldingBatchRequestTargetUserList `json:"targetUserList,omitempty" xml:"targetUserList,omitempty" type:"Repeated"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// 表现优秀，特此奖励
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	SendOrgCultureInform *bool `json:"sendOrgCultureInform,omitempty" xml:"sendOrgCultureInform,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10000
+	SingleAmount *int64 `json:"singleAmount,omitempty" xml:"singleAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// OPEN_ORG_POINT_PERSONAL_ASSIGN
+	SourceUsage *string `json:"sourceUsage,omitempty" xml:"sourceUsage,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// OPEN_EMP_POINT_PERSONAL_RECEIVE
+	TargetUsage *string `json:"targetUsage,omitempty" xml:"targetUsage,omitempty"`
+	// This parameter is required.
+	TargetUserList []*AssignOrgHoldingToEmpHoldingBatchRequestTargetUserList `json:"targetUserList,omitempty" xml:"targetUserList,omitempty" type:"Repeated"`
 }
 
 func (s AssignOrgHoldingToEmpHoldingBatchRequest) String() string {
@@ -84,7 +107,17 @@ func (s *AssignOrgHoldingToEmpHoldingBatchRequest) SetTargetUserList(v []*Assign
 }
 
 type AssignOrgHoldingToEmpHoldingBatchRequestTargetUserList struct {
-	OutId        *string `json:"outId,omitempty" xml:"outId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 4353453454241
+	OutId *string `json:"outId,omitempty" xml:"outId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 551341216920908910
 	TargetUserId *string `json:"targetUserId,omitempty" xml:"targetUserId,omitempty"`
 }
 
@@ -147,11 +180,32 @@ func (s *AssignOrgHoldingToEmpHoldingBatchResponseBodyResult) SetOpenPointInvoke
 }
 
 type AssignOrgHoldingToEmpHoldingBatchResponseBodyResultOpenPointInvokeResultDTOS struct {
-	Code         *string `json:"code,omitempty" xml:"code,omitempty"`
+	// example:
+	//
+	// null
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUCCESS
 	InvokeStatus *string `json:"invokeStatus,omitempty" xml:"invokeStatus,omitempty"`
-	Msg          *string `json:"msg,omitempty" xml:"msg,omitempty"`
-	OutId        *string `json:"outId,omitempty" xml:"outId,omitempty"`
-	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// null
+	Msg *string `json:"msg,omitempty" xml:"msg,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 23423568784
+	OutId *string `json:"outId,omitempty" xml:"outId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 01274411491620908910
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AssignOrgHoldingToEmpHoldingBatchResponseBodyResultOpenPointInvokeResultDTOS) String() string {
@@ -240,10 +294,26 @@ func (s *ConsumeUserPointsHeaders) SetXAcsDingtalkAccessToken(v string) *Consume
 }
 
 type ConsumeUserPointsRequest struct {
-	Amount *int64  `json:"amount,omitempty" xml:"amount,omitempty"`
-	OutId  *string `json:"outId,omitempty" xml:"outId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	Amount *int64 `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// qwe123
+	OutId *string `json:"outId,omitempty" xml:"outId,omitempty"`
+	// example:
+	//
+	// 测试积分扣减
 	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	Usage  *string `json:"usage,omitempty" xml:"usage,omitempty"`
+	// example:
+	//
+	// OPEN_EMP_POINT_CONSUME_DEFAULT
+	Usage *string `json:"usage,omitempty" xml:"usage,omitempty"`
 }
 
 func (s ConsumeUserPointsRequest) String() string {
@@ -275,8 +345,12 @@ func (s *ConsumeUserPointsRequest) SetUsage(v string) *ConsumeUserPointsRequest 
 }
 
 type ConsumeUserPointsResponseBody struct {
-	Result  *ConsumeUserPointsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                                `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	Result *ConsumeUserPointsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s ConsumeUserPointsResponseBody) String() string {
@@ -298,6 +372,11 @@ func (s *ConsumeUserPointsResponseBody) SetSuccess(v bool) *ConsumeUserPointsRes
 }
 
 type ConsumeUserPointsResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 4990
 	Amount *int64 `json:"amount,omitempty" xml:"amount,omitempty"`
 }
 
@@ -367,12 +446,42 @@ func (s *CreateOrgHonorHeaders) SetXAcsDingtalkAccessToken(v string) *CreateOrgH
 }
 
 type CreateOrgHonorRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// $xxxxxxx
 	AvatarFrameMediaId *string `json:"avatarFrameMediaId,omitempty" xml:"avatarFrameMediaId,omitempty"`
-	DefaultBgColor     *string `json:"defaultBgColor,omitempty" xml:"defaultBgColor,omitempty"`
-	MedalDesc          *string `json:"medalDesc,omitempty" xml:"medalDesc,omitempty"`
-	MedalMediaId       *string `json:"medalMediaId,omitempty" xml:"medalMediaId,omitempty"`
-	MedalName          *string `json:"medalName,omitempty" xml:"medalName,omitempty"`
-	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// #FFFBB4
+	DefaultBgColor *string `json:"defaultBgColor,omitempty" xml:"defaultBgColor,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 客户服务用心，奖励荣誉
+	MedalDesc *string `json:"medalDesc,omitempty" xml:"medalDesc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// @xxxxxxx
+	MedalMediaId *string `json:"medalMediaId,omitempty" xml:"medalMediaId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 客户第一
+	MedalName *string `json:"medalName,omitempty" xml:"medalName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12312312
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateOrgHonorRequest) String() string {
@@ -437,6 +546,9 @@ func (s *CreateOrgHonorResponseBody) SetSuccess(v bool) *CreateOrgHonorResponseB
 }
 
 type CreateOrgHonorResponseBodyResult struct {
+	// example:
+	//
+	// 10000283
 	HonorId *string `json:"honorId,omitempty" xml:"honorId,omitempty"`
 }
 
@@ -506,11 +618,33 @@ func (s *DeductionPointBatchHeaders) SetXAcsDingtalkAccessToken(v string) *Deduc
 }
 
 type DeductionPointBatchRequest struct {
-	DeductionAmount      *int64                                      `json:"deductionAmount,omitempty" xml:"deductionAmount,omitempty"`
-	Remark               *string                                     `json:"remark,omitempty" xml:"remark,omitempty"`
-	SendOrgCultureInform *bool                                       `json:"sendOrgCultureInform,omitempty" xml:"sendOrgCultureInform,omitempty"`
-	TargetUserList       []*DeductionPointBatchRequestTargetUserList `json:"targetUserList,omitempty" xml:"targetUserList,omitempty" type:"Repeated"`
-	UserId               *string                                     `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10000
+	DeductionAmount *int64 `json:"deductionAmount,omitempty" xml:"deductionAmount,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// 表现不佳，以此惩罚。
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// 组织文化通知扣减原因
+	SendOrgCultureInform *bool `json:"sendOrgCultureInform,omitempty" xml:"sendOrgCultureInform,omitempty"`
+	// This parameter is required.
+	TargetUserList []*DeductionPointBatchRequestTargetUserList `json:"targetUserList,omitempty" xml:"targetUserList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 01274411491620908910
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DeductionPointBatchRequest) String() string {
@@ -547,7 +681,17 @@ func (s *DeductionPointBatchRequest) SetUserId(v string) *DeductionPointBatchReq
 }
 
 type DeductionPointBatchRequestTargetUserList struct {
-	OutId        *string `json:"outId,omitempty" xml:"outId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 232344342
+	OutId *string `json:"outId,omitempty" xml:"outId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 01274411491620908910
 	TargetUserId *string `json:"targetUserId,omitempty" xml:"targetUserId,omitempty"`
 }
 
@@ -570,8 +714,13 @@ func (s *DeductionPointBatchRequestTargetUserList) SetTargetUserId(v string) *De
 }
 
 type DeductionPointBatchResponseBody struct {
-	Result  *DeductionPointBatchResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                                  `json:"success,omitempty" xml:"success,omitempty"`
+	Result *DeductionPointBatchResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s DeductionPointBatchResponseBody) String() string {
@@ -610,11 +759,32 @@ func (s *DeductionPointBatchResponseBodyResult) SetOpenPointInvokeResultDTOS(v [
 }
 
 type DeductionPointBatchResponseBodyResultOpenPointInvokeResultDTOS struct {
-	Code         *string `json:"code,omitempty" xml:"code,omitempty"`
+	// example:
+	//
+	// banliang#-20005
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Fail
 	InvokeStatus *string `json:"invokeStatus,omitempty" xml:"invokeStatus,omitempty"`
-	Msg          *string `json:"msg,omitempty" xml:"msg,omitempty"`
-	OutId        *string `json:"outId,omitempty" xml:"outId,omitempty"`
-	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// freeze already settle
+	Msg *string `json:"msg,omitempty" xml:"msg,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 34345435345
+	OutId *string `json:"outId,omitempty" xml:"outId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 01274411491620908910
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DeductionPointBatchResponseBodyResultOpenPointInvokeResultDTOS) String() string {
@@ -703,9 +873,22 @@ func (s *ExportPointOpenHeaders) SetXAcsDingtalkAccessToken(v string) *ExportPoi
 }
 
 type ExportPointOpenRequest struct {
+	// example:
+	//
+	// 20220601
 	ExportDate *string `json:"exportDate,omitempty" xml:"exportDate,omitempty"`
-	ExportType *int64  `json:"exportType,omitempty" xml:"exportType,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	ExportType *int64 `json:"exportType,omitempty" xml:"exportType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11185568-1380470824
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ExportPointOpenRequest) String() string {
@@ -807,14 +990,36 @@ func (s *GrantHonorHeaders) SetXAcsDingtalkAccessToken(v string) *GrantHonorHead
 }
 
 type GrantHonorRequest struct {
-	ExpirationTime      *int64    `json:"expirationTime,omitempty" xml:"expirationTime,omitempty"`
-	GrantReason         *string   `json:"grantReason,omitempty" xml:"grantReason,omitempty"`
-	GranterName         *string   `json:"granterName,omitempty" xml:"granterName,omitempty"`
-	NoticeAnnouncer     *bool     `json:"noticeAnnouncer,omitempty" xml:"noticeAnnouncer,omitempty"`
+	ExpirationTime *int64 `json:"expirationTime,omitempty" xml:"expirationTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 表现优秀，特此奖励！
+	GrantReason *string `json:"grantReason,omitempty" xml:"grantReason,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 组织文化团队
+	GranterName *string `json:"granterName,omitempty" xml:"granterName,omitempty"`
+	// example:
+	//
+	// false
+	NoticeAnnouncer *bool `json:"noticeAnnouncer,omitempty" xml:"noticeAnnouncer,omitempty"`
+	// example:
+	//
+	// false
 	NoticeSingle        *bool     `json:"noticeSingle,omitempty" xml:"noticeSingle,omitempty"`
 	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
-	ReceiverUserIds     []*string `json:"receiverUserIds,omitempty" xml:"receiverUserIds,omitempty" type:"Repeated"`
-	SenderUserId        *string   `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
+	// This parameter is required.
+	ReceiverUserIds []*string `json:"receiverUserIds,omitempty" xml:"receiverUserIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxUserId
+	SenderUserId *string `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
 }
 
 func (s GrantHonorRequest) String() string {
@@ -964,6 +1169,11 @@ func (s *QueryCorpPointsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCorp
 }
 
 type QueryCorpPointsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 042216842933
 	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
 }
 
@@ -981,8 +1191,11 @@ func (s *QueryCorpPointsRequest) SetOptUserId(v string) *QueryCorpPointsRequest 
 }
 
 type QueryCorpPointsResponseBody struct {
-	Result  *QueryCorpPointsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                              `json:"success,omitempty" xml:"success,omitempty"`
+	Result *QueryCorpPointsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s QueryCorpPointsResponseBody) String() string {
@@ -1004,6 +1217,9 @@ func (s *QueryCorpPointsResponseBody) SetSuccess(v bool) *QueryCorpPointsRespons
 }
 
 type QueryCorpPointsResponseBodyResult struct {
+	// example:
+	//
+	// 1000
 	Amount *int64 `json:"amount,omitempty" xml:"amount,omitempty"`
 }
 
@@ -1073,9 +1289,22 @@ func (s *QueryEmpPointDetailsHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryEmpPointDetailsRequest struct {
-	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 042216842933
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryEmpPointDetailsRequest) String() string {
@@ -1102,8 +1331,13 @@ func (s *QueryEmpPointDetailsRequest) SetUserId(v string) *QueryEmpPointDetailsR
 }
 
 type QueryEmpPointDetailsResponseBody struct {
-	Result  *QueryEmpPointDetailsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                                   `json:"success,omitempty" xml:"success,omitempty"`
+	Result *QueryEmpPointDetailsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s QueryEmpPointDetailsResponseBody) String() string {
@@ -1126,7 +1360,12 @@ func (s *QueryEmpPointDetailsResponseBody) SetSuccess(v bool) *QueryEmpPointDeta
 
 type QueryEmpPointDetailsResponseBodyResult struct {
 	Details []*QueryEmpPointDetailsResponseBodyResultDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
-	HasMore *bool                                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 }
 
 func (s QueryEmpPointDetailsResponseBodyResult) String() string {
@@ -1148,11 +1387,29 @@ func (s *QueryEmpPointDetailsResponseBodyResult) SetHasMore(v bool) *QueryEmpPoi
 }
 
 type QueryEmpPointDetailsResponseBodyResultDetails struct {
-	Amount                         *int64                                                                       `json:"amount,omitempty" xml:"amount,omitempty"`
-	GmtCreate                      *int64                                                                       `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	Amount *int64 `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1655450856000
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 324324353535
 	OutId                          *string                                                                      `json:"outId,omitempty" xml:"outId,omitempty"`
 	PointOperateFeatureResponseDTO *QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTO `json:"pointOperateFeatureResponseDTO,omitempty" xml:"pointOperateFeatureResponseDTO,omitempty" type:"Struct"`
-	SourceBizCode                  *string                                                                      `json:"sourceBizCode,omitempty" xml:"sourceBizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// personal
+	SourceBizCode *string `json:"sourceBizCode,omitempty" xml:"sourceBizCode,omitempty"`
 }
 
 func (s QueryEmpPointDetailsResponseBodyResultDetails) String() string {
@@ -1191,8 +1448,16 @@ func (s *QueryEmpPointDetailsResponseBodyResultDetails) SetSourceBizCode(v strin
 type QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTO struct {
 	AccountSource *QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountSource `json:"accountSource,omitempty" xml:"accountSource,omitempty" type:"Struct"`
 	AccountTarget *QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountTarget `json:"accountTarget,omitempty" xml:"accountTarget,omitempty" type:"Struct"`
-	Remark        *string                                                                                   `json:"remark,omitempty" xml:"remark,omitempty"`
-	Usage         *string                                                                                   `json:"usage,omitempty" xml:"usage,omitempty"`
+	// example:
+	//
+	// 收到奖励积分
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 三方系统员工收到积分
+	Usage *string `json:"usage,omitempty" xml:"usage,omitempty"`
 }
 
 func (s QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTO) String() string {
@@ -1224,9 +1489,18 @@ func (s *QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureRespons
 }
 
 type QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountSource struct {
+	// example:
+	//
+	// EMP
 	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	EmpName     *string `json:"empName,omitempty" xml:"empName,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 张三
+	EmpName *string `json:"empName,omitempty" xml:"empName,omitempty"`
+	// example:
+	//
+	// 01274411491620908910
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountSource) String() string {
@@ -1253,9 +1527,18 @@ func (s *QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureRespons
 }
 
 type QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountTarget struct {
+	// example:
+	//
+	// personal
 	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	EmpName     *string `json:"empName,omitempty" xml:"empName,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 李四
+	EmpName *string `json:"empName,omitempty" xml:"empName,omitempty"`
+	// example:
+	//
+	// 01274411491620908910
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryEmpPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountTarget) String() string {
@@ -1334,8 +1617,16 @@ func (s *QueryOrgHonorsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryOrgHo
 }
 
 type QueryOrgHonorsRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryOrgHonorsRequest) String() string {
@@ -1496,10 +1787,28 @@ func (s *QueryOrgPointDetailsHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryOrgPointDetailsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ORG_DEDUCTIONS
 	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	PageNumber  *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize    *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 042216842933
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryOrgPointDetailsRequest) String() string {
@@ -1549,8 +1858,18 @@ func (s *QueryOrgPointDetailsResponseBody) SetResult(v *QueryOrgPointDetailsResp
 
 type QueryOrgPointDetailsResponseBodyResult struct {
 	Details []*QueryOrgPointDetailsResponseBodyResultDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
-	HasMore *bool                                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	Success *bool                                            `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s QueryOrgPointDetailsResponseBodyResult) String() string {
@@ -1577,11 +1896,29 @@ func (s *QueryOrgPointDetailsResponseBodyResult) SetSuccess(v bool) *QueryOrgPoi
 }
 
 type QueryOrgPointDetailsResponseBodyResultDetails struct {
-	Amount                         *int64                                                                       `json:"amount,omitempty" xml:"amount,omitempty"`
-	GmtCreate                      *int64                                                                       `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	Amount *int64 `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1655450960000
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 2323232134455667
 	OutId                          *string                                                                      `json:"outId,omitempty" xml:"outId,omitempty"`
 	PointOperateFeatureResponseDTO *QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTO `json:"pointOperateFeatureResponseDTO,omitempty" xml:"pointOperateFeatureResponseDTO,omitempty" type:"Struct"`
-	SourceBizCode                  *string                                                                      `json:"sourceBizCode,omitempty" xml:"sourceBizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// credit
+	SourceBizCode *string `json:"sourceBizCode,omitempty" xml:"sourceBizCode,omitempty"`
 }
 
 func (s QueryOrgPointDetailsResponseBodyResultDetails) String() string {
@@ -1620,8 +1957,16 @@ func (s *QueryOrgPointDetailsResponseBodyResultDetails) SetSourceBizCode(v strin
 type QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTO struct {
 	AccountSource *QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountSource `json:"accountSource,omitempty" xml:"accountSource,omitempty" type:"Struct"`
 	AccountTarget *QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountTarget `json:"accountTarget,omitempty" xml:"accountTarget,omitempty" type:"Struct"`
-	Remark        *string                                                                                   `json:"remark,omitempty" xml:"remark,omitempty"`
-	Usage         *string                                                                                   `json:"usage,omitempty" xml:"usage,omitempty"`
+	// example:
+	//
+	// 表现优秀，特此奖励
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 三方系统管理员发放额度
+	Usage *string `json:"usage,omitempty" xml:"usage,omitempty"`
 }
 
 func (s QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTO) String() string {
@@ -1653,9 +1998,20 @@ func (s *QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureRespons
 }
 
 type QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountSource struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ORG
 	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	EmpName     *string `json:"empName,omitempty" xml:"empName,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 张三
+	EmpName *string `json:"empName,omitempty" xml:"empName,omitempty"`
+	// example:
+	//
+	// 01274411491620908910
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountSource) String() string {
@@ -1682,9 +2038,18 @@ func (s *QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureRespons
 }
 
 type QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountTarget struct {
+	// example:
+	//
+	// EMP
 	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	EmpName     *string `json:"empName,omitempty" xml:"empName,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 李四
+	EmpName *string `json:"empName,omitempty" xml:"empName,omitempty"`
+	// example:
+	//
+	// 01274411491620908910
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryOrgPointDetailsResponseBodyResultDetailsPointOperateFeatureResponseDTOAccountTarget) String() string {
@@ -1803,11 +2168,36 @@ func (s *QueryPointActionAutoAssignRuleResponseBodyResult) SetQueryPointRuleResp
 }
 
 type QueryPointActionAutoAssignRuleResponseBodyResultQueryPointRuleResponseDTOS struct {
-	AwardScore    *int64  `json:"awardScore,omitempty" xml:"awardScore,omitempty"`
-	Code          *string `json:"code,omitempty" xml:"code,omitempty"`
-	DayLimitTimes *int64  `json:"dayLimitTimes,omitempty" xml:"dayLimitTimes,omitempty"`
-	Description   *string `json:"description,omitempty" xml:"description,omitempty"`
-	Status        *int64  `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	AwardScore *int64 `json:"awardScore,omitempty" xml:"awardScore,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DAILY_VISIT
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	DayLimitTimes *int64 `json:"dayLimitTimes,omitempty" xml:"dayLimitTimes,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 每日访问
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryPointActionAutoAssignRuleResponseBodyResultQueryPointRuleResponseDTOS) String() string {
@@ -1896,8 +2286,13 @@ func (s *QueryPointAutoIssueSettingHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type QueryPointAutoIssueSettingResponseBody struct {
-	Result  *QueryPointAutoIssueSettingResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                                         `json:"success,omitempty" xml:"success,omitempty"`
+	Result *QueryPointAutoIssueSettingResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s QueryPointAutoIssueSettingResponseBody) String() string {
@@ -1919,9 +2314,24 @@ func (s *QueryPointAutoIssueSettingResponseBody) SetSuccess(v bool) *QueryPointA
 }
 
 type QueryPointAutoIssueSettingResponseBodyResult struct {
-	PointAutoNum   *int64 `json:"pointAutoNum,omitempty" xml:"pointAutoNum,omitempty"`
-	PointAutoState *bool  `json:"pointAutoState,omitempty" xml:"pointAutoState,omitempty"`
-	PointAutoTime  *int64 `json:"pointAutoTime,omitempty" xml:"pointAutoTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	PointAutoNum *int64 `json:"pointAutoNum,omitempty" xml:"pointAutoNum,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	PointAutoState *bool `json:"pointAutoState,omitempty" xml:"pointAutoState,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 15
+	PointAutoTime *int64 `json:"pointAutoTime,omitempty" xml:"pointAutoTime,omitempty"`
 }
 
 func (s QueryPointAutoIssueSettingResponseBodyResult) String() string {
@@ -2000,8 +2410,16 @@ func (s *QueryUserHonorsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUser
 }
 
 type QueryUserHonorsRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryUserHonorsRequest) String() string {
@@ -2185,8 +2603,12 @@ func (s *QueryUserPointsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUser
 }
 
 type QueryUserPointsResponseBody struct {
-	Result  *QueryUserPointsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                              `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	Result *QueryUserPointsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s QueryUserPointsResponseBody) String() string {
@@ -2208,6 +2630,11 @@ func (s *QueryUserPointsResponseBody) SetSuccess(v bool) *QueryUserPointsRespons
 }
 
 type QueryUserPointsResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 4990
 	Amount *int64 `json:"amount,omitempty" xml:"amount,omitempty"`
 }
 
@@ -2277,6 +2704,11 @@ func (s *RecallHonorHeaders) SetXAcsDingtalkAccessToken(v string) *RecallHonorHe
 }
 
 type RecallHonorRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// suyfsdjfu
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -2386,10 +2818,30 @@ func (s *UpdateAutoIssuePointHeaders) SetXAcsDingtalkAccessToken(v string) *Upda
 }
 
 type UpdateAutoIssuePointRequest struct {
-	PointAutoNum   *int64  `json:"pointAutoNum,omitempty" xml:"pointAutoNum,omitempty"`
-	PointAutoState *bool   `json:"pointAutoState,omitempty" xml:"pointAutoState,omitempty"`
-	PointAutoTime  *int64  `json:"pointAutoTime,omitempty" xml:"pointAutoTime,omitempty"`
-	UserId         *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	PointAutoNum *int64 `json:"pointAutoNum,omitempty" xml:"pointAutoNum,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	PointAutoState *bool `json:"pointAutoState,omitempty" xml:"pointAutoState,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 15
+	PointAutoTime *int64 `json:"pointAutoTime,omitempty" xml:"pointAutoTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11185568-1380470824
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateAutoIssuePointRequest) String() string {
@@ -2421,8 +2873,13 @@ func (s *UpdateAutoIssuePointRequest) SetUserId(v string) *UpdateAutoIssuePointR
 }
 
 type UpdateAutoIssuePointResponseBody struct {
-	Result  *UpdateAutoIssuePointResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                                   `json:"success,omitempty" xml:"success,omitempty"`
+	Result *UpdateAutoIssuePointResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateAutoIssuePointResponseBody) String() string {
@@ -2444,6 +2901,11 @@ func (s *UpdateAutoIssuePointResponseBody) SetSuccess(v bool) *UpdateAutoIssuePo
 }
 
 type UpdateAutoIssuePointResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1655450856000
 	NextAutoIssuePointTime *int64 `json:"nextAutoIssuePointTime,omitempty" xml:"nextAutoIssuePointTime,omitempty"`
 }
 
@@ -2513,8 +2975,14 @@ func (s *UpdatePointActionAutoAssignRuleHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type UpdatePointActionAutoAssignRuleRequest struct {
+	// This parameter is required.
 	UpdatePointRuleRequestDTOList []*UpdatePointActionAutoAssignRuleRequestUpdatePointRuleRequestDTOList `json:"updatePointRuleRequestDTOList,omitempty" xml:"updatePointRuleRequestDTOList,omitempty" type:"Repeated"`
-	UserId                        *string                                                                `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11185568-1380470824
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdatePointActionAutoAssignRuleRequest) String() string {
@@ -2536,10 +3004,30 @@ func (s *UpdatePointActionAutoAssignRuleRequest) SetUserId(v string) *UpdatePoin
 }
 
 type UpdatePointActionAutoAssignRuleRequestUpdatePointRuleRequestDTOList struct {
-	AwardScore    *int64  `json:"awardScore,omitempty" xml:"awardScore,omitempty"`
-	Code          *string `json:"code,omitempty" xml:"code,omitempty"`
-	DayLimitTimes *int64  `json:"dayLimitTimes,omitempty" xml:"dayLimitTimes,omitempty"`
-	Status        *int64  `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	AwardScore *int64 `json:"awardScore,omitempty" xml:"awardScore,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// POST_IS_COMMENT
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	DayLimitTimes *int64 `json:"dayLimitTimes,omitempty" xml:"dayLimitTimes,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s UpdatePointActionAutoAssignRuleRequestUpdatePointRuleRequestDTOList) String() string {
@@ -2640,6 +3128,12 @@ func (s *WearOrgHonorHeaders) SetXAcsDingtalkAccessToken(v string) *WearOrgHonor
 }
 
 type WearOrgHonorRequest struct {
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// accs233sxx
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	Wear   *bool   `json:"wear,omitempty" xml:"wear,omitempty"`
 }
@@ -2746,12 +3240,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -2760,6 +3254,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 批量发放积分或额度
+//
+// @param request - AssignOrgHoldingToEmpHoldingBatchRequest
+//
+// @param headers - AssignOrgHoldingToEmpHoldingBatchHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AssignOrgHoldingToEmpHoldingBatchResponse
 func (client *Client) AssignOrgHoldingToEmpHoldingBatchWithOptions(request *AssignOrgHoldingToEmpHoldingBatchRequest, headers *AssignOrgHoldingToEmpHoldingBatchHeaders, runtime *util.RuntimeOptions) (_result *AssignOrgHoldingToEmpHoldingBatchResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2823,6 +3328,13 @@ func (client *Client) AssignOrgHoldingToEmpHoldingBatchWithOptions(request *Assi
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量发放积分或额度
+//
+// @param request - AssignOrgHoldingToEmpHoldingBatchRequest
+//
+// @return AssignOrgHoldingToEmpHoldingBatchResponse
 func (client *Client) AssignOrgHoldingToEmpHoldingBatch(request *AssignOrgHoldingToEmpHoldingBatchRequest) (_result *AssignOrgHoldingToEmpHoldingBatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AssignOrgHoldingToEmpHoldingBatchHeaders{}
@@ -2835,6 +3347,17 @@ func (client *Client) AssignOrgHoldingToEmpHoldingBatch(request *AssignOrgHoldin
 	return _result, _err
 }
 
+// Summary:
+//
+// 扣减员工积分
+//
+// @param request - ConsumeUserPointsRequest
+//
+// @param headers - ConsumeUserPointsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ConsumeUserPointsResponse
 func (client *Client) ConsumeUserPointsWithOptions(userId *string, request *ConsumeUserPointsRequest, headers *ConsumeUserPointsHeaders, runtime *util.RuntimeOptions) (_result *ConsumeUserPointsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2890,6 +3413,13 @@ func (client *Client) ConsumeUserPointsWithOptions(userId *string, request *Cons
 	return _result, _err
 }
 
+// Summary:
+//
+// 扣减员工积分
+//
+// @param request - ConsumeUserPointsRequest
+//
+// @return ConsumeUserPointsResponse
 func (client *Client) ConsumeUserPoints(userId *string, request *ConsumeUserPointsRequest) (_result *ConsumeUserPointsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ConsumeUserPointsHeaders{}
@@ -2902,6 +3432,17 @@ func (client *Client) ConsumeUserPoints(userId *string, request *ConsumeUserPoin
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建荣誉勋章模板
+//
+// @param request - CreateOrgHonorRequest
+//
+// @param headers - CreateOrgHonorHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateOrgHonorResponse
 func (client *Client) CreateOrgHonorWithOptions(request *CreateOrgHonorRequest, headers *CreateOrgHonorHeaders, runtime *util.RuntimeOptions) (_result *CreateOrgHonorResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2965,6 +3506,13 @@ func (client *Client) CreateOrgHonorWithOptions(request *CreateOrgHonorRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建荣誉勋章模板
+//
+// @param request - CreateOrgHonorRequest
+//
+// @return CreateOrgHonorResponse
 func (client *Client) CreateOrgHonor(request *CreateOrgHonorRequest) (_result *CreateOrgHonorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateOrgHonorHeaders{}
@@ -2977,6 +3525,17 @@ func (client *Client) CreateOrgHonor(request *CreateOrgHonorRequest) (_result *C
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量扣减积分
+//
+// @param request - DeductionPointBatchRequest
+//
+// @param headers - DeductionPointBatchHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeductionPointBatchResponse
 func (client *Client) DeductionPointBatchWithOptions(request *DeductionPointBatchRequest, headers *DeductionPointBatchHeaders, runtime *util.RuntimeOptions) (_result *DeductionPointBatchResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3036,6 +3595,13 @@ func (client *Client) DeductionPointBatchWithOptions(request *DeductionPointBatc
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量扣减积分
+//
+// @param request - DeductionPointBatchRequest
+//
+// @return DeductionPointBatchResponse
 func (client *Client) DeductionPointBatch(request *DeductionPointBatchRequest) (_result *DeductionPointBatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeductionPointBatchHeaders{}
@@ -3048,6 +3614,17 @@ func (client *Client) DeductionPointBatch(request *DeductionPointBatchRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 积分榜单导出
+//
+// @param request - ExportPointOpenRequest
+//
+// @param headers - ExportPointOpenHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExportPointOpenResponse
 func (client *Client) ExportPointOpenWithOptions(request *ExportPointOpenRequest, headers *ExportPointOpenHeaders, runtime *util.RuntimeOptions) (_result *ExportPointOpenResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3099,6 +3676,13 @@ func (client *Client) ExportPointOpenWithOptions(request *ExportPointOpenRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 积分榜单导出
+//
+// @param request - ExportPointOpenRequest
+//
+// @return ExportPointOpenResponse
 func (client *Client) ExportPointOpen(request *ExportPointOpenRequest) (_result *ExportPointOpenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ExportPointOpenHeaders{}
@@ -3111,6 +3695,17 @@ func (client *Client) ExportPointOpen(request *ExportPointOpenRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 授予荣誉 异步执行
+//
+// @param request - GrantHonorRequest
+//
+// @param headers - GrantHonorHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GrantHonorResponse
 func (client *Client) GrantHonorWithOptions(honorId *string, request *GrantHonorRequest, headers *GrantHonorHeaders, runtime *util.RuntimeOptions) (_result *GrantHonorResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3182,6 +3777,13 @@ func (client *Client) GrantHonorWithOptions(honorId *string, request *GrantHonor
 	return _result, _err
 }
 
+// Summary:
+//
+// 授予荣誉 异步执行
+//
+// @param request - GrantHonorRequest
+//
+// @return GrantHonorResponse
 func (client *Client) GrantHonor(honorId *string, request *GrantHonorRequest) (_result *GrantHonorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GrantHonorHeaders{}
@@ -3194,6 +3796,17 @@ func (client *Client) GrantHonor(honorId *string, request *GrantHonorRequest) (_
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询当前企业下可兑换的积分
+//
+// @param request - QueryCorpPointsRequest
+//
+// @param headers - QueryCorpPointsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCorpPointsResponse
 func (client *Client) QueryCorpPointsWithOptions(request *QueryCorpPointsRequest, headers *QueryCorpPointsHeaders, runtime *util.RuntimeOptions) (_result *QueryCorpPointsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3237,6 +3850,13 @@ func (client *Client) QueryCorpPointsWithOptions(request *QueryCorpPointsRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询当前企业下可兑换的积分
+//
+// @param request - QueryCorpPointsRequest
+//
+// @return QueryCorpPointsResponse
 func (client *Client) QueryCorpPoints(request *QueryCorpPointsRequest) (_result *QueryCorpPointsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryCorpPointsHeaders{}
@@ -3249,6 +3869,17 @@ func (client *Client) QueryCorpPoints(request *QueryCorpPointsRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询个人积分使用明细
+//
+// @param request - QueryEmpPointDetailsRequest
+//
+// @param headers - QueryEmpPointDetailsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryEmpPointDetailsResponse
 func (client *Client) QueryEmpPointDetailsWithOptions(request *QueryEmpPointDetailsRequest, headers *QueryEmpPointDetailsHeaders, runtime *util.RuntimeOptions) (_result *QueryEmpPointDetailsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3300,6 +3931,13 @@ func (client *Client) QueryEmpPointDetailsWithOptions(request *QueryEmpPointDeta
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询个人积分使用明细
+//
+// @param request - QueryEmpPointDetailsRequest
+//
+// @return QueryEmpPointDetailsResponse
 func (client *Client) QueryEmpPointDetails(request *QueryEmpPointDetailsRequest) (_result *QueryEmpPointDetailsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryEmpPointDetailsHeaders{}
@@ -3312,6 +3950,17 @@ func (client *Client) QueryEmpPointDetails(request *QueryEmpPointDetailsRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取组织荣誉
+//
+// @param request - QueryOrgHonorsRequest
+//
+// @param headers - QueryOrgHonorsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryOrgHonorsResponse
 func (client *Client) QueryOrgHonorsWithOptions(request *QueryOrgHonorsRequest, headers *QueryOrgHonorsHeaders, runtime *util.RuntimeOptions) (_result *QueryOrgHonorsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3359,6 +4008,13 @@ func (client *Client) QueryOrgHonorsWithOptions(request *QueryOrgHonorsRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取组织荣誉
+//
+// @param request - QueryOrgHonorsRequest
+//
+// @return QueryOrgHonorsResponse
 func (client *Client) QueryOrgHonors(request *QueryOrgHonorsRequest) (_result *QueryOrgHonorsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryOrgHonorsHeaders{}
@@ -3371,6 +4027,17 @@ func (client *Client) QueryOrgHonors(request *QueryOrgHonorsRequest) (_result *Q
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询组织发放扣除积分明细
+//
+// @param request - QueryOrgPointDetailsRequest
+//
+// @param headers - QueryOrgPointDetailsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryOrgPointDetailsResponse
 func (client *Client) QueryOrgPointDetailsWithOptions(request *QueryOrgPointDetailsRequest, headers *QueryOrgPointDetailsHeaders, runtime *util.RuntimeOptions) (_result *QueryOrgPointDetailsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3426,6 +4093,13 @@ func (client *Client) QueryOrgPointDetailsWithOptions(request *QueryOrgPointDeta
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询组织发放扣除积分明细
+//
+// @param request - QueryOrgPointDetailsRequest
+//
+// @return QueryOrgPointDetailsResponse
 func (client *Client) QueryOrgPointDetails(request *QueryOrgPointDetailsRequest) (_result *QueryOrgPointDetailsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryOrgPointDetailsHeaders{}
@@ -3438,6 +4112,15 @@ func (client *Client) QueryOrgPointDetails(request *QueryOrgPointDetailsRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询积分自动发放行为规则
+//
+// @param headers - QueryPointActionAutoAssignRuleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryPointActionAutoAssignRuleResponse
 func (client *Client) QueryPointActionAutoAssignRuleWithOptions(headers *QueryPointActionAutoAssignRuleHeaders, runtime *util.RuntimeOptions) (_result *QueryPointActionAutoAssignRuleResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -3471,6 +4154,11 @@ func (client *Client) QueryPointActionAutoAssignRuleWithOptions(headers *QueryPo
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询积分自动发放行为规则
+//
+// @return QueryPointActionAutoAssignRuleResponse
 func (client *Client) QueryPointActionAutoAssignRule() (_result *QueryPointActionAutoAssignRuleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryPointActionAutoAssignRuleHeaders{}
@@ -3483,6 +4171,15 @@ func (client *Client) QueryPointActionAutoAssignRule() (_result *QueryPointActio
 	return _result, _err
 }
 
+// Summary:
+//
+// 每月自动发放额度查询
+//
+// @param headers - QueryPointAutoIssueSettingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryPointAutoIssueSettingResponse
 func (client *Client) QueryPointAutoIssueSettingWithOptions(headers *QueryPointAutoIssueSettingHeaders, runtime *util.RuntimeOptions) (_result *QueryPointAutoIssueSettingResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -3516,6 +4213,11 @@ func (client *Client) QueryPointAutoIssueSettingWithOptions(headers *QueryPointA
 	return _result, _err
 }
 
+// Summary:
+//
+// 每月自动发放额度查询
+//
+// @return QueryPointAutoIssueSettingResponse
 func (client *Client) QueryPointAutoIssueSetting() (_result *QueryPointAutoIssueSettingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryPointAutoIssueSettingHeaders{}
@@ -3528,6 +4230,17 @@ func (client *Client) QueryPointAutoIssueSetting() (_result *QueryPointAutoIssue
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询员工已获得的组织荣誉列表
+//
+// @param request - QueryUserHonorsRequest
+//
+// @param headers - QueryUserHonorsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryUserHonorsResponse
 func (client *Client) QueryUserHonorsWithOptions(userId *string, request *QueryUserHonorsRequest, headers *QueryUserHonorsHeaders, runtime *util.RuntimeOptions) (_result *QueryUserHonorsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3575,6 +4288,13 @@ func (client *Client) QueryUserHonorsWithOptions(userId *string, request *QueryU
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询员工已获得的组织荣誉列表
+//
+// @param request - QueryUserHonorsRequest
+//
+// @return QueryUserHonorsResponse
 func (client *Client) QueryUserHonors(userId *string, request *QueryUserHonorsRequest) (_result *QueryUserHonorsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryUserHonorsHeaders{}
@@ -3587,6 +4307,15 @@ func (client *Client) QueryUserHonors(userId *string, request *QueryUserHonorsRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询员工已获得的积分
+//
+// @param headers - QueryUserPointsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryUserPointsResponse
 func (client *Client) QueryUserPointsWithOptions(userId *string, headers *QueryUserPointsHeaders, runtime *util.RuntimeOptions) (_result *QueryUserPointsResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -3620,6 +4349,11 @@ func (client *Client) QueryUserPointsWithOptions(userId *string, headers *QueryU
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询员工已获得的积分
+//
+// @return QueryUserPointsResponse
 func (client *Client) QueryUserPoints(userId *string) (_result *QueryUserPointsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryUserPointsHeaders{}
@@ -3632,6 +4366,17 @@ func (client *Client) QueryUserPoints(userId *string) (_result *QueryUserPointsR
 	return _result, _err
 }
 
+// Summary:
+//
+// 撤销员工获得的荣誉勋章
+//
+// @param request - RecallHonorRequest
+//
+// @param headers - RecallHonorHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RecallHonorResponse
 func (client *Client) RecallHonorWithOptions(honorId *string, request *RecallHonorRequest, headers *RecallHonorHeaders, runtime *util.RuntimeOptions) (_result *RecallHonorResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3675,6 +4420,13 @@ func (client *Client) RecallHonorWithOptions(honorId *string, request *RecallHon
 	return _result, _err
 }
 
+// Summary:
+//
+// 撤销员工获得的荣誉勋章
+//
+// @param request - RecallHonorRequest
+//
+// @return RecallHonorResponse
 func (client *Client) RecallHonor(honorId *string, request *RecallHonorRequest) (_result *RecallHonorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RecallHonorHeaders{}
@@ -3687,6 +4439,17 @@ func (client *Client) RecallHonor(honorId *string, request *RecallHonorRequest) 
 	return _result, _err
 }
 
+// Summary:
+//
+// 每月自动发放额度修改
+//
+// @param request - UpdateAutoIssuePointRequest
+//
+// @param headers - UpdateAutoIssuePointHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateAutoIssuePointResponse
 func (client *Client) UpdateAutoIssuePointWithOptions(request *UpdateAutoIssuePointRequest, headers *UpdateAutoIssuePointHeaders, runtime *util.RuntimeOptions) (_result *UpdateAutoIssuePointResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3742,6 +4505,13 @@ func (client *Client) UpdateAutoIssuePointWithOptions(request *UpdateAutoIssuePo
 	return _result, _err
 }
 
+// Summary:
+//
+// 每月自动发放额度修改
+//
+// @param request - UpdateAutoIssuePointRequest
+//
+// @return UpdateAutoIssuePointResponse
 func (client *Client) UpdateAutoIssuePoint(request *UpdateAutoIssuePointRequest) (_result *UpdateAutoIssuePointResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateAutoIssuePointHeaders{}
@@ -3754,6 +4524,17 @@ func (client *Client) UpdateAutoIssuePoint(request *UpdateAutoIssuePointRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改积分系统行为规则
+//
+// @param request - UpdatePointActionAutoAssignRuleRequest
+//
+// @param headers - UpdatePointActionAutoAssignRuleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdatePointActionAutoAssignRuleResponse
 func (client *Client) UpdatePointActionAutoAssignRuleWithOptions(request *UpdatePointActionAutoAssignRuleRequest, headers *UpdatePointActionAutoAssignRuleHeaders, runtime *util.RuntimeOptions) (_result *UpdatePointActionAutoAssignRuleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3801,6 +4582,13 @@ func (client *Client) UpdatePointActionAutoAssignRuleWithOptions(request *Update
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改积分系统行为规则
+//
+// @param request - UpdatePointActionAutoAssignRuleRequest
+//
+// @return UpdatePointActionAutoAssignRuleResponse
 func (client *Client) UpdatePointActionAutoAssignRule(request *UpdatePointActionAutoAssignRuleRequest) (_result *UpdatePointActionAutoAssignRuleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdatePointActionAutoAssignRuleHeaders{}
@@ -3813,6 +4601,17 @@ func (client *Client) UpdatePointActionAutoAssignRule(request *UpdatePointAction
 	return _result, _err
 }
 
+// Summary:
+//
+// 佩戴/卸下荣誉勋章
+//
+// @param request - WearOrgHonorRequest
+//
+// @param headers - WearOrgHonorHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return WearOrgHonorResponse
 func (client *Client) WearOrgHonorWithOptions(honorId *string, request *WearOrgHonorRequest, headers *WearOrgHonorHeaders, runtime *util.RuntimeOptions) (_result *WearOrgHonorResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3860,6 +4659,13 @@ func (client *Client) WearOrgHonorWithOptions(honorId *string, request *WearOrgH
 	return _result, _err
 }
 
+// Summary:
+//
+// 佩戴/卸下荣誉勋章
+//
+// @param request - WearOrgHonorRequest
+//
+// @return WearOrgHonorResponse
 func (client *Client) WearOrgHonor(honorId *string, request *WearOrgHonorRequest) (_result *WearOrgHonorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &WearOrgHonorHeaders{}

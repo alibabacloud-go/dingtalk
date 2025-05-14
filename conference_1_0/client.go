@@ -1,42 +1,107 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package conference_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
 type MetricMapValue struct {
-	Timestamp                  *int64  `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
-	SendBitRate                *string `json:"sendBitRate,omitempty" xml:"sendBitRate,omitempty"`
-	RecvBitRate                *string `json:"recvBitRate,omitempty" xml:"recvBitRate,omitempty"`
-	LostRate                   *string `json:"lostRate,omitempty" xml:"lostRate,omitempty"`
-	RoundTripTime              *string `json:"roundTripTime,omitempty" xml:"roundTripTime,omitempty"`
-	AudioSendBitRate           *string `json:"audioSendBitRate,omitempty" xml:"audioSendBitRate,omitempty"`
-	AudioRecvBitRate           *string `json:"audioRecvBitRate,omitempty" xml:"audioRecvBitRate,omitempty"`
-	AudioRecLevel              *string `json:"audioRecLevel,omitempty" xml:"audioRecLevel,omitempty"`
-	AudioPlayLevel             *string `json:"audioPlayLevel,omitempty" xml:"audioPlayLevel,omitempty"`
-	CameraSendBitRate          *string `json:"cameraSendBitRate,omitempty" xml:"cameraSendBitRate,omitempty"`
-	CameraRecvBitRate          *string `json:"cameraRecvBitRate,omitempty" xml:"cameraRecvBitRate,omitempty"`
+	// example:
+	//
+	// 1682562120000
+	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	// example:
+	//
+	// 1145172
+	SendBitRate *string `json:"sendBitRate,omitempty" xml:"sendBitRate,omitempty"`
+	// example:
+	//
+	// 111
+	RecvBitRate *string `json:"recvBitRate,omitempty" xml:"recvBitRate,omitempty"`
+	// example:
+	//
+	// 0
+	LostRate *string `json:"lostRate,omitempty" xml:"lostRate,omitempty"`
+	// example:
+	//
+	// 20
+	RoundTripTime *string `json:"roundTripTime,omitempty" xml:"roundTripTime,omitempty"`
+	// example:
+	//
+	// 59103
+	AudioSendBitRate *string `json:"audioSendBitRate,omitempty" xml:"audioSendBitRate,omitempty"`
+	// example:
+	//
+	// 52939
+	AudioRecvBitRate *string `json:"audioRecvBitRate,omitempty" xml:"audioRecvBitRate,omitempty"`
+	// example:
+	//
+	// 25
+	AudioRecLevel *string `json:"audioRecLevel,omitempty" xml:"audioRecLevel,omitempty"`
+	// example:
+	//
+	// 27
+	AudioPlayLevel *string `json:"audioPlayLevel,omitempty" xml:"audioPlayLevel,omitempty"`
+	// example:
+	//
+	// 1145172
+	CameraSendBitRate *string `json:"cameraSendBitRate,omitempty" xml:"cameraSendBitRate,omitempty"`
+	// example:
+	//
+	// 66160
+	CameraRecvBitRate *string `json:"cameraRecvBitRate,omitempty" xml:"cameraRecvBitRate,omitempty"`
+	// example:
+	//
+	// 1920*1080
 	CameraSendResolutionActual *string `json:"cameraSendResolutionActual,omitempty" xml:"cameraSendResolutionActual,omitempty"`
+	// example:
+	//
+	// 1920*1080
 	CameraRecvResolutionActual *string `json:"cameraRecvResolutionActual,omitempty" xml:"cameraRecvResolutionActual,omitempty"`
-	CameraSendFrame            *string `json:"cameraSendFrame,omitempty" xml:"cameraSendFrame,omitempty"`
-	ScreenSendBitRate          *string `json:"screenSendBitRate,omitempty" xml:"screenSendBitRate,omitempty"`
-	CameraRecvFrame            *string `json:"cameraRecvFrame,omitempty" xml:"cameraRecvFrame,omitempty"`
-	ScreenRecvBitRate          *string `json:"screenRecvBitRate,omitempty" xml:"screenRecvBitRate,omitempty"`
+	// example:
+	//
+	// 20
+	CameraSendFrame *string `json:"cameraSendFrame,omitempty" xml:"cameraSendFrame,omitempty"`
+	// example:
+	//
+	// 15701
+	ScreenSendBitRate *string `json:"screenSendBitRate,omitempty" xml:"screenSendBitRate,omitempty"`
+	// example:
+	//
+	// 20
+	CameraRecvFrame *string `json:"cameraRecvFrame,omitempty" xml:"cameraRecvFrame,omitempty"`
+	// example:
+	//
+	// 0
+	ScreenRecvBitRate *string `json:"screenRecvBitRate,omitempty" xml:"screenRecvBitRate,omitempty"`
+	// example:
+	//
+	// 1920*1080
 	ScreenSendResolutionActual *string `json:"screenSendResolutionActual,omitempty" xml:"screenSendResolutionActual,omitempty"`
+	// example:
+	//
+	// 1920*1080
 	ScreenRecvResolutionActual *string `json:"screenRecvResolutionActual,omitempty" xml:"screenRecvResolutionActual,omitempty"`
-	ScreenSendFrame            *string `json:"screenSendFrame,omitempty" xml:"screenSendFrame,omitempty"`
-	ScreenRecvFrame            *string `json:"screenRecvFrame,omitempty" xml:"screenRecvFrame,omitempty"`
-	AudioJitterMax             *string `json:"audioJitterMax,omitempty" xml:"audioJitterMax,omitempty"`
-	AudioJitterAvg             *string `json:"audioJitterAvg,omitempty" xml:"audioJitterAvg,omitempty"`
+	// example:
+	//
+	// 14
+	ScreenSendFrame *string `json:"screenSendFrame,omitempty" xml:"screenSendFrame,omitempty"`
+	// example:
+	//
+	// 0
+	ScreenRecvFrame *string `json:"screenRecvFrame,omitempty" xml:"screenRecvFrame,omitempty"`
+	// example:
+	//
+	// 0
+	AudioJitterMax *string `json:"audioJitterMax,omitempty" xml:"audioJitterMax,omitempty"`
+	// example:
+	//
+	// 0
+	AudioJitterAvg *string `json:"audioJitterAvg,omitempty" xml:"audioJitterAvg,omitempty"`
 }
 
 func (s MetricMapValue) String() string {
@@ -163,18 +228,54 @@ func (s *MetricMapValue) SetAudioJitterAvg(v string) *MetricMapValue {
 }
 
 type MemberModelMapValue struct {
-	UnionId        *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	ConferenceId   *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
-	UserNick       *string `json:"userNick,omitempty" xml:"userNick,omitempty"`
-	JoinTime       *int64  `json:"joinTime,omitempty" xml:"joinTime,omitempty"`
-	LeaveTime      *int64  `json:"leaveTime,omitempty" xml:"leaveTime,omitempty"`
-	Duration       *int64  `json:"duration,omitempty" xml:"duration,omitempty"`
-	AttendStatus   *int32  `json:"attendStatus,omitempty" xml:"attendStatus,omitempty"`
-	Host           *bool   `json:"host,omitempty" xml:"host,omitempty"`
-	CoHost         *bool   `json:"coHost,omitempty" xml:"coHost,omitempty"`
-	OuterOrgMember *bool   `json:"outerOrgMember,omitempty" xml:"outerOrgMember,omitempty"`
-	PstnJoin       *bool   `json:"pstnJoin,omitempty" xml:"pstnJoin,omitempty"`
-	DeviceType     *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 654058f2411fe90147e68780
+	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	// example:
+	//
+	// 测试昵称
+	UserNick *string `json:"userNick,omitempty" xml:"userNick,omitempty"`
+	// example:
+	//
+	// 1699347295876
+	JoinTime *int64 `json:"joinTime,omitempty" xml:"joinTime,omitempty"`
+	// example:
+	//
+	// 1699347395876
+	LeaveTime *int64 `json:"leaveTime,omitempty" xml:"leaveTime,omitempty"`
+	// example:
+	//
+	// 100000
+	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// example:
+	//
+	// 1：初始化  2：呼叫中  3：活跃（在会）  4：入会失败（拒接等）  5：被踢  6：离会
+	AttendStatus *int32 `json:"attendStatus,omitempty" xml:"attendStatus,omitempty"`
+	// example:
+	//
+	// true：是  false：否
+	Host *bool `json:"host,omitempty" xml:"host,omitempty"`
+	// example:
+	//
+	// true：是  false：否
+	CoHost *bool `json:"coHost,omitempty" xml:"coHost,omitempty"`
+	// example:
+	//
+	// true：是  false：否
+	OuterOrgMember *bool `json:"outerOrgMember,omitempty" xml:"outerOrgMember,omitempty"`
+	// example:
+	//
+	// true：是  false：否
+	PstnJoin *bool `json:"pstnJoin,omitempty" xml:"pstnJoin,omitempty"`
+	// example:
+	//
+	// Win Mac iOS Android
+	DeviceType *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
 }
 
 func (s MemberModelMapValue) String() string {
@@ -245,6 +346,119 @@ func (s *MemberModelMapValue) SetDeviceType(v string) *MemberModelMapValue {
 	return s
 }
 
+type AddRecordPermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddRecordPermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRecordPermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddRecordPermissionHeaders) SetCommonHeaders(v map[string]*string) *AddRecordPermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddRecordPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *AddRecordPermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddRecordPermissionRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cloud_record
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lJcRnm39OsU4jlFFXXXXXXX
+	OwnerUnionId *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lJcRnm39OsU4jlFVmRGXXXXX
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s AddRecordPermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRecordPermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddRecordPermissionRequest) SetBizType(v string) *AddRecordPermissionRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *AddRecordPermissionRequest) SetOwnerUnionId(v string) *AddRecordPermissionRequest {
+	s.OwnerUnionId = &v
+	return s
+}
+
+func (s *AddRecordPermissionRequest) SetUnionId(v string) *AddRecordPermissionRequest {
+	s.UnionId = &v
+	return s
+}
+
+type AddRecordPermissionResponseBody struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+}
+
+func (s AddRecordPermissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRecordPermissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddRecordPermissionResponseBody) SetCode(v string) *AddRecordPermissionResponseBody {
+	s.Code = &v
+	return s
+}
+
+type AddRecordPermissionResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddRecordPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AddRecordPermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRecordPermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddRecordPermissionResponse) SetHeaders(v map[string]*string) *AddRecordPermissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddRecordPermissionResponse) SetStatusCode(v int32) *AddRecordPermissionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddRecordPermissionResponse) SetBody(v *AddRecordPermissionResponseBody) *AddRecordPermissionResponse {
+	s.Body = v
+	return s
+}
+
 type CancelScheduleConferenceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -269,7 +483,17 @@ func (s *CancelScheduleConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type CancelScheduleConferenceRequest struct {
-	CreatorUnionId       *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// qzR1iSMDvzR9iP7Pxxxxxxxxxxxx
+	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2a489xxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 	ScheduleConferenceId *string `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
 }
 
@@ -361,6 +585,11 @@ func (s *CloseVideoConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *Clos
 }
 
 type CloseVideoConferenceRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 27SaQ3iiHLN0uwqcPisedfreNwiEiE
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -379,7 +608,8 @@ func (s *CloseVideoConferenceRequest) SetUnionId(v string) *CloseVideoConference
 
 type CloseVideoConferenceResponseBody struct {
 	Cause *string `json:"cause,omitempty" xml:"cause,omitempty"`
-	Code  *int64  `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	Code *int64 `json:"code,omitempty" xml:"code,omitempty"`
 }
 
 func (s CloseVideoConferenceResponseBody) String() string {
@@ -453,7 +683,13 @@ func (s *CohostsHeaders) SetXAcsDingtalkAccessToken(v string) *CohostsHeaders {
 }
 
 type CohostsRequest struct {
-	Action   *string                   `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// add
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
 	UserList []*CohostsRequestUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
 }
 
@@ -476,6 +712,11 @@ func (s *CohostsRequest) SetUserList(v []*CohostsRequestUserList) *CohostsReques
 }
 
 type CohostsRequestUserList struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// qzR1iSMDvzR9iP7Pxxxxxxxxxxxxxxx
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -562,11 +803,32 @@ func (s *CreateCustomShortLinkHeaders) SetXAcsDingtalkAccessToken(v string) *Cre
 }
 
 type CreateCustomShortLinkRequest struct {
-	CoolAppCode          *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	CreatorUnionId       *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
-	ExtensionAppBizData  *string `json:"extensionAppBizData,omitempty" xml:"extensionAppBizData,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// COOLAPP-0-1026633886192127xxxB000W
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	// example:
+	//
+	// bizData
+	ExtensionAppBizData *string `json:"extensionAppBizData,omitempty" xml:"extensionAppBizData,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// f6fb627e-a7e8-403e-b1f8-26e85450f4a9
 	ScheduleConferenceId *string `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
-	UseExtensionApp      *bool   `json:"useExtensionApp,omitempty" xml:"useExtensionApp,omitempty"`
+	// example:
+	//
+	// true：使用 false：不使用
+	UseExtensionApp *bool `json:"useExtensionApp,omitempty" xml:"useExtensionApp,omitempty"`
 }
 
 func (s CreateCustomShortLinkRequest) String() string {
@@ -689,10 +951,31 @@ func (s *CreateScheduleConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type CreateScheduleConferenceRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// qzR1iSMDvzR9iP7Pxxxxxxxxxxxx
 	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
-	EndTime        *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	StartTime      *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Title          *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1687928400000
+	EndTime                  *int64                                                   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	ScheduleConfSettingModel *CreateScheduleConferenceRequestScheduleConfSettingModel `json:"scheduleConfSettingModel,omitempty" xml:"scheduleConfSettingModel,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1687924800000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 预约会议标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateScheduleConferenceRequest) String() string {
@@ -713,6 +996,11 @@ func (s *CreateScheduleConferenceRequest) SetEndTime(v int64) *CreateScheduleCon
 	return s
 }
 
+func (s *CreateScheduleConferenceRequest) SetScheduleConfSettingModel(v *CreateScheduleConferenceRequestScheduleConfSettingModel) *CreateScheduleConferenceRequest {
+	s.ScheduleConfSettingModel = v
+	return s
+}
+
 func (s *CreateScheduleConferenceRequest) SetStartTime(v int64) *CreateScheduleConferenceRequest {
 	s.StartTime = &v
 	return s
@@ -723,12 +1011,287 @@ func (s *CreateScheduleConferenceRequest) SetTitle(v string) *CreateScheduleConf
 	return s
 }
 
+type CreateScheduleConferenceRequestScheduleConfSettingModel struct {
+	CohostUnionIds []*string `json:"cohostUnionIds,omitempty" xml:"cohostUnionIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// dingc02f685fa06381c44ac5d6980864d335
+	ConfAllowedCorpId *string `json:"confAllowedCorpId,omitempty" xml:"confAllowedCorpId,omitempty"`
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	HostUnionId *string `json:"hostUnionId,omitempty" xml:"hostUnionId,omitempty"`
+	// example:
+	//
+	// 0：取消锁定 1：锁定
+	LockRoom                    *int32                                                                              `json:"lockRoom,omitempty" xml:"lockRoom,omitempty"`
+	MoziConfOpenRecordSetting   *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting   `json:"moziConfOpenRecordSetting,omitempty" xml:"moziConfOpenRecordSetting,omitempty" type:"Struct"`
+	MoziConfVirtualExtraSetting *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting `json:"moziConfVirtualExtraSetting,omitempty" xml:"moziConfVirtualExtraSetting,omitempty" type:"Struct"`
+	// example:
+	//
+	// -1：未开启 1：开启 6：超过6人自动开启静音
+	MuteOnJoin *int32 `json:"muteOnJoin,omitempty" xml:"muteOnJoin,omitempty"`
+	// example:
+	//
+	// 0：允许共享 1：禁止共享
+	ScreenShareForbidden *int32 `json:"screenShareForbidden,omitempty" xml:"screenShareForbidden,omitempty"`
+}
+
+func (s CreateScheduleConferenceRequestScheduleConfSettingModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateScheduleConferenceRequestScheduleConfSettingModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModel) SetCohostUnionIds(v []*string) *CreateScheduleConferenceRequestScheduleConfSettingModel {
+	s.CohostUnionIds = v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModel) SetConfAllowedCorpId(v string) *CreateScheduleConferenceRequestScheduleConfSettingModel {
+	s.ConfAllowedCorpId = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModel) SetHostUnionId(v string) *CreateScheduleConferenceRequestScheduleConfSettingModel {
+	s.HostUnionId = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModel) SetLockRoom(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModel {
+	s.LockRoom = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModel) SetMoziConfOpenRecordSetting(v *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting) *CreateScheduleConferenceRequestScheduleConfSettingModel {
+	s.MoziConfOpenRecordSetting = v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModel) SetMoziConfVirtualExtraSetting(v *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) *CreateScheduleConferenceRequestScheduleConfSettingModel {
+	s.MoziConfVirtualExtraSetting = v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModel) SetMuteOnJoin(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModel {
+	s.MuteOnJoin = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModel) SetScreenShareForbidden(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModel {
+	s.ScreenShareForbidden = &v
+	return s
+}
+
+type CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting struct {
+	// example:
+	//
+	// true：跟随 false：不跟随
+	IsFollowHost *bool `json:"isFollowHost,omitempty" xml:"isFollowHost,omitempty"`
+	// example:
+	//
+	// grid：宫格模式,默认9宫格(3x3) speech：演讲者模式 full_screen：全屏模式 auto_grid：自动宫格模式，默认最大4x4宫格 screen_cast：屏幕共享模式，仅放置屏幕共享流 p2p：双人通话模式 full_screen_and_speaker：共享内容+发言人模式
+	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	// example:
+	//
+	// 0：不自动开启 1：自动开启
+	RecordAutoStart *int32 `json:"recordAutoStart,omitempty" xml:"recordAutoStart,omitempty"`
+	// example:
+	//
+	// 0：我以主持人身份入会后自动开启 1：其他人以联席主持人身份入会后开启 2：任何人以任何身份入会后开启
+	RecordAutoStartType *int32 `json:"recordAutoStartType,omitempty" xml:"recordAutoStartType,omitempty"`
+}
+
+func (s CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting) GoString() string {
+	return s.String()
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting) SetIsFollowHost(v bool) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting {
+	s.IsFollowHost = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting) SetMode(v string) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting {
+	s.Mode = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting) SetRecordAutoStart(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting {
+	s.RecordAutoStart = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting) SetRecordAutoStartType(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting {
+	s.RecordAutoStartType = &v
+	return s
+}
+
+type CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting struct {
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	CloudRecordOwnerUnionId *string `json:"cloudRecordOwnerUnionId,omitempty" xml:"cloudRecordOwnerUnionId,omitempty"`
+	// example:
+	//
+	// 0：未开启 1：开启
+	EnableChat *int32 `json:"enableChat,omitempty" xml:"enableChat,omitempty"`
+	// example:
+	//
+	// true：允许匿名登录入会 false：不允许匿名登录入会
+	EnableWebAnonymousJoin *bool `json:"enableWebAnonymousJoin,omitempty" xml:"enableWebAnonymousJoin,omitempty"`
+	// example:
+	//
+	// 0：未开启 1：开启
+	JoinBeforeHost *int32 `json:"joinBeforeHost,omitempty" xml:"joinBeforeHost,omitempty"`
+	// example:
+	//
+	// 0：未开启 1：开启
+	LockMediaStatusMicMute *int32 `json:"lockMediaStatusMicMute,omitempty" xml:"lockMediaStatusMicMute,omitempty"`
+	// example:
+	//
+	// 0：未开启 1：开启
+	LockNick *int32 `json:"lockNick,omitempty" xml:"lockNick,omitempty"`
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	MinutesOwnerUnionId          *string                                                                                                           `json:"minutesOwnerUnionId,omitempty" xml:"minutesOwnerUnionId,omitempty"`
+	MoziConfExtensionAppSettings []*CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings `json:"moziConfExtensionAppSettings,omitempty" xml:"moziConfExtensionAppSettings,omitempty" type:"Repeated"`
+	PushAllMeetingRecords        *bool                                                                                                             `json:"pushAllMeetingRecords,omitempty" xml:"pushAllMeetingRecords,omitempty"`
+	PushCloudRecordCard          *bool                                                                                                             `json:"pushCloudRecordCard,omitempty" xml:"pushCloudRecordCard,omitempty"`
+	PushMinutesCard              *bool                                                                                                             `json:"pushMinutesCard,omitempty" xml:"pushMinutesCard,omitempty"`
+	// example:
+	//
+	// 0：未开启 1：开启
+	WaitingRoom *int32 `json:"waitingRoom,omitempty" xml:"waitingRoom,omitempty"`
+}
+
+func (s CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) GoString() string {
+	return s.String()
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetCloudRecordOwnerUnionId(v string) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.CloudRecordOwnerUnionId = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetEnableChat(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.EnableChat = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetEnableWebAnonymousJoin(v bool) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.EnableWebAnonymousJoin = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetJoinBeforeHost(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.JoinBeforeHost = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetLockMediaStatusMicMute(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.LockMediaStatusMicMute = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetLockNick(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.LockNick = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetMinutesOwnerUnionId(v string) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.MinutesOwnerUnionId = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetMoziConfExtensionAppSettings(v []*CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.MoziConfExtensionAppSettings = v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetPushAllMeetingRecords(v bool) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.PushAllMeetingRecords = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetPushCloudRecordCard(v bool) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.PushCloudRecordCard = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetPushMinutesCard(v bool) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.PushMinutesCard = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetWaitingRoom(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.WaitingRoom = &v
+	return s
+}
+
+type CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings struct {
+	// example:
+	//
+	// 0：不自动打开 1：仅主持人/联席主持人自动打开 2：全员自动打开
+	AutoOpenMode *int32 `json:"autoOpenMode,omitempty" xml:"autoOpenMode,omitempty"`
+	// example:
+	//
+	// COOLAPP-0-1026633886192127xxxB000W
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	// example:
+	//
+	// bizData
+	ExtensionAppBizData *string `json:"extensionAppBizData,omitempty" xml:"extensionAppBizData,omitempty"`
+}
+
+func (s CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) GoString() string {
+	return s.String()
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) SetAutoOpenMode(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings {
+	s.AutoOpenMode = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) SetCoolAppCode(v string) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings {
+	s.CoolAppCode = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) SetExtensionAppBizData(v string) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings {
+	s.ExtensionAppBizData = &v
+	return s
+}
+
 type CreateScheduleConferenceResponseBody struct {
-	Phones               []*string `json:"phones,omitempty" xml:"phones,omitempty" type:"Repeated"`
-	RequestId            *string   `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	RoomCode             *string   `json:"roomCode,omitempty" xml:"roomCode,omitempty"`
-	ScheduleConferenceId *string   `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
-	Url                  *string   `json:"url,omitempty" xml:"url,omitempty"`
+	Phones    []*string `json:"phones,omitempty" xml:"phones,omitempty" type:"Repeated"`
+	RequestId *string   `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// 838 722 xxxxx
+	RoomCode *string `json:"roomCode,omitempty" xml:"roomCode,omitempty"`
+	// example:
+	//
+	// 2a489c68-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+	ScheduleConferenceId *string `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
+	// example:
+	//
+	// https://meeting.dingtalk.com/j/Bsbp3ixxxxxUyJJ9
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s CreateScheduleConferenceResponseBody) String() string {
@@ -817,10 +1380,28 @@ func (s *CreateVideoConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *Cre
 }
 
 type CreateVideoConferenceRequest struct {
-	ConfTitle     *string   `json:"confTitle,omitempty" xml:"confTitle,omitempty"`
-	InviteCaller  *bool     `json:"inviteCaller,omitempty" xml:"inviteCaller,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// XXX的视频会议
+	ConfTitle *string `json:"confTitle,omitempty" xml:"confTitle,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// false
+	InviteCaller *bool `json:"inviteCaller,omitempty" xml:"inviteCaller,omitempty"`
+	// if can be null:
+	// true
 	InviteUserIds []*string `json:"inviteUserIds,omitempty" xml:"inviteUserIds,omitempty" type:"Repeated"`
-	UserId        *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 27SaQ3iiHLN0uwqcPisedfreNwiEiE
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateVideoConferenceRequest) String() string {
@@ -852,6 +1433,7 @@ func (s *CreateVideoConferenceRequest) SetUserId(v string) *CreateVideoConferenc
 }
 
 type CreateVideoConferenceResponseBody struct {
+	// This parameter is required.
 	ConferenceId       *string   `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
 	ConferencePassword *string   `json:"conferencePassword,omitempty" xml:"conferencePassword,omitempty"`
 	ExternalLinkUrl    *string   `json:"externalLinkUrl,omitempty" xml:"externalLinkUrl,omitempty"`
@@ -951,7 +1533,9 @@ func (s *FocusHeaders) SetXAcsDingtalkAccessToken(v string) *FocusHeaders {
 }
 
 type FocusRequest struct {
-	Action  *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -1019,6 +1603,120 @@ func (s *FocusResponse) SetBody(v *FocusResponseBody) *FocusResponse {
 	return s
 }
 
+type GenerateFlashMinutesDocumentUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GenerateFlashMinutesDocumentUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateFlashMinutesDocumentUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateFlashMinutesDocumentUrlHeaders) SetCommonHeaders(v map[string]*string) *GenerateFlashMinutesDocumentUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GenerateFlashMinutesDocumentUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GenerateFlashMinutesDocumentUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GenerateFlashMinutesDocumentUrlRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cloud_record
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// 1727185971000
+	ExpireTime *int64 `json:"expireTime,omitempty" xml:"expireTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lJcRnm39OsU4jlFVmRG9KXXXX
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GenerateFlashMinutesDocumentUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateFlashMinutesDocumentUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateFlashMinutesDocumentUrlRequest) SetBizType(v string) *GenerateFlashMinutesDocumentUrlRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *GenerateFlashMinutesDocumentUrlRequest) SetExpireTime(v int64) *GenerateFlashMinutesDocumentUrlRequest {
+	s.ExpireTime = &v
+	return s
+}
+
+func (s *GenerateFlashMinutesDocumentUrlRequest) SetUnionId(v string) *GenerateFlashMinutesDocumentUrlRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GenerateFlashMinutesDocumentUrlResponseBody struct {
+	MinutesDocUrl *string `json:"minutesDocUrl,omitempty" xml:"minutesDocUrl,omitempty"`
+}
+
+func (s GenerateFlashMinutesDocumentUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateFlashMinutesDocumentUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateFlashMinutesDocumentUrlResponseBody) SetMinutesDocUrl(v string) *GenerateFlashMinutesDocumentUrlResponseBody {
+	s.MinutesDocUrl = &v
+	return s
+}
+
+type GenerateFlashMinutesDocumentUrlResponse struct {
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GenerateFlashMinutesDocumentUrlResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GenerateFlashMinutesDocumentUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateFlashMinutesDocumentUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateFlashMinutesDocumentUrlResponse) SetHeaders(v map[string]*string) *GenerateFlashMinutesDocumentUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GenerateFlashMinutesDocumentUrlResponse) SetStatusCode(v int32) *GenerateFlashMinutesDocumentUrlResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GenerateFlashMinutesDocumentUrlResponse) SetBody(v *GenerateFlashMinutesDocumentUrlResponseBody) *GenerateFlashMinutesDocumentUrlResponse {
+	s.Body = v
+	return s
+}
+
 type GetConfDataByConferenceIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1043,6 +1741,7 @@ func (s *GetConfDataByConferenceIdHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type GetConfDataByConferenceIdRequest struct {
+	// This parameter is required.
 	RealData *bool `json:"realData,omitempty" xml:"realData,omitempty"`
 }
 
@@ -1060,17 +1759,50 @@ func (s *GetConfDataByConferenceIdRequest) SetRealData(v bool) *GetConfDataByCon
 }
 
 type GetConfDataByConferenceIdResponseBody struct {
+	// example:
+	//
+	// 6449d8a6414xxxxxxxx01464af9f0
 	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
-	CreatorId    *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	CreatorNick  *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
-	DeptName     *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	EndTime      *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	FreeType     *string `json:"freeType,omitempty" xml:"freeType,omitempty"`
-	Scene        *string `json:"scene,omitempty" xml:"scene,omitempty"`
-	StartTime    *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	TimeLength   *int64  `json:"timeLength,omitempty" xml:"timeLength,omitempty"`
-	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
-	UserCount    *int32  `json:"userCount,omitempty" xml:"userCount,omitempty"`
+	// example:
+	//
+	// njMTqKo9xxxxEiE
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// 张三
+	CreatorNick *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	// example:
+	//
+	// xxxx
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// example:
+	//
+	// 1682561790000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 0
+	FreeType *string `json:"freeType,omitempty" xml:"freeType,omitempty"`
+	// example:
+	//
+	// ding_talk
+	Scene *string `json:"scene,omitempty" xml:"scene,omitempty"`
+	// example:
+	//
+	// 1682561190000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 600000
+	TimeLength *int64 `json:"timeLength,omitempty" xml:"timeLength,omitempty"`
+	// example:
+	//
+	// xxxxx测试会议
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 2
+	UserCount *int32 `json:"userCount,omitempty" xml:"userCount,omitempty"`
 }
 
 func (s GetConfDataByConferenceIdResponseBody) String() string {
@@ -1189,9 +1921,18 @@ func (s *GetConfDetailDataHeaders) SetXAcsDingtalkAccessToken(v string) *GetConf
 }
 
 type GetConfDetailDataRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Nick       *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	// example:
+	//
+	// 100
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// xxx9uZ0bVGoqjxxxxxxxx
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 张三
+	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
 }
 
 func (s GetConfDetailDataRequest) String() string {
@@ -1218,8 +1959,11 @@ func (s *GetConfDetailDataRequest) SetNick(v string) *GetConfDetailDataRequest {
 }
 
 type GetConfDetailDataResponseBody struct {
-	List      []*GetConfDetailDataResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	NextToken *string                              `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	List []*GetConfDetailDataResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// example:
+	//
+	// xxxxZ0bVGoqxxBGQbxdxxxx
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GetConfDetailDataResponseBody) String() string {
@@ -1241,19 +1985,58 @@ func (s *GetConfDetailDataResponseBody) SetNextToken(v string) *GetConfDetailDat
 }
 
 type GetConfDetailDataResponseBodyList struct {
-	BelongOrg      *string `json:"belongOrg,omitempty" xml:"belongOrg,omitempty"`
-	ConferenceId   *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
-	DeviceType     *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
-	Duration       *int64  `json:"duration,omitempty" xml:"duration,omitempty"`
-	JoinTime       *int64  `json:"joinTime,omitempty" xml:"joinTime,omitempty"`
-	LeaveTime      *int64  `json:"leaveTime,omitempty" xml:"leaveTime,omitempty"`
+	// example:
+	//
+	// true
+	BelongOrg *string `json:"belongOrg,omitempty" xml:"belongOrg,omitempty"`
+	// example:
+	//
+	// 6449d8a6414xxxxxxxx01464af9f0
+	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	// example:
+	//
+	// Mac
+	DeviceType *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	// example:
+	//
+	// 974000
+	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// example:
+	//
+	// 1682561199000
+	JoinTime *int64 `json:"joinTime,omitempty" xml:"joinTime,omitempty"`
+	// example:
+	//
+	// 1682562173000
+	LeaveTime *int64 `json:"leaveTime,omitempty" xml:"leaveTime,omitempty"`
+	// example:
+	//
+	// -1
 	NetworkQuality *string `json:"networkQuality,omitempty" xml:"networkQuality,omitempty"`
-	Nick           *string `json:"nick,omitempty" xml:"nick,omitempty"`
-	Role           *string `json:"role,omitempty" xml:"role,omitempty"`
-	SessionId      *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
-	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
-	UnionId        *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	Version        *string `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// 张三
+	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	// example:
+	//
+	// 参会人
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
+	// example:
+	//
+	// xxxx
+	SessionId *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
+	// example:
+	//
+	// 已离开
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// njMTqKo9xxxxEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 6.1.1
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s GetConfDetailDataResponseBodyList) String() string {
@@ -1382,15 +2165,44 @@ func (s *GetHistoryConfDataListHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetHistoryConfDataListRequest struct {
+	// example:
+	//
+	// 张三
 	CreatorNike *string `json:"creatorNike,omitempty" xml:"creatorNike,omitempty"`
-	EndTime     *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	FreeType    *string `json:"freeType,omitempty" xml:"freeType,omitempty"`
-	MaxResults  *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken   *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	RealData    *bool   `json:"realData,omitempty" xml:"realData,omitempty"`
-	Scene       *string `json:"scene,omitempty" xml:"scene,omitempty"`
-	StartTime   *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Title       *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1682611199000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 0
+	FreeType *string `json:"freeType,omitempty" xml:"freeType,omitempty"`
+	// example:
+	//
+	// 100
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// xxx9uZ0bVGoqjxxxxxxxx
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	RealData *bool `json:"realData,omitempty" xml:"realData,omitempty"`
+	// example:
+	//
+	// ding_talk
+	Scene *string `json:"scene,omitempty" xml:"scene,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1682524800000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// xxxxx视频会议
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s GetHistoryConfDataListRequest) String() string {
@@ -1447,8 +2259,11 @@ func (s *GetHistoryConfDataListRequest) SetTitle(v string) *GetHistoryConfDataLi
 }
 
 type GetHistoryConfDataListResponseBody struct {
-	List      []*GetHistoryConfDataListResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	NextToken *string                                   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	List []*GetHistoryConfDataListResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// example:
+	//
+	// xxx9uZ0bVGoqjxxxxxxxx
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GetHistoryConfDataListResponseBody) String() string {
@@ -1470,17 +2285,50 @@ func (s *GetHistoryConfDataListResponseBody) SetNextToken(v string) *GetHistoryC
 }
 
 type GetHistoryConfDataListResponseBodyList struct {
+	// example:
+	//
+	// 6449d8a6414xxxxxxxx01464af9f0
 	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
-	CreatorId    *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	CreatorNick  *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
-	DeptName     *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	EndTime      *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	FreeType     *string `json:"freeType,omitempty" xml:"freeType,omitempty"`
-	Scene        *string `json:"scene,omitempty" xml:"scene,omitempty"`
-	StartTime    *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	TimeLength   *int64  `json:"timeLength,omitempty" xml:"timeLength,omitempty"`
-	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
-	UserCount    *int32  `json:"userCount,omitempty" xml:"userCount,omitempty"`
+	// example:
+	//
+	// njMTqKo9xxxxEiE
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// 张三
+	CreatorNick *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	// example:
+	//
+	// xxxxx
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// example:
+	//
+	// 1682561790000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 0
+	FreeType *string `json:"freeType,omitempty" xml:"freeType,omitempty"`
+	// example:
+	//
+	// ding_talk
+	Scene *string `json:"scene,omitempty" xml:"scene,omitempty"`
+	// example:
+	//
+	// 1682561190000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 600000
+	TimeLength *int64 `json:"timeLength,omitempty" xml:"timeLength,omitempty"`
+	// example:
+	//
+	// xxxxx视频会议
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 2
+	UserCount *int32 `json:"userCount,omitempty" xml:"userCount,omitempty"`
 }
 
 func (s GetHistoryConfDataListResponseBodyList) String() string {
@@ -1599,6 +2447,7 @@ func (s *GetUserLastMetricHeaders) SetXAcsDingtalkAccessToken(v string) *GetUser
 }
 
 type GetUserLastMetricRequest struct {
+	// This parameter is required.
 	UnionIdList []*string `json:"unionIdList,omitempty" xml:"unionIdList,omitempty" type:"Repeated"`
 }
 
@@ -1685,9 +2534,24 @@ func (s *GetUserMetricDataHeaders) SetXAcsDingtalkAccessToken(v string) *GetUser
 }
 
 type GetUserMetricDataRequest struct {
-	BeginTime *int64  `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
-	EndTime   *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1682524800000
+	BeginTime *int64 `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1682611199000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// njMTqKo9iiyxxxxxxxxiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetUserMetricDataRequest) String() string {
@@ -1731,27 +2595,90 @@ func (s *GetUserMetricDataResponseBody) SetMetricDataList(v []*GetUserMetricData
 }
 
 type GetUserMetricDataResponseBodyMetricDataList struct {
-	AudioPlayLevel             *string `json:"audioPlayLevel,omitempty" xml:"audioPlayLevel,omitempty"`
-	AudioRecLevel              *string `json:"audioRecLevel,omitempty" xml:"audioRecLevel,omitempty"`
-	AudioRecvBitRate           *string `json:"audioRecvBitRate,omitempty" xml:"audioRecvBitRate,omitempty"`
-	AudioSendBitRate           *string `json:"audioSendBitRate,omitempty" xml:"audioSendBitRate,omitempty"`
-	CameraRecvBitRate          *string `json:"cameraRecvBitRate,omitempty" xml:"cameraRecvBitRate,omitempty"`
-	CameraRecvFrame            *string `json:"cameraRecvFrame,omitempty" xml:"cameraRecvFrame,omitempty"`
+	// example:
+	//
+	// 27
+	AudioPlayLevel *string `json:"audioPlayLevel,omitempty" xml:"audioPlayLevel,omitempty"`
+	// example:
+	//
+	// 25
+	AudioRecLevel *string `json:"audioRecLevel,omitempty" xml:"audioRecLevel,omitempty"`
+	// example:
+	//
+	// 52939
+	AudioRecvBitRate *string `json:"audioRecvBitRate,omitempty" xml:"audioRecvBitRate,omitempty"`
+	// example:
+	//
+	// 59103
+	AudioSendBitRate *string `json:"audioSendBitRate,omitempty" xml:"audioSendBitRate,omitempty"`
+	// example:
+	//
+	// 66160
+	CameraRecvBitRate *string `json:"cameraRecvBitRate,omitempty" xml:"cameraRecvBitRate,omitempty"`
+	// example:
+	//
+	// 20
+	CameraRecvFrame *string `json:"cameraRecvFrame,omitempty" xml:"cameraRecvFrame,omitempty"`
+	// example:
+	//
+	// 1920*1080
 	CameraRecvResolutionActual *string `json:"cameraRecvResolutionActual,omitempty" xml:"cameraRecvResolutionActual,omitempty"`
-	CameraSendBitRate          *string `json:"cameraSendBitRate,omitempty" xml:"cameraSendBitRate,omitempty"`
-	CameraSendFrame            *string `json:"cameraSendFrame,omitempty" xml:"cameraSendFrame,omitempty"`
+	// example:
+	//
+	// 1145172
+	CameraSendBitRate *string `json:"cameraSendBitRate,omitempty" xml:"cameraSendBitRate,omitempty"`
+	// example:
+	//
+	// 20
+	CameraSendFrame *string `json:"cameraSendFrame,omitempty" xml:"cameraSendFrame,omitempty"`
+	// example:
+	//
+	// 1920*1080
 	CameraSendResolutionActual *string `json:"cameraSendResolutionActual,omitempty" xml:"cameraSendResolutionActual,omitempty"`
-	LostRate                   *string `json:"lostRate,omitempty" xml:"lostRate,omitempty"`
-	RecvBitRate                *string `json:"recvBitRate,omitempty" xml:"recvBitRate,omitempty"`
-	RoundTripTime              *string `json:"roundTripTime,omitempty" xml:"roundTripTime,omitempty"`
-	ScreenRecvBitRate          *string `json:"screenRecvBitRate,omitempty" xml:"screenRecvBitRate,omitempty"`
-	ScreenRecvFrame            *string `json:"screenRecvFrame,omitempty" xml:"screenRecvFrame,omitempty"`
+	// example:
+	//
+	// 0
+	LostRate *string `json:"lostRate,omitempty" xml:"lostRate,omitempty"`
+	// example:
+	//
+	// 66160
+	RecvBitRate *string `json:"recvBitRate,omitempty" xml:"recvBitRate,omitempty"`
+	// example:
+	//
+	// 20
+	RoundTripTime *string `json:"roundTripTime,omitempty" xml:"roundTripTime,omitempty"`
+	// example:
+	//
+	// 0
+	ScreenRecvBitRate *string `json:"screenRecvBitRate,omitempty" xml:"screenRecvBitRate,omitempty"`
+	// example:
+	//
+	// 0
+	ScreenRecvFrame *string `json:"screenRecvFrame,omitempty" xml:"screenRecvFrame,omitempty"`
+	// example:
+	//
+	// 1920*1080
 	ScreenRecvResolutionActual *string `json:"screenRecvResolutionActual,omitempty" xml:"screenRecvResolutionActual,omitempty"`
-	ScreenSendBitRate          *string `json:"screenSendBitRate,omitempty" xml:"screenSendBitRate,omitempty"`
-	ScreenSendFrame            *string `json:"screenSendFrame,omitempty" xml:"screenSendFrame,omitempty"`
+	// example:
+	//
+	// 15701
+	ScreenSendBitRate *string `json:"screenSendBitRate,omitempty" xml:"screenSendBitRate,omitempty"`
+	// example:
+	//
+	// 14
+	ScreenSendFrame *string `json:"screenSendFrame,omitempty" xml:"screenSendFrame,omitempty"`
+	// example:
+	//
+	// 1920*1080
 	ScreenSendResolutionActual *string `json:"screenSendResolutionActual,omitempty" xml:"screenSendResolutionActual,omitempty"`
-	SendBitRate                *string `json:"sendBitRate,omitempty" xml:"sendBitRate,omitempty"`
-	Timestamp                  *int64  `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	// example:
+	//
+	// 1145172
+	SendBitRate *string `json:"sendBitRate,omitempty" xml:"sendBitRate,omitempty"`
+	// example:
+	//
+	// 1682562120000
+	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
 }
 
 func (s GetUserMetricDataResponseBodyMetricDataList) String() string {
@@ -1922,7 +2849,10 @@ func (s *InviteUsersHeaders) SetXAcsDingtalkAccessToken(v string) *InviteUsersHe
 type InviteUsersRequest struct {
 	InviteeList      []*InviteUsersRequestInviteeList      `json:"inviteeList,omitempty" xml:"inviteeList,omitempty" type:"Repeated"`
 	PhoneInviteeList []*InviteUsersRequestPhoneInviteeList `json:"phoneInviteeList,omitempty" xml:"phoneInviteeList,omitempty" type:"Repeated"`
-	UnionId          *string                               `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// qzR1iSMDvzR9iPXXXXXXXXXXXXXX
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s InviteUsersRequest) String() string {
@@ -1949,7 +2879,15 @@ func (s *InviteUsersRequest) SetUnionId(v string) *InviteUsersRequest {
 }
 
 type InviteUsersRequestInviteeList struct {
-	Nick    *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试用户
+	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	// example:
+	//
+	// qzR1iSMDvzR9kXXXXXXXx
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -1972,8 +2910,22 @@ func (s *InviteUsersRequestInviteeList) SetUnionId(v string) *InviteUsersRequest
 }
 
 type InviteUsersRequestPhoneInviteeList struct {
-	Nick        *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	// example:
+	//
+	// false
+	InviteClient *bool `json:"inviteClient,omitempty" xml:"inviteClient,omitempty"`
+	// example:
+	//
+	// 测试电话用户
+	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	// example:
+	//
+	// 1xxxxxxxxxx9
 	PhoneNumber *string `json:"phoneNumber,omitempty" xml:"phoneNumber,omitempty"`
+	// example:
+	//
+	// 86
+	StatusCode *string `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
 }
 
 func (s InviteUsersRequestPhoneInviteeList) String() string {
@@ -1984,6 +2936,11 @@ func (s InviteUsersRequestPhoneInviteeList) GoString() string {
 	return s.String()
 }
 
+func (s *InviteUsersRequestPhoneInviteeList) SetInviteClient(v bool) *InviteUsersRequestPhoneInviteeList {
+	s.InviteClient = &v
+	return s
+}
+
 func (s *InviteUsersRequestPhoneInviteeList) SetNick(v string) *InviteUsersRequestPhoneInviteeList {
 	s.Nick = &v
 	return s
@@ -1991,6 +2948,11 @@ func (s *InviteUsersRequestPhoneInviteeList) SetNick(v string) *InviteUsersReque
 
 func (s *InviteUsersRequestPhoneInviteeList) SetPhoneNumber(v string) *InviteUsersRequestPhoneInviteeList {
 	s.PhoneNumber = &v
+	return s
+}
+
+func (s *InviteUsersRequestPhoneInviteeList) SetStatusCode(v string) *InviteUsersRequestPhoneInviteeList {
+	s.StatusCode = &v
 	return s
 }
 
@@ -2064,8 +3026,9 @@ func (s *KickMembersHeaders) SetXAcsDingtalkAccessToken(v string) *KickMembersHe
 }
 
 type KickMembersRequest struct {
-	ForbiddenRejoin *bool                         `json:"forbiddenRejoin,omitempty" xml:"forbiddenRejoin,omitempty"`
-	UserList        []*KickMembersRequestUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+	ForbiddenRejoin *bool `json:"forbiddenRejoin,omitempty" xml:"forbiddenRejoin,omitempty"`
+	// This parameter is required.
+	UserList []*KickMembersRequestUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
 }
 
 func (s KickMembersRequest) String() string {
@@ -2087,8 +3050,16 @@ func (s *KickMembersRequest) SetUserList(v []*KickMembersRequestUserList) *KickM
 }
 
 type KickMembersRequestUserList struct {
+	// example:
+	//
+	// 644272f14ba3311xxxxxxxxx
 	ParticipantId *string `json:"participantId,omitempty" xml:"participantId,omitempty"`
-	UnionId       *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// qzR1iSMDvzR9iP7Pxxxxxxxxxxxxxxx
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s KickMembersRequestUserList) String() string {
@@ -2179,6 +3150,11 @@ func (s *LockConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *LockConfer
 }
 
 type LockConferenceRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lock
 	Action *string `json:"action,omitempty" xml:"action,omitempty"`
 }
 
@@ -2265,6 +3241,11 @@ func (s *MuteAllHeaders) SetXAcsDingtalkAccessToken(v string) *MuteAllHeaders {
 }
 
 type MuteAllRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// mute
 	Action    *string `json:"action,omitempty" xml:"action,omitempty"`
 	ForceMute *bool   `json:"forceMute,omitempty" xml:"forceMute,omitempty"`
 }
@@ -2357,7 +3338,13 @@ func (s *MuteMembersHeaders) SetXAcsDingtalkAccessToken(v string) *MuteMembersHe
 }
 
 type MuteMembersRequest struct {
-	Action   *string                       `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// mute
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
 	UserList []*MuteMembersRequestUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
 }
 
@@ -2380,8 +3367,16 @@ func (s *MuteMembersRequest) SetUserList(v []*MuteMembersRequestUserList) *MuteM
 }
 
 type MuteMembersRequestUserList struct {
+	// example:
+	//
+	// 644272f14ba3311xxxxxxxxx
 	ParticipantId *string `json:"participantId,omitempty" xml:"participantId,omitempty"`
-	UnionId       *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// qzR1iSMDvzR9iP7Pxxxxxxxxxxxxxxx
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s MuteMembersRequestUserList) String() string {
@@ -2472,6 +3467,9 @@ func (s *QueryCloudRecordTextHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryCloudRecordTextRequest struct {
+	// example:
+	//
+	// 1
 	Direction  *string `json:"direction,omitempty" xml:"direction,omitempty"`
 	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
@@ -2513,6 +3511,9 @@ func (s *QueryCloudRecordTextRequest) SetUnionId(v string) *QueryCloudRecordText
 }
 
 type QueryCloudRecordTextResponseBody struct {
+	// example:
+	//
+	// true
 	HasMore       *bool                                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 	ParagraphList []*QueryCloudRecordTextResponseBodyParagraphList `json:"paragraphList,omitempty" xml:"paragraphList,omitempty" type:"Repeated"`
 }
@@ -2536,15 +3537,39 @@ func (s *QueryCloudRecordTextResponseBody) SetParagraphList(v []*QueryCloudRecor
 }
 
 type QueryCloudRecordTextResponseBodyParagraphList struct {
-	EndTime      *int64                                                       `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	NextTtoken   *int64                                                       `json:"nextTtoken,omitempty" xml:"nextTtoken,omitempty"`
-	NickName     *string                                                      `json:"nickName,omitempty" xml:"nickName,omitempty"`
-	Paragraph    *string                                                      `json:"paragraph,omitempty" xml:"paragraph,omitempty"`
+	// example:
+	//
+	// 7940
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 1631172045153000
+	NextTtoken *int64 `json:"nextTtoken,omitempty" xml:"nextTtoken,omitempty"`
+	// example:
+	//
+	// 小钉
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// example:
+	//
+	// 嘿！你好，这里是小钉
+	Paragraph *string `json:"paragraph,omitempty" xml:"paragraph,omitempty"`
+	// example:
+	//
+	// 44444
 	RecordId     *int64                                                       `json:"recordId,omitempty" xml:"recordId,omitempty"`
 	SentenceList []*QueryCloudRecordTextResponseBodyParagraphListSentenceList `json:"sentenceList,omitempty" xml:"sentenceList,omitempty" type:"Repeated"`
-	StartTime    *int64                                                       `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Status       *int64                                                       `json:"status,omitempty" xml:"status,omitempty"`
-	UnionId      *string                                                      `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 7940
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 1
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// WFBkgJvt0xxxxSaA1jK4sgiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s QueryCloudRecordTextResponseBodyParagraphList) String() string {
@@ -2601,11 +3626,23 @@ func (s *QueryCloudRecordTextResponseBodyParagraphList) SetUnionId(v string) *Qu
 }
 
 type QueryCloudRecordTextResponseBodyParagraphListSentenceList struct {
-	EndTime   *int64                                                               `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	Sentence  *string                                                              `json:"sentence,omitempty" xml:"sentence,omitempty"`
-	StartTime *int64                                                               `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	UnionId   *string                                                              `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	WordList  []*QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList `json:"wordList,omitempty" xml:"wordList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 7940
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 这里是小钉
+	Sentence *string `json:"sentence,omitempty" xml:"sentence,omitempty"`
+	// example:
+	//
+	// 7940
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// WFBkgJvt0xxxxSaA1jK4sgiEiE
+	UnionId  *string                                                              `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	WordList []*QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList `json:"wordList,omitempty" xml:"wordList,omitempty" type:"Repeated"`
 }
 
 func (s QueryCloudRecordTextResponseBodyParagraphListSentenceList) String() string {
@@ -2642,10 +3679,22 @@ func (s *QueryCloudRecordTextResponseBodyParagraphListSentenceList) SetWordList(
 }
 
 type QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList struct {
-	EndTime   *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	StartTime *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Word      *string `json:"word,omitempty" xml:"word,omitempty"`
-	WordId    *string `json:"wordId,omitempty" xml:"wordId,omitempty"`
+	// example:
+	//
+	// 7940
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 7940
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 这里
+	Word *string `json:"word,omitempty" xml:"word,omitempty"`
+	// example:
+	//
+	// 1631172050535000#0
+	WordId *string `json:"wordId,omitempty" xml:"wordId,omitempty"`
 }
 
 func (s QueryCloudRecordTextResponseBodyParagraphListSentenceListWordList) String() string {
@@ -2729,6 +3778,7 @@ func (s *QueryCloudRecordVideoHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 }
 
 type QueryCloudRecordVideoRequest struct {
+	// This parameter is required.
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -2763,15 +3813,42 @@ func (s *QueryCloudRecordVideoResponseBody) SetVideoList(v []*QueryCloudRecordVi
 }
 
 type QueryCloudRecordVideoResponseBodyVideoList struct {
-	Duration   *int64  `json:"duration,omitempty" xml:"duration,omitempty"`
-	EndTime    *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	FileSize   *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	MediaId    *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	RecordId   *string `json:"recordId,omitempty" xml:"recordId,omitempty"`
-	RecordType *int64  `json:"recordType,omitempty" xml:"recordType,omitempty"`
-	RegionId   *string `json:"regionId,omitempty" xml:"regionId,omitempty"`
-	StartTime  *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	UnionId    *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 59886
+	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// example:
+	//
+	// 1631172094000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 1127942
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// example:
+	//
+	// faa1566c5bc24f21821ae2394f82db2e
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// example:
+	//
+	// 290882268xxx1172033231
+	RecordId *string `json:"recordId,omitempty" xml:"recordId,omitempty"`
+	// example:
+	//
+	// 0
+	RecordType *int64 `json:"recordType,omitempty" xml:"recordType,omitempty"`
+	// example:
+	//
+	// cn-shenzhen
+	RegionId *string `json:"regionId,omitempty" xml:"regionId,omitempty"`
+	// example:
+	//
+	// 1631172094000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// WFBkgJvtxxxxtSaA1jK4sgiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s QueryCloudRecordVideoResponseBodyVideoList) String() string {
@@ -2880,9 +3957,12 @@ func (s *QueryCloudRecordVideoPlayInfoHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type QueryCloudRecordVideoPlayInfoRequest struct {
-	MediaId  *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// This parameter is required.
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// This parameter is required.
 	RegionId *string `json:"regionId,omitempty" xml:"regionId,omitempty"`
-	UnionId  *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s QueryCloudRecordVideoPlayInfoRequest) String() string {
@@ -2909,11 +3989,23 @@ func (s *QueryCloudRecordVideoPlayInfoRequest) SetUnionId(v string) *QueryCloudR
 }
 
 type QueryCloudRecordVideoPlayInfoResponseBody struct {
-	Duration   *int64  `json:"duration,omitempty" xml:"duration,omitempty"`
-	FileSize   *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// example:
+	//
+	// 59886
+	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// example:
+	//
+	// 1127942
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// example:
+	//
+	// https://vod.mcs.dingtalk.com/faa1566c5bc24f21821ae2394f82db2e/8bbd1612e686462ab4717919f67bb721-b8531e0d534b2f9747a9fdfxxxxxxxxc-sd.mp4
 	Mp4FileUrl *string `json:"mp4FileUrl,omitempty" xml:"mp4FileUrl,omitempty"`
-	PlayUrl    *string `json:"playUrl,omitempty" xml:"playUrl,omitempty"`
-	Status     *int64  `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// https://vod.mcs.dingtalk.com/faa1566c5bc24f21821ae2394f82db2e/8bbd1612e686462ab4717919f67bb721-ab85cc044a163568c9485xxxxxxxx76d-sd.m3u8
+	PlayUrl *string `json:"playUrl,omitempty" xml:"playUrl,omitempty"`
+	Status  *int64  `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryCloudRecordVideoPlayInfoResponseBody) String() string {
@@ -3019,19 +4111,62 @@ func (s *QueryConferenceInfoResponseBody) SetConfInfo(v *QueryConferenceInfoResp
 }
 
 type QueryConferenceInfoResponseBodyConfInfo struct {
-	ActiveNum       *int32  `json:"activeNum,omitempty" xml:"activeNum,omitempty"`
-	AttendNum       *int32  `json:"attendNum,omitempty" xml:"attendNum,omitempty"`
-	ConfDuration    *int64  `json:"confDuration,omitempty" xml:"confDuration,omitempty"`
-	ConferenceId    *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
-	CreatorId       *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	CreatorNick     *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
-	EndTime         *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 10
+	ActiveNum *int32 `json:"activeNum,omitempty" xml:"activeNum,omitempty"`
+	// example:
+	//
+	// 15
+	AttendNum               *int32  `json:"attendNum,omitempty" xml:"attendNum,omitempty"`
+	BizType                 *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	CloudRecordOwnerUnionId *string `json:"cloudRecordOwnerUnionId,omitempty" xml:"cloudRecordOwnerUnionId,omitempty"`
+	CloudRecordStatus       *int32  `json:"cloudRecordStatus,omitempty" xml:"cloudRecordStatus,omitempty"`
+	// example:
+	//
+	// 1000000
+	ConfDuration *int64 `json:"confDuration,omitempty" xml:"confDuration,omitempty"`
+	// example:
+	//
+	// 6323d7568777190142ab9d10
+	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// 昵称
+	CreatorNick          *string                                                        `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	EndTime              *int64                                                         `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	ExtensionAppSettings []*QueryConferenceInfoResponseBodyConfInfoExtensionAppSettings `json:"extensionAppSettings,omitempty" xml:"extensionAppSettings,omitempty" type:"Repeated"`
+	// example:
+	//
+	// https://meeting.dingtalk.com/app?roomCode=42726033559&token=1_7ac974ac-6e4f-47c3-b82b-bfb32fd94d2c
 	ExternalLinkUrl *string `json:"externalLinkUrl,omitempty" xml:"externalLinkUrl,omitempty"`
-	InvitedNum      *int32  `json:"invitedNum,omitempty" xml:"invitedNum,omitempty"`
-	RoomCode        *string `json:"roomCode,omitempty" xml:"roomCode,omitempty"`
-	StartTime       *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Status          *int32  `json:"status,omitempty" xml:"status,omitempty"`
-	Title           *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 20
+	InvitedNum          *int32  `json:"invitedNum,omitempty" xml:"invitedNum,omitempty"`
+	MinutesOwnerUnionId *string `json:"minutesOwnerUnionId,omitempty" xml:"minutesOwnerUnionId,omitempty"`
+	MinutesStatus       *int32  `json:"minutesStatus,omitempty" xml:"minutesStatus,omitempty"`
+	// example:
+	//
+	// 42726033559
+	RoomCode             *string `json:"roomCode,omitempty" xml:"roomCode,omitempty"`
+	ScheduleConferenceId *string `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
+	// example:
+	//
+	// 1663293270000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 1
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryConferenceInfoResponseBodyConfInfo) String() string {
@@ -3049,6 +4184,21 @@ func (s *QueryConferenceInfoResponseBodyConfInfo) SetActiveNum(v int32) *QueryCo
 
 func (s *QueryConferenceInfoResponseBodyConfInfo) SetAttendNum(v int32) *QueryConferenceInfoResponseBodyConfInfo {
 	s.AttendNum = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetBizType(v string) *QueryConferenceInfoResponseBodyConfInfo {
+	s.BizType = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetCloudRecordOwnerUnionId(v string) *QueryConferenceInfoResponseBodyConfInfo {
+	s.CloudRecordOwnerUnionId = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetCloudRecordStatus(v int32) *QueryConferenceInfoResponseBodyConfInfo {
+	s.CloudRecordStatus = &v
 	return s
 }
 
@@ -3077,6 +4227,11 @@ func (s *QueryConferenceInfoResponseBodyConfInfo) SetEndTime(v int64) *QueryConf
 	return s
 }
 
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetExtensionAppSettings(v []*QueryConferenceInfoResponseBodyConfInfoExtensionAppSettings) *QueryConferenceInfoResponseBodyConfInfo {
+	s.ExtensionAppSettings = v
+	return s
+}
+
 func (s *QueryConferenceInfoResponseBodyConfInfo) SetExternalLinkUrl(v string) *QueryConferenceInfoResponseBodyConfInfo {
 	s.ExternalLinkUrl = &v
 	return s
@@ -3087,8 +4242,23 @@ func (s *QueryConferenceInfoResponseBodyConfInfo) SetInvitedNum(v int32) *QueryC
 	return s
 }
 
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetMinutesOwnerUnionId(v string) *QueryConferenceInfoResponseBodyConfInfo {
+	s.MinutesOwnerUnionId = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetMinutesStatus(v int32) *QueryConferenceInfoResponseBodyConfInfo {
+	s.MinutesStatus = &v
+	return s
+}
+
 func (s *QueryConferenceInfoResponseBodyConfInfo) SetRoomCode(v string) *QueryConferenceInfoResponseBodyConfInfo {
 	s.RoomCode = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfo) SetScheduleConferenceId(v string) *QueryConferenceInfoResponseBodyConfInfo {
+	s.ScheduleConferenceId = &v
 	return s
 }
 
@@ -3104,6 +4274,41 @@ func (s *QueryConferenceInfoResponseBodyConfInfo) SetStatus(v int32) *QueryConfe
 
 func (s *QueryConferenceInfoResponseBodyConfInfo) SetTitle(v string) *QueryConferenceInfoResponseBodyConfInfo {
 	s.Title = &v
+	return s
+}
+
+type QueryConferenceInfoResponseBodyConfInfoExtensionAppSettings struct {
+	AppCode             *string `json:"appCode,omitempty" xml:"appCode,omitempty"`
+	AppId               *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	AutoOpenMode        *int32  `json:"autoOpenMode,omitempty" xml:"autoOpenMode,omitempty"`
+	ExtensionAppBizData *string `json:"extensionAppBizData,omitempty" xml:"extensionAppBizData,omitempty"`
+}
+
+func (s QueryConferenceInfoResponseBodyConfInfoExtensionAppSettings) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceInfoResponseBodyConfInfoExtensionAppSettings) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfoExtensionAppSettings) SetAppCode(v string) *QueryConferenceInfoResponseBodyConfInfoExtensionAppSettings {
+	s.AppCode = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfoExtensionAppSettings) SetAppId(v string) *QueryConferenceInfoResponseBodyConfInfoExtensionAppSettings {
+	s.AppId = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfoExtensionAppSettings) SetAutoOpenMode(v int32) *QueryConferenceInfoResponseBodyConfInfoExtensionAppSettings {
+	s.AutoOpenMode = &v
+	return s
+}
+
+func (s *QueryConferenceInfoResponseBodyConfInfoExtensionAppSettings) SetExtensionAppBizData(v string) *QueryConferenceInfoResponseBodyConfInfoExtensionAppSettings {
+	s.ExtensionAppBizData = &v
 	return s
 }
 
@@ -3160,6 +4365,7 @@ func (s *QueryConferenceInfoBatchHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type QueryConferenceInfoBatchRequest struct {
+	// This parameter is required.
 	ConferenceIdList []*string `json:"conferenceIdList,omitempty" xml:"conferenceIdList,omitempty" type:"Repeated"`
 }
 
@@ -3194,12 +4400,18 @@ func (s *QueryConferenceInfoBatchResponseBody) SetInfos(v []*QueryConferenceInfo
 }
 
 type QueryConferenceInfoBatchResponseBodyInfos struct {
-	ConferenceId *string                                              `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
-	MediaStatus  *int64                                               `json:"mediaStatus,omitempty" xml:"mediaStatus,omitempty"`
-	StartTime    *int64                                               `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Status       *int64                                               `json:"status,omitempty" xml:"status,omitempty"`
-	Title        *string                                              `json:"title,omitempty" xml:"title,omitempty"`
-	UserList     []*QueryConferenceInfoBatchResponseBodyInfosUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	// example:
+	//
+	// 0-正常，1-麦克风静音，2-摄像头关闭，4-强制全员静音
+	MediaStatus *int64 `json:"mediaStatus,omitempty" xml:"mediaStatus,omitempty"`
+	StartTime   *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 0-初始化，1-会议结束，2-会议开始
+	Status   *int64                                               `json:"status,omitempty" xml:"status,omitempty"`
+	Title    *string                                              `json:"title,omitempty" xml:"title,omitempty"`
+	UserList []*QueryConferenceInfoBatchResponseBodyInfosUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
 }
 
 func (s QueryConferenceInfoBatchResponseBodyInfos) String() string {
@@ -3241,10 +4453,22 @@ func (s *QueryConferenceInfoBatchResponseBodyInfos) SetUserList(v []*QueryConfer
 }
 
 type QueryConferenceInfoBatchResponseBodyInfosUserList struct {
-	AttendStatus      *int64  `json:"attendStatus,omitempty" xml:"attendStatus,omitempty"`
-	CameraStatus      *int64  `json:"cameraStatus,omitempty" xml:"cameraStatus,omitempty"`
-	MicStatus         *int64  `json:"micStatus,omitempty" xml:"micStatus,omitempty"`
-	Nick              *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	// example:
+	//
+	// 0-未定义,1-初始化,2-加入中,3-在会,4-加入失败,5,被踢出,6-离开
+	AttendStatus *int64 `json:"attendStatus,omitempty" xml:"attendStatus,omitempty"`
+	// example:
+	//
+	// 0-初始化，1-关闭，2-打开
+	CameraStatus *int64 `json:"cameraStatus,omitempty" xml:"cameraStatus,omitempty"`
+	// example:
+	//
+	// 0-初始化，1-关闭，2-打开
+	MicStatus *int64  `json:"micStatus,omitempty" xml:"micStatus,omitempty"`
+	Nick      *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	// example:
+	//
+	// 抱歉，正在开会
 	RejectDescription *string `json:"rejectDescription,omitempty" xml:"rejectDescription,omitempty"`
 	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -3316,6 +4540,199 @@ func (s *QueryConferenceInfoBatchResponse) SetBody(v *QueryConferenceInfoBatchRe
 	return s
 }
 
+type QueryConferenceInfoByRoomCodeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryConferenceInfoByRoomCodeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceInfoByRoomCodeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceInfoByRoomCodeHeaders) SetCommonHeaders(v map[string]*string) *QueryConferenceInfoByRoomCodeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeHeaders) SetXAcsDingtalkAccessToken(v string) *QueryConferenceInfoByRoomCodeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryConferenceInfoByRoomCodeRequest struct {
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s QueryConferenceInfoByRoomCodeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceInfoByRoomCodeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceInfoByRoomCodeRequest) SetMaxResults(v int32) *QueryConferenceInfoByRoomCodeRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeRequest) SetNextToken(v string) *QueryConferenceInfoByRoomCodeRequest {
+	s.NextToken = &v
+	return s
+}
+
+type QueryConferenceInfoByRoomCodeResponseBody struct {
+	ConferenceList []*QueryConferenceInfoByRoomCodeResponseBodyConferenceList `json:"conferenceList,omitempty" xml:"conferenceList,omitempty" type:"Repeated"`
+	HasMore        *bool                                                      `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken      *string                                                    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	TotalCount     *int32                                                     `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryConferenceInfoByRoomCodeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceInfoByRoomCodeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponseBody) SetConferenceList(v []*QueryConferenceInfoByRoomCodeResponseBodyConferenceList) *QueryConferenceInfoByRoomCodeResponseBody {
+	s.ConferenceList = v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponseBody) SetHasMore(v bool) *QueryConferenceInfoByRoomCodeResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponseBody) SetNextToken(v string) *QueryConferenceInfoByRoomCodeResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponseBody) SetTotalCount(v int32) *QueryConferenceInfoByRoomCodeResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryConferenceInfoByRoomCodeResponseBodyConferenceList struct {
+	BizType              *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	ConfDuration         *int64  `json:"confDuration,omitempty" xml:"confDuration,omitempty"`
+	ConferenceId         *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	CreatorId            *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	CreatorNick          *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	EndTime              *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	ExternalLinkUrl      *string `json:"externalLinkUrl,omitempty" xml:"externalLinkUrl,omitempty"`
+	RoomCode             *string `json:"roomCode,omitempty" xml:"roomCode,omitempty"`
+	ScheduleConferenceId *string `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
+	StartTime            *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Status               *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	Title                *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QueryConferenceInfoByRoomCodeResponseBodyConferenceList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceInfoByRoomCodeResponseBodyConferenceList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponseBodyConferenceList) SetBizType(v string) *QueryConferenceInfoByRoomCodeResponseBodyConferenceList {
+	s.BizType = &v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponseBodyConferenceList) SetConfDuration(v int64) *QueryConferenceInfoByRoomCodeResponseBodyConferenceList {
+	s.ConfDuration = &v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponseBodyConferenceList) SetConferenceId(v string) *QueryConferenceInfoByRoomCodeResponseBodyConferenceList {
+	s.ConferenceId = &v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponseBodyConferenceList) SetCreatorId(v string) *QueryConferenceInfoByRoomCodeResponseBodyConferenceList {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponseBodyConferenceList) SetCreatorNick(v string) *QueryConferenceInfoByRoomCodeResponseBodyConferenceList {
+	s.CreatorNick = &v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponseBodyConferenceList) SetEndTime(v int64) *QueryConferenceInfoByRoomCodeResponseBodyConferenceList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponseBodyConferenceList) SetExternalLinkUrl(v string) *QueryConferenceInfoByRoomCodeResponseBodyConferenceList {
+	s.ExternalLinkUrl = &v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponseBodyConferenceList) SetRoomCode(v string) *QueryConferenceInfoByRoomCodeResponseBodyConferenceList {
+	s.RoomCode = &v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponseBodyConferenceList) SetScheduleConferenceId(v string) *QueryConferenceInfoByRoomCodeResponseBodyConferenceList {
+	s.ScheduleConferenceId = &v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponseBodyConferenceList) SetStartTime(v int64) *QueryConferenceInfoByRoomCodeResponseBodyConferenceList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponseBodyConferenceList) SetStatus(v int32) *QueryConferenceInfoByRoomCodeResponseBodyConferenceList {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponseBodyConferenceList) SetTitle(v string) *QueryConferenceInfoByRoomCodeResponseBodyConferenceList {
+	s.Title = &v
+	return s
+}
+
+type QueryConferenceInfoByRoomCodeResponse struct {
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryConferenceInfoByRoomCodeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryConferenceInfoByRoomCodeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConferenceInfoByRoomCodeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponse) SetHeaders(v map[string]*string) *QueryConferenceInfoByRoomCodeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponse) SetStatusCode(v int32) *QueryConferenceInfoByRoomCodeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryConferenceInfoByRoomCodeResponse) SetBody(v *QueryConferenceInfoByRoomCodeResponseBody) *QueryConferenceInfoByRoomCodeResponse {
+	s.Body = v
+	return s
+}
+
 type QueryConferenceMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3340,8 +4757,14 @@ func (s *QueryConferenceMembersHeaders) SetXAcsDingtalkAccessToken(v string) *Qu
 }
 
 type QueryConferenceMembersRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 0
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryConferenceMembersRequest) String() string {
@@ -3364,8 +4787,14 @@ func (s *QueryConferenceMembersRequest) SetNextToken(v string) *QueryConferenceM
 
 type QueryConferenceMembersResponseBody struct {
 	MemberModels []*QueryConferenceMembersResponseBodyMemberModels `json:"memberModels,omitempty" xml:"memberModels,omitempty" type:"Repeated"`
-	NextToken    *string                                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	TotalCount   *int32                                            `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// example:
+	//
+	// 123000000
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 20
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s QueryConferenceMembersResponseBody) String() string {
@@ -3392,8 +4821,14 @@ func (s *QueryConferenceMembersResponseBody) SetTotalCount(v int32) *QueryConfer
 }
 
 type QueryConferenceMembersResponseBodyMemberModels struct {
-	AttendStatus   *int32  `json:"attendStatus,omitempty" xml:"attendStatus,omitempty"`
-	CoHost         *bool   `json:"coHost,omitempty" xml:"coHost,omitempty"`
+	// example:
+	//
+	// 6
+	AttendStatus *int32 `json:"attendStatus,omitempty" xml:"attendStatus,omitempty"`
+	CoHost       *bool  `json:"coHost,omitempty" xml:"coHost,omitempty"`
+	// example:
+	//
+	// 6323d7562b18000142ab9d10
 	ConferenceId   *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
 	Duration       *int64  `json:"duration,omitempty" xml:"duration,omitempty"`
 	Host           *bool   `json:"host,omitempty" xml:"host,omitempty"`
@@ -3401,8 +4836,14 @@ type QueryConferenceMembersResponseBodyMemberModels struct {
 	LeaveTime      *int64  `json:"leaveTime,omitempty" xml:"leaveTime,omitempty"`
 	OuterOrgMember *bool   `json:"outerOrgMember,omitempty" xml:"outerOrgMember,omitempty"`
 	PstnJoin       *bool   `json:"pstnJoin,omitempty" xml:"pstnJoin,omitempty"`
-	UnionId        *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserNick       *string `json:"userNick,omitempty" xml:"userNick,omitempty"`
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 昵称
+	UserNick *string `json:"userNick,omitempty" xml:"userNick,omitempty"`
 }
 
 func (s QueryConferenceMembersResponseBodyMemberModels) String() string {
@@ -3497,6 +4938,1268 @@ func (s *QueryConferenceMembersResponse) SetBody(v *QueryConferenceMembersRespon
 	return s
 }
 
+type QueryFlashMinutesSummaryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryFlashMinutesSummaryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFlashMinutesSummaryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFlashMinutesSummaryHeaders) SetCommonHeaders(v map[string]*string) *QueryFlashMinutesSummaryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryFlashMinutesSummaryHeaders) SetXAcsDingtalkAccessToken(v string) *QueryFlashMinutesSummaryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryFlashMinutesSummaryRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cloud_record
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lJcRnm39OsU4jlFVmRG9KXXXX
+	RecorderUnionId *string `json:"recorderUnionId,omitempty" xml:"recorderUnionId,omitempty"`
+}
+
+func (s QueryFlashMinutesSummaryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFlashMinutesSummaryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFlashMinutesSummaryRequest) SetBizType(v string) *QueryFlashMinutesSummaryRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *QueryFlashMinutesSummaryRequest) SetRecorderUnionId(v string) *QueryFlashMinutesSummaryRequest {
+	s.RecorderUnionId = &v
+	return s
+}
+
+type QueryFlashMinutesSummaryResponseBody struct {
+	FlashMinutesSummary *QueryFlashMinutesSummaryResponseBodyFlashMinutesSummary `json:"flashMinutesSummary,omitempty" xml:"flashMinutesSummary,omitempty" type:"Struct"`
+}
+
+func (s QueryFlashMinutesSummaryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFlashMinutesSummaryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFlashMinutesSummaryResponseBody) SetFlashMinutesSummary(v *QueryFlashMinutesSummaryResponseBodyFlashMinutesSummary) *QueryFlashMinutesSummaryResponseBody {
+	s.FlashMinutesSummary = v
+	return s
+}
+
+type QueryFlashMinutesSummaryResponseBodyFlashMinutesSummary struct {
+	Status  *int32                                                            `json:"status,omitempty" xml:"status,omitempty"`
+	Summary []*QueryFlashMinutesSummaryResponseBodyFlashMinutesSummarySummary `json:"summary,omitempty" xml:"summary,omitempty" type:"Repeated"`
+}
+
+func (s QueryFlashMinutesSummaryResponseBodyFlashMinutesSummary) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFlashMinutesSummaryResponseBodyFlashMinutesSummary) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFlashMinutesSummaryResponseBodyFlashMinutesSummary) SetStatus(v int32) *QueryFlashMinutesSummaryResponseBodyFlashMinutesSummary {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryFlashMinutesSummaryResponseBodyFlashMinutesSummary) SetSummary(v []*QueryFlashMinutesSummaryResponseBodyFlashMinutesSummarySummary) *QueryFlashMinutesSummaryResponseBodyFlashMinutesSummary {
+	s.Summary = v
+	return s
+}
+
+type QueryFlashMinutesSummaryResponseBodyFlashMinutesSummarySummary struct {
+	End      *int64  `json:"end,omitempty" xml:"end,omitempty"`
+	Headline *string `json:"headline,omitempty" xml:"headline,omitempty"`
+	Id       *int32  `json:"id,omitempty" xml:"id,omitempty"`
+	Start    *int64  `json:"start,omitempty" xml:"start,omitempty"`
+	Summary  *string `json:"summary,omitempty" xml:"summary,omitempty"`
+}
+
+func (s QueryFlashMinutesSummaryResponseBodyFlashMinutesSummarySummary) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFlashMinutesSummaryResponseBodyFlashMinutesSummarySummary) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFlashMinutesSummaryResponseBodyFlashMinutesSummarySummary) SetEnd(v int64) *QueryFlashMinutesSummaryResponseBodyFlashMinutesSummarySummary {
+	s.End = &v
+	return s
+}
+
+func (s *QueryFlashMinutesSummaryResponseBodyFlashMinutesSummarySummary) SetHeadline(v string) *QueryFlashMinutesSummaryResponseBodyFlashMinutesSummarySummary {
+	s.Headline = &v
+	return s
+}
+
+func (s *QueryFlashMinutesSummaryResponseBodyFlashMinutesSummarySummary) SetId(v int32) *QueryFlashMinutesSummaryResponseBodyFlashMinutesSummarySummary {
+	s.Id = &v
+	return s
+}
+
+func (s *QueryFlashMinutesSummaryResponseBodyFlashMinutesSummarySummary) SetStart(v int64) *QueryFlashMinutesSummaryResponseBodyFlashMinutesSummarySummary {
+	s.Start = &v
+	return s
+}
+
+func (s *QueryFlashMinutesSummaryResponseBodyFlashMinutesSummarySummary) SetSummary(v string) *QueryFlashMinutesSummaryResponseBodyFlashMinutesSummarySummary {
+	s.Summary = &v
+	return s
+}
+
+type QueryFlashMinutesSummaryResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryFlashMinutesSummaryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryFlashMinutesSummaryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFlashMinutesSummaryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFlashMinutesSummaryResponse) SetHeaders(v map[string]*string) *QueryFlashMinutesSummaryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryFlashMinutesSummaryResponse) SetStatusCode(v int32) *QueryFlashMinutesSummaryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryFlashMinutesSummaryResponse) SetBody(v *QueryFlashMinutesSummaryResponseBody) *QueryFlashMinutesSummaryResponse {
+	s.Body = v
+	return s
+}
+
+type QueryMinutesAudioHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryMinutesAudioHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesAudioHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesAudioHeaders) SetCommonHeaders(v map[string]*string) *QueryMinutesAudioHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryMinutesAudioHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMinutesAudioHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryMinutesAudioRequest struct {
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryMinutesAudioRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesAudioRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesAudioRequest) SetUnionId(v string) *QueryMinutesAudioRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryMinutesAudioResponseBody struct {
+	AudioList []*QueryMinutesAudioResponseBodyAudioList `json:"audioList,omitempty" xml:"audioList,omitempty" type:"Repeated"`
+}
+
+func (s QueryMinutesAudioResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesAudioResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesAudioResponseBody) SetAudioList(v []*QueryMinutesAudioResponseBodyAudioList) *QueryMinutesAudioResponseBody {
+	s.AudioList = v
+	return s
+}
+
+type QueryMinutesAudioResponseBodyAudioList struct {
+	// example:
+	//
+	// 59886
+	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// example:
+	//
+	// 1631172094000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 1127942
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// example:
+	//
+	// https://xxx-hangzhou.oss-cn-hangzhou.aliyuncs.com/record_xxxx.mp3?Expires=1718045081&OSSAccessKeyId=TMP.3KdwHtvZxopmwacMZEdyb4WHLVmbArrNRB9CTKnR1MaJgmRjdmZczs6Rip66cgKgk2HhQon1yygvBnbY3uqEaZNeHBLcBa&Signature=OFWyAIY%2FdlzfwM9wIfEaKoAudkxxxxx
+	PlayUrl *string `json:"playUrl,omitempty" xml:"playUrl,omitempty"`
+	// example:
+	//
+	// 290882268xxx1172033231
+	RecordId *string `json:"recordId,omitempty" xml:"recordId,omitempty"`
+	// example:
+	//
+	// 1631172094000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// WFBkgJvtxxxxtSaA1jK4sgiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryMinutesAudioResponseBodyAudioList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesAudioResponseBodyAudioList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesAudioResponseBodyAudioList) SetDuration(v int64) *QueryMinutesAudioResponseBodyAudioList {
+	s.Duration = &v
+	return s
+}
+
+func (s *QueryMinutesAudioResponseBodyAudioList) SetEndTime(v int64) *QueryMinutesAudioResponseBodyAudioList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryMinutesAudioResponseBodyAudioList) SetFileSize(v int64) *QueryMinutesAudioResponseBodyAudioList {
+	s.FileSize = &v
+	return s
+}
+
+func (s *QueryMinutesAudioResponseBodyAudioList) SetPlayUrl(v string) *QueryMinutesAudioResponseBodyAudioList {
+	s.PlayUrl = &v
+	return s
+}
+
+func (s *QueryMinutesAudioResponseBodyAudioList) SetRecordId(v string) *QueryMinutesAudioResponseBodyAudioList {
+	s.RecordId = &v
+	return s
+}
+
+func (s *QueryMinutesAudioResponseBodyAudioList) SetStartTime(v int64) *QueryMinutesAudioResponseBodyAudioList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryMinutesAudioResponseBodyAudioList) SetUnionId(v string) *QueryMinutesAudioResponseBodyAudioList {
+	s.UnionId = &v
+	return s
+}
+
+type QueryMinutesAudioResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryMinutesAudioResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryMinutesAudioResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesAudioResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesAudioResponse) SetHeaders(v map[string]*string) *QueryMinutesAudioResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryMinutesAudioResponse) SetStatusCode(v int32) *QueryMinutesAudioResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryMinutesAudioResponse) SetBody(v *QueryMinutesAudioResponseBody) *QueryMinutesAudioResponse {
+	s.Body = v
+	return s
+}
+
+type QueryMinutesSummaryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryMinutesSummaryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesSummaryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesSummaryHeaders) SetCommonHeaders(v map[string]*string) *QueryMinutesSummaryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryMinutesSummaryHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMinutesSummaryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryMinutesSummaryRequest struct {
+	SummaryTypeList []*string `json:"summaryTypeList,omitempty" xml:"summaryTypeList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 27SaQ3iiHLN0uwqcPisedfreNwiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryMinutesSummaryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesSummaryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesSummaryRequest) SetSummaryTypeList(v []*string) *QueryMinutesSummaryRequest {
+	s.SummaryTypeList = v
+	return s
+}
+
+func (s *QueryMinutesSummaryRequest) SetUnionId(v string) *QueryMinutesSummaryRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryMinutesSummaryResponseBody struct {
+	Summary *QueryMinutesSummaryResponseBodySummary `json:"summary,omitempty" xml:"summary,omitempty" type:"Struct"`
+}
+
+func (s QueryMinutesSummaryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesSummaryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesSummaryResponseBody) SetSummary(v *QueryMinutesSummaryResponseBodySummary) *QueryMinutesSummaryResponseBody {
+	s.Summary = v
+	return s
+}
+
+type QueryMinutesSummaryResponseBodySummary struct {
+	Actions                   []*QueryMinutesSummaryResponseBodySummaryActions                   `json:"actions,omitempty" xml:"actions,omitempty" type:"Repeated"`
+	AutoChapters              []*QueryMinutesSummaryResponseBodySummaryAutoChapters              `json:"autoChapters,omitempty" xml:"autoChapters,omitempty" type:"Repeated"`
+	ConversationalSummary     []*QueryMinutesSummaryResponseBodySummaryConversationalSummary     `json:"conversationalSummary,omitempty" xml:"conversationalSummary,omitempty" type:"Repeated"`
+	KeySentences              []*QueryMinutesSummaryResponseBodySummaryKeySentences              `json:"keySentences,omitempty" xml:"keySentences,omitempty" type:"Repeated"`
+	Keywords                  []*string                                                          `json:"keywords,omitempty" xml:"keywords,omitempty" type:"Repeated"`
+	ParagraphSummary          *string                                                            `json:"paragraphSummary,omitempty" xml:"paragraphSummary,omitempty"`
+	QuestionsAnsweringSummary []*QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary `json:"questionsAnsweringSummary,omitempty" xml:"questionsAnsweringSummary,omitempty" type:"Repeated"`
+}
+
+func (s QueryMinutesSummaryResponseBodySummary) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesSummaryResponseBodySummary) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesSummaryResponseBodySummary) SetActions(v []*QueryMinutesSummaryResponseBodySummaryActions) *QueryMinutesSummaryResponseBodySummary {
+	s.Actions = v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummary) SetAutoChapters(v []*QueryMinutesSummaryResponseBodySummaryAutoChapters) *QueryMinutesSummaryResponseBodySummary {
+	s.AutoChapters = v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummary) SetConversationalSummary(v []*QueryMinutesSummaryResponseBodySummaryConversationalSummary) *QueryMinutesSummaryResponseBodySummary {
+	s.ConversationalSummary = v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummary) SetKeySentences(v []*QueryMinutesSummaryResponseBodySummaryKeySentences) *QueryMinutesSummaryResponseBodySummary {
+	s.KeySentences = v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummary) SetKeywords(v []*string) *QueryMinutesSummaryResponseBodySummary {
+	s.Keywords = v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummary) SetParagraphSummary(v string) *QueryMinutesSummaryResponseBodySummary {
+	s.ParagraphSummary = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummary) SetQuestionsAnsweringSummary(v []*QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary) *QueryMinutesSummaryResponseBodySummary {
+	s.QuestionsAnsweringSummary = v
+	return s
+}
+
+type QueryMinutesSummaryResponseBodySummaryActions struct {
+	End        *int64  `json:"end,omitempty" xml:"end,omitempty"`
+	Id         *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	SentenceId *int64  `json:"sentenceId,omitempty" xml:"sentenceId,omitempty"`
+	Start      *int64  `json:"start,omitempty" xml:"start,omitempty"`
+	Text       *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s QueryMinutesSummaryResponseBodySummaryActions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesSummaryResponseBodySummaryActions) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryActions) SetEnd(v int64) *QueryMinutesSummaryResponseBodySummaryActions {
+	s.End = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryActions) SetId(v int64) *QueryMinutesSummaryResponseBodySummaryActions {
+	s.Id = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryActions) SetSentenceId(v int64) *QueryMinutesSummaryResponseBodySummaryActions {
+	s.SentenceId = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryActions) SetStart(v int64) *QueryMinutesSummaryResponseBodySummaryActions {
+	s.Start = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryActions) SetText(v string) *QueryMinutesSummaryResponseBodySummaryActions {
+	s.Text = &v
+	return s
+}
+
+type QueryMinutesSummaryResponseBodySummaryAutoChapters struct {
+	End      *int64  `json:"end,omitempty" xml:"end,omitempty"`
+	Headline *string `json:"headline,omitempty" xml:"headline,omitempty"`
+	Id       *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	Start    *int64  `json:"start,omitempty" xml:"start,omitempty"`
+	Summary  *string `json:"summary,omitempty" xml:"summary,omitempty"`
+}
+
+func (s QueryMinutesSummaryResponseBodySummaryAutoChapters) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesSummaryResponseBodySummaryAutoChapters) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryAutoChapters) SetEnd(v int64) *QueryMinutesSummaryResponseBodySummaryAutoChapters {
+	s.End = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryAutoChapters) SetHeadline(v string) *QueryMinutesSummaryResponseBodySummaryAutoChapters {
+	s.Headline = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryAutoChapters) SetId(v int64) *QueryMinutesSummaryResponseBodySummaryAutoChapters {
+	s.Id = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryAutoChapters) SetStart(v int64) *QueryMinutesSummaryResponseBodySummaryAutoChapters {
+	s.Start = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryAutoChapters) SetSummary(v string) *QueryMinutesSummaryResponseBodySummaryAutoChapters {
+	s.Summary = &v
+	return s
+}
+
+type QueryMinutesSummaryResponseBodySummaryConversationalSummary struct {
+	SpeakerId   *string `json:"speakerId,omitempty" xml:"speakerId,omitempty"`
+	SpeakerName *string `json:"speakerName,omitempty" xml:"speakerName,omitempty"`
+	Summary     *string `json:"summary,omitempty" xml:"summary,omitempty"`
+}
+
+func (s QueryMinutesSummaryResponseBodySummaryConversationalSummary) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesSummaryResponseBodySummaryConversationalSummary) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryConversationalSummary) SetSpeakerId(v string) *QueryMinutesSummaryResponseBodySummaryConversationalSummary {
+	s.SpeakerId = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryConversationalSummary) SetSpeakerName(v string) *QueryMinutesSummaryResponseBodySummaryConversationalSummary {
+	s.SpeakerName = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryConversationalSummary) SetSummary(v string) *QueryMinutesSummaryResponseBodySummaryConversationalSummary {
+	s.Summary = &v
+	return s
+}
+
+type QueryMinutesSummaryResponseBodySummaryKeySentences struct {
+	End        *int64  `json:"end,omitempty" xml:"end,omitempty"`
+	Id         *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	SentenceId *int64  `json:"sentenceId,omitempty" xml:"sentenceId,omitempty"`
+	Start      *int64  `json:"start,omitempty" xml:"start,omitempty"`
+	Text       *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s QueryMinutesSummaryResponseBodySummaryKeySentences) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesSummaryResponseBodySummaryKeySentences) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryKeySentences) SetEnd(v int64) *QueryMinutesSummaryResponseBodySummaryKeySentences {
+	s.End = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryKeySentences) SetId(v int64) *QueryMinutesSummaryResponseBodySummaryKeySentences {
+	s.Id = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryKeySentences) SetSentenceId(v int64) *QueryMinutesSummaryResponseBodySummaryKeySentences {
+	s.SentenceId = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryKeySentences) SetStart(v int64) *QueryMinutesSummaryResponseBodySummaryKeySentences {
+	s.Start = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryKeySentences) SetText(v string) *QueryMinutesSummaryResponseBodySummaryKeySentences {
+	s.Text = &v
+	return s
+}
+
+type QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary struct {
+	Answer                *string  `json:"answer,omitempty" xml:"answer,omitempty"`
+	Question              *string  `json:"question,omitempty" xml:"question,omitempty"`
+	SentenceIdsOfAnswer   []*int64 `json:"sentenceIdsOfAnswer,omitempty" xml:"sentenceIdsOfAnswer,omitempty" type:"Repeated"`
+	SentenceIdsOfQuestion []*int64 `json:"sentenceIdsOfQuestion,omitempty" xml:"sentenceIdsOfQuestion,omitempty" type:"Repeated"`
+}
+
+func (s QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary) SetAnswer(v string) *QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary {
+	s.Answer = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary) SetQuestion(v string) *QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary {
+	s.Question = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary) SetSentenceIdsOfAnswer(v []*int64) *QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary {
+	s.SentenceIdsOfAnswer = v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary) SetSentenceIdsOfQuestion(v []*int64) *QueryMinutesSummaryResponseBodySummaryQuestionsAnsweringSummary {
+	s.SentenceIdsOfQuestion = v
+	return s
+}
+
+type QueryMinutesSummaryResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryMinutesSummaryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryMinutesSummaryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesSummaryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesSummaryResponse) SetHeaders(v map[string]*string) *QueryMinutesSummaryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponse) SetStatusCode(v int32) *QueryMinutesSummaryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryMinutesSummaryResponse) SetBody(v *QueryMinutesSummaryResponseBody) *QueryMinutesSummaryResponse {
+	s.Body = v
+	return s
+}
+
+type QueryMinutesTextHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryMinutesTextHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesTextHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesTextHeaders) SetCommonHeaders(v map[string]*string) *QueryMinutesTextHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryMinutesTextHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMinutesTextHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryMinutesTextRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Direction  *string `json:"direction,omitempty" xml:"direction,omitempty"`
+	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	UnionId    *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryMinutesTextRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesTextRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesTextRequest) SetDirection(v string) *QueryMinutesTextRequest {
+	s.Direction = &v
+	return s
+}
+
+func (s *QueryMinutesTextRequest) SetMaxResults(v int64) *QueryMinutesTextRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryMinutesTextRequest) SetNextToken(v string) *QueryMinutesTextRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryMinutesTextRequest) SetUnionId(v string) *QueryMinutesTextRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryMinutesTextResponseBody struct {
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// 1631172045153000_7940
+	NextToken     *string                                      `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	ParagraphList []*QueryMinutesTextResponseBodyParagraphList `json:"paragraphList,omitempty" xml:"paragraphList,omitempty" type:"Repeated"`
+}
+
+func (s QueryMinutesTextResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesTextResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesTextResponseBody) SetHasMore(v bool) *QueryMinutesTextResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryMinutesTextResponseBody) SetNextToken(v string) *QueryMinutesTextResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryMinutesTextResponseBody) SetParagraphList(v []*QueryMinutesTextResponseBodyParagraphList) *QueryMinutesTextResponseBody {
+	s.ParagraphList = v
+	return s
+}
+
+type QueryMinutesTextResponseBodyParagraphList struct {
+	// example:
+	//
+	// 7940
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 小钉
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// example:
+	//
+	// 嘿！你好，这里是小钉
+	Paragraph   *string `json:"paragraph,omitempty" xml:"paragraph,omitempty"`
+	ParagraphId *int64  `json:"paragraphId,omitempty" xml:"paragraphId,omitempty"`
+	// example:
+	//
+	// 44444
+	RecordId     *int64                                                   `json:"recordId,omitempty" xml:"recordId,omitempty"`
+	SentenceList []*QueryMinutesTextResponseBodyParagraphListSentenceList `json:"sentenceList,omitempty" xml:"sentenceList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 7940
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// WFBkgJvt0xxxxSaA1jK4sgiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryMinutesTextResponseBodyParagraphList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesTextResponseBodyParagraphList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphList) SetEndTime(v int64) *QueryMinutesTextResponseBodyParagraphList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphList) SetNickName(v string) *QueryMinutesTextResponseBodyParagraphList {
+	s.NickName = &v
+	return s
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphList) SetParagraph(v string) *QueryMinutesTextResponseBodyParagraphList {
+	s.Paragraph = &v
+	return s
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphList) SetParagraphId(v int64) *QueryMinutesTextResponseBodyParagraphList {
+	s.ParagraphId = &v
+	return s
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphList) SetRecordId(v int64) *QueryMinutesTextResponseBodyParagraphList {
+	s.RecordId = &v
+	return s
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphList) SetSentenceList(v []*QueryMinutesTextResponseBodyParagraphListSentenceList) *QueryMinutesTextResponseBodyParagraphList {
+	s.SentenceList = v
+	return s
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphList) SetStartTime(v int64) *QueryMinutesTextResponseBodyParagraphList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphList) SetUnionId(v string) *QueryMinutesTextResponseBodyParagraphList {
+	s.UnionId = &v
+	return s
+}
+
+type QueryMinutesTextResponseBodyParagraphListSentenceList struct {
+	// example:
+	//
+	// 7940
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 这里是小钉
+	Sentence *string `json:"sentence,omitempty" xml:"sentence,omitempty"`
+	// example:
+	//
+	// 7940
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// WFBkgJvt0xxxxSaA1jK4sgiEiE
+	UnionId  *string                                                          `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	WordList []*QueryMinutesTextResponseBodyParagraphListSentenceListWordList `json:"wordList,omitempty" xml:"wordList,omitempty" type:"Repeated"`
+}
+
+func (s QueryMinutesTextResponseBodyParagraphListSentenceList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesTextResponseBodyParagraphListSentenceList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphListSentenceList) SetEndTime(v int64) *QueryMinutesTextResponseBodyParagraphListSentenceList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphListSentenceList) SetSentence(v string) *QueryMinutesTextResponseBodyParagraphListSentenceList {
+	s.Sentence = &v
+	return s
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphListSentenceList) SetStartTime(v int64) *QueryMinutesTextResponseBodyParagraphListSentenceList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphListSentenceList) SetUnionId(v string) *QueryMinutesTextResponseBodyParagraphListSentenceList {
+	s.UnionId = &v
+	return s
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphListSentenceList) SetWordList(v []*QueryMinutesTextResponseBodyParagraphListSentenceListWordList) *QueryMinutesTextResponseBodyParagraphListSentenceList {
+	s.WordList = v
+	return s
+}
+
+type QueryMinutesTextResponseBodyParagraphListSentenceListWordList struct {
+	// example:
+	//
+	// 7940
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 7940
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 这里
+	Word *string `json:"word,omitempty" xml:"word,omitempty"`
+	// example:
+	//
+	// 1631172050535000#0
+	WordId *string `json:"wordId,omitempty" xml:"wordId,omitempty"`
+}
+
+func (s QueryMinutesTextResponseBodyParagraphListSentenceListWordList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesTextResponseBodyParagraphListSentenceListWordList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphListSentenceListWordList) SetEndTime(v int64) *QueryMinutesTextResponseBodyParagraphListSentenceListWordList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphListSentenceListWordList) SetStartTime(v int64) *QueryMinutesTextResponseBodyParagraphListSentenceListWordList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphListSentenceListWordList) SetWord(v string) *QueryMinutesTextResponseBodyParagraphListSentenceListWordList {
+	s.Word = &v
+	return s
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphListSentenceListWordList) SetWordId(v string) *QueryMinutesTextResponseBodyParagraphListSentenceListWordList {
+	s.WordId = &v
+	return s
+}
+
+type QueryMinutesTextResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryMinutesTextResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryMinutesTextResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesTextResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesTextResponse) SetHeaders(v map[string]*string) *QueryMinutesTextResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryMinutesTextResponse) SetStatusCode(v int32) *QueryMinutesTextResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryMinutesTextResponse) SetBody(v *QueryMinutesTextResponseBody) *QueryMinutesTextResponse {
+	s.Body = v
+	return s
+}
+
+type QueryOrgConferenceListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryOrgConferenceListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgConferenceListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgConferenceListHeaders) SetCommonHeaders(v map[string]*string) *QueryOrgConferenceListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryOrgConferenceListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryOrgConferenceListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryOrgConferenceListRequest struct {
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s QueryOrgConferenceListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgConferenceListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgConferenceListRequest) SetMaxResults(v int32) *QueryOrgConferenceListRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryOrgConferenceListRequest) SetNextToken(v string) *QueryOrgConferenceListRequest {
+	s.NextToken = &v
+	return s
+}
+
+type QueryOrgConferenceListResponseBody struct {
+	HasMore         *bool                                                `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken       *string                                              `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OnGoingConfList []*QueryOrgConferenceListResponseBodyOnGoingConfList `json:"onGoingConfList,omitempty" xml:"onGoingConfList,omitempty" type:"Repeated"`
+	TotalCount      *int32                                               `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryOrgConferenceListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgConferenceListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgConferenceListResponseBody) SetHasMore(v bool) *QueryOrgConferenceListResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryOrgConferenceListResponseBody) SetNextToken(v string) *QueryOrgConferenceListResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryOrgConferenceListResponseBody) SetOnGoingConfList(v []*QueryOrgConferenceListResponseBodyOnGoingConfList) *QueryOrgConferenceListResponseBody {
+	s.OnGoingConfList = v
+	return s
+}
+
+func (s *QueryOrgConferenceListResponseBody) SetTotalCount(v int32) *QueryOrgConferenceListResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryOrgConferenceListResponseBodyOnGoingConfList struct {
+	BizType      *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	CreatorId    *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	CreatorNick  *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	EndTime      *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	RoomCode     *string `json:"roomCode,omitempty" xml:"roomCode,omitempty"`
+	StartTime    *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Status       *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QueryOrgConferenceListResponseBodyOnGoingConfList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgConferenceListResponseBodyOnGoingConfList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgConferenceListResponseBodyOnGoingConfList) SetBizType(v string) *QueryOrgConferenceListResponseBodyOnGoingConfList {
+	s.BizType = &v
+	return s
+}
+
+func (s *QueryOrgConferenceListResponseBodyOnGoingConfList) SetConferenceId(v string) *QueryOrgConferenceListResponseBodyOnGoingConfList {
+	s.ConferenceId = &v
+	return s
+}
+
+func (s *QueryOrgConferenceListResponseBodyOnGoingConfList) SetCreatorId(v string) *QueryOrgConferenceListResponseBodyOnGoingConfList {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *QueryOrgConferenceListResponseBodyOnGoingConfList) SetCreatorNick(v string) *QueryOrgConferenceListResponseBodyOnGoingConfList {
+	s.CreatorNick = &v
+	return s
+}
+
+func (s *QueryOrgConferenceListResponseBodyOnGoingConfList) SetEndTime(v int64) *QueryOrgConferenceListResponseBodyOnGoingConfList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryOrgConferenceListResponseBodyOnGoingConfList) SetRoomCode(v string) *QueryOrgConferenceListResponseBodyOnGoingConfList {
+	s.RoomCode = &v
+	return s
+}
+
+func (s *QueryOrgConferenceListResponseBodyOnGoingConfList) SetStartTime(v int64) *QueryOrgConferenceListResponseBodyOnGoingConfList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryOrgConferenceListResponseBodyOnGoingConfList) SetStatus(v int32) *QueryOrgConferenceListResponseBodyOnGoingConfList {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryOrgConferenceListResponseBodyOnGoingConfList) SetTitle(v string) *QueryOrgConferenceListResponseBodyOnGoingConfList {
+	s.Title = &v
+	return s
+}
+
+type QueryOrgConferenceListResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryOrgConferenceListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryOrgConferenceListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgConferenceListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgConferenceListResponse) SetHeaders(v map[string]*string) *QueryOrgConferenceListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryOrgConferenceListResponse) SetStatusCode(v int32) *QueryOrgConferenceListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryOrgConferenceListResponse) SetBody(v *QueryOrgConferenceListResponseBody) *QueryOrgConferenceListResponse {
+	s.Body = v
+	return s
+}
+
+type QueryRecordMinutesUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryRecordMinutesUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRecordMinutesUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRecordMinutesUrlHeaders) SetCommonHeaders(v map[string]*string) *QueryRecordMinutesUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryRecordMinutesUrlHeaders) SetXAcsDingtalkAccessToken(v string) *QueryRecordMinutesUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryRecordMinutesUrlRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cloud_record
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lJcRnm39OsU4jlFVmRG9KXXXX
+	RecorderUnionId *string `json:"recorderUnionId,omitempty" xml:"recorderUnionId,omitempty"`
+}
+
+func (s QueryRecordMinutesUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRecordMinutesUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRecordMinutesUrlRequest) SetBizType(v string) *QueryRecordMinutesUrlRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *QueryRecordMinutesUrlRequest) SetRecorderUnionId(v string) *QueryRecordMinutesUrlRequest {
+	s.RecorderUnionId = &v
+	return s
+}
+
+type QueryRecordMinutesUrlResponseBody struct {
+	RecordMinutesUrls []*QueryRecordMinutesUrlResponseBodyRecordMinutesUrls `json:"recordMinutesUrls,omitempty" xml:"recordMinutesUrls,omitempty" type:"Repeated"`
+}
+
+func (s QueryRecordMinutesUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRecordMinutesUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRecordMinutesUrlResponseBody) SetRecordMinutesUrls(v []*QueryRecordMinutesUrlResponseBodyRecordMinutesUrls) *QueryRecordMinutesUrlResponseBody {
+	s.RecordMinutesUrls = v
+	return s
+}
+
+type QueryRecordMinutesUrlResponseBodyRecordMinutesUrls struct {
+	RecordMinutesUrl *string `json:"recordMinutesUrl,omitempty" xml:"recordMinutesUrl,omitempty"`
+}
+
+func (s QueryRecordMinutesUrlResponseBodyRecordMinutesUrls) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRecordMinutesUrlResponseBodyRecordMinutesUrls) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRecordMinutesUrlResponseBodyRecordMinutesUrls) SetRecordMinutesUrl(v string) *QueryRecordMinutesUrlResponseBodyRecordMinutesUrls {
+	s.RecordMinutesUrl = &v
+	return s
+}
+
+type QueryRecordMinutesUrlResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryRecordMinutesUrlResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryRecordMinutesUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRecordMinutesUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRecordMinutesUrlResponse) SetHeaders(v map[string]*string) *QueryRecordMinutesUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryRecordMinutesUrlResponse) SetStatusCode(v int32) *QueryRecordMinutesUrlResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryRecordMinutesUrlResponse) SetBody(v *QueryRecordMinutesUrlResponseBody) *QueryRecordMinutesUrlResponse {
+	s.Body = v
+	return s
+}
+
 type QueryScheduleConfSettingsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3521,6 +6224,7 @@ func (s *QueryScheduleConfSettingsHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type QueryScheduleConfSettingsRequest struct {
+	// This parameter is required.
 	ScheduleConferenceId *string `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
 }
 
@@ -3748,6 +6452,11 @@ func (s *QueryScheduleConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *Q
 }
 
 type QueryScheduleConferenceRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// qzR1iSMDvzR9iP7Pxxxxxxxxxxxx
 	RequestUnionId *string `json:"requestUnionId,omitempty" xml:"requestUnionId,omitempty"`
 }
 
@@ -3765,14 +6474,35 @@ func (s *QueryScheduleConferenceRequest) SetRequestUnionId(v string) *QuerySched
 }
 
 type QueryScheduleConferenceResponseBody struct {
-	EndTime              *int64    `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	Phones               []*string `json:"phones,omitempty" xml:"phones,omitempty" type:"Repeated"`
-	RequestId            *string   `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	RoomCode             *string   `json:"roomCode,omitempty" xml:"roomCode,omitempty"`
-	ScheduleConferenceId *string   `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
-	StartTime            *int64    `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Title                *string   `json:"title,omitempty" xml:"title,omitempty"`
-	Url                  *string   `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// 1687928400000
+	EndTime *int64    `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	Phones  []*string `json:"phones,omitempty" xml:"phones,omitempty" type:"Repeated"`
+	// example:
+	//
+	// xxxxx
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// 838 722 xxxxx
+	RoomCode *string `json:"roomCode,omitempty" xml:"roomCode,omitempty"`
+	// example:
+	//
+	// 2a489c68-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+	ScheduleConferenceId *string `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
+	// example:
+	//
+	// 1687924800000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 预约会议标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// https://meeting.dingtalk.com/j/Bsbp3ixxxxxUyJJ9
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s QueryScheduleConferenceResponseBody) String() string {
@@ -3876,8 +6606,17 @@ func (s *QueryScheduleConferenceInfoHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type QueryScheduleConferenceInfoRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// 0
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryScheduleConferenceInfoRequest) String() string {
@@ -3900,8 +6639,9 @@ func (s *QueryScheduleConferenceInfoRequest) SetNextToken(v string) *QuerySchedu
 
 type QueryScheduleConferenceInfoResponseBody struct {
 	ConferenceList []*QueryScheduleConferenceInfoResponseBodyConferenceList `json:"conferenceList,omitempty" xml:"conferenceList,omitempty" type:"Repeated"`
-	NextToken      *string                                                  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	TotalCount     *int32                                                   `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	TotalCount *int32  `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s QueryScheduleConferenceInfoResponseBody) String() string {
@@ -4027,6 +6767,11 @@ func (s *QueryUserOnGoingConferenceHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type QueryUserOnGoingConferenceRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -4119,9 +6864,20 @@ func (s *StartCloudRecordHeaders) SetXAcsDingtalkAccessToken(v string) *StartClo
 }
 
 type StartCloudRecordRequest struct {
-	Mode                *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	// example:
+	//
+	// 演讲
+	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	// example:
+	//
+	// 左上
 	SmallWindowPosition *string `json:"smallWindowPosition,omitempty" xml:"smallWindowPosition,omitempty"`
-	UnionId             *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 27SaQ3iiHLN0uwqcPisedfreNwiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s StartCloudRecordRequest) String() string {
@@ -4193,6 +6949,113 @@ func (s *StartCloudRecordResponse) SetBody(v *StartCloudRecordResponseBody) *Sta
 	return s
 }
 
+type StartMinutesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s StartMinutesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartMinutesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *StartMinutesHeaders) SetCommonHeaders(v map[string]*string) *StartMinutesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *StartMinutesHeaders) SetXAcsDingtalkAccessToken(v string) *StartMinutesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type StartMinutesRequest struct {
+	// example:
+	//
+	// 左上
+	OwnerUnionId *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
+	// example:
+	//
+	// true
+	RecordAudio *bool `json:"recordAudio,omitempty" xml:"recordAudio,omitempty"`
+	// example:
+	//
+	// 27SaQ3iiHLN0uwqcPisedfreNwiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s StartMinutesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartMinutesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *StartMinutesRequest) SetOwnerUnionId(v string) *StartMinutesRequest {
+	s.OwnerUnionId = &v
+	return s
+}
+
+func (s *StartMinutesRequest) SetRecordAudio(v bool) *StartMinutesRequest {
+	s.RecordAudio = &v
+	return s
+}
+
+func (s *StartMinutesRequest) SetUnionId(v string) *StartMinutesRequest {
+	s.UnionId = &v
+	return s
+}
+
+type StartMinutesResponseBody struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+}
+
+func (s StartMinutesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartMinutesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *StartMinutesResponseBody) SetCode(v string) *StartMinutesResponseBody {
+	s.Code = &v
+	return s
+}
+
+type StartMinutesResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *StartMinutesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s StartMinutesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StartMinutesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *StartMinutesResponse) SetHeaders(v map[string]*string) *StartMinutesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *StartMinutesResponse) SetStatusCode(v int32) *StartMinutesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *StartMinutesResponse) SetBody(v *StartMinutesResponseBody) *StartMinutesResponse {
+	s.Body = v
+	return s
+}
+
 type StartStreamOutHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4217,12 +7080,34 @@ func (s *StartStreamOutHeaders) SetXAcsDingtalkAccessToken(v string) *StartStrea
 }
 
 type StartStreamOutRequest struct {
-	Mode                *string   `json:"mode,omitempty" xml:"mode,omitempty"`
-	NeedHostJoin        *bool     `json:"needHostJoin,omitempty" xml:"needHostJoin,omitempty"`
-	SmallWindowPosition *string   `json:"smallWindowPosition,omitempty" xml:"smallWindowPosition,omitempty"`
-	StreamName          *string   `json:"streamName,omitempty" xml:"streamName,omitempty"`
-	StreamUrlList       []*string `json:"streamUrlList,omitempty" xml:"streamUrlList,omitempty" type:"Repeated"`
-	UnionId             *string   `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// grip
+	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	NeedHostJoin *bool `json:"needHostJoin,omitempty" xml:"needHostJoin,omitempty"`
+	// This parameter is required.
+	SmallWindowPosition *string `json:"smallWindowPosition,omitempty" xml:"smallWindowPosition,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 推流名称
+	StreamName *string `json:"streamName,omitempty" xml:"streamName,omitempty"`
+	// This parameter is required.
+	StreamUrlList []*string `json:"streamUrlList,omitempty" xml:"streamUrlList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 27SaQ3iiHLN0uwqcPisedfreNwiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s StartStreamOutRequest) String() string {
@@ -4339,6 +7224,7 @@ func (s *StopCloudRecordHeaders) SetXAcsDingtalkAccessToken(v string) *StopCloud
 }
 
 type StopCloudRecordRequest struct {
+	// This parameter is required.
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -4401,6 +7287,93 @@ func (s *StopCloudRecordResponse) SetBody(v *StopCloudRecordResponseBody) *StopC
 	return s
 }
 
+type StopMinutesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s StopMinutesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StopMinutesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *StopMinutesHeaders) SetCommonHeaders(v map[string]*string) *StopMinutesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *StopMinutesHeaders) SetXAcsDingtalkAccessToken(v string) *StopMinutesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type StopMinutesRequest struct {
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s StopMinutesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StopMinutesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *StopMinutesRequest) SetUnionId(v string) *StopMinutesRequest {
+	s.UnionId = &v
+	return s
+}
+
+type StopMinutesResponseBody struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+}
+
+func (s StopMinutesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StopMinutesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *StopMinutesResponseBody) SetCode(v string) *StopMinutesResponseBody {
+	s.Code = &v
+	return s
+}
+
+type StopMinutesResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *StopMinutesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s StopMinutesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StopMinutesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *StopMinutesResponse) SetHeaders(v map[string]*string) *StopMinutesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *StopMinutesResponse) SetStatusCode(v int32) *StopMinutesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *StopMinutesResponse) SetBody(v *StopMinutesResponseBody) *StopMinutesResponse {
+	s.Body = v
+	return s
+}
+
 type StopStreamOutHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4425,9 +7398,20 @@ func (s *StopStreamOutHeaders) SetXAcsDingtalkAccessToken(v string) *StopStreamO
 }
 
 type StopStreamOutRequest struct {
-	StopAllStream *bool   `json:"stopAllStream,omitempty" xml:"stopAllStream,omitempty"`
-	StreamId      *string `json:"streamId,omitempty" xml:"streamId,omitempty"`
-	UnionId       *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	StopAllStream *bool `json:"stopAllStream,omitempty" xml:"stopAllStream,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 27SaQ3iiHLN0uwqcPisedfreNwiEiE
+	StreamId *string `json:"streamId,omitempty" xml:"streamId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s StopStreamOutRequest) String() string {
@@ -4454,6 +7438,7 @@ func (s *StopStreamOutRequest) SetUnionId(v string) *StopStreamOutRequest {
 }
 
 type StopStreamOutResponseBody struct {
+	// This parameter is required.
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
 }
 
@@ -4523,9 +7508,19 @@ func (s *UpdateScheduleConfSettingsHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type UpdateScheduleConfSettingsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
 	CreatorUnionId           *string                                                    `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
 	ScheduleConfSettingModel *UpdateScheduleConfSettingsRequestScheduleConfSettingModel `json:"scheduleConfSettingModel,omitempty" xml:"scheduleConfSettingModel,omitempty" type:"Struct"`
-	ScheduleConferenceId     *string                                                    `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// f6fb627e-a7e8-403e-b1f8-26e85450f4a9
+	ScheduleConferenceId *string `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
 }
 
 func (s UpdateScheduleConfSettingsRequest) String() string {
@@ -4552,13 +7547,29 @@ func (s *UpdateScheduleConfSettingsRequest) SetScheduleConferenceId(v string) *U
 }
 
 type UpdateScheduleConfSettingsRequestScheduleConfSettingModel struct {
-	CohostUnionIds              []*string                                                                             `json:"cohostUnionIds,omitempty" xml:"cohostUnionIds,omitempty" type:"Repeated"`
-	ConfAllowedCorpId           *string                                                                               `json:"confAllowedCorpId,omitempty" xml:"confAllowedCorpId,omitempty"`
-	HostUnionId                 *string                                                                               `json:"hostUnionId,omitempty" xml:"hostUnionId,omitempty"`
+	CohostUnionIds []*string `json:"cohostUnionIds,omitempty" xml:"cohostUnionIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// dingc02f685fa06381c44ac5d6980864d335
+	ConfAllowedCorpId *string `json:"confAllowedCorpId,omitempty" xml:"confAllowedCorpId,omitempty"`
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	HostUnionId *string `json:"hostUnionId,omitempty" xml:"hostUnionId,omitempty"`
+	// example:
+	//
+	// 0：取消锁定 1：锁定
 	LockRoom                    *int32                                                                                `json:"lockRoom,omitempty" xml:"lockRoom,omitempty"`
+	MoziConfOpenRecordSetting   *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting   `json:"moziConfOpenRecordSetting,omitempty" xml:"moziConfOpenRecordSetting,omitempty" type:"Struct"`
 	MoziConfVirtualExtraSetting *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting `json:"moziConfVirtualExtraSetting,omitempty" xml:"moziConfVirtualExtraSetting,omitempty" type:"Struct"`
-	MuteOnJoin                  *int32                                                                                `json:"muteOnJoin,omitempty" xml:"muteOnJoin,omitempty"`
-	ScreenShareForbidden        *int32                                                                                `json:"screenShareForbidden,omitempty" xml:"screenShareForbidden,omitempty"`
+	// example:
+	//
+	// -1：未开启 1：开启 6：超过6人自动开启静音
+	MuteOnJoin *int32 `json:"muteOnJoin,omitempty" xml:"muteOnJoin,omitempty"`
+	// example:
+	//
+	// 0：允许共享 1：禁止共享
+	ScreenShareForbidden *int32 `json:"screenShareForbidden,omitempty" xml:"screenShareForbidden,omitempty"`
 }
 
 func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModel) String() string {
@@ -4589,6 +7600,11 @@ func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) SetLockRoom(
 	return s
 }
 
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) SetMoziConfOpenRecordSetting(v *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting) *UpdateScheduleConfSettingsRequestScheduleConfSettingModel {
+	s.MoziConfOpenRecordSetting = v
+	return s
+}
+
 func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) SetMoziConfVirtualExtraSetting(v *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) *UpdateScheduleConfSettingsRequestScheduleConfSettingModel {
 	s.MoziConfVirtualExtraSetting = v
 	return s
@@ -4604,14 +7620,90 @@ func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) SetScreenSha
 	return s
 }
 
+type UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting struct {
+	// example:
+	//
+	// true：跟随 false：不跟随
+	IsFollowHost *bool `json:"isFollowHost,omitempty" xml:"isFollowHost,omitempty"`
+	// example:
+	//
+	// grid：宫格模式,默认9宫格(3x3) speech：演讲者模式 full_screen：全屏模式 auto_grid：自动宫格模式，默认最大4x4宫格 screen_cast：屏幕共享模式，仅放置屏幕共享流 p2p：双人通话模式 full_screen_and_speaker：共享内容+发言人模式
+	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	// example:
+	//
+	// 0：不自动开启 1：自动开启
+	RecordAutoStart *int32 `json:"recordAutoStart,omitempty" xml:"recordAutoStart,omitempty"`
+	// example:
+	//
+	// 0：我以主持人身份入会后自动开启 1：其他人以联席主持人身份入会后开启 2：任何人以任何身份入会后开启
+	RecordAutoStartType *int32 `json:"recordAutoStartType,omitempty" xml:"recordAutoStartType,omitempty"`
+}
+
+func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting) SetIsFollowHost(v bool) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting {
+	s.IsFollowHost = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting) SetMode(v string) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting {
+	s.Mode = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting) SetRecordAutoStart(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting {
+	s.RecordAutoStart = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting) SetRecordAutoStartType(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting {
+	s.RecordAutoStartType = &v
+	return s
+}
+
 type UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting struct {
-	EnableChat                   *int32                                                                                                              `json:"enableChat,omitempty" xml:"enableChat,omitempty"`
-	EnableWebAnonymousJoin       *bool                                                                                                               `json:"enableWebAnonymousJoin,omitempty" xml:"enableWebAnonymousJoin,omitempty"`
-	JoinBeforeHost               *int32                                                                                                              `json:"joinBeforeHost,omitempty" xml:"joinBeforeHost,omitempty"`
-	LockMediaStatusMicMute       *int32                                                                                                              `json:"lockMediaStatusMicMute,omitempty" xml:"lockMediaStatusMicMute,omitempty"`
-	LockNick                     *int32                                                                                                              `json:"lockNick,omitempty" xml:"lockNick,omitempty"`
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	CloudRecordOwnerUnionId *string `json:"cloudRecordOwnerUnionId,omitempty" xml:"cloudRecordOwnerUnionId,omitempty"`
+	// example:
+	//
+	// 0：未开启 1：开启
+	EnableChat *int32 `json:"enableChat,omitempty" xml:"enableChat,omitempty"`
+	// example:
+	//
+	// true：允许匿名登录入会 false：不允许匿名登录入会
+	EnableWebAnonymousJoin *bool `json:"enableWebAnonymousJoin,omitempty" xml:"enableWebAnonymousJoin,omitempty"`
+	// example:
+	//
+	// 0：未开启 1：开启
+	JoinBeforeHost *int32 `json:"joinBeforeHost,omitempty" xml:"joinBeforeHost,omitempty"`
+	// example:
+	//
+	// 0：未开启 1：开启
+	LockMediaStatusMicMute *int32 `json:"lockMediaStatusMicMute,omitempty" xml:"lockMediaStatusMicMute,omitempty"`
+	// example:
+	//
+	// 0：未开启 1：开启
+	LockNick *int32 `json:"lockNick,omitempty" xml:"lockNick,omitempty"`
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	MinutesOwnerUnionId          *string                                                                                                             `json:"minutesOwnerUnionId,omitempty" xml:"minutesOwnerUnionId,omitempty"`
 	MoziConfExtensionAppSettings []*UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings `json:"moziConfExtensionAppSettings,omitempty" xml:"moziConfExtensionAppSettings,omitempty" type:"Repeated"`
-	WaitingRoom                  *int32                                                                                                              `json:"waitingRoom,omitempty" xml:"waitingRoom,omitempty"`
+	PushAllMeetingRecords        *bool                                                                                                               `json:"pushAllMeetingRecords,omitempty" xml:"pushAllMeetingRecords,omitempty"`
+	PushCloudRecordCard          *bool                                                                                                               `json:"pushCloudRecordCard,omitempty" xml:"pushCloudRecordCard,omitempty"`
+	PushMinutesCard              *bool                                                                                                               `json:"pushMinutesCard,omitempty" xml:"pushMinutesCard,omitempty"`
+	// example:
+	//
+	// 0：未开启 1：开启
+	WaitingRoom *int32 `json:"waitingRoom,omitempty" xml:"waitingRoom,omitempty"`
 }
 
 func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) String() string {
@@ -4620,6 +7712,11 @@ func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtual
 
 func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) GoString() string {
 	return s.String()
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetCloudRecordOwnerUnionId(v string) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.CloudRecordOwnerUnionId = &v
+	return s
 }
 
 func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetEnableChat(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
@@ -4647,8 +7744,28 @@ func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtua
 	return s
 }
 
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetMinutesOwnerUnionId(v string) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.MinutesOwnerUnionId = &v
+	return s
+}
+
 func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetMoziConfExtensionAppSettings(v []*UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
 	s.MoziConfExtensionAppSettings = v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetPushAllMeetingRecords(v bool) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.PushAllMeetingRecords = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetPushCloudRecordCard(v bool) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.PushCloudRecordCard = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetPushMinutesCard(v bool) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.PushMinutesCard = &v
 	return s
 }
 
@@ -4658,8 +7775,17 @@ func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtua
 }
 
 type UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings struct {
-	AutoOpenMode        *int32  `json:"autoOpenMode,omitempty" xml:"autoOpenMode,omitempty"`
-	CoolAppCode         *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	// example:
+	//
+	// 0：不自动打开 1：仅主持人/联席主持人自动打开 2：全员自动打开
+	AutoOpenMode *int32 `json:"autoOpenMode,omitempty" xml:"autoOpenMode,omitempty"`
+	// example:
+	//
+	// COOLAPP-0-1026633886192127xxxB000W
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	// example:
+	//
+	// bizData
 	ExtensionAppBizData *string `json:"extensionAppBizData,omitempty" xml:"extensionAppBizData,omitempty"`
 }
 
@@ -4756,11 +7882,36 @@ func (s *UpdateScheduleConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type UpdateScheduleConferenceRequest struct {
-	CreatorUnionId       *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
-	EndTime              *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// qzR1iSMDvzR9iP7Pxxxxxxxxxxxx
+	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1687928400000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2a489xxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 	ScheduleConferenceId *string `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
-	StartTime            *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Title                *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1687924800000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 预约会议标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s UpdateScheduleConferenceRequest) String() string {
@@ -5054,12 +8205,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -5068,6 +8219,98 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 增加闪记权限
+//
+// @param request - AddRecordPermissionRequest
+//
+// @param headers - AddRecordPermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddRecordPermissionResponse
+func (client *Client) AddRecordPermissionWithOptions(conferenceId *string, request *AddRecordPermissionRequest, headers *AddRecordPermissionHeaders, runtime *util.RuntimeOptions) (_result *AddRecordPermissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		body["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnerUnionId)) {
+		body["ownerUnionId"] = request.OwnerUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddRecordPermission"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/" + tea.StringValue(conferenceId) + "/flashMinutes/recordPermissions"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddRecordPermissionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 增加闪记权限
+//
+// @param request - AddRecordPermissionRequest
+//
+// @return AddRecordPermissionResponse
+func (client *Client) AddRecordPermission(conferenceId *string, request *AddRecordPermissionRequest) (_result *AddRecordPermissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddRecordPermissionHeaders{}
+	_result = &AddRecordPermissionResponse{}
+	_body, _err := client.AddRecordPermissionWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 取消预约会议
+//
+// @param request - CancelScheduleConferenceRequest
+//
+// @param headers - CancelScheduleConferenceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CancelScheduleConferenceResponse
 func (client *Client) CancelScheduleConferenceWithOptions(request *CancelScheduleConferenceRequest, headers *CancelScheduleConferenceHeaders, runtime *util.RuntimeOptions) (_result *CancelScheduleConferenceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5115,6 +8358,13 @@ func (client *Client) CancelScheduleConferenceWithOptions(request *CancelSchedul
 	return _result, _err
 }
 
+// Summary:
+//
+// 取消预约会议
+//
+// @param request - CancelScheduleConferenceRequest
+//
+// @return CancelScheduleConferenceResponse
 func (client *Client) CancelScheduleConference(request *CancelScheduleConferenceRequest) (_result *CancelScheduleConferenceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CancelScheduleConferenceHeaders{}
@@ -5127,6 +8377,17 @@ func (client *Client) CancelScheduleConference(request *CancelScheduleConference
 	return _result, _err
 }
 
+// Summary:
+//
+// 关闭视频会议
+//
+// @param request - CloseVideoConferenceRequest
+//
+// @param headers - CloseVideoConferenceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CloseVideoConferenceResponse
 func (client *Client) CloseVideoConferenceWithOptions(conferenceId *string, request *CloseVideoConferenceRequest, headers *CloseVideoConferenceHeaders, runtime *util.RuntimeOptions) (_result *CloseVideoConferenceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5170,6 +8431,13 @@ func (client *Client) CloseVideoConferenceWithOptions(conferenceId *string, requ
 	return _result, _err
 }
 
+// Summary:
+//
+// 关闭视频会议
+//
+// @param request - CloseVideoConferenceRequest
+//
+// @return CloseVideoConferenceResponse
 func (client *Client) CloseVideoConference(conferenceId *string, request *CloseVideoConferenceRequest) (_result *CloseVideoConferenceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CloseVideoConferenceHeaders{}
@@ -5182,6 +8450,17 @@ func (client *Client) CloseVideoConference(conferenceId *string, request *CloseV
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置联席主持人
+//
+// @param request - CohostsRequest
+//
+// @param headers - CohostsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CohostsResponse
 func (client *Client) CohostsWithOptions(conferenceId *string, request *CohostsRequest, headers *CohostsHeaders, runtime *util.RuntimeOptions) (_result *CohostsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5229,6 +8508,13 @@ func (client *Client) CohostsWithOptions(conferenceId *string, request *CohostsR
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置联席主持人
+//
+// @param request - CohostsRequest
+//
+// @return CohostsResponse
 func (client *Client) Cohosts(conferenceId *string, request *CohostsRequest) (_result *CohostsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CohostsHeaders{}
@@ -5241,6 +8527,17 @@ func (client *Client) Cohosts(conferenceId *string, request *CohostsRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建专属短链
+//
+// @param request - CreateCustomShortLinkRequest
+//
+// @param headers - CreateCustomShortLinkHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateCustomShortLinkResponse
 func (client *Client) CreateCustomShortLinkWithOptions(request *CreateCustomShortLinkRequest, headers *CreateCustomShortLinkHeaders, runtime *util.RuntimeOptions) (_result *CreateCustomShortLinkResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5300,6 +8597,13 @@ func (client *Client) CreateCustomShortLinkWithOptions(request *CreateCustomShor
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建专属短链
+//
+// @param request - CreateCustomShortLinkRequest
+//
+// @return CreateCustomShortLinkResponse
 func (client *Client) CreateCustomShortLink(request *CreateCustomShortLinkRequest) (_result *CreateCustomShortLinkResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateCustomShortLinkHeaders{}
@@ -5312,6 +8616,17 @@ func (client *Client) CreateCustomShortLink(request *CreateCustomShortLinkReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建预约会议
+//
+// @param request - CreateScheduleConferenceRequest
+//
+// @param headers - CreateScheduleConferenceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateScheduleConferenceResponse
 func (client *Client) CreateScheduleConferenceWithOptions(request *CreateScheduleConferenceRequest, headers *CreateScheduleConferenceHeaders, runtime *util.RuntimeOptions) (_result *CreateScheduleConferenceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5324,6 +8639,10 @@ func (client *Client) CreateScheduleConferenceWithOptions(request *CreateSchedul
 
 	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
 		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScheduleConfSettingModel)) {
+		body["scheduleConfSettingModel"] = request.ScheduleConfSettingModel
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
@@ -5367,6 +8686,13 @@ func (client *Client) CreateScheduleConferenceWithOptions(request *CreateSchedul
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建预约会议
+//
+// @param request - CreateScheduleConferenceRequest
+//
+// @return CreateScheduleConferenceResponse
 func (client *Client) CreateScheduleConference(request *CreateScheduleConferenceRequest) (_result *CreateScheduleConferenceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateScheduleConferenceHeaders{}
@@ -5379,6 +8705,17 @@ func (client *Client) CreateScheduleConference(request *CreateScheduleConference
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建视频会议
+//
+// @param request - CreateVideoConferenceRequest
+//
+// @param headers - CreateVideoConferenceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateVideoConferenceResponse
 func (client *Client) CreateVideoConferenceWithOptions(request *CreateVideoConferenceRequest, headers *CreateVideoConferenceHeaders, runtime *util.RuntimeOptions) (_result *CreateVideoConferenceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5434,6 +8771,13 @@ func (client *Client) CreateVideoConferenceWithOptions(request *CreateVideoConfe
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建视频会议
+//
+// @param request - CreateVideoConferenceRequest
+//
+// @return CreateVideoConferenceResponse
 func (client *Client) CreateVideoConference(request *CreateVideoConferenceRequest) (_result *CreateVideoConferenceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateVideoConferenceHeaders{}
@@ -5446,6 +8790,17 @@ func (client *Client) CreateVideoConference(request *CreateVideoConferenceReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置全员看他
+//
+// @param request - FocusRequest
+//
+// @param headers - FocusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return FocusResponse
 func (client *Client) FocusWithOptions(conferenceId *string, request *FocusRequest, headers *FocusHeaders, runtime *util.RuntimeOptions) (_result *FocusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5493,6 +8848,13 @@ func (client *Client) FocusWithOptions(conferenceId *string, request *FocusReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置全员看他
+//
+// @param request - FocusRequest
+//
+// @return FocusResponse
 func (client *Client) Focus(conferenceId *string, request *FocusRequest) (_result *FocusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &FocusHeaders{}
@@ -5505,6 +8867,98 @@ func (client *Client) Focus(conferenceId *string, request *FocusRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 生成会议闪记文档的下载链接
+//
+// @param request - GenerateFlashMinutesDocumentUrlRequest
+//
+// @param headers - GenerateFlashMinutesDocumentUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GenerateFlashMinutesDocumentUrlResponse
+func (client *Client) GenerateFlashMinutesDocumentUrlWithOptions(conferenceId *string, request *GenerateFlashMinutesDocumentUrlRequest, headers *GenerateFlashMinutesDocumentUrlHeaders, runtime *util.RuntimeOptions) (_result *GenerateFlashMinutesDocumentUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		query["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExpireTime)) {
+		query["expireTime"] = request.ExpireTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GenerateFlashMinutesDocumentUrl"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/" + tea.StringValue(conferenceId) + "/flashMinutes/document/generate"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GenerateFlashMinutesDocumentUrlResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 生成会议闪记文档的下载链接
+//
+// @param request - GenerateFlashMinutesDocumentUrlRequest
+//
+// @return GenerateFlashMinutesDocumentUrlResponse
+func (client *Client) GenerateFlashMinutesDocumentUrl(conferenceId *string, request *GenerateFlashMinutesDocumentUrlRequest) (_result *GenerateFlashMinutesDocumentUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GenerateFlashMinutesDocumentUrlHeaders{}
+	_result = &GenerateFlashMinutesDocumentUrlResponse{}
+	_body, _err := client.GenerateFlashMinutesDocumentUrlWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过conferenceId获取指定音视频会议信息
+//
+// @param request - GetConfDataByConferenceIdRequest
+//
+// @param headers - GetConfDataByConferenceIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetConfDataByConferenceIdResponse
 func (client *Client) GetConfDataByConferenceIdWithOptions(conferenceId *string, request *GetConfDataByConferenceIdRequest, headers *GetConfDataByConferenceIdHeaders, runtime *util.RuntimeOptions) (_result *GetConfDataByConferenceIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5548,6 +9002,13 @@ func (client *Client) GetConfDataByConferenceIdWithOptions(conferenceId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过conferenceId获取指定音视频会议信息
+//
+// @param request - GetConfDataByConferenceIdRequest
+//
+// @return GetConfDataByConferenceIdResponse
 func (client *Client) GetConfDataByConferenceId(conferenceId *string, request *GetConfDataByConferenceIdRequest) (_result *GetConfDataByConferenceIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetConfDataByConferenceIdHeaders{}
@@ -5560,6 +9021,17 @@ func (client *Client) GetConfDataByConferenceId(conferenceId *string, request *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过conferenceId获取指定音视频会议成员信息
+//
+// @param request - GetConfDetailDataRequest
+//
+// @param headers - GetConfDetailDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetConfDetailDataResponse
 func (client *Client) GetConfDetailDataWithOptions(conferenceId *string, request *GetConfDetailDataRequest, headers *GetConfDetailDataHeaders, runtime *util.RuntimeOptions) (_result *GetConfDetailDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5611,6 +9083,13 @@ func (client *Client) GetConfDetailDataWithOptions(conferenceId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过conferenceId获取指定音视频会议成员信息
+//
+// @param request - GetConfDetailDataRequest
+//
+// @return GetConfDetailDataResponse
 func (client *Client) GetConfDetailData(conferenceId *string, request *GetConfDetailDataRequest) (_result *GetConfDetailDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetConfDetailDataHeaders{}
@@ -5623,6 +9102,17 @@ func (client *Client) GetConfDetailData(conferenceId *string, request *GetConfDe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取音视频会议列表数据
+//
+// @param request - GetHistoryConfDataListRequest
+//
+// @param headers - GetHistoryConfDataListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetHistoryConfDataListResponse
 func (client *Client) GetHistoryConfDataListWithOptions(request *GetHistoryConfDataListRequest, headers *GetHistoryConfDataListHeaders, runtime *util.RuntimeOptions) (_result *GetHistoryConfDataListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5698,6 +9188,13 @@ func (client *Client) GetHistoryConfDataListWithOptions(request *GetHistoryConfD
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取音视频会议列表数据
+//
+// @param request - GetHistoryConfDataListRequest
+//
+// @return GetHistoryConfDataListResponse
 func (client *Client) GetHistoryConfDataList(request *GetHistoryConfDataListRequest) (_result *GetHistoryConfDataListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetHistoryConfDataListHeaders{}
@@ -5710,6 +9207,17 @@ func (client *Client) GetHistoryConfDataList(request *GetHistoryConfDataListRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过conferenceId和unionId获取最新会议质量数据
+//
+// @param request - GetUserLastMetricRequest
+//
+// @param headers - GetUserLastMetricHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserLastMetricResponse
 func (client *Client) GetUserLastMetricWithOptions(conferenceId *string, request *GetUserLastMetricRequest, headers *GetUserLastMetricHeaders, runtime *util.RuntimeOptions) (_result *GetUserLastMetricResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5753,6 +9261,13 @@ func (client *Client) GetUserLastMetricWithOptions(conferenceId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过conferenceId和unionId获取最新会议质量数据
+//
+// @param request - GetUserLastMetricRequest
+//
+// @return GetUserLastMetricResponse
 func (client *Client) GetUserLastMetric(conferenceId *string, request *GetUserLastMetricRequest) (_result *GetUserLastMetricResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUserLastMetricHeaders{}
@@ -5765,6 +9280,17 @@ func (client *Client) GetUserLastMetric(conferenceId *string, request *GetUserLa
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过conferenceId和unionId获取指定音视频会议人员的会议质量数据
+//
+// @param request - GetUserMetricDataRequest
+//
+// @param headers - GetUserMetricDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserMetricDataResponse
 func (client *Client) GetUserMetricDataWithOptions(conferenceId *string, request *GetUserMetricDataRequest, headers *GetUserMetricDataHeaders, runtime *util.RuntimeOptions) (_result *GetUserMetricDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5816,6 +9342,13 @@ func (client *Client) GetUserMetricDataWithOptions(conferenceId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过conferenceId和unionId获取指定音视频会议人员的会议质量数据
+//
+// @param request - GetUserMetricDataRequest
+//
+// @return GetUserMetricDataResponse
 func (client *Client) GetUserMetricData(conferenceId *string, request *GetUserMetricDataRequest) (_result *GetUserMetricDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUserMetricDataHeaders{}
@@ -5828,6 +9361,17 @@ func (client *Client) GetUserMetricData(conferenceId *string, request *GetUserMe
 	return _result, _err
 }
 
+// Summary:
+//
+// 邀请其他人员
+//
+// @param request - InviteUsersRequest
+//
+// @param headers - InviteUsersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InviteUsersResponse
 func (client *Client) InviteUsersWithOptions(conferenceId *string, request *InviteUsersRequest, headers *InviteUsersHeaders, runtime *util.RuntimeOptions) (_result *InviteUsersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5879,6 +9423,13 @@ func (client *Client) InviteUsersWithOptions(conferenceId *string, request *Invi
 	return _result, _err
 }
 
+// Summary:
+//
+// 邀请其他人员
+//
+// @param request - InviteUsersRequest
+//
+// @return InviteUsersResponse
 func (client *Client) InviteUsers(conferenceId *string, request *InviteUsersRequest) (_result *InviteUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InviteUsersHeaders{}
@@ -5891,6 +9442,17 @@ func (client *Client) InviteUsers(conferenceId *string, request *InviteUsersRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 会议踢出成员
+//
+// @param request - KickMembersRequest
+//
+// @param headers - KickMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return KickMembersResponse
 func (client *Client) KickMembersWithOptions(conferenceId *string, request *KickMembersRequest, headers *KickMembersHeaders, runtime *util.RuntimeOptions) (_result *KickMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5938,6 +9500,13 @@ func (client *Client) KickMembersWithOptions(conferenceId *string, request *Kick
 	return _result, _err
 }
 
+// Summary:
+//
+// 会议踢出成员
+//
+// @param request - KickMembersRequest
+//
+// @return KickMembersResponse
 func (client *Client) KickMembers(conferenceId *string, request *KickMembersRequest) (_result *KickMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &KickMembersHeaders{}
@@ -5950,6 +9519,17 @@ func (client *Client) KickMembers(conferenceId *string, request *KickMembersRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 锁定会议
+//
+// @param request - LockConferenceRequest
+//
+// @param headers - LockConferenceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return LockConferenceResponse
 func (client *Client) LockConferenceWithOptions(conferenceId *string, request *LockConferenceRequest, headers *LockConferenceHeaders, runtime *util.RuntimeOptions) (_result *LockConferenceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5993,6 +9573,13 @@ func (client *Client) LockConferenceWithOptions(conferenceId *string, request *L
 	return _result, _err
 }
 
+// Summary:
+//
+// 锁定会议
+//
+// @param request - LockConferenceRequest
+//
+// @return LockConferenceResponse
 func (client *Client) LockConference(conferenceId *string, request *LockConferenceRequest) (_result *LockConferenceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &LockConferenceHeaders{}
@@ -6005,6 +9592,17 @@ func (client *Client) LockConference(conferenceId *string, request *LockConferen
 	return _result, _err
 }
 
+// Summary:
+//
+// 会议全员静音或解除静音
+//
+// @param request - MuteAllRequest
+//
+// @param headers - MuteAllHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MuteAllResponse
 func (client *Client) MuteAllWithOptions(conferenceId *string, request *MuteAllRequest, headers *MuteAllHeaders, runtime *util.RuntimeOptions) (_result *MuteAllResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6052,6 +9650,13 @@ func (client *Client) MuteAllWithOptions(conferenceId *string, request *MuteAllR
 	return _result, _err
 }
 
+// Summary:
+//
+// 会议全员静音或解除静音
+//
+// @param request - MuteAllRequest
+//
+// @return MuteAllResponse
 func (client *Client) MuteAll(conferenceId *string, request *MuteAllRequest) (_result *MuteAllResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &MuteAllHeaders{}
@@ -6064,6 +9669,17 @@ func (client *Client) MuteAll(conferenceId *string, request *MuteAllRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 指定人员静音或取消静音
+//
+// @param request - MuteMembersRequest
+//
+// @param headers - MuteMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MuteMembersResponse
 func (client *Client) MuteMembersWithOptions(conferenceId *string, request *MuteMembersRequest, headers *MuteMembersHeaders, runtime *util.RuntimeOptions) (_result *MuteMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6111,6 +9727,13 @@ func (client *Client) MuteMembersWithOptions(conferenceId *string, request *Mute
 	return _result, _err
 }
 
+// Summary:
+//
+// 指定人员静音或取消静音
+//
+// @param request - MuteMembersRequest
+//
+// @return MuteMembersResponse
 func (client *Client) MuteMembers(conferenceId *string, request *MuteMembersRequest) (_result *MuteMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &MuteMembersHeaders{}
@@ -6123,6 +9746,17 @@ func (client *Client) MuteMembers(conferenceId *string, request *MuteMembersRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询云录制文本信息
+//
+// @param request - QueryCloudRecordTextRequest
+//
+// @param headers - QueryCloudRecordTextHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCloudRecordTextResponse
 func (client *Client) QueryCloudRecordTextWithOptions(conferenceId *string, request *QueryCloudRecordTextRequest, headers *QueryCloudRecordTextHeaders, runtime *util.RuntimeOptions) (_result *QueryCloudRecordTextResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6182,6 +9816,13 @@ func (client *Client) QueryCloudRecordTextWithOptions(conferenceId *string, requ
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询云录制文本信息
+//
+// @param request - QueryCloudRecordTextRequest
+//
+// @return QueryCloudRecordTextResponse
 func (client *Client) QueryCloudRecordText(conferenceId *string, request *QueryCloudRecordTextRequest) (_result *QueryCloudRecordTextResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryCloudRecordTextHeaders{}
@@ -6194,6 +9835,17 @@ func (client *Client) QueryCloudRecordText(conferenceId *string, request *QueryC
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询云录制视频
+//
+// @param request - QueryCloudRecordVideoRequest
+//
+// @param headers - QueryCloudRecordVideoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCloudRecordVideoResponse
 func (client *Client) QueryCloudRecordVideoWithOptions(conferenceId *string, request *QueryCloudRecordVideoRequest, headers *QueryCloudRecordVideoHeaders, runtime *util.RuntimeOptions) (_result *QueryCloudRecordVideoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6237,6 +9889,13 @@ func (client *Client) QueryCloudRecordVideoWithOptions(conferenceId *string, req
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询云录制视频
+//
+// @param request - QueryCloudRecordVideoRequest
+//
+// @return QueryCloudRecordVideoResponse
 func (client *Client) QueryCloudRecordVideo(conferenceId *string, request *QueryCloudRecordVideoRequest) (_result *QueryCloudRecordVideoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryCloudRecordVideoHeaders{}
@@ -6249,6 +9908,17 @@ func (client *Client) QueryCloudRecordVideo(conferenceId *string, request *Query
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询云录制视频播放信息
+//
+// @param request - QueryCloudRecordVideoPlayInfoRequest
+//
+// @param headers - QueryCloudRecordVideoPlayInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCloudRecordVideoPlayInfoResponse
 func (client *Client) QueryCloudRecordVideoPlayInfoWithOptions(conferenceId *string, request *QueryCloudRecordVideoPlayInfoRequest, headers *QueryCloudRecordVideoPlayInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryCloudRecordVideoPlayInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6300,6 +9970,13 @@ func (client *Client) QueryCloudRecordVideoPlayInfoWithOptions(conferenceId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询云录制视频播放信息
+//
+// @param request - QueryCloudRecordVideoPlayInfoRequest
+//
+// @return QueryCloudRecordVideoPlayInfoResponse
 func (client *Client) QueryCloudRecordVideoPlayInfo(conferenceId *string, request *QueryCloudRecordVideoPlayInfoRequest) (_result *QueryCloudRecordVideoPlayInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryCloudRecordVideoPlayInfoHeaders{}
@@ -6312,6 +9989,15 @@ func (client *Client) QueryCloudRecordVideoPlayInfo(conferenceId *string, reques
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询视频会议信息
+//
+// @param headers - QueryConferenceInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryConferenceInfoResponse
 func (client *Client) QueryConferenceInfoWithOptions(conferenceId *string, headers *QueryConferenceInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryConferenceInfoResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -6345,6 +10031,11 @@ func (client *Client) QueryConferenceInfoWithOptions(conferenceId *string, heade
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询视频会议信息
+//
+// @return QueryConferenceInfoResponse
 func (client *Client) QueryConferenceInfo(conferenceId *string) (_result *QueryConferenceInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryConferenceInfoHeaders{}
@@ -6357,6 +10048,17 @@ func (client *Client) QueryConferenceInfo(conferenceId *string) (_result *QueryC
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询视频会议信息
+//
+// @param request - QueryConferenceInfoBatchRequest
+//
+// @param headers - QueryConferenceInfoBatchHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryConferenceInfoBatchResponse
 func (client *Client) QueryConferenceInfoBatchWithOptions(request *QueryConferenceInfoBatchRequest, headers *QueryConferenceInfoBatchHeaders, runtime *util.RuntimeOptions) (_result *QueryConferenceInfoBatchResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6400,6 +10102,13 @@ func (client *Client) QueryConferenceInfoBatchWithOptions(request *QueryConferen
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询视频会议信息
+//
+// @param request - QueryConferenceInfoBatchRequest
+//
+// @return QueryConferenceInfoBatchResponse
 func (client *Client) QueryConferenceInfoBatch(request *QueryConferenceInfoBatchRequest) (_result *QueryConferenceInfoBatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryConferenceInfoBatchHeaders{}
@@ -6412,6 +10121,94 @@ func (client *Client) QueryConferenceInfoBatch(request *QueryConferenceInfoBatch
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据会议号查询会议信息
+//
+// @param request - QueryConferenceInfoByRoomCodeRequest
+//
+// @param headers - QueryConferenceInfoByRoomCodeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryConferenceInfoByRoomCodeResponse
+func (client *Client) QueryConferenceInfoByRoomCodeWithOptions(roomCode *string, request *QueryConferenceInfoByRoomCodeRequest, headers *QueryConferenceInfoByRoomCodeHeaders, runtime *util.RuntimeOptions) (_result *QueryConferenceInfoByRoomCodeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryConferenceInfoByRoomCode"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/roomCodes/" + tea.StringValue(roomCode) + "/infos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryConferenceInfoByRoomCodeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据会议号查询会议信息
+//
+// @param request - QueryConferenceInfoByRoomCodeRequest
+//
+// @return QueryConferenceInfoByRoomCodeResponse
+func (client *Client) QueryConferenceInfoByRoomCode(roomCode *string, request *QueryConferenceInfoByRoomCodeRequest) (_result *QueryConferenceInfoByRoomCodeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryConferenceInfoByRoomCodeHeaders{}
+	_result = &QueryConferenceInfoByRoomCodeResponse{}
+	_body, _err := client.QueryConferenceInfoByRoomCodeWithOptions(roomCode, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询视频会议成员
+//
+// @param request - QueryConferenceMembersRequest
+//
+// @param headers - QueryConferenceMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryConferenceMembersResponse
 func (client *Client) QueryConferenceMembersWithOptions(conferenceId *string, request *QueryConferenceMembersRequest, headers *QueryConferenceMembersHeaders, runtime *util.RuntimeOptions) (_result *QueryConferenceMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6459,6 +10256,13 @@ func (client *Client) QueryConferenceMembersWithOptions(conferenceId *string, re
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询视频会议成员
+//
+// @param request - QueryConferenceMembersRequest
+//
+// @return QueryConferenceMembersResponse
 func (client *Client) QueryConferenceMembers(conferenceId *string, request *QueryConferenceMembersRequest) (_result *QueryConferenceMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryConferenceMembersHeaders{}
@@ -6471,6 +10275,483 @@ func (client *Client) QueryConferenceMembers(conferenceId *string, request *Quer
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询云录制摘要请求
+//
+// @param request - QueryFlashMinutesSummaryRequest
+//
+// @param headers - QueryFlashMinutesSummaryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryFlashMinutesSummaryResponse
+func (client *Client) QueryFlashMinutesSummaryWithOptions(conferenceId *string, request *QueryFlashMinutesSummaryRequest, headers *QueryFlashMinutesSummaryHeaders, runtime *util.RuntimeOptions) (_result *QueryFlashMinutesSummaryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		query["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RecorderUnionId)) {
+		query["recorderUnionId"] = request.RecorderUnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryFlashMinutesSummary"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/" + tea.StringValue(conferenceId) + "/flashMinutes/summaries"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryFlashMinutesSummaryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询云录制摘要请求
+//
+// @param request - QueryFlashMinutesSummaryRequest
+//
+// @return QueryFlashMinutesSummaryResponse
+func (client *Client) QueryFlashMinutesSummary(conferenceId *string, request *QueryFlashMinutesSummaryRequest) (_result *QueryFlashMinutesSummaryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryFlashMinutesSummaryHeaders{}
+	_result = &QueryFlashMinutesSummaryResponse{}
+	_body, _err := client.QueryFlashMinutesSummaryWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询会议闪记的音频信息
+//
+// @param request - QueryMinutesAudioRequest
+//
+// @param headers - QueryMinutesAudioHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMinutesAudioResponse
+func (client *Client) QueryMinutesAudioWithOptions(conferenceId *string, request *QueryMinutesAudioRequest, headers *QueryMinutesAudioHeaders, runtime *util.RuntimeOptions) (_result *QueryMinutesAudioResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMinutesAudio"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/" + tea.StringValue(conferenceId) + "/minutes/audioInfos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryMinutesAudioResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询会议闪记的音频信息
+//
+// @param request - QueryMinutesAudioRequest
+//
+// @return QueryMinutesAudioResponse
+func (client *Client) QueryMinutesAudio(conferenceId *string, request *QueryMinutesAudioRequest) (_result *QueryMinutesAudioResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryMinutesAudioHeaders{}
+	_result = &QueryMinutesAudioResponse{}
+	_body, _err := client.QueryMinutesAudioWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询会议闪记智能纪要
+//
+// @param request - QueryMinutesSummaryRequest
+//
+// @param headers - QueryMinutesSummaryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMinutesSummaryResponse
+func (client *Client) QueryMinutesSummaryWithOptions(conferenceId *string, request *QueryMinutesSummaryRequest, headers *QueryMinutesSummaryHeaders, runtime *util.RuntimeOptions) (_result *QueryMinutesSummaryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SummaryTypeList)) {
+		body["summaryTypeList"] = request.SummaryTypeList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMinutesSummary"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/" + tea.StringValue(conferenceId) + "/minutes/summaries/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryMinutesSummaryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询会议闪记智能纪要
+//
+// @param request - QueryMinutesSummaryRequest
+//
+// @return QueryMinutesSummaryResponse
+func (client *Client) QueryMinutesSummary(conferenceId *string, request *QueryMinutesSummaryRequest) (_result *QueryMinutesSummaryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryMinutesSummaryHeaders{}
+	_result = &QueryMinutesSummaryResponse{}
+	_body, _err := client.QueryMinutesSummaryWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询会议闪记文本信息
+//
+// @param request - QueryMinutesTextRequest
+//
+// @param headers - QueryMinutesTextHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMinutesTextResponse
+func (client *Client) QueryMinutesTextWithOptions(conferenceId *string, request *QueryMinutesTextRequest, headers *QueryMinutesTextHeaders, runtime *util.RuntimeOptions) (_result *QueryMinutesTextResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Direction)) {
+		query["direction"] = request.Direction
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMinutesText"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/" + tea.StringValue(conferenceId) + "/minutes/textInfos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryMinutesTextResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询会议闪记文本信息
+//
+// @param request - QueryMinutesTextRequest
+//
+// @return QueryMinutesTextResponse
+func (client *Client) QueryMinutesText(conferenceId *string, request *QueryMinutesTextRequest) (_result *QueryMinutesTextResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryMinutesTextHeaders{}
+	_result = &QueryMinutesTextResponse{}
+	_body, _err := client.QueryMinutesTextWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业进行中会议列表
+//
+// @param request - QueryOrgConferenceListRequest
+//
+// @param headers - QueryOrgConferenceListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryOrgConferenceListResponse
+func (client *Client) QueryOrgConferenceListWithOptions(request *QueryOrgConferenceListRequest, headers *QueryOrgConferenceListHeaders, runtime *util.RuntimeOptions) (_result *QueryOrgConferenceListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryOrgConferenceList"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/orgConferences"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryOrgConferenceListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业进行中会议列表
+//
+// @param request - QueryOrgConferenceListRequest
+//
+// @return QueryOrgConferenceListResponse
+func (client *Client) QueryOrgConferenceList(request *QueryOrgConferenceListRequest) (_result *QueryOrgConferenceListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryOrgConferenceListHeaders{}
+	_result = &QueryOrgConferenceListResponse{}
+	_body, _err := client.QueryOrgConferenceListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询闪记链接
+//
+// @param request - QueryRecordMinutesUrlRequest
+//
+// @param headers - QueryRecordMinutesUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryRecordMinutesUrlResponse
+func (client *Client) QueryRecordMinutesUrlWithOptions(conferenceId *string, request *QueryRecordMinutesUrlRequest, headers *QueryRecordMinutesUrlHeaders, runtime *util.RuntimeOptions) (_result *QueryRecordMinutesUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		query["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RecorderUnionId)) {
+		query["recorderUnionId"] = request.RecorderUnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryRecordMinutesUrl"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/" + tea.StringValue(conferenceId) + "/flashMinutes/recordUrls"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryRecordMinutesUrlResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询闪记链接
+//
+// @param request - QueryRecordMinutesUrlRequest
+//
+// @return QueryRecordMinutesUrlResponse
+func (client *Client) QueryRecordMinutesUrl(conferenceId *string, request *QueryRecordMinutesUrlRequest) (_result *QueryRecordMinutesUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryRecordMinutesUrlHeaders{}
+	_result = &QueryRecordMinutesUrlResponse{}
+	_body, _err := client.QueryRecordMinutesUrlWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询预约会议设置
+//
+// @param request - QueryScheduleConfSettingsRequest
+//
+// @param headers - QueryScheduleConfSettingsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryScheduleConfSettingsResponse
 func (client *Client) QueryScheduleConfSettingsWithOptions(request *QueryScheduleConfSettingsRequest, headers *QueryScheduleConfSettingsHeaders, runtime *util.RuntimeOptions) (_result *QueryScheduleConfSettingsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6514,6 +10795,13 @@ func (client *Client) QueryScheduleConfSettingsWithOptions(request *QuerySchedul
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询预约会议设置
+//
+// @param request - QueryScheduleConfSettingsRequest
+//
+// @return QueryScheduleConfSettingsResponse
 func (client *Client) QueryScheduleConfSettings(request *QueryScheduleConfSettingsRequest) (_result *QueryScheduleConfSettingsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryScheduleConfSettingsHeaders{}
@@ -6526,6 +10814,17 @@ func (client *Client) QueryScheduleConfSettings(request *QueryScheduleConfSettin
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询预约会议信息
+//
+// @param request - QueryScheduleConferenceRequest
+//
+// @param headers - QueryScheduleConferenceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryScheduleConferenceResponse
 func (client *Client) QueryScheduleConferenceWithOptions(scheduleConferenceId *string, request *QueryScheduleConferenceRequest, headers *QueryScheduleConferenceHeaders, runtime *util.RuntimeOptions) (_result *QueryScheduleConferenceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6569,6 +10868,13 @@ func (client *Client) QueryScheduleConferenceWithOptions(scheduleConferenceId *s
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询预约会议信息
+//
+// @param request - QueryScheduleConferenceRequest
+//
+// @return QueryScheduleConferenceResponse
 func (client *Client) QueryScheduleConference(scheduleConferenceId *string, request *QueryScheduleConferenceRequest) (_result *QueryScheduleConferenceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryScheduleConferenceHeaders{}
@@ -6581,6 +10887,17 @@ func (client *Client) QueryScheduleConference(scheduleConferenceId *string, requ
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取预约会议历史会议信息，当前仅返回最后一次的会议信息
+//
+// @param request - QueryScheduleConferenceInfoRequest
+//
+// @param headers - QueryScheduleConferenceInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryScheduleConferenceInfoResponse
 func (client *Client) QueryScheduleConferenceInfoWithOptions(scheduleConferenceId *string, request *QueryScheduleConferenceInfoRequest, headers *QueryScheduleConferenceInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryScheduleConferenceInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6628,6 +10945,13 @@ func (client *Client) QueryScheduleConferenceInfoWithOptions(scheduleConferenceI
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取预约会议历史会议信息，当前仅返回最后一次的会议信息
+//
+// @param request - QueryScheduleConferenceInfoRequest
+//
+// @return QueryScheduleConferenceInfoResponse
 func (client *Client) QueryScheduleConferenceInfo(scheduleConferenceId *string, request *QueryScheduleConferenceInfoRequest) (_result *QueryScheduleConferenceInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryScheduleConferenceInfoHeaders{}
@@ -6640,6 +10964,17 @@ func (client *Client) QueryScheduleConferenceInfo(scheduleConferenceId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户进行中会议
+//
+// @param request - QueryUserOnGoingConferenceRequest
+//
+// @param headers - QueryUserOnGoingConferenceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryUserOnGoingConferenceResponse
 func (client *Client) QueryUserOnGoingConferenceWithOptions(request *QueryUserOnGoingConferenceRequest, headers *QueryUserOnGoingConferenceHeaders, runtime *util.RuntimeOptions) (_result *QueryUserOnGoingConferenceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6683,6 +11018,13 @@ func (client *Client) QueryUserOnGoingConferenceWithOptions(request *QueryUserOn
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户进行中会议
+//
+// @param request - QueryUserOnGoingConferenceRequest
+//
+// @return QueryUserOnGoingConferenceResponse
 func (client *Client) QueryUserOnGoingConference(request *QueryUserOnGoingConferenceRequest) (_result *QueryUserOnGoingConferenceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryUserOnGoingConferenceHeaders{}
@@ -6695,6 +11037,17 @@ func (client *Client) QueryUserOnGoingConference(request *QueryUserOnGoingConfer
 	return _result, _err
 }
 
+// Summary:
+//
+// 开启云录制
+//
+// @param request - StartCloudRecordRequest
+//
+// @param headers - StartCloudRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return StartCloudRecordResponse
 func (client *Client) StartCloudRecordWithOptions(conferenceId *string, request *StartCloudRecordRequest, headers *StartCloudRecordHeaders, runtime *util.RuntimeOptions) (_result *StartCloudRecordResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6746,6 +11099,13 @@ func (client *Client) StartCloudRecordWithOptions(conferenceId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 开启云录制
+//
+// @param request - StartCloudRecordRequest
+//
+// @return StartCloudRecordResponse
 func (client *Client) StartCloudRecord(conferenceId *string, request *StartCloudRecordRequest) (_result *StartCloudRecordResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &StartCloudRecordHeaders{}
@@ -6758,6 +11118,98 @@ func (client *Client) StartCloudRecord(conferenceId *string, request *StartCloud
 	return _result, _err
 }
 
+// Summary:
+//
+// 开启会议闪记
+//
+// @param request - StartMinutesRequest
+//
+// @param headers - StartMinutesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return StartMinutesResponse
+func (client *Client) StartMinutesWithOptions(conferenceId *string, request *StartMinutesRequest, headers *StartMinutesHeaders, runtime *util.RuntimeOptions) (_result *StartMinutesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OwnerUnionId)) {
+		body["ownerUnionId"] = request.OwnerUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RecordAudio)) {
+		body["recordAudio"] = request.RecordAudio
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("StartMinutes"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/" + tea.StringValue(conferenceId) + "/minutes/start"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &StartMinutesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 开启会议闪记
+//
+// @param request - StartMinutesRequest
+//
+// @return StartMinutesResponse
+func (client *Client) StartMinutes(conferenceId *string, request *StartMinutesRequest) (_result *StartMinutesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &StartMinutesHeaders{}
+	_result = &StartMinutesResponse{}
+	_body, _err := client.StartMinutesWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 会议开始直播推流
+//
+// @param request - StartStreamOutRequest
+//
+// @param headers - StartStreamOutHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return StartStreamOutResponse
 func (client *Client) StartStreamOutWithOptions(conferenceId *string, request *StartStreamOutRequest, headers *StartStreamOutHeaders, runtime *util.RuntimeOptions) (_result *StartStreamOutResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6821,6 +11273,13 @@ func (client *Client) StartStreamOutWithOptions(conferenceId *string, request *S
 	return _result, _err
 }
 
+// Summary:
+//
+// 会议开始直播推流
+//
+// @param request - StartStreamOutRequest
+//
+// @return StartStreamOutResponse
 func (client *Client) StartStreamOut(conferenceId *string, request *StartStreamOutRequest) (_result *StartStreamOutResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &StartStreamOutHeaders{}
@@ -6833,6 +11292,17 @@ func (client *Client) StartStreamOut(conferenceId *string, request *StartStreamO
 	return _result, _err
 }
 
+// Summary:
+//
+// 关闭云录制
+//
+// @param request - StopCloudRecordRequest
+//
+// @param headers - StopCloudRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return StopCloudRecordResponse
 func (client *Client) StopCloudRecordWithOptions(conferenceId *string, request *StopCloudRecordRequest, headers *StopCloudRecordHeaders, runtime *util.RuntimeOptions) (_result *StopCloudRecordResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6876,6 +11346,13 @@ func (client *Client) StopCloudRecordWithOptions(conferenceId *string, request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 关闭云录制
+//
+// @param request - StopCloudRecordRequest
+//
+// @return StopCloudRecordResponse
 func (client *Client) StopCloudRecord(conferenceId *string, request *StopCloudRecordRequest) (_result *StopCloudRecordResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &StopCloudRecordHeaders{}
@@ -6888,6 +11365,90 @@ func (client *Client) StopCloudRecord(conferenceId *string, request *StopCloudRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 暂停会议闪记
+//
+// @param request - StopMinutesRequest
+//
+// @param headers - StopMinutesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return StopMinutesResponse
+func (client *Client) StopMinutesWithOptions(conferenceId *string, request *StopMinutesRequest, headers *StopMinutesHeaders, runtime *util.RuntimeOptions) (_result *StopMinutesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("StopMinutes"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/" + tea.StringValue(conferenceId) + "/minutes/pause"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &StopMinutesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 暂停会议闪记
+//
+// @param request - StopMinutesRequest
+//
+// @return StopMinutesResponse
+func (client *Client) StopMinutes(conferenceId *string, request *StopMinutesRequest) (_result *StopMinutesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &StopMinutesHeaders{}
+	_result = &StopMinutesResponse{}
+	_body, _err := client.StopMinutesWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 会议停止直播推流
+//
+// @param request - StopStreamOutRequest
+//
+// @param headers - StopStreamOutHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return StopStreamOutResponse
 func (client *Client) StopStreamOutWithOptions(conferenceId *string, request *StopStreamOutRequest, headers *StopStreamOutHeaders, runtime *util.RuntimeOptions) (_result *StopStreamOutResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6939,6 +11500,13 @@ func (client *Client) StopStreamOutWithOptions(conferenceId *string, request *St
 	return _result, _err
 }
 
+// Summary:
+//
+// 会议停止直播推流
+//
+// @param request - StopStreamOutRequest
+//
+// @return StopStreamOutResponse
 func (client *Client) StopStreamOut(conferenceId *string, request *StopStreamOutRequest) (_result *StopStreamOutResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &StopStreamOutHeaders{}
@@ -6951,6 +11519,17 @@ func (client *Client) StopStreamOut(conferenceId *string, request *StopStreamOut
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新预约会议设置
+//
+// @param request - UpdateScheduleConfSettingsRequest
+//
+// @param headers - UpdateScheduleConfSettingsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateScheduleConfSettingsResponse
 func (client *Client) UpdateScheduleConfSettingsWithOptions(request *UpdateScheduleConfSettingsRequest, headers *UpdateScheduleConfSettingsHeaders, runtime *util.RuntimeOptions) (_result *UpdateScheduleConfSettingsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7002,6 +11581,13 @@ func (client *Client) UpdateScheduleConfSettingsWithOptions(request *UpdateSched
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新预约会议设置
+//
+// @param request - UpdateScheduleConfSettingsRequest
+//
+// @return UpdateScheduleConfSettingsResponse
 func (client *Client) UpdateScheduleConfSettings(request *UpdateScheduleConfSettingsRequest) (_result *UpdateScheduleConfSettingsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateScheduleConfSettingsHeaders{}
@@ -7014,6 +11600,17 @@ func (client *Client) UpdateScheduleConfSettings(request *UpdateScheduleConfSett
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新预约会议
+//
+// @param request - UpdateScheduleConferenceRequest
+//
+// @param headers - UpdateScheduleConferenceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateScheduleConferenceResponse
 func (client *Client) UpdateScheduleConferenceWithOptions(request *UpdateScheduleConferenceRequest, headers *UpdateScheduleConferenceHeaders, runtime *util.RuntimeOptions) (_result *UpdateScheduleConferenceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7073,6 +11670,13 @@ func (client *Client) UpdateScheduleConferenceWithOptions(request *UpdateSchedul
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新预约会议
+//
+// @param request - UpdateScheduleConferenceRequest
+//
+// @return UpdateScheduleConferenceResponse
 func (client *Client) UpdateScheduleConference(request *UpdateScheduleConferenceRequest) (_result *UpdateScheduleConferenceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateScheduleConferenceHeaders{}
@@ -7085,6 +11689,15 @@ func (client *Client) UpdateScheduleConference(request *UpdateScheduleConference
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新会议额外信息
+//
+// @param headers - UpdateVideoConferenceExtInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateVideoConferenceExtInfoResponse
 func (client *Client) UpdateVideoConferenceExtInfoWithOptions(conferenceId *string, headers *UpdateVideoConferenceExtInfoHeaders, runtime *util.RuntimeOptions) (_result *UpdateVideoConferenceExtInfoResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -7118,6 +11731,11 @@ func (client *Client) UpdateVideoConferenceExtInfoWithOptions(conferenceId *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新会议额外信息
+//
+// @return UpdateVideoConferenceExtInfoResponse
 func (client *Client) UpdateVideoConferenceExtInfo(conferenceId *string) (_result *UpdateVideoConferenceExtInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateVideoConferenceExtInfoHeaders{}
@@ -7130,6 +11748,17 @@ func (client *Client) UpdateVideoConferenceExtInfo(conferenceId *string) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置会议中的会议属性
+//
+// @param request - UpdateVideoConferenceSettingRequest
+//
+// @param headers - UpdateVideoConferenceSettingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateVideoConferenceSettingResponse
 func (client *Client) UpdateVideoConferenceSettingWithOptions(conferenceId *string, request *UpdateVideoConferenceSettingRequest, headers *UpdateVideoConferenceSettingHeaders, runtime *util.RuntimeOptions) (_result *UpdateVideoConferenceSettingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7193,6 +11822,13 @@ func (client *Client) UpdateVideoConferenceSettingWithOptions(conferenceId *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置会议中的会议属性
+//
+// @param request - UpdateVideoConferenceSettingRequest
+//
+// @return UpdateVideoConferenceSettingResponse
 func (client *Client) UpdateVideoConferenceSetting(conferenceId *string, request *UpdateVideoConferenceSettingRequest) (_result *UpdateVideoConferenceSettingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateVideoConferenceSettingHeaders{}

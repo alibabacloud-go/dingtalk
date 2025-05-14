@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package dingmi_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,7 +33,17 @@ func (s *AddRobotInstanceToGroupHeaders) SetXAcsDingtalkAccessToken(v string) *A
 }
 
 type AddRobotInstanceToGroupRequest struct {
-	ChatbotId          *string `json:"chatbotId,omitempty" xml:"chatbotId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abcd123
+	ChatbotId *string `json:"chatbotId,omitempty" xml:"chatbotId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxxx
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -60,6 +66,9 @@ func (s *AddRobotInstanceToGroupRequest) SetOpenConversationId(v string) *AddRob
 }
 
 type AddRobotInstanceToGroupResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -129,9 +138,22 @@ func (s *AskRobotHeaders) SetXAcsDingtalkAccessToken(v string) *AskRobotHeaders 
 }
 
 type AskRobotRequest struct {
-	DingUserId  *string `json:"dingUserId,omitempty" xml:"dingUserId,omitempty"`
-	Question    *string `json:"question,omitempty" xml:"question,omitempty"`
+	DingUserId *string `json:"dingUserId,omitempty" xml:"dingUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 小蜜机器人能做什么
+	Question *string `json:"question,omitempty" xml:"question,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abcd1234
 	RobotAppKey *string `json:"robotAppKey,omitempty" xml:"robotAppKey,omitempty"`
+	// example:
+	//
+	// 1234
 	SessionUuid *string `json:"sessionUuid,omitempty" xml:"sessionUuid,omitempty"`
 }
 
@@ -164,6 +186,9 @@ func (s *AskRobotRequest) SetSessionUuid(v string) *AskRobotRequest {
 }
 
 type AskRobotResponseBody struct {
+	// example:
+	//
+	// {\"sessionUuid\":\"op_2c35e603af6c4e62bcf5xxxx\",\"answerType\":\"recommendAnswer\",\"recommendAnswerContent\":[\"通讯录上人员可以排序吗？\"]}
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -233,9 +258,29 @@ func (s *GetDingMeBaseDataHeaders) SetXAcsDingtalkAccessToken(v string) *GetDing
 }
 
 type GetDingMeBaseDataRequest struct {
-	AppKey   *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
-	ByDay    *bool   `json:"byDay,omitempty" xml:"byDay,omitempty"`
-	EndDay   *string `json:"endDay,omitempty" xml:"endDay,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dsfsfr434
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	ByDay *bool `json:"byDay,omitempty" xml:"byDay,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20210506
+	EndDay *string `json:"endDay,omitempty" xml:"endDay,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20210405
 	StartDay *string `json:"startDay,omitempty" xml:"startDay,omitempty"`
 }
 
@@ -268,10 +313,14 @@ func (s *GetDingMeBaseDataRequest) SetStartDay(v string) *GetDingMeBaseDataReque
 }
 
 type GetDingMeBaseDataResponseBody struct {
-	FromCache *bool                  `json:"fromCache,omitempty" xml:"fromCache,omitempty"`
-	Rawset    []map[string]*string   `json:"rawset,omitempty" xml:"rawset,omitempty" type:"Repeated"`
-	Runtime   *int64                 `json:"runtime,omitempty" xml:"runtime,omitempty"`
-	Tips      map[string]interface{} `json:"tips,omitempty" xml:"tips,omitempty"`
+	// This parameter is required.
+	FromCache *bool `json:"fromCache,omitempty" xml:"fromCache,omitempty"`
+	// This parameter is required.
+	Rawset []map[string]*string `json:"rawset,omitempty" xml:"rawset,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Runtime *int64 `json:"runtime,omitempty" xml:"runtime,omitempty"`
+	// This parameter is required.
+	Tips map[string]interface{} `json:"tips,omitempty" xml:"tips,omitempty"`
 }
 
 func (s GetDingMeBaseDataResponseBody) String() string {
@@ -355,6 +404,11 @@ func (s *GetIntelligentRobotInfoHeaders) SetXAcsDingtalkAccessToken(v string) *G
 }
 
 type GetIntelligentRobotInfoRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abcd1234
 	RobotAppKey *string `json:"robotAppKey,omitempty" xml:"robotAppKey,omitempty"`
 }
 
@@ -372,6 +426,9 @@ func (s *GetIntelligentRobotInfoRequest) SetRobotAppKey(v string) *GetIntelligen
 }
 
 type GetIntelligentRobotInfoResponseBody struct {
+	// example:
+	//
+	// abcd1234
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -441,6 +498,11 @@ func (s *GetOfficialAccountRobotInfoHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type GetOfficialAccountRobotInfoRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 机器人类型参数，服务窗机器人：1，客户群内机器人：2
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
@@ -458,11 +520,41 @@ func (s *GetOfficialAccountRobotInfoRequest) SetType(v string) *GetOfficialAccou
 }
 
 type GetOfficialAccountRobotInfoResponseBody struct {
-	AppId           *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
-	Brief           *string `json:"brief,omitempty" xml:"brief,omitempty"`
-	Description     *string `json:"description,omitempty" xml:"description,omitempty"`
-	Icon            *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	Name            *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 小蜜客服机器人
+	Brief *string `json:"brief,omitempty" xml:"brief,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 小蜜客服机器人是7*24小时智能问答机器人
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 小蜜机器人
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
 	PreviewMediaUrl *string `json:"previewMediaUrl,omitempty" xml:"previewMediaUrl,omitempty"`
 }
 
@@ -557,9 +649,24 @@ func (s *GetWebChannelUserTokenHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetWebChannelUserTokenRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123abc
 	ForeignId *string `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
-	Nick      *string `json:"nick,omitempty" xml:"nick,omitempty"`
-	Source    *int64  `json:"source,omitempty" xml:"source,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 客户abc
+	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	Source *int64 `json:"source,omitempty" xml:"source,omitempty"`
 }
 
 func (s GetWebChannelUserTokenRequest) String() string {
@@ -655,9 +762,24 @@ func (s *PushCustomerGroupMessageHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type PushCustomerGroupMessageRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxxx
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	MsgKey         *string `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
-	MsgParam       *string `json:"msgParam,omitempty" xml:"msgParam,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sampleText
+	MsgKey *string `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// eyJjb250ZW50IjogIua1i+ivleWGheWuuSJ9(即{"content": "测试内容"}的base64编码值)
+	MsgParam *string `json:"msgParam,omitempty" xml:"msgParam,omitempty"`
 }
 
 func (s PushCustomerGroupMessageRequest) String() string {
@@ -684,6 +806,11 @@ func (s *PushCustomerGroupMessageRequest) SetMsgParam(v string) *PushCustomerGro
 }
 
 type PushCustomerGroupMessageResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234abcd
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -753,9 +880,29 @@ func (s *PushIntelligentRobotGroupMessageHeaders) SetXAcsDingtalkAccessToken(v s
 }
 
 type PushIntelligentRobotGroupMessageRequest struct {
-	ChatbotId          *string `json:"chatbotId,omitempty" xml:"chatbotId,omitempty"`
-	MsgKey             *string `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
-	MsgParam           *string `json:"msgParam,omitempty" xml:"msgParam,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abcd1234
+	ChatbotId *string `json:"chatbotId,omitempty" xml:"chatbotId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sampleText
+	MsgKey *string `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// eyJjb250ZW50IjogIua1i+ivleWGheWuuSJ9(即{"content": "测试内容"}的base64编码值)
+	MsgParam *string `json:"msgParam,omitempty" xml:"msgParam,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxxx
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -788,6 +935,9 @@ func (s *PushIntelligentRobotGroupMessageRequest) SetOpenConversationId(v string
 }
 
 type PushIntelligentRobotGroupMessageResponseBody struct {
+	// example:
+	//
+	// 1234
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -857,10 +1007,30 @@ func (s *PushIntelligentRobotMessageHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type PushIntelligentRobotMessageRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abcd123
 	ChatbotId *string `json:"chatbotId,omitempty" xml:"chatbotId,omitempty"`
-	MsgKey    *string `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
-	MsgParam  *string `json:"msgParam,omitempty" xml:"msgParam,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sampleText
+	MsgKey *string `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// eyJjb250ZW50IjogIua1i+ivleWGheWuuSJ9(即{"content": "测试内容"}的base64编码值)
+	MsgParam *string `json:"msgParam,omitempty" xml:"msgParam,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456abc
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s PushIntelligentRobotMessageRequest) String() string {
@@ -892,6 +1062,9 @@ func (s *PushIntelligentRobotMessageRequest) SetUserId(v string) *PushIntelligen
 }
 
 type PushIntelligentRobotMessageResponseBody struct {
+	// example:
+	//
+	// 1234
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -961,9 +1134,24 @@ func (s *PushOfficialAccountMessageHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type PushOfficialAccountMessageRequest struct {
-	MsgKey   *string `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sampleText
+	MsgKey *string `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// eyJjb250ZW50IjogIua1i+ivleWGheWuuSJ9(即{"content": "测试内容"}的base64编码值)
 	MsgParam *string `json:"msgParam,omitempty" xml:"msgParam,omitempty"`
-	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456abc
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s PushOfficialAccountMessageRequest) String() string {
@@ -990,6 +1178,11 @@ func (s *PushOfficialAccountMessageRequest) SetUserId(v string) *PushOfficialAcc
 }
 
 type PushOfficialAccountMessageResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234abcd
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1059,10 +1252,30 @@ func (s *PushRobotMessageHeaders) SetXAcsDingtalkAccessToken(v string) *PushRobo
 }
 
 type PushRobotMessageRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234
 	ChatbotId *string `json:"chatbotId,omitempty" xml:"chatbotId,omitempty"`
-	MsgKey    *string `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
-	MsgParam  *string `json:"msgParam,omitempty" xml:"msgParam,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sampleText
+	MsgKey *string `json:"msgKey,omitempty" xml:"msgKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// eyJjb250ZW50IjogIua1i+ivleWGheWuuSJ9(即{"content": "测试内容"}的base64编码值)
+	MsgParam *string `json:"msgParam,omitempty" xml:"msgParam,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456abc
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s PushRobotMessageRequest) String() string {
@@ -1094,6 +1307,9 @@ func (s *PushRobotMessageRequest) SetUserId(v string) *PushRobotMessageRequest {
 }
 
 type PushRobotMessageResponseBody struct {
+	// example:
+	//
+	// 12345
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1163,6 +1379,11 @@ func (s *ReplyRobotHeaders) SetXAcsDingtalkAccessToken(v string) *ReplyRobotHead
 }
 
 type ReplyRobotRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"bizParamMap":{"proxySessionId":"DINGTALK_RYnVfayNAe_4000006001201145"},"msgType":"text","text":"测试回复机器人消息"}
 	ProxyMessageStr *string `json:"proxyMessageStr,omitempty" xml:"proxyMessageStr,omitempty"`
 }
 
@@ -1180,6 +1401,9 @@ func (s *ReplyRobotRequest) SetProxyMessageStr(v string) *ReplyRobotRequest {
 }
 
 type ReplyRobotResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1249,12 +1473,42 @@ func (s *UpdateOfficialAccountRobotInfoHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type UpdateOfficialAccountRobotInfoRequest struct {
-	Avatar          *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
-	Brief           *string `json:"brief,omitempty" xml:"brief,omitempty"`
-	Description     *string `json:"description,omitempty" xml:"description,omitempty"`
-	Name            *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
+	Avatar *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 小蜜客服机器人
+	Brief *string `json:"brief,omitempty" xml:"brief,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 小蜜客服机器人是7*24小时智能问答机器人
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 小蜜机器人
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
 	PreviewMediaUrl *string `json:"previewMediaUrl,omitempty" xml:"previewMediaUrl,omitempty"`
-	Type            *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 机器人类型参数，服务窗机器人：1，客户群内机器人：2
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s UpdateOfficialAccountRobotInfoRequest) String() string {
@@ -1296,6 +1550,11 @@ func (s *UpdateOfficialAccountRobotInfoRequest) SetType(v string) *UpdateOfficia
 }
 
 type UpdateOfficialAccountRobotInfoResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// success
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1356,12 +1615,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -1370,6 +1629,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 添加智能客服机器人到钉钉群
+//
+// @param request - AddRobotInstanceToGroupRequest
+//
+// @param headers - AddRobotInstanceToGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddRobotInstanceToGroupResponse
 func (client *Client) AddRobotInstanceToGroupWithOptions(request *AddRobotInstanceToGroupRequest, headers *AddRobotInstanceToGroupHeaders, runtime *util.RuntimeOptions) (_result *AddRobotInstanceToGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1417,6 +1687,13 @@ func (client *Client) AddRobotInstanceToGroupWithOptions(request *AddRobotInstan
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加智能客服机器人到钉钉群
+//
+// @param request - AddRobotInstanceToGroupRequest
+//
+// @return AddRobotInstanceToGroupResponse
 func (client *Client) AddRobotInstanceToGroup(request *AddRobotInstanceToGroupRequest) (_result *AddRobotInstanceToGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddRobotInstanceToGroupHeaders{}
@@ -1429,6 +1706,17 @@ func (client *Client) AddRobotInstanceToGroup(request *AddRobotInstanceToGroupRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 调用小蜜机器人的问答能力
+//
+// @param request - AskRobotRequest
+//
+// @param headers - AskRobotHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AskRobotResponse
 func (client *Client) AskRobotWithOptions(request *AskRobotRequest, headers *AskRobotHeaders, runtime *util.RuntimeOptions) (_result *AskRobotResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1484,6 +1772,13 @@ func (client *Client) AskRobotWithOptions(request *AskRobotRequest, headers *Ask
 	return _result, _err
 }
 
+// Summary:
+//
+// 调用小蜜机器人的问答能力
+//
+// @param request - AskRobotRequest
+//
+// @return AskRobotResponse
 func (client *Client) AskRobot(request *AskRobotRequest) (_result *AskRobotResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AskRobotHeaders{}
@@ -1496,6 +1791,17 @@ func (client *Client) AskRobot(request *AskRobotRequest) (_result *AskRobotRespo
 	return _result, _err
 }
 
+// Summary:
+//
+// 小蜜机器人数据统计指标
+//
+// @param request - GetDingMeBaseDataRequest
+//
+// @param headers - GetDingMeBaseDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDingMeBaseDataResponse
 func (client *Client) GetDingMeBaseDataWithOptions(request *GetDingMeBaseDataRequest, headers *GetDingMeBaseDataHeaders, runtime *util.RuntimeOptions) (_result *GetDingMeBaseDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1551,6 +1857,13 @@ func (client *Client) GetDingMeBaseDataWithOptions(request *GetDingMeBaseDataReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 小蜜机器人数据统计指标
+//
+// @param request - GetDingMeBaseDataRequest
+//
+// @return GetDingMeBaseDataResponse
 func (client *Client) GetDingMeBaseData(request *GetDingMeBaseDataRequest) (_result *GetDingMeBaseDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDingMeBaseDataHeaders{}
@@ -1563,6 +1876,17 @@ func (client *Client) GetDingMeBaseData(request *GetDingMeBaseDataRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取智能客服机器人信息
+//
+// @param request - GetIntelligentRobotInfoRequest
+//
+// @param headers - GetIntelligentRobotInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetIntelligentRobotInfoResponse
 func (client *Client) GetIntelligentRobotInfoWithOptions(request *GetIntelligentRobotInfoRequest, headers *GetIntelligentRobotInfoHeaders, runtime *util.RuntimeOptions) (_result *GetIntelligentRobotInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1606,6 +1930,13 @@ func (client *Client) GetIntelligentRobotInfoWithOptions(request *GetIntelligent
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取智能客服机器人信息
+//
+// @param request - GetIntelligentRobotInfoRequest
+//
+// @return GetIntelligentRobotInfoResponse
 func (client *Client) GetIntelligentRobotInfo(request *GetIntelligentRobotInfoRequest) (_result *GetIntelligentRobotInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetIntelligentRobotInfoHeaders{}
@@ -1618,6 +1949,17 @@ func (client *Client) GetIntelligentRobotInfo(request *GetIntelligentRobotInfoRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取服务窗机器人信息
+//
+// @param request - GetOfficialAccountRobotInfoRequest
+//
+// @param headers - GetOfficialAccountRobotInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetOfficialAccountRobotInfoResponse
 func (client *Client) GetOfficialAccountRobotInfoWithOptions(request *GetOfficialAccountRobotInfoRequest, headers *GetOfficialAccountRobotInfoHeaders, runtime *util.RuntimeOptions) (_result *GetOfficialAccountRobotInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1661,6 +2003,13 @@ func (client *Client) GetOfficialAccountRobotInfoWithOptions(request *GetOfficia
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取服务窗机器人信息
+//
+// @param request - GetOfficialAccountRobotInfoRequest
+//
+// @return GetOfficialAccountRobotInfoResponse
 func (client *Client) GetOfficialAccountRobotInfo(request *GetOfficialAccountRobotInfoRequest) (_result *GetOfficialAccountRobotInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOfficialAccountRobotInfoHeaders{}
@@ -1673,6 +2022,17 @@ func (client *Client) GetOfficialAccountRobotInfo(request *GetOfficialAccountRob
 	return _result, _err
 }
 
+// Summary:
+//
+// 小蜜客服网页渠道获取三方用户token
+//
+// @param request - GetWebChannelUserTokenRequest
+//
+// @param headers - GetWebChannelUserTokenHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetWebChannelUserTokenResponse
 func (client *Client) GetWebChannelUserTokenWithOptions(request *GetWebChannelUserTokenRequest, headers *GetWebChannelUserTokenHeaders, runtime *util.RuntimeOptions) (_result *GetWebChannelUserTokenResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1724,6 +2084,13 @@ func (client *Client) GetWebChannelUserTokenWithOptions(request *GetWebChannelUs
 	return _result, _err
 }
 
+// Summary:
+//
+// 小蜜客服网页渠道获取三方用户token
+//
+// @param request - GetWebChannelUserTokenRequest
+//
+// @return GetWebChannelUserTokenResponse
 func (client *Client) GetWebChannelUserToken(request *GetWebChannelUserTokenRequest) (_result *GetWebChannelUserTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetWebChannelUserTokenHeaders{}
@@ -1736,6 +2103,17 @@ func (client *Client) GetWebChannelUserToken(request *GetWebChannelUserTokenRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过小蜜机器人在客户群内推送消息
+//
+// @param request - PushCustomerGroupMessageRequest
+//
+// @param headers - PushCustomerGroupMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PushCustomerGroupMessageResponse
 func (client *Client) PushCustomerGroupMessageWithOptions(request *PushCustomerGroupMessageRequest, headers *PushCustomerGroupMessageHeaders, runtime *util.RuntimeOptions) (_result *PushCustomerGroupMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1787,6 +2165,13 @@ func (client *Client) PushCustomerGroupMessageWithOptions(request *PushCustomerG
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过小蜜机器人在客户群内推送消息
+//
+// @param request - PushCustomerGroupMessageRequest
+//
+// @return PushCustomerGroupMessageResponse
 func (client *Client) PushCustomerGroupMessage(request *PushCustomerGroupMessageRequest) (_result *PushCustomerGroupMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PushCustomerGroupMessageHeaders{}
@@ -1799,6 +2184,17 @@ func (client *Client) PushCustomerGroupMessage(request *PushCustomerGroupMessage
 	return _result, _err
 }
 
+// Summary:
+//
+// 推送智能客服机器人钉钉群聊消息
+//
+// @param request - PushIntelligentRobotGroupMessageRequest
+//
+// @param headers - PushIntelligentRobotGroupMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PushIntelligentRobotGroupMessageResponse
 func (client *Client) PushIntelligentRobotGroupMessageWithOptions(request *PushIntelligentRobotGroupMessageRequest, headers *PushIntelligentRobotGroupMessageHeaders, runtime *util.RuntimeOptions) (_result *PushIntelligentRobotGroupMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1854,6 +2250,13 @@ func (client *Client) PushIntelligentRobotGroupMessageWithOptions(request *PushI
 	return _result, _err
 }
 
+// Summary:
+//
+// 推送智能客服机器人钉钉群聊消息
+//
+// @param request - PushIntelligentRobotGroupMessageRequest
+//
+// @return PushIntelligentRobotGroupMessageResponse
 func (client *Client) PushIntelligentRobotGroupMessage(request *PushIntelligentRobotGroupMessageRequest) (_result *PushIntelligentRobotGroupMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PushIntelligentRobotGroupMessageHeaders{}
@@ -1866,6 +2269,17 @@ func (client *Client) PushIntelligentRobotGroupMessage(request *PushIntelligentR
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能客服机器人推送消息
+//
+// @param request - PushIntelligentRobotMessageRequest
+//
+// @param headers - PushIntelligentRobotMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PushIntelligentRobotMessageResponse
 func (client *Client) PushIntelligentRobotMessageWithOptions(request *PushIntelligentRobotMessageRequest, headers *PushIntelligentRobotMessageHeaders, runtime *util.RuntimeOptions) (_result *PushIntelligentRobotMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1921,6 +2335,13 @@ func (client *Client) PushIntelligentRobotMessageWithOptions(request *PushIntell
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能客服机器人推送消息
+//
+// @param request - PushIntelligentRobotMessageRequest
+//
+// @return PushIntelligentRobotMessageResponse
 func (client *Client) PushIntelligentRobotMessage(request *PushIntelligentRobotMessageRequest) (_result *PushIntelligentRobotMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PushIntelligentRobotMessageHeaders{}
@@ -1933,6 +2354,17 @@ func (client *Client) PushIntelligentRobotMessage(request *PushIntelligentRobotM
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过服务窗机器人推送单聊消息
+//
+// @param request - PushOfficialAccountMessageRequest
+//
+// @param headers - PushOfficialAccountMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PushOfficialAccountMessageResponse
 func (client *Client) PushOfficialAccountMessageWithOptions(request *PushOfficialAccountMessageRequest, headers *PushOfficialAccountMessageHeaders, runtime *util.RuntimeOptions) (_result *PushOfficialAccountMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1984,6 +2416,13 @@ func (client *Client) PushOfficialAccountMessageWithOptions(request *PushOfficia
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过服务窗机器人推送单聊消息
+//
+// @param request - PushOfficialAccountMessageRequest
+//
+// @return PushOfficialAccountMessageResponse
 func (client *Client) PushOfficialAccountMessage(request *PushOfficialAccountMessageRequest) (_result *PushOfficialAccountMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PushOfficialAccountMessageHeaders{}
@@ -1996,6 +2435,17 @@ func (client *Client) PushOfficialAccountMessage(request *PushOfficialAccountMes
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过小蜜客服机器人推送单聊消息
+//
+// @param request - PushRobotMessageRequest
+//
+// @param headers - PushRobotMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PushRobotMessageResponse
 func (client *Client) PushRobotMessageWithOptions(request *PushRobotMessageRequest, headers *PushRobotMessageHeaders, runtime *util.RuntimeOptions) (_result *PushRobotMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2051,6 +2501,13 @@ func (client *Client) PushRobotMessageWithOptions(request *PushRobotMessageReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过小蜜客服机器人推送单聊消息
+//
+// @param request - PushRobotMessageRequest
+//
+// @return PushRobotMessageResponse
 func (client *Client) PushRobotMessage(request *PushRobotMessageRequest) (_result *PushRobotMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PushRobotMessageHeaders{}
@@ -2063,6 +2520,17 @@ func (client *Client) PushRobotMessage(request *PushRobotMessageRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 异步回复机器人消息
+//
+// @param request - ReplyRobotRequest
+//
+// @param headers - ReplyRobotHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ReplyRobotResponse
 func (client *Client) ReplyRobotWithOptions(request *ReplyRobotRequest, headers *ReplyRobotHeaders, runtime *util.RuntimeOptions) (_result *ReplyRobotResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2106,6 +2574,13 @@ func (client *Client) ReplyRobotWithOptions(request *ReplyRobotRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 异步回复机器人消息
+//
+// @param request - ReplyRobotRequest
+//
+// @return ReplyRobotResponse
 func (client *Client) ReplyRobot(request *ReplyRobotRequest) (_result *ReplyRobotResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ReplyRobotHeaders{}
@@ -2118,6 +2593,17 @@ func (client *Client) ReplyRobot(request *ReplyRobotRequest) (_result *ReplyRobo
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新服务窗机器人信息
+//
+// @param request - UpdateOfficialAccountRobotInfoRequest
+//
+// @param headers - UpdateOfficialAccountRobotInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateOfficialAccountRobotInfoResponse
 func (client *Client) UpdateOfficialAccountRobotInfoWithOptions(request *UpdateOfficialAccountRobotInfoRequest, headers *UpdateOfficialAccountRobotInfoHeaders, runtime *util.RuntimeOptions) (_result *UpdateOfficialAccountRobotInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2183,6 +2669,13 @@ func (client *Client) UpdateOfficialAccountRobotInfoWithOptions(request *UpdateO
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新服务窗机器人信息
+//
+// @param request - UpdateOfficialAccountRobotInfoRequest
+//
+// @return UpdateOfficialAccountRobotInfoResponse
 func (client *Client) UpdateOfficialAccountRobotInfo(request *UpdateOfficialAccountRobotInfoRequest) (_result *UpdateOfficialAccountRobotInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateOfficialAccountRobotInfoHeaders{}

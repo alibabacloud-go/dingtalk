@@ -1,17 +1,290 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package live_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
+
+type AddLiveInteractionPluginHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddLiveInteractionPluginHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLiveInteractionPluginHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddLiveInteractionPluginHeaders) SetCommonHeaders(v map[string]*string) *AddLiveInteractionPluginHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddLiveInteractionPluginHeaders) SetXAcsDingtalkAccessToken(v string) *AddLiveInteractionPluginHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddLiveInteractionPluginRequest struct {
+	// This parameter is required.
+	AnchorJumpUrl *string `json:"anchorJumpUrl,omitempty" xml:"anchorJumpUrl,omitempty"`
+	// This parameter is required.
+	PluginIconUrl *string `json:"pluginIconUrl,omitempty" xml:"pluginIconUrl,omitempty"`
+	// This parameter is required.
+	PluginName   *string `json:"pluginName,omitempty" xml:"pluginName,omitempty"`
+	PluginNameEn *string `json:"pluginNameEn,omitempty" xml:"pluginNameEn,omitempty"`
+	// This parameter is required.
+	ViewerJumpUrl *string `json:"viewerJumpUrl,omitempty" xml:"viewerJumpUrl,omitempty"`
+	// This parameter is required.
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s AddLiveInteractionPluginRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLiveInteractionPluginRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddLiveInteractionPluginRequest) SetAnchorJumpUrl(v string) *AddLiveInteractionPluginRequest {
+	s.AnchorJumpUrl = &v
+	return s
+}
+
+func (s *AddLiveInteractionPluginRequest) SetPluginIconUrl(v string) *AddLiveInteractionPluginRequest {
+	s.PluginIconUrl = &v
+	return s
+}
+
+func (s *AddLiveInteractionPluginRequest) SetPluginName(v string) *AddLiveInteractionPluginRequest {
+	s.PluginName = &v
+	return s
+}
+
+func (s *AddLiveInteractionPluginRequest) SetPluginNameEn(v string) *AddLiveInteractionPluginRequest {
+	s.PluginNameEn = &v
+	return s
+}
+
+func (s *AddLiveInteractionPluginRequest) SetViewerJumpUrl(v string) *AddLiveInteractionPluginRequest {
+	s.ViewerJumpUrl = &v
+	return s
+}
+
+func (s *AddLiveInteractionPluginRequest) SetLiveId(v string) *AddLiveInteractionPluginRequest {
+	s.LiveId = &v
+	return s
+}
+
+func (s *AddLiveInteractionPluginRequest) SetUnionId(v string) *AddLiveInteractionPluginRequest {
+	s.UnionId = &v
+	return s
+}
+
+type AddLiveInteractionPluginResponseBody struct {
+	Result *AddLiveInteractionPluginResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s AddLiveInteractionPluginResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLiveInteractionPluginResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddLiveInteractionPluginResponseBody) SetResult(v *AddLiveInteractionPluginResponseBodyResult) *AddLiveInteractionPluginResponseBody {
+	s.Result = v
+	return s
+}
+
+type AddLiveInteractionPluginResponseBodyResult struct {
+	PluginId *string `json:"pluginId,omitempty" xml:"pluginId,omitempty"`
+}
+
+func (s AddLiveInteractionPluginResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLiveInteractionPluginResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AddLiveInteractionPluginResponseBodyResult) SetPluginId(v string) *AddLiveInteractionPluginResponseBodyResult {
+	s.PluginId = &v
+	return s
+}
+
+type AddLiveInteractionPluginResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddLiveInteractionPluginResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AddLiveInteractionPluginResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLiveInteractionPluginResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddLiveInteractionPluginResponse) SetHeaders(v map[string]*string) *AddLiveInteractionPluginResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddLiveInteractionPluginResponse) SetStatusCode(v int32) *AddLiveInteractionPluginResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddLiveInteractionPluginResponse) SetBody(v *AddLiveInteractionPluginResponseBody) *AddLiveInteractionPluginResponse {
+	s.Body = v
+	return s
+}
+
+type AddLiveNoticeWidgetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddLiveNoticeWidgetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLiveNoticeWidgetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddLiveNoticeWidgetHeaders) SetCommonHeaders(v map[string]*string) *AddLiveNoticeWidgetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddLiveNoticeWidgetHeaders) SetXAcsDingtalkAccessToken(v string) *AddLiveNoticeWidgetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddLiveNoticeWidgetRequest struct {
+	// This parameter is required.
+	IconUrl *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
+	// This parameter is required.
+	JumpUrl *string `json:"jumpUrl,omitempty" xml:"jumpUrl,omitempty"`
+	// This parameter is required.
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	NoticeText *string `json:"noticeText,omitempty" xml:"noticeText,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s AddLiveNoticeWidgetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLiveNoticeWidgetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddLiveNoticeWidgetRequest) SetIconUrl(v string) *AddLiveNoticeWidgetRequest {
+	s.IconUrl = &v
+	return s
+}
+
+func (s *AddLiveNoticeWidgetRequest) SetJumpUrl(v string) *AddLiveNoticeWidgetRequest {
+	s.JumpUrl = &v
+	return s
+}
+
+func (s *AddLiveNoticeWidgetRequest) SetLiveId(v string) *AddLiveNoticeWidgetRequest {
+	s.LiveId = &v
+	return s
+}
+
+func (s *AddLiveNoticeWidgetRequest) SetNoticeText(v string) *AddLiveNoticeWidgetRequest {
+	s.NoticeText = &v
+	return s
+}
+
+func (s *AddLiveNoticeWidgetRequest) SetUnionId(v string) *AddLiveNoticeWidgetRequest {
+	s.UnionId = &v
+	return s
+}
+
+type AddLiveNoticeWidgetResponseBody struct {
+	Result *AddLiveNoticeWidgetResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s AddLiveNoticeWidgetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLiveNoticeWidgetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddLiveNoticeWidgetResponseBody) SetResult(v *AddLiveNoticeWidgetResponseBodyResult) *AddLiveNoticeWidgetResponseBody {
+	s.Result = v
+	return s
+}
+
+type AddLiveNoticeWidgetResponseBodyResult struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AddLiveNoticeWidgetResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLiveNoticeWidgetResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AddLiveNoticeWidgetResponseBodyResult) SetSuccess(v bool) *AddLiveNoticeWidgetResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type AddLiveNoticeWidgetResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddLiveNoticeWidgetResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AddLiveNoticeWidgetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddLiveNoticeWidgetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddLiveNoticeWidgetResponse) SetHeaders(v map[string]*string) *AddLiveNoticeWidgetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddLiveNoticeWidgetResponse) SetStatusCode(v int32) *AddLiveNoticeWidgetResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddLiveNoticeWidgetResponse) SetBody(v *AddLiveNoticeWidgetResponseBody) *AddLiveNoticeWidgetResponse {
+	s.Body = v
+	return s
+}
 
 type AddShareCidListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
@@ -37,9 +310,20 @@ func (s *AddShareCidListHeaders) SetXAcsDingtalkAccessToken(v string) *AddShareC
 }
 
 type AddShareCidListRequest struct {
-	GroupIdType *int64    `json:"groupIdType,omitempty" xml:"groupIdType,omitempty"`
-	GroupIds    []*string `json:"groupIds,omitempty" xml:"groupIds,omitempty" type:"Repeated"`
-	UserId      *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2
+	GroupIdType *int64 `json:"groupIdType,omitempty" xml:"groupIdType,omitempty"`
+	// This parameter is required.
+	GroupIds []*string `json:"groupIds,omitempty" xml:"groupIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 214675
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AddShareCidListRequest) String() string {
@@ -66,6 +350,9 @@ func (s *AddShareCidListRequest) SetUserId(v string) *AddShareCidListRequest {
 }
 
 type AddShareCidListResponseBody struct {
+	// example:
+	//
+	// true
 	HasShareSuccess       *bool     `json:"hasShareSuccess,omitempty" xml:"hasShareSuccess,omitempty"`
 	ShareSuccessGroupList []*string `json:"shareSuccessGroupList,omitempty" xml:"shareSuccessGroupList,omitempty" type:"Repeated"`
 }
@@ -141,12 +428,38 @@ func (s *CreateCloudFeedHeaders) SetXAcsDingtalkAccessToken(v string) *CreateClo
 }
 
 type CreateCloudFeedRequest struct {
-	CoverUrl  *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
-	Intro     *string `json:"intro,omitempty" xml:"intro,omitempty"`
-	StartTime *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	VideoUrl  *string `json:"videoUrl,omitempty" xml:"videoUrl,omitempty"`
+	// example:
+	//
+	// https://img.alicdn.com/tfs/TB1A7cBtYr1gK0jSZR0XXbP8XXa-750-422.png
+	CoverUrl *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
+	// example:
+	//
+	// 这是一场云导播课程
+	Intro *string `json:"intro,omitempty" xml:"intro,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1615260061000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 课程一
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 214675
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// http/https:/xxx.mp4
+	VideoUrl *string `json:"videoUrl,omitempty" xml:"videoUrl,omitempty"`
 }
 
 func (s CreateCloudFeedRequest) String() string {
@@ -188,6 +501,9 @@ func (s *CreateCloudFeedRequest) SetVideoUrl(v string) *CreateCloudFeedRequest {
 }
 
 type CreateCloudFeedResponseBody struct {
+	// example:
+	//
+	// 创建好的云导播课程id
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -257,13 +573,42 @@ func (s *CreateLiveHeaders) SetXAcsDingtalkAccessToken(v string) *CreateLiveHead
 }
 
 type CreateLiveRequest struct {
-	CoverUrl     *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
+	// example:
+	//
+	// https://gw.alicdn.com/tfs/TB1thlYyAT2gK0jSZPcXXcKkpXa-1125-633.png
+	CoverUrl *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
+	// example:
+	//
+	// 测试直播简介
 	Introduction *string `json:"introduction,omitempty" xml:"introduction,omitempty"`
-	PreEndTime   *int64  `json:"preEndTime,omitempty" xml:"preEndTime,omitempty"`
-	PreStartTime *int64  `json:"preStartTime,omitempty" xml:"preStartTime,omitempty"`
-	PublicType   *int64  `json:"publicType,omitempty" xml:"publicType,omitempty"`
-	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
-	UnionId      *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1659653648000
+	PreEndTime *int64 `json:"preEndTime,omitempty" xml:"preEndTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1659613648000
+	PreStartTime *int64 `json:"preStartTime,omitempty" xml:"preStartTime,omitempty"`
+	// example:
+	//
+	// 2
+	PublicType *int64 `json:"publicType,omitempty" xml:"publicType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试直播
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DC7wZGOSueEEIGOf3WKwWgiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s CreateLiveRequest) String() string {
@@ -327,6 +672,9 @@ func (s *CreateLiveResponseBody) SetResult(v *CreateLiveResponseBodyResult) *Cre
 }
 
 type CreateLiveResponseBodyResult struct {
+	// example:
+	//
+	// 1a353547-040d-4095-bb93-404bc5d47920
 	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
 }
 
@@ -372,6 +720,235 @@ func (s *CreateLiveResponse) SetBody(v *CreateLiveResponseBody) *CreateLiveRespo
 	return s
 }
 
+type DelLiveInteractionPluginHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DelLiveInteractionPluginHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelLiveInteractionPluginHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DelLiveInteractionPluginHeaders) SetCommonHeaders(v map[string]*string) *DelLiveInteractionPluginHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DelLiveInteractionPluginHeaders) SetXAcsDingtalkAccessToken(v string) *DelLiveInteractionPluginHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DelLiveInteractionPluginRequest struct {
+	// This parameter is required.
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	PluginId *string `json:"pluginId,omitempty" xml:"pluginId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s DelLiveInteractionPluginRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelLiveInteractionPluginRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DelLiveInteractionPluginRequest) SetLiveId(v string) *DelLiveInteractionPluginRequest {
+	s.LiveId = &v
+	return s
+}
+
+func (s *DelLiveInteractionPluginRequest) SetPluginId(v string) *DelLiveInteractionPluginRequest {
+	s.PluginId = &v
+	return s
+}
+
+func (s *DelLiveInteractionPluginRequest) SetUnionId(v string) *DelLiveInteractionPluginRequest {
+	s.UnionId = &v
+	return s
+}
+
+type DelLiveInteractionPluginResponseBody struct {
+	Result *DelLiveInteractionPluginResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s DelLiveInteractionPluginResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelLiveInteractionPluginResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DelLiveInteractionPluginResponseBody) SetResult(v *DelLiveInteractionPluginResponseBodyResult) *DelLiveInteractionPluginResponseBody {
+	s.Result = v
+	return s
+}
+
+type DelLiveInteractionPluginResponseBodyResult struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DelLiveInteractionPluginResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelLiveInteractionPluginResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DelLiveInteractionPluginResponseBodyResult) SetSuccess(v bool) *DelLiveInteractionPluginResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type DelLiveInteractionPluginResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DelLiveInteractionPluginResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DelLiveInteractionPluginResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelLiveInteractionPluginResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DelLiveInteractionPluginResponse) SetHeaders(v map[string]*string) *DelLiveInteractionPluginResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DelLiveInteractionPluginResponse) SetStatusCode(v int32) *DelLiveInteractionPluginResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DelLiveInteractionPluginResponse) SetBody(v *DelLiveInteractionPluginResponseBody) *DelLiveInteractionPluginResponse {
+	s.Body = v
+	return s
+}
+
+type DelLiveNoticeWidgetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DelLiveNoticeWidgetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelLiveNoticeWidgetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DelLiveNoticeWidgetHeaders) SetCommonHeaders(v map[string]*string) *DelLiveNoticeWidgetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DelLiveNoticeWidgetHeaders) SetXAcsDingtalkAccessToken(v string) *DelLiveNoticeWidgetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DelLiveNoticeWidgetRequest struct {
+	// This parameter is required.
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s DelLiveNoticeWidgetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelLiveNoticeWidgetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DelLiveNoticeWidgetRequest) SetLiveId(v string) *DelLiveNoticeWidgetRequest {
+	s.LiveId = &v
+	return s
+}
+
+func (s *DelLiveNoticeWidgetRequest) SetUnionId(v string) *DelLiveNoticeWidgetRequest {
+	s.UnionId = &v
+	return s
+}
+
+type DelLiveNoticeWidgetResponseBody struct {
+	Result *DelLiveNoticeWidgetResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s DelLiveNoticeWidgetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelLiveNoticeWidgetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DelLiveNoticeWidgetResponseBody) SetResult(v *DelLiveNoticeWidgetResponseBodyResult) *DelLiveNoticeWidgetResponseBody {
+	s.Result = v
+	return s
+}
+
+type DelLiveNoticeWidgetResponseBodyResult struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DelLiveNoticeWidgetResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelLiveNoticeWidgetResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DelLiveNoticeWidgetResponseBodyResult) SetSuccess(v bool) *DelLiveNoticeWidgetResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type DelLiveNoticeWidgetResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DelLiveNoticeWidgetResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DelLiveNoticeWidgetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DelLiveNoticeWidgetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DelLiveNoticeWidgetResponse) SetHeaders(v map[string]*string) *DelLiveNoticeWidgetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DelLiveNoticeWidgetResponse) SetStatusCode(v int32) *DelLiveNoticeWidgetResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DelLiveNoticeWidgetResponse) SetBody(v *DelLiveNoticeWidgetResponseBody) *DelLiveNoticeWidgetResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteLiveHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -396,7 +973,17 @@ func (s *DeleteLiveHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteLiveHead
 }
 
 type DeleteLiveRequest struct {
-	LiveId  *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 4d383876-1ff9-4b73-a057-a8f47b346ecb
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DC7wZGOSueEEIGOf3WKwWgiEiE
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -505,6 +1092,11 @@ func (s *DeleteLiveFeedHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteLive
 }
 
 type DeleteLiveFeedRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1206186351746728
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -522,6 +1114,9 @@ func (s *DeleteLiveFeedRequest) SetUserId(v string) *DeleteLiveFeedRequest {
 }
 
 type DeleteLiveFeedResponseBody struct {
+	// example:
+	//
+	// true
 	HasDelete *bool `json:"hasDelete,omitempty" xml:"hasDelete,omitempty"`
 }
 
@@ -591,9 +1186,24 @@ func (s *EditFeedReplayHeaders) SetXAcsDingtalkAccessToken(v string) *EditFeedRe
 }
 
 type EditFeedReplayRequest struct {
-	EditEndTime   *int64  `json:"editEndTime,omitempty" xml:"editEndTime,omitempty"`
-	EditStartTime *int64  `json:"editStartTime,omitempty" xml:"editStartTime,omitempty"`
-	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1617356058000
+	EditEndTime *int64 `json:"editEndTime,omitempty" xml:"editEndTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1617336058000
+	EditStartTime *int64 `json:"editStartTime,omitempty" xml:"editStartTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1206186351746728
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s EditFeedReplayRequest) String() string {
@@ -665,6 +1275,214 @@ func (s *EditFeedReplayResponse) SetBody(v *EditFeedReplayResponseBody) *EditFee
 	return s
 }
 
+type GetGroupLiveListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetGroupLiveListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupLiveListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupLiveListHeaders) SetCommonHeaders(v map[string]*string) *GetGroupLiveListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetGroupLiveListHeaders) SetXAcsDingtalkAccessToken(v string) *GetGroupLiveListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetGroupLiveListRequest struct {
+	RequestBody *GetGroupLiveListRequestRequestBody `json:"requestBody,omitempty" xml:"requestBody,omitempty" type:"Struct"`
+	UnionId     *string                             `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetGroupLiveListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupLiveListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupLiveListRequest) SetRequestBody(v *GetGroupLiveListRequestRequestBody) *GetGroupLiveListRequest {
+	s.RequestBody = v
+	return s
+}
+
+func (s *GetGroupLiveListRequest) SetUnionId(v string) *GetGroupLiveListRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetGroupLiveListRequestRequestBody struct {
+	EndTime            *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	StartTime          *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s GetGroupLiveListRequestRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupLiveListRequestRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupLiveListRequestRequestBody) SetEndTime(v int64) *GetGroupLiveListRequestRequestBody {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetGroupLiveListRequestRequestBody) SetOpenConversationId(v string) *GetGroupLiveListRequestRequestBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GetGroupLiveListRequestRequestBody) SetStartTime(v int64) *GetGroupLiveListRequestRequestBody {
+	s.StartTime = &v
+	return s
+}
+
+type GetGroupLiveListShrinkRequest struct {
+	RequestBodyShrink *string `json:"requestBody,omitempty" xml:"requestBody,omitempty"`
+	UnionId           *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetGroupLiveListShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupLiveListShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupLiveListShrinkRequest) SetRequestBodyShrink(v string) *GetGroupLiveListShrinkRequest {
+	s.RequestBodyShrink = &v
+	return s
+}
+
+func (s *GetGroupLiveListShrinkRequest) SetUnionId(v string) *GetGroupLiveListShrinkRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetGroupLiveListResponseBody struct {
+	Result *GetGroupLiveListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetGroupLiveListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupLiveListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupLiveListResponseBody) SetResult(v *GetGroupLiveListResponseBodyResult) *GetGroupLiveListResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetGroupLiveListResponseBodyResult struct {
+	GroupLiveList []*GetGroupLiveListResponseBodyResultGroupLiveList `json:"groupLiveList,omitempty" xml:"groupLiveList,omitempty" type:"Repeated"`
+}
+
+func (s GetGroupLiveListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupLiveListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupLiveListResponseBodyResult) SetGroupLiveList(v []*GetGroupLiveListResponseBodyResultGroupLiveList) *GetGroupLiveListResponseBodyResult {
+	s.GroupLiveList = v
+	return s
+}
+
+type GetGroupLiveListResponseBodyResultGroupLiveList struct {
+	AnchorNickname *string `json:"anchorNickname,omitempty" xml:"anchorNickname,omitempty"`
+	AnchorUnionId  *string `json:"anchorUnionId,omitempty" xml:"anchorUnionId,omitempty"`
+	LiveEndTime    *int64  `json:"liveEndTime,omitempty" xml:"liveEndTime,omitempty"`
+	LiveStartTime  *int64  `json:"liveStartTime,omitempty" xml:"liveStartTime,omitempty"`
+	LiveUuid       *string `json:"liveUuid,omitempty" xml:"liveUuid,omitempty"`
+	Title          *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetGroupLiveListResponseBodyResultGroupLiveList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupLiveListResponseBodyResultGroupLiveList) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupLiveListResponseBodyResultGroupLiveList) SetAnchorNickname(v string) *GetGroupLiveListResponseBodyResultGroupLiveList {
+	s.AnchorNickname = &v
+	return s
+}
+
+func (s *GetGroupLiveListResponseBodyResultGroupLiveList) SetAnchorUnionId(v string) *GetGroupLiveListResponseBodyResultGroupLiveList {
+	s.AnchorUnionId = &v
+	return s
+}
+
+func (s *GetGroupLiveListResponseBodyResultGroupLiveList) SetLiveEndTime(v int64) *GetGroupLiveListResponseBodyResultGroupLiveList {
+	s.LiveEndTime = &v
+	return s
+}
+
+func (s *GetGroupLiveListResponseBodyResultGroupLiveList) SetLiveStartTime(v int64) *GetGroupLiveListResponseBodyResultGroupLiveList {
+	s.LiveStartTime = &v
+	return s
+}
+
+func (s *GetGroupLiveListResponseBodyResultGroupLiveList) SetLiveUuid(v string) *GetGroupLiveListResponseBodyResultGroupLiveList {
+	s.LiveUuid = &v
+	return s
+}
+
+func (s *GetGroupLiveListResponseBodyResultGroupLiveList) SetTitle(v string) *GetGroupLiveListResponseBodyResultGroupLiveList {
+	s.Title = &v
+	return s
+}
+
+type GetGroupLiveListResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetGroupLiveListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetGroupLiveListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupLiveListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupLiveListResponse) SetHeaders(v map[string]*string) *GetGroupLiveListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetGroupLiveListResponse) SetStatusCode(v int32) *GetGroupLiveListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetGroupLiveListResponse) SetBody(v *GetGroupLiveListResponseBody) *GetGroupLiveListResponse {
+	s.Body = v
+	return s
+}
+
 type GetLiveReplayUrlHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -689,7 +1507,17 @@ func (s *GetLiveReplayUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetLiveR
 }
 
 type GetLiveReplayUrlRequest struct {
-	LiveId  *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 4d383876-1ff9-4b73-a057-a8f47b346ecb
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DC7wZGOSueEEIGOf3WKwWgiEiE
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -729,6 +1557,9 @@ func (s *GetLiveReplayUrlResponseBody) SetResult(v *GetLiveReplayUrlResponseBody
 }
 
 type GetLiveReplayUrlResponseBodyResult struct {
+	// example:
+	//
+	// http://xxx.dingtalk.com/live_hp/7c7ba32a-c92d-4524-b71e-33a72575c5a9_normal.m3u8?auth_key=xxx
 	ReplayUrl *string `json:"replayUrl,omitempty" xml:"replayUrl,omitempty"`
 }
 
@@ -774,6 +1605,371 @@ func (s *GetLiveReplayUrlResponse) SetBody(v *GetLiveReplayUrlResponseBody) *Get
 	return s
 }
 
+type GetOrgLiveListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetOrgLiveListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgLiveListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgLiveListHeaders) SetCommonHeaders(v map[string]*string) *GetOrgLiveListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetOrgLiveListHeaders) SetXAcsDingtalkAccessToken(v string) *GetOrgLiveListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetOrgLiveListRequest struct {
+	// This parameter is required.
+	CorpId      *string                           `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	RequestBody *GetOrgLiveListRequestRequestBody `json:"requestBody,omitempty" xml:"requestBody,omitempty" type:"Struct"`
+}
+
+func (s GetOrgLiveListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgLiveListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgLiveListRequest) SetCorpId(v string) *GetOrgLiveListRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetOrgLiveListRequest) SetRequestBody(v *GetOrgLiveListRequestRequestBody) *GetOrgLiveListRequest {
+	s.RequestBody = v
+	return s
+}
+
+type GetOrgLiveListRequestRequestBody struct {
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	PageSize  *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	StartTime *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetOrgLiveListRequestRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgLiveListRequestRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgLiveListRequestRequestBody) SetEndTime(v int64) *GetOrgLiveListRequestRequestBody {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetOrgLiveListRequestRequestBody) SetPageNumber(v int64) *GetOrgLiveListRequestRequestBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetOrgLiveListRequestRequestBody) SetPageSize(v int64) *GetOrgLiveListRequestRequestBody {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetOrgLiveListRequestRequestBody) SetStartTime(v int64) *GetOrgLiveListRequestRequestBody {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetOrgLiveListRequestRequestBody) SetUnionId(v string) *GetOrgLiveListRequestRequestBody {
+	s.UnionId = &v
+	return s
+}
+
+type GetOrgLiveListShrinkRequest struct {
+	// This parameter is required.
+	CorpId            *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	RequestBodyShrink *string `json:"requestBody,omitempty" xml:"requestBody,omitempty"`
+}
+
+func (s GetOrgLiveListShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgLiveListShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgLiveListShrinkRequest) SetCorpId(v string) *GetOrgLiveListShrinkRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetOrgLiveListShrinkRequest) SetRequestBodyShrink(v string) *GetOrgLiveListShrinkRequest {
+	s.RequestBodyShrink = &v
+	return s
+}
+
+type GetOrgLiveListResponseBody struct {
+	Result *GetOrgLiveListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetOrgLiveListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgLiveListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgLiveListResponseBody) SetResult(v *GetOrgLiveListResponseBodyResult) *GetOrgLiveListResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetOrgLiveListResponseBodyResult struct {
+	NewLive    *GetOrgLiveListResponseBodyResultNewLive    `json:"newLive,omitempty" xml:"newLive,omitempty" type:"Struct"`
+	UpdateLive *GetOrgLiveListResponseBodyResultUpdateLive `json:"updateLive,omitempty" xml:"updateLive,omitempty" type:"Struct"`
+}
+
+func (s GetOrgLiveListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgLiveListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgLiveListResponseBodyResult) SetNewLive(v *GetOrgLiveListResponseBodyResultNewLive) *GetOrgLiveListResponseBodyResult {
+	s.NewLive = v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResult) SetUpdateLive(v *GetOrgLiveListResponseBodyResultUpdateLive) *GetOrgLiveListResponseBodyResult {
+	s.UpdateLive = v
+	return s
+}
+
+type GetOrgLiveListResponseBodyResultNewLive struct {
+	HasMore    *bool                                              `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	LiveList   []*GetOrgLiveListResponseBodyResultNewLiveLiveList `json:"liveList,omitempty" xml:"liveList,omitempty" type:"Repeated"`
+	PageNumber *int64                                             `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64                                             `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	TotalCount *int64                                             `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s GetOrgLiveListResponseBodyResultNewLive) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgLiveListResponseBodyResultNewLive) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgLiveListResponseBodyResultNewLive) SetHasMore(v bool) *GetOrgLiveListResponseBodyResultNewLive {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultNewLive) SetLiveList(v []*GetOrgLiveListResponseBodyResultNewLiveLiveList) *GetOrgLiveListResponseBodyResultNewLive {
+	s.LiveList = v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultNewLive) SetPageNumber(v int64) *GetOrgLiveListResponseBodyResultNewLive {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultNewLive) SetPageSize(v int64) *GetOrgLiveListResponseBodyResultNewLive {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultNewLive) SetTotalCount(v int64) *GetOrgLiveListResponseBodyResultNewLive {
+	s.TotalCount = &v
+	return s
+}
+
+type GetOrgLiveListResponseBodyResultNewLiveLiveList struct {
+	AnchorNickname           *string   `json:"anchorNickname,omitempty" xml:"anchorNickname,omitempty"`
+	AnchorUnionId            *string   `json:"anchorUnionId,omitempty" xml:"anchorUnionId,omitempty"`
+	LiveEndTime              *int64    `json:"liveEndTime,omitempty" xml:"liveEndTime,omitempty"`
+	LiveStartTime            *int64    `json:"liveStartTime,omitempty" xml:"liveStartTime,omitempty"`
+	LiveUuid                 *string   `json:"liveUuid,omitempty" xml:"liveUuid,omitempty"`
+	ShareOpenConversationIds []*string `json:"shareOpenConversationIds,omitempty" xml:"shareOpenConversationIds,omitempty" type:"Repeated"`
+	Title                    *string   `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetOrgLiveListResponseBodyResultNewLiveLiveList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgLiveListResponseBodyResultNewLiveLiveList) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgLiveListResponseBodyResultNewLiveLiveList) SetAnchorNickname(v string) *GetOrgLiveListResponseBodyResultNewLiveLiveList {
+	s.AnchorNickname = &v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultNewLiveLiveList) SetAnchorUnionId(v string) *GetOrgLiveListResponseBodyResultNewLiveLiveList {
+	s.AnchorUnionId = &v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultNewLiveLiveList) SetLiveEndTime(v int64) *GetOrgLiveListResponseBodyResultNewLiveLiveList {
+	s.LiveEndTime = &v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultNewLiveLiveList) SetLiveStartTime(v int64) *GetOrgLiveListResponseBodyResultNewLiveLiveList {
+	s.LiveStartTime = &v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultNewLiveLiveList) SetLiveUuid(v string) *GetOrgLiveListResponseBodyResultNewLiveLiveList {
+	s.LiveUuid = &v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultNewLiveLiveList) SetShareOpenConversationIds(v []*string) *GetOrgLiveListResponseBodyResultNewLiveLiveList {
+	s.ShareOpenConversationIds = v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultNewLiveLiveList) SetTitle(v string) *GetOrgLiveListResponseBodyResultNewLiveLiveList {
+	s.Title = &v
+	return s
+}
+
+type GetOrgLiveListResponseBodyResultUpdateLive struct {
+	HasMore    *bool                                                 `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	LiveList   []*GetOrgLiveListResponseBodyResultUpdateLiveLiveList `json:"liveList,omitempty" xml:"liveList,omitempty" type:"Repeated"`
+	PageNumber *int64                                                `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int64                                                `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	TotalCount *int64                                                `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s GetOrgLiveListResponseBodyResultUpdateLive) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgLiveListResponseBodyResultUpdateLive) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgLiveListResponseBodyResultUpdateLive) SetHasMore(v bool) *GetOrgLiveListResponseBodyResultUpdateLive {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultUpdateLive) SetLiveList(v []*GetOrgLiveListResponseBodyResultUpdateLiveLiveList) *GetOrgLiveListResponseBodyResultUpdateLive {
+	s.LiveList = v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultUpdateLive) SetPageNumber(v int64) *GetOrgLiveListResponseBodyResultUpdateLive {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultUpdateLive) SetPageSize(v int64) *GetOrgLiveListResponseBodyResultUpdateLive {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultUpdateLive) SetTotalCount(v int64) *GetOrgLiveListResponseBodyResultUpdateLive {
+	s.TotalCount = &v
+	return s
+}
+
+type GetOrgLiveListResponseBodyResultUpdateLiveLiveList struct {
+	AnchorNickname *string `json:"anchorNickname,omitempty" xml:"anchorNickname,omitempty"`
+	AnchorUnionId  *string `json:"anchorUnionId,omitempty" xml:"anchorUnionId,omitempty"`
+	LiveEndTime    *int64  `json:"liveEndTime,omitempty" xml:"liveEndTime,omitempty"`
+	LiveStartTime  *int64  `json:"liveStartTime,omitempty" xml:"liveStartTime,omitempty"`
+	LiveUuid       *string `json:"liveUuid,omitempty" xml:"liveUuid,omitempty"`
+	Title          *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetOrgLiveListResponseBodyResultUpdateLiveLiveList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgLiveListResponseBodyResultUpdateLiveLiveList) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgLiveListResponseBodyResultUpdateLiveLiveList) SetAnchorNickname(v string) *GetOrgLiveListResponseBodyResultUpdateLiveLiveList {
+	s.AnchorNickname = &v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultUpdateLiveLiveList) SetAnchorUnionId(v string) *GetOrgLiveListResponseBodyResultUpdateLiveLiveList {
+	s.AnchorUnionId = &v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultUpdateLiveLiveList) SetLiveEndTime(v int64) *GetOrgLiveListResponseBodyResultUpdateLiveLiveList {
+	s.LiveEndTime = &v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultUpdateLiveLiveList) SetLiveStartTime(v int64) *GetOrgLiveListResponseBodyResultUpdateLiveLiveList {
+	s.LiveStartTime = &v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultUpdateLiveLiveList) SetLiveUuid(v string) *GetOrgLiveListResponseBodyResultUpdateLiveLiveList {
+	s.LiveUuid = &v
+	return s
+}
+
+func (s *GetOrgLiveListResponseBodyResultUpdateLiveLiveList) SetTitle(v string) *GetOrgLiveListResponseBodyResultUpdateLiveLiveList {
+	s.Title = &v
+	return s
+}
+
+type GetOrgLiveListResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetOrgLiveListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetOrgLiveListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOrgLiveListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetOrgLiveListResponse) SetHeaders(v map[string]*string) *GetOrgLiveListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetOrgLiveListResponse) SetStatusCode(v int32) *GetOrgLiveListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetOrgLiveListResponse) SetBody(v *GetOrgLiveListResponseBody) *GetOrgLiveListResponse {
+	s.Body = v
+	return s
+}
+
 type GetUserAllLiveListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -798,13 +1994,28 @@ func (s *GetUserAllLiveListHeaders) SetXAcsDingtalkAccessToken(v string) *GetUse
 }
 
 type GetUserAllLiveListRequest struct {
-	EndTime    *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	StartTime  *int64   `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Statuses   []*int32 `json:"statuses,omitempty" xml:"statuses,omitempty" type:"Repeated"`
-	Title      *string  `json:"title,omitempty" xml:"title,omitempty"`
-	PageNumber *int32   `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32   `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	UnionId    *string  `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	EndTime   *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	StartTime *int64   `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Statuses  []*int32 `json:"statuses,omitempty" xml:"statuses,omitempty" type:"Repeated"`
+	Title     *string  `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 30
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 6crtQT2XOgPHviiPvXhhiP6gdhiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetUserAllLiveListRequest) String() string {
@@ -1078,13 +2289,26 @@ func (s *GetUserCreateLiveListHeaders) SetXAcsDingtalkAccessToken(v string) *Get
 }
 
 type GetUserCreateLiveListRequest struct {
-	EndTime    *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	StartTime  *int64   `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Statuses   []*int64 `json:"statuses,omitempty" xml:"statuses,omitempty" type:"Repeated"`
-	Title      *string  `json:"title,omitempty" xml:"title,omitempty"`
-	MaxResults *int32   `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	UnionId    *string  `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	EndTime   *int64   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	StartTime *int64   `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Statuses  []*int64 `json:"statuses,omitempty" xml:"statuses,omitempty" type:"Repeated"`
+	Title     *string  `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// ""
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5yAiiJDWiiCJpd3Thhx7P5fgiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetUserCreateLiveListRequest) String() string {
@@ -1370,10 +2594,28 @@ func (s *GetUserWatchLiveListHeaders) SetXAcsDingtalkAccessToken(v string) *GetU
 }
 
 type GetUserWatchLiveListRequest struct {
-	FilterType *int32  `json:"filterType,omitempty" xml:"filterType,omitempty"`
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	UnionId    *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	FilterType *int32 `json:"filterType,omitempty" xml:"filterType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 30
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// preOrStartTime_desc_1658804913000
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 6crtQT2XOgPHviiPvXhhiP6gdhiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetUserWatchLiveListRequest) String() string {
@@ -1644,9 +2886,19 @@ func (s *ModifyFeedWhiteListHeaders) SetXAcsDingtalkAccessToken(v string) *Modif
 }
 
 type ModifyFeedWhiteListRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	Action         *int64    `json:"action,omitempty" xml:"action,omitempty"`
 	ModifyUserList []*string `json:"modifyUserList,omitempty" xml:"modifyUserList,omitempty" type:"Repeated"`
-	UserId         *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1206186351746728
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ModifyFeedWhiteListRequest) String() string {
@@ -1673,9 +2925,19 @@ func (s *ModifyFeedWhiteListRequest) SetUserId(v string) *ModifyFeedWhiteListReq
 }
 
 type ModifyFeedWhiteListShrinkRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	Action               *int64  `json:"action,omitempty" xml:"action,omitempty"`
 	ModifyUserListShrink *string `json:"modifyUserList,omitempty" xml:"modifyUserList,omitempty"`
-	UserId               *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1206186351746728
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ModifyFeedWhiteListShrinkRequest) String() string {
@@ -1702,6 +2964,9 @@ func (s *ModifyFeedWhiteListShrinkRequest) SetUserId(v string) *ModifyFeedWhiteL
 }
 
 type ModifyFeedWhiteListResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1771,6 +3036,11 @@ func (s *QueryFeedWhiteListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryF
 }
 
 type QueryFeedWhiteListRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1206186351746728
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -1788,6 +3058,9 @@ func (s *QueryFeedWhiteListRequest) SetUserId(v string) *QueryFeedWhiteListReque
 }
 
 type QueryFeedWhiteListResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1857,7 +3130,17 @@ func (s *QueryLiveInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryLiveIn
 }
 
 type QueryLiveInfoRequest struct {
-	LiveId  *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 4d383876-1ff9-4b73-a057-a8f47b346ecb
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DC7wZGOSueEEIGOf3WKwWgiEiE
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -1914,19 +3197,58 @@ func (s *QueryLiveInfoResponseBodyResult) SetLiveInfo(v *QueryLiveInfoResponseBo
 }
 
 type QueryLiveInfoResponseBodyResultLiveInfo struct {
-	CoverUrl         *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
-	Duration         *int64  `json:"duration,omitempty" xml:"duration,omitempty"`
-	EndTime          *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	Introduction     *string `json:"introduction,omitempty" xml:"introduction,omitempty"`
-	LiveId           *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
-	LivePlayUrl      *string `json:"livePlayUrl,omitempty" xml:"livePlayUrl,omitempty"`
-	LiveStatus       *int32  `json:"liveStatus,omitempty" xml:"liveStatus,omitempty"`
-	PlaybackDuration *int64  `json:"playbackDuration,omitempty" xml:"playbackDuration,omitempty"`
-	StartTime        *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	SubscribeCount   *int32  `json:"subscribeCount,omitempty" xml:"subscribeCount,omitempty"`
-	Title            *string `json:"title,omitempty" xml:"title,omitempty"`
-	UnionId          *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	Uv               *int32  `json:"uv,omitempty" xml:"uv,omitempty"`
+	// example:
+	//
+	// https://gw.alicdn.com/tfs/TB1thlYyAT2gK0jSZPcXXcKkpXa-1125-633.png
+	CoverUrl *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
+	// example:
+	//
+	// 18450
+	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// example:
+	//
+	// 1659653648000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 测试直播简介
+	Introduction *string `json:"introduction,omitempty" xml:"introduction,omitempty"`
+	// example:
+	//
+	// 1a353547-040d-4095-bb93-404bc5d47920
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// example:
+	//
+	// https://h5.dingtalk.com/group-live-share/index.htm?type=2&liveFromType=6&liveUuid=1a353547-040d-4095-bb93-404bc5d47920&dd_nav_bgcolor=FF2C2D2F#/union
+	LivePlayUrl *string `json:"livePlayUrl,omitempty" xml:"livePlayUrl,omitempty"`
+	// example:
+	//
+	// 3
+	LiveStatus *int32 `json:"liveStatus,omitempty" xml:"liveStatus,omitempty"`
+	// example:
+	//
+	// 18430
+	PlaybackDuration *int64 `json:"playbackDuration,omitempty" xml:"playbackDuration,omitempty"`
+	// example:
+	//
+	// 1659613648000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 2
+	SubscribeCount *int32 `json:"subscribeCount,omitempty" xml:"subscribeCount,omitempty"`
+	// example:
+	//
+	// 测试直播
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// DC7wZGOSueEEIGOf3WKwWgiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 3
+	Uv *int32 `json:"uv,omitempty" xml:"uv,omitempty"`
 }
 
 func (s QueryLiveInfoResponseBodyResultLiveInfo) String() string {
@@ -2031,6 +3353,171 @@ func (s *QueryLiveInfoResponse) SetBody(v *QueryLiveInfoResponseBody) *QueryLive
 	return s
 }
 
+type QueryLiveInteractionPluginHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryLiveInteractionPluginHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveInteractionPluginHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveInteractionPluginHeaders) SetCommonHeaders(v map[string]*string) *QueryLiveInteractionPluginHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryLiveInteractionPluginHeaders) SetXAcsDingtalkAccessToken(v string) *QueryLiveInteractionPluginHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryLiveInteractionPluginRequest struct {
+	// This parameter is required.
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	PluginId *string `json:"pluginId,omitempty" xml:"pluginId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryLiveInteractionPluginRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveInteractionPluginRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveInteractionPluginRequest) SetLiveId(v string) *QueryLiveInteractionPluginRequest {
+	s.LiveId = &v
+	return s
+}
+
+func (s *QueryLiveInteractionPluginRequest) SetPluginId(v string) *QueryLiveInteractionPluginRequest {
+	s.PluginId = &v
+	return s
+}
+
+func (s *QueryLiveInteractionPluginRequest) SetUnionId(v string) *QueryLiveInteractionPluginRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryLiveInteractionPluginResponseBody struct {
+	Result *QueryLiveInteractionPluginResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryLiveInteractionPluginResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveInteractionPluginResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveInteractionPluginResponseBody) SetResult(v *QueryLiveInteractionPluginResponseBodyResult) *QueryLiveInteractionPluginResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryLiveInteractionPluginResponseBodyResult struct {
+	LivePluginList []*QueryLiveInteractionPluginResponseBodyResultLivePluginList `json:"livePluginList,omitempty" xml:"livePluginList,omitempty" type:"Repeated"`
+}
+
+func (s QueryLiveInteractionPluginResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveInteractionPluginResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveInteractionPluginResponseBodyResult) SetLivePluginList(v []*QueryLiveInteractionPluginResponseBodyResultLivePluginList) *QueryLiveInteractionPluginResponseBodyResult {
+	s.LivePluginList = v
+	return s
+}
+
+type QueryLiveInteractionPluginResponseBodyResultLivePluginList struct {
+	AnchorJumpUrl *string `json:"anchorJumpUrl,omitempty" xml:"anchorJumpUrl,omitempty"`
+	PluginIconUrl *string `json:"pluginIconUrl,omitempty" xml:"pluginIconUrl,omitempty"`
+	PluginId      *string `json:"pluginId,omitempty" xml:"pluginId,omitempty"`
+	PluginName    *string `json:"pluginName,omitempty" xml:"pluginName,omitempty"`
+	PluginNameEn  *string `json:"pluginNameEn,omitempty" xml:"pluginNameEn,omitempty"`
+	ViewerJumpUrl *string `json:"viewerJumpUrl,omitempty" xml:"viewerJumpUrl,omitempty"`
+}
+
+func (s QueryLiveInteractionPluginResponseBodyResultLivePluginList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveInteractionPluginResponseBodyResultLivePluginList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveInteractionPluginResponseBodyResultLivePluginList) SetAnchorJumpUrl(v string) *QueryLiveInteractionPluginResponseBodyResultLivePluginList {
+	s.AnchorJumpUrl = &v
+	return s
+}
+
+func (s *QueryLiveInteractionPluginResponseBodyResultLivePluginList) SetPluginIconUrl(v string) *QueryLiveInteractionPluginResponseBodyResultLivePluginList {
+	s.PluginIconUrl = &v
+	return s
+}
+
+func (s *QueryLiveInteractionPluginResponseBodyResultLivePluginList) SetPluginId(v string) *QueryLiveInteractionPluginResponseBodyResultLivePluginList {
+	s.PluginId = &v
+	return s
+}
+
+func (s *QueryLiveInteractionPluginResponseBodyResultLivePluginList) SetPluginName(v string) *QueryLiveInteractionPluginResponseBodyResultLivePluginList {
+	s.PluginName = &v
+	return s
+}
+
+func (s *QueryLiveInteractionPluginResponseBodyResultLivePluginList) SetPluginNameEn(v string) *QueryLiveInteractionPluginResponseBodyResultLivePluginList {
+	s.PluginNameEn = &v
+	return s
+}
+
+func (s *QueryLiveInteractionPluginResponseBodyResultLivePluginList) SetViewerJumpUrl(v string) *QueryLiveInteractionPluginResponseBodyResultLivePluginList {
+	s.ViewerJumpUrl = &v
+	return s
+}
+
+type QueryLiveInteractionPluginResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryLiveInteractionPluginResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryLiveInteractionPluginResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryLiveInteractionPluginResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryLiveInteractionPluginResponse) SetHeaders(v map[string]*string) *QueryLiveInteractionPluginResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryLiveInteractionPluginResponse) SetStatusCode(v int32) *QueryLiveInteractionPluginResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryLiveInteractionPluginResponse) SetBody(v *QueryLiveInteractionPluginResponseBody) *QueryLiveInteractionPluginResponse {
+	s.Body = v
+	return s
+}
+
 type QueryLiveWatchDetailHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2055,7 +3542,17 @@ func (s *QueryLiveWatchDetailHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryLiveWatchDetailRequest struct {
-	LiveId  *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1a353547-040d-4095-bb93-404bc5d47920
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DC7wZGOSueEEIGOf3WKwWgiEiE
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -2095,14 +3592,38 @@ func (s *QueryLiveWatchDetailResponseBody) SetResult(v *QueryLiveWatchDetailResp
 }
 
 type QueryLiveWatchDetailResponseBodyResult struct {
-	AvgWatchTime   *int64 `json:"avgWatchTime,omitempty" xml:"avgWatchTime,omitempty"`
-	LiveUv         *int32 `json:"liveUv,omitempty" xml:"liveUv,omitempty"`
-	MsgCount       *int32 `json:"msgCount,omitempty" xml:"msgCount,omitempty"`
-	PlaybackUv     *int32 `json:"playbackUv,omitempty" xml:"playbackUv,omitempty"`
-	PraiseCount    *int32 `json:"praiseCount,omitempty" xml:"praiseCount,omitempty"`
-	Pv             *int32 `json:"pv,omitempty" xml:"pv,omitempty"`
+	// example:
+	//
+	// 3560
+	AvgWatchTime *int64 `json:"avgWatchTime,omitempty" xml:"avgWatchTime,omitempty"`
+	// example:
+	//
+	// 55
+	LiveUv *int32 `json:"liveUv,omitempty" xml:"liveUv,omitempty"`
+	// example:
+	//
+	// 252
+	MsgCount *int32 `json:"msgCount,omitempty" xml:"msgCount,omitempty"`
+	// example:
+	//
+	// 72
+	PlaybackUv *int32 `json:"playbackUv,omitempty" xml:"playbackUv,omitempty"`
+	// example:
+	//
+	// 500
+	PraiseCount *int32 `json:"praiseCount,omitempty" xml:"praiseCount,omitempty"`
+	// example:
+	//
+	// 120
+	Pv *int32 `json:"pv,omitempty" xml:"pv,omitempty"`
+	// example:
+	//
+	// 1903640
 	TotalWatchTime *int64 `json:"totalWatchTime,omitempty" xml:"totalWatchTime,omitempty"`
-	Uv             *int32 `json:"uv,omitempty" xml:"uv,omitempty"`
+	// example:
+	//
+	// 90
+	Uv *int32 `json:"uv,omitempty" xml:"uv,omitempty"`
 }
 
 func (s QueryLiveWatchDetailResponseBodyResult) String() string {
@@ -2206,10 +3727,21 @@ func (s *QueryLiveWatchUserListHeaders) SetXAcsDingtalkAccessToken(v string) *Qu
 }
 
 type QueryLiveWatchUserListRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1a353547-040d-4095-bb93-404bc5d47920
 	LiveId     *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
 	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	UnionId    *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DC7wZGOSueEEIGOf3WKwWgiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s QueryLiveWatchUserListRequest) String() string {
@@ -2281,13 +3813,34 @@ func (s *QueryLiveWatchUserListResponseBodyResult) SetOutOrgUserList(v []*QueryL
 }
 
 type QueryLiveWatchUserListResponseBodyResultOrgUsesList struct {
-	DeptName          *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	Name              *string `json:"name,omitempty" xml:"name,omitempty"`
-	UnionId           *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	WatchLiveTime     *int64  `json:"watchLiveTime,omitempty" xml:"watchLiveTime,omitempty"`
-	WatchPlaybackTime *int64  `json:"watchPlaybackTime,omitempty" xml:"watchPlaybackTime,omitempty"`
-	WatchProgressMs   *int64  `json:"watchProgressMs,omitempty" xml:"watchProgressMs,omitempty"`
+	// example:
+	//
+	// xxx.设计部
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// example:
+	//
+	// 李四
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// DC7wZGOSueEEIGOf3WKwWgiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 214675
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 189930
+	WatchLiveTime *int64 `json:"watchLiveTime,omitempty" xml:"watchLiveTime,omitempty"`
+	// example:
+	//
+	// 23667
+	WatchPlaybackTime *int64 `json:"watchPlaybackTime,omitempty" xml:"watchPlaybackTime,omitempty"`
+	// example:
+	//
+	// 2330
+	WatchProgressMs *int64 `json:"watchProgressMs,omitempty" xml:"watchProgressMs,omitempty"`
 }
 
 func (s QueryLiveWatchUserListResponseBodyResultOrgUsesList) String() string {
@@ -2334,10 +3887,22 @@ func (s *QueryLiveWatchUserListResponseBodyResultOrgUsesList) SetWatchProgressMs
 }
 
 type QueryLiveWatchUserListResponseBodyResultOutOrgUserList struct {
-	Name              *string `json:"name,omitempty" xml:"name,omitempty"`
-	WatchLiveTime     *int64  `json:"watchLiveTime,omitempty" xml:"watchLiveTime,omitempty"`
-	WatchPlaybackTime *int64  `json:"watchPlaybackTime,omitempty" xml:"watchPlaybackTime,omitempty"`
-	WatchProgressMs   *int64  `json:"watchProgressMs,omitempty" xml:"watchProgressMs,omitempty"`
+	// example:
+	//
+	// 张三
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 23440
+	WatchLiveTime *int64 `json:"watchLiveTime,omitempty" xml:"watchLiveTime,omitempty"`
+	// example:
+	//
+	// 2330
+	WatchPlaybackTime *int64 `json:"watchPlaybackTime,omitempty" xml:"watchPlaybackTime,omitempty"`
+	// example:
+	//
+	// 150
+	WatchProgressMs *int64 `json:"watchProgressMs,omitempty" xml:"watchProgressMs,omitempty"`
 }
 
 func (s QueryLiveWatchUserListResponseBodyResultOutOrgUserList) String() string {
@@ -2569,6 +4134,343 @@ func (s *QuerySubscribeStatusResponse) SetBody(v *QuerySubscribeStatusResponseBo
 	return s
 }
 
+type SendLiveInteractionPluginEffectsMsgHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendLiveInteractionPluginEffectsMsgHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendLiveInteractionPluginEffectsMsgHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendLiveInteractionPluginEffectsMsgHeaders) SetCommonHeaders(v map[string]*string) *SendLiveInteractionPluginEffectsMsgHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendLiveInteractionPluginEffectsMsgHeaders) SetXAcsDingtalkAccessToken(v string) *SendLiveInteractionPluginEffectsMsgHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendLiveInteractionPluginEffectsMsgRequest struct {
+	// This parameter is required.
+	Count         *int64  `json:"count,omitempty" xml:"count,omitempty"`
+	LottieFileUrl *string `json:"lottieFileUrl,omitempty" xml:"lottieFileUrl,omitempty"`
+	// This parameter is required.
+	MsgIconUrl *string `json:"msgIconUrl,omitempty" xml:"msgIconUrl,omitempty"`
+	// This parameter is required.
+	MsgText *string `json:"msgText,omitempty" xml:"msgText,omitempty"`
+	// This parameter is required.
+	PluginSubId *string `json:"pluginSubId,omitempty" xml:"pluginSubId,omitempty"`
+	// This parameter is required.
+	SenderUnionId *string `json:"senderUnionId,omitempty" xml:"senderUnionId,omitempty"`
+	// This parameter is required.
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	PluginId *string `json:"pluginId,omitempty" xml:"pluginId,omitempty"`
+}
+
+func (s SendLiveInteractionPluginEffectsMsgRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendLiveInteractionPluginEffectsMsgRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendLiveInteractionPluginEffectsMsgRequest) SetCount(v int64) *SendLiveInteractionPluginEffectsMsgRequest {
+	s.Count = &v
+	return s
+}
+
+func (s *SendLiveInteractionPluginEffectsMsgRequest) SetLottieFileUrl(v string) *SendLiveInteractionPluginEffectsMsgRequest {
+	s.LottieFileUrl = &v
+	return s
+}
+
+func (s *SendLiveInteractionPluginEffectsMsgRequest) SetMsgIconUrl(v string) *SendLiveInteractionPluginEffectsMsgRequest {
+	s.MsgIconUrl = &v
+	return s
+}
+
+func (s *SendLiveInteractionPluginEffectsMsgRequest) SetMsgText(v string) *SendLiveInteractionPluginEffectsMsgRequest {
+	s.MsgText = &v
+	return s
+}
+
+func (s *SendLiveInteractionPluginEffectsMsgRequest) SetPluginSubId(v string) *SendLiveInteractionPluginEffectsMsgRequest {
+	s.PluginSubId = &v
+	return s
+}
+
+func (s *SendLiveInteractionPluginEffectsMsgRequest) SetSenderUnionId(v string) *SendLiveInteractionPluginEffectsMsgRequest {
+	s.SenderUnionId = &v
+	return s
+}
+
+func (s *SendLiveInteractionPluginEffectsMsgRequest) SetLiveId(v string) *SendLiveInteractionPluginEffectsMsgRequest {
+	s.LiveId = &v
+	return s
+}
+
+func (s *SendLiveInteractionPluginEffectsMsgRequest) SetPluginId(v string) *SendLiveInteractionPluginEffectsMsgRequest {
+	s.PluginId = &v
+	return s
+}
+
+type SendLiveInteractionPluginEffectsMsgResponseBody struct {
+	Result *SendLiveInteractionPluginEffectsMsgResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s SendLiveInteractionPluginEffectsMsgResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendLiveInteractionPluginEffectsMsgResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendLiveInteractionPluginEffectsMsgResponseBody) SetResult(v *SendLiveInteractionPluginEffectsMsgResponseBodyResult) *SendLiveInteractionPluginEffectsMsgResponseBody {
+	s.Result = v
+	return s
+}
+
+type SendLiveInteractionPluginEffectsMsgResponseBodyResult struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SendLiveInteractionPluginEffectsMsgResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendLiveInteractionPluginEffectsMsgResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SendLiveInteractionPluginEffectsMsgResponseBodyResult) SetSuccess(v bool) *SendLiveInteractionPluginEffectsMsgResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type SendLiveInteractionPluginEffectsMsgResponse struct {
+	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SendLiveInteractionPluginEffectsMsgResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SendLiveInteractionPluginEffectsMsgResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendLiveInteractionPluginEffectsMsgResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendLiveInteractionPluginEffectsMsgResponse) SetHeaders(v map[string]*string) *SendLiveInteractionPluginEffectsMsgResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendLiveInteractionPluginEffectsMsgResponse) SetStatusCode(v int32) *SendLiveInteractionPluginEffectsMsgResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SendLiveInteractionPluginEffectsMsgResponse) SetBody(v *SendLiveInteractionPluginEffectsMsgResponseBody) *SendLiveInteractionPluginEffectsMsgResponse {
+	s.Body = v
+	return s
+}
+
+type SendLivePluginUserActionMsgHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendLivePluginUserActionMsgHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendLivePluginUserActionMsgHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendLivePluginUserActionMsgHeaders) SetCommonHeaders(v map[string]*string) *SendLivePluginUserActionMsgHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendLivePluginUserActionMsgHeaders) SetXAcsDingtalkAccessToken(v string) *SendLivePluginUserActionMsgHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendLivePluginUserActionMsgRequest struct {
+	// This parameter is required.
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	PluginEffectsMessage *SendLivePluginUserActionMsgRequestPluginEffectsMessage `json:"pluginEffectsMessage,omitempty" xml:"pluginEffectsMessage,omitempty" type:"Struct"`
+	// This parameter is required.
+	PluginId *string `json:"pluginId,omitempty" xml:"pluginId,omitempty"`
+}
+
+func (s SendLivePluginUserActionMsgRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendLivePluginUserActionMsgRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendLivePluginUserActionMsgRequest) SetLiveId(v string) *SendLivePluginUserActionMsgRequest {
+	s.LiveId = &v
+	return s
+}
+
+func (s *SendLivePluginUserActionMsgRequest) SetPluginEffectsMessage(v *SendLivePluginUserActionMsgRequestPluginEffectsMessage) *SendLivePluginUserActionMsgRequest {
+	s.PluginEffectsMessage = v
+	return s
+}
+
+func (s *SendLivePluginUserActionMsgRequest) SetPluginId(v string) *SendLivePluginUserActionMsgRequest {
+	s.PluginId = &v
+	return s
+}
+
+type SendLivePluginUserActionMsgRequestPluginEffectsMessage struct {
+	// This parameter is required.
+	Count         *int64  `json:"count,omitempty" xml:"count,omitempty"`
+	LottieFileUrl *string `json:"lottieFileUrl,omitempty" xml:"lottieFileUrl,omitempty"`
+	// This parameter is required.
+	MsgIconUrl *string `json:"msgIconUrl,omitempty" xml:"msgIconUrl,omitempty"`
+	// This parameter is required.
+	MsgText *string `json:"msgText,omitempty" xml:"msgText,omitempty"`
+	// This parameter is required.
+	PluginSubId *string `json:"pluginSubId,omitempty" xml:"pluginSubId,omitempty"`
+	// This parameter is required.
+	SenderUnionId *string `json:"senderUnionId,omitempty" xml:"senderUnionId,omitempty"`
+}
+
+func (s SendLivePluginUserActionMsgRequestPluginEffectsMessage) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendLivePluginUserActionMsgRequestPluginEffectsMessage) GoString() string {
+	return s.String()
+}
+
+func (s *SendLivePluginUserActionMsgRequestPluginEffectsMessage) SetCount(v int64) *SendLivePluginUserActionMsgRequestPluginEffectsMessage {
+	s.Count = &v
+	return s
+}
+
+func (s *SendLivePluginUserActionMsgRequestPluginEffectsMessage) SetLottieFileUrl(v string) *SendLivePluginUserActionMsgRequestPluginEffectsMessage {
+	s.LottieFileUrl = &v
+	return s
+}
+
+func (s *SendLivePluginUserActionMsgRequestPluginEffectsMessage) SetMsgIconUrl(v string) *SendLivePluginUserActionMsgRequestPluginEffectsMessage {
+	s.MsgIconUrl = &v
+	return s
+}
+
+func (s *SendLivePluginUserActionMsgRequestPluginEffectsMessage) SetMsgText(v string) *SendLivePluginUserActionMsgRequestPluginEffectsMessage {
+	s.MsgText = &v
+	return s
+}
+
+func (s *SendLivePluginUserActionMsgRequestPluginEffectsMessage) SetPluginSubId(v string) *SendLivePluginUserActionMsgRequestPluginEffectsMessage {
+	s.PluginSubId = &v
+	return s
+}
+
+func (s *SendLivePluginUserActionMsgRequestPluginEffectsMessage) SetSenderUnionId(v string) *SendLivePluginUserActionMsgRequestPluginEffectsMessage {
+	s.SenderUnionId = &v
+	return s
+}
+
+type SendLivePluginUserActionMsgShrinkRequest struct {
+	// This parameter is required.
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	PluginEffectsMessageShrink *string `json:"pluginEffectsMessage,omitempty" xml:"pluginEffectsMessage,omitempty"`
+	// This parameter is required.
+	PluginId *string `json:"pluginId,omitempty" xml:"pluginId,omitempty"`
+}
+
+func (s SendLivePluginUserActionMsgShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendLivePluginUserActionMsgShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendLivePluginUserActionMsgShrinkRequest) SetLiveId(v string) *SendLivePluginUserActionMsgShrinkRequest {
+	s.LiveId = &v
+	return s
+}
+
+func (s *SendLivePluginUserActionMsgShrinkRequest) SetPluginEffectsMessageShrink(v string) *SendLivePluginUserActionMsgShrinkRequest {
+	s.PluginEffectsMessageShrink = &v
+	return s
+}
+
+func (s *SendLivePluginUserActionMsgShrinkRequest) SetPluginId(v string) *SendLivePluginUserActionMsgShrinkRequest {
+	s.PluginId = &v
+	return s
+}
+
+type SendLivePluginUserActionMsgResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SendLivePluginUserActionMsgResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendLivePluginUserActionMsgResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendLivePluginUserActionMsgResponseBody) SetSuccess(v bool) *SendLivePluginUserActionMsgResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SendLivePluginUserActionMsgResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SendLivePluginUserActionMsgResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SendLivePluginUserActionMsgResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendLivePluginUserActionMsgResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendLivePluginUserActionMsgResponse) SetHeaders(v map[string]*string) *SendLivePluginUserActionMsgResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendLivePluginUserActionMsgResponse) SetStatusCode(v int32) *SendLivePluginUserActionMsgResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SendLivePluginUserActionMsgResponse) SetBody(v *SendLivePluginUserActionMsgResponseBody) *SendLivePluginUserActionMsgResponse {
+	s.Body = v
+	return s
+}
+
 type StartCloudFeedHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2593,6 +4495,11 @@ func (s *StartCloudFeedHeaders) SetXAcsDingtalkAccessToken(v string) *StartCloud
 }
 
 type StartCloudFeedRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 214675
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -2610,6 +4517,9 @@ func (s *StartCloudFeedRequest) SetUserId(v string) *StartCloudFeedRequest {
 }
 
 type StartCloudFeedResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -2679,6 +4589,11 @@ func (s *StopCloudFeedHeaders) SetXAcsDingtalkAccessToken(v string) *StopCloudFe
 }
 
 type StopCloudFeedRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 214675
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -2696,6 +4611,9 @@ func (s *StopCloudFeedRequest) SetUserId(v string) *StopCloudFeedRequest {
 }
 
 type StopCloudFeedResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -2765,9 +4683,20 @@ func (s *SubscribeLiveHeaders) SetXAcsDingtalkAccessToken(v string) *SubscribeLi
 }
 
 type SubscribeLiveRequest struct {
-	LiveId    *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
-	Subscribe *bool   `json:"subscribe,omitempty" xml:"subscribe,omitempty"`
-	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3dd295eb-17a1-4dfg-ae1b-aa165c5007eb
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	Subscribe *bool `json:"subscribe,omitempty" xml:"subscribe,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 6crtQT2XOgPHviiPvXhhiP6gdhiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s SubscribeLiveRequest) String() string {
@@ -2880,13 +4809,38 @@ func (s *UpdateLiveHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateLiveHead
 }
 
 type UpdateLiveRequest struct {
-	CoverUrl     *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
+	// example:
+	//
+	// https://gw.alicdn.com/tfs/TB1thlYyAT2gK0jSZPcXXcKkpXa-1125-633.png
+	CoverUrl *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
+	// example:
+	//
+	// 测试直播简介
 	Introduction *string `json:"introduction,omitempty" xml:"introduction,omitempty"`
-	LiveId       *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
-	PreEndTime   *int64  `json:"preEndTime,omitempty" xml:"preEndTime,omitempty"`
-	PreStartTime *int64  `json:"preStartTime,omitempty" xml:"preStartTime,omitempty"`
-	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
-	UnionId      *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 4d383876-1ff9-4b73-a057-a8f47b346ecb
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// example:
+	//
+	// 1659653648000
+	PreEndTime *int64 `json:"preEndTime,omitempty" xml:"preEndTime,omitempty"`
+	// example:
+	//
+	// 1659613648000
+	PreStartTime *int64 `json:"preStartTime,omitempty" xml:"preStartTime,omitempty"`
+	// example:
+	//
+	// 测试直播
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DC7wZGOSueEEIGOf3WKwWgiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s UpdateLiveRequest) String() string {
@@ -3019,11 +4973,28 @@ func (s *UpdateLiveFeedHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateLive
 }
 
 type UpdateLiveFeedRequest struct {
-	CoverUrl     *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
+	// example:
+	//
+	// http:xxx.png
+	CoverUrl *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
+	// example:
+	//
+	// 简介
 	Introduction *string `json:"introduction,omitempty" xml:"introduction,omitempty"`
-	StartTime    *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
-	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 1617436058000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1206186351746728
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateLiveFeedRequest) String() string {
@@ -3060,6 +5031,9 @@ func (s *UpdateLiveFeedRequest) SetUserId(v string) *UpdateLiveFeedRequest {
 }
 
 type UpdateLiveFeedResponseBody struct {
+	// example:
+	//
+	// true
 	HasUpdate *bool `json:"hasUpdate,omitempty" xml:"hasUpdate,omitempty"`
 }
 
@@ -3105,6 +5079,154 @@ func (s *UpdateLiveFeedResponse) SetBody(v *UpdateLiveFeedResponseBody) *UpdateL
 	return s
 }
 
+type UpdateLiveInteractionPluginHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateLiveInteractionPluginHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLiveInteractionPluginHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLiveInteractionPluginHeaders) SetCommonHeaders(v map[string]*string) *UpdateLiveInteractionPluginHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateLiveInteractionPluginHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateLiveInteractionPluginHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateLiveInteractionPluginRequest struct {
+	AnchorJumpUrl *string `json:"anchorJumpUrl,omitempty" xml:"anchorJumpUrl,omitempty"`
+	PluginIconUrl *string `json:"pluginIconUrl,omitempty" xml:"pluginIconUrl,omitempty"`
+	PluginName    *string `json:"pluginName,omitempty" xml:"pluginName,omitempty"`
+	PluginNameEn  *string `json:"pluginNameEn,omitempty" xml:"pluginNameEn,omitempty"`
+	ViewerJumpUrl *string `json:"viewerJumpUrl,omitempty" xml:"viewerJumpUrl,omitempty"`
+	// This parameter is required.
+	LiveId *string `json:"liveId,omitempty" xml:"liveId,omitempty"`
+	// This parameter is required.
+	PluginId *string `json:"pluginId,omitempty" xml:"pluginId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s UpdateLiveInteractionPluginRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLiveInteractionPluginRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLiveInteractionPluginRequest) SetAnchorJumpUrl(v string) *UpdateLiveInteractionPluginRequest {
+	s.AnchorJumpUrl = &v
+	return s
+}
+
+func (s *UpdateLiveInteractionPluginRequest) SetPluginIconUrl(v string) *UpdateLiveInteractionPluginRequest {
+	s.PluginIconUrl = &v
+	return s
+}
+
+func (s *UpdateLiveInteractionPluginRequest) SetPluginName(v string) *UpdateLiveInteractionPluginRequest {
+	s.PluginName = &v
+	return s
+}
+
+func (s *UpdateLiveInteractionPluginRequest) SetPluginNameEn(v string) *UpdateLiveInteractionPluginRequest {
+	s.PluginNameEn = &v
+	return s
+}
+
+func (s *UpdateLiveInteractionPluginRequest) SetViewerJumpUrl(v string) *UpdateLiveInteractionPluginRequest {
+	s.ViewerJumpUrl = &v
+	return s
+}
+
+func (s *UpdateLiveInteractionPluginRequest) SetLiveId(v string) *UpdateLiveInteractionPluginRequest {
+	s.LiveId = &v
+	return s
+}
+
+func (s *UpdateLiveInteractionPluginRequest) SetPluginId(v string) *UpdateLiveInteractionPluginRequest {
+	s.PluginId = &v
+	return s
+}
+
+func (s *UpdateLiveInteractionPluginRequest) SetUnionId(v string) *UpdateLiveInteractionPluginRequest {
+	s.UnionId = &v
+	return s
+}
+
+type UpdateLiveInteractionPluginResponseBody struct {
+	Result *UpdateLiveInteractionPluginResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateLiveInteractionPluginResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLiveInteractionPluginResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLiveInteractionPluginResponseBody) SetResult(v *UpdateLiveInteractionPluginResponseBodyResult) *UpdateLiveInteractionPluginResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateLiveInteractionPluginResponseBodyResult struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateLiveInteractionPluginResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLiveInteractionPluginResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLiveInteractionPluginResponseBodyResult) SetSuccess(v bool) *UpdateLiveInteractionPluginResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type UpdateLiveInteractionPluginResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateLiveInteractionPluginResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateLiveInteractionPluginResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateLiveInteractionPluginResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateLiveInteractionPluginResponse) SetHeaders(v map[string]*string) *UpdateLiveInteractionPluginResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateLiveInteractionPluginResponse) SetStatusCode(v int32) *UpdateLiveInteractionPluginResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateLiveInteractionPluginResponse) SetBody(v *UpdateLiveInteractionPluginResponseBody) *UpdateLiveInteractionPluginResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -3120,12 +5242,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -3134,6 +5256,205 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 增加直播间互动插件
+//
+// @param request - AddLiveInteractionPluginRequest
+//
+// @param headers - AddLiveInteractionPluginHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddLiveInteractionPluginResponse
+func (client *Client) AddLiveInteractionPluginWithOptions(request *AddLiveInteractionPluginRequest, headers *AddLiveInteractionPluginHeaders, runtime *util.RuntimeOptions) (_result *AddLiveInteractionPluginResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LiveId)) {
+		query["liveId"] = request.LiveId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AnchorJumpUrl)) {
+		body["anchorJumpUrl"] = request.AnchorJumpUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PluginIconUrl)) {
+		body["pluginIconUrl"] = request.PluginIconUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PluginName)) {
+		body["pluginName"] = request.PluginName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PluginNameEn)) {
+		body["pluginNameEn"] = request.PluginNameEn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ViewerJumpUrl)) {
+		body["viewerJumpUrl"] = request.ViewerJumpUrl
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddLiveInteractionPlugin"),
+		Version:     tea.String("live_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/live/interactionPlugins"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddLiveInteractionPluginResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 增加直播间互动插件
+//
+// @param request - AddLiveInteractionPluginRequest
+//
+// @return AddLiveInteractionPluginResponse
+func (client *Client) AddLiveInteractionPlugin(request *AddLiveInteractionPluginRequest) (_result *AddLiveInteractionPluginResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddLiveInteractionPluginHeaders{}
+	_result = &AddLiveInteractionPluginResponse{}
+	_body, _err := client.AddLiveInteractionPluginWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 增加直播间的公告槽位信息
+//
+// @param request - AddLiveNoticeWidgetRequest
+//
+// @param headers - AddLiveNoticeWidgetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddLiveNoticeWidgetResponse
+func (client *Client) AddLiveNoticeWidgetWithOptions(request *AddLiveNoticeWidgetRequest, headers *AddLiveNoticeWidgetHeaders, runtime *util.RuntimeOptions) (_result *AddLiveNoticeWidgetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IconUrl)) {
+		query["iconUrl"] = request.IconUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.JumpUrl)) {
+		query["jumpUrl"] = request.JumpUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LiveId)) {
+		query["liveId"] = request.LiveId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NoticeText)) {
+		query["noticeText"] = request.NoticeText
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddLiveNoticeWidget"),
+		Version:     tea.String("live_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/live/noticeWidgets"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddLiveNoticeWidgetResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 增加直播间的公告槽位信息
+//
+// @param request - AddLiveNoticeWidgetRequest
+//
+// @return AddLiveNoticeWidgetResponse
+func (client *Client) AddLiveNoticeWidget(request *AddLiveNoticeWidgetRequest) (_result *AddLiveNoticeWidgetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddLiveNoticeWidgetHeaders{}
+	_result = &AddLiveNoticeWidgetResponse{}
+	_body, _err := client.AddLiveNoticeWidgetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 添加云导播联播群列表
+//
+// @param request - AddShareCidListRequest
+//
+// @param headers - AddShareCidListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddShareCidListResponse
 func (client *Client) AddShareCidListWithOptions(feedId *string, request *AddShareCidListRequest, headers *AddShareCidListHeaders, runtime *util.RuntimeOptions) (_result *AddShareCidListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3185,6 +5506,13 @@ func (client *Client) AddShareCidListWithOptions(feedId *string, request *AddSha
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加云导播联播群列表
+//
+// @param request - AddShareCidListRequest
+//
+// @return AddShareCidListResponse
 func (client *Client) AddShareCidList(feedId *string, request *AddShareCidListRequest) (_result *AddShareCidListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddShareCidListHeaders{}
@@ -3197,6 +5525,17 @@ func (client *Client) AddShareCidList(feedId *string, request *AddShareCidListRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建云导播课程
+//
+// @param request - CreateCloudFeedRequest
+//
+// @param headers - CreateCloudFeedHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateCloudFeedResponse
 func (client *Client) CreateCloudFeedWithOptions(request *CreateCloudFeedRequest, headers *CreateCloudFeedHeaders, runtime *util.RuntimeOptions) (_result *CreateCloudFeedResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3260,6 +5599,13 @@ func (client *Client) CreateCloudFeedWithOptions(request *CreateCloudFeedRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建云导播课程
+//
+// @param request - CreateCloudFeedRequest
+//
+// @return CreateCloudFeedResponse
 func (client *Client) CreateCloudFeed(request *CreateCloudFeedRequest) (_result *CreateCloudFeedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateCloudFeedHeaders{}
@@ -3272,6 +5618,17 @@ func (client *Client) CreateCloudFeed(request *CreateCloudFeedRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建直播
+//
+// @param request - CreateLiveRequest
+//
+// @param headers - CreateLiveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateLiveResponse
 func (client *Client) CreateLiveWithOptions(request *CreateLiveRequest, headers *CreateLiveHeaders, runtime *util.RuntimeOptions) (_result *CreateLiveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3339,6 +5696,13 @@ func (client *Client) CreateLiveWithOptions(request *CreateLiveRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建直播
+//
+// @param request - CreateLiveRequest
+//
+// @return CreateLiveResponse
 func (client *Client) CreateLive(request *CreateLiveRequest) (_result *CreateLiveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateLiveHeaders{}
@@ -3351,6 +5715,175 @@ func (client *Client) CreateLive(request *CreateLiveRequest) (_result *CreateLiv
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除直播间内某一互动插件
+//
+// @param request - DelLiveInteractionPluginRequest
+//
+// @param headers - DelLiveInteractionPluginHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DelLiveInteractionPluginResponse
+func (client *Client) DelLiveInteractionPluginWithOptions(request *DelLiveInteractionPluginRequest, headers *DelLiveInteractionPluginHeaders, runtime *util.RuntimeOptions) (_result *DelLiveInteractionPluginResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LiveId)) {
+		query["liveId"] = request.LiveId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PluginId)) {
+		query["pluginId"] = request.PluginId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DelLiveInteractionPlugin"),
+		Version:     tea.String("live_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/live/interactionPlugins"),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DelLiveInteractionPluginResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除直播间内某一互动插件
+//
+// @param request - DelLiveInteractionPluginRequest
+//
+// @return DelLiveInteractionPluginResponse
+func (client *Client) DelLiveInteractionPlugin(request *DelLiveInteractionPluginRequest) (_result *DelLiveInteractionPluginResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DelLiveInteractionPluginHeaders{}
+	_result = &DelLiveInteractionPluginResponse{}
+	_body, _err := client.DelLiveInteractionPluginWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除直播间的公告槽位信息
+//
+// @param request - DelLiveNoticeWidgetRequest
+//
+// @param headers - DelLiveNoticeWidgetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DelLiveNoticeWidgetResponse
+func (client *Client) DelLiveNoticeWidgetWithOptions(request *DelLiveNoticeWidgetRequest, headers *DelLiveNoticeWidgetHeaders, runtime *util.RuntimeOptions) (_result *DelLiveNoticeWidgetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LiveId)) {
+		query["liveId"] = request.LiveId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DelLiveNoticeWidget"),
+		Version:     tea.String("live_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/live/noticeWidgets"),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DelLiveNoticeWidgetResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除直播间的公告槽位信息
+//
+// @param request - DelLiveNoticeWidgetRequest
+//
+// @return DelLiveNoticeWidgetResponse
+func (client *Client) DelLiveNoticeWidget(request *DelLiveNoticeWidgetRequest) (_result *DelLiveNoticeWidgetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DelLiveNoticeWidgetHeaders{}
+	_result = &DelLiveNoticeWidgetResponse{}
+	_body, _err := client.DelLiveNoticeWidgetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除直播
+//
+// @param request - DeleteLiveRequest
+//
+// @param headers - DeleteLiveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteLiveResponse
 func (client *Client) DeleteLiveWithOptions(request *DeleteLiveRequest, headers *DeleteLiveHeaders, runtime *util.RuntimeOptions) (_result *DeleteLiveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3398,6 +5931,13 @@ func (client *Client) DeleteLiveWithOptions(request *DeleteLiveRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除直播
+//
+// @param request - DeleteLiveRequest
+//
+// @return DeleteLiveResponse
 func (client *Client) DeleteLive(request *DeleteLiveRequest) (_result *DeleteLiveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteLiveHeaders{}
@@ -3410,6 +5950,17 @@ func (client *Client) DeleteLive(request *DeleteLiveRequest) (_result *DeleteLiv
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除直播培训课程
+//
+// @param request - DeleteLiveFeedRequest
+//
+// @param headers - DeleteLiveFeedHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteLiveFeedResponse
 func (client *Client) DeleteLiveFeedWithOptions(feedId *string, request *DeleteLiveFeedRequest, headers *DeleteLiveFeedHeaders, runtime *util.RuntimeOptions) (_result *DeleteLiveFeedResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3453,6 +6004,13 @@ func (client *Client) DeleteLiveFeedWithOptions(feedId *string, request *DeleteL
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除直播培训课程
+//
+// @param request - DeleteLiveFeedRequest
+//
+// @return DeleteLiveFeedResponse
 func (client *Client) DeleteLiveFeed(feedId *string, request *DeleteLiveFeedRequest) (_result *DeleteLiveFeedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteLiveFeedHeaders{}
@@ -3465,6 +6023,17 @@ func (client *Client) DeleteLiveFeed(feedId *string, request *DeleteLiveFeedRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 剪辑直播课程的回放
+//
+// @param request - EditFeedReplayRequest
+//
+// @param headers - EditFeedReplayHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EditFeedReplayResponse
 func (client *Client) EditFeedReplayWithOptions(feedId *string, request *EditFeedReplayRequest, headers *EditFeedReplayHeaders, runtime *util.RuntimeOptions) (_result *EditFeedReplayResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3516,6 +6085,13 @@ func (client *Client) EditFeedReplayWithOptions(feedId *string, request *EditFee
 	return _result, _err
 }
 
+// Summary:
+//
+// 剪辑直播课程的回放
+//
+// @param request - EditFeedReplayRequest
+//
+// @return EditFeedReplayResponse
 func (client *Client) EditFeedReplay(feedId *string, request *EditFeedReplayRequest) (_result *EditFeedReplayResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EditFeedReplayHeaders{}
@@ -3528,6 +6104,100 @@ func (client *Client) EditFeedReplay(feedId *string, request *EditFeedReplayRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取群内的直播列表
+//
+// @param tmpReq - GetGroupLiveListRequest
+//
+// @param headers - GetGroupLiveListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetGroupLiveListResponse
+func (client *Client) GetGroupLiveListWithOptions(tmpReq *GetGroupLiveListRequest, headers *GetGroupLiveListHeaders, runtime *util.RuntimeOptions) (_result *GetGroupLiveListResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &GetGroupLiveListShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.RequestBody)) {
+		request.RequestBodyShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.RequestBody, tea.String("requestBody"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RequestBodyShrink)) {
+		query["requestBody"] = request.RequestBodyShrink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetGroupLiveList"),
+		Version:     tea.String("live_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/live/groupLives"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetGroupLiveListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取群内的直播列表
+//
+// @param request - GetGroupLiveListRequest
+//
+// @return GetGroupLiveListResponse
+func (client *Client) GetGroupLiveList(request *GetGroupLiveListRequest) (_result *GetGroupLiveListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetGroupLiveListHeaders{}
+	_result = &GetGroupLiveListResponse{}
+	_body, _err := client.GetGroupLiveListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取直播的可下载回放地址
+//
+// @param request - GetLiveReplayUrlRequest
+//
+// @param headers - GetLiveReplayUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetLiveReplayUrlResponse
 func (client *Client) GetLiveReplayUrlWithOptions(request *GetLiveReplayUrlRequest, headers *GetLiveReplayUrlHeaders, runtime *util.RuntimeOptions) (_result *GetLiveReplayUrlResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3575,6 +6245,13 @@ func (client *Client) GetLiveReplayUrlWithOptions(request *GetLiveReplayUrlReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取直播的可下载回放地址
+//
+// @param request - GetLiveReplayUrlRequest
+//
+// @return GetLiveReplayUrlResponse
 func (client *Client) GetLiveReplayUrl(request *GetLiveReplayUrlRequest) (_result *GetLiveReplayUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetLiveReplayUrlHeaders{}
@@ -3587,6 +6264,100 @@ func (client *Client) GetLiveReplayUrl(request *GetLiveReplayUrlRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取某组织内的直播列表
+//
+// @param tmpReq - GetOrgLiveListRequest
+//
+// @param headers - GetOrgLiveListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetOrgLiveListResponse
+func (client *Client) GetOrgLiveListWithOptions(tmpReq *GetOrgLiveListRequest, headers *GetOrgLiveListHeaders, runtime *util.RuntimeOptions) (_result *GetOrgLiveListResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &GetOrgLiveListShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.RequestBody)) {
+		request.RequestBodyShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.RequestBody, tea.String("requestBody"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RequestBodyShrink)) {
+		query["requestBody"] = request.RequestBodyShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetOrgLiveList"),
+		Version:     tea.String("live_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/live/organizations/liveLists/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetOrgLiveListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取某组织内的直播列表
+//
+// @param request - GetOrgLiveListRequest
+//
+// @return GetOrgLiveListResponse
+func (client *Client) GetOrgLiveList(request *GetOrgLiveListRequest) (_result *GetOrgLiveListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOrgLiveListHeaders{}
+	_result = &GetOrgLiveListResponse{}
+	_body, _err := client.GetOrgLiveListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据状态拉我相关的直播
+//
+// @param request - GetUserAllLiveListRequest
+//
+// @param headers - GetUserAllLiveListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserAllLiveListResponse
 func (client *Client) GetUserAllLiveListWithOptions(request *GetUserAllLiveListRequest, headers *GetUserAllLiveListHeaders, runtime *util.RuntimeOptions) (_result *GetUserAllLiveListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3656,6 +6427,13 @@ func (client *Client) GetUserAllLiveListWithOptions(request *GetUserAllLiveListR
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据状态拉我相关的直播
+//
+// @param request - GetUserAllLiveListRequest
+//
+// @return GetUserAllLiveListResponse
 func (client *Client) GetUserAllLiveList(request *GetUserAllLiveListRequest) (_result *GetUserAllLiveListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUserAllLiveListHeaders{}
@@ -3668,6 +6446,17 @@ func (client *Client) GetUserAllLiveList(request *GetUserAllLiveListRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据状态获取用户创建的直播
+//
+// @param request - GetUserCreateLiveListRequest
+//
+// @param headers - GetUserCreateLiveListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserCreateLiveListResponse
 func (client *Client) GetUserCreateLiveListWithOptions(request *GetUserCreateLiveListRequest, headers *GetUserCreateLiveListHeaders, runtime *util.RuntimeOptions) (_result *GetUserCreateLiveListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3737,6 +6526,13 @@ func (client *Client) GetUserCreateLiveListWithOptions(request *GetUserCreateLiv
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据状态获取用户创建的直播
+//
+// @param request - GetUserCreateLiveListRequest
+//
+// @return GetUserCreateLiveListResponse
 func (client *Client) GetUserCreateLiveList(request *GetUserCreateLiveListRequest) (_result *GetUserCreateLiveListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUserCreateLiveListHeaders{}
@@ -3749,6 +6545,17 @@ func (client *Client) GetUserCreateLiveList(request *GetUserCreateLiveListReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户观看直播记录
+//
+// @param request - GetUserWatchLiveListRequest
+//
+// @param headers - GetUserWatchLiveListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserWatchLiveListResponse
 func (client *Client) GetUserWatchLiveListWithOptions(request *GetUserWatchLiveListRequest, headers *GetUserWatchLiveListHeaders, runtime *util.RuntimeOptions) (_result *GetUserWatchLiveListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3804,6 +6611,13 @@ func (client *Client) GetUserWatchLiveListWithOptions(request *GetUserWatchLiveL
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户观看直播记录
+//
+// @param request - GetUserWatchLiveListRequest
+//
+// @return GetUserWatchLiveListResponse
 func (client *Client) GetUserWatchLiveList(request *GetUserWatchLiveListRequest) (_result *GetUserWatchLiveListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUserWatchLiveListHeaders{}
@@ -3816,6 +6630,17 @@ func (client *Client) GetUserWatchLiveList(request *GetUserWatchLiveListRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改直播课程可见白名单
+//
+// @param tmpReq - ModifyFeedWhiteListRequest
+//
+// @param headers - ModifyFeedWhiteListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ModifyFeedWhiteListResponse
 func (client *Client) ModifyFeedWhiteListWithOptions(feedId *string, tmpReq *ModifyFeedWhiteListRequest, headers *ModifyFeedWhiteListHeaders, runtime *util.RuntimeOptions) (_result *ModifyFeedWhiteListResponse, _err error) {
 	_err = util.ValidateModel(tmpReq)
 	if _err != nil {
@@ -3873,6 +6698,13 @@ func (client *Client) ModifyFeedWhiteListWithOptions(feedId *string, tmpReq *Mod
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改直播课程可见白名单
+//
+// @param request - ModifyFeedWhiteListRequest
+//
+// @return ModifyFeedWhiteListResponse
 func (client *Client) ModifyFeedWhiteList(feedId *string, request *ModifyFeedWhiteListRequest) (_result *ModifyFeedWhiteListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ModifyFeedWhiteListHeaders{}
@@ -3885,6 +6717,17 @@ func (client *Client) ModifyFeedWhiteList(feedId *string, request *ModifyFeedWhi
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询直播课程的观看白名单
+//
+// @param request - QueryFeedWhiteListRequest
+//
+// @param headers - QueryFeedWhiteListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryFeedWhiteListResponse
 func (client *Client) QueryFeedWhiteListWithOptions(feedId *string, request *QueryFeedWhiteListRequest, headers *QueryFeedWhiteListHeaders, runtime *util.RuntimeOptions) (_result *QueryFeedWhiteListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3928,6 +6771,13 @@ func (client *Client) QueryFeedWhiteListWithOptions(feedId *string, request *Que
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询直播课程的观看白名单
+//
+// @param request - QueryFeedWhiteListRequest
+//
+// @return QueryFeedWhiteListResponse
 func (client *Client) QueryFeedWhiteList(feedId *string, request *QueryFeedWhiteListRequest) (_result *QueryFeedWhiteListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryFeedWhiteListHeaders{}
@@ -3940,6 +6790,17 @@ func (client *Client) QueryFeedWhiteList(feedId *string, request *QueryFeedWhite
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询直播详情
+//
+// @param request - QueryLiveInfoRequest
+//
+// @param headers - QueryLiveInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryLiveInfoResponse
 func (client *Client) QueryLiveInfoWithOptions(request *QueryLiveInfoRequest, headers *QueryLiveInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryLiveInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3987,6 +6848,13 @@ func (client *Client) QueryLiveInfoWithOptions(request *QueryLiveInfoRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询直播详情
+//
+// @param request - QueryLiveInfoRequest
+//
+// @return QueryLiveInfoResponse
 func (client *Client) QueryLiveInfo(request *QueryLiveInfoRequest) (_result *QueryLiveInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryLiveInfoHeaders{}
@@ -3999,6 +6867,98 @@ func (client *Client) QueryLiveInfo(request *QueryLiveInfoRequest) (_result *Que
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询直播间内某一互动插件的信息
+//
+// @param request - QueryLiveInteractionPluginRequest
+//
+// @param headers - QueryLiveInteractionPluginHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryLiveInteractionPluginResponse
+func (client *Client) QueryLiveInteractionPluginWithOptions(request *QueryLiveInteractionPluginRequest, headers *QueryLiveInteractionPluginHeaders, runtime *util.RuntimeOptions) (_result *QueryLiveInteractionPluginResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LiveId)) {
+		query["liveId"] = request.LiveId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PluginId)) {
+		query["pluginId"] = request.PluginId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryLiveInteractionPlugin"),
+		Version:     tea.String("live_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/live/interactionPlugins"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryLiveInteractionPluginResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询直播间内某一互动插件的信息
+//
+// @param request - QueryLiveInteractionPluginRequest
+//
+// @return QueryLiveInteractionPluginResponse
+func (client *Client) QueryLiveInteractionPlugin(request *QueryLiveInteractionPluginRequest) (_result *QueryLiveInteractionPluginResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryLiveInteractionPluginHeaders{}
+	_result = &QueryLiveInteractionPluginResponse{}
+	_body, _err := client.QueryLiveInteractionPluginWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取直播的观看数据
+//
+// @param request - QueryLiveWatchDetailRequest
+//
+// @param headers - QueryLiveWatchDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryLiveWatchDetailResponse
 func (client *Client) QueryLiveWatchDetailWithOptions(request *QueryLiveWatchDetailRequest, headers *QueryLiveWatchDetailHeaders, runtime *util.RuntimeOptions) (_result *QueryLiveWatchDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4046,6 +7006,13 @@ func (client *Client) QueryLiveWatchDetailWithOptions(request *QueryLiveWatchDet
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取直播的观看数据
+//
+// @param request - QueryLiveWatchDetailRequest
+//
+// @return QueryLiveWatchDetailResponse
 func (client *Client) QueryLiveWatchDetail(request *QueryLiveWatchDetailRequest) (_result *QueryLiveWatchDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryLiveWatchDetailHeaders{}
@@ -4058,6 +7025,17 @@ func (client *Client) QueryLiveWatchDetail(request *QueryLiveWatchDetailRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取直播观看用户列表
+//
+// @param request - QueryLiveWatchUserListRequest
+//
+// @param headers - QueryLiveWatchUserListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryLiveWatchUserListResponse
 func (client *Client) QueryLiveWatchUserListWithOptions(request *QueryLiveWatchUserListRequest, headers *QueryLiveWatchUserListHeaders, runtime *util.RuntimeOptions) (_result *QueryLiveWatchUserListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4113,6 +7091,13 @@ func (client *Client) QueryLiveWatchUserListWithOptions(request *QueryLiveWatchU
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取直播观看用户列表
+//
+// @param request - QueryLiveWatchUserListRequest
+//
+// @return QueryLiveWatchUserListResponse
 func (client *Client) QueryLiveWatchUserList(request *QueryLiveWatchUserListRequest) (_result *QueryLiveWatchUserListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryLiveWatchUserListHeaders{}
@@ -4125,6 +7110,17 @@ func (client *Client) QueryLiveWatchUserList(request *QueryLiveWatchUserListRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询直播是否订阅
+//
+// @param tmpReq - QuerySubscribeStatusRequest
+//
+// @param headers - QuerySubscribeStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QuerySubscribeStatusResponse
 func (client *Client) QuerySubscribeStatusWithOptions(tmpReq *QuerySubscribeStatusRequest, headers *QuerySubscribeStatusHeaders, runtime *util.RuntimeOptions) (_result *QuerySubscribeStatusResponse, _err error) {
 	_err = util.ValidateModel(tmpReq)
 	if _err != nil {
@@ -4178,6 +7174,13 @@ func (client *Client) QuerySubscribeStatusWithOptions(tmpReq *QuerySubscribeStat
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询直播是否订阅
+//
+// @param request - QuerySubscribeStatusRequest
+//
+// @return QuerySubscribeStatusResponse
 func (client *Client) QuerySubscribeStatus(request *QuerySubscribeStatusRequest) (_result *QuerySubscribeStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QuerySubscribeStatusHeaders{}
@@ -4190,6 +7193,207 @@ func (client *Client) QuerySubscribeStatus(request *QuerySubscribeStatusRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 用户推送互动插件特效消息到直播间
+//
+// @param request - SendLiveInteractionPluginEffectsMsgRequest
+//
+// @param headers - SendLiveInteractionPluginEffectsMsgHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendLiveInteractionPluginEffectsMsgResponse
+func (client *Client) SendLiveInteractionPluginEffectsMsgWithOptions(request *SendLiveInteractionPluginEffectsMsgRequest, headers *SendLiveInteractionPluginEffectsMsgHeaders, runtime *util.RuntimeOptions) (_result *SendLiveInteractionPluginEffectsMsgResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LiveId)) {
+		query["liveId"] = request.LiveId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PluginId)) {
+		query["pluginId"] = request.PluginId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Count)) {
+		body["count"] = request.Count
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LottieFileUrl)) {
+		body["lottieFileUrl"] = request.LottieFileUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgIconUrl)) {
+		body["msgIconUrl"] = request.MsgIconUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgText)) {
+		body["msgText"] = request.MsgText
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PluginSubId)) {
+		body["pluginSubId"] = request.PluginSubId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SenderUnionId)) {
+		body["senderUnionId"] = request.SenderUnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SendLiveInteractionPluginEffectsMsg"),
+		Version:     tea.String("live_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/live/interactionPlugins/effectMessages/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SendLiveInteractionPluginEffectsMsgResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 用户推送互动插件特效消息到直播间
+//
+// @param request - SendLiveInteractionPluginEffectsMsgRequest
+//
+// @return SendLiveInteractionPluginEffectsMsgResponse
+func (client *Client) SendLiveInteractionPluginEffectsMsg(request *SendLiveInteractionPluginEffectsMsgRequest) (_result *SendLiveInteractionPluginEffectsMsgResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendLiveInteractionPluginEffectsMsgHeaders{}
+	_result = &SendLiveInteractionPluginEffectsMsgResponse{}
+	_body, _err := client.SendLiveInteractionPluginEffectsMsgWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 用户对互动插件进行操作广播到直播间
+//
+// @param tmpReq - SendLivePluginUserActionMsgRequest
+//
+// @param headers - SendLivePluginUserActionMsgHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendLivePluginUserActionMsgResponse
+func (client *Client) SendLivePluginUserActionMsgWithOptions(tmpReq *SendLivePluginUserActionMsgRequest, headers *SendLivePluginUserActionMsgHeaders, runtime *util.RuntimeOptions) (_result *SendLivePluginUserActionMsgResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &SendLivePluginUserActionMsgShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.PluginEffectsMessage)) {
+		request.PluginEffectsMessageShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.PluginEffectsMessage, tea.String("pluginEffectsMessage"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LiveId)) {
+		query["liveId"] = request.LiveId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PluginEffectsMessageShrink)) {
+		query["pluginEffectsMessage"] = request.PluginEffectsMessageShrink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PluginId)) {
+		query["pluginId"] = request.PluginId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SendLivePluginUserActionMsg"),
+		Version:     tea.String("live_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/live/interactionPlugins/actionMessages/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SendLivePluginUserActionMsgResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 用户对互动插件进行操作广播到直播间
+//
+// @param request - SendLivePluginUserActionMsgRequest
+//
+// @return SendLivePluginUserActionMsgResponse
+func (client *Client) SendLivePluginUserActionMsg(request *SendLivePluginUserActionMsgRequest) (_result *SendLivePluginUserActionMsgResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendLivePluginUserActionMsgHeaders{}
+	_result = &SendLivePluginUserActionMsgResponse{}
+	_body, _err := client.SendLivePluginUserActionMsgWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 开始一场云导播
+//
+// @param request - StartCloudFeedRequest
+//
+// @param headers - StartCloudFeedHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return StartCloudFeedResponse
 func (client *Client) StartCloudFeedWithOptions(feedId *string, request *StartCloudFeedRequest, headers *StartCloudFeedHeaders, runtime *util.RuntimeOptions) (_result *StartCloudFeedResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4233,6 +7437,13 @@ func (client *Client) StartCloudFeedWithOptions(feedId *string, request *StartCl
 	return _result, _err
 }
 
+// Summary:
+//
+// 开始一场云导播
+//
+// @param request - StartCloudFeedRequest
+//
+// @return StartCloudFeedResponse
 func (client *Client) StartCloudFeed(feedId *string, request *StartCloudFeedRequest) (_result *StartCloudFeedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &StartCloudFeedHeaders{}
@@ -4245,6 +7456,17 @@ func (client *Client) StartCloudFeed(feedId *string, request *StartCloudFeedRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 结束一场云导播
+//
+// @param request - StopCloudFeedRequest
+//
+// @param headers - StopCloudFeedHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return StopCloudFeedResponse
 func (client *Client) StopCloudFeedWithOptions(feedId *string, request *StopCloudFeedRequest, headers *StopCloudFeedHeaders, runtime *util.RuntimeOptions) (_result *StopCloudFeedResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4288,6 +7510,13 @@ func (client *Client) StopCloudFeedWithOptions(feedId *string, request *StopClou
 	return _result, _err
 }
 
+// Summary:
+//
+// 结束一场云导播
+//
+// @param request - StopCloudFeedRequest
+//
+// @return StopCloudFeedResponse
 func (client *Client) StopCloudFeed(feedId *string, request *StopCloudFeedRequest) (_result *StopCloudFeedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &StopCloudFeedHeaders{}
@@ -4300,6 +7529,17 @@ func (client *Client) StopCloudFeed(feedId *string, request *StopCloudFeedReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 预约直播
+//
+// @param request - SubscribeLiveRequest
+//
+// @param headers - SubscribeLiveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SubscribeLiveResponse
 func (client *Client) SubscribeLiveWithOptions(request *SubscribeLiveRequest, headers *SubscribeLiveHeaders, runtime *util.RuntimeOptions) (_result *SubscribeLiveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4351,6 +7591,13 @@ func (client *Client) SubscribeLiveWithOptions(request *SubscribeLiveRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 预约直播
+//
+// @param request - SubscribeLiveRequest
+//
+// @return SubscribeLiveResponse
 func (client *Client) SubscribeLive(request *SubscribeLiveRequest) (_result *SubscribeLiveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SubscribeLiveHeaders{}
@@ -4363,6 +7610,17 @@ func (client *Client) SubscribeLive(request *SubscribeLiveRequest) (_result *Sub
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改直播
+//
+// @param request - UpdateLiveRequest
+//
+// @param headers - UpdateLiveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateLiveResponse
 func (client *Client) UpdateLiveWithOptions(request *UpdateLiveRequest, headers *UpdateLiveHeaders, runtime *util.RuntimeOptions) (_result *UpdateLiveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4430,6 +7688,13 @@ func (client *Client) UpdateLiveWithOptions(request *UpdateLiveRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改直播
+//
+// @param request - UpdateLiveRequest
+//
+// @return UpdateLiveResponse
 func (client *Client) UpdateLive(request *UpdateLiveRequest) (_result *UpdateLiveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateLiveHeaders{}
@@ -4442,6 +7707,17 @@ func (client *Client) UpdateLive(request *UpdateLiveRequest) (_result *UpdateLiv
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改培训课程信息
+//
+// @param request - UpdateLiveFeedRequest
+//
+// @param headers - UpdateLiveFeedHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateLiveFeedResponse
 func (client *Client) UpdateLiveFeedWithOptions(feedId *string, request *UpdateLiveFeedRequest, headers *UpdateLiveFeedHeaders, runtime *util.RuntimeOptions) (_result *UpdateLiveFeedResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4501,11 +7777,121 @@ func (client *Client) UpdateLiveFeedWithOptions(feedId *string, request *UpdateL
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改培训课程信息
+//
+// @param request - UpdateLiveFeedRequest
+//
+// @return UpdateLiveFeedResponse
 func (client *Client) UpdateLiveFeed(feedId *string, request *UpdateLiveFeedRequest) (_result *UpdateLiveFeedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateLiveFeedHeaders{}
 	_result = &UpdateLiveFeedResponse{}
 	_body, _err := client.UpdateLiveFeedWithOptions(feedId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 修改直播间内某一互动插件的信息
+//
+// @param request - UpdateLiveInteractionPluginRequest
+//
+// @param headers - UpdateLiveInteractionPluginHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateLiveInteractionPluginResponse
+func (client *Client) UpdateLiveInteractionPluginWithOptions(request *UpdateLiveInteractionPluginRequest, headers *UpdateLiveInteractionPluginHeaders, runtime *util.RuntimeOptions) (_result *UpdateLiveInteractionPluginResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LiveId)) {
+		query["liveId"] = request.LiveId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PluginId)) {
+		query["pluginId"] = request.PluginId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AnchorJumpUrl)) {
+		body["anchorJumpUrl"] = request.AnchorJumpUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PluginIconUrl)) {
+		body["pluginIconUrl"] = request.PluginIconUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PluginName)) {
+		body["pluginName"] = request.PluginName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PluginNameEn)) {
+		body["pluginNameEn"] = request.PluginNameEn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ViewerJumpUrl)) {
+		body["viewerJumpUrl"] = request.ViewerJumpUrl
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateLiveInteractionPlugin"),
+		Version:     tea.String("live_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/live/interactionPlugins"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateLiveInteractionPluginResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 修改直播间内某一互动插件的信息
+//
+// @param request - UpdateLiveInteractionPluginRequest
+//
+// @return UpdateLiveInteractionPluginResponse
+func (client *Client) UpdateLiveInteractionPlugin(request *UpdateLiveInteractionPluginRequest) (_result *UpdateLiveInteractionPluginResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateLiveInteractionPluginHeaders{}
+	_result = &UpdateLiveInteractionPluginResponse{}
+	_body, _err := client.UpdateLiveInteractionPluginWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

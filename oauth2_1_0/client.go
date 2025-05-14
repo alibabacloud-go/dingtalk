@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package oauth2_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -89,6 +85,7 @@ func (s *CreateJsapiTicketResponse) SetBody(v *CreateJsapiTicketResponseBody) *C
 }
 
 type GetAccessTokenRequest struct {
+	// This parameter is required.
 	AppKey    *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
 	AppSecret *string `json:"appSecret,omitempty" xml:"appSecret,omitempty"`
 }
@@ -187,6 +184,7 @@ func (s *GetAuthInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetAuthInfoHe
 }
 
 type GetAuthInfoRequest struct {
+	// This parameter is required.
 	AuthCorpId *string `json:"authCorpId,omitempty" xml:"authCorpId,omitempty"`
 }
 
@@ -204,8 +202,11 @@ func (s *GetAuthInfoRequest) SetAuthCorpId(v string) *GetAuthInfoRequest {
 }
 
 type GetAuthInfoResponseBody struct {
-	AuthAppInfo  *GetAuthInfoResponseBodyAuthAppInfo  `json:"authAppInfo,omitempty" xml:"authAppInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	AuthAppInfo *GetAuthInfoResponseBodyAuthAppInfo `json:"authAppInfo,omitempty" xml:"authAppInfo,omitempty" type:"Struct"`
+	// This parameter is required.
 	AuthCorpInfo *GetAuthInfoResponseBodyAuthCorpInfo `json:"authCorpInfo,omitempty" xml:"authCorpInfo,omitempty" type:"Struct"`
+	// This parameter is required.
 	AuthUserInfo *GetAuthInfoResponseBodyAuthUserInfo `json:"authUserInfo,omitempty" xml:"authUserInfo,omitempty" type:"Struct"`
 }
 
@@ -233,6 +234,7 @@ func (s *GetAuthInfoResponseBody) SetAuthUserInfo(v *GetAuthInfoResponseBodyAuth
 }
 
 type GetAuthInfoResponseBodyAuthAppInfo struct {
+	// This parameter is required.
 	AgentList []*GetAuthInfoResponseBodyAuthAppInfoAgentList `json:"agentList,omitempty" xml:"agentList,omitempty" type:"Repeated"`
 }
 
@@ -250,10 +252,26 @@ func (s *GetAuthInfoResponseBodyAuthAppInfo) SetAgentList(v []*GetAuthInfoRespon
 }
 
 type GetAuthInfoResponseBodyAuthAppInfoAgentList struct {
+	// This parameter is required.
 	AdminList []*string `json:"adminList,omitempty" xml:"adminList,omitempty" type:"Repeated"`
-	AgentId   *int64    `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	AgentName *string   `json:"agentName,omitempty" xml:"agentName,omitempty"`
-	AppId     *int64    `json:"appId,omitempty" xml:"appId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 835880322
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 小程序DEMO
+	AgentName *string `json:"agentName,omitempty" xml:"agentName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
 }
 
 func (s GetAuthInfoResponseBodyAuthAppInfoAgentList) String() string {
@@ -285,15 +303,60 @@ func (s *GetAuthInfoResponseBodyAuthAppInfoAgentList) SetAppId(v int64) *GetAuth
 }
 
 type GetAuthInfoResponseBodyAuthCorpInfo struct {
-	AuthChannel     *string `json:"authChannel,omitempty" xml:"authChannel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	AuthChannel *string `json:"authChannel,omitempty" xml:"authChannel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	AuthChannelType *string `json:"authChannelType,omitempty" xml:"authChannelType,omitempty"`
-	AuthLevel       *int64  `json:"authLevel,omitempty" xml:"authLevel,omitempty"`
-	CorpLogoUrl     *string `json:"corpLogoUrl,omitempty" xml:"corpLogoUrl,omitempty"`
-	CorpName        *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
-	Industry        *string `json:"industry,omitempty" xml:"industry,omitempty"`
-	InviteCode      *string `json:"inviteCode,omitempty" xml:"inviteCode,omitempty"`
-	InviteUrl       *string `json:"inviteUrl,omitempty" xml:"inviteUrl,omitempty"`
-	LicenseCode     *string `json:"licenseCode,omitempty" xml:"licenseCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	AuthLevel *int64 `json:"authLevel,omitempty" xml:"authLevel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://static-legacy.dingtalk.com/xxx
+	CorpLogoUrl *string `json:"corpLogoUrl,omitempty" xml:"corpLogoUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 小程序体验HTTP
+	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 201
+	Industry *string `json:"industry,omitempty" xml:"industry,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	InviteCode *string `json:"inviteCode,omitempty" xml:"inviteCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://wx.dingtalk.com/invite-page/xxx
+	InviteUrl *string `json:"inviteUrl,omitempty" xml:"inviteUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	LicenseCode *string `json:"licenseCode,omitempty" xml:"licenseCode,omitempty"`
 }
 
 func (s GetAuthInfoResponseBodyAuthCorpInfo) String() string {
@@ -350,6 +413,11 @@ func (s *GetAuthInfoResponseBodyAuthCorpInfo) SetLicenseCode(v string) *GetAuthI
 }
 
 type GetAuthInfoResponseBodyAuthUserInfo struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager975
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -396,9 +464,13 @@ func (s *GetAuthInfoResponse) SetBody(v *GetAuthInfoResponseBody) *GetAuthInfoRe
 }
 
 type GetCorpAccessTokenRequest struct {
-	AuthCorpId  *string `json:"authCorpId,omitempty" xml:"authCorpId,omitempty"`
-	SuiteKey    *string `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
+	// This parameter is required.
+	AuthCorpId *string `json:"authCorpId,omitempty" xml:"authCorpId,omitempty"`
+	// This parameter is required.
+	SuiteKey *string `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
+	// This parameter is required.
 	SuiteSecret *string `json:"suiteSecret,omitempty" xml:"suiteSecret,omitempty"`
+	// This parameter is required.
 	SuiteTicket *string `json:"suiteTicket,omitempty" xml:"suiteTicket,omitempty"`
 }
 
@@ -523,8 +595,14 @@ func (s *GetPersonalAuthRuleResponseBody) SetResult(v []*GetPersonalAuthRuleResp
 }
 
 type GetPersonalAuthRuleResponseBodyResult struct {
+	// This parameter is required.
 	AuthItems []*string `json:"authItems,omitempty" xml:"authItems,omitempty" type:"Repeated"`
-	Resource  *string   `json:"resource,omitempty" xml:"resource,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Contact.User
+	Resource *string `json:"resource,omitempty" xml:"resource,omitempty"`
 }
 
 func (s GetPersonalAuthRuleResponseBodyResult) String() string {
@@ -575,7 +653,17 @@ func (s *GetPersonalAuthRuleResponse) SetBody(v *GetPersonalAuthRuleResponseBody
 }
 
 type GetSsoAccessTokenRequest struct {
-	Corpid    *string `json:"corpid,omitempty" xml:"corpid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// corpxxxx
+	Corpid *string `json:"corpid,omitempty" xml:"corpid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
 	SsoSecret *string `json:"ssoSecret,omitempty" xml:"ssoSecret,omitempty"`
 }
 
@@ -598,8 +686,14 @@ func (s *GetSsoAccessTokenRequest) SetSsoSecret(v string) *GetSsoAccessTokenRequ
 }
 
 type GetSsoAccessTokenResponseBody struct {
+	// example:
+	//
+	// 1234
 	AccessToken *string `json:"accessToken,omitempty" xml:"accessToken,omitempty"`
-	ExpireIn    *int64  `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
+	// example:
+	//
+	// 3600
+	ExpireIn *int64 `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
 }
 
 func (s GetSsoAccessTokenResponseBody) String() string {
@@ -673,6 +767,7 @@ func (s *GetSsoUserInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetSsoUser
 }
 
 type GetSsoUserInfoRequest struct {
+	// This parameter is required.
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
 }
 
@@ -690,12 +785,19 @@ func (s *GetSsoUserInfoRequest) SetCode(v string) *GetSsoUserInfoRequest {
 }
 
 type GetSsoUserInfoResponseBody struct {
-	Avatar   *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
-	CorpId   *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Avatar *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
 	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
-	Email    *string `json:"email,omitempty" xml:"email,omitempty"`
-	IsAdmin  *bool   `json:"isAdmin,omitempty" xml:"isAdmin,omitempty"`
-	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+	// This parameter is required.
+	IsAdmin *bool `json:"isAdmin,omitempty" xml:"isAdmin,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
 	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
@@ -772,8 +874,11 @@ func (s *GetSsoUserInfoResponse) SetBody(v *GetSsoUserInfoResponseBody) *GetSsoU
 }
 
 type GetSuiteAccessTokenRequest struct {
-	SuiteKey    *string `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
+	// This parameter is required.
+	SuiteKey *string `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
+	// This parameter is required.
 	SuiteSecret *string `json:"suiteSecret,omitempty" xml:"suiteSecret,omitempty"`
+	// This parameter is required.
 	SuiteTicket *string `json:"suiteTicket,omitempty" xml:"suiteTicket,omitempty"`
 }
 
@@ -853,9 +958,12 @@ func (s *GetSuiteAccessTokenResponse) SetBody(v *GetSuiteAccessTokenResponseBody
 }
 
 type GetTokenRequest struct {
-	ClientId     *string `json:"client_id,omitempty" xml:"client_id,omitempty"`
+	// This parameter is required.
+	ClientId *string `json:"client_id,omitempty" xml:"client_id,omitempty"`
+	// This parameter is required.
 	ClientSecret *string `json:"client_secret,omitempty" xml:"client_secret,omitempty"`
-	GrantType    *string `json:"grant_type,omitempty" xml:"grant_type,omitempty"`
+	// This parameter is required.
+	GrantType *string `json:"grant_type,omitempty" xml:"grant_type,omitempty"`
 }
 
 func (s GetTokenRequest) String() string {
@@ -934,6 +1042,7 @@ func (s *GetTokenResponse) SetBody(v *GetTokenResponseBody) *GetTokenResponse {
 }
 
 type GetUserTokenRequest struct {
+	// This parameter is required.
 	ClientId     *string `json:"clientId,omitempty" xml:"clientId,omitempty"`
 	ClientSecret *string `json:"clientSecret,omitempty" xml:"clientSecret,omitempty"`
 	Code         *string `json:"code,omitempty" xml:"code,omitempty"`
@@ -1053,12 +1162,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
@@ -1068,6 +1177,15 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 生成jsapi ticket
+//
+// @param headers - CreateJsapiTicketHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateJsapiTicketResponse
 func (client *Client) CreateJsapiTicketWithOptions(headers *CreateJsapiTicketHeaders, runtime *util.RuntimeOptions) (_result *CreateJsapiTicketResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -1101,6 +1219,11 @@ func (client *Client) CreateJsapiTicketWithOptions(headers *CreateJsapiTicketHea
 	return _result, _err
 }
 
+// Summary:
+//
+// 生成jsapi ticket
+//
+// @return CreateJsapiTicketResponse
 func (client *Client) CreateJsapiTicket() (_result *CreateJsapiTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateJsapiTicketHeaders{}
@@ -1113,6 +1236,17 @@ func (client *Client) CreateJsapiTicket() (_result *CreateJsapiTicketResponse, _
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业accessToken(企业内部应用)
+//
+// @param request - GetAccessTokenRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAccessTokenResponse
 func (client *Client) GetAccessTokenWithOptions(request *GetAccessTokenRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *GetAccessTokenResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1151,6 +1285,13 @@ func (client *Client) GetAccessTokenWithOptions(request *GetAccessTokenRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业accessToken(企业内部应用)
+//
+// @param request - GetAccessTokenRequest
+//
+// @return GetAccessTokenResponse
 func (client *Client) GetAccessToken(request *GetAccessTokenRequest) (_result *GetAccessTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -1163,6 +1304,17 @@ func (client *Client) GetAccessToken(request *GetAccessTokenRequest) (_result *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业开通应用后的授权信息
+//
+// @param request - GetAuthInfoRequest
+//
+// @param headers - GetAuthInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAuthInfoResponse
 func (client *Client) GetAuthInfoWithOptions(request *GetAuthInfoRequest, headers *GetAuthInfoHeaders, runtime *util.RuntimeOptions) (_result *GetAuthInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1206,6 +1358,13 @@ func (client *Client) GetAuthInfoWithOptions(request *GetAuthInfoRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业开通应用后的授权信息
+//
+// @param request - GetAuthInfoRequest
+//
+// @return GetAuthInfoResponse
 func (client *Client) GetAuthInfo(request *GetAuthInfoRequest) (_result *GetAuthInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAuthInfoHeaders{}
@@ -1218,6 +1377,17 @@ func (client *Client) GetAuthInfo(request *GetAuthInfoRequest) (_result *GetAuth
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业accessToken(应用商店应用)
+//
+// @param request - GetCorpAccessTokenRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCorpAccessTokenResponse
 func (client *Client) GetCorpAccessTokenWithOptions(request *GetCorpAccessTokenRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *GetCorpAccessTokenResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1264,6 +1434,13 @@ func (client *Client) GetCorpAccessTokenWithOptions(request *GetCorpAccessTokenR
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业accessToken(应用商店应用)
+//
+// @param request - GetCorpAccessTokenRequest
+//
+// @return GetCorpAccessTokenResponse
 func (client *Client) GetCorpAccessToken(request *GetCorpAccessTokenRequest) (_result *GetCorpAccessTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -1276,6 +1453,15 @@ func (client *Client) GetCorpAccessToken(request *GetCorpAccessTokenRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询个人授权记录
+//
+// @param headers - GetPersonalAuthRuleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPersonalAuthRuleResponse
 func (client *Client) GetPersonalAuthRuleWithOptions(headers *GetPersonalAuthRuleHeaders, runtime *util.RuntimeOptions) (_result *GetPersonalAuthRuleResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -1309,6 +1495,11 @@ func (client *Client) GetPersonalAuthRuleWithOptions(headers *GetPersonalAuthRul
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询个人授权记录
+//
+// @return GetPersonalAuthRuleResponse
 func (client *Client) GetPersonalAuthRule() (_result *GetPersonalAuthRuleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPersonalAuthRuleHeaders{}
@@ -1321,6 +1512,17 @@ func (client *Client) GetPersonalAuthRule() (_result *GetPersonalAuthRuleRespons
 	return _result, _err
 }
 
+// Summary:
+//
+// 生成微应用管理后台accessToken
+//
+// @param request - GetSsoAccessTokenRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSsoAccessTokenResponse
 func (client *Client) GetSsoAccessTokenWithOptions(request *GetSsoAccessTokenRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *GetSsoAccessTokenResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1359,6 +1561,13 @@ func (client *Client) GetSsoAccessTokenWithOptions(request *GetSsoAccessTokenReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 生成微应用管理后台accessToken
+//
+// @param request - GetSsoAccessTokenRequest
+//
+// @return GetSsoAccessTokenResponse
 func (client *Client) GetSsoAccessToken(request *GetSsoAccessTokenRequest) (_result *GetSsoAccessTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -1371,6 +1580,17 @@ func (client *Client) GetSsoAccessToken(request *GetSsoAccessTokenRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询微应用后台免登的用户信息
+//
+// @param request - GetSsoUserInfoRequest
+//
+// @param headers - GetSsoUserInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSsoUserInfoResponse
 func (client *Client) GetSsoUserInfoWithOptions(request *GetSsoUserInfoRequest, headers *GetSsoUserInfoHeaders, runtime *util.RuntimeOptions) (_result *GetSsoUserInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1414,6 +1634,13 @@ func (client *Client) GetSsoUserInfoWithOptions(request *GetSsoUserInfoRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询微应用后台免登的用户信息
+//
+// @param request - GetSsoUserInfoRequest
+//
+// @return GetSsoUserInfoResponse
 func (client *Client) GetSsoUserInfo(request *GetSsoUserInfoRequest) (_result *GetSsoUserInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSsoUserInfoHeaders{}
@@ -1426,6 +1653,17 @@ func (client *Client) GetSsoUserInfo(request *GetSsoUserInfoRequest) (_result *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取isvAccessToken（三方企业应用）
+//
+// @param request - GetSuiteAccessTokenRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSuiteAccessTokenResponse
 func (client *Client) GetSuiteAccessTokenWithOptions(request *GetSuiteAccessTokenRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *GetSuiteAccessTokenResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1468,6 +1706,13 @@ func (client *Client) GetSuiteAccessTokenWithOptions(request *GetSuiteAccessToke
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取isvAccessToken（三方企业应用）
+//
+// @param request - GetSuiteAccessTokenRequest
+//
+// @return GetSuiteAccessTokenResponse
 func (client *Client) GetSuiteAccessToken(request *GetSuiteAccessTokenRequest) (_result *GetSuiteAccessTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -1480,6 +1725,17 @@ func (client *Client) GetSuiteAccessToken(request *GetSuiteAccessTokenRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取Access Token
+//
+// @param request - GetTokenRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTokenResponse
 func (client *Client) GetTokenWithOptions(corpId *string, request *GetTokenRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *GetTokenResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1522,6 +1778,13 @@ func (client *Client) GetTokenWithOptions(corpId *string, request *GetTokenReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取Access Token
+//
+// @param request - GetTokenRequest
+//
+// @return GetTokenResponse
 func (client *Client) GetToken(corpId *string, request *GetTokenRequest) (_result *GetTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -1534,6 +1797,17 @@ func (client *Client) GetToken(corpId *string, request *GetTokenRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户token
+//
+// @param request - GetUserTokenRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserTokenResponse
 func (client *Client) GetUserTokenWithOptions(request *GetUserTokenRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *GetUserTokenResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1584,6 +1858,13 @@ func (client *Client) GetUserTokenWithOptions(request *GetUserTokenRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户token
+//
+// @param request - GetUserTokenRequest
+//
+// @return GetUserTokenResponse
 func (client *Client) GetUserToken(request *GetUserTokenRequest) (_result *GetUserTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)

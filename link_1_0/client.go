@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package link_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -61,9 +57,22 @@ func (s *ApplyFollowerAuthInfoHeaders) SetXAcsDingtalkAccessToken(v string) *App
 
 type ApplyFollowerAuthInfoRequest struct {
 	AppAuthKey *string `json:"appAuthKey,omitempty" xml:"appAuthKey,omitempty"`
+	// example:
+	//
+	// Contact.User.mobile
 	FieldScope *string `json:"fieldScope,omitempty" xml:"fieldScope,omitempty"`
-	SessionId  *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sid22b31b4bf59ef2c783f7
+	SessionId *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// idzb26bxl64vqx2keyi
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ApplyFollowerAuthInfoRequest) String() string {
@@ -95,6 +104,7 @@ func (s *ApplyFollowerAuthInfoRequest) SetUserId(v string) *ApplyFollowerAuthInf
 }
 
 type ApplyFollowerAuthInfoResponseBody struct {
+	// This parameter is required.
 	Result *ApplyFollowerAuthInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -112,6 +122,7 @@ func (s *ApplyFollowerAuthInfoResponseBody) SetResult(v *ApplyFollowerAuthInfoRe
 }
 
 type ApplyFollowerAuthInfoResponseBodyResult struct {
+	// This parameter is required.
 	OpenApplyId *string `json:"openApplyId,omitempty" xml:"openApplyId,omitempty"`
 }
 
@@ -181,10 +192,30 @@ func (s *CallbackRegiesterHeaders) SetXAcsDingtalkAccessToken(v string) *Callbac
 }
 
 type CallbackRegiesterRequest struct {
-	ApiSecret   *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3b89df4dfaaccd5b8e1f9a2
+	ApiSecret *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc-123
 	CallbackKey *string `json:"callbackKey,omitempty" xml:"callbackKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://www.your.com/callback
 	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
-	Type        *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// shortcut
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s CallbackRegiesterRequest) String() string {
@@ -216,6 +247,7 @@ func (s *CallbackRegiesterRequest) SetType(v string) *CallbackRegiesterRequest {
 }
 
 type CallbackRegiesterResponseBody struct {
+	// This parameter is required.
 	Result *CallbackRegiesterResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -233,7 +265,8 @@ func (s *CallbackRegiesterResponseBody) SetResult(v *CallbackRegiesterResponseBo
 }
 
 type CallbackRegiesterResponseBodyResult struct {
-	ApiSecret   *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
+	ApiSecret *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
+	// This parameter is required.
 	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
 }
 
@@ -308,6 +341,7 @@ func (s *CloseTopBoxInteractiveOTOMessageHeaders) SetXAcsDingtalkAccessToken(v s
 }
 
 type CloseTopBoxInteractiveOTOMessageRequest struct {
+	// This parameter is required.
 	Detail *CloseTopBoxInteractiveOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
 }
 
@@ -325,9 +359,24 @@ func (s *CloseTopBoxInteractiveOTOMessageRequest) SetDetail(v *CloseTopBoxIntera
 }
 
 type CloseTopBoxInteractiveOTOMessageRequestDetail struct {
-	CardBizId      *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// service-card-20220824-001
+	CardBizId *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3erkfi-42b0-4c83-bc56-ffhssde43
 	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
-	UserId         *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CloseTopBoxInteractiveOTOMessageRequestDetail) String() string {
@@ -429,8 +478,16 @@ func (s *GetFollowerAuthInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetFo
 }
 
 type GetFollowerAuthInfoRequest struct {
+	// example:
+	//
+	// ding1234
 	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Rp3Rqcts7BE08y49Jr6iu6xW4iQ
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetFollowerAuthInfoRequest) String() string {
@@ -452,6 +509,7 @@ func (s *GetFollowerAuthInfoRequest) SetUserId(v string) *GetFollowerAuthInfoReq
 }
 
 type GetFollowerAuthInfoResponseBody struct {
+	// This parameter is required.
 	Result *GetFollowerAuthInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -613,9 +671,18 @@ func (s *GetFollowerInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetFollow
 }
 
 type GetFollowerInfoRequest struct {
+	// example:
+	//
+	// ding1234
 	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// UgIzXXo+Rp3Rqcts7BE08y49Jr6iu6xW4iQ
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// Rp3Rqcts7BE08y49Jr6iu6xW4iQ
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetFollowerInfoRequest) String() string {
@@ -642,8 +709,9 @@ func (s *GetFollowerInfoRequest) SetUserId(v string) *GetFollowerInfoRequest {
 }
 
 type GetFollowerInfoResponseBody struct {
-	RequestId *string                            `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Result    *GetFollowerInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// This parameter is required.
+	Result *GetFollowerInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s GetFollowerInfoResponseBody) String() string {
@@ -682,9 +750,18 @@ func (s *GetFollowerInfoResponseBodyResult) SetUser(v *GetFollowerInfoResponseBo
 }
 
 type GetFollowerInfoResponseBodyResultUser struct {
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 小钉
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1661918406748
 	Timestamp *string `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetFollowerInfoResponseBodyResultUser) String() string {
@@ -763,8 +840,18 @@ func (s *GetPictureDownloadUrlHeaders) SetXAcsDingtalkAccessToken(v string) *Get
 }
 
 type GetPictureDownloadUrlRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// UgIzXXo+Rp3Rqcts7BE08y49Jr6iu6xW4iQ
 	DownloadCode *string `json:"downloadCode,omitempty" xml:"downloadCode,omitempty"`
-	SessionId    *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sid001234
+	SessionId *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
 }
 
 func (s GetPictureDownloadUrlRequest) String() string {
@@ -786,8 +873,9 @@ func (s *GetPictureDownloadUrlRequest) SetSessionId(v string) *GetPictureDownloa
 }
 
 type GetPictureDownloadUrlResponseBody struct {
-	RequestId *string                                  `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Result    *GetPictureDownloadUrlResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// This parameter is required.
+	Result *GetPictureDownloadUrlResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s GetPictureDownloadUrlResponseBody) String() string {
@@ -809,6 +897,11 @@ func (s *GetPictureDownloadUrlResponseBody) SetResult(v *GetPictureDownloadUrlRe
 }
 
 type GetPictureDownloadUrlResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FOLLOWED
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
@@ -878,9 +971,18 @@ func (s *GetUserFollowStatusHeaders) SetXAcsDingtalkAccessToken(v string) *GetUs
 }
 
 type GetUserFollowStatusRequest struct {
+	// example:
+	//
+	// ding1234
 	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// UgIzXXo+Rp3Rqcts7BE08y49Jr6iu6xW4iQ
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// Rp3Rqcts7BE08y49Jr6iu6xW4iQ
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetUserFollowStatusRequest) String() string {
@@ -907,6 +1009,7 @@ func (s *GetUserFollowStatusRequest) SetUserId(v string) *GetUserFollowStatusReq
 }
 
 type GetUserFollowStatusResponseBody struct {
+	// This parameter is required.
 	Result *GetUserFollowStatusResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -1177,9 +1280,18 @@ func (s *ListFollowerHeaders) SetXAcsDingtalkAccessToken(v string) *ListFollower
 }
 
 type ListFollowerRequest struct {
-	AccountId  *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// ding1234
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// example:
+	//
+	// 20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// Rp3Rqcts7BE08y49Jr6iu6xW4iQ
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListFollowerRequest) String() string {
@@ -1206,8 +1318,9 @@ func (s *ListFollowerRequest) SetNextToken(v string) *ListFollowerRequest {
 }
 
 type ListFollowerResponseBody struct {
-	RequestId *string                         `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Result    *ListFollowerResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// This parameter is required.
+	Result *ListFollowerResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s ListFollowerResponseBody) String() string {
@@ -1333,8 +1446,16 @@ func (s *QueryUserFollowStatusHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 }
 
 type QueryUserFollowStatusRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding1234
 	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// UgIzXXo+Rp3Rqcts7BE08y49Jr6iu6xW4iQ
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s QueryUserFollowStatusRequest) String() string {
@@ -1356,6 +1477,7 @@ func (s *QueryUserFollowStatusRequest) SetUnionId(v string) *QueryUserFollowStat
 }
 
 type QueryUserFollowStatusResponseBody struct {
+	// This parameter is required.
 	Result *QueryUserFollowStatusResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -1442,6 +1564,7 @@ func (s *SendAgentOTOMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendA
 }
 
 type SendAgentOTOMessageRequest struct {
+	// This parameter is required.
 	Detail *SendAgentOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
 }
 
@@ -1459,11 +1582,32 @@ func (s *SendAgentOTOMessageRequest) SetDetail(v *SendAgentOTOMessageRequestDeta
 }
 
 type SendAgentOTOMessageRequestDetail struct {
+	// This parameter is required.
 	MessageBody *SendAgentOTOMessageRequestDetailMessageBody `json:"messageBody,omitempty" xml:"messageBody,omitempty" type:"Struct"`
-	MsgType     *string                                      `json:"msgType,omitempty" xml:"msgType,omitempty"`
-	SessionId   *string                                      `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
-	UserId      *string                                      `json:"userId,omitempty" xml:"userId,omitempty"`
-	Uuid        *string                                      `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// text
+	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sid002b6dbb4f963e93e0
+	SessionId *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user0001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234-5678-000
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s SendAgentOTOMessageRequestDetail) String() string {
@@ -1547,12 +1691,27 @@ func (s *SendAgentOTOMessageRequestDetailMessageBody) SetText(v *SendAgentOTOMes
 }
 
 type SendAgentOTOMessageRequestDetailMessageBodyActionCard struct {
-	ButtonList        []*SendAgentOTOMessageRequestDetailMessageBodyActionCardButtonList `json:"buttonList,omitempty" xml:"buttonList,omitempty" type:"Repeated"`
-	ButtonOrientation *string                                                            `json:"buttonOrientation,omitempty" xml:"buttonOrientation,omitempty"`
-	Markdown          *string                                                            `json:"markdown,omitempty" xml:"markdown,omitempty"`
-	SingleTitle       *string                                                            `json:"singleTitle,omitempty" xml:"singleTitle,omitempty"`
-	SingleUrl         *string                                                            `json:"singleUrl,omitempty" xml:"singleUrl,omitempty"`
-	Title             *string                                                            `json:"title,omitempty" xml:"title,omitempty"`
+	ButtonList []*SendAgentOTOMessageRequestDetailMessageBodyActionCardButtonList `json:"buttonList,omitempty" xml:"buttonList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	ButtonOrientation *string `json:"buttonOrientation,omitempty" xml:"buttonOrientation,omitempty"`
+	// example:
+	//
+	// **提示信息**
+	Markdown *string `json:"markdown,omitempty" xml:"markdown,omitempty"`
+	// example:
+	//
+	// 查看详情
+	SingleTitle *string `json:"singleTitle,omitempty" xml:"singleTitle,omitempty"`
+	// example:
+	//
+	// https://www.yourdomain.com
+	SingleUrl *string `json:"singleUrl,omitempty" xml:"singleUrl,omitempty"`
+	// example:
+	//
+	// 欢迎使用
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s SendAgentOTOMessageRequestDetailMessageBodyActionCard) String() string {
@@ -1594,8 +1753,14 @@ func (s *SendAgentOTOMessageRequestDetailMessageBodyActionCard) SetTitle(v strin
 }
 
 type SendAgentOTOMessageRequestDetailMessageBodyActionCardButtonList struct {
+	// example:
+	//
+	// https://www.dingtalk.com/
 	ActionUrl *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
-	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 查看详情
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s SendAgentOTOMessageRequestDetailMessageBodyActionCardButtonList) String() string {
@@ -1669,10 +1834,22 @@ func (s *SendAgentOTOMessageRequestDetailMessageBodyInteractiveMessage) SetCardT
 }
 
 type SendAgentOTOMessageRequestDetailMessageBodyLink struct {
+	// example:
+	//
+	// https://www.yourdomain.com
 	MessageUrl *string `json:"messageUrl,omitempty" xml:"messageUrl,omitempty"`
-	PicUrl     *string `json:"picUrl,omitempty" xml:"picUrl,omitempty"`
-	Text       *string `json:"text,omitempty" xml:"text,omitempty"`
-	Title      *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// @1234-456
+	PicUrl *string `json:"picUrl,omitempty" xml:"picUrl,omitempty"`
+	// example:
+	//
+	// 欢迎使用
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+	// example:
+	//
+	// 点击查看
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s SendAgentOTOMessageRequestDetailMessageBodyLink) String() string {
@@ -1704,7 +1881,13 @@ func (s *SendAgentOTOMessageRequestDetailMessageBodyLink) SetTitle(v string) *Se
 }
 
 type SendAgentOTOMessageRequestDetailMessageBodyMarkdown struct {
-	Text  *string `json:"text,omitempty" xml:"text,omitempty"`
+	// example:
+	//
+	// 欢迎使用。
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+	// example:
+	//
+	// 欢迎使用。
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -1727,6 +1910,9 @@ func (s *SendAgentOTOMessageRequestDetailMessageBodyMarkdown) SetTitle(v string)
 }
 
 type SendAgentOTOMessageRequestDetailMessageBodyText struct {
+	// example:
+	//
+	// 你好，欢迎使用服务窗。
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 }
 
@@ -1744,8 +1930,9 @@ func (s *SendAgentOTOMessageRequestDetailMessageBodyText) SetContent(v string) *
 }
 
 type SendAgentOTOMessageResponseBody struct {
-	RequestId *string                                `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Result    *SendAgentOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// This parameter is required.
+	Result *SendAgentOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s SendAgentOTOMessageResponseBody) String() string {
@@ -1767,6 +1954,7 @@ func (s *SendAgentOTOMessageResponseBody) SetResult(v *SendAgentOTOMessageRespon
 }
 
 type SendAgentOTOMessageResponseBodyResult struct {
+	// This parameter is required.
 	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
 }
 
@@ -1836,6 +2024,7 @@ func (s *SendInteractiveOTOMessageHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type SendInteractiveOTOMessageRequest struct {
+	// This parameter is required.
 	Detail *SendInteractiveOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
 }
 
@@ -1853,11 +2042,33 @@ func (s *SendInteractiveOTOMessageRequest) SetDetail(v *SendInteractiveOTOMessag
 }
 
 type SendInteractiveOTOMessageRequestDetail struct {
-	CallbackUrl          *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
-	CardBizId            *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
-	CardData             *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
-	CardTemplateId       *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
-	UserId               *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// https://www.youurl.com/callback/card
+	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// service-card-20220824-001
+	CardBizId *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
+	// This parameter is required.
+	CardData *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3erkfi-42b0-4c83-bc56-ffhssde43
+	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user0001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// {"user001":""}
 	UserIdPrivateDataMap *string `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
 }
 
@@ -1900,8 +2111,9 @@ func (s *SendInteractiveOTOMessageRequestDetail) SetUserIdPrivateDataMap(v strin
 }
 
 type SendInteractiveOTOMessageResponseBody struct {
-	RequestId *string                                      `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Result    *SendInteractiveOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// This parameter is required.
+	Result *SendInteractiveOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s SendInteractiveOTOMessageResponseBody) String() string {
@@ -1923,6 +2135,7 @@ func (s *SendInteractiveOTOMessageResponseBody) SetResult(v *SendInteractiveOTOM
 }
 
 type SendInteractiveOTOMessageResponseBodyResult struct {
+	// This parameter is required.
 	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
 }
 
@@ -1992,6 +2205,7 @@ func (s *SendTopBoxInteractiveOTOMessageHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type SendTopBoxInteractiveOTOMessageRequest struct {
+	// This parameter is required.
 	Detail *SendTopBoxInteractiveOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
 }
 
@@ -2009,13 +2223,33 @@ func (s *SendTopBoxInteractiveOTOMessageRequest) SetDetail(v *SendTopBoxInteract
 }
 
 type SendTopBoxInteractiveOTOMessageRequestDetail struct {
-	CallbackUrl          *string                                               `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
-	CardBizId            *string                                               `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
-	CardData             *SendTopBoxInteractiveOTOMessageRequestDetailCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
-	CardTemplateId       *string                                               `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
-	ExpiredTime          *int64                                                `json:"expiredTime,omitempty" xml:"expiredTime,omitempty"`
-	UserId               *string                                               `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserIdPrivateDataMap map[string]*DetailUserIdPrivateDataMapValue           `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
+	// example:
+	//
+	// https://www.youurl.com/callback/card
+	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// service-card-20220824-001
+	CardBizId *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
+	// This parameter is required.
+	CardData *SendTopBoxInteractiveOTOMessageRequestDetailCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3erkfi-42b0-4c83-bc56-ffhssde43
+	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+	// This parameter is required.
+	ExpiredTime *int64 `json:"expiredTime,omitempty" xml:"expiredTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user001
+	UserId               *string                                     `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserIdPrivateDataMap map[string]*DetailUserIdPrivateDataMapValue `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
 }
 
 func (s SendTopBoxInteractiveOTOMessageRequestDetail) String() string {
@@ -2160,6 +2394,7 @@ func (s *UpdateInteractiveOTOMessageHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type UpdateInteractiveOTOMessageRequest struct {
+	// This parameter is required.
 	Detail *UpdateInteractiveOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
 }
 
@@ -2177,10 +2412,21 @@ func (s *UpdateInteractiveOTOMessageRequest) SetDetail(v *UpdateInteractiveOTOMe
 }
 
 type UpdateInteractiveOTOMessageRequestDetail struct {
-	CardBizId            *string                                                `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
-	CardData             *string                                                `json:"cardData,omitempty" xml:"cardData,omitempty"`
-	UpdateOptions        *UpdateInteractiveOTOMessageRequestDetailUpdateOptions `json:"updateOptions,omitempty" xml:"updateOptions,omitempty" type:"Struct"`
-	UserIdPrivateDataMap *string                                                `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// service-card-202208240001
+	CardBizId *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
+	// example:
+	//
+	// {"like":1}
+	CardData      *string                                                `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	UpdateOptions *UpdateInteractiveOTOMessageRequestDetailUpdateOptions `json:"updateOptions,omitempty" xml:"updateOptions,omitempty" type:"Struct"`
+	// example:
+	//
+	// {"userI":""}
+	UserIdPrivateDataMap *string `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
 }
 
 func (s UpdateInteractiveOTOMessageRequestDetail) String() string {
@@ -2235,8 +2481,9 @@ func (s *UpdateInteractiveOTOMessageRequestDetailUpdateOptions) SetUpdatePrivate
 }
 
 type UpdateInteractiveOTOMessageResponseBody struct {
-	RequestId *string                                        `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Result    *UpdateInteractiveOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// This parameter is required.
+	Result *UpdateInteractiveOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s UpdateInteractiveOTOMessageResponseBody) String() string {
@@ -2258,6 +2505,7 @@ func (s *UpdateInteractiveOTOMessageResponseBody) SetResult(v *UpdateInteractive
 }
 
 type UpdateInteractiveOTOMessageResponseBodyResult struct {
+	// This parameter is required.
 	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
 }
 
@@ -2327,9 +2575,19 @@ func (s *UpdateShortcutsHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateSho
 }
 
 type UpdateShortcutsRequest struct {
-	Details   []*UpdateShortcutsRequestDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
-	SessionId *string                          `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
-	UserId    *string                          `json:"userId,omitempty" xml:"userId,omitempty"`
+	Details []*UpdateShortcutsRequestDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sid001234
+	SessionId *string `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// idzb26bxl64vqx2keyi
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateShortcutsRequest) String() string {
@@ -2356,13 +2614,40 @@ func (s *UpdateShortcutsRequest) SetUserId(v string) *UpdateShortcutsRequest {
 }
 
 type UpdateShortcutsRequestDetails struct {
-	ActionUrl        *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
-	CallbackKey      *string `json:"callbackKey,omitempty" xml:"callbackKey,omitempty"`
-	IconFont         *string `json:"iconFont,omitempty" xml:"iconFont,omitempty"`
-	IconMediaId      *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
-	ShortcutId       *string `json:"shortcutId,omitempty" xml:"shortcutId,omitempty"`
+	// example:
+	//
+	// https://dingtalk.com
+	ActionUrl *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
+	// example:
+	//
+	// 033bd94b1168d7e4f0d644c3c95e35bf
+	CallbackKey *string `json:"callbackKey,omitempty" xml:"callbackKey,omitempty"`
+	// example:
+	//
+	// e73e
+	IconFont *string `json:"iconFont,omitempty" xml:"iconFont,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// @lADPDg7mWPzw0i_NArzNArw
+	IconMediaId *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// test123456
+	ShortcutId *string `json:"shortcutId,omitempty" xml:"shortcutId,omitempty"`
+	// example:
+	//
+	// @lADPDg7mWPzw0i_NArzNArw
 	SlideIconMediaId *string `json:"slideIconMediaId,omitempty" xml:"slideIconMediaId,omitempty"`
-	Title            *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s UpdateShortcutsRequestDetails) String() string {
@@ -2469,12 +2754,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -2483,6 +2768,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 发送用户授权信息申请
+//
+// @param request - ApplyFollowerAuthInfoRequest
+//
+// @param headers - ApplyFollowerAuthInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ApplyFollowerAuthInfoResponse
 func (client *Client) ApplyFollowerAuthInfoWithOptions(request *ApplyFollowerAuthInfoRequest, headers *ApplyFollowerAuthInfoHeaders, runtime *util.RuntimeOptions) (_result *ApplyFollowerAuthInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2538,6 +2834,13 @@ func (client *Client) ApplyFollowerAuthInfoWithOptions(request *ApplyFollowerAut
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送用户授权信息申请
+//
+// @param request - ApplyFollowerAuthInfoRequest
+//
+// @return ApplyFollowerAuthInfoResponse
 func (client *Client) ApplyFollowerAuthInfo(request *ApplyFollowerAuthInfoRequest) (_result *ApplyFollowerAuthInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ApplyFollowerAuthInfoHeaders{}
@@ -2550,6 +2853,17 @@ func (client *Client) ApplyFollowerAuthInfo(request *ApplyFollowerAuthInfoReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 注册服务窗消息回调服务
+//
+// @param request - CallbackRegiesterRequest
+//
+// @param headers - CallbackRegiesterHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CallbackRegiesterResponse
 func (client *Client) CallbackRegiesterWithOptions(request *CallbackRegiesterRequest, headers *CallbackRegiesterHeaders, runtime *util.RuntimeOptions) (_result *CallbackRegiesterResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2605,6 +2919,13 @@ func (client *Client) CallbackRegiesterWithOptions(request *CallbackRegiesterReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 注册服务窗消息回调服务
+//
+// @param request - CallbackRegiesterRequest
+//
+// @return CallbackRegiesterResponse
 func (client *Client) CallbackRegiester(request *CallbackRegiesterRequest) (_result *CallbackRegiesterResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CallbackRegiesterHeaders{}
@@ -2617,6 +2938,17 @@ func (client *Client) CallbackRegiester(request *CallbackRegiesterRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗吊顶卡片关闭接口
+//
+// @param request - CloseTopBoxInteractiveOTOMessageRequest
+//
+// @param headers - CloseTopBoxInteractiveOTOMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CloseTopBoxInteractiveOTOMessageResponse
 func (client *Client) CloseTopBoxInteractiveOTOMessageWithOptions(request *CloseTopBoxInteractiveOTOMessageRequest, headers *CloseTopBoxInteractiveOTOMessageHeaders, runtime *util.RuntimeOptions) (_result *CloseTopBoxInteractiveOTOMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2660,6 +2992,13 @@ func (client *Client) CloseTopBoxInteractiveOTOMessageWithOptions(request *Close
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗吊顶卡片关闭接口
+//
+// @param request - CloseTopBoxInteractiveOTOMessageRequest
+//
+// @return CloseTopBoxInteractiveOTOMessageResponse
 func (client *Client) CloseTopBoxInteractiveOTOMessage(request *CloseTopBoxInteractiveOTOMessageRequest) (_result *CloseTopBoxInteractiveOTOMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CloseTopBoxInteractiveOTOMessageHeaders{}
@@ -2672,6 +3011,17 @@ func (client *Client) CloseTopBoxInteractiveOTOMessage(request *CloseTopBoxInter
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户授权信息
+//
+// @param request - GetFollowerAuthInfoRequest
+//
+// @param headers - GetFollowerAuthInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFollowerAuthInfoResponse
 func (client *Client) GetFollowerAuthInfoWithOptions(request *GetFollowerAuthInfoRequest, headers *GetFollowerAuthInfoHeaders, runtime *util.RuntimeOptions) (_result *GetFollowerAuthInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2719,6 +3069,13 @@ func (client *Client) GetFollowerAuthInfoWithOptions(request *GetFollowerAuthInf
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户授权信息
+//
+// @param request - GetFollowerAuthInfoRequest
+//
+// @return GetFollowerAuthInfoResponse
 func (client *Client) GetFollowerAuthInfo(request *GetFollowerAuthInfoRequest) (_result *GetFollowerAuthInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetFollowerAuthInfoHeaders{}
@@ -2731,6 +3088,17 @@ func (client *Client) GetFollowerAuthInfo(request *GetFollowerAuthInfoRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取服务窗关注人信息
+//
+// @param request - GetFollowerInfoRequest
+//
+// @param headers - GetFollowerInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFollowerInfoResponse
 func (client *Client) GetFollowerInfoWithOptions(request *GetFollowerInfoRequest, headers *GetFollowerInfoHeaders, runtime *util.RuntimeOptions) (_result *GetFollowerInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2782,6 +3150,13 @@ func (client *Client) GetFollowerInfoWithOptions(request *GetFollowerInfoRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取服务窗关注人信息
+//
+// @param request - GetFollowerInfoRequest
+//
+// @return GetFollowerInfoResponse
 func (client *Client) GetFollowerInfo(request *GetFollowerInfoRequest) (_result *GetFollowerInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetFollowerInfoHeaders{}
@@ -2794,6 +3169,17 @@ func (client *Client) GetFollowerInfo(request *GetFollowerInfoRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗图片消息下载地址获取接口
+//
+// @param request - GetPictureDownloadUrlRequest
+//
+// @param headers - GetPictureDownloadUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPictureDownloadUrlResponse
 func (client *Client) GetPictureDownloadUrlWithOptions(request *GetPictureDownloadUrlRequest, headers *GetPictureDownloadUrlHeaders, runtime *util.RuntimeOptions) (_result *GetPictureDownloadUrlResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2841,6 +3227,13 @@ func (client *Client) GetPictureDownloadUrlWithOptions(request *GetPictureDownlo
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗图片消息下载地址获取接口
+//
+// @param request - GetPictureDownloadUrlRequest
+//
+// @return GetPictureDownloadUrlResponse
 func (client *Client) GetPictureDownloadUrl(request *GetPictureDownloadUrlRequest) (_result *GetPictureDownloadUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPictureDownloadUrlHeaders{}
@@ -2853,6 +3246,17 @@ func (client *Client) GetPictureDownloadUrl(request *GetPictureDownloadUrlReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户关注状态
+//
+// @param request - GetUserFollowStatusRequest
+//
+// @param headers - GetUserFollowStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserFollowStatusResponse
 func (client *Client) GetUserFollowStatusWithOptions(request *GetUserFollowStatusRequest, headers *GetUserFollowStatusHeaders, runtime *util.RuntimeOptions) (_result *GetUserFollowStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2904,6 +3308,13 @@ func (client *Client) GetUserFollowStatusWithOptions(request *GetUserFollowStatu
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户关注状态
+//
+// @param request - GetUserFollowStatusRequest
+//
+// @return GetUserFollowStatusResponse
 func (client *Client) GetUserFollowStatus(request *GetUserFollowStatusRequest) (_result *GetUserFollowStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUserFollowStatusHeaders{}
@@ -2916,6 +3327,15 @@ func (client *Client) GetUserFollowStatus(request *GetUserFollowStatusRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业下服务窗帐号列表
+//
+// @param headers - ListAccountHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListAccountResponse
 func (client *Client) ListAccountWithOptions(headers *ListAccountHeaders, runtime *util.RuntimeOptions) (_result *ListAccountResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -2949,6 +3369,11 @@ func (client *Client) ListAccountWithOptions(headers *ListAccountHeaders, runtim
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业下服务窗帐号列表
+//
+// @return ListAccountResponse
 func (client *Client) ListAccount() (_result *ListAccountResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListAccountHeaders{}
@@ -2961,6 +3386,15 @@ func (client *Client) ListAccount() (_result *ListAccountResponse, _err error) {
 	return _result, _err
 }
 
+// Summary:
+//
+// 第三方企业应用查询服务窗帐号列表
+//
+// @param headers - ListAccountInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListAccountInfoResponse
 func (client *Client) ListAccountInfoWithOptions(headers *ListAccountInfoHeaders, runtime *util.RuntimeOptions) (_result *ListAccountInfoResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -2994,6 +3428,11 @@ func (client *Client) ListAccountInfoWithOptions(headers *ListAccountInfoHeaders
 	return _result, _err
 }
 
+// Summary:
+//
+// 第三方企业应用查询服务窗帐号列表
+//
+// @return ListAccountInfoResponse
 func (client *Client) ListAccountInfo() (_result *ListAccountInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListAccountInfoHeaders{}
@@ -3006,6 +3445,17 @@ func (client *Client) ListAccountInfo() (_result *ListAccountInfoResponse, _err 
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取服务窗关注人列表
+//
+// @param request - ListFollowerRequest
+//
+// @param headers - ListFollowerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListFollowerResponse
 func (client *Client) ListFollowerWithOptions(request *ListFollowerRequest, headers *ListFollowerHeaders, runtime *util.RuntimeOptions) (_result *ListFollowerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3057,6 +3507,13 @@ func (client *Client) ListFollowerWithOptions(request *ListFollowerRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取服务窗关注人列表
+//
+// @param request - ListFollowerRequest
+//
+// @return ListFollowerResponse
 func (client *Client) ListFollower(request *ListFollowerRequest) (_result *ListFollowerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListFollowerHeaders{}
@@ -3069,6 +3526,17 @@ func (client *Client) ListFollower(request *ListFollowerRequest) (_result *ListF
 	return _result, _err
 }
 
+// Summary:
+//
+// 第三方企业应用查询用户是否关注服务窗
+//
+// @param request - QueryUserFollowStatusRequest
+//
+// @param headers - QueryUserFollowStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryUserFollowStatusResponse
 func (client *Client) QueryUserFollowStatusWithOptions(request *QueryUserFollowStatusRequest, headers *QueryUserFollowStatusHeaders, runtime *util.RuntimeOptions) (_result *QueryUserFollowStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3116,6 +3584,13 @@ func (client *Client) QueryUserFollowStatusWithOptions(request *QueryUserFollowS
 	return _result, _err
 }
 
+// Summary:
+//
+// 第三方企业应用查询用户是否关注服务窗
+//
+// @param request - QueryUserFollowStatusRequest
+//
+// @return QueryUserFollowStatusResponse
 func (client *Client) QueryUserFollowStatus(request *QueryUserFollowStatusRequest) (_result *QueryUserFollowStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryUserFollowStatusHeaders{}
@@ -3128,6 +3603,17 @@ func (client *Client) QueryUserFollowStatus(request *QueryUserFollowStatusReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送服务窗客服消息
+//
+// @param request - SendAgentOTOMessageRequest
+//
+// @param headers - SendAgentOTOMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendAgentOTOMessageResponse
 func (client *Client) SendAgentOTOMessageWithOptions(request *SendAgentOTOMessageRequest, headers *SendAgentOTOMessageHeaders, runtime *util.RuntimeOptions) (_result *SendAgentOTOMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3171,6 +3657,13 @@ func (client *Client) SendAgentOTOMessageWithOptions(request *SendAgentOTOMessag
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送服务窗客服消息
+//
+// @param request - SendAgentOTOMessageRequest
+//
+// @return SendAgentOTOMessageResponse
 func (client *Client) SendAgentOTOMessage(request *SendAgentOTOMessageRequest) (_result *SendAgentOTOMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendAgentOTOMessageHeaders{}
@@ -3183,6 +3676,17 @@ func (client *Client) SendAgentOTOMessage(request *SendAgentOTOMessageRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗互动卡片单发接口
+//
+// @param request - SendInteractiveOTOMessageRequest
+//
+// @param headers - SendInteractiveOTOMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendInteractiveOTOMessageResponse
 func (client *Client) SendInteractiveOTOMessageWithOptions(request *SendInteractiveOTOMessageRequest, headers *SendInteractiveOTOMessageHeaders, runtime *util.RuntimeOptions) (_result *SendInteractiveOTOMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3226,6 +3730,13 @@ func (client *Client) SendInteractiveOTOMessageWithOptions(request *SendInteract
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗互动卡片单发接口
+//
+// @param request - SendInteractiveOTOMessageRequest
+//
+// @return SendInteractiveOTOMessageResponse
 func (client *Client) SendInteractiveOTOMessage(request *SendInteractiveOTOMessageRequest) (_result *SendInteractiveOTOMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendInteractiveOTOMessageHeaders{}
@@ -3238,6 +3749,17 @@ func (client *Client) SendInteractiveOTOMessage(request *SendInteractiveOTOMessa
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗吊顶卡片发送接口
+//
+// @param request - SendTopBoxInteractiveOTOMessageRequest
+//
+// @param headers - SendTopBoxInteractiveOTOMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendTopBoxInteractiveOTOMessageResponse
 func (client *Client) SendTopBoxInteractiveOTOMessageWithOptions(request *SendTopBoxInteractiveOTOMessageRequest, headers *SendTopBoxInteractiveOTOMessageHeaders, runtime *util.RuntimeOptions) (_result *SendTopBoxInteractiveOTOMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3281,6 +3803,13 @@ func (client *Client) SendTopBoxInteractiveOTOMessageWithOptions(request *SendTo
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗吊顶卡片发送接口
+//
+// @param request - SendTopBoxInteractiveOTOMessageRequest
+//
+// @return SendTopBoxInteractiveOTOMessageResponse
 func (client *Client) SendTopBoxInteractiveOTOMessage(request *SendTopBoxInteractiveOTOMessageRequest) (_result *SendTopBoxInteractiveOTOMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendTopBoxInteractiveOTOMessageHeaders{}
@@ -3293,6 +3822,17 @@ func (client *Client) SendTopBoxInteractiveOTOMessage(request *SendTopBoxInterac
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗互动卡片修改接口
+//
+// @param request - UpdateInteractiveOTOMessageRequest
+//
+// @param headers - UpdateInteractiveOTOMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateInteractiveOTOMessageResponse
 func (client *Client) UpdateInteractiveOTOMessageWithOptions(request *UpdateInteractiveOTOMessageRequest, headers *UpdateInteractiveOTOMessageHeaders, runtime *util.RuntimeOptions) (_result *UpdateInteractiveOTOMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3336,6 +3876,13 @@ func (client *Client) UpdateInteractiveOTOMessageWithOptions(request *UpdateInte
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗互动卡片修改接口
+//
+// @param request - UpdateInteractiveOTOMessageRequest
+//
+// @return UpdateInteractiveOTOMessageResponse
 func (client *Client) UpdateInteractiveOTOMessage(request *UpdateInteractiveOTOMessageRequest) (_result *UpdateInteractiveOTOMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateInteractiveOTOMessageHeaders{}
@@ -3348,6 +3895,17 @@ func (client *Client) UpdateInteractiveOTOMessage(request *UpdateInteractiveOTOM
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗会话窗口快捷栏配置接口
+//
+// @param request - UpdateShortcutsRequest
+//
+// @param headers - UpdateShortcutsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateShortcutsResponse
 func (client *Client) UpdateShortcutsWithOptions(request *UpdateShortcutsRequest, headers *UpdateShortcutsHeaders, runtime *util.RuntimeOptions) (_result *UpdateShortcutsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3399,6 +3957,13 @@ func (client *Client) UpdateShortcutsWithOptions(request *UpdateShortcutsRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗会话窗口快捷栏配置接口
+//
+// @param request - UpdateShortcutsRequest
+//
+// @return UpdateShortcutsResponse
 func (client *Client) UpdateShortcuts(request *UpdateShortcutsRequest) (_result *UpdateShortcutsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateShortcutsHeaders{}

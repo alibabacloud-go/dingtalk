@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package esign_2_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -223,6 +219,7 @@ func (s CancelCorpAuthRequest) GoString() string {
 }
 
 type CancelCorpAuthResponseBody struct {
+	// This parameter is required.
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -298,12 +295,17 @@ func (s *ChannelOrdersHeaders) SetXAcsDingtalkAccessToken(v string) *ChannelOrde
 }
 
 type ChannelOrdersRequest struct {
-	ItemCode        *string  `json:"itemCode,omitempty" xml:"itemCode,omitempty"`
-	ItemName        *string  `json:"itemName,omitempty" xml:"itemName,omitempty"`
+	// This parameter is required.
+	ItemCode *string `json:"itemCode,omitempty" xml:"itemCode,omitempty"`
+	// This parameter is required.
+	ItemName *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
+	// This parameter is required.
 	OrderCreateTime *float32 `json:"orderCreateTime,omitempty" xml:"orderCreateTime,omitempty"`
-	OrderId         *string  `json:"orderId,omitempty" xml:"orderId,omitempty"`
-	PayFee          *float32 `json:"payFee,omitempty" xml:"payFee,omitempty"`
-	Quantity        *float32 `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	// This parameter is required.
+	OrderId *string  `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	PayFee  *float32 `json:"payFee,omitempty" xml:"payFee,omitempty"`
+	// This parameter is required.
+	Quantity *float32 `json:"quantity,omitempty" xml:"quantity,omitempty"`
 }
 
 func (s ChannelOrdersRequest) String() string {
@@ -421,7 +423,8 @@ func (s *CorpRealnameHeaders) SetXAcsDingtalkAccessToken(v string) *CorpRealname
 
 type CorpRealnameRequest struct {
 	RedirectUrl *string `json:"redirectUrl,omitempty" xml:"redirectUrl,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CorpRealnameRequest) String() string {
@@ -616,14 +619,16 @@ func (s *CreateProcessHeaders) SetXAcsDingtalkAccessToken(v string) *CreateProce
 }
 
 type CreateProcessRequest struct {
-	Ccs             []*CreateProcessRequestCcs          `json:"ccs,omitempty" xml:"ccs,omitempty" type:"Repeated"`
-	Files           []*CreateProcessRequestFiles        `json:"files,omitempty" xml:"files,omitempty" type:"Repeated"`
+	Ccs   []*CreateProcessRequestCcs   `json:"ccs,omitempty" xml:"ccs,omitempty" type:"Repeated"`
+	Files []*CreateProcessRequestFiles `json:"files,omitempty" xml:"files,omitempty" type:"Repeated"`
+	// This parameter is required.
 	InitiatorUserId *string                             `json:"initiatorUserId,omitempty" xml:"initiatorUserId,omitempty"`
 	Participants    []*CreateProcessRequestParticipants `json:"participants,omitempty" xml:"participants,omitempty" type:"Repeated"`
 	RedirectUrl     *string                             `json:"redirectUrl,omitempty" xml:"redirectUrl,omitempty"`
 	SignEndTime     *int64                              `json:"signEndTime,omitempty" xml:"signEndTime,omitempty"`
 	SourceInfo      *CreateProcessRequestSourceInfo     `json:"sourceInfo,omitempty" xml:"sourceInfo,omitempty" type:"Struct"`
-	TaskName        *string                             `json:"taskName,omitempty" xml:"taskName,omitempty"`
+	// This parameter is required.
+	TaskName *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
 }
 
 func (s CreateProcessRequest) String() string {
@@ -677,6 +682,7 @@ func (s *CreateProcessRequest) SetTaskName(v string) *CreateProcessRequest {
 type CreateProcessRequestCcs struct {
 	Account     *string `json:"account,omitempty" xml:"account,omitempty"`
 	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
+	// This parameter is required.
 	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
 	OrgName     *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
 	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
@@ -716,9 +722,12 @@ func (s *CreateProcessRequestCcs) SetUserId(v string) *CreateProcessRequestCcs {
 }
 
 type CreateProcessRequestFiles struct {
-	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FileType *int32  `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// This parameter is required.
+	FileType *int32 `json:"fileType,omitempty" xml:"fileType,omitempty"`
 }
 
 func (s CreateProcessRequestFiles) String() string {
@@ -745,14 +754,16 @@ func (s *CreateProcessRequestFiles) SetFileType(v int32) *CreateProcessRequestFi
 }
 
 type CreateProcessRequestParticipants struct {
-	Account          *string                                        `json:"account,omitempty" xml:"account,omitempty"`
-	AccountName      *string                                        `json:"accountName,omitempty" xml:"accountName,omitempty"`
-	AccountType      *string                                        `json:"accountType,omitempty" xml:"accountType,omitempty"`
-	OrgName          *string                                        `json:"orgName,omitempty" xml:"orgName,omitempty"`
-	SignOrder        *int32                                         `json:"signOrder,omitempty" xml:"signOrder,omitempty"`
-	SignPosList      []*CreateProcessRequestParticipantsSignPosList `json:"signPosList,omitempty" xml:"signPosList,omitempty" type:"Repeated"`
-	SignRequirements *string                                        `json:"signRequirements,omitempty" xml:"signRequirements,omitempty"`
-	UserId           *string                                        `json:"userId,omitempty" xml:"userId,omitempty"`
+	Account     *string `json:"account,omitempty" xml:"account,omitempty"`
+	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
+	// This parameter is required.
+	AccountType *string                                        `json:"accountType,omitempty" xml:"accountType,omitempty"`
+	OrgName     *string                                        `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	SignOrder   *int32                                         `json:"signOrder,omitempty" xml:"signOrder,omitempty"`
+	SignPosList []*CreateProcessRequestParticipantsSignPosList `json:"signPosList,omitempty" xml:"signPosList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	SignRequirements *string `json:"signRequirements,omitempty" xml:"signRequirements,omitempty"`
+	UserId           *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateProcessRequestParticipants) String() string {
@@ -909,6 +920,7 @@ func (s *CreateProcessRequestSourceInfo) SetShowText(v string) *CreateProcessReq
 }
 
 type CreateProcessResponseBody struct {
+	// This parameter is required.
 	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
@@ -1140,9 +1152,12 @@ func (s *GetAuthUrlRequest) SetRedirectUrl(v string) *GetAuthUrlRequest {
 }
 
 type GetAuthUrlResponseBody struct {
+	// This parameter is required.
 	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
-	PcUrl     *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
-	TaskId    *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// This parameter is required.
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// This parameter is required.
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s GetAuthUrlResponseBody) String() string {
@@ -1460,7 +1475,8 @@ func (s *GetExecuteUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetExecuteU
 type GetExecuteUrlRequest struct {
 	Account       *string `json:"account,omitempty" xml:"account,omitempty"`
 	SignContainer *int32  `json:"signContainer,omitempty" xml:"signContainer,omitempty"`
-	TaskId        *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// This parameter is required.
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s GetExecuteUrlRequest) String() string {
@@ -1580,7 +1596,8 @@ func (s *GetFileInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetFileInfoHe
 }
 
 type GetFileInfoResponseBody struct {
-	DownloadUrl   *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	DownloadUrl *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	// This parameter is required.
 	FileId        *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
 	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
 	PdfTotalPages *int64  `json:"pdfTotalPages,omitempty" xml:"pdfTotalPages,omitempty"`
@@ -1726,7 +1743,9 @@ func (s *GetFileUploadUrlRequest) SetFileSize(v int64) *GetFileUploadUrlRequest 
 }
 
 type GetFileUploadUrlResponseBody struct {
-	FileId    *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
 	UploadUrl *string `json:"uploadUrl,omitempty" xml:"uploadUrl,omitempty"`
 }
 
@@ -2126,9 +2145,12 @@ func (s *GetSignDetailHeaders) SetXAcsDingtalkAccessToken(v string) *GetSignDeta
 }
 
 type GetSignDetailResponseBody struct {
-	BusinessScene *string                             `json:"businessScene,omitempty" xml:"businessScene,omitempty"`
-	FlowStatus    *float32                            `json:"flowStatus,omitempty" xml:"flowStatus,omitempty"`
-	Signers       []*GetSignDetailResponseBodySigners `json:"signers,omitempty" xml:"signers,omitempty" type:"Repeated"`
+	// This parameter is required.
+	BusinessScene *string `json:"businessScene,omitempty" xml:"businessScene,omitempty"`
+	// This parameter is required.
+	FlowStatus *float32 `json:"flowStatus,omitempty" xml:"flowStatus,omitempty"`
+	// This parameter is required.
+	Signers []*GetSignDetailResponseBodySigners `json:"signers,omitempty" xml:"signers,omitempty" type:"Repeated"`
 }
 
 func (s GetSignDetailResponseBody) String() string {
@@ -2155,8 +2177,10 @@ func (s *GetSignDetailResponseBody) SetSigners(v []*GetSignDetailResponseBodySig
 }
 
 type GetSignDetailResponseBodySigners struct {
+	// This parameter is required.
 	SignStatus *float32 `json:"signStatus,omitempty" xml:"signStatus,omitempty"`
-	SignerName *string  `json:"signerName,omitempty" xml:"signerName,omitempty"`
+	// This parameter is required.
+	SignerName *string `json:"signerName,omitempty" xml:"signerName,omitempty"`
 }
 
 func (s GetSignDetailResponseBodySigners) String() string {
@@ -2317,9 +2341,11 @@ func (s *ProcessStartHeaders) SetXAcsDingtalkAccessToken(v string) *ProcessStart
 }
 
 type ProcessStartRequest struct {
-	AutoStart       *string                            `json:"autoStart,omitempty" xml:"autoStart,omitempty"`
-	Ccs             []*ProcessStartRequestCcs          `json:"ccs,omitempty" xml:"ccs,omitempty" type:"Repeated"`
-	Files           []*ProcessStartRequestFiles        `json:"files,omitempty" xml:"files,omitempty" type:"Repeated"`
+	AutoStart *string                   `json:"autoStart,omitempty" xml:"autoStart,omitempty"`
+	Ccs       []*ProcessStartRequestCcs `json:"ccs,omitempty" xml:"ccs,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Files []*ProcessStartRequestFiles `json:"files,omitempty" xml:"files,omitempty" type:"Repeated"`
+	// This parameter is required.
 	InitiatorUserId *string                            `json:"initiatorUserId,omitempty" xml:"initiatorUserId,omitempty"`
 	Participants    []*ProcessStartRequestParticipants `json:"participants,omitempty" xml:"participants,omitempty" type:"Repeated"`
 	RedirectUrl     *string                            `json:"redirectUrl,omitempty" xml:"redirectUrl,omitempty"`
@@ -2378,6 +2404,7 @@ func (s *ProcessStartRequest) SetTaskName(v string) *ProcessStartRequest {
 type ProcessStartRequestCcs struct {
 	Account     *string `json:"account,omitempty" xml:"account,omitempty"`
 	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
+	// This parameter is required.
 	AccountType *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
 	OrgName     *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
 	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
@@ -2417,7 +2444,9 @@ func (s *ProcessStartRequestCcs) SetUserId(v string) *ProcessStartRequestCcs {
 }
 
 type ProcessStartRequestFiles struct {
-	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
 }
 
@@ -2440,8 +2469,9 @@ func (s *ProcessStartRequestFiles) SetFileName(v string) *ProcessStartRequestFil
 }
 
 type ProcessStartRequestParticipants struct {
-	Account          *string `json:"account,omitempty" xml:"account,omitempty"`
-	AccountName      *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
+	Account     *string `json:"account,omitempty" xml:"account,omitempty"`
+	AccountName *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
+	// This parameter is required.
 	AccountType      *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
 	OrgName          *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
 	SignRequirements *string `json:"signRequirements,omitempty" xml:"signRequirements,omitempty"`
@@ -2603,11 +2633,15 @@ func (s *ResaleOrderHeaders) SetXAcsDingtalkAccessToken(v string) *ResaleOrderHe
 }
 
 type ResaleOrderRequest struct {
-	OrderCreateTime  *float32 `json:"orderCreateTime,omitempty" xml:"orderCreateTime,omitempty"`
-	OrderId          *string  `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	// This parameter is required.
+	OrderCreateTime *float32 `json:"orderCreateTime,omitempty" xml:"orderCreateTime,omitempty"`
+	// This parameter is required.
+	OrderId *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	// This parameter is required.
 	Quantity         *float32 `json:"quantity,omitempty" xml:"quantity,omitempty"`
 	ServiceStartTime *float32 `json:"serviceStartTime,omitempty" xml:"serviceStartTime,omitempty"`
-	ServiceStopTime  *float32 `json:"serviceStopTime,omitempty" xml:"serviceStopTime,omitempty"`
+	// This parameter is required.
+	ServiceStopTime *float32 `json:"serviceStopTime,omitempty" xml:"serviceStopTime,omitempty"`
 }
 
 func (s ResaleOrderRequest) String() string {
@@ -2720,7 +2754,8 @@ func (s *UsersRealnameHeaders) SetXAcsDingtalkAccessToken(v string) *UsersRealna
 
 type UsersRealnameRequest struct {
 	RedirectUrl *string `json:"redirectUrl,omitempty" xml:"redirectUrl,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UsersRealnameRequest) String() string {
@@ -2814,12 +2849,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -2828,6 +2863,15 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 获取流程任务用印审批列表
+//
+// @param headers - ApprovalListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ApprovalListResponse
 func (client *Client) ApprovalListWithOptions(taskId *string, headers *ApprovalListHeaders, runtime *util.RuntimeOptions) (_result *ApprovalListResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -2865,6 +2909,11 @@ func (client *Client) ApprovalListWithOptions(taskId *string, headers *ApprovalL
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取流程任务用印审批列表
+//
+// @return ApprovalListResponse
 func (client *Client) ApprovalList(taskId *string) (_result *ApprovalListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ApprovalListHeaders{}
@@ -2877,6 +2926,17 @@ func (client *Client) ApprovalList(taskId *string) (_result *ApprovalListRespons
 	return _result, _err
 }
 
+// Summary:
+//
+// 取消企业的授权
+//
+// @param request - CancelCorpAuthRequest
+//
+// @param headers - CancelCorpAuthHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CancelCorpAuthResponse
 func (client *Client) CancelCorpAuthWithOptions(request *CancelCorpAuthRequest, headers *CancelCorpAuthHeaders, runtime *util.RuntimeOptions) (_result *CancelCorpAuthResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2918,6 +2978,13 @@ func (client *Client) CancelCorpAuthWithOptions(request *CancelCorpAuthRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 取消企业的授权
+//
+// @param request - CancelCorpAuthRequest
+//
+// @return CancelCorpAuthResponse
 func (client *Client) CancelCorpAuth(request *CancelCorpAuthRequest) (_result *CancelCorpAuthResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CancelCorpAuthHeaders{}
@@ -2930,6 +2997,17 @@ func (client *Client) CancelCorpAuth(request *CancelCorpAuthRequest) (_result *C
 	return _result, _err
 }
 
+// Summary:
+//
+// 套餐转售1（分润模式）
+//
+// @param request - ChannelOrdersRequest
+//
+// @param headers - ChannelOrdersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChannelOrdersResponse
 func (client *Client) ChannelOrdersWithOptions(request *ChannelOrdersRequest, headers *ChannelOrdersHeaders, runtime *util.RuntimeOptions) (_result *ChannelOrdersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2997,6 +3075,13 @@ func (client *Client) ChannelOrdersWithOptions(request *ChannelOrdersRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 套餐转售1（分润模式）
+//
+// @param request - ChannelOrdersRequest
+//
+// @return ChannelOrdersResponse
 func (client *Client) ChannelOrders(request *ChannelOrdersRequest) (_result *ChannelOrdersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ChannelOrdersHeaders{}
@@ -3009,6 +3094,17 @@ func (client *Client) ChannelOrders(request *ChannelOrdersRequest) (_result *Cha
 	return _result, _err
 }
 
+// Summary:
+//
+// 生成企业实名的跳转地址
+//
+// @param request - CorpRealnameRequest
+//
+// @param headers - CorpRealnameHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CorpRealnameResponse
 func (client *Client) CorpRealnameWithOptions(request *CorpRealnameRequest, headers *CorpRealnameHeaders, runtime *util.RuntimeOptions) (_result *CorpRealnameResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3060,6 +3156,13 @@ func (client *Client) CorpRealnameWithOptions(request *CorpRealnameRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 生成企业实名的跳转地址
+//
+// @param request - CorpRealnameRequest
+//
+// @return CorpRealnameResponse
 func (client *Client) CorpRealname(request *CorpRealnameRequest) (_result *CorpRealnameResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CorpRealnameHeaders{}
@@ -3072,6 +3175,17 @@ func (client *Client) CorpRealname(request *CorpRealnameRequest) (_result *CorpR
 	return _result, _err
 }
 
+// Summary:
+//
+// 钉钉ISV服务商数据初始化
+//
+// @param request - CreateDevelopersRequest
+//
+// @param headers - CreateDevelopersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateDevelopersResponse
 func (client *Client) CreateDevelopersWithOptions(request *CreateDevelopersRequest, headers *CreateDevelopersHeaders, runtime *util.RuntimeOptions) (_result *CreateDevelopersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3119,6 +3233,13 @@ func (client *Client) CreateDevelopersWithOptions(request *CreateDevelopersReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 钉钉ISV服务商数据初始化
+//
+// @param request - CreateDevelopersRequest
+//
+// @return CreateDevelopersResponse
 func (client *Client) CreateDevelopers(request *CreateDevelopersRequest) (_result *CreateDevelopersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateDevelopersHeaders{}
@@ -3131,6 +3252,17 @@ func (client *Client) CreateDevelopers(request *CreateDevelopersRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过API发起签署流程
+//
+// @param request - CreateProcessRequest
+//
+// @param headers - CreateProcessHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateProcessResponse
 func (client *Client) CreateProcessWithOptions(request *CreateProcessRequest, headers *CreateProcessHeaders, runtime *util.RuntimeOptions) (_result *CreateProcessResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3202,6 +3334,13 @@ func (client *Client) CreateProcessWithOptions(request *CreateProcessRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过API发起签署流程
+//
+// @param request - CreateProcessRequest
+//
+// @return CreateProcessResponse
 func (client *Client) CreateProcess(request *CreateProcessRequest) (_result *CreateProcessResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateProcessHeaders{}
@@ -3214,6 +3353,15 @@ func (client *Client) CreateProcess(request *CreateProcessRequest) (_result *Cre
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取钉钉审批实例-电子附件信息
+//
+// @param headers - GetAttachsApprovalHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAttachsApprovalResponse
 func (client *Client) GetAttachsApprovalWithOptions(instanceId *string, headers *GetAttachsApprovalHeaders, runtime *util.RuntimeOptions) (_result *GetAttachsApprovalResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -3255,6 +3403,11 @@ func (client *Client) GetAttachsApprovalWithOptions(instanceId *string, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取钉钉审批实例-电子附件信息
+//
+// @return GetAttachsApprovalResponse
 func (client *Client) GetAttachsApproval(instanceId *string) (_result *GetAttachsApprovalResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAttachsApprovalHeaders{}
@@ -3267,6 +3420,17 @@ func (client *Client) GetAttachsApproval(instanceId *string) (_result *GetAttach
 	return _result, _err
 }
 
+// Summary:
+//
+// 生成授权页面地址
+//
+// @param request - GetAuthUrlRequest
+//
+// @param headers - GetAuthUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAuthUrlResponse
 func (client *Client) GetAuthUrlWithOptions(request *GetAuthUrlRequest, headers *GetAuthUrlHeaders, runtime *util.RuntimeOptions) (_result *GetAuthUrlResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3314,6 +3478,13 @@ func (client *Client) GetAuthUrlWithOptions(request *GetAuthUrlRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 生成授权页面地址
+//
+// @param request - GetAuthUrlRequest
+//
+// @return GetAuthUrlResponse
 func (client *Client) GetAuthUrl(request *GetAuthUrlRequest) (_result *GetAuthUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAuthUrlHeaders{}
@@ -3326,6 +3497,15 @@ func (client *Client) GetAuthUrl(request *GetAuthUrlRequest) (_result *GetAuthUr
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询套餐余量
+//
+// @param headers - GetContractMarginHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetContractMarginResponse
 func (client *Client) GetContractMarginWithOptions(headers *GetContractMarginHeaders, runtime *util.RuntimeOptions) (_result *GetContractMarginResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -3363,6 +3543,11 @@ func (client *Client) GetContractMarginWithOptions(headers *GetContractMarginHea
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询套餐余量
+//
+// @return GetContractMarginResponse
 func (client *Client) GetContractMargin() (_result *GetContractMarginResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetContractMarginHeaders{}
@@ -3375,6 +3560,15 @@ func (client *Client) GetContractMargin() (_result *GetContractMarginResponse, _
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业控制台地址
+//
+// @param headers - GetCorpConsoleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCorpConsoleResponse
 func (client *Client) GetCorpConsoleWithOptions(headers *GetCorpConsoleHeaders, runtime *util.RuntimeOptions) (_result *GetCorpConsoleResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -3412,6 +3606,11 @@ func (client *Client) GetCorpConsoleWithOptions(headers *GetCorpConsoleHeaders, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业控制台地址
+//
+// @return GetCorpConsoleResponse
 func (client *Client) GetCorpConsole() (_result *GetCorpConsoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCorpConsoleHeaders{}
@@ -3424,6 +3623,15 @@ func (client *Client) GetCorpConsole() (_result *GetCorpConsoleResponse, _err er
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询企业信息
+//
+// @param headers - GetCorpInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCorpInfoResponse
 func (client *Client) GetCorpInfoWithOptions(headers *GetCorpInfoHeaders, runtime *util.RuntimeOptions) (_result *GetCorpInfoResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -3461,6 +3669,11 @@ func (client *Client) GetCorpInfoWithOptions(headers *GetCorpInfoHeaders, runtim
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询企业信息
+//
+// @return GetCorpInfoResponse
 func (client *Client) GetCorpInfo() (_result *GetCorpInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCorpInfoHeaders{}
@@ -3473,6 +3686,17 @@ func (client *Client) GetCorpInfo() (_result *GetCorpInfoResponse, _err error) {
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取签署人签署地址
+//
+// @param request - GetExecuteUrlRequest
+//
+// @param headers - GetExecuteUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetExecuteUrlResponse
 func (client *Client) GetExecuteUrlWithOptions(request *GetExecuteUrlRequest, headers *GetExecuteUrlHeaders, runtime *util.RuntimeOptions) (_result *GetExecuteUrlResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3528,6 +3752,13 @@ func (client *Client) GetExecuteUrlWithOptions(request *GetExecuteUrlRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取签署人签署地址
+//
+// @param request - GetExecuteUrlRequest
+//
+// @return GetExecuteUrlResponse
 func (client *Client) GetExecuteUrl(request *GetExecuteUrlRequest) (_result *GetExecuteUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetExecuteUrlHeaders{}
@@ -3540,6 +3771,15 @@ func (client *Client) GetExecuteUrl(request *GetExecuteUrlRequest) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件详情
+//
+// @param headers - GetFileInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFileInfoResponse
 func (client *Client) GetFileInfoWithOptions(fileId *string, headers *GetFileInfoHeaders, runtime *util.RuntimeOptions) (_result *GetFileInfoResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -3577,6 +3817,11 @@ func (client *Client) GetFileInfoWithOptions(fileId *string, headers *GetFileInf
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件详情
+//
+// @return GetFileInfoResponse
 func (client *Client) GetFileInfo(fileId *string) (_result *GetFileInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetFileInfoHeaders{}
@@ -3589,6 +3834,17 @@ func (client *Client) GetFileInfo(fileId *string) (_result *GetFileInfoResponse,
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件上传地址
+//
+// @param request - GetFileUploadUrlRequest
+//
+// @param headers - GetFileUploadUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFileUploadUrlResponse
 func (client *Client) GetFileUploadUrlWithOptions(request *GetFileUploadUrlRequest, headers *GetFileUploadUrlHeaders, runtime *util.RuntimeOptions) (_result *GetFileUploadUrlResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3652,6 +3908,13 @@ func (client *Client) GetFileUploadUrlWithOptions(request *GetFileUploadUrlReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件上传地址
+//
+// @param request - GetFileUploadUrlRequest
+//
+// @return GetFileUploadUrlResponse
 func (client *Client) GetFileUploadUrl(request *GetFileUploadUrlRequest) (_result *GetFileUploadUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetFileUploadUrlHeaders{}
@@ -3664,6 +3927,15 @@ func (client *Client) GetFileUploadUrl(request *GetFileUploadUrlRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取流程详细信息及操作记录
+//
+// @param headers - GetFlowDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFlowDetailResponse
 func (client *Client) GetFlowDetailWithOptions(taskId *string, headers *GetFlowDetailHeaders, runtime *util.RuntimeOptions) (_result *GetFlowDetailResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -3701,6 +3973,11 @@ func (client *Client) GetFlowDetailWithOptions(taskId *string, headers *GetFlowD
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取流程详细信息及操作记录
+//
+// @return GetFlowDetailResponse
 func (client *Client) GetFlowDetail(taskId *string) (_result *GetFlowDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetFlowDetailHeaders{}
@@ -3713,6 +3990,15 @@ func (client *Client) GetFlowDetail(taskId *string) (_result *GetFlowDetailRespo
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取流程任务的所有合同列表，收到签署完成消息后查询
+//
+// @param headers - GetFlowDocsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFlowDocsResponse
 func (client *Client) GetFlowDocsWithOptions(taskId *string, headers *GetFlowDocsHeaders, runtime *util.RuntimeOptions) (_result *GetFlowDocsResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -3750,6 +4036,11 @@ func (client *Client) GetFlowDocsWithOptions(taskId *string, headers *GetFlowDoc
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取流程任务的所有合同列表，收到签署完成消息后查询
+//
+// @return GetFlowDocsResponse
 func (client *Client) GetFlowDocs(taskId *string) (_result *GetFlowDocsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetFlowDocsHeaders{}
@@ -3762,6 +4053,15 @@ func (client *Client) GetFlowDocs(taskId *string) (_result *GetFlowDocsResponse,
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业的e签宝微应用当前状态
+//
+// @param headers - GetIsvStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetIsvStatusResponse
 func (client *Client) GetIsvStatusWithOptions(headers *GetIsvStatusHeaders, runtime *util.RuntimeOptions) (_result *GetIsvStatusResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -3799,6 +4099,11 @@ func (client *Client) GetIsvStatusWithOptions(headers *GetIsvStatusHeaders, runt
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业的e签宝微应用当前状态
+//
+// @return GetIsvStatusResponse
 func (client *Client) GetIsvStatus() (_result *GetIsvStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetIsvStatusHeaders{}
@@ -3811,6 +4116,15 @@ func (client *Client) GetIsvStatus() (_result *GetIsvStatusResponse, _err error)
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取流程签署的详细信息
+//
+// @param headers - GetSignDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSignDetailResponse
 func (client *Client) GetSignDetailWithOptions(taskId *string, headers *GetSignDetailHeaders, runtime *util.RuntimeOptions) (_result *GetSignDetailResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -3848,6 +4162,11 @@ func (client *Client) GetSignDetailWithOptions(taskId *string, headers *GetSignD
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取流程签署的详细信息
+//
+// @return GetSignDetailResponse
 func (client *Client) GetSignDetail(taskId *string) (_result *GetSignDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSignDetailHeaders{}
@@ -3860,6 +4179,15 @@ func (client *Client) GetSignDetail(taskId *string) (_result *GetSignDetailRespo
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询个人信息
+//
+// @param headers - GetUserInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserInfoResponse
 func (client *Client) GetUserInfoWithOptions(userId *string, headers *GetUserInfoHeaders, runtime *util.RuntimeOptions) (_result *GetUserInfoResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -3897,6 +4225,11 @@ func (client *Client) GetUserInfoWithOptions(userId *string, headers *GetUserInf
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询个人信息
+//
+// @return GetUserInfoResponse
 func (client *Client) GetUserInfo(userId *string) (_result *GetUserInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUserInfoHeaders{}
@@ -3909,6 +4242,17 @@ func (client *Client) GetUserInfo(userId *string) (_result *GetUserInfoResponse,
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取发起签署任务的地址
+//
+// @param request - ProcessStartRequest
+//
+// @param headers - ProcessStartHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ProcessStartResponse
 func (client *Client) ProcessStartWithOptions(request *ProcessStartRequest, headers *ProcessStartHeaders, runtime *util.RuntimeOptions) (_result *ProcessStartResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3984,6 +4328,13 @@ func (client *Client) ProcessStartWithOptions(request *ProcessStartRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取发起签署任务的地址
+//
+// @param request - ProcessStartRequest
+//
+// @return ProcessStartResponse
 func (client *Client) ProcessStart(request *ProcessStartRequest) (_result *ProcessStartResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ProcessStartHeaders{}
@@ -3996,6 +4347,17 @@ func (client *Client) ProcessStart(request *ProcessStartRequest) (_result *Proce
 	return _result, _err
 }
 
+// Summary:
+//
+// 套餐转售2（底价结算模式）
+//
+// @param request - ResaleOrderRequest
+//
+// @param headers - ResaleOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ResaleOrderResponse
 func (client *Client) ResaleOrderWithOptions(request *ResaleOrderRequest, headers *ResaleOrderHeaders, runtime *util.RuntimeOptions) (_result *ResaleOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4059,6 +4421,13 @@ func (client *Client) ResaleOrderWithOptions(request *ResaleOrderRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 套餐转售2（底价结算模式）
+//
+// @param request - ResaleOrderRequest
+//
+// @return ResaleOrderResponse
 func (client *Client) ResaleOrder(request *ResaleOrderRequest) (_result *ResaleOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ResaleOrderHeaders{}
@@ -4071,6 +4440,17 @@ func (client *Client) ResaleOrder(request *ResaleOrderRequest) (_result *ResaleO
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取跳转到个人实名的地址
+//
+// @param request - UsersRealnameRequest
+//
+// @param headers - UsersRealnameHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UsersRealnameResponse
 func (client *Client) UsersRealnameWithOptions(request *UsersRealnameRequest, headers *UsersRealnameHeaders, runtime *util.RuntimeOptions) (_result *UsersRealnameResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4122,6 +4502,13 @@ func (client *Client) UsersRealnameWithOptions(request *UsersRealnameRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取跳转到个人实名的地址
+//
+// @param request - UsersRealnameRequest
+//
+// @return UsersRealnameResponse
 func (client *Client) UsersRealname(request *UsersRealnameRequest) (_result *UsersRealnameResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UsersRealnameHeaders{}

@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package badge_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,17 +33,57 @@ func (s *CreateBadgeCodeUserInstanceHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type CreateBadgeCodeUserInstanceRequest struct {
-	AvailableTimes       []*CreateBadgeCodeUserInstanceRequestAvailableTimes `json:"availableTimes,omitempty" xml:"availableTimes,omitempty" type:"Repeated"`
-	CodeIdentity         *string                                             `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
-	CodeValue            *string                                             `json:"codeValue,omitempty" xml:"codeValue,omitempty"`
-	CodeValueType        *string                                             `json:"codeValueType,omitempty" xml:"codeValueType,omitempty"`
-	CorpId               *string                                             `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	ExtInfo              map[string]interface{}                              `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	GmtExpired           *string                                             `json:"gmtExpired,omitempty" xml:"gmtExpired,omitempty"`
-	RequestId            *string                                             `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Status               *string                                             `json:"status,omitempty" xml:"status,omitempty"`
-	UserCorpRelationType *string                                             `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
-	UserIdentity         *string                                             `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
+	// This parameter is required.
+	AvailableTimes []*CreateBadgeCodeUserInstanceRequestAvailableTimes `json:"availableTimes,omitempty" xml:"availableTimes,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TEST
+	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	CodeValue    *string `json:"codeValue,omitempty" xml:"codeValue,omitempty"`
+	// example:
+	//
+	// DING_STATIC
+	CodeValueType *string `json:"codeValueType,omitempty" xml:"codeValueType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// corpid1234
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// yyyy-MM-dd HH:mm:ss
+	GmtExpired *string `json:"gmtExpired,omitempty" xml:"gmtExpired,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202102021212
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// OPEN
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// INTERNAL_STAFF
+	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 86-xxxxxx
+	UserIdentity *string `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
 }
 
 func (s CreateBadgeCodeUserInstanceRequest) String() string {
@@ -114,7 +150,17 @@ func (s *CreateBadgeCodeUserInstanceRequest) SetUserIdentity(v string) *CreateBa
 }
 
 type CreateBadgeCodeUserInstanceRequestAvailableTimes struct {
-	GmtEnd   *string `json:"gmtEnd,omitempty" xml:"gmtEnd,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// yyyy-MM-dd HH:mm:ss
+	GmtEnd *string `json:"gmtEnd,omitempty" xml:"gmtEnd,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// yyyy-MM-dd HH:mm:ss
 	GmtStart *string `json:"gmtStart,omitempty" xml:"gmtStart,omitempty"`
 }
 
@@ -138,7 +184,12 @@ func (s *CreateBadgeCodeUserInstanceRequestAvailableTimes) SetGmtStart(v string)
 
 type CreateBadgeCodeUserInstanceResponseBody struct {
 	CodeDetailUrl *string `json:"codeDetailUrl,omitempty" xml:"codeDetailUrl,omitempty"`
-	CodeId        *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// codexxxxxx
+	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
 }
 
 func (s CreateBadgeCodeUserInstanceResponseBody) String() string {
@@ -212,10 +263,14 @@ func (s *CreateBadgeNotifyHeaders) SetXAcsDingtalkAccessToken(v string) *CreateB
 }
 
 type CreateBadgeNotifyRequest struct {
+	// This parameter is required.
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	MsgId   *string `json:"msgId,omitempty" xml:"msgId,omitempty"`
+	// This parameter is required.
+	MsgId *string `json:"msgId,omitempty" xml:"msgId,omitempty"`
+	// This parameter is required.
 	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
-	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateBadgeNotifyRequest) String() string {
@@ -247,6 +302,11 @@ func (s *CreateBadgeNotifyRequest) SetUserId(v string) *CreateBadgeNotifyRequest
 }
 
 type CreateBadgeNotifyResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUCCESS
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -316,7 +376,9 @@ func (s *DecodeBadgeCodeHeaders) SetXAcsDingtalkAccessToken(v string) *DecodeBad
 }
 
 type DecodeBadgeCodeRequest struct {
-	PayCode   *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
+	// This parameter is required.
+	PayCode *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
+	// This parameter is required.
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
 }
 
@@ -339,15 +401,50 @@ func (s *DecodeBadgeCodeRequest) SetRequestId(v string) *DecodeBadgeCodeRequest 
 }
 
 type DecodeBadgeCodeResponseBody struct {
-	AlipayCode           *string `json:"alipayCode,omitempty" xml:"alipayCode,omitempty"`
-	CodeId               *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
-	CodeIdentity         *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
-	CodeType             *string `json:"codeType,omitempty" xml:"codeType,omitempty"`
-	CorpId               *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	ExtInfo              *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	OutBizId             *string `json:"outBizId,omitempty" xml:"outBizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2512345678
+	AlipayCode *string `json:"alipayCode,omitempty" xml:"alipayCode,omitempty"`
+	// example:
+	//
+	// codeIdxxxxx
+	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
+	// example:
+	//
+	// DT_VISITOR
+	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PURE_IDENTIFY_CODE
+	CodeType *string `json:"codeType,omitempty" xml:"codeType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding1234
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// {"authRules":{}}
+	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// example:
+	//
+	// xxxx
+	OutBizId *string `json:"outBizId,omitempty" xml:"outBizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// INTERNAL_STAFF
 	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
-	UserId               *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// staffId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DecodeBadgeCodeResponseBody) String() string {
@@ -456,23 +553,98 @@ func (s *NotifyBadgeCodePayResultHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type NotifyBadgeCodePayResultRequest struct {
-	Amount               *string                                                `json:"amount,omitempty" xml:"amount,omitempty"`
-	ChargeAmount         *string                                                `json:"chargeAmount,omitempty" xml:"chargeAmount,omitempty"`
-	CorpId               *string                                                `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	ExtInfo              *string                                                `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	GmtTradeCreate       *string                                                `json:"gmtTradeCreate,omitempty" xml:"gmtTradeCreate,omitempty"`
-	GmtTradeFinish       *string                                                `json:"gmtTradeFinish,omitempty" xml:"gmtTradeFinish,omitempty"`
-	MerchantName         *string                                                `json:"merchantName,omitempty" xml:"merchantName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234.56
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.00, 没有传0.00
+	ChargeAmount *string `json:"chargeAmount,omitempty" xml:"chargeAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding1234
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// { "akey": "avalue“}
+	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-01-01 11:11:11
+	GmtTradeCreate *string `json:"gmtTradeCreate,omitempty" xml:"gmtTradeCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-01-01 11:11:11
+	GmtTradeFinish *string `json:"gmtTradeFinish,omitempty" xml:"gmtTradeFinish,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// XX公司食堂
+	MerchantName *string `json:"merchantName,omitempty" xml:"merchantName,omitempty"`
+	// This parameter is required.
 	PayChannelDetailList []*NotifyBadgeCodePayResultRequestPayChannelDetailList `json:"payChannelDetailList,omitempty" xml:"payChannelDetailList,omitempty" type:"Repeated"`
-	PayCode              *string                                                `json:"payCode,omitempty" xml:"payCode,omitempty"`
-	PromotionAmount      *string                                                `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
-	Remark               *string                                                `json:"remark,omitempty" xml:"remark,omitempty"`
-	Title                *string                                                `json:"title,omitempty" xml:"title,omitempty"`
-	TradeErrorCode       *string                                                `json:"tradeErrorCode,omitempty" xml:"tradeErrorCode,omitempty"`
-	TradeErrorMsg        *string                                                `json:"tradeErrorMsg,omitempty" xml:"tradeErrorMsg,omitempty"`
-	TradeNo              *string                                                `json:"tradeNo,omitempty" xml:"tradeNo,omitempty"`
-	TradeStatus          *string                                                `json:"tradeStatus,omitempty" xml:"tradeStatus,omitempty"`
-	UserId               *string                                                `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 261234567890
+	PayCode *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.23，没有传0.00
+	PromotionAmount *string `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 晚餐100.0元
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// BALANCE_NOT_ENOUGH
+	TradeErrorCode *string `json:"tradeErrorCode,omitempty" xml:"tradeErrorCode,omitempty"`
+	// example:
+	//
+	// 余额不足，请充值
+	TradeErrorMsg *string `json:"tradeErrorMsg,omitempty" xml:"tradeErrorMsg,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202101012345678
+	TradeNo *string `json:"tradeNo,omitempty" xml:"tradeNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUCCESS/FAIL
+	TradeStatus *string `json:"tradeStatus,omitempty" xml:"tradeStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// userId1234
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s NotifyBadgeCodePayResultRequest) String() string {
@@ -569,14 +741,46 @@ func (s *NotifyBadgeCodePayResultRequest) SetUserId(v string) *NotifyBadgeCodePa
 }
 
 type NotifyBadgeCodePayResultRequestPayChannelDetailList struct {
-	Amount             *string                                                                  `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.23
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
 	FundToolDetailList []*NotifyBadgeCodePayResultRequestPayChannelDetailListFundToolDetailList `json:"fundToolDetailList,omitempty" xml:"fundToolDetailList,omitempty" type:"Repeated"`
-	GmtCreate          *string                                                                  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtFinish          *string                                                                  `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
-	PayChannelName     *string                                                                  `json:"payChannelName,omitempty" xml:"payChannelName,omitempty"`
-	PayChannelOrderNo  *string                                                                  `json:"payChannelOrderNo,omitempty" xml:"payChannelOrderNo,omitempty"`
-	PayChannelType     *string                                                                  `json:"payChannelType,omitempty" xml:"payChannelType,omitempty"`
-	PromotionAmount    *string                                                                  `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
+	// example:
+	//
+	// 2021-01-01 11:11:11
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 2021-01-01 11:11:11
+	GmtFinish *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 卡余额
+	PayChannelName *string `json:"payChannelName,omitempty" xml:"payChannelName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20211234
+	PayChannelOrderNo *string `json:"payChannelOrderNo,omitempty" xml:"payChannelOrderNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY|BALANCE
+	PayChannelType *string `json:"payChannelType,omitempty" xml:"payChannelType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.00
+	PromotionAmount *string `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
 }
 
 func (s NotifyBadgeCodePayResultRequestPayChannelDetailList) String() string {
@@ -628,12 +832,40 @@ func (s *NotifyBadgeCodePayResultRequestPayChannelDetailList) SetPromotionAmount
 }
 
 type NotifyBadgeCodePayResultRequestPayChannelDetailListFundToolDetailList struct {
-	Amount            *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	ExtInfo           *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	FundToolName      *string `json:"fundToolName,omitempty" xml:"fundToolName,omitempty"`
-	GmtCreate         *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtFinish         *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
-	PromotionFundTool *bool   `json:"promotionFundTool,omitempty" xml:"promotionFundTool,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 金额
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// example:
+	//
+	// {"key":"value"}
+	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 优惠券
+	FundToolName *string `json:"fundToolName,omitempty" xml:"fundToolName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-01-01
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-01-01 11:11:11
+	GmtFinish *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	PromotionFundTool *bool `json:"promotionFundTool,omitempty" xml:"promotionFundTool,omitempty"`
 }
 
 func (s NotifyBadgeCodePayResultRequestPayChannelDetailListFundToolDetailList) String() string {
@@ -675,6 +907,11 @@ func (s *NotifyBadgeCodePayResultRequestPayChannelDetailListFundToolDetailList) 
 }
 
 type NotifyBadgeCodePayResultResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUCCESS
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -744,16 +981,62 @@ func (s *NotifyBadgeCodeRefundResultHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type NotifyBadgeCodeRefundResultRequest struct {
-	CorpId                *string                                                   `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	GmtRefund             *string                                                   `json:"gmtRefund,omitempty" xml:"gmtRefund,omitempty"`
-	PayChannelDetailList  []*NotifyBadgeCodeRefundResultRequestPayChannelDetailList `json:"payChannelDetailList,omitempty" xml:"payChannelDetailList,omitempty" type:"Repeated"`
-	PayCode               *string                                                   `json:"payCode,omitempty" xml:"payCode,omitempty"`
-	RefundAmount          *string                                                   `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
-	RefundOrderNo         *string                                                   `json:"refundOrderNo,omitempty" xml:"refundOrderNo,omitempty"`
-	RefundPromotionAmount *string                                                   `json:"refundPromotionAmount,omitempty" xml:"refundPromotionAmount,omitempty"`
-	Remark                *string                                                   `json:"remark,omitempty" xml:"remark,omitempty"`
-	TradeNo               *string                                                   `json:"tradeNo,omitempty" xml:"tradeNo,omitempty"`
-	UserId                *string                                                   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding1234
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-11-11 11:11:11
+	GmtRefund *string `json:"gmtRefund,omitempty" xml:"gmtRefund,omitempty"`
+	// This parameter is required.
+	PayChannelDetailList []*NotifyBadgeCodeRefundResultRequestPayChannelDetailList `json:"payChannelDetailList,omitempty" xml:"payChannelDetailList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// payCode
+	PayCode *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.00
+	RefundAmount *string `json:"refundAmount,omitempty" xml:"refundAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// refundOrderNo
+	RefundOrderNo *string `json:"refundOrderNo,omitempty" xml:"refundOrderNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.00
+	RefundPromotionAmount *string `json:"refundPromotionAmount,omitempty" xml:"refundPromotionAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 晚餐退款
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// tradeNo
+	TradeNo *string `json:"tradeNo,omitempty" xml:"tradeNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// userId
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s NotifyBadgeCodeRefundResultRequest) String() string {
@@ -815,13 +1098,44 @@ func (s *NotifyBadgeCodeRefundResultRequest) SetUserId(v string) *NotifyBadgeCod
 }
 
 type NotifyBadgeCodeRefundResultRequestPayChannelDetailList struct {
-	Amount                  *string                                                                     `json:"amount,omitempty" xml:"amount,omitempty"`
-	FundToolDetailList      []*NotifyBadgeCodeRefundResultRequestPayChannelDetailListFundToolDetailList `json:"fundToolDetailList,omitempty" xml:"fundToolDetailList,omitempty" type:"Repeated"`
-	PayChannelName          *string                                                                     `json:"payChannelName,omitempty" xml:"payChannelName,omitempty"`
-	PayChannelOrderNo       *string                                                                     `json:"payChannelOrderNo,omitempty" xml:"payChannelOrderNo,omitempty"`
-	PayChannelRefundOrderNo *string                                                                     `json:"payChannelRefundOrderNo,omitempty" xml:"payChannelRefundOrderNo,omitempty"`
-	PayChannelType          *string                                                                     `json:"payChannelType,omitempty" xml:"payChannelType,omitempty"`
-	PromotionAmount         *string                                                                     `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.00
+	Amount *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	// This parameter is required.
+	FundToolDetailList []*NotifyBadgeCodeRefundResultRequestPayChannelDetailListFundToolDetailList `json:"fundToolDetailList,omitempty" xml:"fundToolDetailList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	PayChannelName *string `json:"payChannelName,omitempty" xml:"payChannelName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20210531123456
+	PayChannelOrderNo *string `json:"payChannelOrderNo,omitempty" xml:"payChannelOrderNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021053112345678
+	PayChannelRefundOrderNo *string `json:"payChannelRefundOrderNo,omitempty" xml:"payChannelRefundOrderNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALIPAY
+	PayChannelType *string `json:"payChannelType,omitempty" xml:"payChannelType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.00
+	PromotionAmount *string `json:"promotionAmount,omitempty" xml:"promotionAmount,omitempty"`
 }
 
 func (s NotifyBadgeCodeRefundResultRequestPayChannelDetailList) String() string {
@@ -868,12 +1182,37 @@ func (s *NotifyBadgeCodeRefundResultRequestPayChannelDetailList) SetPromotionAmo
 }
 
 type NotifyBadgeCodeRefundResultRequestPayChannelDetailListFundToolDetailList struct {
-	Amount            *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	ExtInfo           *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	FundToolName      *string `json:"fundToolName,omitempty" xml:"fundToolName,omitempty"`
-	GmtCreate         *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtFinish         *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
-	PromotionFundTool *bool   `json:"promotionFundTool,omitempty" xml:"promotionFundTool,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.00
+	Amount  *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 余额
+	FundToolName *string `json:"fundToolName,omitempty" xml:"fundToolName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-05-31 11:11:11
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-05-31 11:11:11
+	GmtFinish *string `json:"gmtFinish,omitempty" xml:"gmtFinish,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	PromotionFundTool *bool `json:"promotionFundTool,omitempty" xml:"promotionFundTool,omitempty"`
 }
 
 func (s NotifyBadgeCodeRefundResultRequestPayChannelDetailListFundToolDetailList) String() string {
@@ -915,6 +1254,11 @@ func (s *NotifyBadgeCodeRefundResultRequestPayChannelDetailListFundToolDetailLis
 }
 
 type NotifyBadgeCodeRefundResultResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUCCESS
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -984,16 +1328,55 @@ func (s *NotifyBadgeCodeVerifyResultHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type NotifyBadgeCodeVerifyResultRequest struct {
-	CorpId               *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	PayCode              *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
-	Remark               *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// corpxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 261234567890
+	PayCode *string `json:"payCode,omitempty" xml:"payCode,omitempty"`
+	Remark  *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// INTERNAL_STAFF
 	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
-	UserIdentity         *string `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
-	VerifyEvent          *string `json:"verifyEvent,omitempty" xml:"verifyEvent,omitempty"`
-	VerifyLocation       *string `json:"verifyLocation,omitempty" xml:"verifyLocation,omitempty"`
-	VerifyNo             *string `json:"verifyNo,omitempty" xml:"verifyNo,omitempty"`
-	VerifyResult         *bool   `json:"verifyResult,omitempty" xml:"verifyResult,omitempty"`
-	VerifyTime           *string `json:"verifyTime,omitempty" xml:"verifyTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxxxx
+	UserIdentity *string `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
+	// example:
+	//
+	// 门禁验证
+	VerifyEvent *string `json:"verifyEvent,omitempty" xml:"verifyEvent,omitempty"`
+	// example:
+	//
+	// 1号食堂
+	VerifyLocation *string `json:"verifyLocation,omitempty" xml:"verifyLocation,omitempty"`
+	// example:
+	//
+	// 202112120003232
+	VerifyNo *string `json:"verifyNo,omitempty" xml:"verifyNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	VerifyResult *bool `json:"verifyResult,omitempty" xml:"verifyResult,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-01-01 12:12:12
+	VerifyTime *string `json:"verifyTime,omitempty" xml:"verifyTime,omitempty"`
 }
 
 func (s NotifyBadgeCodeVerifyResultRequest) String() string {
@@ -1055,6 +1438,11 @@ func (s *NotifyBadgeCodeVerifyResultRequest) SetVerifyTime(v string) *NotifyBadg
 }
 
 type NotifyBadgeCodeVerifyResultResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SUCCESS
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1124,10 +1512,25 @@ func (s *SaveBadgeCodeCorpInstanceHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type SaveBadgeCodeCorpInstanceRequest struct {
-	CodeIdentity *string            `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
-	CorpId       *string            `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	ExtInfo      map[string]*string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	Status       *string            `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// H_FISH_CANTEEN
+	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingxxxx
+	CorpId  *string            `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ExtInfo map[string]*string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// OPEN
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s SaveBadgeCodeCorpInstanceRequest) String() string {
@@ -1246,16 +1649,47 @@ func (s *UpdateBadgeCodeUserInstanceHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type UpdateBadgeCodeUserInstanceRequest struct {
-	AvailableTimes       []*UpdateBadgeCodeUserInstanceRequestAvailableTimes `json:"availableTimes,omitempty" xml:"availableTimes,omitempty" type:"Repeated"`
-	CodeId               *string                                             `json:"codeId,omitempty" xml:"codeId,omitempty"`
-	CodeIdentity         *string                                             `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
-	CodeValue            *string                                             `json:"codeValue,omitempty" xml:"codeValue,omitempty"`
-	CorpId               *string                                             `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	ExtInfo              map[string]interface{}                              `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	GmtExpired           *string                                             `json:"gmtExpired,omitempty" xml:"gmtExpired,omitempty"`
-	Status               *string                                             `json:"status,omitempty" xml:"status,omitempty"`
-	UserCorpRelationType *string                                             `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
-	UserIdentity         *string                                             `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
+	// This parameter is required.
+	AvailableTimes []*UpdateBadgeCodeUserInstanceRequestAvailableTimes `json:"availableTimes,omitempty" xml:"availableTimes,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ccodexxxxx
+	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TEST
+	CodeIdentity *string `json:"codeIdentity,omitempty" xml:"codeIdentity,omitempty"`
+	CodeValue    *string `json:"codeValue,omitempty" xml:"codeValue,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// corpIdxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	ExtInfo map[string]interface{} `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// This parameter is required.
+	GmtExpired *string `json:"gmtExpired,omitempty" xml:"gmtExpired,omitempty"`
+	// example:
+	//
+	// OPEN
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// INTERNAL_STAFF
+	UserCorpRelationType *string `json:"userCorpRelationType,omitempty" xml:"userCorpRelationType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 86-xxxxxx
+	UserIdentity *string `json:"userIdentity,omitempty" xml:"userIdentity,omitempty"`
 }
 
 func (s UpdateBadgeCodeUserInstanceRequest) String() string {
@@ -1317,7 +1751,17 @@ func (s *UpdateBadgeCodeUserInstanceRequest) SetUserIdentity(v string) *UpdateBa
 }
 
 type UpdateBadgeCodeUserInstanceRequestAvailableTimes struct {
-	GmtEnd   *string `json:"gmtEnd,omitempty" xml:"gmtEnd,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// yyyy-MM-dd HH:mm:ss
+	GmtEnd *string `json:"gmtEnd,omitempty" xml:"gmtEnd,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// yyyy-MM-dd HH:mm:ss
 	GmtStart *string `json:"gmtStart,omitempty" xml:"gmtStart,omitempty"`
 }
 
@@ -1340,6 +1784,9 @@ func (s *UpdateBadgeCodeUserInstanceRequestAvailableTimes) SetGmtStart(v string)
 }
 
 type UpdateBadgeCodeUserInstanceResponseBody struct {
+	// example:
+	//
+	// codexxxxxx
 	CodeId *string `json:"codeId,omitempty" xml:"codeId,omitempty"`
 }
 
@@ -1400,12 +1847,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -1414,6 +1861,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 创建钉工牌码用户实例
+//
+// @param request - CreateBadgeCodeUserInstanceRequest
+//
+// @param headers - CreateBadgeCodeUserInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateBadgeCodeUserInstanceResponse
 func (client *Client) CreateBadgeCodeUserInstanceWithOptions(request *CreateBadgeCodeUserInstanceRequest, headers *CreateBadgeCodeUserInstanceHeaders, runtime *util.RuntimeOptions) (_result *CreateBadgeCodeUserInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1497,6 +1955,13 @@ func (client *Client) CreateBadgeCodeUserInstanceWithOptions(request *CreateBadg
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建钉工牌码用户实例
+//
+// @param request - CreateBadgeCodeUserInstanceRequest
+//
+// @return CreateBadgeCodeUserInstanceResponse
 func (client *Client) CreateBadgeCodeUserInstance(request *CreateBadgeCodeUserInstanceRequest) (_result *CreateBadgeCodeUserInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateBadgeCodeUserInstanceHeaders{}
@@ -1509,6 +1974,17 @@ func (client *Client) CreateBadgeCodeUserInstance(request *CreateBadgeCodeUserIn
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建钉工牌通知消息
+//
+// @param request - CreateBadgeNotifyRequest
+//
+// @param headers - CreateBadgeNotifyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateBadgeNotifyResponse
 func (client *Client) CreateBadgeNotifyWithOptions(request *CreateBadgeNotifyRequest, headers *CreateBadgeNotifyHeaders, runtime *util.RuntimeOptions) (_result *CreateBadgeNotifyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1564,6 +2040,13 @@ func (client *Client) CreateBadgeNotifyWithOptions(request *CreateBadgeNotifyReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建钉工牌通知消息
+//
+// @param request - CreateBadgeNotifyRequest
+//
+// @return CreateBadgeNotifyResponse
 func (client *Client) CreateBadgeNotify(request *CreateBadgeNotifyRequest) (_result *CreateBadgeNotifyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateBadgeNotifyHeaders{}
@@ -1576,6 +2059,17 @@ func (client *Client) CreateBadgeNotify(request *CreateBadgeNotifyRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 钉工牌解码
+//
+// @param request - DecodeBadgeCodeRequest
+//
+// @param headers - DecodeBadgeCodeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DecodeBadgeCodeResponse
 func (client *Client) DecodeBadgeCodeWithOptions(request *DecodeBadgeCodeRequest, headers *DecodeBadgeCodeHeaders, runtime *util.RuntimeOptions) (_result *DecodeBadgeCodeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1623,6 +2117,13 @@ func (client *Client) DecodeBadgeCodeWithOptions(request *DecodeBadgeCodeRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 钉工牌解码
+//
+// @param request - DecodeBadgeCodeRequest
+//
+// @return DecodeBadgeCodeResponse
 func (client *Client) DecodeBadgeCode(request *DecodeBadgeCodeRequest) (_result *DecodeBadgeCodeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DecodeBadgeCodeHeaders{}
@@ -1635,6 +2136,17 @@ func (client *Client) DecodeBadgeCode(request *DecodeBadgeCodeRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 通知钉工牌码付款结果
+//
+// @param request - NotifyBadgeCodePayResultRequest
+//
+// @param headers - NotifyBadgeCodePayResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return NotifyBadgeCodePayResultResponse
 func (client *Client) NotifyBadgeCodePayResultWithOptions(request *NotifyBadgeCodePayResultRequest, headers *NotifyBadgeCodePayResultHeaders, runtime *util.RuntimeOptions) (_result *NotifyBadgeCodePayResultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1742,6 +2254,13 @@ func (client *Client) NotifyBadgeCodePayResultWithOptions(request *NotifyBadgeCo
 	return _result, _err
 }
 
+// Summary:
+//
+// 通知钉工牌码付款结果
+//
+// @param request - NotifyBadgeCodePayResultRequest
+//
+// @return NotifyBadgeCodePayResultResponse
 func (client *Client) NotifyBadgeCodePayResult(request *NotifyBadgeCodePayResultRequest) (_result *NotifyBadgeCodePayResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &NotifyBadgeCodePayResultHeaders{}
@@ -1754,6 +2273,17 @@ func (client *Client) NotifyBadgeCodePayResult(request *NotifyBadgeCodePayResult
 	return _result, _err
 }
 
+// Summary:
+//
+// 通知钉工牌码退款结果
+//
+// @param request - NotifyBadgeCodeRefundResultRequest
+//
+// @param headers - NotifyBadgeCodeRefundResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return NotifyBadgeCodeRefundResultResponse
 func (client *Client) NotifyBadgeCodeRefundResultWithOptions(request *NotifyBadgeCodeRefundResultRequest, headers *NotifyBadgeCodeRefundResultHeaders, runtime *util.RuntimeOptions) (_result *NotifyBadgeCodeRefundResultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1833,6 +2363,13 @@ func (client *Client) NotifyBadgeCodeRefundResultWithOptions(request *NotifyBadg
 	return _result, _err
 }
 
+// Summary:
+//
+// 通知钉工牌码退款结果
+//
+// @param request - NotifyBadgeCodeRefundResultRequest
+//
+// @return NotifyBadgeCodeRefundResultResponse
 func (client *Client) NotifyBadgeCodeRefundResult(request *NotifyBadgeCodeRefundResultRequest) (_result *NotifyBadgeCodeRefundResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &NotifyBadgeCodeRefundResultHeaders{}
@@ -1845,6 +2382,17 @@ func (client *Client) NotifyBadgeCodeRefundResult(request *NotifyBadgeCodeRefund
 	return _result, _err
 }
 
+// Summary:
+//
+// 通知钉工牌码验证结果
+//
+// @param request - NotifyBadgeCodeVerifyResultRequest
+//
+// @param headers - NotifyBadgeCodeVerifyResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return NotifyBadgeCodeVerifyResultResponse
 func (client *Client) NotifyBadgeCodeVerifyResultWithOptions(request *NotifyBadgeCodeVerifyResultRequest, headers *NotifyBadgeCodeVerifyResultHeaders, runtime *util.RuntimeOptions) (_result *NotifyBadgeCodeVerifyResultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1924,6 +2472,13 @@ func (client *Client) NotifyBadgeCodeVerifyResultWithOptions(request *NotifyBadg
 	return _result, _err
 }
 
+// Summary:
+//
+// 通知钉工牌码验证结果
+//
+// @param request - NotifyBadgeCodeVerifyResultRequest
+//
+// @return NotifyBadgeCodeVerifyResultResponse
 func (client *Client) NotifyBadgeCodeVerifyResult(request *NotifyBadgeCodeVerifyResultRequest) (_result *NotifyBadgeCodeVerifyResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &NotifyBadgeCodeVerifyResultHeaders{}
@@ -1936,6 +2491,17 @@ func (client *Client) NotifyBadgeCodeVerifyResult(request *NotifyBadgeCodeVerify
 	return _result, _err
 }
 
+// Summary:
+//
+// 保存钉工牌企业实例
+//
+// @param request - SaveBadgeCodeCorpInstanceRequest
+//
+// @param headers - SaveBadgeCodeCorpInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SaveBadgeCodeCorpInstanceResponse
 func (client *Client) SaveBadgeCodeCorpInstanceWithOptions(request *SaveBadgeCodeCorpInstanceRequest, headers *SaveBadgeCodeCorpInstanceHeaders, runtime *util.RuntimeOptions) (_result *SaveBadgeCodeCorpInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1991,6 +2557,13 @@ func (client *Client) SaveBadgeCodeCorpInstanceWithOptions(request *SaveBadgeCod
 	return _result, _err
 }
 
+// Summary:
+//
+// 保存钉工牌企业实例
+//
+// @param request - SaveBadgeCodeCorpInstanceRequest
+//
+// @return SaveBadgeCodeCorpInstanceResponse
 func (client *Client) SaveBadgeCodeCorpInstance(request *SaveBadgeCodeCorpInstanceRequest) (_result *SaveBadgeCodeCorpInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SaveBadgeCodeCorpInstanceHeaders{}
@@ -2003,6 +2576,17 @@ func (client *Client) SaveBadgeCodeCorpInstance(request *SaveBadgeCodeCorpInstan
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新钉工牌码用户实例
+//
+// @param request - UpdateBadgeCodeUserInstanceRequest
+//
+// @param headers - UpdateBadgeCodeUserInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateBadgeCodeUserInstanceResponse
 func (client *Client) UpdateBadgeCodeUserInstanceWithOptions(request *UpdateBadgeCodeUserInstanceRequest, headers *UpdateBadgeCodeUserInstanceHeaders, runtime *util.RuntimeOptions) (_result *UpdateBadgeCodeUserInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2082,6 +2666,13 @@ func (client *Client) UpdateBadgeCodeUserInstanceWithOptions(request *UpdateBadg
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新钉工牌码用户实例
+//
+// @param request - UpdateBadgeCodeUserInstanceRequest
+//
+// @return UpdateBadgeCodeUserInstanceResponse
 func (client *Client) UpdateBadgeCodeUserInstance(request *UpdateBadgeCodeUserInstanceRequest) (_result *UpdateBadgeCodeUserInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateBadgeCodeUserInstanceHeaders{}

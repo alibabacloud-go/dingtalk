@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package card_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -57,8 +53,13 @@ type AppendSpaceRequest struct {
 	CoFeedOpenSpaceModel  *AppendSpaceRequestCoFeedOpenSpaceModel  `json:"coFeedOpenSpaceModel,omitempty" xml:"coFeedOpenSpaceModel,omitempty" type:"Struct"`
 	ImGroupOpenSpaceModel *AppendSpaceRequestImGroupOpenSpaceModel `json:"imGroupOpenSpaceModel,omitempty" xml:"imGroupOpenSpaceModel,omitempty" type:"Struct"`
 	ImRobotOpenSpaceModel *AppendSpaceRequestImRobotOpenSpaceModel `json:"imRobotOpenSpaceModel,omitempty" xml:"imRobotOpenSpaceModel,omitempty" type:"Struct"`
-	OutTrackId            *string                                  `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	TopOpenSpaceModel     *AppendSpaceRequestTopOpenSpaceModel     `json:"topOpenSpaceModel,omitempty" xml:"topOpenSpaceModel,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx_yyyy_123456
+	OutTrackId        *string                              `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	TopOpenSpaceModel *AppendSpaceRequestTopOpenSpaceModel `json:"topOpenSpaceModel,omitempty" xml:"topOpenSpaceModel,omitempty" type:"Struct"`
 }
 
 func (s AppendSpaceRequest) String() string {
@@ -95,6 +96,9 @@ func (s *AppendSpaceRequest) SetTopOpenSpaceModel(v *AppendSpaceRequestTopOpenSp
 }
 
 type AppendSpaceRequestCoFeedOpenSpaceModel struct {
+	// example:
+	//
+	// xxxx卡片
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -147,6 +151,9 @@ func (s *AppendSpaceRequestImGroupOpenSpaceModel) SetSupportForward(v bool) *App
 }
 
 type AppendSpaceRequestImGroupOpenSpaceModelNotification struct {
+	// example:
+	//
+	// 你收到了一个卡片消息
 	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
 	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
 }
@@ -170,8 +177,17 @@ func (s *AppendSpaceRequestImGroupOpenSpaceModelNotification) SetNotificationOff
 }
 
 type AppendSpaceRequestImGroupOpenSpaceModelSearchSupport struct {
-	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
-	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// 卡片的具体描述
+	SearchDesc *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	// example:
+	//
+	// @lALPDgQ9q8hFhlHNAXzNAqI
+	SearchIcon *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// {"zh_CN":"待办","zh_TW":"待辦","en_US":"ToDo"}
 	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
 }
 
@@ -234,6 +250,9 @@ func (s *AppendSpaceRequestImRobotOpenSpaceModel) SetSupportForward(v bool) *App
 }
 
 type AppendSpaceRequestImRobotOpenSpaceModelNotification struct {
+	// example:
+	//
+	// 你收到了一个卡片消息
 	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
 	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
 }
@@ -257,8 +276,17 @@ func (s *AppendSpaceRequestImRobotOpenSpaceModelNotification) SetNotificationOff
 }
 
 type AppendSpaceRequestImRobotOpenSpaceModelSearchSupport struct {
-	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
-	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// 卡片的具体描述
+	SearchDesc *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	// example:
+	//
+	// @lALPDgQ9q8hFhlHNAXzNAqI
+	SearchIcon *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// {"zh_CN":"待办","zh_TW":"待辦","en_US":"ToDo"}
 	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
 }
 
@@ -286,6 +314,9 @@ func (s *AppendSpaceRequestImRobotOpenSpaceModelSearchSupport) SetSearchTypeName
 }
 
 type AppendSpaceRequestTopOpenSpaceModel struct {
+	// example:
+	//
+	// ONE_BOX
 	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 }
 
@@ -381,8 +412,13 @@ type AppendSpaceWithDelegateRequest struct {
 	CoFeedOpenSpaceModel  *AppendSpaceWithDelegateRequestCoFeedOpenSpaceModel  `json:"coFeedOpenSpaceModel,omitempty" xml:"coFeedOpenSpaceModel,omitempty" type:"Struct"`
 	ImGroupOpenSpaceModel *AppendSpaceWithDelegateRequestImGroupOpenSpaceModel `json:"imGroupOpenSpaceModel,omitempty" xml:"imGroupOpenSpaceModel,omitempty" type:"Struct"`
 	ImRobotOpenSpaceModel *AppendSpaceWithDelegateRequestImRobotOpenSpaceModel `json:"imRobotOpenSpaceModel,omitempty" xml:"imRobotOpenSpaceModel,omitempty" type:"Struct"`
-	OutTrackId            *string                                              `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	TopOpenSpaceModel     *AppendSpaceWithDelegateRequestTopOpenSpaceModel     `json:"topOpenSpaceModel,omitempty" xml:"topOpenSpaceModel,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx_yyyy_123456
+	OutTrackId        *string                                          `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	TopOpenSpaceModel *AppendSpaceWithDelegateRequestTopOpenSpaceModel `json:"topOpenSpaceModel,omitempty" xml:"topOpenSpaceModel,omitempty" type:"Struct"`
 }
 
 func (s AppendSpaceWithDelegateRequest) String() string {
@@ -419,6 +455,9 @@ func (s *AppendSpaceWithDelegateRequest) SetTopOpenSpaceModel(v *AppendSpaceWith
 }
 
 type AppendSpaceWithDelegateRequestCoFeedOpenSpaceModel struct {
+	// example:
+	//
+	// xxxx卡片
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -471,6 +510,9 @@ func (s *AppendSpaceWithDelegateRequestImGroupOpenSpaceModel) SetSupportForward(
 }
 
 type AppendSpaceWithDelegateRequestImGroupOpenSpaceModelNotification struct {
+	// example:
+	//
+	// 你收到了一个卡片消息
 	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
 	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
 }
@@ -494,8 +536,17 @@ func (s *AppendSpaceWithDelegateRequestImGroupOpenSpaceModelNotification) SetNot
 }
 
 type AppendSpaceWithDelegateRequestImGroupOpenSpaceModelSearchSupport struct {
-	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
-	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// 卡片的具体描述
+	SearchDesc *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	// example:
+	//
+	// @lALPDgQ9q8hFhlHNAXzNAqI
+	SearchIcon *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// {"zh_CN":"待办","zh_TW":"待辦","en_US":"ToDo"}
 	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
 }
 
@@ -558,6 +609,9 @@ func (s *AppendSpaceWithDelegateRequestImRobotOpenSpaceModel) SetSupportForward(
 }
 
 type AppendSpaceWithDelegateRequestImRobotOpenSpaceModelNotification struct {
+	// example:
+	//
+	// 你收到了一个卡片消息
 	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
 	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
 }
@@ -581,8 +635,17 @@ func (s *AppendSpaceWithDelegateRequestImRobotOpenSpaceModelNotification) SetNot
 }
 
 type AppendSpaceWithDelegateRequestImRobotOpenSpaceModelSearchSupport struct {
-	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
-	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// 卡片的具体描述
+	SearchDesc *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	// example:
+	//
+	// @lALPDgQ9q8hFhlHNAXzNAqI
+	SearchIcon *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// {"zh_CN":"待办","zh_TW":"待辦","en_US":"ToDo"}
 	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
 }
 
@@ -610,6 +673,9 @@ func (s *AppendSpaceWithDelegateRequestImRobotOpenSpaceModelSearchSupport) SetSe
 }
 
 type AppendSpaceWithDelegateRequestTopOpenSpaceModel struct {
+	// example:
+	//
+	// ONE_BOX
 	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 }
 
@@ -678,6 +744,224 @@ func (s *AppendSpaceWithDelegateResponse) SetBody(v *AppendSpaceWithDelegateResp
 	return s
 }
 
+type CloseTopCardHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CloseTopCardHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseTopCardHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CloseTopCardHeaders) SetCommonHeaders(v map[string]*string) *CloseTopCardHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CloseTopCardHeaders) SetXAcsDingtalkAccessToken(v string) *CloseTopCardHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CloseTopCardRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// example_open_conversation_id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// example_out_track_id
+	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+}
+
+func (s CloseTopCardRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseTopCardRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CloseTopCardRequest) SetOpenConversationId(v string) *CloseTopCardRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *CloseTopCardRequest) SetOutTrackId(v string) *CloseTopCardRequest {
+	s.OutTrackId = &v
+	return s
+}
+
+type CloseTopCardResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CloseTopCardResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseTopCardResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CloseTopCardResponseBody) SetResult(v bool) *CloseTopCardResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *CloseTopCardResponseBody) SetSuccess(v bool) *CloseTopCardResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CloseTopCardResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CloseTopCardResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CloseTopCardResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CloseTopCardResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CloseTopCardResponse) SetHeaders(v map[string]*string) *CloseTopCardResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CloseTopCardResponse) SetStatusCode(v int32) *CloseTopCardResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CloseTopCardResponse) SetBody(v *CloseTopCardResponseBody) *CloseTopCardResponse {
+	s.Body = v
+	return s
+}
+
+type CopyTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CopyTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CopyTemplateHeaders) SetCommonHeaders(v map[string]*string) *CopyTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CopyTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *CopyTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CopyTemplateRequest struct {
+	// This parameter is required.
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+}
+
+func (s CopyTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CopyTemplateRequest) SetTemplateId(v string) *CopyTemplateRequest {
+	s.TemplateId = &v
+	return s
+}
+
+type CopyTemplateResponseBody struct {
+	Data    *CopyTemplateResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                         `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CopyTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CopyTemplateResponseBody) SetData(v *CopyTemplateResponseBodyData) *CopyTemplateResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *CopyTemplateResponseBody) SetSuccess(v bool) *CopyTemplateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CopyTemplateResponseBodyData struct {
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+}
+
+func (s CopyTemplateResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyTemplateResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *CopyTemplateResponseBodyData) SetTemplateId(v string) *CopyTemplateResponseBodyData {
+	s.TemplateId = &v
+	return s
+}
+
+type CopyTemplateResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CopyTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CopyTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CopyTemplateResponse) SetHeaders(v map[string]*string) *CopyTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CopyTemplateResponse) SetStatusCode(v int32) *CopyTemplateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CopyTemplateResponse) SetBody(v *CopyTemplateResponseBody) *CopyTemplateResponse {
+	s.Body = v
+	return s
+}
+
 type CreateAndDeliverHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -702,9 +986,15 @@ func (s *CreateAndDeliverHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAn
 }
 
 type CreateAndDeliverRequest struct {
-	CallbackRouteKey         *string                                          `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
-	CallbackType             *string                                          `json:"callbackType,omitempty" xml:"callbackType,omitempty"`
-	CardData                 *CreateAndDeliverRequestCardData                 `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	CallbackRouteKey *string `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	// example:
+	//
+	// STREAM
+	CallbackType  *string   `json:"callbackType,omitempty" xml:"callbackType,omitempty"`
+	CardAtUserIds []*string `json:"cardAtUserIds,omitempty" xml:"cardAtUserIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CardData *CreateAndDeliverRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	// This parameter is required.
 	CardTemplateId           *string                                          `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
 	CoFeedOpenDeliverModel   *CreateAndDeliverRequestCoFeedOpenDeliverModel   `json:"coFeedOpenDeliverModel,omitempty" xml:"coFeedOpenDeliverModel,omitempty" type:"Struct"`
 	CoFeedOpenSpaceModel     *CreateAndDeliverRequestCoFeedOpenSpaceModel     `json:"coFeedOpenSpaceModel,omitempty" xml:"coFeedOpenSpaceModel,omitempty" type:"Struct"`
@@ -716,13 +1006,19 @@ type CreateAndDeliverRequest struct {
 	ImSingleOpenDeliverModel *CreateAndDeliverRequestImSingleOpenDeliverModel `json:"imSingleOpenDeliverModel,omitempty" xml:"imSingleOpenDeliverModel,omitempty" type:"Struct"`
 	ImSingleOpenSpaceModel   *CreateAndDeliverRequestImSingleOpenSpaceModel   `json:"imSingleOpenSpaceModel,omitempty" xml:"imSingleOpenSpaceModel,omitempty" type:"Struct"`
 	OpenDynamicDataConfig    *CreateAndDeliverRequestOpenDynamicDataConfig    `json:"openDynamicDataConfig,omitempty" xml:"openDynamicDataConfig,omitempty" type:"Struct"`
-	OpenSpaceId              *string                                          `json:"openSpaceId,omitempty" xml:"openSpaceId,omitempty"`
-	OutTrackId               *string                                          `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	PrivateData              map[string]*PrivateDataValue                     `json:"privateData,omitempty" xml:"privateData,omitempty"`
-	TopOpenDeliverModel      *CreateAndDeliverRequestTopOpenDeliverModel      `json:"topOpenDeliverModel,omitempty" xml:"topOpenDeliverModel,omitempty" type:"Struct"`
-	TopOpenSpaceModel        *CreateAndDeliverRequestTopOpenSpaceModel        `json:"topOpenSpaceModel,omitempty" xml:"topOpenSpaceModel,omitempty" type:"Struct"`
-	UserId                   *string                                          `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserIdType               *int32                                           `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dtv1.card//im_group.cidp4Gh*******VCQ==;im_robot.manager****67;im_robot.staff****89;co_feed.manager****67;one_box.cidp4Gh*******VCQ==;
+	OpenSpaceId *string `json:"openSpaceId,omitempty" xml:"openSpaceId,omitempty"`
+	// This parameter is required.
+	OutTrackId          *string                                     `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	PrivateData         map[string]*PrivateDataValue                `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	TopOpenDeliverModel *CreateAndDeliverRequestTopOpenDeliverModel `json:"topOpenDeliverModel,omitempty" xml:"topOpenDeliverModel,omitempty" type:"Struct"`
+	TopOpenSpaceModel   *CreateAndDeliverRequestTopOpenSpaceModel   `json:"topOpenSpaceModel,omitempty" xml:"topOpenSpaceModel,omitempty" type:"Struct"`
+	UserId              *string                                     `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserIdType          *int32                                      `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 }
 
 func (s CreateAndDeliverRequest) String() string {
@@ -740,6 +1036,11 @@ func (s *CreateAndDeliverRequest) SetCallbackRouteKey(v string) *CreateAndDelive
 
 func (s *CreateAndDeliverRequest) SetCallbackType(v string) *CreateAndDeliverRequest {
 	s.CallbackType = &v
+	return s
+}
+
+func (s *CreateAndDeliverRequest) SetCardAtUserIds(v []*string) *CreateAndDeliverRequest {
+	s.CardAtUserIds = v
 	return s
 }
 
@@ -856,8 +1157,14 @@ func (s *CreateAndDeliverRequestCardData) SetCardParamMap(v map[string]*string) 
 }
 
 type CreateAndDeliverRequestCoFeedOpenDeliverModel struct {
-	BizTag      *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
-	GmtTimeLine *int64  `json:"gmtTimeLine,omitempty" xml:"gmtTimeLine,omitempty"`
+	// example:
+	//
+	// xxx_biz_tag
+	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
+	// example:
+	//
+	// 1665473229000
+	GmtTimeLine *int64 `json:"gmtTimeLine,omitempty" xml:"gmtTimeLine,omitempty"`
 }
 
 func (s CreateAndDeliverRequestCoFeedOpenDeliverModel) String() string {
@@ -879,8 +1186,14 @@ func (s *CreateAndDeliverRequestCoFeedOpenDeliverModel) SetGmtTimeLine(v int64) 
 }
 
 type CreateAndDeliverRequestCoFeedOpenSpaceModel struct {
+	// example:
+	//
+	// coolAppCode123
 	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	Title       *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// xxxx卡片
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateAndDeliverRequestCoFeedOpenSpaceModel) String() string {
@@ -902,6 +1215,9 @@ func (s *CreateAndDeliverRequestCoFeedOpenSpaceModel) SetTitle(v string) *Create
 }
 
 type CreateAndDeliverRequestDocOpenDeliverModel struct {
+	// example:
+	//
+	// xxx_biz_tag
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -922,7 +1238,10 @@ type CreateAndDeliverRequestImGroupOpenDeliverModel struct {
 	AtUserIds  map[string]*string `json:"atUserIds,omitempty" xml:"atUserIds,omitempty"`
 	Extension  map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
 	Recipients []*string          `json:"recipients,omitempty" xml:"recipients,omitempty" type:"Repeated"`
-	RobotCode  *string            `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// example:
+	//
+	// dingg3xmqdkpaojuakm8
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s CreateAndDeliverRequestImGroupOpenDeliverModel) String() string {
@@ -989,6 +1308,9 @@ func (s *CreateAndDeliverRequestImGroupOpenSpaceModel) SetSupportForward(v bool)
 }
 
 type CreateAndDeliverRequestImGroupOpenSpaceModelNotification struct {
+	// example:
+	//
+	// 你收到了一个卡片消息
 	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
 	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
 }
@@ -1012,8 +1334,17 @@ func (s *CreateAndDeliverRequestImGroupOpenSpaceModelNotification) SetNotificati
 }
 
 type CreateAndDeliverRequestImGroupOpenSpaceModelSearchSupport struct {
-	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
-	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// 卡片的具体描述
+	SearchDesc *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	// example:
+	//
+	// @lALPDgQ9q8hFhlHNAXzNAqI
+	SearchIcon *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// {"zh_CN":"待办","zh_TW":"待辦","en_US":"ToDo"}
 	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
 }
 
@@ -1042,8 +1373,11 @@ func (s *CreateAndDeliverRequestImGroupOpenSpaceModelSearchSupport) SetSearchTyp
 
 type CreateAndDeliverRequestImRobotOpenDeliverModel struct {
 	Extension map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
-	RobotCode *string            `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	SpaceType *string            `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// example:
+	//
+	// dingg3xmqdkpaojuakm8
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 }
 
 func (s CreateAndDeliverRequestImRobotOpenDeliverModel) String() string {
@@ -1105,6 +1439,9 @@ func (s *CreateAndDeliverRequestImRobotOpenSpaceModel) SetSupportForward(v bool)
 }
 
 type CreateAndDeliverRequestImRobotOpenSpaceModelNotification struct {
+	// example:
+	//
+	// 你收到了一个卡片消息
 	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
 	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
 }
@@ -1128,8 +1465,17 @@ func (s *CreateAndDeliverRequestImRobotOpenSpaceModelNotification) SetNotificati
 }
 
 type CreateAndDeliverRequestImRobotOpenSpaceModelSearchSupport struct {
-	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
-	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// 卡片的具体描述
+	SearchDesc *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	// example:
+	//
+	// @lALPDgQ9q8hFhlHNAXzNAqI
+	SearchIcon *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// {"zh_CN":"待办","zh_TW":"待辦","en_US":"ToDo"}
 	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
 }
 
@@ -1215,6 +1561,9 @@ func (s *CreateAndDeliverRequestImSingleOpenSpaceModel) SetSupportForward(v bool
 }
 
 type CreateAndDeliverRequestImSingleOpenSpaceModelNotification struct {
+	// example:
+	//
+	// 你收到了一个卡片消息
 	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
 	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
 }
@@ -1238,8 +1587,17 @@ func (s *CreateAndDeliverRequestImSingleOpenSpaceModelNotification) SetNotificat
 }
 
 type CreateAndDeliverRequestImSingleOpenSpaceModelSearchSupport struct {
-	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
-	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// 卡片的具体描述
+	SearchDesc *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	// example:
+	//
+	// @lALPDgQ9q8hFhlHNAXzNAqI
+	SearchIcon *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// {"zh_CN":"待办","zh_TW":"待辦","en_US":"ToDo"}
 	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
 }
 
@@ -1342,6 +1700,9 @@ func (s *CreateAndDeliverRequestOpenDynamicDataConfigDynamicDataSourceConfigsPul
 }
 
 type CreateAndDeliverRequestTopOpenDeliverModel struct {
+	// example:
+	//
+	// 1665473229000
 	ExpiredTimeMillis *int64    `json:"expiredTimeMillis,omitempty" xml:"expiredTimeMillis,omitempty"`
 	Platforms         []*string `json:"platforms,omitempty" xml:"platforms,omitempty" type:"Repeated"`
 	UserIds           []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
@@ -1371,6 +1732,9 @@ func (s *CreateAndDeliverRequestTopOpenDeliverModel) SetUserIds(v []*string) *Cr
 }
 
 type CreateAndDeliverRequestTopOpenSpaceModel struct {
+	// example:
+	//
+	// ONE_BOX
 	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 }
 
@@ -1412,7 +1776,10 @@ func (s *CreateAndDeliverResponseBody) SetSuccess(v bool) *CreateAndDeliverRespo
 
 type CreateAndDeliverResponseBodyResult struct {
 	DeliverResults []*CreateAndDeliverResponseBodyResultDeliverResults `json:"deliverResults,omitempty" xml:"deliverResults,omitempty" type:"Repeated"`
-	OutTrackId     *string                                             `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	// example:
+	//
+	// out_track_id_xxx
+	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
 }
 
 func (s CreateAndDeliverResponseBodyResult) String() string {
@@ -1434,9 +1801,21 @@ func (s *CreateAndDeliverResponseBodyResult) SetOutTrackId(v string) *CreateAndD
 }
 
 type CreateAndDeliverResponseBodyResultDeliverResults struct {
+	// example:
+	//
+	// 4v+AzUEDuC0dKuO*********J0w8=
 	CarrierId *string `json:"carrierId,omitempty" xml:"carrierId,omitempty"`
-	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	SpaceId   *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// system error
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// cid1234abcd
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// IM_GROUP
 	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
@@ -1527,9 +1906,14 @@ func (s *CreateAndDeliverWithDelegateHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type CreateAndDeliverWithDelegateRequest struct {
-	CallbackRouteKey         *string                                                      `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
-	CallbackType             *string                                                      `json:"callbackType,omitempty" xml:"callbackType,omitempty"`
-	CardData                 *CreateAndDeliverWithDelegateRequestCardData                 `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	CallbackRouteKey *string `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	// example:
+	//
+	// STREAM
+	CallbackType *string `json:"callbackType,omitempty" xml:"callbackType,omitempty"`
+	// This parameter is required.
+	CardData *CreateAndDeliverWithDelegateRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	// This parameter is required.
 	CardTemplateId           *string                                                      `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
 	CoFeedOpenDeliverModel   *CreateAndDeliverWithDelegateRequestCoFeedOpenDeliverModel   `json:"coFeedOpenDeliverModel,omitempty" xml:"coFeedOpenDeliverModel,omitempty" type:"Struct"`
 	CoFeedOpenSpaceModel     *CreateAndDeliverWithDelegateRequestCoFeedOpenSpaceModel     `json:"coFeedOpenSpaceModel,omitempty" xml:"coFeedOpenSpaceModel,omitempty" type:"Struct"`
@@ -1541,13 +1925,19 @@ type CreateAndDeliverWithDelegateRequest struct {
 	ImSingleOpenDeliverModel *CreateAndDeliverWithDelegateRequestImSingleOpenDeliverModel `json:"imSingleOpenDeliverModel,omitempty" xml:"imSingleOpenDeliverModel,omitempty" type:"Struct"`
 	ImSingleOpenSpaceModel   *CreateAndDeliverWithDelegateRequestImSingleOpenSpaceModel   `json:"imSingleOpenSpaceModel,omitempty" xml:"imSingleOpenSpaceModel,omitempty" type:"Struct"`
 	OpenDynamicDataConfig    *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfig    `json:"openDynamicDataConfig,omitempty" xml:"openDynamicDataConfig,omitempty" type:"Struct"`
-	OpenSpaceId              *string                                                      `json:"openSpaceId,omitempty" xml:"openSpaceId,omitempty"`
-	OutTrackId               *string                                                      `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	PrivateData              map[string]*PrivateDataValue                                 `json:"privateData,omitempty" xml:"privateData,omitempty"`
-	TopOpenDeliverModel      *CreateAndDeliverWithDelegateRequestTopOpenDeliverModel      `json:"topOpenDeliverModel,omitempty" xml:"topOpenDeliverModel,omitempty" type:"Struct"`
-	TopOpenSpaceModel        *CreateAndDeliverWithDelegateRequestTopOpenSpaceModel        `json:"topOpenSpaceModel,omitempty" xml:"topOpenSpaceModel,omitempty" type:"Struct"`
-	UserId                   *string                                                      `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserIdType               *int32                                                       `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dtv1.card//im_group.cidp4Gh*******VCQ==;im_robot.manager****67;im_robot.staff****89;co_feed.manager****67;one_box.cidp4Gh*******VCQ==;
+	OpenSpaceId *string `json:"openSpaceId,omitempty" xml:"openSpaceId,omitempty"`
+	// This parameter is required.
+	OutTrackId          *string                                                 `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	PrivateData         map[string]*PrivateDataValue                            `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	TopOpenDeliverModel *CreateAndDeliverWithDelegateRequestTopOpenDeliverModel `json:"topOpenDeliverModel,omitempty" xml:"topOpenDeliverModel,omitempty" type:"Struct"`
+	TopOpenSpaceModel   *CreateAndDeliverWithDelegateRequestTopOpenSpaceModel   `json:"topOpenSpaceModel,omitempty" xml:"topOpenSpaceModel,omitempty" type:"Struct"`
+	UserId              *string                                                 `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserIdType          *int32                                                  `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 }
 
 func (s CreateAndDeliverWithDelegateRequest) String() string {
@@ -1681,8 +2071,14 @@ func (s *CreateAndDeliverWithDelegateRequestCardData) SetCardParamMap(v map[stri
 }
 
 type CreateAndDeliverWithDelegateRequestCoFeedOpenDeliverModel struct {
-	BizTag      *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
-	GmtTimeLine *int64  `json:"gmtTimeLine,omitempty" xml:"gmtTimeLine,omitempty"`
+	// example:
+	//
+	// xxx_biz_tag
+	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
+	// example:
+	//
+	// 1665473229000
+	GmtTimeLine *int64 `json:"gmtTimeLine,omitempty" xml:"gmtTimeLine,omitempty"`
 }
 
 func (s CreateAndDeliverWithDelegateRequestCoFeedOpenDeliverModel) String() string {
@@ -1704,8 +2100,14 @@ func (s *CreateAndDeliverWithDelegateRequestCoFeedOpenDeliverModel) SetGmtTimeLi
 }
 
 type CreateAndDeliverWithDelegateRequestCoFeedOpenSpaceModel struct {
+	// example:
+	//
+	// coolAppCode123
 	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	Title       *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// xxxx卡片
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateAndDeliverWithDelegateRequestCoFeedOpenSpaceModel) String() string {
@@ -1727,6 +2129,9 @@ func (s *CreateAndDeliverWithDelegateRequestCoFeedOpenSpaceModel) SetTitle(v str
 }
 
 type CreateAndDeliverWithDelegateRequestDocOpenDeliverModel struct {
+	// example:
+	//
+	// xxx_biz_tag
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -1747,7 +2152,10 @@ type CreateAndDeliverWithDelegateRequestImGroupOpenDeliverModel struct {
 	AtUserIds  map[string]*string `json:"atUserIds,omitempty" xml:"atUserIds,omitempty"`
 	Extension  map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
 	Recipients []*string          `json:"recipients,omitempty" xml:"recipients,omitempty" type:"Repeated"`
-	RobotCode  *string            `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// example:
+	//
+	// dingg3xmqdkpaojuakm8
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s CreateAndDeliverWithDelegateRequestImGroupOpenDeliverModel) String() string {
@@ -1814,6 +2222,9 @@ func (s *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModel) SetSupportFor
 }
 
 type CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelNotification struct {
+	// example:
+	//
+	// 你收到了一个卡片消息
 	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
 	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
 }
@@ -1837,8 +2248,17 @@ func (s *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelNotification) S
 }
 
 type CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelSearchSupport struct {
-	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
-	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// 卡片的具体描述
+	SearchDesc *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	// example:
+	//
+	// @lALPDgQ9q8hFhlHNAXzNAqI
+	SearchIcon *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// {"zh_CN":"待办","zh_TW":"待辦","en_US":"ToDo"}
 	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
 }
 
@@ -1867,8 +2287,11 @@ func (s *CreateAndDeliverWithDelegateRequestImGroupOpenSpaceModelSearchSupport) 
 
 type CreateAndDeliverWithDelegateRequestImRobotOpenDeliverModel struct {
 	Extension map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
-	RobotCode *string            `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	SpaceType *string            `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// example:
+	//
+	// dingg3xmqdkpaojuakm8
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 }
 
 func (s CreateAndDeliverWithDelegateRequestImRobotOpenDeliverModel) String() string {
@@ -1930,6 +2353,9 @@ func (s *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModel) SetSupportFor
 }
 
 type CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelNotification struct {
+	// example:
+	//
+	// 你收到了一个卡片消息
 	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
 	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
 }
@@ -1953,8 +2379,17 @@ func (s *CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelNotification) S
 }
 
 type CreateAndDeliverWithDelegateRequestImRobotOpenSpaceModelSearchSupport struct {
-	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
-	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// 卡片的具体描述
+	SearchDesc *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	// example:
+	//
+	// @lALPDgQ9q8hFhlHNAXzNAqI
+	SearchIcon *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// {"zh_CN":"待办","zh_TW":"待辦","en_US":"ToDo"}
 	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
 }
 
@@ -2040,6 +2475,9 @@ func (s *CreateAndDeliverWithDelegateRequestImSingleOpenSpaceModel) SetSupportFo
 }
 
 type CreateAndDeliverWithDelegateRequestImSingleOpenSpaceModelNotification struct {
+	// example:
+	//
+	// 你收到了一个卡片消息
 	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
 	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
 }
@@ -2063,8 +2501,17 @@ func (s *CreateAndDeliverWithDelegateRequestImSingleOpenSpaceModelNotification) 
 }
 
 type CreateAndDeliverWithDelegateRequestImSingleOpenSpaceModelSearchSupport struct {
-	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
-	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// 卡片的具体描述
+	SearchDesc *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	// example:
+	//
+	// @lALPDgQ9q8hFhlHNAXzNAqI
+	SearchIcon *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// {"zh_CN":"待办","zh_TW":"待辦","en_US":"ToDo"}
 	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
 }
 
@@ -2167,6 +2614,9 @@ func (s *CreateAndDeliverWithDelegateRequestOpenDynamicDataConfigDynamicDataSour
 }
 
 type CreateAndDeliverWithDelegateRequestTopOpenDeliverModel struct {
+	// example:
+	//
+	// 1665473229000
 	ExpiredTimeMillis *int64    `json:"expiredTimeMillis,omitempty" xml:"expiredTimeMillis,omitempty"`
 	Platforms         []*string `json:"platforms,omitempty" xml:"platforms,omitempty" type:"Repeated"`
 	UserIds           []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
@@ -2196,6 +2646,9 @@ func (s *CreateAndDeliverWithDelegateRequestTopOpenDeliverModel) SetUserIds(v []
 }
 
 type CreateAndDeliverWithDelegateRequestTopOpenSpaceModel struct {
+	// example:
+	//
+	// ONE_BOX
 	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 }
 
@@ -2237,7 +2690,10 @@ func (s *CreateAndDeliverWithDelegateResponseBody) SetSuccess(v bool) *CreateAnd
 
 type CreateAndDeliverWithDelegateResponseBodyResult struct {
 	DeliverResults []*CreateAndDeliverWithDelegateResponseBodyResultDeliverResults `json:"deliverResults,omitempty" xml:"deliverResults,omitempty" type:"Repeated"`
-	OutTrackId     *string                                                         `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	// example:
+	//
+	// out_track_id_xxx
+	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
 }
 
 func (s CreateAndDeliverWithDelegateResponseBodyResult) String() string {
@@ -2259,9 +2715,21 @@ func (s *CreateAndDeliverWithDelegateResponseBodyResult) SetOutTrackId(v string)
 }
 
 type CreateAndDeliverWithDelegateResponseBodyResultDeliverResults struct {
+	// example:
+	//
+	// 4v+AzUEDuC0dKuO*********J0w8=
 	CarrierId *string `json:"carrierId,omitempty" xml:"carrierId,omitempty"`
-	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	SpaceId   *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// system error
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// cid1234abcd
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// IM_GROUP
 	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
@@ -2352,20 +2820,41 @@ func (s *CreateCardHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCardHead
 }
 
 type CreateCardRequest struct {
-	CallbackRouteKey       *string                                  `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
-	CallbackType           *string                                  `json:"callbackType,omitempty" xml:"callbackType,omitempty"`
-	CardData               *CreateCardRequestCardData               `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	// example:
+	//
+	// routekey-7931
+	CallbackRouteKey *string `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	// example:
+	//
+	// STREAM
+	CallbackType  *string   `json:"callbackType,omitempty" xml:"callbackType,omitempty"`
+	CardAtUserIds []*string `json:"cardAtUserIds,omitempty" xml:"cardAtUserIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CardData *CreateCardRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// b0aa776f-79ac-4e13-f838-749aae913bc7
 	CardTemplateId         *string                                  `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
 	CoFeedOpenSpaceModel   *CreateCardRequestCoFeedOpenSpaceModel   `json:"coFeedOpenSpaceModel,omitempty" xml:"coFeedOpenSpaceModel,omitempty" type:"Struct"`
 	ImGroupOpenSpaceModel  *CreateCardRequestImGroupOpenSpaceModel  `json:"imGroupOpenSpaceModel,omitempty" xml:"imGroupOpenSpaceModel,omitempty" type:"Struct"`
 	ImRobotOpenSpaceModel  *CreateCardRequestImRobotOpenSpaceModel  `json:"imRobotOpenSpaceModel,omitempty" xml:"imRobotOpenSpaceModel,omitempty" type:"Struct"`
 	ImSingleOpenSpaceModel *CreateCardRequestImSingleOpenSpaceModel `json:"imSingleOpenSpaceModel,omitempty" xml:"imSingleOpenSpaceModel,omitempty" type:"Struct"`
 	OpenDynamicDataConfig  *CreateCardRequestOpenDynamicDataConfig  `json:"openDynamicDataConfig,omitempty" xml:"openDynamicDataConfig,omitempty" type:"Struct"`
-	OutTrackId             *string                                  `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	PrivateData            map[string]*PrivateDataValue             `json:"privateData,omitempty" xml:"privateData,omitempty"`
-	TopOpenSpaceModel      *CreateCardRequestTopOpenSpaceModel      `json:"topOpenSpaceModel,omitempty" xml:"topOpenSpaceModel,omitempty" type:"Struct"`
-	UserId                 *string                                  `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserIdType             *int32                                   `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// mycard-07921
+	OutTrackId        *string                             `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	PrivateData       map[string]*PrivateDataValue        `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	TopOpenSpaceModel *CreateCardRequestTopOpenSpaceModel `json:"topOpenSpaceModel,omitempty" xml:"topOpenSpaceModel,omitempty" type:"Struct"`
+	// example:
+	//
+	// manager1234
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserIdType *int32  `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 }
 
 func (s CreateCardRequest) String() string {
@@ -2383,6 +2872,11 @@ func (s *CreateCardRequest) SetCallbackRouteKey(v string) *CreateCardRequest {
 
 func (s *CreateCardRequest) SetCallbackType(v string) *CreateCardRequest {
 	s.CallbackType = &v
+	return s
+}
+
+func (s *CreateCardRequest) SetCardAtUserIds(v []*string) *CreateCardRequest {
+	s.CardAtUserIds = v
 	return s
 }
 
@@ -2516,6 +3010,9 @@ func (s *CreateCardRequestImGroupOpenSpaceModel) SetSupportForward(v bool) *Crea
 }
 
 type CreateCardRequestImGroupOpenSpaceModelNotification struct {
+	// example:
+	//
+	// 你收到1条新消息
 	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
 	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
 }
@@ -2539,8 +3036,14 @@ func (s *CreateCardRequestImGroupOpenSpaceModelNotification) SetNotificationOff(
 }
 
 type CreateCardRequestImGroupOpenSpaceModelSearchSupport struct {
-	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
-	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	SearchDesc *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	// example:
+	//
+	// @lALPDgQ9q8hFhlHNAXzNAqI
+	SearchIcon *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// {"zh_CN":"待办","zh_TW":"待辦","en_US":"ToDo"}
 	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
 }
 
@@ -2626,8 +3129,14 @@ func (s *CreateCardRequestImRobotOpenSpaceModelNotification) SetNotificationOff(
 }
 
 type CreateCardRequestImRobotOpenSpaceModelSearchSupport struct {
-	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
-	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	SearchDesc *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	// example:
+	//
+	// @lALPDgQ9q8hFhlHNAXzNAqI
+	SearchIcon *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// {"zh_CN":"待办","zh_TW":"待辦","en_US":"ToDo"}
 	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
 }
 
@@ -2713,8 +3222,14 @@ func (s *CreateCardRequestImSingleOpenSpaceModelNotification) SetNotificationOff
 }
 
 type CreateCardRequestImSingleOpenSpaceModelSearchSupport struct {
-	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
-	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	SearchDesc *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	// example:
+	//
+	// @lALPDgQ9q8hFhlHNAXzNAqI
+	SearchIcon *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// {"zh_CN":"待办","zh_TW":"待辦","en_US":"ToDo"}
 	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
 }
 
@@ -2759,7 +3274,10 @@ func (s *CreateCardRequestOpenDynamicDataConfig) SetDynamicDataSourceConfigs(v [
 }
 
 type CreateCardRequestOpenDynamicDataConfigDynamicDataSourceConfigs struct {
-	ConstParams         map[string]*string                                                        `json:"constParams,omitempty" xml:"constParams,omitempty"`
+	ConstParams map[string]*string `json:"constParams,omitempty" xml:"constParams,omitempty"`
+	// example:
+	//
+	// ds-01
 	DynamicDataSourceId *string                                                                   `json:"dynamicDataSourceId,omitempty" xml:"dynamicDataSourceId,omitempty"`
 	PullConfig          *CreateCardRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig `json:"pullConfig,omitempty" xml:"pullConfig,omitempty" type:"Struct"`
 }
@@ -2788,9 +3306,15 @@ func (s *CreateCardRequestOpenDynamicDataConfigDynamicDataSourceConfigs) SetPull
 }
 
 type CreateCardRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig struct {
-	Interval     *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
+	Interval *int32 `json:"interval,omitempty" xml:"interval,omitempty"`
+	// example:
+	//
+	// INTERVAL
 	PullStrategy *string `json:"pullStrategy,omitempty" xml:"pullStrategy,omitempty"`
-	TimeUnit     *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	// example:
+	//
+	// SECONDS
+	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
 }
 
 func (s CreateCardRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig) String() string {
@@ -2909,20 +3433,40 @@ func (s *CreateCardWithDelegateHeaders) SetXAcsDingtalkAccessToken(v string) *Cr
 }
 
 type CreateCardWithDelegateRequest struct {
-	CallbackRouteKey       *string                                              `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
-	CallbackType           *string                                              `json:"callbackType,omitempty" xml:"callbackType,omitempty"`
-	CardData               *CreateCardWithDelegateRequestCardData               `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	// example:
+	//
+	// routekey-7931
+	CallbackRouteKey *string `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	// example:
+	//
+	// STREAM
+	CallbackType *string `json:"callbackType,omitempty" xml:"callbackType,omitempty"`
+	// This parameter is required.
+	CardData *CreateCardWithDelegateRequestCardData `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// b0aa776f-79ac-4e13-f838-749aae913bc7
 	CardTemplateId         *string                                              `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
 	CoFeedOpenSpaceModel   *CreateCardWithDelegateRequestCoFeedOpenSpaceModel   `json:"coFeedOpenSpaceModel,omitempty" xml:"coFeedOpenSpaceModel,omitempty" type:"Struct"`
 	ImGroupOpenSpaceModel  *CreateCardWithDelegateRequestImGroupOpenSpaceModel  `json:"imGroupOpenSpaceModel,omitempty" xml:"imGroupOpenSpaceModel,omitempty" type:"Struct"`
 	ImRobotOpenSpaceModel  *CreateCardWithDelegateRequestImRobotOpenSpaceModel  `json:"imRobotOpenSpaceModel,omitempty" xml:"imRobotOpenSpaceModel,omitempty" type:"Struct"`
 	ImSingleOpenSpaceModel *CreateCardWithDelegateRequestImSingleOpenSpaceModel `json:"imSingleOpenSpaceModel,omitempty" xml:"imSingleOpenSpaceModel,omitempty" type:"Struct"`
 	OpenDynamicDataConfig  *CreateCardWithDelegateRequestOpenDynamicDataConfig  `json:"openDynamicDataConfig,omitempty" xml:"openDynamicDataConfig,omitempty" type:"Struct"`
-	OutTrackId             *string                                              `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	PrivateData            map[string]*PrivateDataValue                         `json:"privateData,omitempty" xml:"privateData,omitempty"`
-	TopOpenSpaceModel      *CreateCardWithDelegateRequestTopOpenSpaceModel      `json:"topOpenSpaceModel,omitempty" xml:"topOpenSpaceModel,omitempty" type:"Struct"`
-	UserId                 *string                                              `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserIdType             *int32                                               `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// mycard-07921
+	OutTrackId        *string                                         `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	PrivateData       map[string]*PrivateDataValue                    `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	TopOpenSpaceModel *CreateCardWithDelegateRequestTopOpenSpaceModel `json:"topOpenSpaceModel,omitempty" xml:"topOpenSpaceModel,omitempty" type:"Struct"`
+	// example:
+	//
+	// manager1234
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserIdType *int32  `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 }
 
 func (s CreateCardWithDelegateRequest) String() string {
@@ -3073,6 +3617,9 @@ func (s *CreateCardWithDelegateRequestImGroupOpenSpaceModel) SetSupportForward(v
 }
 
 type CreateCardWithDelegateRequestImGroupOpenSpaceModelNotification struct {
+	// example:
+	//
+	// 你收到1条新消息
 	AlertContent    *string `json:"alertContent,omitempty" xml:"alertContent,omitempty"`
 	NotificationOff *bool   `json:"notificationOff,omitempty" xml:"notificationOff,omitempty"`
 }
@@ -3096,8 +3643,14 @@ func (s *CreateCardWithDelegateRequestImGroupOpenSpaceModelNotification) SetNoti
 }
 
 type CreateCardWithDelegateRequestImGroupOpenSpaceModelSearchSupport struct {
-	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
-	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	SearchDesc *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	// example:
+	//
+	// @lALPDgQ9q8hFhlHNAXzNAqI
+	SearchIcon *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// {"zh_CN":"待办","zh_TW":"待辦","en_US":"ToDo"}
 	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
 }
 
@@ -3183,8 +3736,14 @@ func (s *CreateCardWithDelegateRequestImRobotOpenSpaceModelNotification) SetNoti
 }
 
 type CreateCardWithDelegateRequestImRobotOpenSpaceModelSearchSupport struct {
-	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
-	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	SearchDesc *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	// example:
+	//
+	// @lALPDgQ9q8hFhlHNAXzNAqI
+	SearchIcon *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// {"zh_CN":"待办","zh_TW":"待辦","en_US":"ToDo"}
 	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
 }
 
@@ -3270,8 +3829,14 @@ func (s *CreateCardWithDelegateRequestImSingleOpenSpaceModelNotification) SetNot
 }
 
 type CreateCardWithDelegateRequestImSingleOpenSpaceModelSearchSupport struct {
-	SearchDesc     *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
-	SearchIcon     *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	SearchDesc *string `json:"searchDesc,omitempty" xml:"searchDesc,omitempty"`
+	// example:
+	//
+	// @lALPDgQ9q8hFhlHNAXzNAqI
+	SearchIcon *string `json:"searchIcon,omitempty" xml:"searchIcon,omitempty"`
+	// example:
+	//
+	// {"zh_CN":"待办","zh_TW":"待辦","en_US":"ToDo"}
 	SearchTypeName *string `json:"searchTypeName,omitempty" xml:"searchTypeName,omitempty"`
 }
 
@@ -3316,7 +3881,10 @@ func (s *CreateCardWithDelegateRequestOpenDynamicDataConfig) SetDynamicDataSourc
 }
 
 type CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigs struct {
-	ConstParams         map[string]*string                                                                    `json:"constParams,omitempty" xml:"constParams,omitempty"`
+	ConstParams map[string]*string `json:"constParams,omitempty" xml:"constParams,omitempty"`
+	// example:
+	//
+	// ds-01
 	DynamicDataSourceId *string                                                                               `json:"dynamicDataSourceId,omitempty" xml:"dynamicDataSourceId,omitempty"`
 	PullConfig          *CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig `json:"pullConfig,omitempty" xml:"pullConfig,omitempty" type:"Struct"`
 }
@@ -3345,9 +3913,15 @@ func (s *CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConf
 }
 
 type CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig struct {
-	Interval     *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
+	Interval *int32 `json:"interval,omitempty" xml:"interval,omitempty"`
+	// example:
+	//
+	// INTERVAL
 	PullStrategy *string `json:"pullStrategy,omitempty" xml:"pullStrategy,omitempty"`
-	TimeUnit     *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	// example:
+	//
+	// SECONDS
+	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
 }
 
 func (s CreateCardWithDelegateRequestOpenDynamicDataConfigDynamicDataSourceConfigsPullConfig) String() string {
@@ -3442,6 +4016,228 @@ func (s *CreateCardWithDelegateResponse) SetBody(v *CreateCardWithDelegateRespon
 	return s
 }
 
+type CreateTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTemplateHeaders) SetCommonHeaders(v map[string]*string) *CreateTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateTemplateRequest struct {
+	AppId     *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// This parameter is required.
+	ExtendType *string `json:"extendType,omitempty" xml:"extendType,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s CreateTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTemplateRequest) SetAppId(v string) *CreateTemplateRequest {
+	s.AppId = &v
+	return s
+}
+
+func (s *CreateTemplateRequest) SetCreatorId(v string) *CreateTemplateRequest {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *CreateTemplateRequest) SetExtendType(v string) *CreateTemplateRequest {
+	s.ExtendType = &v
+	return s
+}
+
+func (s *CreateTemplateRequest) SetName(v string) *CreateTemplateRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateTemplateRequest) SetType(v string) *CreateTemplateRequest {
+	s.Type = &v
+	return s
+}
+
+type CreateTemplateResponseBody struct {
+	Data    *CreateTemplateResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTemplateResponseBody) SetData(v *CreateTemplateResponseBodyData) *CreateTemplateResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *CreateTemplateResponseBody) SetSuccess(v bool) *CreateTemplateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateTemplateResponseBodyData struct {
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+}
+
+func (s CreateTemplateResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTemplateResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTemplateResponseBodyData) SetTemplateId(v string) *CreateTemplateResponseBodyData {
+	s.TemplateId = &v
+	return s
+}
+
+type CreateTemplateResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTemplateResponse) SetHeaders(v map[string]*string) *CreateTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateTemplateResponse) SetStatusCode(v int32) *CreateTemplateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateTemplateResponse) SetBody(v *CreateTemplateResponseBody) *CreateTemplateResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteTemplateHeaders) SetCommonHeaders(v map[string]*string) *DeleteTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteTemplateRequest struct {
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+}
+
+func (s DeleteTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteTemplateRequest) SetTemplateId(v string) *DeleteTemplateRequest {
+	s.TemplateId = &v
+	return s
+}
+
+type DeleteTemplateResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteTemplateResponseBody) SetSuccess(v bool) *DeleteTemplateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteTemplateResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteTemplateResponse) SetHeaders(v map[string]*string) *DeleteTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteTemplateResponse) SetStatusCode(v int32) *DeleteTemplateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteTemplateResponse) SetBody(v *DeleteTemplateResponseBody) *DeleteTemplateResponse {
+	s.Body = v
+	return s
+}
+
 type DeliverCardHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3471,10 +4267,23 @@ type DeliverCardRequest struct {
 	ImGroupOpenDeliverModel  *DeliverCardRequestImGroupOpenDeliverModel  `json:"imGroupOpenDeliverModel,omitempty" xml:"imGroupOpenDeliverModel,omitempty" type:"Struct"`
 	ImRobotOpenDeliverModel  *DeliverCardRequestImRobotOpenDeliverModel  `json:"imRobotOpenDeliverModel,omitempty" xml:"imRobotOpenDeliverModel,omitempty" type:"Struct"`
 	ImSingleOpenDeliverModel *DeliverCardRequestImSingleOpenDeliverModel `json:"imSingleOpenDeliverModel,omitempty" xml:"imSingleOpenDeliverModel,omitempty" type:"Struct"`
-	OpenSpaceId              *string                                     `json:"openSpaceId,omitempty" xml:"openSpaceId,omitempty"`
-	OutTrackId               *string                                     `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	TopOpenDeliverModel      *DeliverCardRequestTopOpenDeliverModel      `json:"topOpenDeliverModel,omitempty" xml:"topOpenDeliverModel,omitempty" type:"Struct"`
-	UserIdType               *int32                                      `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dtv1.card//im_group.cidp4Gh*******VCQ==;im_robot.manager****67;co_feed.manager****67;one_box.cidp4Gh*******VCQ==
+	OpenSpaceId *string `json:"openSpaceId,omitempty" xml:"openSpaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// out_track_id_123456
+	OutTrackId          *string                                `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	TopOpenDeliverModel *DeliverCardRequestTopOpenDeliverModel `json:"topOpenDeliverModel,omitempty" xml:"topOpenDeliverModel,omitempty" type:"Struct"`
+	// example:
+	//
+	// 1
+	UserIdType *int32 `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 }
 
 func (s DeliverCardRequest) String() string {
@@ -3531,8 +4340,14 @@ func (s *DeliverCardRequest) SetUserIdType(v int32) *DeliverCardRequest {
 }
 
 type DeliverCardRequestCoFeedOpenDeliverModel struct {
-	BizTag      *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
-	GmtTimeLine *int64  `json:"gmtTimeLine,omitempty" xml:"gmtTimeLine,omitempty"`
+	// example:
+	//
+	// xxx_biz_tag
+	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
+	// example:
+	//
+	// 1665473229000
+	GmtTimeLine *int64 `json:"gmtTimeLine,omitempty" xml:"gmtTimeLine,omitempty"`
 }
 
 func (s DeliverCardRequestCoFeedOpenDeliverModel) String() string {
@@ -3554,6 +4369,9 @@ func (s *DeliverCardRequestCoFeedOpenDeliverModel) SetGmtTimeLine(v int64) *Deli
 }
 
 type DeliverCardRequestDocOpenDeliverModel struct {
+	// example:
+	//
+	// xxx_biz_tag
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -3574,7 +4392,10 @@ type DeliverCardRequestImGroupOpenDeliverModel struct {
 	AtUserIds  map[string]*string `json:"atUserIds,omitempty" xml:"atUserIds,omitempty"`
 	Extension  map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
 	Recipients []*string          `json:"recipients,omitempty" xml:"recipients,omitempty" type:"Repeated"`
-	RobotCode  *string            `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// example:
+	//
+	// dingg3xmqdkpaojuakm8
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s DeliverCardRequestImGroupOpenDeliverModel) String() string {
@@ -3607,8 +4428,14 @@ func (s *DeliverCardRequestImGroupOpenDeliverModel) SetRobotCode(v string) *Deli
 
 type DeliverCardRequestImRobotOpenDeliverModel struct {
 	Extension map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
-	RobotCode *string            `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	SpaceType *string            `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// example:
+	//
+	// dingg3xmqdkpaojuakm8
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// example:
+	//
+	// IM_ROBOT
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 }
 
 func (s DeliverCardRequestImRobotOpenDeliverModel) String() string {
@@ -3658,6 +4485,9 @@ func (s *DeliverCardRequestImSingleOpenDeliverModel) SetExtension(v map[string]*
 }
 
 type DeliverCardRequestTopOpenDeliverModel struct {
+	// example:
+	//
+	// 1665473229000
 	ExpiredTimeMillis *int64    `json:"expiredTimeMillis,omitempty" xml:"expiredTimeMillis,omitempty"`
 	Platforms         []*string `json:"platforms,omitempty" xml:"platforms,omitempty" type:"Repeated"`
 	UserIds           []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
@@ -3710,9 +4540,21 @@ func (s *DeliverCardResponseBody) SetSuccess(v bool) *DeliverCardResponseBody {
 }
 
 type DeliverCardResponseBodyResult struct {
+	// example:
+	//
+	// 4v+AzUEDuC0dKuO*********J0w8=
 	CarrierId *string `json:"carrierId,omitempty" xml:"carrierId,omitempty"`
-	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	SpaceId   *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// system error
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// cid1234abcd
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// IM_GROUP
 	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
@@ -3808,10 +4650,23 @@ type DeliverCardWithDelegateRequest struct {
 	ImGroupOpenDeliverModel  *DeliverCardWithDelegateRequestImGroupOpenDeliverModel  `json:"imGroupOpenDeliverModel,omitempty" xml:"imGroupOpenDeliverModel,omitempty" type:"Struct"`
 	ImRobotOpenDeliverModel  *DeliverCardWithDelegateRequestImRobotOpenDeliverModel  `json:"imRobotOpenDeliverModel,omitempty" xml:"imRobotOpenDeliverModel,omitempty" type:"Struct"`
 	ImSingleOpenDeliverModel *DeliverCardWithDelegateRequestImSingleOpenDeliverModel `json:"imSingleOpenDeliverModel,omitempty" xml:"imSingleOpenDeliverModel,omitempty" type:"Struct"`
-	OpenSpaceId              *string                                                 `json:"openSpaceId,omitempty" xml:"openSpaceId,omitempty"`
-	OutTrackId               *string                                                 `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	TopOpenDeliverModel      *DeliverCardWithDelegateRequestTopOpenDeliverModel      `json:"topOpenDeliverModel,omitempty" xml:"topOpenDeliverModel,omitempty" type:"Struct"`
-	UserIdType               *int32                                                  `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dtv1.card//im_group.cidp4Gh*******VCQ==;im_robot.manager****67;co_feed.manager****67;one_box.cidp4Gh*******VCQ==
+	OpenSpaceId *string `json:"openSpaceId,omitempty" xml:"openSpaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// out_track_id_123456
+	OutTrackId          *string                                            `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	TopOpenDeliverModel *DeliverCardWithDelegateRequestTopOpenDeliverModel `json:"topOpenDeliverModel,omitempty" xml:"topOpenDeliverModel,omitempty" type:"Struct"`
+	// example:
+	//
+	// 1
+	UserIdType *int32 `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 }
 
 func (s DeliverCardWithDelegateRequest) String() string {
@@ -3868,8 +4723,14 @@ func (s *DeliverCardWithDelegateRequest) SetUserIdType(v int32) *DeliverCardWith
 }
 
 type DeliverCardWithDelegateRequestCoFeedOpenDeliverModel struct {
-	BizTag      *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
-	GmtTimeLine *int64  `json:"gmtTimeLine,omitempty" xml:"gmtTimeLine,omitempty"`
+	// example:
+	//
+	// xxx_biz_tag
+	BizTag *string `json:"bizTag,omitempty" xml:"bizTag,omitempty"`
+	// example:
+	//
+	// 1665473229000
+	GmtTimeLine *int64 `json:"gmtTimeLine,omitempty" xml:"gmtTimeLine,omitempty"`
 }
 
 func (s DeliverCardWithDelegateRequestCoFeedOpenDeliverModel) String() string {
@@ -3891,6 +4752,9 @@ func (s *DeliverCardWithDelegateRequestCoFeedOpenDeliverModel) SetGmtTimeLine(v 
 }
 
 type DeliverCardWithDelegateRequestDocOpenDeliverModel struct {
+	// example:
+	//
+	// xxx_biz_tag
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -3911,7 +4775,10 @@ type DeliverCardWithDelegateRequestImGroupOpenDeliverModel struct {
 	AtUserIds  map[string]*string `json:"atUserIds,omitempty" xml:"atUserIds,omitempty"`
 	Extension  map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
 	Recipients []*string          `json:"recipients,omitempty" xml:"recipients,omitempty" type:"Repeated"`
-	RobotCode  *string            `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// example:
+	//
+	// dingg3xmqdkpaojuakm8
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 }
 
 func (s DeliverCardWithDelegateRequestImGroupOpenDeliverModel) String() string {
@@ -3944,8 +4811,14 @@ func (s *DeliverCardWithDelegateRequestImGroupOpenDeliverModel) SetRobotCode(v s
 
 type DeliverCardWithDelegateRequestImRobotOpenDeliverModel struct {
 	Extension map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
-	RobotCode *string            `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	SpaceType *string            `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// example:
+	//
+	// dingg3xmqdkpaojuakm8
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// example:
+	//
+	// IM_ROBOT
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 }
 
 func (s DeliverCardWithDelegateRequestImRobotOpenDeliverModel) String() string {
@@ -3995,6 +4868,9 @@ func (s *DeliverCardWithDelegateRequestImSingleOpenDeliverModel) SetExtension(v 
 }
 
 type DeliverCardWithDelegateRequestTopOpenDeliverModel struct {
+	// example:
+	//
+	// 1665473229000
 	ExpiredTimeMillis *int64    `json:"expiredTimeMillis,omitempty" xml:"expiredTimeMillis,omitempty"`
 	Platforms         []*string `json:"platforms,omitempty" xml:"platforms,omitempty" type:"Repeated"`
 	UserIds           []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
@@ -4047,9 +4923,21 @@ func (s *DeliverCardWithDelegateResponseBody) SetSuccess(v bool) *DeliverCardWit
 }
 
 type DeliverCardWithDelegateResponseBodyResult struct {
+	// example:
+	//
+	// 4v+AzUEDuC0dKuO*********J0w8=
 	CarrierId *string `json:"carrierId,omitempty" xml:"carrierId,omitempty"`
-	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	SpaceId   *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// system error
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// cid1234abcd
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// IM_GROUP
 	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
 	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
@@ -4116,6 +5004,563 @@ func (s *DeliverCardWithDelegateResponse) SetBody(v *DeliverCardWithDelegateResp
 	return s
 }
 
+type GetTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTemplateHeaders) SetCommonHeaders(v map[string]*string) *GetTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *GetTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTemplateRequest struct {
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+}
+
+func (s GetTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTemplateRequest) SetTemplateId(v string) *GetTemplateRequest {
+	s.TemplateId = &v
+	return s
+}
+
+type GetTemplateResponseBody struct {
+	Data    *GetTemplateResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                        `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTemplateResponseBody) SetData(v *GetTemplateResponseBodyData) *GetTemplateResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *GetTemplateResponseBody) SetSuccess(v bool) *GetTemplateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetTemplateResponseBodyData struct {
+	CommonVariableList interface{} `json:"commonVariableList,omitempty" xml:"commonVariableList,omitempty"`
+	CreatorId          *string     `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	ExpVariableList    interface{} `json:"expVariableList,omitempty" xml:"expVariableList,omitempty"`
+	ExtendType         *string     `json:"extendType,omitempty" xml:"extendType,omitempty"`
+	GmtCreate          *string     `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified        *string     `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	LocalVariableList  interface{} `json:"localVariableList,omitempty" xml:"localVariableList,omitempty"`
+	MiniAppId          *string     `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	Name               *string     `json:"name,omitempty" xml:"name,omitempty"`
+	Preview            *string     `json:"preview,omitempty" xml:"preview,omitempty"`
+	Status             *string     `json:"status,omitempty" xml:"status,omitempty"`
+	TemplateId         *string     `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Type               *string     `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s GetTemplateResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTemplateResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *GetTemplateResponseBodyData) SetCommonVariableList(v interface{}) *GetTemplateResponseBodyData {
+	s.CommonVariableList = v
+	return s
+}
+
+func (s *GetTemplateResponseBodyData) SetCreatorId(v string) *GetTemplateResponseBodyData {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *GetTemplateResponseBodyData) SetExpVariableList(v interface{}) *GetTemplateResponseBodyData {
+	s.ExpVariableList = v
+	return s
+}
+
+func (s *GetTemplateResponseBodyData) SetExtendType(v string) *GetTemplateResponseBodyData {
+	s.ExtendType = &v
+	return s
+}
+
+func (s *GetTemplateResponseBodyData) SetGmtCreate(v string) *GetTemplateResponseBodyData {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *GetTemplateResponseBodyData) SetGmtModified(v string) *GetTemplateResponseBodyData {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *GetTemplateResponseBodyData) SetLocalVariableList(v interface{}) *GetTemplateResponseBodyData {
+	s.LocalVariableList = v
+	return s
+}
+
+func (s *GetTemplateResponseBodyData) SetMiniAppId(v string) *GetTemplateResponseBodyData {
+	s.MiniAppId = &v
+	return s
+}
+
+func (s *GetTemplateResponseBodyData) SetName(v string) *GetTemplateResponseBodyData {
+	s.Name = &v
+	return s
+}
+
+func (s *GetTemplateResponseBodyData) SetPreview(v string) *GetTemplateResponseBodyData {
+	s.Preview = &v
+	return s
+}
+
+func (s *GetTemplateResponseBodyData) SetStatus(v string) *GetTemplateResponseBodyData {
+	s.Status = &v
+	return s
+}
+
+func (s *GetTemplateResponseBodyData) SetTemplateId(v string) *GetTemplateResponseBodyData {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *GetTemplateResponseBodyData) SetType(v string) *GetTemplateResponseBodyData {
+	s.Type = &v
+	return s
+}
+
+type GetTemplateResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTemplateResponse) SetHeaders(v map[string]*string) *GetTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTemplateResponse) SetStatusCode(v int32) *GetTemplateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetTemplateResponse) SetBody(v *GetTemplateResponseBody) *GetTemplateResponse {
+	s.Body = v
+	return s
+}
+
+type ListTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListTemplateHeaders) SetCommonHeaders(v map[string]*string) *ListTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *ListTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListTemplateRequest struct {
+	// This parameter is required.
+	TemplateIds *string `json:"templateIds,omitempty" xml:"templateIds,omitempty"`
+}
+
+func (s ListTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListTemplateRequest) SetTemplateIds(v string) *ListTemplateRequest {
+	s.TemplateIds = &v
+	return s
+}
+
+type ListTemplateResponseBody struct {
+	Data    []*ListTemplateResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	Success *bool                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ListTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListTemplateResponseBody) SetData(v []*ListTemplateResponseBodyData) *ListTemplateResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *ListTemplateResponseBody) SetSuccess(v bool) *ListTemplateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ListTemplateResponseBodyData struct {
+	CommonVariableList interface{} `json:"commonVariableList,omitempty" xml:"commonVariableList,omitempty"`
+	CreatorId          *string     `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	ExpVariableList    interface{} `json:"expVariableList,omitempty" xml:"expVariableList,omitempty"`
+	ExtendType         *string     `json:"extendType,omitempty" xml:"extendType,omitempty"`
+	GmtCreate          *string     `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified        *string     `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	LocalVariableList  interface{} `json:"localVariableList,omitempty" xml:"localVariableList,omitempty"`
+	MiniAppId          *string     `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	Name               *string     `json:"name,omitempty" xml:"name,omitempty"`
+	Preview            *string     `json:"preview,omitempty" xml:"preview,omitempty"`
+	Status             *string     `json:"status,omitempty" xml:"status,omitempty"`
+	TemplateId         *string     `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Type               *string     `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s ListTemplateResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTemplateResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *ListTemplateResponseBodyData) SetCommonVariableList(v interface{}) *ListTemplateResponseBodyData {
+	s.CommonVariableList = v
+	return s
+}
+
+func (s *ListTemplateResponseBodyData) SetCreatorId(v string) *ListTemplateResponseBodyData {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *ListTemplateResponseBodyData) SetExpVariableList(v interface{}) *ListTemplateResponseBodyData {
+	s.ExpVariableList = v
+	return s
+}
+
+func (s *ListTemplateResponseBodyData) SetExtendType(v string) *ListTemplateResponseBodyData {
+	s.ExtendType = &v
+	return s
+}
+
+func (s *ListTemplateResponseBodyData) SetGmtCreate(v string) *ListTemplateResponseBodyData {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *ListTemplateResponseBodyData) SetGmtModified(v string) *ListTemplateResponseBodyData {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *ListTemplateResponseBodyData) SetLocalVariableList(v interface{}) *ListTemplateResponseBodyData {
+	s.LocalVariableList = v
+	return s
+}
+
+func (s *ListTemplateResponseBodyData) SetMiniAppId(v string) *ListTemplateResponseBodyData {
+	s.MiniAppId = &v
+	return s
+}
+
+func (s *ListTemplateResponseBodyData) SetName(v string) *ListTemplateResponseBodyData {
+	s.Name = &v
+	return s
+}
+
+func (s *ListTemplateResponseBodyData) SetPreview(v string) *ListTemplateResponseBodyData {
+	s.Preview = &v
+	return s
+}
+
+func (s *ListTemplateResponseBodyData) SetStatus(v string) *ListTemplateResponseBodyData {
+	s.Status = &v
+	return s
+}
+
+func (s *ListTemplateResponseBodyData) SetTemplateId(v string) *ListTemplateResponseBodyData {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *ListTemplateResponseBodyData) SetType(v string) *ListTemplateResponseBodyData {
+	s.Type = &v
+	return s
+}
+
+type ListTemplateResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListTemplateResponse) SetHeaders(v map[string]*string) *ListTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListTemplateResponse) SetStatusCode(v int32) *ListTemplateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListTemplateResponse) SetBody(v *ListTemplateResponseBody) *ListTemplateResponse {
+	s.Body = v
+	return s
+}
+
+type PublishTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PublishTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PublishTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PublishTemplateHeaders) SetCommonHeaders(v map[string]*string) *PublishTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PublishTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *PublishTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PublishTemplateRequest struct {
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	TemplateId     *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	TemplateSource *string `json:"templateSource,omitempty" xml:"templateSource,omitempty"`
+}
+
+func (s PublishTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PublishTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PublishTemplateRequest) SetName(v string) *PublishTemplateRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *PublishTemplateRequest) SetTemplateId(v string) *PublishTemplateRequest {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *PublishTemplateRequest) SetTemplateSource(v string) *PublishTemplateRequest {
+	s.TemplateSource = &v
+	return s
+}
+
+type PublishTemplateResponseBody struct {
+	Data    *PublishTemplateResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                            `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PublishTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PublishTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PublishTemplateResponseBody) SetData(v *PublishTemplateResponseBodyData) *PublishTemplateResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *PublishTemplateResponseBody) SetSuccess(v bool) *PublishTemplateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PublishTemplateResponseBodyData struct {
+	CommonVariableList interface{} `json:"commonVariableList,omitempty" xml:"commonVariableList,omitempty"`
+	CreatorId          *string     `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	ExpVariableList    interface{} `json:"expVariableList,omitempty" xml:"expVariableList,omitempty"`
+	ExtendType         *string     `json:"extendType,omitempty" xml:"extendType,omitempty"`
+	GmtCreate          *string     `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified        *string     `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	LocalVariableList  interface{} `json:"localVariableList,omitempty" xml:"localVariableList,omitempty"`
+	MiniAppId          *string     `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	Name               *string     `json:"name,omitempty" xml:"name,omitempty"`
+	Preview            *string     `json:"preview,omitempty" xml:"preview,omitempty"`
+	Status             *string     `json:"status,omitempty" xml:"status,omitempty"`
+	TemplateId         *string     `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Type               *string     `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s PublishTemplateResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PublishTemplateResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *PublishTemplateResponseBodyData) SetCommonVariableList(v interface{}) *PublishTemplateResponseBodyData {
+	s.CommonVariableList = v
+	return s
+}
+
+func (s *PublishTemplateResponseBodyData) SetCreatorId(v string) *PublishTemplateResponseBodyData {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *PublishTemplateResponseBodyData) SetExpVariableList(v interface{}) *PublishTemplateResponseBodyData {
+	s.ExpVariableList = v
+	return s
+}
+
+func (s *PublishTemplateResponseBodyData) SetExtendType(v string) *PublishTemplateResponseBodyData {
+	s.ExtendType = &v
+	return s
+}
+
+func (s *PublishTemplateResponseBodyData) SetGmtCreate(v string) *PublishTemplateResponseBodyData {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *PublishTemplateResponseBodyData) SetGmtModified(v string) *PublishTemplateResponseBodyData {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *PublishTemplateResponseBodyData) SetLocalVariableList(v interface{}) *PublishTemplateResponseBodyData {
+	s.LocalVariableList = v
+	return s
+}
+
+func (s *PublishTemplateResponseBodyData) SetMiniAppId(v string) *PublishTemplateResponseBodyData {
+	s.MiniAppId = &v
+	return s
+}
+
+func (s *PublishTemplateResponseBodyData) SetName(v string) *PublishTemplateResponseBodyData {
+	s.Name = &v
+	return s
+}
+
+func (s *PublishTemplateResponseBodyData) SetPreview(v string) *PublishTemplateResponseBodyData {
+	s.Preview = &v
+	return s
+}
+
+func (s *PublishTemplateResponseBodyData) SetStatus(v string) *PublishTemplateResponseBodyData {
+	s.Status = &v
+	return s
+}
+
+func (s *PublishTemplateResponseBodyData) SetTemplateId(v string) *PublishTemplateResponseBodyData {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *PublishTemplateResponseBodyData) SetType(v string) *PublishTemplateResponseBodyData {
+	s.Type = &v
+	return s
+}
+
+type PublishTemplateResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PublishTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PublishTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PublishTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PublishTemplateResponse) SetHeaders(v map[string]*string) *PublishTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PublishTemplateResponse) SetStatusCode(v int32) *PublishTemplateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PublishTemplateResponse) SetBody(v *PublishTemplateResponseBody) *PublishTemplateResponse {
+	s.Body = v
+	return s
+}
+
 type RegisterCallbackHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4140,10 +5585,23 @@ func (s *RegisterCallbackHeaders) SetXAcsDingtalkAccessToken(v string) *Register
 }
 
 type RegisterCallbackRequest struct {
-	ApiSecret        *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
+	// example:
+	//
+	// mySecret
+	ApiSecret *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// routeKey-12
 	CallbackRouteKey *string `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
-	CallbackUrl      *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
-	ForceUpdate      *bool   `json:"forceUpdate,omitempty" xml:"forceUpdate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://www.myurl/callback
+	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+	ForceUpdate *bool   `json:"forceUpdate,omitempty" xml:"forceUpdate,omitempty"`
 }
 
 func (s RegisterCallbackRequest) String() string {
@@ -4273,10 +5731,23 @@ func (s *RegisterCallbackWithDelegateHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type RegisterCallbackWithDelegateRequest struct {
-	ApiSecret        *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
+	// example:
+	//
+	// mySecret
+	ApiSecret *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// routeKey-12
 	CallbackRouteKey *string `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
-	CallbackUrl      *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
-	ForceUpdate      *bool   `json:"forceUpdate,omitempty" xml:"forceUpdate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://www.myurl/callback
+	CallbackUrl *string `json:"callbackUrl,omitempty" xml:"callbackUrl,omitempty"`
+	ForceUpdate *bool   `json:"forceUpdate,omitempty" xml:"forceUpdate,omitempty"`
 }
 
 func (s RegisterCallbackWithDelegateRequest) String() string {
@@ -4382,6 +5853,199 @@ func (s *RegisterCallbackWithDelegateResponse) SetBody(v *RegisterCallbackWithDe
 	return s
 }
 
+type SaveTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SaveTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SaveTemplateHeaders) SetCommonHeaders(v map[string]*string) *SaveTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SaveTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *SaveTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SaveTemplateRequest struct {
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	TemplateId     *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	TemplateSource *string `json:"templateSource,omitempty" xml:"templateSource,omitempty"`
+}
+
+func (s SaveTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SaveTemplateRequest) SetName(v string) *SaveTemplateRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *SaveTemplateRequest) SetTemplateId(v string) *SaveTemplateRequest {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *SaveTemplateRequest) SetTemplateSource(v string) *SaveTemplateRequest {
+	s.TemplateSource = &v
+	return s
+}
+
+type SaveTemplateResponseBody struct {
+	Data    *SaveTemplateResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	Success *bool                         `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SaveTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SaveTemplateResponseBody) SetData(v *SaveTemplateResponseBodyData) *SaveTemplateResponseBody {
+	s.Data = v
+	return s
+}
+
+func (s *SaveTemplateResponseBody) SetSuccess(v bool) *SaveTemplateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SaveTemplateResponseBodyData struct {
+	CommonVariableList interface{} `json:"commonVariableList,omitempty" xml:"commonVariableList,omitempty"`
+	CreatorId          *string     `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	ExpVariableList    interface{} `json:"expVariableList,omitempty" xml:"expVariableList,omitempty"`
+	ExtendType         *string     `json:"extendType,omitempty" xml:"extendType,omitempty"`
+	GmtCreate          *string     `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified        *string     `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	LocalVariableList  interface{} `json:"localVariableList,omitempty" xml:"localVariableList,omitempty"`
+	MiniAppId          *string     `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	Name               *string     `json:"name,omitempty" xml:"name,omitempty"`
+	Preview            *string     `json:"preview,omitempty" xml:"preview,omitempty"`
+	Status             *string     `json:"status,omitempty" xml:"status,omitempty"`
+	TemplateId         *string     `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Type               *string     `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s SaveTemplateResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveTemplateResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *SaveTemplateResponseBodyData) SetCommonVariableList(v interface{}) *SaveTemplateResponseBodyData {
+	s.CommonVariableList = v
+	return s
+}
+
+func (s *SaveTemplateResponseBodyData) SetCreatorId(v string) *SaveTemplateResponseBodyData {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *SaveTemplateResponseBodyData) SetExpVariableList(v interface{}) *SaveTemplateResponseBodyData {
+	s.ExpVariableList = v
+	return s
+}
+
+func (s *SaveTemplateResponseBodyData) SetExtendType(v string) *SaveTemplateResponseBodyData {
+	s.ExtendType = &v
+	return s
+}
+
+func (s *SaveTemplateResponseBodyData) SetGmtCreate(v string) *SaveTemplateResponseBodyData {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *SaveTemplateResponseBodyData) SetGmtModified(v string) *SaveTemplateResponseBodyData {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *SaveTemplateResponseBodyData) SetLocalVariableList(v interface{}) *SaveTemplateResponseBodyData {
+	s.LocalVariableList = v
+	return s
+}
+
+func (s *SaveTemplateResponseBodyData) SetMiniAppId(v string) *SaveTemplateResponseBodyData {
+	s.MiniAppId = &v
+	return s
+}
+
+func (s *SaveTemplateResponseBodyData) SetName(v string) *SaveTemplateResponseBodyData {
+	s.Name = &v
+	return s
+}
+
+func (s *SaveTemplateResponseBodyData) SetPreview(v string) *SaveTemplateResponseBodyData {
+	s.Preview = &v
+	return s
+}
+
+func (s *SaveTemplateResponseBodyData) SetStatus(v string) *SaveTemplateResponseBodyData {
+	s.Status = &v
+	return s
+}
+
+func (s *SaveTemplateResponseBodyData) SetTemplateId(v string) *SaveTemplateResponseBodyData {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *SaveTemplateResponseBodyData) SetType(v string) *SaveTemplateResponseBodyData {
+	s.Type = &v
+	return s
+}
+
+type SaveTemplateResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SaveTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SaveTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SaveTemplateResponse) SetHeaders(v map[string]*string) *SaveTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SaveTemplateResponse) SetStatusCode(v int32) *SaveTemplateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SaveTemplateResponse) SetBody(v *SaveTemplateResponseBody) *SaveTemplateResponse {
+	s.Body = v
+	return s
+}
+
 type StreamingUpdateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4406,12 +6070,16 @@ func (s *StreamingUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *Streaming
 }
 
 type StreamingUpdateRequest struct {
-	Content    *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
 	Guid       *string `json:"guid,omitempty" xml:"guid,omitempty"`
 	IsError    *bool   `json:"isError,omitempty" xml:"isError,omitempty"`
 	IsFinalize *bool   `json:"isFinalize,omitempty" xml:"isFinalize,omitempty"`
 	IsFull     *bool   `json:"isFull,omitempty" xml:"isFull,omitempty"`
-	Key        *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
 	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
 }
 
@@ -4536,9 +6204,14 @@ func (s *UpdateCardHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateCardHead
 type UpdateCardRequest struct {
 	CardData          *UpdateCardRequestCardData          `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
 	CardUpdateOptions *UpdateCardRequestCardUpdateOptions `json:"cardUpdateOptions,omitempty" xml:"cardUpdateOptions,omitempty" type:"Struct"`
-	OutTrackId        *string                             `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	PrivateData       map[string]*PrivateDataValue        `json:"privateData,omitempty" xml:"privateData,omitempty"`
-	UserIdType        *int32                              `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	OutTrackId  *string                      `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	PrivateData map[string]*PrivateDataValue `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	UserIdType  *int32                       `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 }
 
 func (s UpdateCardRequest) String() string {
@@ -4692,9 +6365,14 @@ func (s *UpdateCardWithDelegateHeaders) SetXAcsDingtalkAccessToken(v string) *Up
 type UpdateCardWithDelegateRequest struct {
 	CardData          *UpdateCardWithDelegateRequestCardData          `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
 	CardUpdateOptions *UpdateCardWithDelegateRequestCardUpdateOptions `json:"cardUpdateOptions,omitempty" xml:"cardUpdateOptions,omitempty" type:"Struct"`
-	OutTrackId        *string                                         `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	PrivateData       map[string]*PrivateDataValue                    `json:"privateData,omitempty" xml:"privateData,omitempty"`
-	UserIdType        *int32                                          `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	OutTrackId  *string                      `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	PrivateData map[string]*PrivateDataValue `json:"privateData,omitempty" xml:"privateData,omitempty"`
+	UserIdType  *int32                       `json:"userIdType,omitempty" xml:"userIdType,omitempty"`
 }
 
 func (s UpdateCardWithDelegateRequest) String() string {
@@ -4837,12 +6515,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -4851,6 +6529,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 新增或更新卡片的场域信息
+//
+// @param request - AppendSpaceRequest
+//
+// @param headers - AppendSpaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AppendSpaceResponse
 func (client *Client) AppendSpaceWithOptions(request *AppendSpaceRequest, headers *AppendSpaceHeaders, runtime *util.RuntimeOptions) (_result *AppendSpaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4910,6 +6599,13 @@ func (client *Client) AppendSpaceWithOptions(request *AppendSpaceRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增或更新卡片的场域信息
+//
+// @param request - AppendSpaceRequest
+//
+// @return AppendSpaceResponse
 func (client *Client) AppendSpace(request *AppendSpaceRequest) (_result *AppendSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AppendSpaceHeaders{}
@@ -4922,6 +6618,17 @@ func (client *Client) AppendSpace(request *AppendSpaceRequest) (_result *AppendS
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增或更新卡片的场域信息
+//
+// @param request - AppendSpaceWithDelegateRequest
+//
+// @param headers - AppendSpaceWithDelegateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AppendSpaceWithDelegateResponse
 func (client *Client) AppendSpaceWithDelegateWithOptions(request *AppendSpaceWithDelegateRequest, headers *AppendSpaceWithDelegateHeaders, runtime *util.RuntimeOptions) (_result *AppendSpaceWithDelegateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4981,6 +6688,13 @@ func (client *Client) AppendSpaceWithDelegateWithOptions(request *AppendSpaceWit
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增或更新卡片的场域信息
+//
+// @param request - AppendSpaceWithDelegateRequest
+//
+// @return AppendSpaceWithDelegateResponse
 func (client *Client) AppendSpaceWithDelegate(request *AppendSpaceWithDelegateRequest) (_result *AppendSpaceWithDelegateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AppendSpaceWithDelegateHeaders{}
@@ -4993,6 +6707,167 @@ func (client *Client) AppendSpaceWithDelegate(request *AppendSpaceWithDelegateRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 关闭吊顶卡片接口
+//
+// @param request - CloseTopCardRequest
+//
+// @param headers - CloseTopCardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CloseTopCardResponse
+func (client *Client) CloseTopCardWithOptions(request *CloseTopCardRequest, headers *CloseTopCardHeaders, runtime *util.RuntimeOptions) (_result *CloseTopCardResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		query["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutTrackId)) {
+		query["outTrackId"] = request.OutTrackId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CloseTopCard"),
+		Version:     tea.String("card_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/card/tops/close"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CloseTopCardResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 关闭吊顶卡片接口
+//
+// @param request - CloseTopCardRequest
+//
+// @return CloseTopCardResponse
+func (client *Client) CloseTopCard(request *CloseTopCardRequest) (_result *CloseTopCardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CloseTopCardHeaders{}
+	_result = &CloseTopCardResponse{}
+	_body, _err := client.CloseTopCardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 复制模板
+//
+// @param request - CopyTemplateRequest
+//
+// @param headers - CopyTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CopyTemplateResponse
+func (client *Client) CopyTemplateWithOptions(request *CopyTemplateRequest, headers *CopyTemplateHeaders, runtime *util.RuntimeOptions) (_result *CopyTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CopyTemplate"),
+		Version:     tea.String("card_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/card/templates/copy"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CopyTemplateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 复制模板
+//
+// @param request - CopyTemplateRequest
+//
+// @return CopyTemplateResponse
+func (client *Client) CopyTemplate(request *CopyTemplateRequest) (_result *CopyTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CopyTemplateHeaders{}
+	_result = &CopyTemplateResponse{}
+	_body, _err := client.CopyTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建并投放卡片
+//
+// @param request - CreateAndDeliverRequest
+//
+// @param headers - CreateAndDeliverHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateAndDeliverResponse
 func (client *Client) CreateAndDeliverWithOptions(request *CreateAndDeliverRequest, headers *CreateAndDeliverHeaders, runtime *util.RuntimeOptions) (_result *CreateAndDeliverResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5005,6 +6880,10 @@ func (client *Client) CreateAndDeliverWithOptions(request *CreateAndDeliverReque
 
 	if !tea.BoolValue(util.IsUnset(request.CallbackType)) {
 		body["callbackType"] = request.CallbackType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardAtUserIds)) {
+		body["cardAtUserIds"] = request.CardAtUserIds
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.CardData)) {
@@ -5116,6 +6995,13 @@ func (client *Client) CreateAndDeliverWithOptions(request *CreateAndDeliverReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建并投放卡片
+//
+// @param request - CreateAndDeliverRequest
+//
+// @return CreateAndDeliverResponse
 func (client *Client) CreateAndDeliver(request *CreateAndDeliverRequest) (_result *CreateAndDeliverResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateAndDeliverHeaders{}
@@ -5128,6 +7014,17 @@ func (client *Client) CreateAndDeliver(request *CreateAndDeliverRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建并投放卡片
+//
+// @param request - CreateAndDeliverWithDelegateRequest
+//
+// @param headers - CreateAndDeliverWithDelegateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateAndDeliverWithDelegateResponse
 func (client *Client) CreateAndDeliverWithDelegateWithOptions(request *CreateAndDeliverWithDelegateRequest, headers *CreateAndDeliverWithDelegateHeaders, runtime *util.RuntimeOptions) (_result *CreateAndDeliverWithDelegateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5251,6 +7148,13 @@ func (client *Client) CreateAndDeliverWithDelegateWithOptions(request *CreateAnd
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建并投放卡片
+//
+// @param request - CreateAndDeliverWithDelegateRequest
+//
+// @return CreateAndDeliverWithDelegateResponse
 func (client *Client) CreateAndDeliverWithDelegate(request *CreateAndDeliverWithDelegateRequest) (_result *CreateAndDeliverWithDelegateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateAndDeliverWithDelegateHeaders{}
@@ -5263,6 +7167,17 @@ func (client *Client) CreateAndDeliverWithDelegate(request *CreateAndDeliverWith
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建卡片
+//
+// @param request - CreateCardRequest
+//
+// @param headers - CreateCardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateCardResponse
 func (client *Client) CreateCardWithOptions(request *CreateCardRequest, headers *CreateCardHeaders, runtime *util.RuntimeOptions) (_result *CreateCardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5275,6 +7190,10 @@ func (client *Client) CreateCardWithOptions(request *CreateCardRequest, headers 
 
 	if !tea.BoolValue(util.IsUnset(request.CallbackType)) {
 		body["callbackType"] = request.CallbackType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardAtUserIds)) {
+		body["cardAtUserIds"] = request.CardAtUserIds
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.CardData)) {
@@ -5358,6 +7277,13 @@ func (client *Client) CreateCardWithOptions(request *CreateCardRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建卡片
+//
+// @param request - CreateCardRequest
+//
+// @return CreateCardResponse
 func (client *Client) CreateCard(request *CreateCardRequest) (_result *CreateCardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateCardHeaders{}
@@ -5370,6 +7296,17 @@ func (client *Client) CreateCard(request *CreateCardRequest) (_result *CreateCar
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建卡片
+//
+// @param request - CreateCardWithDelegateRequest
+//
+// @param headers - CreateCardWithDelegateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateCardWithDelegateResponse
 func (client *Client) CreateCardWithDelegateWithOptions(request *CreateCardWithDelegateRequest, headers *CreateCardWithDelegateHeaders, runtime *util.RuntimeOptions) (_result *CreateCardWithDelegateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5465,6 +7402,13 @@ func (client *Client) CreateCardWithDelegateWithOptions(request *CreateCardWithD
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建卡片
+//
+// @param request - CreateCardWithDelegateRequest
+//
+// @return CreateCardWithDelegateResponse
 func (client *Client) CreateCardWithDelegate(request *CreateCardWithDelegateRequest) (_result *CreateCardWithDelegateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateCardWithDelegateHeaders{}
@@ -5477,6 +7421,179 @@ func (client *Client) CreateCardWithDelegate(request *CreateCardWithDelegateRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建模板
+//
+// @param request - CreateTemplateRequest
+//
+// @param headers - CreateTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateTemplateResponse
+func (client *Client) CreateTemplateWithOptions(request *CreateTemplateRequest, headers *CreateTemplateHeaders, runtime *util.RuntimeOptions) (_result *CreateTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		body["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreatorId)) {
+		body["creatorId"] = request.CreatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtendType)) {
+		body["extendType"] = request.ExtendType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateTemplate"),
+		Version:     tea.String("card_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/card/templates"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateTemplateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建模板
+//
+// @param request - CreateTemplateRequest
+//
+// @return CreateTemplateResponse
+func (client *Client) CreateTemplate(request *CreateTemplateRequest) (_result *CreateTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateTemplateHeaders{}
+	_result = &CreateTemplateResponse{}
+	_body, _err := client.CreateTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除模板
+//
+// @param request - DeleteTemplateRequest
+//
+// @param headers - DeleteTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteTemplateResponse
+func (client *Client) DeleteTemplateWithOptions(request *DeleteTemplateRequest, headers *DeleteTemplateHeaders, runtime *util.RuntimeOptions) (_result *DeleteTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteTemplate"),
+		Version:     tea.String("card_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/card/templates/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteTemplateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除模板
+//
+// @param request - DeleteTemplateRequest
+//
+// @return DeleteTemplateResponse
+func (client *Client) DeleteTemplate(request *DeleteTemplateRequest) (_result *DeleteTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteTemplateHeaders{}
+	_result = &DeleteTemplateResponse{}
+	_body, _err := client.DeleteTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 投放卡片
+//
+// @param request - DeliverCardRequest
+//
+// @param headers - DeliverCardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeliverCardResponse
 func (client *Client) DeliverCardWithOptions(request *DeliverCardRequest, headers *DeliverCardHeaders, runtime *util.RuntimeOptions) (_result *DeliverCardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5552,6 +7669,13 @@ func (client *Client) DeliverCardWithOptions(request *DeliverCardRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 投放卡片
+//
+// @param request - DeliverCardRequest
+//
+// @return DeliverCardResponse
 func (client *Client) DeliverCard(request *DeliverCardRequest) (_result *DeliverCardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeliverCardHeaders{}
@@ -5564,6 +7688,17 @@ func (client *Client) DeliverCard(request *DeliverCardRequest) (_result *Deliver
 	return _result, _err
 }
 
+// Summary:
+//
+// 投放卡片
+//
+// @param request - DeliverCardWithDelegateRequest
+//
+// @param headers - DeliverCardWithDelegateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeliverCardWithDelegateResponse
 func (client *Client) DeliverCardWithDelegateWithOptions(request *DeliverCardWithDelegateRequest, headers *DeliverCardWithDelegateHeaders, runtime *util.RuntimeOptions) (_result *DeliverCardWithDelegateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5639,6 +7774,13 @@ func (client *Client) DeliverCardWithDelegateWithOptions(request *DeliverCardWit
 	return _result, _err
 }
 
+// Summary:
+//
+// 投放卡片
+//
+// @param request - DeliverCardWithDelegateRequest
+//
+// @return DeliverCardWithDelegateResponse
 func (client *Client) DeliverCardWithDelegate(request *DeliverCardWithDelegateRequest) (_result *DeliverCardWithDelegateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeliverCardWithDelegateHeaders{}
@@ -5651,6 +7793,244 @@ func (client *Client) DeliverCardWithDelegate(request *DeliverCardWithDelegateRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取模板信息
+//
+// @param request - GetTemplateRequest
+//
+// @param headers - GetTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTemplateResponse
+func (client *Client) GetTemplateWithOptions(request *GetTemplateRequest, headers *GetTemplateHeaders, runtime *util.RuntimeOptions) (_result *GetTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		query["templateId"] = request.TemplateId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTemplate"),
+		Version:     tea.String("card_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/card/templates"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetTemplateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取模板信息
+//
+// @param request - GetTemplateRequest
+//
+// @return GetTemplateResponse
+func (client *Client) GetTemplate(request *GetTemplateRequest) (_result *GetTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTemplateHeaders{}
+	_result = &GetTemplateResponse{}
+	_body, _err := client.GetTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取模板列表
+//
+// @param request - ListTemplateRequest
+//
+// @param headers - ListTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListTemplateResponse
+func (client *Client) ListTemplateWithOptions(request *ListTemplateRequest, headers *ListTemplateHeaders, runtime *util.RuntimeOptions) (_result *ListTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TemplateIds)) {
+		body["templateIds"] = request.TemplateIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListTemplate"),
+		Version:     tea.String("card_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/card/templates/lists/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListTemplateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取模板列表
+//
+// @param request - ListTemplateRequest
+//
+// @return ListTemplateResponse
+func (client *Client) ListTemplate(request *ListTemplateRequest) (_result *ListTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListTemplateHeaders{}
+	_result = &ListTemplateResponse{}
+	_body, _err := client.ListTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 发布模板
+//
+// @param request - PublishTemplateRequest
+//
+// @param headers - PublishTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PublishTemplateResponse
+func (client *Client) PublishTemplateWithOptions(request *PublishTemplateRequest, headers *PublishTemplateHeaders, runtime *util.RuntimeOptions) (_result *PublishTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateSource)) {
+		body["templateSource"] = request.TemplateSource
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PublishTemplate"),
+		Version:     tea.String("card_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/card/templates/publish"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PublishTemplateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 发布模板
+//
+// @param request - PublishTemplateRequest
+//
+// @return PublishTemplateResponse
+func (client *Client) PublishTemplate(request *PublishTemplateRequest) (_result *PublishTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PublishTemplateHeaders{}
+	_result = &PublishTemplateResponse{}
+	_body, _err := client.PublishTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 注册卡片回调地址
+//
+// @param request - RegisterCallbackRequest
+//
+// @param headers - RegisterCallbackHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RegisterCallbackResponse
 func (client *Client) RegisterCallbackWithOptions(request *RegisterCallbackRequest, headers *RegisterCallbackHeaders, runtime *util.RuntimeOptions) (_result *RegisterCallbackResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5706,6 +8086,13 @@ func (client *Client) RegisterCallbackWithOptions(request *RegisterCallbackReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 注册卡片回调地址
+//
+// @param request - RegisterCallbackRequest
+//
+// @return RegisterCallbackResponse
 func (client *Client) RegisterCallback(request *RegisterCallbackRequest) (_result *RegisterCallbackResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RegisterCallbackHeaders{}
@@ -5718,6 +8105,17 @@ func (client *Client) RegisterCallback(request *RegisterCallbackRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 注册卡片回调地址
+//
+// @param request - RegisterCallbackWithDelegateRequest
+//
+// @param headers - RegisterCallbackWithDelegateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RegisterCallbackWithDelegateResponse
 func (client *Client) RegisterCallbackWithDelegateWithOptions(request *RegisterCallbackWithDelegateRequest, headers *RegisterCallbackWithDelegateHeaders, runtime *util.RuntimeOptions) (_result *RegisterCallbackWithDelegateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5773,6 +8171,13 @@ func (client *Client) RegisterCallbackWithDelegateWithOptions(request *RegisterC
 	return _result, _err
 }
 
+// Summary:
+//
+// 注册卡片回调地址
+//
+// @param request - RegisterCallbackWithDelegateRequest
+//
+// @return RegisterCallbackWithDelegateResponse
 func (client *Client) RegisterCallbackWithDelegate(request *RegisterCallbackWithDelegateRequest) (_result *RegisterCallbackWithDelegateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RegisterCallbackWithDelegateHeaders{}
@@ -5785,6 +8190,98 @@ func (client *Client) RegisterCallbackWithDelegate(request *RegisterCallbackWith
 	return _result, _err
 }
 
+// Summary:
+//
+// 保存模板
+//
+// @param request - SaveTemplateRequest
+//
+// @param headers - SaveTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SaveTemplateResponse
+func (client *Client) SaveTemplateWithOptions(request *SaveTemplateRequest, headers *SaveTemplateHeaders, runtime *util.RuntimeOptions) (_result *SaveTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateSource)) {
+		body["templateSource"] = request.TemplateSource
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SaveTemplate"),
+		Version:     tea.String("card_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/card/templates/save"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SaveTemplateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 保存模板
+//
+// @param request - SaveTemplateRequest
+//
+// @return SaveTemplateResponse
+func (client *Client) SaveTemplate(request *SaveTemplateRequest) (_result *SaveTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SaveTemplateHeaders{}
+	_result = &SaveTemplateResponse{}
+	_body, _err := client.SaveTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// # AI互动卡片流式更新
+//
+// @param request - StreamingUpdateRequest
+//
+// @param headers - StreamingUpdateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return StreamingUpdateResponse
 func (client *Client) StreamingUpdateWithOptions(request *StreamingUpdateRequest, headers *StreamingUpdateHeaders, runtime *util.RuntimeOptions) (_result *StreamingUpdateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5852,6 +8349,13 @@ func (client *Client) StreamingUpdateWithOptions(request *StreamingUpdateRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// # AI互动卡片流式更新
+//
+// @param request - StreamingUpdateRequest
+//
+// @return StreamingUpdateResponse
 func (client *Client) StreamingUpdate(request *StreamingUpdateRequest) (_result *StreamingUpdateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &StreamingUpdateHeaders{}
@@ -5864,6 +8368,17 @@ func (client *Client) StreamingUpdate(request *StreamingUpdateRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新卡片
+//
+// @param request - UpdateCardRequest
+//
+// @param headers - UpdateCardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateCardResponse
 func (client *Client) UpdateCardWithOptions(request *UpdateCardRequest, headers *UpdateCardHeaders, runtime *util.RuntimeOptions) (_result *UpdateCardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5923,6 +8438,13 @@ func (client *Client) UpdateCardWithOptions(request *UpdateCardRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新卡片
+//
+// @param request - UpdateCardRequest
+//
+// @return UpdateCardResponse
 func (client *Client) UpdateCard(request *UpdateCardRequest) (_result *UpdateCardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateCardHeaders{}
@@ -5935,6 +8457,17 @@ func (client *Client) UpdateCard(request *UpdateCardRequest) (_result *UpdateCar
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新卡片
+//
+// @param request - UpdateCardWithDelegateRequest
+//
+// @param headers - UpdateCardWithDelegateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateCardWithDelegateResponse
 func (client *Client) UpdateCardWithDelegateWithOptions(request *UpdateCardWithDelegateRequest, headers *UpdateCardWithDelegateHeaders, runtime *util.RuntimeOptions) (_result *UpdateCardWithDelegateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5994,6 +8527,13 @@ func (client *Client) UpdateCardWithDelegateWithOptions(request *UpdateCardWithD
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新卡片
+//
+// @param request - UpdateCardWithDelegateRequest
+//
+// @return UpdateCardWithDelegateResponse
 func (client *Client) UpdateCardWithDelegate(request *UpdateCardWithDelegateRequest) (_result *UpdateCardWithDelegateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateCardWithDelegateHeaders{}

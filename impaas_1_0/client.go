@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package impaas_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -43,9 +39,14 @@ func (s *AddGroupMembersHeaders) SetXAcsDingtalkAccessToken(v string) *AddGroupM
 }
 
 type AddGroupMembersRequest struct {
-	ConversationId *string                          `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	Members        []*AddGroupMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	OperatorUid    *string                          `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
+	// This parameter is required.
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// true
+	Members     []*AddGroupMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	OperatorUid *string                          `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
 }
 
 func (s AddGroupMembersRequest) String() string {
@@ -73,7 +74,8 @@ func (s *AddGroupMembersRequest) SetOperatorUid(v string) *AddGroupMembersReques
 
 type AddGroupMembersRequestMembers struct {
 	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
-	Uid  *string `json:"uid,omitempty" xml:"uid,omitempty"`
+	// This parameter is required.
+	Uid *string `json:"uid,omitempty" xml:"uid,omitempty"`
 }
 
 func (s AddGroupMembersRequestMembers) String() string {
@@ -95,6 +97,7 @@ func (s *AddGroupMembersRequestMembers) SetUid(v string) *AddGroupMembersRequest
 }
 
 type AddGroupMembersResponseBody struct {
+	// This parameter is required.
 	MemberUids []*string `json:"memberUids,omitempty" xml:"memberUids,omitempty" type:"Repeated"`
 }
 
@@ -164,10 +167,17 @@ func (s *AddProfileHeaders) SetXAcsDingtalkAccessToken(v string) *AddProfileHead
 }
 
 type AddProfileRequest struct {
+	// This parameter is required.
 	AppUid        *string `json:"appUid,omitempty" xml:"appUid,omitempty"`
 	AvatarMediaId *string `json:"avatarMediaId,omitempty" xml:"avatarMediaId,omitempty"`
-	MobileNumber  *string `json:"mobileNumber,omitempty" xml:"mobileNumber,omitempty"`
-	Nick          *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	// This parameter is required.
+	MobileNumber *string `json:"mobileNumber,omitempty" xml:"mobileNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// usertest
+	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
 }
 
 func (s AddProfileRequest) String() string {
@@ -245,10 +255,20 @@ func (s *BatchSendHeaders) SetXAcsDingtalkAccessToken(v string) *BatchSendHeader
 }
 
 type BatchSendRequest struct {
-	AppUids         []*string `json:"appUids,omitempty" xml:"appUids,omitempty" type:"Repeated"`
-	Content         *string   `json:"content,omitempty" xml:"content,omitempty"`
+	// if can be null:
+	// true
+	AppUids []*string `json:"appUids,omitempty" xml:"appUids,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// if can be null:
+	// true
 	ConversationIds []*string `json:"conversationIds,omitempty" xml:"conversationIds,omitempty" type:"Repeated"`
-	UserId          *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 234#dingxxx@dingding
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchSendRequest) String() string {
@@ -280,6 +300,11 @@ func (s *BatchSendRequest) SetUserId(v string) *BatchSendRequest {
 }
 
 type BatchSendResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 23233434
 	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
@@ -355,12 +380,17 @@ func (s *CreateGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGroupHe
 }
 
 type CreateGroupRequest struct {
-	Channel     *string            `json:"channel,omitempty" xml:"channel,omitempty"`
-	CreatorUid  *string            `json:"creatorUid,omitempty" xml:"creatorUid,omitempty"`
-	IconMediaId *string            `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
-	Name        *string            `json:"name,omitempty" xml:"name,omitempty"`
-	Properties  map[string]*string `json:"properties,omitempty" xml:"properties,omitempty"`
-	Uuid        *string            `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// This parameter is required.
+	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
+	// This parameter is required.
+	CreatorUid  *string `json:"creatorUid,omitempty" xml:"creatorUid,omitempty"`
+	IconMediaId *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Properties map[string]*string `json:"properties,omitempty" xml:"properties,omitempty"`
+	// This parameter is required.
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s CreateGroupRequest) String() string {
@@ -402,9 +432,12 @@ func (s *CreateGroupRequest) SetUuid(v string) *CreateGroupRequest {
 }
 
 type CreateGroupResponseBody struct {
-	ChatId         *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	// This parameter is required.
+	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	// This parameter is required.
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// This parameter is required.
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
 }
 
 func (s CreateGroupResponseBody) String() string {
@@ -489,13 +522,34 @@ func (s *CreateTrustGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTr
 }
 
 type CreateTrustGroupRequest struct {
-	Channel     *string                           `json:"channel,omitempty" xml:"channel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// channel_abcd
+	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
+	// example:
+	//
+	// @lALOKACADDA
 	IconMediaId *string                           `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
 	Members     []*CreateTrustGroupRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	Name        *string                           `json:"name,omitempty" xml:"name,omitempty"`
-	Properties  map[string]*string                `json:"properties,omitempty" xml:"properties,omitempty"`
-	SystemMsg   *string                           `json:"systemMsg,omitempty" xml:"systemMsg,omitempty"`
-	Uuid        *string                           `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试群名称XXX
+	Name       *string            `json:"name,omitempty" xml:"name,omitempty"`
+	Properties map[string]*string `json:"properties,omitempty" xml:"properties,omitempty"`
+	// example:
+	//
+	// 你有新的会话
+	SystemMsg *string `json:"systemMsg,omitempty" xml:"systemMsg,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1657099913071
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s CreateTrustGroupRequest) String() string {
@@ -565,8 +619,11 @@ func (s *CreateTrustGroupRequestMembers) SetUid(v string) *CreateTrustGroupReque
 }
 
 type CreateTrustGroupResponseBody struct {
-	ChatId             *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
-	CreateTime         *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// This parameter is required.
+	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	// This parameter is required.
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// This parameter is required.
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -652,6 +709,7 @@ func (s *DismissGroupHeaders) SetXAcsDingtalkAccessToken(v string) *DismissGroup
 }
 
 type DismissGroupRequest struct {
+	// This parameter is required.
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
 	OperatorUid    *string `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
 }
@@ -721,7 +779,9 @@ func (s *GetConversationIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetConv
 }
 
 type GetConversationIdRequest struct {
+	// This parameter is required.
 	AppUid *string `json:"appUid,omitempty" xml:"appUid,omitempty"`
+	// This parameter is required.
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -744,6 +804,7 @@ func (s *GetConversationIdRequest) SetUserId(v string) *GetConversationIdRequest
 }
 
 type GetConversationIdResponseBody struct {
+	// This parameter is required.
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
 }
 
@@ -813,8 +874,16 @@ func (s *GetMediaUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetMediaUrlHe
 }
 
 type GetMediaUrlRequest struct {
-	MediaId       *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	UrlExpireTime *int32  `json:"urlExpireTime,omitempty" xml:"urlExpireTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// @wesfsdfsfwe
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// example:
+	//
+	// 86399
+	UrlExpireTime *int32 `json:"urlExpireTime,omitempty" xml:"urlExpireTime,omitempty"`
 }
 
 func (s GetMediaUrlRequest) String() string {
@@ -836,6 +905,7 @@ func (s *GetMediaUrlRequest) SetUrlExpireTime(v int32) *GetMediaUrlRequest {
 }
 
 type GetMediaUrlResponseBody struct {
+	// This parameter is required.
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
@@ -905,8 +975,12 @@ func (s *GetMediaUrlsHeaders) SetXAcsDingtalkAccessToken(v string) *GetMediaUrls
 }
 
 type GetMediaUrlsRequest struct {
-	MediaIds      []*string `json:"mediaIds,omitempty" xml:"mediaIds,omitempty" type:"Repeated"`
-	UrlExpireTime *int32    `json:"urlExpireTime,omitempty" xml:"urlExpireTime,omitempty"`
+	// This parameter is required.
+	MediaIds []*string `json:"mediaIds,omitempty" xml:"mediaIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 86399
+	UrlExpireTime *int32 `json:"urlExpireTime,omitempty" xml:"urlExpireTime,omitempty"`
 }
 
 func (s GetMediaUrlsRequest) String() string {
@@ -997,9 +1071,24 @@ func (s *GetSpaceFileUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetSpaceF
 }
 
 type GetSpaceFileUrlRequest struct {
-	FileId    *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123#123@dingding
 	SenderUid *string `json:"senderUid,omitempty" xml:"senderUid,omitempty"`
-	SpaceId   *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s GetSpaceFileUrlRequest) String() string {
@@ -1026,9 +1115,12 @@ func (s *GetSpaceFileUrlRequest) SetSpaceId(v string) *GetSpaceFileUrlRequest {
 }
 
 type GetSpaceFileUrlResponseBody struct {
-	Headers             map[string]interface{} `json:"headers,omitempty" xml:"headers,omitempty"`
-	InternalResourceUrl *string                `json:"internalResourceUrl,omitempty" xml:"internalResourceUrl,omitempty"`
-	ResourceUrl         *string                `json:"resourceUrl,omitempty" xml:"resourceUrl,omitempty"`
+	// This parameter is required.
+	Headers map[string]interface{} `json:"headers,omitempty" xml:"headers,omitempty"`
+	// This parameter is required.
+	InternalResourceUrl *string `json:"internalResourceUrl,omitempty" xml:"internalResourceUrl,omitempty"`
+	// This parameter is required.
+	ResourceUrl *string `json:"resourceUrl,omitempty" xml:"resourceUrl,omitempty"`
 }
 
 func (s GetSpaceFileUrlResponseBody) String() string {
@@ -1107,6 +1199,7 @@ func (s *ListGroupStaffMembersHeaders) SetXAcsDingtalkAccessToken(v string) *Lis
 }
 
 type ListGroupStaffMembersRequest struct {
+	// This parameter is required.
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
 }
 
@@ -1124,6 +1217,7 @@ func (s *ListGroupStaffMembersRequest) SetConversationId(v string) *ListGroupSta
 }
 
 type ListGroupStaffMembersResponseBody struct {
+	// This parameter is required.
 	Members []*ListGroupStaffMembersResponseBodyMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
 }
 
@@ -1142,7 +1236,8 @@ func (s *ListGroupStaffMembersResponseBody) SetMembers(v []*ListGroupStaffMember
 
 type ListGroupStaffMembersResponseBodyMembers struct {
 	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
-	Uid  *string `json:"uid,omitempty" xml:"uid,omitempty"`
+	// This parameter is required.
+	Uid *string `json:"uid,omitempty" xml:"uid,omitempty"`
 }
 
 func (s ListGroupStaffMembersResponseBodyMembers) String() string {
@@ -1216,8 +1311,18 @@ func (s *QueryBatchSendResultHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryBatchSendResultRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 234#dingxxx@dingding
 	SenderUserId *string `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
-	TaskId       *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234567890
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s QueryBatchSendResultRequest) String() string {
@@ -1239,8 +1344,14 @@ func (s *QueryBatchSendResultRequest) SetTaskId(v string) *QueryBatchSendResultR
 }
 
 type QueryBatchSendResultResponseBody struct {
+	// This parameter is required.
 	Results []*QueryBatchSendResultResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
-	Status  *int32                                     `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryBatchSendResultResponseBody) String() string {
@@ -1262,11 +1373,26 @@ func (s *QueryBatchSendResultResponseBody) SetStatus(v int32) *QueryBatchSendRes
 }
 
 type QueryBatchSendResultResponseBodyResults struct {
-	AppUid         *string `json:"appUid,omitempty" xml:"appUid,omitempty"`
+	// example:
+	//
+	// 123@channel
+	AppUid *string `json:"appUid,omitempty" xml:"appUid,omitempty"`
+	// example:
+	//
+	// cid1234567890==
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	ErrorCode      *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	ErrorMessage   *string `json:"errorMessage,omitempty" xml:"errorMessage,omitempty"`
-	MsgId          *string `json:"msgId,omitempty" xml:"msgId,omitempty"`
+	// example:
+	//
+	// 0
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// success
+	ErrorMessage *string `json:"errorMessage,omitempty" xml:"errorMessage,omitempty"`
+	// example:
+	//
+	// msg1234567890==
+	MsgId *string `json:"msgId,omitempty" xml:"msgId,omitempty"`
 }
 
 func (s QueryBatchSendResultResponseBodyResults) String() string {
@@ -1361,7 +1487,9 @@ func (s *ReadMessageHeaders) SetXAcsDingtalkAccessToken(v string) *ReadMessageHe
 }
 
 type ReadMessageRequest struct {
-	MessageId   *string `json:"messageId,omitempty" xml:"messageId,omitempty"`
+	// This parameter is required.
+	MessageId *string `json:"messageId,omitempty" xml:"messageId,omitempty"`
+	// This parameter is required.
 	OperatorUid *string `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
 }
 
@@ -1436,7 +1564,9 @@ func (s *RecallMessageHeaders) SetXAcsDingtalkAccessToken(v string) *RecallMessa
 }
 
 type RecallMessageRequest struct {
-	MessageId   *string `json:"messageId,omitempty" xml:"messageId,omitempty"`
+	// This parameter is required.
+	MessageId *string `json:"messageId,omitempty" xml:"messageId,omitempty"`
+	// This parameter is required.
 	OperatorUid *string `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
 	Type        *int32  `json:"type,omitempty" xml:"type,omitempty"`
 }
@@ -1517,9 +1647,14 @@ func (s *RemoveGroupMembersHeaders) SetXAcsDingtalkAccessToken(v string) *Remove
 }
 
 type RemoveGroupMembersRequest struct {
-	ConversationId *string   `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	MemberUids     []*string `json:"memberUids,omitempty" xml:"memberUids,omitempty" type:"Repeated"`
-	OperatorUid    *string   `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
+	// This parameter is required.
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// true
+	MemberUids  []*string `json:"memberUids,omitempty" xml:"memberUids,omitempty" type:"Repeated"`
+	OperatorUid *string   `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
 }
 
 func (s RemoveGroupMembersRequest) String() string {
@@ -1598,12 +1733,15 @@ func (s *SendMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendMessageHe
 }
 
 type SendMessageRequest struct {
+	// This parameter is required.
 	Content        *string `json:"content,omitempty" xml:"content,omitempty"`
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
 	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	ReceiverUid    *string `json:"receiverUid,omitempty" xml:"receiverUid,omitempty"`
-	SenderUid      *string `json:"senderUid,omitempty" xml:"senderUid,omitempty"`
-	Uuid           *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// This parameter is required.
+	SenderUid *string `json:"senderUid,omitempty" xml:"senderUid,omitempty"`
+	// This parameter is required.
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s SendMessageRequest) String() string {
@@ -1645,9 +1783,12 @@ func (s *SendMessageRequest) SetUuid(v string) *SendMessageRequest {
 }
 
 type SendMessageResponseBody struct {
-	CreateTime *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	MessageId  *string `json:"messageId,omitempty" xml:"messageId,omitempty"`
-	MsgId      *string `json:"msgId,omitempty" xml:"msgId,omitempty"`
+	// This parameter is required.
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// This parameter is required.
+	MessageId *string `json:"messageId,omitempty" xml:"messageId,omitempty"`
+	// This parameter is required.
+	MsgId *string `json:"msgId,omitempty" xml:"msgId,omitempty"`
 }
 
 func (s SendMessageResponseBody) String() string {
@@ -1726,21 +1867,42 @@ func (s *SendRobotMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendRobo
 }
 
 type SendRobotMessageRequest struct {
-	AtAll                    *bool                  `json:"atAll,omitempty" xml:"atAll,omitempty"`
-	AtAppUids                []*string              `json:"atAppUids,omitempty" xml:"atAppUids,omitempty" type:"Repeated"`
-	AtMobiles                []*string              `json:"atMobiles,omitempty" xml:"atMobiles,omitempty" type:"Repeated"`
-	AtUnionIds               []*string              `json:"atUnionIds,omitempty" xml:"atUnionIds,omitempty" type:"Repeated"`
-	AtUsers                  []*string              `json:"atUsers,omitempty" xml:"atUsers,omitempty" type:"Repeated"`
-	Channel                  *string                `json:"channel,omitempty" xml:"channel,omitempty"`
-	MsgMediaIdParamMap       map[string]interface{} `json:"msgMediaIdParamMap,omitempty" xml:"msgMediaIdParamMap,omitempty"`
-	MsgParamMap              map[string]interface{} `json:"msgParamMap,omitempty" xml:"msgParamMap,omitempty"`
-	MsgTemplateId            *string                `json:"msgTemplateId,omitempty" xml:"msgTemplateId,omitempty"`
-	ReceiverAppUids          []*string              `json:"receiverAppUids,omitempty" xml:"receiverAppUids,omitempty" type:"Repeated"`
-	ReceiverMobiles          []*string              `json:"receiverMobiles,omitempty" xml:"receiverMobiles,omitempty" type:"Repeated"`
-	ReceiverUnionIds         []*string              `json:"receiverUnionIds,omitempty" xml:"receiverUnionIds,omitempty" type:"Repeated"`
-	ReceiverUserIds          []*string              `json:"receiverUserIds,omitempty" xml:"receiverUserIds,omitempty" type:"Repeated"`
-	RobotCode                *string                `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	TargetOpenConversationId *string                `json:"targetOpenConversationId,omitempty" xml:"targetOpenConversationId,omitempty"`
+	// example:
+	//
+	// false
+	AtAll      *bool     `json:"atAll,omitempty" xml:"atAll,omitempty"`
+	AtAppUids  []*string `json:"atAppUids,omitempty" xml:"atAppUids,omitempty" type:"Repeated"`
+	AtMobiles  []*string `json:"atMobiles,omitempty" xml:"atMobiles,omitempty" type:"Repeated"`
+	AtUnionIds []*string `json:"atUnionIds,omitempty" xml:"atUnionIds,omitempty" type:"Repeated"`
+	AtUsers    []*string `json:"atUsers,omitempty" xml:"atUsers,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 123
+	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
+	// example:
+	//
+	// {\"pic1\":\"@123\",\"pic2\":\"@456\"}
+	MsgMediaIdParamMap map[string]interface{} `json:"msgMediaIdParamMap,omitempty" xml:"msgMediaIdParamMap,omitempty"`
+	// example:
+	//
+	// {\"text1\":\"hello\",\"text2\":\"world\"}
+	MsgParamMap map[string]interface{} `json:"msgParamMap,omitempty" xml:"msgParamMap,omitempty"`
+	// example:
+	//
+	// 123
+	MsgTemplateId    *string   `json:"msgTemplateId,omitempty" xml:"msgTemplateId,omitempty"`
+	ReceiverAppUids  []*string `json:"receiverAppUids,omitempty" xml:"receiverAppUids,omitempty" type:"Repeated"`
+	ReceiverMobiles  []*string `json:"receiverMobiles,omitempty" xml:"receiverMobiles,omitempty" type:"Repeated"`
+	ReceiverUnionIds []*string `json:"receiverUnionIds,omitempty" xml:"receiverUnionIds,omitempty" type:"Repeated"`
+	ReceiverUserIds  []*string `json:"receiverUserIds,omitempty" xml:"receiverUserIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 123
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// example:
+	//
+	// 123
+	TargetOpenConversationId *string `json:"targetOpenConversationId,omitempty" xml:"targetOpenConversationId,omitempty"`
 }
 
 func (s SendRobotMessageRequest) String() string {
@@ -1902,9 +2064,11 @@ func (s *UpdateGroupNameHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateGro
 }
 
 type UpdateGroupNameRequest struct {
+	// This parameter is required.
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
-	OperatorUid    *string `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
+	// This parameter is required.
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	OperatorUid *string `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
 }
 
 func (s UpdateGroupNameRequest) String() string {
@@ -1977,9 +2141,11 @@ func (s *UpdateGroupOwnerHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateGr
 }
 
 type UpdateGroupOwnerRequest struct {
+	// This parameter is required.
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
 	OperatorUid    *string `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
-	OwnerUid       *string `json:"ownerUid,omitempty" xml:"ownerUid,omitempty"`
+	// This parameter is required.
+	OwnerUid *string `json:"ownerUid,omitempty" xml:"ownerUid,omitempty"`
 }
 
 func (s UpdateGroupOwnerRequest) String() string {
@@ -2006,6 +2172,11 @@ func (s *UpdateGroupOwnerRequest) SetOwnerUid(v string) *UpdateGroupOwnerRequest
 }
 
 type UpdateGroupOwnerResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -2075,9 +2246,25 @@ func (s *UploadFileHeaders) SetXAcsDingtalkAccessToken(v string) *UploadFileHead
 }
 
 type UploadFileRequest struct {
-	FileName  *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FileType  *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	FileUrl   *string `json:"fileUrl,omitempty" xml:"fileUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111.png
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// image
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// This parameter is required.
+	FileUrl *string `json:"fileUrl,omitempty" xml:"fileUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111@dingdingkelian
 	SenderUid *string `json:"senderUid,omitempty" xml:"senderUid,omitempty"`
 }
 
@@ -2110,6 +2297,11 @@ func (s *UploadFileRequest) SetSenderUid(v string) *UploadFileRequest {
 }
 
 type UploadFileResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// $csvsvsdvsvdscs
 	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
 }
 
@@ -2170,12 +2362,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -2184,6 +2376,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 添加群成员
+//
+// @param request - AddGroupMembersRequest
+//
+// @param headers - AddGroupMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddGroupMembersResponse
 func (client *Client) AddGroupMembersWithOptions(request *AddGroupMembersRequest, headers *AddGroupMembersHeaders, runtime *util.RuntimeOptions) (_result *AddGroupMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2239,6 +2442,13 @@ func (client *Client) AddGroupMembersWithOptions(request *AddGroupMembersRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加群成员
+//
+// @param request - AddGroupMembersRequest
+//
+// @return AddGroupMembersResponse
 func (client *Client) AddGroupMembers(request *AddGroupMembersRequest) (_result *AddGroupMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddGroupMembersHeaders{}
@@ -2251,6 +2461,17 @@ func (client *Client) AddGroupMembers(request *AddGroupMembersRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 外部用户导入profile
+//
+// @param request - AddProfileRequest
+//
+// @param headers - AddProfileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddProfileResponse
 func (client *Client) AddProfileWithOptions(request *AddProfileRequest, headers *AddProfileHeaders, runtime *util.RuntimeOptions) (_result *AddProfileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2306,6 +2527,13 @@ func (client *Client) AddProfileWithOptions(request *AddProfileRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 外部用户导入profile
+//
+// @param request - AddProfileRequest
+//
+// @return AddProfileResponse
 func (client *Client) AddProfile(request *AddProfileRequest) (_result *AddProfileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddProfileHeaders{}
@@ -2318,6 +2546,17 @@ func (client *Client) AddProfile(request *AddProfileRequest) (_result *AddProfil
 	return _result, _err
 }
 
+// Summary:
+//
+// 消息批量接口
+//
+// @param request - BatchSendRequest
+//
+// @param headers - BatchSendHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchSendResponse
 func (client *Client) BatchSendWithOptions(request *BatchSendRequest, headers *BatchSendHeaders, runtime *util.RuntimeOptions) (_result *BatchSendResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2373,6 +2612,13 @@ func (client *Client) BatchSendWithOptions(request *BatchSendRequest, headers *B
 	return _result, _err
 }
 
+// Summary:
+//
+// 消息批量接口
+//
+// @param request - BatchSendRequest
+//
+// @return BatchSendResponse
 func (client *Client) BatchSend(request *BatchSendRequest) (_result *BatchSendResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchSendHeaders{}
@@ -2385,6 +2631,17 @@ func (client *Client) BatchSend(request *BatchSendRequest) (_result *BatchSendRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建群
+//
+// @param request - CreateGroupRequest
+//
+// @param headers - CreateGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateGroupResponse
 func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, headers *CreateGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2452,6 +2709,13 @@ func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建群
+//
+// @param request - CreateGroupRequest
+//
+// @return CreateGroupResponse
 func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateGroupHeaders{}
@@ -2464,6 +2728,17 @@ func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateG
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建托管账号为群主的群
+//
+// @param request - CreateTrustGroupRequest
+//
+// @param headers - CreateTrustGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateTrustGroupResponse
 func (client *Client) CreateTrustGroupWithOptions(request *CreateTrustGroupRequest, headers *CreateTrustGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateTrustGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2535,6 +2810,13 @@ func (client *Client) CreateTrustGroupWithOptions(request *CreateTrustGroupReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建托管账号为群主的群
+//
+// @param request - CreateTrustGroupRequest
+//
+// @return CreateTrustGroupResponse
 func (client *Client) CreateTrustGroup(request *CreateTrustGroupRequest) (_result *CreateTrustGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateTrustGroupHeaders{}
@@ -2547,6 +2829,17 @@ func (client *Client) CreateTrustGroup(request *CreateTrustGroupRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 解散群
+//
+// @param request - DismissGroupRequest
+//
+// @param headers - DismissGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DismissGroupResponse
 func (client *Client) DismissGroupWithOptions(request *DismissGroupRequest, headers *DismissGroupHeaders, runtime *util.RuntimeOptions) (_result *DismissGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2598,6 +2891,13 @@ func (client *Client) DismissGroupWithOptions(request *DismissGroupRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 解散群
+//
+// @param request - DismissGroupRequest
+//
+// @return DismissGroupResponse
 func (client *Client) DismissGroup(request *DismissGroupRequest) (_result *DismissGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DismissGroupHeaders{}
@@ -2610,6 +2910,17 @@ func (client *Client) DismissGroup(request *DismissGroupRequest) (_result *Dismi
 	return _result, _err
 }
 
+// Summary:
+//
+// 生成单聊会话Id
+//
+// @param request - GetConversationIdRequest
+//
+// @param headers - GetConversationIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetConversationIdResponse
 func (client *Client) GetConversationIdWithOptions(request *GetConversationIdRequest, headers *GetConversationIdHeaders, runtime *util.RuntimeOptions) (_result *GetConversationIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2657,6 +2968,13 @@ func (client *Client) GetConversationIdWithOptions(request *GetConversationIdReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 生成单聊会话Id
+//
+// @param request - GetConversationIdRequest
+//
+// @return GetConversationIdResponse
 func (client *Client) GetConversationId(request *GetConversationIdRequest) (_result *GetConversationIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetConversationIdHeaders{}
@@ -2669,6 +2987,17 @@ func (client *Client) GetConversationId(request *GetConversationIdRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 多媒体文件下载
+//
+// @param request - GetMediaUrlRequest
+//
+// @param headers - GetMediaUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetMediaUrlResponse
 func (client *Client) GetMediaUrlWithOptions(request *GetMediaUrlRequest, headers *GetMediaUrlHeaders, runtime *util.RuntimeOptions) (_result *GetMediaUrlResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2716,6 +3045,13 @@ func (client *Client) GetMediaUrlWithOptions(request *GetMediaUrlRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 多媒体文件下载
+//
+// @param request - GetMediaUrlRequest
+//
+// @return GetMediaUrlResponse
 func (client *Client) GetMediaUrl(request *GetMediaUrlRequest) (_result *GetMediaUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetMediaUrlHeaders{}
@@ -2728,6 +3064,17 @@ func (client *Client) GetMediaUrl(request *GetMediaUrlRequest) (_result *GetMedi
 	return _result, _err
 }
 
+// Summary:
+//
+// 多媒体文件批量下载
+//
+// @param request - GetMediaUrlsRequest
+//
+// @param headers - GetMediaUrlsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetMediaUrlsResponse
 func (client *Client) GetMediaUrlsWithOptions(request *GetMediaUrlsRequest, headers *GetMediaUrlsHeaders, runtime *util.RuntimeOptions) (_result *GetMediaUrlsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2775,6 +3122,13 @@ func (client *Client) GetMediaUrlsWithOptions(request *GetMediaUrlsRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 多媒体文件批量下载
+//
+// @param request - GetMediaUrlsRequest
+//
+// @return GetMediaUrlsResponse
 func (client *Client) GetMediaUrls(request *GetMediaUrlsRequest) (_result *GetMediaUrlsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetMediaUrlsHeaders{}
@@ -2787,6 +3141,17 @@ func (client *Client) GetMediaUrls(request *GetMediaUrlsRequest) (_result *GetMe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取钉盘文件下载信息
+//
+// @param request - GetSpaceFileUrlRequest
+//
+// @param headers - GetSpaceFileUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSpaceFileUrlResponse
 func (client *Client) GetSpaceFileUrlWithOptions(request *GetSpaceFileUrlRequest, headers *GetSpaceFileUrlHeaders, runtime *util.RuntimeOptions) (_result *GetSpaceFileUrlResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2838,6 +3203,13 @@ func (client *Client) GetSpaceFileUrlWithOptions(request *GetSpaceFileUrlRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取钉盘文件下载信息
+//
+// @param request - GetSpaceFileUrlRequest
+//
+// @return GetSpaceFileUrlResponse
 func (client *Client) GetSpaceFileUrl(request *GetSpaceFileUrlRequest) (_result *GetSpaceFileUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSpaceFileUrlHeaders{}
@@ -2850,6 +3222,17 @@ func (client *Client) GetSpaceFileUrl(request *GetSpaceFileUrlRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业员工类型的群成员
+//
+// @param request - ListGroupStaffMembersRequest
+//
+// @param headers - ListGroupStaffMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListGroupStaffMembersResponse
 func (client *Client) ListGroupStaffMembersWithOptions(request *ListGroupStaffMembersRequest, headers *ListGroupStaffMembersHeaders, runtime *util.RuntimeOptions) (_result *ListGroupStaffMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2893,6 +3276,13 @@ func (client *Client) ListGroupStaffMembersWithOptions(request *ListGroupStaffMe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业员工类型的群成员
+//
+// @param request - ListGroupStaffMembersRequest
+//
+// @return ListGroupStaffMembersResponse
 func (client *Client) ListGroupStaffMembers(request *ListGroupStaffMembersRequest) (_result *ListGroupStaffMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListGroupStaffMembersHeaders{}
@@ -2905,6 +3295,17 @@ func (client *Client) ListGroupStaffMembers(request *ListGroupStaffMembersReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询batchSend结果
+//
+// @param request - QueryBatchSendResultRequest
+//
+// @param headers - QueryBatchSendResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryBatchSendResultResponse
 func (client *Client) QueryBatchSendResultWithOptions(request *QueryBatchSendResultRequest, headers *QueryBatchSendResultHeaders, runtime *util.RuntimeOptions) (_result *QueryBatchSendResultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2952,6 +3353,13 @@ func (client *Client) QueryBatchSendResultWithOptions(request *QueryBatchSendRes
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询batchSend结果
+//
+// @param request - QueryBatchSendResultRequest
+//
+// @return QueryBatchSendResultResponse
 func (client *Client) QueryBatchSendResult(request *QueryBatchSendResultRequest) (_result *QueryBatchSendResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryBatchSendResultHeaders{}
@@ -2964,6 +3372,17 @@ func (client *Client) QueryBatchSendResult(request *QueryBatchSendResultRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 消息已读
+//
+// @param request - ReadMessageRequest
+//
+// @param headers - ReadMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ReadMessageResponse
 func (client *Client) ReadMessageWithOptions(request *ReadMessageRequest, headers *ReadMessageHeaders, runtime *util.RuntimeOptions) (_result *ReadMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3015,6 +3434,13 @@ func (client *Client) ReadMessageWithOptions(request *ReadMessageRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 消息已读
+//
+// @param request - ReadMessageRequest
+//
+// @return ReadMessageResponse
 func (client *Client) ReadMessage(request *ReadMessageRequest) (_result *ReadMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ReadMessageHeaders{}
@@ -3027,6 +3453,17 @@ func (client *Client) ReadMessage(request *ReadMessageRequest) (_result *ReadMes
 	return _result, _err
 }
 
+// Summary:
+//
+// 消息撤回
+//
+// @param request - RecallMessageRequest
+//
+// @param headers - RecallMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RecallMessageResponse
 func (client *Client) RecallMessageWithOptions(request *RecallMessageRequest, headers *RecallMessageHeaders, runtime *util.RuntimeOptions) (_result *RecallMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3082,6 +3519,13 @@ func (client *Client) RecallMessageWithOptions(request *RecallMessageRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 消息撤回
+//
+// @param request - RecallMessageRequest
+//
+// @return RecallMessageResponse
 func (client *Client) RecallMessage(request *RecallMessageRequest) (_result *RecallMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RecallMessageHeaders{}
@@ -3094,6 +3538,17 @@ func (client *Client) RecallMessage(request *RecallMessageRequest) (_result *Rec
 	return _result, _err
 }
 
+// Summary:
+//
+// 移除群成员
+//
+// @param request - RemoveGroupMembersRequest
+//
+// @param headers - RemoveGroupMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RemoveGroupMembersResponse
 func (client *Client) RemoveGroupMembersWithOptions(request *RemoveGroupMembersRequest, headers *RemoveGroupMembersHeaders, runtime *util.RuntimeOptions) (_result *RemoveGroupMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3149,6 +3604,13 @@ func (client *Client) RemoveGroupMembersWithOptions(request *RemoveGroupMembersR
 	return _result, _err
 }
 
+// Summary:
+//
+// 移除群成员
+//
+// @param request - RemoveGroupMembersRequest
+//
+// @return RemoveGroupMembersResponse
 func (client *Client) RemoveGroupMembers(request *RemoveGroupMembersRequest) (_result *RemoveGroupMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RemoveGroupMembersHeaders{}
@@ -3161,6 +3623,17 @@ func (client *Client) RemoveGroupMembers(request *RemoveGroupMembersRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 消息发送
+//
+// @param request - SendMessageRequest
+//
+// @param headers - SendMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendMessageResponse
 func (client *Client) SendMessageWithOptions(request *SendMessageRequest, headers *SendMessageHeaders, runtime *util.RuntimeOptions) (_result *SendMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3228,6 +3701,13 @@ func (client *Client) SendMessageWithOptions(request *SendMessageRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 消息发送
+//
+// @param request - SendMessageRequest
+//
+// @return SendMessageResponse
 func (client *Client) SendMessage(request *SendMessageRequest) (_result *SendMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendMessageHeaders{}
@@ -3240,6 +3720,17 @@ func (client *Client) SendMessage(request *SendMessageRequest) (_result *SendMes
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过群模板机器人发送消息
+//
+// @param request - SendRobotMessageRequest
+//
+// @param headers - SendRobotMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendRobotMessageResponse
 func (client *Client) SendRobotMessageWithOptions(request *SendRobotMessageRequest, headers *SendRobotMessageHeaders, runtime *util.RuntimeOptions) (_result *SendRobotMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3339,6 +3830,13 @@ func (client *Client) SendRobotMessageWithOptions(request *SendRobotMessageReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过群模板机器人发送消息
+//
+// @param request - SendRobotMessageRequest
+//
+// @return SendRobotMessageResponse
 func (client *Client) SendRobotMessage(request *SendRobotMessageRequest) (_result *SendRobotMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendRobotMessageHeaders{}
@@ -3351,6 +3849,17 @@ func (client *Client) SendRobotMessage(request *SendRobotMessageRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改群名称
+//
+// @param request - UpdateGroupNameRequest
+//
+// @param headers - UpdateGroupNameHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateGroupNameResponse
 func (client *Client) UpdateGroupNameWithOptions(request *UpdateGroupNameRequest, headers *UpdateGroupNameHeaders, runtime *util.RuntimeOptions) (_result *UpdateGroupNameResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3406,6 +3915,13 @@ func (client *Client) UpdateGroupNameWithOptions(request *UpdateGroupNameRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改群名称
+//
+// @param request - UpdateGroupNameRequest
+//
+// @return UpdateGroupNameResponse
 func (client *Client) UpdateGroupName(request *UpdateGroupNameRequest) (_result *UpdateGroupNameResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateGroupNameHeaders{}
@@ -3418,6 +3934,17 @@ func (client *Client) UpdateGroupName(request *UpdateGroupNameRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 转让群主
+//
+// @param request - UpdateGroupOwnerRequest
+//
+// @param headers - UpdateGroupOwnerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateGroupOwnerResponse
 func (client *Client) UpdateGroupOwnerWithOptions(request *UpdateGroupOwnerRequest, headers *UpdateGroupOwnerHeaders, runtime *util.RuntimeOptions) (_result *UpdateGroupOwnerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3469,6 +3996,13 @@ func (client *Client) UpdateGroupOwnerWithOptions(request *UpdateGroupOwnerReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 转让群主
+//
+// @param request - UpdateGroupOwnerRequest
+//
+// @return UpdateGroupOwnerResponse
 func (client *Client) UpdateGroupOwner(request *UpdateGroupOwnerRequest) (_result *UpdateGroupOwnerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateGroupOwnerHeaders{}
@@ -3481,6 +4015,17 @@ func (client *Client) UpdateGroupOwner(request *UpdateGroupOwnerRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 互联互通上传文件
+//
+// @param request - UploadFileRequest
+//
+// @param headers - UploadFileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UploadFileResponse
 func (client *Client) UploadFileWithOptions(request *UploadFileRequest, headers *UploadFileHeaders, runtime *util.RuntimeOptions) (_result *UploadFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3536,6 +4081,13 @@ func (client *Client) UploadFileWithOptions(request *UploadFileRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 互联互通上传文件
+//
+// @param request - UploadFileRequest
+//
+// @return UploadFileResponse
 func (client *Client) UploadFile(request *UploadFileRequest) (_result *UploadFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UploadFileHeaders{}

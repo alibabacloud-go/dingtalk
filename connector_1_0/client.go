@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package connector_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,6 +33,7 @@ func (s *CreateActionHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAction
 }
 
 type CreateActionRequest struct {
+	// This parameter is required.
 	ActionInfo     []*CreateActionRequestActionInfo `json:"actionInfo,omitempty" xml:"actionInfo,omitempty" type:"Repeated"`
 	IntegratorFlag *string                          `json:"integratorFlag,omitempty" xml:"integratorFlag,omitempty"`
 }
@@ -60,17 +57,20 @@ func (s *CreateActionRequest) SetIntegratorFlag(v string) *CreateActionRequest {
 }
 
 type CreateActionRequestActionInfo struct {
-	ApiPath               *string                                           `json:"apiPath,omitempty" xml:"apiPath,omitempty"`
-	Description           *string                                           `json:"description,omitempty" xml:"description,omitempty"`
-	DingConnectorId       *string                                           `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	InputMappingConfig    *CreateActionRequestActionInfoInputMappingConfig  `json:"inputMappingConfig,omitempty" xml:"inputMappingConfig,omitempty" type:"Struct"`
-	InputSchema           *string                                           `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
-	IntegratorActionId    *string                                           `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
-	IntegratorConnectorId *string                                           `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	Name                  *string                                           `json:"name,omitempty" xml:"name,omitempty"`
-	OutputDataRules       []*CreateActionRequestActionInfoOutputDataRules   `json:"outputDataRules,omitempty" xml:"outputDataRules,omitempty" type:"Repeated"`
-	OutputMappingConfig   *CreateActionRequestActionInfoOutputMappingConfig `json:"outputMappingConfig,omitempty" xml:"outputMappingConfig,omitempty" type:"Struct"`
-	OutputSchema          *string                                           `json:"outputSchema,omitempty" xml:"outputSchema,omitempty"`
+	ApiPath *string `json:"apiPath,omitempty" xml:"apiPath,omitempty"`
+	// This parameter is required.
+	Description        *string                                          `json:"description,omitempty" xml:"description,omitempty"`
+	DingConnectorId    *string                                          `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	InputMappingConfig *CreateActionRequestActionInfoInputMappingConfig `json:"inputMappingConfig,omitempty" xml:"inputMappingConfig,omitempty" type:"Struct"`
+	InputSchema        *string                                          `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
+	// This parameter is required.
+	IntegratorActionId    *string `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
+	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
+	// This parameter is required.
+	Name                *string                                           `json:"name,omitempty" xml:"name,omitempty"`
+	OutputDataRules     []*CreateActionRequestActionInfoOutputDataRules   `json:"outputDataRules,omitempty" xml:"outputDataRules,omitempty" type:"Repeated"`
+	OutputMappingConfig *CreateActionRequestActionInfoOutputMappingConfig `json:"outputMappingConfig,omitempty" xml:"outputMappingConfig,omitempty" type:"Struct"`
+	OutputSchema        *string                                           `json:"outputSchema,omitempty" xml:"outputSchema,omitempty"`
 }
 
 func (s CreateActionRequestActionInfo) String() string {
@@ -160,8 +160,17 @@ func (s *CreateActionRequestActionInfoInputMappingConfig) SetRules(v string) *Cr
 }
 
 type CreateActionRequestActionInfoOutputDataRules struct {
-	ExpectValue  *string `json:"expectValue,omitempty" xml:"expectValue,omitempty"`
-	Operate      *string `json:"operate,omitempty" xml:"operate,omitempty"`
+	// example:
+	//
+	// 1
+	ExpectValue *string `json:"expectValue,omitempty" xml:"expectValue,omitempty"`
+	// example:
+	//
+	// EQ
+	Operate *string `json:"operate,omitempty" xml:"operate,omitempty"`
+	// example:
+	//
+	// a/b/c
 	PropertyPath *string `json:"propertyPath,omitempty" xml:"propertyPath,omitempty"`
 }
 
@@ -212,6 +221,7 @@ func (s *CreateActionRequestActionInfoOutputMappingConfig) SetRules(v string) *C
 }
 
 type CreateActionResponseBody struct {
+	// This parameter is required.
 	Item []*CreateActionResponseBodyItem `json:"item,omitempty" xml:"item,omitempty" type:"Repeated"`
 }
 
@@ -229,13 +239,20 @@ func (s *CreateActionResponseBody) SetItem(v []*CreateActionResponseBodyItem) *C
 }
 
 type CreateActionResponseBodyItem struct {
-	DingActionId          *string `json:"dingActionId,omitempty" xml:"dingActionId,omitempty"`
-	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	IntegratorActionId    *string `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
+	// This parameter is required.
+	DingActionId *string `json:"dingActionId,omitempty" xml:"dingActionId,omitempty"`
+	// This parameter is required.
+	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	// This parameter is required.
+	IntegratorActionId *string `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
+	// This parameter is required.
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	SubErrCode            *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
-	SubErrMsg             *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
-	Success               *string `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	SubErrCode *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
+	// This parameter is required.
+	SubErrMsg *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
+	// This parameter is required.
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s CreateActionResponseBodyItem) String() string {
@@ -334,6 +351,7 @@ func (s *CreateConnectorHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCon
 }
 
 type CreateConnectorRequest struct {
+	// This parameter is required.
 	ConnectorInfo  []*CreateConnectorRequestConnectorInfo `json:"connectorInfo,omitempty" xml:"connectorInfo,omitempty" type:"Repeated"`
 	IntegratorFlag *string                                `json:"integratorFlag,omitempty" xml:"integratorFlag,omitempty"`
 }
@@ -357,15 +375,18 @@ func (s *CreateConnectorRequest) SetIntegratorFlag(v string) *CreateConnectorReq
 }
 
 type CreateConnectorRequestConnectorInfo struct {
-	ApiDomain             *string `json:"apiDomain,omitempty" xml:"apiDomain,omitempty"`
-	ApiSecret             *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
-	AppId                 *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
-	AuthValueEnv          *bool   `json:"authValueEnv,omitempty" xml:"authValueEnv,omitempty"`
-	Description           *string `json:"description,omitempty" xml:"description,omitempty"`
-	DomainEnv             *bool   `json:"domainEnv,omitempty" xml:"domainEnv,omitempty"`
-	IconMediaId           *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
+	ApiDomain    *string `json:"apiDomain,omitempty" xml:"apiDomain,omitempty"`
+	ApiSecret    *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
+	AppId        *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
+	AuthValueEnv *bool   `json:"authValueEnv,omitempty" xml:"authValueEnv,omitempty"`
+	// This parameter is required.
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	DomainEnv   *bool   `json:"domainEnv,omitempty" xml:"domainEnv,omitempty"`
+	IconMediaId *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
+	// This parameter is required.
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CreateConnectorRequestConnectorInfo) String() string {
@@ -422,6 +443,7 @@ func (s *CreateConnectorRequestConnectorInfo) SetName(v string) *CreateConnector
 }
 
 type CreateConnectorResponseBody struct {
+	// This parameter is required.
 	Item []*CreateConnectorResponseBodyItem `json:"item,omitempty" xml:"item,omitempty" type:"Repeated"`
 }
 
@@ -439,11 +461,24 @@ func (s *CreateConnectorResponseBody) SetItem(v []*CreateConnectorResponseBodyIt
 }
 
 type CreateConnectorResponseBodyItem struct {
-	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	// example:
+	//
+	// G-CONN-101921B15FE0212B4AF70
+	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
 	SubErrCode            *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
 	SubErrMsg             *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
-	Success               *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s CreateConnectorResponseBodyItem) String() string {
@@ -532,8 +567,18 @@ func (s *CreateInvocableInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *C
 }
 
 type CreateInvocableInstanceRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dca://ding32fff839a3e0105d.connect.dingtalk.com/ding32fff839a3e0105d/action/G-ACT-101FDEBD3C6E213DB474000P
 	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
-	InstanceKey     *string `json:"instanceKey,omitempty" xml:"instanceKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SAMPLE
+	InstanceKey *string `json:"instanceKey,omitempty" xml:"instanceKey,omitempty"`
 }
 
 func (s CreateInvocableInstanceRequest) String() string {
@@ -555,8 +600,14 @@ func (s *CreateInvocableInstanceRequest) SetInstanceKey(v string) *CreateInvocab
 }
 
 type CreateInvocableInstanceResponseBody struct {
+	// example:
+	//
+	// dca://ding32fff839a3e0105d.connect.dingtalk.com/ding32fff839a3e0105d/action/G-ACT-101FDEBD3C6E213DB474000P
 	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
-	VersionId       *string `json:"versionId,omitempty" xml:"versionId,omitempty"`
+	// example:
+	//
+	// G-ACT-VER-XXXACT
+	VersionId *string `json:"versionId,omitempty" xml:"versionId,omitempty"`
 }
 
 func (s CreateInvocableInstanceResponseBody) String() string {
@@ -630,8 +681,9 @@ func (s *CreateTriggerHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTrigg
 }
 
 type CreateTriggerRequest struct {
-	IntegratorFlag *string                            `json:"integratorFlag,omitempty" xml:"integratorFlag,omitempty"`
-	TriggerInfo    []*CreateTriggerRequestTriggerInfo `json:"triggerInfo,omitempty" xml:"triggerInfo,omitempty" type:"Repeated"`
+	IntegratorFlag *string `json:"integratorFlag,omitempty" xml:"integratorFlag,omitempty"`
+	// This parameter is required.
+	TriggerInfo []*CreateTriggerRequestTriggerInfo `json:"triggerInfo,omitempty" xml:"triggerInfo,omitempty" type:"Repeated"`
 }
 
 func (s CreateTriggerRequest) String() string {
@@ -653,12 +705,16 @@ func (s *CreateTriggerRequest) SetTriggerInfo(v []*CreateTriggerRequestTriggerIn
 }
 
 type CreateTriggerRequestTriggerInfo struct {
-	Description           *string `json:"description,omitempty" xml:"description,omitempty"`
-	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	// This parameter is required.
+	Description     *string `json:"description,omitempty" xml:"description,omitempty"`
+	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	// This parameter is required.
 	InputSchema           *string `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	IntegratorTriggerId   *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
-	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	IntegratorTriggerId *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CreateTriggerRequestTriggerInfo) String() string {
@@ -700,6 +756,7 @@ func (s *CreateTriggerRequestTriggerInfo) SetName(v string) *CreateTriggerReques
 }
 
 type CreateTriggerResponseBody struct {
+	// This parameter is required.
 	Item []*CreateTriggerResponseBodyItem `json:"item,omitempty" xml:"item,omitempty" type:"Repeated"`
 }
 
@@ -717,13 +774,20 @@ func (s *CreateTriggerResponseBody) SetItem(v []*CreateTriggerResponseBodyItem) 
 }
 
 type CreateTriggerResponseBodyItem struct {
-	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	DingTriggerId         *string `json:"dingTriggerId,omitempty" xml:"dingTriggerId,omitempty"`
+	// This parameter is required.
+	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	// This parameter is required.
+	DingTriggerId *string `json:"dingTriggerId,omitempty" xml:"dingTriggerId,omitempty"`
+	// This parameter is required.
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	IntegratorTriggerId   *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
-	SubErrCode            *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
-	SubErrMsg             *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
-	Success               *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	IntegratorTriggerId *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
+	// This parameter is required.
+	SubErrCode *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
+	// This parameter is required.
+	SubErrMsg *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s CreateTriggerResponseBodyItem) String() string {
@@ -822,6 +886,11 @@ func (s *GetActionDetailHeaders) SetXAcsDingtalkAccessToken(v string) *GetAction
 }
 
 type GetActionDetailRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dca://ding32fff839a3e0105d.connect.dingtalk.com/ding32fff839a3e0105d/action/G-ACT-101FDEBD3C6E213DB474000P
 	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
 }
 
@@ -839,14 +908,35 @@ func (s *GetActionDetailRequest) SetConnectAssetUri(v string) *GetActionDetailRe
 }
 
 type GetActionDetailResponseBody struct {
-	ConnectAssetUri   *string                                       `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
+	// example:
+	//
+	// dca://ding32fff839a3e0105d.connect.dingtalk.com/ding32fff839a3e0105d/action/G-ACT-101FDEBD3C6E213DB474000P
+	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
+	// example:
+	//
+	// {"title":"A registration form","description":"A simple form example.","type":"object","required":[],"properties":{"password":{"type":"string","title":"Password","minLength":3},"telephone":{"type":"string","title":"Telephone","minLength":10}}}
 	InputSchema       *string                                       `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
 	IntegrationConfig *GetActionDetailResponseBodyIntegrationConfig `json:"integrationConfig,omitempty" xml:"integrationConfig,omitempty" type:"Struct"`
-	Name              *string                                       `json:"name,omitempty" xml:"name,omitempty"`
-	OutputSchema      *string                                       `json:"outputSchema,omitempty" xml:"outputSchema,omitempty"`
-	RefId             *string                                       `json:"refId,omitempty" xml:"refId,omitempty"`
-	RefProviderCorpId *string                                       `json:"refProviderCorpId,omitempty" xml:"refProviderCorpId,omitempty"`
-	RefType           *string                                       `json:"refType,omitempty" xml:"refType,omitempty"`
+	// example:
+	//
+	// XX执行动作
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// {"title":"A registration form","description":"A simple form example.","type":"object","required":[],"properties":{"password":{"type":"string","title":"Password","minLength":3},"telephone":{"type":"string","title":"Telephone","minLength":10}}}
+	OutputSchema *string `json:"outputSchema,omitempty" xml:"outputSchema,omitempty"`
+	// example:
+	//
+	// G-ACT-101FDEBD3C6E213DB474000P
+	RefId *string `json:"refId,omitempty" xml:"refId,omitempty"`
+	// example:
+	//
+	// ding32fff839a3e0105d
+	RefProviderCorpId *string `json:"refProviderCorpId,omitempty" xml:"refProviderCorpId,omitempty"`
+	// example:
+	//
+	// action
+	RefType *string `json:"refType,omitempty" xml:"refType,omitempty"`
 }
 
 func (s GetActionDetailResponseBody) String() string {
@@ -899,8 +989,11 @@ func (s *GetActionDetailResponseBody) SetRefType(v string) *GetActionDetailRespo
 
 type GetActionDetailResponseBodyIntegrationConfig struct {
 	CategoryNames []*GetActionDetailResponseBodyIntegrationConfigCategoryNames `json:"categoryNames,omitempty" xml:"categoryNames,omitempty" type:"Repeated"`
-	EntityName    *string                                                      `json:"entityName,omitempty" xml:"entityName,omitempty"`
-	Props         []*GetActionDetailResponseBodyIntegrationConfigProps         `json:"props,omitempty" xml:"props,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 表单
+	EntityName *string                                              `json:"entityName,omitempty" xml:"entityName,omitempty"`
+	Props      []*GetActionDetailResponseBodyIntegrationConfigProps `json:"props,omitempty" xml:"props,omitempty" type:"Repeated"`
 }
 
 func (s GetActionDetailResponseBodyIntegrationConfig) String() string {
@@ -927,6 +1020,9 @@ func (s *GetActionDetailResponseBodyIntegrationConfig) SetProps(v []*GetActionDe
 }
 
 type GetActionDetailResponseBodyIntegrationConfigCategoryNames struct {
+	// example:
+	//
+	// 应用
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -944,7 +1040,13 @@ func (s *GetActionDetailResponseBodyIntegrationConfigCategoryNames) SetValue(v s
 }
 
 type GetActionDetailResponseBodyIntegrationConfigProps struct {
-	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// SAMPLE_KEY
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// VALUE
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -1019,9 +1121,21 @@ func (s *InvokeInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *InvokeInst
 }
 
 type InvokeInstanceRequest struct {
+	// example:
+	//
+	// dca://ding32fff839a3e0105d.connect.dingtalk.com/ding32fff839a3e0105d/action/G-ACT-101FDEBD3C6E213DB474000P
 	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// {}
 	InputJsonString *string `json:"inputJsonString,omitempty" xml:"inputJsonString,omitempty"`
-	InstanceKey     *string `json:"instanceKey,omitempty" xml:"instanceKey,omitempty"`
+	// example:
+	//
+	// SAMPLE
+	InstanceKey *string `json:"instanceKey,omitempty" xml:"instanceKey,omitempty"`
 }
 
 func (s InvokeInstanceRequest) String() string {
@@ -1048,11 +1162,26 @@ func (s *InvokeInstanceRequest) SetInstanceKey(v string) *InvokeInstanceRequest 
 }
 
 type InvokeInstanceResponseBody struct {
-	Cost         *int64  `json:"cost,omitempty" xml:"cost,omitempty"`
-	ErrorCode    *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// 13
+	Cost *int64 `json:"cost,omitempty" xml:"cost,omitempty"`
+	// example:
+	//
+	// 0
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// success
 	ErrorMessage *string `json:"errorMessage,omitempty" xml:"errorMessage,omitempty"`
-	InstanceId   *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	OutputJson   *string `json:"outputJson,omitempty" xml:"outputJson,omitempty"`
+	// example:
+	//
+	// 43b28ecffae-f-t_
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// example:
+	//
+	// {}
+	OutputJson *string `json:"outputJson,omitempty" xml:"outputJson,omitempty"`
 }
 
 func (s InvokeInstanceResponseBody) String() string {
@@ -1141,7 +1270,8 @@ func (s *PullDataByPageHeaders) SetXAcsDingtalkAccessToken(v string) *PullDataBy
 }
 
 type PullDataByPageRequest struct {
-	AppId               *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	// This parameter is required.
 	DataModelId         *string `json:"dataModelId,omitempty" xml:"dataModelId,omitempty"`
 	DatetimeFilterField *string `json:"datetimeFilterField,omitempty" xml:"datetimeFilterField,omitempty"`
 	MaxDatetime         *int64  `json:"maxDatetime,omitempty" xml:"maxDatetime,omitempty"`
@@ -1194,6 +1324,7 @@ func (s *PullDataByPageRequest) SetNextToken(v string) *PullDataByPageRequest {
 }
 
 type PullDataByPageResponseBody struct {
+	// This parameter is required.
 	List       []*PullDataByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
 	MaxResults *int64                            `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
@@ -1223,13 +1354,20 @@ func (s *PullDataByPageResponseBody) SetNextToken(v string) *PullDataByPageRespo
 }
 
 type PullDataByPageResponseBodyList struct {
-	DataCreateAppId     *string `json:"dataCreateAppId,omitempty" xml:"dataCreateAppId,omitempty"`
-	DataCreateAppType   *string `json:"dataCreateAppType,omitempty" xml:"dataCreateAppType,omitempty"`
-	DataGmtCreate       *int64  `json:"dataGmtCreate,omitempty" xml:"dataGmtCreate,omitempty"`
-	DataGmtModified     *int64  `json:"dataGmtModified,omitempty" xml:"dataGmtModified,omitempty"`
-	DataModifiedAppId   *string `json:"dataModifiedAppId,omitempty" xml:"dataModifiedAppId,omitempty"`
+	// This parameter is required.
+	DataCreateAppId *string `json:"dataCreateAppId,omitempty" xml:"dataCreateAppId,omitempty"`
+	// This parameter is required.
+	DataCreateAppType *string `json:"dataCreateAppType,omitempty" xml:"dataCreateAppType,omitempty"`
+	// This parameter is required.
+	DataGmtCreate *int64 `json:"dataGmtCreate,omitempty" xml:"dataGmtCreate,omitempty"`
+	// This parameter is required.
+	DataGmtModified *int64 `json:"dataGmtModified,omitempty" xml:"dataGmtModified,omitempty"`
+	// This parameter is required.
+	DataModifiedAppId *string `json:"dataModifiedAppId,omitempty" xml:"dataModifiedAppId,omitempty"`
+	// This parameter is required.
 	DataModifiedAppType *string `json:"dataModifiedAppType,omitempty" xml:"dataModifiedAppType,omitempty"`
-	JsonData            *string `json:"jsonData,omitempty" xml:"jsonData,omitempty"`
+	// This parameter is required.
+	JsonData *string `json:"jsonData,omitempty" xml:"jsonData,omitempty"`
 }
 
 func (s PullDataByPageResponseBodyList) String() string {
@@ -1328,7 +1466,8 @@ func (s *PullDataByPkHeaders) SetXAcsDingtalkAccessToken(v string) *PullDataByPk
 }
 
 type PullDataByPkRequest struct {
-	AppId      *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	// This parameter is required.
 	PrimaryKey *string `json:"primaryKey,omitempty" xml:"primaryKey,omitempty"`
 }
 
@@ -1351,13 +1490,20 @@ func (s *PullDataByPkRequest) SetPrimaryKey(v string) *PullDataByPkRequest {
 }
 
 type PullDataByPkResponseBody struct {
-	DataCreateAppId     *string `json:"dataCreateAppId,omitempty" xml:"dataCreateAppId,omitempty"`
-	DataCreateAppType   *string `json:"dataCreateAppType,omitempty" xml:"dataCreateAppType,omitempty"`
-	DataGmtCreate       *int64  `json:"dataGmtCreate,omitempty" xml:"dataGmtCreate,omitempty"`
-	DataGmtModified     *int64  `json:"dataGmtModified,omitempty" xml:"dataGmtModified,omitempty"`
-	DataModifiedAppId   *string `json:"dataModifiedAppId,omitempty" xml:"dataModifiedAppId,omitempty"`
+	// This parameter is required.
+	DataCreateAppId *string `json:"dataCreateAppId,omitempty" xml:"dataCreateAppId,omitempty"`
+	// This parameter is required.
+	DataCreateAppType *string `json:"dataCreateAppType,omitempty" xml:"dataCreateAppType,omitempty"`
+	// This parameter is required.
+	DataGmtCreate *int64 `json:"dataGmtCreate,omitempty" xml:"dataGmtCreate,omitempty"`
+	// This parameter is required.
+	DataGmtModified *int64 `json:"dataGmtModified,omitempty" xml:"dataGmtModified,omitempty"`
+	// This parameter is required.
+	DataModifiedAppId *string `json:"dataModifiedAppId,omitempty" xml:"dataModifiedAppId,omitempty"`
+	// This parameter is required.
 	DataModifiedAppType *string `json:"dataModifiedAppType,omitempty" xml:"dataModifiedAppType,omitempty"`
-	JsonData            *string `json:"jsonData,omitempty" xml:"jsonData,omitempty"`
+	// This parameter is required.
+	JsonData *string `json:"jsonData,omitempty" xml:"jsonData,omitempty"`
 }
 
 func (s PullDataByPkResponseBody) String() string {
@@ -1456,11 +1602,32 @@ func (s *SearchActionsHeaders) SetXAcsDingtalkAccessToken(v string) *SearchActio
 }
 
 type SearchActionsRequest struct {
-	ConnectorId             *string   `json:"connectorId,omitempty" xml:"connectorId,omitempty"`
-	ConnectorProviderCorpId *string   `json:"connectorProviderCorpId,omitempty" xml:"connectorProviderCorpId,omitempty"`
-	IntegrationTypes        []*string `json:"integrationTypes,omitempty" xml:"integrationTypes,omitempty" type:"Repeated"`
-	MaxResults              *int32    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken               *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// G-CONN-1015BC8093540B01B8D0000Q
+	ConnectorId *string `json:"connectorId,omitempty" xml:"connectorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding32fff839a3e0105d
+	ConnectorProviderCorpId *string `json:"connectorProviderCorpId,omitempty" xml:"connectorProviderCorpId,omitempty"`
+	// if can be null:
+	// true
+	IntegrationTypes []*string `json:"integrationTypes,omitempty" xml:"integrationTypes,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// 0
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s SearchActionsRequest) String() string {
@@ -1532,16 +1699,44 @@ func (s *SearchActionsResponseBody) SetTotalCount(v int64) *SearchActionsRespons
 }
 
 type SearchActionsResponseBodyList struct {
-	AuthorityUrl    *string `json:"authorityUrl,omitempty" xml:"authorityUrl,omitempty"`
-	Authorized      *bool   `json:"authorized,omitempty" xml:"authorized,omitempty"`
+	// example:
+	//
+	// dingtalk://dingtalkclient/page/link?pc_slide=true&url=https%3A%2F%2Fn.dingtalk.com%2Fdingding%2Fh5-common-authority%2Fconnector%2Findex.html%3FcorpId%3Dding32fff839a3e0105d%26accessorUuid%3DAPP-505001%26oPaths%3D%252Fding5b2a0b7e9677128935c2f4657eb6378f%252Fconnector%252FG-CONN-1017AF27C1B20B0FFD490005
+	AuthorityUrl *string `json:"authorityUrl,omitempty" xml:"authorityUrl,omitempty"`
+	// This parameter is required.
+	Authorized *bool `json:"authorized,omitempty" xml:"authorized,omitempty"`
+	// example:
+	//
+	// dca://ding32fff839a3e0105d.connect.dingtalk.com/ding32fff839a3e0105d/action/G-ACT-101FDEBD3C6E213DB474000P
 	ConnectAssetUri *string `json:"connectAssetUri,omitempty" xml:"connectAssetUri,omitempty"`
-	ConnectorId     *string `json:"connectorId,omitempty" xml:"connectorId,omitempty"`
-	Description     *string `json:"description,omitempty" xml:"description,omitempty"`
-	Icon            *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	Id              *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// G-CONN-XXCONNECTOR
+	ConnectorId *string `json:"connectorId,omitempty" xml:"connectorId,omitempty"`
+	// example:
+	//
+	// 示例描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// example:
+	//
+	// http://example.com/icon.jpg
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// example:
+	//
+	// G-ACT-XXXACTION
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// basic
 	IntegrationType *string `json:"integrationType,omitempty" xml:"integrationType,omitempty"`
-	Name            *string `json:"name,omitempty" xml:"name,omitempty"`
-	ProviderCorpId  *string `json:"providerCorpId,omitempty" xml:"providerCorpId,omitempty"`
+	// example:
+	//
+	// 示例连接器
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// ding32fff839a3e0105d
+	ProviderCorpId *string `json:"providerCorpId,omitempty" xml:"providerCorpId,omitempty"`
 }
 
 func (s SearchActionsResponseBodyList) String() string {
@@ -1655,9 +1850,20 @@ func (s *SearchConnectorsHeaders) SetXAcsDingtalkAccessToken(v string) *SearchCo
 }
 
 type SearchConnectorsRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 0
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// official
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s SearchConnectorsRequest) String() string {
@@ -1684,10 +1890,13 @@ func (s *SearchConnectorsRequest) SetType(v string) *SearchConnectorsRequest {
 }
 
 type SearchConnectorsResponseBody struct {
-	HasMore    *bool                               `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	List       []*SearchConnectorsResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	NextToken  *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	TotalCount *string                             `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	HasMore   *bool                               `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List      []*SearchConnectorsResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextToken *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 1
+	TotalCount *string `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s SearchConnectorsResponseBody) String() string {
@@ -1719,10 +1928,25 @@ func (s *SearchConnectorsResponseBody) SetTotalCount(v string) *SearchConnectors
 }
 
 type SearchConnectorsResponseBodyList struct {
-	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
-	Icon           *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	Id             *string `json:"id,omitempty" xml:"id,omitempty"`
-	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 【钉钉官方】通讯录
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// example:
+	//
+	// https://static.dingtalk.com/media/lALPDfJ6WadAG1dgYA_96_96.png
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// example:
+	//
+	// G-CONN-1015BC8093540B01B8D0000Q
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 通讯录
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// ding32fff839a3e0105d
 	ProviderCorpId *string `json:"providerCorpId,omitempty" xml:"providerCorpId,omitempty"`
 }
 
@@ -1812,7 +2036,8 @@ func (s *SyncDataHeaders) SetXAcsDingtalkAccessToken(v string) *SyncDataHeaders 
 }
 
 type SyncDataRequest struct {
-	AppId           *string                           `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	// This parameter is required.
 	TriggerDataList []*SyncDataRequestTriggerDataList `json:"triggerDataList,omitempty" xml:"triggerDataList,omitempty" type:"Repeated"`
 }
 
@@ -1835,14 +2060,21 @@ func (s *SyncDataRequest) SetTriggerDataList(v []*SyncDataRequestTriggerDataList
 }
 
 type SyncDataRequestTriggerDataList struct {
-	Action            *string `json:"action,omitempty" xml:"action,omitempty"`
-	CustomTriggerId   *string `json:"customTriggerId,omitempty" xml:"customTriggerId,omitempty"`
-	DataGmtCreate     *int64  `json:"dataGmtCreate,omitempty" xml:"dataGmtCreate,omitempty"`
-	DataGmtModified   *int64  `json:"dataGmtModified,omitempty" xml:"dataGmtModified,omitempty"`
+	// This parameter is required.
+	Action          *string `json:"action,omitempty" xml:"action,omitempty"`
+	CustomTriggerId *string `json:"customTriggerId,omitempty" xml:"customTriggerId,omitempty"`
+	// This parameter is required.
+	DataGmtCreate *int64 `json:"dataGmtCreate,omitempty" xml:"dataGmtCreate,omitempty"`
+	// This parameter is required.
+	DataGmtModified *int64 `json:"dataGmtModified,omitempty" xml:"dataGmtModified,omitempty"`
+	// if can be null:
+	// true
 	IntegrationObject *string `json:"integrationObject,omitempty" xml:"integrationObject,omitempty"`
-	JsonData          *string `json:"jsonData,omitempty" xml:"jsonData,omitempty"`
-	TriggerCondition  *string `json:"triggerCondition,omitempty" xml:"triggerCondition,omitempty"`
-	TriggerId         *string `json:"triggerId,omitempty" xml:"triggerId,omitempty"`
+	// This parameter is required.
+	JsonData         *string `json:"jsonData,omitempty" xml:"jsonData,omitempty"`
+	TriggerCondition *string `json:"triggerCondition,omitempty" xml:"triggerCondition,omitempty"`
+	// This parameter is required.
+	TriggerId *string `json:"triggerId,omitempty" xml:"triggerId,omitempty"`
 }
 
 func (s SyncDataRequestTriggerDataList) String() string {
@@ -1894,6 +2126,7 @@ func (s *SyncDataRequestTriggerDataList) SetTriggerId(v string) *SyncDataRequest
 }
 
 type SyncDataResponseBody struct {
+	// This parameter is required.
 	List []*SyncDataResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
 }
 
@@ -1911,11 +2144,16 @@ func (s *SyncDataResponseBody) SetList(v []*SyncDataResponseBodyList) *SyncDataR
 }
 
 type SyncDataResponseBodyList struct {
+	// This parameter is required.
 	BizPrimaryKey *string `json:"bizPrimaryKey,omitempty" xml:"bizPrimaryKey,omitempty"`
-	SubErrCode    *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
-	SubErrMsg     *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
-	Success       *bool   `json:"success,omitempty" xml:"success,omitempty"`
-	TriggerId     *string `json:"triggerId,omitempty" xml:"triggerId,omitempty"`
+	// This parameter is required.
+	SubErrCode *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
+	// This parameter is required.
+	SubErrMsg *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	TriggerId *string `json:"triggerId,omitempty" xml:"triggerId,omitempty"`
 }
 
 func (s SyncDataResponseBodyList) String() string {
@@ -2004,8 +2242,10 @@ func (s *UpdateActionHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateAction
 }
 
 type UpdateActionRequest struct {
-	ActionInfo     []*UpdateActionRequestActionInfo `json:"actionInfo,omitempty" xml:"actionInfo,omitempty" type:"Repeated"`
-	IntegratorFlag *string                          `json:"integratorFlag,omitempty" xml:"integratorFlag,omitempty"`
+	// This parameter is required.
+	ActionInfo []*UpdateActionRequestActionInfo `json:"actionInfo,omitempty" xml:"actionInfo,omitempty" type:"Repeated"`
+	// This parameter is required.
+	IntegratorFlag *string `json:"integratorFlag,omitempty" xml:"integratorFlag,omitempty"`
 }
 
 func (s UpdateActionRequest) String() string {
@@ -2027,13 +2267,15 @@ func (s *UpdateActionRequest) SetIntegratorFlag(v string) *UpdateActionRequest {
 }
 
 type UpdateActionRequestActionInfo struct {
-	ApiPath               *string                                           `json:"apiPath,omitempty" xml:"apiPath,omitempty"`
-	Description           *string                                           `json:"description,omitempty" xml:"description,omitempty"`
-	DingActionId          *string                                           `json:"dingActionId,omitempty" xml:"dingActionId,omitempty"`
-	DingConnectorId       *string                                           `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	InputMappingConfig    *UpdateActionRequestActionInfoInputMappingConfig  `json:"inputMappingConfig,omitempty" xml:"inputMappingConfig,omitempty" type:"Struct"`
-	InputSchema           *string                                           `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
-	IntegratorActionId    *string                                           `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
+	ApiPath            *string                                          `json:"apiPath,omitempty" xml:"apiPath,omitempty"`
+	Description        *string                                          `json:"description,omitempty" xml:"description,omitempty"`
+	DingActionId       *string                                          `json:"dingActionId,omitempty" xml:"dingActionId,omitempty"`
+	DingConnectorId    *string                                          `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	InputMappingConfig *UpdateActionRequestActionInfoInputMappingConfig `json:"inputMappingConfig,omitempty" xml:"inputMappingConfig,omitempty" type:"Struct"`
+	InputSchema        *string                                          `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
+	// This parameter is required.
+	IntegratorActionId *string `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
+	// This parameter is required.
 	IntegratorConnectorId *string                                           `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
 	Name                  *string                                           `json:"name,omitempty" xml:"name,omitempty"`
 	OutputDataRules       []*UpdateActionRequestActionInfoOutputDataRules   `json:"outputDataRules,omitempty" xml:"outputDataRules,omitempty" type:"Repeated"`
@@ -2133,8 +2375,17 @@ func (s *UpdateActionRequestActionInfoInputMappingConfig) SetRules(v string) *Up
 }
 
 type UpdateActionRequestActionInfoOutputDataRules struct {
-	ExpectValue  *string `json:"expectValue,omitempty" xml:"expectValue,omitempty"`
-	Operate      *string `json:"operate,omitempty" xml:"operate,omitempty"`
+	// example:
+	//
+	// 1
+	ExpectValue *string `json:"expectValue,omitempty" xml:"expectValue,omitempty"`
+	// example:
+	//
+	// EQ
+	Operate *string `json:"operate,omitempty" xml:"operate,omitempty"`
+	// example:
+	//
+	// a/b/c
 	PropertyPath *string `json:"propertyPath,omitempty" xml:"propertyPath,omitempty"`
 }
 
@@ -2185,6 +2436,7 @@ func (s *UpdateActionRequestActionInfoOutputMappingConfig) SetRules(v string) *U
 }
 
 type UpdateActionResponseBody struct {
+	// This parameter is required.
 	Item []*UpdateActionResponseBodyItem `json:"item,omitempty" xml:"item,omitempty" type:"Repeated"`
 }
 
@@ -2202,13 +2454,20 @@ func (s *UpdateActionResponseBody) SetItem(v []*UpdateActionResponseBodyItem) *U
 }
 
 type UpdateActionResponseBodyItem struct {
-	DingActionId          *string `json:"dingActionId,omitempty" xml:"dingActionId,omitempty"`
-	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	IntegratorActionId    *string `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
+	// This parameter is required.
+	DingActionId *string `json:"dingActionId,omitempty" xml:"dingActionId,omitempty"`
+	// This parameter is required.
+	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	// This parameter is required.
+	IntegratorActionId *string `json:"integratorActionId,omitempty" xml:"integratorActionId,omitempty"`
+	// This parameter is required.
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	SubErrCode            *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
-	SubErrMsg             *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
-	Success               *string `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	SubErrCode *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
+	// This parameter is required.
+	SubErrMsg *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
+	// This parameter is required.
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateActionResponseBodyItem) String() string {
@@ -2307,8 +2566,10 @@ func (s *UpdateConnectorHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateCon
 }
 
 type UpdateConnectorRequest struct {
-	ConnectorInfo  []*UpdateConnectorRequestConnectorInfo `json:"connectorInfo,omitempty" xml:"connectorInfo,omitempty" type:"Repeated"`
-	IntegratorFlag *string                                `json:"integratorFlag,omitempty" xml:"integratorFlag,omitempty"`
+	// This parameter is required.
+	ConnectorInfo []*UpdateConnectorRequestConnectorInfo `json:"connectorInfo,omitempty" xml:"connectorInfo,omitempty" type:"Repeated"`
+	// This parameter is required.
+	IntegratorFlag *string `json:"integratorFlag,omitempty" xml:"integratorFlag,omitempty"`
 }
 
 func (s UpdateConnectorRequest) String() string {
@@ -2330,14 +2591,15 @@ func (s *UpdateConnectorRequest) SetIntegratorFlag(v string) *UpdateConnectorReq
 }
 
 type UpdateConnectorRequestConnectorInfo struct {
-	ApiDomain             *string `json:"apiDomain,omitempty" xml:"apiDomain,omitempty"`
-	ApiSecret             *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
-	AppId                 *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
-	AuthValueEnv          *bool   `json:"authValueEnv,omitempty" xml:"authValueEnv,omitempty"`
-	Description           *string `json:"description,omitempty" xml:"description,omitempty"`
-	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	DomainEnv             *bool   `json:"domainEnv,omitempty" xml:"domainEnv,omitempty"`
-	IconMediaId           *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
+	ApiDomain       *string `json:"apiDomain,omitempty" xml:"apiDomain,omitempty"`
+	ApiSecret       *string `json:"apiSecret,omitempty" xml:"apiSecret,omitempty"`
+	AppId           *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
+	AuthValueEnv    *bool   `json:"authValueEnv,omitempty" xml:"authValueEnv,omitempty"`
+	Description     *string `json:"description,omitempty" xml:"description,omitempty"`
+	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	DomainEnv       *bool   `json:"domainEnv,omitempty" xml:"domainEnv,omitempty"`
+	IconMediaId     *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
+	// This parameter is required.
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
 	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
 }
@@ -2401,6 +2663,7 @@ func (s *UpdateConnectorRequestConnectorInfo) SetName(v string) *UpdateConnector
 }
 
 type UpdateConnectorResponseBody struct {
+	// This parameter is required.
 	Item []*UpdateConnectorResponseBodyItem `json:"item,omitempty" xml:"item,omitempty" type:"Repeated"`
 }
 
@@ -2418,11 +2681,24 @@ func (s *UpdateConnectorResponseBody) SetItem(v []*UpdateConnectorResponseBodyIt
 }
 
 type UpdateConnectorResponseBodyItem struct {
-	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	// example:
+	//
+	// G-CONN-101921B15FE0212B4AF70
+	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
 	SubErrCode            *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
 	SubErrMsg             *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
-	Success               *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateConnectorResponseBodyItem) String() string {
@@ -2511,8 +2787,10 @@ func (s *UpdateTriggerHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTrigg
 }
 
 type UpdateTriggerRequest struct {
-	IntegratorFlag *string                            `json:"integratorFlag,omitempty" xml:"integratorFlag,omitempty"`
-	TriggerInfo    []*UpdateTriggerRequestTriggerInfo `json:"triggerInfo,omitempty" xml:"triggerInfo,omitempty" type:"Repeated"`
+	// This parameter is required.
+	IntegratorFlag *string `json:"integratorFlag,omitempty" xml:"integratorFlag,omitempty"`
+	// This parameter is required.
+	TriggerInfo []*UpdateTriggerRequestTriggerInfo `json:"triggerInfo,omitempty" xml:"triggerInfo,omitempty" type:"Repeated"`
 }
 
 func (s UpdateTriggerRequest) String() string {
@@ -2534,13 +2812,15 @@ func (s *UpdateTriggerRequest) SetTriggerInfo(v []*UpdateTriggerRequestTriggerIn
 }
 
 type UpdateTriggerRequestTriggerInfo struct {
-	Description           *string `json:"description,omitempty" xml:"description,omitempty"`
-	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	DingTriggerId         *string `json:"dingTriggerId,omitempty" xml:"dingTriggerId,omitempty"`
-	InputSchema           *string `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
+	Description     *string `json:"description,omitempty" xml:"description,omitempty"`
+	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	DingTriggerId   *string `json:"dingTriggerId,omitempty" xml:"dingTriggerId,omitempty"`
+	InputSchema     *string `json:"inputSchema,omitempty" xml:"inputSchema,omitempty"`
+	// This parameter is required.
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	IntegratorTriggerId   *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
-	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	IntegratorTriggerId *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
+	Name                *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s UpdateTriggerRequestTriggerInfo) String() string {
@@ -2587,6 +2867,7 @@ func (s *UpdateTriggerRequestTriggerInfo) SetName(v string) *UpdateTriggerReques
 }
 
 type UpdateTriggerResponseBody struct {
+	// This parameter is required.
 	Item []*UpdateTriggerResponseBodyItem `json:"item,omitempty" xml:"item,omitempty" type:"Repeated"`
 }
 
@@ -2604,13 +2885,20 @@ func (s *UpdateTriggerResponseBody) SetItem(v []*UpdateTriggerResponseBodyItem) 
 }
 
 type UpdateTriggerResponseBodyItem struct {
-	DingConnectorId       *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
-	DingTriggerId         *string `json:"dingTriggerId,omitempty" xml:"dingTriggerId,omitempty"`
+	// This parameter is required.
+	DingConnectorId *string `json:"dingConnectorId,omitempty" xml:"dingConnectorId,omitempty"`
+	// This parameter is required.
+	DingTriggerId *string `json:"dingTriggerId,omitempty" xml:"dingTriggerId,omitempty"`
+	// This parameter is required.
 	IntegratorConnectorId *string `json:"integratorConnectorId,omitempty" xml:"integratorConnectorId,omitempty"`
-	IntegratorTriggerId   *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
-	SubErrCode            *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
-	SubErrMsg             *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
-	Success               *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	IntegratorTriggerId *string `json:"integratorTriggerId,omitempty" xml:"integratorTriggerId,omitempty"`
+	// This parameter is required.
+	SubErrCode *string `json:"subErrCode,omitempty" xml:"subErrCode,omitempty"`
+	// This parameter is required.
+	SubErrMsg *string `json:"subErrMsg,omitempty" xml:"subErrMsg,omitempty"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateTriggerResponseBodyItem) String() string {
@@ -2700,12 +2988,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -2714,6 +3002,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 创建执行动作
+//
+// @param request - CreateActionRequest
+//
+// @param headers - CreateActionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateActionResponse
 func (client *Client) CreateActionWithOptions(request *CreateActionRequest, headers *CreateActionHeaders, runtime *util.RuntimeOptions) (_result *CreateActionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2761,6 +3060,13 @@ func (client *Client) CreateActionWithOptions(request *CreateActionRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建执行动作
+//
+// @param request - CreateActionRequest
+//
+// @return CreateActionResponse
 func (client *Client) CreateAction(request *CreateActionRequest) (_result *CreateActionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateActionHeaders{}
@@ -2773,6 +3079,17 @@ func (client *Client) CreateAction(request *CreateActionRequest) (_result *Creat
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建连接器
+//
+// @param request - CreateConnectorRequest
+//
+// @param headers - CreateConnectorHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateConnectorResponse
 func (client *Client) CreateConnectorWithOptions(request *CreateConnectorRequest, headers *CreateConnectorHeaders, runtime *util.RuntimeOptions) (_result *CreateConnectorResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2820,6 +3137,13 @@ func (client *Client) CreateConnectorWithOptions(request *CreateConnectorRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建连接器
+//
+// @param request - CreateConnectorRequest
+//
+// @return CreateConnectorResponse
 func (client *Client) CreateConnector(request *CreateConnectorRequest) (_result *CreateConnectorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateConnectorHeaders{}
@@ -2832,6 +3156,17 @@ func (client *Client) CreateConnector(request *CreateConnectorRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建一个用于运行执行动作/集成流的可调用实例
+//
+// @param request - CreateInvocableInstanceRequest
+//
+// @param headers - CreateInvocableInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateInvocableInstanceResponse
 func (client *Client) CreateInvocableInstanceWithOptions(request *CreateInvocableInstanceRequest, headers *CreateInvocableInstanceHeaders, runtime *util.RuntimeOptions) (_result *CreateInvocableInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2879,6 +3214,13 @@ func (client *Client) CreateInvocableInstanceWithOptions(request *CreateInvocabl
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建一个用于运行执行动作/集成流的可调用实例
+//
+// @param request - CreateInvocableInstanceRequest
+//
+// @return CreateInvocableInstanceResponse
 func (client *Client) CreateInvocableInstance(request *CreateInvocableInstanceRequest) (_result *CreateInvocableInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateInvocableInstanceHeaders{}
@@ -2891,6 +3233,17 @@ func (client *Client) CreateInvocableInstance(request *CreateInvocableInstanceRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建触发器
+//
+// @param request - CreateTriggerRequest
+//
+// @param headers - CreateTriggerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateTriggerResponse
 func (client *Client) CreateTriggerWithOptions(request *CreateTriggerRequest, headers *CreateTriggerHeaders, runtime *util.RuntimeOptions) (_result *CreateTriggerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2938,6 +3291,13 @@ func (client *Client) CreateTriggerWithOptions(request *CreateTriggerRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建触发器
+//
+// @param request - CreateTriggerRequest
+//
+// @return CreateTriggerResponse
 func (client *Client) CreateTrigger(request *CreateTriggerRequest) (_result *CreateTriggerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateTriggerHeaders{}
@@ -2950,6 +3310,17 @@ func (client *Client) CreateTrigger(request *CreateTriggerRequest) (_result *Cre
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取执行动作详情
+//
+// @param request - GetActionDetailRequest
+//
+// @param headers - GetActionDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetActionDetailResponse
 func (client *Client) GetActionDetailWithOptions(request *GetActionDetailRequest, headers *GetActionDetailHeaders, runtime *util.RuntimeOptions) (_result *GetActionDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2993,6 +3364,13 @@ func (client *Client) GetActionDetailWithOptions(request *GetActionDetailRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取执行动作详情
+//
+// @param request - GetActionDetailRequest
+//
+// @return GetActionDetailResponse
 func (client *Client) GetActionDetail(request *GetActionDetailRequest) (_result *GetActionDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetActionDetailHeaders{}
@@ -3005,6 +3383,17 @@ func (client *Client) GetActionDetail(request *GetActionDetailRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 调用执行实例
+//
+// @param request - InvokeInstanceRequest
+//
+// @param headers - InvokeInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InvokeInstanceResponse
 func (client *Client) InvokeInstanceWithOptions(request *InvokeInstanceRequest, headers *InvokeInstanceHeaders, runtime *util.RuntimeOptions) (_result *InvokeInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3056,6 +3445,13 @@ func (client *Client) InvokeInstanceWithOptions(request *InvokeInstanceRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 调用执行实例
+//
+// @param request - InvokeInstanceRequest
+//
+// @return InvokeInstanceResponse
 func (client *Client) InvokeInstance(request *InvokeInstanceRequest) (_result *InvokeInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InvokeInstanceHeaders{}
@@ -3068,6 +3464,17 @@ func (client *Client) InvokeInstance(request *InvokeInstanceRequest) (_result *I
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页拉取连接器主数据
+//
+// @param request - PullDataByPageRequest
+//
+// @param headers - PullDataByPageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PullDataByPageResponse
 func (client *Client) PullDataByPageWithOptions(request *PullDataByPageRequest, headers *PullDataByPageHeaders, runtime *util.RuntimeOptions) (_result *PullDataByPageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3135,6 +3542,13 @@ func (client *Client) PullDataByPageWithOptions(request *PullDataByPageRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页拉取连接器主数据
+//
+// @param request - PullDataByPageRequest
+//
+// @return PullDataByPageResponse
 func (client *Client) PullDataByPage(request *PullDataByPageRequest) (_result *PullDataByPageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PullDataByPageHeaders{}
@@ -3147,6 +3561,17 @@ func (client *Client) PullDataByPage(request *PullDataByPageRequest) (_result *P
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过业务主键拉取单条连接器主数据
+//
+// @param request - PullDataByPkRequest
+//
+// @param headers - PullDataByPkHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PullDataByPkResponse
 func (client *Client) PullDataByPkWithOptions(dataModelId *string, request *PullDataByPkRequest, headers *PullDataByPkHeaders, runtime *util.RuntimeOptions) (_result *PullDataByPkResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3194,6 +3619,13 @@ func (client *Client) PullDataByPkWithOptions(dataModelId *string, request *Pull
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过业务主键拉取单条连接器主数据
+//
+// @param request - PullDataByPkRequest
+//
+// @return PullDataByPkResponse
 func (client *Client) PullDataByPk(dataModelId *string, request *PullDataByPkRequest) (_result *PullDataByPkResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PullDataByPkHeaders{}
@@ -3206,6 +3638,17 @@ func (client *Client) PullDataByPk(dataModelId *string, request *PullDataByPkReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 搜索执行动作
+//
+// @param request - SearchActionsRequest
+//
+// @param headers - SearchActionsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchActionsResponse
 func (client *Client) SearchActionsWithOptions(request *SearchActionsRequest, headers *SearchActionsHeaders, runtime *util.RuntimeOptions) (_result *SearchActionsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3265,6 +3708,13 @@ func (client *Client) SearchActionsWithOptions(request *SearchActionsRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 搜索执行动作
+//
+// @param request - SearchActionsRequest
+//
+// @return SearchActionsResponse
 func (client *Client) SearchActions(request *SearchActionsRequest) (_result *SearchActionsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchActionsHeaders{}
@@ -3277,6 +3727,17 @@ func (client *Client) SearchActions(request *SearchActionsRequest) (_result *Sea
 	return _result, _err
 }
 
+// Summary:
+//
+// 搜索连接器
+//
+// @param request - SearchConnectorsRequest
+//
+// @param headers - SearchConnectorsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchConnectorsResponse
 func (client *Client) SearchConnectorsWithOptions(request *SearchConnectorsRequest, headers *SearchConnectorsHeaders, runtime *util.RuntimeOptions) (_result *SearchConnectorsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3328,6 +3789,13 @@ func (client *Client) SearchConnectorsWithOptions(request *SearchConnectorsReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 搜索连接器
+//
+// @param request - SearchConnectorsRequest
+//
+// @return SearchConnectorsResponse
 func (client *Client) SearchConnectors(request *SearchConnectorsRequest) (_result *SearchConnectorsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchConnectorsHeaders{}
@@ -3340,6 +3808,17 @@ func (client *Client) SearchConnectors(request *SearchConnectorsRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 同步连接器数据
+//
+// @param request - SyncDataRequest
+//
+// @param headers - SyncDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncDataResponse
 func (client *Client) SyncDataWithOptions(request *SyncDataRequest, headers *SyncDataHeaders, runtime *util.RuntimeOptions) (_result *SyncDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3387,6 +3866,13 @@ func (client *Client) SyncDataWithOptions(request *SyncDataRequest, headers *Syn
 	return _result, _err
 }
 
+// Summary:
+//
+// 同步连接器数据
+//
+// @param request - SyncDataRequest
+//
+// @return SyncDataResponse
 func (client *Client) SyncData(request *SyncDataRequest) (_result *SyncDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SyncDataHeaders{}
@@ -3399,6 +3885,17 @@ func (client *Client) SyncData(request *SyncDataRequest) (_result *SyncDataRespo
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新执行动作信息
+//
+// @param request - UpdateActionRequest
+//
+// @param headers - UpdateActionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateActionResponse
 func (client *Client) UpdateActionWithOptions(request *UpdateActionRequest, headers *UpdateActionHeaders, runtime *util.RuntimeOptions) (_result *UpdateActionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3446,6 +3943,13 @@ func (client *Client) UpdateActionWithOptions(request *UpdateActionRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新执行动作信息
+//
+// @param request - UpdateActionRequest
+//
+// @return UpdateActionResponse
 func (client *Client) UpdateAction(request *UpdateActionRequest) (_result *UpdateActionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateActionHeaders{}
@@ -3458,6 +3962,17 @@ func (client *Client) UpdateAction(request *UpdateActionRequest) (_result *Updat
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新连接器信息
+//
+// @param request - UpdateConnectorRequest
+//
+// @param headers - UpdateConnectorHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateConnectorResponse
 func (client *Client) UpdateConnectorWithOptions(request *UpdateConnectorRequest, headers *UpdateConnectorHeaders, runtime *util.RuntimeOptions) (_result *UpdateConnectorResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3505,6 +4020,13 @@ func (client *Client) UpdateConnectorWithOptions(request *UpdateConnectorRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新连接器信息
+//
+// @param request - UpdateConnectorRequest
+//
+// @return UpdateConnectorResponse
 func (client *Client) UpdateConnector(request *UpdateConnectorRequest) (_result *UpdateConnectorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateConnectorHeaders{}
@@ -3517,6 +4039,17 @@ func (client *Client) UpdateConnector(request *UpdateConnectorRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新触发事件信息
+//
+// @param request - UpdateTriggerRequest
+//
+// @param headers - UpdateTriggerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateTriggerResponse
 func (client *Client) UpdateTriggerWithOptions(request *UpdateTriggerRequest, headers *UpdateTriggerHeaders, runtime *util.RuntimeOptions) (_result *UpdateTriggerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3564,6 +4097,13 @@ func (client *Client) UpdateTriggerWithOptions(request *UpdateTriggerRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新触发事件信息
+//
+// @param request - UpdateTriggerRequest
+//
+// @return UpdateTriggerResponse
 func (client *Client) UpdateTrigger(request *UpdateTriggerRequest) (_result *UpdateTriggerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateTriggerHeaders{}

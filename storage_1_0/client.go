@@ -1,21 +1,26 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package storage_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
 type DentryAppPropertiesValue struct {
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	Value      *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// property_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// property_value
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// PRIVATE
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
@@ -43,8 +48,17 @@ func (s *DentryAppPropertiesValue) SetVisibility(v string) *DentryAppPropertiesV
 }
 
 type ResultItemsDentryAppPropertiesValue struct {
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	Value      *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// property_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// property_value
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// PRIVATE
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
@@ -72,8 +86,17 @@ func (s *ResultItemsDentryAppPropertiesValue) SetVisibility(v string) *ResultIte
 }
 
 type DentriesAppPropertiesValue struct {
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	Value      *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// property_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// property_value
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// PRIVATE
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
@@ -124,9 +147,19 @@ func (s *AddFolderHeaders) SetXAcsDingtalkAccessToken(v string) *AddFolderHeader
 }
 
 type AddFolderRequest struct {
-	Name    *string                 `json:"name,omitempty" xml:"name,omitempty"`
-	Option  *AddFolderRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	UnionId *string                 `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dentry_name
+	Name   *string                 `json:"name,omitempty" xml:"name,omitempty"`
+	Option *AddFolderRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s AddFolderRequest) String() string {
@@ -153,8 +186,11 @@ func (s *AddFolderRequest) SetUnionId(v string) *AddFolderRequest {
 }
 
 type AddFolderRequestOption struct {
-	AppProperties    []*AddFolderRequestOptionAppProperties `json:"appProperties,omitempty" xml:"appProperties,omitempty" type:"Repeated"`
-	ConflictStrategy *string                                `json:"conflictStrategy,omitempty" xml:"conflictStrategy,omitempty"`
+	AppProperties []*AddFolderRequestOptionAppProperties `json:"appProperties,omitempty" xml:"appProperties,omitempty" type:"Repeated"`
+	// example:
+	//
+	// AUTO_RENAME
+	ConflictStrategy *string `json:"conflictStrategy,omitempty" xml:"conflictStrategy,omitempty"`
 }
 
 func (s AddFolderRequestOption) String() string {
@@ -176,8 +212,23 @@ func (s *AddFolderRequestOption) SetConflictStrategy(v string) *AddFolderRequest
 }
 
 type AddFolderRequestOptionAppProperties struct {
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	Value      *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// property_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// property_value
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PRIVATE
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
@@ -223,24 +274,75 @@ func (s *AddFolderResponseBody) SetDentry(v *AddFolderResponseBodyDentry) *AddFo
 
 type AddFolderResponseBodyDentry struct {
 	AppProperties map[string][]*DentryAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
-	CreateTime    *string                                `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId     *string                                `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Extension     *string                                `json:"extension,omitempty" xml:"extension,omitempty"`
-	Id            *string                                `json:"id,omitempty" xml:"id,omitempty"`
-	ModifiedTime  *string                                `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId    *string                                `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name          *string                                `json:"name,omitempty" xml:"name,omitempty"`
-	ParentId      *string                                `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	PartitionType *string                                `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
-	Path          *string                                `json:"path,omitempty" xml:"path,omitempty"`
-	Properties    *AddFolderResponseBodyDentryProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
-	Size          *int64                                 `json:"size,omitempty" xml:"size,omitempty"`
-	SpaceId       *string                                `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Status        *string                                `json:"status,omitempty" xml:"status,omitempty"`
-	StorageDriver *string                                `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
-	Type          *string                                `json:"type,omitempty" xml:"type,omitempty"`
-	Uuid          *string                                `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	Version       *int64                                 `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// txt
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// dentry_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// dentry_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// parent_id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// PUBLIC_OSS_PARTITION
+	PartitionType *string `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
+	// example:
+	//
+	// dentry_path
+	Path       *string                                `json:"path,omitempty" xml:"path,omitempty"`
+	Properties *AddFolderResponseBodyDentryProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
+	// example:
+	//
+	// 512
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// DINGTALK
+	StorageDriver *string `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	// example:
+	//
+	// file
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// uuid
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s AddFolderResponseBodyDentry) String() string {
@@ -347,6 +449,9 @@ func (s *AddFolderResponseBodyDentry) SetVersion(v int64) *AddFolderResponseBody
 }
 
 type AddFolderResponseBodyDentryProperties struct {
+	// example:
+	//
+	// true
 	ReadOnly *bool `json:"readOnly,omitempty" xml:"readOnly,omitempty"`
 }
 
@@ -416,10 +521,21 @@ func (s *AddPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *AddPermissi
 }
 
 type AddPermissionRequest struct {
+	// This parameter is required.
 	Members []*AddPermissionRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
 	Option  *AddPermissionRequestOption    `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	RoleId  *string                        `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	UnionId *string                        `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// MANAGER
+	RoleId *string `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s AddPermissionRequest) String() string {
@@ -451,9 +567,22 @@ func (s *AddPermissionRequest) SetUnionId(v string) *AddPermissionRequest {
 }
 
 type AddPermissionRequestMembers struct {
+	// example:
+	//
+	// corp_id
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Id     *string `json:"id,omitempty" xml:"id,omitempty"`
-	Type   *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// member_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// USER
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s AddPermissionRequestMembers) String() string {
@@ -480,6 +609,9 @@ func (s *AddPermissionRequestMembers) SetType(v string) *AddPermissionRequestMem
 }
 
 type AddPermissionRequestOption struct {
+	// example:
+	//
+	// 3600
 	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
 }
 
@@ -497,6 +629,9 @@ func (s *AddPermissionRequestOption) SetDuration(v int64) *AddPermissionRequestO
 }
 
 type AddPermissionResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -566,8 +701,13 @@ func (s *AddSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *AddSpaceHeaders 
 }
 
 type AddSpaceRequest struct {
-	Option  *AddSpaceRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	UnionId *string                `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	Option *AddSpaceRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s AddSpaceRequest) String() string {
@@ -590,11 +730,23 @@ func (s *AddSpaceRequest) SetUnionId(v string) *AddSpaceRequest {
 
 type AddSpaceRequestOption struct {
 	Capabilities *AddSpaceRequestOptionCapabilities `json:"capabilities,omitempty" xml:"capabilities,omitempty" type:"Struct"`
-	Name         *string                            `json:"name,omitempty" xml:"name,omitempty"`
-	OwnerType    *string                            `json:"ownerType,omitempty" xml:"ownerType,omitempty"`
-	Quota        *int64                             `json:"quota,omitempty" xml:"quota,omitempty"`
-	Scene        *string                            `json:"scene,omitempty" xml:"scene,omitempty"`
-	SceneId      *string                            `json:"sceneId,omitempty" xml:"sceneId,omitempty"`
+	// example:
+	//
+	// space_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// USER
+	OwnerType *string `json:"ownerType,omitempty" xml:"ownerType,omitempty"`
+	Quota     *int64  `json:"quota,omitempty" xml:"quota,omitempty"`
+	// example:
+	//
+	// scene
+	Scene *string `json:"scene,omitempty" xml:"scene,omitempty"`
+	// example:
+	//
+	// scene_id
+	SceneId *string `json:"sceneId,omitempty" xml:"sceneId,omitempty"`
 }
 
 func (s AddSpaceRequestOption) String() string {
@@ -636,9 +788,18 @@ func (s *AddSpaceRequestOption) SetSceneId(v string) *AddSpaceRequestOption {
 }
 
 type AddSpaceRequestOptionCapabilities struct {
+	// example:
+	//
+	// true
 	CanRecordRecentFile *bool `json:"canRecordRecentFile,omitempty" xml:"canRecordRecentFile,omitempty"`
-	CanRename           *bool `json:"canRename,omitempty" xml:"canRename,omitempty"`
-	CanSearch           *bool `json:"canSearch,omitempty" xml:"canSearch,omitempty"`
+	// example:
+	//
+	// true
+	CanRename *bool `json:"canRename,omitempty" xml:"canRename,omitempty"`
+	// example:
+	//
+	// true
+	CanSearch *bool `json:"canSearch,omitempty" xml:"canSearch,omitempty"`
 }
 
 func (s AddSpaceRequestOptionCapabilities) String() string {
@@ -682,23 +843,68 @@ func (s *AddSpaceResponseBody) SetSpace(v *AddSpaceResponseBodySpace) *AddSpaceR
 }
 
 type AddSpaceResponseBodySpace struct {
+	// example:
+	//
+	// app_id
 	AppId        *string                                `json:"appId,omitempty" xml:"appId,omitempty"`
 	Capabilities *AddSpaceResponseBodySpaceCapabilities `json:"capabilities,omitempty" xml:"capabilities,omitempty" type:"Struct"`
-	CorpId       *string                                `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CreateTime   *string                                `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId    *string                                `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Id           *string                                `json:"id,omitempty" xml:"id,omitempty"`
-	ModifiedTime *string                                `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId   *string                                `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name         *string                                `json:"name,omitempty" xml:"name,omitempty"`
-	OwnerId      *string                                `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
-	OwnerType    *string                                `json:"ownerType,omitempty" xml:"ownerType,omitempty"`
-	Partitions   []*AddSpaceResponseBodySpacePartitions `json:"partitions,omitempty" xml:"partitions,omitempty" type:"Repeated"`
-	Quota        *int64                                 `json:"quota,omitempty" xml:"quota,omitempty"`
-	Scene        *string                                `json:"scene,omitempty" xml:"scene,omitempty"`
-	SceneId      *string                                `json:"sceneId,omitempty" xml:"sceneId,omitempty"`
-	Status       *string                                `json:"status,omitempty" xml:"status,omitempty"`
-	UsedQuota    *int64                                 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// example:
+	//
+	// corp_id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// space_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// space_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// owner_id
+	OwnerId *string `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
+	// example:
+	//
+	// USER
+	OwnerType  *string                                `json:"ownerType,omitempty" xml:"ownerType,omitempty"`
+	Partitions []*AddSpaceResponseBodySpacePartitions `json:"partitions,omitempty" xml:"partitions,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1048576
+	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
+	// example:
+	//
+	// scene
+	Scene *string `json:"scene,omitempty" xml:"scene,omitempty"`
+	// example:
+	//
+	// scene_id
+	SceneId *string `json:"sceneId,omitempty" xml:"sceneId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 1024
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
 }
 
 func (s AddSpaceResponseBodySpace) String() string {
@@ -795,9 +1001,18 @@ func (s *AddSpaceResponseBodySpace) SetUsedQuota(v int64) *AddSpaceResponseBodyS
 }
 
 type AddSpaceResponseBodySpaceCapabilities struct {
+	// example:
+	//
+	// true
 	CanRecordRecentFile *bool `json:"canRecordRecentFile,omitempty" xml:"canRecordRecentFile,omitempty"`
-	CanRename           *bool `json:"canRename,omitempty" xml:"canRename,omitempty"`
-	CanSearch           *bool `json:"canSearch,omitempty" xml:"canSearch,omitempty"`
+	// example:
+	//
+	// true
+	CanRename *bool `json:"canRename,omitempty" xml:"canRename,omitempty"`
+	// example:
+	//
+	// true
+	CanSearch *bool `json:"canSearch,omitempty" xml:"canSearch,omitempty"`
 }
 
 func (s AddSpaceResponseBodySpaceCapabilities) String() string {
@@ -824,6 +1039,9 @@ func (s *AddSpaceResponseBodySpaceCapabilities) SetCanSearch(v bool) *AddSpaceRe
 }
 
 type AddSpaceResponseBodySpacePartitions struct {
+	// example:
+	//
+	// PUBLIC_OSS_PARTITION
 	PartitionType *string                                   `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
 	Quota         *AddSpaceResponseBodySpacePartitionsQuota `json:"quota,omitempty" xml:"quota,omitempty" type:"Struct"`
 }
@@ -847,10 +1065,22 @@ func (s *AddSpaceResponseBodySpacePartitions) SetQuota(v *AddSpaceResponseBodySp
 }
 
 type AddSpaceResponseBodySpacePartitionsQuota struct {
-	Max      *int64  `json:"max,omitempty" xml:"max,omitempty"`
-	Reserved *int64  `json:"reserved,omitempty" xml:"reserved,omitempty"`
-	Type     *string `json:"type,omitempty" xml:"type,omitempty"`
-	Used     *int64  `json:"used,omitempty" xml:"used,omitempty"`
+	// example:
+	//
+	// 10000
+	Max *int64 `json:"max,omitempty" xml:"max,omitempty"`
+	// example:
+	//
+	// 1000
+	Reserved *int64 `json:"reserved,omitempty" xml:"reserved,omitempty"`
+	// example:
+	//
+	// SHARE
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 1024
+	Used *int64 `json:"used,omitempty" xml:"used,omitempty"`
 }
 
 func (s AddSpaceResponseBodySpacePartitionsQuota) String() string {
@@ -934,6 +1164,11 @@ func (s *ClearRecycleBinHeaders) SetXAcsDingtalkAccessToken(v string) *ClearRecy
 }
 
 type ClearRecycleBinRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -951,6 +1186,9 @@ func (s *ClearRecycleBinRequest) SetUnionId(v string) *ClearRecycleBinRequest {
 }
 
 type ClearRecycleBinResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -1020,11 +1258,35 @@ func (s *CommitFileHeaders) SetXAcsDingtalkAccessToken(v string) *CommitFileHead
 }
 
 type CommitFileRequest struct {
-	Name      *string                  `json:"name,omitempty" xml:"name,omitempty"`
-	Option    *CommitFileRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	ParentId  *string                  `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	UploadKey *string                  `json:"uploadKey,omitempty" xml:"uploadKey,omitempty"`
-	UnionId   *string                  `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dentry_name
+	Name   *string                  `json:"name,omitempty" xml:"name,omitempty"`
+	Option *CommitFileRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// example:
+	//
+	// dentry_id
+	OverwriteDentryId *string `json:"overwriteDentryId,omitempty" xml:"overwriteDentryId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// parent_id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// upload_key
+	UploadKey *string `json:"uploadKey,omitempty" xml:"uploadKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s CommitFileRequest) String() string {
@@ -1045,6 +1307,11 @@ func (s *CommitFileRequest) SetOption(v *CommitFileRequestOption) *CommitFileReq
 	return s
 }
 
+func (s *CommitFileRequest) SetOverwriteDentryId(v string) *CommitFileRequest {
+	s.OverwriteDentryId = &v
+	return s
+}
+
 func (s *CommitFileRequest) SetParentId(v string) *CommitFileRequest {
 	s.ParentId = &v
 	return s
@@ -1061,9 +1328,15 @@ func (s *CommitFileRequest) SetUnionId(v string) *CommitFileRequest {
 }
 
 type CommitFileRequestOption struct {
-	AppProperties    []*CommitFileRequestOptionAppProperties `json:"appProperties,omitempty" xml:"appProperties,omitempty" type:"Repeated"`
-	ConflictStrategy *string                                 `json:"conflictStrategy,omitempty" xml:"conflictStrategy,omitempty"`
-	Size             *int64                                  `json:"size,omitempty" xml:"size,omitempty"`
+	AppProperties []*CommitFileRequestOptionAppProperties `json:"appProperties,omitempty" xml:"appProperties,omitempty" type:"Repeated"`
+	// example:
+	//
+	// AUTO_RENAME
+	ConflictStrategy *string `json:"conflictStrategy,omitempty" xml:"conflictStrategy,omitempty"`
+	// example:
+	//
+	// 512
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
 }
 
 func (s CommitFileRequestOption) String() string {
@@ -1090,8 +1363,23 @@ func (s *CommitFileRequestOption) SetSize(v int64) *CommitFileRequestOption {
 }
 
 type CommitFileRequestOptionAppProperties struct {
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	Value      *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// property_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// property_value
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PRIVATE
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
@@ -1136,25 +1424,81 @@ func (s *CommitFileResponseBody) SetDentry(v *CommitFileResponseBodyDentry) *Com
 }
 
 type CommitFileResponseBodyDentry struct {
-	AppProperties map[string][]*DentryAppPropertiesValue  `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
-	CreateTime    *string                                 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId     *string                                 `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Extension     *string                                 `json:"extension,omitempty" xml:"extension,omitempty"`
-	Id            *string                                 `json:"id,omitempty" xml:"id,omitempty"`
-	ModifiedTime  *string                                 `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId    *string                                 `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name          *string                                 `json:"name,omitempty" xml:"name,omitempty"`
-	ParentId      *string                                 `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	PartitionType *string                                 `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
-	Path          *string                                 `json:"path,omitempty" xml:"path,omitempty"`
-	Properties    *CommitFileResponseBodyDentryProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
-	Size          *int64                                  `json:"size,omitempty" xml:"size,omitempty"`
-	SpaceId       *string                                 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Status        *string                                 `json:"status,omitempty" xml:"status,omitempty"`
-	StorageDriver *string                                 `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
-	Type          *string                                 `json:"type,omitempty" xml:"type,omitempty"`
-	Uuid          *string                                 `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	Version       *int64                                  `json:"version,omitempty" xml:"version,omitempty"`
+	AppProperties map[string][]*DentryAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
+	// example:
+	//
+	// DOCUMENT
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// txt
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// dentry_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// dentry_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// parent_id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// PUBLIC_OSS_PARTITION
+	PartitionType *string `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
+	// example:
+	//
+	// dentry_path
+	Path       *string                                 `json:"path,omitempty" xml:"path,omitempty"`
+	Properties *CommitFileResponseBodyDentryProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
+	// example:
+	//
+	// 512
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// DINGTALK
+	StorageDriver *string                                `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	Thumbnail     *CommitFileResponseBodyDentryThumbnail `json:"thumbnail,omitempty" xml:"thumbnail,omitempty" type:"Struct"`
+	// example:
+	//
+	// FILE
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// uuid
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s CommitFileResponseBodyDentry) String() string {
@@ -1167,6 +1511,11 @@ func (s CommitFileResponseBodyDentry) GoString() string {
 
 func (s *CommitFileResponseBodyDentry) SetAppProperties(v map[string][]*DentryAppPropertiesValue) *CommitFileResponseBodyDentry {
 	s.AppProperties = v
+	return s
+}
+
+func (s *CommitFileResponseBodyDentry) SetCategory(v string) *CommitFileResponseBodyDentry {
+	s.Category = &v
 	return s
 }
 
@@ -1245,6 +1594,11 @@ func (s *CommitFileResponseBodyDentry) SetStorageDriver(v string) *CommitFileRes
 	return s
 }
 
+func (s *CommitFileResponseBodyDentry) SetThumbnail(v *CommitFileResponseBodyDentryThumbnail) *CommitFileResponseBodyDentry {
+	s.Thumbnail = v
+	return s
+}
+
 func (s *CommitFileResponseBodyDentry) SetType(v string) *CommitFileResponseBodyDentry {
 	s.Type = &v
 	return s
@@ -1261,6 +1615,9 @@ func (s *CommitFileResponseBodyDentry) SetVersion(v int64) *CommitFileResponseBo
 }
 
 type CommitFileResponseBodyDentryProperties struct {
+	// example:
+	//
+	// true
 	ReadOnly *bool `json:"readOnly,omitempty" xml:"readOnly,omitempty"`
 }
 
@@ -1274,6 +1631,44 @@ func (s CommitFileResponseBodyDentryProperties) GoString() string {
 
 func (s *CommitFileResponseBodyDentryProperties) SetReadOnly(v bool) *CommitFileResponseBodyDentryProperties {
 	s.ReadOnly = &v
+	return s
+}
+
+type CommitFileResponseBodyDentryThumbnail struct {
+	// example:
+	//
+	// 64
+	Height *int32 `json:"height,omitempty" xml:"height,omitempty"`
+	// example:
+	//
+	// url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// 64
+	Width *int32 `json:"width,omitempty" xml:"width,omitempty"`
+}
+
+func (s CommitFileResponseBodyDentryThumbnail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CommitFileResponseBodyDentryThumbnail) GoString() string {
+	return s.String()
+}
+
+func (s *CommitFileResponseBodyDentryThumbnail) SetHeight(v int32) *CommitFileResponseBodyDentryThumbnail {
+	s.Height = &v
+	return s
+}
+
+func (s *CommitFileResponseBodyDentryThumbnail) SetUrl(v string) *CommitFileResponseBodyDentryThumbnail {
+	s.Url = &v
+	return s
+}
+
+func (s *CommitFileResponseBodyDentryThumbnail) SetWidth(v int32) *CommitFileResponseBodyDentryThumbnail {
+	s.Width = &v
 	return s
 }
 
@@ -1330,11 +1725,27 @@ func (s *CopyDentriesHeaders) SetXAcsDingtalkAccessToken(v string) *CopyDentries
 }
 
 type CopyDentriesRequest struct {
-	DentryIds      []*string                  `json:"dentryIds,omitempty" xml:"dentryIds,omitempty" type:"Repeated"`
-	Option         *CopyDentriesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	TargetFolderId *string                    `json:"targetFolderId,omitempty" xml:"targetFolderId,omitempty"`
-	TargetSpaceId  *string                    `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
-	UnionId        *string                    `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	DentryIds []*string                  `json:"dentryIds,omitempty" xml:"dentryIds,omitempty" type:"Repeated"`
+	Option    *CopyDentriesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// target_folder_id
+	TargetFolderId *string `json:"targetFolderId,omitempty" xml:"targetFolderId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// target_space_id
+	TargetSpaceId *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s CopyDentriesRequest) String() string {
@@ -1371,6 +1782,9 @@ func (s *CopyDentriesRequest) SetUnionId(v string) *CopyDentriesRequest {
 }
 
 type CopyDentriesRequestOption struct {
+	// example:
+	//
+	// AUTO_RENAME
 	ConflictStrategy *string `json:"conflictStrategy,omitempty" xml:"conflictStrategy,omitempty"`
 }
 
@@ -1405,14 +1819,38 @@ func (s *CopyDentriesResponseBody) SetResultItems(v []*CopyDentriesResponseBodyR
 }
 
 type CopyDentriesResponseBodyResultItems struct {
-	Async          *bool   `json:"async,omitempty" xml:"async,omitempty"`
-	DentryId       *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
-	ErrorCode      *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	SpaceId        *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Success        *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// true
+	Async *bool `json:"async,omitempty" xml:"async,omitempty"`
+	// example:
+	//
+	// dentry_id
+	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// example:
+	//
+	// permissionDenied
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// target_dentry_id
 	TargetDentryId *string `json:"targetDentryId,omitempty" xml:"targetDentryId,omitempty"`
-	TargetSpaceId  *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
-	TaskId         *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// target_space_id
+	TargetSpaceId *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
+	// example:
+	//
+	// task_id
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s CopyDentriesResponseBodyResultItems) String() string {
@@ -1516,10 +1954,25 @@ func (s *CopyDentryHeaders) SetXAcsDingtalkAccessToken(v string) *CopyDentryHead
 }
 
 type CopyDentryRequest struct {
-	Option         *CopyDentryRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	TargetFolderId *string                  `json:"targetFolderId,omitempty" xml:"targetFolderId,omitempty"`
-	TargetSpaceId  *string                  `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
-	UnionId        *string                  `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	Option *CopyDentryRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// target_folder_id
+	TargetFolderId *string `json:"targetFolderId,omitempty" xml:"targetFolderId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// target_space_id
+	TargetSpaceId *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s CopyDentryRequest) String() string {
@@ -1551,6 +2004,9 @@ func (s *CopyDentryRequest) SetUnionId(v string) *CopyDentryRequest {
 }
 
 type CopyDentryRequestOption struct {
+	// example:
+	//
+	// AUTO_RENAME
 	ConflictStrategy *string `json:"conflictStrategy,omitempty" xml:"conflictStrategy,omitempty"`
 }
 
@@ -1568,9 +2024,15 @@ func (s *CopyDentryRequestOption) SetConflictStrategy(v string) *CopyDentryReque
 }
 
 type CopyDentryResponseBody struct {
+	// example:
+	//
+	// true
 	Async  *bool                         `json:"async,omitempty" xml:"async,omitempty"`
 	Dentry *CopyDentryResponseBodyDentry `json:"dentry,omitempty" xml:"dentry,omitempty" type:"Struct"`
-	TaskId *string                       `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// task_id
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s CopyDentryResponseBody) String() string {
@@ -1597,25 +2059,76 @@ func (s *CopyDentryResponseBody) SetTaskId(v string) *CopyDentryResponseBody {
 }
 
 type CopyDentryResponseBodyDentry struct {
-	AppProperties map[string][]*DentryAppPropertiesValue  `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
-	CreateTime    *string                                 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId     *string                                 `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Extension     *string                                 `json:"extension,omitempty" xml:"extension,omitempty"`
-	Id            *string                                 `json:"id,omitempty" xml:"id,omitempty"`
-	ModifiedTime  *string                                 `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId    *string                                 `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name          *string                                 `json:"name,omitempty" xml:"name,omitempty"`
-	ParentId      *string                                 `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	PartitionType *string                                 `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
-	Path          *string                                 `json:"path,omitempty" xml:"path,omitempty"`
-	Properties    *CopyDentryResponseBodyDentryProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
-	Size          *int64                                  `json:"size,omitempty" xml:"size,omitempty"`
-	SpaceId       *string                                 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Status        *string                                 `json:"status,omitempty" xml:"status,omitempty"`
-	StorageDriver *string                                 `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
-	Type          *string                                 `json:"type,omitempty" xml:"type,omitempty"`
-	Uuid          *string                                 `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	Version       *int64                                  `json:"version,omitempty" xml:"version,omitempty"`
+	AppProperties map[string][]*DentryAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// txt
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// dentry_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// dentry_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// parent_id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// PUBLIC_OSS_PARTITION
+	PartitionType *string `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
+	// example:
+	//
+	// dentry_path
+	Path       *string                                 `json:"path,omitempty" xml:"path,omitempty"`
+	Properties *CopyDentryResponseBodyDentryProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
+	// example:
+	//
+	// 512
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// DINGTALK
+	StorageDriver *string `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	// example:
+	//
+	// file
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// uuid
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s CopyDentryResponseBodyDentry) String() string {
@@ -1722,6 +2235,9 @@ func (s *CopyDentryResponseBodyDentry) SetVersion(v int64) *CopyDentryResponseBo
 }
 
 type CopyDentryResponseBodyDentryProperties struct {
+	// example:
+	//
+	// true
 	ReadOnly *bool `json:"readOnly,omitempty" xml:"readOnly,omitempty"`
 }
 
@@ -1791,9 +2307,15 @@ func (s *DeleteDentriesHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteDent
 }
 
 type DeleteDentriesRequest struct {
+	// This parameter is required.
 	DentryIds []*string                    `json:"dentryIds,omitempty" xml:"dentryIds,omitempty" type:"Repeated"`
 	Option    *DeleteDentriesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	UnionId   *string                      `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s DeleteDentriesRequest) String() string {
@@ -1820,6 +2342,9 @@ func (s *DeleteDentriesRequest) SetUnionId(v string) *DeleteDentriesRequest {
 }
 
 type DeleteDentriesRequestOption struct {
+	// example:
+	//
+	// true
 	ToRecycleBin *bool `json:"toRecycleBin,omitempty" xml:"toRecycleBin,omitempty"`
 }
 
@@ -1854,12 +2379,30 @@ func (s *DeleteDentriesResponseBody) SetResultItems(v []*DeleteDentriesResponseB
 }
 
 type DeleteDentriesResponseBodyResultItems struct {
-	Async     *bool   `json:"async,omitempty" xml:"async,omitempty"`
-	DentryId  *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// example:
+	//
+	// true
+	Async *bool `json:"async,omitempty" xml:"async,omitempty"`
+	// example:
+	//
+	// dentry_id
+	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// example:
+	//
+	// permissionDenied
 	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	SpaceId   *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
-	TaskId    *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// task_id
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s DeleteDentriesResponseBodyResultItems) String() string {
@@ -1953,8 +2496,16 @@ func (s *DeleteDentryHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteDentry
 }
 
 type DeleteDentryRequest struct {
-	ToRecycleBin *bool   `json:"toRecycleBin,omitempty" xml:"toRecycleBin,omitempty"`
-	UnionId      *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// true
+	ToRecycleBin *bool `json:"toRecycleBin,omitempty" xml:"toRecycleBin,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s DeleteDentryRequest) String() string {
@@ -1976,7 +2527,13 @@ func (s *DeleteDentryRequest) SetUnionId(v string) *DeleteDentryRequest {
 }
 
 type DeleteDentryResponseBody struct {
-	Async  *bool   `json:"async,omitempty" xml:"async,omitempty"`
+	// example:
+	//
+	// true
+	Async *bool `json:"async,omitempty" xml:"async,omitempty"`
+	// example:
+	//
+	// task_id
 	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
@@ -2051,8 +2608,14 @@ func (s *DeleteDentryAppPropertiesHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type DeleteDentryAppPropertiesRequest struct {
+	// This parameter is required.
 	PropertyNames []*string `json:"propertyNames,omitempty" xml:"propertyNames,omitempty" type:"Repeated"`
-	UnionId       *string   `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s DeleteDentryAppPropertiesRequest) String() string {
@@ -2074,6 +2637,9 @@ func (s *DeleteDentryAppPropertiesRequest) SetUnionId(v string) *DeleteDentryApp
 }
 
 type DeleteDentryAppPropertiesResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -2143,9 +2709,20 @@ func (s *DeletePermissionHeaders) SetXAcsDingtalkAccessToken(v string) *DeletePe
 }
 
 type DeletePermissionRequest struct {
+	// This parameter is required.
 	Members []*DeletePermissionRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	RoleId  *string                           `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	UnionId *string                           `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// MANAGER
+	RoleId *string `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s DeletePermissionRequest) String() string {
@@ -2172,9 +2749,22 @@ func (s *DeletePermissionRequest) SetUnionId(v string) *DeletePermissionRequest 
 }
 
 type DeletePermissionRequestMembers struct {
+	// example:
+	//
+	// corp_id
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Id     *string `json:"id,omitempty" xml:"id,omitempty"`
-	Type   *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// member_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// USER
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s DeletePermissionRequestMembers) String() string {
@@ -2201,6 +2791,9 @@ func (s *DeletePermissionRequestMembers) SetType(v string) *DeletePermissionRequ
 }
 
 type DeletePermissionResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -2270,6 +2863,11 @@ func (s *DeleteRecycleItemHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteR
 }
 
 type DeleteRecycleItemRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -2287,6 +2885,9 @@ func (s *DeleteRecycleItemRequest) SetUnionId(v string) *DeleteRecycleItemReques
 }
 
 type DeleteRecycleItemResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -2356,8 +2957,14 @@ func (s *DeleteRecycleItemsHeaders) SetXAcsDingtalkAccessToken(v string) *Delete
 }
 
 type DeleteRecycleItemsRequest struct {
+	// This parameter is required.
 	RecycleItemIds []*string `json:"recycleItemIds,omitempty" xml:"recycleItemIds,omitempty" type:"Repeated"`
-	UnionId        *string   `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s DeleteRecycleItemsRequest) String() string {
@@ -2379,6 +2986,9 @@ func (s *DeleteRecycleItemsRequest) SetUnionId(v string) *DeleteRecycleItemsRequ
 }
 
 type DeleteRecycleItemsResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -2448,6 +3058,11 @@ func (s *GetCurrentAppHeaders) SetXAcsDingtalkAccessToken(v string) *GetCurrentA
 }
 
 type GetCurrentAppRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -2482,12 +3097,27 @@ func (s *GetCurrentAppResponseBody) SetApp(v *GetCurrentAppResponseBodyApp) *Get
 }
 
 type GetCurrentAppResponseBodyApp struct {
-	AppId        *string                                   `json:"appId,omitempty" xml:"appId,omitempty"`
-	CorpId       *string                                   `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CreateTime   *string                                   `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	ModifiedTime *string                                   `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	Name         *string                                   `json:"name,omitempty" xml:"name,omitempty"`
-	Partitions   []*GetCurrentAppResponseBodyAppPartitions `json:"partitions,omitempty" xml:"partitions,omitempty" type:"Repeated"`
+	// example:
+	//
+	// app_id
+	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	// example:
+	//
+	// corp_id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// app_name
+	Name       *string                                   `json:"name,omitempty" xml:"name,omitempty"`
+	Partitions []*GetCurrentAppResponseBodyAppPartitions `json:"partitions,omitempty" xml:"partitions,omitempty" type:"Repeated"`
 }
 
 func (s GetCurrentAppResponseBodyApp) String() string {
@@ -2529,6 +3159,9 @@ func (s *GetCurrentAppResponseBodyApp) SetPartitions(v []*GetCurrentAppResponseB
 }
 
 type GetCurrentAppResponseBodyAppPartitions struct {
+	// example:
+	//
+	// PUBLIC_OSS_PARTITION
 	PartitionType *string                                      `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
 	Quota         *GetCurrentAppResponseBodyAppPartitionsQuota `json:"quota,omitempty" xml:"quota,omitempty" type:"Struct"`
 }
@@ -2552,10 +3185,22 @@ func (s *GetCurrentAppResponseBodyAppPartitions) SetQuota(v *GetCurrentAppRespon
 }
 
 type GetCurrentAppResponseBodyAppPartitionsQuota struct {
-	Max      *int64  `json:"max,omitempty" xml:"max,omitempty"`
-	Reserved *int64  `json:"reserved,omitempty" xml:"reserved,omitempty"`
-	Type     *string `json:"type,omitempty" xml:"type,omitempty"`
-	Used     *int64  `json:"used,omitempty" xml:"used,omitempty"`
+	// example:
+	//
+	// 10000
+	Max *int64 `json:"max,omitempty" xml:"max,omitempty"`
+	// example:
+	//
+	// 1000
+	Reserved *int64 `json:"reserved,omitempty" xml:"reserved,omitempty"`
+	// example:
+	//
+	// SHARE
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 1024
+	Used *int64 `json:"used,omitempty" xml:"used,omitempty"`
 }
 
 func (s GetCurrentAppResponseBodyAppPartitionsQuota) String() string {
@@ -2639,9 +3284,15 @@ func (s *GetDentriesHeaders) SetXAcsDingtalkAccessToken(v string) *GetDentriesHe
 }
 
 type GetDentriesRequest struct {
+	// This parameter is required.
 	DentryIds []*string                 `json:"dentryIds,omitempty" xml:"dentryIds,omitempty" type:"Repeated"`
 	Option    *GetDentriesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	UnionId   *string                   `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetDentriesRequest) String() string {
@@ -2669,7 +3320,10 @@ func (s *GetDentriesRequest) SetUnionId(v string) *GetDentriesRequest {
 
 type GetDentriesRequestOption struct {
 	AppIdsForAppProperties []*string `json:"appIdsForAppProperties,omitempty" xml:"appIdsForAppProperties,omitempty" type:"Repeated"`
-	WithThumbnail          *bool     `json:"withThumbnail,omitempty" xml:"withThumbnail,omitempty"`
+	// example:
+	//
+	// true
+	WithThumbnail *bool `json:"withThumbnail,omitempty" xml:"withThumbnail,omitempty"`
 }
 
 func (s GetDentriesRequestOption) String() string {
@@ -2708,11 +3362,23 @@ func (s *GetDentriesResponseBody) SetResultItems(v []*GetDentriesResponseBodyRes
 }
 
 type GetDentriesResponseBodyResultItems struct {
-	Dentry    *GetDentriesResponseBodyResultItemsDentry `json:"dentry,omitempty" xml:"dentry,omitempty" type:"Struct"`
-	DentryId  *string                                   `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
-	ErrorCode *string                                   `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	SpaceId   *string                                   `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Success   *bool                                     `json:"success,omitempty" xml:"success,omitempty"`
+	Dentry *GetDentriesResponseBodyResultItemsDentry `json:"dentry,omitempty" xml:"dentry,omitempty" type:"Struct"`
+	// example:
+	//
+	// dentry_id
+	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// example:
+	//
+	// permissionDenied
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetDentriesResponseBodyResultItems) String() string {
@@ -2749,26 +3415,77 @@ func (s *GetDentriesResponseBodyResultItems) SetSuccess(v bool) *GetDentriesResp
 }
 
 type GetDentriesResponseBodyResultItemsDentry struct {
-	AppProperties map[string][]*ResultItemsDentryAppPropertiesValue   `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
-	CreateTime    *string                                             `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId     *string                                             `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Extension     *string                                             `json:"extension,omitempty" xml:"extension,omitempty"`
-	Id            *string                                             `json:"id,omitempty" xml:"id,omitempty"`
-	ModifiedTime  *string                                             `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId    *string                                             `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name          *string                                             `json:"name,omitempty" xml:"name,omitempty"`
-	ParentId      *string                                             `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	PartitionType *string                                             `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
-	Path          *string                                             `json:"path,omitempty" xml:"path,omitempty"`
-	Properties    *GetDentriesResponseBodyResultItemsDentryProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
-	Size          *int64                                              `json:"size,omitempty" xml:"size,omitempty"`
-	SpaceId       *string                                             `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Status        *string                                             `json:"status,omitempty" xml:"status,omitempty"`
-	StorageDriver *string                                             `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
-	Thumbnail     *GetDentriesResponseBodyResultItemsDentryThumbnail  `json:"thumbnail,omitempty" xml:"thumbnail,omitempty" type:"Struct"`
-	Type          *string                                             `json:"type,omitempty" xml:"type,omitempty"`
-	Uuid          *string                                             `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	Version       *int64                                              `json:"version,omitempty" xml:"version,omitempty"`
+	AppProperties map[string][]*ResultItemsDentryAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// txt
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// dentry_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// dentry_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// parent_id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// PUBLIC_OSS_PARTITION
+	PartitionType *string `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
+	// example:
+	//
+	// dentry_path
+	Path       *string                                             `json:"path,omitempty" xml:"path,omitempty"`
+	Properties *GetDentriesResponseBodyResultItemsDentryProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
+	// example:
+	//
+	// 512
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// DINGTALK
+	StorageDriver *string                                            `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	Thumbnail     *GetDentriesResponseBodyResultItemsDentryThumbnail `json:"thumbnail,omitempty" xml:"thumbnail,omitempty" type:"Struct"`
+	// example:
+	//
+	// file
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// uuid
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s GetDentriesResponseBodyResultItemsDentry) String() string {
@@ -2880,6 +3597,9 @@ func (s *GetDentriesResponseBodyResultItemsDentry) SetVersion(v int64) *GetDentr
 }
 
 type GetDentriesResponseBodyResultItemsDentryProperties struct {
+	// example:
+	//
+	// true
 	ReadOnly *bool `json:"readOnly,omitempty" xml:"readOnly,omitempty"`
 }
 
@@ -2897,9 +3617,18 @@ func (s *GetDentriesResponseBodyResultItemsDentryProperties) SetReadOnly(v bool)
 }
 
 type GetDentriesResponseBodyResultItemsDentryThumbnail struct {
-	Height *int32  `json:"height,omitempty" xml:"height,omitempty"`
-	Url    *string `json:"url,omitempty" xml:"url,omitempty"`
-	Width  *int32  `json:"width,omitempty" xml:"width,omitempty"`
+	// example:
+	//
+	// 64
+	Height *int32 `json:"height,omitempty" xml:"height,omitempty"`
+	// example:
+	//
+	// url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// 64
+	Width *int32 `json:"width,omitempty" xml:"width,omitempty"`
 }
 
 func (s GetDentriesResponseBodyResultItemsDentryThumbnail) String() string {
@@ -2978,8 +3707,13 @@ func (s *GetDentryHeaders) SetXAcsDingtalkAccessToken(v string) *GetDentryHeader
 }
 
 type GetDentryRequest struct {
-	Option  *GetDentryRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	UnionId *string                 `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	Option *GetDentryRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetDentryRequest) String() string {
@@ -3002,7 +3736,10 @@ func (s *GetDentryRequest) SetUnionId(v string) *GetDentryRequest {
 
 type GetDentryRequestOption struct {
 	AppIdsForAppProperties []*string `json:"appIdsForAppProperties,omitempty" xml:"appIdsForAppProperties,omitempty" type:"Repeated"`
-	WithThumbnail          *bool     `json:"withThumbnail,omitempty" xml:"withThumbnail,omitempty"`
+	// example:
+	//
+	// true
+	WithThumbnail *bool `json:"withThumbnail,omitempty" xml:"withThumbnail,omitempty"`
 }
 
 func (s GetDentryRequestOption) String() string {
@@ -3042,25 +3779,76 @@ func (s *GetDentryResponseBody) SetDentry(v *GetDentryResponseBodyDentry) *GetDe
 
 type GetDentryResponseBodyDentry struct {
 	AppProperties map[string][]*DentryAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
-	CreateTime    *string                                `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId     *string                                `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Extension     *string                                `json:"extension,omitempty" xml:"extension,omitempty"`
-	Id            *string                                `json:"id,omitempty" xml:"id,omitempty"`
-	ModifiedTime  *string                                `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId    *string                                `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name          *string                                `json:"name,omitempty" xml:"name,omitempty"`
-	ParentId      *string                                `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	PartitionType *string                                `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
-	Path          *string                                `json:"path,omitempty" xml:"path,omitempty"`
-	Properties    *GetDentryResponseBodyDentryProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
-	Size          *int64                                 `json:"size,omitempty" xml:"size,omitempty"`
-	SpaceId       *string                                `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Status        *string                                `json:"status,omitempty" xml:"status,omitempty"`
-	StorageDriver *string                                `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
-	Thumbnail     *GetDentryResponseBodyDentryThumbnail  `json:"thumbnail,omitempty" xml:"thumbnail,omitempty" type:"Struct"`
-	Type          *string                                `json:"type,omitempty" xml:"type,omitempty"`
-	Uuid          *string                                `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	Version       *int64                                 `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// txt
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// dentry_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// dentry_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// parent_id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// PUBLIC_OSS_PARTITION
+	PartitionType *string `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
+	// example:
+	//
+	// dentry_path
+	Path       *string                                `json:"path,omitempty" xml:"path,omitempty"`
+	Properties *GetDentryResponseBodyDentryProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
+	// example:
+	//
+	// 512
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// DINGTALK
+	StorageDriver *string                               `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	Thumbnail     *GetDentryResponseBodyDentryThumbnail `json:"thumbnail,omitempty" xml:"thumbnail,omitempty" type:"Struct"`
+	// example:
+	//
+	// file
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// uuid
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s GetDentryResponseBodyDentry) String() string {
@@ -3172,6 +3960,9 @@ func (s *GetDentryResponseBodyDentry) SetVersion(v int64) *GetDentryResponseBody
 }
 
 type GetDentryResponseBodyDentryProperties struct {
+	// example:
+	//
+	// true
 	ReadOnly *bool `json:"readOnly,omitempty" xml:"readOnly,omitempty"`
 }
 
@@ -3189,9 +3980,18 @@ func (s *GetDentryResponseBodyDentryProperties) SetReadOnly(v bool) *GetDentryRe
 }
 
 type GetDentryResponseBodyDentryThumbnail struct {
-	Height *int32  `json:"height,omitempty" xml:"height,omitempty"`
-	Url    *string `json:"url,omitempty" xml:"url,omitempty"`
-	Width  *int32  `json:"width,omitempty" xml:"width,omitempty"`
+	// example:
+	//
+	// 64
+	Height *int32 `json:"height,omitempty" xml:"height,omitempty"`
+	// example:
+	//
+	// url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// 64
+	Width *int32 `json:"width,omitempty" xml:"width,omitempty"`
 }
 
 func (s GetDentryResponseBodyDentryThumbnail) String() string {
@@ -3270,8 +4070,13 @@ func (s *GetDentryOpenInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetDent
 }
 
 type GetDentryOpenInfoRequest struct {
-	Option  *GetDentryOpenInfoRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	UnionId *string                         `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	Option *GetDentryOpenInfoRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetDentryOpenInfoRequest) String() string {
@@ -3293,10 +4098,22 @@ func (s *GetDentryOpenInfoRequest) SetUnionId(v string) *GetDentryOpenInfoReques
 }
 
 type GetDentryOpenInfoRequestOption struct {
-	CheckLogin *bool   `json:"checkLogin,omitempty" xml:"checkLogin,omitempty"`
-	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
-	Version    *int64  `json:"version,omitempty" xml:"version,omitempty"`
-	WaterMark  *bool   `json:"waterMark,omitempty" xml:"waterMark,omitempty"`
+	// example:
+	//
+	// true
+	CheckLogin *bool `json:"checkLogin,omitempty" xml:"checkLogin,omitempty"`
+	// example:
+	//
+	// PREVIEW
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// true
+	WaterMark *bool `json:"waterMark,omitempty" xml:"waterMark,omitempty"`
 }
 
 func (s GetDentryOpenInfoRequestOption) String() string {
@@ -3328,8 +4145,14 @@ func (s *GetDentryOpenInfoRequestOption) SetWaterMark(v bool) *GetDentryOpenInfo
 }
 
 type GetDentryOpenInfoResponseBody struct {
-	HasWaterMark *bool   `json:"hasWaterMark,omitempty" xml:"hasWaterMark,omitempty"`
-	Url          *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// true
+	HasWaterMark *bool `json:"hasWaterMark,omitempty" xml:"hasWaterMark,omitempty"`
+	// example:
+	//
+	// url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s GetDentryOpenInfoResponseBody) String() string {
@@ -3403,8 +4226,14 @@ func (s *GetDentryThumbnailsHeaders) SetXAcsDingtalkAccessToken(v string) *GetDe
 }
 
 type GetDentryThumbnailsRequest struct {
+	// This parameter is required.
 	DentryIds []*string `json:"dentryIds,omitempty" xml:"dentryIds,omitempty" type:"Repeated"`
-	UnionId   *string   `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetDentryThumbnailsRequest) String() string {
@@ -3443,9 +4272,21 @@ func (s *GetDentryThumbnailsResponseBody) SetResultItems(v []*GetDentryThumbnail
 }
 
 type GetDentryThumbnailsResponseBodyResultItems struct {
-	DentryId  *string                                              `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
-	ErrorCode *string                                              `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	SpaceId   *string                                              `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// dentry_id
+	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// example:
+	//
+	// permissionDenied
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// true
 	Success   *bool                                                `json:"success,omitempty" xml:"success,omitempty"`
 	Thumbnail *GetDentryThumbnailsResponseBodyResultItemsThumbnail `json:"thumbnail,omitempty" xml:"thumbnail,omitempty" type:"Struct"`
 }
@@ -3484,9 +4325,18 @@ func (s *GetDentryThumbnailsResponseBodyResultItems) SetThumbnail(v *GetDentryTh
 }
 
 type GetDentryThumbnailsResponseBodyResultItemsThumbnail struct {
-	Height *int32  `json:"height,omitempty" xml:"height,omitempty"`
-	Url    *string `json:"url,omitempty" xml:"url,omitempty"`
-	Width  *int32  `json:"width,omitempty" xml:"width,omitempty"`
+	// example:
+	//
+	// 64
+	Height *int32 `json:"height,omitempty" xml:"height,omitempty"`
+	// example:
+	//
+	// url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// 64
+	Width *int32 `json:"width,omitempty" xml:"width,omitempty"`
 }
 
 func (s GetDentryThumbnailsResponseBodyResultItemsThumbnail) String() string {
@@ -3565,8 +4415,13 @@ func (s *GetFileDownloadInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetFi
 }
 
 type GetFileDownloadInfoRequest struct {
-	Option  *GetFileDownloadInfoRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	UnionId *string                           `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	Option *GetFileDownloadInfoRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetFileDownloadInfoRequest) String() string {
@@ -3588,8 +4443,14 @@ func (s *GetFileDownloadInfoRequest) SetUnionId(v string) *GetFileDownloadInfoRe
 }
 
 type GetFileDownloadInfoRequestOption struct {
-	PreferIntranet *bool  `json:"preferIntranet,omitempty" xml:"preferIntranet,omitempty"`
-	Version        *int64 `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// true
+	PreferIntranet *bool `json:"preferIntranet,omitempty" xml:"preferIntranet,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s GetFileDownloadInfoRequestOption) String() string {
@@ -3612,7 +4473,10 @@ func (s *GetFileDownloadInfoRequestOption) SetVersion(v int64) *GetFileDownloadI
 
 type GetFileDownloadInfoResponseBody struct {
 	HeaderSignatureInfo *GetFileDownloadInfoResponseBodyHeaderSignatureInfo `json:"headerSignatureInfo,omitempty" xml:"headerSignatureInfo,omitempty" type:"Struct"`
-	Protocol            *string                                             `json:"protocol,omitempty" xml:"protocol,omitempty"`
+	// example:
+	//
+	// HEADER_SIGNATURE
+	Protocol *string `json:"protocol,omitempty" xml:"protocol,omitempty"`
 }
 
 func (s GetFileDownloadInfoResponseBody) String() string {
@@ -3634,11 +4498,17 @@ func (s *GetFileDownloadInfoResponseBody) SetProtocol(v string) *GetFileDownload
 }
 
 type GetFileDownloadInfoResponseBodyHeaderSignatureInfo struct {
+	// example:
+	//
+	// 900
 	ExpirationSeconds    *int32             `json:"expirationSeconds,omitempty" xml:"expirationSeconds,omitempty"`
 	Headers              map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 	InternalResourceUrls []*string          `json:"internalResourceUrls,omitempty" xml:"internalResourceUrls,omitempty" type:"Repeated"`
-	Region               *string            `json:"region,omitempty" xml:"region,omitempty"`
-	ResourceUrls         []*string          `json:"resourceUrls,omitempty" xml:"resourceUrls,omitempty" type:"Repeated"`
+	// example:
+	//
+	// ZHANGJIAKOU
+	Region       *string   `json:"region,omitempty" xml:"region,omitempty"`
+	ResourceUrls []*string `json:"resourceUrls,omitempty" xml:"resourceUrls,omitempty" type:"Repeated"`
 }
 
 func (s GetFileDownloadInfoResponseBodyHeaderSignatureInfo) String() string {
@@ -3727,10 +4597,25 @@ func (s *GetFileUploadInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetFile
 }
 
 type GetFileUploadInfoRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
 	Multipart *bool                           `json:"multipart,omitempty" xml:"multipart,omitempty"`
 	Option    *GetFileUploadInfoRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	Protocol  *string                         `json:"protocol,omitempty" xml:"protocol,omitempty"`
-	UnionId   *string                         `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// HEADER_SIGNATURE
+	Protocol *string `json:"protocol,omitempty" xml:"protocol,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetFileUploadInfoRequest) String() string {
@@ -3762,10 +4647,19 @@ func (s *GetFileUploadInfoRequest) SetUnionId(v string) *GetFileUploadInfoReques
 }
 
 type GetFileUploadInfoRequestOption struct {
-	PreCheckParam  *GetFileUploadInfoRequestOptionPreCheckParam `json:"preCheckParam,omitempty" xml:"preCheckParam,omitempty" type:"Struct"`
-	PreferIntranet *bool                                        `json:"preferIntranet,omitempty" xml:"preferIntranet,omitempty"`
-	PreferRegion   *string                                      `json:"preferRegion,omitempty" xml:"preferRegion,omitempty"`
-	StorageDriver  *string                                      `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	PreCheckParam *GetFileUploadInfoRequestOptionPreCheckParam `json:"preCheckParam,omitempty" xml:"preCheckParam,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	PreferIntranet *bool `json:"preferIntranet,omitempty" xml:"preferIntranet,omitempty"`
+	// example:
+	//
+	// ZHANGJIAKOU
+	PreferRegion *string `json:"preferRegion,omitempty" xml:"preferRegion,omitempty"`
+	// example:
+	//
+	// DINGTALK
+	StorageDriver *string `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
 }
 
 func (s GetFileUploadInfoRequestOption) String() string {
@@ -3797,10 +4691,22 @@ func (s *GetFileUploadInfoRequestOption) SetStorageDriver(v string) *GetFileUplo
 }
 
 type GetFileUploadInfoRequestOptionPreCheckParam struct {
-	Md5      *string `json:"md5,omitempty" xml:"md5,omitempty"`
-	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// md5
+	Md5 *string `json:"md5,omitempty" xml:"md5,omitempty"`
+	// example:
+	//
+	// dentry_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// parent_id
 	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	Size     *int64  `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// 512
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
 }
 
 func (s GetFileUploadInfoRequestOptionPreCheckParam) String() string {
@@ -3833,9 +4739,18 @@ func (s *GetFileUploadInfoRequestOptionPreCheckParam) SetSize(v int64) *GetFileU
 
 type GetFileUploadInfoResponseBody struct {
 	HeaderSignatureInfo *GetFileUploadInfoResponseBodyHeaderSignatureInfo `json:"headerSignatureInfo,omitempty" xml:"headerSignatureInfo,omitempty" type:"Struct"`
-	Protocol            *string                                           `json:"protocol,omitempty" xml:"protocol,omitempty"`
-	StorageDriver       *string                                           `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
-	UploadKey           *string                                           `json:"uploadKey,omitempty" xml:"uploadKey,omitempty"`
+	// example:
+	//
+	// HEADER_SIGNATURE
+	Protocol *string `json:"protocol,omitempty" xml:"protocol,omitempty"`
+	// example:
+	//
+	// DINGTALK
+	StorageDriver *string `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	// example:
+	//
+	// upload_key
+	UploadKey *string `json:"uploadKey,omitempty" xml:"uploadKey,omitempty"`
 }
 
 func (s GetFileUploadInfoResponseBody) String() string {
@@ -3867,11 +4782,17 @@ func (s *GetFileUploadInfoResponseBody) SetUploadKey(v string) *GetFileUploadInf
 }
 
 type GetFileUploadInfoResponseBodyHeaderSignatureInfo struct {
+	// example:
+	//
+	// 900
 	ExpirationSeconds    *int32             `json:"expirationSeconds,omitempty" xml:"expirationSeconds,omitempty"`
 	Headers              map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 	InternalResourceUrls []*string          `json:"internalResourceUrls,omitempty" xml:"internalResourceUrls,omitempty" type:"Repeated"`
-	Region               *string            `json:"region,omitempty" xml:"region,omitempty"`
-	ResourceUrls         []*string          `json:"resourceUrls,omitempty" xml:"resourceUrls,omitempty" type:"Repeated"`
+	// example:
+	//
+	// ZHANGJIAKOU
+	Region       *string   `json:"region,omitempty" xml:"region,omitempty"`
+	ResourceUrls []*string `json:"resourceUrls,omitempty" xml:"resourceUrls,omitempty" type:"Repeated"`
 }
 
 func (s GetFileUploadInfoResponseBodyHeaderSignatureInfo) String() string {
@@ -3960,10 +4881,21 @@ func (s *GetMultipartFileUploadInfosHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type GetMultipartFileUploadInfosRequest struct {
-	Option      *GetMultipartFileUploadInfosRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	PartNumbers []*int32                                  `json:"partNumbers,omitempty" xml:"partNumbers,omitempty" type:"Repeated"`
-	UploadKey   *string                                   `json:"uploadKey,omitempty" xml:"uploadKey,omitempty"`
-	UnionId     *string                                   `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	Option *GetMultipartFileUploadInfosRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	PartNumbers []*int32 `json:"partNumbers,omitempty" xml:"partNumbers,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// upload_key
+	UploadKey *string `json:"uploadKey,omitempty" xml:"uploadKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetMultipartFileUploadInfosRequest) String() string {
@@ -3995,6 +4927,9 @@ func (s *GetMultipartFileUploadInfosRequest) SetUnionId(v string) *GetMultipartF
 }
 
 type GetMultipartFileUploadInfosRequestOption struct {
+	// example:
+	//
+	// true
 	PreferIntranet *bool `json:"preferIntranet,omitempty" xml:"preferIntranet,omitempty"`
 }
 
@@ -4052,11 +4987,17 @@ func (s *GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfos) S
 }
 
 type GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo struct {
+	// example:
+	//
+	// 900
 	ExpirationSeconds    *int32             `json:"expirationSeconds,omitempty" xml:"expirationSeconds,omitempty"`
 	Headers              map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
 	InternalResourceUrls []*string          `json:"internalResourceUrls,omitempty" xml:"internalResourceUrls,omitempty" type:"Repeated"`
-	Region               *string            `json:"region,omitempty" xml:"region,omitempty"`
-	ResourceUrls         []*string          `json:"resourceUrls,omitempty" xml:"resourceUrls,omitempty" type:"Repeated"`
+	// example:
+	//
+	// ZHANGJIAKOU
+	Region       *string   `json:"region,omitempty" xml:"region,omitempty"`
+	ResourceUrls []*string `json:"resourceUrls,omitempty" xml:"resourceUrls,omitempty" type:"Repeated"`
 }
 
 func (s GetMultipartFileUploadInfosResponseBodyMultipartHeaderSignatureInfosHeaderSignatureInfo) String() string {
@@ -4145,6 +5086,11 @@ func (s *GetOrgHeaders) SetXAcsDingtalkAccessToken(v string) *GetOrgHeaders {
 }
 
 type GetOrgRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -4179,6 +5125,9 @@ func (s *GetOrgResponseBody) SetOrg(v *GetOrgResponseBodyOrg) *GetOrgResponseBod
 }
 
 type GetOrgResponseBodyOrg struct {
+	// example:
+	//
+	// corp_id
 	CorpId     *string                            `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	Partitions []*GetOrgResponseBodyOrgPartitions `json:"partitions,omitempty" xml:"partitions,omitempty" type:"Repeated"`
 }
@@ -4202,6 +5151,9 @@ func (s *GetOrgResponseBodyOrg) SetPartitions(v []*GetOrgResponseBodyOrgPartitio
 }
 
 type GetOrgResponseBodyOrgPartitions struct {
+	// example:
+	//
+	// PUBLIC_OSS_PARTITION
 	PartitionType *string                               `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
 	Quota         *GetOrgResponseBodyOrgPartitionsQuota `json:"quota,omitempty" xml:"quota,omitempty" type:"Struct"`
 }
@@ -4225,10 +5177,22 @@ func (s *GetOrgResponseBodyOrgPartitions) SetQuota(v *GetOrgResponseBodyOrgParti
 }
 
 type GetOrgResponseBodyOrgPartitionsQuota struct {
-	Max      *int64  `json:"max,omitempty" xml:"max,omitempty"`
-	Reserved *int64  `json:"reserved,omitempty" xml:"reserved,omitempty"`
-	Type     *string `json:"type,omitempty" xml:"type,omitempty"`
-	Used     *int64  `json:"used,omitempty" xml:"used,omitempty"`
+	// example:
+	//
+	// 10000
+	Max *int64 `json:"max,omitempty" xml:"max,omitempty"`
+	// example:
+	//
+	// 1000
+	Reserved *int64 `json:"reserved,omitempty" xml:"reserved,omitempty"`
+	// example:
+	//
+	// SHARE
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 1024
+	Used *int64 `json:"used,omitempty" xml:"used,omitempty"`
 }
 
 func (s GetOrgResponseBodyOrgPartitionsQuota) String() string {
@@ -4312,9 +5276,24 @@ func (s *GetRecycleBinHeaders) SetXAcsDingtalkAccessToken(v string) *GetRecycleB
 }
 
 type GetRecycleBinRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SPACE
 	RecycleBinScope *string `json:"recycleBinScope,omitempty" xml:"recycleBinScope,omitempty"`
-	ScopeId         *string `json:"scopeId,omitempty" xml:"scopeId,omitempty"`
-	UnionId         *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// scope_id
+	ScopeId *string `json:"scopeId,omitempty" xml:"scopeId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetRecycleBinRequest) String() string {
@@ -4358,8 +5337,17 @@ func (s *GetRecycleBinResponseBody) SetRecycleBin(v *GetRecycleBinResponseBodyRe
 }
 
 type GetRecycleBinResponseBodyRecycleBin struct {
-	Id      *string `json:"id,omitempty" xml:"id,omitempty"`
-	Scope   *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	// example:
+	//
+	// recyclebin_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// SPACE
+	Scope *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	// example:
+	//
+	// scope_id
 	ScopeId *string `json:"scopeId,omitempty" xml:"scopeId,omitempty"`
 }
 
@@ -4439,6 +5427,11 @@ func (s *GetRecycleItemHeaders) SetXAcsDingtalkAccessToken(v string) *GetRecycle
 }
 
 type GetRecycleItemRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -4473,15 +5466,42 @@ func (s *GetRecycleItemResponseBody) SetItem(v *GetRecycleItemResponseBodyItem) 
 }
 
 type GetRecycleItemResponseBodyItem struct {
-	DentryId     *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
-	Id           *string `json:"id,omitempty" xml:"id,omitempty"`
-	OperatorId   *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// example:
+	//
+	// dentry_id
+	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// example:
+	//
+	// recycle_item_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// operator_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
 	OperatorTime *string `json:"operatorTime,omitempty" xml:"operatorTime,omitempty"`
+	// example:
+	//
+	// dentry_name
 	OriginalName *string `json:"originalName,omitempty" xml:"originalName,omitempty"`
+	// example:
+	//
+	// dentry_path
 	OriginalPath *string `json:"originalPath,omitempty" xml:"originalPath,omitempty"`
-	Size         *int64  `json:"size,omitempty" xml:"size,omitempty"`
-	SpaceId      *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Type         *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 512
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// file
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetRecycleItemResponseBodyItem) String() string {
@@ -4590,6 +5610,11 @@ func (s *GetSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *GetSpaceHeaders 
 }
 
 type GetSpaceRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -4624,23 +5649,68 @@ func (s *GetSpaceResponseBody) SetSpace(v *GetSpaceResponseBodySpace) *GetSpaceR
 }
 
 type GetSpaceResponseBodySpace struct {
+	// example:
+	//
+	// app_id
 	AppId        *string                                `json:"appId,omitempty" xml:"appId,omitempty"`
 	Capabilities *GetSpaceResponseBodySpaceCapabilities `json:"capabilities,omitempty" xml:"capabilities,omitempty" type:"Struct"`
-	CorpId       *string                                `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CreateTime   *string                                `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId    *string                                `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Id           *string                                `json:"id,omitempty" xml:"id,omitempty"`
-	ModifiedTime *string                                `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId   *string                                `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name         *string                                `json:"name,omitempty" xml:"name,omitempty"`
-	OwnerId      *string                                `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
-	OwnerType    *string                                `json:"ownerType,omitempty" xml:"ownerType,omitempty"`
-	Partitions   []*GetSpaceResponseBodySpacePartitions `json:"partitions,omitempty" xml:"partitions,omitempty" type:"Repeated"`
-	Quota        *int64                                 `json:"quota,omitempty" xml:"quota,omitempty"`
-	Scene        *string                                `json:"scene,omitempty" xml:"scene,omitempty"`
-	SceneId      *string                                `json:"sceneId,omitempty" xml:"sceneId,omitempty"`
-	Status       *string                                `json:"status,omitempty" xml:"status,omitempty"`
-	UsedQuota    *int64                                 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// example:
+	//
+	// corp_id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// space_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// space_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// owner_id
+	OwnerId *string `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
+	// example:
+	//
+	// USER
+	OwnerType  *string                                `json:"ownerType,omitempty" xml:"ownerType,omitempty"`
+	Partitions []*GetSpaceResponseBodySpacePartitions `json:"partitions,omitempty" xml:"partitions,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1048576
+	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
+	// example:
+	//
+	// scene
+	Scene *string `json:"scene,omitempty" xml:"scene,omitempty"`
+	// example:
+	//
+	// scene_id
+	SceneId *string `json:"sceneId,omitempty" xml:"sceneId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 1024
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
 }
 
 func (s GetSpaceResponseBodySpace) String() string {
@@ -4737,9 +5807,18 @@ func (s *GetSpaceResponseBodySpace) SetUsedQuota(v int64) *GetSpaceResponseBodyS
 }
 
 type GetSpaceResponseBodySpaceCapabilities struct {
+	// example:
+	//
+	// true
 	CanRecordRecentFile *bool `json:"canRecordRecentFile,omitempty" xml:"canRecordRecentFile,omitempty"`
-	CanRename           *bool `json:"canRename,omitempty" xml:"canRename,omitempty"`
-	CanSearch           *bool `json:"canSearch,omitempty" xml:"canSearch,omitempty"`
+	// example:
+	//
+	// true
+	CanRename *bool `json:"canRename,omitempty" xml:"canRename,omitempty"`
+	// example:
+	//
+	// true
+	CanSearch *bool `json:"canSearch,omitempty" xml:"canSearch,omitempty"`
 }
 
 func (s GetSpaceResponseBodySpaceCapabilities) String() string {
@@ -4766,6 +5845,9 @@ func (s *GetSpaceResponseBodySpaceCapabilities) SetCanSearch(v bool) *GetSpaceRe
 }
 
 type GetSpaceResponseBodySpacePartitions struct {
+	// example:
+	//
+	// PUBLIC_OSS_PARTITION
 	PartitionType *string                                   `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
 	Quota         *GetSpaceResponseBodySpacePartitionsQuota `json:"quota,omitempty" xml:"quota,omitempty" type:"Struct"`
 }
@@ -4789,10 +5871,22 @@ func (s *GetSpaceResponseBodySpacePartitions) SetQuota(v *GetSpaceResponseBodySp
 }
 
 type GetSpaceResponseBodySpacePartitionsQuota struct {
-	Max      *int64  `json:"max,omitempty" xml:"max,omitempty"`
-	Reserved *int64  `json:"reserved,omitempty" xml:"reserved,omitempty"`
-	Type     *string `json:"type,omitempty" xml:"type,omitempty"`
-	Used     *int64  `json:"used,omitempty" xml:"used,omitempty"`
+	// example:
+	//
+	// 10000
+	Max *int64 `json:"max,omitempty" xml:"max,omitempty"`
+	// example:
+	//
+	// 1000
+	Reserved *int64 `json:"reserved,omitempty" xml:"reserved,omitempty"`
+	// example:
+	//
+	// SHARE
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 1024
+	Used *int64 `json:"used,omitempty" xml:"used,omitempty"`
 }
 
 func (s GetSpaceResponseBodySpacePartitionsQuota) String() string {
@@ -4876,6 +5970,11 @@ func (s *GetTaskHeaders) SetXAcsDingtalkAccessToken(v string) *GetTaskHeaders {
 }
 
 type GetTaskRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -4910,14 +6009,38 @@ func (s *GetTaskResponseBody) SetTask(v *GetTaskResponseBodyTask) *GetTaskRespon
 }
 
 type GetTaskResponseBodyTask struct {
-	BeginTime    *string `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
-	EndTime      *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	FailCount    *int64  `json:"failCount,omitempty" xml:"failCount,omitempty"`
-	FailMessage  *string `json:"failMessage,omitempty" xml:"failMessage,omitempty"`
-	Id           *string `json:"id,omitempty" xml:"id,omitempty"`
-	Status       *string `json:"status,omitempty" xml:"status,omitempty"`
-	SuccessCount *int64  `json:"successCount,omitempty" xml:"successCount,omitempty"`
-	TotalCount   *int64  `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	BeginTime *string `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 1
+	FailCount *int64 `json:"failCount,omitempty" xml:"failCount,omitempty"`
+	// example:
+	//
+	// permissionDenied
+	FailMessage *string `json:"failMessage,omitempty" xml:"failMessage,omitempty"`
+	// example:
+	//
+	// task_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// IN_PROGRESS
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 3
+	SuccessCount *int64 `json:"successCount,omitempty" xml:"successCount,omitempty"`
+	// example:
+	//
+	// 6
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s GetTaskResponseBodyTask) String() string {
@@ -4997,6 +6120,109 @@ func (s *GetTaskResponse) SetBody(v *GetTaskResponseBody) *GetTaskResponse {
 	return s
 }
 
+type GetWebOfficeUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetWebOfficeUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWebOfficeUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetWebOfficeUrlHeaders) SetCommonHeaders(v map[string]*string) *GetWebOfficeUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetWebOfficeUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetWebOfficeUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetWebOfficeUrlRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetWebOfficeUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWebOfficeUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetWebOfficeUrlRequest) SetUnionId(v string) *GetWebOfficeUrlRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetWebOfficeUrlResponseBody struct {
+	WebOfficeAccessToken  *string `json:"webOfficeAccessToken,omitempty" xml:"webOfficeAccessToken,omitempty"`
+	WebOfficeRefreshToken *string `json:"webOfficeRefreshToken,omitempty" xml:"webOfficeRefreshToken,omitempty"`
+	WebOfficeUrl          *string `json:"webOfficeUrl,omitempty" xml:"webOfficeUrl,omitempty"`
+}
+
+func (s GetWebOfficeUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWebOfficeUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetWebOfficeUrlResponseBody) SetWebOfficeAccessToken(v string) *GetWebOfficeUrlResponseBody {
+	s.WebOfficeAccessToken = &v
+	return s
+}
+
+func (s *GetWebOfficeUrlResponseBody) SetWebOfficeRefreshToken(v string) *GetWebOfficeUrlResponseBody {
+	s.WebOfficeRefreshToken = &v
+	return s
+}
+
+func (s *GetWebOfficeUrlResponseBody) SetWebOfficeUrl(v string) *GetWebOfficeUrlResponseBody {
+	s.WebOfficeUrl = &v
+	return s
+}
+
+type GetWebOfficeUrlResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetWebOfficeUrlResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetWebOfficeUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWebOfficeUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetWebOfficeUrlResponse) SetHeaders(v map[string]*string) *GetWebOfficeUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetWebOfficeUrlResponse) SetStatusCode(v int32) *GetWebOfficeUrlResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetWebOfficeUrlResponse) SetBody(v *GetWebOfficeUrlResponseBody) *GetWebOfficeUrlResponse {
+	s.Body = v
+	return s
+}
+
 type InitMultipartFileUploadHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5021,8 +6247,13 @@ func (s *InitMultipartFileUploadHeaders) SetXAcsDingtalkAccessToken(v string) *I
 }
 
 type InitMultipartFileUploadRequest struct {
-	Option  *InitMultipartFileUploadRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	UnionId *string                               `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	Option *InitMultipartFileUploadRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s InitMultipartFileUploadRequest) String() string {
@@ -5045,8 +6276,14 @@ func (s *InitMultipartFileUploadRequest) SetUnionId(v string) *InitMultipartFile
 
 type InitMultipartFileUploadRequestOption struct {
 	PreCheckParam *InitMultipartFileUploadRequestOptionPreCheckParam `json:"preCheckParam,omitempty" xml:"preCheckParam,omitempty" type:"Struct"`
-	PreferRegion  *string                                            `json:"preferRegion,omitempty" xml:"preferRegion,omitempty"`
-	StorageDriver *string                                            `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	// example:
+	//
+	// ZHANGJIAKOU
+	PreferRegion *string `json:"preferRegion,omitempty" xml:"preferRegion,omitempty"`
+	// example:
+	//
+	// DINGTALK
+	StorageDriver *string `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
 }
 
 func (s InitMultipartFileUploadRequestOption) String() string {
@@ -5073,10 +6310,22 @@ func (s *InitMultipartFileUploadRequestOption) SetStorageDriver(v string) *InitM
 }
 
 type InitMultipartFileUploadRequestOptionPreCheckParam struct {
-	Md5      *string `json:"md5,omitempty" xml:"md5,omitempty"`
-	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// md5
+	Md5 *string `json:"md5,omitempty" xml:"md5,omitempty"`
+	// example:
+	//
+	// dentry_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// parent_id
 	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	Size     *int64  `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// 512
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
 }
 
 func (s InitMultipartFileUploadRequestOptionPreCheckParam) String() string {
@@ -5108,8 +6357,14 @@ func (s *InitMultipartFileUploadRequestOptionPreCheckParam) SetSize(v int64) *In
 }
 
 type InitMultipartFileUploadResponseBody struct {
+	// example:
+	//
+	// DINGTALK
 	StorageDriver *string `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
-	UploadKey     *string `json:"uploadKey,omitempty" xml:"uploadKey,omitempty"`
+	// example:
+	//
+	// upload_key
+	UploadKey *string `json:"uploadKey,omitempty" xml:"uploadKey,omitempty"`
 }
 
 func (s InitMultipartFileUploadResponseBody) String() string {
@@ -5183,8 +6438,13 @@ func (s *ListAllDentriesHeaders) SetXAcsDingtalkAccessToken(v string) *ListAllDe
 }
 
 type ListAllDentriesRequest struct {
-	Option  *ListAllDentriesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	UnionId *string                       `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	Option *ListAllDentriesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s ListAllDentriesRequest) String() string {
@@ -5206,10 +6466,22 @@ func (s *ListAllDentriesRequest) SetUnionId(v string) *ListAllDentriesRequest {
 }
 
 type ListAllDentriesRequestOption struct {
-	MaxResults    *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken     *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Order         *string `json:"order,omitempty" xml:"order,omitempty"`
-	WithThumbnail *bool   `json:"withThumbnail,omitempty" xml:"withThumbnail,omitempty"`
+	// example:
+	//
+	// 30
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// next_token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// DESC
+	Order *string `json:"order,omitempty" xml:"order,omitempty"`
+	// example:
+	//
+	// true
+	WithThumbnail *bool `json:"withThumbnail,omitempty" xml:"withThumbnail,omitempty"`
 }
 
 func (s ListAllDentriesRequestOption) String() string {
@@ -5241,8 +6513,11 @@ func (s *ListAllDentriesRequestOption) SetWithThumbnail(v bool) *ListAllDentries
 }
 
 type ListAllDentriesResponseBody struct {
-	Dentries  []*ListAllDentriesResponseBodyDentries `json:"dentries,omitempty" xml:"dentries,omitempty" type:"Repeated"`
-	NextToken *string                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Dentries []*ListAllDentriesResponseBodyDentries `json:"dentries,omitempty" xml:"dentries,omitempty" type:"Repeated"`
+	// example:
+	//
+	// next_token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListAllDentriesResponseBody) String() string {
@@ -5264,26 +6539,77 @@ func (s *ListAllDentriesResponseBody) SetNextToken(v string) *ListAllDentriesRes
 }
 
 type ListAllDentriesResponseBodyDentries struct {
-	AppProperties map[string][]*DentriesAppPropertiesValue       `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
-	CreateTime    *string                                        `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId     *string                                        `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Extension     *string                                        `json:"extension,omitempty" xml:"extension,omitempty"`
-	Id            *string                                        `json:"id,omitempty" xml:"id,omitempty"`
-	ModifiedTime  *string                                        `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId    *string                                        `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name          *string                                        `json:"name,omitempty" xml:"name,omitempty"`
-	ParentId      *string                                        `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	PartitionType *string                                        `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
-	Path          *string                                        `json:"path,omitempty" xml:"path,omitempty"`
-	Properties    *ListAllDentriesResponseBodyDentriesProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
-	Size          *int64                                         `json:"size,omitempty" xml:"size,omitempty"`
-	SpaceId       *string                                        `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Status        *string                                        `json:"status,omitempty" xml:"status,omitempty"`
-	StorageDriver *string                                        `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
-	Thumbnail     *ListAllDentriesResponseBodyDentriesThumbnail  `json:"thumbnail,omitempty" xml:"thumbnail,omitempty" type:"Struct"`
-	Type          *string                                        `json:"type,omitempty" xml:"type,omitempty"`
-	Uuid          *string                                        `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	Version       *int64                                         `json:"version,omitempty" xml:"version,omitempty"`
+	AppProperties map[string][]*DentriesAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// txt
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// dentry_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// dentry_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// parent_id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// PUBLIC_OSS_PARTITION
+	PartitionType *string `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
+	// example:
+	//
+	// dentry_path
+	Path       *string                                        `json:"path,omitempty" xml:"path,omitempty"`
+	Properties *ListAllDentriesResponseBodyDentriesProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
+	// example:
+	//
+	// 512
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// DINGTALK
+	StorageDriver *string                                       `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	Thumbnail     *ListAllDentriesResponseBodyDentriesThumbnail `json:"thumbnail,omitempty" xml:"thumbnail,omitempty" type:"Struct"`
+	// example:
+	//
+	// file
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// uuid
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s ListAllDentriesResponseBodyDentries) String() string {
@@ -5395,6 +6721,9 @@ func (s *ListAllDentriesResponseBodyDentries) SetVersion(v int64) *ListAllDentri
 }
 
 type ListAllDentriesResponseBodyDentriesProperties struct {
+	// example:
+	//
+	// true
 	ReadOnly *bool `json:"readOnly,omitempty" xml:"readOnly,omitempty"`
 }
 
@@ -5412,9 +6741,18 @@ func (s *ListAllDentriesResponseBodyDentriesProperties) SetReadOnly(v bool) *Lis
 }
 
 type ListAllDentriesResponseBodyDentriesThumbnail struct {
-	Height *int32  `json:"height,omitempty" xml:"height,omitempty"`
-	Url    *string `json:"url,omitempty" xml:"url,omitempty"`
-	Width  *int32  `json:"width,omitempty" xml:"width,omitempty"`
+	// example:
+	//
+	// 64
+	Height *int32 `json:"height,omitempty" xml:"height,omitempty"`
+	// example:
+	//
+	// url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// 64
+	Width *int32 `json:"width,omitempty" xml:"width,omitempty"`
 }
 
 func (s ListAllDentriesResponseBodyDentriesThumbnail) String() string {
@@ -5493,13 +6831,38 @@ func (s *ListDentriesHeaders) SetXAcsDingtalkAccessToken(v string) *ListDentries
 }
 
 type ListDentriesRequest struct {
-	MaxResults    *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken     *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Order         *string `json:"order,omitempty" xml:"order,omitempty"`
-	OrderBy       *string `json:"orderBy,omitempty" xml:"orderBy,omitempty"`
-	ParentId      *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	UnionId       *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	WithThumbnail *bool   `json:"withThumbnail,omitempty" xml:"withThumbnail,omitempty"`
+	// example:
+	//
+	// 30
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// next_token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// DESC
+	Order *string `json:"order,omitempty" xml:"order,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	OrderBy *string `json:"orderBy,omitempty" xml:"orderBy,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// parent_id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// true
+	WithThumbnail *bool `json:"withThumbnail,omitempty" xml:"withThumbnail,omitempty"`
 }
 
 func (s ListDentriesRequest) String() string {
@@ -5546,8 +6909,11 @@ func (s *ListDentriesRequest) SetWithThumbnail(v bool) *ListDentriesRequest {
 }
 
 type ListDentriesResponseBody struct {
-	Dentries  []*ListDentriesResponseBodyDentries `json:"dentries,omitempty" xml:"dentries,omitempty" type:"Repeated"`
-	NextToken *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Dentries []*ListDentriesResponseBodyDentries `json:"dentries,omitempty" xml:"dentries,omitempty" type:"Repeated"`
+	// example:
+	//
+	// next_token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListDentriesResponseBody) String() string {
@@ -5569,26 +6935,81 @@ func (s *ListDentriesResponseBody) SetNextToken(v string) *ListDentriesResponseB
 }
 
 type ListDentriesResponseBodyDentries struct {
-	AppProperties map[string][]*DentriesAppPropertiesValue    `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
-	CreateTime    *string                                     `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId     *string                                     `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Extension     *string                                     `json:"extension,omitempty" xml:"extension,omitempty"`
-	Id            *string                                     `json:"id,omitempty" xml:"id,omitempty"`
-	ModifiedTime  *string                                     `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId    *string                                     `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name          *string                                     `json:"name,omitempty" xml:"name,omitempty"`
-	ParentId      *string                                     `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	PartitionType *string                                     `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
-	Path          *string                                     `json:"path,omitempty" xml:"path,omitempty"`
-	Properties    *ListDentriesResponseBodyDentriesProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
-	Size          *int64                                      `json:"size,omitempty" xml:"size,omitempty"`
-	SpaceId       *string                                     `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Status        *string                                     `json:"status,omitempty" xml:"status,omitempty"`
-	StorageDriver *string                                     `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
-	Thumbnail     *ListDentriesResponseBodyDentriesThumbnail  `json:"thumbnail,omitempty" xml:"thumbnail,omitempty" type:"Struct"`
-	Type          *string                                     `json:"type,omitempty" xml:"type,omitempty"`
-	Uuid          *string                                     `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	Version       *int64                                      `json:"version,omitempty" xml:"version,omitempty"`
+	AppProperties map[string][]*DentriesAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
+	// example:
+	//
+	// DOCUMENT
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// txt
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// dentry_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// dentry_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// parent_id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// PUBLIC_OSS_PARTITION
+	PartitionType *string `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
+	// example:
+	//
+	// dentry_path
+	Path       *string                                     `json:"path,omitempty" xml:"path,omitempty"`
+	Properties *ListDentriesResponseBodyDentriesProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
+	// example:
+	//
+	// 512
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// DINGTALK
+	StorageDriver *string                                    `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	Thumbnail     *ListDentriesResponseBodyDentriesThumbnail `json:"thumbnail,omitempty" xml:"thumbnail,omitempty" type:"Struct"`
+	// example:
+	//
+	// FILE
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// uuid
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s ListDentriesResponseBodyDentries) String() string {
@@ -5601,6 +7022,11 @@ func (s ListDentriesResponseBodyDentries) GoString() string {
 
 func (s *ListDentriesResponseBodyDentries) SetAppProperties(v map[string][]*DentriesAppPropertiesValue) *ListDentriesResponseBodyDentries {
 	s.AppProperties = v
+	return s
+}
+
+func (s *ListDentriesResponseBodyDentries) SetCategory(v string) *ListDentriesResponseBodyDentries {
+	s.Category = &v
 	return s
 }
 
@@ -5700,6 +7126,9 @@ func (s *ListDentriesResponseBodyDentries) SetVersion(v int64) *ListDentriesResp
 }
 
 type ListDentriesResponseBodyDentriesProperties struct {
+	// example:
+	//
+	// true
 	ReadOnly *bool `json:"readOnly,omitempty" xml:"readOnly,omitempty"`
 }
 
@@ -5717,9 +7146,18 @@ func (s *ListDentriesResponseBodyDentriesProperties) SetReadOnly(v bool) *ListDe
 }
 
 type ListDentriesResponseBodyDentriesThumbnail struct {
-	Height *int32  `json:"height,omitempty" xml:"height,omitempty"`
-	Url    *string `json:"url,omitempty" xml:"url,omitempty"`
-	Width  *int32  `json:"width,omitempty" xml:"width,omitempty"`
+	// example:
+	//
+	// 64
+	Height *int32 `json:"height,omitempty" xml:"height,omitempty"`
+	// example:
+	//
+	// url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// 64
+	Width *int32 `json:"width,omitempty" xml:"width,omitempty"`
 }
 
 func (s ListDentriesResponseBodyDentriesThumbnail) String() string {
@@ -5798,9 +7236,20 @@ func (s *ListDentryVersionsHeaders) SetXAcsDingtalkAccessToken(v string) *ListDe
 }
 
 type ListDentryVersionsRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	UnionId    *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 30
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// next_token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s ListDentryVersionsRequest) String() string {
@@ -5827,8 +7276,11 @@ func (s *ListDentryVersionsRequest) SetUnionId(v string) *ListDentryVersionsRequ
 }
 
 type ListDentryVersionsResponseBody struct {
-	Dentries  []*ListDentryVersionsResponseBodyDentries `json:"dentries,omitempty" xml:"dentries,omitempty" type:"Repeated"`
-	NextToken *string                                   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Dentries []*ListDentryVersionsResponseBodyDentries `json:"dentries,omitempty" xml:"dentries,omitempty" type:"Repeated"`
+	// example:
+	//
+	// next_token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListDentryVersionsResponseBody) String() string {
@@ -5850,25 +7302,76 @@ func (s *ListDentryVersionsResponseBody) SetNextToken(v string) *ListDentryVersi
 }
 
 type ListDentryVersionsResponseBodyDentries struct {
-	AppProperties map[string][]*DentriesAppPropertiesValue          `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
-	CreateTime    *string                                           `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId     *string                                           `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Extension     *string                                           `json:"extension,omitempty" xml:"extension,omitempty"`
-	Id            *string                                           `json:"id,omitempty" xml:"id,omitempty"`
-	ModifiedTime  *string                                           `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId    *string                                           `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name          *string                                           `json:"name,omitempty" xml:"name,omitempty"`
-	ParentId      *string                                           `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	PartitionType *string                                           `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
-	Path          *string                                           `json:"path,omitempty" xml:"path,omitempty"`
-	Properties    *ListDentryVersionsResponseBodyDentriesProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
-	Size          *int64                                            `json:"size,omitempty" xml:"size,omitempty"`
-	SpaceId       *string                                           `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Status        *string                                           `json:"status,omitempty" xml:"status,omitempty"`
-	StorageDriver *string                                           `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
-	Type          *string                                           `json:"type,omitempty" xml:"type,omitempty"`
-	Uuid          *string                                           `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	Version       *int64                                            `json:"version,omitempty" xml:"version,omitempty"`
+	AppProperties map[string][]*DentriesAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// txt
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// dentry_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// dentry_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// parent_id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// PUBLIC_OSS_PARTITION
+	PartitionType *string `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
+	// example:
+	//
+	// dentry_path
+	Path       *string                                           `json:"path,omitempty" xml:"path,omitempty"`
+	Properties *ListDentryVersionsResponseBodyDentriesProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
+	// example:
+	//
+	// 512
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// DINGTALK
+	StorageDriver *string `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	// example:
+	//
+	// file
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// uuid
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s ListDentryVersionsResponseBodyDentries) String() string {
@@ -5975,6 +7478,9 @@ func (s *ListDentryVersionsResponseBodyDentries) SetVersion(v int64) *ListDentry
 }
 
 type ListDentryVersionsResponseBodyDentriesProperties struct {
+	// example:
+	//
+	// true
 	ReadOnly *bool `json:"readOnly,omitempty" xml:"readOnly,omitempty"`
 }
 
@@ -6044,8 +7550,13 @@ func (s *ListPermissionsHeaders) SetXAcsDingtalkAccessToken(v string) *ListPermi
 }
 
 type ListPermissionsRequest struct {
-	Option  *ListPermissionsRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	UnionId *string                       `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	Option *ListPermissionsRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s ListPermissionsRequest) String() string {
@@ -6068,8 +7579,14 @@ func (s *ListPermissionsRequest) SetUnionId(v string) *ListPermissionsRequest {
 
 type ListPermissionsRequestOption struct {
 	FilterRoleIds []*string `json:"filterRoleIds,omitempty" xml:"filterRoleIds,omitempty" type:"Repeated"`
-	MaxResults    *int32    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken     *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 30
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// next_token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListPermissionsRequestOption) String() string {
@@ -6096,6 +7613,9 @@ func (s *ListPermissionsRequestOption) SetNextToken(v string) *ListPermissionsRe
 }
 
 type ListPermissionsResponseBody struct {
+	// example:
+	//
+	// next_token
 	NextToken   *string                                   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Permissions []*ListPermissionsResponseBodyPermissions `json:"permissions,omitempty" xml:"permissions,omitempty" type:"Repeated"`
 }
@@ -6119,14 +7639,32 @@ func (s *ListPermissionsResponseBody) SetPermissions(v []*ListPermissionsRespons
 }
 
 type ListPermissionsResponseBodyPermissions struct {
-	CreateTime   *string                                       `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	DentryId     *string                                       `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
-	Duration     *int64                                        `json:"duration,omitempty" xml:"duration,omitempty"`
-	Member       *ListPermissionsResponseBodyPermissionsMember `json:"member,omitempty" xml:"member,omitempty" type:"Struct"`
-	ModifiedTime *string                                       `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	OperatorId   *string                                       `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	Role         *ListPermissionsResponseBodyPermissionsRole   `json:"role,omitempty" xml:"role,omitempty" type:"Struct"`
-	SpaceId      *string                                       `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// dentry_id
+	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// example:
+	//
+	// 3600
+	Duration *int64                                        `json:"duration,omitempty" xml:"duration,omitempty"`
+	Member   *ListPermissionsResponseBodyPermissionsMember `json:"member,omitempty" xml:"member,omitempty" type:"Struct"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// operator_id
+	OperatorId *string                                     `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	Role       *ListPermissionsResponseBodyPermissionsRole `json:"role,omitempty" xml:"role,omitempty" type:"Struct"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s ListPermissionsResponseBodyPermissions) String() string {
@@ -6178,9 +7716,18 @@ func (s *ListPermissionsResponseBodyPermissions) SetSpaceId(v string) *ListPermi
 }
 
 type ListPermissionsResponseBodyPermissionsMember struct {
+	// example:
+	//
+	// corp_id
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Id     *string `json:"id,omitempty" xml:"id,omitempty"`
-	Type   *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// member_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// USER
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s ListPermissionsResponseBodyPermissionsMember) String() string {
@@ -6207,7 +7754,13 @@ func (s *ListPermissionsResponseBodyPermissionsMember) SetType(v string) *ListPe
 }
 
 type ListPermissionsResponseBodyPermissionsRole struct {
-	Id   *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// MANAGER
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// MANAGER
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -6282,9 +7835,20 @@ func (s *ListRecycleItemsHeaders) SetXAcsDingtalkAccessToken(v string) *ListRecy
 }
 
 type ListRecycleItemsRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	UnionId    *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 30
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// next_token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s ListRecycleItemsRequest) String() string {
@@ -6311,6 +7875,9 @@ func (s *ListRecycleItemsRequest) SetUnionId(v string) *ListRecycleItemsRequest 
 }
 
 type ListRecycleItemsResponseBody struct {
+	// example:
+	//
+	// next_token
 	NextToken    *string                                     `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	RecycleItems []*ListRecycleItemsResponseBodyRecycleItems `json:"recycleItems,omitempty" xml:"recycleItems,omitempty" type:"Repeated"`
 }
@@ -6334,15 +7901,42 @@ func (s *ListRecycleItemsResponseBody) SetRecycleItems(v []*ListRecycleItemsResp
 }
 
 type ListRecycleItemsResponseBodyRecycleItems struct {
-	DentryId     *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
-	Id           *string `json:"id,omitempty" xml:"id,omitempty"`
-	OperatorId   *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// example:
+	//
+	// dentry_id
+	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// example:
+	//
+	// recycle_item_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// operator_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
 	OperatorTime *string `json:"operatorTime,omitempty" xml:"operatorTime,omitempty"`
+	// example:
+	//
+	// dentry_name
 	OriginalName *string `json:"originalName,omitempty" xml:"originalName,omitempty"`
+	// example:
+	//
+	// dentry_path
 	OriginalPath *string `json:"originalPath,omitempty" xml:"originalPath,omitempty"`
-	Size         *int64  `json:"size,omitempty" xml:"size,omitempty"`
-	SpaceId      *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Type         *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 512
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// file
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s ListRecycleItemsResponseBodyRecycleItems) String() string {
@@ -6451,11 +8045,27 @@ func (s *MoveDentriesHeaders) SetXAcsDingtalkAccessToken(v string) *MoveDentries
 }
 
 type MoveDentriesRequest struct {
-	DentryIds      []*string                  `json:"dentryIds,omitempty" xml:"dentryIds,omitempty" type:"Repeated"`
-	Option         *MoveDentriesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	TargetFolderId *string                    `json:"targetFolderId,omitempty" xml:"targetFolderId,omitempty"`
-	TargetSpaceId  *string                    `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
-	UnionId        *string                    `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	DentryIds []*string                  `json:"dentryIds,omitempty" xml:"dentryIds,omitempty" type:"Repeated"`
+	Option    *MoveDentriesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// target_folder_id
+	TargetFolderId *string `json:"targetFolderId,omitempty" xml:"targetFolderId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// target_space_id
+	TargetSpaceId *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s MoveDentriesRequest) String() string {
@@ -6492,8 +8102,14 @@ func (s *MoveDentriesRequest) SetUnionId(v string) *MoveDentriesRequest {
 }
 
 type MoveDentriesRequestOption struct {
-	ConflictStrategy    *string `json:"conflictStrategy,omitempty" xml:"conflictStrategy,omitempty"`
-	PreservePermissions *bool   `json:"preservePermissions,omitempty" xml:"preservePermissions,omitempty"`
+	// example:
+	//
+	// AUTO_RENAME
+	ConflictStrategy *string `json:"conflictStrategy,omitempty" xml:"conflictStrategy,omitempty"`
+	// example:
+	//
+	// true
+	PreservePermissions *bool `json:"preservePermissions,omitempty" xml:"preservePermissions,omitempty"`
 }
 
 func (s MoveDentriesRequestOption) String() string {
@@ -6532,14 +8148,38 @@ func (s *MoveDentriesResponseBody) SetResultItems(v []*MoveDentriesResponseBodyR
 }
 
 type MoveDentriesResponseBodyResultItems struct {
-	Async          *bool   `json:"async,omitempty" xml:"async,omitempty"`
-	DentryId       *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
-	ErrorCode      *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	SpaceId        *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Success        *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// true
+	Async *bool `json:"async,omitempty" xml:"async,omitempty"`
+	// example:
+	//
+	// dentry_id
+	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// example:
+	//
+	// permissionDenied
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// target_dentry_id
 	TargetDentryId *string `json:"targetDentryId,omitempty" xml:"targetDentryId,omitempty"`
-	TargetSpaceId  *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
-	TaskId         *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// target_space_id
+	TargetSpaceId *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
+	// example:
+	//
+	// task_id
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s MoveDentriesResponseBodyResultItems) String() string {
@@ -6643,10 +8283,25 @@ func (s *MoveDentryHeaders) SetXAcsDingtalkAccessToken(v string) *MoveDentryHead
 }
 
 type MoveDentryRequest struct {
-	Option         *MoveDentryRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	TargetFolderId *string                  `json:"targetFolderId,omitempty" xml:"targetFolderId,omitempty"`
-	TargetSpaceId  *string                  `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
-	UnionId        *string                  `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	Option *MoveDentryRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// target_folder_id
+	TargetFolderId *string `json:"targetFolderId,omitempty" xml:"targetFolderId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// target_space_id
+	TargetSpaceId *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s MoveDentryRequest) String() string {
@@ -6678,8 +8333,14 @@ func (s *MoveDentryRequest) SetUnionId(v string) *MoveDentryRequest {
 }
 
 type MoveDentryRequestOption struct {
-	ConflictStrategy   *string `json:"conflictStrategy,omitempty" xml:"conflictStrategy,omitempty"`
-	PresevePermissions *bool   `json:"presevePermissions,omitempty" xml:"presevePermissions,omitempty"`
+	// example:
+	//
+	// AUTO_RENAME
+	ConflictStrategy *string `json:"conflictStrategy,omitempty" xml:"conflictStrategy,omitempty"`
+	// example:
+	//
+	// true
+	PresevePermissions *bool `json:"presevePermissions,omitempty" xml:"presevePermissions,omitempty"`
 }
 
 func (s MoveDentryRequestOption) String() string {
@@ -6701,9 +8362,15 @@ func (s *MoveDentryRequestOption) SetPresevePermissions(v bool) *MoveDentryReque
 }
 
 type MoveDentryResponseBody struct {
+	// example:
+	//
+	// true
 	Async  *bool                         `json:"async,omitempty" xml:"async,omitempty"`
 	Dentry *MoveDentryResponseBodyDentry `json:"dentry,omitempty" xml:"dentry,omitempty" type:"Struct"`
-	TaskId *string                       `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// task_id
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s MoveDentryResponseBody) String() string {
@@ -6730,25 +8397,76 @@ func (s *MoveDentryResponseBody) SetTaskId(v string) *MoveDentryResponseBody {
 }
 
 type MoveDentryResponseBodyDentry struct {
-	AppProperties map[string][]*DentryAppPropertiesValue  `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
-	CreateTime    *string                                 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId     *string                                 `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Extension     *string                                 `json:"extension,omitempty" xml:"extension,omitempty"`
-	Id            *string                                 `json:"id,omitempty" xml:"id,omitempty"`
-	ModifiedTime  *string                                 `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId    *string                                 `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name          *string                                 `json:"name,omitempty" xml:"name,omitempty"`
-	ParentId      *string                                 `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	PartitionType *string                                 `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
-	Path          *string                                 `json:"path,omitempty" xml:"path,omitempty"`
-	Properties    *MoveDentryResponseBodyDentryProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
-	Size          *int64                                  `json:"size,omitempty" xml:"size,omitempty"`
-	SpaceId       *string                                 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Status        *string                                 `json:"status,omitempty" xml:"status,omitempty"`
-	StorageDriver *string                                 `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
-	Type          *string                                 `json:"type,omitempty" xml:"type,omitempty"`
-	Uuid          *string                                 `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	Version       *int64                                  `json:"version,omitempty" xml:"version,omitempty"`
+	AppProperties map[string][]*DentryAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// txt
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// dentry_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// dentry_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// parent_id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// PUBLIC_OSS_PARTITION
+	PartitionType *string `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
+	// example:
+	//
+	// dentry_path
+	Path       *string                                 `json:"path,omitempty" xml:"path,omitempty"`
+	Properties *MoveDentryResponseBodyDentryProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
+	// example:
+	//
+	// 512
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// DINGTALK
+	StorageDriver *string `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	// example:
+	//
+	// file
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// uuid
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s MoveDentryResponseBodyDentry) String() string {
@@ -6855,6 +8573,9 @@ func (s *MoveDentryResponseBodyDentry) SetVersion(v int64) *MoveDentryResponseBo
 }
 
 type MoveDentryResponseBodyDentryProperties struct {
+	// example:
+	//
+	// true
 	ReadOnly *bool `json:"readOnly,omitempty" xml:"readOnly,omitempty"`
 }
 
@@ -6900,6 +8621,117 @@ func (s *MoveDentryResponse) SetBody(v *MoveDentryResponseBody) *MoveDentryRespo
 	return s
 }
 
+type RefreshWebOfficeTokenHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RefreshWebOfficeTokenHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RefreshWebOfficeTokenHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RefreshWebOfficeTokenHeaders) SetCommonHeaders(v map[string]*string) *RefreshWebOfficeTokenHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RefreshWebOfficeTokenHeaders) SetXAcsDingtalkAccessToken(v string) *RefreshWebOfficeTokenHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RefreshWebOfficeTokenRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	WebOfficeAccessToken *string `json:"webOfficeAccessToken,omitempty" xml:"webOfficeAccessToken,omitempty"`
+	// This parameter is required.
+	WebOfficeRefreshToken *string `json:"webOfficeRefreshToken,omitempty" xml:"webOfficeRefreshToken,omitempty"`
+}
+
+func (s RefreshWebOfficeTokenRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RefreshWebOfficeTokenRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RefreshWebOfficeTokenRequest) SetUnionId(v string) *RefreshWebOfficeTokenRequest {
+	s.UnionId = &v
+	return s
+}
+
+func (s *RefreshWebOfficeTokenRequest) SetWebOfficeAccessToken(v string) *RefreshWebOfficeTokenRequest {
+	s.WebOfficeAccessToken = &v
+	return s
+}
+
+func (s *RefreshWebOfficeTokenRequest) SetWebOfficeRefreshToken(v string) *RefreshWebOfficeTokenRequest {
+	s.WebOfficeRefreshToken = &v
+	return s
+}
+
+type RefreshWebOfficeTokenResponseBody struct {
+	WebOfficeAccessToken  *string `json:"webOfficeAccessToken,omitempty" xml:"webOfficeAccessToken,omitempty"`
+	WebOfficeRefreshToken *string `json:"webOfficeRefreshToken,omitempty" xml:"webOfficeRefreshToken,omitempty"`
+}
+
+func (s RefreshWebOfficeTokenResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RefreshWebOfficeTokenResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RefreshWebOfficeTokenResponseBody) SetWebOfficeAccessToken(v string) *RefreshWebOfficeTokenResponseBody {
+	s.WebOfficeAccessToken = &v
+	return s
+}
+
+func (s *RefreshWebOfficeTokenResponseBody) SetWebOfficeRefreshToken(v string) *RefreshWebOfficeTokenResponseBody {
+	s.WebOfficeRefreshToken = &v
+	return s
+}
+
+type RefreshWebOfficeTokenResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RefreshWebOfficeTokenResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s RefreshWebOfficeTokenResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RefreshWebOfficeTokenResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RefreshWebOfficeTokenResponse) SetHeaders(v map[string]*string) *RefreshWebOfficeTokenResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RefreshWebOfficeTokenResponse) SetStatusCode(v int32) *RefreshWebOfficeTokenResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RefreshWebOfficeTokenResponse) SetBody(v *RefreshWebOfficeTokenResponseBody) *RefreshWebOfficeTokenResponse {
+	s.Body = v
+	return s
+}
+
 type RegisterOpenInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6924,9 +8756,20 @@ func (s *RegisterOpenInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Register
 }
 
 type RegisterOpenInfoRequest struct {
+	// This parameter is required.
 	OpenInfos []*RegisterOpenInfoRequestOpenInfos `json:"openInfos,omitempty" xml:"openInfos,omitempty" type:"Repeated"`
-	Provider  *string                             `json:"provider,omitempty" xml:"provider,omitempty"`
-	UnionId   *string                             `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DINGTALK
+	Provider *string `json:"provider,omitempty" xml:"provider,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s RegisterOpenInfoRequest) String() string {
@@ -6953,8 +8796,18 @@ func (s *RegisterOpenInfoRequest) SetUnionId(v string) *RegisterOpenInfoRequest 
 }
 
 type RegisterOpenInfoRequestOpenInfos struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PREVIEW
 	OpenType *string `json:"openType,omitempty" xml:"openType,omitempty"`
-	Url      *string `json:"url,omitempty" xml:"url,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s RegisterOpenInfoRequestOpenInfos) String() string {
@@ -6976,6 +8829,9 @@ func (s *RegisterOpenInfoRequestOpenInfos) SetUrl(v string) *RegisterOpenInfoReq
 }
 
 type RegisterOpenInfoResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -7045,7 +8901,17 @@ func (s *RenameDentryHeaders) SetXAcsDingtalkAccessToken(v string) *RenameDentry
 }
 
 type RenameDentryRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dentry_name
 	NewName *string `json:"newName,omitempty" xml:"newName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -7085,25 +8951,76 @@ func (s *RenameDentryResponseBody) SetDentry(v *RenameDentryResponseBodyDentry) 
 }
 
 type RenameDentryResponseBodyDentry struct {
-	AppProperties map[string][]*DentryAppPropertiesValue    `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
-	CreateTime    *string                                   `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId     *string                                   `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Extension     *string                                   `json:"extension,omitempty" xml:"extension,omitempty"`
-	Id            *string                                   `json:"id,omitempty" xml:"id,omitempty"`
-	ModifiedTime  *string                                   `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId    *string                                   `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name          *string                                   `json:"name,omitempty" xml:"name,omitempty"`
-	ParentId      *string                                   `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	PartitionType *string                                   `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
-	Path          *string                                   `json:"path,omitempty" xml:"path,omitempty"`
-	Properties    *RenameDentryResponseBodyDentryProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
-	Size          *int64                                    `json:"size,omitempty" xml:"size,omitempty"`
-	SpaceId       *string                                   `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Status        *string                                   `json:"status,omitempty" xml:"status,omitempty"`
-	StorageDriver *string                                   `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
-	Type          *string                                   `json:"type,omitempty" xml:"type,omitempty"`
-	Uuid          *string                                   `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	Version       *int64                                    `json:"version,omitempty" xml:"version,omitempty"`
+	AppProperties map[string][]*DentryAppPropertiesValue `json:"appProperties,omitempty" xml:"appProperties,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// txt
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// dentry_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// dentry_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// parent_id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// PUBLIC_OSS_PARTITION
+	PartitionType *string `json:"partitionType,omitempty" xml:"partitionType,omitempty"`
+	// example:
+	//
+	// dentry_path
+	Path       *string                                   `json:"path,omitempty" xml:"path,omitempty"`
+	Properties *RenameDentryResponseBodyDentryProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Struct"`
+	// example:
+	//
+	// 512
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// DINGTALK
+	StorageDriver *string `json:"storageDriver,omitempty" xml:"storageDriver,omitempty"`
+	// example:
+	//
+	// file
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// uuid
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s RenameDentryResponseBodyDentry) String() string {
@@ -7210,6 +9127,9 @@ func (s *RenameDentryResponseBodyDentry) SetVersion(v int64) *RenameDentryRespon
 }
 
 type RenameDentryResponseBodyDentryProperties struct {
+	// example:
+	//
+	// true
 	ReadOnly *bool `json:"readOnly,omitempty" xml:"readOnly,omitempty"`
 }
 
@@ -7279,8 +9199,13 @@ func (s *RestoreRecycleItemHeaders) SetXAcsDingtalkAccessToken(v string) *Restor
 }
 
 type RestoreRecycleItemRequest struct {
-	Option  *RestoreRecycleItemRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	UnionId *string                          `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	Option *RestoreRecycleItemRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s RestoreRecycleItemRequest) String() string {
@@ -7302,6 +9227,9 @@ func (s *RestoreRecycleItemRequest) SetUnionId(v string) *RestoreRecycleItemRequ
 }
 
 type RestoreRecycleItemRequestOption struct {
+	// example:
+	//
+	// AUTO_RENAME
 	ConflictStrategy *string `json:"conflictStrategy,omitempty" xml:"conflictStrategy,omitempty"`
 }
 
@@ -7319,10 +9247,22 @@ func (s *RestoreRecycleItemRequestOption) SetConflictStrategy(v string) *Restore
 }
 
 type RestoreRecycleItemResponseBody struct {
-	Async    *bool   `json:"async,omitempty" xml:"async,omitempty"`
+	// example:
+	//
+	// true
+	Async *bool `json:"async,omitempty" xml:"async,omitempty"`
+	// example:
+	//
+	// dentry_id
 	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
-	SpaceId  *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	TaskId   *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// task_id
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s RestoreRecycleItemResponseBody) String() string {
@@ -7406,9 +9346,15 @@ func (s *RestoreRecycleItemsHeaders) SetXAcsDingtalkAccessToken(v string) *Resto
 }
 
 type RestoreRecycleItemsRequest struct {
-	Option         *RestoreRecycleItemsRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	RecycleItemIds []*string                         `json:"recycleItemIds,omitempty" xml:"recycleItemIds,omitempty" type:"Repeated"`
-	UnionId        *string                           `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	Option *RestoreRecycleItemsRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	RecycleItemIds []*string `json:"recycleItemIds,omitempty" xml:"recycleItemIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s RestoreRecycleItemsRequest) String() string {
@@ -7435,6 +9381,9 @@ func (s *RestoreRecycleItemsRequest) SetUnionId(v string) *RestoreRecycleItemsRe
 }
 
 type RestoreRecycleItemsRequestOption struct {
+	// example:
+	//
+	// AUTO_RENAME
 	ConflictStrategy *string `json:"conflictStrategy,omitempty" xml:"conflictStrategy,omitempty"`
 }
 
@@ -7469,14 +9418,38 @@ func (s *RestoreRecycleItemsResponseBody) SetResultItems(v []*RestoreRecycleItem
 }
 
 type RestoreRecycleItemsResponseBodyResultItems struct {
-	Async         *bool   `json:"async,omitempty" xml:"async,omitempty"`
-	DentryId      *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
-	ErrorCode     *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	RecycleBinId  *string `json:"recycleBinId,omitempty" xml:"recycleBinId,omitempty"`
+	// example:
+	//
+	// true
+	Async *bool `json:"async,omitempty" xml:"async,omitempty"`
+	// example:
+	//
+	// dentry_id
+	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// example:
+	//
+	// permissionDenied
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// recyclebin_id
+	RecycleBinId *string `json:"recycleBinId,omitempty" xml:"recycleBinId,omitempty"`
+	// example:
+	//
+	// recycle_item_id
 	RecycleItemId *string `json:"recycleItemId,omitempty" xml:"recycleItemId,omitempty"`
-	SpaceId       *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Success       *bool   `json:"success,omitempty" xml:"success,omitempty"`
-	TaskId        *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// task_id
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s RestoreRecycleItemsResponseBodyResultItems) String() string {
@@ -7580,6 +9553,11 @@ func (s *RevertDentryVersionHeaders) SetXAcsDingtalkAccessToken(v string) *Rever
 }
 
 type RevertDentryVersionRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -7597,6 +9575,9 @@ func (s *RevertDentryVersionRequest) SetUnionId(v string) *RevertDentryVersionRe
 }
 
 type RevertDentryVersionResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -7666,8 +9647,23 @@ func (s *SubscribeEventHeaders) SetXAcsDingtalkAccessToken(v string) *SubscribeE
 }
 
 type SubscribeEventRequest struct {
-	Scope   *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SPACE
+	Scope *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// scope_id
 	ScopeId *string `json:"scopeId,omitempty" xml:"scopeId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -7695,6 +9691,9 @@ func (s *SubscribeEventRequest) SetUnionId(v string) *SubscribeEventRequest {
 }
 
 type SubscribeEventResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -7764,8 +9763,23 @@ func (s *UnsubscribeEventHeaders) SetXAcsDingtalkAccessToken(v string) *Unsubscr
 }
 
 type UnsubscribeEventRequest struct {
-	Scope   *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SPACE
+	Scope *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// scope_id
 	ScopeId *string `json:"scopeId,omitempty" xml:"scopeId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -7793,6 +9807,9 @@ func (s *UnsubscribeEventRequest) SetUnionId(v string) *UnsubscribeEventRequest 
 }
 
 type UnsubscribeEventResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -7862,8 +9879,14 @@ func (s *UpdateDentryAppPropertiesHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type UpdateDentryAppPropertiesRequest struct {
+	// This parameter is required.
 	AppProperties []*UpdateDentryAppPropertiesRequestAppProperties `json:"appProperties,omitempty" xml:"appProperties,omitempty" type:"Repeated"`
-	UnionId       *string                                          `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s UpdateDentryAppPropertiesRequest) String() string {
@@ -7885,8 +9908,23 @@ func (s *UpdateDentryAppPropertiesRequest) SetUnionId(v string) *UpdateDentryApp
 }
 
 type UpdateDentryAppPropertiesRequestAppProperties struct {
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	Value      *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// property_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// property_value
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PRIVATE
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
@@ -7914,6 +9952,9 @@ func (s *UpdateDentryAppPropertiesRequestAppProperties) SetVisibility(v string) 
 }
 
 type UpdateDentryAppPropertiesResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -7983,10 +10024,21 @@ func (s *UpdatePermissionHeaders) SetXAcsDingtalkAccessToken(v string) *UpdatePe
 }
 
 type UpdatePermissionRequest struct {
+	// This parameter is required.
 	Members []*UpdatePermissionRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
 	Option  *UpdatePermissionRequestOption    `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	RoleId  *string                           `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	UnionId *string                           `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// MANAGER
+	RoleId *string `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s UpdatePermissionRequest) String() string {
@@ -8018,9 +10070,22 @@ func (s *UpdatePermissionRequest) SetUnionId(v string) *UpdatePermissionRequest 
 }
 
 type UpdatePermissionRequestMembers struct {
+	// example:
+	//
+	// corp_id
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Id     *string `json:"id,omitempty" xml:"id,omitempty"`
-	Type   *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// member_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// USER
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s UpdatePermissionRequestMembers) String() string {
@@ -8047,6 +10112,9 @@ func (s *UpdatePermissionRequestMembers) SetType(v string) *UpdatePermissionRequ
 }
 
 type UpdatePermissionRequestOption struct {
+	// example:
+	//
+	// 3600
 	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
 }
 
@@ -8064,6 +10132,9 @@ func (s *UpdatePermissionRequestOption) SetDuration(v int64) *UpdatePermissionRe
 }
 
 type UpdatePermissionResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -8124,12 +10195,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -8138,6 +10209,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 添加文件夹
+//
+// @param request - AddFolderRequest
+//
+// @param headers - AddFolderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddFolderResponse
 func (client *Client) AddFolderWithOptions(spaceId *string, parentId *string, request *AddFolderRequest, headers *AddFolderHeaders, runtime *util.RuntimeOptions) (_result *AddFolderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8191,6 +10273,13 @@ func (client *Client) AddFolderWithOptions(spaceId *string, parentId *string, re
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加文件夹
+//
+// @param request - AddFolderRequest
+//
+// @return AddFolderResponse
 func (client *Client) AddFolder(spaceId *string, parentId *string, request *AddFolderRequest) (_result *AddFolderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddFolderHeaders{}
@@ -8203,6 +10292,17 @@ func (client *Client) AddFolder(spaceId *string, parentId *string, request *AddF
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加权限
+//
+// @param request - AddPermissionRequest
+//
+// @param headers - AddPermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddPermissionResponse
 func (client *Client) AddPermissionWithOptions(spaceId *string, dentryId *string, request *AddPermissionRequest, headers *AddPermissionHeaders, runtime *util.RuntimeOptions) (_result *AddPermissionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8260,6 +10360,13 @@ func (client *Client) AddPermissionWithOptions(spaceId *string, dentryId *string
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加权限
+//
+// @param request - AddPermissionRequest
+//
+// @return AddPermissionResponse
 func (client *Client) AddPermission(spaceId *string, dentryId *string, request *AddPermissionRequest) (_result *AddPermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddPermissionHeaders{}
@@ -8272,6 +10379,17 @@ func (client *Client) AddPermission(spaceId *string, dentryId *string, request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加空间
+//
+// @param request - AddSpaceRequest
+//
+// @param headers - AddSpaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddSpaceResponse
 func (client *Client) AddSpaceWithOptions(request *AddSpaceRequest, headers *AddSpaceHeaders, runtime *util.RuntimeOptions) (_result *AddSpaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8321,6 +10439,13 @@ func (client *Client) AddSpaceWithOptions(request *AddSpaceRequest, headers *Add
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加空间
+//
+// @param request - AddSpaceRequest
+//
+// @return AddSpaceResponse
 func (client *Client) AddSpace(request *AddSpaceRequest) (_result *AddSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddSpaceHeaders{}
@@ -8333,6 +10458,17 @@ func (client *Client) AddSpace(request *AddSpaceRequest) (_result *AddSpaceRespo
 	return _result, _err
 }
 
+// Summary:
+//
+// 清空回收站
+//
+// @param request - ClearRecycleBinRequest
+//
+// @param headers - ClearRecycleBinHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ClearRecycleBinResponse
 func (client *Client) ClearRecycleBinWithOptions(recycleBinId *string, request *ClearRecycleBinRequest, headers *ClearRecycleBinHeaders, runtime *util.RuntimeOptions) (_result *ClearRecycleBinResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8376,6 +10512,13 @@ func (client *Client) ClearRecycleBinWithOptions(recycleBinId *string, request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 清空回收站
+//
+// @param request - ClearRecycleBinRequest
+//
+// @return ClearRecycleBinResponse
 func (client *Client) ClearRecycleBin(recycleBinId *string, request *ClearRecycleBinRequest) (_result *ClearRecycleBinResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ClearRecycleBinHeaders{}
@@ -8388,6 +10531,17 @@ func (client *Client) ClearRecycleBin(recycleBinId *string, request *ClearRecycl
 	return _result, _err
 }
 
+// Summary:
+//
+// 提交文件
+//
+// @param request - CommitFileRequest
+//
+// @param headers - CommitFileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CommitFileResponse
 func (client *Client) CommitFileWithOptions(spaceId *string, request *CommitFileRequest, headers *CommitFileHeaders, runtime *util.RuntimeOptions) (_result *CommitFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8405,6 +10559,10 @@ func (client *Client) CommitFileWithOptions(spaceId *string, request *CommitFile
 
 	if !tea.BoolValue(util.IsUnset(request.Option)) {
 		body["option"] = request.Option
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OverwriteDentryId)) {
+		body["overwriteDentryId"] = request.OverwriteDentryId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ParentId)) {
@@ -8449,6 +10607,13 @@ func (client *Client) CommitFileWithOptions(spaceId *string, request *CommitFile
 	return _result, _err
 }
 
+// Summary:
+//
+// 提交文件
+//
+// @param request - CommitFileRequest
+//
+// @return CommitFileResponse
 func (client *Client) CommitFile(spaceId *string, request *CommitFileRequest) (_result *CommitFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CommitFileHeaders{}
@@ -8461,6 +10626,17 @@ func (client *Client) CommitFile(spaceId *string, request *CommitFileRequest) (_
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量拷贝文件或文件夹
+//
+// @param request - CopyDentriesRequest
+//
+// @param headers - CopyDentriesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CopyDentriesResponse
 func (client *Client) CopyDentriesWithOptions(spaceId *string, request *CopyDentriesRequest, headers *CopyDentriesHeaders, runtime *util.RuntimeOptions) (_result *CopyDentriesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8522,6 +10698,13 @@ func (client *Client) CopyDentriesWithOptions(spaceId *string, request *CopyDent
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量拷贝文件或文件夹
+//
+// @param request - CopyDentriesRequest
+//
+// @return CopyDentriesResponse
 func (client *Client) CopyDentries(spaceId *string, request *CopyDentriesRequest) (_result *CopyDentriesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CopyDentriesHeaders{}
@@ -8534,6 +10717,17 @@ func (client *Client) CopyDentries(spaceId *string, request *CopyDentriesRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 拷贝文件或文件夹
+//
+// @param request - CopyDentryRequest
+//
+// @param headers - CopyDentryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CopyDentryResponse
 func (client *Client) CopyDentryWithOptions(spaceId *string, dentryId *string, request *CopyDentryRequest, headers *CopyDentryHeaders, runtime *util.RuntimeOptions) (_result *CopyDentryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8591,6 +10785,13 @@ func (client *Client) CopyDentryWithOptions(spaceId *string, dentryId *string, r
 	return _result, _err
 }
 
+// Summary:
+//
+// 拷贝文件或文件夹
+//
+// @param request - CopyDentryRequest
+//
+// @return CopyDentryResponse
 func (client *Client) CopyDentry(spaceId *string, dentryId *string, request *CopyDentryRequest) (_result *CopyDentryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CopyDentryHeaders{}
@@ -8603,6 +10804,17 @@ func (client *Client) CopyDentry(spaceId *string, dentryId *string, request *Cop
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量删除文件或文件夹
+//
+// @param request - DeleteDentriesRequest
+//
+// @param headers - DeleteDentriesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteDentriesResponse
 func (client *Client) DeleteDentriesWithOptions(spaceId *string, request *DeleteDentriesRequest, headers *DeleteDentriesHeaders, runtime *util.RuntimeOptions) (_result *DeleteDentriesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8656,6 +10868,13 @@ func (client *Client) DeleteDentriesWithOptions(spaceId *string, request *Delete
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量删除文件或文件夹
+//
+// @param request - DeleteDentriesRequest
+//
+// @return DeleteDentriesResponse
 func (client *Client) DeleteDentries(spaceId *string, request *DeleteDentriesRequest) (_result *DeleteDentriesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteDentriesHeaders{}
@@ -8668,6 +10887,17 @@ func (client *Client) DeleteDentries(spaceId *string, request *DeleteDentriesReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除文件或文件夹
+//
+// @param request - DeleteDentryRequest
+//
+// @param headers - DeleteDentryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteDentryResponse
 func (client *Client) DeleteDentryWithOptions(spaceId *string, dentryId *string, request *DeleteDentryRequest, headers *DeleteDentryHeaders, runtime *util.RuntimeOptions) (_result *DeleteDentryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8715,6 +10945,13 @@ func (client *Client) DeleteDentryWithOptions(spaceId *string, dentryId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除文件或文件夹
+//
+// @param request - DeleteDentryRequest
+//
+// @return DeleteDentryResponse
 func (client *Client) DeleteDentry(spaceId *string, dentryId *string, request *DeleteDentryRequest) (_result *DeleteDentryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteDentryHeaders{}
@@ -8727,6 +10964,17 @@ func (client *Client) DeleteDentry(spaceId *string, dentryId *string, request *D
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除文件上的App属性值
+//
+// @param request - DeleteDentryAppPropertiesRequest
+//
+// @param headers - DeleteDentryAppPropertiesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteDentryAppPropertiesResponse
 func (client *Client) DeleteDentryAppPropertiesWithOptions(spaceId *string, dentryId *string, request *DeleteDentryAppPropertiesRequest, headers *DeleteDentryAppPropertiesHeaders, runtime *util.RuntimeOptions) (_result *DeleteDentryAppPropertiesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8776,6 +11024,13 @@ func (client *Client) DeleteDentryAppPropertiesWithOptions(spaceId *string, dent
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除文件上的App属性值
+//
+// @param request - DeleteDentryAppPropertiesRequest
+//
+// @return DeleteDentryAppPropertiesResponse
 func (client *Client) DeleteDentryAppProperties(spaceId *string, dentryId *string, request *DeleteDentryAppPropertiesRequest) (_result *DeleteDentryAppPropertiesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteDentryAppPropertiesHeaders{}
@@ -8788,6 +11043,17 @@ func (client *Client) DeleteDentryAppProperties(spaceId *string, dentryId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除权限
+//
+// @param request - DeletePermissionRequest
+//
+// @param headers - DeletePermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeletePermissionResponse
 func (client *Client) DeletePermissionWithOptions(spaceId *string, dentryId *string, request *DeletePermissionRequest, headers *DeletePermissionHeaders, runtime *util.RuntimeOptions) (_result *DeletePermissionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8841,6 +11107,13 @@ func (client *Client) DeletePermissionWithOptions(spaceId *string, dentryId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除权限
+//
+// @param request - DeletePermissionRequest
+//
+// @return DeletePermissionResponse
 func (client *Client) DeletePermission(spaceId *string, dentryId *string, request *DeletePermissionRequest) (_result *DeletePermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeletePermissionHeaders{}
@@ -8853,6 +11126,17 @@ func (client *Client) DeletePermission(spaceId *string, dentryId *string, reques
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除回收项, 删除之后该记录从回收站删除, 后续文件就无法恢复了
+//
+// @param request - DeleteRecycleItemRequest
+//
+// @param headers - DeleteRecycleItemHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteRecycleItemResponse
 func (client *Client) DeleteRecycleItemWithOptions(recycleBinId *string, recycleItemId *string, request *DeleteRecycleItemRequest, headers *DeleteRecycleItemHeaders, runtime *util.RuntimeOptions) (_result *DeleteRecycleItemResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8896,6 +11180,13 @@ func (client *Client) DeleteRecycleItemWithOptions(recycleBinId *string, recycle
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除回收项, 删除之后该记录从回收站删除, 后续文件就无法恢复了
+//
+// @param request - DeleteRecycleItemRequest
+//
+// @return DeleteRecycleItemResponse
 func (client *Client) DeleteRecycleItem(recycleBinId *string, recycleItemId *string, request *DeleteRecycleItemRequest) (_result *DeleteRecycleItemResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteRecycleItemHeaders{}
@@ -8908,6 +11199,17 @@ func (client *Client) DeleteRecycleItem(recycleBinId *string, recycleItemId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量删除回收项, 删除之后该记录从回收站删除, 后续文件就无法恢复了
+//
+// @param request - DeleteRecycleItemsRequest
+//
+// @param headers - DeleteRecycleItemsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteRecycleItemsResponse
 func (client *Client) DeleteRecycleItemsWithOptions(recycleBinId *string, request *DeleteRecycleItemsRequest, headers *DeleteRecycleItemsHeaders, runtime *util.RuntimeOptions) (_result *DeleteRecycleItemsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8957,6 +11259,13 @@ func (client *Client) DeleteRecycleItemsWithOptions(recycleBinId *string, reques
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量删除回收项, 删除之后该记录从回收站删除, 后续文件就无法恢复了
+//
+// @param request - DeleteRecycleItemsRequest
+//
+// @return DeleteRecycleItemsResponse
 func (client *Client) DeleteRecycleItems(recycleBinId *string, request *DeleteRecycleItemsRequest) (_result *DeleteRecycleItemsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteRecycleItemsHeaders{}
@@ -8969,6 +11278,17 @@ func (client *Client) DeleteRecycleItems(recycleBinId *string, request *DeleteRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取开放平台应用在企业存储中的相关应用信息
+//
+// @param request - GetCurrentAppRequest
+//
+// @param headers - GetCurrentAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCurrentAppResponse
 func (client *Client) GetCurrentAppWithOptions(request *GetCurrentAppRequest, headers *GetCurrentAppHeaders, runtime *util.RuntimeOptions) (_result *GetCurrentAppResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9012,6 +11332,13 @@ func (client *Client) GetCurrentAppWithOptions(request *GetCurrentAppRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取开放平台应用在企业存储中的相关应用信息
+//
+// @param request - GetCurrentAppRequest
+//
+// @return GetCurrentAppResponse
 func (client *Client) GetCurrentApp(request *GetCurrentAppRequest) (_result *GetCurrentAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCurrentAppHeaders{}
@@ -9024,6 +11351,17 @@ func (client *Client) GetCurrentApp(request *GetCurrentAppRequest) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取文件(夹)信息
+//
+// @param request - GetDentriesRequest
+//
+// @param headers - GetDentriesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDentriesResponse
 func (client *Client) GetDentriesWithOptions(spaceId *string, request *GetDentriesRequest, headers *GetDentriesHeaders, runtime *util.RuntimeOptions) (_result *GetDentriesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9077,6 +11415,13 @@ func (client *Client) GetDentriesWithOptions(spaceId *string, request *GetDentri
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取文件(夹)信息
+//
+// @param request - GetDentriesRequest
+//
+// @return GetDentriesResponse
 func (client *Client) GetDentries(spaceId *string, request *GetDentriesRequest) (_result *GetDentriesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDentriesHeaders{}
@@ -9089,6 +11434,17 @@ func (client *Client) GetDentries(spaceId *string, request *GetDentriesRequest) 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件(夹)信息
+//
+// @param request - GetDentryRequest
+//
+// @param headers - GetDentryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDentryResponse
 func (client *Client) GetDentryWithOptions(spaceId *string, dentryId *string, request *GetDentryRequest, headers *GetDentryHeaders, runtime *util.RuntimeOptions) (_result *GetDentryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9138,6 +11494,13 @@ func (client *Client) GetDentryWithOptions(spaceId *string, dentryId *string, re
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件(夹)信息
+//
+// @param request - GetDentryRequest
+//
+// @return GetDentryResponse
 func (client *Client) GetDentry(spaceId *string, dentryId *string, request *GetDentryRequest) (_result *GetDentryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDentryHeaders{}
@@ -9150,6 +11513,17 @@ func (client *Client) GetDentry(spaceId *string, dentryId *string, request *GetD
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件打开链接
+//
+// @param request - GetDentryOpenInfoRequest
+//
+// @param headers - GetDentryOpenInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDentryOpenInfoResponse
 func (client *Client) GetDentryOpenInfoWithOptions(spaceId *string, dentryId *string, request *GetDentryOpenInfoRequest, headers *GetDentryOpenInfoHeaders, runtime *util.RuntimeOptions) (_result *GetDentryOpenInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9199,6 +11573,13 @@ func (client *Client) GetDentryOpenInfoWithOptions(spaceId *string, dentryId *st
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件打开链接
+//
+// @param request - GetDentryOpenInfoRequest
+//
+// @return GetDentryOpenInfoResponse
 func (client *Client) GetDentryOpenInfo(spaceId *string, dentryId *string, request *GetDentryOpenInfoRequest) (_result *GetDentryOpenInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDentryOpenInfoHeaders{}
@@ -9211,6 +11592,17 @@ func (client *Client) GetDentryOpenInfo(spaceId *string, dentryId *string, reque
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取文件缩略图
+//
+// @param request - GetDentryThumbnailsRequest
+//
+// @param headers - GetDentryThumbnailsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDentryThumbnailsResponse
 func (client *Client) GetDentryThumbnailsWithOptions(spaceId *string, request *GetDentryThumbnailsRequest, headers *GetDentryThumbnailsHeaders, runtime *util.RuntimeOptions) (_result *GetDentryThumbnailsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9260,6 +11652,13 @@ func (client *Client) GetDentryThumbnailsWithOptions(spaceId *string, request *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取文件缩略图
+//
+// @param request - GetDentryThumbnailsRequest
+//
+// @return GetDentryThumbnailsResponse
 func (client *Client) GetDentryThumbnails(spaceId *string, request *GetDentryThumbnailsRequest) (_result *GetDentryThumbnailsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDentryThumbnailsHeaders{}
@@ -9272,6 +11671,17 @@ func (client *Client) GetDentryThumbnails(spaceId *string, request *GetDentryThu
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件下载信息
+//
+// @param request - GetFileDownloadInfoRequest
+//
+// @param headers - GetFileDownloadInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFileDownloadInfoResponse
 func (client *Client) GetFileDownloadInfoWithOptions(spaceId *string, dentryId *string, request *GetFileDownloadInfoRequest, headers *GetFileDownloadInfoHeaders, runtime *util.RuntimeOptions) (_result *GetFileDownloadInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9321,6 +11731,13 @@ func (client *Client) GetFileDownloadInfoWithOptions(spaceId *string, dentryId *
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件下载信息
+//
+// @param request - GetFileDownloadInfoRequest
+//
+// @return GetFileDownloadInfoResponse
 func (client *Client) GetFileDownloadInfo(spaceId *string, dentryId *string, request *GetFileDownloadInfoRequest) (_result *GetFileDownloadInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetFileDownloadInfoHeaders{}
@@ -9333,6 +11750,17 @@ func (client *Client) GetFileDownloadInfo(spaceId *string, dentryId *string, req
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件上传信息
+//
+// @param request - GetFileUploadInfoRequest
+//
+// @param headers - GetFileUploadInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFileUploadInfoResponse
 func (client *Client) GetFileUploadInfoWithOptions(spaceId *string, request *GetFileUploadInfoRequest, headers *GetFileUploadInfoHeaders, runtime *util.RuntimeOptions) (_result *GetFileUploadInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9390,6 +11818,13 @@ func (client *Client) GetFileUploadInfoWithOptions(spaceId *string, request *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件上传信息
+//
+// @param request - GetFileUploadInfoRequest
+//
+// @return GetFileUploadInfoResponse
 func (client *Client) GetFileUploadInfo(spaceId *string, request *GetFileUploadInfoRequest) (_result *GetFileUploadInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetFileUploadInfoHeaders{}
@@ -9402,6 +11837,17 @@ func (client *Client) GetFileUploadInfo(spaceId *string, request *GetFileUploadI
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件上传信息(分片上传)
+//
+// @param request - GetMultipartFileUploadInfosRequest
+//
+// @param headers - GetMultipartFileUploadInfosHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetMultipartFileUploadInfosResponse
 func (client *Client) GetMultipartFileUploadInfosWithOptions(request *GetMultipartFileUploadInfosRequest, headers *GetMultipartFileUploadInfosHeaders, runtime *util.RuntimeOptions) (_result *GetMultipartFileUploadInfosResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9459,6 +11905,13 @@ func (client *Client) GetMultipartFileUploadInfosWithOptions(request *GetMultipa
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件上传信息(分片上传)
+//
+// @param request - GetMultipartFileUploadInfosRequest
+//
+// @return GetMultipartFileUploadInfosResponse
 func (client *Client) GetMultipartFileUploadInfos(request *GetMultipartFileUploadInfosRequest) (_result *GetMultipartFileUploadInfosResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetMultipartFileUploadInfosHeaders{}
@@ -9471,6 +11924,17 @@ func (client *Client) GetMultipartFileUploadInfos(request *GetMultipartFileUploa
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业存储中企业维度的信息
+//
+// @param request - GetOrgRequest
+//
+// @param headers - GetOrgHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetOrgResponse
 func (client *Client) GetOrgWithOptions(corpId *string, request *GetOrgRequest, headers *GetOrgHeaders, runtime *util.RuntimeOptions) (_result *GetOrgResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9514,6 +11978,13 @@ func (client *Client) GetOrgWithOptions(corpId *string, request *GetOrgRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业存储中企业维度的信息
+//
+// @param request - GetOrgRequest
+//
+// @return GetOrgResponse
 func (client *Client) GetOrg(corpId *string, request *GetOrgRequest) (_result *GetOrgResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOrgHeaders{}
@@ -9526,6 +11997,17 @@ func (client *Client) GetOrg(corpId *string, request *GetOrgRequest) (_result *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取回收站信息
+//
+// @param request - GetRecycleBinRequest
+//
+// @param headers - GetRecycleBinHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetRecycleBinResponse
 func (client *Client) GetRecycleBinWithOptions(request *GetRecycleBinRequest, headers *GetRecycleBinHeaders, runtime *util.RuntimeOptions) (_result *GetRecycleBinResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9577,6 +12059,13 @@ func (client *Client) GetRecycleBinWithOptions(request *GetRecycleBinRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取回收站信息
+//
+// @param request - GetRecycleBinRequest
+//
+// @return GetRecycleBinResponse
 func (client *Client) GetRecycleBin(request *GetRecycleBinRequest) (_result *GetRecycleBinResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetRecycleBinHeaders{}
@@ -9589,6 +12078,17 @@ func (client *Client) GetRecycleBin(request *GetRecycleBinRequest) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取回收项详情
+//
+// @param request - GetRecycleItemRequest
+//
+// @param headers - GetRecycleItemHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetRecycleItemResponse
 func (client *Client) GetRecycleItemWithOptions(recycleBinId *string, recycleItemId *string, request *GetRecycleItemRequest, headers *GetRecycleItemHeaders, runtime *util.RuntimeOptions) (_result *GetRecycleItemResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9632,6 +12132,13 @@ func (client *Client) GetRecycleItemWithOptions(recycleBinId *string, recycleIte
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取回收项详情
+//
+// @param request - GetRecycleItemRequest
+//
+// @return GetRecycleItemResponse
 func (client *Client) GetRecycleItem(recycleBinId *string, recycleItemId *string, request *GetRecycleItemRequest) (_result *GetRecycleItemResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetRecycleItemHeaders{}
@@ -9644,6 +12151,17 @@ func (client *Client) GetRecycleItem(recycleBinId *string, recycleItemId *string
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取空间信息
+//
+// @param request - GetSpaceRequest
+//
+// @param headers - GetSpaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSpaceResponse
 func (client *Client) GetSpaceWithOptions(spaceId *string, request *GetSpaceRequest, headers *GetSpaceHeaders, runtime *util.RuntimeOptions) (_result *GetSpaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9687,6 +12205,13 @@ func (client *Client) GetSpaceWithOptions(spaceId *string, request *GetSpaceRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取空间信息
+//
+// @param request - GetSpaceRequest
+//
+// @return GetSpaceResponse
 func (client *Client) GetSpace(spaceId *string, request *GetSpaceRequest) (_result *GetSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSpaceHeaders{}
@@ -9699,6 +12224,17 @@ func (client *Client) GetSpace(spaceId *string, request *GetSpaceRequest) (_resu
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取异步任务信息
+//
+// @param request - GetTaskRequest
+//
+// @param headers - GetTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTaskResponse
 func (client *Client) GetTaskWithOptions(taskId *string, request *GetTaskRequest, headers *GetTaskHeaders, runtime *util.RuntimeOptions) (_result *GetTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9742,6 +12278,13 @@ func (client *Client) GetTaskWithOptions(taskId *string, request *GetTaskRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取异步任务信息
+//
+// @param request - GetTaskRequest
+//
+// @return GetTaskResponse
 func (client *Client) GetTask(taskId *string, request *GetTaskRequest) (_result *GetTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTaskHeaders{}
@@ -9754,6 +12297,90 @@ func (client *Client) GetTask(taskId *string, request *GetTaskRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取 WebOfficeUrl 接口
+//
+// @param request - GetWebOfficeUrlRequest
+//
+// @param headers - GetWebOfficeUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetWebOfficeUrlResponse
+func (client *Client) GetWebOfficeUrlWithOptions(spaceId *string, dentryId *string, request *GetWebOfficeUrlRequest, headers *GetWebOfficeUrlHeaders, runtime *util.RuntimeOptions) (_result *GetWebOfficeUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetWebOfficeUrl"),
+		Version:     tea.String("storage_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/storage/spaces/" + tea.StringValue(spaceId) + "/dentries/" + tea.StringValue(dentryId) + "/webOfficeUrls"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetWebOfficeUrlResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取 WebOfficeUrl 接口
+//
+// @param request - GetWebOfficeUrlRequest
+//
+// @return GetWebOfficeUrlResponse
+func (client *Client) GetWebOfficeUrl(spaceId *string, dentryId *string, request *GetWebOfficeUrlRequest) (_result *GetWebOfficeUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetWebOfficeUrlHeaders{}
+	_result = &GetWebOfficeUrlResponse{}
+	_body, _err := client.GetWebOfficeUrlWithOptions(spaceId, dentryId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 初始化文件分片上传
+//
+// @param request - InitMultipartFileUploadRequest
+//
+// @param headers - InitMultipartFileUploadHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InitMultipartFileUploadResponse
 func (client *Client) InitMultipartFileUploadWithOptions(spaceId *string, request *InitMultipartFileUploadRequest, headers *InitMultipartFileUploadHeaders, runtime *util.RuntimeOptions) (_result *InitMultipartFileUploadResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9803,6 +12430,13 @@ func (client *Client) InitMultipartFileUploadWithOptions(spaceId *string, reques
 	return _result, _err
 }
 
+// Summary:
+//
+// 初始化文件分片上传
+//
+// @param request - InitMultipartFileUploadRequest
+//
+// @return InitMultipartFileUploadResponse
 func (client *Client) InitMultipartFileUpload(spaceId *string, request *InitMultipartFileUploadRequest) (_result *InitMultipartFileUploadResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InitMultipartFileUploadHeaders{}
@@ -9815,6 +12449,17 @@ func (client *Client) InitMultipartFileUpload(spaceId *string, request *InitMult
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件列表
+//
+// @param request - ListAllDentriesRequest
+//
+// @param headers - ListAllDentriesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListAllDentriesResponse
 func (client *Client) ListAllDentriesWithOptions(spaceId *string, request *ListAllDentriesRequest, headers *ListAllDentriesHeaders, runtime *util.RuntimeOptions) (_result *ListAllDentriesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9864,6 +12509,13 @@ func (client *Client) ListAllDentriesWithOptions(spaceId *string, request *ListA
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件列表
+//
+// @param request - ListAllDentriesRequest
+//
+// @return ListAllDentriesResponse
 func (client *Client) ListAllDentries(spaceId *string, request *ListAllDentriesRequest) (_result *ListAllDentriesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListAllDentriesHeaders{}
@@ -9876,6 +12528,17 @@ func (client *Client) ListAllDentries(spaceId *string, request *ListAllDentriesR
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件列表
+//
+// @param request - ListDentriesRequest
+//
+// @param headers - ListDentriesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListDentriesResponse
 func (client *Client) ListDentriesWithOptions(spaceId *string, request *ListDentriesRequest, headers *ListDentriesHeaders, runtime *util.RuntimeOptions) (_result *ListDentriesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9943,6 +12606,13 @@ func (client *Client) ListDentriesWithOptions(spaceId *string, request *ListDent
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件列表
+//
+// @param request - ListDentriesRequest
+//
+// @return ListDentriesResponse
 func (client *Client) ListDentries(spaceId *string, request *ListDentriesRequest) (_result *ListDentriesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListDentriesHeaders{}
@@ -9955,6 +12625,17 @@ func (client *Client) ListDentries(spaceId *string, request *ListDentriesRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件历史版本
+//
+// @param request - ListDentryVersionsRequest
+//
+// @param headers - ListDentryVersionsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListDentryVersionsResponse
 func (client *Client) ListDentryVersionsWithOptions(spaceId *string, dentryId *string, request *ListDentryVersionsRequest, headers *ListDentryVersionsHeaders, runtime *util.RuntimeOptions) (_result *ListDentryVersionsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10006,6 +12687,13 @@ func (client *Client) ListDentryVersionsWithOptions(spaceId *string, dentryId *s
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件历史版本
+//
+// @param request - ListDentryVersionsRequest
+//
+// @return ListDentryVersionsResponse
 func (client *Client) ListDentryVersions(spaceId *string, dentryId *string, request *ListDentryVersionsRequest) (_result *ListDentryVersionsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListDentryVersionsHeaders{}
@@ -10018,6 +12706,17 @@ func (client *Client) ListDentryVersions(spaceId *string, dentryId *string, requ
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取权限列表
+//
+// @param request - ListPermissionsRequest
+//
+// @param headers - ListPermissionsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListPermissionsResponse
 func (client *Client) ListPermissionsWithOptions(spaceId *string, dentryId *string, request *ListPermissionsRequest, headers *ListPermissionsHeaders, runtime *util.RuntimeOptions) (_result *ListPermissionsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10067,6 +12766,13 @@ func (client *Client) ListPermissionsWithOptions(spaceId *string, dentryId *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取权限列表
+//
+// @param request - ListPermissionsRequest
+//
+// @return ListPermissionsResponse
 func (client *Client) ListPermissions(spaceId *string, dentryId *string, request *ListPermissionsRequest) (_result *ListPermissionsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListPermissionsHeaders{}
@@ -10079,6 +12785,17 @@ func (client *Client) ListPermissions(spaceId *string, dentryId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取回收项列表
+//
+// @param request - ListRecycleItemsRequest
+//
+// @param headers - ListRecycleItemsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListRecycleItemsResponse
 func (client *Client) ListRecycleItemsWithOptions(recycleBinId *string, request *ListRecycleItemsRequest, headers *ListRecycleItemsHeaders, runtime *util.RuntimeOptions) (_result *ListRecycleItemsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10130,6 +12847,13 @@ func (client *Client) ListRecycleItemsWithOptions(recycleBinId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取回收项列表
+//
+// @param request - ListRecycleItemsRequest
+//
+// @return ListRecycleItemsResponse
 func (client *Client) ListRecycleItems(recycleBinId *string, request *ListRecycleItemsRequest) (_result *ListRecycleItemsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListRecycleItemsHeaders{}
@@ -10142,6 +12866,17 @@ func (client *Client) ListRecycleItems(recycleBinId *string, request *ListRecycl
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量移动文件或文件夹
+//
+// @param request - MoveDentriesRequest
+//
+// @param headers - MoveDentriesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MoveDentriesResponse
 func (client *Client) MoveDentriesWithOptions(spaceId *string, request *MoveDentriesRequest, headers *MoveDentriesHeaders, runtime *util.RuntimeOptions) (_result *MoveDentriesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10203,6 +12938,13 @@ func (client *Client) MoveDentriesWithOptions(spaceId *string, request *MoveDent
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量移动文件或文件夹
+//
+// @param request - MoveDentriesRequest
+//
+// @return MoveDentriesResponse
 func (client *Client) MoveDentries(spaceId *string, request *MoveDentriesRequest) (_result *MoveDentriesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &MoveDentriesHeaders{}
@@ -10215,6 +12957,17 @@ func (client *Client) MoveDentries(spaceId *string, request *MoveDentriesRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 移动文件或文件夹
+//
+// @param request - MoveDentryRequest
+//
+// @param headers - MoveDentryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MoveDentryResponse
 func (client *Client) MoveDentryWithOptions(spaceId *string, dentryId *string, request *MoveDentryRequest, headers *MoveDentryHeaders, runtime *util.RuntimeOptions) (_result *MoveDentryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10272,6 +13025,13 @@ func (client *Client) MoveDentryWithOptions(spaceId *string, dentryId *string, r
 	return _result, _err
 }
 
+// Summary:
+//
+// 移动文件或文件夹
+//
+// @param request - MoveDentryRequest
+//
+// @return MoveDentryResponse
 func (client *Client) MoveDentry(spaceId *string, dentryId *string, request *MoveDentryRequest) (_result *MoveDentryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &MoveDentryHeaders{}
@@ -10284,6 +13044,98 @@ func (client *Client) MoveDentry(spaceId *string, dentryId *string, request *Mov
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取 accessToken 接口
+//
+// @param request - RefreshWebOfficeTokenRequest
+//
+// @param headers - RefreshWebOfficeTokenHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RefreshWebOfficeTokenResponse
+func (client *Client) RefreshWebOfficeTokenWithOptions(spaceId *string, dentryId *string, request *RefreshWebOfficeTokenRequest, headers *RefreshWebOfficeTokenHeaders, runtime *util.RuntimeOptions) (_result *RefreshWebOfficeTokenResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WebOfficeAccessToken)) {
+		query["webOfficeAccessToken"] = request.WebOfficeAccessToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WebOfficeRefreshToken)) {
+		query["webOfficeRefreshToken"] = request.WebOfficeRefreshToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RefreshWebOfficeToken"),
+		Version:     tea.String("storage_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/storage/spaces/" + tea.StringValue(spaceId) + "/dentries/" + tea.StringValue(dentryId) + "/refreshWebOfficeToken"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RefreshWebOfficeTokenResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取 accessToken 接口
+//
+// @param request - RefreshWebOfficeTokenRequest
+//
+// @return RefreshWebOfficeTokenResponse
+func (client *Client) RefreshWebOfficeToken(spaceId *string, dentryId *string, request *RefreshWebOfficeTokenRequest) (_result *RefreshWebOfficeTokenResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RefreshWebOfficeTokenHeaders{}
+	_result = &RefreshWebOfficeTokenResponse{}
+	_body, _err := client.RefreshWebOfficeTokenWithOptions(spaceId, dentryId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 注册文件预览或编辑链接
+//
+// @param request - RegisterOpenInfoRequest
+//
+// @param headers - RegisterOpenInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RegisterOpenInfoResponse
 func (client *Client) RegisterOpenInfoWithOptions(spaceId *string, dentryId *string, request *RegisterOpenInfoRequest, headers *RegisterOpenInfoHeaders, runtime *util.RuntimeOptions) (_result *RegisterOpenInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10337,6 +13189,13 @@ func (client *Client) RegisterOpenInfoWithOptions(spaceId *string, dentryId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 注册文件预览或编辑链接
+//
+// @param request - RegisterOpenInfoRequest
+//
+// @return RegisterOpenInfoResponse
 func (client *Client) RegisterOpenInfo(spaceId *string, dentryId *string, request *RegisterOpenInfoRequest) (_result *RegisterOpenInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RegisterOpenInfoHeaders{}
@@ -10349,6 +13208,17 @@ func (client *Client) RegisterOpenInfo(spaceId *string, dentryId *string, reques
 	return _result, _err
 }
 
+// Summary:
+//
+// 重命名文件或文件夹
+//
+// @param request - RenameDentryRequest
+//
+// @param headers - RenameDentryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RenameDentryResponse
 func (client *Client) RenameDentryWithOptions(spaceId *string, dentryId *string, request *RenameDentryRequest, headers *RenameDentryHeaders, runtime *util.RuntimeOptions) (_result *RenameDentryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10398,6 +13268,13 @@ func (client *Client) RenameDentryWithOptions(spaceId *string, dentryId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 重命名文件或文件夹
+//
+// @param request - RenameDentryRequest
+//
+// @return RenameDentryResponse
 func (client *Client) RenameDentry(spaceId *string, dentryId *string, request *RenameDentryRequest) (_result *RenameDentryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RenameDentryHeaders{}
@@ -10410,6 +13287,17 @@ func (client *Client) RenameDentry(spaceId *string, dentryId *string, request *R
 	return _result, _err
 }
 
+// Summary:
+//
+// 还原回收站中的回收项
+//
+// @param request - RestoreRecycleItemRequest
+//
+// @param headers - RestoreRecycleItemHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RestoreRecycleItemResponse
 func (client *Client) RestoreRecycleItemWithOptions(recycleBinId *string, recycleItemId *string, request *RestoreRecycleItemRequest, headers *RestoreRecycleItemHeaders, runtime *util.RuntimeOptions) (_result *RestoreRecycleItemResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10459,6 +13347,13 @@ func (client *Client) RestoreRecycleItemWithOptions(recycleBinId *string, recycl
 	return _result, _err
 }
 
+// Summary:
+//
+// 还原回收站中的回收项
+//
+// @param request - RestoreRecycleItemRequest
+//
+// @return RestoreRecycleItemResponse
 func (client *Client) RestoreRecycleItem(recycleBinId *string, recycleItemId *string, request *RestoreRecycleItemRequest) (_result *RestoreRecycleItemResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RestoreRecycleItemHeaders{}
@@ -10471,6 +13366,17 @@ func (client *Client) RestoreRecycleItem(recycleBinId *string, recycleItemId *st
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量还原回收站中的回收项
+//
+// @param request - RestoreRecycleItemsRequest
+//
+// @param headers - RestoreRecycleItemsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RestoreRecycleItemsResponse
 func (client *Client) RestoreRecycleItemsWithOptions(recycleBinId *string, request *RestoreRecycleItemsRequest, headers *RestoreRecycleItemsHeaders, runtime *util.RuntimeOptions) (_result *RestoreRecycleItemsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10524,6 +13430,13 @@ func (client *Client) RestoreRecycleItemsWithOptions(recycleBinId *string, reque
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量还原回收站中的回收项
+//
+// @param request - RestoreRecycleItemsRequest
+//
+// @return RestoreRecycleItemsResponse
 func (client *Client) RestoreRecycleItems(recycleBinId *string, request *RestoreRecycleItemsRequest) (_result *RestoreRecycleItemsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RestoreRecycleItemsHeaders{}
@@ -10536,6 +13449,17 @@ func (client *Client) RestoreRecycleItems(recycleBinId *string, request *Restore
 	return _result, _err
 }
 
+// Summary:
+//
+// 恢复文件历史版本
+//
+// @param request - RevertDentryVersionRequest
+//
+// @param headers - RevertDentryVersionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RevertDentryVersionResponse
 func (client *Client) RevertDentryVersionWithOptions(spaceId *string, dentryId *string, version *string, request *RevertDentryVersionRequest, headers *RevertDentryVersionHeaders, runtime *util.RuntimeOptions) (_result *RevertDentryVersionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10579,6 +13503,13 @@ func (client *Client) RevertDentryVersionWithOptions(spaceId *string, dentryId *
 	return _result, _err
 }
 
+// Summary:
+//
+// 恢复文件历史版本
+//
+// @param request - RevertDentryVersionRequest
+//
+// @return RevertDentryVersionResponse
 func (client *Client) RevertDentryVersion(spaceId *string, dentryId *string, version *string, request *RevertDentryVersionRequest) (_result *RevertDentryVersionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RevertDentryVersionHeaders{}
@@ -10591,6 +13522,17 @@ func (client *Client) RevertDentryVersion(spaceId *string, dentryId *string, ver
 	return _result, _err
 }
 
+// Summary:
+//
+// 订阅文件变更事件
+//
+// @param request - SubscribeEventRequest
+//
+// @param headers - SubscribeEventHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SubscribeEventResponse
 func (client *Client) SubscribeEventWithOptions(request *SubscribeEventRequest, headers *SubscribeEventHeaders, runtime *util.RuntimeOptions) (_result *SubscribeEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10644,6 +13586,13 @@ func (client *Client) SubscribeEventWithOptions(request *SubscribeEventRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 订阅文件变更事件
+//
+// @param request - SubscribeEventRequest
+//
+// @return SubscribeEventResponse
 func (client *Client) SubscribeEvent(request *SubscribeEventRequest) (_result *SubscribeEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SubscribeEventHeaders{}
@@ -10656,6 +13605,17 @@ func (client *Client) SubscribeEvent(request *SubscribeEventRequest) (_result *S
 	return _result, _err
 }
 
+// Summary:
+//
+// 取消订阅文件变更事件
+//
+// @param request - UnsubscribeEventRequest
+//
+// @param headers - UnsubscribeEventHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UnsubscribeEventResponse
 func (client *Client) UnsubscribeEventWithOptions(request *UnsubscribeEventRequest, headers *UnsubscribeEventHeaders, runtime *util.RuntimeOptions) (_result *UnsubscribeEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10709,6 +13669,13 @@ func (client *Client) UnsubscribeEventWithOptions(request *UnsubscribeEventReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 取消订阅文件变更事件
+//
+// @param request - UnsubscribeEventRequest
+//
+// @return UnsubscribeEventResponse
 func (client *Client) UnsubscribeEvent(request *UnsubscribeEventRequest) (_result *UnsubscribeEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UnsubscribeEventHeaders{}
@@ -10721,6 +13688,17 @@ func (client *Client) UnsubscribeEvent(request *UnsubscribeEventRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改文件上的App属性值
+//
+// @param request - UpdateDentryAppPropertiesRequest
+//
+// @param headers - UpdateDentryAppPropertiesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateDentryAppPropertiesResponse
 func (client *Client) UpdateDentryAppPropertiesWithOptions(spaceId *string, dentryId *string, request *UpdateDentryAppPropertiesRequest, headers *UpdateDentryAppPropertiesHeaders, runtime *util.RuntimeOptions) (_result *UpdateDentryAppPropertiesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10770,6 +13748,13 @@ func (client *Client) UpdateDentryAppPropertiesWithOptions(spaceId *string, dent
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改文件上的App属性值
+//
+// @param request - UpdateDentryAppPropertiesRequest
+//
+// @return UpdateDentryAppPropertiesResponse
 func (client *Client) UpdateDentryAppProperties(spaceId *string, dentryId *string, request *UpdateDentryAppPropertiesRequest) (_result *UpdateDentryAppPropertiesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateDentryAppPropertiesHeaders{}
@@ -10782,6 +13767,17 @@ func (client *Client) UpdateDentryAppProperties(spaceId *string, dentryId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改权限
+//
+// @param request - UpdatePermissionRequest
+//
+// @param headers - UpdatePermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdatePermissionResponse
 func (client *Client) UpdatePermissionWithOptions(spaceId *string, dentryId *string, request *UpdatePermissionRequest, headers *UpdatePermissionHeaders, runtime *util.RuntimeOptions) (_result *UpdatePermissionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10839,6 +13835,13 @@ func (client *Client) UpdatePermissionWithOptions(spaceId *string, dentryId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改权限
+//
+// @param request - UpdatePermissionRequest
+//
+// @return UpdatePermissionResponse
 func (client *Client) UpdatePermission(spaceId *string, dentryId *string, request *UpdatePermissionRequest) (_result *UpdatePermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdatePermissionHeaders{}

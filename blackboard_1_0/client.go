@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package blackboard_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,9 +33,27 @@ func (s *QueryBlackboardReadUnReadHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type QueryBlackboardReadUnReadRequest struct {
-	BlackboardId    *string `json:"blackboardId,omitempty" xml:"blackboardId,omitempty"`
-	MaxResults      *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken       *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 49dc87dc1b30cd099b13a
+	BlackboardId *string `json:"blackboardId,omitempty" xml:"blackboardId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 200
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// xb1dc
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager01
 	OperationUserId *string `json:"operationUserId,omitempty" xml:"operationUserId,omitempty"`
 }
 
@@ -95,9 +109,15 @@ func (s *QueryBlackboardReadUnReadResponseBody) SetUsers(v []*QueryBlackboardRea
 }
 
 type QueryBlackboardReadUnReadResponseBodyUsers struct {
+	// example:
+	//
+	// true
 	Read          *string `json:"read,omitempty" xml:"read,omitempty"`
 	ReadTimestamp *int64  `json:"readTimestamp,omitempty" xml:"readTimestamp,omitempty"`
-	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 12039
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryBlackboardReadUnReadResponseBodyUsers) String() string {
@@ -176,6 +196,11 @@ func (s *QueryBlackboardSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryBlackboardSpaceRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager01
 	OperationUserId *string `json:"operationUserId,omitempty" xml:"operationUserId,omitempty"`
 }
 
@@ -253,12 +278,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -267,6 +292,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 查询公告已读未读人员列表
+//
+// @param request - QueryBlackboardReadUnReadRequest
+//
+// @param headers - QueryBlackboardReadUnReadHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryBlackboardReadUnReadResponse
 func (client *Client) QueryBlackboardReadUnReadWithOptions(request *QueryBlackboardReadUnReadRequest, headers *QueryBlackboardReadUnReadHeaders, runtime *util.RuntimeOptions) (_result *QueryBlackboardReadUnReadResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -322,6 +358,13 @@ func (client *Client) QueryBlackboardReadUnReadWithOptions(request *QueryBlackbo
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询公告已读未读人员列表
+//
+// @param request - QueryBlackboardReadUnReadRequest
+//
+// @return QueryBlackboardReadUnReadResponse
 func (client *Client) QueryBlackboardReadUnRead(request *QueryBlackboardReadUnReadRequest) (_result *QueryBlackboardReadUnReadResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryBlackboardReadUnReadHeaders{}
@@ -334,6 +377,17 @@ func (client *Client) QueryBlackboardReadUnRead(request *QueryBlackboardReadUnRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取公告钉盘空间信息
+//
+// @param request - QueryBlackboardSpaceRequest
+//
+// @param headers - QueryBlackboardSpaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryBlackboardSpaceResponse
 func (client *Client) QueryBlackboardSpaceWithOptions(request *QueryBlackboardSpaceRequest, headers *QueryBlackboardSpaceHeaders, runtime *util.RuntimeOptions) (_result *QueryBlackboardSpaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -377,6 +431,13 @@ func (client *Client) QueryBlackboardSpaceWithOptions(request *QueryBlackboardSp
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取公告钉盘空间信息
+//
+// @param request - QueryBlackboardSpaceRequest
+//
+// @return QueryBlackboardSpaceResponse
 func (client *Client) QueryBlackboardSpace(request *QueryBlackboardSpaceRequest) (_result *QueryBlackboardSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryBlackboardSpaceHeaders{}

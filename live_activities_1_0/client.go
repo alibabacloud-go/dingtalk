@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package live_activities_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -39,7 +35,10 @@ func (s *PushLiveActivityHeaders) SetXAcsDingtalkAccessToken(v string) *PushLive
 type PushLiveActivityRequest struct {
 	ActivityEventData   *PushLiveActivityRequestActivityEventData   `json:"activityEventData,omitempty" xml:"activityEventData,omitempty" type:"Struct"`
 	ActivityEventOption *PushLiveActivityRequestActivityEventOption `json:"activityEventOption,omitempty" xml:"activityEventOption,omitempty" type:"Struct"`
-	ActivityId          *string                                     `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// example:
+	//
+	// bizUniqueId
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
 }
 
 func (s PushLiveActivityRequest) String() string {
@@ -67,7 +66,10 @@ func (s *PushLiveActivityRequest) SetActivityId(v string) *PushLiveActivityReque
 
 type PushLiveActivityRequestActivityEventData struct {
 	I18nContentState interface{} `json:"i18nContentState,omitempty" xml:"i18nContentState,omitempty"`
-	TemplateId       *string     `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// example:
+	//
+	// ride_with_alibtrip
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
 
 func (s PushLiveActivityRequestActivityEventData) String() string {
@@ -89,10 +91,22 @@ func (s *PushLiveActivityRequestActivityEventData) SetTemplateId(v string) *Push
 }
 
 type PushLiveActivityRequestActivityEventOption struct {
-	DismissalDate *int64  `json:"dismissalDate,omitempty" xml:"dismissalDate,omitempty"`
-	PushType      *string `json:"pushType,omitempty" xml:"pushType,omitempty"`
-	SendDate      *int64  `json:"sendDate,omitempty" xml:"sendDate,omitempty"`
-	StaleDate     *int64  `json:"staleDate,omitempty" xml:"staleDate,omitempty"`
+	// example:
+	//
+	// 1686903998
+	DismissalDate *int64 `json:"dismissalDate,omitempty" xml:"dismissalDate,omitempty"`
+	// example:
+	//
+	// update
+	PushType *string `json:"pushType,omitempty" xml:"pushType,omitempty"`
+	// example:
+	//
+	// 1686903998
+	SendDate *int64 `json:"sendDate,omitempty" xml:"sendDate,omitempty"`
+	// example:
+	//
+	// 1686903998
+	StaleDate *int64 `json:"staleDate,omitempty" xml:"staleDate,omitempty"`
 }
 
 func (s PushLiveActivityRequestActivityEventOption) String() string {
@@ -195,7 +209,10 @@ func (s *SendLiveActivityHeaders) SetXAcsDingtalkAccessToken(v string) *SendLive
 type SendLiveActivityRequest struct {
 	ActivityEventData   *SendLiveActivityRequestActivityEventData   `json:"activityEventData,omitempty" xml:"activityEventData,omitempty" type:"Struct"`
 	ActivityEventOption *SendLiveActivityRequestActivityEventOption `json:"activityEventOption,omitempty" xml:"activityEventOption,omitempty" type:"Struct"`
-	ActivityId          *string                                     `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// example:
+	//
+	// bizUniqueId
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
 }
 
 func (s SendLiveActivityRequest) String() string {
@@ -223,7 +240,10 @@ func (s *SendLiveActivityRequest) SetActivityId(v string) *SendLiveActivityReque
 
 type SendLiveActivityRequestActivityEventData struct {
 	I18nContentState interface{} `json:"i18nContentState,omitempty" xml:"i18nContentState,omitempty"`
-	TemplateId       *string     `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// example:
+	//
+	// ride_with_alibtrip
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
 
 func (s SendLiveActivityRequestActivityEventData) String() string {
@@ -245,10 +265,22 @@ func (s *SendLiveActivityRequestActivityEventData) SetTemplateId(v string) *Send
 }
 
 type SendLiveActivityRequestActivityEventOption struct {
-	DismissalDate *int64  `json:"dismissalDate,omitempty" xml:"dismissalDate,omitempty"`
-	PushType      *string `json:"pushType,omitempty" xml:"pushType,omitempty"`
-	SendDate      *int64  `json:"sendDate,omitempty" xml:"sendDate,omitempty"`
-	StaleDate     *int64  `json:"staleDate,omitempty" xml:"staleDate,omitempty"`
+	// example:
+	//
+	// 1686903998
+	DismissalDate *int64 `json:"dismissalDate,omitempty" xml:"dismissalDate,omitempty"`
+	// example:
+	//
+	// update
+	PushType *string `json:"pushType,omitempty" xml:"pushType,omitempty"`
+	// example:
+	//
+	// 1686903998
+	SendDate *int64 `json:"sendDate,omitempty" xml:"sendDate,omitempty"`
+	// example:
+	//
+	// 1686903998
+	StaleDate *int64 `json:"staleDate,omitempty" xml:"staleDate,omitempty"`
 }
 
 func (s SendLiveActivityRequestActivityEventOption) String() string {
@@ -340,12 +372,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -354,6 +386,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 实时活动发送接口
+//
+// @param request - PushLiveActivityRequest
+//
+// @param headers - PushLiveActivityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PushLiveActivityResponse
 func (client *Client) PushLiveActivityWithOptions(request *PushLiveActivityRequest, headers *PushLiveActivityHeaders, runtime *util.RuntimeOptions) (_result *PushLiveActivityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -405,6 +448,13 @@ func (client *Client) PushLiveActivityWithOptions(request *PushLiveActivityReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 实时活动发送接口
+//
+// @param request - PushLiveActivityRequest
+//
+// @return PushLiveActivityResponse
 func (client *Client) PushLiveActivity(request *PushLiveActivityRequest) (_result *PushLiveActivityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PushLiveActivityHeaders{}
@@ -417,6 +467,17 @@ func (client *Client) PushLiveActivity(request *PushLiveActivityRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送实时活动
+//
+// @param request - SendLiveActivityRequest
+//
+// @param headers - SendLiveActivityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendLiveActivityResponse
 func (client *Client) SendLiveActivityWithOptions(request *SendLiveActivityRequest, headers *SendLiveActivityHeaders, runtime *util.RuntimeOptions) (_result *SendLiveActivityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -468,6 +529,13 @@ func (client *Client) SendLiveActivityWithOptions(request *SendLiveActivityReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送实时活动
+//
+// @param request - SendLiveActivityRequest
+//
+// @return SendLiveActivityResponse
 func (client *Client) SendLiveActivity(request *SendLiveActivityRequest) (_result *SendLiveActivityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendLiveActivityHeaders{}

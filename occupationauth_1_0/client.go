@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package occupationauth_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,6 +33,7 @@ func (s *CheckUserTaskStatusHeaders) SetXAcsDingtalkAccessToken(v string) *Check
 }
 
 type CheckUserTaskStatusRequest struct {
+	// This parameter is required.
 	ProvinceCode *string `json:"provinceCode,omitempty" xml:"provinceCode,omitempty"`
 }
 
@@ -123,6 +120,7 @@ func (s *CheckUserTasksStatusHeaders) SetXAcsDingtalkAccessToken(v string) *Chec
 }
 
 type CheckUserTasksStatusRequest struct {
+	// This parameter is required.
 	ProvinceCode *string `json:"provinceCode,omitempty" xml:"provinceCode,omitempty"`
 }
 
@@ -200,12 +198,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -214,6 +212,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 检查用户任务状态
+//
+// @param request - CheckUserTaskStatusRequest
+//
+// @param headers - CheckUserTaskStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CheckUserTaskStatusResponse
 func (client *Client) CheckUserTaskStatusWithOptions(request *CheckUserTaskStatusRequest, headers *CheckUserTaskStatusHeaders, runtime *util.RuntimeOptions) (_result *CheckUserTaskStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -257,6 +266,13 @@ func (client *Client) CheckUserTaskStatusWithOptions(request *CheckUserTaskStatu
 	return _result, _err
 }
 
+// Summary:
+//
+// 检查用户任务状态
+//
+// @param request - CheckUserTaskStatusRequest
+//
+// @return CheckUserTaskStatusResponse
 func (client *Client) CheckUserTaskStatus(request *CheckUserTaskStatusRequest) (_result *CheckUserTaskStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CheckUserTaskStatusHeaders{}
@@ -269,6 +285,17 @@ func (client *Client) CheckUserTaskStatus(request *CheckUserTaskStatusRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 检查用户任务状态
+//
+// @param request - CheckUserTasksStatusRequest
+//
+// @param headers - CheckUserTasksStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CheckUserTasksStatusResponse
 func (client *Client) CheckUserTasksStatusWithOptions(request *CheckUserTasksStatusRequest, headers *CheckUserTasksStatusHeaders, runtime *util.RuntimeOptions) (_result *CheckUserTasksStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -312,6 +339,13 @@ func (client *Client) CheckUserTasksStatusWithOptions(request *CheckUserTasksSta
 	return _result, _err
 }
 
+// Summary:
+//
+// 检查用户任务状态
+//
+// @param request - CheckUserTasksStatusRequest
+//
+// @return CheckUserTasksStatusResponse
 func (client *Client) CheckUserTasksStatus(request *CheckUserTasksStatusRequest) (_result *CheckUserTasksStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CheckUserTasksStatusHeaders{}

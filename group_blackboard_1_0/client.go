@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package group_blackboard_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,12 +33,38 @@ func (s *CreateGroupBlackboardHeaders) SetXAcsDingtalkAccessToken(v string) *Cre
 }
 
 type CreateGroupBlackboardRequest struct {
-	Content            *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 这是一条群公告
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cid123456
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	SendDing           *bool   `json:"sendDing,omitempty" xml:"sendDing,omitempty"`
-	Sticky             *bool   `json:"sticky,omitempty" xml:"sticky,omitempty"`
-	UniqueId           *string `json:"uniqueId,omitempty" xml:"uniqueId,omitempty"`
-	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// false
+	SendDing *bool `json:"sendDing,omitempty" xml:"sendDing,omitempty"`
+	// example:
+	//
+	// false
+	Sticky *bool `json:"sticky,omitempty" xml:"sticky,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	UniqueId *string `json:"uniqueId,omitempty" xml:"uniqueId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateGroupBlackboardRequest) String() string {
@@ -84,8 +106,16 @@ func (s *CreateGroupBlackboardRequest) SetUserId(v string) *CreateGroupBlackboar
 }
 
 type CreateGroupBlackboardResponseBody struct {
-	DataId  *string `json:"dataId,omitempty" xml:"dataId,omitempty"`
-	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// 123456
+	DataId *string `json:"dataId,omitempty" xml:"dataId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s CreateGroupBlackboardResponseBody) String() string {
@@ -159,9 +189,24 @@ func (s *DeleteGroupBlackboardHeaders) SetXAcsDingtalkAccessToken(v string) *Del
 }
 
 type DeleteGroupBlackboardRequest struct {
-	DataId             *string `json:"dataId,omitempty" xml:"dataId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// e3b4f5
+	DataId *string `json:"dataId,omitempty" xml:"dataId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cid123456
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DeleteGroupBlackboardRequest) String() string {
@@ -188,8 +233,16 @@ func (s *DeleteGroupBlackboardRequest) SetUserId(v string) *DeleteGroupBlackboar
 }
 
 type DeleteGroupBlackboardResponseBody struct {
+	// example:
+	//
+	// true
 	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	Success   *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s DeleteGroupBlackboardResponseBody) String() string {
@@ -254,12 +307,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -268,6 +321,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 创建群公告
+//
+// @param request - CreateGroupBlackboardRequest
+//
+// @param headers - CreateGroupBlackboardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateGroupBlackboardResponse
 func (client *Client) CreateGroupBlackboardWithOptions(request *CreateGroupBlackboardRequest, headers *CreateGroupBlackboardHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupBlackboardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -331,6 +395,13 @@ func (client *Client) CreateGroupBlackboardWithOptions(request *CreateGroupBlack
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建群公告
+//
+// @param request - CreateGroupBlackboardRequest
+//
+// @return CreateGroupBlackboardResponse
 func (client *Client) CreateGroupBlackboard(request *CreateGroupBlackboardRequest) (_result *CreateGroupBlackboardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateGroupBlackboardHeaders{}
@@ -343,6 +414,17 @@ func (client *Client) CreateGroupBlackboard(request *CreateGroupBlackboardReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除群公告
+//
+// @param request - DeleteGroupBlackboardRequest
+//
+// @param headers - DeleteGroupBlackboardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteGroupBlackboardResponse
 func (client *Client) DeleteGroupBlackboardWithOptions(request *DeleteGroupBlackboardRequest, headers *DeleteGroupBlackboardHeaders, runtime *util.RuntimeOptions) (_result *DeleteGroupBlackboardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -394,6 +476,13 @@ func (client *Client) DeleteGroupBlackboardWithOptions(request *DeleteGroupBlack
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除群公告
+//
+// @param request - DeleteGroupBlackboardRequest
+//
+// @return DeleteGroupBlackboardResponse
 func (client *Client) DeleteGroupBlackboard(request *DeleteGroupBlackboardRequest) (_result *DeleteGroupBlackboardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteGroupBlackboardHeaders{}

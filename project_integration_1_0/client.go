@@ -1,14 +1,10 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package project_integration_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -287,12 +283,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -301,6 +297,15 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 在项目事件会话中加人
+//
+// @param headers - AddAttendeeToEventGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddAttendeeToEventGroupResponse
 func (client *Client) AddAttendeeToEventGroupWithOptions(userId *string, groupId *string, headers *AddAttendeeToEventGroupHeaders, runtime *util.RuntimeOptions) (_result *AddAttendeeToEventGroupResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -334,6 +339,11 @@ func (client *Client) AddAttendeeToEventGroupWithOptions(userId *string, groupId
 	return _result, _err
 }
 
+// Summary:
+//
+// 在项目事件会话中加人
+//
+// @return AddAttendeeToEventGroupResponse
 func (client *Client) AddAttendeeToEventGroup(userId *string, groupId *string) (_result *AddAttendeeToEventGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddAttendeeToEventGroupHeaders{}
@@ -346,6 +356,15 @@ func (client *Client) AddAttendeeToEventGroup(userId *string, groupId *string) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建项目事件会话
+//
+// @param headers - CreateEventGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateEventGroupResponse
 func (client *Client) CreateEventGroupWithOptions(userId *string, headers *CreateEventGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateEventGroupResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -379,6 +398,11 @@ func (client *Client) CreateEventGroupWithOptions(userId *string, headers *Creat
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建项目事件会话
+//
+// @return CreateEventGroupResponse
 func (client *Client) CreateEventGroup(userId *string) (_result *CreateEventGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateEventGroupHeaders{}
@@ -391,6 +415,15 @@ func (client *Client) CreateEventGroup(userId *string) (_result *CreateEventGrou
 	return _result, _err
 }
 
+// Summary:
+//
+// 在群会话发送项目卡片消息
+//
+// @param headers - SendInteractiveCardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendInteractiveCardResponse
 func (client *Client) SendInteractiveCardWithOptions(userId *string, headers *SendInteractiveCardHeaders, runtime *util.RuntimeOptions) (_result *SendInteractiveCardResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -424,6 +457,11 @@ func (client *Client) SendInteractiveCardWithOptions(userId *string, headers *Se
 	return _result, _err
 }
 
+// Summary:
+//
+// 在群会话发送项目卡片消息
+//
+// @return SendInteractiveCardResponse
 func (client *Client) SendInteractiveCard(userId *string) (_result *SendInteractiveCardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendInteractiveCardHeaders{}
@@ -436,6 +474,15 @@ func (client *Client) SendInteractiveCard(userId *string) (_result *SendInteract
 	return _result, _err
 }
 
+// Summary:
+//
+// 单聊会话发送项目卡片消息
+//
+// @param headers - SendSingleInteractiveCardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendSingleInteractiveCardResponse
 func (client *Client) SendSingleInteractiveCardWithOptions(userId *string, headers *SendSingleInteractiveCardHeaders, runtime *util.RuntimeOptions) (_result *SendSingleInteractiveCardResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -469,6 +516,11 @@ func (client *Client) SendSingleInteractiveCardWithOptions(userId *string, heade
 	return _result, _err
 }
 
+// Summary:
+//
+// 单聊会话发送项目卡片消息
+//
+// @return SendSingleInteractiveCardResponse
 func (client *Client) SendSingleInteractiveCard(userId *string) (_result *SendSingleInteractiveCardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendSingleInteractiveCardHeaders{}
@@ -481,6 +533,15 @@ func (client *Client) SendSingleInteractiveCard(userId *string) (_result *SendSi
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新项目卡片消息
+//
+// @param headers - UpdateInteractiveCardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateInteractiveCardResponse
 func (client *Client) UpdateInteractiveCardWithOptions(userId *string, headers *UpdateInteractiveCardHeaders, runtime *util.RuntimeOptions) (_result *UpdateInteractiveCardResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -514,6 +575,11 @@ func (client *Client) UpdateInteractiveCardWithOptions(userId *string, headers *
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新项目卡片消息
+//
+// @return UpdateInteractiveCardResponse
 func (client *Client) UpdateInteractiveCard(userId *string) (_result *UpdateInteractiveCardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateInteractiveCardHeaders{}

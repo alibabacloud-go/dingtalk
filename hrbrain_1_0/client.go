@@ -1,17 +1,2379 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package hrbrain_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
+
+type HrbrainDeleteAwardRecordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeleteAwardRecordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteAwardRecordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteAwardRecordsHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeleteAwardRecordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeleteAwardRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeleteAwardRecordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeleteAwardRecordsRequest struct {
+	Params []*HrbrainDeleteAwardRecordsRequestParams `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeleteAwardRecordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteAwardRecordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteAwardRecordsRequest) SetParams(v []*HrbrainDeleteAwardRecordsRequestParams) *HrbrainDeleteAwardRecordsRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeleteAwardRecordsRequestParams struct {
+	AwardDate *string `json:"awardDate,omitempty" xml:"awardDate,omitempty"`
+	AwardName *string `json:"awardName,omitempty" xml:"awardName,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainDeleteAwardRecordsRequestParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteAwardRecordsRequestParams) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteAwardRecordsRequestParams) SetAwardDate(v string) *HrbrainDeleteAwardRecordsRequestParams {
+	s.AwardDate = &v
+	return s
+}
+
+func (s *HrbrainDeleteAwardRecordsRequestParams) SetAwardName(v string) *HrbrainDeleteAwardRecordsRequestParams {
+	s.AwardName = &v
+	return s
+}
+
+func (s *HrbrainDeleteAwardRecordsRequestParams) SetWorkNo(v string) *HrbrainDeleteAwardRecordsRequestParams {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainDeleteAwardRecordsResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeleteAwardRecordsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteAwardRecordsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteAwardRecordsResponseBody) SetRequestId(v string) *HrbrainDeleteAwardRecordsResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeleteAwardRecordsResponseBody) SetResult(v bool) *HrbrainDeleteAwardRecordsResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeleteAwardRecordsResponseBody) SetSuccess(v bool) *HrbrainDeleteAwardRecordsResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeleteAwardRecordsResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeleteAwardRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeleteAwardRecordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteAwardRecordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteAwardRecordsResponse) SetHeaders(v map[string]*string) *HrbrainDeleteAwardRecordsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeleteAwardRecordsResponse) SetStatusCode(v int32) *HrbrainDeleteAwardRecordsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeleteAwardRecordsResponse) SetBody(v *HrbrainDeleteAwardRecordsResponseBody) *HrbrainDeleteAwardRecordsResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainDeleteCustomHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeleteCustomHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteCustomHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteCustomHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeleteCustomHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeleteCustomHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeleteCustomHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeleteCustomRequest struct {
+	// This parameter is required.
+	ModelCode *string `json:"modelCode,omitempty" xml:"modelCode,omitempty"`
+	// This parameter is required.
+	Params []map[string]interface{} `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeleteCustomRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteCustomRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteCustomRequest) SetModelCode(v string) *HrbrainDeleteCustomRequest {
+	s.ModelCode = &v
+	return s
+}
+
+func (s *HrbrainDeleteCustomRequest) SetParams(v []map[string]interface{}) *HrbrainDeleteCustomRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeleteCustomResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeleteCustomResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteCustomResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteCustomResponseBody) SetRequestId(v string) *HrbrainDeleteCustomResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeleteCustomResponseBody) SetResult(v bool) *HrbrainDeleteCustomResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeleteCustomResponseBody) SetSuccess(v bool) *HrbrainDeleteCustomResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeleteCustomResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeleteCustomResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeleteCustomResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteCustomResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteCustomResponse) SetHeaders(v map[string]*string) *HrbrainDeleteCustomResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeleteCustomResponse) SetStatusCode(v int32) *HrbrainDeleteCustomResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeleteCustomResponse) SetBody(v *HrbrainDeleteCustomResponseBody) *HrbrainDeleteCustomResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainDeleteDeptInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeleteDeptInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteDeptInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteDeptInfoHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeleteDeptInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeleteDeptInfoHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeleteDeptInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeleteDeptInfoRequest struct {
+	Params []*HrbrainDeleteDeptInfoRequestParams `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeleteDeptInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteDeptInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteDeptInfoRequest) SetParams(v []*HrbrainDeleteDeptInfoRequestParams) *HrbrainDeleteDeptInfoRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeleteDeptInfoRequestParams struct {
+	// This parameter is required.
+	DeptNo *string `json:"deptNo,omitempty" xml:"deptNo,omitempty"`
+}
+
+func (s HrbrainDeleteDeptInfoRequestParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteDeptInfoRequestParams) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteDeptInfoRequestParams) SetDeptNo(v string) *HrbrainDeleteDeptInfoRequestParams {
+	s.DeptNo = &v
+	return s
+}
+
+type HrbrainDeleteDeptInfoResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeleteDeptInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteDeptInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteDeptInfoResponseBody) SetRequestId(v string) *HrbrainDeleteDeptInfoResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeleteDeptInfoResponseBody) SetResult(v bool) *HrbrainDeleteDeptInfoResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeleteDeptInfoResponseBody) SetSuccess(v bool) *HrbrainDeleteDeptInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeleteDeptInfoResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeleteDeptInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeleteDeptInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteDeptInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteDeptInfoResponse) SetHeaders(v map[string]*string) *HrbrainDeleteDeptInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeleteDeptInfoResponse) SetStatusCode(v int32) *HrbrainDeleteDeptInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeleteDeptInfoResponse) SetBody(v *HrbrainDeleteDeptInfoResponseBody) *HrbrainDeleteDeptInfoResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainDeleteDimissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeleteDimissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteDimissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteDimissionHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeleteDimissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeleteDimissionHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeleteDimissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeleteDimissionRequest struct {
+	Params []*HrbrainDeleteDimissionRequestParams `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeleteDimissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteDimissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteDimissionRequest) SetParams(v []*HrbrainDeleteDimissionRequestParams) *HrbrainDeleteDimissionRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeleteDimissionRequestParams struct {
+	DimissionDate *string `json:"dimissionDate,omitempty" xml:"dimissionDate,omitempty"`
+	WorkNo        *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainDeleteDimissionRequestParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteDimissionRequestParams) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteDimissionRequestParams) SetDimissionDate(v string) *HrbrainDeleteDimissionRequestParams {
+	s.DimissionDate = &v
+	return s
+}
+
+func (s *HrbrainDeleteDimissionRequestParams) SetWorkNo(v string) *HrbrainDeleteDimissionRequestParams {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainDeleteDimissionResponseBody struct {
+	// example:
+	//
+	// 480021443f9f37fcbf464c4a6b85d289
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeleteDimissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteDimissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteDimissionResponseBody) SetRequestId(v string) *HrbrainDeleteDimissionResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeleteDimissionResponseBody) SetResult(v bool) *HrbrainDeleteDimissionResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeleteDimissionResponseBody) SetSuccess(v bool) *HrbrainDeleteDimissionResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeleteDimissionResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeleteDimissionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeleteDimissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteDimissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteDimissionResponse) SetHeaders(v map[string]*string) *HrbrainDeleteDimissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeleteDimissionResponse) SetStatusCode(v int32) *HrbrainDeleteDimissionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeleteDimissionResponse) SetBody(v *HrbrainDeleteDimissionResponseBody) *HrbrainDeleteDimissionResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainDeleteEduExpHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeleteEduExpHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteEduExpHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteEduExpHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeleteEduExpHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeleteEduExpHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeleteEduExpHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeleteEduExpRequest struct {
+	Params []*HrbrainDeleteEduExpRequestParams `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeleteEduExpRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteEduExpRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteEduExpRequest) SetParams(v []*HrbrainDeleteEduExpRequestParams) *HrbrainDeleteEduExpRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeleteEduExpRequestParams struct {
+	EduName    *string `json:"eduName,omitempty" xml:"eduName,omitempty"`
+	EndDate    *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	SchoolName *string `json:"schoolName,omitempty" xml:"schoolName,omitempty"`
+	StartDate  *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainDeleteEduExpRequestParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteEduExpRequestParams) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteEduExpRequestParams) SetEduName(v string) *HrbrainDeleteEduExpRequestParams {
+	s.EduName = &v
+	return s
+}
+
+func (s *HrbrainDeleteEduExpRequestParams) SetEndDate(v string) *HrbrainDeleteEduExpRequestParams {
+	s.EndDate = &v
+	return s
+}
+
+func (s *HrbrainDeleteEduExpRequestParams) SetSchoolName(v string) *HrbrainDeleteEduExpRequestParams {
+	s.SchoolName = &v
+	return s
+}
+
+func (s *HrbrainDeleteEduExpRequestParams) SetStartDate(v string) *HrbrainDeleteEduExpRequestParams {
+	s.StartDate = &v
+	return s
+}
+
+func (s *HrbrainDeleteEduExpRequestParams) SetWorkNo(v string) *HrbrainDeleteEduExpRequestParams {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainDeleteEduExpResponseBody struct {
+	// example:
+	//
+	// 480021443f9f37fcbf464c4a6b85d289
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeleteEduExpResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteEduExpResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteEduExpResponseBody) SetRequestId(v string) *HrbrainDeleteEduExpResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeleteEduExpResponseBody) SetResult(v bool) *HrbrainDeleteEduExpResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeleteEduExpResponseBody) SetSuccess(v bool) *HrbrainDeleteEduExpResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeleteEduExpResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeleteEduExpResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeleteEduExpResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteEduExpResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteEduExpResponse) SetHeaders(v map[string]*string) *HrbrainDeleteEduExpResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeleteEduExpResponse) SetStatusCode(v int32) *HrbrainDeleteEduExpResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeleteEduExpResponse) SetBody(v *HrbrainDeleteEduExpResponseBody) *HrbrainDeleteEduExpResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainDeleteEmpInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeleteEmpInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteEmpInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteEmpInfoHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeleteEmpInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeleteEmpInfoHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeleteEmpInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeleteEmpInfoRequest struct {
+	Params []*HrbrainDeleteEmpInfoRequestParams `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeleteEmpInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteEmpInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteEmpInfoRequest) SetParams(v []*HrbrainDeleteEmpInfoRequestParams) *HrbrainDeleteEmpInfoRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeleteEmpInfoRequestParams struct {
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainDeleteEmpInfoRequestParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteEmpInfoRequestParams) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteEmpInfoRequestParams) SetWorkNo(v string) *HrbrainDeleteEmpInfoRequestParams {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainDeleteEmpInfoResponseBody struct {
+	// example:
+	//
+	// 480021443f9f37fcbf464c4a6b85d289
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeleteEmpInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteEmpInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteEmpInfoResponseBody) SetRequestId(v string) *HrbrainDeleteEmpInfoResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeleteEmpInfoResponseBody) SetResult(v bool) *HrbrainDeleteEmpInfoResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeleteEmpInfoResponseBody) SetSuccess(v bool) *HrbrainDeleteEmpInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeleteEmpInfoResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeleteEmpInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeleteEmpInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteEmpInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteEmpInfoResponse) SetHeaders(v map[string]*string) *HrbrainDeleteEmpInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeleteEmpInfoResponse) SetStatusCode(v int32) *HrbrainDeleteEmpInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeleteEmpInfoResponse) SetBody(v *HrbrainDeleteEmpInfoResponseBody) *HrbrainDeleteEmpInfoResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainDeleteLabelIndustryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeleteLabelIndustryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteLabelIndustryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteLabelIndustryHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeleteLabelIndustryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeleteLabelIndustryHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeleteLabelIndustryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeleteLabelIndustryRequest struct {
+	Params []*HrbrainDeleteLabelIndustryRequestParams `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeleteLabelIndustryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteLabelIndustryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteLabelIndustryRequest) SetParams(v []*HrbrainDeleteLabelIndustryRequestParams) *HrbrainDeleteLabelIndustryRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeleteLabelIndustryRequestParams struct {
+	Label map[string]interface{} `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainDeleteLabelIndustryRequestParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteLabelIndustryRequestParams) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteLabelIndustryRequestParams) SetLabel(v map[string]interface{}) *HrbrainDeleteLabelIndustryRequestParams {
+	s.Label = v
+	return s
+}
+
+func (s *HrbrainDeleteLabelIndustryRequestParams) SetWorkNo(v string) *HrbrainDeleteLabelIndustryRequestParams {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainDeleteLabelIndustryResponseBody struct {
+	// example:
+	//
+	// 480021443f9f37fcbf464c4a6b85d299
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeleteLabelIndustryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteLabelIndustryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteLabelIndustryResponseBody) SetRequestId(v string) *HrbrainDeleteLabelIndustryResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeleteLabelIndustryResponseBody) SetResult(v bool) *HrbrainDeleteLabelIndustryResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeleteLabelIndustryResponseBody) SetSuccess(v bool) *HrbrainDeleteLabelIndustryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeleteLabelIndustryResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeleteLabelIndustryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeleteLabelIndustryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteLabelIndustryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteLabelIndustryResponse) SetHeaders(v map[string]*string) *HrbrainDeleteLabelIndustryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeleteLabelIndustryResponse) SetStatusCode(v int32) *HrbrainDeleteLabelIndustryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeleteLabelIndustryResponse) SetBody(v *HrbrainDeleteLabelIndustryResponseBody) *HrbrainDeleteLabelIndustryResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainDeleteLabelInventoryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeleteLabelInventoryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteLabelInventoryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteLabelInventoryHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeleteLabelInventoryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeleteLabelInventoryHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeleteLabelInventoryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeleteLabelInventoryRequest struct {
+	Params []*HrbrainDeleteLabelInventoryRequestParams `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeleteLabelInventoryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteLabelInventoryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteLabelInventoryRequest) SetParams(v []*HrbrainDeleteLabelInventoryRequestParams) *HrbrainDeleteLabelInventoryRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeleteLabelInventoryRequestParams struct {
+	Label  map[string]interface{} `json:"label,omitempty" xml:"label,omitempty"`
+	Period *string                `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainDeleteLabelInventoryRequestParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteLabelInventoryRequestParams) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteLabelInventoryRequestParams) SetLabel(v map[string]interface{}) *HrbrainDeleteLabelInventoryRequestParams {
+	s.Label = v
+	return s
+}
+
+func (s *HrbrainDeleteLabelInventoryRequestParams) SetPeriod(v string) *HrbrainDeleteLabelInventoryRequestParams {
+	s.Period = &v
+	return s
+}
+
+func (s *HrbrainDeleteLabelInventoryRequestParams) SetWorkNo(v string) *HrbrainDeleteLabelInventoryRequestParams {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainDeleteLabelInventoryResponseBody struct {
+	// example:
+	//
+	// 480021443f9f37fcbf464c4a6b85d299
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeleteLabelInventoryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteLabelInventoryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteLabelInventoryResponseBody) SetRequestId(v string) *HrbrainDeleteLabelInventoryResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeleteLabelInventoryResponseBody) SetResult(v bool) *HrbrainDeleteLabelInventoryResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeleteLabelInventoryResponseBody) SetSuccess(v bool) *HrbrainDeleteLabelInventoryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeleteLabelInventoryResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeleteLabelInventoryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeleteLabelInventoryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteLabelInventoryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteLabelInventoryResponse) SetHeaders(v map[string]*string) *HrbrainDeleteLabelInventoryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeleteLabelInventoryResponse) SetStatusCode(v int32) *HrbrainDeleteLabelInventoryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeleteLabelInventoryResponse) SetBody(v *HrbrainDeleteLabelInventoryResponseBody) *HrbrainDeleteLabelInventoryResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainDeleteLabelProfSkillHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeleteLabelProfSkillHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteLabelProfSkillHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteLabelProfSkillHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeleteLabelProfSkillHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeleteLabelProfSkillHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeleteLabelProfSkillHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeleteLabelProfSkillRequest struct {
+	Params []*HrbrainDeleteLabelProfSkillRequestParams `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeleteLabelProfSkillRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteLabelProfSkillRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteLabelProfSkillRequest) SetParams(v []*HrbrainDeleteLabelProfSkillRequestParams) *HrbrainDeleteLabelProfSkillRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeleteLabelProfSkillRequestParams struct {
+	Label map[string]interface{} `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainDeleteLabelProfSkillRequestParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteLabelProfSkillRequestParams) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteLabelProfSkillRequestParams) SetLabel(v map[string]interface{}) *HrbrainDeleteLabelProfSkillRequestParams {
+	s.Label = v
+	return s
+}
+
+func (s *HrbrainDeleteLabelProfSkillRequestParams) SetWorkNo(v string) *HrbrainDeleteLabelProfSkillRequestParams {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainDeleteLabelProfSkillResponseBody struct {
+	// example:
+	//
+	// 480021443f9f37fcbf464c4a6b85d289
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeleteLabelProfSkillResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteLabelProfSkillResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteLabelProfSkillResponseBody) SetRequestId(v string) *HrbrainDeleteLabelProfSkillResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeleteLabelProfSkillResponseBody) SetResult(v bool) *HrbrainDeleteLabelProfSkillResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeleteLabelProfSkillResponseBody) SetSuccess(v bool) *HrbrainDeleteLabelProfSkillResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeleteLabelProfSkillResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeleteLabelProfSkillResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeleteLabelProfSkillResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteLabelProfSkillResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteLabelProfSkillResponse) SetHeaders(v map[string]*string) *HrbrainDeleteLabelProfSkillResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeleteLabelProfSkillResponse) SetStatusCode(v int32) *HrbrainDeleteLabelProfSkillResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeleteLabelProfSkillResponse) SetBody(v *HrbrainDeleteLabelProfSkillResponseBody) *HrbrainDeleteLabelProfSkillResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainDeletePerfEvalHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeletePerfEvalHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletePerfEvalHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletePerfEvalHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeletePerfEvalHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeletePerfEvalHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeletePerfEvalHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeletePerfEvalRequest struct {
+	Params []*HrbrainDeletePerfEvalRequestParams `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeletePerfEvalRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletePerfEvalRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletePerfEvalRequest) SetParams(v []*HrbrainDeletePerfEvalRequestParams) *HrbrainDeletePerfEvalRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeletePerfEvalRequestParams struct {
+	PerfPlanName *string `json:"perfPlanName,omitempty" xml:"perfPlanName,omitempty"`
+	Period       *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainDeletePerfEvalRequestParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletePerfEvalRequestParams) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletePerfEvalRequestParams) SetPerfPlanName(v string) *HrbrainDeletePerfEvalRequestParams {
+	s.PerfPlanName = &v
+	return s
+}
+
+func (s *HrbrainDeletePerfEvalRequestParams) SetPeriod(v string) *HrbrainDeletePerfEvalRequestParams {
+	s.Period = &v
+	return s
+}
+
+func (s *HrbrainDeletePerfEvalRequestParams) SetWorkNo(v string) *HrbrainDeletePerfEvalRequestParams {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainDeletePerfEvalResponseBody struct {
+	// example:
+	//
+	// 480021443f9f37fcbf464c4a6b85d289
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeletePerfEvalResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletePerfEvalResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletePerfEvalResponseBody) SetRequestId(v string) *HrbrainDeletePerfEvalResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeletePerfEvalResponseBody) SetResult(v bool) *HrbrainDeletePerfEvalResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeletePerfEvalResponseBody) SetSuccess(v bool) *HrbrainDeletePerfEvalResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeletePerfEvalResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeletePerfEvalResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeletePerfEvalResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletePerfEvalResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletePerfEvalResponse) SetHeaders(v map[string]*string) *HrbrainDeletePerfEvalResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeletePerfEvalResponse) SetStatusCode(v int32) *HrbrainDeletePerfEvalResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeletePerfEvalResponse) SetBody(v *HrbrainDeletePerfEvalResponseBody) *HrbrainDeletePerfEvalResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainDeletePromRecordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeletePromRecordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletePromRecordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletePromRecordsHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeletePromRecordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeletePromRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeletePromRecordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeletePromRecordsRequest struct {
+	Params []*HrbrainDeletePromRecordsRequestParams `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeletePromRecordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletePromRecordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletePromRecordsRequest) SetParams(v []*HrbrainDeletePromRecordsRequestParams) *HrbrainDeletePromRecordsRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeletePromRecordsRequestParams struct {
+	AwardDate *string `json:"awardDate,omitempty" xml:"awardDate,omitempty"`
+	AwardName *string `json:"awardName,omitempty" xml:"awardName,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainDeletePromRecordsRequestParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletePromRecordsRequestParams) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletePromRecordsRequestParams) SetAwardDate(v string) *HrbrainDeletePromRecordsRequestParams {
+	s.AwardDate = &v
+	return s
+}
+
+func (s *HrbrainDeletePromRecordsRequestParams) SetAwardName(v string) *HrbrainDeletePromRecordsRequestParams {
+	s.AwardName = &v
+	return s
+}
+
+func (s *HrbrainDeletePromRecordsRequestParams) SetWorkNo(v string) *HrbrainDeletePromRecordsRequestParams {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainDeletePromRecordsResponseBody struct {
+	// example:
+	//
+	// 480021443f9f37fcbf464c4a6b85d299
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeletePromRecordsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletePromRecordsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletePromRecordsResponseBody) SetRequestId(v string) *HrbrainDeletePromRecordsResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeletePromRecordsResponseBody) SetResult(v bool) *HrbrainDeletePromRecordsResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeletePromRecordsResponseBody) SetSuccess(v bool) *HrbrainDeletePromRecordsResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeletePromRecordsResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeletePromRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeletePromRecordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletePromRecordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletePromRecordsResponse) SetHeaders(v map[string]*string) *HrbrainDeletePromRecordsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeletePromRecordsResponse) SetStatusCode(v int32) *HrbrainDeletePromRecordsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeletePromRecordsResponse) SetBody(v *HrbrainDeletePromRecordsResponseBody) *HrbrainDeletePromRecordsResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainDeletePunDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeletePunDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletePunDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletePunDetailHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeletePunDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeletePunDetailHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeletePunDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeletePunDetailRequest struct {
+	Params []*HrbrainDeletePunDetailRequestParams `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeletePunDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletePunDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletePunDetailRequest) SetParams(v []*HrbrainDeletePunDetailRequestParams) *HrbrainDeletePunDetailRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeletePunDetailRequestParams struct {
+	EffectiveDate *string `json:"effectiveDate,omitempty" xml:"effectiveDate,omitempty"`
+	PunName       *string `json:"punName,omitempty" xml:"punName,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainDeletePunDetailRequestParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletePunDetailRequestParams) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletePunDetailRequestParams) SetEffectiveDate(v string) *HrbrainDeletePunDetailRequestParams {
+	s.EffectiveDate = &v
+	return s
+}
+
+func (s *HrbrainDeletePunDetailRequestParams) SetPunName(v string) *HrbrainDeletePunDetailRequestParams {
+	s.PunName = &v
+	return s
+}
+
+func (s *HrbrainDeletePunDetailRequestParams) SetWorkNo(v string) *HrbrainDeletePunDetailRequestParams {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainDeletePunDetailResponseBody struct {
+	// example:
+	//
+	// 480021443f9f37fcbf464c4a6b85d289
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeletePunDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletePunDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletePunDetailResponseBody) SetRequestId(v string) *HrbrainDeletePunDetailResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeletePunDetailResponseBody) SetResult(v bool) *HrbrainDeletePunDetailResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeletePunDetailResponseBody) SetSuccess(v bool) *HrbrainDeletePunDetailResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeletePunDetailResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeletePunDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeletePunDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletePunDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletePunDetailResponse) SetHeaders(v map[string]*string) *HrbrainDeletePunDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeletePunDetailResponse) SetStatusCode(v int32) *HrbrainDeletePunDetailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeletePunDetailResponse) SetBody(v *HrbrainDeletePunDetailResponseBody) *HrbrainDeletePunDetailResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainDeleteRegistHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeleteRegistHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteRegistHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteRegistHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeleteRegistHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeleteRegistHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeleteRegistHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeleteRegistRequest struct {
+	Params []*HrbrainDeleteRegistRequestParams `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeleteRegistRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteRegistRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteRegistRequest) SetParams(v []*HrbrainDeleteRegistRequestParams) *HrbrainDeleteRegistRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeleteRegistRequestParams struct {
+	RegistDate *string `json:"registDate,omitempty" xml:"registDate,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainDeleteRegistRequestParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteRegistRequestParams) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteRegistRequestParams) SetRegistDate(v string) *HrbrainDeleteRegistRequestParams {
+	s.RegistDate = &v
+	return s
+}
+
+func (s *HrbrainDeleteRegistRequestParams) SetWorkNo(v string) *HrbrainDeleteRegistRequestParams {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainDeleteRegistResponseBody struct {
+	// example:
+	//
+	// 480021443f9f37fcbf464c4a6b85d289
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeleteRegistResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteRegistResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteRegistResponseBody) SetRequestId(v string) *HrbrainDeleteRegistResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeleteRegistResponseBody) SetResult(v bool) *HrbrainDeleteRegistResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeleteRegistResponseBody) SetSuccess(v bool) *HrbrainDeleteRegistResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeleteRegistResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeleteRegistResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeleteRegistResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteRegistResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteRegistResponse) SetHeaders(v map[string]*string) *HrbrainDeleteRegistResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeleteRegistResponse) SetStatusCode(v int32) *HrbrainDeleteRegistResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeleteRegistResponse) SetBody(v *HrbrainDeleteRegistResponseBody) *HrbrainDeleteRegistResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainDeleteRegularHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeleteRegularHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteRegularHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteRegularHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeleteRegularHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeleteRegularHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeleteRegularHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeleteRegularRequest struct {
+	Params []*HrbrainDeleteRegularRequestParams `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeleteRegularRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteRegularRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteRegularRequest) SetParams(v []*HrbrainDeleteRegularRequestParams) *HrbrainDeleteRegularRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeleteRegularRequestParams struct {
+	// This parameter is required.
+	RegularDate *string `json:"regularDate,omitempty" xml:"regularDate,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainDeleteRegularRequestParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteRegularRequestParams) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteRegularRequestParams) SetRegularDate(v string) *HrbrainDeleteRegularRequestParams {
+	s.RegularDate = &v
+	return s
+}
+
+func (s *HrbrainDeleteRegularRequestParams) SetWorkNo(v string) *HrbrainDeleteRegularRequestParams {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainDeleteRegularResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeleteRegularResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteRegularResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteRegularResponseBody) SetRequestId(v string) *HrbrainDeleteRegularResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeleteRegularResponseBody) SetResult(v bool) *HrbrainDeleteRegularResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeleteRegularResponseBody) SetSuccess(v bool) *HrbrainDeleteRegularResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeleteRegularResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeleteRegularResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeleteRegularResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteRegularResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteRegularResponse) SetHeaders(v map[string]*string) *HrbrainDeleteRegularResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeleteRegularResponse) SetStatusCode(v int32) *HrbrainDeleteRegularResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeleteRegularResponse) SetBody(v *HrbrainDeleteRegularResponseBody) *HrbrainDeleteRegularResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainDeleteTrainingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeleteTrainingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteTrainingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteTrainingHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeleteTrainingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeleteTrainingHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeleteTrainingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeleteTrainingRequest struct {
+	Params []*HrbrainDeleteTrainingRequestParams `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeleteTrainingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteTrainingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteTrainingRequest) SetParams(v []*HrbrainDeleteTrainingRequestParams) *HrbrainDeleteTrainingRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeleteTrainingRequestParams struct {
+	// This parameter is required.
+	TrainEndDate *string `json:"trainEndDate,omitempty" xml:"trainEndDate,omitempty"`
+	// This parameter is required.
+	TrainName *string `json:"trainName,omitempty" xml:"trainName,omitempty"`
+	// This parameter is required.
+	TrainStartDate *string `json:"trainStartDate,omitempty" xml:"trainStartDate,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainDeleteTrainingRequestParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteTrainingRequestParams) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteTrainingRequestParams) SetTrainEndDate(v string) *HrbrainDeleteTrainingRequestParams {
+	s.TrainEndDate = &v
+	return s
+}
+
+func (s *HrbrainDeleteTrainingRequestParams) SetTrainName(v string) *HrbrainDeleteTrainingRequestParams {
+	s.TrainName = &v
+	return s
+}
+
+func (s *HrbrainDeleteTrainingRequestParams) SetTrainStartDate(v string) *HrbrainDeleteTrainingRequestParams {
+	s.TrainStartDate = &v
+	return s
+}
+
+func (s *HrbrainDeleteTrainingRequestParams) SetWorkNo(v string) *HrbrainDeleteTrainingRequestParams {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainDeleteTrainingResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeleteTrainingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteTrainingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteTrainingResponseBody) SetRequestId(v string) *HrbrainDeleteTrainingResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeleteTrainingResponseBody) SetResult(v bool) *HrbrainDeleteTrainingResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeleteTrainingResponseBody) SetSuccess(v bool) *HrbrainDeleteTrainingResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeleteTrainingResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeleteTrainingResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeleteTrainingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteTrainingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteTrainingResponse) SetHeaders(v map[string]*string) *HrbrainDeleteTrainingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeleteTrainingResponse) SetStatusCode(v int32) *HrbrainDeleteTrainingResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeleteTrainingResponse) SetBody(v *HrbrainDeleteTrainingResponseBody) *HrbrainDeleteTrainingResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainDeleteTransferEvalHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeleteTransferEvalHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteTransferEvalHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteTransferEvalHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeleteTransferEvalHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeleteTransferEvalHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeleteTransferEvalHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeleteTransferEvalRequest struct {
+	Params []*HrbrainDeleteTransferEvalRequestParams `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeleteTransferEvalRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteTransferEvalRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteTransferEvalRequest) SetParams(v []*HrbrainDeleteTransferEvalRequestParams) *HrbrainDeleteTransferEvalRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeleteTransferEvalRequestParams struct {
+	TransferDate *string `json:"transferDate,omitempty" xml:"transferDate,omitempty"`
+	TransferType *string `json:"transferType,omitempty" xml:"transferType,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainDeleteTransferEvalRequestParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteTransferEvalRequestParams) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteTransferEvalRequestParams) SetTransferDate(v string) *HrbrainDeleteTransferEvalRequestParams {
+	s.TransferDate = &v
+	return s
+}
+
+func (s *HrbrainDeleteTransferEvalRequestParams) SetTransferType(v string) *HrbrainDeleteTransferEvalRequestParams {
+	s.TransferType = &v
+	return s
+}
+
+func (s *HrbrainDeleteTransferEvalRequestParams) SetWorkNo(v string) *HrbrainDeleteTransferEvalRequestParams {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainDeleteTransferEvalResponseBody struct {
+	// example:
+	//
+	// 480021443f9f37fcbf464c4a6b85d289
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeleteTransferEvalResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteTransferEvalResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteTransferEvalResponseBody) SetRequestId(v string) *HrbrainDeleteTransferEvalResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeleteTransferEvalResponseBody) SetResult(v bool) *HrbrainDeleteTransferEvalResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeleteTransferEvalResponseBody) SetSuccess(v bool) *HrbrainDeleteTransferEvalResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeleteTransferEvalResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeleteTransferEvalResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeleteTransferEvalResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteTransferEvalResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteTransferEvalResponse) SetHeaders(v map[string]*string) *HrbrainDeleteTransferEvalResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeleteTransferEvalResponse) SetStatusCode(v int32) *HrbrainDeleteTransferEvalResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeleteTransferEvalResponse) SetBody(v *HrbrainDeleteTransferEvalResponseBody) *HrbrainDeleteTransferEvalResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainDeleteWorkExpHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeleteWorkExpHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteWorkExpHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteWorkExpHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeleteWorkExpHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeleteWorkExpHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeleteWorkExpHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeleteWorkExpRequest struct {
+	Params []*HrbrainDeleteWorkExpRequestParams `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeleteWorkExpRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteWorkExpRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteWorkExpRequest) SetParams(v []*HrbrainDeleteWorkExpRequestParams) *HrbrainDeleteWorkExpRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeleteWorkExpRequestParams struct {
+	CompanyName *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
+	EndDate     *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	StartDate   *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainDeleteWorkExpRequestParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteWorkExpRequestParams) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteWorkExpRequestParams) SetCompanyName(v string) *HrbrainDeleteWorkExpRequestParams {
+	s.CompanyName = &v
+	return s
+}
+
+func (s *HrbrainDeleteWorkExpRequestParams) SetEndDate(v string) *HrbrainDeleteWorkExpRequestParams {
+	s.EndDate = &v
+	return s
+}
+
+func (s *HrbrainDeleteWorkExpRequestParams) SetStartDate(v string) *HrbrainDeleteWorkExpRequestParams {
+	s.StartDate = &v
+	return s
+}
+
+func (s *HrbrainDeleteWorkExpRequestParams) SetWorkNo(v string) *HrbrainDeleteWorkExpRequestParams {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainDeleteWorkExpResponseBody struct {
+	// example:
+	//
+	// 480021443f9f37fcbf464c4a6b85d289
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeleteWorkExpResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteWorkExpResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteWorkExpResponseBody) SetRequestId(v string) *HrbrainDeleteWorkExpResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeleteWorkExpResponseBody) SetResult(v bool) *HrbrainDeleteWorkExpResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeleteWorkExpResponseBody) SetSuccess(v bool) *HrbrainDeleteWorkExpResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeleteWorkExpResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeleteWorkExpResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeleteWorkExpResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeleteWorkExpResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeleteWorkExpResponse) SetHeaders(v map[string]*string) *HrbrainDeleteWorkExpResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeleteWorkExpResponse) SetStatusCode(v int32) *HrbrainDeleteWorkExpResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeleteWorkExpResponse) SetBody(v *HrbrainDeleteWorkExpResponseBody) *HrbrainDeleteWorkExpResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainDeletetLabelBaseHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainDeletetLabelBaseHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletetLabelBaseHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletetLabelBaseHeaders) SetCommonHeaders(v map[string]*string) *HrbrainDeletetLabelBaseHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainDeletetLabelBaseHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainDeletetLabelBaseHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainDeletetLabelBaseRequest struct {
+	Params []*HrbrainDeletetLabelBaseRequestParams `json:"params,omitempty" xml:"params,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainDeletetLabelBaseRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletetLabelBaseRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletetLabelBaseRequest) SetParams(v []*HrbrainDeletetLabelBaseRequestParams) *HrbrainDeletetLabelBaseRequest {
+	s.Params = v
+	return s
+}
+
+type HrbrainDeletetLabelBaseRequestParams struct {
+	Label map[string]interface{} `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainDeletetLabelBaseRequestParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletetLabelBaseRequestParams) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletetLabelBaseRequestParams) SetLabel(v map[string]interface{}) *HrbrainDeletetLabelBaseRequestParams {
+	s.Label = v
+	return s
+}
+
+func (s *HrbrainDeletetLabelBaseRequestParams) SetWorkNo(v string) *HrbrainDeletetLabelBaseRequestParams {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainDeletetLabelBaseResponseBody struct {
+	// example:
+	//
+	// 480021443f9f37fcbf464c4a6b85d289
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainDeletetLabelBaseResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletetLabelBaseResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletetLabelBaseResponseBody) SetRequestId(v string) *HrbrainDeletetLabelBaseResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainDeletetLabelBaseResponseBody) SetResult(v bool) *HrbrainDeletetLabelBaseResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainDeletetLabelBaseResponseBody) SetSuccess(v bool) *HrbrainDeletetLabelBaseResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainDeletetLabelBaseResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainDeletetLabelBaseResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainDeletetLabelBaseResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainDeletetLabelBaseResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainDeletetLabelBaseResponse) SetHeaders(v map[string]*string) *HrbrainDeletetLabelBaseResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainDeletetLabelBaseResponse) SetStatusCode(v int32) *HrbrainDeletetLabelBaseResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainDeletetLabelBaseResponse) SetBody(v *HrbrainDeletetLabelBaseResponseBody) *HrbrainDeletetLabelBaseResponse {
+	s.Body = v
+	return s
+}
 
 type HrbrainImportAwardDetailHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
@@ -37,8 +2399,10 @@ func (s *HrbrainImportAwardDetailHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type HrbrainImportAwardDetailRequest struct {
-	Body   []*HrbrainImportAwardDetailRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	CorpId *string                                `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Body []*HrbrainImportAwardDetailRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s HrbrainImportAwardDetailRequest) String() string {
@@ -60,14 +2424,18 @@ func (s *HrbrainImportAwardDetailRequest) SetCorpId(v string) *HrbrainImportAwar
 }
 
 type HrbrainImportAwardDetailRequestBody struct {
-	AwardDate  *string                `json:"awardDate,omitempty" xml:"awardDate,omitempty"`
+	// This parameter is required.
+	AwardDate *string `json:"awardDate,omitempty" xml:"awardDate,omitempty"`
+	// This parameter is required.
 	AwardName  *string                `json:"awardName,omitempty" xml:"awardName,omitempty"`
 	AwardOrg   *string                `json:"awardOrg,omitempty" xml:"awardOrg,omitempty"`
 	AwardType  *string                `json:"awardType,omitempty" xml:"awardType,omitempty"`
 	Comment    *string                `json:"comment,omitempty" xml:"comment,omitempty"`
 	ExtendInfo map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
-	Name       *string                `json:"name,omitempty" xml:"name,omitempty"`
-	WorkNo     *string                `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s HrbrainImportAwardDetailRequestBody) String() string {
@@ -176,6 +2544,119 @@ func (s *HrbrainImportAwardDetailResponse) SetBody(v *HrbrainImportAwardDetailRe
 	return s
 }
 
+type HrbrainImportCustomHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainImportCustomHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainImportCustomHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainImportCustomHeaders) SetCommonHeaders(v map[string]*string) *HrbrainImportCustomHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainImportCustomHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainImportCustomHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainImportCustomRequest struct {
+	// This parameter is required.
+	Body []map[string]interface{} `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	ModelCode *string `json:"modelCode,omitempty" xml:"modelCode,omitempty"`
+}
+
+func (s HrbrainImportCustomRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainImportCustomRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainImportCustomRequest) SetBody(v []map[string]interface{}) *HrbrainImportCustomRequest {
+	s.Body = v
+	return s
+}
+
+func (s *HrbrainImportCustomRequest) SetCorpId(v string) *HrbrainImportCustomRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *HrbrainImportCustomRequest) SetModelCode(v string) *HrbrainImportCustomRequest {
+	s.ModelCode = &v
+	return s
+}
+
+type HrbrainImportCustomResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainImportCustomResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainImportCustomResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainImportCustomResponseBody) SetRequestId(v string) *HrbrainImportCustomResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainImportCustomResponseBody) SetResult(v bool) *HrbrainImportCustomResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainImportCustomResponseBody) SetSuccess(v bool) *HrbrainImportCustomResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainImportCustomResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainImportCustomResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainImportCustomResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainImportCustomResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainImportCustomResponse) SetHeaders(v map[string]*string) *HrbrainImportCustomResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainImportCustomResponse) SetStatusCode(v int32) *HrbrainImportCustomResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainImportCustomResponse) SetBody(v *HrbrainImportCustomResponseBody) *HrbrainImportCustomResponse {
+	s.Body = v
+	return s
+}
+
 type HrbrainImportDeptInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -200,8 +2681,10 @@ func (s *HrbrainImportDeptInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Hrb
 }
 
 type HrbrainImportDeptInfoRequest struct {
-	Body   []*HrbrainImportDeptInfoRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	CorpId *string                             `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Body []*HrbrainImportDeptInfoRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s HrbrainImportDeptInfoRequest) String() string {
@@ -223,16 +2706,19 @@ func (s *HrbrainImportDeptInfoRequest) SetCorpId(v string) *HrbrainImportDeptInf
 }
 
 type HrbrainImportDeptInfoRequestBody struct {
-	CreateDate    *string                `json:"createDate,omitempty" xml:"createDate,omitempty"`
-	DeptName      *string                `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	CreateDate *string `json:"createDate,omitempty" xml:"createDate,omitempty"`
+	// This parameter is required.
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// This parameter is required.
 	DeptNo        *string                `json:"deptNo,omitempty" xml:"deptNo,omitempty"`
 	EffectiveDate *string                `json:"effectiveDate,omitempty" xml:"effectiveDate,omitempty"`
 	ExtendInfo    map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
 	IsEffective   *string                `json:"isEffective,omitempty" xml:"isEffective,omitempty"`
 	SuperDeptName *string                `json:"superDeptName,omitempty" xml:"superDeptName,omitempty"`
-	SuperDeptNo   *string                `json:"superDeptNo,omitempty" xml:"superDeptNo,omitempty"`
-	SuperEmpId    *string                `json:"superEmpId,omitempty" xml:"superEmpId,omitempty"`
-	SuperName     *string                `json:"superName,omitempty" xml:"superName,omitempty"`
+	// This parameter is required.
+	SuperDeptNo *string `json:"superDeptNo,omitempty" xml:"superDeptNo,omitempty"`
+	SuperEmpId  *string `json:"superEmpId,omitempty" xml:"superEmpId,omitempty"`
+	SuperName   *string `json:"superName,omitempty" xml:"superName,omitempty"`
 }
 
 func (s HrbrainImportDeptInfoRequestBody) String() string {
@@ -375,8 +2861,10 @@ func (s *HrbrainImportDimissionHeaders) SetXAcsDingtalkAccessToken(v string) *Hr
 }
 
 type HrbrainImportDimissionRequest struct {
-	Body   []*HrbrainImportDimissionRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	CorpId *string                              `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Body []*HrbrainImportDimissionRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s HrbrainImportDimissionRequest) String() string {
@@ -398,20 +2886,29 @@ func (s *HrbrainImportDimissionRequest) SetCorpId(v string) *HrbrainImportDimiss
 }
 
 type HrbrainImportDimissionRequestBody struct {
-	DeptName             *string                `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	DeptNo               *string                `json:"deptNo,omitempty" xml:"deptNo,omitempty"`
-	DimissionDate        *string                `json:"dimissionDate,omitempty" xml:"dimissionDate,omitempty"`
-	DimissionReaasonDesc *string                `json:"dimissionReaasonDesc,omitempty" xml:"dimissionReaasonDesc,omitempty"`
-	DimissionReason      *string                `json:"dimissionReason,omitempty" xml:"dimissionReason,omitempty"`
-	EmpType              *string                `json:"empType,omitempty" xml:"empType,omitempty"`
-	ExtendInfo           map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
-	JobCodeName          *string                `json:"jobCodeName,omitempty" xml:"jobCodeName,omitempty"`
-	JobLevel             *string                `json:"jobLevel,omitempty" xml:"jobLevel,omitempty"`
-	Name                 *string                `json:"name,omitempty" xml:"name,omitempty"`
-	PostName             *string                `json:"postName,omitempty" xml:"postName,omitempty"`
-	SuperName            *string                `json:"superName,omitempty" xml:"superName,omitempty"`
-	WorkLocAddr          *string                `json:"workLocAddr,omitempty" xml:"workLocAddr,omitempty"`
-	WorkNo               *string                `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	// This parameter is required.
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// This parameter is required.
+	DeptNo *string `json:"deptNo,omitempty" xml:"deptNo,omitempty"`
+	// This parameter is required.
+	DimissionDate *string `json:"dimissionDate,omitempty" xml:"dimissionDate,omitempty"`
+	// This parameter is required.
+	DimissionReaasonDesc *string `json:"dimissionReaasonDesc,omitempty" xml:"dimissionReaasonDesc,omitempty"`
+	// This parameter is required.
+	DimissionReason *string `json:"dimissionReason,omitempty" xml:"dimissionReason,omitempty"`
+	// This parameter is required.
+	EmpType     *string                `json:"empType,omitempty" xml:"empType,omitempty"`
+	ExtendInfo  map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
+	JobCodeName *string                `json:"jobCodeName,omitempty" xml:"jobCodeName,omitempty"`
+	JobLevel    *string                `json:"jobLevel,omitempty" xml:"jobLevel,omitempty"`
+	// This parameter is required.
+	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	PostName *string `json:"postName,omitempty" xml:"postName,omitempty"`
+	// This parameter is required.
+	SuperName   *string `json:"superName,omitempty" xml:"superName,omitempty"`
+	WorkLocAddr *string `json:"workLocAddr,omitempty" xml:"workLocAddr,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s HrbrainImportDimissionRequestBody) String() string {
@@ -574,8 +3071,10 @@ func (s *HrbrainImportEduExpHeaders) SetXAcsDingtalkAccessToken(v string) *Hrbra
 }
 
 type HrbrainImportEduExpRequest struct {
-	Body   []*HrbrainImportEduExpRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	CorpId *string                           `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Body []*HrbrainImportEduExpRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s HrbrainImportEduExpRequest) String() string {
@@ -597,14 +3096,20 @@ func (s *HrbrainImportEduExpRequest) SetCorpId(v string) *HrbrainImportEduExpReq
 }
 
 type HrbrainImportEduExpRequestBody struct {
-	EduName    *string                `json:"eduName,omitempty" xml:"eduName,omitempty"`
+	// This parameter is required.
+	EduName *string `json:"eduName,omitempty" xml:"eduName,omitempty"`
+	// This parameter is required.
 	EndDate    *string                `json:"endDate,omitempty" xml:"endDate,omitempty"`
 	ExtendInfo map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
 	Major      *string                `json:"major,omitempty" xml:"major,omitempty"`
-	Name       *string                `json:"name,omitempty" xml:"name,omitempty"`
-	SchoolName *string                `json:"schoolName,omitempty" xml:"schoolName,omitempty"`
-	StartDate  *string                `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	WorkNo     *string                `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	SchoolName *string `json:"schoolName,omitempty" xml:"schoolName,omitempty"`
+	// This parameter is required.
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s HrbrainImportEduExpRequestBody) String() string {
@@ -737,8 +3242,10 @@ func (s *HrbrainImportEmpInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Hrbr
 }
 
 type HrbrainImportEmpInfoRequest struct {
-	Body   []*HrbrainImportEmpInfoRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	CorpId *string                            `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Body []*HrbrainImportEmpInfoRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s HrbrainImportEmpInfoRequest) String() string {
@@ -760,35 +3267,49 @@ func (s *HrbrainImportEmpInfoRequest) SetCorpId(v string) *HrbrainImportEmpInfoR
 }
 
 type HrbrainImportEmpInfoRequestBody struct {
-	Birthday        *string                `json:"birthday,omitempty" xml:"birthday,omitempty"`
-	DeptName        *string                `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	DeptNo          *string                `json:"deptNo,omitempty" xml:"deptNo,omitempty"`
-	DimissionDate   *string                `json:"dimissionDate,omitempty" xml:"dimissionDate,omitempty"`
-	EmpSource       *string                `json:"empSource,omitempty" xml:"empSource,omitempty"`
-	EmpStatus       *string                `json:"empStatus,omitempty" xml:"empStatus,omitempty"`
-	EmpType         *string                `json:"empType,omitempty" xml:"empType,omitempty"`
-	ExtendInfo      map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
-	Gender          *string                `json:"gender,omitempty" xml:"gender,omitempty"`
-	HighestDegree   *string                `json:"highestDegree,omitempty" xml:"highestDegree,omitempty"`
-	HighestEduName  *string                `json:"highestEduName,omitempty" xml:"highestEduName,omitempty"`
-	IsDimission     *string                `json:"isDimission,omitempty" xml:"isDimission,omitempty"`
-	JobCodeName     *string                `json:"jobCodeName,omitempty" xml:"jobCodeName,omitempty"`
-	JobLevel        *string                `json:"jobLevel,omitempty" xml:"jobLevel,omitempty"`
-	LastSchoolName  *string                `json:"lastSchoolName,omitempty" xml:"lastSchoolName,omitempty"`
-	Marriage        *string                `json:"marriage,omitempty" xml:"marriage,omitempty"`
-	Name            *string                `json:"name,omitempty" xml:"name,omitempty"`
-	Nation          *string                `json:"nation,omitempty" xml:"nation,omitempty"`
-	NationCtry      *string                `json:"nationCtry,omitempty" xml:"nationCtry,omitempty"`
-	PoliticalStatus *string                `json:"politicalStatus,omitempty" xml:"politicalStatus,omitempty"`
-	PostName        *string                `json:"postName,omitempty" xml:"postName,omitempty"`
-	RegistDate      *string                `json:"registDate,omitempty" xml:"registDate,omitempty"`
-	RegularDate     *string                `json:"regularDate,omitempty" xml:"regularDate,omitempty"`
-	SuperEmpId      *string                `json:"superEmpId,omitempty" xml:"superEmpId,omitempty"`
-	SuperName       *string                `json:"superName,omitempty" xml:"superName,omitempty"`
-	WorkEmail       *string                `json:"workEmail,omitempty" xml:"workEmail,omitempty"`
-	WorkLocAddr     *string                `json:"workLocAddr,omitempty" xml:"workLocAddr,omitempty"`
-	WorkLocCity     *string                `json:"workLocCity,omitempty" xml:"workLocCity,omitempty"`
-	WorkNo          *string                `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	// This parameter is required.
+	Birthday *string `json:"birthday,omitempty" xml:"birthday,omitempty"`
+	// This parameter is required.
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// This parameter is required.
+	DeptNo        *string `json:"deptNo,omitempty" xml:"deptNo,omitempty"`
+	DimissionDate *string `json:"dimissionDate,omitempty" xml:"dimissionDate,omitempty"`
+	// This parameter is required.
+	EmpSource *string `json:"empSource,omitempty" xml:"empSource,omitempty"`
+	// This parameter is required.
+	EmpStatus *string `json:"empStatus,omitempty" xml:"empStatus,omitempty"`
+	// This parameter is required.
+	EmpType    *string                `json:"empType,omitempty" xml:"empType,omitempty"`
+	ExtendInfo map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
+	// This parameter is required.
+	Gender         *string `json:"gender,omitempty" xml:"gender,omitempty"`
+	HighestDegree  *string `json:"highestDegree,omitempty" xml:"highestDegree,omitempty"`
+	HighestEduName *string `json:"highestEduName,omitempty" xml:"highestEduName,omitempty"`
+	IsDimission    *string `json:"isDimission,omitempty" xml:"isDimission,omitempty"`
+	// This parameter is required.
+	JobCodeName    *string `json:"jobCodeName,omitempty" xml:"jobCodeName,omitempty"`
+	JobLevel       *string `json:"jobLevel,omitempty" xml:"jobLevel,omitempty"`
+	LastSchoolName *string `json:"lastSchoolName,omitempty" xml:"lastSchoolName,omitempty"`
+	Marriage       *string `json:"marriage,omitempty" xml:"marriage,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Nation *string `json:"nation,omitempty" xml:"nation,omitempty"`
+	// This parameter is required.
+	NationCtry *string `json:"nationCtry,omitempty" xml:"nationCtry,omitempty"`
+	// This parameter is required.
+	PoliticalStatus *string `json:"politicalStatus,omitempty" xml:"politicalStatus,omitempty"`
+	// This parameter is required.
+	PostName    *string `json:"postName,omitempty" xml:"postName,omitempty"`
+	RegistDate  *string `json:"registDate,omitempty" xml:"registDate,omitempty"`
+	RegularDate *string `json:"regularDate,omitempty" xml:"regularDate,omitempty"`
+	SuperEmpId  *string `json:"superEmpId,omitempty" xml:"superEmpId,omitempty"`
+	SuperName   *string `json:"superName,omitempty" xml:"superName,omitempty"`
+	WorkEmail   *string `json:"workEmail,omitempty" xml:"workEmail,omitempty"`
+	WorkLocAddr *string `json:"workLocAddr,omitempty" xml:"workLocAddr,omitempty"`
+	WorkLocCity *string `json:"workLocCity,omitempty" xml:"workLocCity,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s HrbrainImportEmpInfoRequestBody) String() string {
@@ -1026,8 +3547,10 @@ func (s *HrbrainImportLabelBaseHeaders) SetXAcsDingtalkAccessToken(v string) *Hr
 }
 
 type HrbrainImportLabelBaseRequest struct {
-	Body   []*HrbrainImportLabelBaseRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	CorpId *string                              `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Body []*HrbrainImportLabelBaseRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s HrbrainImportLabelBaseRequest) String() string {
@@ -1049,9 +3572,12 @@ func (s *HrbrainImportLabelBaseRequest) SetCorpId(v string) *HrbrainImportLabelB
 }
 
 type HrbrainImportLabelBaseRequestBody struct {
+	// This parameter is required.
 	ExtendInfo map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
-	Name       *string                `json:"name,omitempty" xml:"name,omitempty"`
-	WorkNo     *string                `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s HrbrainImportLabelBaseRequestBody) String() string {
@@ -1159,8 +3685,10 @@ func (s *HrbrainImportLabelCustomHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type HrbrainImportLabelCustomRequest struct {
-	Body   []*HrbrainImportLabelCustomRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	CorpId *string                                `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Body []*HrbrainImportLabelCustomRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s HrbrainImportLabelCustomRequest) String() string {
@@ -1183,9 +3711,12 @@ func (s *HrbrainImportLabelCustomRequest) SetCorpId(v string) *HrbrainImportLabe
 
 type HrbrainImportLabelCustomRequestBody struct {
 	ExtendInfo map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
-	Name       *string                `json:"name,omitempty" xml:"name,omitempty"`
-	Tag        *string                `json:"tag,omitempty" xml:"tag,omitempty"`
-	WorkNo     *string                `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Tag *string `json:"tag,omitempty" xml:"tag,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s HrbrainImportLabelCustomRequestBody) String() string {
@@ -1298,8 +3829,10 @@ func (s *HrbrainImportLabelIndustryHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type HrbrainImportLabelIndustryRequest struct {
-	Body   []*HrbrainImportLabelIndustryRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	CorpId *string                                  `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Body []*HrbrainImportLabelIndustryRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s HrbrainImportLabelIndustryRequest) String() string {
@@ -1322,11 +3855,16 @@ func (s *HrbrainImportLabelIndustryRequest) SetCorpId(v string) *HrbrainImportLa
 
 type HrbrainImportLabelIndustryRequestBody struct {
 	ExtendInfo map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
-	Level1     *string                `json:"level1,omitempty" xml:"level1,omitempty"`
-	Level2     *string                `json:"level2,omitempty" xml:"level2,omitempty"`
-	Level3     *string                `json:"level3,omitempty" xml:"level3,omitempty"`
-	Name       *string                `json:"name,omitempty" xml:"name,omitempty"`
-	WorkNo     *string                `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	// This parameter is required.
+	Level1 *string `json:"level1,omitempty" xml:"level1,omitempty"`
+	// This parameter is required.
+	Level2 *string `json:"level2,omitempty" xml:"level2,omitempty"`
+	// This parameter is required.
+	Level3 *string `json:"level3,omitempty" xml:"level3,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s HrbrainImportLabelIndustryRequestBody) String() string {
@@ -1449,8 +3987,10 @@ func (s *HrbrainImportLabelInventoryHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type HrbrainImportLabelInventoryRequest struct {
-	Body   []*HrbrainImportLabelInventoryRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	CorpId *string                                   `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Body []*HrbrainImportLabelInventoryRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s HrbrainImportLabelInventoryRequest) String() string {
@@ -1473,9 +4013,12 @@ func (s *HrbrainImportLabelInventoryRequest) SetCorpId(v string) *HrbrainImportL
 
 type HrbrainImportLabelInventoryRequestBody struct {
 	ExtendInfo map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
-	Name       *string                `json:"name,omitempty" xml:"name,omitempty"`
-	Period     *string                `json:"period,omitempty" xml:"period,omitempty"`
-	WorkNo     *string                `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s HrbrainImportLabelInventoryRequestBody) String() string {
@@ -1588,8 +4131,10 @@ func (s *HrbrainImportLabelProfSkillHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type HrbrainImportLabelProfSkillRequest struct {
-	Body   []*HrbrainImportLabelProfSkillRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	CorpId *string                                   `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Body []*HrbrainImportLabelProfSkillRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s HrbrainImportLabelProfSkillRequest) String() string {
@@ -1612,11 +4157,16 @@ func (s *HrbrainImportLabelProfSkillRequest) SetCorpId(v string) *HrbrainImportL
 
 type HrbrainImportLabelProfSkillRequestBody struct {
 	ExtendInfo map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
-	Level1     *string                `json:"level1,omitempty" xml:"level1,omitempty"`
-	Level2     *string                `json:"level2,omitempty" xml:"level2,omitempty"`
-	Level3     *string                `json:"level3,omitempty" xml:"level3,omitempty"`
-	Name       *string                `json:"name,omitempty" xml:"name,omitempty"`
-	WorkNo     *string                `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	// This parameter is required.
+	Level1 *string `json:"level1,omitempty" xml:"level1,omitempty"`
+	// This parameter is required.
+	Level2 *string `json:"level2,omitempty" xml:"level2,omitempty"`
+	// This parameter is required.
+	Level3 *string `json:"level3,omitempty" xml:"level3,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s HrbrainImportLabelProfSkillRequestBody) String() string {
@@ -1739,8 +4289,10 @@ func (s *HrbrainImportPerfEvalHeaders) SetXAcsDingtalkAccessToken(v string) *Hrb
 }
 
 type HrbrainImportPerfEvalRequest struct {
-	Body   []*HrbrainImportPerfEvalRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	CorpId *string                             `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Body []*HrbrainImportPerfEvalRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s HrbrainImportPerfEvalRequest) String() string {
@@ -1762,17 +4314,24 @@ func (s *HrbrainImportPerfEvalRequest) SetCorpId(v string) *HrbrainImportPerfEva
 }
 
 type HrbrainImportPerfEvalRequestBody struct {
-	Comment         *string                `json:"comment,omitempty" xml:"comment,omitempty"`
-	ExtendInfo      map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
-	Name            *string                `json:"name,omitempty" xml:"name,omitempty"`
-	PerfCate        *string                `json:"perfCate,omitempty" xml:"perfCate,omitempty"`
-	PerfPlanName    *string                `json:"perfPlanName,omitempty" xml:"perfPlanName,omitempty"`
-	PerfScore       *string                `json:"perfScore,omitempty" xml:"perfScore,omitempty"`
-	Period          *string                `json:"period,omitempty" xml:"period,omitempty"`
-	PeriodEndDate   *string                `json:"periodEndDate,omitempty" xml:"periodEndDate,omitempty"`
-	PeriodStartDate *string                `json:"periodStartDate,omitempty" xml:"periodStartDate,omitempty"`
-	Score           *string                `json:"score,omitempty" xml:"score,omitempty"`
-	WorkNo          *string                `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	Comment    *string                `json:"comment,omitempty" xml:"comment,omitempty"`
+	ExtendInfo map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
+	// This parameter is required.
+	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	PerfCate *string `json:"perfCate,omitempty" xml:"perfCate,omitempty"`
+	// This parameter is required.
+	PerfPlanName *string `json:"perfPlanName,omitempty" xml:"perfPlanName,omitempty"`
+	PerfScore    *string `json:"perfScore,omitempty" xml:"perfScore,omitempty"`
+	// This parameter is required.
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// This parameter is required.
+	PeriodEndDate *string `json:"periodEndDate,omitempty" xml:"periodEndDate,omitempty"`
+	// This parameter is required.
+	PeriodStartDate *string `json:"periodStartDate,omitempty" xml:"periodStartDate,omitempty"`
+	// This parameter is required.
+	Score *string `json:"score,omitempty" xml:"score,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s HrbrainImportPerfEvalRequestBody) String() string {
@@ -1920,8 +4479,10 @@ func (s *HrbrainImportPromEvalHeaders) SetXAcsDingtalkAccessToken(v string) *Hrb
 }
 
 type HrbrainImportPromEvalRequest struct {
-	Body   []*HrbrainImportPromEvalRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	CorpId *string                             `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Body []*HrbrainImportPromEvalRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s HrbrainImportPromEvalRequest) String() string {
@@ -1943,16 +4504,22 @@ func (s *HrbrainImportPromEvalRequest) SetCorpId(v string) *HrbrainImportPromEva
 }
 
 type HrbrainImportPromEvalRequestBody struct {
-	Comment         *string                `json:"comment,omitempty" xml:"comment,omitempty"`
-	EffectiveDate   *string                `json:"effectiveDate,omitempty" xml:"effectiveDate,omitempty"`
-	ExtendInfo      map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
-	Name            *string                `json:"name,omitempty" xml:"name,omitempty"`
-	NewJobLevel     *string                `json:"newJobLevel,omitempty" xml:"newJobLevel,omitempty"`
-	Period          *string                `json:"period,omitempty" xml:"period,omitempty"`
-	PeriodEndDate   *string                `json:"periodEndDate,omitempty" xml:"periodEndDate,omitempty"`
-	PeriodStartDate *string                `json:"periodStartDate,omitempty" xml:"periodStartDate,omitempty"`
-	PreJobLevel     *string                `json:"preJobLevel,omitempty" xml:"preJobLevel,omitempty"`
-	WorkNo          *string                `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	Comment *string `json:"comment,omitempty" xml:"comment,omitempty"`
+	// This parameter is required.
+	EffectiveDate *string                `json:"effectiveDate,omitempty" xml:"effectiveDate,omitempty"`
+	ExtendInfo    map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	NewJobLevel *string `json:"newJobLevel,omitempty" xml:"newJobLevel,omitempty"`
+	// This parameter is required.
+	Period          *string `json:"period,omitempty" xml:"period,omitempty"`
+	PeriodEndDate   *string `json:"periodEndDate,omitempty" xml:"periodEndDate,omitempty"`
+	PeriodStartDate *string `json:"periodStartDate,omitempty" xml:"periodStartDate,omitempty"`
+	// This parameter is required.
+	PreJobLevel *string `json:"preJobLevel,omitempty" xml:"preJobLevel,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s HrbrainImportPromEvalRequestBody) String() string {
@@ -2095,8 +4662,10 @@ func (s *HrbrainImportPunDetailHeaders) SetXAcsDingtalkAccessToken(v string) *Hr
 }
 
 type HrbrainImportPunDetailRequest struct {
-	Body   []*HrbrainImportPunDetailRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	CorpId *string                              `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Body []*HrbrainImportPunDetailRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s HrbrainImportPunDetailRequest) String() string {
@@ -2118,13 +4687,17 @@ func (s *HrbrainImportPunDetailRequest) SetCorpId(v string) *HrbrainImportPunDet
 }
 
 type HrbrainImportPunDetailRequestBody struct {
-	Comment       *string                `json:"comment,omitempty" xml:"comment,omitempty"`
+	Comment *string `json:"comment,omitempty" xml:"comment,omitempty"`
+	// This parameter is required.
 	EffectiveDate *string                `json:"effectiveDate,omitempty" xml:"effectiveDate,omitempty"`
 	ExtendInfo    map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
-	Name          *string                `json:"name,omitempty" xml:"name,omitempty"`
-	PunName       *string                `json:"punName,omitempty" xml:"punName,omitempty"`
-	PunOrg        *string                `json:"punOrg,omitempty" xml:"punOrg,omitempty"`
-	WorkNo        *string                `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	PunName *string `json:"punName,omitempty" xml:"punName,omitempty"`
+	PunOrg  *string `json:"punOrg,omitempty" xml:"punOrg,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s HrbrainImportPunDetailRequestBody) String() string {
@@ -2252,8 +4825,10 @@ func (s *HrbrainImportRegistHeaders) SetXAcsDingtalkAccessToken(v string) *Hrbra
 }
 
 type HrbrainImportRegistRequest struct {
-	Body   []*HrbrainImportRegistRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	CorpId *string                           `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Body []*HrbrainImportRegistRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s HrbrainImportRegistRequest) String() string {
@@ -2275,19 +4850,26 @@ func (s *HrbrainImportRegistRequest) SetCorpId(v string) *HrbrainImportRegistReq
 }
 
 type HrbrainImportRegistRequestBody struct {
-	DeptName    *string                `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	DeptNo      *string                `json:"deptNo,omitempty" xml:"deptNo,omitempty"`
-	EmpSource   *string                `json:"empSource,omitempty" xml:"empSource,omitempty"`
+	// This parameter is required.
+	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	// This parameter is required.
+	DeptNo *string `json:"deptNo,omitempty" xml:"deptNo,omitempty"`
+	// This parameter is required.
+	EmpSource *string `json:"empSource,omitempty" xml:"empSource,omitempty"`
+	// This parameter is required.
 	EmpType     *string                `json:"empType,omitempty" xml:"empType,omitempty"`
 	ExtendInfo  map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
 	JobCodeName *string                `json:"jobCodeName,omitempty" xml:"jobCodeName,omitempty"`
 	JobLevel    *string                `json:"jobLevel,omitempty" xml:"jobLevel,omitempty"`
-	Name        *string                `json:"name,omitempty" xml:"name,omitempty"`
-	PostName    *string                `json:"postName,omitempty" xml:"postName,omitempty"`
-	RegistDate  *string                `json:"registDate,omitempty" xml:"registDate,omitempty"`
-	SuperName   *string                `json:"superName,omitempty" xml:"superName,omitempty"`
-	WorkLocAddr *string                `json:"workLocAddr,omitempty" xml:"workLocAddr,omitempty"`
-	WorkNo      *string                `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	// This parameter is required.
+	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	PostName *string `json:"postName,omitempty" xml:"postName,omitempty"`
+	// This parameter is required.
+	RegistDate  *string `json:"registDate,omitempty" xml:"registDate,omitempty"`
+	SuperName   *string `json:"superName,omitempty" xml:"superName,omitempty"`
+	WorkLocAddr *string `json:"workLocAddr,omitempty" xml:"workLocAddr,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s HrbrainImportRegistRequestBody) String() string {
@@ -2421,6 +5003,394 @@ func (s *HrbrainImportRegistResponse) SetBody(v *HrbrainImportRegistResponseBody
 	return s
 }
 
+type HrbrainImportRegularHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainImportRegularHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainImportRegularHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainImportRegularHeaders) SetCommonHeaders(v map[string]*string) *HrbrainImportRegularHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainImportRegularHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainImportRegularHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainImportRegularRequest struct {
+	Body []*HrbrainImportRegularRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+}
+
+func (s HrbrainImportRegularRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainImportRegularRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainImportRegularRequest) SetBody(v []*HrbrainImportRegularRequestBody) *HrbrainImportRegularRequest {
+	s.Body = v
+	return s
+}
+
+func (s *HrbrainImportRegularRequest) SetCorpId(v string) *HrbrainImportRegularRequest {
+	s.CorpId = &v
+	return s
+}
+
+type HrbrainImportRegularRequestBody struct {
+	DeptName        *string                `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	DeptNo          *string                `json:"deptNo,omitempty" xml:"deptNo,omitempty"`
+	ExtendInfo      map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
+	JobCodeName     *string                `json:"jobCodeName,omitempty" xml:"jobCodeName,omitempty"`
+	JobLevel        *string                `json:"jobLevel,omitempty" xml:"jobLevel,omitempty"`
+	Name            *string                `json:"name,omitempty" xml:"name,omitempty"`
+	PlanRegularDate *string                `json:"planRegularDate,omitempty" xml:"planRegularDate,omitempty"`
+	PostName        *string                `json:"postName,omitempty" xml:"postName,omitempty"`
+	// This parameter is required.
+	RegularDate *string `json:"regularDate,omitempty" xml:"regularDate,omitempty"`
+	SuperEmpId  *string `json:"superEmpId,omitempty" xml:"superEmpId,omitempty"`
+	SuperName   *string `json:"superName,omitempty" xml:"superName,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainImportRegularRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainImportRegularRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainImportRegularRequestBody) SetDeptName(v string) *HrbrainImportRegularRequestBody {
+	s.DeptName = &v
+	return s
+}
+
+func (s *HrbrainImportRegularRequestBody) SetDeptNo(v string) *HrbrainImportRegularRequestBody {
+	s.DeptNo = &v
+	return s
+}
+
+func (s *HrbrainImportRegularRequestBody) SetExtendInfo(v map[string]interface{}) *HrbrainImportRegularRequestBody {
+	s.ExtendInfo = v
+	return s
+}
+
+func (s *HrbrainImportRegularRequestBody) SetJobCodeName(v string) *HrbrainImportRegularRequestBody {
+	s.JobCodeName = &v
+	return s
+}
+
+func (s *HrbrainImportRegularRequestBody) SetJobLevel(v string) *HrbrainImportRegularRequestBody {
+	s.JobLevel = &v
+	return s
+}
+
+func (s *HrbrainImportRegularRequestBody) SetName(v string) *HrbrainImportRegularRequestBody {
+	s.Name = &v
+	return s
+}
+
+func (s *HrbrainImportRegularRequestBody) SetPlanRegularDate(v string) *HrbrainImportRegularRequestBody {
+	s.PlanRegularDate = &v
+	return s
+}
+
+func (s *HrbrainImportRegularRequestBody) SetPostName(v string) *HrbrainImportRegularRequestBody {
+	s.PostName = &v
+	return s
+}
+
+func (s *HrbrainImportRegularRequestBody) SetRegularDate(v string) *HrbrainImportRegularRequestBody {
+	s.RegularDate = &v
+	return s
+}
+
+func (s *HrbrainImportRegularRequestBody) SetSuperEmpId(v string) *HrbrainImportRegularRequestBody {
+	s.SuperEmpId = &v
+	return s
+}
+
+func (s *HrbrainImportRegularRequestBody) SetSuperName(v string) *HrbrainImportRegularRequestBody {
+	s.SuperName = &v
+	return s
+}
+
+func (s *HrbrainImportRegularRequestBody) SetWorkNo(v string) *HrbrainImportRegularRequestBody {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainImportRegularResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainImportRegularResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainImportRegularResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainImportRegularResponseBody) SetRequestId(v string) *HrbrainImportRegularResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainImportRegularResponseBody) SetResult(v bool) *HrbrainImportRegularResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainImportRegularResponseBody) SetSuccess(v bool) *HrbrainImportRegularResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainImportRegularResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainImportRegularResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainImportRegularResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainImportRegularResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainImportRegularResponse) SetHeaders(v map[string]*string) *HrbrainImportRegularResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainImportRegularResponse) SetStatusCode(v int32) *HrbrainImportRegularResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainImportRegularResponse) SetBody(v *HrbrainImportRegularResponseBody) *HrbrainImportRegularResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainImportTrainingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainImportTrainingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainImportTrainingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainImportTrainingHeaders) SetCommonHeaders(v map[string]*string) *HrbrainImportTrainingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainImportTrainingHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainImportTrainingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainImportTrainingRequest struct {
+	Body []*HrbrainImportTrainingRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+}
+
+func (s HrbrainImportTrainingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainImportTrainingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainImportTrainingRequest) SetBody(v []*HrbrainImportTrainingRequestBody) *HrbrainImportTrainingRequest {
+	s.Body = v
+	return s
+}
+
+func (s *HrbrainImportTrainingRequest) SetCorpId(v string) *HrbrainImportTrainingRequest {
+	s.CorpId = &v
+	return s
+}
+
+type HrbrainImportTrainingRequestBody struct {
+	CertifCnt   *string                `json:"certifCnt,omitempty" xml:"certifCnt,omitempty"`
+	CreditScore *string                `json:"creditScore,omitempty" xml:"creditScore,omitempty"`
+	DeptName    *string                `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	DeptNo      *string                `json:"deptNo,omitempty" xml:"deptNo,omitempty"`
+	ExtendInfo  map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
+	JobCodeName *string                `json:"jobCodeName,omitempty" xml:"jobCodeName,omitempty"`
+	JobLevel    *string                `json:"jobLevel,omitempty" xml:"jobLevel,omitempty"`
+	Name        *string                `json:"name,omitempty" xml:"name,omitempty"`
+	PostName    *string                `json:"postName,omitempty" xml:"postName,omitempty"`
+	// This parameter is required.
+	TrainEndDate *string `json:"trainEndDate,omitempty" xml:"trainEndDate,omitempty"`
+	// This parameter is required.
+	TrainName *string `json:"trainName,omitempty" xml:"trainName,omitempty"`
+	// This parameter is required.
+	TrainStartDate *string `json:"trainStartDate,omitempty" xml:"trainStartDate,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainImportTrainingRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainImportTrainingRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainImportTrainingRequestBody) SetCertifCnt(v string) *HrbrainImportTrainingRequestBody {
+	s.CertifCnt = &v
+	return s
+}
+
+func (s *HrbrainImportTrainingRequestBody) SetCreditScore(v string) *HrbrainImportTrainingRequestBody {
+	s.CreditScore = &v
+	return s
+}
+
+func (s *HrbrainImportTrainingRequestBody) SetDeptName(v string) *HrbrainImportTrainingRequestBody {
+	s.DeptName = &v
+	return s
+}
+
+func (s *HrbrainImportTrainingRequestBody) SetDeptNo(v string) *HrbrainImportTrainingRequestBody {
+	s.DeptNo = &v
+	return s
+}
+
+func (s *HrbrainImportTrainingRequestBody) SetExtendInfo(v map[string]interface{}) *HrbrainImportTrainingRequestBody {
+	s.ExtendInfo = v
+	return s
+}
+
+func (s *HrbrainImportTrainingRequestBody) SetJobCodeName(v string) *HrbrainImportTrainingRequestBody {
+	s.JobCodeName = &v
+	return s
+}
+
+func (s *HrbrainImportTrainingRequestBody) SetJobLevel(v string) *HrbrainImportTrainingRequestBody {
+	s.JobLevel = &v
+	return s
+}
+
+func (s *HrbrainImportTrainingRequestBody) SetName(v string) *HrbrainImportTrainingRequestBody {
+	s.Name = &v
+	return s
+}
+
+func (s *HrbrainImportTrainingRequestBody) SetPostName(v string) *HrbrainImportTrainingRequestBody {
+	s.PostName = &v
+	return s
+}
+
+func (s *HrbrainImportTrainingRequestBody) SetTrainEndDate(v string) *HrbrainImportTrainingRequestBody {
+	s.TrainEndDate = &v
+	return s
+}
+
+func (s *HrbrainImportTrainingRequestBody) SetTrainName(v string) *HrbrainImportTrainingRequestBody {
+	s.TrainName = &v
+	return s
+}
+
+func (s *HrbrainImportTrainingRequestBody) SetTrainStartDate(v string) *HrbrainImportTrainingRequestBody {
+	s.TrainStartDate = &v
+	return s
+}
+
+func (s *HrbrainImportTrainingRequestBody) SetWorkNo(v string) *HrbrainImportTrainingRequestBody {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainImportTrainingResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainImportTrainingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainImportTrainingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainImportTrainingResponseBody) SetRequestId(v string) *HrbrainImportTrainingResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainImportTrainingResponseBody) SetResult(v bool) *HrbrainImportTrainingResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainImportTrainingResponseBody) SetSuccess(v bool) *HrbrainImportTrainingResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainImportTrainingResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainImportTrainingResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainImportTrainingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainImportTrainingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainImportTrainingResponse) SetHeaders(v map[string]*string) *HrbrainImportTrainingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainImportTrainingResponse) SetStatusCode(v int32) *HrbrainImportTrainingResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainImportTrainingResponse) SetBody(v *HrbrainImportTrainingResponseBody) *HrbrainImportTrainingResponse {
+	s.Body = v
+	return s
+}
+
 type HrbrainImportTransferEvalHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2445,8 +5415,10 @@ func (s *HrbrainImportTransferEvalHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type HrbrainImportTransferEvalRequest struct {
-	Body   []*HrbrainImportTransferEvalRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	CorpId *string                                 `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Body []*HrbrainImportTransferEvalRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s HrbrainImportTransferEvalRequest) String() string {
@@ -2468,14 +5440,21 @@ func (s *HrbrainImportTransferEvalRequest) SetCorpId(v string) *HrbrainImportTra
 }
 
 type HrbrainImportTransferEvalRequestBody struct {
-	CurrInfo       map[string]interface{} `json:"currInfo,omitempty" xml:"currInfo,omitempty"`
-	ExtendInfo     map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
-	Name           *string                `json:"name,omitempty" xml:"name,omitempty"`
-	PreInfo        map[string]interface{} `json:"preInfo,omitempty" xml:"preInfo,omitempty"`
-	TransferDate   *string                `json:"transferDate,omitempty" xml:"transferDate,omitempty"`
-	TransferReason *string                `json:"transferReason,omitempty" xml:"transferReason,omitempty"`
-	TransferType   *string                `json:"transferType,omitempty" xml:"transferType,omitempty"`
-	WorkNo         *string                `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	// This parameter is required.
+	CurrInfo   map[string]interface{} `json:"currInfo,omitempty" xml:"currInfo,omitempty"`
+	ExtendInfo map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	PreInfo map[string]interface{} `json:"preInfo,omitempty" xml:"preInfo,omitempty"`
+	// This parameter is required.
+	TransferDate *string `json:"transferDate,omitempty" xml:"transferDate,omitempty"`
+	// This parameter is required.
+	TransferReason *string `json:"transferReason,omitempty" xml:"transferReason,omitempty"`
+	// This parameter is required.
+	TransferType *string `json:"transferType,omitempty" xml:"transferType,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s HrbrainImportTransferEvalRequestBody) String() string {
@@ -2608,8 +5587,10 @@ func (s *HrbrainImportWorkExpHeaders) SetXAcsDingtalkAccessToken(v string) *Hrbr
 }
 
 type HrbrainImportWorkExpRequest struct {
-	Body   []*HrbrainImportWorkExpRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	CorpId *string                            `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Body []*HrbrainImportWorkExpRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s HrbrainImportWorkExpRequest) String() string {
@@ -2631,14 +5612,19 @@ func (s *HrbrainImportWorkExpRequest) SetCorpId(v string) *HrbrainImportWorkExpR
 }
 
 type HrbrainImportWorkExpRequestBody struct {
-	CompanyName *string                `json:"companyName,omitempty" xml:"companyName,omitempty"`
-	EndDate     *string                `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	ExtendInfo  map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
-	JobDesc     *string                `json:"jobDesc,omitempty" xml:"jobDesc,omitempty"`
-	Name        *string                `json:"name,omitempty" xml:"name,omitempty"`
-	PostName    *string                `json:"postName,omitempty" xml:"postName,omitempty"`
-	StartDate   *string                `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	WorkNo      *string                `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	// This parameter is required.
+	CompanyName *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
+	// This parameter is required.
+	EndDate    *string                `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	ExtendInfo map[string]interface{} `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
+	JobDesc    *string                `json:"jobDesc,omitempty" xml:"jobDesc,omitempty"`
+	// This parameter is required.
+	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	PostName *string `json:"postName,omitempty" xml:"postName,omitempty"`
+	// This parameter is required.
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// This parameter is required.
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s HrbrainImportWorkExpRequestBody) String() string {
@@ -2747,6 +5733,760 @@ func (s *HrbrainImportWorkExpResponse) SetBody(v *HrbrainImportWorkExpResponseBo
 	return s
 }
 
+type HrbrainTalentProfileAttachmentQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainTalentProfileAttachmentQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainTalentProfileAttachmentQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainTalentProfileAttachmentQueryHeaders) SetCommonHeaders(v map[string]*string) *HrbrainTalentProfileAttachmentQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainTalentProfileAttachmentQueryHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainTalentProfileAttachmentQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainTalentProfileAttachmentQueryRequest struct {
+	Body       []*string `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	DingCorpId *string   `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+}
+
+func (s HrbrainTalentProfileAttachmentQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainTalentProfileAttachmentQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainTalentProfileAttachmentQueryRequest) SetBody(v []*string) *HrbrainTalentProfileAttachmentQueryRequest {
+	s.Body = v
+	return s
+}
+
+func (s *HrbrainTalentProfileAttachmentQueryRequest) SetDingCorpId(v string) *HrbrainTalentProfileAttachmentQueryRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+type HrbrainTalentProfileAttachmentQueryResponseBody struct {
+	Content   *HrbrainTalentProfileAttachmentQueryResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                                                 `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool                                                   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool                                                   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainTalentProfileAttachmentQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainTalentProfileAttachmentQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainTalentProfileAttachmentQueryResponseBody) SetContent(v *HrbrainTalentProfileAttachmentQueryResponseBodyContent) *HrbrainTalentProfileAttachmentQueryResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *HrbrainTalentProfileAttachmentQueryResponseBody) SetRequestId(v string) *HrbrainTalentProfileAttachmentQueryResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileAttachmentQueryResponseBody) SetResult(v bool) *HrbrainTalentProfileAttachmentQueryResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileAttachmentQueryResponseBody) SetSuccess(v bool) *HrbrainTalentProfileAttachmentQueryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainTalentProfileAttachmentQueryResponseBodyContent struct {
+	StaffAttachmentInfoList []*HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoList `json:"staffAttachmentInfoList,omitempty" xml:"staffAttachmentInfoList,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainTalentProfileAttachmentQueryResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainTalentProfileAttachmentQueryResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainTalentProfileAttachmentQueryResponseBodyContent) SetStaffAttachmentInfoList(v []*HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoList) *HrbrainTalentProfileAttachmentQueryResponseBodyContent {
+	s.StaffAttachmentInfoList = v
+	return s
+}
+
+type HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoList struct {
+	AttachmentInfoList []*HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoListAttachmentInfoList `json:"attachmentInfoList,omitempty" xml:"attachmentInfoList,omitempty" type:"Repeated"`
+	WorkNo             *string                                                                                            `json:"workNo,omitempty" xml:"workNo,omitempty"`
+}
+
+func (s HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoList) SetAttachmentInfoList(v []*HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoListAttachmentInfoList) *HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoList {
+	s.AttachmentInfoList = v
+	return s
+}
+
+func (s *HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoList) SetWorkNo(v string) *HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoList {
+	s.WorkNo = &v
+	return s
+}
+
+type HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoListAttachmentInfoList struct {
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	Url  *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoListAttachmentInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoListAttachmentInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoListAttachmentInfoList) SetName(v string) *HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoListAttachmentInfoList {
+	s.Name = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoListAttachmentInfoList) SetUrl(v string) *HrbrainTalentProfileAttachmentQueryResponseBodyContentStaffAttachmentInfoListAttachmentInfoList {
+	s.Url = &v
+	return s
+}
+
+type HrbrainTalentProfileAttachmentQueryResponse struct {
+	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainTalentProfileAttachmentQueryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainTalentProfileAttachmentQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainTalentProfileAttachmentQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainTalentProfileAttachmentQueryResponse) SetHeaders(v map[string]*string) *HrbrainTalentProfileAttachmentQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainTalentProfileAttachmentQueryResponse) SetStatusCode(v int32) *HrbrainTalentProfileAttachmentQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileAttachmentQueryResponse) SetBody(v *HrbrainTalentProfileAttachmentQueryResponseBody) *HrbrainTalentProfileAttachmentQueryResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainTalentProfileBasicQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainTalentProfileBasicQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainTalentProfileBasicQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainTalentProfileBasicQueryHeaders) SetCommonHeaders(v map[string]*string) *HrbrainTalentProfileBasicQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainTalentProfileBasicQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainTalentProfileBasicQueryRequest struct {
+	Body       []*string `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	DingCorpId *string   `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+}
+
+func (s HrbrainTalentProfileBasicQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainTalentProfileBasicQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainTalentProfileBasicQueryRequest) SetBody(v []*string) *HrbrainTalentProfileBasicQueryRequest {
+	s.Body = v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryRequest) SetDingCorpId(v string) *HrbrainTalentProfileBasicQueryRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+type HrbrainTalentProfileBasicQueryResponseBody struct {
+	Content   *HrbrainTalentProfileBasicQueryResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                                            `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool                                              `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool                                              `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainTalentProfileBasicQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainTalentProfileBasicQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBody) SetContent(v *HrbrainTalentProfileBasicQueryResponseBodyContent) *HrbrainTalentProfileBasicQueryResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBody) SetRequestId(v string) *HrbrainTalentProfileBasicQueryResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBody) SetResult(v bool) *HrbrainTalentProfileBasicQueryResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBody) SetSuccess(v bool) *HrbrainTalentProfileBasicQueryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainTalentProfileBasicQueryResponseBodyContent struct {
+	ProfileBaseInfoList []*HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList `json:"profileBaseInfoList,omitempty" xml:"profileBaseInfoList,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainTalentProfileBasicQueryResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainTalentProfileBasicQueryResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBodyContent) SetProfileBaseInfoList(v []*HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList) *HrbrainTalentProfileBasicQueryResponseBodyContent {
+	s.ProfileBaseInfoList = v
+	return s
+}
+
+type HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList struct {
+	Age            *string `json:"age,omitempty" xml:"age,omitempty"`
+	Birthday       *string `json:"birthday,omitempty" xml:"birthday,omitempty"`
+	DeptName       *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	DeptNo         *string `json:"deptNo,omitempty" xml:"deptNo,omitempty"`
+	Gender         *string `json:"gender,omitempty" xml:"gender,omitempty"`
+	JobLevel       *string `json:"jobLevel,omitempty" xml:"jobLevel,omitempty"`
+	Jobcode        *string `json:"jobcode,omitempty" xml:"jobcode,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	Position       *string `json:"position,omitempty" xml:"position,omitempty"`
+	SeniorityYears *string `json:"seniorityYears,omitempty" xml:"seniorityYears,omitempty"`
+	SuperName      *string `json:"superName,omitempty" xml:"superName,omitempty"`
+	SuperWorkNo    *string `json:"superWorkNo,omitempty" xml:"superWorkNo,omitempty"`
+	WorkNo         *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	WorkPlace      *string `json:"workPlace,omitempty" xml:"workPlace,omitempty"`
+}
+
+func (s HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList) SetAge(v string) *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList {
+	s.Age = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList) SetBirthday(v string) *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList {
+	s.Birthday = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList) SetDeptName(v string) *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList {
+	s.DeptName = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList) SetDeptNo(v string) *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList {
+	s.DeptNo = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList) SetGender(v string) *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList {
+	s.Gender = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList) SetJobLevel(v string) *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList {
+	s.JobLevel = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList) SetJobcode(v string) *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList {
+	s.Jobcode = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList) SetName(v string) *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList {
+	s.Name = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList) SetPosition(v string) *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList {
+	s.Position = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList) SetSeniorityYears(v string) *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList {
+	s.SeniorityYears = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList) SetSuperName(v string) *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList {
+	s.SuperName = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList) SetSuperWorkNo(v string) *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList {
+	s.SuperWorkNo = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList) SetWorkNo(v string) *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList {
+	s.WorkNo = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList) SetWorkPlace(v string) *HrbrainTalentProfileBasicQueryResponseBodyContentProfileBaseInfoList {
+	s.WorkPlace = &v
+	return s
+}
+
+type HrbrainTalentProfileBasicQueryResponse struct {
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainTalentProfileBasicQueryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainTalentProfileBasicQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainTalentProfileBasicQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponse) SetHeaders(v map[string]*string) *HrbrainTalentProfileBasicQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponse) SetStatusCode(v int32) *HrbrainTalentProfileBasicQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainTalentProfileBasicQueryResponse) SetBody(v *HrbrainTalentProfileBasicQueryResponseBody) *HrbrainTalentProfileBasicQueryResponse {
+	s.Body = v
+	return s
+}
+
+type StaffLabelRecordsQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s StaffLabelRecordsQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StaffLabelRecordsQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *StaffLabelRecordsQueryHeaders) SetCommonHeaders(v map[string]*string) *StaffLabelRecordsQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryHeaders) SetXAcsDingtalkAccessToken(v string) *StaffLabelRecordsQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type StaffLabelRecordsQueryRequest struct {
+	Body []*StaffLabelRecordsQueryRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 0140180438261064274667
+	DingCorpId *string `json:"dingCorpId,omitempty" xml:"dingCorpId,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s StaffLabelRecordsQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StaffLabelRecordsQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *StaffLabelRecordsQueryRequest) SetBody(v []*StaffLabelRecordsQueryRequestBody) *StaffLabelRecordsQueryRequest {
+	s.Body = v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryRequest) SetDingCorpId(v string) *StaffLabelRecordsQueryRequest {
+	s.DingCorpId = &v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryRequest) SetMaxResults(v int64) *StaffLabelRecordsQueryRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryRequest) SetNextToken(v string) *StaffLabelRecordsQueryRequest {
+	s.NextToken = &v
+	return s
+}
+
+type StaffLabelRecordsQueryRequestBody struct {
+	Labels []*StaffLabelRecordsQueryRequestBodyLabels `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 0140180438261064274667
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s StaffLabelRecordsQueryRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StaffLabelRecordsQueryRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *StaffLabelRecordsQueryRequestBody) SetLabels(v []*StaffLabelRecordsQueryRequestBodyLabels) *StaffLabelRecordsQueryRequestBody {
+	s.Labels = v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryRequestBody) SetUserId(v string) *StaffLabelRecordsQueryRequestBody {
+	s.UserId = &v
+	return s
+}
+
+type StaffLabelRecordsQueryRequestBodyLabels struct {
+	// example:
+	//
+	// long_termism_score
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// example:
+	//
+	// values
+	TypeCode *string `json:"typeCode,omitempty" xml:"typeCode,omitempty"`
+}
+
+func (s StaffLabelRecordsQueryRequestBodyLabels) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StaffLabelRecordsQueryRequestBodyLabels) GoString() string {
+	return s.String()
+}
+
+func (s *StaffLabelRecordsQueryRequestBodyLabels) SetCode(v string) *StaffLabelRecordsQueryRequestBodyLabels {
+	s.Code = &v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryRequestBodyLabels) SetTypeCode(v string) *StaffLabelRecordsQueryRequestBodyLabels {
+	s.TypeCode = &v
+	return s
+}
+
+type StaffLabelRecordsQueryResponseBody struct {
+	Content *StaffLabelRecordsQueryResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	// example:
+	//
+	// 0140180438261064274667
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s StaffLabelRecordsQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StaffLabelRecordsQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *StaffLabelRecordsQueryResponseBody) SetContent(v *StaffLabelRecordsQueryResponseBodyContent) *StaffLabelRecordsQueryResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryResponseBody) SetRequestId(v string) *StaffLabelRecordsQueryResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryResponseBody) SetResult(v bool) *StaffLabelRecordsQueryResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryResponseBody) SetSuccess(v bool) *StaffLabelRecordsQueryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type StaffLabelRecordsQueryResponseBodyContent struct {
+	Data []*StaffLabelRecordsQueryResponseBodyContentData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 10
+	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCountt *int64 `json:"totalCountt,omitempty" xml:"totalCountt,omitempty"`
+}
+
+func (s StaffLabelRecordsQueryResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StaffLabelRecordsQueryResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *StaffLabelRecordsQueryResponseBodyContent) SetData(v []*StaffLabelRecordsQueryResponseBodyContentData) *StaffLabelRecordsQueryResponseBodyContent {
+	s.Data = v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryResponseBodyContent) SetMaxResults(v int64) *StaffLabelRecordsQueryResponseBodyContent {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryResponseBodyContent) SetNextToken(v string) *StaffLabelRecordsQueryResponseBodyContent {
+	s.NextToken = &v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryResponseBodyContent) SetTotalCountt(v int64) *StaffLabelRecordsQueryResponseBodyContent {
+	s.TotalCountt = &v
+	return s
+}
+
+type StaffLabelRecordsQueryResponseBodyContentData struct {
+	Labels []*StaffLabelRecordsQueryResponseBodyContentDataLabels `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 0140180438261064274667
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s StaffLabelRecordsQueryResponseBodyContentData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StaffLabelRecordsQueryResponseBodyContentData) GoString() string {
+	return s.String()
+}
+
+func (s *StaffLabelRecordsQueryResponseBodyContentData) SetLabels(v []*StaffLabelRecordsQueryResponseBodyContentDataLabels) *StaffLabelRecordsQueryResponseBodyContentData {
+	s.Labels = v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryResponseBodyContentData) SetUserId(v string) *StaffLabelRecordsQueryResponseBodyContentData {
+	s.UserId = &v
+	return s
+}
+
+type StaffLabelRecordsQueryResponseBodyContentDataLabels struct {
+	// example:
+	//
+	// long_termism_score
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// example:
+	//
+	// values.long_termism_score
+	Guid *string `json:"guid,omitempty" xml:"guid,omitempty"`
+	// example:
+	//
+	// 持续业绩
+	Name    *string                                                       `json:"name,omitempty" xml:"name,omitempty"`
+	Options []*StaffLabelRecordsQueryResponseBodyContentDataLabelsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// example:
+	//
+	// values
+	TypeCode *string `json:"typeCode,omitempty" xml:"typeCode,omitempty"`
+	// example:
+	//
+	// 价值
+	TypeName *string `json:"typeName,omitempty" xml:"typeName,omitempty"`
+	// example:
+	//
+	// 5（总是）
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s StaffLabelRecordsQueryResponseBodyContentDataLabels) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StaffLabelRecordsQueryResponseBodyContentDataLabels) GoString() string {
+	return s.String()
+}
+
+func (s *StaffLabelRecordsQueryResponseBodyContentDataLabels) SetCode(v string) *StaffLabelRecordsQueryResponseBodyContentDataLabels {
+	s.Code = &v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryResponseBodyContentDataLabels) SetGuid(v string) *StaffLabelRecordsQueryResponseBodyContentDataLabels {
+	s.Guid = &v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryResponseBodyContentDataLabels) SetName(v string) *StaffLabelRecordsQueryResponseBodyContentDataLabels {
+	s.Name = &v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryResponseBodyContentDataLabels) SetOptions(v []*StaffLabelRecordsQueryResponseBodyContentDataLabelsOptions) *StaffLabelRecordsQueryResponseBodyContentDataLabels {
+	s.Options = v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryResponseBodyContentDataLabels) SetTypeCode(v string) *StaffLabelRecordsQueryResponseBodyContentDataLabels {
+	s.TypeCode = &v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryResponseBodyContentDataLabels) SetTypeName(v string) *StaffLabelRecordsQueryResponseBodyContentDataLabels {
+	s.TypeName = &v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryResponseBodyContentDataLabels) SetValue(v string) *StaffLabelRecordsQueryResponseBodyContentDataLabels {
+	s.Value = &v
+	return s
+}
+
+type StaffLabelRecordsQueryResponseBodyContentDataLabelsOptions struct {
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	Tip   *string `json:"tip,omitempty" xml:"tip,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s StaffLabelRecordsQueryResponseBodyContentDataLabelsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StaffLabelRecordsQueryResponseBodyContentDataLabelsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *StaffLabelRecordsQueryResponseBodyContentDataLabelsOptions) SetLabel(v string) *StaffLabelRecordsQueryResponseBodyContentDataLabelsOptions {
+	s.Label = &v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryResponseBodyContentDataLabelsOptions) SetTip(v string) *StaffLabelRecordsQueryResponseBodyContentDataLabelsOptions {
+	s.Tip = &v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryResponseBodyContentDataLabelsOptions) SetValue(v string) *StaffLabelRecordsQueryResponseBodyContentDataLabelsOptions {
+	s.Value = &v
+	return s
+}
+
+type StaffLabelRecordsQueryResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *StaffLabelRecordsQueryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s StaffLabelRecordsQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s StaffLabelRecordsQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *StaffLabelRecordsQueryResponse) SetHeaders(v map[string]*string) *StaffLabelRecordsQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryResponse) SetStatusCode(v int32) *StaffLabelRecordsQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *StaffLabelRecordsQueryResponse) SetBody(v *StaffLabelRecordsQueryResponseBody) *StaffLabelRecordsQueryResponse {
+	s.Body = v
+	return s
+}
+
 type SyncDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2771,11 +6511,16 @@ func (s *SyncDataHeaders) SetXAcsDingtalkAccessToken(v string) *SyncDataHeaders 
 }
 
 type SyncDataRequest struct {
-	Content   *string `json:"content,omitempty" xml:"content,omitempty"`
-	DataId    *string `json:"dataId,omitempty" xml:"dataId,omitempty"`
-	EtlTime   *string `json:"etlTime,omitempty" xml:"etlTime,omitempty"`
+	// This parameter is required.
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	DataId *string `json:"dataId,omitempty" xml:"dataId,omitempty"`
+	// This parameter is required.
+	EtlTime *string `json:"etlTime,omitempty" xml:"etlTime,omitempty"`
+	// This parameter is required.
 	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	SchemaId  *string `json:"schemaId,omitempty" xml:"schemaId,omitempty"`
+	// This parameter is required.
+	SchemaId *string `json:"schemaId,omitempty" xml:"schemaId,omitempty"`
 }
 
 func (s SyncDataRequest) String() string {
@@ -2872,12 +6617,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -2886,6 +6631,1335 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 删除奖励记录
+//
+// @param request - HrbrainDeleteAwardRecordsRequest
+//
+// @param headers - HrbrainDeleteAwardRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeleteAwardRecordsResponse
+func (client *Client) HrbrainDeleteAwardRecordsWithOptions(request *HrbrainDeleteAwardRecordsRequest, headers *HrbrainDeleteAwardRecordsHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeleteAwardRecordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeleteAwardRecords"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/awardRecords/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeleteAwardRecordsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除奖励记录
+//
+// @param request - HrbrainDeleteAwardRecordsRequest
+//
+// @return HrbrainDeleteAwardRecordsResponse
+func (client *Client) HrbrainDeleteAwardRecords(request *HrbrainDeleteAwardRecordsRequest) (_result *HrbrainDeleteAwardRecordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeleteAwardRecordsHeaders{}
+	_result = &HrbrainDeleteAwardRecordsResponse{}
+	_body, _err := client.HrbrainDeleteAwardRecordsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除自定义模型记录
+//
+// @param request - HrbrainDeleteCustomRequest
+//
+// @param headers - HrbrainDeleteCustomHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeleteCustomResponse
+func (client *Client) HrbrainDeleteCustomWithOptions(request *HrbrainDeleteCustomRequest, headers *HrbrainDeleteCustomHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeleteCustomResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ModelCode)) {
+		body["modelCode"] = request.ModelCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeleteCustom"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/customModels/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeleteCustomResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除自定义模型记录
+//
+// @param request - HrbrainDeleteCustomRequest
+//
+// @return HrbrainDeleteCustomResponse
+func (client *Client) HrbrainDeleteCustom(request *HrbrainDeleteCustomRequest) (_result *HrbrainDeleteCustomResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeleteCustomHeaders{}
+	_result = &HrbrainDeleteCustomResponse{}
+	_body, _err := client.HrbrainDeleteCustomWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除组织架构
+//
+// @param request - HrbrainDeleteDeptInfoRequest
+//
+// @param headers - HrbrainDeleteDeptInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeleteDeptInfoResponse
+func (client *Client) HrbrainDeleteDeptInfoWithOptions(request *HrbrainDeleteDeptInfoRequest, headers *HrbrainDeleteDeptInfoHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeleteDeptInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeleteDeptInfo"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/deptInfos/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeleteDeptInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除组织架构
+//
+// @param request - HrbrainDeleteDeptInfoRequest
+//
+// @return HrbrainDeleteDeptInfoResponse
+func (client *Client) HrbrainDeleteDeptInfo(request *HrbrainDeleteDeptInfoRequest) (_result *HrbrainDeleteDeptInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeleteDeptInfoHeaders{}
+	_result = &HrbrainDeleteDeptInfoResponse{}
+	_body, _err := client.HrbrainDeleteDeptInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除离职记录
+//
+// @param request - HrbrainDeleteDimissionRequest
+//
+// @param headers - HrbrainDeleteDimissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeleteDimissionResponse
+func (client *Client) HrbrainDeleteDimissionWithOptions(request *HrbrainDeleteDimissionRequest, headers *HrbrainDeleteDimissionHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeleteDimissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeleteDimission"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/dimissionInfos/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeleteDimissionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除离职记录
+//
+// @param request - HrbrainDeleteDimissionRequest
+//
+// @return HrbrainDeleteDimissionResponse
+func (client *Client) HrbrainDeleteDimission(request *HrbrainDeleteDimissionRequest) (_result *HrbrainDeleteDimissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeleteDimissionHeaders{}
+	_result = &HrbrainDeleteDimissionResponse{}
+	_body, _err := client.HrbrainDeleteDimissionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除教育经历
+//
+// @param request - HrbrainDeleteEduExpRequest
+//
+// @param headers - HrbrainDeleteEduExpHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeleteEduExpResponse
+func (client *Client) HrbrainDeleteEduExpWithOptions(request *HrbrainDeleteEduExpRequest, headers *HrbrainDeleteEduExpHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeleteEduExpResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeleteEduExp"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/eduExperiences/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeleteEduExpResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除教育经历
+//
+// @param request - HrbrainDeleteEduExpRequest
+//
+// @return HrbrainDeleteEduExpResponse
+func (client *Client) HrbrainDeleteEduExp(request *HrbrainDeleteEduExpRequest) (_result *HrbrainDeleteEduExpResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeleteEduExpHeaders{}
+	_result = &HrbrainDeleteEduExpResponse{}
+	_body, _err := client.HrbrainDeleteEduExpWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除人员信息
+//
+// @param request - HrbrainDeleteEmpInfoRequest
+//
+// @param headers - HrbrainDeleteEmpInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeleteEmpInfoResponse
+func (client *Client) HrbrainDeleteEmpInfoWithOptions(request *HrbrainDeleteEmpInfoRequest, headers *HrbrainDeleteEmpInfoHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeleteEmpInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeleteEmpInfo"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/empInfos/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeleteEmpInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除人员信息
+//
+// @param request - HrbrainDeleteEmpInfoRequest
+//
+// @return HrbrainDeleteEmpInfoResponse
+func (client *Client) HrbrainDeleteEmpInfo(request *HrbrainDeleteEmpInfoRequest) (_result *HrbrainDeleteEmpInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeleteEmpInfoHeaders{}
+	_result = &HrbrainDeleteEmpInfoResponse{}
+	_body, _err := client.HrbrainDeleteEmpInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除领域经验
+//
+// @param request - HrbrainDeleteLabelIndustryRequest
+//
+// @param headers - HrbrainDeleteLabelIndustryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeleteLabelIndustryResponse
+func (client *Client) HrbrainDeleteLabelIndustryWithOptions(request *HrbrainDeleteLabelIndustryRequest, headers *HrbrainDeleteLabelIndustryHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeleteLabelIndustryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeleteLabelIndustry"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/industries/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeleteLabelIndustryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除领域经验
+//
+// @param request - HrbrainDeleteLabelIndustryRequest
+//
+// @return HrbrainDeleteLabelIndustryResponse
+func (client *Client) HrbrainDeleteLabelIndustry(request *HrbrainDeleteLabelIndustryRequest) (_result *HrbrainDeleteLabelIndustryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeleteLabelIndustryHeaders{}
+	_result = &HrbrainDeleteLabelIndustryResponse{}
+	_body, _err := client.HrbrainDeleteLabelIndustryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除盘点数据
+//
+// @param request - HrbrainDeleteLabelInventoryRequest
+//
+// @param headers - HrbrainDeleteLabelInventoryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeleteLabelInventoryResponse
+func (client *Client) HrbrainDeleteLabelInventoryWithOptions(request *HrbrainDeleteLabelInventoryRequest, headers *HrbrainDeleteLabelInventoryHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeleteLabelInventoryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeleteLabelInventory"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/inventories/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeleteLabelInventoryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除盘点数据
+//
+// @param request - HrbrainDeleteLabelInventoryRequest
+//
+// @return HrbrainDeleteLabelInventoryResponse
+func (client *Client) HrbrainDeleteLabelInventory(request *HrbrainDeleteLabelInventoryRequest) (_result *HrbrainDeleteLabelInventoryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeleteLabelInventoryHeaders{}
+	_result = &HrbrainDeleteLabelInventoryResponse{}
+	_body, _err := client.HrbrainDeleteLabelInventoryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除专业技能
+//
+// @param request - HrbrainDeleteLabelProfSkillRequest
+//
+// @param headers - HrbrainDeleteLabelProfSkillHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeleteLabelProfSkillResponse
+func (client *Client) HrbrainDeleteLabelProfSkillWithOptions(request *HrbrainDeleteLabelProfSkillRequest, headers *HrbrainDeleteLabelProfSkillHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeleteLabelProfSkillResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeleteLabelProfSkill"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/profSkills/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeleteLabelProfSkillResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除专业技能
+//
+// @param request - HrbrainDeleteLabelProfSkillRequest
+//
+// @return HrbrainDeleteLabelProfSkillResponse
+func (client *Client) HrbrainDeleteLabelProfSkill(request *HrbrainDeleteLabelProfSkillRequest) (_result *HrbrainDeleteLabelProfSkillResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeleteLabelProfSkillHeaders{}
+	_result = &HrbrainDeleteLabelProfSkillResponse{}
+	_body, _err := client.HrbrainDeleteLabelProfSkillWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除绩效记录
+//
+// @param request - HrbrainDeletePerfEvalRequest
+//
+// @param headers - HrbrainDeletePerfEvalHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeletePerfEvalResponse
+func (client *Client) HrbrainDeletePerfEvalWithOptions(request *HrbrainDeletePerfEvalRequest, headers *HrbrainDeletePerfEvalHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeletePerfEvalResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeletePerfEval"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/perfRecords/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeletePerfEvalResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除绩效记录
+//
+// @param request - HrbrainDeletePerfEvalRequest
+//
+// @return HrbrainDeletePerfEvalResponse
+func (client *Client) HrbrainDeletePerfEval(request *HrbrainDeletePerfEvalRequest) (_result *HrbrainDeletePerfEvalResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeletePerfEvalHeaders{}
+	_result = &HrbrainDeletePerfEvalResponse{}
+	_body, _err := client.HrbrainDeletePerfEvalWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 数据集成晋升记录删除
+//
+// @param request - HrbrainDeletePromRecordsRequest
+//
+// @param headers - HrbrainDeletePromRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeletePromRecordsResponse
+func (client *Client) HrbrainDeletePromRecordsWithOptions(request *HrbrainDeletePromRecordsRequest, headers *HrbrainDeletePromRecordsHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeletePromRecordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeletePromRecords"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/promEvals/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeletePromRecordsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 数据集成晋升记录删除
+//
+// @param request - HrbrainDeletePromRecordsRequest
+//
+// @return HrbrainDeletePromRecordsResponse
+func (client *Client) HrbrainDeletePromRecords(request *HrbrainDeletePromRecordsRequest) (_result *HrbrainDeletePromRecordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeletePromRecordsHeaders{}
+	_result = &HrbrainDeletePromRecordsResponse{}
+	_body, _err := client.HrbrainDeletePromRecordsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除处分记录
+//
+// @param request - HrbrainDeletePunDetailRequest
+//
+// @param headers - HrbrainDeletePunDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeletePunDetailResponse
+func (client *Client) HrbrainDeletePunDetailWithOptions(request *HrbrainDeletePunDetailRequest, headers *HrbrainDeletePunDetailHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeletePunDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeletePunDetail"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/punDetails/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeletePunDetailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除处分记录
+//
+// @param request - HrbrainDeletePunDetailRequest
+//
+// @return HrbrainDeletePunDetailResponse
+func (client *Client) HrbrainDeletePunDetail(request *HrbrainDeletePunDetailRequest) (_result *HrbrainDeletePunDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeletePunDetailHeaders{}
+	_result = &HrbrainDeletePunDetailResponse{}
+	_body, _err := client.HrbrainDeletePunDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除入职记录
+//
+// @param request - HrbrainDeleteRegistRequest
+//
+// @param headers - HrbrainDeleteRegistHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeleteRegistResponse
+func (client *Client) HrbrainDeleteRegistWithOptions(request *HrbrainDeleteRegistRequest, headers *HrbrainDeleteRegistHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeleteRegistResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeleteRegist"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/registerInfos/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeleteRegistResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除入职记录
+//
+// @param request - HrbrainDeleteRegistRequest
+//
+// @return HrbrainDeleteRegistResponse
+func (client *Client) HrbrainDeleteRegist(request *HrbrainDeleteRegistRequest) (_result *HrbrainDeleteRegistResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeleteRegistHeaders{}
+	_result = &HrbrainDeleteRegistResponse{}
+	_body, _err := client.HrbrainDeleteRegistWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除转正记录
+//
+// @param request - HrbrainDeleteRegularRequest
+//
+// @param headers - HrbrainDeleteRegularHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeleteRegularResponse
+func (client *Client) HrbrainDeleteRegularWithOptions(request *HrbrainDeleteRegularRequest, headers *HrbrainDeleteRegularHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeleteRegularResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeleteRegular"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/regulars/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeleteRegularResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除转正记录
+//
+// @param request - HrbrainDeleteRegularRequest
+//
+// @return HrbrainDeleteRegularResponse
+func (client *Client) HrbrainDeleteRegular(request *HrbrainDeleteRegularRequest) (_result *HrbrainDeleteRegularResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeleteRegularHeaders{}
+	_result = &HrbrainDeleteRegularResponse{}
+	_body, _err := client.HrbrainDeleteRegularWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除培训学习记录
+//
+// @param request - HrbrainDeleteTrainingRequest
+//
+// @param headers - HrbrainDeleteTrainingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeleteTrainingResponse
+func (client *Client) HrbrainDeleteTrainingWithOptions(request *HrbrainDeleteTrainingRequest, headers *HrbrainDeleteTrainingHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeleteTrainingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeleteTraining"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/trainings/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeleteTrainingResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除培训学习记录
+//
+// @param request - HrbrainDeleteTrainingRequest
+//
+// @return HrbrainDeleteTrainingResponse
+func (client *Client) HrbrainDeleteTraining(request *HrbrainDeleteTrainingRequest) (_result *HrbrainDeleteTrainingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeleteTrainingHeaders{}
+	_result = &HrbrainDeleteTrainingResponse{}
+	_body, _err := client.HrbrainDeleteTrainingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除调岗记录
+//
+// @param request - HrbrainDeleteTransferEvalRequest
+//
+// @param headers - HrbrainDeleteTransferEvalHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeleteTransferEvalResponse
+func (client *Client) HrbrainDeleteTransferEvalWithOptions(request *HrbrainDeleteTransferEvalRequest, headers *HrbrainDeleteTransferEvalHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeleteTransferEvalResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeleteTransferEval"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/changeRecords/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeleteTransferEvalResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除调岗记录
+//
+// @param request - HrbrainDeleteTransferEvalRequest
+//
+// @return HrbrainDeleteTransferEvalResponse
+func (client *Client) HrbrainDeleteTransferEval(request *HrbrainDeleteTransferEvalRequest) (_result *HrbrainDeleteTransferEvalResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeleteTransferEvalHeaders{}
+	_result = &HrbrainDeleteTransferEvalResponse{}
+	_body, _err := client.HrbrainDeleteTransferEvalWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除工作经历
+//
+// @param request - HrbrainDeleteWorkExpRequest
+//
+// @param headers - HrbrainDeleteWorkExpHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeleteWorkExpResponse
+func (client *Client) HrbrainDeleteWorkExpWithOptions(request *HrbrainDeleteWorkExpRequest, headers *HrbrainDeleteWorkExpHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeleteWorkExpResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeleteWorkExp"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/workExperiences/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeleteWorkExpResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除工作经历
+//
+// @param request - HrbrainDeleteWorkExpRequest
+//
+// @return HrbrainDeleteWorkExpResponse
+func (client *Client) HrbrainDeleteWorkExp(request *HrbrainDeleteWorkExpRequest) (_result *HrbrainDeleteWorkExpResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeleteWorkExpHeaders{}
+	_result = &HrbrainDeleteWorkExpResponse{}
+	_body, _err := client.HrbrainDeleteWorkExpWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除标签数据
+//
+// @param request - HrbrainDeletetLabelBaseRequest
+//
+// @param headers - HrbrainDeletetLabelBaseHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainDeletetLabelBaseResponse
+func (client *Client) HrbrainDeletetLabelBaseWithOptions(request *HrbrainDeletetLabelBaseRequest, headers *HrbrainDeletetLabelBaseHeaders, runtime *util.RuntimeOptions) (_result *HrbrainDeletetLabelBaseResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Params)) {
+		body["params"] = request.Params
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainDeletetLabelBase"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/baseLabels/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainDeletetLabelBaseResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除标签数据
+//
+// @param request - HrbrainDeletetLabelBaseRequest
+//
+// @return HrbrainDeletetLabelBaseResponse
+func (client *Client) HrbrainDeletetLabelBase(request *HrbrainDeletetLabelBaseRequest) (_result *HrbrainDeletetLabelBaseResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainDeletetLabelBaseHeaders{}
+	_result = &HrbrainDeletetLabelBaseResponse{}
+	_body, _err := client.HrbrainDeletetLabelBaseWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 集成奖励记录
+//
+// @param request - HrbrainImportAwardDetailRequest
+//
+// @param headers - HrbrainImportAwardDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportAwardDetailResponse
 func (client *Client) HrbrainImportAwardDetailWithOptions(request *HrbrainImportAwardDetailRequest, headers *HrbrainImportAwardDetailHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportAwardDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2930,6 +8004,13 @@ func (client *Client) HrbrainImportAwardDetailWithOptions(request *HrbrainImport
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成奖励记录
+//
+// @param request - HrbrainImportAwardDetailRequest
+//
+// @return HrbrainImportAwardDetailResponse
 func (client *Client) HrbrainImportAwardDetail(request *HrbrainImportAwardDetailRequest) (_result *HrbrainImportAwardDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrbrainImportAwardDetailHeaders{}
@@ -2942,6 +8023,95 @@ func (client *Client) HrbrainImportAwardDetail(request *HrbrainImportAwardDetail
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成自定义模型记录
+//
+// @param request - HrbrainImportCustomRequest
+//
+// @param headers - HrbrainImportCustomHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportCustomResponse
+func (client *Client) HrbrainImportCustomWithOptions(request *HrbrainImportCustomRequest, headers *HrbrainImportCustomHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportCustomResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModelCode)) {
+		query["modelCode"] = request.ModelCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    util.ToArray(request.Body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainImportCustom"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/customModels/import"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainImportCustomResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 集成自定义模型记录
+//
+// @param request - HrbrainImportCustomRequest
+//
+// @return HrbrainImportCustomResponse
+func (client *Client) HrbrainImportCustom(request *HrbrainImportCustomRequest) (_result *HrbrainImportCustomResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainImportCustomHeaders{}
+	_result = &HrbrainImportCustomResponse{}
+	_body, _err := client.HrbrainImportCustomWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 集成组织架构
+//
+// @param request - HrbrainImportDeptInfoRequest
+//
+// @param headers - HrbrainImportDeptInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportDeptInfoResponse
 func (client *Client) HrbrainImportDeptInfoWithOptions(request *HrbrainImportDeptInfoRequest, headers *HrbrainImportDeptInfoHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportDeptInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2986,6 +8156,13 @@ func (client *Client) HrbrainImportDeptInfoWithOptions(request *HrbrainImportDep
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成组织架构
+//
+// @param request - HrbrainImportDeptInfoRequest
+//
+// @return HrbrainImportDeptInfoResponse
 func (client *Client) HrbrainImportDeptInfo(request *HrbrainImportDeptInfoRequest) (_result *HrbrainImportDeptInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrbrainImportDeptInfoHeaders{}
@@ -2998,6 +8175,17 @@ func (client *Client) HrbrainImportDeptInfo(request *HrbrainImportDeptInfoReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成离职信息
+//
+// @param request - HrbrainImportDimissionRequest
+//
+// @param headers - HrbrainImportDimissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportDimissionResponse
 func (client *Client) HrbrainImportDimissionWithOptions(request *HrbrainImportDimissionRequest, headers *HrbrainImportDimissionHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportDimissionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3042,6 +8230,13 @@ func (client *Client) HrbrainImportDimissionWithOptions(request *HrbrainImportDi
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成离职信息
+//
+// @param request - HrbrainImportDimissionRequest
+//
+// @return HrbrainImportDimissionResponse
 func (client *Client) HrbrainImportDimission(request *HrbrainImportDimissionRequest) (_result *HrbrainImportDimissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrbrainImportDimissionHeaders{}
@@ -3054,6 +8249,17 @@ func (client *Client) HrbrainImportDimission(request *HrbrainImportDimissionRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成教育经历
+//
+// @param request - HrbrainImportEduExpRequest
+//
+// @param headers - HrbrainImportEduExpHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportEduExpResponse
 func (client *Client) HrbrainImportEduExpWithOptions(request *HrbrainImportEduExpRequest, headers *HrbrainImportEduExpHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportEduExpResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3098,6 +8304,13 @@ func (client *Client) HrbrainImportEduExpWithOptions(request *HrbrainImportEduEx
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成教育经历
+//
+// @param request - HrbrainImportEduExpRequest
+//
+// @return HrbrainImportEduExpResponse
 func (client *Client) HrbrainImportEduExp(request *HrbrainImportEduExpRequest) (_result *HrbrainImportEduExpResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrbrainImportEduExpHeaders{}
@@ -3110,6 +8323,17 @@ func (client *Client) HrbrainImportEduExp(request *HrbrainImportEduExpRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成人员信息
+//
+// @param request - HrbrainImportEmpInfoRequest
+//
+// @param headers - HrbrainImportEmpInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportEmpInfoResponse
 func (client *Client) HrbrainImportEmpInfoWithOptions(request *HrbrainImportEmpInfoRequest, headers *HrbrainImportEmpInfoHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportEmpInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3154,6 +8378,13 @@ func (client *Client) HrbrainImportEmpInfoWithOptions(request *HrbrainImportEmpI
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成人员信息
+//
+// @param request - HrbrainImportEmpInfoRequest
+//
+// @return HrbrainImportEmpInfoResponse
 func (client *Client) HrbrainImportEmpInfo(request *HrbrainImportEmpInfoRequest) (_result *HrbrainImportEmpInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrbrainImportEmpInfoHeaders{}
@@ -3166,6 +8397,17 @@ func (client *Client) HrbrainImportEmpInfo(request *HrbrainImportEmpInfoRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成基础标签
+//
+// @param request - HrbrainImportLabelBaseRequest
+//
+// @param headers - HrbrainImportLabelBaseHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportLabelBaseResponse
 func (client *Client) HrbrainImportLabelBaseWithOptions(request *HrbrainImportLabelBaseRequest, headers *HrbrainImportLabelBaseHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportLabelBaseResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3210,6 +8452,13 @@ func (client *Client) HrbrainImportLabelBaseWithOptions(request *HrbrainImportLa
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成基础标签
+//
+// @param request - HrbrainImportLabelBaseRequest
+//
+// @return HrbrainImportLabelBaseResponse
 func (client *Client) HrbrainImportLabelBase(request *HrbrainImportLabelBaseRequest) (_result *HrbrainImportLabelBaseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrbrainImportLabelBaseHeaders{}
@@ -3222,6 +8471,17 @@ func (client *Client) HrbrainImportLabelBase(request *HrbrainImportLabelBaseRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成自定义标签
+//
+// @param request - HrbrainImportLabelCustomRequest
+//
+// @param headers - HrbrainImportLabelCustomHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportLabelCustomResponse
 func (client *Client) HrbrainImportLabelCustomWithOptions(request *HrbrainImportLabelCustomRequest, headers *HrbrainImportLabelCustomHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportLabelCustomResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3266,6 +8526,13 @@ func (client *Client) HrbrainImportLabelCustomWithOptions(request *HrbrainImport
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成自定义标签
+//
+// @param request - HrbrainImportLabelCustomRequest
+//
+// @return HrbrainImportLabelCustomResponse
 func (client *Client) HrbrainImportLabelCustom(request *HrbrainImportLabelCustomRequest) (_result *HrbrainImportLabelCustomResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrbrainImportLabelCustomHeaders{}
@@ -3278,6 +8545,17 @@ func (client *Client) HrbrainImportLabelCustom(request *HrbrainImportLabelCustom
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成领域经验
+//
+// @param request - HrbrainImportLabelIndustryRequest
+//
+// @param headers - HrbrainImportLabelIndustryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportLabelIndustryResponse
 func (client *Client) HrbrainImportLabelIndustryWithOptions(request *HrbrainImportLabelIndustryRequest, headers *HrbrainImportLabelIndustryHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportLabelIndustryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3322,6 +8600,13 @@ func (client *Client) HrbrainImportLabelIndustryWithOptions(request *HrbrainImpo
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成领域经验
+//
+// @param request - HrbrainImportLabelIndustryRequest
+//
+// @return HrbrainImportLabelIndustryResponse
 func (client *Client) HrbrainImportLabelIndustry(request *HrbrainImportLabelIndustryRequest) (_result *HrbrainImportLabelIndustryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrbrainImportLabelIndustryHeaders{}
@@ -3334,6 +8619,17 @@ func (client *Client) HrbrainImportLabelIndustry(request *HrbrainImportLabelIndu
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成盘点数据
+//
+// @param request - HrbrainImportLabelInventoryRequest
+//
+// @param headers - HrbrainImportLabelInventoryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportLabelInventoryResponse
 func (client *Client) HrbrainImportLabelInventoryWithOptions(request *HrbrainImportLabelInventoryRequest, headers *HrbrainImportLabelInventoryHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportLabelInventoryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3378,6 +8674,13 @@ func (client *Client) HrbrainImportLabelInventoryWithOptions(request *HrbrainImp
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成盘点数据
+//
+// @param request - HrbrainImportLabelInventoryRequest
+//
+// @return HrbrainImportLabelInventoryResponse
 func (client *Client) HrbrainImportLabelInventory(request *HrbrainImportLabelInventoryRequest) (_result *HrbrainImportLabelInventoryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrbrainImportLabelInventoryHeaders{}
@@ -3390,6 +8693,17 @@ func (client *Client) HrbrainImportLabelInventory(request *HrbrainImportLabelInv
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成专业技能
+//
+// @param request - HrbrainImportLabelProfSkillRequest
+//
+// @param headers - HrbrainImportLabelProfSkillHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportLabelProfSkillResponse
 func (client *Client) HrbrainImportLabelProfSkillWithOptions(request *HrbrainImportLabelProfSkillRequest, headers *HrbrainImportLabelProfSkillHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportLabelProfSkillResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3434,6 +8748,13 @@ func (client *Client) HrbrainImportLabelProfSkillWithOptions(request *HrbrainImp
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成专业技能
+//
+// @param request - HrbrainImportLabelProfSkillRequest
+//
+// @return HrbrainImportLabelProfSkillResponse
 func (client *Client) HrbrainImportLabelProfSkill(request *HrbrainImportLabelProfSkillRequest) (_result *HrbrainImportLabelProfSkillResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrbrainImportLabelProfSkillHeaders{}
@@ -3446,6 +8767,17 @@ func (client *Client) HrbrainImportLabelProfSkill(request *HrbrainImportLabelPro
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成绩效记录
+//
+// @param request - HrbrainImportPerfEvalRequest
+//
+// @param headers - HrbrainImportPerfEvalHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportPerfEvalResponse
 func (client *Client) HrbrainImportPerfEvalWithOptions(request *HrbrainImportPerfEvalRequest, headers *HrbrainImportPerfEvalHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportPerfEvalResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3490,6 +8822,13 @@ func (client *Client) HrbrainImportPerfEvalWithOptions(request *HrbrainImportPer
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成绩效记录
+//
+// @param request - HrbrainImportPerfEvalRequest
+//
+// @return HrbrainImportPerfEvalResponse
 func (client *Client) HrbrainImportPerfEval(request *HrbrainImportPerfEvalRequest) (_result *HrbrainImportPerfEvalResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrbrainImportPerfEvalHeaders{}
@@ -3502,6 +8841,17 @@ func (client *Client) HrbrainImportPerfEval(request *HrbrainImportPerfEvalReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成晋升记录
+//
+// @param request - HrbrainImportPromEvalRequest
+//
+// @param headers - HrbrainImportPromEvalHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportPromEvalResponse
 func (client *Client) HrbrainImportPromEvalWithOptions(request *HrbrainImportPromEvalRequest, headers *HrbrainImportPromEvalHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportPromEvalResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3546,6 +8896,13 @@ func (client *Client) HrbrainImportPromEvalWithOptions(request *HrbrainImportPro
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成晋升记录
+//
+// @param request - HrbrainImportPromEvalRequest
+//
+// @return HrbrainImportPromEvalResponse
 func (client *Client) HrbrainImportPromEval(request *HrbrainImportPromEvalRequest) (_result *HrbrainImportPromEvalResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrbrainImportPromEvalHeaders{}
@@ -3558,6 +8915,17 @@ func (client *Client) HrbrainImportPromEval(request *HrbrainImportPromEvalReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成处分记录
+//
+// @param request - HrbrainImportPunDetailRequest
+//
+// @param headers - HrbrainImportPunDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportPunDetailResponse
 func (client *Client) HrbrainImportPunDetailWithOptions(request *HrbrainImportPunDetailRequest, headers *HrbrainImportPunDetailHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportPunDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3602,6 +8970,13 @@ func (client *Client) HrbrainImportPunDetailWithOptions(request *HrbrainImportPu
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成处分记录
+//
+// @param request - HrbrainImportPunDetailRequest
+//
+// @return HrbrainImportPunDetailResponse
 func (client *Client) HrbrainImportPunDetail(request *HrbrainImportPunDetailRequest) (_result *HrbrainImportPunDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrbrainImportPunDetailHeaders{}
@@ -3614,6 +8989,17 @@ func (client *Client) HrbrainImportPunDetail(request *HrbrainImportPunDetailRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成入职信息
+//
+// @param request - HrbrainImportRegistRequest
+//
+// @param headers - HrbrainImportRegistHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportRegistResponse
 func (client *Client) HrbrainImportRegistWithOptions(request *HrbrainImportRegistRequest, headers *HrbrainImportRegistHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportRegistResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3658,6 +9044,13 @@ func (client *Client) HrbrainImportRegistWithOptions(request *HrbrainImportRegis
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成入职信息
+//
+// @param request - HrbrainImportRegistRequest
+//
+// @return HrbrainImportRegistResponse
 func (client *Client) HrbrainImportRegist(request *HrbrainImportRegistRequest) (_result *HrbrainImportRegistResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrbrainImportRegistHeaders{}
@@ -3670,6 +9063,165 @@ func (client *Client) HrbrainImportRegist(request *HrbrainImportRegistRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成转正记录
+//
+// @param request - HrbrainImportRegularRequest
+//
+// @param headers - HrbrainImportRegularHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportRegularResponse
+func (client *Client) HrbrainImportRegularWithOptions(request *HrbrainImportRegularRequest, headers *HrbrainImportRegularHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportRegularResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    util.ToArray(request.Body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainImportRegular"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/regulars/import"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainImportRegularResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 集成转正记录
+//
+// @param request - HrbrainImportRegularRequest
+//
+// @return HrbrainImportRegularResponse
+func (client *Client) HrbrainImportRegular(request *HrbrainImportRegularRequest) (_result *HrbrainImportRegularResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainImportRegularHeaders{}
+	_result = &HrbrainImportRegularResponse{}
+	_body, _err := client.HrbrainImportRegularWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 集成培训学习记录
+//
+// @param request - HrbrainImportTrainingRequest
+//
+// @param headers - HrbrainImportTrainingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportTrainingResponse
+func (client *Client) HrbrainImportTrainingWithOptions(request *HrbrainImportTrainingRequest, headers *HrbrainImportTrainingHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportTrainingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    util.ToArray(request.Body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainImportTraining"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/trainings/import"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainImportTrainingResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 集成培训学习记录
+//
+// @param request - HrbrainImportTrainingRequest
+//
+// @return HrbrainImportTrainingResponse
+func (client *Client) HrbrainImportTraining(request *HrbrainImportTrainingRequest) (_result *HrbrainImportTrainingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainImportTrainingHeaders{}
+	_result = &HrbrainImportTrainingResponse{}
+	_body, _err := client.HrbrainImportTrainingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 集成异动记录
+//
+// @param request - HrbrainImportTransferEvalRequest
+//
+// @param headers - HrbrainImportTransferEvalHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportTransferEvalResponse
 func (client *Client) HrbrainImportTransferEvalWithOptions(request *HrbrainImportTransferEvalRequest, headers *HrbrainImportTransferEvalHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportTransferEvalResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3714,6 +9266,13 @@ func (client *Client) HrbrainImportTransferEvalWithOptions(request *HrbrainImpor
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成异动记录
+//
+// @param request - HrbrainImportTransferEvalRequest
+//
+// @return HrbrainImportTransferEvalResponse
 func (client *Client) HrbrainImportTransferEval(request *HrbrainImportTransferEvalRequest) (_result *HrbrainImportTransferEvalResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrbrainImportTransferEvalHeaders{}
@@ -3726,6 +9285,17 @@ func (client *Client) HrbrainImportTransferEval(request *HrbrainImportTransferEv
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成工作经历
+//
+// @param request - HrbrainImportWorkExpRequest
+//
+// @param headers - HrbrainImportWorkExpHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainImportWorkExpResponse
 func (client *Client) HrbrainImportWorkExpWithOptions(request *HrbrainImportWorkExpRequest, headers *HrbrainImportWorkExpHeaders, runtime *util.RuntimeOptions) (_result *HrbrainImportWorkExpResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3770,6 +9340,13 @@ func (client *Client) HrbrainImportWorkExpWithOptions(request *HrbrainImportWork
 	return _result, _err
 }
 
+// Summary:
+//
+// 集成工作经历
+//
+// @param request - HrbrainImportWorkExpRequest
+//
+// @return HrbrainImportWorkExpResponse
 func (client *Client) HrbrainImportWorkExp(request *HrbrainImportWorkExpRequest) (_result *HrbrainImportWorkExpResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrbrainImportWorkExpHeaders{}
@@ -3782,6 +9359,247 @@ func (client *Client) HrbrainImportWorkExp(request *HrbrainImportWorkExpRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询人才档案附件照片
+//
+// @param request - HrbrainTalentProfileAttachmentQueryRequest
+//
+// @param headers - HrbrainTalentProfileAttachmentQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainTalentProfileAttachmentQueryResponse
+func (client *Client) HrbrainTalentProfileAttachmentQueryWithOptions(request *HrbrainTalentProfileAttachmentQueryRequest, headers *HrbrainTalentProfileAttachmentQueryHeaders, runtime *util.RuntimeOptions) (_result *HrbrainTalentProfileAttachmentQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		query["dingCorpId"] = request.DingCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    request.Body,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainTalentProfileAttachmentQuery"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/profiles/attachmentPhotos/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainTalentProfileAttachmentQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询人才档案附件照片
+//
+// @param request - HrbrainTalentProfileAttachmentQueryRequest
+//
+// @return HrbrainTalentProfileAttachmentQueryResponse
+func (client *Client) HrbrainTalentProfileAttachmentQuery(request *HrbrainTalentProfileAttachmentQueryRequest) (_result *HrbrainTalentProfileAttachmentQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainTalentProfileAttachmentQueryHeaders{}
+	_result = &HrbrainTalentProfileAttachmentQueryResponse{}
+	_body, _err := client.HrbrainTalentProfileAttachmentQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询人才档案基础数据
+//
+// @param request - HrbrainTalentProfileBasicQueryRequest
+//
+// @param headers - HrbrainTalentProfileBasicQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainTalentProfileBasicQueryResponse
+func (client *Client) HrbrainTalentProfileBasicQueryWithOptions(request *HrbrainTalentProfileBasicQueryRequest, headers *HrbrainTalentProfileBasicQueryHeaders, runtime *util.RuntimeOptions) (_result *HrbrainTalentProfileBasicQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		query["dingCorpId"] = request.DingCorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    request.Body,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainTalentProfileBasicQuery"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/profiles/basicData/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainTalentProfileBasicQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询人才档案基础数据
+//
+// @param request - HrbrainTalentProfileBasicQueryRequest
+//
+// @return HrbrainTalentProfileBasicQueryResponse
+func (client *Client) HrbrainTalentProfileBasicQuery(request *HrbrainTalentProfileBasicQueryRequest) (_result *HrbrainTalentProfileBasicQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainTalentProfileBasicQueryHeaders{}
+	_result = &HrbrainTalentProfileBasicQueryResponse{}
+	_body, _err := client.HrbrainTalentProfileBasicQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 人员标签查询
+//
+// @param request - StaffLabelRecordsQueryRequest
+//
+// @param headers - StaffLabelRecordsQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return StaffLabelRecordsQueryResponse
+func (client *Client) StaffLabelRecordsQueryWithOptions(request *StaffLabelRecordsQueryRequest, headers *StaffLabelRecordsQueryHeaders, runtime *util.RuntimeOptions) (_result *StaffLabelRecordsQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingCorpId)) {
+		query["dingCorpId"] = request.DingCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    util.ToArray(request.Body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("StaffLabelRecordsQuery"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/labelRecords/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &StaffLabelRecordsQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 人员标签查询
+//
+// @param request - StaffLabelRecordsQueryRequest
+//
+// @return StaffLabelRecordsQueryResponse
+func (client *Client) StaffLabelRecordsQuery(request *StaffLabelRecordsQueryRequest) (_result *StaffLabelRecordsQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &StaffLabelRecordsQueryHeaders{}
+	_result = &StaffLabelRecordsQueryResponse{}
+	_body, _err := client.StaffLabelRecordsQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 同步统计基础数据
+//
+// @param request - SyncDataRequest
+//
+// @param headers - SyncDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncDataResponse
 func (client *Client) SyncDataWithOptions(request *SyncDataRequest, headers *SyncDataHeaders, runtime *util.RuntimeOptions) (_result *SyncDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3841,6 +9659,13 @@ func (client *Client) SyncDataWithOptions(request *SyncDataRequest, headers *Syn
 	return _result, _err
 }
 
+// Summary:
+//
+// 同步统计基础数据
+//
+// @param request - SyncDataRequest
+//
+// @return SyncDataResponse
 func (client *Client) SyncData(request *SyncDataRequest) (_result *SyncDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SyncDataHeaders{}

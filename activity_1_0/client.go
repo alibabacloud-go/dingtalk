@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package activity_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,6 +33,7 @@ func (s *CreateActivityHeaders) SetXAcsDingtalkAccessToken(v string) *CreateActi
 }
 
 type CreateActivityRequest struct {
+	// This parameter is required.
 	Detail *CreateActivityRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
 }
 
@@ -54,17 +51,55 @@ func (s *CreateActivityRequest) SetDetail(v *CreateActivityRequestDetail) *Creat
 }
 
 type CreateActivityRequestDetail struct {
-	Address       *CreateActivityRequestDetailAddress `json:"address,omitempty" xml:"address,omitempty" type:"Struct"`
-	BannerMediaId *string                             `json:"bannerMediaId,omitempty" xml:"bannerMediaId,omitempty"`
-	EndTime       *int64                              `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	ForeignId     *string                             `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
-	Industry      *string                             `json:"industry,omitempty" xml:"industry,omitempty"`
-	RoleName      *string                             `json:"roleName,omitempty" xml:"roleName,omitempty"`
-	Source        *string                             `json:"source,omitempty" xml:"source,omitempty"`
-	StartTime     *int64                              `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Title         *string                             `json:"title,omitempty" xml:"title,omitempty"`
-	Type          *int32                              `json:"type,omitempty" xml:"type,omitempty"`
-	Url           *string                             `json:"url,omitempty" xml:"url,omitempty"`
+	Address *CreateActivityRequestDetailAddress `json:"address,omitempty" xml:"address,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// @mediaId
+	BannerMediaId *string `json:"bannerMediaId,omitempty" xml:"bannerMediaId,omitempty"`
+	// This parameter is required.
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2OGnTRTcoH6OQ0209168
+	ForeignId *string `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// IT
+	Industry *string `json:"industry,omitempty" xml:"industry,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// CTO
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hdx
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// This parameter is required.
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 钉峰会
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://www.dingtalk.com/
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s CreateActivityRequestDetail) String() string {
@@ -131,10 +166,22 @@ func (s *CreateActivityRequestDetail) SetUrl(v string) *CreateActivityRequestDet
 }
 
 type CreateActivityRequestDetailAddress struct {
+	// example:
+	//
+	// 重庆市重庆市
 	District *string `json:"district,omitempty" xml:"district,omitempty"`
-	Lat      *string `json:"lat,omitempty" xml:"lat,omitempty"`
-	Lng      *string `json:"lng,omitempty" xml:"lng,omitempty"`
-	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 29.533939
+	Lat *string `json:"lat,omitempty" xml:"lat,omitempty"`
+	// example:
+	//
+	// 106.561853
+	Lng *string `json:"lng,omitempty" xml:"lng,omitempty"`
+	// example:
+	//
+	// 国际会议展览中心
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CreateActivityRequestDetailAddress) String() string {
@@ -235,8 +282,14 @@ func (s *ListActivityHeaders) SetXAcsDingtalkAccessToken(v string) *ListActivity
 }
 
 type ListActivityRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// Rp3Rqcts7BE08y49Jr6iu6xW4iQ
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListActivityRequest) String() string {
@@ -258,9 +311,15 @@ func (s *ListActivityRequest) SetNextToken(v string) *ListActivityRequest {
 }
 
 type ListActivityResponseBody struct {
-	List       []*ListActivityResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	MaxResults *string                         `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string                         `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	List []*ListActivityResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 10
+	MaxResults *string `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 1686633306552
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListActivityResponseBody) String() string {
@@ -287,15 +346,42 @@ func (s *ListActivityResponseBody) SetNextToken(v string) *ListActivityResponseB
 }
 
 type ListActivityResponseBodyList struct {
-	ActivityId    *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// example:
+	//
+	// 5tL2HIQiQiOARCZ6xWAPHA02091683513
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// example:
+	//
+	// @mediaId
 	BannerMediaId *string `json:"bannerMediaId,omitempty" xml:"bannerMediaId,omitempty"`
-	EndTime       *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	ForeignId     *string `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
-	StartTime     *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Status        *string `json:"status,omitempty" xml:"status,omitempty"`
-	Title         *string `json:"title,omitempty" xml:"title,omitempty"`
-	Type          *string `json:"type,omitempty" xml:"type,omitempty"`
-	Url           *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// 1683515695000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 20230613_001
+	ForeignId *string `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
+	// example:
+	//
+	// 1683514695000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 3
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// AIGC研讨会
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 0
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s ListActivityResponseBodyList) String() string {
@@ -395,12 +481,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -409,6 +495,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 创建活动
+//
+// @param request - CreateActivityRequest
+//
+// @param headers - CreateActivityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateActivityResponse
 func (client *Client) CreateActivityWithOptions(request *CreateActivityRequest, headers *CreateActivityHeaders, runtime *util.RuntimeOptions) (_result *CreateActivityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -452,6 +549,13 @@ func (client *Client) CreateActivityWithOptions(request *CreateActivityRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建活动
+//
+// @param request - CreateActivityRequest
+//
+// @return CreateActivityResponse
 func (client *Client) CreateActivity(request *CreateActivityRequest) (_result *CreateActivityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateActivityHeaders{}
@@ -464,6 +568,17 @@ func (client *Client) CreateActivity(request *CreateActivityRequest) (_result *C
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询活动列表
+//
+// @param request - ListActivityRequest
+//
+// @param headers - ListActivityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListActivityResponse
 func (client *Client) ListActivityWithOptions(request *ListActivityRequest, headers *ListActivityHeaders, runtime *util.RuntimeOptions) (_result *ListActivityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -511,6 +626,13 @@ func (client *Client) ListActivityWithOptions(request *ListActivityRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询活动列表
+//
+// @param request - ListActivityRequest
+//
+// @return ListActivityResponse
 func (client *Client) ListActivity(request *ListActivityRequest) (_result *ListActivityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListActivityHeaders{}

@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package check_in_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,12 +33,18 @@ func (s *GetCheckinRecordByUserHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetCheckinRecordByUserRequest struct {
-	EndTime        *int64    `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	MaxResults     *int64    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken      *int64    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	OperatorUserId *string   `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
-	StartTime      *int64    `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	UserIdList     []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
 func (s GetCheckinRecordByUserRequest) String() string {
@@ -255,12 +257,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -269,6 +271,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 调用本接口，获取用户签到记录
+//
+// @param request - GetCheckinRecordByUserRequest
+//
+// @param headers - GetCheckinRecordByUserHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCheckinRecordByUserResponse
 func (client *Client) GetCheckinRecordByUserWithOptions(request *GetCheckinRecordByUserRequest, headers *GetCheckinRecordByUserHeaders, runtime *util.RuntimeOptions) (_result *GetCheckinRecordByUserResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -332,6 +345,13 @@ func (client *Client) GetCheckinRecordByUserWithOptions(request *GetCheckinRecor
 	return _result, _err
 }
 
+// Summary:
+//
+// 调用本接口，获取用户签到记录
+//
+// @param request - GetCheckinRecordByUserRequest
+//
+// @return GetCheckinRecordByUserResponse
 func (client *Client) GetCheckinRecordByUser(request *GetCheckinRecordByUserRequest) (_result *GetCheckinRecordByUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCheckinRecordByUserHeaders{}

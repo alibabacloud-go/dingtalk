@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package jzcrm_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,10 +33,23 @@ func (s *EditContactHeaders) SetXAcsDingtalkAccessToken(v string) *EditContactHe
 }
 
 type EditContactRequest struct {
-	Data     *EditContactRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Datatype *int64                  `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	Msgid    *int64                  `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Stamp    *int64                  `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data *EditContactRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 197
+	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	// example:
+	//
+	// 1
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1621822122
+	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditContactRequest) String() string {
@@ -72,12 +81,21 @@ func (s *EditContactRequest) SetStamp(v int64) *EditContactRequest {
 }
 
 type EditContactRequestData struct {
-	DataUserid    *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	LxrAddress    *string `json:"lxr_address,omitempty" xml:"lxr_address,omitempty"`
-	LxrBirthday   *string `json:"lxr_birthday,omitempty" xml:"lxr_birthday,omitempty"`
-	LxrChengwei   *string `json:"lxr_chengwei,omitempty" xml:"lxr_chengwei,omitempty"`
-	LxrCtnumber   *string `json:"lxr_ctnumber,omitempty" xml:"lxr_ctnumber,omitempty"`
-	LxrCttype     *string `json:"lxr_cttype,omitempty" xml:"lxr_cttype,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// 张三
+	DataUserid  *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
+	LxrAddress  *string `json:"lxr_address,omitempty" xml:"lxr_address,omitempty"`
+	LxrBirthday *string `json:"lxr_birthday,omitempty" xml:"lxr_birthday,omitempty"`
+	LxrChengwei *string `json:"lxr_chengwei,omitempty" xml:"lxr_chengwei,omitempty"`
+	LxrCtnumber *string `json:"lxr_ctnumber,omitempty" xml:"lxr_ctnumber,omitempty"`
+	LxrCttype   *string `json:"lxr_cttype,omitempty" xml:"lxr_cttype,omitempty"`
+	// This parameter is required.
 	LxrCustomerid *string `json:"lxr_customerid,omitempty" xml:"lxr_customerid,omitempty"`
 	LxrDepartment *string `json:"lxr_department,omitempty" xml:"lxr_department,omitempty"`
 	LxrDingtalk   *string `json:"lxr_dingtalk,omitempty" xml:"lxr_dingtalk,omitempty"`
@@ -87,19 +105,20 @@ type EditContactRequestData struct {
 	LxrHandset    *string `json:"lxr_handset,omitempty" xml:"lxr_handset,omitempty"`
 	LxrHeadship   *string `json:"lxr_headship,omitempty" xml:"lxr_headship,omitempty"`
 	LxrLike       *string `json:"lxr_like,omitempty" xml:"lxr_like,omitempty"`
-	LxrName       *string `json:"lxr_name,omitempty" xml:"lxr_name,omitempty"`
-	LxrPhoto      *string `json:"lxr_photo,omitempty" xml:"lxr_photo,omitempty"`
-	LxrPreside    *string `json:"lxr_preside,omitempty" xml:"lxr_preside,omitempty"`
-	LxrPst        *string `json:"lxr_pst,omitempty" xml:"lxr_pst,omitempty"`
-	LxrQq         *string `json:"lxr_qq,omitempty" xml:"lxr_qq,omitempty"`
-	LxrRemark     *string `json:"lxr_remark,omitempty" xml:"lxr_remark,omitempty"`
-	LxrSex        *string `json:"lxr_sex,omitempty" xml:"lxr_sex,omitempty"`
-	LxrSkype      *string `json:"lxr_skype,omitempty" xml:"lxr_skype,omitempty"`
-	LxrTel        *string `json:"lxr_tel,omitempty" xml:"lxr_tel,omitempty"`
-	LxrType       *string `json:"lxr_type,omitempty" xml:"lxr_type,omitempty"`
-	LxrWangwang   *string `json:"lxr_wangwang,omitempty" xml:"lxr_wangwang,omitempty"`
-	LxrWeixin     *string `json:"lxr_weixin,omitempty" xml:"lxr_weixin,omitempty"`
-	LxrWorktel    *string `json:"lxr_worktel,omitempty" xml:"lxr_worktel,omitempty"`
+	// This parameter is required.
+	LxrName     *string `json:"lxr_name,omitempty" xml:"lxr_name,omitempty"`
+	LxrPhoto    *string `json:"lxr_photo,omitempty" xml:"lxr_photo,omitempty"`
+	LxrPreside  *string `json:"lxr_preside,omitempty" xml:"lxr_preside,omitempty"`
+	LxrPst      *string `json:"lxr_pst,omitempty" xml:"lxr_pst,omitempty"`
+	LxrQq       *string `json:"lxr_qq,omitempty" xml:"lxr_qq,omitempty"`
+	LxrRemark   *string `json:"lxr_remark,omitempty" xml:"lxr_remark,omitempty"`
+	LxrSex      *string `json:"lxr_sex,omitempty" xml:"lxr_sex,omitempty"`
+	LxrSkype    *string `json:"lxr_skype,omitempty" xml:"lxr_skype,omitempty"`
+	LxrTel      *string `json:"lxr_tel,omitempty" xml:"lxr_tel,omitempty"`
+	LxrType     *string `json:"lxr_type,omitempty" xml:"lxr_type,omitempty"`
+	LxrWangwang *string `json:"lxr_wangwang,omitempty" xml:"lxr_wangwang,omitempty"`
+	LxrWeixin   *string `json:"lxr_weixin,omitempty" xml:"lxr_weixin,omitempty"`
+	LxrWorktel  *string `json:"lxr_worktel,omitempty" xml:"lxr_worktel,omitempty"`
 }
 
 func (s EditContactRequestData) String() string {
@@ -251,8 +270,10 @@ func (s *EditContactRequestData) SetLxrWorktel(v string) *EditContactRequestData
 }
 
 type EditContactResponseBody struct {
-	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
+	// This parameter is required.
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	Time *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditContactResponseBody) String() string {
@@ -326,10 +347,23 @@ func (s *EditCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *EditCustomer
 }
 
 type EditCustomerRequest struct {
-	Data     *EditCustomerRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Datatype *int64                   `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	Msgid    *int64                   `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Stamp    *int64                   `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data *EditCustomerRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 148
+	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	// example:
+	//
+	// 1
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1621822122
+	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditCustomerRequest) String() string {
@@ -361,12 +395,21 @@ func (s *EditCustomerRequest) SetStamp(v int64) *EditCustomerRequest {
 }
 
 type EditCustomerRequestData struct {
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// 张三
 	DataUserid    *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
 	KhAddress     *string `json:"kh_address,omitempty" xml:"kh_address,omitempty"`
 	KhAppellation *string `json:"kh_appellation,omitempty" xml:"kh_appellation,omitempty"`
 	KhBefontof    *string `json:"kh_befontof,omitempty" xml:"kh_befontof,omitempty"`
 	KhBillinfo    *string `json:"kh_billinfo,omitempty" xml:"kh_billinfo,omitempty"`
 	KhCity        *string `json:"kh_city,omitempty" xml:"kh_city,omitempty"`
+	// This parameter is required.
 	KhClass       *string `json:"kh_class,omitempty" xml:"kh_class,omitempty"`
 	KhCoaddress   *string `json:"kh_coaddress,omitempty" xml:"kh_coaddress,omitempty"`
 	KhContype     *string `json:"kh_contype,omitempty" xml:"kh_contype,omitempty"`
@@ -389,26 +432,27 @@ type EditCustomerRequestData struct {
 	KhIndustry    *string `json:"kh_industry,omitempty" xml:"kh_industry,omitempty"`
 	KhInfo        *string `json:"kh_info,omitempty" xml:"kh_info,omitempty"`
 	KhJibie       *string `json:"kh_jibie,omitempty" xml:"kh_jibie,omitempty"`
-	KhName        *string `json:"kh_name,omitempty" xml:"kh_name,omitempty"`
-	KhPkhid       *string `json:"kh_pkhid,omitempty" xml:"kh_pkhid,omitempty"`
-	KhPreside     *string `json:"kh_preside,omitempty" xml:"kh_preside,omitempty"`
-	KhProvince    *string `json:"kh_province,omitempty" xml:"kh_province,omitempty"`
-	KhPst         *string `json:"kh_pst,omitempty" xml:"kh_pst,omitempty"`
-	KhQq          *string `json:"kh_qq,omitempty" xml:"kh_qq,omitempty"`
-	KhRalagrade   *string `json:"kh_ralagrade,omitempty" xml:"kh_ralagrade,omitempty"`
-	KhRemark      *string `json:"kh_remark,omitempty" xml:"kh_remark,omitempty"`
-	KhSex         *string `json:"kh_sex,omitempty" xml:"kh_sex,omitempty"`
-	KhShortname   *string `json:"kh_shortname,omitempty" xml:"kh_shortname,omitempty"`
-	KhSkype       *string `json:"kh_skype,omitempty" xml:"kh_skype,omitempty"`
-	KhSn          *string `json:"kh_sn,omitempty" xml:"kh_sn,omitempty"`
-	KhStatus      *string `json:"kh_status,omitempty" xml:"kh_status,omitempty"`
-	KhTel         *string `json:"kh_tel,omitempty" xml:"kh_tel,omitempty"`
-	KhType        *string `json:"kh_type,omitempty" xml:"kh_type,omitempty"`
-	KhValrating   *string `json:"kh_valrating,omitempty" xml:"kh_valrating,omitempty"`
-	KhWangwang    *string `json:"kh_wangwang,omitempty" xml:"kh_wangwang,omitempty"`
-	KhWeb         *string `json:"kh_web,omitempty" xml:"kh_web,omitempty"`
-	KhWeixin      *string `json:"kh_weixin,omitempty" xml:"kh_weixin,omitempty"`
-	KhWorktel     *string `json:"kh_worktel,omitempty" xml:"kh_worktel,omitempty"`
+	// This parameter is required.
+	KhName      *string `json:"kh_name,omitempty" xml:"kh_name,omitempty"`
+	KhPkhid     *string `json:"kh_pkhid,omitempty" xml:"kh_pkhid,omitempty"`
+	KhPreside   *string `json:"kh_preside,omitempty" xml:"kh_preside,omitempty"`
+	KhProvince  *string `json:"kh_province,omitempty" xml:"kh_province,omitempty"`
+	KhPst       *string `json:"kh_pst,omitempty" xml:"kh_pst,omitempty"`
+	KhQq        *string `json:"kh_qq,omitempty" xml:"kh_qq,omitempty"`
+	KhRalagrade *string `json:"kh_ralagrade,omitempty" xml:"kh_ralagrade,omitempty"`
+	KhRemark    *string `json:"kh_remark,omitempty" xml:"kh_remark,omitempty"`
+	KhSex       *string `json:"kh_sex,omitempty" xml:"kh_sex,omitempty"`
+	KhShortname *string `json:"kh_shortname,omitempty" xml:"kh_shortname,omitempty"`
+	KhSkype     *string `json:"kh_skype,omitempty" xml:"kh_skype,omitempty"`
+	KhSn        *string `json:"kh_sn,omitempty" xml:"kh_sn,omitempty"`
+	KhStatus    *string `json:"kh_status,omitempty" xml:"kh_status,omitempty"`
+	KhTel       *string `json:"kh_tel,omitempty" xml:"kh_tel,omitempty"`
+	KhType      *string `json:"kh_type,omitempty" xml:"kh_type,omitempty"`
+	KhValrating *string `json:"kh_valrating,omitempty" xml:"kh_valrating,omitempty"`
+	KhWangwang  *string `json:"kh_wangwang,omitempty" xml:"kh_wangwang,omitempty"`
+	KhWeb       *string `json:"kh_web,omitempty" xml:"kh_web,omitempty"`
+	KhWeixin    *string `json:"kh_weixin,omitempty" xml:"kh_weixin,omitempty"`
+	KhWorktel   *string `json:"kh_worktel,omitempty" xml:"kh_worktel,omitempty"`
 }
 
 func (s EditCustomerRequestData) String() string {
@@ -660,8 +704,10 @@ func (s *EditCustomerRequestData) SetKhWorktel(v string) *EditCustomerRequestDat
 }
 
 type EditCustomerResponseBody struct {
-	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
+	// This parameter is required.
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	Time *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditCustomerResponseBody) String() string {
@@ -735,10 +781,23 @@ func (s *EditCustomerPoolHeaders) SetXAcsDingtalkAccessToken(v string) *EditCust
 }
 
 type EditCustomerPoolRequest struct {
-	Data     *EditCustomerPoolRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Datatype *int64                       `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	Msgid    *int64                       `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Stamp    *int64                       `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data *EditCustomerPoolRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 238
+	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	// example:
+	//
+	// 1
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1621822122
+	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditCustomerPoolRequest) String() string {
@@ -770,12 +829,21 @@ func (s *EditCustomerPoolRequest) SetStamp(v int64) *EditCustomerPoolRequest {
 }
 
 type EditCustomerPoolRequestData struct {
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// 张三
 	DataUserid    *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
 	KhAddress     *string `json:"kh_address,omitempty" xml:"kh_address,omitempty"`
 	KhAppellation *string `json:"kh_appellation,omitempty" xml:"kh_appellation,omitempty"`
 	KhBefontof    *string `json:"kh_befontof,omitempty" xml:"kh_befontof,omitempty"`
 	KhBillinfo    *string `json:"kh_billinfo,omitempty" xml:"kh_billinfo,omitempty"`
 	KhCity        *string `json:"kh_city,omitempty" xml:"kh_city,omitempty"`
+	// This parameter is required.
 	KhClass       *string `json:"kh_class,omitempty" xml:"kh_class,omitempty"`
 	KhCoaddress   *string `json:"kh_coaddress,omitempty" xml:"kh_coaddress,omitempty"`
 	KhContype     *string `json:"kh_contype,omitempty" xml:"kh_contype,omitempty"`
@@ -799,26 +867,27 @@ type EditCustomerPoolRequestData struct {
 	KhIndustry    *string `json:"kh_industry,omitempty" xml:"kh_industry,omitempty"`
 	KhInfo        *string `json:"kh_info,omitempty" xml:"kh_info,omitempty"`
 	KhJibie       *string `json:"kh_jibie,omitempty" xml:"kh_jibie,omitempty"`
-	KhName        *string `json:"kh_name,omitempty" xml:"kh_name,omitempty"`
-	KhPkhid       *string `json:"kh_pkhid,omitempty" xml:"kh_pkhid,omitempty"`
-	KhPreside     *string `json:"kh_preside,omitempty" xml:"kh_preside,omitempty"`
-	KhProvince    *string `json:"kh_province,omitempty" xml:"kh_province,omitempty"`
-	KhPst         *string `json:"kh_pst,omitempty" xml:"kh_pst,omitempty"`
-	KhQq          *string `json:"kh_qq,omitempty" xml:"kh_qq,omitempty"`
-	KhRalagrade   *string `json:"kh_ralagrade,omitempty" xml:"kh_ralagrade,omitempty"`
-	KhRemark      *string `json:"kh_remark,omitempty" xml:"kh_remark,omitempty"`
-	KhSex         *string `json:"kh_sex,omitempty" xml:"kh_sex,omitempty"`
-	KhShortname   *string `json:"kh_shortname,omitempty" xml:"kh_shortname,omitempty"`
-	KhSkype       *string `json:"kh_skype,omitempty" xml:"kh_skype,omitempty"`
-	KhSn          *string `json:"kh_sn,omitempty" xml:"kh_sn,omitempty"`
-	KhStatus      *string `json:"kh_status,omitempty" xml:"kh_status,omitempty"`
-	KhTel         *string `json:"kh_tel,omitempty" xml:"kh_tel,omitempty"`
-	KhType        *string `json:"kh_type,omitempty" xml:"kh_type,omitempty"`
-	KhValrating   *string `json:"kh_valrating,omitempty" xml:"kh_valrating,omitempty"`
-	KhWangwang    *string `json:"kh_wangwang,omitempty" xml:"kh_wangwang,omitempty"`
-	KhWeb         *string `json:"kh_web,omitempty" xml:"kh_web,omitempty"`
-	KhWeixin      *string `json:"kh_weixin,omitempty" xml:"kh_weixin,omitempty"`
-	KhWorktel     *string `json:"kh_worktel,omitempty" xml:"kh_worktel,omitempty"`
+	// This parameter is required.
+	KhName      *string `json:"kh_name,omitempty" xml:"kh_name,omitempty"`
+	KhPkhid     *string `json:"kh_pkhid,omitempty" xml:"kh_pkhid,omitempty"`
+	KhPreside   *string `json:"kh_preside,omitempty" xml:"kh_preside,omitempty"`
+	KhProvince  *string `json:"kh_province,omitempty" xml:"kh_province,omitempty"`
+	KhPst       *string `json:"kh_pst,omitempty" xml:"kh_pst,omitempty"`
+	KhQq        *string `json:"kh_qq,omitempty" xml:"kh_qq,omitempty"`
+	KhRalagrade *string `json:"kh_ralagrade,omitempty" xml:"kh_ralagrade,omitempty"`
+	KhRemark    *string `json:"kh_remark,omitempty" xml:"kh_remark,omitempty"`
+	KhSex       *string `json:"kh_sex,omitempty" xml:"kh_sex,omitempty"`
+	KhShortname *string `json:"kh_shortname,omitempty" xml:"kh_shortname,omitempty"`
+	KhSkype     *string `json:"kh_skype,omitempty" xml:"kh_skype,omitempty"`
+	KhSn        *string `json:"kh_sn,omitempty" xml:"kh_sn,omitempty"`
+	KhStatus    *string `json:"kh_status,omitempty" xml:"kh_status,omitempty"`
+	KhTel       *string `json:"kh_tel,omitempty" xml:"kh_tel,omitempty"`
+	KhType      *string `json:"kh_type,omitempty" xml:"kh_type,omitempty"`
+	KhValrating *string `json:"kh_valrating,omitempty" xml:"kh_valrating,omitempty"`
+	KhWangwang  *string `json:"kh_wangwang,omitempty" xml:"kh_wangwang,omitempty"`
+	KhWeb       *string `json:"kh_web,omitempty" xml:"kh_web,omitempty"`
+	KhWeixin    *string `json:"kh_weixin,omitempty" xml:"kh_weixin,omitempty"`
+	KhWorktel   *string `json:"kh_worktel,omitempty" xml:"kh_worktel,omitempty"`
 }
 
 func (s EditCustomerPoolRequestData) String() string {
@@ -1075,8 +1144,10 @@ func (s *EditCustomerPoolRequestData) SetKhWorktel(v string) *EditCustomerPoolRe
 }
 
 type EditCustomerPoolResponseBody struct {
-	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
+	// This parameter is required.
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	Time *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditCustomerPoolResponseBody) String() string {
@@ -1150,10 +1221,23 @@ func (s *EditExchangeHeaders) SetXAcsDingtalkAccessToken(v string) *EditExchange
 }
 
 type EditExchangeRequest struct {
-	Data     *EditExchangeRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Datatype *int64                   `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	Msgid    *int64                   `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Stamp    *int64                   `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data *EditExchangeRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 228
+	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	// example:
+	//
+	// 1
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1621822122
+	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditExchangeRequest) String() string {
@@ -1185,22 +1269,37 @@ func (s *EditExchangeRequest) SetStamp(v int64) *EditExchangeRequest {
 }
 
 type EditExchangeRequestData struct {
-	ChildMx      *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
+	// example:
+	//
+	// "child_mx":[{"产品ID":"1","数量":"10","明细备注":"包含的测试产品","序列号-换入":"• in1001• in1002...无则不传递","批次号-换入":"• in2001 (10)• in2002 (20)...无则不传递","序列号-换出":"• out1001• out1002...无则不传递","批次号-换出":"• out2001 (10)• out2002 (20)...无则不传递"}]
+	ChildMx *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// 张三
 	DataUserid   *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
 	HhCustomerid *string `json:"hh_customerid,omitempty" xml:"hh_customerid,omitempty"`
 	HhDate       *string `json:"hh_date,omitempty" xml:"hh_date,omitempty"`
 	HhInempid    *string `json:"hh_inempid,omitempty" xml:"hh_inempid,omitempty"`
-	HhInlibid    *string `json:"hh_inlibid,omitempty" xml:"hh_inlibid,omitempty"`
-	HhIntime     *string `json:"hh_intime,omitempty" xml:"hh_intime,omitempty"`
-	HhNumber     *string `json:"hh_number,omitempty" xml:"hh_number,omitempty"`
-	HhOrderid    *string `json:"hh_orderid,omitempty" xml:"hh_orderid,omitempty"`
-	HhOutempid   *string `json:"hh_outempid,omitempty" xml:"hh_outempid,omitempty"`
-	HhOutlibid   *string `json:"hh_outlibid,omitempty" xml:"hh_outlibid,omitempty"`
-	HhOuttime    *string `json:"hh_outtime,omitempty" xml:"hh_outtime,omitempty"`
-	HhRemark     *string `json:"hh_remark,omitempty" xml:"hh_remark,omitempty"`
-	HhState      *string `json:"hh_state,omitempty" xml:"hh_state,omitempty"`
-	HhTitle      *string `json:"hh_title,omitempty" xml:"hh_title,omitempty"`
-	HhType       *string `json:"hh_type,omitempty" xml:"hh_type,omitempty"`
+	// This parameter is required.
+	HhInlibid *string `json:"hh_inlibid,omitempty" xml:"hh_inlibid,omitempty"`
+	HhIntime  *string `json:"hh_intime,omitempty" xml:"hh_intime,omitempty"`
+	// This parameter is required.
+	HhNumber   *string `json:"hh_number,omitempty" xml:"hh_number,omitempty"`
+	HhOrderid  *string `json:"hh_orderid,omitempty" xml:"hh_orderid,omitempty"`
+	HhOutempid *string `json:"hh_outempid,omitempty" xml:"hh_outempid,omitempty"`
+	// This parameter is required.
+	HhOutlibid *string `json:"hh_outlibid,omitempty" xml:"hh_outlibid,omitempty"`
+	HhOuttime  *string `json:"hh_outtime,omitempty" xml:"hh_outtime,omitempty"`
+	HhRemark   *string `json:"hh_remark,omitempty" xml:"hh_remark,omitempty"`
+	HhState    *string `json:"hh_state,omitempty" xml:"hh_state,omitempty"`
+	// This parameter is required.
+	HhTitle *string `json:"hh_title,omitempty" xml:"hh_title,omitempty"`
+	HhType  *string `json:"hh_type,omitempty" xml:"hh_type,omitempty"`
 }
 
 func (s EditExchangeRequestData) String() string {
@@ -1292,8 +1391,10 @@ func (s *EditExchangeRequestData) SetHhType(v string) *EditExchangeRequestData {
 }
 
 type EditExchangeResponseBody struct {
-	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
+	// This parameter is required.
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	Time *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditExchangeResponseBody) String() string {
@@ -1367,10 +1468,23 @@ func (s *EditGoodsHeaders) SetXAcsDingtalkAccessToken(v string) *EditGoodsHeader
 }
 
 type EditGoodsRequest struct {
-	Data     *EditGoodsRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Datatype *int64                `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	Msgid    *int64                `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Stamp    *int64                `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data *EditGoodsRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 154
+	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	// example:
+	//
+	// 1
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1621822122
+	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditGoodsRequest) String() string {
@@ -1402,21 +1516,31 @@ func (s *EditGoodsRequest) SetStamp(v int64) *EditGoodsRequest {
 }
 
 type EditGoodsRequestData struct {
-	Addedtime    *string `json:"addedtime,omitempty" xml:"addedtime,omitempty"`
-	Cbprice      *string `json:"cbprice,omitempty" xml:"cbprice,omitempty"`
-	CpParentid   *string `json:"cp_parentid,omitempty" xml:"cp_parentid,omitempty"`
-	Cparea       *string `json:"cparea,omitempty" xml:"cparea,omitempty"`
-	Cpbarcode    *string `json:"cpbarcode,omitempty" xml:"cpbarcode,omitempty"`
-	Cpbrand      *string `json:"cpbrand,omitempty" xml:"cpbrand,omitempty"`
-	Cpcontent    *string `json:"cpcontent,omitempty" xml:"cpcontent,omitempty"`
-	Cpguige      *string `json:"cpguige,omitempty" xml:"cpguige,omitempty"`
-	Cpimg        *string `json:"cpimg,omitempty" xml:"cpimg,omitempty"`
-	Cpname       *string `json:"cpname,omitempty" xml:"cpname,omitempty"`
-	Cpno         *string `json:"cpno,omitempty" xml:"cpno,omitempty"`
-	Cpremark     *string `json:"cpremark,omitempty" xml:"cpremark,omitempty"`
-	Cptype       *string `json:"cptype,omitempty" xml:"cptype,omitempty"`
-	Cpunit       *string `json:"cpunit,omitempty" xml:"cpunit,omitempty"`
-	Cpweight     *string `json:"cpweight,omitempty" xml:"cpweight,omitempty"`
+	Addedtime  *string `json:"addedtime,omitempty" xml:"addedtime,omitempty"`
+	Cbprice    *string `json:"cbprice,omitempty" xml:"cbprice,omitempty"`
+	CpParentid *string `json:"cp_parentid,omitempty" xml:"cp_parentid,omitempty"`
+	Cparea     *string `json:"cparea,omitempty" xml:"cparea,omitempty"`
+	Cpbarcode  *string `json:"cpbarcode,omitempty" xml:"cpbarcode,omitempty"`
+	Cpbrand    *string `json:"cpbrand,omitempty" xml:"cpbrand,omitempty"`
+	Cpcontent  *string `json:"cpcontent,omitempty" xml:"cpcontent,omitempty"`
+	Cpguige    *string `json:"cpguige,omitempty" xml:"cpguige,omitempty"`
+	Cpimg      *string `json:"cpimg,omitempty" xml:"cpimg,omitempty"`
+	// This parameter is required.
+	Cpname   *string `json:"cpname,omitempty" xml:"cpname,omitempty"`
+	Cpno     *string `json:"cpno,omitempty" xml:"cpno,omitempty"`
+	Cpremark *string `json:"cpremark,omitempty" xml:"cpremark,omitempty"`
+	Cptype   *string `json:"cptype,omitempty" xml:"cptype,omitempty"`
+	// This parameter is required.
+	Cpunit   *string `json:"cpunit,omitempty" xml:"cpunit,omitempty"`
+	Cpweight *string `json:"cpweight,omitempty" xml:"cpweight,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// 张三
 	DataUserid   *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
 	Gysid        *string `json:"gysid,omitempty" xml:"gysid,omitempty"`
 	Ispicimanage *string `json:"ispicimanage,omitempty" xml:"ispicimanage,omitempty"`
@@ -1430,7 +1554,8 @@ type EditGoodsRequestData struct {
 	Stockdown    *string `json:"stockdown,omitempty" xml:"stockdown,omitempty"`
 	Stockup      *string `json:"stockup,omitempty" xml:"stockup,omitempty"`
 	Typeid       *string `json:"typeid,omitempty" xml:"typeid,omitempty"`
-	Unitrate     *string `json:"unitrate,omitempty" xml:"unitrate,omitempty"`
+	// This parameter is required.
+	Unitrate *string `json:"unitrate,omitempty" xml:"unitrate,omitempty"`
 }
 
 func (s EditGoodsRequestData) String() string {
@@ -1587,8 +1712,10 @@ func (s *EditGoodsRequestData) SetUnitrate(v string) *EditGoodsRequestData {
 }
 
 type EditGoodsResponseBody struct {
-	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
+	// This parameter is required.
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	Time *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditGoodsResponseBody) String() string {
@@ -1662,10 +1789,23 @@ func (s *EditIntostockHeaders) SetXAcsDingtalkAccessToken(v string) *EditIntosto
 }
 
 type EditIntostockRequest struct {
-	Data     *EditIntostockRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Datatype *int64                    `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	Msgid    *int64                    `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Stamp    *int64                    `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data *EditIntostockRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 189
+	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	// example:
+	//
+	// 1
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1621822122
+	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditIntostockRequest) String() string {
@@ -1699,17 +1839,35 @@ func (s *EditIntostockRequest) SetStamp(v int64) *EditIntostockRequest {
 type EditIntostockRequestData struct {
 	Askempid   *string `json:"askempid,omitempty" xml:"askempid,omitempty"`
 	Auditreson *string `json:"auditreson,omitempty" xml:"auditreson,omitempty"`
-	Billno     *string `json:"billno,omitempty" xml:"billno,omitempty"`
+	// This parameter is required.
+	Billno *string `json:"billno,omitempty" xml:"billno,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// "child_mx":[{"产品ID":"1","数量":"10","单价":"58.5","总价":"585","明细备注":"包含的测试产品"}]
 	ChildMx    *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
 	Customerid *string `json:"customerid,omitempty" xml:"customerid,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// 张三
 	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	Empid      *string `json:"empid,omitempty" xml:"empid,omitempty"`
-	Inorout    *string `json:"inorout,omitempty" xml:"inorout,omitempty"`
-	Libiodate  *string `json:"libiodate,omitempty" xml:"libiodate,omitempty"`
-	Libioname  *string `json:"libioname,omitempty" xml:"libioname,omitempty"`
+	// This parameter is required.
+	Empid   *string `json:"empid,omitempty" xml:"empid,omitempty"`
+	Inorout *string `json:"inorout,omitempty" xml:"inorout,omitempty"`
+	// This parameter is required.
+	Libiodate *string `json:"libiodate,omitempty" xml:"libiodate,omitempty"`
+	Libioname *string `json:"libioname,omitempty" xml:"libioname,omitempty"`
+	// This parameter is required.
 	Libiostate *string `json:"libiostate,omitempty" xml:"libiostate,omitempty"`
 	Orderid    *string `json:"orderid,omitempty" xml:"orderid,omitempty"`
 	Remark     *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
 	Stocklibid *string `json:"stocklibid,omitempty" xml:"stocklibid,omitempty"`
 }
 
@@ -1792,8 +1950,10 @@ func (s *EditIntostockRequestData) SetStocklibid(v string) *EditIntostockRequest
 }
 
 type EditIntostockResponseBody struct {
-	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
+	// This parameter is required.
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	Time *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditIntostockResponseBody) String() string {
@@ -1867,10 +2027,23 @@ func (s *EditInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *EditInvoiceHe
 }
 
 type EditInvoiceRequest struct {
-	Data     *EditInvoiceRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Datatype *int64                  `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	Msgid    *int64                  `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Stamp    *int64                  `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data *EditInvoiceRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 169
+	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	// example:
+	//
+	// 1
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1621822122
+	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditInvoiceRequest) String() string {
@@ -1902,29 +2075,44 @@ func (s *EditInvoiceRequest) SetStamp(v int64) *EditInvoiceRequest {
 }
 
 type EditInvoiceRequestData struct {
-	ChildMx      *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
-	DataUserid   *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	FhAddress    *string `json:"fh_address,omitempty" xml:"fh_address,omitempty"`
+	// example:
+	//
+	// "child_mx":[{"产品ID":"1","数量":"10","单价":"58.5","总价":"585","明细备注":"包含的测试产品"}]
+	ChildMx *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// 张三
+	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
+	FhAddress  *string `json:"fh_address,omitempty" xml:"fh_address,omitempty"`
+	// This parameter is required.
 	FhCustomerid *string `json:"fh_customerid,omitempty" xml:"fh_customerid,omitempty"`
-	FhDate       *string `json:"fh_date,omitempty" xml:"fh_date,omitempty"`
-	FhEmail      *string `json:"fh_email,omitempty" xml:"fh_email,omitempty"`
-	FhHandset    *string `json:"fh_handset,omitempty" xml:"fh_handset,omitempty"`
-	FhHtorder    *string `json:"fh_htorder,omitempty" xml:"fh_htorder,omitempty"`
-	FhJianshu    *string `json:"fh_jianshu,omitempty" xml:"fh_jianshu,omitempty"`
-	FhKg         *string `json:"fh_kg,omitempty" xml:"fh_kg,omitempty"`
-	FhLinkman    *string `json:"fh_linkman,omitempty" xml:"fh_linkman,omitempty"`
-	FhLxrid      *string `json:"fh_lxrid,omitempty" xml:"fh_lxrid,omitempty"`
-	FhMode       *string `json:"fh_mode,omitempty" xml:"fh_mode,omitempty"`
-	FhMsn        *string `json:"fh_msn,omitempty" xml:"fh_msn,omitempty"`
-	FhNumber     *string `json:"fh_number,omitempty" xml:"fh_number,omitempty"`
-	FhPost       *string `json:"fh_post,omitempty" xml:"fh_post,omitempty"`
-	FhPreside    *string `json:"fh_preside,omitempty" xml:"fh_preside,omitempty"`
-	FhRemark     *string `json:"fh_remark,omitempty" xml:"fh_remark,omitempty"`
-	FhShipper    *string `json:"fh_shipper,omitempty" xml:"fh_shipper,omitempty"`
-	FhState      *string `json:"fh_state,omitempty" xml:"fh_state,omitempty"`
-	FhTel        *string `json:"fh_tel,omitempty" xml:"fh_tel,omitempty"`
-	FhTitle      *string `json:"fh_title,omitempty" xml:"fh_title,omitempty"`
-	FhYunfei     *string `json:"fh_yunfei,omitempty" xml:"fh_yunfei,omitempty"`
+	// This parameter is required.
+	FhDate    *string `json:"fh_date,omitempty" xml:"fh_date,omitempty"`
+	FhEmail   *string `json:"fh_email,omitempty" xml:"fh_email,omitempty"`
+	FhHandset *string `json:"fh_handset,omitempty" xml:"fh_handset,omitempty"`
+	FhHtorder *string `json:"fh_htorder,omitempty" xml:"fh_htorder,omitempty"`
+	FhJianshu *string `json:"fh_jianshu,omitempty" xml:"fh_jianshu,omitempty"`
+	FhKg      *string `json:"fh_kg,omitempty" xml:"fh_kg,omitempty"`
+	FhLinkman *string `json:"fh_linkman,omitempty" xml:"fh_linkman,omitempty"`
+	FhLxrid   *string `json:"fh_lxrid,omitempty" xml:"fh_lxrid,omitempty"`
+	// This parameter is required.
+	FhMode *string `json:"fh_mode,omitempty" xml:"fh_mode,omitempty"`
+	FhMsn  *string `json:"fh_msn,omitempty" xml:"fh_msn,omitempty"`
+	// This parameter is required.
+	FhNumber  *string `json:"fh_number,omitempty" xml:"fh_number,omitempty"`
+	FhPost    *string `json:"fh_post,omitempty" xml:"fh_post,omitempty"`
+	FhPreside *string `json:"fh_preside,omitempty" xml:"fh_preside,omitempty"`
+	FhRemark  *string `json:"fh_remark,omitempty" xml:"fh_remark,omitempty"`
+	FhShipper *string `json:"fh_shipper,omitempty" xml:"fh_shipper,omitempty"`
+	FhState   *string `json:"fh_state,omitempty" xml:"fh_state,omitempty"`
+	FhTel     *string `json:"fh_tel,omitempty" xml:"fh_tel,omitempty"`
+	FhTitle   *string `json:"fh_title,omitempty" xml:"fh_title,omitempty"`
+	FhYunfei  *string `json:"fh_yunfei,omitempty" xml:"fh_yunfei,omitempty"`
 }
 
 func (s EditInvoiceRequestData) String() string {
@@ -2051,8 +2239,10 @@ func (s *EditInvoiceRequestData) SetFhYunfei(v string) *EditInvoiceRequestData {
 }
 
 type EditInvoiceResponseBody struct {
-	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
+	// This parameter is required.
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	Time *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditInvoiceResponseBody) String() string {
@@ -2126,10 +2316,23 @@ func (s *EditOrderHeaders) SetXAcsDingtalkAccessToken(v string) *EditOrderHeader
 }
 
 type EditOrderRequest struct {
-	Data     *EditOrderRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Datatype *int64                `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	Msgid    *int64                `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Stamp    *int64                `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data *EditOrderRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 150
+	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	// example:
+	//
+	// 1
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1621822122
+	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditOrderRequest) String() string {
@@ -2161,36 +2364,53 @@ func (s *EditOrderRequest) SetStamp(v int64) *EditOrderRequest {
 }
 
 type EditOrderRequestData struct {
-	ChildMx        *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
+	// example:
+	//
+	// "child_mx":[{"产品ID":"1","数量":"10","单价":"58.5","总价":"585","明细备注":"包含的测试产品"}]
+	ChildMx *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// 张三
 	DataUserid     *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
 	Fahuoaddressid *string `json:"fahuoaddressid,omitempty" xml:"fahuoaddressid,omitempty"`
 	HtBegindate    *string `json:"ht_begindate,omitempty" xml:"ht_begindate,omitempty"`
 	HtContract     *string `json:"ht_contract,omitempty" xml:"ht_contract,omitempty"`
-	HtCustomerid   *string `json:"ht_customerid,omitempty" xml:"ht_customerid,omitempty"`
-	HtCusub        *string `json:"ht_cusub,omitempty" xml:"ht_cusub,omitempty"`
-	HtDate         *string `json:"ht_date,omitempty" xml:"ht_date,omitempty"`
-	HtDeliplace    *string `json:"ht_deliplace,omitempty" xml:"ht_deliplace,omitempty"`
-	HtEnddate      *string `json:"ht_enddate,omitempty" xml:"ht_enddate,omitempty"`
-	HtFjmoney      *string `json:"ht_fjmoney,omitempty" xml:"ht_fjmoney,omitempty"`
-	HtFjmoneylx    *string `json:"ht_fjmoneylx,omitempty" xml:"ht_fjmoneylx,omitempty"`
-	HtKjmoney      *string `json:"ht_kjmoney,omitempty" xml:"ht_kjmoney,omitempty"`
-	HtLxrid        *string `json:"ht_lxrid,omitempty" xml:"ht_lxrid,omitempty"`
-	HtLxrinfo      *string `json:"ht_lxrinfo,omitempty" xml:"ht_lxrinfo,omitempty"`
-	HtMoneyzhekou  *string `json:"ht_moneyzhekou,omitempty" xml:"ht_moneyzhekou,omitempty"`
-	HtNumber       *string `json:"ht_number,omitempty" xml:"ht_number,omitempty"`
-	HtOrder        *string `json:"ht_order,omitempty" xml:"ht_order,omitempty"`
-	HtPaymode      *string `json:"ht_paymode,omitempty" xml:"ht_paymode,omitempty"`
-	HtPreside      *string `json:"ht_preside,omitempty" xml:"ht_preside,omitempty"`
-	HtRemark       *string `json:"ht_remark,omitempty" xml:"ht_remark,omitempty"`
-	HtState        *string `json:"ht_state,omitempty" xml:"ht_state,omitempty"`
-	HtSummemo      *string `json:"ht_summemo,omitempty" xml:"ht_summemo,omitempty"`
-	HtSummoney     *string `json:"ht_summoney,omitempty" xml:"ht_summoney,omitempty"`
-	HtTitle        *string `json:"ht_title,omitempty" xml:"ht_title,omitempty"`
-	HtType         *string `json:"ht_type,omitempty" xml:"ht_type,omitempty"`
-	HtWesub        *string `json:"ht_wesub,omitempty" xml:"ht_wesub,omitempty"`
-	HtWuliutype    *string `json:"ht_wuliutype,omitempty" xml:"ht_wuliutype,omitempty"`
-	HtXshid        *string `json:"ht_xshid,omitempty" xml:"ht_xshid,omitempty"`
-	HtYunfeimoney  *string `json:"ht_yunfeimoney,omitempty" xml:"ht_yunfeimoney,omitempty"`
+	// This parameter is required.
+	HtCustomerid *string `json:"ht_customerid,omitempty" xml:"ht_customerid,omitempty"`
+	HtCusub      *string `json:"ht_cusub,omitempty" xml:"ht_cusub,omitempty"`
+	// This parameter is required.
+	HtDate        *string `json:"ht_date,omitempty" xml:"ht_date,omitempty"`
+	HtDeliplace   *string `json:"ht_deliplace,omitempty" xml:"ht_deliplace,omitempty"`
+	HtEnddate     *string `json:"ht_enddate,omitempty" xml:"ht_enddate,omitempty"`
+	HtFjmoney     *string `json:"ht_fjmoney,omitempty" xml:"ht_fjmoney,omitempty"`
+	HtFjmoneylx   *string `json:"ht_fjmoneylx,omitempty" xml:"ht_fjmoneylx,omitempty"`
+	HtKjmoney     *string `json:"ht_kjmoney,omitempty" xml:"ht_kjmoney,omitempty"`
+	HtLxrid       *string `json:"ht_lxrid,omitempty" xml:"ht_lxrid,omitempty"`
+	HtLxrinfo     *string `json:"ht_lxrinfo,omitempty" xml:"ht_lxrinfo,omitempty"`
+	HtMoneyzhekou *string `json:"ht_moneyzhekou,omitempty" xml:"ht_moneyzhekou,omitempty"`
+	HtNumber      *string `json:"ht_number,omitempty" xml:"ht_number,omitempty"`
+	// This parameter is required.
+	HtOrder   *string `json:"ht_order,omitempty" xml:"ht_order,omitempty"`
+	HtPaymode *string `json:"ht_paymode,omitempty" xml:"ht_paymode,omitempty"`
+	// This parameter is required.
+	HtPreside *string `json:"ht_preside,omitempty" xml:"ht_preside,omitempty"`
+	HtRemark  *string `json:"ht_remark,omitempty" xml:"ht_remark,omitempty"`
+	// This parameter is required.
+	HtState   *string `json:"ht_state,omitempty" xml:"ht_state,omitempty"`
+	HtSummemo *string `json:"ht_summemo,omitempty" xml:"ht_summemo,omitempty"`
+	// This parameter is required.
+	HtSummoney    *string `json:"ht_summoney,omitempty" xml:"ht_summoney,omitempty"`
+	HtTitle       *string `json:"ht_title,omitempty" xml:"ht_title,omitempty"`
+	HtType        *string `json:"ht_type,omitempty" xml:"ht_type,omitempty"`
+	HtWesub       *string `json:"ht_wesub,omitempty" xml:"ht_wesub,omitempty"`
+	HtWuliutype   *string `json:"ht_wuliutype,omitempty" xml:"ht_wuliutype,omitempty"`
+	HtXshid       *string `json:"ht_xshid,omitempty" xml:"ht_xshid,omitempty"`
+	HtYunfeimoney *string `json:"ht_yunfeimoney,omitempty" xml:"ht_yunfeimoney,omitempty"`
 }
 
 func (s EditOrderRequestData) String() string {
@@ -2352,8 +2572,10 @@ func (s *EditOrderRequestData) SetHtYunfeimoney(v string) *EditOrderRequestData 
 }
 
 type EditOrderResponseBody struct {
-	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
+	// This parameter is required.
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	Time *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditOrderResponseBody) String() string {
@@ -2427,10 +2649,23 @@ func (s *EditOutstockHeaders) SetXAcsDingtalkAccessToken(v string) *EditOutstock
 }
 
 type EditOutstockRequest struct {
-	Data     *EditOutstockRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Datatype *int64                   `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	Msgid    *int64                   `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Stamp    *int64                   `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data *EditOutstockRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 191
+	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	// example:
+	//
+	// 1
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1621822122
+	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditOutstockRequest) String() string {
@@ -2464,17 +2699,35 @@ func (s *EditOutstockRequest) SetStamp(v int64) *EditOutstockRequest {
 type EditOutstockRequestData struct {
 	Askempid   *string `json:"askempid,omitempty" xml:"askempid,omitempty"`
 	Auditreson *string `json:"auditreson,omitempty" xml:"auditreson,omitempty"`
-	Billno     *string `json:"billno,omitempty" xml:"billno,omitempty"`
+	// This parameter is required.
+	Billno *string `json:"billno,omitempty" xml:"billno,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// "child_mx":[{"产品ID":"1","数量":"10","单价":"58.5","总价":"585","明细备注":"包含的测试产品"}]
 	ChildMx    *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
 	Customerid *string `json:"customerid,omitempty" xml:"customerid,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// 张三
 	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	Empid      *string `json:"empid,omitempty" xml:"empid,omitempty"`
-	Inorout    *string `json:"inorout,omitempty" xml:"inorout,omitempty"`
-	Libiodate  *string `json:"libiodate,omitempty" xml:"libiodate,omitempty"`
-	Libioname  *string `json:"libioname,omitempty" xml:"libioname,omitempty"`
+	// This parameter is required.
+	Empid   *string `json:"empid,omitempty" xml:"empid,omitempty"`
+	Inorout *string `json:"inorout,omitempty" xml:"inorout,omitempty"`
+	// This parameter is required.
+	Libiodate *string `json:"libiodate,omitempty" xml:"libiodate,omitempty"`
+	Libioname *string `json:"libioname,omitempty" xml:"libioname,omitempty"`
+	// This parameter is required.
 	Libiostate *string `json:"libiostate,omitempty" xml:"libiostate,omitempty"`
 	Orderid    *string `json:"orderid,omitempty" xml:"orderid,omitempty"`
 	Remark     *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
 	Stocklibid *string `json:"stocklibid,omitempty" xml:"stocklibid,omitempty"`
 }
 
@@ -2557,8 +2810,10 @@ func (s *EditOutstockRequestData) SetStocklibid(v string) *EditOutstockRequestDa
 }
 
 type EditOutstockResponseBody struct {
-	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
+	// This parameter is required.
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	Time *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditOutstockResponseBody) String() string {
@@ -2632,10 +2887,23 @@ func (s *EditProductionHeaders) SetXAcsDingtalkAccessToken(v string) *EditProduc
 }
 
 type EditProductionRequest struct {
-	Data     *EditProductionRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Datatype *int64                     `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	Msgid    *int64                     `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Stamp    *int64                     `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data *EditProductionRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 156
+	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	// example:
+	//
+	// 1
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1621822122
+	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditProductionRequest) String() string {
@@ -2667,19 +2935,31 @@ func (s *EditProductionRequest) SetStamp(v int64) *EditProductionRequest {
 }
 
 type EditProductionRequestData struct {
-	DataUserid     *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	SchCustomerid  *string `json:"sch_customerid,omitempty" xml:"sch_customerid,omitempty"`
-	SchEndtime     *string `json:"sch_endtime,omitempty" xml:"sch_endtime,omitempty"`
-	SchFinished    *string `json:"sch_finished,omitempty" xml:"sch_finished,omitempty"`
-	SchHtid        *string `json:"sch_htid,omitempty" xml:"sch_htid,omitempty"`
-	SchMakeemp     *string `json:"sch_makeemp,omitempty" xml:"sch_makeemp,omitempty"`
-	SchNumber      *string `json:"sch_number,omitempty" xml:"sch_number,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// 张三
+	DataUserid    *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
+	SchCustomerid *string `json:"sch_customerid,omitempty" xml:"sch_customerid,omitempty"`
+	SchEndtime    *string `json:"sch_endtime,omitempty" xml:"sch_endtime,omitempty"`
+	SchFinished   *string `json:"sch_finished,omitempty" xml:"sch_finished,omitempty"`
+	SchHtid       *string `json:"sch_htid,omitempty" xml:"sch_htid,omitempty"`
+	SchMakeemp    *string `json:"sch_makeemp,omitempty" xml:"sch_makeemp,omitempty"`
+	// This parameter is required.
+	SchNumber *string `json:"sch_number,omitempty" xml:"sch_number,omitempty"`
+	// This parameter is required.
 	SchPlanendtime *string `json:"sch_planendtime,omitempty" xml:"sch_planendtime,omitempty"`
 	SchPrincipal   *string `json:"sch_principal,omitempty" xml:"sch_principal,omitempty"`
 	SchRemark      *string `json:"sch_remark,omitempty" xml:"sch_remark,omitempty"`
-	SchStarttime   *string `json:"sch_starttime,omitempty" xml:"sch_starttime,omitempty"`
-	SchStatesstr   *string `json:"sch_statesstr,omitempty" xml:"sch_statesstr,omitempty"`
-	SchTitle       *string `json:"sch_title,omitempty" xml:"sch_title,omitempty"`
+	// This parameter is required.
+	SchStarttime *string `json:"sch_starttime,omitempty" xml:"sch_starttime,omitempty"`
+	SchStatesstr *string `json:"sch_statesstr,omitempty" xml:"sch_statesstr,omitempty"`
+	// This parameter is required.
+	SchTitle *string `json:"sch_title,omitempty" xml:"sch_title,omitempty"`
 }
 
 func (s EditProductionRequestData) String() string {
@@ -2756,8 +3036,10 @@ func (s *EditProductionRequestData) SetSchTitle(v string) *EditProductionRequest
 }
 
 type EditProductionResponseBody struct {
-	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
+	// This parameter is required.
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	Time *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditProductionResponseBody) String() string {
@@ -2831,10 +3113,23 @@ func (s *EditPurchaseHeaders) SetXAcsDingtalkAccessToken(v string) *EditPurchase
 }
 
 type EditPurchaseRequest struct {
-	Data     *EditPurchaseRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Datatype *int64                   `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	Msgid    *int64                   `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Stamp    *int64                   `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data *EditPurchaseRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 153
+	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	// example:
+	//
+	// 1
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1621822122
+	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditPurchaseRequest) String() string {
@@ -2870,22 +3165,38 @@ type EditPurchaseRequestData struct {
 	CgFjmoneylx   *string `json:"cg_fjmoneylx,omitempty" xml:"cg_fjmoneylx,omitempty"`
 	CgKjmoney     *string `json:"cg_kjmoney,omitempty" xml:"cg_kjmoney,omitempty"`
 	CgMoneyzhekou *string `json:"cg_moneyzhekou,omitempty" xml:"cg_moneyzhekou,omitempty"`
-	CgZxstate     *string `json:"cg_zxstate,omitempty" xml:"cg_zxstate,omitempty"`
-	Cgdate        *string `json:"cgdate,omitempty" xml:"cgdate,omitempty"`
-	Cgname        *string `json:"cgname,omitempty" xml:"cgname,omitempty"`
-	Cgno          *string `json:"cgno,omitempty" xml:"cgno,omitempty"`
-	Cgremark      *string `json:"cgremark,omitempty" xml:"cgremark,omitempty"`
-	Cgtype        *string `json:"cgtype,omitempty" xml:"cgtype,omitempty"`
-	ChildMx       *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
-	DataUserid    *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
-	Empid         *string `json:"empid,omitempty" xml:"empid,omitempty"`
-	GysLxrid      *string `json:"gys_lxrid,omitempty" xml:"gys_lxrid,omitempty"`
-	GysLxrinfo    *string `json:"gys_lxrinfo,omitempty" xml:"gys_lxrinfo,omitempty"`
-	Gysid         *string `json:"gysid,omitempty" xml:"gysid,omitempty"`
-	Gysjingban    *string `json:"gysjingban,omitempty" xml:"gysjingban,omitempty"`
-	OrderHtid     *string `json:"order_htid,omitempty" xml:"order_htid,omitempty"`
-	OrderKhid     *string `json:"order_khid,omitempty" xml:"order_khid,omitempty"`
-	Summoney      *string `json:"summoney,omitempty" xml:"summoney,omitempty"`
+	// This parameter is required.
+	CgZxstate *string `json:"cg_zxstate,omitempty" xml:"cg_zxstate,omitempty"`
+	// This parameter is required.
+	Cgdate *string `json:"cgdate,omitempty" xml:"cgdate,omitempty"`
+	Cgname *string `json:"cgname,omitempty" xml:"cgname,omitempty"`
+	// This parameter is required.
+	Cgno     *string `json:"cgno,omitempty" xml:"cgno,omitempty"`
+	Cgremark *string `json:"cgremark,omitempty" xml:"cgremark,omitempty"`
+	Cgtype   *string `json:"cgtype,omitempty" xml:"cgtype,omitempty"`
+	// example:
+	//
+	// "child_mx":[{"产品ID":"1","数量":"10","单价":"58.5","总价":"585","明细备注":"包含的测试产品"}]
+	ChildMx *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// 张三
+	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
+	Empid      *string `json:"empid,omitempty" xml:"empid,omitempty"`
+	GysLxrid   *string `json:"gys_lxrid,omitempty" xml:"gys_lxrid,omitempty"`
+	GysLxrinfo *string `json:"gys_lxrinfo,omitempty" xml:"gys_lxrinfo,omitempty"`
+	// This parameter is required.
+	Gysid      *string `json:"gysid,omitempty" xml:"gysid,omitempty"`
+	Gysjingban *string `json:"gysjingban,omitempty" xml:"gysjingban,omitempty"`
+	OrderHtid  *string `json:"order_htid,omitempty" xml:"order_htid,omitempty"`
+	OrderKhid  *string `json:"order_khid,omitempty" xml:"order_khid,omitempty"`
+	// This parameter is required.
+	Summoney *string `json:"summoney,omitempty" xml:"summoney,omitempty"`
 }
 
 func (s EditPurchaseRequestData) String() string {
@@ -2997,8 +3308,10 @@ func (s *EditPurchaseRequestData) SetSummoney(v string) *EditPurchaseRequestData
 }
 
 type EditPurchaseResponseBody struct {
-	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
+	// This parameter is required.
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	Time *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditPurchaseResponseBody) String() string {
@@ -3072,10 +3385,23 @@ func (s *EditQuotationRecordHeaders) SetXAcsDingtalkAccessToken(v string) *EditQ
 }
 
 type EditQuotationRecordRequest struct {
-	Data     *EditQuotationRecordRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Datatype *int64                          `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	Msgid    *int64                          `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Stamp    *int64                          `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data *EditQuotationRecordRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 161
+	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	// example:
+	//
+	// 1
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1621822122
+	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditQuotationRecordRequest) String() string {
@@ -3107,9 +3433,12 @@ func (s *EditQuotationRecordRequest) SetStamp(v int64) *EditQuotationRecordReque
 }
 
 type EditQuotationRecordRequestData struct {
-	BjBjren       *string `json:"bj_bjren,omitempty" xml:"bj_bjren,omitempty"`
-	BjBzremark    *string `json:"bj_bzremark,omitempty" xml:"bj_bzremark,omitempty"`
-	BjCustomerid  *string `json:"bj_customerid,omitempty" xml:"bj_customerid,omitempty"`
+	// This parameter is required.
+	BjBjren    *string `json:"bj_bjren,omitempty" xml:"bj_bjren,omitempty"`
+	BjBzremark *string `json:"bj_bzremark,omitempty" xml:"bj_bzremark,omitempty"`
+	// This parameter is required.
+	BjCustomerid *string `json:"bj_customerid,omitempty" xml:"bj_customerid,omitempty"`
+	// This parameter is required.
 	BjDate        *string `json:"bj_date,omitempty" xml:"bj_date,omitempty"`
 	BjFjmoney     *string `json:"bj_fjmoney,omitempty" xml:"bj_fjmoney,omitempty"`
 	BjFjmoneylx   *string `json:"bj_fjmoneylx,omitempty" xml:"bj_fjmoneylx,omitempty"`
@@ -3120,13 +3449,25 @@ type EditQuotationRecordRequestData struct {
 	BjLianxi      *string `json:"bj_lianxi,omitempty" xml:"bj_lianxi,omitempty"`
 	BjMoneyzhekou *string `json:"bj_moneyzhekou,omitempty" xml:"bj_moneyzhekou,omitempty"`
 	BjNumber      *string `json:"bj_number,omitempty" xml:"bj_number,omitempty"`
-	BjPrice       *string `json:"bj_price,omitempty" xml:"bj_price,omitempty"`
-	BjRemark      *string `json:"bj_remark,omitempty" xml:"bj_remark,omitempty"`
-	BjState       *string `json:"bj_state,omitempty" xml:"bj_state,omitempty"`
-	BjTitle       *string `json:"bj_title,omitempty" xml:"bj_title,omitempty"`
-	BjXshid       *string `json:"bj_xshid,omitempty" xml:"bj_xshid,omitempty"`
-	ChildMx       *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
-	DataUserid    *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
+	// This parameter is required.
+	BjPrice  *string `json:"bj_price,omitempty" xml:"bj_price,omitempty"`
+	BjRemark *string `json:"bj_remark,omitempty" xml:"bj_remark,omitempty"`
+	BjState  *string `json:"bj_state,omitempty" xml:"bj_state,omitempty"`
+	BjTitle  *string `json:"bj_title,omitempty" xml:"bj_title,omitempty"`
+	BjXshid  *string `json:"bj_xshid,omitempty" xml:"bj_xshid,omitempty"`
+	// example:
+	//
+	// "child_mx":[{"产品ID":"1","数量":"10","单价":"58.5","总价":"585","明细备注":"包含的测试产品"}]
+	ChildMx *string `json:"child_mx,omitempty" xml:"child_mx,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// 张三
+	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
 }
 
 func (s EditQuotationRecordRequestData) String() string {
@@ -3238,8 +3579,10 @@ func (s *EditQuotationRecordRequestData) SetDataUserid(v string) *EditQuotationR
 }
 
 type EditQuotationRecordResponseBody struct {
-	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
+	// This parameter is required.
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	Time *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditQuotationRecordResponseBody) String() string {
@@ -3313,10 +3656,23 @@ func (s *EditSalesHeaders) SetXAcsDingtalkAccessToken(v string) *EditSalesHeader
 }
 
 type EditSalesRequest struct {
-	Data     *EditSalesRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Datatype *int64                `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	Msgid    *int64                `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Stamp    *int64                `json:"stamp,omitempty" xml:"stamp,omitempty"`
+	Data *EditSalesRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 158
+	Datatype *int64 `json:"datatype,omitempty" xml:"datatype,omitempty"`
+	// example:
+	//
+	// 1
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1621822122
+	Stamp *int64 `json:"stamp,omitempty" xml:"stamp,omitempty"`
 }
 
 func (s EditSalesRequest) String() string {
@@ -3348,25 +3704,36 @@ func (s *EditSalesRequest) SetStamp(v int64) *EditSalesRequest {
 }
 
 type EditSalesRequestData struct {
-	DataUserid    *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// 张三
+	DataUserid *string `json:"data_userid,omitempty" xml:"data_userid,omitempty"`
+	// This parameter is required.
 	XshCustomerid *string `json:"xsh_customerid,omitempty" xml:"xsh_customerid,omitempty"`
-	XshDate       *string `json:"xsh_date,omitempty" xml:"xsh_date,omitempty"`
-	XshExpdate    *string `json:"xsh_expdate,omitempty" xml:"xsh_expdate,omitempty"`
-	XshExpmoney   *string `json:"xsh_expmoney,omitempty" xml:"xsh_expmoney,omitempty"`
-	XshFrom       *string `json:"xsh_from,omitempty" xml:"xsh_from,omitempty"`
-	XshKnx        *string `json:"xsh_knx,omitempty" xml:"xsh_knx,omitempty"`
-	XshLianxi     *string `json:"xsh_lianxi,omitempty" xml:"xsh_lianxi,omitempty"`
-	XshLxrid      *string `json:"xsh_lxrid,omitempty" xml:"xsh_lxrid,omitempty"`
-	XshMoneynote  *string `json:"xsh_moneynote,omitempty" xml:"xsh_moneynote,omitempty"`
-	XshNumber     *string `json:"xsh_number,omitempty" xml:"xsh_number,omitempty"`
-	XshPhase      *string `json:"xsh_phase,omitempty" xml:"xsh_phase,omitempty"`
-	XshPhasenote  *string `json:"xsh_phasenote,omitempty" xml:"xsh_phasenote,omitempty"`
-	XshPreside    *string `json:"xsh_preside,omitempty" xml:"xsh_preside,omitempty"`
-	XshProvider   *string `json:"xsh_provider,omitempty" xml:"xsh_provider,omitempty"`
-	XshRequire    *string `json:"xsh_require,omitempty" xml:"xsh_require,omitempty"`
-	XshState      *string `json:"xsh_state,omitempty" xml:"xsh_state,omitempty"`
-	XshTitle      *string `json:"xsh_title,omitempty" xml:"xsh_title,omitempty"`
-	XshType       *string `json:"xsh_type,omitempty" xml:"xsh_type,omitempty"`
+	// This parameter is required.
+	XshDate      *string `json:"xsh_date,omitempty" xml:"xsh_date,omitempty"`
+	XshExpdate   *string `json:"xsh_expdate,omitempty" xml:"xsh_expdate,omitempty"`
+	XshExpmoney  *string `json:"xsh_expmoney,omitempty" xml:"xsh_expmoney,omitempty"`
+	XshFrom      *string `json:"xsh_from,omitempty" xml:"xsh_from,omitempty"`
+	XshKnx       *string `json:"xsh_knx,omitempty" xml:"xsh_knx,omitempty"`
+	XshLianxi    *string `json:"xsh_lianxi,omitempty" xml:"xsh_lianxi,omitempty"`
+	XshLxrid     *string `json:"xsh_lxrid,omitempty" xml:"xsh_lxrid,omitempty"`
+	XshMoneynote *string `json:"xsh_moneynote,omitempty" xml:"xsh_moneynote,omitempty"`
+	XshNumber    *string `json:"xsh_number,omitempty" xml:"xsh_number,omitempty"`
+	XshPhase     *string `json:"xsh_phase,omitempty" xml:"xsh_phase,omitempty"`
+	XshPhasenote *string `json:"xsh_phasenote,omitempty" xml:"xsh_phasenote,omitempty"`
+	XshPreside   *string `json:"xsh_preside,omitempty" xml:"xsh_preside,omitempty"`
+	XshProvider  *string `json:"xsh_provider,omitempty" xml:"xsh_provider,omitempty"`
+	XshRequire   *string `json:"xsh_require,omitempty" xml:"xsh_require,omitempty"`
+	XshState     *string `json:"xsh_state,omitempty" xml:"xsh_state,omitempty"`
+	// This parameter is required.
+	XshTitle *string `json:"xsh_title,omitempty" xml:"xsh_title,omitempty"`
+	XshType  *string `json:"xsh_type,omitempty" xml:"xsh_type,omitempty"`
 }
 
 func (s EditSalesRequestData) String() string {
@@ -3473,8 +3840,10 @@ func (s *EditSalesRequestData) SetXshType(v string) *EditSalesRequestData {
 }
 
 type EditSalesResponseBody struct {
-	Msgid *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
-	Time  *string `json:"time,omitempty" xml:"time,omitempty"`
+	// This parameter is required.
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	Time *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s EditSalesResponseBody) String() string {
@@ -3548,9 +3917,24 @@ func (s *GetDataListHeaders) SetXAcsDingtalkAccessToken(v string) *GetDataListHe
 }
 
 type GetDataListRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 150
 	Datatype *string `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	Page     *int64  `json:"page,omitempty" xml:"page,omitempty"`
-	Pagesize *int64  `json:"pagesize,omitempty" xml:"pagesize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Page *int64 `json:"page,omitempty" xml:"page,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	Pagesize *int64 `json:"pagesize,omitempty" xml:"pagesize,omitempty"`
 }
 
 func (s GetDataListRequest) String() string {
@@ -3577,12 +3961,18 @@ func (s *GetDataListRequest) SetPagesize(v int64) *GetDataListRequest {
 }
 
 type GetDataListResponseBody struct {
-	Data       []*GetDataListResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	Dataname   map[string]*string             `json:"dataname,omitempty" xml:"dataname,omitempty"`
-	Page       *int64                         `json:"page,omitempty" xml:"page,omitempty"`
-	PageSize   *int64                         `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	Time       *string                        `json:"time,omitempty" xml:"time,omitempty"`
-	TotalCount *int64                         `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	Data []*GetDataListResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Dataname map[string]*string `json:"dataname,omitempty" xml:"dataname,omitempty"`
+	// This parameter is required.
+	Page *int64 `json:"page,omitempty" xml:"page,omitempty"`
+	// This parameter is required.
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	Time *string `json:"time,omitempty" xml:"time,omitempty"`
+	// This parameter is required.
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s GetDataListResponseBody) String() string {
@@ -3624,6 +4014,7 @@ func (s *GetDataListResponseBody) SetTotalCount(v int64) *GetDataListResponseBod
 }
 
 type GetDataListResponseBodyData struct {
+	// This parameter is required.
 	Detail map[string]*string `json:"detail,omitempty" xml:"detail,omitempty"`
 }
 
@@ -3693,8 +4084,18 @@ func (s *GetDataViewHeaders) SetXAcsDingtalkAccessToken(v string) *GetDataViewHe
 }
 
 type GetDataViewRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 150
 	Datatype *string `json:"datatype,omitempty" xml:"datatype,omitempty"`
-	Msgid    *int64  `json:"msgid,omitempty" xml:"msgid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Msgid *int64 `json:"msgid,omitempty" xml:"msgid,omitempty"`
 }
 
 func (s GetDataViewRequest) String() string {
@@ -3716,9 +4117,12 @@ func (s *GetDataViewRequest) SetMsgid(v int64) *GetDataViewRequest {
 }
 
 type GetDataViewResponseBody struct {
-	Data     *GetDataViewResponseBodyData      `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	Data *GetDataViewResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
 	Dataname map[string]map[string]interface{} `json:"dataname,omitempty" xml:"dataname,omitempty"`
-	Time     *string                           `json:"time,omitempty" xml:"time,omitempty"`
+	// This parameter is required.
+	Time *string `json:"time,omitempty" xml:"time,omitempty"`
 }
 
 func (s GetDataViewResponseBody) String() string {
@@ -3745,6 +4149,7 @@ func (s *GetDataViewResponseBody) SetTime(v string) *GetDataViewResponseBody {
 }
 
 type GetDataViewResponseBodyData struct {
+	// This parameter is required.
 	Detail map[string]*string `json:"detail,omitempty" xml:"detail,omitempty"`
 }
 
@@ -3805,12 +4210,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -3819,6 +4224,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 编辑联系人数据
+//
+// @param request - EditContactRequest
+//
+// @param headers - EditContactHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EditContactResponse
 func (client *Client) EditContactWithOptions(request *EditContactRequest, headers *EditContactHeaders, runtime *util.RuntimeOptions) (_result *EditContactResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3874,6 +4290,13 @@ func (client *Client) EditContactWithOptions(request *EditContactRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑联系人数据
+//
+// @param request - EditContactRequest
+//
+// @return EditContactResponse
 func (client *Client) EditContact(request *EditContactRequest) (_result *EditContactResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EditContactHeaders{}
@@ -3886,6 +4309,17 @@ func (client *Client) EditContact(request *EditContactRequest) (_result *EditCon
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑客户数据
+//
+// @param request - EditCustomerRequest
+//
+// @param headers - EditCustomerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EditCustomerResponse
 func (client *Client) EditCustomerWithOptions(request *EditCustomerRequest, headers *EditCustomerHeaders, runtime *util.RuntimeOptions) (_result *EditCustomerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3941,6 +4375,13 @@ func (client *Client) EditCustomerWithOptions(request *EditCustomerRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑客户数据
+//
+// @param request - EditCustomerRequest
+//
+// @return EditCustomerResponse
 func (client *Client) EditCustomer(request *EditCustomerRequest) (_result *EditCustomerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EditCustomerHeaders{}
@@ -3953,6 +4394,17 @@ func (client *Client) EditCustomer(request *EditCustomerRequest) (_result *EditC
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑客户公共池数据
+//
+// @param request - EditCustomerPoolRequest
+//
+// @param headers - EditCustomerPoolHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EditCustomerPoolResponse
 func (client *Client) EditCustomerPoolWithOptions(request *EditCustomerPoolRequest, headers *EditCustomerPoolHeaders, runtime *util.RuntimeOptions) (_result *EditCustomerPoolResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4008,6 +4460,13 @@ func (client *Client) EditCustomerPoolWithOptions(request *EditCustomerPoolReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑客户公共池数据
+//
+// @param request - EditCustomerPoolRequest
+//
+// @return EditCustomerPoolResponse
 func (client *Client) EditCustomerPool(request *EditCustomerPoolRequest) (_result *EditCustomerPoolResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EditCustomerPoolHeaders{}
@@ -4020,6 +4479,17 @@ func (client *Client) EditCustomerPool(request *EditCustomerPoolRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑销售换货单数据
+//
+// @param request - EditExchangeRequest
+//
+// @param headers - EditExchangeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EditExchangeResponse
 func (client *Client) EditExchangeWithOptions(request *EditExchangeRequest, headers *EditExchangeHeaders, runtime *util.RuntimeOptions) (_result *EditExchangeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4075,6 +4545,13 @@ func (client *Client) EditExchangeWithOptions(request *EditExchangeRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑销售换货单数据
+//
+// @param request - EditExchangeRequest
+//
+// @return EditExchangeResponse
 func (client *Client) EditExchange(request *EditExchangeRequest) (_result *EditExchangeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EditExchangeHeaders{}
@@ -4087,6 +4564,17 @@ func (client *Client) EditExchange(request *EditExchangeRequest) (_result *EditE
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑产品数据
+//
+// @param request - EditGoodsRequest
+//
+// @param headers - EditGoodsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EditGoodsResponse
 func (client *Client) EditGoodsWithOptions(request *EditGoodsRequest, headers *EditGoodsHeaders, runtime *util.RuntimeOptions) (_result *EditGoodsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4142,6 +4630,13 @@ func (client *Client) EditGoodsWithOptions(request *EditGoodsRequest, headers *E
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑产品数据
+//
+// @param request - EditGoodsRequest
+//
+// @return EditGoodsResponse
 func (client *Client) EditGoods(request *EditGoodsRequest) (_result *EditGoodsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EditGoodsHeaders{}
@@ -4154,6 +4649,17 @@ func (client *Client) EditGoods(request *EditGoodsRequest) (_result *EditGoodsRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑入库单数据
+//
+// @param request - EditIntostockRequest
+//
+// @param headers - EditIntostockHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EditIntostockResponse
 func (client *Client) EditIntostockWithOptions(request *EditIntostockRequest, headers *EditIntostockHeaders, runtime *util.RuntimeOptions) (_result *EditIntostockResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4209,6 +4715,13 @@ func (client *Client) EditIntostockWithOptions(request *EditIntostockRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑入库单数据
+//
+// @param request - EditIntostockRequest
+//
+// @return EditIntostockResponse
 func (client *Client) EditIntostock(request *EditIntostockRequest) (_result *EditIntostockResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EditIntostockHeaders{}
@@ -4221,6 +4734,17 @@ func (client *Client) EditIntostock(request *EditIntostockRequest) (_result *Edi
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑发货单数据
+//
+// @param request - EditInvoiceRequest
+//
+// @param headers - EditInvoiceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EditInvoiceResponse
 func (client *Client) EditInvoiceWithOptions(request *EditInvoiceRequest, headers *EditInvoiceHeaders, runtime *util.RuntimeOptions) (_result *EditInvoiceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4276,6 +4800,13 @@ func (client *Client) EditInvoiceWithOptions(request *EditInvoiceRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑发货单数据
+//
+// @param request - EditInvoiceRequest
+//
+// @return EditInvoiceResponse
 func (client *Client) EditInvoice(request *EditInvoiceRequest) (_result *EditInvoiceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EditInvoiceHeaders{}
@@ -4288,6 +4819,17 @@ func (client *Client) EditInvoice(request *EditInvoiceRequest) (_result *EditInv
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑合同订单数据
+//
+// @param request - EditOrderRequest
+//
+// @param headers - EditOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EditOrderResponse
 func (client *Client) EditOrderWithOptions(request *EditOrderRequest, headers *EditOrderHeaders, runtime *util.RuntimeOptions) (_result *EditOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4343,6 +4885,13 @@ func (client *Client) EditOrderWithOptions(request *EditOrderRequest, headers *E
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑合同订单数据
+//
+// @param request - EditOrderRequest
+//
+// @return EditOrderResponse
 func (client *Client) EditOrder(request *EditOrderRequest) (_result *EditOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EditOrderHeaders{}
@@ -4355,6 +4904,17 @@ func (client *Client) EditOrder(request *EditOrderRequest) (_result *EditOrderRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑出库单信息
+//
+// @param request - EditOutstockRequest
+//
+// @param headers - EditOutstockHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EditOutstockResponse
 func (client *Client) EditOutstockWithOptions(request *EditOutstockRequest, headers *EditOutstockHeaders, runtime *util.RuntimeOptions) (_result *EditOutstockResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4410,6 +4970,13 @@ func (client *Client) EditOutstockWithOptions(request *EditOutstockRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑出库单信息
+//
+// @param request - EditOutstockRequest
+//
+// @return EditOutstockResponse
 func (client *Client) EditOutstock(request *EditOutstockRequest) (_result *EditOutstockResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EditOutstockHeaders{}
@@ -4422,6 +4989,17 @@ func (client *Client) EditOutstock(request *EditOutstockRequest) (_result *EditO
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑生产单数据
+//
+// @param request - EditProductionRequest
+//
+// @param headers - EditProductionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EditProductionResponse
 func (client *Client) EditProductionWithOptions(request *EditProductionRequest, headers *EditProductionHeaders, runtime *util.RuntimeOptions) (_result *EditProductionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4477,6 +5055,13 @@ func (client *Client) EditProductionWithOptions(request *EditProductionRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑生产单数据
+//
+// @param request - EditProductionRequest
+//
+// @return EditProductionResponse
 func (client *Client) EditProduction(request *EditProductionRequest) (_result *EditProductionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EditProductionHeaders{}
@@ -4489,6 +5074,17 @@ func (client *Client) EditProduction(request *EditProductionRequest) (_result *E
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑采购单数据
+//
+// @param request - EditPurchaseRequest
+//
+// @param headers - EditPurchaseHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EditPurchaseResponse
 func (client *Client) EditPurchaseWithOptions(request *EditPurchaseRequest, headers *EditPurchaseHeaders, runtime *util.RuntimeOptions) (_result *EditPurchaseResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4544,6 +5140,13 @@ func (client *Client) EditPurchaseWithOptions(request *EditPurchaseRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑采购单数据
+//
+// @param request - EditPurchaseRequest
+//
+// @return EditPurchaseResponse
 func (client *Client) EditPurchase(request *EditPurchaseRequest) (_result *EditPurchaseResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EditPurchaseHeaders{}
@@ -4556,6 +5159,17 @@ func (client *Client) EditPurchase(request *EditPurchaseRequest) (_result *EditP
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑报价记录数据
+//
+// @param request - EditQuotationRecordRequest
+//
+// @param headers - EditQuotationRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EditQuotationRecordResponse
 func (client *Client) EditQuotationRecordWithOptions(request *EditQuotationRecordRequest, headers *EditQuotationRecordHeaders, runtime *util.RuntimeOptions) (_result *EditQuotationRecordResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4611,6 +5225,13 @@ func (client *Client) EditQuotationRecordWithOptions(request *EditQuotationRecor
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑报价记录数据
+//
+// @param request - EditQuotationRecordRequest
+//
+// @return EditQuotationRecordResponse
 func (client *Client) EditQuotationRecord(request *EditQuotationRecordRequest) (_result *EditQuotationRecordResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EditQuotationRecordHeaders{}
@@ -4623,6 +5244,17 @@ func (client *Client) EditQuotationRecord(request *EditQuotationRecordRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑销售机会数据
+//
+// @param request - EditSalesRequest
+//
+// @param headers - EditSalesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EditSalesResponse
 func (client *Client) EditSalesWithOptions(request *EditSalesRequest, headers *EditSalesHeaders, runtime *util.RuntimeOptions) (_result *EditSalesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4678,6 +5310,13 @@ func (client *Client) EditSalesWithOptions(request *EditSalesRequest, headers *E
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑销售机会数据
+//
+// @param request - EditSalesRequest
+//
+// @return EditSalesResponse
 func (client *Client) EditSales(request *EditSalesRequest) (_result *EditSalesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EditSalesHeaders{}
@@ -4690,6 +5329,17 @@ func (client *Client) EditSales(request *EditSalesRequest) (_result *EditSalesRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取数据列表
+//
+// @param request - GetDataListRequest
+//
+// @param headers - GetDataListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDataListResponse
 func (client *Client) GetDataListWithOptions(request *GetDataListRequest, headers *GetDataListHeaders, runtime *util.RuntimeOptions) (_result *GetDataListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4741,6 +5391,13 @@ func (client *Client) GetDataListWithOptions(request *GetDataListRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取数据列表
+//
+// @param request - GetDataListRequest
+//
+// @return GetDataListResponse
 func (client *Client) GetDataList(request *GetDataListRequest) (_result *GetDataListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDataListHeaders{}
@@ -4753,6 +5410,17 @@ func (client *Client) GetDataList(request *GetDataListRequest) (_result *GetData
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取数据详情
+//
+// @param request - GetDataViewRequest
+//
+// @param headers - GetDataViewHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDataViewResponse
 func (client *Client) GetDataViewWithOptions(request *GetDataViewRequest, headers *GetDataViewHeaders, runtime *util.RuntimeOptions) (_result *GetDataViewResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4800,6 +5468,13 @@ func (client *Client) GetDataViewWithOptions(request *GetDataViewRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取数据详情
+//
+// @param request - GetDataViewRequest
+//
+// @return GetDataViewResponse
 func (client *Client) GetDataView(request *GetDataViewRequest) (_result *GetDataViewResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDataViewHeaders{}

@@ -1,21 +1,28 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package watt_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
 type CheckInCrowdsByMobileRequest struct {
-	CrowdIds []byte  `json:"crowdIds,omitempty" xml:"crowdIds,omitempty"`
-	Mobile   *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// 12520
+	CrowdIds []byte `json:"crowdIds,omitempty" xml:"crowdIds,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// N5u3hS6KJeoUdopXW4GzFg==
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
 }
 
 func (s CheckInCrowdsByMobileRequest) String() string {
@@ -337,11 +344,14 @@ func (s *CreateDeliveryPlanHeaders) SetXAcsDingtalkAccessToken(v string) *Create
 }
 
 type CreateDeliveryPlanRequest struct {
-	Content    map[string]interface{} `json:"content,omitempty" xml:"content,omitempty"`
-	EndTime    *int64                 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	ResId      *string                `json:"resId,omitempty" xml:"resId,omitempty"`
-	StartTime  *int64                 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	UserIdList []*string              `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	Content map[string]interface{} `json:"content,omitempty" xml:"content,omitempty"`
+	EndTime *int64                 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 1028
+	ResId      *string   `json:"resId,omitempty" xml:"resId,omitempty"`
+	StartTime  *int64    `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
 func (s CreateDeliveryPlanRequest) String() string {
@@ -1032,12 +1042,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
@@ -1047,6 +1057,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 根据加密后的用户手机号检查该用户是否在某人群中
+//
+// @param request - CheckInCrowdsByMobileRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CheckInCrowdsByMobileResponse
 func (client *Client) CheckInCrowdsByMobileWithOptions(request *CheckInCrowdsByMobileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CheckInCrowdsByMobileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1085,6 +1106,13 @@ func (client *Client) CheckInCrowdsByMobileWithOptions(request *CheckInCrowdsByM
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据加密后的用户手机号检查该用户是否在某人群中
+//
+// @param request - CheckInCrowdsByMobileRequest
+//
+// @return CheckInCrowdsByMobileResponse
 func (client *Client) CheckInCrowdsByMobile(request *CheckInCrowdsByMobileRequest) (_result *CheckInCrowdsByMobileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -1097,6 +1125,17 @@ func (client *Client) CheckInCrowdsByMobile(request *CheckInCrowdsByMobileReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 消耗用户积分
+//
+// @param tmpReq - ConsumePointRequest
+//
+// @param headers - ConsumePointHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ConsumePointResponse
 func (client *Client) ConsumePointWithOptions(tmpReq *ConsumePointRequest, headers *ConsumePointHeaders, runtime *util.RuntimeOptions) (_result *ConsumePointResponse, _err error) {
 	_err = util.ValidateModel(tmpReq)
 	if _err != nil {
@@ -1146,6 +1185,13 @@ func (client *Client) ConsumePointWithOptions(tmpReq *ConsumePointRequest, heade
 	return _result, _err
 }
 
+// Summary:
+//
+// 消耗用户积分
+//
+// @param request - ConsumePointRequest
+//
+// @return ConsumePointResponse
 func (client *Client) ConsumePoint(request *ConsumePointRequest) (_result *ConsumePointResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ConsumePointHeaders{}
@@ -1158,6 +1204,17 @@ func (client *Client) ConsumePoint(request *ConsumePointRequest) (_result *Consu
 	return _result, _err
 }
 
+// Summary:
+//
+// 发布钉钉投放任务（搜索穹顶、搜索发现、搜索关键字）
+//
+// @param request - CreateDeliveryPlanRequest
+//
+// @param headers - CreateDeliveryPlanHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateDeliveryPlanResponse
 func (client *Client) CreateDeliveryPlanWithOptions(request *CreateDeliveryPlanRequest, headers *CreateDeliveryPlanHeaders, runtime *util.RuntimeOptions) (_result *CreateDeliveryPlanResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1217,6 +1274,13 @@ func (client *Client) CreateDeliveryPlanWithOptions(request *CreateDeliveryPlanR
 	return _result, _err
 }
 
+// Summary:
+//
+// 发布钉钉投放任务（搜索穹顶、搜索发现、搜索关键字）
+//
+// @param request - CreateDeliveryPlanRequest
+//
+// @return CreateDeliveryPlanResponse
 func (client *Client) CreateDeliveryPlan(request *CreateDeliveryPlanRequest) (_result *CreateDeliveryPlanResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateDeliveryPlanHeaders{}
@@ -1229,6 +1293,17 @@ func (client *Client) CreateDeliveryPlan(request *CreateDeliveryPlanRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户积分
+//
+// @param request - GetPointInfoRequest
+//
+// @param headers - GetPointInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPointInfoResponse
 func (client *Client) GetPointInfoWithOptions(request *GetPointInfoRequest, headers *GetPointInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPointInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1272,6 +1347,13 @@ func (client *Client) GetPointInfoWithOptions(request *GetPointInfoRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户积分
+//
+// @param request - GetPointInfoRequest
+//
+// @return GetPointInfoResponse
 func (client *Client) GetPointInfo(request *GetPointInfoRequest) (_result *GetPointInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPointInfoHeaders{}
@@ -1284,6 +1366,17 @@ func (client *Client) GetPointInfo(request *GetPointInfoRequest) (_result *GetPo
 	return _result, _err
 }
 
+// Summary:
+//
+// 撤销用户单笔积分消耗
+//
+// @param tmpReq - RevertPointRequest
+//
+// @param headers - RevertPointHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RevertPointResponse
 func (client *Client) RevertPointWithOptions(tmpReq *RevertPointRequest, headers *RevertPointHeaders, runtime *util.RuntimeOptions) (_result *RevertPointResponse, _err error) {
 	_err = util.ValidateModel(tmpReq)
 	if _err != nil {
@@ -1333,6 +1426,13 @@ func (client *Client) RevertPointWithOptions(tmpReq *RevertPointRequest, headers
 	return _result, _err
 }
 
+// Summary:
+//
+// 撤销用户单笔积分消耗
+//
+// @param request - RevertPointRequest
+//
+// @return RevertPointResponse
 func (client *Client) RevertPoint(request *RevertPointRequest) (_result *RevertPointResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RevertPointHeaders{}
@@ -1345,6 +1445,17 @@ func (client *Client) RevertPoint(request *RevertPointRequest) (_result *RevertP
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送钉钉统一引导Banner
+//
+// @param request - SendBannerRequest
+//
+// @param headers - SendBannerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendBannerResponse
 func (client *Client) SendBannerWithOptions(request *SendBannerRequest, headers *SendBannerHeaders, runtime *util.RuntimeOptions) (_result *SendBannerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1400,6 +1511,13 @@ func (client *Client) SendBannerWithOptions(request *SendBannerRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送钉钉统一引导Banner
+//
+// @param request - SendBannerRequest
+//
+// @return SendBannerResponse
 func (client *Client) SendBanner(request *SendBannerRequest) (_result *SendBannerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendBannerHeaders{}
@@ -1412,6 +1530,17 @@ func (client *Client) SendBanner(request *SendBannerRequest) (_result *SendBanne
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送钉钉首页弹窗
+//
+// @param request - SendPopupRequest
+//
+// @param headers - SendPopupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendPopupResponse
 func (client *Client) SendPopupWithOptions(request *SendPopupRequest, headers *SendPopupHeaders, runtime *util.RuntimeOptions) (_result *SendPopupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1467,6 +1596,13 @@ func (client *Client) SendPopupWithOptions(request *SendPopupRequest, headers *S
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送钉钉首页弹窗
+//
+// @param request - SendPopupRequest
+//
+// @return SendPopupResponse
 func (client *Client) SendPopup(request *SendPopupRequest) (_result *SendPopupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendPopupHeaders{}
@@ -1479,6 +1615,17 @@ func (client *Client) SendPopup(request *SendPopupRequest) (_result *SendPopupRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送钉钉搜索底纹
+//
+// @param request - SendSearchShadeRequest
+//
+// @param headers - SendSearchShadeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendSearchShadeResponse
 func (client *Client) SendSearchShadeWithOptions(request *SendSearchShadeRequest, headers *SendSearchShadeHeaders, runtime *util.RuntimeOptions) (_result *SendSearchShadeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1534,6 +1681,13 @@ func (client *Client) SendSearchShadeWithOptions(request *SendSearchShadeRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送钉钉搜索底纹
+//
+// @param request - SendSearchShadeRequest
+//
+// @return SendSearchShadeResponse
 func (client *Client) SendSearchShade(request *SendSearchShadeRequest) (_result *SendSearchShadeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendSearchShadeHeaders{}

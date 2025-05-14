@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package crm_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,10 +33,16 @@ func (s *AbandonCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *AbandonCu
 }
 
 type AbandonCustomerRequest struct {
-	CustomTrackDesc *string   `json:"customTrackDesc,omitempty" xml:"customTrackDesc,omitempty"`
-	InstanceIdList  []*string `json:"instanceIdList,omitempty" xml:"instanceIdList,omitempty" type:"Repeated"`
-	OperatorUserId  *string   `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
-	OptType         *string   `json:"optType,omitempty" xml:"optType,omitempty"`
+	CustomTrackDesc *string `json:"customTrackDesc,omitempty" xml:"customTrackDesc,omitempty"`
+	// This parameter is required.
+	InstanceIdList []*string `json:"instanceIdList,omitempty" xml:"instanceIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123123123
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	OptType        *string `json:"optType,omitempty" xml:"optType,omitempty"`
 }
 
 func (s AbandonCustomerRequest) String() string {
@@ -141,14 +143,25 @@ func (s *AddCrmPersonalCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *Ad
 }
 
 type AddCrmPersonalCustomerRequest struct {
-	Action             *string                                  `json:"action,omitempty" xml:"action,omitempty"`
-	CreatorNick        *string                                  `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
-	CreatorUserId      *string                                  `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	Data               map[string]interface{}                   `json:"data,omitempty" xml:"data,omitempty"`
-	ExtendData         map[string]interface{}                   `json:"extendData,omitempty" xml:"extendData,omitempty"`
-	Permission         *AddCrmPersonalCustomerRequestPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
-	RelationType       *string                                  `json:"relationType,omitempty" xml:"relationType,omitempty"`
-	SkipDuplicateCheck *bool                                    `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
+	// example:
+	//
+	// publicDraw
+	Action      *string `json:"action,omitempty" xml:"action,omitempty"`
+	CreatorNick *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	// This parameter is required.
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// This parameter is required.
+	Data       map[string]interface{}                   `json:"data,omitempty" xml:"data,omitempty"`
+	ExtendData map[string]interface{}                   `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	Permission *AddCrmPersonalCustomerRequestPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	// example:
+	//
+	// crm_customer_personal
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// example:
+	//
+	// false
+	SkipDuplicateCheck *bool `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
 }
 
 func (s AddCrmPersonalCustomerRequest) String() string {
@@ -223,6 +236,7 @@ func (s *AddCrmPersonalCustomerRequestPermission) SetParticipantStaffIds(v []*st
 }
 
 type AddCrmPersonalCustomerResponseBody struct {
+	// This parameter is required.
 	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
 }
 
@@ -292,15 +306,60 @@ func (s *AddCustomerTrackHeaders) SetXAcsDingtalkAccessToken(v string) *AddCusto
 }
 
 type AddCustomerTrackRequest struct {
-	Content        *string `json:"content,omitempty" xml:"content,omitempty"`
-	CustomerId     *string `json:"customerId,omitempty" xml:"customerId,omitempty"`
-	ExtraBizInfo   *string `json:"extraBizInfo,omitempty" xml:"extraBizInfo,omitempty"`
-	IdempotentKey  *string `json:"idempotentKey,omitempty" xml:"idempotentKey,omitempty"`
-	MaskedContent  *string `json:"maskedContent,omitempty" xml:"maskedContent,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// [华佗](http://******)创建了合同：**今日合同**
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// fb037d68-c1bd-4be2-8c3b-6739261d1332
+	CustomerId *string `json:"customerId,omitempty" xml:"customerId,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// {"bizId":"1"}
+	ExtraBizInfo *string `json:"extraBizInfo,omitempty" xml:"extraBizInfo,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// fb037d68-c1bd-4be2-8c3b-6739261d1332-1
+	IdempotentKey *string `json:"idempotentKey,omitempty" xml:"idempotentKey,omitempty"`
+	// example:
+	//
+	// [华佗](http://******)创建了合同：**今日合同**
+	MaskedContent *string `json:"maskedContent,omitempty" xml:"maskedContent,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager1120
 	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
-	RelationType   *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
-	Title          *string `json:"title,omitempty" xml:"title,omitempty"`
-	Type           *int32  `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// crm_customer
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 创建合同
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 212
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s AddCustomerTrackRequest) String() string {
@@ -357,6 +416,11 @@ func (s *AddCustomerTrackRequest) SetType(v int32) *AddCustomerTrackRequest {
 }
 
 type AddCustomerTrackResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -426,11 +490,30 @@ func (s *AddLeadsHeaders) SetXAcsDingtalkAccessToken(v string) *AddLeadsHeaders 
 }
 
 type AddLeadsRequest struct {
-	AssignTimestamp *int64                  `json:"assignTimestamp,omitempty" xml:"assignTimestamp,omitempty"`
-	AssignUserId    *string                 `json:"assignUserId,omitempty" xml:"assignUserId,omitempty"`
-	AssignedUserId  *string                 `json:"assignedUserId,omitempty" xml:"assignedUserId,omitempty"`
-	Leads           []*AddLeadsRequestLeads `json:"leads,omitempty" xml:"leads,omitempty" type:"Repeated"`
-	OutTaskId       *string                 `json:"outTaskId,omitempty" xml:"outTaskId,omitempty"`
+	// example:
+	//
+	// 1669360918000
+	AssignTimestamp *int64 `json:"assignTimestamp,omitempty" xml:"assignTimestamp,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager1234
+	AssignUserId *string `json:"assignUserId,omitempty" xml:"assignUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager1234
+	AssignedUserId *string `json:"assignedUserId,omitempty" xml:"assignedUserId,omitempty"`
+	// This parameter is required.
+	Leads []*AddLeadsRequestLeads `json:"leads,omitempty" xml:"leads,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// t123123123
+	OutTaskId *string `json:"outTaskId,omitempty" xml:"outTaskId,omitempty"`
 }
 
 func (s AddLeadsRequest) String() string {
@@ -467,7 +550,17 @@ func (s *AddLeadsRequest) SetOutTaskId(v string) *AddLeadsRequest {
 }
 
 type AddLeadsRequestLeads struct {
-	LeadsName  *string `json:"leadsName,omitempty" xml:"leadsName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// XX公司
+	LeadsName *string `json:"leadsName,omitempty" xml:"leadsName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// fasd123125
 	OutLeadsId *string `json:"outLeadsId,omitempty" xml:"outLeadsId,omitempty"`
 }
 
@@ -535,6 +628,309 @@ func (s *AddLeadsResponse) SetBody(v *AddLeadsResponseBody) *AddLeadsResponse {
 	return s
 }
 
+type AddMetaModelFieldHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddMetaModelFieldHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddMetaModelFieldHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddMetaModelFieldHeaders) SetCommonHeaders(v map[string]*string) *AddMetaModelFieldHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddMetaModelFieldHeaders) SetXAcsDingtalkAccessToken(v string) *AddMetaModelFieldHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddMetaModelFieldRequest struct {
+	// This parameter is required.
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	FieldDTOList []*AddMetaModelFieldRequestFieldDTOList `json:"fieldDTOList,omitempty" xml:"fieldDTOList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	Tenant *string `json:"tenant,omitempty" xml:"tenant,omitempty"`
+}
+
+func (s AddMetaModelFieldRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddMetaModelFieldRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddMetaModelFieldRequest) SetBizType(v string) *AddMetaModelFieldRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequest) SetFieldDTOList(v []*AddMetaModelFieldRequestFieldDTOList) *AddMetaModelFieldRequest {
+	s.FieldDTOList = v
+	return s
+}
+
+func (s *AddMetaModelFieldRequest) SetOperatorUserId(v string) *AddMetaModelFieldRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequest) SetTenant(v string) *AddMetaModelFieldRequest {
+	s.Tenant = &v
+	return s
+}
+
+type AddMetaModelFieldRequestFieldDTOList struct {
+	// This parameter is required.
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	Props *AddMetaModelFieldRequestFieldDTOListProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+}
+
+func (s AddMetaModelFieldRequestFieldDTOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddMetaModelFieldRequestFieldDTOList) GoString() string {
+	return s.String()
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOList) SetComponentName(v string) *AddMetaModelFieldRequestFieldDTOList {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOList) SetProps(v *AddMetaModelFieldRequestFieldDTOListProps) *AddMetaModelFieldRequestFieldDTOList {
+	s.Props = v
+	return s
+}
+
+type AddMetaModelFieldRequestFieldDTOListProps struct {
+	Align    *string `json:"align,omitempty" xml:"align,omitempty"`
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	Choice   *int64  `json:"choice,omitempty" xml:"choice,omitempty"`
+	Content  *string `json:"content,omitempty" xml:"content,omitempty"`
+	Disabled *bool   `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	Duration *bool   `json:"duration,omitempty" xml:"duration,omitempty"`
+	// This parameter is required.
+	FieldId   *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Format    *string `json:"format,omitempty" xml:"format,omitempty"`
+	Invisible *bool   `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// This parameter is required.
+	Label               *string                                             `json:"label,omitempty" xml:"label,omitempty"`
+	LabelEditableFreeze *bool                                               `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	Link                *string                                             `json:"link,omitempty" xml:"link,omitempty"`
+	NeedDetail          *string                                             `json:"needDetail,omitempty" xml:"needDetail,omitempty"`
+	NotPrint            *string                                             `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	NotUpper            *string                                             `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	Options             []*AddMetaModelFieldRequestFieldDTOListPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	PayEnable           *bool                                               `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	Placeholder         *string                                             `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// This parameter is required.
+	Required               *bool   `json:"required,omitempty" xml:"required,omitempty"`
+	RequiredEditableFreeze *bool   `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	Sortable               *bool   `json:"sortable,omitempty" xml:"sortable,omitempty"`
+	Unit                   *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s AddMetaModelFieldRequestFieldDTOListProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddMetaModelFieldRequestFieldDTOListProps) GoString() string {
+	return s.String()
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetAlign(v string) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.Align = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetBizAlias(v string) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetChoice(v int64) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetContent(v string) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.Content = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetDisabled(v bool) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetDuration(v bool) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetFieldId(v string) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.FieldId = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetFormat(v string) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.Format = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetInvisible(v bool) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetLabel(v string) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.Label = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetLabelEditableFreeze(v bool) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.LabelEditableFreeze = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetLink(v string) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.Link = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetNeedDetail(v string) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.NeedDetail = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetNotPrint(v string) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.NotPrint = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetNotUpper(v string) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetOptions(v []*AddMetaModelFieldRequestFieldDTOListPropsOptions) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.Options = v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetPayEnable(v bool) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetPlaceholder(v string) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetRequired(v bool) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.Required = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetRequiredEditableFreeze(v bool) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.RequiredEditableFreeze = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetSortable(v bool) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.Sortable = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListProps) SetUnit(v string) *AddMetaModelFieldRequestFieldDTOListProps {
+	s.Unit = &v
+	return s
+}
+
+type AddMetaModelFieldRequestFieldDTOListPropsOptions struct {
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s AddMetaModelFieldRequestFieldDTOListPropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddMetaModelFieldRequestFieldDTOListPropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListPropsOptions) SetKey(v string) *AddMetaModelFieldRequestFieldDTOListPropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *AddMetaModelFieldRequestFieldDTOListPropsOptions) SetValue(v string) *AddMetaModelFieldRequestFieldDTOListPropsOptions {
+	s.Value = &v
+	return s
+}
+
+type AddMetaModelFieldResponseBody struct {
+	// This parameter is required.
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+}
+
+func (s AddMetaModelFieldResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddMetaModelFieldResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddMetaModelFieldResponseBody) SetBizType(v string) *AddMetaModelFieldResponseBody {
+	s.BizType = &v
+	return s
+}
+
+type AddMetaModelFieldResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddMetaModelFieldResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AddMetaModelFieldResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddMetaModelFieldResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddMetaModelFieldResponse) SetHeaders(v map[string]*string) *AddMetaModelFieldResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddMetaModelFieldResponse) SetStatusCode(v int32) *AddMetaModelFieldResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddMetaModelFieldResponse) SetBody(v *AddMetaModelFieldResponseBody) *AddMetaModelFieldResponse {
+	s.Body = v
+	return s
+}
+
 type AddRelationMetaFieldHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -559,10 +955,14 @@ func (s *AddRelationMetaFieldHeaders) SetXAcsDingtalkAccessToken(v string) *AddR
 }
 
 type AddRelationMetaFieldRequest struct {
-	FieldDTOList   []*AddRelationMetaFieldRequestFieldDTOList `json:"fieldDTOList,omitempty" xml:"fieldDTOList,omitempty" type:"Repeated"`
-	OperatorUserId *string                                    `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
-	RelationType   *string                                    `json:"relationType,omitempty" xml:"relationType,omitempty"`
-	Tenant         *string                                    `json:"tenant,omitempty" xml:"tenant,omitempty"`
+	// This parameter is required.
+	FieldDTOList []*AddRelationMetaFieldRequestFieldDTOList `json:"fieldDTOList,omitempty" xml:"fieldDTOList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// This parameter is required.
+	Tenant *string `json:"tenant,omitempty" xml:"tenant,omitempty"`
 }
 
 func (s AddRelationMetaFieldRequest) String() string {
@@ -594,8 +994,10 @@ func (s *AddRelationMetaFieldRequest) SetTenant(v string) *AddRelationMetaFieldR
 }
 
 type AddRelationMetaFieldRequestFieldDTOList struct {
-	ComponentName *string                                       `json:"componentName,omitempty" xml:"componentName,omitempty"`
-	Props         *AddRelationMetaFieldRequestFieldDTOListProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+	// This parameter is required.
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	Props *AddRelationMetaFieldRequestFieldDTOListProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
 }
 
 func (s AddRelationMetaFieldRequestFieldDTOList) String() string {
@@ -617,28 +1019,31 @@ func (s *AddRelationMetaFieldRequestFieldDTOList) SetProps(v *AddRelationMetaFie
 }
 
 type AddRelationMetaFieldRequestFieldDTOListProps struct {
-	Align                  *string                                                `json:"align,omitempty" xml:"align,omitempty"`
-	BizAlias               *string                                                `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	Choice                 *int64                                                 `json:"choice,omitempty" xml:"choice,omitempty"`
-	Content                *string                                                `json:"content,omitempty" xml:"content,omitempty"`
-	Disabled               *bool                                                  `json:"disabled,omitempty" xml:"disabled,omitempty"`
-	Duration               *bool                                                  `json:"duration,omitempty" xml:"duration,omitempty"`
-	FieldId                *string                                                `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Format                 *string                                                `json:"format,omitempty" xml:"format,omitempty"`
-	Invisible              *bool                                                  `json:"invisible,omitempty" xml:"invisible,omitempty"`
-	Label                  *string                                                `json:"label,omitempty" xml:"label,omitempty"`
-	LabelEditableFreeze    *bool                                                  `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
-	Link                   *string                                                `json:"link,omitempty" xml:"link,omitempty"`
-	NeedDetail             *string                                                `json:"needDetail,omitempty" xml:"needDetail,omitempty"`
-	NotPrint               *string                                                `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
-	NotUpper               *string                                                `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
-	Options                []*AddRelationMetaFieldRequestFieldDTOListPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
-	PayEnable              *bool                                                  `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
-	Placeholder            *string                                                `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
-	Required               *bool                                                  `json:"required,omitempty" xml:"required,omitempty"`
-	RequiredEditableFreeze *bool                                                  `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
-	Sortable               *bool                                                  `json:"sortable,omitempty" xml:"sortable,omitempty"`
-	Unit                   *string                                                `json:"unit,omitempty" xml:"unit,omitempty"`
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// This parameter is required.
+	BizAlias  *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	Choice    *int64  `json:"choice,omitempty" xml:"choice,omitempty"`
+	Content   *string `json:"content,omitempty" xml:"content,omitempty"`
+	Disabled  *bool   `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	Duration  *bool   `json:"duration,omitempty" xml:"duration,omitempty"`
+	FieldId   *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Format    *string `json:"format,omitempty" xml:"format,omitempty"`
+	Invisible *bool   `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// This parameter is required.
+	Label               *string                                                `json:"label,omitempty" xml:"label,omitempty"`
+	LabelEditableFreeze *bool                                                  `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	Link                *string                                                `json:"link,omitempty" xml:"link,omitempty"`
+	NeedDetail          *string                                                `json:"needDetail,omitempty" xml:"needDetail,omitempty"`
+	NotPrint            *string                                                `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	NotUpper            *string                                                `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	Options             []*AddRelationMetaFieldRequestFieldDTOListPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	PayEnable           *bool                                                  `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	Placeholder         *string                                                `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// This parameter is required.
+	Required               *bool   `json:"required,omitempty" xml:"required,omitempty"`
+	RequiredEditableFreeze *bool   `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	Sortable               *bool   `json:"sortable,omitempty" xml:"sortable,omitempty"`
+	Unit                   *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s AddRelationMetaFieldRequestFieldDTOListProps) String() string {
@@ -783,6 +1188,7 @@ func (s *AddRelationMetaFieldRequestFieldDTOListPropsOptions) SetValue(v string)
 }
 
 type AddRelationMetaFieldResponseBody struct {
+	// This parameter is required.
 	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
 
@@ -828,6 +1234,143 @@ func (s *AddRelationMetaFieldResponse) SetBody(v *AddRelationMetaFieldResponseBo
 	return s
 }
 
+type AppendCustomerDataAuthHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AppendCustomerDataAuthHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendCustomerDataAuthHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AppendCustomerDataAuthHeaders) SetCommonHeaders(v map[string]*string) *AppendCustomerDataAuthHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AppendCustomerDataAuthHeaders) SetXAcsDingtalkAccessToken(v string) *AppendCustomerDataAuthHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AppendCustomerDataAuthRequest struct {
+	// This parameter is required.
+	CustomerIds []*string `json:"customerIds,omitempty" xml:"customerIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	DataAuthUserIds []*string `json:"dataAuthUserIds,omitempty" xml:"dataAuthUserIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// PROC-98187D45-EFC0-4FC4-887E-45BD24209D69
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// staffId2
+	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
+	// example:
+	//
+	// crm_customer
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// owner
+	RoleType *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
+}
+
+func (s AppendCustomerDataAuthRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendCustomerDataAuthRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AppendCustomerDataAuthRequest) SetCustomerIds(v []*string) *AppendCustomerDataAuthRequest {
+	s.CustomerIds = v
+	return s
+}
+
+func (s *AppendCustomerDataAuthRequest) SetDataAuthUserIds(v []*string) *AppendCustomerDataAuthRequest {
+	s.DataAuthUserIds = v
+	return s
+}
+
+func (s *AppendCustomerDataAuthRequest) SetFormCode(v string) *AppendCustomerDataAuthRequest {
+	s.FormCode = &v
+	return s
+}
+
+func (s *AppendCustomerDataAuthRequest) SetOperateUserId(v string) *AppendCustomerDataAuthRequest {
+	s.OperateUserId = &v
+	return s
+}
+
+func (s *AppendCustomerDataAuthRequest) SetRelationType(v string) *AppendCustomerDataAuthRequest {
+	s.RelationType = &v
+	return s
+}
+
+func (s *AppendCustomerDataAuthRequest) SetRoleType(v string) *AppendCustomerDataAuthRequest {
+	s.RoleType = &v
+	return s
+}
+
+type AppendCustomerDataAuthResponseBody struct {
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s AppendCustomerDataAuthResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendCustomerDataAuthResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AppendCustomerDataAuthResponseBody) SetResult(v bool) *AppendCustomerDataAuthResponseBody {
+	s.Result = &v
+	return s
+}
+
+type AppendCustomerDataAuthResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AppendCustomerDataAuthResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AppendCustomerDataAuthResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendCustomerDataAuthResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AppendCustomerDataAuthResponse) SetHeaders(v map[string]*string) *AppendCustomerDataAuthResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AppendCustomerDataAuthResponse) SetStatusCode(v int32) *AppendCustomerDataAuthResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AppendCustomerDataAuthResponse) SetBody(v *AppendCustomerDataAuthResponseBody) *AppendCustomerDataAuthResponse {
+	s.Body = v
+	return s
+}
+
 type BatchAddContactsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -852,8 +1395,14 @@ func (s *BatchAddContactsHeaders) SetXAcsDingtalkAccessToken(v string) *BatchAdd
 }
 
 type BatchAddContactsRequest struct {
-	OperatorUserId *string                                `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
-	RelationList   []*BatchAddContactsRequestRelationList `json:"relationList,omitempty" xml:"relationList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager021a
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	RelationList []*BatchAddContactsRequestRelationList `json:"relationList,omitempty" xml:"relationList,omitempty" type:"Repeated"`
 }
 
 func (s BatchAddContactsRequest) String() string {
@@ -875,8 +1424,15 @@ func (s *BatchAddContactsRequest) SetRelationList(v []*BatchAddContactsRequestRe
 }
 
 type BatchAddContactsRequestRelationList struct {
+	// This parameter is required.
 	BizDataList []*BatchAddContactsRequestRelationListBizDataList `json:"bizDataList,omitempty" xml:"bizDataList,omitempty" type:"Repeated"`
-	BizExtMap   map[string]*string                                `json:"bizExtMap,omitempty" xml:"bizExtMap,omitempty"`
+	// if can be null:
+	// true
+	BizExtMap map[string]*string `json:"bizExtMap,omitempty" xml:"bizExtMap,omitempty"`
+	// example:
+	//
+	// 1343434dd
+	SourceDataId *string `json:"sourceDataId,omitempty" xml:"sourceDataId,omitempty"`
 }
 
 func (s BatchAddContactsRequestRelationList) String() string {
@@ -897,10 +1453,28 @@ func (s *BatchAddContactsRequestRelationList) SetBizExtMap(v map[string]*string)
 	return s
 }
 
+func (s *BatchAddContactsRequestRelationList) SetSourceDataId(v string) *BatchAddContactsRequestRelationList {
+	s.SourceDataId = &v
+	return s
+}
+
 type BatchAddContactsRequestRelationListBizDataList struct {
+	// example:
+	//
+	// {}
 	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
-	Key         *string `json:"key,omitempty" xml:"key,omitempty"`
-	Value       *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField_71U51A
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// XX有限公司
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s BatchAddContactsRequestRelationListBizDataList) String() string {
@@ -927,6 +1501,9 @@ func (s *BatchAddContactsRequestRelationListBizDataList) SetValue(v string) *Bat
 }
 
 type BatchAddContactsResponseBody struct {
+	// example:
+	//
+	// true
 	Results []*BatchAddContactsResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
 }
 
@@ -944,10 +1521,22 @@ func (s *BatchAddContactsResponseBody) SetResults(v []*BatchAddContactsResponseB
 }
 
 type BatchAddContactsResponseBodyResults struct {
-	ErrorCode  *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	ErrorMsg   *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// 1002
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// 查重失败
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// gads1ag-sfgasdfxcvxb
 	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
-	Success    *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BatchAddContactsResponseBodyResults) String() string {
@@ -1031,8 +1620,14 @@ func (s *BatchAddFollowRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *Bat
 }
 
 type BatchAddFollowRecordsRequest struct {
-	InstanceList   []*BatchAddFollowRecordsRequestInstanceList `json:"instanceList,omitempty" xml:"instanceList,omitempty" type:"Repeated"`
-	OperatorUserId *string                                     `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	InstanceList []*BatchAddFollowRecordsRequestInstanceList `json:"instanceList,omitempty" xml:"instanceList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager021a
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
 }
 
 func (s BatchAddFollowRecordsRequest) String() string {
@@ -1054,6 +1649,8 @@ func (s *BatchAddFollowRecordsRequest) SetOperatorUserId(v string) *BatchAddFoll
 }
 
 type BatchAddFollowRecordsRequestInstanceList struct {
+	BizExtMap map[string]*string `json:"bizExtMap,omitempty" xml:"bizExtMap,omitempty"`
+	// This parameter is required.
 	DataArray []*BatchAddFollowRecordsRequestInstanceListDataArray `json:"dataArray,omitempty" xml:"dataArray,omitempty" type:"Repeated"`
 }
 
@@ -1065,15 +1662,33 @@ func (s BatchAddFollowRecordsRequestInstanceList) GoString() string {
 	return s.String()
 }
 
+func (s *BatchAddFollowRecordsRequestInstanceList) SetBizExtMap(v map[string]*string) *BatchAddFollowRecordsRequestInstanceList {
+	s.BizExtMap = v
+	return s
+}
+
 func (s *BatchAddFollowRecordsRequestInstanceList) SetDataArray(v []*BatchAddFollowRecordsRequestInstanceListDataArray) *BatchAddFollowRecordsRequestInstanceList {
 	s.DataArray = v
 	return s
 }
 
 type BatchAddFollowRecordsRequestInstanceListDataArray struct {
+	// example:
+	//
+	// {}
 	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
-	Key         *string `json:"key,omitempty" xml:"key,omitempty"`
-	Value       *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField_71U51A
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// XX有限公司
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s BatchAddFollowRecordsRequestInstanceListDataArray) String() string {
@@ -1100,6 +1715,9 @@ func (s *BatchAddFollowRecordsRequestInstanceListDataArray) SetValue(v string) *
 }
 
 type BatchAddFollowRecordsResponseBody struct {
+	// example:
+	//
+	// true
 	Results []*BatchAddFollowRecordsResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
 }
 
@@ -1117,10 +1735,22 @@ func (s *BatchAddFollowRecordsResponseBody) SetResults(v []*BatchAddFollowRecord
 }
 
 type BatchAddFollowRecordsResponseBodyResults struct {
-	ErrorCode  *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	ErrorMsg   *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// 1002
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// 查重失败
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// yU9TbER1TDazjPq1rRCzwg04841675924041
 	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	Success    *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BatchAddFollowRecordsResponseBodyResults) String() string {
@@ -1204,10 +1834,24 @@ func (s *BatchAddRelationDatasHeaders) SetXAcsDingtalkAccessToken(v string) *Bat
 }
 
 type BatchAddRelationDatasRequest struct {
-	OperatorUserId     *string                                     `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
-	RelationList       []*BatchAddRelationDatasRequestRelationList `json:"relationList,omitempty" xml:"relationList,omitempty" type:"Repeated"`
-	RelationType       *string                                     `json:"relationType,omitempty" xml:"relationType,omitempty"`
-	SkipDuplicateCheck *bool                                       `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager021a
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	RelationList []*BatchAddRelationDatasRequestRelationList `json:"relationList,omitempty" xml:"relationList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// crm_customer
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// example:
+	//
+	// false
+	SkipDuplicateCheck *bool `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
 }
 
 func (s BatchAddRelationDatasRequest) String() string {
@@ -1239,9 +1883,16 @@ func (s *BatchAddRelationDatasRequest) SetSkipDuplicateCheck(v bool) *BatchAddRe
 }
 
 type BatchAddRelationDatasRequestRelationList struct {
-	BizDataList           []*BatchAddRelationDatasRequestRelationListBizDataList         `json:"bizDataList,omitempty" xml:"bizDataList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	BizDataList []*BatchAddRelationDatasRequestRelationListBizDataList `json:"bizDataList,omitempty" xml:"bizDataList,omitempty" type:"Repeated"`
+	// if can be null:
+	// true
 	BizExtMap             map[string]*string                                             `json:"bizExtMap,omitempty" xml:"bizExtMap,omitempty"`
 	RelationPermissionDTO *BatchAddRelationDatasRequestRelationListRelationPermissionDTO `json:"relationPermissionDTO,omitempty" xml:"relationPermissionDTO,omitempty" type:"Struct"`
+	// example:
+	//
+	// ddsf3234234
+	SourceDataId *string `json:"sourceDataId,omitempty" xml:"sourceDataId,omitempty"`
 }
 
 func (s BatchAddRelationDatasRequestRelationList) String() string {
@@ -1267,10 +1918,28 @@ func (s *BatchAddRelationDatasRequestRelationList) SetRelationPermissionDTO(v *B
 	return s
 }
 
+func (s *BatchAddRelationDatasRequestRelationList) SetSourceDataId(v string) *BatchAddRelationDatasRequestRelationList {
+	s.SourceDataId = &v
+	return s
+}
+
 type BatchAddRelationDatasRequestRelationListBizDataList struct {
+	// example:
+	//
+	// {}
 	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
-	Key         *string `json:"key,omitempty" xml:"key,omitempty"`
-	Value       *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField_71U51A
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// XX有限公司
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s BatchAddRelationDatasRequestRelationListBizDataList) String() string {
@@ -1320,6 +1989,9 @@ func (s *BatchAddRelationDatasRequestRelationListRelationPermissionDTO) SetPrinc
 }
 
 type BatchAddRelationDatasResponseBody struct {
+	// example:
+	//
+	// true
 	Results []*BatchAddRelationDatasResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
 }
 
@@ -1338,10 +2010,22 @@ func (s *BatchAddRelationDatasResponseBody) SetResults(v []*BatchAddRelationData
 
 type BatchAddRelationDatasResponseBodyResults struct {
 	DuplicatedRelationIds []*string `json:"duplicatedRelationIds,omitempty" xml:"duplicatedRelationIds,omitempty" type:"Repeated"`
-	ErrorCode             *string   `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	ErrorMsg              *string   `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	RelationId            *string   `json:"relationId,omitempty" xml:"relationId,omitempty"`
-	Success               *bool     `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// 1002
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// 查重失败
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// gads1ag-sfgasdfxcvxb
+	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BatchAddRelationDatasResponseBodyResults) String() string {
@@ -1432,7 +2116,12 @@ func (s *BatchCreateClueDataHeaders) SetXAcsDingtalkAccessToken(v string) *Batch
 type BatchCreateClueDataRequest struct {
 	DataList    []*BatchCreateClueDataRequestDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
 	PrivateSeas *bool                                 `json:"privateSeas,omitempty" xml:"privateSeas,omitempty"`
-	UserId      *string                               `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// d124
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchCreateClueDataRequest) String() string {
@@ -1459,12 +2148,24 @@ func (s *BatchCreateClueDataRequest) SetUserId(v string) *BatchCreateClueDataReq
 }
 
 type BatchCreateClueDataRequestDataList struct {
+	// This parameter is required.
 	ContactList []*BatchCreateClueDataRequestDataListContactList `json:"contactList,omitempty" xml:"contactList,omitempty" type:"Repeated"`
 	Enterprise  *BatchCreateClueDataRequestDataListEnterprise    `json:"enterprise,omitempty" xml:"enterprise,omitempty" type:"Struct"`
-	Name        *string                                          `json:"name,omitempty" xml:"name,omitempty"`
-	SourceId    *string                                          `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
-	SourceType  *string                                          `json:"sourceType,omitempty" xml:"sourceType,omitempty"`
-	TagIdList   []*BatchCreateClueDataRequestDataListTagIdList   `json:"tagIdList,omitempty" xml:"tagIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 钉钉中国
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	SourceId *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// demo
+	SourceType *string                                        `json:"sourceType,omitempty" xml:"sourceType,omitempty"`
+	TagIdList  []*BatchCreateClueDataRequestDataListTagIdList `json:"tagIdList,omitempty" xml:"tagIdList,omitempty" type:"Repeated"`
 }
 
 func (s BatchCreateClueDataRequestDataList) String() string {
@@ -1506,7 +2207,9 @@ func (s *BatchCreateClueDataRequestDataList) SetTagIdList(v []*BatchCreateClueDa
 }
 
 type BatchCreateClueDataRequestDataListContactList struct {
-	Mobile   *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// This parameter is required.
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// This parameter is required.
 	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
 	Phone    *string `json:"phone,omitempty" xml:"phone,omitempty"`
 	Qq       *string `json:"qq,omitempty" xml:"qq,omitempty"`
@@ -1553,8 +2256,9 @@ func (s *BatchCreateClueDataRequestDataListContactList) SetWeChat(v string) *Bat
 }
 
 type BatchCreateClueDataRequestDataListEnterprise struct {
-	Address                 *string `json:"address,omitempty" xml:"address,omitempty"`
-	IndustryCode            *string `json:"industryCode,omitempty" xml:"industryCode,omitempty"`
+	Address      *string `json:"address,omitempty" xml:"address,omitempty"`
+	IndustryCode *string `json:"industryCode,omitempty" xml:"industryCode,omitempty"`
+	// This parameter is required.
 	Name                    *string `json:"name,omitempty" xml:"name,omitempty"`
 	Region                  *string `json:"region,omitempty" xml:"region,omitempty"`
 	UnifiedSocialCreditCode *string `json:"unifiedSocialCreditCode,omitempty" xml:"unifiedSocialCreditCode,omitempty"`
@@ -1594,6 +2298,7 @@ func (s *BatchCreateClueDataRequestDataListEnterprise) SetUnifiedSocialCreditCod
 }
 
 type BatchCreateClueDataRequestDataListTagIdList struct {
+	// This parameter is required.
 	TagId   *string `json:"tagId,omitempty" xml:"tagId,omitempty"`
 	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
 }
@@ -1721,8 +2426,14 @@ func (s *BatchRemoveFollowRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type BatchRemoveFollowRecordsRequest struct {
-	InstanceIds    []*string `json:"instanceIds,omitempty" xml:"instanceIds,omitempty" type:"Repeated"`
-	OperatorUserId *string   `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	InstanceIds []*string `json:"instanceIds,omitempty" xml:"instanceIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager021a
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
 }
 
 func (s BatchRemoveFollowRecordsRequest) String() string {
@@ -1744,6 +2455,9 @@ func (s *BatchRemoveFollowRecordsRequest) SetOperatorUserId(v string) *BatchRemo
 }
 
 type BatchRemoveFollowRecordsResponseBody struct {
+	// example:
+	//
+	// true
 	Results []*BatchRemoveFollowRecordsResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
 }
 
@@ -1761,10 +2475,22 @@ func (s *BatchRemoveFollowRecordsResponseBody) SetResults(v []*BatchRemoveFollow
 }
 
 type BatchRemoveFollowRecordsResponseBodyResults struct {
-	ErrorCode  *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	ErrorMsg   *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// 1002
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// 查重失败
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// yU9TbER1TDazjPq1rRCzwg04841675924041
 	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	Success    *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BatchRemoveFollowRecordsResponseBodyResults) String() string {
@@ -1848,9 +2574,12 @@ func (s *BatchSendOfficialAccountOTOMessageHeaders) SetXAcsDingtalkAccessToken(v
 }
 
 type BatchSendOfficialAccountOTOMessageRequest struct {
-	AccountId *string                                          `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	BizId     *string                                          `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	Detail    *BatchSendOfficialAccountOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// if can be null:
+	// true
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	Detail *BatchSendOfficialAccountOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
 }
 
 func (s BatchSendOfficialAccountOTOMessageRequest) String() string {
@@ -1877,12 +2606,21 @@ func (s *BatchSendOfficialAccountOTOMessageRequest) SetDetail(v *BatchSendOffici
 }
 
 type BatchSendOfficialAccountOTOMessageRequestDetail struct {
-	BizRequestId *string                                                     `json:"bizRequestId,omitempty" xml:"bizRequestId,omitempty"`
-	MessageBody  *BatchSendOfficialAccountOTOMessageRequestDetailMessageBody `json:"messageBody,omitempty" xml:"messageBody,omitempty" type:"Struct"`
-	MsgType      *string                                                     `json:"msgType,omitempty" xml:"msgType,omitempty"`
-	SendToAll    *bool                                                       `json:"sendToAll,omitempty" xml:"sendToAll,omitempty"`
-	UserIdList   []*string                                                   `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
-	Uuid         *string                                                     `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// if can be null:
+	// false
+	BizRequestId *string `json:"bizRequestId,omitempty" xml:"bizRequestId,omitempty"`
+	// This parameter is required.
+	MessageBody *BatchSendOfficialAccountOTOMessageRequestDetailMessageBody `json:"messageBody,omitempty" xml:"messageBody,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// text
+	MsgType    *string   `json:"msgType,omitempty" xml:"msgType,omitempty"`
+	SendToAll  *bool     `json:"sendToAll,omitempty" xml:"sendToAll,omitempty"`
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s BatchSendOfficialAccountOTOMessageRequestDetail) String() string {
@@ -1964,7 +2702,8 @@ type BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard struct
 	Markdown          *string                                                                           `json:"markdown,omitempty" xml:"markdown,omitempty"`
 	SingleTitle       *string                                                                           `json:"singleTitle,omitempty" xml:"singleTitle,omitempty"`
 	SingleUrl         *string                                                                           `json:"singleUrl,omitempty" xml:"singleUrl,omitempty"`
-	Title             *string                                                                           `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) String() string {
@@ -2006,8 +2745,10 @@ func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) S
 }
 
 type BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList struct {
+	// This parameter is required.
 	ActionUrl *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
-	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) String() string {
@@ -2029,10 +2770,14 @@ func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardBut
 }
 
 type BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyLink struct {
+	// This parameter is required.
 	MessageUrl *string `json:"messageUrl,omitempty" xml:"messageUrl,omitempty"`
-	PicUrl     *string `json:"picUrl,omitempty" xml:"picUrl,omitempty"`
-	Text       *string `json:"text,omitempty" xml:"text,omitempty"`
-	Title      *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	PicUrl *string `json:"picUrl,omitempty" xml:"picUrl,omitempty"`
+	// This parameter is required.
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+	// This parameter is required.
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyLink) String() string {
@@ -2064,7 +2809,9 @@ func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetTitl
 }
 
 type BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown struct {
-	Text  *string `json:"text,omitempty" xml:"text,omitempty"`
+	// This parameter is required.
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+	// This parameter is required.
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -2087,6 +2834,7 @@ func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) Set
 }
 
 type BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyText struct {
+	// This parameter is required.
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 }
 
@@ -2104,6 +2852,9 @@ func (s *BatchSendOfficialAccountOTOMessageRequestDetailMessageBodyText) SetCont
 }
 
 type BatchSendOfficialAccountOTOMessageResponseBody struct {
+	// example:
+	//
+	// acs1234
 	RequestId *string                                               `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	Result    *BatchSendOfficialAccountOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
@@ -2127,6 +2878,7 @@ func (s *BatchSendOfficialAccountOTOMessageResponseBody) SetResult(v *BatchSendO
 }
 
 type BatchSendOfficialAccountOTOMessageResponseBodyResult struct {
+	// This parameter is required.
 	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
 }
 
@@ -2196,8 +2948,14 @@ func (s *BatchUpdateContactsHeaders) SetXAcsDingtalkAccessToken(v string) *Batch
 }
 
 type BatchUpdateContactsRequest struct {
-	OperatorUserId *string                                   `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
-	RelationList   []*BatchUpdateContactsRequestRelationList `json:"relationList,omitempty" xml:"relationList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager021a
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	RelationList []*BatchUpdateContactsRequestRelationList `json:"relationList,omitempty" xml:"relationList,omitempty" type:"Repeated"`
 }
 
 func (s BatchUpdateContactsRequest) String() string {
@@ -2220,8 +2978,15 @@ func (s *BatchUpdateContactsRequest) SetRelationList(v []*BatchUpdateContactsReq
 
 type BatchUpdateContactsRequestRelationList struct {
 	BizDataList []*BatchUpdateContactsRequestRelationListBizDataList `json:"bizDataList,omitempty" xml:"bizDataList,omitempty" type:"Repeated"`
-	BizExtMap   map[string]*string                                   `json:"bizExtMap,omitempty" xml:"bizExtMap,omitempty"`
-	RelationId  *string                                              `json:"relationId,omitempty" xml:"relationId,omitempty"`
+	// if can be null:
+	// true
+	BizExtMap map[string]*string `json:"bizExtMap,omitempty" xml:"bizExtMap,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// fasdg8i814-0afsd
+	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
 }
 
 func (s BatchUpdateContactsRequestRelationList) String() string {
@@ -2248,9 +3013,22 @@ func (s *BatchUpdateContactsRequestRelationList) SetRelationId(v string) *BatchU
 }
 
 type BatchUpdateContactsRequestRelationListBizDataList struct {
+	// example:
+	//
+	// {}
 	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
-	Key         *string `json:"key,omitempty" xml:"key,omitempty"`
-	Value       *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField_71U51A
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// XX有限公司
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s BatchUpdateContactsRequestRelationListBizDataList) String() string {
@@ -2277,6 +3055,9 @@ func (s *BatchUpdateContactsRequestRelationListBizDataList) SetValue(v string) *
 }
 
 type BatchUpdateContactsResponseBody struct {
+	// example:
+	//
+	// true
 	Results []*BatchUpdateContactsResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
 }
 
@@ -2294,10 +3075,22 @@ func (s *BatchUpdateContactsResponseBody) SetResults(v []*BatchUpdateContactsRes
 }
 
 type BatchUpdateContactsResponseBodyResults struct {
-	ErrorCode  *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	ErrorMsg   *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// 1002
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// 查重失败
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// gads1ag-sfgasdfxcvxb
 	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
-	Success    *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BatchUpdateContactsResponseBodyResults) String() string {
@@ -2381,8 +3174,14 @@ func (s *BatchUpdateFollowRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type BatchUpdateFollowRecordsRequest struct {
-	InstanceList   []*BatchUpdateFollowRecordsRequestInstanceList `json:"instanceList,omitempty" xml:"instanceList,omitempty" type:"Repeated"`
-	OperatorUserId *string                                        `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	InstanceList []*BatchUpdateFollowRecordsRequestInstanceList `json:"instanceList,omitempty" xml:"instanceList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager021a
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
 }
 
 func (s BatchUpdateFollowRecordsRequest) String() string {
@@ -2404,8 +3203,14 @@ func (s *BatchUpdateFollowRecordsRequest) SetOperatorUserId(v string) *BatchUpda
 }
 
 type BatchUpdateFollowRecordsRequestInstanceList struct {
-	DataArray  []*BatchUpdateFollowRecordsRequestInstanceListDataArray `json:"dataArray,omitempty" xml:"dataArray,omitempty" type:"Repeated"`
-	InstanceId *string                                                 `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// This parameter is required.
+	DataArray []*BatchUpdateFollowRecordsRequestInstanceListDataArray `json:"dataArray,omitempty" xml:"dataArray,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// yU9TbER1TDazjPq1rRCzwg04841675924041
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
 }
 
 func (s BatchUpdateFollowRecordsRequestInstanceList) String() string {
@@ -2427,9 +3232,22 @@ func (s *BatchUpdateFollowRecordsRequestInstanceList) SetInstanceId(v string) *B
 }
 
 type BatchUpdateFollowRecordsRequestInstanceListDataArray struct {
+	// example:
+	//
+	// {}
 	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
-	Key         *string `json:"key,omitempty" xml:"key,omitempty"`
-	Value       *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField_71U51A
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// XX有限公司
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s BatchUpdateFollowRecordsRequestInstanceListDataArray) String() string {
@@ -2456,6 +3274,9 @@ func (s *BatchUpdateFollowRecordsRequestInstanceListDataArray) SetValue(v string
 }
 
 type BatchUpdateFollowRecordsResponseBody struct {
+	// example:
+	//
+	// true
 	Results []*BatchUpdateFollowRecordsResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
 }
 
@@ -2473,10 +3294,22 @@ func (s *BatchUpdateFollowRecordsResponseBody) SetResults(v []*BatchUpdateFollow
 }
 
 type BatchUpdateFollowRecordsResponseBodyResults struct {
-	ErrorCode  *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	ErrorMsg   *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// 1002
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// 查重失败
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// yU9TbER1TDazjPq1rRCzwg04841675924041
 	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	Success    *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BatchUpdateFollowRecordsResponseBodyResults) String() string {
@@ -2560,10 +3393,24 @@ func (s *BatchUpdateRelationDatasHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type BatchUpdateRelationDatasRequest struct {
-	OperatorUserId     *string                                        `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
-	RelationList       []*BatchUpdateRelationDatasRequestRelationList `json:"relationList,omitempty" xml:"relationList,omitempty" type:"Repeated"`
-	RelationType       *string                                        `json:"relationType,omitempty" xml:"relationType,omitempty"`
-	SkipDuplicateCheck *bool                                          `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager021a
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	RelationList []*BatchUpdateRelationDatasRequestRelationList `json:"relationList,omitempty" xml:"relationList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// crm_customer
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// example:
+	//
+	// false
+	SkipDuplicateCheck *bool `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
 }
 
 func (s BatchUpdateRelationDatasRequest) String() string {
@@ -2596,8 +3443,15 @@ func (s *BatchUpdateRelationDatasRequest) SetSkipDuplicateCheck(v bool) *BatchUp
 
 type BatchUpdateRelationDatasRequestRelationList struct {
 	BizDataList []*BatchUpdateRelationDatasRequestRelationListBizDataList `json:"bizDataList,omitempty" xml:"bizDataList,omitempty" type:"Repeated"`
-	BizExtMap   map[string]*string                                        `json:"bizExtMap,omitempty" xml:"bizExtMap,omitempty"`
-	RelationId  *string                                                   `json:"relationId,omitempty" xml:"relationId,omitempty"`
+	// if can be null:
+	// true
+	BizExtMap map[string]*string `json:"bizExtMap,omitempty" xml:"bizExtMap,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// fasdg8i814-0afsd
+	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
 }
 
 func (s BatchUpdateRelationDatasRequestRelationList) String() string {
@@ -2624,9 +3478,22 @@ func (s *BatchUpdateRelationDatasRequestRelationList) SetRelationId(v string) *B
 }
 
 type BatchUpdateRelationDatasRequestRelationListBizDataList struct {
+	// example:
+	//
+	// {}
 	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
-	Key         *string `json:"key,omitempty" xml:"key,omitempty"`
-	Value       *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField_71U51A
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// XX有限公司
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s BatchUpdateRelationDatasRequestRelationListBizDataList) String() string {
@@ -2653,6 +3520,9 @@ func (s *BatchUpdateRelationDatasRequestRelationListBizDataList) SetValue(v stri
 }
 
 type BatchUpdateRelationDatasResponseBody struct {
+	// example:
+	//
+	// true
 	Results []*BatchUpdateRelationDatasResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
 }
 
@@ -2671,10 +3541,22 @@ func (s *BatchUpdateRelationDatasResponseBody) SetResults(v []*BatchUpdateRelati
 
 type BatchUpdateRelationDatasResponseBodyResults struct {
 	DuplicatedRelationIds []*string `json:"duplicatedRelationIds,omitempty" xml:"duplicatedRelationIds,omitempty" type:"Repeated"`
-	ErrorCode             *string   `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	ErrorMsg              *string   `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	RelationId            *string   `json:"relationId,omitempty" xml:"relationId,omitempty"`
-	Success               *bool     `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// 1002
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// 查重失败
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// gads1ag-sfgasdfxcvxb
+	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BatchUpdateRelationDatasResponseBodyResults) String() string {
@@ -2739,6 +3621,133 @@ func (s *BatchUpdateRelationDatasResponse) SetBody(v *BatchUpdateRelationDatasRe
 	return s
 }
 
+type ConsumeBenefitInventoryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ConsumeBenefitInventoryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConsumeBenefitInventoryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ConsumeBenefitInventoryHeaders) SetCommonHeaders(v map[string]*string) *ConsumeBenefitInventoryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ConsumeBenefitInventoryHeaders) SetXAcsDingtalkAccessToken(v string) *ConsumeBenefitInventoryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ConsumeBenefitInventoryRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// B_ACCOUNT_NUMBER
+	BenefitCode *string `json:"benefitCode,omitempty" xml:"benefitCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// bizId
+	BizRequestId *string `json:"bizRequestId,omitempty" xml:"bizRequestId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	ConsumeQuota *int64 `json:"consumeQuota,omitempty" xml:"consumeQuota,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// optStaffId
+	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+}
+
+func (s ConsumeBenefitInventoryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConsumeBenefitInventoryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ConsumeBenefitInventoryRequest) SetBenefitCode(v string) *ConsumeBenefitInventoryRequest {
+	s.BenefitCode = &v
+	return s
+}
+
+func (s *ConsumeBenefitInventoryRequest) SetBizRequestId(v string) *ConsumeBenefitInventoryRequest {
+	s.BizRequestId = &v
+	return s
+}
+
+func (s *ConsumeBenefitInventoryRequest) SetConsumeQuota(v int64) *ConsumeBenefitInventoryRequest {
+	s.ConsumeQuota = &v
+	return s
+}
+
+func (s *ConsumeBenefitInventoryRequest) SetOptUserId(v string) *ConsumeBenefitInventoryRequest {
+	s.OptUserId = &v
+	return s
+}
+
+type ConsumeBenefitInventoryResponseBody struct {
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s ConsumeBenefitInventoryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConsumeBenefitInventoryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ConsumeBenefitInventoryResponseBody) SetResult(v bool) *ConsumeBenefitInventoryResponseBody {
+	s.Result = &v
+	return s
+}
+
+type ConsumeBenefitInventoryResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ConsumeBenefitInventoryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ConsumeBenefitInventoryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConsumeBenefitInventoryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ConsumeBenefitInventoryResponse) SetHeaders(v map[string]*string) *ConsumeBenefitInventoryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ConsumeBenefitInventoryResponse) SetStatusCode(v int32) *ConsumeBenefitInventoryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ConsumeBenefitInventoryResponse) SetBody(v *ConsumeBenefitInventoryResponseBody) *ConsumeBenefitInventoryResponse {
+	s.Body = v
+	return s
+}
+
 type CreateCustomerHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2763,14 +3772,33 @@ func (s *CreateCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCust
 }
 
 type CreateCustomerRequest struct {
-	Contacts      []*CreateCustomerRequestContacts `json:"contacts,omitempty" xml:"contacts,omitempty" type:"Repeated"`
-	CreatorUserId *string                          `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	Data          map[string]interface{}           `json:"data,omitempty" xml:"data,omitempty"`
-	ExtendData    map[string]interface{}           `json:"extendData,omitempty" xml:"extendData,omitempty"`
-	InstanceId    *string                          `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	ObjectType    *string                          `json:"objectType,omitempty" xml:"objectType,omitempty"`
-	Permission    *CreateCustomerRequestPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
-	SaveOption    *CreateCustomerRequestSaveOption `json:"saveOption,omitempty" xml:"saveOption,omitempty" type:"Struct"`
+	Contacts []*CreateCustomerRequestContacts `json:"contacts,omitempty" xml:"contacts,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager123
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// This parameter is required.
+	Data       map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	ExtendData map[string]interface{} `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// xxxx-xxxx-xxxx-xxxx
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// crm_customer
+	ObjectType *string                          `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	Permission *CreateCustomerRequestPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	// This parameter is required.
+	SaveOption *CreateCustomerRequestSaveOption `json:"saveOption,omitempty" xml:"saveOption,omitempty" type:"Struct"`
 }
 
 func (s CreateCustomerRequest) String() string {
@@ -2822,6 +3850,7 @@ func (s *CreateCustomerRequest) SetSaveOption(v *CreateCustomerRequestSaveOption
 }
 
 type CreateCustomerRequestContacts struct {
+	// This parameter is required.
 	Data       map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
 	ExtendData map[string]interface{} `json:"extendData,omitempty" xml:"extendData,omitempty"`
 }
@@ -2868,10 +3897,22 @@ func (s *CreateCustomerRequestPermission) SetParticipantStaffIds(v []*string) *C
 }
 
 type CreateCustomerRequestSaveOption struct {
-	CustomerExistedPolicy                  *string `json:"customerExistedPolicy,omitempty" xml:"customerExistedPolicy,omitempty"`
-	SkipDuplicateCheck                     *bool   `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
-	SubscribePolicy                        *int64  `json:"subscribePolicy,omitempty" xml:"subscribePolicy,omitempty"`
-	ThrowExceptionWhileSavingContactFailed *bool   `json:"throwExceptionWhileSavingContactFailed,omitempty" xml:"throwExceptionWhileSavingContactFailed,omitempty"`
+	// example:
+	//
+	// APPEND_CONTACT_FORCE
+	CustomerExistedPolicy *string `json:"customerExistedPolicy,omitempty" xml:"customerExistedPolicy,omitempty"`
+	// example:
+	//
+	// false
+	SkipDuplicateCheck *bool `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
+	// example:
+	//
+	// 0
+	SubscribePolicy *int64 `json:"subscribePolicy,omitempty" xml:"subscribePolicy,omitempty"`
+	// example:
+	//
+	// true
+	ThrowExceptionWhileSavingContactFailed *bool `json:"throwExceptionWhileSavingContactFailed,omitempty" xml:"throwExceptionWhileSavingContactFailed,omitempty"`
 }
 
 func (s CreateCustomerRequestSaveOption) String() string {
@@ -2903,9 +3944,17 @@ func (s *CreateCustomerRequestSaveOption) SetThrowExceptionWhileSavingContactFai
 }
 
 type CreateCustomerResponseBody struct {
-	Contacts           []*CreateCustomerResponseBodyContacts `json:"contacts,omitempty" xml:"contacts,omitempty" type:"Repeated"`
-	CustomerInstanceId *string                               `json:"customerInstanceId,omitempty" xml:"customerInstanceId,omitempty"`
-	ObjectType         *string                               `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	Contacts []*CreateCustomerResponseBodyContacts `json:"contacts,omitempty" xml:"contacts,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// customer_id
+	CustomerInstanceId *string `json:"customerInstanceId,omitempty" xml:"customerInstanceId,omitempty"`
+	// example:
+	//
+	// crm_customer
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
 }
 
 func (s CreateCustomerResponseBody) String() string {
@@ -2932,6 +3981,9 @@ func (s *CreateCustomerResponseBody) SetObjectType(v string) *CreateCustomerResp
 }
 
 type CreateCustomerResponseBodyContacts struct {
+	// example:
+	//
+	// contact_id
 	ContactInstanceId *string `json:"contactInstanceId,omitempty" xml:"contactInstanceId,omitempty"`
 }
 
@@ -3001,10 +4053,28 @@ func (s *CreateGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGroupHe
 }
 
 type CreateGroupRequest struct {
-	GroupName     *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// example:
+	//
+	// a,b,c
 	MemberUserIds *string `json:"memberUserIds,omitempty" xml:"memberUserIds,omitempty"`
-	OwnerUserId   *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
-	RelationType  *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc123
+	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
 
 func (s CreateGroupRequest) String() string {
@@ -3036,6 +4106,7 @@ func (s *CreateGroupRequest) SetRelationType(v string) *CreateGroupRequest {
 }
 
 type CreateGroupResponseBody struct {
+	// This parameter is required.
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -3105,16 +4176,20 @@ func (s *CreateGroupSetHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGrou
 }
 
 type CreateGroupSetRequest struct {
+	// This parameter is required.
 	CreatorUserId  *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
 	ManagerUserIds *string `json:"managerUserIds,omitempty" xml:"managerUserIds,omitempty"`
 	MemberQuota    *int32  `json:"memberQuota,omitempty" xml:"memberQuota,omitempty"`
-	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
-	Notice         *string `json:"notice,omitempty" xml:"notice,omitempty"`
-	NoticeToped    *int32  `json:"noticeToped,omitempty" xml:"noticeToped,omitempty"`
-	OwnerUserId    *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
-	RelationType   *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
-	TemplateId     *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	Welcome        *string `json:"welcome,omitempty" xml:"welcome,omitempty"`
+	// This parameter is required.
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	Notice      *string `json:"notice,omitempty" xml:"notice,omitempty"`
+	NoticeToped *int32  `json:"noticeToped,omitempty" xml:"noticeToped,omitempty"`
+	// This parameter is required.
+	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	// This parameter is required.
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	TemplateId   *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Welcome      *string `json:"welcome,omitempty" xml:"welcome,omitempty"`
 }
 
 func (s CreateGroupSetRequest) String() string {
@@ -3176,22 +4251,25 @@ func (s *CreateGroupSetRequest) SetWelcome(v string) *CreateGroupSetRequest {
 }
 
 type CreateGroupSetResponseBody struct {
-	GmtCreate              *string                              `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified            *string                              `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	InviteLink             *string                              `json:"inviteLink,omitempty" xml:"inviteLink,omitempty"`
-	LastOpenConversationId *string                              `json:"lastOpenConversationId,omitempty" xml:"lastOpenConversationId,omitempty"`
-	Manager                []*CreateGroupSetResponseBodyManager `json:"manager,omitempty" xml:"manager,omitempty" type:"Repeated"`
-	ManagerUserIds         *string                              `json:"managerUserIds,omitempty" xml:"managerUserIds,omitempty"`
-	MemberCount            *int64                               `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
-	MemberQuota            *int64                               `json:"memberQuota,omitempty" xml:"memberQuota,omitempty"`
-	Name                   *string                              `json:"name,omitempty" xml:"name,omitempty"`
-	Notice                 *string                              `json:"notice,omitempty" xml:"notice,omitempty"`
-	NoticeToped            *int32                               `json:"noticeToped,omitempty" xml:"noticeToped,omitempty"`
-	OpenGroupSetId         *string                              `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	Owner                  *CreateGroupSetResponseBodyOwner     `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
-	OwnerUserId            *string                              `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
-	RelationType           *string                              `json:"relationType,omitempty" xml:"relationType,omitempty"`
-	TemplateId             *string                              `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	GmtCreate   *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	InviteLink  *string `json:"inviteLink,omitempty" xml:"inviteLink,omitempty"`
+	// This parameter is required.
+	LastOpenConversationId *string `json:"lastOpenConversationId,omitempty" xml:"lastOpenConversationId,omitempty"`
+	// This parameter is required.
+	Manager        []*CreateGroupSetResponseBodyManager `json:"manager,omitempty" xml:"manager,omitempty" type:"Repeated"`
+	ManagerUserIds *string                              `json:"managerUserIds,omitempty" xml:"managerUserIds,omitempty"`
+	MemberCount    *int64                               `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	MemberQuota    *int64                               `json:"memberQuota,omitempty" xml:"memberQuota,omitempty"`
+	Name           *string                              `json:"name,omitempty" xml:"name,omitempty"`
+	Notice         *string                              `json:"notice,omitempty" xml:"notice,omitempty"`
+	NoticeToped    *int32                               `json:"noticeToped,omitempty" xml:"noticeToped,omitempty"`
+	OpenGroupSetId *string                              `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// This parameter is required.
+	Owner        *CreateGroupSetResponseBodyOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	OwnerUserId  *string                          `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	RelationType *string                          `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	TemplateId   *string                          `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
 
 func (s CreateGroupSetResponseBody) String() string {
@@ -3381,9 +4459,12 @@ func (s *CreateRelationMetaHeaders) SetXAcsDingtalkAccessToken(v string) *Create
 }
 
 type CreateRelationMetaRequest struct {
-	OperatorUserId  *string                                   `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
 	RelationMetaDTO *CreateRelationMetaRequestRelationMetaDTO `json:"relationMetaDTO,omitempty" xml:"relationMetaDTO,omitempty" type:"Struct"`
-	Tenant          *string                                   `json:"tenant,omitempty" xml:"tenant,omitempty"`
+	// This parameter is required.
+	Tenant *string `json:"tenant,omitempty" xml:"tenant,omitempty"`
 }
 
 func (s CreateRelationMetaRequest) String() string {
@@ -3410,10 +4491,14 @@ func (s *CreateRelationMetaRequest) SetTenant(v string) *CreateRelationMetaReque
 }
 
 type CreateRelationMetaRequestRelationMetaDTO struct {
-	Desc         *string                                          `json:"desc,omitempty" xml:"desc,omitempty"`
-	Items        []*CreateRelationMetaRequestRelationMetaDTOItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
-	Name         *string                                          `json:"name,omitempty" xml:"name,omitempty"`
-	RelationType *string                                          `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// This parameter is required.
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// This parameter is required.
+	Items []*CreateRelationMetaRequestRelationMetaDTOItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
 
 func (s CreateRelationMetaRequestRelationMetaDTO) String() string {
@@ -3445,8 +4530,10 @@ func (s *CreateRelationMetaRequestRelationMetaDTO) SetRelationType(v string) *Cr
 }
 
 type CreateRelationMetaRequestRelationMetaDTOItems struct {
-	ComponentName *string                                             `json:"componentName,omitempty" xml:"componentName,omitempty"`
-	Props         *CreateRelationMetaRequestRelationMetaDTOItemsProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+	// This parameter is required.
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	Props *CreateRelationMetaRequestRelationMetaDTOItemsProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
 }
 
 func (s CreateRelationMetaRequestRelationMetaDTOItems) String() string {
@@ -3468,28 +4555,31 @@ func (s *CreateRelationMetaRequestRelationMetaDTOItems) SetProps(v *CreateRelati
 }
 
 type CreateRelationMetaRequestRelationMetaDTOItemsProps struct {
-	Align                  *string                                                      `json:"align,omitempty" xml:"align,omitempty"`
-	BizAlias               *string                                                      `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	Choice                 *int64                                                       `json:"choice,omitempty" xml:"choice,omitempty"`
-	Content                *string                                                      `json:"content,omitempty" xml:"content,omitempty"`
-	Disabled               *bool                                                        `json:"disabled,omitempty" xml:"disabled,omitempty"`
-	Duration               *bool                                                        `json:"duration,omitempty" xml:"duration,omitempty"`
-	FieldId                *string                                                      `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Format                 *string                                                      `json:"format,omitempty" xml:"format,omitempty"`
-	Invisible              *bool                                                        `json:"invisible,omitempty" xml:"invisible,omitempty"`
-	Label                  *string                                                      `json:"label,omitempty" xml:"label,omitempty"`
-	LabelEditableFreeze    *bool                                                        `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
-	Link                   *string                                                      `json:"link,omitempty" xml:"link,omitempty"`
-	NeedDetail             *string                                                      `json:"needDetail,omitempty" xml:"needDetail,omitempty"`
-	NotPrint               *string                                                      `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
-	NotUpper               *string                                                      `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
-	Options                []*CreateRelationMetaRequestRelationMetaDTOItemsPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
-	PayEnable              *bool                                                        `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
-	Placeholder            *string                                                      `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
-	Required               *bool                                                        `json:"required,omitempty" xml:"required,omitempty"`
-	RequiredEditableFreeze *bool                                                        `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
-	Sortable               *bool                                                        `json:"sortable,omitempty" xml:"sortable,omitempty"`
-	Unit                   *string                                                      `json:"unit,omitempty" xml:"unit,omitempty"`
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// This parameter is required.
+	BizAlias  *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	Choice    *int64  `json:"choice,omitempty" xml:"choice,omitempty"`
+	Content   *string `json:"content,omitempty" xml:"content,omitempty"`
+	Disabled  *bool   `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	Duration  *bool   `json:"duration,omitempty" xml:"duration,omitempty"`
+	FieldId   *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Format    *string `json:"format,omitempty" xml:"format,omitempty"`
+	Invisible *bool   `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// This parameter is required.
+	Label               *string                                                      `json:"label,omitempty" xml:"label,omitempty"`
+	LabelEditableFreeze *bool                                                        `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	Link                *string                                                      `json:"link,omitempty" xml:"link,omitempty"`
+	NeedDetail          *string                                                      `json:"needDetail,omitempty" xml:"needDetail,omitempty"`
+	NotPrint            *string                                                      `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	NotUpper            *string                                                      `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	Options             []*CreateRelationMetaRequestRelationMetaDTOItemsPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	PayEnable           *bool                                                        `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	Placeholder         *string                                                      `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// This parameter is required.
+	Required               *bool   `json:"required,omitempty" xml:"required,omitempty"`
+	RequiredEditableFreeze *bool   `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	Sortable               *bool   `json:"sortable,omitempty" xml:"sortable,omitempty"`
+	Unit                   *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s CreateRelationMetaRequestRelationMetaDTOItemsProps) String() string {
@@ -3634,6 +4724,7 @@ func (s *CreateRelationMetaRequestRelationMetaDTOItemsPropsOptions) SetValue(v s
 }
 
 type CreateRelationMetaResponseBody struct {
+	// This parameter is required.
 	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
 
@@ -3703,6 +4794,11 @@ func (s *DeleteCrmCustomObjectDataHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type DeleteCrmCustomObjectDataRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC_xx
 	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
 }
 
@@ -3720,6 +4816,11 @@ func (s *DeleteCrmCustomObjectDataRequest) SetFormCode(v string) *DeleteCrmCusto
 }
 
 type DeleteCrmCustomObjectDataResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// INST_xx
 	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
 }
 
@@ -3789,8 +4890,18 @@ func (s *DeleteCrmFormInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *Del
 }
 
 type DeleteCrmFormInstanceRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager123
 	CurrentOperatorUserId *string `json:"currentOperatorUserId,omitempty" xml:"currentOperatorUserId,omitempty"`
-	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-123
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s DeleteCrmFormInstanceRequest) String() string {
@@ -3812,6 +4923,9 @@ func (s *DeleteCrmFormInstanceRequest) SetName(v string) *DeleteCrmFormInstanceR
 }
 
 type DeleteCrmFormInstanceResponseBody struct {
+	// example:
+	//
+	// intanceId1
 	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
 }
 
@@ -3881,6 +4995,7 @@ func (s *DeleteCrmPersonalCustomerHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type DeleteCrmPersonalCustomerRequest struct {
+	// This parameter is required.
 	CurrentOperatorUserId *string `json:"currentOperatorUserId,omitempty" xml:"currentOperatorUserId,omitempty"`
 	RelationType          *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
@@ -3904,6 +5019,7 @@ func (s *DeleteCrmPersonalCustomerRequest) SetRelationType(v string) *DeleteCrmP
 }
 
 type DeleteCrmPersonalCustomerResponseBody struct {
+	// This parameter is required.
 	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
 }
 
@@ -3973,6 +5089,7 @@ func (s *DeleteLeadsHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteLeadsHe
 }
 
 type DeleteLeadsRequest struct {
+	// This parameter is required.
 	OutLeadsIds []*string `json:"outLeadsIds,omitempty" xml:"outLeadsIds,omitempty" type:"Repeated"`
 }
 
@@ -4059,10 +5176,14 @@ func (s *DeleteRelationMetaFieldHeaders) SetXAcsDingtalkAccessToken(v string) *D
 }
 
 type DeleteRelationMetaFieldRequest struct {
-	FieldIdList    []*string `json:"fieldIdList,omitempty" xml:"fieldIdList,omitempty" type:"Repeated"`
-	OperatorUserId *string   `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
-	RelationType   *string   `json:"relationType,omitempty" xml:"relationType,omitempty"`
-	Tenant         *string   `json:"tenant,omitempty" xml:"tenant,omitempty"`
+	// This parameter is required.
+	FieldIdList []*string `json:"fieldIdList,omitempty" xml:"fieldIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// This parameter is required.
+	Tenant *string `json:"tenant,omitempty" xml:"tenant,omitempty"`
 }
 
 func (s DeleteRelationMetaFieldRequest) String() string {
@@ -4094,6 +5215,7 @@ func (s *DeleteRelationMetaFieldRequest) SetTenant(v string) *DeleteRelationMeta
 }
 
 type DeleteRelationMetaFieldResponseBody struct {
+	// This parameter is required.
 	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
 
@@ -4180,11 +5302,17 @@ func (s *DescribeCrmPersonalCustomerObjectMetaRequest) SetRelationType(v string)
 }
 
 type DescribeCrmPersonalCustomerObjectMetaResponseBody struct {
+	// example:
+	//
+	// PROC-XXXX
 	Code       *string                                                    `json:"code,omitempty" xml:"code,omitempty"`
 	Customized *bool                                                      `json:"customized,omitempty" xml:"customized,omitempty"`
 	Fields     []*DescribeCrmPersonalCustomerObjectMetaResponseBodyFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
 	Name       *string                                                    `json:"name,omitempty" xml:"name,omitempty"`
-	Status     *string                                                    `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// PUBLISHED
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s DescribeCrmPersonalCustomerObjectMetaResponseBody) String() string {
@@ -4380,8 +5508,10 @@ func (s *DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsReferenceFieldsS
 }
 
 type DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsRollUpSummaryFields struct {
+	// This parameter is required.
 	Aggregator *string `json:"aggregator,omitempty" xml:"aggregator,omitempty"`
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s DescribeCrmPersonalCustomerObjectMetaResponseBodyFieldsRollUpSummaryFields) String() string {
@@ -4454,6 +5584,3179 @@ func (s *DescribeCrmPersonalCustomerObjectMetaResponse) SetBody(v *DescribeCrmPe
 	return s
 }
 
+type DescribeMetaModelHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DescribeMetaModelHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelHeaders) SetCommonHeaders(v map[string]*string) *DescribeMetaModelHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DescribeMetaModelHeaders) SetXAcsDingtalkAccessToken(v string) *DescribeMetaModelHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DescribeMetaModelRequest struct {
+	// This parameter is required.
+	BizTypes []*string `json:"bizTypes,omitempty" xml:"bizTypes,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	Tenant *string `json:"tenant,omitempty" xml:"tenant,omitempty"`
+}
+
+func (s DescribeMetaModelRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelRequest) SetBizTypes(v []*string) *DescribeMetaModelRequest {
+	s.BizTypes = v
+	return s
+}
+
+func (s *DescribeMetaModelRequest) SetOperatorUserId(v string) *DescribeMetaModelRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *DescribeMetaModelRequest) SetTenant(v string) *DescribeMetaModelRequest {
+	s.Tenant = &v
+	return s
+}
+
+type DescribeMetaModelResponseBody struct {
+	// This parameter is required.
+	MetaModelDTOList []*DescribeMetaModelResponseBodyMetaModelDTOList `json:"metaModelDTOList,omitempty" xml:"metaModelDTOList,omitempty" type:"Repeated"`
+}
+
+func (s DescribeMetaModelResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBody) SetMetaModelDTOList(v []*DescribeMetaModelResponseBodyMetaModelDTOList) *DescribeMetaModelResponseBody {
+	s.MetaModelDTOList = v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOList struct {
+	// This parameter is required.
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 企业客户表
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// This parameter is required.
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// This parameter is required.
+	Items []*DescribeMetaModelResponseBodyMetaModelDTOListItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 企业客户
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	RelationMetaCode *string `json:"relationMetaCode,omitempty" xml:"relationMetaCode,omitempty"`
+	// This parameter is required.
+	RelationMetaStatus *string `json:"relationMetaStatus,omitempty" xml:"relationMetaStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// crm_customer
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOList) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOList) SetCreatorUserId(v string) *DescribeMetaModelResponseBodyMetaModelDTOList {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOList) SetDesc(v string) *DescribeMetaModelResponseBodyMetaModelDTOList {
+	s.Desc = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOList) SetGmtCreate(v string) *DescribeMetaModelResponseBodyMetaModelDTOList {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOList) SetGmtModified(v string) *DescribeMetaModelResponseBodyMetaModelDTOList {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOList) SetItems(v []*DescribeMetaModelResponseBodyMetaModelDTOListItems) *DescribeMetaModelResponseBodyMetaModelDTOList {
+	s.Items = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOList) SetName(v string) *DescribeMetaModelResponseBodyMetaModelDTOList {
+	s.Name = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOList) SetRelationMetaCode(v string) *DescribeMetaModelResponseBodyMetaModelDTOList {
+	s.RelationMetaCode = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOList) SetRelationMetaStatus(v string) *DescribeMetaModelResponseBodyMetaModelDTOList {
+	s.RelationMetaStatus = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOList) SetRelationType(v string) *DescribeMetaModelResponseBodyMetaModelDTOList {
+	s.RelationType = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItems struct {
+	// This parameter is required.
+	Children []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+	// This parameter is required.
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	Props *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItems) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItems) SetChildren(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildren) *DescribeMetaModelResponseBodyMetaModelDTOListItems {
+	s.Children = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItems) SetComponentName(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItems {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItems) SetProps(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) *DescribeMetaModelResponseBodyMetaModelDTOListItems {
+	s.Props = v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildren struct {
+	// This parameter is required.
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	Props *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildren) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildren) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildren) SetComponentName(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildren {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildren) SetProps(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildren {
+	s.Props = v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps struct {
+	// This parameter is required.
+	ActionName *string `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	// This parameter is required.
+	Align              *string                                                                              `json:"align,omitempty" xml:"align,omitempty"`
+	AvailableTemplates []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsAvailableTemplates `json:"availableTemplates,omitempty" xml:"availableTemplates,omitempty" type:"Repeated"`
+	// This parameter is required.
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
+	Choice *int64 `json:"choice,omitempty" xml:"choice,omitempty"`
+	// This parameter is required.
+	Content    *string                                                                    `json:"content,omitempty" xml:"content,omitempty"`
+	DataSource *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSource `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
+	// example:
+	//
+	// 标签字段 颜色属性，格式：#0089FF
+	DefaultColor *string `json:"defaultColor,omitempty" xml:"defaultColor,omitempty"`
+	// This parameter is required.
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// This parameter is required.
+	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
+	// This parameter is required.
+	DurationLabel *string `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	Fields []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// This parameter is required.
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// This parameter is required.
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// This parameter is required.
+	Limit *int64 `json:"limit,omitempty" xml:"limit,omitempty"`
+	// This parameter is required.
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// This parameter is required.
+	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：支持多选，false：单选
+	Multiple *bool `json:"multiple,omitempty" xml:"multiple,omitempty"`
+	// This parameter is required.
+	NotPrint *string `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	// This parameter is required.
+	NotUpper *string `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	// This parameter is required.
+	Options []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// This parameter is required.
+	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	// This parameter is required.
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// This parameter is required.
+	Quote *int64 `json:"quote,omitempty" xml:"quote,omitempty"`
+	// This parameter is required.
+	Ratio *int64 `json:"ratio,omitempty" xml:"ratio,omitempty"`
+	// This parameter is required.
+	RelateSource []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSource `json:"relateSource,omitempty" xml:"relateSource,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// This parameter is required.
+	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	// This parameter is required.
+	Rule []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRule `json:"rule,omitempty" xml:"rule,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Sortable *bool `json:"sortable,omitempty" xml:"sortable,omitempty"`
+	// This parameter is required.
+	Spread *bool `json:"spread,omitempty" xml:"spread,omitempty"`
+	// This parameter is required.
+	StatField []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// This parameter is required.
+	TableViewMode *string `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// This parameter is required.
+	Watermark *bool `json:"watermark,omitempty" xml:"watermark,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetActionName(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.ActionName = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetAlign(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Align = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetAvailableTemplates(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsAvailableTemplates) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.AvailableTemplates = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetBizAlias(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetChoice(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetContent(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Content = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetDataSource(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSource) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.DataSource = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetDefaultColor(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.DefaultColor = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetDisabled(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetDuration(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetDurationLabel(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.DurationLabel = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetFieldId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetFields(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFields) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Fields = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetFormat(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Format = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetFormula(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Formula = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetInvisible(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetLabel(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetLabelEditableFreeze(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.LabelEditableFreeze = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetLimit(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Limit = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetLink(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Link = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetMode(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Mode = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetMultiple(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Multiple = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetNotPrint(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.NotPrint = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetNotUpper(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetOptions(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptions) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Options = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetPayEnable(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetPlaceholder(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetQuote(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Quote = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetRatio(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Ratio = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetRelateSource(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSource) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.RelateSource = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetRequired(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Required = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetRequiredEditableFreeze(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.RequiredEditableFreeze = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetRule(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRule) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Rule = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetSortable(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Sortable = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetSpread(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Spread = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetStatField(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsStatField) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.StatField = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetTableViewMode(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.TableViewMode = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetUnit(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetVerticalPrint(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps) SetWatermark(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenProps {
+	s.Watermark = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsAvailableTemplates struct {
+	// example:
+	//
+	// 审批模板id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 审批模板名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsAvailableTemplates) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsAvailableTemplates) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsAvailableTemplates) SetId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsAvailableTemplates {
+	s.Id = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsAvailableTemplates) SetName(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsAvailableTemplates {
+	s.Name = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSource struct {
+	// This parameter is required.
+	Params *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParams `json:"params,omitempty" xml:"params,omitempty" type:"Struct"`
+	// This parameter is required.
+	Target *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceTarget `json:"target,omitempty" xml:"target,omitempty" type:"Struct"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSource) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSource) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSource) SetParams(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParams) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSource {
+	s.Params = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSource) SetTarget(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceTarget) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSource {
+	s.Target = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSource) SetType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSource {
+	s.Type = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParams struct {
+	// This parameter is required.
+	Filters []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParamsFilters `json:"filters,omitempty" xml:"filters,omitempty" type:"Repeated"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParams) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParams) SetFilters(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParamsFilters) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParams {
+	s.Filters = v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParamsFilters struct {
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	FilterType *string `json:"filterType,omitempty" xml:"filterType,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	ValueType *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParamsFilters) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParamsFilters) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParamsFilters) SetFieldId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParamsFilters {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParamsFilters) SetFilterType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParamsFilters {
+	s.FilterType = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParamsFilters) SetValue(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParamsFilters {
+	s.Value = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParamsFilters) SetValueType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceParamsFilters {
+	s.ValueType = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceTarget struct {
+	// This parameter is required.
+	AppType *int64 `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// This parameter is required.
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceTarget) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceTarget) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceTarget) SetAppType(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceTarget {
+	s.AppType = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceTarget) SetAppUuid(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceTarget {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceTarget) SetBizType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceTarget {
+	s.BizType = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceTarget) SetFormCode(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsDataSourceTarget {
+	s.FormCode = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFields struct {
+	// This parameter is required.
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	RelateProps *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps `json:"relateProps,omitempty" xml:"relateProps,omitempty" type:"Struct"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFields) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFields) SetComponentName(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFields {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFields) SetRelateProps(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFields {
+	s.RelateProps = v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps struct {
+	// This parameter is required.
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// This parameter is required.
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
+	Choice *int64 `json:"choice,omitempty" xml:"choice,omitempty"`
+	// This parameter is required.
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// This parameter is required.
+	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
+	// This parameter is required.
+	DurationLabel *string `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// This parameter is required.
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// This parameter is required.
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// This parameter is required.
+	Limit *int64 `json:"limit,omitempty" xml:"limit,omitempty"`
+	// This parameter is required.
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// This parameter is required.
+	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	// This parameter is required.
+	NotUpper *string `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	// This parameter is required.
+	Options []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// This parameter is required.
+	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	// This parameter is required.
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// This parameter is required.
+	Ratio *int64 `json:"ratio,omitempty" xml:"ratio,omitempty"`
+	// This parameter is required.
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// This parameter is required.
+	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	// This parameter is required.
+	Spread *bool `json:"spread,omitempty" xml:"spread,omitempty"`
+	// This parameter is required.
+	StatField []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// This parameter is required.
+	Watermark *bool `json:"watermark,omitempty" xml:"watermark,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetAlign(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Align = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetBizAlias(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetChoice(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetContent(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Content = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetDisabled(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetDuration(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetDurationLabel(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.DurationLabel = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetFieldId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetFormat(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Format = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetFormula(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Formula = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetInvisible(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetLabel(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetLabelEditableFreeze(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.LabelEditableFreeze = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetLimit(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Limit = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetLink(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Link = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetMode(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Mode = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetNotUpper(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetOptions(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptions) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Options = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetPayEnable(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetPlaceholder(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetRatio(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Ratio = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetRequired(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Required = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetRequiredEditableFreeze(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.RequiredEditableFreeze = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetSpread(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Spread = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetStatField(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsStatField) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.StatField = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetUnit(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetVerticalPrint(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps) SetWatermark(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelateProps {
+	s.Watermark = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptions struct {
+	// This parameter is required.
+	Extension *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptionsExtension `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
+	// This parameter is required.
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptions) SetExtension(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptionsExtension) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptions {
+	s.Extension = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptions) SetKey(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptions) SetValue(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptions {
+	s.Value = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptionsExtension struct {
+	// This parameter is required.
+	EditFreeze *bool `json:"editFreeze,omitempty" xml:"editFreeze,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptionsExtension) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptionsExtension) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptionsExtension) SetEditFreeze(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsOptionsExtension {
+	s.EditFreeze = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsStatField struct {
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	Upper *bool `json:"upper,omitempty" xml:"upper,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsStatField) SetFieldId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsStatField {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsStatField) SetLabel(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsStatField) SetUnit(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsStatField {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsStatField) SetUpper(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsFieldsRelatePropsStatField {
+	s.Upper = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptions struct {
+	// This parameter is required.
+	Extension *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptionsExtension `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
+	// This parameter is required.
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptions) SetExtension(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptionsExtension) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptions {
+	s.Extension = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptions) SetKey(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptions) SetValue(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptions {
+	s.Value = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptionsExtension struct {
+	// This parameter is required.
+	EditFreeze *bool `json:"editFreeze,omitempty" xml:"editFreeze,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptionsExtension) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptionsExtension) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptionsExtension) SetEditFreeze(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsOptionsExtension {
+	s.EditFreeze = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSource struct {
+	// This parameter is required.
+	BizType    *string                                                                                `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	DataSource *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSource `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
+	// This parameter is required.
+	Fields []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSource) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSource) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSource) SetBizType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSource {
+	s.BizType = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSource) SetDataSource(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSource) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSource {
+	s.DataSource = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSource) SetFields(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFields) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSource {
+	s.Fields = v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSource struct {
+	// This parameter is required.
+	Params *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParams `json:"params,omitempty" xml:"params,omitempty" type:"Struct"`
+	// This parameter is required.
+	Target *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceTarget `json:"target,omitempty" xml:"target,omitempty" type:"Struct"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSource) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSource) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSource) SetParams(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParams) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSource {
+	s.Params = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSource) SetTarget(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceTarget) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSource {
+	s.Target = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSource) SetType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSource {
+	s.Type = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParams struct {
+	// This parameter is required.
+	Filters []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParamsFilters `json:"filters,omitempty" xml:"filters,omitempty" type:"Repeated"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParams) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParams) SetFilters(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParamsFilters) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParams {
+	s.Filters = v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParamsFilters struct {
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	FilterType *string `json:"filterType,omitempty" xml:"filterType,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	ValueType *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParamsFilters) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParamsFilters) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParamsFilters) SetFieldId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParamsFilters {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParamsFilters) SetFilterType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParamsFilters {
+	s.FilterType = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParamsFilters) SetValue(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParamsFilters {
+	s.Value = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParamsFilters) SetValueType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceParamsFilters {
+	s.ValueType = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceTarget struct {
+	// This parameter is required.
+	AppType *int64 `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// This parameter is required.
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceTarget) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceTarget) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceTarget) SetAppType(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceTarget {
+	s.AppType = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceTarget) SetAppUuid(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceTarget {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceTarget) SetBizType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceTarget {
+	s.BizType = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceTarget) SetFormCode(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceDataSourceTarget {
+	s.FormCode = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFields struct {
+	// This parameter is required.
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	RelateProps *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps `json:"relateProps,omitempty" xml:"relateProps,omitempty" type:"Struct"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFields) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFields) SetComponentName(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFields {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFields) SetRelateProps(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFields {
+	s.RelateProps = v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps struct {
+	// This parameter is required.
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// This parameter is required.
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1：多选，0：单选
+	Choice *int64 `json:"choice,omitempty" xml:"choice,omitempty"`
+	// This parameter is required.
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：可编辑
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：自动
+	Duration *string `json:"duration,omitempty" xml:"duration,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DDDateField和DDDateRangeField
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// This parameter is required.
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：隐藏
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// This parameter is required.
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// This parameter is required.
+	Multi *int64 `json:"multi,omitempty" xml:"multi,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1:不需要大写, 空或者0:需要大写
+	NotUpper *string `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	// This parameter is required.
+	Options []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：是
+	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	// This parameter is required.
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// This parameter is required.
+	Quote *int64 `json:"quote,omitempty" xml:"quote,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// This parameter is required.
+	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	// This parameter is required.
+	StatField []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：纵向，false：横向
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetAlign(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.Align = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetBizAlias(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetChoice(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetContent(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.Content = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetDisabled(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetDuration(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetFieldId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetFormat(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.Format = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetFormula(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.Formula = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetInvisible(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetLabel(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetLabelEditableFreeze(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.LabelEditableFreeze = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetLink(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.Link = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetMulti(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.Multi = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetNotUpper(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetOptions(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsOptions) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.Options = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetPayEnable(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetPlaceholder(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetQuote(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.Quote = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetRequired(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.Required = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetRequiredEditableFreeze(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.RequiredEditableFreeze = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetStatField(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsStatField) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.StatField = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetUnit(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) SetVerticalPrint(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelateProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsOptions struct {
+	// This parameter is required.
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsOptions) SetKey(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsOptions) SetValue(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsOptions {
+	s.Value = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsStatField struct {
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	Upper *bool `json:"upper,omitempty" xml:"upper,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsStatField) SetFieldId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsStatField {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsStatField) SetLabel(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsStatField) SetUnit(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsStatField {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsStatField) SetUpper(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsStatField {
+	s.Upper = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRule struct {
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRule) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRule) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRule) SetType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRule {
+	s.Type = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRule) SetValue(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsRule {
+	s.Value = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsStatField struct {
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	Upper *bool `json:"upper,omitempty" xml:"upper,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsStatField) SetFieldId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsStatField {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsStatField) SetLabel(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsStatField) SetUnit(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsStatField {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsStatField) SetUpper(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsChildrenPropsStatField {
+	s.Upper = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsProps struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 明细动作名称
+	ActionName *string `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// top|middle|bottom
+	Align              *string                                                                      `json:"align,omitempty" xml:"align,omitempty"`
+	AvailableTemplates []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsAvailableTemplates `json:"availableTemplates,omitempty" xml:"availableTemplates,omitempty" type:"Repeated"`
+	BehaviorLinkage    []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkage    `json:"behaviorLinkage,omitempty" xml:"behaviorLinkage,omitempty" type:"Repeated"`
+	// This parameter is required.
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1：多选，0：单选
+	Choice *int64 `json:"choice,omitempty" xml:"choice,omitempty"`
+	// This parameter is required.
+	Content    *string                                                            `json:"content,omitempty" xml:"content,omitempty"`
+	DataSource *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSource `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
+	// example:
+	//
+	// 标签字段 颜色属性，格式：#0089FF
+	DefaultColor *string `json:"defaultColor,omitempty" xml:"defaultColor,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：可编辑
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：自动
+	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 日期区间控件，自动计算时长的标题
+	DurationLabel *string `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	Fields []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DDDateField和DDDateRangeField
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// This parameter is required.
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：隐藏
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：不可修改
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 评分组件限制
+	Limit *int64 `json:"limit,omitempty" xml:"limit,omitempty"`
+	// This parameter is required.
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 电话控件模式 phone：仅手机，phone_tel： 手机和固话，tel：仅固话
+	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	// This parameter is required.
+	Multi *int64 `json:"multi,omitempty" xml:"multi,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：支持多选，false：单选
+	Multiple *bool `json:"multiple,omitempty" xml:"multiple,omitempty"`
+	// This parameter is required.
+	NeedDetail *string `json:"needDetail,omitempty" xml:"needDetail,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1：不打印，0：打印
+	NotPrint *string `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1:不需要大写, 空或者0:需要大写
+	NotUpper *string `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	// This parameter is required.
+	Options []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：是
+	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	// This parameter is required.
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 关联表单 1：引用，0：拷贝
+	Quote *int64 `json:"quote,omitempty" xml:"quote,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 文本控件、选项控件等限制文本字数ratio
+	Ratio *int64 `json:"ratio,omitempty" xml:"ratio,omitempty"`
+	// This parameter is required.
+	RelateSource []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSource `json:"relateSource,omitempty" xml:"relateSource,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：不可修改
+	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	// This parameter is required.
+	Rule []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRule `json:"rule,omitempty" xml:"rule,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Sortable *bool `json:"sortable,omitempty" xml:"sortable,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 选项控件spread
+	Spread *bool `json:"spread,omitempty" xml:"spread,omitempty"`
+	// This parameter is required.
+	StatField []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 明细填写方式 table：表格，list：列表
+	TableViewMode *string `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：纵向，false：横向
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 是否水印照片 true：是，false：否
+	Watermark *bool `json:"watermark,omitempty" xml:"watermark,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetActionName(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.ActionName = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetAlign(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Align = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetAvailableTemplates(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsAvailableTemplates) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.AvailableTemplates = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetBehaviorLinkage(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkage) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.BehaviorLinkage = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetBizAlias(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetChoice(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetContent(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Content = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetDataSource(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSource) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.DataSource = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetDefaultColor(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.DefaultColor = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetDisabled(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetDuration(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetDurationLabel(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.DurationLabel = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetFieldId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetFields(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFields) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Fields = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetFormat(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Format = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetFormula(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Formula = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetInvisible(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetLabel(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetLabelEditableFreeze(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.LabelEditableFreeze = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetLimit(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Limit = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetLink(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Link = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetMode(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Mode = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetMulti(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Multi = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetMultiple(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Multiple = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetNeedDetail(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.NeedDetail = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetNotPrint(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.NotPrint = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetNotUpper(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetOptions(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptions) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Options = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetPayEnable(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetPlaceholder(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetQuote(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Quote = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetRatio(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Ratio = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetRelateSource(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSource) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.RelateSource = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetRequired(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Required = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetRequiredEditableFreeze(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.RequiredEditableFreeze = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetRule(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRule) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Rule = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetSortable(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Sortable = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetSpread(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Spread = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetStatField(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsStatField) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.StatField = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetTableViewMode(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.TableViewMode = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetUnit(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetVerticalPrint(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps) SetWatermark(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsProps {
+	s.Watermark = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsAvailableTemplates struct {
+	// example:
+	//
+	// 审批模板id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 审批模板名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsAvailableTemplates) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsAvailableTemplates) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsAvailableTemplates) SetId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsAvailableTemplates {
+	s.Id = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsAvailableTemplates) SetName(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsAvailableTemplates {
+	s.Name = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkage struct {
+	// example:
+	//
+	// option_0
+	OptionKey *string                                                                          `json:"optionKey,omitempty" xml:"optionKey,omitempty"`
+	Targets   []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkageTargets `json:"targets,omitempty" xml:"targets,omitempty" type:"Repeated"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkage) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkage) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkage) SetOptionKey(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkage {
+	s.OptionKey = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkage) SetTargets(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkageTargets) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkage {
+	s.Targets = v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkageTargets struct {
+	// example:
+	//
+	// NORMAL
+	Behavior *string `json:"behavior,omitempty" xml:"behavior,omitempty"`
+	// example:
+	//
+	// TextField_1LTIYOR4XIF40
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkageTargets) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkageTargets) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkageTargets) SetBehavior(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkageTargets {
+	s.Behavior = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkageTargets) SetFieldId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsBehaviorLinkageTargets {
+	s.FieldId = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSource struct {
+	// This parameter is required.
+	Params *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParams `json:"params,omitempty" xml:"params,omitempty" type:"Struct"`
+	Target *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceTarget `json:"target,omitempty" xml:"target,omitempty" type:"Struct"`
+	Type   *string                                                                  `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSource) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSource) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSource) SetParams(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParams) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSource {
+	s.Params = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSource) SetTarget(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceTarget) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSource {
+	s.Target = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSource) SetType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSource {
+	s.Type = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParams struct {
+	// This parameter is required.
+	Filters []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParamsFilters `json:"filters,omitempty" xml:"filters,omitempty" type:"Repeated"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParams) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParams) SetFilters(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParamsFilters) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParams {
+	s.Filters = v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParamsFilters struct {
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	FilterType *string `json:"filterType,omitempty" xml:"filterType,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	ValueType *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParamsFilters) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParamsFilters) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParamsFilters) SetFieldId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParamsFilters {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParamsFilters) SetFilterType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParamsFilters {
+	s.FilterType = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParamsFilters) SetValue(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParamsFilters {
+	s.Value = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParamsFilters) SetValueType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceParamsFilters {
+	s.ValueType = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceTarget struct {
+	// example:
+	//
+	// 0：流程表单，1：纯表单
+	AppType  *int64  `json:"appType,omitempty" xml:"appType,omitempty"`
+	AppUuid  *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	BizType  *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceTarget) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceTarget) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceTarget) SetAppType(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceTarget {
+	s.AppType = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceTarget) SetAppUuid(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceTarget {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceTarget) SetBizType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceTarget {
+	s.BizType = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceTarget) SetFormCode(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsDataSourceTarget {
+	s.FormCode = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFields struct {
+	// This parameter is required.
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	RelateProps *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps `json:"relateProps,omitempty" xml:"relateProps,omitempty" type:"Struct"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFields) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFields) SetComponentName(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFields {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFields) SetRelateProps(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFields {
+	s.RelateProps = v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps struct {
+	// This parameter is required.
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// This parameter is required.
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1：多选，0：单选
+	Choice *int64 `json:"choice,omitempty" xml:"choice,omitempty"`
+	// This parameter is required.
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：可编辑
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：自动
+	Duration *string `json:"duration,omitempty" xml:"duration,omitempty"`
+	// This parameter is required.
+	DurationLabel *string `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DDDateField和DDDateRangeField
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// This parameter is required.
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：隐藏
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// This parameter is required.
+	Limit *int64 `json:"limit,omitempty" xml:"limit,omitempty"`
+	// This parameter is required.
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// This parameter is required.
+	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1:不需要大写, 空或者0:需要大写
+	NotUpper *string `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	// This parameter is required.
+	Options []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：是
+	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	// This parameter is required.
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// This parameter is required.
+	Ratio *int64 `json:"ratio,omitempty" xml:"ratio,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// This parameter is required.
+	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	// This parameter is required.
+	Spread *bool `json:"spread,omitempty" xml:"spread,omitempty"`
+	// This parameter is required.
+	StatField []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：纵向，false：横向
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// This parameter is required.
+	Watermark *bool `json:"watermark,omitempty" xml:"watermark,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetAlign(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Align = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetBizAlias(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetChoice(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetContent(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Content = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetDisabled(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetDuration(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetDurationLabel(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.DurationLabel = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetFieldId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetFormat(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Format = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetFormula(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Formula = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetInvisible(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetLabel(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetLabelEditableFreeze(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.LabelEditableFreeze = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetLimit(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Limit = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetLink(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Link = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetMode(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Mode = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetNotUpper(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetOptions(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptions) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Options = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetPayEnable(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetPlaceholder(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetRatio(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Ratio = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetRequired(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Required = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetRequiredEditableFreeze(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.RequiredEditableFreeze = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetSpread(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Spread = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetStatField(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsStatField) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.StatField = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetUnit(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetVerticalPrint(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps) SetWatermark(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelateProps {
+	s.Watermark = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptions struct {
+	// This parameter is required.
+	Extension *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptionsExtension `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
+	// This parameter is required.
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptions) SetExtension(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptionsExtension) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptions {
+	s.Extension = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptions) SetKey(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptions) SetValue(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptions {
+	s.Value = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptionsExtension struct {
+	// This parameter is required.
+	EditFreeze *bool `json:"editFreeze,omitempty" xml:"editFreeze,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptionsExtension) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptionsExtension) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptionsExtension) SetEditFreeze(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsOptionsExtension {
+	s.EditFreeze = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsStatField struct {
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	Upper *bool `json:"upper,omitempty" xml:"upper,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsStatField) SetFieldId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsStatField {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsStatField) SetLabel(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsStatField) SetUnit(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsStatField {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsStatField) SetUpper(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsFieldsRelatePropsStatField {
+	s.Upper = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptions struct {
+	// This parameter is required.
+	Extension *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptionsExtension `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
+	// This parameter is required.
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	Warn *bool `json:"warn,omitempty" xml:"warn,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptions) SetExtension(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptionsExtension) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptions {
+	s.Extension = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptions) SetKey(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptions) SetValue(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptions {
+	s.Value = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptions) SetWarn(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptions {
+	s.Warn = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptionsExtension struct {
+	// This parameter is required.
+	EditFreeze *bool `json:"editFreeze,omitempty" xml:"editFreeze,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptionsExtension) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptionsExtension) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptionsExtension) SetEditFreeze(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsOptionsExtension {
+	s.EditFreeze = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSource struct {
+	// This parameter is required.
+	BizType    *string                                                                        `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	DataSource *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSource `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
+	// This parameter is required.
+	Fields []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSource) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSource) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSource) SetBizType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSource {
+	s.BizType = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSource) SetDataSource(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSource) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSource {
+	s.DataSource = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSource) SetFields(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFields) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSource {
+	s.Fields = v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSource struct {
+	// This parameter is required.
+	Params *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParams `json:"params,omitempty" xml:"params,omitempty" type:"Struct"`
+	// This parameter is required.
+	Target *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceTarget `json:"target,omitempty" xml:"target,omitempty" type:"Struct"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSource) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSource) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSource) SetParams(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParams) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSource {
+	s.Params = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSource) SetTarget(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceTarget) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSource {
+	s.Target = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSource) SetType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSource {
+	s.Type = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParams struct {
+	// This parameter is required.
+	Filters []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParamsFilters `json:"filters,omitempty" xml:"filters,omitempty" type:"Repeated"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParams) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParams) SetFilters(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParamsFilters) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParams {
+	s.Filters = v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParamsFilters struct {
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	FilterType *string `json:"filterType,omitempty" xml:"filterType,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	ValueType *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParamsFilters) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParamsFilters) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParamsFilters) SetFieldId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParamsFilters {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParamsFilters) SetFilterType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParamsFilters {
+	s.FilterType = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParamsFilters) SetValue(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParamsFilters {
+	s.Value = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParamsFilters) SetValueType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceParamsFilters {
+	s.ValueType = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceTarget struct {
+	// This parameter is required.
+	AppType *int64 `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// This parameter is required.
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceTarget) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceTarget) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceTarget) SetAppType(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceTarget {
+	s.AppType = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceTarget) SetAppUuid(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceTarget {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceTarget) SetBizType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceTarget {
+	s.BizType = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceTarget) SetFormCode(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceDataSourceTarget {
+	s.FormCode = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFields struct {
+	// This parameter is required.
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	RelateProps *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps `json:"relateProps,omitempty" xml:"relateProps,omitempty" type:"Struct"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFields) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFields) SetComponentName(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFields {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFields) SetRelateProps(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFields {
+	s.RelateProps = v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps struct {
+	// This parameter is required.
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// This parameter is required.
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1：多选，0：单选
+	Choice *int64 `json:"choice,omitempty" xml:"choice,omitempty"`
+	// This parameter is required.
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：可编辑
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：自动
+	Duration *string `json:"duration,omitempty" xml:"duration,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DDDateField和DDDateRangeField
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// This parameter is required.
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：隐藏
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// This parameter is required.
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// This parameter is required.
+	Multi *int64 `json:"multi,omitempty" xml:"multi,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1:不需要大写, 空或者0:需要大写
+	NotUpper *string `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	// This parameter is required.
+	Options []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：是
+	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	// This parameter is required.
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// This parameter is required.
+	Quote *int64 `json:"quote,omitempty" xml:"quote,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// This parameter is required.
+	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	// This parameter is required.
+	StatField []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：纵向，false：横向
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetAlign(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.Align = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetBizAlias(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetChoice(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetContent(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.Content = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetDisabled(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetDuration(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetFieldId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetFormat(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.Format = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetFormula(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.Formula = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetInvisible(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetLabel(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetLabelEditableFreeze(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.LabelEditableFreeze = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetLink(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.Link = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetMulti(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.Multi = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetNotUpper(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetOptions(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptions) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.Options = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetPayEnable(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetPlaceholder(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetQuote(v int64) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.Quote = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetRequired(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.Required = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetRequiredEditableFreeze(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.RequiredEditableFreeze = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetStatField(v []*DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsStatField) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.StatField = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetUnit(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps) SetVerticalPrint(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelateProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptions struct {
+	// This parameter is required.
+	Extension *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptionsExtension `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
+	// This parameter is required.
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptions) SetExtension(v *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptionsExtension) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptions {
+	s.Extension = v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptions) SetKey(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptions) SetValue(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptions {
+	s.Value = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptionsExtension struct {
+	// This parameter is required.
+	EditFreeze *bool `json:"editFreeze,omitempty" xml:"editFreeze,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptionsExtension) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptionsExtension) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptionsExtension) SetEditFreeze(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsOptionsExtension {
+	s.EditFreeze = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsStatField struct {
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	Upper *bool `json:"upper,omitempty" xml:"upper,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsStatField) SetFieldId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsStatField {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsStatField) SetLabel(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsStatField) SetUnit(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsStatField {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsStatField) SetUpper(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRelateSourceFieldsRelatePropsStatField {
+	s.Upper = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRule struct {
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRule) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRule) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRule) SetType(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRule {
+	s.Type = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRule) SetValue(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsRule {
+	s.Value = &v
+	return s
+}
+
+type DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsStatField struct {
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	Upper *bool `json:"upper,omitempty" xml:"upper,omitempty"`
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsStatField) SetFieldId(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsStatField {
+	s.FieldId = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsStatField) SetLabel(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsStatField) SetUnit(v string) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsStatField {
+	s.Unit = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsStatField) SetUpper(v bool) *DescribeMetaModelResponseBodyMetaModelDTOListItemsPropsStatField {
+	s.Upper = &v
+	return s
+}
+
+type DescribeMetaModelResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DescribeMetaModelResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DescribeMetaModelResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeMetaModelResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeMetaModelResponse) SetHeaders(v map[string]*string) *DescribeMetaModelResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DescribeMetaModelResponse) SetStatusCode(v int32) *DescribeMetaModelResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DescribeMetaModelResponse) SetBody(v *DescribeMetaModelResponseBody) *DescribeMetaModelResponse {
+	s.Body = v
+	return s
+}
+
 type DescribeRelationMetaHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4478,9 +8781,12 @@ func (s *DescribeRelationMetaHeaders) SetXAcsDingtalkAccessToken(v string) *Desc
 }
 
 type DescribeRelationMetaRequest struct {
-	OperatorUserId *string   `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
-	RelationTypes  []*string `json:"relationTypes,omitempty" xml:"relationTypes,omitempty" type:"Repeated"`
-	Tenant         *string   `json:"tenant,omitempty" xml:"tenant,omitempty"`
+	// This parameter is required.
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	RelationTypes []*string `json:"relationTypes,omitempty" xml:"relationTypes,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Tenant *string `json:"tenant,omitempty" xml:"tenant,omitempty"`
 }
 
 func (s DescribeRelationMetaRequest) String() string {
@@ -4507,6 +8813,7 @@ func (s *DescribeRelationMetaRequest) SetTenant(v string) *DescribeRelationMetaR
 }
 
 type DescribeRelationMetaResponseBody struct {
+	// This parameter is required.
 	RelationMetaDTOList []*DescribeRelationMetaResponseBodyRelationMetaDTOList `json:"relationMetaDTOList,omitempty" xml:"relationMetaDTOList,omitempty" type:"Repeated"`
 }
 
@@ -4524,15 +8831,36 @@ func (s *DescribeRelationMetaResponseBody) SetRelationMetaDTOList(v []*DescribeR
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOList struct {
-	CreatorUserId      *string                                                     `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	Desc               *string                                                     `json:"desc,omitempty" xml:"desc,omitempty"`
-	GmtCreate          *string                                                     `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified        *string                                                     `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	Items              []*DescribeRelationMetaResponseBodyRelationMetaDTOListItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
-	Name               *string                                                     `json:"name,omitempty" xml:"name,omitempty"`
-	RelationMetaCode   *string                                                     `json:"relationMetaCode,omitempty" xml:"relationMetaCode,omitempty"`
-	RelationMetaStatus *string                                                     `json:"relationMetaStatus,omitempty" xml:"relationMetaStatus,omitempty"`
-	RelationType       *string                                                     `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// This parameter is required.
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 企业客户表
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// This parameter is required.
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// This parameter is required.
+	Items []*DescribeRelationMetaResponseBodyRelationMetaDTOListItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 企业客户
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	RelationMetaCode *string `json:"relationMetaCode,omitempty" xml:"relationMetaCode,omitempty"`
+	// This parameter is required.
+	RelationMetaStatus *string `json:"relationMetaStatus,omitempty" xml:"relationMetaStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// crm_customer
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOList) String() string {
@@ -4589,9 +8917,12 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOList) SetRelationType(v 
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItems struct {
-	Children      []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
-	ComponentName *string                                                             `json:"componentName,omitempty" xml:"componentName,omitempty"`
-	Props         *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps      `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+	// This parameter is required.
+	Children []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+	// This parameter is required.
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	Props *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItems) String() string {
@@ -4618,8 +8949,10 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItems) SetProps(v *D
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildren struct {
-	ComponentName *string                                                                `json:"componentName,omitempty" xml:"componentName,omitempty"`
-	Props         *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+	// This parameter is required.
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	Props *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildren) String() string {
@@ -4641,46 +8974,90 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildren) SetPr
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps struct {
-	ActionName             *string                                                                                    `json:"actionName,omitempty" xml:"actionName,omitempty"`
-	Align                  *string                                                                                    `json:"align,omitempty" xml:"align,omitempty"`
-	AvailableTemplates     []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsAvailableTemplates `json:"availableTemplates,omitempty" xml:"availableTemplates,omitempty" type:"Repeated"`
-	BizAlias               *string                                                                                    `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	Choice                 *int64                                                                                     `json:"choice,omitempty" xml:"choice,omitempty"`
-	Content                *string                                                                                    `json:"content,omitempty" xml:"content,omitempty"`
-	DataSource             *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource           `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
-	DefaultColor           *string                                                                                    `json:"defaultColor,omitempty" xml:"defaultColor,omitempty"`
-	Disabled               *bool                                                                                      `json:"disabled,omitempty" xml:"disabled,omitempty"`
-	Duration               *bool                                                                                      `json:"duration,omitempty" xml:"duration,omitempty"`
-	DurationLabel          *string                                                                                    `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
-	FieldId                *string                                                                                    `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Fields                 []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFields             `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
-	Format                 *string                                                                                    `json:"format,omitempty" xml:"format,omitempty"`
-	Formula                *string                                                                                    `json:"formula,omitempty" xml:"formula,omitempty"`
-	Invisible              *bool                                                                                      `json:"invisible,omitempty" xml:"invisible,omitempty"`
-	Label                  *string                                                                                    `json:"label,omitempty" xml:"label,omitempty"`
-	LabelEditableFreeze    *bool                                                                                      `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
-	Limit                  *int64                                                                                     `json:"limit,omitempty" xml:"limit,omitempty"`
-	Link                   *string                                                                                    `json:"link,omitempty" xml:"link,omitempty"`
-	Mode                   *string                                                                                    `json:"mode,omitempty" xml:"mode,omitempty"`
-	Multiple               *bool                                                                                      `json:"multiple,omitempty" xml:"multiple,omitempty"`
-	NotPrint               *string                                                                                    `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
-	NotUpper               *string                                                                                    `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
-	Options                []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOptions            `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
-	PayEnable              *bool                                                                                      `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
-	Placeholder            *string                                                                                    `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
-	Quote                  *int64                                                                                     `json:"quote,omitempty" xml:"quote,omitempty"`
-	Ratio                  *int64                                                                                     `json:"ratio,omitempty" xml:"ratio,omitempty"`
-	RelateSource           []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSource       `json:"relateSource,omitempty" xml:"relateSource,omitempty" type:"Repeated"`
-	Required               *bool                                                                                      `json:"required,omitempty" xml:"required,omitempty"`
-	RequiredEditableFreeze *bool                                                                                      `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
-	Rule                   []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRule               `json:"rule,omitempty" xml:"rule,omitempty" type:"Repeated"`
-	Sortable               *bool                                                                                      `json:"sortable,omitempty" xml:"sortable,omitempty"`
-	Spread                 *bool                                                                                      `json:"spread,omitempty" xml:"spread,omitempty"`
-	StatField              []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField          `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
-	TableViewMode          *string                                                                                    `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
-	Unit                   *string                                                                                    `json:"unit,omitempty" xml:"unit,omitempty"`
-	VerticalPrint          *bool                                                                                      `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
-	Watermark              *bool                                                                                      `json:"watermark,omitempty" xml:"watermark,omitempty"`
+	// This parameter is required.
+	ActionName *string `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	// This parameter is required.
+	Align              *string                                                                                    `json:"align,omitempty" xml:"align,omitempty"`
+	AvailableTemplates []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsAvailableTemplates `json:"availableTemplates,omitempty" xml:"availableTemplates,omitempty" type:"Repeated"`
+	// This parameter is required.
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
+	Choice *int64 `json:"choice,omitempty" xml:"choice,omitempty"`
+	// This parameter is required.
+	Content    *string                                                                          `json:"content,omitempty" xml:"content,omitempty"`
+	DataSource *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
+	// example:
+	//
+	// 标签字段 颜色属性，格式：#0089FF
+	DefaultColor *string `json:"defaultColor,omitempty" xml:"defaultColor,omitempty"`
+	// This parameter is required.
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// This parameter is required.
+	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
+	// This parameter is required.
+	DurationLabel *string `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	Fields []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// This parameter is required.
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// This parameter is required.
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// This parameter is required.
+	Limit *int64 `json:"limit,omitempty" xml:"limit,omitempty"`
+	// This parameter is required.
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// This parameter is required.
+	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：支持多选，false：单选
+	Multiple *bool `json:"multiple,omitempty" xml:"multiple,omitempty"`
+	// This parameter is required.
+	NotPrint *string `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	// This parameter is required.
+	NotUpper *string `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	// This parameter is required.
+	Options []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// This parameter is required.
+	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	// This parameter is required.
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// This parameter is required.
+	Quote *int64 `json:"quote,omitempty" xml:"quote,omitempty"`
+	// This parameter is required.
+	Ratio *int64 `json:"ratio,omitempty" xml:"ratio,omitempty"`
+	// This parameter is required.
+	RelateSource []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSource `json:"relateSource,omitempty" xml:"relateSource,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// This parameter is required.
+	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	// This parameter is required.
+	Rule []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRule `json:"rule,omitempty" xml:"rule,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Sortable *bool `json:"sortable,omitempty" xml:"sortable,omitempty"`
+	// This parameter is required.
+	Spread *bool `json:"spread,omitempty" xml:"spread,omitempty"`
+	// This parameter is required.
+	StatField []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// This parameter is required.
+	TableViewMode *string `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// This parameter is required.
+	Watermark *bool `json:"watermark,omitempty" xml:"watermark,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) String() string {
@@ -4892,7 +9269,13 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenProps) 
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsAvailableTemplates struct {
-	Id   *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 审批模板id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 审批模板名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -4915,9 +9298,12 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsAv
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource struct {
+	// This parameter is required.
 	Params *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceParams `json:"params,omitempty" xml:"params,omitempty" type:"Struct"`
+	// This parameter is required.
 	Target *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceTarget `json:"target,omitempty" xml:"target,omitempty" type:"Struct"`
-	Type   *string                                                                                `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSource) String() string {
@@ -4944,6 +9330,7 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDa
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceParams struct {
+	// This parameter is required.
 	Filters []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceParamsFilters `json:"filters,omitempty" xml:"filters,omitempty" type:"Repeated"`
 }
 
@@ -4961,10 +9348,14 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDa
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceParamsFilters struct {
-	FieldId    *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
 	FilterType *string `json:"filterType,omitempty" xml:"filterType,omitempty"`
-	Value      *string `json:"value,omitempty" xml:"value,omitempty"`
-	ValueType  *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	ValueType *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceParamsFilters) String() string {
@@ -4996,9 +9387,13 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDa
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDataSourceTarget struct {
-	AppType  *int64  `json:"appType,omitempty" xml:"appType,omitempty"`
-	AppUuid  *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	BizType  *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	AppType *int64 `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// This parameter is required.
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
 	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
 }
 
@@ -5031,8 +9426,10 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsDa
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFields struct {
-	ComponentName *string                                                                                 `json:"componentName,omitempty" xml:"componentName,omitempty"`
-	RelateProps   *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps `json:"relateProps,omitempty" xml:"relateProps,omitempty" type:"Struct"`
+	// This parameter is required.
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	RelateProps *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps `json:"relateProps,omitempty" xml:"relateProps,omitempty" type:"Struct"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFields) String() string {
@@ -5054,34 +9451,62 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFi
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps struct {
-	Align                  *string                                                                                            `json:"align,omitempty" xml:"align,omitempty"`
-	BizAlias               *string                                                                                            `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	Choice                 *int64                                                                                             `json:"choice,omitempty" xml:"choice,omitempty"`
-	Content                *string                                                                                            `json:"content,omitempty" xml:"content,omitempty"`
-	Disabled               *bool                                                                                              `json:"disabled,omitempty" xml:"disabled,omitempty"`
-	Duration               *bool                                                                                              `json:"duration,omitempty" xml:"duration,omitempty"`
-	DurationLabel          *string                                                                                            `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
-	FieldId                *string                                                                                            `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Format                 *string                                                                                            `json:"format,omitempty" xml:"format,omitempty"`
-	Formula                *string                                                                                            `json:"formula,omitempty" xml:"formula,omitempty"`
-	Invisible              *bool                                                                                              `json:"invisible,omitempty" xml:"invisible,omitempty"`
-	Label                  *string                                                                                            `json:"label,omitempty" xml:"label,omitempty"`
-	LabelEditableFreeze    *bool                                                                                              `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
-	Limit                  *int64                                                                                             `json:"limit,omitempty" xml:"limit,omitempty"`
-	Link                   *string                                                                                            `json:"link,omitempty" xml:"link,omitempty"`
-	Mode                   *string                                                                                            `json:"mode,omitempty" xml:"mode,omitempty"`
-	NotUpper               *string                                                                                            `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
-	Options                []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsOptions   `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
-	PayEnable              *bool                                                                                              `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
-	Placeholder            *string                                                                                            `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
-	Ratio                  *int64                                                                                             `json:"ratio,omitempty" xml:"ratio,omitempty"`
-	Required               *bool                                                                                              `json:"required,omitempty" xml:"required,omitempty"`
-	RequiredEditableFreeze *bool                                                                                              `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
-	Spread                 *bool                                                                                              `json:"spread,omitempty" xml:"spread,omitempty"`
-	StatField              []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
-	Unit                   *string                                                                                            `json:"unit,omitempty" xml:"unit,omitempty"`
-	VerticalPrint          *bool                                                                                              `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
-	Watermark              *bool                                                                                              `json:"watermark,omitempty" xml:"watermark,omitempty"`
+	// This parameter is required.
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// This parameter is required.
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
+	Choice *int64 `json:"choice,omitempty" xml:"choice,omitempty"`
+	// This parameter is required.
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// This parameter is required.
+	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
+	// This parameter is required.
+	DurationLabel *string `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// This parameter is required.
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// This parameter is required.
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// This parameter is required.
+	Limit *int64 `json:"limit,omitempty" xml:"limit,omitempty"`
+	// This parameter is required.
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// This parameter is required.
+	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	// This parameter is required.
+	NotUpper *string `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	// This parameter is required.
+	Options []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// This parameter is required.
+	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	// This parameter is required.
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// This parameter is required.
+	Ratio *int64 `json:"ratio,omitempty" xml:"ratio,omitempty"`
+	// This parameter is required.
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// This parameter is required.
+	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	// This parameter is required.
+	Spread *bool `json:"spread,omitempty" xml:"spread,omitempty"`
+	// This parameter is required.
+	StatField []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// This parameter is required.
+	Watermark *bool `json:"watermark,omitempty" xml:"watermark,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelateProps) String() string {
@@ -5233,9 +9658,12 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFi
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsOptions struct {
+	// This parameter is required.
 	Extension *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsOptionsExtension `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
-	Key       *string                                                                                                 `json:"key,omitempty" xml:"key,omitempty"`
-	Value     *string                                                                                                 `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsOptions) String() string {
@@ -5262,6 +9690,7 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFi
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsOptionsExtension struct {
+	// This parameter is required.
 	EditFreeze *bool `json:"editFreeze,omitempty" xml:"editFreeze,omitempty"`
 }
 
@@ -5279,10 +9708,14 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFi
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsStatField struct {
+	// This parameter is required.
 	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Label   *string `json:"label,omitempty" xml:"label,omitempty"`
-	Unit    *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	Upper   *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	Upper *bool `json:"upper,omitempty" xml:"upper,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFieldsRelatePropsStatField) String() string {
@@ -5314,9 +9747,12 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsFi
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOptions struct {
+	// This parameter is required.
 	Extension *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOptionsExtension `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
-	Key       *string                                                                                `json:"key,omitempty" xml:"key,omitempty"`
-	Value     *string                                                                                `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOptions) String() string {
@@ -5343,6 +9779,7 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOp
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOptionsExtension struct {
+	// This parameter is required.
 	EditFreeze *bool `json:"editFreeze,omitempty" xml:"editFreeze,omitempty"`
 }
 
@@ -5360,9 +9797,11 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsOp
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSource struct {
+	// This parameter is required.
 	BizType    *string                                                                                      `json:"bizType,omitempty" xml:"bizType,omitempty"`
 	DataSource *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceDataSource `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
-	Fields     []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceFields   `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Fields []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSource) String() string {
@@ -5389,9 +9828,12 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRe
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceDataSource struct {
+	// This parameter is required.
 	Params *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceDataSourceParams `json:"params,omitempty" xml:"params,omitempty" type:"Struct"`
+	// This parameter is required.
 	Target *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceDataSourceTarget `json:"target,omitempty" xml:"target,omitempty" type:"Struct"`
-	Type   *string                                                                                            `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceDataSource) String() string {
@@ -5418,6 +9860,7 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRe
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceDataSourceParams struct {
+	// This parameter is required.
 	Filters []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceDataSourceParamsFilters `json:"filters,omitempty" xml:"filters,omitempty" type:"Repeated"`
 }
 
@@ -5435,10 +9878,14 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRe
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceDataSourceParamsFilters struct {
-	FieldId    *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
 	FilterType *string `json:"filterType,omitempty" xml:"filterType,omitempty"`
-	Value      *string `json:"value,omitempty" xml:"value,omitempty"`
-	ValueType  *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	ValueType *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceDataSourceParamsFilters) String() string {
@@ -5470,9 +9917,13 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRe
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceDataSourceTarget struct {
-	AppType  *int64  `json:"appType,omitempty" xml:"appType,omitempty"`
-	AppUuid  *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	BizType  *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	AppType *int64 `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// This parameter is required.
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
 	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
 }
 
@@ -5505,8 +9956,10 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRe
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceFields struct {
-	ComponentName *string                                                                                             `json:"componentName,omitempty" xml:"componentName,omitempty"`
-	RelateProps   *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceFieldsRelateProps `json:"relateProps,omitempty" xml:"relateProps,omitempty" type:"Struct"`
+	// This parameter is required.
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	RelateProps *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceFieldsRelateProps `json:"relateProps,omitempty" xml:"relateProps,omitempty" type:"Struct"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceFields) String() string {
@@ -5528,30 +9981,90 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRe
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceFieldsRelateProps struct {
-	Align                  *string                                                                                                        `json:"align,omitempty" xml:"align,omitempty"`
-	BizAlias               *string                                                                                                        `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	Choice                 *int64                                                                                                         `json:"choice,omitempty" xml:"choice,omitempty"`
-	Content                *string                                                                                                        `json:"content,omitempty" xml:"content,omitempty"`
-	Disabled               *bool                                                                                                          `json:"disabled,omitempty" xml:"disabled,omitempty"`
-	Duration               *string                                                                                                        `json:"duration,omitempty" xml:"duration,omitempty"`
-	FieldId                *string                                                                                                        `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Format                 *string                                                                                                        `json:"format,omitempty" xml:"format,omitempty"`
-	Formula                *string                                                                                                        `json:"formula,omitempty" xml:"formula,omitempty"`
-	Invisible              *bool                                                                                                          `json:"invisible,omitempty" xml:"invisible,omitempty"`
-	Label                  *string                                                                                                        `json:"label,omitempty" xml:"label,omitempty"`
-	LabelEditableFreeze    *bool                                                                                                          `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
-	Link                   *string                                                                                                        `json:"link,omitempty" xml:"link,omitempty"`
-	Multi                  *int64                                                                                                         `json:"multi,omitempty" xml:"multi,omitempty"`
-	NotUpper               *string                                                                                                        `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
-	Options                []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsOptions   `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
-	PayEnable              *bool                                                                                                          `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
-	Placeholder            *string                                                                                                        `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
-	Quote                  *int64                                                                                                         `json:"quote,omitempty" xml:"quote,omitempty"`
-	Required               *bool                                                                                                          `json:"required,omitempty" xml:"required,omitempty"`
-	RequiredEditableFreeze *bool                                                                                                          `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
-	StatField              []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
-	Unit                   *string                                                                                                        `json:"unit,omitempty" xml:"unit,omitempty"`
-	VerticalPrint          *bool                                                                                                          `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// This parameter is required.
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// This parameter is required.
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1：多选，0：单选
+	Choice *int64 `json:"choice,omitempty" xml:"choice,omitempty"`
+	// This parameter is required.
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：可编辑
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：自动
+	Duration *string `json:"duration,omitempty" xml:"duration,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DDDateField和DDDateRangeField
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// This parameter is required.
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：隐藏
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// This parameter is required.
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// This parameter is required.
+	Multi *int64 `json:"multi,omitempty" xml:"multi,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1:不需要大写, 空或者0:需要大写
+	NotUpper *string `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	// This parameter is required.
+	Options []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：是
+	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	// This parameter is required.
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// This parameter is required.
+	Quote *int64 `json:"quote,omitempty" xml:"quote,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// This parameter is required.
+	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	// This parameter is required.
+	StatField []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：纵向，false：横向
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceFieldsRelateProps) String() string {
@@ -5683,7 +10196,9 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRe
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsOptions struct {
-	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -5706,10 +10221,14 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRe
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsStatField struct {
+	// This parameter is required.
 	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Label   *string `json:"label,omitempty" xml:"label,omitempty"`
-	Unit    *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	Upper   *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	Upper *bool `json:"upper,omitempty" xml:"upper,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRelateSourceFieldsRelatePropsStatField) String() string {
@@ -5741,7 +10260,9 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRe
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRule struct {
-	Type  *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -5764,10 +10285,14 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsRu
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField struct {
+	// This parameter is required.
 	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Label   *string `json:"label,omitempty" xml:"label,omitempty"`
-	Unit    *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	Upper   *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	Upper *bool `json:"upper,omitempty" xml:"upper,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsStatField) String() string {
@@ -5799,48 +10324,183 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsChildrenPropsSt
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps struct {
-	ActionName             *string                                                                            `json:"actionName,omitempty" xml:"actionName,omitempty"`
-	Align                  *string                                                                            `json:"align,omitempty" xml:"align,omitempty"`
-	AvailableTemplates     []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsAvailableTemplates `json:"availableTemplates,omitempty" xml:"availableTemplates,omitempty" type:"Repeated"`
-	BizAlias               *string                                                                            `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	Choice                 *int64                                                                             `json:"choice,omitempty" xml:"choice,omitempty"`
-	Content                *string                                                                            `json:"content,omitempty" xml:"content,omitempty"`
-	DataSource             *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource           `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
-	DefaultColor           *string                                                                            `json:"defaultColor,omitempty" xml:"defaultColor,omitempty"`
-	Disabled               *bool                                                                              `json:"disabled,omitempty" xml:"disabled,omitempty"`
-	Duration               *bool                                                                              `json:"duration,omitempty" xml:"duration,omitempty"`
-	DurationLabel          *string                                                                            `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
-	FieldId                *string                                                                            `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Fields                 []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFields             `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
-	Format                 *string                                                                            `json:"format,omitempty" xml:"format,omitempty"`
-	Formula                *string                                                                            `json:"formula,omitempty" xml:"formula,omitempty"`
-	Invisible              *bool                                                                              `json:"invisible,omitempty" xml:"invisible,omitempty"`
-	Label                  *string                                                                            `json:"label,omitempty" xml:"label,omitempty"`
-	LabelEditableFreeze    *bool                                                                              `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
-	Limit                  *int64                                                                             `json:"limit,omitempty" xml:"limit,omitempty"`
-	Link                   *string                                                                            `json:"link,omitempty" xml:"link,omitempty"`
-	Mode                   *string                                                                            `json:"mode,omitempty" xml:"mode,omitempty"`
-	Multi                  *int64                                                                             `json:"multi,omitempty" xml:"multi,omitempty"`
-	Multiple               *bool                                                                              `json:"multiple,omitempty" xml:"multiple,omitempty"`
-	NeedDetail             *string                                                                            `json:"needDetail,omitempty" xml:"needDetail,omitempty"`
-	NotPrint               *string                                                                            `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
-	NotUpper               *string                                                                            `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
-	Options                []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsOptions            `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
-	PayEnable              *bool                                                                              `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
-	Placeholder            *string                                                                            `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
-	Quote                  *int64                                                                             `json:"quote,omitempty" xml:"quote,omitempty"`
-	Ratio                  *int64                                                                             `json:"ratio,omitempty" xml:"ratio,omitempty"`
-	RelateSource           []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSource       `json:"relateSource,omitempty" xml:"relateSource,omitempty" type:"Repeated"`
-	Required               *bool                                                                              `json:"required,omitempty" xml:"required,omitempty"`
-	RequiredEditableFreeze *bool                                                                              `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
-	Rule                   []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRule               `json:"rule,omitempty" xml:"rule,omitempty" type:"Repeated"`
-	Sortable               *bool                                                                              `json:"sortable,omitempty" xml:"sortable,omitempty"`
-	Spread                 *bool                                                                              `json:"spread,omitempty" xml:"spread,omitempty"`
-	StatField              []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsStatField          `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
-	TableViewMode          *string                                                                            `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
-	Unit                   *string                                                                            `json:"unit,omitempty" xml:"unit,omitempty"`
-	VerticalPrint          *bool                                                                              `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
-	Watermark              *bool                                                                              `json:"watermark,omitempty" xml:"watermark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 明细动作名称
+	ActionName *string `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// top|middle|bottom
+	Align              *string                                                                            `json:"align,omitempty" xml:"align,omitempty"`
+	AvailableTemplates []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsAvailableTemplates `json:"availableTemplates,omitempty" xml:"availableTemplates,omitempty" type:"Repeated"`
+	BehaviorLinkage    []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkage    `json:"behaviorLinkage,omitempty" xml:"behaviorLinkage,omitempty" type:"Repeated"`
+	// This parameter is required.
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1：多选，0：单选
+	Choice *int64 `json:"choice,omitempty" xml:"choice,omitempty"`
+	// This parameter is required.
+	Content    *string                                                                  `json:"content,omitempty" xml:"content,omitempty"`
+	DataSource *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
+	// example:
+	//
+	// 标签字段 颜色属性，格式：#0089FF
+	DefaultColor *string `json:"defaultColor,omitempty" xml:"defaultColor,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：可编辑
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：自动
+	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 日期区间控件，自动计算时长的标题
+	DurationLabel *string `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	Fields []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DDDateField和DDDateRangeField
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// This parameter is required.
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：隐藏
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：不可修改
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 评分组件限制
+	Limit *int64 `json:"limit,omitempty" xml:"limit,omitempty"`
+	// This parameter is required.
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 电话控件模式 phone：仅手机，phone_tel： 手机和固话，tel：仅固话
+	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	// This parameter is required.
+	Multi *int64 `json:"multi,omitempty" xml:"multi,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：支持多选，false：单选
+	Multiple *bool `json:"multiple,omitempty" xml:"multiple,omitempty"`
+	// This parameter is required.
+	NeedDetail *string `json:"needDetail,omitempty" xml:"needDetail,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1：不打印，0：打印
+	NotPrint *string `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1:不需要大写, 空或者0:需要大写
+	NotUpper *string `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	// This parameter is required.
+	Options []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：是
+	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	// This parameter is required.
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 关联表单 1：引用，0：拷贝
+	Quote *int64 `json:"quote,omitempty" xml:"quote,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 文本控件、选项控件等限制文本字数ratio
+	Ratio *int64 `json:"ratio,omitempty" xml:"ratio,omitempty"`
+	// This parameter is required.
+	RelateSource []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSource `json:"relateSource,omitempty" xml:"relateSource,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：不可修改
+	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	// This parameter is required.
+	Rule []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRule `json:"rule,omitempty" xml:"rule,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Sortable *bool `json:"sortable,omitempty" xml:"sortable,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 选项控件spread
+	Spread *bool `json:"spread,omitempty" xml:"spread,omitempty"`
+	// This parameter is required.
+	StatField []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 明细填写方式 table：表格，list：列表
+	TableViewMode *string `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：纵向，false：横向
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 是否水印照片 true：是，false：否
+	Watermark *bool `json:"watermark,omitempty" xml:"watermark,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) String() string {
@@ -5863,6 +10523,11 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetAlign
 
 func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetAvailableTemplates(v []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsAvailableTemplates) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
 	s.AvailableTemplates = v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetBehaviorLinkage(v []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkage) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps {
+	s.BehaviorLinkage = v
 	return s
 }
 
@@ -6062,7 +10727,13 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsProps) SetWater
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsAvailableTemplates struct {
-	Id   *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 审批模板id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 审批模板名称
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -6084,7 +10755,63 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsAvailableT
 	return s
 }
 
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkage struct {
+	// example:
+	//
+	// option_0
+	OptionKey *string                                                                                `json:"optionKey,omitempty" xml:"optionKey,omitempty"`
+	Targets   []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkageTargets `json:"targets,omitempty" xml:"targets,omitempty" type:"Repeated"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkage) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkage) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkage) SetOptionKey(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkage {
+	s.OptionKey = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkage) SetTargets(v []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkageTargets) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkage {
+	s.Targets = v
+	return s
+}
+
+type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkageTargets struct {
+	// example:
+	//
+	// NORMAL
+	Behavior *string `json:"behavior,omitempty" xml:"behavior,omitempty"`
+	// example:
+	//
+	// TextField_1LTIYOR4XIF40
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkageTargets) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkageTargets) GoString() string {
+	return s.String()
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkageTargets) SetBehavior(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkageTargets {
+	s.Behavior = &v
+	return s
+}
+
+func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkageTargets) SetFieldId(v string) *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsBehaviorLinkageTargets {
+	s.FieldId = &v
+	return s
+}
+
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource struct {
+	// This parameter is required.
 	Params *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceParams `json:"params,omitempty" xml:"params,omitempty" type:"Struct"`
 	Target *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceTarget `json:"target,omitempty" xml:"target,omitempty" type:"Struct"`
 	Type   *string                                                                        `json:"type,omitempty" xml:"type,omitempty"`
@@ -6114,6 +10841,7 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceParams struct {
+	// This parameter is required.
 	Filters []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceParamsFilters `json:"filters,omitempty" xml:"filters,omitempty" type:"Repeated"`
 }
 
@@ -6131,10 +10859,14 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceParamsFilters struct {
-	FieldId    *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
 	FilterType *string `json:"filterType,omitempty" xml:"filterType,omitempty"`
-	Value      *string `json:"value,omitempty" xml:"value,omitempty"`
-	ValueType  *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	ValueType *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceParamsFilters) String() string {
@@ -6166,6 +10898,9 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSourceTarget struct {
+	// example:
+	//
+	// 0：流程表单，1：纯表单
 	AppType  *int64  `json:"appType,omitempty" xml:"appType,omitempty"`
 	AppUuid  *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
 	BizType  *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
@@ -6201,8 +10936,10 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsDataSource
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFields struct {
-	ComponentName *string                                                                         `json:"componentName,omitempty" xml:"componentName,omitempty"`
-	RelateProps   *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps `json:"relateProps,omitempty" xml:"relateProps,omitempty" type:"Struct"`
+	// This parameter is required.
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	RelateProps *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps `json:"relateProps,omitempty" xml:"relateProps,omitempty" type:"Struct"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFields) String() string {
@@ -6224,34 +10961,98 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFields) Se
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps struct {
-	Align                  *string                                                                                    `json:"align,omitempty" xml:"align,omitempty"`
-	BizAlias               *string                                                                                    `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	Choice                 *int64                                                                                     `json:"choice,omitempty" xml:"choice,omitempty"`
-	Content                *string                                                                                    `json:"content,omitempty" xml:"content,omitempty"`
-	Disabled               *bool                                                                                      `json:"disabled,omitempty" xml:"disabled,omitempty"`
-	Duration               *string                                                                                    `json:"duration,omitempty" xml:"duration,omitempty"`
-	DurationLabel          *string                                                                                    `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
-	FieldId                *string                                                                                    `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Format                 *string                                                                                    `json:"format,omitempty" xml:"format,omitempty"`
-	Formula                *string                                                                                    `json:"formula,omitempty" xml:"formula,omitempty"`
-	Invisible              *bool                                                                                      `json:"invisible,omitempty" xml:"invisible,omitempty"`
-	Label                  *string                                                                                    `json:"label,omitempty" xml:"label,omitempty"`
-	LabelEditableFreeze    *bool                                                                                      `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
-	Limit                  *int64                                                                                     `json:"limit,omitempty" xml:"limit,omitempty"`
-	Link                   *string                                                                                    `json:"link,omitempty" xml:"link,omitempty"`
-	Mode                   *string                                                                                    `json:"mode,omitempty" xml:"mode,omitempty"`
-	NotUpper               *string                                                                                    `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
-	Options                []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsOptions   `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
-	PayEnable              *bool                                                                                      `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
-	Placeholder            *string                                                                                    `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
-	Ratio                  *int64                                                                                     `json:"ratio,omitempty" xml:"ratio,omitempty"`
-	Required               *bool                                                                                      `json:"required,omitempty" xml:"required,omitempty"`
-	RequiredEditableFreeze *bool                                                                                      `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
-	Spread                 *bool                                                                                      `json:"spread,omitempty" xml:"spread,omitempty"`
-	StatField              []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
-	Unit                   *string                                                                                    `json:"unit,omitempty" xml:"unit,omitempty"`
-	VerticalPrint          *bool                                                                                      `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
-	Watermark              *bool                                                                                      `json:"watermark,omitempty" xml:"watermark,omitempty"`
+	// This parameter is required.
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// This parameter is required.
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1：多选，0：单选
+	Choice *int64 `json:"choice,omitempty" xml:"choice,omitempty"`
+	// This parameter is required.
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：可编辑
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：自动
+	Duration *string `json:"duration,omitempty" xml:"duration,omitempty"`
+	// This parameter is required.
+	DurationLabel *string `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DDDateField和DDDateRangeField
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// This parameter is required.
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：隐藏
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// This parameter is required.
+	Limit *int64 `json:"limit,omitempty" xml:"limit,omitempty"`
+	// This parameter is required.
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// This parameter is required.
+	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1:不需要大写, 空或者0:需要大写
+	NotUpper *string `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	// This parameter is required.
+	Options []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：是
+	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	// This parameter is required.
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// This parameter is required.
+	Ratio *int64 `json:"ratio,omitempty" xml:"ratio,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// This parameter is required.
+	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	// This parameter is required.
+	Spread *bool `json:"spread,omitempty" xml:"spread,omitempty"`
+	// This parameter is required.
+	StatField []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：纵向，false：横向
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// This parameter is required.
+	Watermark *bool `json:"watermark,omitempty" xml:"watermark,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelateProps) String() string {
@@ -6403,9 +11204,12 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRela
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsOptions struct {
+	// This parameter is required.
 	Extension *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsOptionsExtension `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
-	Key       *string                                                                                         `json:"key,omitempty" xml:"key,omitempty"`
-	Value     *string                                                                                         `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsOptions) String() string {
@@ -6432,6 +11236,7 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRela
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsOptionsExtension struct {
+	// This parameter is required.
 	EditFreeze *bool `json:"editFreeze,omitempty" xml:"editFreeze,omitempty"`
 }
 
@@ -6449,10 +11254,14 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRela
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsStatField struct {
+	// This parameter is required.
 	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Label   *string `json:"label,omitempty" xml:"label,omitempty"`
-	Unit    *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	Upper   *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	Upper *bool `json:"upper,omitempty" xml:"upper,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRelatePropsStatField) String() string {
@@ -6484,10 +11293,14 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsFieldsRela
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsOptions struct {
+	// This parameter is required.
 	Extension *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsOptionsExtension `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
-	Key       *string                                                                        `json:"key,omitempty" xml:"key,omitempty"`
-	Value     *string                                                                        `json:"value,omitempty" xml:"value,omitempty"`
-	Warn      *bool                                                                          `json:"warn,omitempty" xml:"warn,omitempty"`
+	// This parameter is required.
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	Warn *bool `json:"warn,omitempty" xml:"warn,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsOptions) String() string {
@@ -6519,6 +11332,7 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsOptions) S
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsOptionsExtension struct {
+	// This parameter is required.
 	EditFreeze *bool `json:"editFreeze,omitempty" xml:"editFreeze,omitempty"`
 }
 
@@ -6536,9 +11350,11 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsOptionsExt
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSource struct {
+	// This parameter is required.
 	BizType    *string                                                                              `json:"bizType,omitempty" xml:"bizType,omitempty"`
 	DataSource *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceDataSource `json:"dataSource,omitempty" xml:"dataSource,omitempty" type:"Struct"`
-	Fields     []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFields   `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Fields []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSource) String() string {
@@ -6565,9 +11381,12 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSour
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceDataSource struct {
+	// This parameter is required.
 	Params *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceDataSourceParams `json:"params,omitempty" xml:"params,omitempty" type:"Struct"`
+	// This parameter is required.
 	Target *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceDataSourceTarget `json:"target,omitempty" xml:"target,omitempty" type:"Struct"`
-	Type   *string                                                                                    `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceDataSource) String() string {
@@ -6594,6 +11413,7 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSour
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceDataSourceParams struct {
+	// This parameter is required.
 	Filters []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceDataSourceParamsFilters `json:"filters,omitempty" xml:"filters,omitempty" type:"Repeated"`
 }
 
@@ -6611,10 +11431,14 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSour
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceDataSourceParamsFilters struct {
-	FieldId    *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
 	FilterType *string `json:"filterType,omitempty" xml:"filterType,omitempty"`
-	Value      *string `json:"value,omitempty" xml:"value,omitempty"`
-	ValueType  *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	ValueType *string `json:"valueType,omitempty" xml:"valueType,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceDataSourceParamsFilters) String() string {
@@ -6646,9 +11470,13 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSour
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceDataSourceTarget struct {
-	AppType  *int64  `json:"appType,omitempty" xml:"appType,omitempty"`
-	AppUuid  *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	BizType  *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	AppType *int64 `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// This parameter is required.
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
 	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
 }
 
@@ -6681,8 +11509,10 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSour
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFields struct {
-	ComponentName *string                                                                                     `json:"componentName,omitempty" xml:"componentName,omitempty"`
-	RelateProps   *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFieldsRelateProps `json:"relateProps,omitempty" xml:"relateProps,omitempty" type:"Struct"`
+	// This parameter is required.
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	RelateProps *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFieldsRelateProps `json:"relateProps,omitempty" xml:"relateProps,omitempty" type:"Struct"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFields) String() string {
@@ -6704,30 +11534,90 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSour
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFieldsRelateProps struct {
-	Align                  *string                                                                                                `json:"align,omitempty" xml:"align,omitempty"`
-	BizAlias               *string                                                                                                `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	Choice                 *int64                                                                                                 `json:"choice,omitempty" xml:"choice,omitempty"`
-	Content                *string                                                                                                `json:"content,omitempty" xml:"content,omitempty"`
-	Disabled               *bool                                                                                                  `json:"disabled,omitempty" xml:"disabled,omitempty"`
-	Duration               *string                                                                                                `json:"duration,omitempty" xml:"duration,omitempty"`
-	FieldId                *string                                                                                                `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Format                 *string                                                                                                `json:"format,omitempty" xml:"format,omitempty"`
-	Formula                *string                                                                                                `json:"formula,omitempty" xml:"formula,omitempty"`
-	Invisible              *bool                                                                                                  `json:"invisible,omitempty" xml:"invisible,omitempty"`
-	Label                  *string                                                                                                `json:"label,omitempty" xml:"label,omitempty"`
-	LabelEditableFreeze    *bool                                                                                                  `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
-	Link                   *string                                                                                                `json:"link,omitempty" xml:"link,omitempty"`
-	Multi                  *int64                                                                                                 `json:"multi,omitempty" xml:"multi,omitempty"`
-	NotUpper               *string                                                                                                `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
-	Options                []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFieldsRelatePropsOptions   `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
-	PayEnable              *bool                                                                                                  `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
-	Placeholder            *string                                                                                                `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
-	Quote                  *int64                                                                                                 `json:"quote,omitempty" xml:"quote,omitempty"`
-	Required               *bool                                                                                                  `json:"required,omitempty" xml:"required,omitempty"`
-	RequiredEditableFreeze *bool                                                                                                  `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
-	StatField              []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFieldsRelatePropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
-	Unit                   *string                                                                                                `json:"unit,omitempty" xml:"unit,omitempty"`
-	VerticalPrint          *bool                                                                                                  `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// This parameter is required.
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// This parameter is required.
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1：多选，0：单选
+	Choice *int64 `json:"choice,omitempty" xml:"choice,omitempty"`
+	// This parameter is required.
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：可编辑
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：自动
+	Duration *string `json:"duration,omitempty" xml:"duration,omitempty"`
+	// This parameter is required.
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DDDateField和DDDateRangeField
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// This parameter is required.
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：隐藏
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// This parameter is required.
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// This parameter is required.
+	Multi *int64 `json:"multi,omitempty" xml:"multi,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1:不需要大写, 空或者0:需要大写
+	NotUpper *string `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	// This parameter is required.
+	Options []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFieldsRelatePropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：是
+	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	// This parameter is required.
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// This parameter is required.
+	Quote *int64 `json:"quote,omitempty" xml:"quote,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：必填
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// This parameter is required.
+	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	// This parameter is required.
+	StatField []*DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFieldsRelatePropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true：纵向，false：横向
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFieldsRelateProps) String() string {
@@ -6859,9 +11749,12 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSour
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFieldsRelatePropsOptions struct {
+	// This parameter is required.
 	Extension *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFieldsRelatePropsOptionsExtension `json:"extension,omitempty" xml:"extension,omitempty" type:"Struct"`
-	Key       *string                                                                                                     `json:"key,omitempty" xml:"key,omitempty"`
-	Value     *string                                                                                                     `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFieldsRelatePropsOptions) String() string {
@@ -6888,6 +11781,7 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSour
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFieldsRelatePropsOptionsExtension struct {
+	// This parameter is required.
 	EditFreeze *bool `json:"editFreeze,omitempty" xml:"editFreeze,omitempty"`
 }
 
@@ -6905,10 +11799,14 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSour
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFieldsRelatePropsStatField struct {
+	// This parameter is required.
 	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Label   *string `json:"label,omitempty" xml:"label,omitempty"`
-	Unit    *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	Upper   *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	Upper *bool `json:"upper,omitempty" xml:"upper,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSourceFieldsRelatePropsStatField) String() string {
@@ -6940,7 +11838,9 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRelateSour
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRule struct {
-	Type  *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -6963,10 +11863,14 @@ func (s *DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsRule) SetV
 }
 
 type DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsStatField struct {
+	// This parameter is required.
 	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Label   *string `json:"label,omitempty" xml:"label,omitempty"`
-	Unit    *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	Upper   *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	Upper *bool `json:"upper,omitempty" xml:"upper,omitempty"`
 }
 
 func (s DescribeRelationMetaResponseBodyRelationMetaDTOListItemsPropsStatField) String() string {
@@ -7050,10 +11954,28 @@ func (s *FindTargetRelatedFollowRecordsHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type FindTargetRelatedFollowRecordsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// customerId
 	FollowTargetDataId *string `json:"followTargetDataId,omitempty" xml:"followTargetDataId,omitempty"`
-	FollowTargetType   *string `json:"followTargetType,omitempty" xml:"followTargetType,omitempty"`
-	MaxResults         *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken          *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// customer
+	FollowTargetType *string `json:"followTargetType,omitempty" xml:"followTargetType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 1
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s FindTargetRelatedFollowRecordsRequest) String() string {
@@ -7102,7 +12024,13 @@ func (s *FindTargetRelatedFollowRecordsResponseBody) SetResult(v *FindTargetRela
 }
 
 type FindTargetRelatedFollowRecordsResponseBodyResult struct {
-	HasMore    *bool                                                         `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// 1000
 	NextToken  *string                                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	ResultList []*FindTargetRelatedFollowRecordsResponseBodyResultResultList `json:"resultList,omitempty" xml:"resultList,omitempty" type:"Repeated"`
 }
@@ -7131,14 +12059,37 @@ func (s *FindTargetRelatedFollowRecordsResponseBodyResult) SetResultList(v []*Fi
 }
 
 type FindTargetRelatedFollowRecordsResponseBodyResultResultList struct {
-	CreatorUserId           *string                                                                    `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	FollowContent           []*FindTargetRelatedFollowRecordsResponseBodyResultResultListFollowContent `json:"followContent,omitempty" xml:"followContent,omitempty" type:"Repeated"`
-	FollowTargetDataId      *string                                                                    `json:"followTargetDataId,omitempty" xml:"followTargetDataId,omitempty"`
-	FollowTargetType        *string                                                                    `json:"followTargetType,omitempty" xml:"followTargetType,omitempty"`
-	GmtCreateMilliseconds   *string                                                                    `json:"gmtCreateMilliseconds,omitempty" xml:"gmtCreateMilliseconds,omitempty"`
-	GmtModifiedMilliseconds *string                                                                    `json:"gmtModifiedMilliseconds,omitempty" xml:"gmtModifiedMilliseconds,omitempty"`
-	ModifierUserId          *string                                                                    `json:"modifierUserId,omitempty" xml:"modifierUserId,omitempty"`
-	RecordInstId            *string                                                                    `json:"recordInstId,omitempty" xml:"recordInstId,omitempty"`
+	// example:
+	//
+	// manager7617
+	CreatorUserId *string                                                                    `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	FollowContent []*FindTargetRelatedFollowRecordsResponseBodyResultResultListFollowContent `json:"followContent,omitempty" xml:"followContent,omitempty" type:"Repeated"`
+	// example:
+	//
+	// customerId
+	FollowTargetDataId *string `json:"followTargetDataId,omitempty" xml:"followTargetDataId,omitempty"`
+	// example:
+	//
+	// customer
+	FollowTargetType *string `json:"followTargetType,omitempty" xml:"followTargetType,omitempty"`
+	// example:
+	//
+	// 1712629910168
+	GmtCreateMilliseconds *string `json:"gmtCreateMilliseconds,omitempty" xml:"gmtCreateMilliseconds,omitempty"`
+	// example:
+	//
+	// 1712629910168
+	GmtModifiedMilliseconds *string `json:"gmtModifiedMilliseconds,omitempty" xml:"gmtModifiedMilliseconds,omitempty"`
+	// example:
+	//
+	// manager7617
+	ModifierUserId *string `json:"modifierUserId,omitempty" xml:"modifierUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// _aFFogIuRrWlL3hLdvbb5w09951712629910
+	RecordInstId *string `json:"recordInstId,omitempty" xml:"recordInstId,omitempty"`
 }
 
 func (s FindTargetRelatedFollowRecordsResponseBodyResultResultList) String() string {
@@ -7190,10 +12141,22 @@ func (s *FindTargetRelatedFollowRecordsResponseBodyResultResultList) SetRecordIn
 }
 
 type FindTargetRelatedFollowRecordsResponseBodyResultResultListFollowContent struct {
-	BizAlias    *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// example:
+	//
+	// follow_record_related_content
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// example:
+	//
+	// 扩展value
 	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
-	Key         *string `json:"key,omitempty" xml:"key,omitempty"`
-	Value       *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// TextareaField-K2U5UJAF
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// 重点跟进
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s FindTargetRelatedFollowRecordsResponseBodyResultResultListFollowContent) String() string {
@@ -7277,6 +12240,9 @@ func (s *GetAllCustomerRecyclesHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetAllCustomerRecyclesRequest struct {
+	// example:
+	//
+	// 10
 	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
@@ -7300,8 +12266,21 @@ func (s *GetAllCustomerRecyclesRequest) SetNextToken(v string) *GetAllCustomerRe
 }
 
 type GetAllCustomerRecyclesResponseBody struct {
-	HasMore    *bool                                           `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextToken  *string                                         `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// true
 	ResultList []*GetAllCustomerRecyclesResponseBodyResultList `json:"resultList,omitempty" xml:"resultList,omitempty" type:"Repeated"`
 }
 
@@ -7329,12 +12308,24 @@ func (s *GetAllCustomerRecyclesResponseBody) SetResultList(v []*GetAllCustomerRe
 }
 
 type GetAllCustomerRecyclesResponseBodyResultList struct {
-	CustomerId         *string `json:"customerId,omitempty" xml:"customerId,omitempty"`
+	// This parameter is required.
+	CustomerId *string `json:"customerId,omitempty" xml:"customerId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2022-03-24T09:30Z
 	FollowUpActionTime *string `json:"followUpActionTime,omitempty" xml:"followUpActionTime,omitempty"`
 	IsDeleted          *bool   `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	NotifyTime         *string `json:"notifyTime,omitempty" xml:"notifyTime,omitempty"`
-	RecycleRuleId      *int64  `json:"recycleRuleId,omitempty" xml:"recycleRuleId,omitempty"`
-	RecycleTime        *string `json:"recycleTime,omitempty" xml:"recycleTime,omitempty"`
+	// example:
+	//
+	// 2022-03-24T09:30Z
+	NotifyTime    *string `json:"notifyTime,omitempty" xml:"notifyTime,omitempty"`
+	RecycleRuleId *int64  `json:"recycleRuleId,omitempty" xml:"recycleRuleId,omitempty"`
+	// example:
+	//
+	// 2022-03-24T09:30Z
+	RecycleTime *string `json:"recycleTime,omitempty" xml:"recycleTime,omitempty"`
 }
 
 func (s GetAllCustomerRecyclesResponseBodyResultList) String() string {
@@ -7428,12 +12419,28 @@ func (s *GetContactsHeaders) SetXAcsDingtalkAccessToken(v string) *GetContactsHe
 }
 
 type GetContactsRequest struct {
+	// example:
+	//
+	// user01
 	CurrentOperatorUserId *string `json:"currentOperatorUserId,omitempty" xml:"currentOperatorUserId,omitempty"`
-	MaxResults            *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken             *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	ObjectType            *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
-	ProviderCorpId        *string `json:"providerCorpId,omitempty" xml:"providerCorpId,omitempty"`
-	QueryDsl              *string `json:"queryDsl,omitempty" xml:"queryDsl,omitempty"`
+	// This parameter is required.
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 0
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// crm_contact
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	// example:
+	//
+	// dingxxx
+	ProviderCorpId *string `json:"providerCorpId,omitempty" xml:"providerCorpId,omitempty"`
+	// example:
+	//
+	// {"queryGroupList":[{"logicType":"AND","queryObjectList":[{"fieldId":"contact_phone","value":"18000000000"},{"fieldId":"contact_related_customer","value":"INST-XXX"}]}]}
+	QueryDsl *string `json:"queryDsl,omitempty" xml:"queryDsl,omitempty"`
 }
 
 func (s GetContactsRequest) String() string {
@@ -7492,10 +12499,16 @@ func (s *GetContactsResponseBody) SetResult(v *GetContactsResponseBodyResult) *G
 }
 
 type GetContactsResponseBodyResult struct {
-	HasMore    *bool                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	MaxResults *int64                                 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Values     []*GetContactsResponseBodyResultValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// 100
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 0
+	NextToken *string                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Values    []*GetContactsResponseBodyResultValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 }
 
 func (s GetContactsResponseBodyResult) String() string {
@@ -7527,14 +12540,29 @@ func (s *GetContactsResponseBodyResult) SetValues(v []*GetContactsResponseBodyRe
 }
 
 type GetContactsResponseBodyResultValues struct {
-	CreatorUserId *string                                        `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	Data          map[string]interface{}                         `json:"data,omitempty" xml:"data,omitempty"`
-	ExtendData    map[string]interface{}                         `json:"extendData,omitempty" xml:"extendData,omitempty"`
-	GmtCreate     *string                                        `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified   *string                                        `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	InstanceId    *string                                        `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	ObjectType    *string                                        `json:"objectType,omitempty" xml:"objectType,omitempty"`
-	Permission    *GetContactsResponseBodyResultValuesPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	// example:
+	//
+	// user01
+	CreatorUserId *string                `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	Data          map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	ExtendData    map[string]interface{} `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	// example:
+	//
+	// 2023-11-25 15:33:12
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 20123-12-25 15:33:12
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// example:
+	//
+	// INST_XX
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// example:
+	//
+	// crm_contact
+	ObjectType *string                                        `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	Permission *GetContactsResponseBodyResultValuesPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
 }
 
 func (s GetContactsResponseBodyResultValues) String() string {
@@ -7661,8 +12689,11 @@ func (s *GetCrmGroupChatHeaders) SetXAcsDingtalkAccessToken(v string) *GetCrmGro
 }
 
 type GetCrmGroupChatResponseBody struct {
-	ChatId             *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
-	GmtCreate          *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	ChatId    *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	GmtCreate *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// https://static/xx.com/xx.jpg
 	IconUrl            *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
 	MemberCount        *int32  `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
 	Name               *string `json:"name,omitempty" xml:"name,omitempty"`
@@ -7812,14 +12843,38 @@ func (s *GetCrmGroupChatMultiResponseBody) SetResult(v []*GetCrmGroupChatMultiRe
 }
 
 type GetCrmGroupChatMultiResponseBodyResult struct {
-	GmtCreate          *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	IconUrl            *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
-	MemberCount        *int32  `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
-	Name               *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1642078998377
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// https://static/xx.com/xx.jpg
+	IconUrl *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
+	// example:
+	//
+	// 12
+	MemberCount *int32 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	// example:
+	//
+	// 营销1群
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// xx==
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenGroupSetId     *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	OwnerUserId        *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
-	OwnerUserName      *string `json:"ownerUserName,omitempty" xml:"ownerUserName,omitempty"`
+	// example:
+	//
+	// xxa==
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// example:
+	//
+	// axaf12
+	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	// example:
+	//
+	// XX
+	OwnerUserName *string `json:"ownerUserName,omitempty" xml:"ownerUserName,omitempty"`
 }
 
 func (s GetCrmGroupChatMultiResponseBodyResult) String() string {
@@ -7923,6 +12978,7 @@ func (s *GetCrmGroupChatSingleHeaders) SetXAcsDingtalkAccessToken(v string) *Get
 }
 
 type GetCrmGroupChatSingleRequest struct {
+	// This parameter is required.
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -7940,7 +12996,10 @@ func (s *GetCrmGroupChatSingleRequest) SetOpenConversationId(v string) *GetCrmGr
 }
 
 type GetCrmGroupChatSingleResponseBody struct {
-	GmtCreate          *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// https://static/xx.com/xx.jpg
 	IconUrl            *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
 	MemberCount        *int32  `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
 	Name               *string `json:"name,omitempty" xml:"name,omitempty"`
@@ -8051,7 +13110,13 @@ func (s *GetCrmRolePermissionHeaders) SetXAcsDingtalkAccessToken(v string) *GetC
 }
 
 type GetCrmRolePermissionRequest struct {
-	BizType    *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// example:
+	//
+	// crm_customer
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// example:
+	//
+	// PROC-9EC85C45-E404-4E26-9300-E67455F0FF8F
 	ResourceId *string `json:"resourceId,omitempty" xml:"resourceId,omitempty"`
 }
 
@@ -8074,6 +13139,7 @@ func (s *GetCrmRolePermissionRequest) SetResourceId(v string) *GetCrmRolePermiss
 }
 
 type GetCrmRolePermissionResponseBody struct {
+	// This parameter is required.
 	Permissions []*GetCrmRolePermissionResponseBodyPermissions `json:"permissions,omitempty" xml:"permissions,omitempty" type:"Repeated"`
 }
 
@@ -8091,14 +13157,38 @@ func (s *GetCrmRolePermissionResponseBody) SetPermissions(v []*GetCrmRolePermiss
 }
 
 type GetCrmRolePermissionResponseBodyPermissions struct {
-	DefaultRole       *bool                                                           `json:"defaultRole,omitempty" xml:"defaultRole,omitempty"`
-	FieldScopes       []*GetCrmRolePermissionResponseBodyPermissionsFieldScopes       `json:"fieldScopes,omitempty" xml:"fieldScopes,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	DefaultRole *bool `json:"defaultRole,omitempty" xml:"defaultRole,omitempty"`
+	// This parameter is required.
+	FieldScopes []*GetCrmRolePermissionResponseBodyPermissionsFieldScopes `json:"fieldScopes,omitempty" xml:"fieldScopes,omitempty" type:"Repeated"`
+	// This parameter is required.
 	ManagingScopeList []*GetCrmRolePermissionResponseBodyPermissionsManagingScopeList `json:"managingScopeList,omitempty" xml:"managingScopeList,omitempty" type:"Repeated"`
-	OperateScopes     []*GetCrmRolePermissionResponseBodyPermissionsOperateScopes     `json:"operateScopes,omitempty" xml:"operateScopes,omitempty" type:"Repeated"`
-	ResourceId        *string                                                         `json:"resourceId,omitempty" xml:"resourceId,omitempty"`
-	RoleId            *float64                                                        `json:"roleId,omitempty" xml:"roleId,omitempty"`
-	RoleMemberList    []*GetCrmRolePermissionResponseBodyPermissionsRoleMemberList    `json:"roleMemberList,omitempty" xml:"roleMemberList,omitempty" type:"Repeated"`
-	RoleName          *string                                                         `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// This parameter is required.
+	OperateScopes []*GetCrmRolePermissionResponseBodyPermissionsOperateScopes `json:"operateScopes,omitempty" xml:"operateScopes,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-478E50CA-856C-4C08-B806-E664D4CEC8C4
+	ResourceId *string `json:"resourceId,omitempty" xml:"resourceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12821738
+	RoleId *float64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// This parameter is required.
+	RoleMemberList []*GetCrmRolePermissionResponseBodyPermissionsRoleMemberList `json:"roleMemberList,omitempty" xml:"roleMemberList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 销售权限组
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
 }
 
 func (s GetCrmRolePermissionResponseBodyPermissions) String() string {
@@ -8150,8 +13240,14 @@ func (s *GetCrmRolePermissionResponseBodyPermissions) SetRoleName(v string) *Get
 }
 
 type GetCrmRolePermissionResponseBodyPermissionsFieldScopes struct {
+	// This parameter is required.
 	FieldActions []*string `json:"fieldActions,omitempty" xml:"fieldActions,omitempty" type:"Repeated"`
-	FieldId      *string   `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// "DDSelectField-KI5S975E"
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
 }
 
 func (s GetCrmRolePermissionResponseBodyPermissionsFieldScopes) String() string {
@@ -8173,9 +13269,20 @@ func (s *GetCrmRolePermissionResponseBodyPermissionsFieldScopes) SetFieldId(v st
 }
 
 type GetCrmRolePermissionResponseBodyPermissionsManagingScopeList struct {
-	Ext     *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt `json:"ext,omitempty" xml:"ext,omitempty" type:"Struct"`
-	Manager *bool                                                            `json:"manager,omitempty" xml:"manager,omitempty"`
-	Type    *string                                                          `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Ext *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt `json:"ext,omitempty" xml:"ext,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// false 如果是主管，要做逻辑的单独处理。比如如果设置了管理下属或当前部门，只管理他是主管的部门
+	Manager *bool `json:"manager,omitempty" xml:"manager,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10_own 自己负责的 15_all_org 全公司 20_selfDept 同层级 30_selfSubDept 下属的 40_customized 自定义的
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetCrmRolePermissionResponseBodyPermissionsManagingScopeList) String() string {
@@ -8202,8 +13309,10 @@ func (s *GetCrmRolePermissionResponseBodyPermissionsManagingScopeList) SetType(v
 }
 
 type GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt struct {
+	// This parameter is required.
 	DeptIdList []*float64 `json:"deptIdList,omitempty" xml:"deptIdList,omitempty" type:"Repeated"`
-	UserIdList []*string  `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
 func (s GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt) String() string {
@@ -8225,8 +13334,18 @@ func (s *GetCrmRolePermissionResponseBodyPermissionsManagingScopeListExt) SetUse
 }
 
 type GetCrmRolePermissionResponseBodyPermissionsOperateScopes struct {
-	HasAuth *bool   `json:"hasAuth,omitempty" xml:"hasAuth,omitempty"`
-	Type    *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	HasAuth *bool `json:"hasAuth,omitempty" xml:"hasAuth,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 	- 操作类型      	- 发起：OPERATE_CREATE      	- 查看：OPERATE_VIEW      	- 编辑：OPERATE_EDIT      	- 删除：OPERATE_DELETE      	- 打印：OPERATE_PRINT      	- 分配：ASSIGN      	- 转交：TRANS      	- 导入：IMPORT      	- 导出：EXPORT
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetCrmRolePermissionResponseBodyPermissionsOperateScopes) String() string {
@@ -8248,10 +13367,28 @@ func (s *GetCrmRolePermissionResponseBodyPermissionsOperateScopes) SetType(v str
 }
 
 type GetCrmRolePermissionResponseBodyPermissionsRoleMemberList struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 可以是员工 uid，可以是部门 ID 等，根据 type 确定
 	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
-	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
-	Type     *string `json:"type,omitempty" xml:"type,omitempty"`
-	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user：组织成员   dept：部门   tag：标签  org：组织     org_res_admin：组织管理员
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// manager1234
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetCrmRolePermissionResponseBodyPermissionsRoleMemberList) String() string {
@@ -8335,10 +13472,21 @@ func (s *GetCustomerTracksByRelationIdHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type GetCustomerTracksByRelationIdRequest struct {
+	// example:
+	//
+	// 10
 	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// fasd-afsd1-21312-faaa
 	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
-	TypeGroup  *int32  `json:"typeGroup,omitempty" xml:"typeGroup,omitempty"`
+	// example:
+	//
+	// 0
+	TypeGroup *int32 `json:"typeGroup,omitempty" xml:"typeGroup,omitempty"`
 }
 
 func (s GetCustomerTracksByRelationIdRequest) String() string {
@@ -8370,8 +13518,21 @@ func (s *GetCustomerTracksByRelationIdRequest) SetTypeGroup(v int32) *GetCustome
 }
 
 type GetCustomerTracksByRelationIdResponseBody struct {
-	HasMore    *bool                                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextToken  *string                                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// true
 	ResultList []*GetCustomerTracksByRelationIdResponseBodyResultList `json:"resultList,omitempty" xml:"resultList,omitempty" type:"Repeated"`
 }
 
@@ -8399,15 +13560,45 @@ func (s *GetCustomerTracksByRelationIdResponseBody) SetResultList(v []*GetCustom
 }
 
 type GetCustomerTracksByRelationIdResponseBodyResultList struct {
-	Content     *string                                                     `json:"content,omitempty" xml:"content,omitempty"`
-	CreatorName *string                                                     `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
-	Detail      map[string]*string                                          `json:"detail,omitempty" xml:"detail,omitempty"`
-	Format      *string                                                     `json:"format,omitempty" xml:"format,omitempty"`
-	GmtCreate   *string                                                     `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	IsvInfo     *GetCustomerTracksByRelationIdResponseBodyResultListIsvInfo `json:"isvInfo,omitempty" xml:"isvInfo,omitempty" type:"Struct"`
-	Title       *string                                                     `json:"title,omitempty" xml:"title,omitempty"`
-	Type        *int32                                                      `json:"type,omitempty" xml:"type,omitempty"`
-	TypeGroup   *int32                                                      `json:"typeGroup,omitempty" xml:"typeGroup,omitempty"`
+	// This parameter is required.
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 华佗
+	CreatorName *string            `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
+	Detail      map[string]*string `json:"detail,omitempty" xml:"detail,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// markdown
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2022-03-24T09:30Z
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// dadf134234
+	Id      *string                                                     `json:"id,omitempty" xml:"id,omitempty"`
+	IsvInfo *GetCustomerTracksByRelationIdResponseBodyResultListIsvInfo `json:"isvInfo,omitempty" xml:"isvInfo,omitempty" type:"Struct"`
+	Title   *string                                                     `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 201
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	TypeGroup *int32 `json:"typeGroup,omitempty" xml:"typeGroup,omitempty"`
 }
 
 func (s GetCustomerTracksByRelationIdResponseBodyResultList) String() string {
@@ -8440,6 +13631,11 @@ func (s *GetCustomerTracksByRelationIdResponseBodyResultList) SetFormat(v string
 
 func (s *GetCustomerTracksByRelationIdResponseBodyResultList) SetGmtCreate(v string) *GetCustomerTracksByRelationIdResponseBodyResultList {
 	s.GmtCreate = &v
+	return s
+}
+
+func (s *GetCustomerTracksByRelationIdResponseBodyResultList) SetId(v string) *GetCustomerTracksByRelationIdResponseBodyResultList {
+	s.Id = &v
 	return s
 }
 
@@ -8539,6 +13735,7 @@ func (s *GetGroupSetHeaders) SetXAcsDingtalkAccessToken(v string) *GetGroupSetHe
 }
 
 type GetGroupSetRequest struct {
+	// This parameter is required.
 	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
 }
 
@@ -8556,23 +13753,28 @@ func (s *GetGroupSetRequest) SetOpenGroupSetId(v string) *GetGroupSetRequest {
 }
 
 type GetGroupSetResponseBody struct {
-	GmtCreate              *string                           `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified            *string                           `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	GroupChatCount         *int32                            `json:"groupChatCount,omitempty" xml:"groupChatCount,omitempty"`
-	InviteLink             *string                           `json:"inviteLink,omitempty" xml:"inviteLink,omitempty"`
-	LastOpenConversationId *string                           `json:"lastOpenConversationId,omitempty" xml:"lastOpenConversationId,omitempty"`
-	Manager                []*GetGroupSetResponseBodyManager `json:"manager,omitempty" xml:"manager,omitempty" type:"Repeated"`
-	ManagerUserIds         *string                           `json:"managerUserIds,omitempty" xml:"managerUserIds,omitempty"`
-	MemberCount            *int32                            `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
-	MemberQuota            *int32                            `json:"memberQuota,omitempty" xml:"memberQuota,omitempty"`
-	Name                   *string                           `json:"name,omitempty" xml:"name,omitempty"`
-	Notice                 *string                           `json:"notice,omitempty" xml:"notice,omitempty"`
-	NoticeToped            *int32                            `json:"noticeToped,omitempty" xml:"noticeToped,omitempty"`
-	OpenGroupSetId         *string                           `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	Owner                  *GetGroupSetResponseBodyOwner     `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
-	OwnerUserId            *string                           `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
-	RelationType           *string                           `json:"relationType,omitempty" xml:"relationType,omitempty"`
-	TemplateId             *string                           `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	GmtCreate   *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// example:
+	//
+	// 5
+	GroupChatCount         *int32  `json:"groupChatCount,omitempty" xml:"groupChatCount,omitempty"`
+	InviteLink             *string `json:"inviteLink,omitempty" xml:"inviteLink,omitempty"`
+	LastOpenConversationId *string `json:"lastOpenConversationId,omitempty" xml:"lastOpenConversationId,omitempty"`
+	// This parameter is required.
+	Manager        []*GetGroupSetResponseBodyManager `json:"manager,omitempty" xml:"manager,omitempty" type:"Repeated"`
+	ManagerUserIds *string                           `json:"managerUserIds,omitempty" xml:"managerUserIds,omitempty"`
+	MemberCount    *int32                            `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	MemberQuota    *int32                            `json:"memberQuota,omitempty" xml:"memberQuota,omitempty"`
+	Name           *string                           `json:"name,omitempty" xml:"name,omitempty"`
+	Notice         *string                           `json:"notice,omitempty" xml:"notice,omitempty"`
+	NoticeToped    *int32                            `json:"noticeToped,omitempty" xml:"noticeToped,omitempty"`
+	OpenGroupSetId *string                           `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// This parameter is required.
+	Owner        *GetGroupSetResponseBodyOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	OwnerUserId  *string                       `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	RelationType *string                       `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	TemplateId   *string                       `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
 
 func (s GetGroupSetResponseBody) String() string {
@@ -8743,6 +13945,333 @@ func (s *GetGroupSetResponse) SetBody(v *GetGroupSetResponseBody) *GetGroupSetRe
 	return s
 }
 
+type GetInAppPurchaseGoodsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetInAppPurchaseGoodsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInAppPurchaseGoodsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetInAppPurchaseGoodsHeaders) SetCommonHeaders(v map[string]*string) *GetInAppPurchaseGoodsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsHeaders) SetXAcsDingtalkAccessToken(v string) *GetInAppPurchaseGoodsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetInAppPurchaseGoodsRequest struct {
+	// example:
+	//
+	// uhdhjsabdfhjb
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetInAppPurchaseGoodsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInAppPurchaseGoodsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetInAppPurchaseGoodsRequest) SetUserId(v string) *GetInAppPurchaseGoodsRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetInAppPurchaseGoodsResponseBody struct {
+	Result *GetInAppPurchaseGoodsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetInAppPurchaseGoodsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInAppPurchaseGoodsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetInAppPurchaseGoodsResponseBody) SetResult(v *GetInAppPurchaseGoodsResponseBodyResult) *GetInAppPurchaseGoodsResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetInAppPurchaseGoodsResponseBodyResult struct {
+	// example:
+	//
+	// free
+	OrderVersion      *string                                                     `json:"orderVersion,omitempty" xml:"orderVersion,omitempty"`
+	PurchaseGoodsList []*GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList `json:"purchaseGoodsList,omitempty" xml:"purchaseGoodsList,omitempty" type:"Repeated"`
+}
+
+func (s GetInAppPurchaseGoodsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInAppPurchaseGoodsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResult) SetOrderVersion(v string) *GetInAppPurchaseGoodsResponseBodyResult {
+	s.OrderVersion = &v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResult) SetPurchaseGoodsList(v []*GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList) *GetInAppPurchaseGoodsResponseBodyResult {
+	s.PurchaseGoodsList = v
+	return s
+}
+
+type GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList struct {
+	ApplicableVersion []*string `json:"applicableVersion,omitempty" xml:"applicableVersion,omitempty" type:"Repeated"`
+	ApplyNum          *int64    `json:"applyNum,omitempty" xml:"applyNum,omitempty"`
+	BelongIndustry    []*string `json:"belongIndustry,omitempty" xml:"belongIndustry,omitempty" type:"Repeated"`
+	// example:
+	//
+	// psi
+	GoodsId *string `json:"goodsId,omitempty" xml:"goodsId,omitempty"`
+	// example:
+	//
+	// app_function
+	GoodsType *string `json:"goodsType,omitempty" xml:"goodsType,omitempty"`
+	// example:
+	//
+	// https://tungee-ali-crm.oss-cn-hangzhou.aliyuncs.com/app-center/icon/进销存.png
+	Icon              *string                                                                    `json:"icon,omitempty" xml:"icon,omitempty"`
+	MainOperationInfo *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMainOperationInfo `json:"mainOperationInfo,omitempty" xml:"mainOperationInfo,omitempty" type:"Struct"`
+	Media             []*GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMedia           `json:"media,omitempty" xml:"media,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 10000
+	Price            *string                                                                   `json:"price,omitempty" xml:"price,omitempty"`
+	SubOperationInfo *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListSubOperationInfo `json:"subOperationInfo,omitempty" xml:"subOperationInfo,omitempty" type:"Struct"`
+	// example:
+	//
+	// 通过进销存管理，连接企业人、财、物，一站式解决进销存仓库管理难题。让货品成本有据可依，避免盲目采购；合理控制库存，防止滞销/脱销；通过往来对账确保资金安全。
+	SubTitle *string   `json:"subTitle,omitempty" xml:"subTitle,omitempty"`
+	Tag      []*string `json:"tag,omitempty" xml:"tag,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 进销存
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList) GoString() string {
+	return s.String()
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList) SetApplicableVersion(v []*string) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList {
+	s.ApplicableVersion = v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList) SetApplyNum(v int64) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList {
+	s.ApplyNum = &v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList) SetBelongIndustry(v []*string) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList {
+	s.BelongIndustry = v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList) SetGoodsId(v string) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList {
+	s.GoodsId = &v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList) SetGoodsType(v string) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList {
+	s.GoodsType = &v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList) SetIcon(v string) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList {
+	s.Icon = &v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList) SetMainOperationInfo(v *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMainOperationInfo) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList {
+	s.MainOperationInfo = v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList) SetMedia(v []*GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMedia) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList {
+	s.Media = v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList) SetPrice(v string) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList {
+	s.Price = &v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList) SetSubOperationInfo(v *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListSubOperationInfo) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList {
+	s.SubOperationInfo = v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList) SetSubTitle(v string) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList {
+	s.SubTitle = &v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList) SetTag(v []*string) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList {
+	s.Tag = v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList) SetTitle(v string) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsList {
+	s.Title = &v
+	return s
+}
+
+type GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMainOperationInfo struct {
+	// example:
+	//
+	// GOODS-002
+	GoodsCode *string `json:"goodsCode,omitempty" xml:"goodsCode,omitempty"`
+	// example:
+	//
+	// https://yyy
+	OriginalUrl *string `json:"originalUrl,omitempty" xml:"originalUrl,omitempty"`
+	// example:
+	//
+	// https://xxx
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMainOperationInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMainOperationInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMainOperationInfo) SetGoodsCode(v string) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMainOperationInfo {
+	s.GoodsCode = &v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMainOperationInfo) SetOriginalUrl(v string) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMainOperationInfo {
+	s.OriginalUrl = &v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMainOperationInfo) SetUrl(v string) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMainOperationInfo {
+	s.Url = &v
+	return s
+}
+
+type GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMedia struct {
+	// example:
+	//
+	// image
+	MediaType *string `json:"mediaType,omitempty" xml:"mediaType,omitempty"`
+	// example:
+	//
+	// https://tungee-ali-crm.oss-cn-hangzhou.aliyuncs.com/app-center/banner/进销存封面.png
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMedia) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMedia) GoString() string {
+	return s.String()
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMedia) SetMediaType(v string) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMedia {
+	s.MediaType = &v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMedia) SetUrl(v string) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListMedia {
+	s.Url = &v
+	return s
+}
+
+type GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListSubOperationInfo struct {
+	// example:
+	//
+	// GOODS-2120
+	GoodsCode *string `json:"goodsCode,omitempty" xml:"goodsCode,omitempty"`
+	// example:
+	//
+	// https://yyy
+	OriginalUrl *string `json:"originalUrl,omitempty" xml:"originalUrl,omitempty"`
+	// example:
+	//
+	// https://xxx
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListSubOperationInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListSubOperationInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListSubOperationInfo) SetGoodsCode(v string) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListSubOperationInfo {
+	s.GoodsCode = &v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListSubOperationInfo) SetOriginalUrl(v string) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListSubOperationInfo {
+	s.OriginalUrl = &v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListSubOperationInfo) SetUrl(v string) *GetInAppPurchaseGoodsResponseBodyResultPurchaseGoodsListSubOperationInfo {
+	s.Url = &v
+	return s
+}
+
+type GetInAppPurchaseGoodsResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetInAppPurchaseGoodsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetInAppPurchaseGoodsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInAppPurchaseGoodsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetInAppPurchaseGoodsResponse) SetHeaders(v map[string]*string) *GetInAppPurchaseGoodsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponse) SetStatusCode(v int32) *GetInAppPurchaseGoodsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetInAppPurchaseGoodsResponse) SetBody(v *GetInAppPurchaseGoodsResponseBody) *GetInAppPurchaseGoodsResponse {
+	s.Body = v
+	return s
+}
+
 type GetNavigationCatalogHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8767,8 +14296,23 @@ func (s *GetNavigationCatalogHeaders) SetXAcsDingtalkAccessToken(v string) *GetN
 }
 
 type GetNavigationCatalogRequest struct {
-	BizTraceId     *string `json:"bizTraceId,omitempty" xml:"bizTraceId,omitempty"`
-	Module         *string `json:"module,omitempty" xml:"module,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 6360a371-4ffa-464b-a935-39817c3ccbe8
+	BizTraceId *string `json:"bizTraceId,omitempty" xml:"bizTraceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sale
+	Module *string `json:"module,omitempty" xml:"module,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 16044739461008808747
 	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
 }
 
@@ -8935,11 +14479,30 @@ func (s *GetObjectDataHeaders) SetXAcsDingtalkAccessToken(v string) *GetObjectDa
 }
 
 type GetObjectDataRequest struct {
+	// example:
+	//
+	// ding_userid
 	CurrentOperatorUserId *string `json:"currentOperatorUserId,omitempty" xml:"currentOperatorUserId,omitempty"`
-	MaxResults            *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
-	NextToken             *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	QueryDsl              *string `json:"queryDsl,omitempty" xml:"queryDsl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-EF199CCA-8AB6-482A-AE10-85EDE5E391D9
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 0
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// {"queryGroupList":[{"logicType":"AND","queryObjectList":[{"fieldId":"contact_phone","value":"18000000000"},{"fieldId":"contact_related_customer","value":"INST-XXX"}]}]}
+	QueryDsl *string `json:"queryDsl,omitempty" xml:"queryDsl,omitempty"`
 }
 
 func (s GetObjectDataRequest) String() string {
@@ -8993,10 +14556,16 @@ func (s *GetObjectDataResponseBody) SetResult(v *GetObjectDataResponseBodyResult
 }
 
 type GetObjectDataResponseBodyResult struct {
-	HasMore    *bool                                    `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	MaxResults *int64                                   `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string                                  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Values     []*GetObjectDataResponseBodyResultValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// 100
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 0
+	NextToken *string                                  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Values    []*GetObjectDataResponseBodyResultValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 }
 
 func (s GetObjectDataResponseBodyResult) String() string {
@@ -9028,17 +14597,41 @@ func (s *GetObjectDataResponseBodyResult) SetValues(v []*GetObjectDataResponseBo
 }
 
 type GetObjectDataResponseBodyResultValues struct {
-	CreatorNick    *string                                          `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
-	CreatorUserId  *string                                          `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	Data           map[string]interface{}                           `json:"data,omitempty" xml:"data,omitempty"`
-	ExtendData     map[string]interface{}                           `json:"extendData,omitempty" xml:"extendData,omitempty"`
-	GmtCreate      *string                                          `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified    *string                                          `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	InstanceId     *string                                          `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	ObjectType     *string                                          `json:"objectType,omitempty" xml:"objectType,omitempty"`
-	Permission     *GetObjectDataResponseBodyResultValuesPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
-	ProcInstStatus *string                                          `json:"procInstStatus,omitempty" xml:"procInstStatus,omitempty"`
-	ProcOutResult  *string                                          `json:"procOutResult,omitempty" xml:"procOutResult,omitempty"`
+	// example:
+	//
+	// 张xx
+	CreatorNick *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	// example:
+	//
+	// user01
+	CreatorUserId *string                `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	Data          map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	ExtendData    map[string]interface{} `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	// example:
+	//
+	// 2023-11-25 15:33:12
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 2023-12-25 15:33:12
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// example:
+	//
+	// INST_XX
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// example:
+	//
+	// crm_contact
+	ObjectType *string                                          `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	Permission *GetObjectDataResponseBodyResultValuesPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	// example:
+	//
+	// COMPLETE
+	ProcInstStatus *string `json:"procInstStatus,omitempty" xml:"procInstStatus,omitempty"`
+	// example:
+	//
+	// agree
+	ProcOutResult *string `json:"procOutResult,omitempty" xml:"procOutResult,omitempty"`
 }
 
 func (s GetObjectDataResponseBodyResultValues) String() string {
@@ -9181,9 +14774,21 @@ func (s *GetOfficialAccountContactInfoHeaders) SetXAcsDingtalkAccessToken(v stri
 
 type GetOfficialAccountContactInfoResponseBody struct {
 	AuthItems []*string `json:"authItems,omitempty" xml:"authItems,omitempty" type:"Repeated"`
-	CorpName  *string   `json:"corpName,omitempty" xml:"corpName,omitempty"`
-	Mobile    *string   `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	StateCode *string   `json:"stateCode,omitempty" xml:"stateCode,omitempty"`
+	// example:
+	//
+	// 阿里巴巴钉钉
+	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
+	// example:
+	//
+	// 18812341234
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// example:
+	//
+	// +86
+	StateCode *string `json:"stateCode,omitempty" xml:"stateCode,omitempty"`
+	// example:
+	//
+	// unionId
 	UnionId   *string   `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	UserInfos []*string `json:"userInfos,omitempty" xml:"userInfos,omitempty" type:"Repeated"`
 }
@@ -9279,8 +14884,18 @@ func (s *GetOfficialAccountContactsHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type GetOfficialAccountContactsRequest struct {
-	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123567
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GetOfficialAccountContactsRequest) String() string {
@@ -9302,9 +14917,15 @@ func (s *GetOfficialAccountContactsRequest) SetNextToken(v string) *GetOfficialA
 }
 
 type GetOfficialAccountContactsResponseBody struct {
-	MaxResults *int64                                          `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string                                         `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Values     []*GetOfficialAccountContactsResponseBodyValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 10
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 10010
+	NextToken *string                                         `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Values    []*GetOfficialAccountContactsResponseBodyValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 }
 
 func (s GetOfficialAccountContactsResponseBody) String() string {
@@ -9332,7 +14953,10 @@ func (s *GetOfficialAccountContactsResponseBody) SetValues(v []*GetOfficialAccou
 
 type GetOfficialAccountContactsResponseBodyValues struct {
 	Contacts []*GetOfficialAccountContactsResponseBodyValuesContacts `json:"contacts,omitempty" xml:"contacts,omitempty" type:"Repeated"`
-	UserId   *string                                                 `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// user_id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetOfficialAccountContactsResponseBodyValues) String() string {
@@ -9354,14 +14978,29 @@ func (s *GetOfficialAccountContactsResponseBodyValues) SetUserId(v string) *GetO
 }
 
 type GetOfficialAccountContactsResponseBodyValuesContacts struct {
-	CreateTime    *string                                                         `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorNick   *string                                                         `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
-	CreatorUserId *string                                                         `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	Data          map[string]interface{}                                          `json:"data,omitempty" xml:"data,omitempty"`
-	ExtendData    map[string]interface{}                                          `json:"extendData,omitempty" xml:"extendData,omitempty"`
-	InstanceId    *string                                                         `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	ModifyTime    *string                                                         `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
-	Permission    *GetOfficialAccountContactsResponseBodyValuesContactsPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	// example:
+	//
+	// 2019-12-25 15:33:12
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// 张三
+	CreatorNick *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	// example:
+	//
+	// ding_userid
+	CreatorUserId *string                `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	Data          map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	ExtendData    map[string]interface{} `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	// example:
+	//
+	// instance_id
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// example:
+	//
+	// 2019-12-25 15:33:12
+	ModifyTime *string                                                         `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	Permission *GetOfficialAccountContactsResponseBodyValuesContactsPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
 }
 
 func (s GetOfficialAccountContactsResponseBodyValuesContacts) String() string {
@@ -9488,7 +15127,8 @@ func (s *GetOfficialAccountOTOMessageResultHeaders) SetXAcsDingtalkAccessToken(v
 }
 
 type GetOfficialAccountOTOMessageResultRequest struct {
-	AccountId  *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// This parameter is required.
 	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
 }
 
@@ -9511,8 +15151,9 @@ func (s *GetOfficialAccountOTOMessageResultRequest) SetOpenPushId(v string) *Get
 }
 
 type GetOfficialAccountOTOMessageResultResponseBody struct {
-	RequestId *string                                               `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Result    *GetOfficialAccountOTOMessageResultResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// This parameter is required.
+	Result *GetOfficialAccountOTOMessageResultResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s GetOfficialAccountOTOMessageResultResponseBody) String() string {
@@ -9534,8 +15175,10 @@ func (s *GetOfficialAccountOTOMessageResultResponseBody) SetResult(v *GetOfficia
 }
 
 type GetOfficialAccountOTOMessageResultResponseBodyResult struct {
+	// This parameter is required.
 	ReadUserIdList []*string `json:"readUserIdList,omitempty" xml:"readUserIdList,omitempty" type:"Repeated"`
-	Status         *int64    `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s GetOfficialAccountOTOMessageResultResponseBodyResult) String() string {
@@ -9585,6 +15228,369 @@ func (s *GetOfficialAccountOTOMessageResultResponse) SetBody(v *GetOfficialAccou
 	return s
 }
 
+type GetRelatedViewTabDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetRelatedViewTabDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelatedViewTabDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelatedViewTabDataHeaders) SetCommonHeaders(v map[string]*string) *GetRelatedViewTabDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetRelatedViewTabDataHeaders) SetXAcsDingtalkAccessToken(v string) *GetRelatedViewTabDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetRelatedViewTabDataRequest struct {
+	// example:
+	//
+	// PROC-62829702-A377-42A9-9CB3-E1C691A0CEDB
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 0
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// OpenDataField_OV2K4SOW2ZGG
+	RelatedField *string `json:"relatedField,omitempty" xml:"relatedField,omitempty"`
+	// example:
+	//
+	// u_dxcugzT0aPQvcK2PIkzQ00841721291058
+	RelatedInstId *string `json:"relatedInstId,omitempty" xml:"relatedInstId,omitempty"`
+	// example:
+	//
+	// manager6034
+	ViewUserId *string `json:"viewUserId,omitempty" xml:"viewUserId,omitempty"`
+}
+
+func (s GetRelatedViewTabDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelatedViewTabDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelatedViewTabDataRequest) SetFormCode(v string) *GetRelatedViewTabDataRequest {
+	s.FormCode = &v
+	return s
+}
+
+func (s *GetRelatedViewTabDataRequest) SetMaxResults(v int32) *GetRelatedViewTabDataRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetRelatedViewTabDataRequest) SetNextToken(v int64) *GetRelatedViewTabDataRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetRelatedViewTabDataRequest) SetRelatedField(v string) *GetRelatedViewTabDataRequest {
+	s.RelatedField = &v
+	return s
+}
+
+func (s *GetRelatedViewTabDataRequest) SetRelatedInstId(v string) *GetRelatedViewTabDataRequest {
+	s.RelatedInstId = &v
+	return s
+}
+
+func (s *GetRelatedViewTabDataRequest) SetViewUserId(v string) *GetRelatedViewTabDataRequest {
+	s.ViewUserId = &v
+	return s
+}
+
+type GetRelatedViewTabDataResponseBody struct {
+	Result *GetRelatedViewTabDataResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetRelatedViewTabDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelatedViewTabDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelatedViewTabDataResponseBody) SetResult(v *GetRelatedViewTabDataResponseBodyResult) *GetRelatedViewTabDataResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetRelatedViewTabDataResponseBodyResult struct {
+	Page *GetRelatedViewTabDataResponseBodyResultPage `json:"page,omitempty" xml:"page,omitempty" type:"Struct"`
+}
+
+func (s GetRelatedViewTabDataResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelatedViewTabDataResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelatedViewTabDataResponseBodyResult) SetPage(v *GetRelatedViewTabDataResponseBodyResultPage) *GetRelatedViewTabDataResponseBodyResult {
+	s.Page = v
+	return s
+}
+
+type GetRelatedViewTabDataResponseBodyResultPage struct {
+	HasMore *bool                                              `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*GetRelatedViewTabDataResponseBodyResultPageList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 10
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 5
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s GetRelatedViewTabDataResponseBodyResultPage) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelatedViewTabDataResponseBodyResultPage) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelatedViewTabDataResponseBodyResultPage) SetHasMore(v bool) *GetRelatedViewTabDataResponseBodyResultPage {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetRelatedViewTabDataResponseBodyResultPage) SetList(v []*GetRelatedViewTabDataResponseBodyResultPageList) *GetRelatedViewTabDataResponseBodyResultPage {
+	s.List = v
+	return s
+}
+
+func (s *GetRelatedViewTabDataResponseBodyResultPage) SetNextToken(v int64) *GetRelatedViewTabDataResponseBodyResultPage {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetRelatedViewTabDataResponseBodyResultPage) SetTotalCount(v int64) *GetRelatedViewTabDataResponseBodyResultPage {
+	s.TotalCount = &v
+	return s
+}
+
+type GetRelatedViewTabDataResponseBodyResultPageList struct {
+	// example:
+	//
+	// 西游四人组:孙悟空
+	AbstractMessage *string `json:"abstractMessage,omitempty" xml:"abstractMessage,omitempty"`
+	CreateTime      *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// 王凯提交的楚衣的流程表单2
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetRelatedViewTabDataResponseBodyResultPageList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelatedViewTabDataResponseBodyResultPageList) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelatedViewTabDataResponseBodyResultPageList) SetAbstractMessage(v string) *GetRelatedViewTabDataResponseBodyResultPageList {
+	s.AbstractMessage = &v
+	return s
+}
+
+func (s *GetRelatedViewTabDataResponseBodyResultPageList) SetCreateTime(v int64) *GetRelatedViewTabDataResponseBodyResultPageList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetRelatedViewTabDataResponseBodyResultPageList) SetTitle(v string) *GetRelatedViewTabDataResponseBodyResultPageList {
+	s.Title = &v
+	return s
+}
+
+type GetRelatedViewTabDataResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetRelatedViewTabDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetRelatedViewTabDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelatedViewTabDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelatedViewTabDataResponse) SetHeaders(v map[string]*string) *GetRelatedViewTabDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetRelatedViewTabDataResponse) SetStatusCode(v int32) *GetRelatedViewTabDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetRelatedViewTabDataResponse) SetBody(v *GetRelatedViewTabDataResponseBody) *GetRelatedViewTabDataResponse {
+	s.Body = v
+	return s
+}
+
+type GetRelatedViewTabMetaHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetRelatedViewTabMetaHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelatedViewTabMetaHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelatedViewTabMetaHeaders) SetCommonHeaders(v map[string]*string) *GetRelatedViewTabMetaHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetRelatedViewTabMetaHeaders) SetXAcsDingtalkAccessToken(v string) *GetRelatedViewTabMetaHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetRelatedViewTabMetaRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-2DB0FF86-CE29-41FF-B0FE-BFDE5BD9A0C1
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	ViewUserId *string `json:"viewUserId,omitempty" xml:"viewUserId,omitempty"`
+}
+
+func (s GetRelatedViewTabMetaRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelatedViewTabMetaRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelatedViewTabMetaRequest) SetFormCode(v string) *GetRelatedViewTabMetaRequest {
+	s.FormCode = &v
+	return s
+}
+
+func (s *GetRelatedViewTabMetaRequest) SetViewUserId(v string) *GetRelatedViewTabMetaRequest {
+	s.ViewUserId = &v
+	return s
+}
+
+type GetRelatedViewTabMetaResponseBody struct {
+	Results []*GetRelatedViewTabMetaResponseBodyResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
+}
+
+func (s GetRelatedViewTabMetaResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelatedViewTabMetaResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelatedViewTabMetaResponseBody) SetResults(v []*GetRelatedViewTabMetaResponseBodyResults) *GetRelatedViewTabMetaResponseBody {
+	s.Results = v
+	return s
+}
+
+type GetRelatedViewTabMetaResponseBodyResults struct {
+	// example:
+	//
+	// PROC-4EFE895D-A291-4A65-9FD6-99431604DF67
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// example:
+	//
+	// OpenDataField_K99RPMMRGJ40
+	RelateComponentId *string `json:"relateComponentId,omitempty" xml:"relateComponentId,omitempty"`
+	// example:
+	//
+	// 212
+	TabTitle *string `json:"tabTitle,omitempty" xml:"tabTitle,omitempty"`
+}
+
+func (s GetRelatedViewTabMetaResponseBodyResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelatedViewTabMetaResponseBodyResults) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelatedViewTabMetaResponseBodyResults) SetFormCode(v string) *GetRelatedViewTabMetaResponseBodyResults {
+	s.FormCode = &v
+	return s
+}
+
+func (s *GetRelatedViewTabMetaResponseBodyResults) SetRelateComponentId(v string) *GetRelatedViewTabMetaResponseBodyResults {
+	s.RelateComponentId = &v
+	return s
+}
+
+func (s *GetRelatedViewTabMetaResponseBodyResults) SetTabTitle(v string) *GetRelatedViewTabMetaResponseBodyResults {
+	s.TabTitle = &v
+	return s
+}
+
+type GetRelatedViewTabMetaResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetRelatedViewTabMetaResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetRelatedViewTabMetaResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRelatedViewTabMetaResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetRelatedViewTabMetaResponse) SetHeaders(v map[string]*string) *GetRelatedViewTabMetaResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetRelatedViewTabMetaResponse) SetStatusCode(v int32) *GetRelatedViewTabMetaResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetRelatedViewTabMetaResponse) SetBody(v *GetRelatedViewTabMetaResponseBody) *GetRelatedViewTabMetaResponse {
+	s.Body = v
+	return s
+}
+
 type GetRelationUkSettingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9609,6 +15615,11 @@ func (s *GetRelationUkSettingHeaders) SetXAcsDingtalkAccessToken(v string) *GetR
 }
 
 type GetRelationUkSettingRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// crm_customer
 	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
 
@@ -9626,6 +15637,9 @@ func (s *GetRelationUkSettingRequest) SetRelationType(v string) *GetRelationUkSe
 }
 
 type GetRelationUkSettingResponseBody struct {
+	// example:
+	//
+	// true
 	Result []*GetRelationUkSettingResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -9643,8 +15657,16 @@ func (s *GetRelationUkSettingResponseBody) SetResult(v []*GetRelationUkSettingRe
 }
 
 type GetRelationUkSettingResponseBodyResult struct {
+	// example:
+	//
+	// customer_name
 	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	FieldId  *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField_U2K5A122
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
 }
 
 func (s GetRelationUkSettingResponseBodyResult) String() string {
@@ -9718,10 +15740,21 @@ func (s *JoinGroupSetHeaders) SetXAcsDingtalkAccessToken(v string) *JoinGroupSet
 }
 
 type JoinGroupSetRequest struct {
-	BizDataList    []*JoinGroupSetRequestBizDataList `json:"bizDataList,omitempty" xml:"bizDataList,omitempty" type:"Repeated"`
-	CorpId         *string                           `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	OpenGroupSetId *string                           `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	UnionId        *string                           `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	BizDataList []*JoinGroupSetRequestBizDataList `json:"bizDataList,omitempty" xml:"bizDataList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc123
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc123
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s JoinGroupSetRequest) String() string {
@@ -9753,9 +15786,18 @@ func (s *JoinGroupSetRequest) SetUnionId(v string) *JoinGroupSetRequest {
 }
 
 type JoinGroupSetRequestBizDataList struct {
+	// example:
+	//
+	// {}
 	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
-	Key         *string `json:"key,omitempty" xml:"key,omitempty"`
-	Value       *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// customer_name
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// abc123
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s JoinGroupSetRequestBizDataList) String() string {
@@ -9782,7 +15824,17 @@ func (s *JoinGroupSetRequestBizDataList) SetValue(v string) *JoinGroupSetRequest
 }
 
 type JoinGroupSetResponseBody struct {
-	ChatId             *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc123
+	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc123
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -9829,6 +15881,309 @@ func (s *JoinGroupSetResponse) SetStatusCode(v int32) *JoinGroupSetResponse {
 }
 
 func (s *JoinGroupSetResponse) SetBody(v *JoinGroupSetResponseBody) *JoinGroupSetResponse {
+	s.Body = v
+	return s
+}
+
+type ListAvailableBenefitHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListAvailableBenefitHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAvailableBenefitHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListAvailableBenefitHeaders) SetCommonHeaders(v map[string]*string) *ListAvailableBenefitHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListAvailableBenefitHeaders) SetXAcsDingtalkAccessToken(v string) *ListAvailableBenefitHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListAvailableBenefitRequest struct {
+	// This parameter is required.
+	BenefitCodeList []*string `json:"benefitCodeList,omitempty" xml:"benefitCodeList,omitempty" type:"Repeated"`
+}
+
+func (s ListAvailableBenefitRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAvailableBenefitRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListAvailableBenefitRequest) SetBenefitCodeList(v []*string) *ListAvailableBenefitRequest {
+	s.BenefitCodeList = v
+	return s
+}
+
+type ListAvailableBenefitResponseBody struct {
+	// This parameter is required.
+	Result []*ListAvailableBenefitResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s ListAvailableBenefitResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAvailableBenefitResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListAvailableBenefitResponseBody) SetResult(v []*ListAvailableBenefitResponseBodyResult) *ListAvailableBenefitResponseBody {
+	s.Result = v
+	return s
+}
+
+type ListAvailableBenefitResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// B_ACCOUNT_NUMBER
+	BenefitCode *string `json:"benefitCode,omitempty" xml:"benefitCode,omitempty"`
+	// example:
+	//
+	// 1718696461851
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 200
+	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
+	// example:
+	//
+	// 1718696461851
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 10
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// example:
+	//
+	// tryout
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// 试用版
+	VersionName *string `json:"versionName,omitempty" xml:"versionName,omitempty"`
+}
+
+func (s ListAvailableBenefitResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAvailableBenefitResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListAvailableBenefitResponseBodyResult) SetBenefitCode(v string) *ListAvailableBenefitResponseBodyResult {
+	s.BenefitCode = &v
+	return s
+}
+
+func (s *ListAvailableBenefitResponseBodyResult) SetEndTime(v int64) *ListAvailableBenefitResponseBodyResult {
+	s.EndTime = &v
+	return s
+}
+
+func (s *ListAvailableBenefitResponseBodyResult) SetQuota(v int64) *ListAvailableBenefitResponseBodyResult {
+	s.Quota = &v
+	return s
+}
+
+func (s *ListAvailableBenefitResponseBodyResult) SetStartTime(v int64) *ListAvailableBenefitResponseBodyResult {
+	s.StartTime = &v
+	return s
+}
+
+func (s *ListAvailableBenefitResponseBodyResult) SetUsedQuota(v int64) *ListAvailableBenefitResponseBodyResult {
+	s.UsedQuota = &v
+	return s
+}
+
+func (s *ListAvailableBenefitResponseBodyResult) SetVersion(v string) *ListAvailableBenefitResponseBodyResult {
+	s.Version = &v
+	return s
+}
+
+func (s *ListAvailableBenefitResponseBodyResult) SetVersionName(v string) *ListAvailableBenefitResponseBodyResult {
+	s.VersionName = &v
+	return s
+}
+
+type ListAvailableBenefitResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListAvailableBenefitResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListAvailableBenefitResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAvailableBenefitResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListAvailableBenefitResponse) SetHeaders(v map[string]*string) *ListAvailableBenefitResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListAvailableBenefitResponse) SetStatusCode(v int32) *ListAvailableBenefitResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListAvailableBenefitResponse) SetBody(v *ListAvailableBenefitResponseBody) *ListAvailableBenefitResponse {
+	s.Body = v
+	return s
+}
+
+type ListBenefitLicenseHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListBenefitLicenseHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListBenefitLicenseHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListBenefitLicenseHeaders) SetCommonHeaders(v map[string]*string) *ListBenefitLicenseHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListBenefitLicenseHeaders) SetXAcsDingtalkAccessToken(v string) *ListBenefitLicenseHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListBenefitLicenseRequest struct {
+	// This parameter is required.
+	Domains []*string `json:"domains,omitempty" xml:"domains,omitempty" type:"Repeated"`
+}
+
+func (s ListBenefitLicenseRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListBenefitLicenseRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListBenefitLicenseRequest) SetDomains(v []*string) *ListBenefitLicenseRequest {
+	s.Domains = v
+	return s
+}
+
+type ListBenefitLicenseResponseBody struct {
+	// This parameter is required.
+	Result []*ListBenefitLicenseResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s ListBenefitLicenseResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListBenefitLicenseResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListBenefitLicenseResponseBody) SetResult(v []*ListBenefitLicenseResponseBodyResult) *ListBenefitLicenseResponseBody {
+	s.Result = v
+	return s
+}
+
+type ListBenefitLicenseResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// B_ACCOUNT_NUMBER
+	Domain *string `json:"domain,omitempty" xml:"domain,omitempty"`
+	// This parameter is required.
+	Licenses []*ListBenefitLicenseResponseBodyResultLicenses `json:"licenses,omitempty" xml:"licenses,omitempty" type:"Repeated"`
+}
+
+func (s ListBenefitLicenseResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListBenefitLicenseResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListBenefitLicenseResponseBodyResult) SetDomain(v string) *ListBenefitLicenseResponseBodyResult {
+	s.Domain = &v
+	return s
+}
+
+func (s *ListBenefitLicenseResponseBodyResult) SetLicenses(v []*ListBenefitLicenseResponseBodyResultLicenses) *ListBenefitLicenseResponseBodyResult {
+	s.Licenses = v
+	return s
+}
+
+type ListBenefitLicenseResponseBodyResultLicenses struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// staffId
+	LicenseUserId *string `json:"licenseUserId,omitempty" xml:"licenseUserId,omitempty"`
+}
+
+func (s ListBenefitLicenseResponseBodyResultLicenses) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListBenefitLicenseResponseBodyResultLicenses) GoString() string {
+	return s.String()
+}
+
+func (s *ListBenefitLicenseResponseBodyResultLicenses) SetLicenseUserId(v string) *ListBenefitLicenseResponseBodyResultLicenses {
+	s.LicenseUserId = &v
+	return s
+}
+
+type ListBenefitLicenseResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListBenefitLicenseResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListBenefitLicenseResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListBenefitLicenseResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListBenefitLicenseResponse) SetHeaders(v map[string]*string) *ListBenefitLicenseResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListBenefitLicenseResponse) SetStatusCode(v int32) *ListBenefitLicenseResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListBenefitLicenseResponse) SetBody(v *ListBenefitLicenseResponseBody) *ListBenefitLicenseResponse {
 	s.Body = v
 	return s
 }
@@ -9949,6 +16304,7 @@ func (s *ListCrmPersonalCustomersHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type ListCrmPersonalCustomersRequest struct {
+	// This parameter is required.
 	Body                  []*string `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
 	CurrentOperatorUserId *string   `json:"currentOperatorUserId,omitempty" xml:"currentOperatorUserId,omitempty"`
 	RelationType          *string   `json:"relationType,omitempty" xml:"relationType,omitempty"`
@@ -9978,6 +16334,7 @@ func (s *ListCrmPersonalCustomersRequest) SetRelationType(v string) *ListCrmPers
 }
 
 type ListCrmPersonalCustomersResponseBody struct {
+	// This parameter is required.
 	Result []*ListCrmPersonalCustomersResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -9995,19 +16352,32 @@ func (s *ListCrmPersonalCustomersResponseBody) SetResult(v []*ListCrmPersonalCus
 }
 
 type ListCrmPersonalCustomersResponseBodyResult struct {
-	AppUuid        *string                                               `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	CreatorNick    *string                                               `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
-	CreatorUserId  *string                                               `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	Data           map[string]interface{}                                `json:"data,omitempty" xml:"data,omitempty"`
-	ExtendData     map[string]interface{}                                `json:"extendData,omitempty" xml:"extendData,omitempty"`
-	FormCode       *string                                               `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	GmtCreate      *string                                               `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified    *string                                               `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	InstanceId     *string                                               `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	ObjectType     *string                                               `json:"objectType,omitempty" xml:"objectType,omitempty"`
-	Permission     *ListCrmPersonalCustomersResponseBodyResultPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
-	ProcInstStatus *string                                               `json:"procInstStatus,omitempty" xml:"procInstStatus,omitempty"`
-	ProcOutResult  *string                                               `json:"procOutResult,omitempty" xml:"procOutResult,omitempty"`
+	// This parameter is required.
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// This parameter is required.
+	CreatorNick *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	// This parameter is required.
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// This parameter is required.
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	// This parameter is required.
+	ExtendData map[string]interface{} `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	// This parameter is required.
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// This parameter is required.
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// This parameter is required.
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	// This parameter is required.
+	Permission *ListCrmPersonalCustomersResponseBodyResultPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	// This parameter is required.
+	ProcInstStatus *string `json:"procInstStatus,omitempty" xml:"procInstStatus,omitempty"`
+	// This parameter is required.
+	ProcOutResult *string `json:"procOutResult,omitempty" xml:"procOutResult,omitempty"`
 }
 
 func (s ListCrmPersonalCustomersResponseBodyResult) String() string {
@@ -10084,7 +16454,9 @@ func (s *ListCrmPersonalCustomersResponseBodyResult) SetProcOutResult(v string) 
 }
 
 type ListCrmPersonalCustomersResponseBodyResultPermission struct {
-	OwnerStaffIds       []*string `json:"ownerStaffIds,omitempty" xml:"ownerStaffIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OwnerStaffIds []*string `json:"ownerStaffIds,omitempty" xml:"ownerStaffIds,omitempty" type:"Repeated"`
+	// This parameter is required.
 	ParticipantStaffIds []*string `json:"participantStaffIds,omitempty" xml:"participantStaffIds,omitempty" type:"Repeated"`
 }
 
@@ -10159,9 +16531,10 @@ func (s *ListGroupSetHeaders) SetXAcsDingtalkAccessToken(v string) *ListGroupSet
 }
 
 type ListGroupSetRequest struct {
-	MaxResults   *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken    *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	QueryDsl     *string `json:"queryDsl,omitempty" xml:"queryDsl,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	QueryDsl   *string `json:"queryDsl,omitempty" xml:"queryDsl,omitempty"`
+	// This parameter is required.
 	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
 
@@ -10194,10 +16567,20 @@ func (s *ListGroupSetRequest) SetRelationType(v string) *ListGroupSetRequest {
 }
 
 type ListGroupSetResponseBody struct {
-	HasMore    *bool                                 `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextToken  *string                               `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// fasfasd
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
 	ResultList []*ListGroupSetResponseBodyResultList `json:"resultList,omitempty" xml:"resultList,omitempty" type:"Repeated"`
-	TotalCount *int32                                `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s ListGroupSetResponseBody) String() string {
@@ -10229,22 +16612,68 @@ func (s *ListGroupSetResponseBody) SetTotalCount(v int32) *ListGroupSetResponseB
 }
 
 type ListGroupSetResponseBodyResultList struct {
-	GmtCreate              *string                                      `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified            *string                                      `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	GroupChatCount         *int32                                       `json:"groupChatCount,omitempty" xml:"groupChatCount,omitempty"`
-	LastOpenConversationId *string                                      `json:"lastOpenConversationId,omitempty" xml:"lastOpenConversationId,omitempty"`
-	Manager                []*ListGroupSetResponseBodyResultListManager `json:"manager,omitempty" xml:"manager,omitempty" type:"Repeated"`
-	ManagerUserIds         *string                                      `json:"managerUserIds,omitempty" xml:"managerUserIds,omitempty"`
-	MemberCount            *int32                                       `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
-	MemberQuota            *int32                                       `json:"memberQuota,omitempty" xml:"memberQuota,omitempty"`
-	Name                   *string                                      `json:"name,omitempty" xml:"name,omitempty"`
-	Notice                 *string                                      `json:"notice,omitempty" xml:"notice,omitempty"`
-	NoticeToped            *int32                                       `json:"noticeToped,omitempty" xml:"noticeToped,omitempty"`
-	OpenGroupSetId         *string                                      `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	Owner                  *ListGroupSetResponseBodyResultListOwner     `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
-	OwnerUserId            *string                                      `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
-	RelationType           *string                                      `json:"relationType,omitempty" xml:"relationType,omitempty"`
-	TemplateId             *string                                      `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// example:
+	//
+	// 2021-12-23T13:00Z
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 2021-12-23T13:00Z
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// example:
+	//
+	// 10
+	GroupChatCount *int32 `json:"groupChatCount,omitempty" xml:"groupChatCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123agsg
+	LastOpenConversationId *string `json:"lastOpenConversationId,omitempty" xml:"lastOpenConversationId,omitempty"`
+	// This parameter is required.
+	Manager []*ListGroupSetResponseBodyResultListManager `json:"manager,omitempty" xml:"manager,omitempty" type:"Repeated"`
+	// example:
+	//
+	// afsd12,afsd13
+	ManagerUserIds *string `json:"managerUserIds,omitempty" xml:"managerUserIds,omitempty"`
+	// example:
+	//
+	// 10
+	MemberCount *int32 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	// example:
+	//
+	// 100
+	MemberQuota *int32 `json:"memberQuota,omitempty" xml:"memberQuota,omitempty"`
+	// example:
+	//
+	// 营销群
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 群公告
+	Notice *string `json:"notice,omitempty" xml:"notice,omitempty"`
+	// example:
+	//
+	// 0
+	NoticeToped *int32 `json:"noticeToped,omitempty" xml:"noticeToped,omitempty"`
+	// example:
+	//
+	// adfads
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// This parameter is required.
+	Owner *ListGroupSetResponseBodyResultListOwner `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	// example:
+	//
+	// afsd12
+	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	// example:
+	//
+	// crm_customer_personal
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// example:
+	//
+	// sfasgsab
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
 
 func (s ListGroupSetResponseBodyResultList) String() string {
@@ -10336,7 +16765,13 @@ func (s *ListGroupSetResponseBodyResultList) SetTemplateId(v string) *ListGroupS
 }
 
 type ListGroupSetResponseBodyResultListManager struct {
-	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// XX
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// afs1
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -10359,7 +16794,13 @@ func (s *ListGroupSetResponseBodyResultListManager) SetUserId(v string) *ListGro
 }
 
 type ListGroupSetResponseBodyResultListOwner struct {
-	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// XX
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// afsd12
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -10410,6 +16851,143 @@ func (s *ListGroupSetResponse) SetBody(v *ListGroupSetResponseBody) *ListGroupSe
 	return s
 }
 
+type OverrideUpdateCustomerDataAuthHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s OverrideUpdateCustomerDataAuthHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OverrideUpdateCustomerDataAuthHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *OverrideUpdateCustomerDataAuthHeaders) SetCommonHeaders(v map[string]*string) *OverrideUpdateCustomerDataAuthHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *OverrideUpdateCustomerDataAuthHeaders) SetXAcsDingtalkAccessToken(v string) *OverrideUpdateCustomerDataAuthHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type OverrideUpdateCustomerDataAuthRequest struct {
+	// This parameter is required.
+	CustomerIds []*string `json:"customerIds,omitempty" xml:"customerIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	DataAuthUserIds []*string `json:"dataAuthUserIds,omitempty" xml:"dataAuthUserIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// PROC-98187D45-EFC0-4FC4-887E-45BD24209D69
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// staffId2
+	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
+	// example:
+	//
+	// crm_customer
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// owner
+	RoleType *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
+}
+
+func (s OverrideUpdateCustomerDataAuthRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OverrideUpdateCustomerDataAuthRequest) GoString() string {
+	return s.String()
+}
+
+func (s *OverrideUpdateCustomerDataAuthRequest) SetCustomerIds(v []*string) *OverrideUpdateCustomerDataAuthRequest {
+	s.CustomerIds = v
+	return s
+}
+
+func (s *OverrideUpdateCustomerDataAuthRequest) SetDataAuthUserIds(v []*string) *OverrideUpdateCustomerDataAuthRequest {
+	s.DataAuthUserIds = v
+	return s
+}
+
+func (s *OverrideUpdateCustomerDataAuthRequest) SetFormCode(v string) *OverrideUpdateCustomerDataAuthRequest {
+	s.FormCode = &v
+	return s
+}
+
+func (s *OverrideUpdateCustomerDataAuthRequest) SetOperateUserId(v string) *OverrideUpdateCustomerDataAuthRequest {
+	s.OperateUserId = &v
+	return s
+}
+
+func (s *OverrideUpdateCustomerDataAuthRequest) SetRelationType(v string) *OverrideUpdateCustomerDataAuthRequest {
+	s.RelationType = &v
+	return s
+}
+
+func (s *OverrideUpdateCustomerDataAuthRequest) SetRoleType(v string) *OverrideUpdateCustomerDataAuthRequest {
+	s.RoleType = &v
+	return s
+}
+
+type OverrideUpdateCustomerDataAuthResponseBody struct {
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s OverrideUpdateCustomerDataAuthResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OverrideUpdateCustomerDataAuthResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *OverrideUpdateCustomerDataAuthResponseBody) SetResult(v bool) *OverrideUpdateCustomerDataAuthResponseBody {
+	s.Result = &v
+	return s
+}
+
+type OverrideUpdateCustomerDataAuthResponse struct {
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *OverrideUpdateCustomerDataAuthResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s OverrideUpdateCustomerDataAuthResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OverrideUpdateCustomerDataAuthResponse) GoString() string {
+	return s.String()
+}
+
+func (s *OverrideUpdateCustomerDataAuthResponse) SetHeaders(v map[string]*string) *OverrideUpdateCustomerDataAuthResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *OverrideUpdateCustomerDataAuthResponse) SetStatusCode(v int32) *OverrideUpdateCustomerDataAuthResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *OverrideUpdateCustomerDataAuthResponse) SetBody(v *OverrideUpdateCustomerDataAuthResponseBody) *OverrideUpdateCustomerDataAuthResponse {
+	s.Body = v
+	return s
+}
+
 type QueryAllCustomerHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10434,9 +17012,30 @@ func (s *QueryAllCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *QueryAll
 }
 
 type QueryAllCustomerRequest struct {
-	MaxResults     *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken      *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	ObjectType     *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	// example:
+	//
+	// 100
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// 100010
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// crm_customer
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// ding_userid
 	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
 }
 
@@ -10486,9 +17085,15 @@ func (s *QueryAllCustomerResponseBody) SetResult(v *QueryAllCustomerResponseBody
 }
 
 type QueryAllCustomerResponseBodyResult struct {
-	MaxResults *int64                                      `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string                                     `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Values     []*QueryAllCustomerResponseBodyResultValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 100
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 100
+	NextToken *string                                     `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Values    []*QueryAllCustomerResponseBodyResultValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 }
 
 func (s QueryAllCustomerResponseBodyResult) String() string {
@@ -10515,17 +17120,41 @@ func (s *QueryAllCustomerResponseBodyResult) SetValues(v []*QueryAllCustomerResp
 }
 
 type QueryAllCustomerResponseBodyResultValues struct {
-	CreateTime            *string                                             `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorNick           *string                                             `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
-	CreatorUserId         *string                                             `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	Data                  map[string]interface{}                              `json:"data,omitempty" xml:"data,omitempty"`
-	ExtendData            map[string]interface{}                              `json:"extendData,omitempty" xml:"extendData,omitempty"`
-	InstanceId            *string                                             `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	ModifyTime            *string                                             `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
-	ObjectType            *string                                             `json:"objectType,omitempty" xml:"objectType,omitempty"`
-	Permission            *QueryAllCustomerResponseBodyResultValuesPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
-	ProcessInstanceStatus *string                                             `json:"processInstanceStatus,omitempty" xml:"processInstanceStatus,omitempty"`
-	ProcessOutResult      *string                                             `json:"processOutResult,omitempty" xml:"processOutResult,omitempty"`
+	// example:
+	//
+	// 2019-12-25 15:33:12
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// 张三
+	CreatorNick *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	// example:
+	//
+	// ding_userid
+	CreatorUserId *string                `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	Data          map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	ExtendData    map[string]interface{} `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	// example:
+	//
+	// instance_id
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// example:
+	//
+	// 2019-12-25 15:33:12
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	// example:
+	//
+	// crm_customer
+	ObjectType *string                                             `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	Permission *QueryAllCustomerResponseBodyResultValuesPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	// example:
+	//
+	// COMPLATE
+	ProcessInstanceStatus *string `json:"processInstanceStatus,omitempty" xml:"processInstanceStatus,omitempty"`
+	// example:
+	//
+	// agree
+	ProcessOutResult *string `json:"processOutResult,omitempty" xml:"processOutResult,omitempty"`
 }
 
 func (s QueryAllCustomerResponseBodyResultValues) String() string {
@@ -10667,9 +17296,23 @@ func (s *QueryAllTracksHeaders) SetXAcsDingtalkAccessToken(v string) *QueryAllTr
 }
 
 type QueryAllTracksRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Order      *string `json:"order,omitempty" xml:"order,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 10000
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// asc
+	Order *string `json:"order,omitempty" xml:"order,omitempty"`
 }
 
 func (s QueryAllTracksRequest) String() string {
@@ -10696,10 +17339,19 @@ func (s *QueryAllTracksRequest) SetOrder(v string) *QueryAllTracksRequest {
 }
 
 type QueryAllTracksResponseBody struct {
-	HasMore    *bool                               `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	MaxResults *int32                              `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Values     []*QueryAllTracksResponseBodyValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// 20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 10001
+	NextToken *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Values    []*QueryAllTracksResponseBodyValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 }
 
 func (s QueryAllTracksResponseBody) String() string {
@@ -10731,13 +17383,36 @@ func (s *QueryAllTracksResponseBody) SetValues(v []*QueryAllTracksResponseBodyVa
 }
 
 type QueryAllTracksResponseBodyValues struct {
-	BizId      *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	Creator    *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// example:
+	//
+	// 1234
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// example:
+	//
+	// manager1234
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// example:
+	//
+	// customer_id
 	CustomerId *string `json:"customerId,omitempty" xml:"customerId,omitempty"`
-	GmtCreate  *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	Id         *string `json:"id,omitempty" xml:"id,omitempty"`
-	SubType    *int32  `json:"subType,omitempty" xml:"subType,omitempty"`
-	Type       *int32  `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 1237126786127
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// asjkdh189127836
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 4
+	SubType *int32 `json:"subType,omitempty" xml:"subType,omitempty"`
+	// example:
+	//
+	// 80
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s QueryAllTracksResponseBodyValues) String() string {
@@ -10808,6 +17483,246 @@ func (s *QueryAllTracksResponse) SetStatusCode(v int32) *QueryAllTracksResponse 
 }
 
 func (s *QueryAllTracksResponse) SetBody(v *QueryAllTracksResponseBody) *QueryAllTracksResponse {
+	s.Body = v
+	return s
+}
+
+type QueryAppManagerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryAppManagerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAppManagerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAppManagerHeaders) SetCommonHeaders(v map[string]*string) *QueryAppManagerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryAppManagerHeaders) SetXAcsDingtalkAccessToken(v string) *QueryAppManagerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryAppManagerRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 34234dfdfddd
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+}
+
+func (s QueryAppManagerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAppManagerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAppManagerRequest) SetOperatorUserId(v string) *QueryAppManagerRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+type QueryAppManagerResponseBody struct {
+	Result []*QueryAppManagerResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s QueryAppManagerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAppManagerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAppManagerResponseBody) SetResult(v []*QueryAppManagerResponseBodyResult) *QueryAppManagerResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryAppManagerResponseBodyResult struct {
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryAppManagerResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAppManagerResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAppManagerResponseBodyResult) SetAvatarUrl(v string) *QueryAppManagerResponseBodyResult {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *QueryAppManagerResponseBodyResult) SetName(v string) *QueryAppManagerResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryAppManagerResponseBodyResult) SetUserId(v string) *QueryAppManagerResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+type QueryAppManagerResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryAppManagerResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryAppManagerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAppManagerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAppManagerResponse) SetHeaders(v map[string]*string) *QueryAppManagerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryAppManagerResponse) SetStatusCode(v int32) *QueryAppManagerResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryAppManagerResponse) SetBody(v *QueryAppManagerResponseBody) *QueryAppManagerResponse {
+	s.Body = v
+	return s
+}
+
+type QueryBenefitInventoryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryBenefitInventoryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBenefitInventoryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBenefitInventoryHeaders) SetCommonHeaders(v map[string]*string) *QueryBenefitInventoryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryBenefitInventoryHeaders) SetXAcsDingtalkAccessToken(v string) *QueryBenefitInventoryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryBenefitInventoryRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// B_CUSTOMER_CAPACITY
+	BenefitCode *string `json:"benefitCode,omitempty" xml:"benefitCode,omitempty"`
+}
+
+func (s QueryBenefitInventoryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBenefitInventoryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBenefitInventoryRequest) SetBenefitCode(v string) *QueryBenefitInventoryRequest {
+	s.BenefitCode = &v
+	return s
+}
+
+type QueryBenefitInventoryResponseBody struct {
+	Result *QueryBenefitInventoryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryBenefitInventoryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBenefitInventoryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBenefitInventoryResponseBody) SetResult(v *QueryBenefitInventoryResponseBodyResult) *QueryBenefitInventoryResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryBenefitInventoryResponseBodyResult struct {
+	// example:
+	//
+	// 2000
+	TotalQuota *int64 `json:"totalQuota,omitempty" xml:"totalQuota,omitempty"`
+	// example:
+	//
+	// 10
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+}
+
+func (s QueryBenefitInventoryResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBenefitInventoryResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBenefitInventoryResponseBodyResult) SetTotalQuota(v int64) *QueryBenefitInventoryResponseBodyResult {
+	s.TotalQuota = &v
+	return s
+}
+
+func (s *QueryBenefitInventoryResponseBodyResult) SetUsedQuota(v int64) *QueryBenefitInventoryResponseBodyResult {
+	s.UsedQuota = &v
+	return s
+}
+
+type QueryBenefitInventoryResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryBenefitInventoryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryBenefitInventoryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBenefitInventoryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBenefitInventoryResponse) SetHeaders(v map[string]*string) *QueryBenefitInventoryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryBenefitInventoryResponse) SetStatusCode(v int32) *QueryBenefitInventoryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryBenefitInventoryResponse) SetBody(v *QueryBenefitInventoryResponseBody) *QueryBenefitInventoryResponse {
 	s.Body = v
 	return s
 }
@@ -10951,9 +17866,15 @@ func (s *QueryCrmGroupChatsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryC
 }
 
 type QueryCrmGroupChatsRequest struct {
-	MaxResults   *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken    *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	QueryDsl     *string `json:"queryDsl,omitempty" xml:"queryDsl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	QueryDsl   *string `json:"queryDsl,omitempty" xml:"queryDsl,omitempty"`
+	// This parameter is required.
 	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
 
@@ -10986,10 +17907,21 @@ func (s *QueryCrmGroupChatsRequest) SetRelationType(v string) *QueryCrmGroupChat
 }
 
 type QueryCrmGroupChatsResponseBody struct {
-	HasMore    *bool                                       `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// agds12
 	NextToken  *string                                     `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	ResultList []*QueryCrmGroupChatsResponseBodyResultList `json:"resultList,omitempty" xml:"resultList,omitempty" type:"Repeated"`
-	TotalCount *int32                                      `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// example:
+	//
+	// 1000
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s QueryCrmGroupChatsResponseBody) String() string {
@@ -11021,13 +17953,46 @@ func (s *QueryCrmGroupChatsResponseBody) SetTotalCount(v int32) *QueryCrmGroupCh
 }
 
 type QueryCrmGroupChatsResponseBodyResultList struct {
-	GmtCreate          *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	MemberCount        *int32  `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
-	Name               *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1640239655539
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	MemberCount *int32 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 营销1群
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// afsad21
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenGroupSetId     *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	OwnerUserId        *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
-	OwnerUserName      *string `json:"ownerUserName,omitempty" xml:"ownerUserName,omitempty"`
+	// example:
+	//
+	// afsdba23
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// afds12
+	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// XX
+	OwnerUserName *string `json:"ownerUserName,omitempty" xml:"ownerUserName,omitempty"`
 }
 
 func (s QueryCrmGroupChatsResponseBodyResultList) String() string {
@@ -11127,10 +18092,13 @@ func (s *QueryCrmPersonalCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *
 
 type QueryCrmPersonalCustomerRequest struct {
 	CurrentOperatorUserId *string `json:"currentOperatorUserId,omitempty" xml:"currentOperatorUserId,omitempty"`
-	MaxResults            *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken             *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	QueryDsl              *string `json:"queryDsl,omitempty" xml:"queryDsl,omitempty"`
-	RelationType          *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// This parameter is required.
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	QueryDsl   *string `json:"queryDsl,omitempty" xml:"queryDsl,omitempty"`
+	// if can be null:
+	// false
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
 
 func (s QueryCrmPersonalCustomerRequest) String() string {
@@ -11167,9 +18135,15 @@ func (s *QueryCrmPersonalCustomerRequest) SetRelationType(v string) *QueryCrmPer
 }
 
 type QueryCrmPersonalCustomerResponseBody struct {
-	HasMore    *bool                                         `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	MaxResults *int32                                        `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 1000
 	TotalCount *int32                                        `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 	Values     []*QueryCrmPersonalCustomerResponseBodyValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 }
@@ -11208,17 +18182,28 @@ func (s *QueryCrmPersonalCustomerResponseBody) SetValues(v []*QueryCrmPersonalCu
 }
 
 type QueryCrmPersonalCustomerResponseBodyValues struct {
-	CreatorNick    *string                                               `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
-	CreatorUserId  *string                                               `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	Data           map[string]interface{}                                `json:"data,omitempty" xml:"data,omitempty"`
-	ExtendData     map[string]interface{}                                `json:"extendData,omitempty" xml:"extendData,omitempty"`
-	GmtCreate      *string                                               `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified    *string                                               `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	InstanceId     *string                                               `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	ObjectType     *string                                               `json:"objectType,omitempty" xml:"objectType,omitempty"`
-	Permission     *QueryCrmPersonalCustomerResponseBodyValuesPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
-	ProcInstStatus *string                                               `json:"procInstStatus,omitempty" xml:"procInstStatus,omitempty"`
-	ProcOutResult  *string                                               `json:"procOutResult,omitempty" xml:"procOutResult,omitempty"`
+	// This parameter is required.
+	CreatorNick *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	// This parameter is required.
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// This parameter is required.
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	// This parameter is required.
+	ExtendData map[string]interface{} `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	// This parameter is required.
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// This parameter is required.
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// This parameter is required.
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	// This parameter is required.
+	Permission *QueryCrmPersonalCustomerResponseBodyValuesPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	// This parameter is required.
+	ProcInstStatus *string `json:"procInstStatus,omitempty" xml:"procInstStatus,omitempty"`
+	// This parameter is required.
+	ProcOutResult *string `json:"procOutResult,omitempty" xml:"procOutResult,omitempty"`
 }
 
 func (s QueryCrmPersonalCustomerResponseBodyValues) String() string {
@@ -11285,7 +18270,9 @@ func (s *QueryCrmPersonalCustomerResponseBodyValues) SetProcOutResult(v string) 
 }
 
 type QueryCrmPersonalCustomerResponseBodyValuesPermission struct {
-	OwnerStaffIds       []*string `json:"ownerStaffIds,omitempty" xml:"ownerStaffIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OwnerStaffIds []*string `json:"ownerStaffIds,omitempty" xml:"ownerStaffIds,omitempty" type:"Repeated"`
+	// This parameter is required.
 	ParticipantStaffIds []*string `json:"participantStaffIds,omitempty" xml:"participantStaffIds,omitempty" type:"Repeated"`
 }
 
@@ -11336,6 +18323,117 @@ func (s *QueryCrmPersonalCustomerResponse) SetBody(v *QueryCrmPersonalCustomerRe
 	return s
 }
 
+type QueryCustomerBizTypeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCustomerBizTypeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerBizTypeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerBizTypeHeaders) SetCommonHeaders(v map[string]*string) *QueryCustomerBizTypeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCustomerBizTypeHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCustomerBizTypeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCustomerBizTypeRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1343dfd1233
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+}
+
+func (s QueryCustomerBizTypeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerBizTypeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerBizTypeRequest) SetOperatorUserId(v string) *QueryCustomerBizTypeRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+type QueryCustomerBizTypeResponseBody struct {
+	Result *QueryCustomerBizTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryCustomerBizTypeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerBizTypeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerBizTypeResponseBody) SetResult(v *QueryCustomerBizTypeResponseBodyResult) *QueryCustomerBizTypeResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryCustomerBizTypeResponseBodyResult struct {
+	// example:
+	//
+	// crm_customer
+	CustomerBizType *string `json:"customerBizType,omitempty" xml:"customerBizType,omitempty"`
+}
+
+func (s QueryCustomerBizTypeResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerBizTypeResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerBizTypeResponseBodyResult) SetCustomerBizType(v string) *QueryCustomerBizTypeResponseBodyResult {
+	s.CustomerBizType = &v
+	return s
+}
+
+type QueryCustomerBizTypeResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCustomerBizTypeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryCustomerBizTypeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomerBizTypeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomerBizTypeResponse) SetHeaders(v map[string]*string) *QueryCustomerBizTypeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCustomerBizTypeResponse) SetStatusCode(v int32) *QueryCustomerBizTypeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryCustomerBizTypeResponse) SetBody(v *QueryCustomerBizTypeResponseBody) *QueryCustomerBizTypeResponse {
+	s.Body = v
+	return s
+}
+
 type QueryGlobalInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11360,6 +18458,11 @@ func (s *QueryGlobalInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGlob
 }
 
 type QueryGlobalInfoRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 301227837938
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -11439,6 +18542,97 @@ func (s *QueryGlobalInfoResponse) SetBody(v *QueryGlobalInfoResponseBody) *Query
 	return s
 }
 
+type QueryHasAppPermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryHasAppPermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHasAppPermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHasAppPermissionHeaders) SetCommonHeaders(v map[string]*string) *QueryHasAppPermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryHasAppPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *QueryHasAppPermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryHasAppPermissionRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 34234dfdfddd
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+}
+
+func (s QueryHasAppPermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHasAppPermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHasAppPermissionRequest) SetOperatorUserId(v string) *QueryHasAppPermissionRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+type QueryHasAppPermissionResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s QueryHasAppPermissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHasAppPermissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHasAppPermissionResponseBody) SetResult(v bool) *QueryHasAppPermissionResponseBody {
+	s.Result = &v
+	return s
+}
+
+type QueryHasAppPermissionResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryHasAppPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryHasAppPermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryHasAppPermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryHasAppPermissionResponse) SetHeaders(v map[string]*string) *QueryHasAppPermissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryHasAppPermissionResponse) SetStatusCode(v int32) *QueryHasAppPermissionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryHasAppPermissionResponse) SetBody(v *QueryHasAppPermissionResponseBody) *QueryHasAppPermissionResponse {
+	s.Body = v
+	return s
+}
+
 type QueryOfficialAccountUserBasicInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11463,8 +18657,10 @@ func (s *QueryOfficialAccountUserBasicInfoHeaders) SetXAcsDingtalkAccessToken(v 
 }
 
 type QueryOfficialAccountUserBasicInfoRequest struct {
+	// This parameter is required.
 	BindingToken *string `json:"bindingToken,omitempty" xml:"bindingToken,omitempty"`
-	UnionId      *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s QueryOfficialAccountUserBasicInfoRequest) String() string {
@@ -11486,8 +18682,9 @@ func (s *QueryOfficialAccountUserBasicInfoRequest) SetUnionId(v string) *QueryOf
 }
 
 type QueryOfficialAccountUserBasicInfoResponseBody struct {
-	RequestId *string                                              `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Result    *QueryOfficialAccountUserBasicInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// This parameter is required.
+	Result *QueryOfficialAccountUserBasicInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s QueryOfficialAccountUserBasicInfoResponseBody) String() string {
@@ -11509,6 +18706,11 @@ func (s *QueryOfficialAccountUserBasicInfoResponseBody) SetResult(v *QueryOffici
 }
 
 type QueryOfficialAccountUserBasicInfoResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FOLLOWED
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
@@ -11578,6 +18780,11 @@ func (s *QueryRelationDatasByTargetIdHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type QueryRelationDatasByTargetIdRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc123
 	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
 
@@ -11595,6 +18802,7 @@ func (s *QueryRelationDatasByTargetIdRequest) SetRelationType(v string) *QueryRe
 }
 
 type QueryRelationDatasByTargetIdResponseBody struct {
+	// This parameter is required.
 	Relations []*QueryRelationDatasByTargetIdResponseBodyRelations `json:"relations,omitempty" xml:"relations,omitempty" type:"Repeated"`
 }
 
@@ -11612,10 +18820,22 @@ func (s *QueryRelationDatasByTargetIdResponseBody) SetRelations(v []*QueryRelati
 }
 
 type QueryRelationDatasByTargetIdResponseBodyRelations struct {
-	BizDataList         []*QueryRelationDatasByTargetIdResponseBodyRelationsBizDataList `json:"bizDataList,omitempty" xml:"bizDataList,omitempty" type:"Repeated"`
-	OpenConversationIds []*string                                                       `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
-	RelationId          *string                                                         `json:"relationId,omitempty" xml:"relationId,omitempty"`
-	RelationType        *string                                                         `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// This parameter is required.
+	BizDataList []*QueryRelationDatasByTargetIdResponseBodyRelationsBizDataList `json:"bizDataList,omitempty" xml:"bizDataList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc123
+	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc123
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
 
 func (s QueryRelationDatasByTargetIdResponseBodyRelations) String() string {
@@ -11647,9 +18867,24 @@ func (s *QueryRelationDatasByTargetIdResponseBodyRelations) SetRelationType(v st
 }
 
 type QueryRelationDatasByTargetIdResponseBodyRelationsBizDataList struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {}
 	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
-	Key         *string `json:"key,omitempty" xml:"key,omitempty"`
-	Value       *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// customer_name
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc123
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s QueryRelationDatasByTargetIdResponseBodyRelationsBizDataList) String() string {
@@ -11728,7 +18963,15 @@ func (s *RecallOfficialAccountOTOMessageHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type RecallOfficialAccountOTOMessageRequest struct {
-	AccountId  *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// example:
+	//
+	// ding123
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SWXXX
 	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
 }
 
@@ -11796,6 +19039,181 @@ func (s *RecallOfficialAccountOTOMessageResponse) SetBody(v *RecallOfficialAccou
 	return s
 }
 
+type SaveBenefitLicenseHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SaveBenefitLicenseHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveBenefitLicenseHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SaveBenefitLicenseHeaders) SetCommonHeaders(v map[string]*string) *SaveBenefitLicenseHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SaveBenefitLicenseHeaders) SetXAcsDingtalkAccessToken(v string) *SaveBenefitLicenseHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SaveBenefitLicenseRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// B_ACCOUNT_NUMBER
+	Domain *string `json:"domain,omitempty" xml:"domain,omitempty"`
+	// This parameter is required.
+	Licenses []*SaveBenefitLicenseRequestLicenses `json:"licenses,omitempty" xml:"licenses,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// staffId
+	SaveUserId *string `json:"saveUserId,omitempty" xml:"saveUserId,omitempty"`
+}
+
+func (s SaveBenefitLicenseRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveBenefitLicenseRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SaveBenefitLicenseRequest) SetDomain(v string) *SaveBenefitLicenseRequest {
+	s.Domain = &v
+	return s
+}
+
+func (s *SaveBenefitLicenseRequest) SetLicenses(v []*SaveBenefitLicenseRequestLicenses) *SaveBenefitLicenseRequest {
+	s.Licenses = v
+	return s
+}
+
+func (s *SaveBenefitLicenseRequest) SetSaveUserId(v string) *SaveBenefitLicenseRequest {
+	s.SaveUserId = &v
+	return s
+}
+
+type SaveBenefitLicenseRequestLicenses struct {
+	// example:
+	//
+	// licenseStaffId
+	LicenseUserId *string `json:"licenseUserId,omitempty" xml:"licenseUserId,omitempty"`
+}
+
+func (s SaveBenefitLicenseRequestLicenses) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveBenefitLicenseRequestLicenses) GoString() string {
+	return s.String()
+}
+
+func (s *SaveBenefitLicenseRequestLicenses) SetLicenseUserId(v string) *SaveBenefitLicenseRequestLicenses {
+	s.LicenseUserId = &v
+	return s
+}
+
+type SaveBenefitLicenseResponseBody struct {
+	Result *SaveBenefitLicenseResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s SaveBenefitLicenseResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveBenefitLicenseResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SaveBenefitLicenseResponseBody) SetResult(v *SaveBenefitLicenseResponseBodyResult) *SaveBenefitLicenseResponseBody {
+	s.Result = v
+	return s
+}
+
+type SaveBenefitLicenseResponseBodyResult struct {
+	// example:
+	//
+	// B_ACCOUNT_NUMBER
+	Domain   *string                                         `json:"domain,omitempty" xml:"domain,omitempty"`
+	Licenses []*SaveBenefitLicenseResponseBodyResultLicenses `json:"licenses,omitempty" xml:"licenses,omitempty" type:"Repeated"`
+}
+
+func (s SaveBenefitLicenseResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveBenefitLicenseResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SaveBenefitLicenseResponseBodyResult) SetDomain(v string) *SaveBenefitLicenseResponseBodyResult {
+	s.Domain = &v
+	return s
+}
+
+func (s *SaveBenefitLicenseResponseBodyResult) SetLicenses(v []*SaveBenefitLicenseResponseBodyResultLicenses) *SaveBenefitLicenseResponseBodyResult {
+	s.Licenses = v
+	return s
+}
+
+type SaveBenefitLicenseResponseBodyResultLicenses struct {
+	// example:
+	//
+	// license账号信息
+	LicenseUserId *string `json:"licenseUserId,omitempty" xml:"licenseUserId,omitempty"`
+}
+
+func (s SaveBenefitLicenseResponseBodyResultLicenses) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveBenefitLicenseResponseBodyResultLicenses) GoString() string {
+	return s.String()
+}
+
+func (s *SaveBenefitLicenseResponseBodyResultLicenses) SetLicenseUserId(v string) *SaveBenefitLicenseResponseBodyResultLicenses {
+	s.LicenseUserId = &v
+	return s
+}
+
+type SaveBenefitLicenseResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SaveBenefitLicenseResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SaveBenefitLicenseResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveBenefitLicenseResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SaveBenefitLicenseResponse) SetHeaders(v map[string]*string) *SaveBenefitLicenseResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SaveBenefitLicenseResponse) SetStatusCode(v int32) *SaveBenefitLicenseResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SaveBenefitLicenseResponse) SetBody(v *SaveBenefitLicenseResponseBody) *SaveBenefitLicenseResponse {
+	s.Body = v
+	return s
+}
+
 type SendOfficialAccountOTOMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11820,9 +19238,10 @@ func (s *SendOfficialAccountOTOMessageHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type SendOfficialAccountOTOMessageRequest struct {
-	AccountId *string                                     `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	BizId     *string                                     `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	Detail    *SendOfficialAccountOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
+	AccountId *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	BizId     *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	Detail *SendOfficialAccountOTOMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
 }
 
 func (s SendOfficialAccountOTOMessageRequest) String() string {
@@ -11849,11 +19268,18 @@ func (s *SendOfficialAccountOTOMessageRequest) SetDetail(v *SendOfficialAccountO
 }
 
 type SendOfficialAccountOTOMessageRequestDetail struct {
+	// This parameter is required.
 	MessageBody *SendOfficialAccountOTOMessageRequestDetailMessageBody `json:"messageBody,omitempty" xml:"messageBody,omitempty" type:"Struct"`
-	MsgType     *string                                                `json:"msgType,omitempty" xml:"msgType,omitempty"`
-	UnionId     *string                                                `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId      *string                                                `json:"userId,omitempty" xml:"userId,omitempty"`
-	Uuid        *string                                                `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// text
+	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s SendOfficialAccountOTOMessageRequestDetail) String() string {
@@ -11936,7 +19362,8 @@ type SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard struct {
 	Markdown          *string                                                                      `json:"markdown,omitempty" xml:"markdown,omitempty"`
 	SingleTitle       *string                                                                      `json:"singleTitle,omitempty" xml:"singleTitle,omitempty"`
 	SingleUrl         *string                                                                      `json:"singleUrl,omitempty" xml:"singleUrl,omitempty"`
-	Title             *string                                                                      `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) String() string {
@@ -11978,8 +19405,10 @@ func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCard) SetTit
 }
 
 type SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList struct {
+	// This parameter is required.
 	ActionUrl *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
-	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonList) String() string {
@@ -12001,6 +19430,9 @@ func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyActionCardButtonLi
 }
 
 type SendOfficialAccountOTOMessageRequestDetailMessageBodyImage struct {
+	// example:
+	//
+	// @lALPBbCc1XuaP_rNAljNAl
 	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
 }
 
@@ -12018,10 +19450,14 @@ func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyImage) SetMediaId(
 }
 
 type SendOfficialAccountOTOMessageRequestDetailMessageBodyLink struct {
+	// This parameter is required.
 	MessageUrl *string `json:"messageUrl,omitempty" xml:"messageUrl,omitempty"`
-	PicUrl     *string `json:"picUrl,omitempty" xml:"picUrl,omitempty"`
-	Text       *string `json:"text,omitempty" xml:"text,omitempty"`
-	Title      *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	PicUrl *string `json:"picUrl,omitempty" xml:"picUrl,omitempty"`
+	// This parameter is required.
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+	// This parameter is required.
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) String() string {
@@ -12053,7 +19489,9 @@ func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyLink) SetTitle(v s
 }
 
 type SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown struct {
-	Text  *string `json:"text,omitempty" xml:"text,omitempty"`
+	// This parameter is required.
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+	// This parameter is required.
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -12076,6 +19514,7 @@ func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyMarkdown) SetTitle
 }
 
 type SendOfficialAccountOTOMessageRequestDetailMessageBodyText struct {
+	// This parameter is required.
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 }
 
@@ -12093,8 +19532,9 @@ func (s *SendOfficialAccountOTOMessageRequestDetailMessageBodyText) SetContent(v
 }
 
 type SendOfficialAccountOTOMessageResponseBody struct {
-	RequestId *string                                          `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Result    *SendOfficialAccountOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// This parameter is required.
+	Result *SendOfficialAccountOTOMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s SendOfficialAccountOTOMessageResponseBody) String() string {
@@ -12116,6 +19556,7 @@ func (s *SendOfficialAccountOTOMessageResponseBody) SetResult(v *SendOfficialAcc
 }
 
 type SendOfficialAccountOTOMessageResponseBodyResult struct {
+	// This parameter is required.
 	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
 }
 
@@ -12185,9 +19626,11 @@ func (s *SendOfficialAccountSNSMessageHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type SendOfficialAccountSNSMessageRequest struct {
-	BindingToken *string                                     `json:"bindingToken,omitempty" xml:"bindingToken,omitempty"`
-	BizId        *string                                     `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	Detail       *SendOfficialAccountSNSMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
+	// This parameter is required.
+	BindingToken *string `json:"bindingToken,omitempty" xml:"bindingToken,omitempty"`
+	BizId        *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	Detail *SendOfficialAccountSNSMessageRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
 }
 
 func (s SendOfficialAccountSNSMessageRequest) String() string {
@@ -12214,9 +19657,16 @@ func (s *SendOfficialAccountSNSMessageRequest) SetDetail(v *SendOfficialAccountS
 }
 
 type SendOfficialAccountSNSMessageRequestDetail struct {
+	// This parameter is required.
 	MessageBody *SendOfficialAccountSNSMessageRequestDetailMessageBody `json:"messageBody,omitempty" xml:"messageBody,omitempty" type:"Struct"`
-	MsgType     *string                                                `json:"msgType,omitempty" xml:"msgType,omitempty"`
-	Uuid        *string                                                `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// text
+	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
+	// This parameter is required.
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s SendOfficialAccountSNSMessageRequestDetail) String() string {
@@ -12423,8 +19873,9 @@ func (s *SendOfficialAccountSNSMessageRequestDetailMessageBodyText) SetContent(v
 }
 
 type SendOfficialAccountSNSMessageResponseBody struct {
-	RequestId *string                                          `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Result    *SendOfficialAccountSNSMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// This parameter is required.
+	Result *SendOfficialAccountSNSMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
 func (s SendOfficialAccountSNSMessageResponseBody) String() string {
@@ -12446,6 +19897,7 @@ func (s *SendOfficialAccountSNSMessageResponseBody) SetResult(v *SendOfficialAcc
 }
 
 type SendOfficialAccountSNSMessageResponseBodyResult struct {
+	// This parameter is required.
 	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
 }
 
@@ -12515,7 +19967,10 @@ func (s *ServiceWindowMessageBatchPushHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type ServiceWindowMessageBatchPushRequest struct {
-	BizId  *string                                     `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// if can be null:
+	// true
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
 	Detail *ServiceWindowMessageBatchPushRequestDetail `json:"detail,omitempty" xml:"detail,omitempty" type:"Struct"`
 }
 
@@ -12538,12 +19993,24 @@ func (s *ServiceWindowMessageBatchPushRequest) SetDetail(v *ServiceWindowMessage
 }
 
 type ServiceWindowMessageBatchPushRequestDetail struct {
-	BizRequestId *string                                                `json:"bizRequestId,omitempty" xml:"bizRequestId,omitempty"`
-	MessageBody  *ServiceWindowMessageBatchPushRequestDetailMessageBody `json:"messageBody,omitempty" xml:"messageBody,omitempty" type:"Struct"`
-	MsgType      *string                                                `json:"msgType,omitempty" xml:"msgType,omitempty"`
-	SendToAll    *bool                                                  `json:"sendToAll,omitempty" xml:"sendToAll,omitempty"`
-	UserIdList   []*string                                              `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
-	Uuid         *string                                                `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// if can be null:
+	// false
+	BizRequestId *string `json:"bizRequestId,omitempty" xml:"bizRequestId,omitempty"`
+	// This parameter is required.
+	MessageBody *ServiceWindowMessageBatchPushRequestDetailMessageBody `json:"messageBody,omitempty" xml:"messageBody,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// true
+	MsgType   *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
+	SendToAll *bool   `json:"sendToAll,omitempty" xml:"sendToAll,omitempty"`
+	// This parameter is required.
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// true
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s ServiceWindowMessageBatchPushRequestDetail) String() string {
@@ -12667,8 +20134,10 @@ func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCard) SetTit
 }
 
 type ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCardButtonList struct {
+	// This parameter is required.
 	ActionUrl *string `json:"actionUrl,omitempty" xml:"actionUrl,omitempty"`
-	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s ServiceWindowMessageBatchPushRequestDetailMessageBodyActionCardButtonList) String() string {
@@ -12725,7 +20194,9 @@ func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyLink) SetTitle(v s
 }
 
 type ServiceWindowMessageBatchPushRequestDetailMessageBodyMarkdown struct {
-	Text  *string `json:"text,omitempty" xml:"text,omitempty"`
+	// This parameter is required.
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+	// This parameter is required.
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -12748,6 +20219,7 @@ func (s *ServiceWindowMessageBatchPushRequestDetailMessageBodyMarkdown) SetTitle
 }
 
 type ServiceWindowMessageBatchPushRequestDetailMessageBodyText struct {
+	// This parameter is required.
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 }
 
@@ -12788,6 +20260,7 @@ func (s *ServiceWindowMessageBatchPushResponseBody) SetResult(v *ServiceWindowMe
 }
 
 type ServiceWindowMessageBatchPushResponseBodyResult struct {
+	// This parameter is required.
 	OpenPushId *string `json:"openPushId,omitempty" xml:"openPushId,omitempty"`
 }
 
@@ -12833,6 +20306,131 @@ func (s *ServiceWindowMessageBatchPushResponse) SetBody(v *ServiceWindowMessageB
 	return s
 }
 
+type TwoPhaseCommitInventoryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TwoPhaseCommitInventoryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TwoPhaseCommitInventoryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TwoPhaseCommitInventoryHeaders) SetCommonHeaders(v map[string]*string) *TwoPhaseCommitInventoryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TwoPhaseCommitInventoryHeaders) SetXAcsDingtalkAccessToken(v string) *TwoPhaseCommitInventoryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TwoPhaseCommitInventoryRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// B_ACCOUNT_NUMBER
+	BenefitCode *string `json:"benefitCode,omitempty" xml:"benefitCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// bizId
+	BizRequestId *string `json:"bizRequestId,omitempty" xml:"bizRequestId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	ExecuteResult *bool `json:"executeResult,omitempty" xml:"executeResult,omitempty"`
+	// example:
+	//
+	// 10
+	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
+}
+
+func (s TwoPhaseCommitInventoryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TwoPhaseCommitInventoryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TwoPhaseCommitInventoryRequest) SetBenefitCode(v string) *TwoPhaseCommitInventoryRequest {
+	s.BenefitCode = &v
+	return s
+}
+
+func (s *TwoPhaseCommitInventoryRequest) SetBizRequestId(v string) *TwoPhaseCommitInventoryRequest {
+	s.BizRequestId = &v
+	return s
+}
+
+func (s *TwoPhaseCommitInventoryRequest) SetExecuteResult(v bool) *TwoPhaseCommitInventoryRequest {
+	s.ExecuteResult = &v
+	return s
+}
+
+func (s *TwoPhaseCommitInventoryRequest) SetQuota(v int64) *TwoPhaseCommitInventoryRequest {
+	s.Quota = &v
+	return s
+}
+
+type TwoPhaseCommitInventoryResponseBody struct {
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s TwoPhaseCommitInventoryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TwoPhaseCommitInventoryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TwoPhaseCommitInventoryResponseBody) SetResult(v bool) *TwoPhaseCommitInventoryResponseBody {
+	s.Result = &v
+	return s
+}
+
+type TwoPhaseCommitInventoryResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TwoPhaseCommitInventoryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TwoPhaseCommitInventoryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TwoPhaseCommitInventoryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TwoPhaseCommitInventoryResponse) SetHeaders(v map[string]*string) *TwoPhaseCommitInventoryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TwoPhaseCommitInventoryResponse) SetStatusCode(v int32) *TwoPhaseCommitInventoryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TwoPhaseCommitInventoryResponse) SetBody(v *TwoPhaseCommitInventoryResponseBody) *TwoPhaseCommitInventoryResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateCrmPersonalCustomerHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -12857,15 +20455,21 @@ func (s *UpdateCrmPersonalCustomerHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type UpdateCrmPersonalCustomerRequest struct {
-	Action             *string                                     `json:"action,omitempty" xml:"action,omitempty"`
-	Data               map[string]interface{}                      `json:"data,omitempty" xml:"data,omitempty"`
-	ExtendData         map[string]interface{}                      `json:"extendData,omitempty" xml:"extendData,omitempty"`
-	InstanceId         *string                                     `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	ModifierNick       *string                                     `json:"modifierNick,omitempty" xml:"modifierNick,omitempty"`
-	ModifierUserId     *string                                     `json:"modifierUserId,omitempty" xml:"modifierUserId,omitempty"`
-	Permission         *UpdateCrmPersonalCustomerRequestPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
-	RelationType       *string                                     `json:"relationType,omitempty" xml:"relationType,omitempty"`
-	SkipDuplicateCheck *bool                                       `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
+	Data       map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	ExtendData map[string]interface{} `json:"extendData,omitempty" xml:"extendData,omitempty"`
+	// This parameter is required.
+	InstanceId   *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	ModifierNick *string `json:"modifierNick,omitempty" xml:"modifierNick,omitempty"`
+	// This parameter is required.
+	ModifierUserId *string                                     `json:"modifierUserId,omitempty" xml:"modifierUserId,omitempty"`
+	Permission     *UpdateCrmPersonalCustomerRequestPermission `json:"permission,omitempty" xml:"permission,omitempty" type:"Struct"`
+	RelationType   *string                                     `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// example:
+	//
+	// false
+	SkipDuplicateCheck *bool `json:"skipDuplicateCheck,omitempty" xml:"skipDuplicateCheck,omitempty"`
 }
 
 func (s UpdateCrmPersonalCustomerRequest) String() string {
@@ -12945,6 +20549,7 @@ func (s *UpdateCrmPersonalCustomerRequestPermission) SetParticipantStaffIds(v []
 }
 
 type UpdateCrmPersonalCustomerResponseBody struct {
+	// This parameter is required.
 	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
 }
 
@@ -12990,6 +20595,108 @@ func (s *UpdateCrmPersonalCustomerResponse) SetBody(v *UpdateCrmPersonalCustomer
 	return s
 }
 
+type UpdateCustomerBizTypeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateCustomerBizTypeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomerBizTypeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomerBizTypeHeaders) SetCommonHeaders(v map[string]*string) *UpdateCustomerBizTypeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateCustomerBizTypeHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateCustomerBizTypeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateCustomerBizTypeRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// crm_customer
+	CustomerBizType *string `json:"customerBizType,omitempty" xml:"customerBizType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 34234234ddddad
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+}
+
+func (s UpdateCustomerBizTypeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomerBizTypeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomerBizTypeRequest) SetCustomerBizType(v string) *UpdateCustomerBizTypeRequest {
+	s.CustomerBizType = &v
+	return s
+}
+
+func (s *UpdateCustomerBizTypeRequest) SetOperatorUserId(v string) *UpdateCustomerBizTypeRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+type UpdateCustomerBizTypeResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateCustomerBizTypeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomerBizTypeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomerBizTypeResponseBody) SetResult(v bool) *UpdateCustomerBizTypeResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateCustomerBizTypeResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateCustomerBizTypeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateCustomerBizTypeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomerBizTypeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomerBizTypeResponse) SetHeaders(v map[string]*string) *UpdateCustomerBizTypeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateCustomerBizTypeResponse) SetStatusCode(v int32) *UpdateCustomerBizTypeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateCustomerBizTypeResponse) SetBody(v *UpdateCustomerBizTypeResponseBody) *UpdateCustomerBizTypeResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateGroupSetHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -13019,6 +20726,7 @@ type UpdateGroupSetRequest struct {
 	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
 	Notice         *string `json:"notice,omitempty" xml:"notice,omitempty"`
 	NoticeToped    *int32  `json:"noticeToped,omitempty" xml:"noticeToped,omitempty"`
+	// This parameter is required.
 	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
 	OwnerUserId    *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
 	TemplateId     *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
@@ -13131,12 +20839,33 @@ func (s *UpdateMenuDataHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateMenu
 }
 
 type UpdateMenuDataRequest struct {
-	Attr           map[string]interface{}        `json:"attr,omitempty" xml:"attr,omitempty"`
-	BizTraceId     *string                       `json:"bizTraceId,omitempty" xml:"bizTraceId,omitempty"`
-	Module         *string                       `json:"module,omitempty" xml:"module,omitempty"`
-	NavData        *UpdateMenuDataRequestNavData `json:"navData,omitempty" xml:"navData,omitempty" type:"Struct"`
-	OperateType    *string                       `json:"operateType,omitempty" xml:"operateType,omitempty"`
-	OperatorUserId *string                       `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	Attr map[string]interface{} `json:"attr,omitempty" xml:"attr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 89ez9DwVWQVgkhwndJNt1ZY
+	BizTraceId *string `json:"bizTraceId,omitempty" xml:"bizTraceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sale
+	Module *string `json:"module,omitempty" xml:"module,omitempty"`
+	// This parameter is required.
+	NavData *UpdateMenuDataRequestNavData `json:"navData,omitempty" xml:"navData,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// add
+	OperateType *string `json:"operateType,omitempty" xml:"operateType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 16044739461008808646
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
 }
 
 func (s UpdateMenuDataRequest) String() string {
@@ -13178,23 +20907,80 @@ func (s *UpdateMenuDataRequest) SetOperatorUserId(v string) *UpdateMenuDataReque
 }
 
 type UpdateMenuDataRequestNavData struct {
-	DisplayStatus       *string                                 `json:"displayStatus,omitempty" xml:"displayStatus,omitempty"`
-	Icon                *string                                 `json:"icon,omitempty" xml:"icon,omitempty"`
-	IconBgColor         *string                                 `json:"iconBgColor,omitempty" xml:"iconBgColor,omitempty"`
-	IconColor           *string                                 `json:"iconColor,omitempty" xml:"iconColor,omitempty"`
-	IntegrationProtocol *string                                 `json:"integrationProtocol,omitempty" xml:"integrationProtocol,omitempty"`
-	MobileNavName       *string                                 `json:"mobileNavName,omitempty" xml:"mobileNavName,omitempty"`
-	MobileUrl           *string                                 `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
-	NavCode             *string                                 `json:"navCode,omitempty" xml:"navCode,omitempty"`
-	NavExtInfo          *UpdateMenuDataRequestNavDataNavExtInfo `json:"navExtInfo,omitempty" xml:"navExtInfo,omitempty" type:"Struct"`
-	NavId               *string                                 `json:"navId,omitempty" xml:"navId,omitempty"`
-	NavName             *string                                 `json:"navName,omitempty" xml:"navName,omitempty"`
-	NavStatus           *string                                 `json:"navStatus,omitempty" xml:"navStatus,omitempty"`
-	NavType             *string                                 `json:"navType,omitempty" xml:"navType,omitempty"`
-	ParentNavId         *string                                 `json:"parentNavId,omitempty" xml:"parentNavId,omitempty"`
-	Provider            *string                                 `json:"provider,omitempty" xml:"provider,omitempty"`
-	SortNum             *int32                                  `json:"sortNum,omitempty" xml:"sortNum,omitempty"`
-	Url                 *string                                 `json:"url,omitempty" xml:"url,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	DisplayStatus *string `json:"displayStatus,omitempty" xml:"displayStatus,omitempty"`
+	// example:
+	//
+	// icon-biaodan_baogao
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// example:
+	//
+	// #CCEEFF
+	IconBgColor *string `json:"iconBgColor,omitempty" xml:"iconBgColor,omitempty"`
+	// example:
+	//
+	// #007FFF
+	IconColor *string `json:"iconColor,omitempty" xml:"iconColor,omitempty"`
+	// example:
+	//
+	// same_page
+	IntegrationProtocol *string `json:"integrationProtocol,omitempty" xml:"integrationProtocol,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 库存账单
+	MobileNavName *string `json:"mobileNavName,omitempty" xml:"mobileNavName,omitempty"`
+	// example:
+	//
+	// https://tj-ali-crm-test.tangees.com/tungee/crm/mobile/?corpid=dinge18b222ec5637b04ffe93478753d9884#/form/PROC-ECC13160-7AFF-4D5B-8E73-E5B98BB9A59B?库存流水&psi_stock_flow&fromPage=home
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lowcode_customize_form
+	NavCode    *string                                 `json:"navCode,omitempty" xml:"navCode,omitempty"`
+	NavExtInfo *UpdateMenuDataRequestNavDataNavExtInfo `json:"navExtInfo,omitempty" xml:"navExtInfo,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lowcode_customize_form:PROC-0279E824-ED47-4E75-86F2-11B665F3704D
+	NavId *string `json:"navId,omitempty" xml:"navId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 库存流水
+	NavName *string `json:"navName,omitempty" xml:"navName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PUBLISHED
+	NavStatus *string `json:"navStatus,omitempty" xml:"navStatus,omitempty"`
+	// example:
+	//
+	// item
+	NavType *string `json:"navType,omitempty" xml:"navType,omitempty"`
+	// example:
+	//
+	// crm_product
+	ParentNavId *string `json:"parentNavId,omitempty" xml:"parentNavId,omitempty"`
+	// example:
+	//
+	// tj
+	Provider *string `json:"provider,omitempty" xml:"provider,omitempty"`
+	SortNum  *int32  `json:"sortNum,omitempty" xml:"sortNum,omitempty"`
+	// example:
+	//
+	// /form/PROC-ECC13160-7AFF-4D5B-8E73-E5B98BB9A59B?bizType=psi_stock_flow&formName=库存流水
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s UpdateMenuDataRequestNavData) String() string {
@@ -13291,8 +21077,14 @@ func (s *UpdateMenuDataRequestNavData) SetUrl(v string) *UpdateMenuDataRequestNa
 }
 
 type UpdateMenuDataRequestNavDataNavExtInfo struct {
+	// example:
+	//
+	// oem
 	ProductMode *string `json:"productMode,omitempty" xml:"productMode,omitempty"`
-	Provider    *string `json:"provider,omitempty" xml:"provider,omitempty"`
+	// example:
+	//
+	// tj
+	Provider *string `json:"provider,omitempty" xml:"provider,omitempty"`
 }
 
 func (s UpdateMenuDataRequestNavDataNavExtInfo) String() string {
@@ -13359,6 +21151,309 @@ func (s *UpdateMenuDataResponse) SetBody(v *UpdateMenuDataResponseBody) *UpdateM
 	return s
 }
 
+type UpdateMetaModelFieldHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateMetaModelFieldHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMetaModelFieldHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMetaModelFieldHeaders) SetCommonHeaders(v map[string]*string) *UpdateMetaModelFieldHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateMetaModelFieldHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateMetaModelFieldHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateMetaModelFieldRequest struct {
+	// This parameter is required.
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	FieldDTOList []*UpdateMetaModelFieldRequestFieldDTOList `json:"fieldDTOList,omitempty" xml:"fieldDTOList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	Tenant *string `json:"tenant,omitempty" xml:"tenant,omitempty"`
+}
+
+func (s UpdateMetaModelFieldRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMetaModelFieldRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMetaModelFieldRequest) SetBizType(v string) *UpdateMetaModelFieldRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequest) SetFieldDTOList(v []*UpdateMetaModelFieldRequestFieldDTOList) *UpdateMetaModelFieldRequest {
+	s.FieldDTOList = v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequest) SetOperatorUserId(v string) *UpdateMetaModelFieldRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequest) SetTenant(v string) *UpdateMetaModelFieldRequest {
+	s.Tenant = &v
+	return s
+}
+
+type UpdateMetaModelFieldRequestFieldDTOList struct {
+	// This parameter is required.
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	Props *UpdateMetaModelFieldRequestFieldDTOListProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+}
+
+func (s UpdateMetaModelFieldRequestFieldDTOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMetaModelFieldRequestFieldDTOList) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOList) SetComponentName(v string) *UpdateMetaModelFieldRequestFieldDTOList {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOList) SetProps(v *UpdateMetaModelFieldRequestFieldDTOListProps) *UpdateMetaModelFieldRequestFieldDTOList {
+	s.Props = v
+	return s
+}
+
+type UpdateMetaModelFieldRequestFieldDTOListProps struct {
+	Align    *string `json:"align,omitempty" xml:"align,omitempty"`
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	Choice   *int64  `json:"choice,omitempty" xml:"choice,omitempty"`
+	Content  *string `json:"content,omitempty" xml:"content,omitempty"`
+	Disabled *bool   `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	Duration *bool   `json:"duration,omitempty" xml:"duration,omitempty"`
+	// This parameter is required.
+	FieldId   *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Format    *string `json:"format,omitempty" xml:"format,omitempty"`
+	Invisible *bool   `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// This parameter is required.
+	Label               *string                                                `json:"label,omitempty" xml:"label,omitempty"`
+	LabelEditableFreeze *bool                                                  `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	Link                *string                                                `json:"link,omitempty" xml:"link,omitempty"`
+	NeedDetail          *string                                                `json:"needDetail,omitempty" xml:"needDetail,omitempty"`
+	NotPrint            *string                                                `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	NotUpper            *string                                                `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	Options             []*UpdateMetaModelFieldRequestFieldDTOListPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	PayEnable           *bool                                                  `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	Placeholder         *string                                                `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// This parameter is required.
+	Required               *bool   `json:"required,omitempty" xml:"required,omitempty"`
+	RequiredEditableFreeze *bool   `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	Sortable               *bool   `json:"sortable,omitempty" xml:"sortable,omitempty"`
+	Unit                   *string `json:"unit,omitempty" xml:"unit,omitempty"`
+}
+
+func (s UpdateMetaModelFieldRequestFieldDTOListProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMetaModelFieldRequestFieldDTOListProps) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetAlign(v string) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.Align = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetBizAlias(v string) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetChoice(v int64) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetContent(v string) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.Content = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetDisabled(v bool) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetDuration(v bool) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetFieldId(v string) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.FieldId = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetFormat(v string) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.Format = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetInvisible(v bool) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.Invisible = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetLabel(v string) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.Label = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetLabelEditableFreeze(v bool) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.LabelEditableFreeze = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetLink(v string) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.Link = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetNeedDetail(v string) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.NeedDetail = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetNotPrint(v string) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.NotPrint = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetNotUpper(v string) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetOptions(v []*UpdateMetaModelFieldRequestFieldDTOListPropsOptions) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.Options = v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetPayEnable(v bool) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetPlaceholder(v string) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetRequired(v bool) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.Required = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetRequiredEditableFreeze(v bool) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.RequiredEditableFreeze = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetSortable(v bool) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.Sortable = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListProps) SetUnit(v string) *UpdateMetaModelFieldRequestFieldDTOListProps {
+	s.Unit = &v
+	return s
+}
+
+type UpdateMetaModelFieldRequestFieldDTOListPropsOptions struct {
+	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s UpdateMetaModelFieldRequestFieldDTOListPropsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMetaModelFieldRequestFieldDTOListPropsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListPropsOptions) SetKey(v string) *UpdateMetaModelFieldRequestFieldDTOListPropsOptions {
+	s.Key = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldRequestFieldDTOListPropsOptions) SetValue(v string) *UpdateMetaModelFieldRequestFieldDTOListPropsOptions {
+	s.Value = &v
+	return s
+}
+
+type UpdateMetaModelFieldResponseBody struct {
+	// This parameter is required.
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+}
+
+func (s UpdateMetaModelFieldResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMetaModelFieldResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMetaModelFieldResponseBody) SetBizType(v string) *UpdateMetaModelFieldResponseBody {
+	s.BizType = &v
+	return s
+}
+
+type UpdateMetaModelFieldResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateMetaModelFieldResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateMetaModelFieldResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMetaModelFieldResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMetaModelFieldResponse) SetHeaders(v map[string]*string) *UpdateMetaModelFieldResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateMetaModelFieldResponse) SetStatusCode(v int32) *UpdateMetaModelFieldResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateMetaModelFieldResponse) SetBody(v *UpdateMetaModelFieldResponseBody) *UpdateMetaModelFieldResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateRelationMetaFieldHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -13383,10 +21478,14 @@ func (s *UpdateRelationMetaFieldHeaders) SetXAcsDingtalkAccessToken(v string) *U
 }
 
 type UpdateRelationMetaFieldRequest struct {
-	FieldDTOList   []*UpdateRelationMetaFieldRequestFieldDTOList `json:"fieldDTOList,omitempty" xml:"fieldDTOList,omitempty" type:"Repeated"`
-	OperatorUserId *string                                       `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
-	RelationType   *string                                       `json:"relationType,omitempty" xml:"relationType,omitempty"`
-	Tenant         *string                                       `json:"tenant,omitempty" xml:"tenant,omitempty"`
+	// This parameter is required.
+	FieldDTOList []*UpdateRelationMetaFieldRequestFieldDTOList `json:"fieldDTOList,omitempty" xml:"fieldDTOList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
+	// This parameter is required.
+	Tenant *string `json:"tenant,omitempty" xml:"tenant,omitempty"`
 }
 
 func (s UpdateRelationMetaFieldRequest) String() string {
@@ -13418,8 +21517,10 @@ func (s *UpdateRelationMetaFieldRequest) SetTenant(v string) *UpdateRelationMeta
 }
 
 type UpdateRelationMetaFieldRequestFieldDTOList struct {
-	ComponentName *string                                          `json:"componentName,omitempty" xml:"componentName,omitempty"`
-	Props         *UpdateRelationMetaFieldRequestFieldDTOListProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+	// This parameter is required.
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	Props *UpdateRelationMetaFieldRequestFieldDTOListProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
 }
 
 func (s UpdateRelationMetaFieldRequestFieldDTOList) String() string {
@@ -13441,28 +21542,32 @@ func (s *UpdateRelationMetaFieldRequestFieldDTOList) SetProps(v *UpdateRelationM
 }
 
 type UpdateRelationMetaFieldRequestFieldDTOListProps struct {
-	Align                  *string                                                   `json:"align,omitempty" xml:"align,omitempty"`
-	BizAlias               *string                                                   `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	Choice                 *int64                                                    `json:"choice,omitempty" xml:"choice,omitempty"`
-	Content                *string                                                   `json:"content,omitempty" xml:"content,omitempty"`
-	Disabled               *bool                                                     `json:"disabled,omitempty" xml:"disabled,omitempty"`
-	Duration               *bool                                                     `json:"duration,omitempty" xml:"duration,omitempty"`
-	FieldId                *string                                                   `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Format                 *string                                                   `json:"format,omitempty" xml:"format,omitempty"`
-	Invisible              *bool                                                     `json:"invisible,omitempty" xml:"invisible,omitempty"`
-	Label                  *string                                                   `json:"label,omitempty" xml:"label,omitempty"`
-	LabelEditableFreeze    *bool                                                     `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
-	Link                   *string                                                   `json:"link,omitempty" xml:"link,omitempty"`
-	NeedDetail             *string                                                   `json:"needDetail,omitempty" xml:"needDetail,omitempty"`
-	NotPrint               *string                                                   `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
-	NotUpper               *string                                                   `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
-	Options                []*UpdateRelationMetaFieldRequestFieldDTOListPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
-	PayEnable              *bool                                                     `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
-	Placeholder            *string                                                   `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
-	Required               *bool                                                     `json:"required,omitempty" xml:"required,omitempty"`
-	RequiredEditableFreeze *bool                                                     `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
-	Sortable               *bool                                                     `json:"sortable,omitempty" xml:"sortable,omitempty"`
-	Unit                   *string                                                   `json:"unit,omitempty" xml:"unit,omitempty"`
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// This parameter is required.
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	Choice   *int64  `json:"choice,omitempty" xml:"choice,omitempty"`
+	Content  *string `json:"content,omitempty" xml:"content,omitempty"`
+	Disabled *bool   `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	Duration *bool   `json:"duration,omitempty" xml:"duration,omitempty"`
+	// This parameter is required.
+	FieldId   *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	Format    *string `json:"format,omitempty" xml:"format,omitempty"`
+	Invisible *bool   `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// This parameter is required.
+	Label               *string                                                   `json:"label,omitempty" xml:"label,omitempty"`
+	LabelEditableFreeze *bool                                                     `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	Link                *string                                                   `json:"link,omitempty" xml:"link,omitempty"`
+	NeedDetail          *string                                                   `json:"needDetail,omitempty" xml:"needDetail,omitempty"`
+	NotPrint            *string                                                   `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	NotUpper            *string                                                   `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	Options             []*UpdateRelationMetaFieldRequestFieldDTOListPropsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	PayEnable           *bool                                                     `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	Placeholder         *string                                                   `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// This parameter is required.
+	Required               *bool   `json:"required,omitempty" xml:"required,omitempty"`
+	RequiredEditableFreeze *bool   `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	Sortable               *bool   `json:"sortable,omitempty" xml:"sortable,omitempty"`
+	Unit                   *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s UpdateRelationMetaFieldRequestFieldDTOListProps) String() string {
@@ -13607,6 +21712,7 @@ func (s *UpdateRelationMetaFieldRequestFieldDTOListPropsOptions) SetValue(v stri
 }
 
 type UpdateRelationMetaFieldResponseBody struct {
+	// This parameter is required.
 	RelationType *string `json:"relationType,omitempty" xml:"relationType,omitempty"`
 }
 
@@ -13667,12 +21773,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -13681,6 +21787,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 从私海放弃客户（退回公海）
+//
+// @param request - AbandonCustomerRequest
+//
+// @param headers - AbandonCustomerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AbandonCustomerResponse
 func (client *Client) AbandonCustomerWithOptions(request *AbandonCustomerRequest, headers *AbandonCustomerHeaders, runtime *util.RuntimeOptions) (_result *AbandonCustomerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13736,6 +21853,13 @@ func (client *Client) AbandonCustomerWithOptions(request *AbandonCustomerRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 从私海放弃客户（退回公海）
+//
+// @param request - AbandonCustomerRequest
+//
+// @return AbandonCustomerResponse
 func (client *Client) AbandonCustomer(request *AbandonCustomerRequest) (_result *AbandonCustomerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AbandonCustomerHeaders{}
@@ -13748,6 +21872,17 @@ func (client *Client) AbandonCustomer(request *AbandonCustomerRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加crm个人客户（或企业客户）
+//
+// @param request - AddCrmPersonalCustomerRequest
+//
+// @param headers - AddCrmPersonalCustomerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddCrmPersonalCustomerResponse
 func (client *Client) AddCrmPersonalCustomerWithOptions(request *AddCrmPersonalCustomerRequest, headers *AddCrmPersonalCustomerHeaders, runtime *util.RuntimeOptions) (_result *AddCrmPersonalCustomerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13819,6 +21954,13 @@ func (client *Client) AddCrmPersonalCustomerWithOptions(request *AddCrmPersonalC
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加crm个人客户（或企业客户）
+//
+// @param request - AddCrmPersonalCustomerRequest
+//
+// @return AddCrmPersonalCustomerResponse
 func (client *Client) AddCrmPersonalCustomer(request *AddCrmPersonalCustomerRequest) (_result *AddCrmPersonalCustomerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddCrmPersonalCustomerHeaders{}
@@ -13831,6 +21973,17 @@ func (client *Client) AddCrmPersonalCustomer(request *AddCrmPersonalCustomerRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增动态
+//
+// @param request - AddCustomerTrackRequest
+//
+// @param headers - AddCustomerTrackHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddCustomerTrackResponse
 func (client *Client) AddCustomerTrackWithOptions(request *AddCustomerTrackRequest, headers *AddCustomerTrackHeaders, runtime *util.RuntimeOptions) (_result *AddCustomerTrackResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13906,6 +22059,13 @@ func (client *Client) AddCustomerTrackWithOptions(request *AddCustomerTrackReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增动态
+//
+// @param request - AddCustomerTrackRequest
+//
+// @return AddCustomerTrackResponse
 func (client *Client) AddCustomerTrack(request *AddCustomerTrackRequest) (_result *AddCustomerTrackResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddCustomerTrackHeaders{}
@@ -13918,6 +22078,17 @@ func (client *Client) AddCustomerTrack(request *AddCustomerTrackRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加线索
+//
+// @param request - AddLeadsRequest
+//
+// @param headers - AddLeadsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddLeadsResponse
 func (client *Client) AddLeadsWithOptions(request *AddLeadsRequest, headers *AddLeadsHeaders, runtime *util.RuntimeOptions) (_result *AddLeadsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13977,6 +22148,13 @@ func (client *Client) AddLeadsWithOptions(request *AddLeadsRequest, headers *Add
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加线索
+//
+// @param request - AddLeadsRequest
+//
+// @return AddLeadsResponse
 func (client *Client) AddLeads(request *AddLeadsRequest) (_result *AddLeadsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddLeadsHeaders{}
@@ -13989,6 +22167,102 @@ func (client *Client) AddLeads(request *AddLeadsRequest) (_result *AddLeadsRespo
 	return _result, _err
 }
 
+// Summary:
+//
+// 模型表结构增加字段
+//
+// @param request - AddMetaModelFieldRequest
+//
+// @param headers - AddMetaModelFieldHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddMetaModelFieldResponse
+func (client *Client) AddMetaModelFieldWithOptions(request *AddMetaModelFieldRequest, headers *AddMetaModelFieldHeaders, runtime *util.RuntimeOptions) (_result *AddMetaModelFieldResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		body["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FieldDTOList)) {
+		body["fieldDTOList"] = request.FieldDTOList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Tenant)) {
+		body["tenant"] = request.Tenant
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddMetaModelField"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/metas/models/fields"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddMetaModelFieldResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 模型表结构增加字段
+//
+// @param request - AddMetaModelFieldRequest
+//
+// @return AddMetaModelFieldResponse
+func (client *Client) AddMetaModelField(request *AddMetaModelFieldRequest) (_result *AddMetaModelFieldResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddMetaModelFieldHeaders{}
+	_result = &AddMetaModelFieldResponse{}
+	_body, _err := client.AddMetaModelFieldWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 关系模型表结构增加字段
+//
+// @param request - AddRelationMetaFieldRequest
+//
+// @param headers - AddRelationMetaFieldHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddRelationMetaFieldResponse
 func (client *Client) AddRelationMetaFieldWithOptions(request *AddRelationMetaFieldRequest, headers *AddRelationMetaFieldHeaders, runtime *util.RuntimeOptions) (_result *AddRelationMetaFieldResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14044,6 +22318,13 @@ func (client *Client) AddRelationMetaFieldWithOptions(request *AddRelationMetaFi
 	return _result, _err
 }
 
+// Summary:
+//
+// 关系模型表结构增加字段
+//
+// @param request - AddRelationMetaFieldRequest
+//
+// @return AddRelationMetaFieldResponse
 func (client *Client) AddRelationMetaField(request *AddRelationMetaFieldRequest) (_result *AddRelationMetaFieldResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddRelationMetaFieldHeaders{}
@@ -14056,6 +22337,110 @@ func (client *Client) AddRelationMetaField(request *AddRelationMetaFieldRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 追加客户数据权限
+//
+// @param request - AppendCustomerDataAuthRequest
+//
+// @param headers - AppendCustomerDataAuthHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AppendCustomerDataAuthResponse
+func (client *Client) AppendCustomerDataAuthWithOptions(request *AppendCustomerDataAuthRequest, headers *AppendCustomerDataAuthHeaders, runtime *util.RuntimeOptions) (_result *AppendCustomerDataAuthResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CustomerIds)) {
+		body["customerIds"] = request.CustomerIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DataAuthUserIds)) {
+		body["dataAuthUserIds"] = request.DataAuthUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormCode)) {
+		body["formCode"] = request.FormCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperateUserId)) {
+		body["operateUserId"] = request.OperateUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		body["relationType"] = request.RelationType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleType)) {
+		body["roleType"] = request.RoleType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AppendCustomerDataAuth"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/customers/dataAuth/append"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AppendCustomerDataAuthResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 追加客户数据权限
+//
+// @param request - AppendCustomerDataAuthRequest
+//
+// @return AppendCustomerDataAuthResponse
+func (client *Client) AppendCustomerDataAuth(request *AppendCustomerDataAuthRequest) (_result *AppendCustomerDataAuthResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AppendCustomerDataAuthHeaders{}
+	_result = &AppendCustomerDataAuthResponse{}
+	_body, _err := client.AppendCustomerDataAuthWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量新增联系人
+//
+// @param request - BatchAddContactsRequest
+//
+// @param headers - BatchAddContactsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchAddContactsResponse
 func (client *Client) BatchAddContactsWithOptions(request *BatchAddContactsRequest, headers *BatchAddContactsHeaders, runtime *util.RuntimeOptions) (_result *BatchAddContactsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14103,6 +22488,13 @@ func (client *Client) BatchAddContactsWithOptions(request *BatchAddContactsReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量新增联系人
+//
+// @param request - BatchAddContactsRequest
+//
+// @return BatchAddContactsResponse
 func (client *Client) BatchAddContacts(request *BatchAddContactsRequest) (_result *BatchAddContactsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchAddContactsHeaders{}
@@ -14115,6 +22507,17 @@ func (client *Client) BatchAddContacts(request *BatchAddContactsRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量新增跟进记录
+//
+// @param request - BatchAddFollowRecordsRequest
+//
+// @param headers - BatchAddFollowRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchAddFollowRecordsResponse
 func (client *Client) BatchAddFollowRecordsWithOptions(request *BatchAddFollowRecordsRequest, headers *BatchAddFollowRecordsHeaders, runtime *util.RuntimeOptions) (_result *BatchAddFollowRecordsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14162,6 +22565,13 @@ func (client *Client) BatchAddFollowRecordsWithOptions(request *BatchAddFollowRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量新增跟进记录
+//
+// @param request - BatchAddFollowRecordsRequest
+//
+// @return BatchAddFollowRecordsResponse
 func (client *Client) BatchAddFollowRecords(request *BatchAddFollowRecordsRequest) (_result *BatchAddFollowRecordsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchAddFollowRecordsHeaders{}
@@ -14174,6 +22584,17 @@ func (client *Client) BatchAddFollowRecords(request *BatchAddFollowRecordsReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量新增关系数据
+//
+// @param request - BatchAddRelationDatasRequest
+//
+// @param headers - BatchAddRelationDatasHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchAddRelationDatasResponse
 func (client *Client) BatchAddRelationDatasWithOptions(request *BatchAddRelationDatasRequest, headers *BatchAddRelationDatasHeaders, runtime *util.RuntimeOptions) (_result *BatchAddRelationDatasResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14229,6 +22650,13 @@ func (client *Client) BatchAddRelationDatasWithOptions(request *BatchAddRelation
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量新增关系数据
+//
+// @param request - BatchAddRelationDatasRequest
+//
+// @return BatchAddRelationDatasResponse
 func (client *Client) BatchAddRelationDatas(request *BatchAddRelationDatasRequest) (_result *BatchAddRelationDatasResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchAddRelationDatasHeaders{}
@@ -14241,6 +22669,17 @@ func (client *Client) BatchAddRelationDatas(request *BatchAddRelationDatasReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量创建线索数据
+//
+// @param request - BatchCreateClueDataRequest
+//
+// @param headers - BatchCreateClueDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchCreateClueDataResponse
 func (client *Client) BatchCreateClueDataWithOptions(request *BatchCreateClueDataRequest, headers *BatchCreateClueDataHeaders, runtime *util.RuntimeOptions) (_result *BatchCreateClueDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14292,6 +22731,13 @@ func (client *Client) BatchCreateClueDataWithOptions(request *BatchCreateClueDat
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量创建线索数据
+//
+// @param request - BatchCreateClueDataRequest
+//
+// @return BatchCreateClueDataResponse
 func (client *Client) BatchCreateClueData(request *BatchCreateClueDataRequest) (_result *BatchCreateClueDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchCreateClueDataHeaders{}
@@ -14304,6 +22750,17 @@ func (client *Client) BatchCreateClueData(request *BatchCreateClueDataRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量删除跟进记录
+//
+// @param request - BatchRemoveFollowRecordsRequest
+//
+// @param headers - BatchRemoveFollowRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchRemoveFollowRecordsResponse
 func (client *Client) BatchRemoveFollowRecordsWithOptions(request *BatchRemoveFollowRecordsRequest, headers *BatchRemoveFollowRecordsHeaders, runtime *util.RuntimeOptions) (_result *BatchRemoveFollowRecordsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14351,6 +22808,13 @@ func (client *Client) BatchRemoveFollowRecordsWithOptions(request *BatchRemoveFo
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量删除跟进记录
+//
+// @param request - BatchRemoveFollowRecordsRequest
+//
+// @return BatchRemoveFollowRecordsResponse
 func (client *Client) BatchRemoveFollowRecords(request *BatchRemoveFollowRecordsRequest) (_result *BatchRemoveFollowRecordsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchRemoveFollowRecordsHeaders{}
@@ -14363,6 +22827,17 @@ func (client *Client) BatchRemoveFollowRecords(request *BatchRemoveFollowRecords
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗消息群发
+//
+// @param request - BatchSendOfficialAccountOTOMessageRequest
+//
+// @param headers - BatchSendOfficialAccountOTOMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchSendOfficialAccountOTOMessageResponse
 func (client *Client) BatchSendOfficialAccountOTOMessageWithOptions(request *BatchSendOfficialAccountOTOMessageRequest, headers *BatchSendOfficialAccountOTOMessageHeaders, runtime *util.RuntimeOptions) (_result *BatchSendOfficialAccountOTOMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14414,6 +22889,13 @@ func (client *Client) BatchSendOfficialAccountOTOMessageWithOptions(request *Bat
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗消息群发
+//
+// @param request - BatchSendOfficialAccountOTOMessageRequest
+//
+// @return BatchSendOfficialAccountOTOMessageResponse
 func (client *Client) BatchSendOfficialAccountOTOMessage(request *BatchSendOfficialAccountOTOMessageRequest) (_result *BatchSendOfficialAccountOTOMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchSendOfficialAccountOTOMessageHeaders{}
@@ -14426,6 +22908,17 @@ func (client *Client) BatchSendOfficialAccountOTOMessage(request *BatchSendOffic
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量修改联系人
+//
+// @param request - BatchUpdateContactsRequest
+//
+// @param headers - BatchUpdateContactsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchUpdateContactsResponse
 func (client *Client) BatchUpdateContactsWithOptions(request *BatchUpdateContactsRequest, headers *BatchUpdateContactsHeaders, runtime *util.RuntimeOptions) (_result *BatchUpdateContactsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14473,6 +22966,13 @@ func (client *Client) BatchUpdateContactsWithOptions(request *BatchUpdateContact
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量修改联系人
+//
+// @param request - BatchUpdateContactsRequest
+//
+// @return BatchUpdateContactsResponse
 func (client *Client) BatchUpdateContacts(request *BatchUpdateContactsRequest) (_result *BatchUpdateContactsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchUpdateContactsHeaders{}
@@ -14485,6 +22985,17 @@ func (client *Client) BatchUpdateContacts(request *BatchUpdateContactsRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量修改跟进记录
+//
+// @param request - BatchUpdateFollowRecordsRequest
+//
+// @param headers - BatchUpdateFollowRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchUpdateFollowRecordsResponse
 func (client *Client) BatchUpdateFollowRecordsWithOptions(request *BatchUpdateFollowRecordsRequest, headers *BatchUpdateFollowRecordsHeaders, runtime *util.RuntimeOptions) (_result *BatchUpdateFollowRecordsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14532,6 +23043,13 @@ func (client *Client) BatchUpdateFollowRecordsWithOptions(request *BatchUpdateFo
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量修改跟进记录
+//
+// @param request - BatchUpdateFollowRecordsRequest
+//
+// @return BatchUpdateFollowRecordsResponse
 func (client *Client) BatchUpdateFollowRecords(request *BatchUpdateFollowRecordsRequest) (_result *BatchUpdateFollowRecordsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchUpdateFollowRecordsHeaders{}
@@ -14544,6 +23062,17 @@ func (client *Client) BatchUpdateFollowRecords(request *BatchUpdateFollowRecords
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量修改关系数据
+//
+// @param request - BatchUpdateRelationDatasRequest
+//
+// @param headers - BatchUpdateRelationDatasHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchUpdateRelationDatasResponse
 func (client *Client) BatchUpdateRelationDatasWithOptions(request *BatchUpdateRelationDatasRequest, headers *BatchUpdateRelationDatasHeaders, runtime *util.RuntimeOptions) (_result *BatchUpdateRelationDatasResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14599,6 +23128,13 @@ func (client *Client) BatchUpdateRelationDatasWithOptions(request *BatchUpdateRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量修改关系数据
+//
+// @param request - BatchUpdateRelationDatasRequest
+//
+// @return BatchUpdateRelationDatasResponse
 func (client *Client) BatchUpdateRelationDatas(request *BatchUpdateRelationDatasRequest) (_result *BatchUpdateRelationDatasResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchUpdateRelationDatasHeaders{}
@@ -14611,6 +23147,102 @@ func (client *Client) BatchUpdateRelationDatas(request *BatchUpdateRelationDatas
 	return _result, _err
 }
 
+// Summary:
+//
+// 核销权益库存
+//
+// @param request - ConsumeBenefitInventoryRequest
+//
+// @param headers - ConsumeBenefitInventoryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ConsumeBenefitInventoryResponse
+func (client *Client) ConsumeBenefitInventoryWithOptions(request *ConsumeBenefitInventoryRequest, headers *ConsumeBenefitInventoryHeaders, runtime *util.RuntimeOptions) (_result *ConsumeBenefitInventoryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BenefitCode)) {
+		body["benefitCode"] = request.BenefitCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizRequestId)) {
+		body["bizRequestId"] = request.BizRequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ConsumeQuota)) {
+		body["consumeQuota"] = request.ConsumeQuota
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OptUserId)) {
+		body["optUserId"] = request.OptUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ConsumeBenefitInventory"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/benefitInventories/consume"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ConsumeBenefitInventoryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 核销权益库存
+//
+// @param request - ConsumeBenefitInventoryRequest
+//
+// @return ConsumeBenefitInventoryResponse
+func (client *Client) ConsumeBenefitInventory(request *ConsumeBenefitInventoryRequest) (_result *ConsumeBenefitInventoryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ConsumeBenefitInventoryHeaders{}
+	_result = &ConsumeBenefitInventoryResponse{}
+	_body, _err := client.ConsumeBenefitInventoryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// CRM客户通讯录数据写入接口，支持客户&联系人数据合并写入
+//
+// @param request - CreateCustomerRequest
+//
+// @param headers - CreateCustomerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateCustomerResponse
 func (client *Client) CreateCustomerWithOptions(request *CreateCustomerRequest, headers *CreateCustomerHeaders, runtime *util.RuntimeOptions) (_result *CreateCustomerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14682,6 +23314,13 @@ func (client *Client) CreateCustomerWithOptions(request *CreateCustomerRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// CRM客户通讯录数据写入接口，支持客户&联系人数据合并写入
+//
+// @param request - CreateCustomerRequest
+//
+// @return CreateCustomerResponse
 func (client *Client) CreateCustomer(request *CreateCustomerRequest) (_result *CreateCustomerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateCustomerHeaders{}
@@ -14694,6 +23333,17 @@ func (client *Client) CreateCustomer(request *CreateCustomerRequest) (_result *C
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建客户群
+//
+// @param request - CreateGroupRequest
+//
+// @param headers - CreateGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateGroupResponse
 func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, headers *CreateGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14749,6 +23399,13 @@ func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建客户群
+//
+// @param request - CreateGroupRequest
+//
+// @return CreateGroupResponse
 func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateGroupHeaders{}
@@ -14761,6 +23418,17 @@ func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateG
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建群组
+//
+// @param request - CreateGroupSetRequest
+//
+// @param headers - CreateGroupSetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateGroupSetResponse
 func (client *Client) CreateGroupSetWithOptions(request *CreateGroupSetRequest, headers *CreateGroupSetHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupSetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14840,6 +23508,13 @@ func (client *Client) CreateGroupSetWithOptions(request *CreateGroupSetRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建群组
+//
+// @param request - CreateGroupSetRequest
+//
+// @return CreateGroupSetResponse
 func (client *Client) CreateGroupSet(request *CreateGroupSetRequest) (_result *CreateGroupSetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateGroupSetHeaders{}
@@ -14852,6 +23527,17 @@ func (client *Client) CreateGroupSet(request *CreateGroupSetRequest) (_result *C
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建关系模型表结构
+//
+// @param request - CreateRelationMetaRequest
+//
+// @param headers - CreateRelationMetaHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateRelationMetaResponse
 func (client *Client) CreateRelationMetaWithOptions(request *CreateRelationMetaRequest, headers *CreateRelationMetaHeaders, runtime *util.RuntimeOptions) (_result *CreateRelationMetaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14903,6 +23589,13 @@ func (client *Client) CreateRelationMetaWithOptions(request *CreateRelationMetaR
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建关系模型表结构
+//
+// @param request - CreateRelationMetaRequest
+//
+// @return CreateRelationMetaResponse
 func (client *Client) CreateRelationMeta(request *CreateRelationMetaRequest) (_result *CreateRelationMetaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateRelationMetaHeaders{}
@@ -14915,6 +23608,17 @@ func (client *Client) CreateRelationMeta(request *CreateRelationMetaRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除CRM自定义对象数据
+//
+// @param request - DeleteCrmCustomObjectDataRequest
+//
+// @param headers - DeleteCrmCustomObjectDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteCrmCustomObjectDataResponse
 func (client *Client) DeleteCrmCustomObjectDataWithOptions(instanceId *string, request *DeleteCrmCustomObjectDataRequest, headers *DeleteCrmCustomObjectDataHeaders, runtime *util.RuntimeOptions) (_result *DeleteCrmCustomObjectDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14958,6 +23662,13 @@ func (client *Client) DeleteCrmCustomObjectDataWithOptions(instanceId *string, r
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除CRM自定义对象数据
+//
+// @param request - DeleteCrmCustomObjectDataRequest
+//
+// @return DeleteCrmCustomObjectDataResponse
 func (client *Client) DeleteCrmCustomObjectData(instanceId *string, request *DeleteCrmCustomObjectDataRequest) (_result *DeleteCrmCustomObjectDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteCrmCustomObjectDataHeaders{}
@@ -14970,6 +23681,17 @@ func (client *Client) DeleteCrmCustomObjectData(instanceId *string, request *Del
 	return _result, _err
 }
 
+// Summary:
+//
+// crm自定义表单数据删除接口
+//
+// @param request - DeleteCrmFormInstanceRequest
+//
+// @param headers - DeleteCrmFormInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteCrmFormInstanceResponse
 func (client *Client) DeleteCrmFormInstanceWithOptions(instanceId *string, request *DeleteCrmFormInstanceRequest, headers *DeleteCrmFormInstanceHeaders, runtime *util.RuntimeOptions) (_result *DeleteCrmFormInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15017,6 +23739,13 @@ func (client *Client) DeleteCrmFormInstanceWithOptions(instanceId *string, reque
 	return _result, _err
 }
 
+// Summary:
+//
+// crm自定义表单数据删除接口
+//
+// @param request - DeleteCrmFormInstanceRequest
+//
+// @return DeleteCrmFormInstanceResponse
 func (client *Client) DeleteCrmFormInstance(instanceId *string, request *DeleteCrmFormInstanceRequest) (_result *DeleteCrmFormInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteCrmFormInstanceHeaders{}
@@ -15029,6 +23758,17 @@ func (client *Client) DeleteCrmFormInstance(instanceId *string, request *DeleteC
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除crm个人客户（或企业客户）
+//
+// @param request - DeleteCrmPersonalCustomerRequest
+//
+// @param headers - DeleteCrmPersonalCustomerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteCrmPersonalCustomerResponse
 func (client *Client) DeleteCrmPersonalCustomerWithOptions(dataId *string, request *DeleteCrmPersonalCustomerRequest, headers *DeleteCrmPersonalCustomerHeaders, runtime *util.RuntimeOptions) (_result *DeleteCrmPersonalCustomerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15076,6 +23816,13 @@ func (client *Client) DeleteCrmPersonalCustomerWithOptions(dataId *string, reque
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除crm个人客户（或企业客户）
+//
+// @param request - DeleteCrmPersonalCustomerRequest
+//
+// @return DeleteCrmPersonalCustomerResponse
 func (client *Client) DeleteCrmPersonalCustomer(dataId *string, request *DeleteCrmPersonalCustomerRequest) (_result *DeleteCrmPersonalCustomerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteCrmPersonalCustomerHeaders{}
@@ -15088,6 +23835,17 @@ func (client *Client) DeleteCrmPersonalCustomer(dataId *string, request *DeleteC
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除线索
+//
+// @param request - DeleteLeadsRequest
+//
+// @param headers - DeleteLeadsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteLeadsResponse
 func (client *Client) DeleteLeadsWithOptions(request *DeleteLeadsRequest, headers *DeleteLeadsHeaders, runtime *util.RuntimeOptions) (_result *DeleteLeadsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15131,6 +23889,13 @@ func (client *Client) DeleteLeadsWithOptions(request *DeleteLeadsRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除线索
+//
+// @param request - DeleteLeadsRequest
+//
+// @return DeleteLeadsResponse
 func (client *Client) DeleteLeads(request *DeleteLeadsRequest) (_result *DeleteLeadsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteLeadsHeaders{}
@@ -15143,6 +23908,17 @@ func (client *Client) DeleteLeads(request *DeleteLeadsRequest) (_result *DeleteL
 	return _result, _err
 }
 
+// Summary:
+//
+// 关系模型表结构删除字段
+//
+// @param request - DeleteRelationMetaFieldRequest
+//
+// @param headers - DeleteRelationMetaFieldHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteRelationMetaFieldResponse
 func (client *Client) DeleteRelationMetaFieldWithOptions(request *DeleteRelationMetaFieldRequest, headers *DeleteRelationMetaFieldHeaders, runtime *util.RuntimeOptions) (_result *DeleteRelationMetaFieldResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15198,6 +23974,13 @@ func (client *Client) DeleteRelationMetaFieldWithOptions(request *DeleteRelation
 	return _result, _err
 }
 
+// Summary:
+//
+// 关系模型表结构删除字段
+//
+// @param request - DeleteRelationMetaFieldRequest
+//
+// @return DeleteRelationMetaFieldResponse
 func (client *Client) DeleteRelationMetaField(request *DeleteRelationMetaFieldRequest) (_result *DeleteRelationMetaFieldResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteRelationMetaFieldHeaders{}
@@ -15210,6 +23993,17 @@ func (client *Client) DeleteRelationMetaField(request *DeleteRelationMetaFieldRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取CRM客户对象的元数据描述
+//
+// @param request - DescribeCrmPersonalCustomerObjectMetaRequest
+//
+// @param headers - DescribeCrmPersonalCustomerObjectMetaHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DescribeCrmPersonalCustomerObjectMetaResponse
 func (client *Client) DescribeCrmPersonalCustomerObjectMetaWithOptions(request *DescribeCrmPersonalCustomerObjectMetaRequest, headers *DescribeCrmPersonalCustomerObjectMetaHeaders, runtime *util.RuntimeOptions) (_result *DescribeCrmPersonalCustomerObjectMetaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15253,6 +24047,13 @@ func (client *Client) DescribeCrmPersonalCustomerObjectMetaWithOptions(request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取CRM客户对象的元数据描述
+//
+// @param request - DescribeCrmPersonalCustomerObjectMetaRequest
+//
+// @return DescribeCrmPersonalCustomerObjectMetaResponse
 func (client *Client) DescribeCrmPersonalCustomerObjectMeta(request *DescribeCrmPersonalCustomerObjectMetaRequest) (_result *DescribeCrmPersonalCustomerObjectMetaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DescribeCrmPersonalCustomerObjectMetaHeaders{}
@@ -15265,6 +24066,98 @@ func (client *Client) DescribeCrmPersonalCustomerObjectMeta(request *DescribeCrm
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询模型表结构
+//
+// @param request - DescribeMetaModelRequest
+//
+// @param headers - DescribeMetaModelHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DescribeMetaModelResponse
+func (client *Client) DescribeMetaModelWithOptions(request *DescribeMetaModelRequest, headers *DescribeMetaModelHeaders, runtime *util.RuntimeOptions) (_result *DescribeMetaModelResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizTypes)) {
+		body["bizTypes"] = request.BizTypes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Tenant)) {
+		body["tenant"] = request.Tenant
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DescribeMetaModel"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/metas/models/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DescribeMetaModelResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询模型表结构
+//
+// @param request - DescribeMetaModelRequest
+//
+// @return DescribeMetaModelResponse
+func (client *Client) DescribeMetaModel(request *DescribeMetaModelRequest) (_result *DescribeMetaModelResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DescribeMetaModelHeaders{}
+	_result = &DescribeMetaModelResponse{}
+	_body, _err := client.DescribeMetaModelWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询关系模型表结构
+//
+// @param request - DescribeRelationMetaRequest
+//
+// @param headers - DescribeRelationMetaHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DescribeRelationMetaResponse
 func (client *Client) DescribeRelationMetaWithOptions(request *DescribeRelationMetaRequest, headers *DescribeRelationMetaHeaders, runtime *util.RuntimeOptions) (_result *DescribeRelationMetaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15316,6 +24209,13 @@ func (client *Client) DescribeRelationMetaWithOptions(request *DescribeRelationM
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询关系模型表结构
+//
+// @param request - DescribeRelationMetaRequest
+//
+// @return DescribeRelationMetaResponse
 func (client *Client) DescribeRelationMeta(request *DescribeRelationMetaRequest) (_result *DescribeRelationMetaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DescribeRelationMetaHeaders{}
@@ -15328,6 +24228,17 @@ func (client *Client) DescribeRelationMeta(request *DescribeRelationMetaRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取关联对象的跟进记录列表
+//
+// @param request - FindTargetRelatedFollowRecordsRequest
+//
+// @param headers - FindTargetRelatedFollowRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return FindTargetRelatedFollowRecordsResponse
 func (client *Client) FindTargetRelatedFollowRecordsWithOptions(request *FindTargetRelatedFollowRecordsRequest, headers *FindTargetRelatedFollowRecordsHeaders, runtime *util.RuntimeOptions) (_result *FindTargetRelatedFollowRecordsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15383,6 +24294,13 @@ func (client *Client) FindTargetRelatedFollowRecordsWithOptions(request *FindTar
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取关联对象的跟进记录列表
+//
+// @param request - FindTargetRelatedFollowRecordsRequest
+//
+// @return FindTargetRelatedFollowRecordsResponse
 func (client *Client) FindTargetRelatedFollowRecords(request *FindTargetRelatedFollowRecordsRequest) (_result *FindTargetRelatedFollowRecordsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &FindTargetRelatedFollowRecordsHeaders{}
@@ -15395,6 +24313,17 @@ func (client *Client) FindTargetRelatedFollowRecords(request *FindTargetRelatedF
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取所有客户的掉保时间数据
+//
+// @param request - GetAllCustomerRecyclesRequest
+//
+// @param headers - GetAllCustomerRecyclesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAllCustomerRecyclesResponse
 func (client *Client) GetAllCustomerRecyclesWithOptions(request *GetAllCustomerRecyclesRequest, headers *GetAllCustomerRecyclesHeaders, runtime *util.RuntimeOptions) (_result *GetAllCustomerRecyclesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15442,6 +24371,13 @@ func (client *Client) GetAllCustomerRecyclesWithOptions(request *GetAllCustomerR
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取所有客户的掉保时间数据
+//
+// @param request - GetAllCustomerRecyclesRequest
+//
+// @return GetAllCustomerRecyclesResponse
 func (client *Client) GetAllCustomerRecycles(request *GetAllCustomerRecyclesRequest) (_result *GetAllCustomerRecyclesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAllCustomerRecyclesHeaders{}
@@ -15454,6 +24390,17 @@ func (client *Client) GetAllCustomerRecycles(request *GetAllCustomerRecyclesRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据指定条件查询联系人数据
+//
+// @param request - GetContactsRequest
+//
+// @param headers - GetContactsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetContactsResponse
 func (client *Client) GetContactsWithOptions(request *GetContactsRequest, headers *GetContactsHeaders, runtime *util.RuntimeOptions) (_result *GetContactsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15517,6 +24464,13 @@ func (client *Client) GetContactsWithOptions(request *GetContactsRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据指定条件查询联系人数据
+//
+// @param request - GetContactsRequest
+//
+// @return GetContactsResponse
 func (client *Client) GetContacts(request *GetContactsRequest) (_result *GetContactsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetContactsHeaders{}
@@ -15529,6 +24483,15 @@ func (client *Client) GetContacts(request *GetContactsRequest) (_result *GetCont
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取单个客户群
+//
+// @param headers - GetCrmGroupChatHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCrmGroupChatResponse
 func (client *Client) GetCrmGroupChatWithOptions(openConversationId *string, headers *GetCrmGroupChatHeaders, runtime *util.RuntimeOptions) (_result *GetCrmGroupChatResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -15562,6 +24525,11 @@ func (client *Client) GetCrmGroupChatWithOptions(openConversationId *string, hea
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取单个客户群
+//
+// @return GetCrmGroupChatResponse
 func (client *Client) GetCrmGroupChat(openConversationId *string) (_result *GetCrmGroupChatResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCrmGroupChatHeaders{}
@@ -15574,6 +24542,17 @@ func (client *Client) GetCrmGroupChat(openConversationId *string) (_result *GetC
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取多个客户群
+//
+// @param request - GetCrmGroupChatMultiRequest
+//
+// @param headers - GetCrmGroupChatMultiHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCrmGroupChatMultiResponse
 func (client *Client) GetCrmGroupChatMultiWithOptions(request *GetCrmGroupChatMultiRequest, headers *GetCrmGroupChatMultiHeaders, runtime *util.RuntimeOptions) (_result *GetCrmGroupChatMultiResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15617,6 +24596,13 @@ func (client *Client) GetCrmGroupChatMultiWithOptions(request *GetCrmGroupChatMu
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取多个客户群
+//
+// @param request - GetCrmGroupChatMultiRequest
+//
+// @return GetCrmGroupChatMultiResponse
 func (client *Client) GetCrmGroupChatMulti(request *GetCrmGroupChatMultiRequest) (_result *GetCrmGroupChatMultiResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCrmGroupChatMultiHeaders{}
@@ -15629,6 +24615,17 @@ func (client *Client) GetCrmGroupChatMulti(request *GetCrmGroupChatMultiRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取单个客户群
+//
+// @param request - GetCrmGroupChatSingleRequest
+//
+// @param headers - GetCrmGroupChatSingleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCrmGroupChatSingleResponse
 func (client *Client) GetCrmGroupChatSingleWithOptions(request *GetCrmGroupChatSingleRequest, headers *GetCrmGroupChatSingleHeaders, runtime *util.RuntimeOptions) (_result *GetCrmGroupChatSingleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15672,6 +24669,13 @@ func (client *Client) GetCrmGroupChatSingleWithOptions(request *GetCrmGroupChatS
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取单个客户群
+//
+// @param request - GetCrmGroupChatSingleRequest
+//
+// @return GetCrmGroupChatSingleResponse
 func (client *Client) GetCrmGroupChatSingle(request *GetCrmGroupChatSingleRequest) (_result *GetCrmGroupChatSingleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCrmGroupChatSingleHeaders{}
@@ -15684,6 +24688,17 @@ func (client *Client) GetCrmGroupChatSingle(request *GetCrmGroupChatSingleReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取CRM表单权限配置
+//
+// @param request - GetCrmRolePermissionRequest
+//
+// @param headers - GetCrmRolePermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCrmRolePermissionResponse
 func (client *Client) GetCrmRolePermissionWithOptions(request *GetCrmRolePermissionRequest, headers *GetCrmRolePermissionHeaders, runtime *util.RuntimeOptions) (_result *GetCrmRolePermissionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15731,6 +24746,13 @@ func (client *Client) GetCrmRolePermissionWithOptions(request *GetCrmRolePermiss
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取CRM表单权限配置
+//
+// @param request - GetCrmRolePermissionRequest
+//
+// @return GetCrmRolePermissionResponse
 func (client *Client) GetCrmRolePermission(request *GetCrmRolePermissionRequest) (_result *GetCrmRolePermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCrmRolePermissionHeaders{}
@@ -15743,6 +24765,17 @@ func (client *Client) GetCrmRolePermission(request *GetCrmRolePermissionRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取某个客户的客户动态
+//
+// @param request - GetCustomerTracksByRelationIdRequest
+//
+// @param headers - GetCustomerTracksByRelationIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCustomerTracksByRelationIdResponse
 func (client *Client) GetCustomerTracksByRelationIdWithOptions(request *GetCustomerTracksByRelationIdRequest, headers *GetCustomerTracksByRelationIdHeaders, runtime *util.RuntimeOptions) (_result *GetCustomerTracksByRelationIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15798,6 +24831,13 @@ func (client *Client) GetCustomerTracksByRelationIdWithOptions(request *GetCusto
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取某个客户的客户动态
+//
+// @param request - GetCustomerTracksByRelationIdRequest
+//
+// @return GetCustomerTracksByRelationIdResponse
 func (client *Client) GetCustomerTracksByRelationId(request *GetCustomerTracksByRelationIdRequest) (_result *GetCustomerTracksByRelationIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCustomerTracksByRelationIdHeaders{}
@@ -15810,6 +24850,17 @@ func (client *Client) GetCustomerTracksByRelationId(request *GetCustomerTracksBy
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询群组
+//
+// @param request - GetGroupSetRequest
+//
+// @param headers - GetGroupSetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetGroupSetResponse
 func (client *Client) GetGroupSetWithOptions(request *GetGroupSetRequest, headers *GetGroupSetHeaders, runtime *util.RuntimeOptions) (_result *GetGroupSetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15853,6 +24904,13 @@ func (client *Client) GetGroupSetWithOptions(request *GetGroupSetRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询群组
+//
+// @param request - GetGroupSetRequest
+//
+// @return GetGroupSetResponse
 func (client *Client) GetGroupSet(request *GetGroupSetRequest) (_result *GetGroupSetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetGroupSetHeaders{}
@@ -15865,6 +24923,90 @@ func (client *Client) GetGroupSet(request *GetGroupSetRequest) (_result *GetGrou
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取内购商品信息
+//
+// @param request - GetInAppPurchaseGoodsRequest
+//
+// @param headers - GetInAppPurchaseGoodsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetInAppPurchaseGoodsResponse
+func (client *Client) GetInAppPurchaseGoodsWithOptions(request *GetInAppPurchaseGoodsRequest, headers *GetInAppPurchaseGoodsHeaders, runtime *util.RuntimeOptions) (_result *GetInAppPurchaseGoodsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetInAppPurchaseGoods"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/inAppPurchaseGoods/infos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetInAppPurchaseGoodsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取内购商品信息
+//
+// @param request - GetInAppPurchaseGoodsRequest
+//
+// @return GetInAppPurchaseGoodsResponse
+func (client *Client) GetInAppPurchaseGoods(request *GetInAppPurchaseGoodsRequest) (_result *GetInAppPurchaseGoodsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetInAppPurchaseGoodsHeaders{}
+	_result = &GetInAppPurchaseGoodsResponse{}
+	_body, _err := client.GetInAppPurchaseGoodsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取自定义导航挂靠节点结构
+//
+// @param request - GetNavigationCatalogRequest
+//
+// @param headers - GetNavigationCatalogHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetNavigationCatalogResponse
 func (client *Client) GetNavigationCatalogWithOptions(request *GetNavigationCatalogRequest, headers *GetNavigationCatalogHeaders, runtime *util.RuntimeOptions) (_result *GetNavigationCatalogResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15916,6 +25058,13 @@ func (client *Client) GetNavigationCatalogWithOptions(request *GetNavigationCata
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取自定义导航挂靠节点结构
+//
+// @param request - GetNavigationCatalogRequest
+//
+// @return GetNavigationCatalogResponse
 func (client *Client) GetNavigationCatalog(request *GetNavigationCatalogRequest) (_result *GetNavigationCatalogResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetNavigationCatalogHeaders{}
@@ -15928,6 +25077,17 @@ func (client *Client) GetNavigationCatalog(request *GetNavigationCatalogRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据指定条件查询自定义对象数据
+//
+// @param request - GetObjectDataRequest
+//
+// @param headers - GetObjectDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetObjectDataResponse
 func (client *Client) GetObjectDataWithOptions(request *GetObjectDataRequest, headers *GetObjectDataHeaders, runtime *util.RuntimeOptions) (_result *GetObjectDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15987,6 +25147,13 @@ func (client *Client) GetObjectDataWithOptions(request *GetObjectDataRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据指定条件查询自定义对象数据
+//
+// @param request - GetObjectDataRequest
+//
+// @return GetObjectDataResponse
 func (client *Client) GetObjectData(request *GetObjectDataRequest) (_result *GetObjectDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetObjectDataHeaders{}
@@ -15999,6 +25166,15 @@ func (client *Client) GetObjectData(request *GetObjectDataRequest) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取关注服务窗的联系人信息，包括手机号、主企业等字段，调用前先进行用户授权
+//
+// @param headers - GetOfficialAccountContactInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetOfficialAccountContactInfoResponse
 func (client *Client) GetOfficialAccountContactInfoWithOptions(userId *string, headers *GetOfficialAccountContactInfoHeaders, runtime *util.RuntimeOptions) (_result *GetOfficialAccountContactInfoResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -16032,6 +25208,11 @@ func (client *Client) GetOfficialAccountContactInfoWithOptions(userId *string, h
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取关注服务窗的联系人信息，包括手机号、主企业等字段，调用前先进行用户授权
+//
+// @return GetOfficialAccountContactInfoResponse
 func (client *Client) GetOfficialAccountContactInfo(userId *string) (_result *GetOfficialAccountContactInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOfficialAccountContactInfoHeaders{}
@@ -16044,6 +25225,17 @@ func (client *Client) GetOfficialAccountContactInfo(userId *string) (_result *Ge
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取服务窗联系人信息
+//
+// @param request - GetOfficialAccountContactsRequest
+//
+// @param headers - GetOfficialAccountContactsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetOfficialAccountContactsResponse
 func (client *Client) GetOfficialAccountContactsWithOptions(request *GetOfficialAccountContactsRequest, headers *GetOfficialAccountContactsHeaders, runtime *util.RuntimeOptions) (_result *GetOfficialAccountContactsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16091,6 +25283,13 @@ func (client *Client) GetOfficialAccountContactsWithOptions(request *GetOfficial
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取服务窗联系人信息
+//
+// @param request - GetOfficialAccountContactsRequest
+//
+// @return GetOfficialAccountContactsResponse
 func (client *Client) GetOfficialAccountContacts(request *GetOfficialAccountContactsRequest) (_result *GetOfficialAccountContactsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOfficialAccountContactsHeaders{}
@@ -16103,6 +25302,17 @@ func (client *Client) GetOfficialAccountContacts(request *GetOfficialAccountCont
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取服务窗消息发送的结果
+//
+// @param request - GetOfficialAccountOTOMessageResultRequest
+//
+// @param headers - GetOfficialAccountOTOMessageResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetOfficialAccountOTOMessageResultResponse
 func (client *Client) GetOfficialAccountOTOMessageResultWithOptions(request *GetOfficialAccountOTOMessageResultRequest, headers *GetOfficialAccountOTOMessageResultHeaders, runtime *util.RuntimeOptions) (_result *GetOfficialAccountOTOMessageResultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16150,6 +25360,13 @@ func (client *Client) GetOfficialAccountOTOMessageResultWithOptions(request *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取服务窗消息发送的结果
+//
+// @param request - GetOfficialAccountOTOMessageResultRequest
+//
+// @return GetOfficialAccountOTOMessageResultResponse
 func (client *Client) GetOfficialAccountOTOMessageResult(request *GetOfficialAccountOTOMessageResultRequest) (_result *GetOfficialAccountOTOMessageResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOfficialAccountOTOMessageResultHeaders{}
@@ -16162,6 +25379,187 @@ func (client *Client) GetOfficialAccountOTOMessageResult(request *GetOfficialAcc
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取某个和oa关联的表单的具体数据
+//
+// @param request - GetRelatedViewTabDataRequest
+//
+// @param headers - GetRelatedViewTabDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetRelatedViewTabDataResponse
+func (client *Client) GetRelatedViewTabDataWithOptions(request *GetRelatedViewTabDataRequest, headers *GetRelatedViewTabDataHeaders, runtime *util.RuntimeOptions) (_result *GetRelatedViewTabDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormCode)) {
+		body["formCode"] = request.FormCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelatedField)) {
+		body["relatedField"] = request.RelatedField
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelatedInstId)) {
+		body["relatedInstId"] = request.RelatedInstId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ViewUserId)) {
+		body["viewUserId"] = request.ViewUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetRelatedViewTabData"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/formRelatedTabs/datas/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetRelatedViewTabDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取某个和oa关联的表单的具体数据
+//
+// @param request - GetRelatedViewTabDataRequest
+//
+// @return GetRelatedViewTabDataResponse
+func (client *Client) GetRelatedViewTabData(request *GetRelatedViewTabDataRequest) (_result *GetRelatedViewTabDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetRelatedViewTabDataHeaders{}
+	_result = &GetRelatedViewTabDataResponse{}
+	_body, _err := client.GetRelatedViewTabDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取和oa关联的表单tab信息
+//
+// @param request - GetRelatedViewTabMetaRequest
+//
+// @param headers - GetRelatedViewTabMetaHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetRelatedViewTabMetaResponse
+func (client *Client) GetRelatedViewTabMetaWithOptions(request *GetRelatedViewTabMetaRequest, headers *GetRelatedViewTabMetaHeaders, runtime *util.RuntimeOptions) (_result *GetRelatedViewTabMetaResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormCode)) {
+		body["formCode"] = request.FormCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ViewUserId)) {
+		body["viewUserId"] = request.ViewUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetRelatedViewTabMeta"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/formRelatedTabs/meta/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetRelatedViewTabMetaResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取和oa关联的表单tab信息
+//
+// @param request - GetRelatedViewTabMetaRequest
+//
+// @return GetRelatedViewTabMetaResponse
+func (client *Client) GetRelatedViewTabMeta(request *GetRelatedViewTabMetaRequest) (_result *GetRelatedViewTabMetaResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetRelatedViewTabMetaHeaders{}
+	_result = &GetRelatedViewTabMetaResponse{}
+	_body, _err := client.GetRelatedViewTabMetaWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取关系数据查重规则
+//
+// @param request - GetRelationUkSettingRequest
+//
+// @param headers - GetRelationUkSettingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetRelationUkSettingResponse
 func (client *Client) GetRelationUkSettingWithOptions(request *GetRelationUkSettingRequest, headers *GetRelationUkSettingHeaders, runtime *util.RuntimeOptions) (_result *GetRelationUkSettingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16205,6 +25603,13 @@ func (client *Client) GetRelationUkSettingWithOptions(request *GetRelationUkSett
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取关系数据查重规则
+//
+// @param request - GetRelationUkSettingRequest
+//
+// @return GetRelationUkSettingResponse
 func (client *Client) GetRelationUkSetting(request *GetRelationUkSettingRequest) (_result *GetRelationUkSettingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetRelationUkSettingHeaders{}
@@ -16217,6 +25622,17 @@ func (client *Client) GetRelationUkSetting(request *GetRelationUkSettingRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 加入群组
+//
+// @param request - JoinGroupSetRequest
+//
+// @param headers - JoinGroupSetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return JoinGroupSetResponse
 func (client *Client) JoinGroupSetWithOptions(request *JoinGroupSetRequest, headers *JoinGroupSetHeaders, runtime *util.RuntimeOptions) (_result *JoinGroupSetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16272,6 +25688,13 @@ func (client *Client) JoinGroupSetWithOptions(request *JoinGroupSetRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 加入群组
+//
+// @param request - JoinGroupSetRequest
+//
+// @return JoinGroupSetResponse
 func (client *Client) JoinGroupSet(request *JoinGroupSetRequest) (_result *JoinGroupSetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &JoinGroupSetHeaders{}
@@ -16284,6 +25707,161 @@ func (client *Client) JoinGroupSet(request *JoinGroupSetRequest) (_result *JoinG
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询可用权益
+//
+// @param request - ListAvailableBenefitRequest
+//
+// @param headers - ListAvailableBenefitHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListAvailableBenefitResponse
+func (client *Client) ListAvailableBenefitWithOptions(request *ListAvailableBenefitRequest, headers *ListAvailableBenefitHeaders, runtime *util.RuntimeOptions) (_result *ListAvailableBenefitResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BenefitCodeList)) {
+		body["benefitCodeList"] = request.BenefitCodeList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListAvailableBenefit"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/benefits/lists/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListAvailableBenefitResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量查询可用权益
+//
+// @param request - ListAvailableBenefitRequest
+//
+// @return ListAvailableBenefitResponse
+func (client *Client) ListAvailableBenefit(request *ListAvailableBenefitRequest) (_result *ListAvailableBenefitResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListAvailableBenefitHeaders{}
+	_result = &ListAvailableBenefitResponse{}
+	_body, _err := client.ListAvailableBenefitWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量查询license
+//
+// @param request - ListBenefitLicenseRequest
+//
+// @param headers - ListBenefitLicenseHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListBenefitLicenseResponse
+func (client *Client) ListBenefitLicenseWithOptions(request *ListBenefitLicenseRequest, headers *ListBenefitLicenseHeaders, runtime *util.RuntimeOptions) (_result *ListBenefitLicenseResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Domains)) {
+		body["domains"] = request.Domains
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListBenefitLicense"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/benefitLicenses/lists/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListBenefitLicenseResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量查询license
+//
+// @param request - ListBenefitLicenseRequest
+//
+// @return ListBenefitLicenseResponse
+func (client *Client) ListBenefitLicense(request *ListBenefitLicenseRequest) (_result *ListBenefitLicenseResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListBenefitLicenseHeaders{}
+	_result = &ListBenefitLicenseResponse{}
+	_body, _err := client.ListBenefitLicenseWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取线索标签列表
+//
+// @param headers - ListClueTagHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListClueTagResponse
 func (client *Client) ListClueTagWithOptions(headers *ListClueTagHeaders, runtime *util.RuntimeOptions) (_result *ListClueTagResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -16317,6 +25895,11 @@ func (client *Client) ListClueTagWithOptions(headers *ListClueTagHeaders, runtim
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取线索标签列表
+//
+// @return ListClueTagResponse
 func (client *Client) ListClueTag() (_result *ListClueTagResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListClueTagHeaders{}
@@ -16329,6 +25912,17 @@ func (client *Client) ListClueTag() (_result *ListClueTagResponse, _err error) {
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取crm个人客户
+//
+// @param request - ListCrmPersonalCustomersRequest
+//
+// @param headers - ListCrmPersonalCustomersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListCrmPersonalCustomersResponse
 func (client *Client) ListCrmPersonalCustomersWithOptions(request *ListCrmPersonalCustomersRequest, headers *ListCrmPersonalCustomersHeaders, runtime *util.RuntimeOptions) (_result *ListCrmPersonalCustomersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16377,6 +25971,13 @@ func (client *Client) ListCrmPersonalCustomersWithOptions(request *ListCrmPerson
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取crm个人客户
+//
+// @param request - ListCrmPersonalCustomersRequest
+//
+// @return ListCrmPersonalCustomersResponse
 func (client *Client) ListCrmPersonalCustomers(request *ListCrmPersonalCustomersRequest) (_result *ListCrmPersonalCustomersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListCrmPersonalCustomersHeaders{}
@@ -16389,6 +25990,17 @@ func (client *Client) ListCrmPersonalCustomers(request *ListCrmPersonalCustomers
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询群组列表
+//
+// @param request - ListGroupSetRequest
+//
+// @param headers - ListGroupSetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListGroupSetResponse
 func (client *Client) ListGroupSetWithOptions(request *ListGroupSetRequest, headers *ListGroupSetHeaders, runtime *util.RuntimeOptions) (_result *ListGroupSetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16444,6 +26056,13 @@ func (client *Client) ListGroupSetWithOptions(request *ListGroupSetRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询群组列表
+//
+// @param request - ListGroupSetRequest
+//
+// @return ListGroupSetResponse
 func (client *Client) ListGroupSet(request *ListGroupSetRequest) (_result *ListGroupSetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListGroupSetHeaders{}
@@ -16456,6 +26075,110 @@ func (client *Client) ListGroupSet(request *ListGroupSetRequest) (_result *ListG
 	return _result, _err
 }
 
+// Summary:
+//
+// 覆盖更新客户数据权限
+//
+// @param request - OverrideUpdateCustomerDataAuthRequest
+//
+// @param headers - OverrideUpdateCustomerDataAuthHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return OverrideUpdateCustomerDataAuthResponse
+func (client *Client) OverrideUpdateCustomerDataAuthWithOptions(request *OverrideUpdateCustomerDataAuthRequest, headers *OverrideUpdateCustomerDataAuthHeaders, runtime *util.RuntimeOptions) (_result *OverrideUpdateCustomerDataAuthResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CustomerIds)) {
+		body["customerIds"] = request.CustomerIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DataAuthUserIds)) {
+		body["dataAuthUserIds"] = request.DataAuthUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormCode)) {
+		body["formCode"] = request.FormCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperateUserId)) {
+		body["operateUserId"] = request.OperateUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RelationType)) {
+		body["relationType"] = request.RelationType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleType)) {
+		body["roleType"] = request.RoleType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("OverrideUpdateCustomerDataAuth"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/customers/dataAuth/overrideUpdate"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &OverrideUpdateCustomerDataAuthResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 覆盖更新客户数据权限
+//
+// @param request - OverrideUpdateCustomerDataAuthRequest
+//
+// @return OverrideUpdateCustomerDataAuthResponse
+func (client *Client) OverrideUpdateCustomerDataAuth(request *OverrideUpdateCustomerDataAuthRequest) (_result *OverrideUpdateCustomerDataAuthResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &OverrideUpdateCustomerDataAuthHeaders{}
+	_result = &OverrideUpdateCustomerDataAuthResponse{}
+	_body, _err := client.OverrideUpdateCustomerDataAuthWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页获取全量客户数据，根据不同的类型可以获取私海个人客户、企业客户，以及公海个人客户、企业客户，最多一次可获取100条数据
+//
+// @param request - QueryAllCustomerRequest
+//
+// @param headers - QueryAllCustomerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryAllCustomerResponse
 func (client *Client) QueryAllCustomerWithOptions(request *QueryAllCustomerRequest, headers *QueryAllCustomerHeaders, runtime *util.RuntimeOptions) (_result *QueryAllCustomerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16511,6 +26234,13 @@ func (client *Client) QueryAllCustomerWithOptions(request *QueryAllCustomerReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取全量客户数据，根据不同的类型可以获取私海个人客户、企业客户，以及公海个人客户、企业客户，最多一次可获取100条数据
+//
+// @param request - QueryAllCustomerRequest
+//
+// @return QueryAllCustomerResponse
 func (client *Client) QueryAllCustomer(request *QueryAllCustomerRequest) (_result *QueryAllCustomerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryAllCustomerHeaders{}
@@ -16523,6 +26253,17 @@ func (client *Client) QueryAllCustomer(request *QueryAllCustomerRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询企业客户动态
+//
+// @param request - QueryAllTracksRequest
+//
+// @param headers - QueryAllTracksHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryAllTracksResponse
 func (client *Client) QueryAllTracksWithOptions(request *QueryAllTracksRequest, headers *QueryAllTracksHeaders, runtime *util.RuntimeOptions) (_result *QueryAllTracksResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16574,6 +26315,13 @@ func (client *Client) QueryAllTracksWithOptions(request *QueryAllTracksRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询企业客户动态
+//
+// @param request - QueryAllTracksRequest
+//
+// @return QueryAllTracksResponse
 func (client *Client) QueryAllTracks(request *QueryAllTracksRequest) (_result *QueryAllTracksResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryAllTracksHeaders{}
@@ -16586,6 +26334,163 @@ func (client *Client) QueryAllTracks(request *QueryAllTracksRequest) (_result *Q
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询客户管理应用管理员
+//
+// @param request - QueryAppManagerRequest
+//
+// @param headers - QueryAppManagerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryAppManagerResponse
+func (client *Client) QueryAppManagerWithOptions(request *QueryAppManagerRequest, headers *QueryAppManagerHeaders, runtime *util.RuntimeOptions) (_result *QueryAppManagerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryAppManager"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/apps/managers/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryAppManagerResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询客户管理应用管理员
+//
+// @param request - QueryAppManagerRequest
+//
+// @return QueryAppManagerResponse
+func (client *Client) QueryAppManager(request *QueryAppManagerRequest) (_result *QueryAppManagerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryAppManagerHeaders{}
+	_result = &QueryAppManagerResponse{}
+	_body, _err := client.QueryAppManagerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询权益库存
+//
+// @param request - QueryBenefitInventoryRequest
+//
+// @param headers - QueryBenefitInventoryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryBenefitInventoryResponse
+func (client *Client) QueryBenefitInventoryWithOptions(request *QueryBenefitInventoryRequest, headers *QueryBenefitInventoryHeaders, runtime *util.RuntimeOptions) (_result *QueryBenefitInventoryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BenefitCode)) {
+		body["benefitCode"] = request.BenefitCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryBenefitInventory"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/benefitInventories/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryBenefitInventoryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询权益库存
+//
+// @param request - QueryBenefitInventoryRequest
+//
+// @return QueryBenefitInventoryResponse
+func (client *Client) QueryBenefitInventory(request *QueryBenefitInventoryRequest) (_result *QueryBenefitInventoryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryBenefitInventoryHeaders{}
+	_result = &QueryBenefitInventoryResponse{}
+	_body, _err := client.QueryBenefitInventoryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询线索跟进状态
+//
+// @param request - QueryClueFollowStatusRequest
+//
+// @param headers - QueryClueFollowStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryClueFollowStatusResponse
 func (client *Client) QueryClueFollowStatusWithOptions(request *QueryClueFollowStatusRequest, headers *QueryClueFollowStatusHeaders, runtime *util.RuntimeOptions) (_result *QueryClueFollowStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16629,6 +26534,13 @@ func (client *Client) QueryClueFollowStatusWithOptions(request *QueryClueFollowS
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询线索跟进状态
+//
+// @param request - QueryClueFollowStatusRequest
+//
+// @return QueryClueFollowStatusResponse
 func (client *Client) QueryClueFollowStatus(request *QueryClueFollowStatusRequest) (_result *QueryClueFollowStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryClueFollowStatusHeaders{}
@@ -16641,6 +26553,17 @@ func (client *Client) QueryClueFollowStatus(request *QueryClueFollowStatusReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询客户群
+//
+// @param request - QueryCrmGroupChatsRequest
+//
+// @param headers - QueryCrmGroupChatsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCrmGroupChatsResponse
 func (client *Client) QueryCrmGroupChatsWithOptions(request *QueryCrmGroupChatsRequest, headers *QueryCrmGroupChatsHeaders, runtime *util.RuntimeOptions) (_result *QueryCrmGroupChatsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16696,6 +26619,13 @@ func (client *Client) QueryCrmGroupChatsWithOptions(request *QueryCrmGroupChatsR
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询客户群
+//
+// @param request - QueryCrmGroupChatsRequest
+//
+// @return QueryCrmGroupChatsResponse
 func (client *Client) QueryCrmGroupChats(request *QueryCrmGroupChatsRequest) (_result *QueryCrmGroupChatsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryCrmGroupChatsHeaders{}
@@ -16708,6 +26638,17 @@ func (client *Client) QueryCrmGroupChats(request *QueryCrmGroupChatsRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据指定查询条件批量获取客户数据
+//
+// @param request - QueryCrmPersonalCustomerRequest
+//
+// @param headers - QueryCrmPersonalCustomerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCrmPersonalCustomerResponse
 func (client *Client) QueryCrmPersonalCustomerWithOptions(request *QueryCrmPersonalCustomerRequest, headers *QueryCrmPersonalCustomerHeaders, runtime *util.RuntimeOptions) (_result *QueryCrmPersonalCustomerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16767,6 +26708,13 @@ func (client *Client) QueryCrmPersonalCustomerWithOptions(request *QueryCrmPerso
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据指定查询条件批量获取客户数据
+//
+// @param request - QueryCrmPersonalCustomerRequest
+//
+// @return QueryCrmPersonalCustomerResponse
 func (client *Client) QueryCrmPersonalCustomer(request *QueryCrmPersonalCustomerRequest) (_result *QueryCrmPersonalCustomerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryCrmPersonalCustomerHeaders{}
@@ -16779,6 +26727,90 @@ func (client *Client) QueryCrmPersonalCustomer(request *QueryCrmPersonalCustomer
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询客户模板启用类型
+//
+// @param request - QueryCustomerBizTypeRequest
+//
+// @param headers - QueryCustomerBizTypeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCustomerBizTypeResponse
+func (client *Client) QueryCustomerBizTypeWithOptions(request *QueryCustomerBizTypeRequest, headers *QueryCustomerBizTypeHeaders, runtime *util.RuntimeOptions) (_result *QueryCustomerBizTypeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryCustomerBizType"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/orgSettings/templates/customerBizTypes/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryCustomerBizTypeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询客户模板启用类型
+//
+// @param request - QueryCustomerBizTypeRequest
+//
+// @return QueryCustomerBizTypeResponse
+func (client *Client) QueryCustomerBizType(request *QueryCustomerBizTypeRequest) (_result *QueryCustomerBizTypeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCustomerBizTypeHeaders{}
+	_result = &QueryCustomerBizTypeResponse{}
+	_body, _err := client.QueryCustomerBizTypeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 营销服融合三方全局信息
+//
+// @param request - QueryGlobalInfoRequest
+//
+// @param headers - QueryGlobalInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryGlobalInfoResponse
 func (client *Client) QueryGlobalInfoWithOptions(request *QueryGlobalInfoRequest, headers *QueryGlobalInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryGlobalInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16822,6 +26854,13 @@ func (client *Client) QueryGlobalInfoWithOptions(request *QueryGlobalInfoRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 营销服融合三方全局信息
+//
+// @param request - QueryGlobalInfoRequest
+//
+// @return QueryGlobalInfoResponse
 func (client *Client) QueryGlobalInfo(request *QueryGlobalInfoRequest) (_result *QueryGlobalInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryGlobalInfoHeaders{}
@@ -16834,6 +26873,90 @@ func (client *Client) QueryGlobalInfo(request *QueryGlobalInfoRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户是否有应用管理员权限
+//
+// @param request - QueryHasAppPermissionRequest
+//
+// @param headers - QueryHasAppPermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryHasAppPermissionResponse
+func (client *Client) QueryHasAppPermissionWithOptions(request *QueryHasAppPermissionRequest, headers *QueryHasAppPermissionHeaders, runtime *util.RuntimeOptions) (_result *QueryHasAppPermissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryHasAppPermission"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/apps/adminPermissions/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryHasAppPermissionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询用户是否有应用管理员权限
+//
+// @param request - QueryHasAppPermissionRequest
+//
+// @return QueryHasAppPermissionResponse
+func (client *Client) QueryHasAppPermission(request *QueryHasAppPermissionRequest) (_result *QueryHasAppPermissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryHasAppPermissionHeaders{}
+	_result = &QueryHasAppPermissionResponse{}
+	_body, _err := client.QueryHasAppPermissionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询服务窗用户基础信息
+//
+// @param request - QueryOfficialAccountUserBasicInfoRequest
+//
+// @param headers - QueryOfficialAccountUserBasicInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryOfficialAccountUserBasicInfoResponse
 func (client *Client) QueryOfficialAccountUserBasicInfoWithOptions(request *QueryOfficialAccountUserBasicInfoRequest, headers *QueryOfficialAccountUserBasicInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryOfficialAccountUserBasicInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16881,6 +27004,13 @@ func (client *Client) QueryOfficialAccountUserBasicInfoWithOptions(request *Quer
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询服务窗用户基础信息
+//
+// @param request - QueryOfficialAccountUserBasicInfoRequest
+//
+// @return QueryOfficialAccountUserBasicInfoResponse
 func (client *Client) QueryOfficialAccountUserBasicInfo(request *QueryOfficialAccountUserBasicInfoRequest) (_result *QueryOfficialAccountUserBasicInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryOfficialAccountUserBasicInfoHeaders{}
@@ -16893,6 +27023,17 @@ func (client *Client) QueryOfficialAccountUserBasicInfo(request *QueryOfficialAc
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据targetId查询关系数据
+//
+// @param request - QueryRelationDatasByTargetIdRequest
+//
+// @param headers - QueryRelationDatasByTargetIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryRelationDatasByTargetIdResponse
 func (client *Client) QueryRelationDatasByTargetIdWithOptions(targetId *string, request *QueryRelationDatasByTargetIdRequest, headers *QueryRelationDatasByTargetIdHeaders, runtime *util.RuntimeOptions) (_result *QueryRelationDatasByTargetIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16936,6 +27077,13 @@ func (client *Client) QueryRelationDatasByTargetIdWithOptions(targetId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据targetId查询关系数据
+//
+// @param request - QueryRelationDatasByTargetIdRequest
+//
+// @return QueryRelationDatasByTargetIdResponse
 func (client *Client) QueryRelationDatasByTargetId(targetId *string, request *QueryRelationDatasByTargetIdRequest) (_result *QueryRelationDatasByTargetIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryRelationDatasByTargetIdHeaders{}
@@ -16948,6 +27096,17 @@ func (client *Client) QueryRelationDatasByTargetId(targetId *string, request *Qu
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗消息撤回
+//
+// @param request - RecallOfficialAccountOTOMessageRequest
+//
+// @param headers - RecallOfficialAccountOTOMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RecallOfficialAccountOTOMessageResponse
 func (client *Client) RecallOfficialAccountOTOMessageWithOptions(request *RecallOfficialAccountOTOMessageRequest, headers *RecallOfficialAccountOTOMessageHeaders, runtime *util.RuntimeOptions) (_result *RecallOfficialAccountOTOMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16995,6 +27154,13 @@ func (client *Client) RecallOfficialAccountOTOMessageWithOptions(request *Recall
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗消息撤回
+//
+// @param request - RecallOfficialAccountOTOMessageRequest
+//
+// @return RecallOfficialAccountOTOMessageResponse
 func (client *Client) RecallOfficialAccountOTOMessage(request *RecallOfficialAccountOTOMessageRequest) (_result *RecallOfficialAccountOTOMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RecallOfficialAccountOTOMessageHeaders{}
@@ -17007,6 +27173,98 @@ func (client *Client) RecallOfficialAccountOTOMessage(request *RecallOfficialAcc
 	return _result, _err
 }
 
+// Summary:
+//
+// 保存license
+//
+// @param request - SaveBenefitLicenseRequest
+//
+// @param headers - SaveBenefitLicenseHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SaveBenefitLicenseResponse
+func (client *Client) SaveBenefitLicenseWithOptions(request *SaveBenefitLicenseRequest, headers *SaveBenefitLicenseHeaders, runtime *util.RuntimeOptions) (_result *SaveBenefitLicenseResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Domain)) {
+		body["domain"] = request.Domain
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Licenses)) {
+		body["licenses"] = request.Licenses
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SaveUserId)) {
+		body["saveUserId"] = request.SaveUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SaveBenefitLicense"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/benefitLicenses/save"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SaveBenefitLicenseResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 保存license
+//
+// @param request - SaveBenefitLicenseRequest
+//
+// @return SaveBenefitLicenseResponse
+func (client *Client) SaveBenefitLicense(request *SaveBenefitLicenseRequest) (_result *SaveBenefitLicenseResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SaveBenefitLicenseHeaders{}
+	_result = &SaveBenefitLicenseResponse{}
+	_body, _err := client.SaveBenefitLicenseWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 服务窗单发接口，指定消息接收人发送
+//
+// @param request - SendOfficialAccountOTOMessageRequest
+//
+// @param headers - SendOfficialAccountOTOMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendOfficialAccountOTOMessageResponse
 func (client *Client) SendOfficialAccountOTOMessageWithOptions(request *SendOfficialAccountOTOMessageRequest, headers *SendOfficialAccountOTOMessageHeaders, runtime *util.RuntimeOptions) (_result *SendOfficialAccountOTOMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17058,6 +27316,13 @@ func (client *Client) SendOfficialAccountOTOMessageWithOptions(request *SendOffi
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗单发接口，指定消息接收人发送
+//
+// @param request - SendOfficialAccountOTOMessageRequest
+//
+// @return SendOfficialAccountOTOMessageResponse
 func (client *Client) SendOfficialAccountOTOMessage(request *SendOfficialAccountOTOMessageRequest) (_result *SendOfficialAccountOTOMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendOfficialAccountOTOMessageHeaders{}
@@ -17070,6 +27335,17 @@ func (client *Client) SendOfficialAccountOTOMessage(request *SendOfficialAccount
 	return _result, _err
 }
 
+// Summary:
+//
+// 个人应用发送服务窗消息
+//
+// @param request - SendOfficialAccountSNSMessageRequest
+//
+// @param headers - SendOfficialAccountSNSMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendOfficialAccountSNSMessageResponse
 func (client *Client) SendOfficialAccountSNSMessageWithOptions(request *SendOfficialAccountSNSMessageRequest, headers *SendOfficialAccountSNSMessageHeaders, runtime *util.RuntimeOptions) (_result *SendOfficialAccountSNSMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17121,6 +27397,13 @@ func (client *Client) SendOfficialAccountSNSMessageWithOptions(request *SendOffi
 	return _result, _err
 }
 
+// Summary:
+//
+// 个人应用发送服务窗消息
+//
+// @param request - SendOfficialAccountSNSMessageRequest
+//
+// @return SendOfficialAccountSNSMessageResponse
 func (client *Client) SendOfficialAccountSNSMessage(request *SendOfficialAccountSNSMessageRequest) (_result *SendOfficialAccountSNSMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendOfficialAccountSNSMessageHeaders{}
@@ -17133,6 +27416,17 @@ func (client *Client) SendOfficialAccountSNSMessage(request *SendOfficialAccount
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗消息群发
+//
+// @param request - ServiceWindowMessageBatchPushRequest
+//
+// @param headers - ServiceWindowMessageBatchPushHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ServiceWindowMessageBatchPushResponse
 func (client *Client) ServiceWindowMessageBatchPushWithOptions(request *ServiceWindowMessageBatchPushRequest, headers *ServiceWindowMessageBatchPushHeaders, runtime *util.RuntimeOptions) (_result *ServiceWindowMessageBatchPushResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17180,6 +27474,13 @@ func (client *Client) ServiceWindowMessageBatchPushWithOptions(request *ServiceW
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务窗消息群发
+//
+// @param request - ServiceWindowMessageBatchPushRequest
+//
+// @return ServiceWindowMessageBatchPushResponse
 func (client *Client) ServiceWindowMessageBatchPush(request *ServiceWindowMessageBatchPushRequest) (_result *ServiceWindowMessageBatchPushResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ServiceWindowMessageBatchPushHeaders{}
@@ -17192,6 +27493,102 @@ func (client *Client) ServiceWindowMessageBatchPush(request *ServiceWindowMessag
 	return _result, _err
 }
 
+// Summary:
+//
+// 二阶段提交权益库存结果
+//
+// @param request - TwoPhaseCommitInventoryRequest
+//
+// @param headers - TwoPhaseCommitInventoryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TwoPhaseCommitInventoryResponse
+func (client *Client) TwoPhaseCommitInventoryWithOptions(request *TwoPhaseCommitInventoryRequest, headers *TwoPhaseCommitInventoryHeaders, runtime *util.RuntimeOptions) (_result *TwoPhaseCommitInventoryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BenefitCode)) {
+		body["benefitCode"] = request.BenefitCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizRequestId)) {
+		body["bizRequestId"] = request.BizRequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExecuteResult)) {
+		body["executeResult"] = request.ExecuteResult
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Quota)) {
+		body["quota"] = request.Quota
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TwoPhaseCommitInventory"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/benefitInventories/twoPhases/commit"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TwoPhaseCommitInventoryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 二阶段提交权益库存结果
+//
+// @param request - TwoPhaseCommitInventoryRequest
+//
+// @return TwoPhaseCommitInventoryResponse
+func (client *Client) TwoPhaseCommitInventory(request *TwoPhaseCommitInventoryRequest) (_result *TwoPhaseCommitInventoryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TwoPhaseCommitInventoryHeaders{}
+	_result = &TwoPhaseCommitInventoryResponse{}
+	_body, _err := client.TwoPhaseCommitInventoryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新crm个人客户（或企业客户）
+//
+// @param request - UpdateCrmPersonalCustomerRequest
+//
+// @param headers - UpdateCrmPersonalCustomerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateCrmPersonalCustomerResponse
 func (client *Client) UpdateCrmPersonalCustomerWithOptions(request *UpdateCrmPersonalCustomerRequest, headers *UpdateCrmPersonalCustomerHeaders, runtime *util.RuntimeOptions) (_result *UpdateCrmPersonalCustomerResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17267,6 +27664,13 @@ func (client *Client) UpdateCrmPersonalCustomerWithOptions(request *UpdateCrmPer
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新crm个人客户（或企业客户）
+//
+// @param request - UpdateCrmPersonalCustomerRequest
+//
+// @return UpdateCrmPersonalCustomerResponse
 func (client *Client) UpdateCrmPersonalCustomer(request *UpdateCrmPersonalCustomerRequest) (_result *UpdateCrmPersonalCustomerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateCrmPersonalCustomerHeaders{}
@@ -17279,6 +27683,94 @@ func (client *Client) UpdateCrmPersonalCustomer(request *UpdateCrmPersonalCustom
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新客户模板类型
+//
+// @param request - UpdateCustomerBizTypeRequest
+//
+// @param headers - UpdateCustomerBizTypeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateCustomerBizTypeResponse
+func (client *Client) UpdateCustomerBizTypeWithOptions(request *UpdateCustomerBizTypeRequest, headers *UpdateCustomerBizTypeHeaders, runtime *util.RuntimeOptions) (_result *UpdateCustomerBizTypeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CustomerBizType)) {
+		body["customerBizType"] = request.CustomerBizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateCustomerBizType"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/orgSettings/templates/customerBizTypes"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateCustomerBizTypeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新客户模板类型
+//
+// @param request - UpdateCustomerBizTypeRequest
+//
+// @return UpdateCustomerBizTypeResponse
+func (client *Client) UpdateCustomerBizType(request *UpdateCustomerBizTypeRequest) (_result *UpdateCustomerBizTypeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateCustomerBizTypeHeaders{}
+	_result = &UpdateCustomerBizTypeResponse{}
+	_body, _err := client.UpdateCustomerBizTypeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新群组
+//
+// @param request - UpdateGroupSetRequest
+//
+// @param headers - UpdateGroupSetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateGroupSetResponse
 func (client *Client) UpdateGroupSetWithOptions(request *UpdateGroupSetRequest, headers *UpdateGroupSetHeaders, runtime *util.RuntimeOptions) (_result *UpdateGroupSetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17354,6 +27846,13 @@ func (client *Client) UpdateGroupSetWithOptions(request *UpdateGroupSetRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新群组
+//
+// @param request - UpdateGroupSetRequest
+//
+// @return UpdateGroupSetResponse
 func (client *Client) UpdateGroupSet(request *UpdateGroupSetRequest) (_result *UpdateGroupSetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateGroupSetHeaders{}
@@ -17366,6 +27865,17 @@ func (client *Client) UpdateGroupSet(request *UpdateGroupSetRequest) (_result *U
 	return _result, _err
 }
 
+// Summary:
+//
+// 增量同步导航数据
+//
+// @param request - UpdateMenuDataRequest
+//
+// @param headers - UpdateMenuDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateMenuDataResponse
 func (client *Client) UpdateMenuDataWithOptions(request *UpdateMenuDataRequest, headers *UpdateMenuDataHeaders, runtime *util.RuntimeOptions) (_result *UpdateMenuDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17429,6 +27939,13 @@ func (client *Client) UpdateMenuDataWithOptions(request *UpdateMenuDataRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 增量同步导航数据
+//
+// @param request - UpdateMenuDataRequest
+//
+// @return UpdateMenuDataResponse
 func (client *Client) UpdateMenuData(request *UpdateMenuDataRequest) (_result *UpdateMenuDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateMenuDataHeaders{}
@@ -17441,6 +27958,102 @@ func (client *Client) UpdateMenuData(request *UpdateMenuDataRequest) (_result *U
 	return _result, _err
 }
 
+// Summary:
+//
+// 模型表结构更新字段
+//
+// @param request - UpdateMetaModelFieldRequest
+//
+// @param headers - UpdateMetaModelFieldHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateMetaModelFieldResponse
+func (client *Client) UpdateMetaModelFieldWithOptions(request *UpdateMetaModelFieldRequest, headers *UpdateMetaModelFieldHeaders, runtime *util.RuntimeOptions) (_result *UpdateMetaModelFieldResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		body["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FieldDTOList)) {
+		body["fieldDTOList"] = request.FieldDTOList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Tenant)) {
+		body["tenant"] = request.Tenant
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateMetaModelField"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/metas/models/fields"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateMetaModelFieldResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 模型表结构更新字段
+//
+// @param request - UpdateMetaModelFieldRequest
+//
+// @return UpdateMetaModelFieldResponse
+func (client *Client) UpdateMetaModelField(request *UpdateMetaModelFieldRequest) (_result *UpdateMetaModelFieldResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateMetaModelFieldHeaders{}
+	_result = &UpdateMetaModelFieldResponse{}
+	_body, _err := client.UpdateMetaModelFieldWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 关系模型表结构更新字段
+//
+// @param request - UpdateRelationMetaFieldRequest
+//
+// @param headers - UpdateRelationMetaFieldHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateRelationMetaFieldResponse
 func (client *Client) UpdateRelationMetaFieldWithOptions(request *UpdateRelationMetaFieldRequest, headers *UpdateRelationMetaFieldHeaders, runtime *util.RuntimeOptions) (_result *UpdateRelationMetaFieldResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17496,6 +28109,13 @@ func (client *Client) UpdateRelationMetaFieldWithOptions(request *UpdateRelation
 	return _result, _err
 }
 
+// Summary:
+//
+// 关系模型表结构更新字段
+//
+// @param request - UpdateRelationMetaFieldRequest
+//
+// @return UpdateRelationMetaFieldResponse
 func (client *Client) UpdateRelationMetaField(request *UpdateRelationMetaFieldRequest) (_result *UpdateRelationMetaFieldResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateRelationMetaFieldHeaders{}

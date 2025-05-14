@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package pedia_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -42,10 +38,25 @@ type PediaWordsAddRequest struct {
 	PicList            []*PediaWordsAddRequestPicList     `json:"picList,omitempty" xml:"picList,omitempty" type:"Repeated"`
 	RelatedDoc         []*PediaWordsAddRequestRelatedDoc  `json:"relatedDoc,omitempty" xml:"relatedDoc,omitempty" type:"Repeated"`
 	RelatedLink        []*PediaWordsAddRequestRelatedLink `json:"relatedLink,omitempty" xml:"relatedLink,omitempty" type:"Repeated"`
-	UserId             *string                            `json:"userId,omitempty" xml:"userId,omitempty"`
-	WordAlias          []*string                          `json:"wordAlias,omitempty" xml:"wordAlias,omitempty" type:"Repeated"`
-	WordName           *string                            `json:"wordName,omitempty" xml:"wordName,omitempty"`
-	WordParaphrase     *string                            `json:"wordParaphrase,omitempty" xml:"wordParaphrase,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 23231231123
+	UserId    *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	WordAlias []*string `json:"wordAlias,omitempty" xml:"wordAlias,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 词条名称
+	WordName *string `json:"wordName,omitempty" xml:"wordName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 释义
+	WordParaphrase *string `json:"wordParaphrase,omitempty" xml:"wordParaphrase,omitempty"`
 }
 
 func (s PediaWordsAddRequest) String() string {
@@ -102,9 +113,18 @@ func (s *PediaWordsAddRequest) SetWordParaphrase(v string) *PediaWordsAddRequest
 }
 
 type PediaWordsAddRequestContactList struct {
+	// example:
+	//
+	// @123243
 	AvatarMediaId *string `json:"avatarMediaId,omitempty" xml:"avatarMediaId,omitempty"`
-	NickName      *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
-	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 名称
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// example:
+	//
+	// 1231243213
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s PediaWordsAddRequestContactList) String() string {
@@ -131,6 +151,9 @@ func (s *PediaWordsAddRequestContactList) SetUserId(v string) *PediaWordsAddRequ
 }
 
 type PediaWordsAddRequestPicList struct {
+	// example:
+	//
+	// https://23987874.com
 	MediaIdUrl *string `json:"mediaIdUrl,omitempty" xml:"mediaIdUrl,omitempty"`
 }
 
@@ -148,8 +171,17 @@ func (s *PediaWordsAddRequestPicList) SetMediaIdUrl(v string) *PediaWordsAddRequ
 }
 
 type PediaWordsAddRequestRelatedDoc struct {
+	// example:
+	//
+	// https://123456.com
 	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// example:
+	//
+	// 相关文档
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// adoc
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
@@ -177,7 +209,13 @@ func (s *PediaWordsAddRequestRelatedDoc) SetType(v string) *PediaWordsAddRequest
 }
 
 type PediaWordsAddRequestRelatedLink struct {
+	// example:
+	//
+	// http://1233435.com
 	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// example:
+	//
+	// 相关链接
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -200,8 +238,11 @@ func (s *PediaWordsAddRequestRelatedLink) SetName(v string) *PediaWordsAddReques
 }
 
 type PediaWordsAddResponseBody struct {
-	Success *bool  `json:"success,omitempty" xml:"success,omitempty"`
-	Uuid    *int64 `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// 232432
+	Uuid *int64 `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s PediaWordsAddResponseBody) String() string {
@@ -275,12 +316,33 @@ func (s *PediaWordsApproveHeaders) SetXAcsDingtalkAccessToken(v string) *PediaWo
 }
 
 type PediaWordsApproveRequest struct {
+	AliDocHighLight *bool `json:"aliDocHighLight,omitempty" xml:"aliDocHighLight,omitempty"`
+	// example:
+	//
+	// 拒绝
 	ApproveReason *string `json:"approveReason,omitempty" xml:"approveReason,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	ApproveStatus *string `json:"approveStatus,omitempty" xml:"approveStatus,omitempty"`
-	ImHighLight   *bool   `json:"imHighLight,omitempty" xml:"imHighLight,omitempty"`
-	SimHighLight  *bool   `json:"simHighLight,omitempty" xml:"simHighLight,omitempty"`
-	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	Uuid          *int64  `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// This parameter is required.
+	ImHighLight *bool `json:"imHighLight,omitempty" xml:"imHighLight,omitempty"`
+	// This parameter is required.
+	SimHighLight *bool `json:"simHighLight,omitempty" xml:"simHighLight,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 232432
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1213132
+	Uuid *int64 `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s PediaWordsApproveRequest) String() string {
@@ -289,6 +351,11 @@ func (s PediaWordsApproveRequest) String() string {
 
 func (s PediaWordsApproveRequest) GoString() string {
 	return s.String()
+}
+
+func (s *PediaWordsApproveRequest) SetAliDocHighLight(v bool) *PediaWordsApproveRequest {
+	s.AliDocHighLight = &v
+	return s
 }
 
 func (s *PediaWordsApproveRequest) SetApproveReason(v string) *PediaWordsApproveRequest {
@@ -391,8 +458,18 @@ func (s *PediaWordsDeleteHeaders) SetXAcsDingtalkAccessToken(v string) *PediaWor
 }
 
 type PediaWordsDeleteRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2123132
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	Uuid   *int64  `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 212112
+	Uuid *int64 `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s PediaWordsDeleteRequest) String() string {
@@ -414,8 +491,11 @@ func (s *PediaWordsDeleteRequest) SetUuid(v int64) *PediaWordsDeleteRequest {
 }
 
 type PediaWordsDeleteResponseBody struct {
-	Success *bool  `json:"success,omitempty" xml:"success,omitempty"`
-	Uuid    *int64 `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// 123456789
+	Uuid *int64 `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s PediaWordsDeleteResponseBody) String() string {
@@ -489,8 +569,18 @@ func (s *PediaWordsQueryHeaders) SetXAcsDingtalkAccessToken(v string) *PediaWord
 }
 
 type PediaWordsQueryRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 212121
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	Uuid   *int64  `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 211121
+	Uuid *int64 `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s PediaWordsQueryRequest) String() string {
@@ -535,28 +625,61 @@ func (s *PediaWordsQueryResponseBody) SetSuccess(v bool) *PediaWordsQueryRespons
 }
 
 type PediaWordsQueryResponseBodyData struct {
-	AppLink              []*PediaWordsQueryResponseBodyDataAppLink     `json:"appLink,omitempty" xml:"appLink,omitempty" type:"Repeated"`
-	ApproveName          *string                                       `json:"approveName,omitempty" xml:"approveName,omitempty"`
-	ContactList          []*PediaWordsQueryResponseBodyDataContactList `json:"contactList,omitempty" xml:"contactList,omitempty" type:"Repeated"`
-	Contacts             []*string                                     `json:"contacts,omitempty" xml:"contacts,omitempty" type:"Repeated"`
-	CreatorName          *string                                       `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
-	GmtCreate            *int64                                        `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModify            *int64                                        `json:"gmtModify,omitempty" xml:"gmtModify,omitempty"`
-	HighLightWordAlias   []*string                                     `json:"highLightWordAlias,omitempty" xml:"highLightWordAlias,omitempty" type:"Repeated"`
-	ImHighLight          *bool                                         `json:"imHighLight,omitempty" xml:"imHighLight,omitempty"`
-	ParentUuid           *int64                                        `json:"parentUuid,omitempty" xml:"parentUuid,omitempty"`
-	PicList              []*PediaWordsQueryResponseBodyDataPicList     `json:"picList,omitempty" xml:"picList,omitempty" type:"Repeated"`
-	RelatedDoc           []*PediaWordsQueryResponseBodyDataRelatedDoc  `json:"relatedDoc,omitempty" xml:"relatedDoc,omitempty" type:"Repeated"`
-	RelatedLink          []*PediaWordsQueryResponseBodyDataRelatedLink `json:"relatedLink,omitempty" xml:"relatedLink,omitempty" type:"Repeated"`
-	SimHighLight         *bool                                         `json:"simHighLight,omitempty" xml:"simHighLight,omitempty"`
-	SimpleWordParaphrase *string                                       `json:"simpleWordParaphrase,omitempty" xml:"simpleWordParaphrase,omitempty"`
-	TagsList             []*string                                     `json:"tagsList,omitempty" xml:"tagsList,omitempty" type:"Repeated"`
-	UpdaterName          *string                                       `json:"updaterName,omitempty" xml:"updaterName,omitempty"`
-	UserId               *string                                       `json:"userId,omitempty" xml:"userId,omitempty"`
-	Uuid                 *int64                                        `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	WordAlias            []*string                                     `json:"wordAlias,omitempty" xml:"wordAlias,omitempty" type:"Repeated"`
-	WordName             *string                                       `json:"wordName,omitempty" xml:"wordName,omitempty"`
-	WordParaphrase       *string                                       `json:"wordParaphrase,omitempty" xml:"wordParaphrase,omitempty"`
+	AppLink []*PediaWordsQueryResponseBodyDataAppLink `json:"appLink,omitempty" xml:"appLink,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 审核者
+	ApproveName *string                                       `json:"approveName,omitempty" xml:"approveName,omitempty"`
+	ContactList []*PediaWordsQueryResponseBodyDataContactList `json:"contactList,omitempty" xml:"contactList,omitempty" type:"Repeated"`
+	Contacts    []*string                                     `json:"contacts,omitempty" xml:"contacts,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 创建者
+	CreatorName *string `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
+	// example:
+	//
+	// 31312312
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 321312312
+	GmtModify          *int64    `json:"gmtModify,omitempty" xml:"gmtModify,omitempty"`
+	HighLightWordAlias []*string `json:"highLightWordAlias,omitempty" xml:"highLightWordAlias,omitempty" type:"Repeated"`
+	ImHighLight        *bool     `json:"imHighLight,omitempty" xml:"imHighLight,omitempty"`
+	// example:
+	//
+	// 12345678
+	ParentUuid   *int64                                        `json:"parentUuid,omitempty" xml:"parentUuid,omitempty"`
+	PicList      []*PediaWordsQueryResponseBodyDataPicList     `json:"picList,omitempty" xml:"picList,omitempty" type:"Repeated"`
+	RelatedDoc   []*PediaWordsQueryResponseBodyDataRelatedDoc  `json:"relatedDoc,omitempty" xml:"relatedDoc,omitempty" type:"Repeated"`
+	RelatedLink  []*PediaWordsQueryResponseBodyDataRelatedLink `json:"relatedLink,omitempty" xml:"relatedLink,omitempty" type:"Repeated"`
+	SimHighLight *bool                                         `json:"simHighLight,omitempty" xml:"simHighLight,omitempty"`
+	// example:
+	//
+	// 剔除富文本释义
+	SimpleWordParaphrase *string   `json:"simpleWordParaphrase,omitempty" xml:"simpleWordParaphrase,omitempty"`
+	TagsList             []*string `json:"tagsList,omitempty" xml:"tagsList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 更新者
+	UpdaterName *string `json:"updaterName,omitempty" xml:"updaterName,omitempty"`
+	// example:
+	//
+	// 213123123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 123123121
+	Uuid      *int64    `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	WordAlias []*string `json:"wordAlias,omitempty" xml:"wordAlias,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 词条名称
+	WordName *string `json:"wordName,omitempty" xml:"wordName,omitempty"`
+	// example:
+	//
+	// 释义
+	WordParaphrase *string `json:"wordParaphrase,omitempty" xml:"wordParaphrase,omitempty"`
 }
 
 func (s PediaWordsQueryResponseBodyData) String() string {
@@ -678,9 +801,21 @@ func (s *PediaWordsQueryResponseBodyData) SetWordParaphrase(v string) *PediaWord
 }
 
 type PediaWordsQueryResponseBodyDataAppLink struct {
-	AppName   *string `json:"appName,omitempty" xml:"appName,omitempty"`
-	IconLink  *string `json:"iconLink,omitempty" xml:"iconLink,omitempty"`
-	PcLink    *string `json:"pcLink,omitempty" xml:"pcLink,omitempty"`
+	// example:
+	//
+	// 相关应用
+	AppName *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	// example:
+	//
+	// htttps://1234567
+	IconLink *string `json:"iconLink,omitempty" xml:"iconLink,omitempty"`
+	// example:
+	//
+	// http://123344.com
+	PcLink *string `json:"pcLink,omitempty" xml:"pcLink,omitempty"`
+	// example:
+	//
+	// https://12334.com
 	PhoneLink *string `json:"phoneLink,omitempty" xml:"phoneLink,omitempty"`
 }
 
@@ -713,9 +848,18 @@ func (s *PediaWordsQueryResponseBodyDataAppLink) SetPhoneLink(v string) *PediaWo
 }
 
 type PediaWordsQueryResponseBodyDataContactList struct {
+	// example:
+	//
+	// @dasdasd
 	AvatarMediaId *string `json:"avatarMediaId,omitempty" xml:"avatarMediaId,omitempty"`
-	NickName      *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
-	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 相关联系人
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// example:
+	//
+	// 12321231
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s PediaWordsQueryResponseBodyDataContactList) String() string {
@@ -742,6 +886,9 @@ func (s *PediaWordsQueryResponseBodyDataContactList) SetUserId(v string) *PediaW
 }
 
 type PediaWordsQueryResponseBodyDataPicList struct {
+	// example:
+	//
+	// http://123455.com
 	MediaIdUrl *string `json:"mediaIdUrl,omitempty" xml:"mediaIdUrl,omitempty"`
 }
 
@@ -759,8 +906,17 @@ func (s *PediaWordsQueryResponseBodyDataPicList) SetMediaIdUrl(v string) *PediaW
 }
 
 type PediaWordsQueryResponseBodyDataRelatedDoc struct {
+	// example:
+	//
+	// http://123456.com
 	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// example:
+	//
+	// 相关文档
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// adoc
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
@@ -788,7 +944,13 @@ func (s *PediaWordsQueryResponseBodyDataRelatedDoc) SetType(v string) *PediaWord
 }
 
 type PediaWordsQueryResponseBodyDataRelatedLink struct {
+	// example:
+	//
+	// http://123343.com
 	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// example:
+	//
+	// 相关链接
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -863,11 +1025,37 @@ func (s *PediaWordsSearchHeaders) SetXAcsDingtalkAccessToken(v string) *PediaWor
 }
 
 type PediaWordsSearchRequest struct {
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	Status     *string `json:"status,omitempty" xml:"status,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	WordName   *string `json:"wordName,omitempty" xml:"wordName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 121213213
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// 企业百科
+	WordName *string `json:"wordName,omitempty" xml:"wordName,omitempty"`
 }
 
 func (s PediaWordsSearchRequest) String() string {
@@ -927,28 +1115,49 @@ func (s *PediaWordsSearchResponseBody) SetSuccess(v bool) *PediaWordsSearchRespo
 }
 
 type PediaWordsSearchResponseBodyData struct {
-	AppLink              []*PediaWordsSearchResponseBodyDataAppLink     `json:"appLink,omitempty" xml:"appLink,omitempty" type:"Repeated"`
-	ApproveName          *string                                        `json:"approveName,omitempty" xml:"approveName,omitempty"`
-	ContactList          []*PediaWordsSearchResponseBodyDataContactList `json:"contactList,omitempty" xml:"contactList,omitempty" type:"Repeated"`
-	Contacts             []*string                                      `json:"contacts,omitempty" xml:"contacts,omitempty" type:"Repeated"`
-	CreatorName          *string                                        `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
-	GmtCreate            *int64                                         `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModify            *int64                                         `json:"gmtModify,omitempty" xml:"gmtModify,omitempty"`
-	HighLightWordAlias   []*string                                      `json:"highLightWordAlias,omitempty" xml:"highLightWordAlias,omitempty" type:"Repeated"`
-	ImHighLight          *bool                                          `json:"imHighLight,omitempty" xml:"imHighLight,omitempty"`
-	ParentUuid           *int64                                         `json:"parentUuid,omitempty" xml:"parentUuid,omitempty"`
-	PicList              []*PediaWordsSearchResponseBodyDataPicList     `json:"picList,omitempty" xml:"picList,omitempty" type:"Repeated"`
-	RelatedDoc           []*PediaWordsSearchResponseBodyDataRelatedDoc  `json:"relatedDoc,omitempty" xml:"relatedDoc,omitempty" type:"Repeated"`
-	RelatedLink          []*PediaWordsSearchResponseBodyDataRelatedLink `json:"relatedLink,omitempty" xml:"relatedLink,omitempty" type:"Repeated"`
-	SimHighLight         *bool                                          `json:"simHighLight,omitempty" xml:"simHighLight,omitempty"`
-	SimpleWordParaphrase *string                                        `json:"simpleWordParaphrase,omitempty" xml:"simpleWordParaphrase,omitempty"`
-	TagsList             []*string                                      `json:"tagsList,omitempty" xml:"tagsList,omitempty" type:"Repeated"`
-	UpdaterName          *string                                        `json:"updaterName,omitempty" xml:"updaterName,omitempty"`
-	UserId               *string                                        `json:"userId,omitempty" xml:"userId,omitempty"`
-	Uuid                 *int64                                         `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	WordAlias            []*string                                      `json:"wordAlias,omitempty" xml:"wordAlias,omitempty" type:"Repeated"`
-	WordName             *string                                        `json:"wordName,omitempty" xml:"wordName,omitempty"`
-	WordParaphrase       *string                                        `json:"wordParaphrase,omitempty" xml:"wordParaphrase,omitempty"`
+	AppLink []*PediaWordsSearchResponseBodyDataAppLink `json:"appLink,omitempty" xml:"appLink,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 审核人钉钉名称
+	ApproveName *string                                        `json:"approveName,omitempty" xml:"approveName,omitempty"`
+	ContactList []*PediaWordsSearchResponseBodyDataContactList `json:"contactList,omitempty" xml:"contactList,omitempty" type:"Repeated"`
+	Contacts    []*string                                      `json:"contacts,omitempty" xml:"contacts,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 创建者
+	CreatorName        *string                                        `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
+	GmtCreate          *int64                                         `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModify          *int64                                         `json:"gmtModify,omitempty" xml:"gmtModify,omitempty"`
+	HighLightWordAlias []*string                                      `json:"highLightWordAlias,omitempty" xml:"highLightWordAlias,omitempty" type:"Repeated"`
+	ImHighLight        *bool                                          `json:"imHighLight,omitempty" xml:"imHighLight,omitempty"`
+	ParentUuid         *int64                                         `json:"parentUuid,omitempty" xml:"parentUuid,omitempty"`
+	PicList            []*PediaWordsSearchResponseBodyDataPicList     `json:"picList,omitempty" xml:"picList,omitempty" type:"Repeated"`
+	RelatedDoc         []*PediaWordsSearchResponseBodyDataRelatedDoc  `json:"relatedDoc,omitempty" xml:"relatedDoc,omitempty" type:"Repeated"`
+	RelatedLink        []*PediaWordsSearchResponseBodyDataRelatedLink `json:"relatedLink,omitempty" xml:"relatedLink,omitempty" type:"Repeated"`
+	SimHighLight       *bool                                          `json:"simHighLight,omitempty" xml:"simHighLight,omitempty"`
+	// example:
+	//
+	// 剔除了富文本格式后的释义信息
+	SimpleWordParaphrase *string   `json:"simpleWordParaphrase,omitempty" xml:"simpleWordParaphrase,omitempty"`
+	TagsList             []*string `json:"tagsList,omitempty" xml:"tagsList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 修改人钉钉名称
+	UpdaterName *string `json:"updaterName,omitempty" xml:"updaterName,omitempty"`
+	// example:
+	//
+	// 312312312
+	UserId    *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	Uuid      *int64    `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	WordAlias []*string `json:"wordAlias,omitempty" xml:"wordAlias,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 测试词条
+	WordName *string `json:"wordName,omitempty" xml:"wordName,omitempty"`
+	// example:
+	//
+	// 释义信息
+	WordParaphrase *string `json:"wordParaphrase,omitempty" xml:"wordParaphrase,omitempty"`
 }
 
 func (s PediaWordsSearchResponseBodyData) String() string {
@@ -1070,9 +1279,21 @@ func (s *PediaWordsSearchResponseBodyData) SetWordParaphrase(v string) *PediaWor
 }
 
 type PediaWordsSearchResponseBodyDataAppLink struct {
-	AppName   *string `json:"appName,omitempty" xml:"appName,omitempty"`
-	IconLink  *string `json:"iconLink,omitempty" xml:"iconLink,omitempty"`
-	PcLink    *string `json:"pcLink,omitempty" xml:"pcLink,omitempty"`
+	// example:
+	//
+	// 应用名
+	AppName *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	// example:
+	//
+	// https://123434.com
+	IconLink *string `json:"iconLink,omitempty" xml:"iconLink,omitempty"`
+	// example:
+	//
+	// http://123.com
+	PcLink *string `json:"pcLink,omitempty" xml:"pcLink,omitempty"`
+	// example:
+	//
+	// http://1244.com
 	PhoneLink *string `json:"phoneLink,omitempty" xml:"phoneLink,omitempty"`
 }
 
@@ -1105,9 +1326,18 @@ func (s *PediaWordsSearchResponseBodyDataAppLink) SetPhoneLink(v string) *PediaW
 }
 
 type PediaWordsSearchResponseBodyDataContactList struct {
+	// example:
+	//
+	// @12321312ds
 	AvatarMediaId *string `json:"avatarMediaId,omitempty" xml:"avatarMediaId,omitempty"`
-	NickName      *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
-	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 员工名称
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// example:
+	//
+	// 1232343
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s PediaWordsSearchResponseBodyDataContactList) String() string {
@@ -1134,6 +1364,9 @@ func (s *PediaWordsSearchResponseBodyDataContactList) SetUserId(v string) *Pedia
 }
 
 type PediaWordsSearchResponseBodyDataPicList struct {
+	// example:
+	//
+	// https://1234.com
 	MediaIdUrl *string `json:"mediaIdUrl,omitempty" xml:"mediaIdUrl,omitempty"`
 }
 
@@ -1151,8 +1384,17 @@ func (s *PediaWordsSearchResponseBodyDataPicList) SetMediaIdUrl(v string) *Pedia
 }
 
 type PediaWordsSearchResponseBodyDataRelatedDoc struct {
+	// example:
+	//
+	// https://12324.com
 	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// example:
+	//
+	// 文档名
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// adoc
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
@@ -1180,8 +1422,17 @@ func (s *PediaWordsSearchResponseBodyDataRelatedDoc) SetType(v string) *PediaWor
 }
 
 type PediaWordsSearchResponseBodyDataRelatedLink struct {
+	// example:
+	//
+	// https://123112.com
 	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// example:
+	//
+	// 文档名字
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 空值
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
@@ -1267,11 +1518,29 @@ type PediaWordsUpdateRequest struct {
 	PicList            []*PediaWordsUpdateRequestPicList     `json:"picList,omitempty" xml:"picList,omitempty" type:"Repeated"`
 	RelatedDoc         []*PediaWordsUpdateRequestRelatedDoc  `json:"relatedDoc,omitempty" xml:"relatedDoc,omitempty" type:"Repeated"`
 	RelatedLink        []*PediaWordsUpdateRequestRelatedLink `json:"relatedLink,omitempty" xml:"relatedLink,omitempty" type:"Repeated"`
-	UserId             *string                               `json:"userId,omitempty" xml:"userId,omitempty"`
-	Uuid               *int64                                `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	WordAlias          []*string                             `json:"wordAlias,omitempty" xml:"wordAlias,omitempty" type:"Repeated"`
-	WordName           *string                               `json:"wordName,omitempty" xml:"wordName,omitempty"`
-	WordParaphrase     *string                               `json:"wordParaphrase,omitempty" xml:"wordParaphrase,omitempty"`
+	// example:
+	//
+	// 312123213
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2131321
+	Uuid      *int64    `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	WordAlias []*string `json:"wordAlias,omitempty" xml:"wordAlias,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 词条名称
+	WordName *string `json:"wordName,omitempty" xml:"wordName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 释义
+	WordParaphrase *string `json:"wordParaphrase,omitempty" xml:"wordParaphrase,omitempty"`
 }
 
 func (s PediaWordsUpdateRequest) String() string {
@@ -1338,9 +1607,21 @@ func (s *PediaWordsUpdateRequest) SetWordParaphrase(v string) *PediaWordsUpdateR
 }
 
 type PediaWordsUpdateRequestAppLink struct {
-	AppName   *string `json:"appName,omitempty" xml:"appName,omitempty"`
-	IconLink  *string `json:"iconLink,omitempty" xml:"iconLink,omitempty"`
-	PcLink    *string `json:"pcLink,omitempty" xml:"pcLink,omitempty"`
+	// example:
+	//
+	// 应用名称
+	AppName *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	// example:
+	//
+	// https://123243435.com
+	IconLink *string `json:"iconLink,omitempty" xml:"iconLink,omitempty"`
+	// example:
+	//
+	// http://213435.com
+	PcLink *string `json:"pcLink,omitempty" xml:"pcLink,omitempty"`
+	// example:
+	//
+	// htttps://12345.com
 	PhoneLink *string `json:"phoneLink,omitempty" xml:"phoneLink,omitempty"`
 }
 
@@ -1373,9 +1654,18 @@ func (s *PediaWordsUpdateRequestAppLink) SetPhoneLink(v string) *PediaWordsUpdat
 }
 
 type PediaWordsUpdateRequestContactList struct {
+	// example:
+	//
+	// @12312312
 	AvatarMediaId *string `json:"avatarMediaId,omitempty" xml:"avatarMediaId,omitempty"`
-	NickName      *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
-	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 名称
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// example:
+	//
+	// 12131312
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s PediaWordsUpdateRequestContactList) String() string {
@@ -1402,6 +1692,9 @@ func (s *PediaWordsUpdateRequestContactList) SetUserId(v string) *PediaWordsUpda
 }
 
 type PediaWordsUpdateRequestPicList struct {
+	// example:
+	//
+	// https://1234554.com
 	MediaIdUrl *string `json:"mediaIdUrl,omitempty" xml:"mediaIdUrl,omitempty"`
 }
 
@@ -1419,8 +1712,17 @@ func (s *PediaWordsUpdateRequestPicList) SetMediaIdUrl(v string) *PediaWordsUpda
 }
 
 type PediaWordsUpdateRequestRelatedDoc struct {
+	// example:
+	//
+	// https://213567.com
 	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// example:
+	//
+	// 相关文档
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// adoc
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
@@ -1448,7 +1750,13 @@ func (s *PediaWordsUpdateRequestRelatedDoc) SetType(v string) *PediaWordsUpdateR
 }
 
 type PediaWordsUpdateRequestRelatedLink struct {
+	// example:
+	//
+	// https://123466.com
 	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// example:
+	//
+	// 相关链接
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -1471,8 +1779,11 @@ func (s *PediaWordsUpdateRequestRelatedLink) SetName(v string) *PediaWordsUpdate
 }
 
 type PediaWordsUpdateResponseBody struct {
-	Success *bool  `json:"success,omitempty" xml:"success,omitempty"`
-	Uuid    *int64 `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// 3213213213
+	Uuid *int64 `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s PediaWordsUpdateResponseBody) String() string {
@@ -1537,12 +1848,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -1551,6 +1862,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 企业百科增加当前企业词条信息
+//
+// @param request - PediaWordsAddRequest
+//
+// @param headers - PediaWordsAddHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PediaWordsAddResponse
 func (client *Client) PediaWordsAddWithOptions(request *PediaWordsAddRequest, headers *PediaWordsAddHeaders, runtime *util.RuntimeOptions) (_result *PediaWordsAddResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1626,6 +1948,13 @@ func (client *Client) PediaWordsAddWithOptions(request *PediaWordsAddRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 企业百科增加当前企业词条信息
+//
+// @param request - PediaWordsAddRequest
+//
+// @return PediaWordsAddResponse
 func (client *Client) PediaWordsAdd(request *PediaWordsAddRequest) (_result *PediaWordsAddResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PediaWordsAddHeaders{}
@@ -1638,12 +1967,27 @@ func (client *Client) PediaWordsAdd(request *PediaWordsAddRequest) (_result *Ped
 	return _result, _err
 }
 
+// Summary:
+//
+// 企业百科针对待审核词条进行审核
+//
+// @param request - PediaWordsApproveRequest
+//
+// @param headers - PediaWordsApproveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PediaWordsApproveResponse
 func (client *Client) PediaWordsApproveWithOptions(request *PediaWordsApproveRequest, headers *PediaWordsApproveHeaders, runtime *util.RuntimeOptions) (_result *PediaWordsApproveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AliDocHighLight)) {
+		body["aliDocHighLight"] = request.AliDocHighLight
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ApproveReason)) {
 		body["approveReason"] = request.ApproveReason
 	}
@@ -1701,6 +2045,13 @@ func (client *Client) PediaWordsApproveWithOptions(request *PediaWordsApproveReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 企业百科针对待审核词条进行审核
+//
+// @param request - PediaWordsApproveRequest
+//
+// @return PediaWordsApproveResponse
 func (client *Client) PediaWordsApprove(request *PediaWordsApproveRequest) (_result *PediaWordsApproveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PediaWordsApproveHeaders{}
@@ -1713,6 +2064,17 @@ func (client *Client) PediaWordsApprove(request *PediaWordsApproveRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 企业百科针对uuid删除当前词条
+//
+// @param request - PediaWordsDeleteRequest
+//
+// @param headers - PediaWordsDeleteHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PediaWordsDeleteResponse
 func (client *Client) PediaWordsDeleteWithOptions(request *PediaWordsDeleteRequest, headers *PediaWordsDeleteHeaders, runtime *util.RuntimeOptions) (_result *PediaWordsDeleteResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1760,6 +2122,13 @@ func (client *Client) PediaWordsDeleteWithOptions(request *PediaWordsDeleteReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 企业百科针对uuid删除当前词条
+//
+// @param request - PediaWordsDeleteRequest
+//
+// @return PediaWordsDeleteResponse
 func (client *Client) PediaWordsDelete(request *PediaWordsDeleteRequest) (_result *PediaWordsDeleteResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PediaWordsDeleteHeaders{}
@@ -1772,6 +2141,17 @@ func (client *Client) PediaWordsDelete(request *PediaWordsDeleteRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据词条主键ID查询当前词条详情
+//
+// @param request - PediaWordsQueryRequest
+//
+// @param headers - PediaWordsQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PediaWordsQueryResponse
 func (client *Client) PediaWordsQueryWithOptions(request *PediaWordsQueryRequest, headers *PediaWordsQueryHeaders, runtime *util.RuntimeOptions) (_result *PediaWordsQueryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1819,6 +2199,13 @@ func (client *Client) PediaWordsQueryWithOptions(request *PediaWordsQueryRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据词条主键ID查询当前词条详情
+//
+// @param request - PediaWordsQueryRequest
+//
+// @return PediaWordsQueryResponse
 func (client *Client) PediaWordsQuery(request *PediaWordsQueryRequest) (_result *PediaWordsQueryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PediaWordsQueryHeaders{}
@@ -1831,6 +2218,17 @@ func (client *Client) PediaWordsQuery(request *PediaWordsQueryRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取企业词条信息
+//
+// @param request - PediaWordsSearchRequest
+//
+// @param headers - PediaWordsSearchHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PediaWordsSearchResponse
 func (client *Client) PediaWordsSearchWithOptions(request *PediaWordsSearchRequest, headers *PediaWordsSearchHeaders, runtime *util.RuntimeOptions) (_result *PediaWordsSearchResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1890,6 +2288,13 @@ func (client *Client) PediaWordsSearchWithOptions(request *PediaWordsSearchReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取企业词条信息
+//
+// @param request - PediaWordsSearchRequest
+//
+// @return PediaWordsSearchResponse
 func (client *Client) PediaWordsSearch(request *PediaWordsSearchRequest) (_result *PediaWordsSearchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PediaWordsSearchHeaders{}
@@ -1902,6 +2307,17 @@ func (client *Client) PediaWordsSearch(request *PediaWordsSearchRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 企业百科对当前已经生效词条进行编辑
+//
+// @param request - PediaWordsUpdateRequest
+//
+// @param headers - PediaWordsUpdateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PediaWordsUpdateResponse
 func (client *Client) PediaWordsUpdateWithOptions(request *PediaWordsUpdateRequest, headers *PediaWordsUpdateHeaders, runtime *util.RuntimeOptions) (_result *PediaWordsUpdateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1985,6 +2401,13 @@ func (client *Client) PediaWordsUpdateWithOptions(request *PediaWordsUpdateReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 企业百科对当前已经生效词条进行编辑
+//
+// @param request - PediaWordsUpdateRequest
+//
+// @return PediaWordsUpdateResponse
 func (client *Client) PediaWordsUpdate(request *PediaWordsUpdateRequest) (_result *PediaWordsUpdateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PediaWordsUpdateHeaders{}

@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package event_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,8 +33,14 @@ func (s *GetCallBackFaileResultHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetCallBackFaileResultRequest struct {
+	// example:
+	//
+	// 1606126433000
 	BeginTime *int64 `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
-	EndTime   *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 1606126493000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
 }
 
 func (s GetCallBackFaileResultRequest) String() string {
@@ -83,10 +85,22 @@ func (s *GetCallBackFaileResultResponseBody) SetHasMore(v bool) *GetCallBackFail
 }
 
 type GetCallBackFaileResultResponseBodyFailedList struct {
+	// example:
+	//
+	// {\"CalendarEventUpdateTime\":1668735924619,\"CorpId\":\"ding9**cd16741\",\"ChangeType\":\"updated\",\"EventType\":\"calendar_event_change\",\"CalendarId\":\"NzE3MjU0NEB1c2V***5jb218MTQwMDE2\",\"EventTime\":1668735924640,\"LegacyCalendarEventId\":\"1C1BB56076***8A338\",\"BizId\":\"1668**4640\",\"CalendarEventId\":\"RVNUZllHK**elEydz09\",\"operator\":{\"type\":\"user\"},\"UnionIdList\":[\"QQa**mYiE\"]}
 	CallBackData *string `json:"callBackData,omitempty" xml:"callBackData,omitempty"`
-	CallBackTag  *string `json:"callBackTag,omitempty" xml:"callBackTag,omitempty"`
-	CorpId       *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	EventTime    *int64  `json:"eventTime,omitempty" xml:"eventTime,omitempty"`
+	// example:
+	//
+	// calendar_event_change
+	CallBackTag *string `json:"callBackTag,omitempty" xml:"callBackTag,omitempty"`
+	// example:
+	//
+	// ding9f50b15b*****41
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 166***39184
+	EventTime *int64 `json:"eventTime,omitempty" xml:"eventTime,omitempty"`
 }
 
 func (s GetCallBackFaileResultResponseBodyFailedList) String() string {
@@ -274,14 +288,20 @@ func (s *InstallCoolAppHeaders) SetXAcsDingtalkAccessToken(v string) *InstallCoo
 }
 
 type InstallCoolAppRequest struct {
-	AppId              *int64                 `json:"appId,omitempty" xml:"appId,omitempty"`
-	CoolAppCode        *string                `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	CorpId             *string                `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Feature            map[string]interface{} `json:"feature,omitempty" xml:"feature,omitempty"`
-	InstallUid         *string                `json:"installUid,omitempty" xml:"installUid,omitempty"`
+	// This parameter is required.
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// This parameter is required.
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	// This parameter is required.
+	CorpId  *string                `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Feature map[string]interface{} `json:"feature,omitempty" xml:"feature,omitempty"`
+	// This parameter is required.
+	InstallUid *string `json:"installUid,omitempty" xml:"installUid,omitempty"`
+	// This parameter is required.
 	OpenConversationId *string                `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	Options            map[string]interface{} `json:"options,omitempty" xml:"options,omitempty"`
-	SuiteId            *string                `json:"suiteId,omitempty" xml:"suiteId,omitempty"`
+	// This parameter is required.
+	SuiteId *string `json:"suiteId,omitempty" xml:"suiteId,omitempty"`
 }
 
 func (s InstallCoolAppRequest) String() string {
@@ -333,14 +353,20 @@ func (s *InstallCoolAppRequest) SetSuiteId(v string) *InstallCoolAppRequest {
 }
 
 type InstallCoolAppShrinkRequest struct {
-	AppId              *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
-	CoolAppCode        *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	CorpId             *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	FeatureShrink      *string `json:"feature,omitempty" xml:"feature,omitempty"`
-	InstallUid         *string `json:"installUid,omitempty" xml:"installUid,omitempty"`
+	// This parameter is required.
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// This parameter is required.
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	// This parameter is required.
+	CorpId        *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	FeatureShrink *string `json:"feature,omitempty" xml:"feature,omitempty"`
+	// This parameter is required.
+	InstallUid *string `json:"installUid,omitempty" xml:"installUid,omitempty"`
+	// This parameter is required.
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	OptionsShrink      *string `json:"options,omitempty" xml:"options,omitempty"`
-	SuiteId            *string `json:"suiteId,omitempty" xml:"suiteId,omitempty"`
+	// This parameter is required.
+	SuiteId *string `json:"suiteId,omitempty" xml:"suiteId,omitempty"`
 }
 
 func (s InstallCoolAppShrinkRequest) String() string {
@@ -521,12 +547,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
@@ -536,6 +562,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 调用本获取推送失败的变更事件。
+//
+// @param request - GetCallBackFaileResultRequest
+//
+// @param headers - GetCallBackFaileResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCallBackFaileResultResponse
 func (client *Client) GetCallBackFaileResultWithOptions(request *GetCallBackFaileResultRequest, headers *GetCallBackFaileResultHeaders, runtime *util.RuntimeOptions) (_result *GetCallBackFaileResultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -583,6 +620,13 @@ func (client *Client) GetCallBackFaileResultWithOptions(request *GetCallBackFail
 	return _result, _err
 }
 
+// Summary:
+//
+// 调用本获取推送失败的变更事件。
+//
+// @param request - GetCallBackFaileResultRequest
+//
+// @return GetCallBackFaileResultResponse
 func (client *Client) GetCallBackFaileResult(request *GetCallBackFaileResultRequest) (_result *GetCallBackFaileResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCallBackFaileResultHeaders{}
@@ -595,6 +639,17 @@ func (client *Client) GetCallBackFaileResult(request *GetCallBackFaileResultRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 安装一方应用
+//
+// @param request - InstallAppRequest
+//
+// @param headers - InstallAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InstallAppResponse
 func (client *Client) InstallAppWithOptions(request *InstallAppRequest, headers *InstallAppHeaders, runtime *util.RuntimeOptions) (_result *InstallAppResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -650,6 +705,13 @@ func (client *Client) InstallAppWithOptions(request *InstallAppRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 安装一方应用
+//
+// @param request - InstallAppRequest
+//
+// @return InstallAppResponse
 func (client *Client) InstallApp(request *InstallAppRequest) (_result *InstallAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InstallAppHeaders{}
@@ -662,6 +724,17 @@ func (client *Client) InstallApp(request *InstallAppRequest) (_result *InstallAp
 	return _result, _err
 }
 
+// Summary:
+//
+// 安装酷应用
+//
+// @param tmpReq - InstallCoolAppRequest
+//
+// @param headers - InstallCoolAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InstallCoolAppResponse
 func (client *Client) InstallCoolAppWithOptions(tmpReq *InstallCoolAppRequest, headers *InstallCoolAppHeaders, runtime *util.RuntimeOptions) (_result *InstallCoolAppResponse, _err error) {
 	_err = util.ValidateModel(tmpReq)
 	if _err != nil {
@@ -743,6 +816,13 @@ func (client *Client) InstallCoolAppWithOptions(tmpReq *InstallCoolAppRequest, h
 	return _result, _err
 }
 
+// Summary:
+//
+// 安装酷应用
+//
+// @param request - InstallCoolAppRequest
+//
+// @return InstallCoolAppResponse
 func (client *Client) InstallCoolApp(request *InstallCoolAppRequest) (_result *InstallCoolAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InstallCoolAppHeaders{}
@@ -755,6 +835,17 @@ func (client *Client) InstallCoolApp(request *InstallCoolAppRequest) (_result *I
 	return _result, _err
 }
 
+// Summary:
+//
+// 重新获取suiteTicket
+//
+// @param request - RePushSuiteTicketRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RePushSuiteTicketResponse
 func (client *Client) RePushSuiteTicketWithOptions(request *RePushSuiteTicketRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RePushSuiteTicketResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -793,6 +884,13 @@ func (client *Client) RePushSuiteTicketWithOptions(request *RePushSuiteTicketReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 重新获取suiteTicket
+//
+// @param request - RePushSuiteTicketRequest
+//
+// @return RePushSuiteTicketResponse
 func (client *Client) RePushSuiteTicket(request *RePushSuiteTicketRequest) (_result *RePushSuiteTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)

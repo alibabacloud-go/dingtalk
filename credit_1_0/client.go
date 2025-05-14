@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package credit_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,12 +33,34 @@ func (s *QueryScoreHeaders) SetXAcsDingtalkAccessToken(v string) *QueryScoreHead
 }
 
 type QueryScoreRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// MD5
 	Encryption *string `json:"encryption,omitempty" xml:"encryption,omitempty"`
-	FullName   *string `json:"fullName,omitempty" xml:"fullName,omitempty"`
+	// example:
+	//
+	// a0fbf479272cd38c220fbf726678d8d6
+	FullName *string `json:"fullName,omitempty" xml:"fullName,omitempty"`
+	// example:
+	//
+	// b04a604cf00e64136b386e83444245c3
 	IdCardCode *string `json:"idCardCode,omitempty" xml:"idCardCode,omitempty"`
-	Mobile     *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	OrgName    *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
-	UniScCode  *string `json:"uniScCode,omitempty" xml:"uniScCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// e10adc3949ba59abbe56e057f20f883e
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// example:
+	//
+	// aca03c931768ea4b0244531aca9a19ee
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// example:
+	//
+	// a57d7bf49b6e44180b21b1fea80eec0a
+	UniScCode *string `json:"uniScCode,omitempty" xml:"uniScCode,omitempty"`
 }
 
 func (s QueryScoreRequest) String() string {
@@ -251,12 +269,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -265,6 +283,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 查询用户金融评分数据
+//
+// @param request - QueryScoreRequest
+//
+// @param headers - QueryScoreHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryScoreResponse
 func (client *Client) QueryScoreWithOptions(request *QueryScoreRequest, headers *QueryScoreHeaders, runtime *util.RuntimeOptions) (_result *QueryScoreResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -328,6 +357,13 @@ func (client *Client) QueryScoreWithOptions(request *QueryScoreRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户金融评分数据
+//
+// @param request - QueryScoreRequest
+//
+// @return QueryScoreResponse
 func (client *Client) QueryScore(request *QueryScoreRequest) (_result *QueryScoreResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryScoreHeaders{}

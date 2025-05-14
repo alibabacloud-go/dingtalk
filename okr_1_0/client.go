@@ -1,27 +1,41 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package okr_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-	"io"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
+	"io"
 )
 
 type OpenKeyResultDTO struct {
-	KrId          *string         `json:"krId,omitempty" xml:"krId,omitempty"`
-	Progress      *int64          `json:"progress,omitempty" xml:"progress,omitempty"`
-	Status        *int64          `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 65222713d0e8b868f9f9ae51
+	KrId *string `json:"krId,omitempty" xml:"krId,omitempty"`
+	// example:
+	//
+	// 80
+	Progress *int64 `json:"progress,omitempty" xml:"progress,omitempty"`
+	// example:
+	//
+	// 1
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 这是一个KR
 	Title         *string         `json:"title,omitempty" xml:"title,omitempty"`
 	TitleMentions []*TitleMention `json:"titleMentions,omitempty" xml:"titleMentions,omitempty" type:"Repeated"`
-	Type          *int64          `json:"type,omitempty" xml:"type,omitempty"`
-	Weight        *float64        `json:"weight,omitempty" xml:"weight,omitempty"`
+	// example:
+	//
+	// 1
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 10.00
+	Weight *float64 `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s OpenKeyResultDTO) String() string {
@@ -68,15 +82,30 @@ func (s *OpenKeyResultDTO) SetWeight(v float64) *OpenKeyResultDTO {
 }
 
 type OpenObjectiveDTO struct {
-	Executor    *OpenUserDTO        `json:"executor,omitempty" xml:"executor,omitempty"`
-	KeyResults  []*OpenKeyResultDTO `json:"keyResults,omitempty" xml:"keyResults,omitempty" type:"Repeated"`
-	ObjectiveId *string             `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
-	Period      *OpenPeriodDTO      `json:"period,omitempty" xml:"period,omitempty"`
-	Progress    *int64              `json:"progress,omitempty" xml:"progress,omitempty"`
-	Status      *int64              `json:"status,omitempty" xml:"status,omitempty"`
-	Teams       []*OpenTeamDTO      `json:"teams,omitempty" xml:"teams,omitempty" type:"Repeated"`
-	Title       *string             `json:"title,omitempty" xml:"title,omitempty"`
-	Weight      *float64            `json:"weight,omitempty" xml:"weight,omitempty"`
+	Executor   *OpenUserDTO        `json:"executor,omitempty" xml:"executor,omitempty"`
+	KeyResults []*OpenKeyResultDTO `json:"keyResults,omitempty" xml:"keyResults,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 65222640d0e8b868f9f9ae3c
+	ObjectiveId *string        `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
+	Period      *OpenPeriodDTO `json:"period,omitempty" xml:"period,omitempty"`
+	// example:
+	//
+	// 80
+	Progress *int64 `json:"progress,omitempty" xml:"progress,omitempty"`
+	// example:
+	//
+	// 1
+	Status *int64         `json:"status,omitempty" xml:"status,omitempty"`
+	Teams  []*OpenTeamDTO `json:"teams,omitempty" xml:"teams,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 这是一个O的标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 10.00
+	Weight *float64 `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s OpenObjectiveDTO) String() string {
@@ -133,9 +162,10 @@ func (s *OpenObjectiveDTO) SetWeight(v float64) *OpenObjectiveDTO {
 }
 
 type OpenPeriodDTO struct {
-	EndDate   *int64  `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	NameCn    *string `json:"nameCn,omitempty" xml:"nameCn,omitempty"`
-	NameEn    *string `json:"nameEn,omitempty" xml:"nameEn,omitempty"`
+	EndDate *int64  `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	NameCn  *string `json:"nameCn,omitempty" xml:"nameCn,omitempty"`
+	NameEn  *string `json:"nameEn,omitempty" xml:"nameEn,omitempty"`
+	// This parameter is required.
 	PeriodId  *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
 	StartDate *int64  `json:"startDate,omitempty" xml:"startDate,omitempty"`
 	Status    *int32  `json:"status,omitempty" xml:"status,omitempty"`
@@ -180,9 +210,18 @@ func (s *OpenPeriodDTO) SetStatus(v int32) *OpenPeriodDTO {
 }
 
 type OpenTeamDTO struct {
-	DeptUid    *string `json:"deptUid,omitempty" xml:"deptUid,omitempty"`
+	// example:
+	//
+	// 0342464558835299
+	DeptUid *string `json:"deptUid,omitempty" xml:"deptUid,omitempty"`
+	// example:
+	//
+	// 64cd2e9bb80efb17244c650d
 	DingDeptId *string `json:"dingDeptId,omitempty" xml:"dingDeptId,omitempty"`
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// xx部门
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s OpenTeamDTO) String() string {
@@ -209,10 +248,22 @@ func (s *OpenTeamDTO) SetName(v string) *OpenTeamDTO {
 }
 
 type OpenUserDTO struct {
+	// example:
+	//
+	// 0342464558835299
 	DingUserId *string `json:"dingUserId,omitempty" xml:"dingUserId,omitempty"`
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	UserUid    *string `json:"userUid,omitempty" xml:"userUid,omitempty"`
-	WorkNo     *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	// example:
+	//
+	// 小明
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 64cd2e9bb80efb17244c650d
+	UserUid *string `json:"userUid,omitempty" xml:"userUid,omitempty"`
+	// example:
+	//
+	// 2639402752-1812711657
+	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s OpenUserDTO) String() string {
@@ -244,7 +295,13 @@ func (s *OpenUserDTO) SetWorkNo(v string) *OpenUserDTO {
 }
 
 type TitleMention struct {
-	Length *int64       `json:"length,omitempty" xml:"length,omitempty"`
+	// example:
+	//
+	// 20
+	Length *int64 `json:"length,omitempty" xml:"length,omitempty"`
+	// example:
+	//
+	// 1
 	Offset *int64       `json:"offset,omitempty" xml:"offset,omitempty"`
 	User   *OpenUserDTO `json:"user,omitempty" xml:"user,omitempty"`
 }
@@ -296,9 +353,24 @@ func (s *AlignObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *AlignObjec
 }
 
 type AlignObjectiveRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1006
 	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 59YD
 	TargetId *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
-	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0115396701752283
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AlignObjectiveRequest) String() string {
@@ -325,8 +397,13 @@ func (s *AlignObjectiveRequest) SetUserId(v string) *AlignObjectiveRequest {
 }
 
 type AlignObjectiveResponseBody struct {
-	Data    *AlignObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Success *bool                           `json:"success,omitempty" xml:"success,omitempty"`
+	Data *AlignObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s AlignObjectiveResponseBody) String() string {
@@ -348,8 +425,14 @@ func (s *AlignObjectiveResponseBody) SetSuccess(v bool) *AlignObjectiveResponseB
 }
 
 type AlignObjectiveResponseBodyData struct {
+	// example:
+	//
+	// 59YD
 	AlignId io.Reader `json:"alignId,omitempty" xml:"alignId,omitempty"`
-	Id      io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 5dAX8
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
 }
 
 func (s AlignObjectiveResponseBodyData) String() string {
@@ -423,10 +506,18 @@ func (s *BatchAddPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *BatchA
 }
 
 type BatchAddPermissionRequest struct {
-	List       []*BatchAddPermissionRequestList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	TargetId   *string                          `json:"targetId,omitempty" xml:"targetId,omitempty"`
-	TargetType *string                          `json:"targetType,omitempty" xml:"targetType,omitempty"`
-	UserId     *string                          `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	List []*BatchAddPermissionRequestList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// This parameter is required.
+	TargetId *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
+	// This parameter is required.
+	TargetType *string `json:"targetType,omitempty" xml:"targetType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 当前用户 userId。
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchAddPermissionRequest) String() string {
@@ -458,8 +549,10 @@ func (s *BatchAddPermissionRequest) SetUserId(v string) *BatchAddPermissionReque
 }
 
 type BatchAddPermissionRequestList struct {
-	Member     *BatchAddPermissionRequestListMember `json:"member,omitempty" xml:"member,omitempty" type:"Struct"`
-	PolicyType *int64                               `json:"policyType,omitempty" xml:"policyType,omitempty"`
+	// This parameter is required.
+	Member *BatchAddPermissionRequestListMember `json:"member,omitempty" xml:"member,omitempty" type:"Struct"`
+	// This parameter is required.
+	PolicyType *int64 `json:"policyType,omitempty" xml:"policyType,omitempty"`
 }
 
 func (s BatchAddPermissionRequestList) String() string {
@@ -481,7 +574,9 @@ func (s *BatchAddPermissionRequestList) SetPolicyType(v int64) *BatchAddPermissi
 }
 
 type BatchAddPermissionRequestListMember struct {
-	Id   *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
@@ -504,8 +599,12 @@ func (s *BatchAddPermissionRequestListMember) SetType(v string) *BatchAddPermiss
 }
 
 type BatchAddPermissionResponseBody struct {
-	Data    *BatchAddPermissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Success *bool                               `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	Data *BatchAddPermissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BatchAddPermissionResponseBody) String() string {
@@ -527,7 +626,9 @@ func (s *BatchAddPermissionResponseBody) SetSuccess(v bool) *BatchAddPermissionR
 }
 
 type BatchAddPermissionResponseBodyData struct {
-	HasInvalidUser *bool                                             `json:"hasInvalidUser,omitempty" xml:"hasInvalidUser,omitempty"`
+	// This parameter is required.
+	HasInvalidUser *bool `json:"hasInvalidUser,omitempty" xml:"hasInvalidUser,omitempty"`
+	// This parameter is required.
 	PermissionTree *BatchAddPermissionResponseBodyDataPermissionTree `json:"permissionTree,omitempty" xml:"permissionTree,omitempty" type:"Struct"`
 }
 
@@ -550,10 +651,22 @@ func (s *BatchAddPermissionResponseBodyData) SetPermissionTree(v *BatchAddPermis
 }
 
 type BatchAddPermissionResponseBodyDataPermissionTree struct {
-	Id         *string                                                       `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
 	PolicyList []*BatchAddPermissionResponseBodyDataPermissionTreePolicyList `json:"policyList,omitempty" xml:"policyList,omitempty" type:"Repeated"`
-	Privacy    *string                                                       `json:"privacy,omitempty" xml:"privacy,omitempty"`
-	Type       *string                                                       `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// public
+	Privacy *string `json:"privacy,omitempty" xml:"privacy,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// period
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s BatchAddPermissionResponseBodyDataPermissionTree) String() string {
@@ -585,9 +698,12 @@ func (s *BatchAddPermissionResponseBodyDataPermissionTree) SetType(v string) *Ba
 }
 
 type BatchAddPermissionResponseBodyDataPermissionTreePolicyList struct {
+	// This parameter is required.
 	MemberList []*BatchAddPermissionResponseBodyDataPermissionTreePolicyListMemberList `json:"memberList,omitempty" xml:"memberList,omitempty" type:"Repeated"`
-	Name       *string                                                                 `json:"name,omitempty" xml:"name,omitempty"`
-	Type       *int64                                                                  `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s BatchAddPermissionResponseBodyDataPermissionTreePolicyList) String() string {
@@ -614,9 +730,11 @@ func (s *BatchAddPermissionResponseBodyDataPermissionTreePolicyList) SetType(v i
 }
 
 type BatchAddPermissionResponseBodyDataPermissionTreePolicyListMemberList struct {
+	// This parameter is required.
 	Id       *string `json:"id,omitempty" xml:"id,omitempty"`
 	Nickname *string `json:"nickname,omitempty" xml:"nickname,omitempty"`
-	Type     *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s BatchAddPermissionResponseBodyDataPermissionTreePolicyListMemberList) String() string {
@@ -695,12 +813,34 @@ func (s *BatchQueryObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *Batch
 }
 
 type BatchQueryObjectiveRequest struct {
+	// This parameter is required.
 	ObjectiveIds []*string `json:"objectiveIds,omitempty" xml:"objectiveIds,omitempty" type:"Repeated"`
-	PeriodId     *string   `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	WithAlign    *bool     `json:"withAlign,omitempty" xml:"withAlign,omitempty"`
-	WithKr       *bool     `json:"withKr,omitempty" xml:"withKr,omitempty"`
-	WithProgress *bool     `json:"withProgress,omitempty" xml:"withProgress,omitempty"`
-	UserId       *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10056
+	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	// example:
+	//
+	// false
+	WithAlign *bool `json:"withAlign,omitempty" xml:"withAlign,omitempty"`
+	// example:
+	//
+	// false
+	WithKr *bool `json:"withKr,omitempty" xml:"withKr,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	WithProgress *bool `json:"withProgress,omitempty" xml:"withProgress,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0115396701752283
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchQueryObjectiveRequest) String() string {
@@ -742,8 +882,13 @@ func (s *BatchQueryObjectiveRequest) SetUserId(v string) *BatchQueryObjectiveReq
 }
 
 type BatchQueryObjectiveResponseBody struct {
-	Data    []*BatchQueryObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	Success *bool                                  `json:"success,omitempty" xml:"success,omitempty"`
+	Data []*BatchQueryObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BatchQueryObjectiveResponseBody) String() string {
@@ -765,24 +910,60 @@ func (s *BatchQueryObjectiveResponseBody) SetSuccess(v bool) *BatchQueryObjectiv
 }
 
 type BatchQueryObjectiveResponseBodyData struct {
-	AlignFromIds    []io.Reader                                  `json:"alignFromIds,omitempty" xml:"alignFromIds,omitempty" type:"Repeated"`
-	AlignToIds      []io.Reader                                  `json:"alignToIds,omitempty" xml:"alignToIds,omitempty" type:"Repeated"`
-	Content         io.Reader                                    `json:"content,omitempty" xml:"content,omitempty"`
-	GmtCreate       *float32                                     `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified     *float32                                     `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	Id              io.Reader                                    `json:"id,omitempty" xml:"id,omitempty"`
-	KrList          []*BatchQueryObjectiveResponseBodyDataKrList `json:"krList,omitempty" xml:"krList,omitempty" type:"Repeated"`
-	Owner           *BatchQueryObjectiveResponseBodyDataOwner    `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
-	PeriodId        io.Reader                                    `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	Permission      []*float32                                   `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
-	Position        *int32                                       `json:"position,omitempty" xml:"position,omitempty"`
-	Progress        *BatchQueryObjectiveResponseBodyDataProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
-	ProgressPercent *float32                                     `json:"progressPercent,omitempty" xml:"progressPercent,omitempty"`
-	Published       *bool                                        `json:"published,omitempty" xml:"published,omitempty"`
-	Score           *float32                                     `json:"score,omitempty" xml:"score,omitempty"`
-	Status          *int32                                       `json:"status,omitempty" xml:"status,omitempty"`
-	UserId          io.Reader                                    `json:"userId,omitempty" xml:"userId,omitempty"`
-	Weight          *float32                                     `json:"weight,omitempty" xml:"weight,omitempty"`
+	AlignFromIds []io.Reader `json:"alignFromIds,omitempty" xml:"alignFromIds,omitempty" type:"Repeated"`
+	AlignToIds   []io.Reader `json:"alignToIds,omitempty" xml:"alignToIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// Objective demo
+	Content io.Reader `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 1648625407694
+	GmtCreate *float32 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 1648625407694
+	GmtModified *float32 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// example:
+	//
+	// 5dAX8
+	Id     io.Reader                                    `json:"id,omitempty" xml:"id,omitempty"`
+	KrList []*BatchQueryObjectiveResponseBodyDataKrList `json:"krList,omitempty" xml:"krList,omitempty" type:"Repeated"`
+	Owner  *BatchQueryObjectiveResponseBodyDataOwner    `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	// example:
+	//
+	// 1006
+	PeriodId   io.Reader  `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	Permission []*float32 `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 3021332
+	Position *int32                                       `json:"position,omitempty" xml:"position,omitempty"`
+	Progress *BatchQueryObjectiveResponseBodyDataProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
+	// example:
+	//
+	// 100
+	ProgressPercent *float32 `json:"progressPercent,omitempty" xml:"progressPercent,omitempty"`
+	// example:
+	//
+	// true
+	Published *bool `json:"published,omitempty" xml:"published,omitempty"`
+	// example:
+	//
+	// 20
+	Score *float32 `json:"score,omitempty" xml:"score,omitempty"`
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// s34d
+	UserId io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 50
+	Weight *float32 `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s BatchQueryObjectiveResponseBodyData) String() string {
@@ -884,16 +1065,42 @@ func (s *BatchQueryObjectiveResponseBodyData) SetWeight(v float32) *BatchQueryOb
 }
 
 type BatchQueryObjectiveResponseBodyDataKrList struct {
-	Content     io.Reader                                          `json:"content,omitempty" xml:"content,omitempty"`
-	GmtCreate   *float32                                           `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified *float32                                           `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	Id          io.Reader                                          `json:"id,omitempty" xml:"id,omitempty"`
-	ObjectiveId io.Reader                                          `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
-	Permission  []*float32                                         `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
-	Position    *int64                                             `json:"position,omitempty" xml:"position,omitempty"`
-	Progress    *BatchQueryObjectiveResponseBodyDataKrListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
-	Score       *float32                                           `json:"score,omitempty" xml:"score,omitempty"`
-	Weight      *float32                                           `json:"weight,omitempty" xml:"weight,omitempty"`
+	// example:
+	//
+	// 你好
+	Content io.Reader `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 1648625407694
+	GmtCreate *float32 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 1648625407694
+	GmtModified *float32 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5w9f
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 5wf8
+	ObjectiveId io.Reader  `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
+	Permission  []*float32 `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 35614536
+	Position *int64                                             `json:"position,omitempty" xml:"position,omitempty"`
+	Progress *BatchQueryObjectiveResponseBodyDataKrListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
+	// example:
+	//
+	// 44
+	Score *float32 `json:"score,omitempty" xml:"score,omitempty"`
+	// example:
+	//
+	// 44
+	Weight *float32 `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s BatchQueryObjectiveResponseBodyDataKrList) String() string {
@@ -955,6 +1162,9 @@ func (s *BatchQueryObjectiveResponseBodyDataKrList) SetWeight(v float32) *BatchQ
 }
 
 type BatchQueryObjectiveResponseBodyDataKrListProgress struct {
+	// example:
+	//
+	// 30
 	Percent *int32 `json:"percent,omitempty" xml:"percent,omitempty"`
 }
 
@@ -972,11 +1182,26 @@ func (s *BatchQueryObjectiveResponseBodyDataKrListProgress) SetPercent(v int32) 
 }
 
 type BatchQueryObjectiveResponseBodyDataOwner struct {
+	// example:
+	//
+	// @lADPDh0cQ_j4Mi_NBULNBUA
 	AvatarMediaId io.Reader `json:"avatarMediaId,omitempty" xml:"avatarMediaId,omitempty"`
-	CorpId        io.Reader `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Id            io.Reader `json:"id,omitempty" xml:"id,omitempty"`
-	Nickname      io.Reader `json:"nickname,omitempty" xml:"nickname,omitempty"`
-	UserId        io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// ding4d1c8883ff63ee8124f2f5cc6abecb85
+	CorpId io.Reader `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// K1AMgq
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 你好
+	Nickname io.Reader `json:"nickname,omitempty" xml:"nickname,omitempty"`
+	// example:
+	//
+	// 06186238011033616
+	UserId io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchQueryObjectiveResponseBodyDataOwner) String() string {
@@ -1013,6 +1238,9 @@ func (s *BatchQueryObjectiveResponseBodyDataOwner) SetUserId(v io.Reader) *Batch
 }
 
 type BatchQueryObjectiveResponseBodyDataProgress struct {
+	// example:
+	//
+	// 100
 	Percent *int32 `json:"percent,omitempty" xml:"percent,omitempty"`
 }
 
@@ -1105,8 +1333,14 @@ func (s *BatchQueryUserRequest) SetUserIds(v []*string) *BatchQueryUserRequest {
 }
 
 type BatchQueryUserResponseBody struct {
-	Data    []*BatchQueryUserResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	Success *bool                             `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	Data []*BatchQueryUserResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s BatchQueryUserResponseBody) String() string {
@@ -1128,12 +1362,32 @@ func (s *BatchQueryUserResponseBody) SetSuccess(v bool) *BatchQueryUserResponseB
 }
 
 type BatchQueryUserResponseBodyData struct {
+	// example:
+	//
+	// @lADPDh0cQ_j4Mi_NBULNBUA
 	AvatarMediaId io.Reader `json:"avatarMediaId,omitempty" xml:"avatarMediaId,omitempty"`
-	AvatarUrl     io.Reader `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-	CorpId        io.Reader `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Id            io.Reader `json:"id,omitempty" xml:"id,omitempty"`
-	Nickname      io.Reader `json:"nickname,omitempty" xml:"nickname,omitempty"`
-	UserId        io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://static.dingtalk.com/media/lADPEj_RiGhUdKjNC9TNC9A_3024_3028.jpg_620x10000q90.jpg
+	AvatarUrl io.Reader `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// example:
+	//
+	// ding4d1c8883ff63ee8124f2f5cc6abecb85
+	CorpId io.Reader `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// K1AMgq
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 你好
+	Nickname io.Reader `json:"nickname,omitempty" xml:"nickname,omitempty"`
+	// example:
+	//
+	// 06186238011033616
+	UserId io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchQueryUserResponseBodyData) String() string {
@@ -1227,12 +1481,38 @@ func (s *CreateKeyResultHeaders) SetXAcsDingtalkAccessToken(v string) *CreateKey
 }
 
 type CreateKeyResultRequest struct {
-	Content      *string `json:"content,omitempty" xml:"content,omitempty"`
-	ObjectiveId  *string `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
-	PeriodId     *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	PrevPosition *int64  `json:"prevPosition,omitempty" xml:"prevPosition,omitempty"`
-	Weight       *int64  `json:"weight,omitempty" xml:"weight,omitempty"`
-	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 我的内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 58Y4
+	ObjectiveId *string `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1006
+	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	// example:
+	//
+	// 234631
+	PrevPosition *int64 `json:"prevPosition,omitempty" xml:"prevPosition,omitempty"`
+	// example:
+	//
+	// 100
+	Weight *int64 `json:"weight,omitempty" xml:"weight,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 06186238011033616
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateKeyResultRequest) String() string {
@@ -1274,8 +1554,14 @@ func (s *CreateKeyResultRequest) SetUserId(v string) *CreateKeyResultRequest {
 }
 
 type CreateKeyResultResponseBody struct {
-	Data    *CreateKeyResultResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Success *bool                            `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	Data *CreateKeyResultResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s CreateKeyResultResponseBody) String() string {
@@ -1297,9 +1583,24 @@ func (s *CreateKeyResultResponseBody) SetSuccess(v bool) *CreateKeyResultRespons
 }
 
 type CreateKeyResultResponseBodyData struct {
-	Id       io.Reader `json:"id,omitempty" xml:"id,omitempty"`
-	Position *int64    `json:"position,omitempty" xml:"position,omitempty"`
-	Weight   *int64    `json:"weight,omitempty" xml:"weight,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// R45Y
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 420983
+	Position *int64 `json:"position,omitempty" xml:"position,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	Weight *int64 `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s CreateKeyResultResponseBodyData) String() string {
@@ -1378,10 +1679,30 @@ func (s *CreateObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *CreateObj
 }
 
 type CreateObjectiveRequest struct {
-	Content      *string `json:"content,omitempty" xml:"content,omitempty"`
-	PeriodId     *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 我是内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1006
+	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1334543
 	PrevPosition *string `json:"prevPosition,omitempty" xml:"prevPosition,omitempty"`
-	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 06186238011033616
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateObjectiveRequest) String() string {
@@ -1413,8 +1734,11 @@ func (s *CreateObjectiveRequest) SetUserId(v string) *CreateObjectiveRequest {
 }
 
 type CreateObjectiveResponseBody struct {
-	Data    *CreateObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Success *bool                            `json:"success,omitempty" xml:"success,omitempty"`
+	Data *CreateObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s CreateObjectiveResponseBody) String() string {
@@ -1436,7 +1760,17 @@ func (s *CreateObjectiveResponseBody) SetSuccess(v bool) *CreateObjectiveRespons
 }
 
 type CreateObjectiveResponseBodyData struct {
-	Id       *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 58YD
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 33453
 	Position *string `json:"position,omitempty" xml:"position,omitempty"`
 }
 
@@ -1511,7 +1845,17 @@ func (s *DeleteKeyResultHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteKey
 }
 
 type DeleteKeyResultRequest struct {
-	KrId   *string `json:"krId,omitempty" xml:"krId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 4d2d
+	KrId *string `json:"krId,omitempty" xml:"krId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 06186238011033616
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -1534,7 +1878,17 @@ func (s *DeleteKeyResultRequest) SetUserId(v string) *DeleteKeyResultRequest {
 }
 
 type DeleteKeyResultResponseBody struct {
-	Data    *bool `json:"data,omitempty" xml:"data,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// success
+	Data *bool `json:"data,omitempty" xml:"data,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -1609,6 +1963,11 @@ func (s *DeleteObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteObj
 }
 
 type DeleteObjectiveRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 06186238011033616
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -1626,8 +1985,13 @@ func (s *DeleteObjectiveRequest) SetUserId(v string) *DeleteObjectiveRequest {
 }
 
 type DeleteObjectiveResponseBody struct {
-	Data    *DeleteObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Success *bool                            `json:"success,omitempty" xml:"success,omitempty"`
+	Data *DeleteObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s DeleteObjectiveResponseBody) String() string {
@@ -1649,6 +2013,11 @@ func (s *DeleteObjectiveResponseBody) SetSuccess(v bool) *DeleteObjectiveRespons
 }
 
 type DeleteObjectiveResponseBodyData struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 58YD
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
@@ -1718,12 +2087,22 @@ func (s *DeletePermissionHeaders) SetXAcsDingtalkAccessToken(v string) *DeletePe
 }
 
 type DeletePermissionRequest struct {
-	Id         *string `json:"id,omitempty" xml:"id,omitempty"`
-	PolicyType *int64  `json:"policyType,omitempty" xml:"policyType,omitempty"`
-	TargetId   *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
+	// This parameter is required.
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	PolicyType *int64 `json:"policyType,omitempty" xml:"policyType,omitempty"`
+	// This parameter is required.
+	TargetId *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
+	// This parameter is required.
 	TargetType *string `json:"targetType,omitempty" xml:"targetType,omitempty"`
-	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0115396701752283
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DeletePermissionRequest) String() string {
@@ -1765,8 +2144,12 @@ func (s *DeletePermissionRequest) SetUserId(v string) *DeletePermissionRequest {
 }
 
 type DeletePermissionResponseBody struct {
-	Data    *DeletePermissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Success *bool                             `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	Data *DeletePermissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s DeletePermissionResponseBody) String() string {
@@ -1788,10 +2171,22 @@ func (s *DeletePermissionResponseBody) SetSuccess(v bool) *DeletePermissionRespo
 }
 
 type DeletePermissionResponseBodyData struct {
-	Id         *string                                       `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
 	PolicyList []*DeletePermissionResponseBodyDataPolicyList `json:"policyList,omitempty" xml:"policyList,omitempty" type:"Repeated"`
-	Privacy    *string                                       `json:"privacy,omitempty" xml:"privacy,omitempty"`
-	Type       *string                                       `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// public
+	Privacy *string `json:"privacy,omitempty" xml:"privacy,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// period
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s DeletePermissionResponseBodyData) String() string {
@@ -1823,9 +2218,12 @@ func (s *DeletePermissionResponseBodyData) SetType(v string) *DeletePermissionRe
 }
 
 type DeletePermissionResponseBodyDataPolicyList struct {
+	// This parameter is required.
 	MemberList []*DeletePermissionResponseBodyDataPolicyListMemberList `json:"memberList,omitempty" xml:"memberList,omitempty" type:"Repeated"`
-	Name       *string                                                 `json:"name,omitempty" xml:"name,omitempty"`
-	Type       *int64                                                  `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s DeletePermissionResponseBodyDataPolicyList) String() string {
@@ -1852,9 +2250,11 @@ func (s *DeletePermissionResponseBodyDataPolicyList) SetType(v int64) *DeletePer
 }
 
 type DeletePermissionResponseBodyDataPolicyListMemberList struct {
+	// This parameter is required.
 	Id       *string `json:"id,omitempty" xml:"id,omitempty"`
 	Nickname *string `json:"nickname,omitempty" xml:"nickname,omitempty"`
-	Type     *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s DeletePermissionResponseBodyDataPolicyListMemberList) String() string {
@@ -1956,6 +2356,7 @@ func (s *GetPeriodListResponseBody) SetSuccess(v bool) *GetPeriodListResponseBod
 }
 
 type GetPeriodListResponseBodyData struct {
+	// This parameter is required.
 	PeriodList []*GetPeriodListResponseBodyDataPeriodList `json:"periodList,omitempty" xml:"periodList,omitempty" type:"Repeated"`
 }
 
@@ -1973,12 +2374,18 @@ func (s *GetPeriodListResponseBodyData) SetPeriodList(v []*GetPeriodListResponse
 }
 
 type GetPeriodListResponseBodyDataPeriodList struct {
-	EndTime   *float32  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	Id        io.Reader `json:"id,omitempty" xml:"id,omitempty"`
-	IsCurrent *bool     `json:"isCurrent,omitempty" xml:"isCurrent,omitempty"`
-	IsYearly  *bool     `json:"isYearly,omitempty" xml:"isYearly,omitempty"`
-	Name      io.Reader `json:"name,omitempty" xml:"name,omitempty"`
-	StartTime *float32  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	EndTime *float32 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	IsCurrent *bool `json:"isCurrent,omitempty" xml:"isCurrent,omitempty"`
+	// This parameter is required.
+	IsYearly *bool `json:"isYearly,omitempty" xml:"isYearly,omitempty"`
+	// This parameter is required.
+	Name io.Reader `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	StartTime *float32 `json:"startTime,omitempty" xml:"startTime,omitempty"`
 }
 
 func (s GetPeriodListResponseBodyDataPeriodList) String() string {
@@ -2072,8 +2479,15 @@ func (s *GetPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *GetPermissi
 }
 
 type GetPermissionRequest struct {
-	TargetId      *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
-	TargetType    *string `json:"targetType,omitempty" xml:"targetType,omitempty"`
+	// This parameter is required.
+	TargetId *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
+	// This parameter is required.
+	TargetType *string `json:"targetType,omitempty" xml:"targetType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 当前用户 userId。
 	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
 	WithKr        *bool   `json:"withKr,omitempty" xml:"withKr,omitempty"`
 	WithObjective *bool   `json:"withObjective,omitempty" xml:"withObjective,omitempty"`
@@ -2113,8 +2527,12 @@ func (s *GetPermissionRequest) SetWithObjective(v bool) *GetPermissionRequest {
 }
 
 type GetPermissionResponseBody struct {
-	Data    *GetPermissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Success *bool                          `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	Data *GetPermissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetPermissionResponseBody) String() string {
@@ -2136,10 +2554,22 @@ func (s *GetPermissionResponseBody) SetSuccess(v bool) *GetPermissionResponseBod
 }
 
 type GetPermissionResponseBodyData struct {
-	Id         *string                                    `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
 	PolicyList []*GetPermissionResponseBodyDataPolicyList `json:"policyList,omitempty" xml:"policyList,omitempty" type:"Repeated"`
-	Privacy    *string                                    `json:"privacy,omitempty" xml:"privacy,omitempty"`
-	Type       *string                                    `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// public
+	Privacy *string `json:"privacy,omitempty" xml:"privacy,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// period
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetPermissionResponseBodyData) String() string {
@@ -2171,9 +2601,12 @@ func (s *GetPermissionResponseBodyData) SetType(v string) *GetPermissionResponse
 }
 
 type GetPermissionResponseBodyDataPolicyList struct {
+	// This parameter is required.
 	MemberList []*GetPermissionResponseBodyDataPolicyListMemberList `json:"memberList,omitempty" xml:"memberList,omitempty" type:"Repeated"`
-	Name       *string                                              `json:"name,omitempty" xml:"name,omitempty"`
-	Type       *int64                                               `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetPermissionResponseBodyDataPolicyList) String() string {
@@ -2200,9 +2633,11 @@ func (s *GetPermissionResponseBodyDataPolicyList) SetType(v int64) *GetPermissio
 }
 
 type GetPermissionResponseBodyDataPolicyListMemberList struct {
+	// This parameter is required.
 	Id       *string `json:"id,omitempty" xml:"id,omitempty"`
 	Nickname *string `json:"nickname,omitempty" xml:"nickname,omitempty"`
-	Type     *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetPermissionResponseBodyDataPolicyListMemberList) String() string {
@@ -2281,10 +2716,26 @@ func (s *GetUserOkrHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserOkrHead
 }
 
 type GetUserOkrRequest struct {
-	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	PeriodId   *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 2
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 30
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1005
+	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 011539670175223
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetUserOkrRequest) String() string {
@@ -2316,8 +2767,13 @@ func (s *GetUserOkrRequest) SetUserId(v string) *GetUserOkrRequest {
 }
 
 type GetUserOkrResponseBody struct {
-	Data    *GetUserOkrResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Success *bool                       `json:"success,omitempty" xml:"success,omitempty"`
+	Data *GetUserOkrResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetUserOkrResponseBody) String() string {
@@ -2339,10 +2795,21 @@ func (s *GetUserOkrResponseBody) SetSuccess(v bool) *GetUserOkrResponseBody {
 }
 
 type GetUserOkrResponseBodyData struct {
-	List       []*GetUserOkrResponseBodyDataList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	PageNumber *int64                            `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int64                            `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	TotalCount *int64                            `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	List []*GetUserOkrResponseBodyDataList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 2
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 50
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s GetUserOkrResponseBodyData) String() string {
@@ -2374,24 +2841,60 @@ func (s *GetUserOkrResponseBodyData) SetTotalCount(v int64) *GetUserOkrResponseB
 }
 
 type GetUserOkrResponseBodyDataList struct {
-	AlignFromIds    []io.Reader                             `json:"alignFromIds,omitempty" xml:"alignFromIds,omitempty" type:"Repeated"`
-	AlignToIds      []io.Reader                             `json:"alignToIds,omitempty" xml:"alignToIds,omitempty" type:"Repeated"`
-	Content         io.Reader                               `json:"content,omitempty" xml:"content,omitempty"`
-	GmtCreate       *float32                                `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified     *float32                                `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	Id              io.Reader                               `json:"id,omitempty" xml:"id,omitempty"`
-	KrList          []*GetUserOkrResponseBodyDataListKrList `json:"krList,omitempty" xml:"krList,omitempty" type:"Repeated"`
-	Owner           *GetUserOkrResponseBodyDataListOwner    `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
-	PeriodId        io.Reader                               `json:"periodId,omitempty" xml:"periodId,omitempty"`
-	Permission      []*float32                              `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
-	Position        *int32                                  `json:"position,omitempty" xml:"position,omitempty"`
-	Progress        *GetUserOkrResponseBodyDataListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
-	ProgressPercent *float32                                `json:"progressPercent,omitempty" xml:"progressPercent,omitempty"`
-	Published       *bool                                   `json:"published,omitempty" xml:"published,omitempty"`
-	Score           *float32                                `json:"score,omitempty" xml:"score,omitempty"`
-	Status          *int32                                  `json:"status,omitempty" xml:"status,omitempty"`
-	UserId          io.Reader                               `json:"userId,omitempty" xml:"userId,omitempty"`
-	Weight          *float32                                `json:"weight,omitempty" xml:"weight,omitempty"`
+	AlignFromIds []io.Reader `json:"alignFromIds,omitempty" xml:"alignFromIds,omitempty" type:"Repeated"`
+	AlignToIds   []io.Reader `json:"alignToIds,omitempty" xml:"alignToIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// Objective demo
+	Content io.Reader `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 1648625407694
+	GmtCreate *float32 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 1648625407694
+	GmtModified *float32 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// example:
+	//
+	// 5dAX8
+	Id     io.Reader                               `json:"id,omitempty" xml:"id,omitempty"`
+	KrList []*GetUserOkrResponseBodyDataListKrList `json:"krList,omitempty" xml:"krList,omitempty" type:"Repeated"`
+	Owner  *GetUserOkrResponseBodyDataListOwner    `json:"owner,omitempty" xml:"owner,omitempty" type:"Struct"`
+	// example:
+	//
+	// 1006
+	PeriodId   io.Reader  `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	Permission []*float32 `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 3021332
+	Position *int32                                  `json:"position,omitempty" xml:"position,omitempty"`
+	Progress *GetUserOkrResponseBodyDataListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
+	// example:
+	//
+	// 100
+	ProgressPercent *float32 `json:"progressPercent,omitempty" xml:"progressPercent,omitempty"`
+	// example:
+	//
+	// true
+	Published *bool `json:"published,omitempty" xml:"published,omitempty"`
+	// example:
+	//
+	// 20
+	Score *float32 `json:"score,omitempty" xml:"score,omitempty"`
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// s34d
+	UserId io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 50
+	Weight *float32 `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s GetUserOkrResponseBodyDataList) String() string {
@@ -2493,16 +2996,42 @@ func (s *GetUserOkrResponseBodyDataList) SetWeight(v float32) *GetUserOkrRespons
 }
 
 type GetUserOkrResponseBodyDataListKrList struct {
-	Content     io.Reader                                     `json:"content,omitempty" xml:"content,omitempty"`
-	GmtCreate   *float32                                      `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified *float32                                      `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	Id          io.Reader                                     `json:"id,omitempty" xml:"id,omitempty"`
-	ObjectiveId io.Reader                                     `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
-	Permission  []*float32                                    `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
-	Position    *int64                                        `json:"position,omitempty" xml:"position,omitempty"`
-	Progress    *GetUserOkrResponseBodyDataListKrListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
-	Score       *float32                                      `json:"score,omitempty" xml:"score,omitempty"`
-	Weight      *float32                                      `json:"weight,omitempty" xml:"weight,omitempty"`
+	// example:
+	//
+	// 你好
+	Content io.Reader `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 1648625407694
+	GmtCreate *float32 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 1648625407694
+	GmtModified *float32 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5w9f
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 5wf8
+	ObjectiveId io.Reader  `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
+	Permission  []*float32 `json:"permission,omitempty" xml:"permission,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 35614536
+	Position *int64                                        `json:"position,omitempty" xml:"position,omitempty"`
+	Progress *GetUserOkrResponseBodyDataListKrListProgress `json:"progress,omitempty" xml:"progress,omitempty" type:"Struct"`
+	// example:
+	//
+	// 44
+	Score *float32 `json:"score,omitempty" xml:"score,omitempty"`
+	// example:
+	//
+	// 44
+	Weight *float32 `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s GetUserOkrResponseBodyDataListKrList) String() string {
@@ -2564,6 +3093,9 @@ func (s *GetUserOkrResponseBodyDataListKrList) SetWeight(v float32) *GetUserOkrR
 }
 
 type GetUserOkrResponseBodyDataListKrListProgress struct {
+	// example:
+	//
+	// 30
 	Percent *int32 `json:"percent,omitempty" xml:"percent,omitempty"`
 }
 
@@ -2581,11 +3113,26 @@ func (s *GetUserOkrResponseBodyDataListKrListProgress) SetPercent(v int32) *GetU
 }
 
 type GetUserOkrResponseBodyDataListOwner struct {
+	// example:
+	//
+	// @lADPDh0cQ_j4Mi_NBULNBUA
 	AvatarMediaId io.Reader `json:"avatarMediaId,omitempty" xml:"avatarMediaId,omitempty"`
-	CorpId        io.Reader `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Id            io.Reader `json:"id,omitempty" xml:"id,omitempty"`
-	Nickname      io.Reader `json:"nickname,omitempty" xml:"nickname,omitempty"`
-	UserId        io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// ding4d1c8883ff63ee8124f2f5cc6abecb85
+	CorpId io.Reader `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// K1AMgq
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 你好
+	Nickname io.Reader `json:"nickname,omitempty" xml:"nickname,omitempty"`
+	// example:
+	//
+	// 06186238011033616
+	UserId io.Reader `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetUserOkrResponseBodyDataListOwner) String() string {
@@ -2622,6 +3169,9 @@ func (s *GetUserOkrResponseBodyDataListOwner) SetUserId(v io.Reader) *GetUserOkr
 }
 
 type GetUserOkrResponseBodyDataListProgress struct {
+	// example:
+	//
+	// 100
 	Percent *int32 `json:"percent,omitempty" xml:"percent,omitempty"`
 }
 
@@ -2691,6 +3241,9 @@ func (s *OkrObjectivesBatchHeaders) SetXAcsDingtalkAccessToken(v string) *OkrObj
 }
 
 type OkrObjectivesBatchRequest struct {
+	// example:
+	//
+	// dingOKR
 	GoodsCode    *string   `json:"goodsCode,omitempty" xml:"goodsCode,omitempty"`
 	ObjectiveIds []*string `json:"objectiveIds,omitempty" xml:"objectiveIds,omitempty" type:"Repeated"`
 }
@@ -2789,9 +3342,15 @@ func (s *OkrObjectivesByUserHeaders) SetXAcsDingtalkAccessToken(v string) *OkrOb
 }
 
 type OkrObjectivesByUserRequest struct {
+	// example:
+	//
+	// dingOKR
 	GoodsCode  *string `json:"goodsCode,omitempty" xml:"goodsCode,omitempty"`
 	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s OkrObjectivesByUserRequest) String() string {
@@ -2847,8 +3406,11 @@ func (s *OkrObjectivesByUserResponseBody) SetSuccess(v bool) *OkrObjectivesByUse
 }
 
 type OkrObjectivesByUserResponseBodyContent struct {
-	Result     []*OpenObjectiveDTO `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	TotalCount *int64              `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Result []*OpenObjectiveDTO `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 15
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s OkrObjectivesByUserResponseBodyContent) String() string {
@@ -2922,10 +3484,22 @@ func (s *OkrPeriodsHeaders) SetXAcsDingtalkAccessToken(v string) *OkrPeriodsHead
 }
 
 type OkrPeriodsRequest struct {
-	GoodsCode  *string `json:"goodsCode,omitempty" xml:"goodsCode,omitempty"`
-	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	Status     *int64  `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// dingOKR
+	GoodsCode *string `json:"goodsCode,omitempty" xml:"goodsCode,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 0
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s OkrPeriodsRequest) String() string {
@@ -2959,7 +3533,8 @@ func (s *OkrPeriodsRequest) SetStatus(v int64) *OkrPeriodsRequest {
 type OkrPeriodsResponseBody struct {
 	Content   *OkrPeriodsResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
 	RequestId *string                        `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Success   *bool                          `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s OkrPeriodsResponseBody) String() string {
@@ -2986,10 +3561,19 @@ func (s *OkrPeriodsResponseBody) SetSuccess(v bool) *OkrPeriodsResponseBody {
 }
 
 type OkrPeriodsResponseBodyContent struct {
-	PageNumber *int32           `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32           `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	Result     []*OpenPeriodDTO `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	TotalCount *int64           `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32           `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	Result   []*OpenPeriodDTO `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 15
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s OkrPeriodsResponseBodyContent) String() string {
@@ -3073,9 +3657,24 @@ func (s *UnAlignObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *UnAlignO
 }
 
 type UnAlignObjectiveRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1006
 	PeriodId *string `json:"periodId,omitempty" xml:"periodId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 59YD
 	TargetId *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
-	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0115396701752283
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UnAlignObjectiveRequest) String() string {
@@ -3102,8 +3701,13 @@ func (s *UnAlignObjectiveRequest) SetUserId(v string) *UnAlignObjectiveRequest {
 }
 
 type UnAlignObjectiveResponseBody struct {
-	Data    *UnAlignObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Success *bool                             `json:"success,omitempty" xml:"success,omitempty"`
+	Data *UnAlignObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UnAlignObjectiveResponseBody) String() string {
@@ -3125,8 +3729,14 @@ func (s *UnAlignObjectiveResponseBody) SetSuccess(v bool) *UnAlignObjectiveRespo
 }
 
 type UnAlignObjectiveResponseBodyData struct {
+	// example:
+	//
+	// 59YD
 	AlignId io.Reader `json:"alignId,omitempty" xml:"alignId,omitempty"`
-	Id      io.Reader `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 5dAX8
+	Id io.Reader `json:"id,omitempty" xml:"id,omitempty"`
 }
 
 func (s UnAlignObjectiveResponseBodyData) String() string {
@@ -3200,10 +3810,25 @@ func (s *UpdateKROfContentHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateK
 }
 
 type UpdateKROfContentRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 更新内容
 	Content         *string   `json:"content,omitempty" xml:"content,omitempty"`
 	UpdateQuoteList []*string `json:"updateQuoteList,omitempty" xml:"updateQuoteList,omitempty" type:"Repeated"`
-	KrId            *string   `json:"krId,omitempty" xml:"krId,omitempty"`
-	UserId          *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 46GM2
+	KrId *string `json:"krId,omitempty" xml:"krId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0115396701752283
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateKROfContentRequest) String() string {
@@ -3235,7 +3860,13 @@ func (s *UpdateKROfContentRequest) SetUserId(v string) *UpdateKROfContentRequest
 }
 
 type UpdateKROfContentResponseBody struct {
-	Data    *bool `json:"data,omitempty" xml:"data,omitempty"`
+	// This parameter is required.
+	Data *bool `json:"data,omitempty" xml:"data,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -3310,8 +3941,23 @@ func (s *UpdateKROfScoreHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateKRO
 }
 
 type UpdateKROfScoreRequest struct {
-	Score  *int64  `json:"score,omitempty" xml:"score,omitempty"`
-	KrId   *string `json:"krId,omitempty" xml:"krId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	Score *int64 `json:"score,omitempty" xml:"score,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 46GM2
+	KrId *string `json:"krId,omitempty" xml:"krId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0115396701752283
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -3339,8 +3985,14 @@ func (s *UpdateKROfScoreRequest) SetUserId(v string) *UpdateKROfScoreRequest {
 }
 
 type UpdateKROfScoreResponseBody struct {
-	Data    *UpdateKROfScoreResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Success *bool                            `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	Data *UpdateKROfScoreResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateKROfScoreResponseBody) String() string {
@@ -3362,6 +4014,11 @@ func (s *UpdateKROfScoreResponseBody) SetSuccess(v bool) *UpdateKROfScoreRespons
 }
 
 type UpdateKROfScoreResponseBodyData struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 50
 	ObjectiveScore *int64 `json:"objectiveScore,omitempty" xml:"objectiveScore,omitempty"`
 }
 
@@ -3431,8 +4088,23 @@ func (s *UpdateKROfWeightHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateKR
 }
 
 type UpdateKROfWeightRequest struct {
-	Weight *int64  `json:"weight,omitempty" xml:"weight,omitempty"`
-	KrId   *string `json:"krId,omitempty" xml:"krId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	Weight *int64 `json:"weight,omitempty" xml:"weight,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 46GM2
+	KrId *string `json:"krId,omitempty" xml:"krId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0115396701752283
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -3460,8 +4132,14 @@ func (s *UpdateKROfWeightRequest) SetUserId(v string) *UpdateKROfWeightRequest {
 }
 
 type UpdateKROfWeightResponseBody struct {
-	Data    *UpdateKROfWeightResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Success *bool                             `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	Data *UpdateKROfWeightResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateKROfWeightResponseBody) String() string {
@@ -3483,8 +4161,14 @@ func (s *UpdateKROfWeightResponseBody) SetSuccess(v bool) *UpdateKROfWeightRespo
 }
 
 type UpdateKROfWeightResponseBodyData struct {
+	// This parameter is required.
 	ObjectiveProgress *UpdateKROfWeightResponseBodyDataObjectiveProgress `json:"objectiveProgress,omitempty" xml:"objectiveProgress,omitempty" type:"Struct"`
-	ObjectiveScore    *int64                                             `json:"objectiveScore,omitempty" xml:"objectiveScore,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	ObjectiveScore *int64 `json:"objectiveScore,omitempty" xml:"objectiveScore,omitempty"`
 }
 
 func (s UpdateKROfWeightResponseBodyData) String() string {
@@ -3506,6 +4190,11 @@ func (s *UpdateKROfWeightResponseBodyData) SetObjectiveScore(v int64) *UpdateKRO
 }
 
 type UpdateKROfWeightResponseBodyDataObjectiveProgress struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
 	Percent *int64 `json:"percent,omitempty" xml:"percent,omitempty"`
 }
 
@@ -3575,8 +4264,18 @@ func (s *UpdateObjectiveHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateObj
 }
 
 type UpdateObjectiveRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 更新的内容
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 06186238011033616
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateObjectiveRequest) String() string {
@@ -3598,8 +4297,11 @@ func (s *UpdateObjectiveRequest) SetUserId(v string) *UpdateObjectiveRequest {
 }
 
 type UpdateObjectiveResponseBody struct {
-	Data    *UpdateObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Success *bool                            `json:"success,omitempty" xml:"success,omitempty"`
+	Data *UpdateObjectiveResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdateObjectiveResponseBody) String() string {
@@ -3621,7 +4323,17 @@ func (s *UpdateObjectiveResponseBody) SetSuccess(v bool) *UpdateObjectiveRespons
 }
 
 type UpdateObjectiveResponseBodyData struct {
-	Id       *string  `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 58YD
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 33453
 	Position *float32 `json:"position,omitempty" xml:"position,omitempty"`
 }
 
@@ -3696,10 +4408,30 @@ func (s *UpdatePrivacyHeaders) SetXAcsDingtalkAccessToken(v string) *UpdatePriva
 }
 
 type UpdatePrivacyRequest struct {
-	Privacy    *string `json:"privacy,omitempty" xml:"privacy,omitempty"`
-	TargetId   *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// public
+	Privacy *string `json:"privacy,omitempty" xml:"privacy,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3RF5
+	TargetId *string `json:"targetId,omitempty" xml:"targetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2
 	TargetType *string `json:"targetType,omitempty" xml:"targetType,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0115396701752283
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdatePrivacyRequest) String() string {
@@ -3731,8 +4463,12 @@ func (s *UpdatePrivacyRequest) SetUserId(v string) *UpdatePrivacyRequest {
 }
 
 type UpdatePrivacyResponseBody struct {
-	Data    *UpdatePrivacyResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
-	Success *bool                          `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	Data *UpdatePrivacyResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s UpdatePrivacyResponseBody) String() string {
@@ -3754,10 +4490,22 @@ func (s *UpdatePrivacyResponseBody) SetSuccess(v bool) *UpdatePrivacyResponseBod
 }
 
 type UpdatePrivacyResponseBodyData struct {
-	Id         *string                                    `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
 	PolicyList []*UpdatePrivacyResponseBodyDataPolicyList `json:"policyList,omitempty" xml:"policyList,omitempty" type:"Repeated"`
-	Privacy    *string                                    `json:"privacy,omitempty" xml:"privacy,omitempty"`
-	Type       *string                                    `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// public
+	Privacy *string `json:"privacy,omitempty" xml:"privacy,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// period
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s UpdatePrivacyResponseBodyData) String() string {
@@ -3789,9 +4537,12 @@ func (s *UpdatePrivacyResponseBodyData) SetType(v string) *UpdatePrivacyResponse
 }
 
 type UpdatePrivacyResponseBodyDataPolicyList struct {
+	// This parameter is required.
 	MemberList []*UpdatePrivacyResponseBodyDataPolicyListMemberList `json:"memberList,omitempty" xml:"memberList,omitempty" type:"Repeated"`
-	Name       *string                                              `json:"name,omitempty" xml:"name,omitempty"`
-	Type       *int64                                               `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Type *int64 `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s UpdatePrivacyResponseBodyDataPolicyList) String() string {
@@ -3818,9 +4569,11 @@ func (s *UpdatePrivacyResponseBodyDataPolicyList) SetType(v int64) *UpdatePrivac
 }
 
 type UpdatePrivacyResponseBodyDataPolicyListMemberList struct {
+	// This parameter is required.
 	Id       *string `json:"id,omitempty" xml:"id,omitempty"`
 	Nickname *string `json:"nickname,omitempty" xml:"nickname,omitempty"`
-	Type     *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s UpdatePrivacyResponseBodyDataPolicyListMemberList) String() string {
@@ -3890,12 +4643,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -3904,6 +4657,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 增加对齐目标
+//
+// @param request - AlignObjectiveRequest
+//
+// @param headers - AlignObjectiveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AlignObjectiveResponse
 func (client *Client) AlignObjectiveWithOptions(objectiveId *string, request *AlignObjectiveRequest, headers *AlignObjectiveHeaders, runtime *util.RuntimeOptions) (_result *AlignObjectiveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3957,6 +4721,13 @@ func (client *Client) AlignObjectiveWithOptions(objectiveId *string, request *Al
 	return _result, _err
 }
 
+// Summary:
+//
+// 增加对齐目标
+//
+// @param request - AlignObjectiveRequest
+//
+// @return AlignObjectiveResponse
 func (client *Client) AlignObjective(objectiveId *string, request *AlignObjectiveRequest) (_result *AlignObjectiveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AlignObjectiveHeaders{}
@@ -3969,6 +4740,17 @@ func (client *Client) AlignObjective(objectiveId *string, request *AlignObjectiv
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量添加权限信息
+//
+// @param request - BatchAddPermissionRequest
+//
+// @param headers - BatchAddPermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchAddPermissionResponse
 func (client *Client) BatchAddPermissionWithOptions(request *BatchAddPermissionRequest, headers *BatchAddPermissionHeaders, runtime *util.RuntimeOptions) (_result *BatchAddPermissionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4026,6 +4808,13 @@ func (client *Client) BatchAddPermissionWithOptions(request *BatchAddPermissionR
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量添加权限信息
+//
+// @param request - BatchAddPermissionRequest
+//
+// @return BatchAddPermissionResponse
 func (client *Client) BatchAddPermission(request *BatchAddPermissionRequest) (_result *BatchAddPermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchAddPermissionHeaders{}
@@ -4038,6 +4827,17 @@ func (client *Client) BatchAddPermission(request *BatchAddPermissionRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询目标
+//
+// @param request - BatchQueryObjectiveRequest
+//
+// @param headers - BatchQueryObjectiveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchQueryObjectiveResponse
 func (client *Client) BatchQueryObjectiveWithOptions(request *BatchQueryObjectiveRequest, headers *BatchQueryObjectiveHeaders, runtime *util.RuntimeOptions) (_result *BatchQueryObjectiveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4103,6 +4903,13 @@ func (client *Client) BatchQueryObjectiveWithOptions(request *BatchQueryObjectiv
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询目标
+//
+// @param request - BatchQueryObjectiveRequest
+//
+// @return BatchQueryObjectiveResponse
 func (client *Client) BatchQueryObjective(request *BatchQueryObjectiveRequest) (_result *BatchQueryObjectiveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchQueryObjectiveHeaders{}
@@ -4115,6 +4922,17 @@ func (client *Client) BatchQueryObjective(request *BatchQueryObjectiveRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询用户信息
+//
+// @param request - BatchQueryUserRequest
+//
+// @param headers - BatchQueryUserHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchQueryUserResponse
 func (client *Client) BatchQueryUserWithOptions(request *BatchQueryUserRequest, headers *BatchQueryUserHeaders, runtime *util.RuntimeOptions) (_result *BatchQueryUserResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4162,6 +4980,13 @@ func (client *Client) BatchQueryUserWithOptions(request *BatchQueryUserRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询用户信息
+//
+// @param request - BatchQueryUserRequest
+//
+// @return BatchQueryUserResponse
 func (client *Client) BatchQueryUser(request *BatchQueryUserRequest) (_result *BatchQueryUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchQueryUserHeaders{}
@@ -4174,6 +4999,17 @@ func (client *Client) BatchQueryUser(request *BatchQueryUserRequest) (_result *B
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建keyResult
+//
+// @param request - CreateKeyResultRequest
+//
+// @param headers - CreateKeyResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateKeyResultResponse
 func (client *Client) CreateKeyResultWithOptions(request *CreateKeyResultRequest, headers *CreateKeyResultHeaders, runtime *util.RuntimeOptions) (_result *CreateKeyResultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4239,6 +5075,13 @@ func (client *Client) CreateKeyResultWithOptions(request *CreateKeyResultRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建keyResult
+//
+// @param request - CreateKeyResultRequest
+//
+// @return CreateKeyResultResponse
 func (client *Client) CreateKeyResult(request *CreateKeyResultRequest) (_result *CreateKeyResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateKeyResultHeaders{}
@@ -4251,6 +5094,17 @@ func (client *Client) CreateKeyResult(request *CreateKeyResultRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建目标
+//
+// @param request - CreateObjectiveRequest
+//
+// @param headers - CreateObjectiveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateObjectiveResponse
 func (client *Client) CreateObjectiveWithOptions(request *CreateObjectiveRequest, headers *CreateObjectiveHeaders, runtime *util.RuntimeOptions) (_result *CreateObjectiveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4308,6 +5162,13 @@ func (client *Client) CreateObjectiveWithOptions(request *CreateObjectiveRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建目标
+//
+// @param request - CreateObjectiveRequest
+//
+// @return CreateObjectiveResponse
 func (client *Client) CreateObjective(request *CreateObjectiveRequest) (_result *CreateObjectiveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateObjectiveHeaders{}
@@ -4320,6 +5181,17 @@ func (client *Client) CreateObjective(request *CreateObjectiveRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除keyresult的方法
+//
+// @param request - DeleteKeyResultRequest
+//
+// @param headers - DeleteKeyResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteKeyResultResponse
 func (client *Client) DeleteKeyResultWithOptions(request *DeleteKeyResultRequest, headers *DeleteKeyResultHeaders, runtime *util.RuntimeOptions) (_result *DeleteKeyResultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4367,6 +5239,13 @@ func (client *Client) DeleteKeyResultWithOptions(request *DeleteKeyResultRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除keyresult的方法
+//
+// @param request - DeleteKeyResultRequest
+//
+// @return DeleteKeyResultResponse
 func (client *Client) DeleteKeyResult(request *DeleteKeyResultRequest) (_result *DeleteKeyResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteKeyResultHeaders{}
@@ -4379,6 +5258,17 @@ func (client *Client) DeleteKeyResult(request *DeleteKeyResultRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除目标
+//
+// @param request - DeleteObjectiveRequest
+//
+// @param headers - DeleteObjectiveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteObjectiveResponse
 func (client *Client) DeleteObjectiveWithOptions(objectiveId *string, request *DeleteObjectiveRequest, headers *DeleteObjectiveHeaders, runtime *util.RuntimeOptions) (_result *DeleteObjectiveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4422,6 +5312,13 @@ func (client *Client) DeleteObjectiveWithOptions(objectiveId *string, request *D
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除目标
+//
+// @param request - DeleteObjectiveRequest
+//
+// @return DeleteObjectiveResponse
 func (client *Client) DeleteObjective(objectiveId *string, request *DeleteObjectiveRequest) (_result *DeleteObjectiveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteObjectiveHeaders{}
@@ -4434,6 +5331,17 @@ func (client *Client) DeleteObjective(objectiveId *string, request *DeleteObject
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除权限信息
+//
+// @param request - DeletePermissionRequest
+//
+// @param headers - DeletePermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeletePermissionResponse
 func (client *Client) DeletePermissionWithOptions(request *DeletePermissionRequest, headers *DeletePermissionHeaders, runtime *util.RuntimeOptions) (_result *DeletePermissionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4497,6 +5405,13 @@ func (client *Client) DeletePermissionWithOptions(request *DeletePermissionReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除权限信息
+//
+// @param request - DeletePermissionRequest
+//
+// @return DeletePermissionResponse
 func (client *Client) DeletePermission(request *DeletePermissionRequest) (_result *DeletePermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeletePermissionHeaders{}
@@ -4509,6 +5424,15 @@ func (client *Client) DeletePermission(request *DeletePermissionRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取周期列表
+//
+// @param headers - GetPeriodListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPeriodListResponse
 func (client *Client) GetPeriodListWithOptions(headers *GetPeriodListHeaders, runtime *util.RuntimeOptions) (_result *GetPeriodListResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -4542,6 +5466,11 @@ func (client *Client) GetPeriodListWithOptions(headers *GetPeriodListHeaders, ru
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取周期列表
+//
+// @return GetPeriodListResponse
 func (client *Client) GetPeriodList() (_result *GetPeriodListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPeriodListHeaders{}
@@ -4554,6 +5483,17 @@ func (client *Client) GetPeriodList() (_result *GetPeriodListResponse, _err erro
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取权限信息
+//
+// @param request - GetPermissionRequest
+//
+// @param headers - GetPermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPermissionResponse
 func (client *Client) GetPermissionWithOptions(request *GetPermissionRequest, headers *GetPermissionHeaders, runtime *util.RuntimeOptions) (_result *GetPermissionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4613,6 +5553,13 @@ func (client *Client) GetPermissionWithOptions(request *GetPermissionRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取权限信息
+//
+// @param request - GetPermissionRequest
+//
+// @return GetPermissionResponse
 func (client *Client) GetPermission(request *GetPermissionRequest) (_result *GetPermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPermissionHeaders{}
@@ -4625,6 +5572,17 @@ func (client *Client) GetPermission(request *GetPermissionRequest) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户当前周期下的全部 OKR 内容
+//
+// @param request - GetUserOkrRequest
+//
+// @param headers - GetUserOkrHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserOkrResponse
 func (client *Client) GetUserOkrWithOptions(request *GetUserOkrRequest, headers *GetUserOkrHeaders, runtime *util.RuntimeOptions) (_result *GetUserOkrResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4680,6 +5638,13 @@ func (client *Client) GetUserOkrWithOptions(request *GetUserOkrRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户当前周期下的全部 OKR 内容
+//
+// @param request - GetUserOkrRequest
+//
+// @return GetUserOkrResponse
 func (client *Client) GetUserOkr(request *GetUserOkrRequest) (_result *GetUserOkrResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUserOkrHeaders{}
@@ -4692,6 +5657,17 @@ func (client *Client) GetUserOkr(request *GetUserOkrRequest) (_result *GetUserOk
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询OKR
+//
+// @param request - OkrObjectivesBatchRequest
+//
+// @param headers - OkrObjectivesBatchHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return OkrObjectivesBatchResponse
 func (client *Client) OkrObjectivesBatchWithOptions(request *OkrObjectivesBatchRequest, headers *OkrObjectivesBatchHeaders, runtime *util.RuntimeOptions) (_result *OkrObjectivesBatchResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4739,6 +5715,13 @@ func (client *Client) OkrObjectivesBatchWithOptions(request *OkrObjectivesBatchR
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询OKR
+//
+// @param request - OkrObjectivesBatchRequest
+//
+// @return OkrObjectivesBatchResponse
 func (client *Client) OkrObjectivesBatch(request *OkrObjectivesBatchRequest) (_result *OkrObjectivesBatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &OkrObjectivesBatchHeaders{}
@@ -4751,6 +5734,17 @@ func (client *Client) OkrObjectivesBatch(request *OkrObjectivesBatchRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询单个用户的OKR
+//
+// @param request - OkrObjectivesByUserRequest
+//
+// @param headers - OkrObjectivesByUserHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return OkrObjectivesByUserResponse
 func (client *Client) OkrObjectivesByUserWithOptions(dingUserId *string, request *OkrObjectivesByUserRequest, headers *OkrObjectivesByUserHeaders, runtime *util.RuntimeOptions) (_result *OkrObjectivesByUserResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4802,6 +5796,13 @@ func (client *Client) OkrObjectivesByUserWithOptions(dingUserId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询单个用户的OKR
+//
+// @param request - OkrObjectivesByUserRequest
+//
+// @return OkrObjectivesByUserResponse
 func (client *Client) OkrObjectivesByUser(dingUserId *string, request *OkrObjectivesByUserRequest) (_result *OkrObjectivesByUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &OkrObjectivesByUserHeaders{}
@@ -4814,6 +5815,17 @@ func (client *Client) OkrObjectivesByUser(dingUserId *string, request *OkrObject
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取 OKR 周期
+//
+// @param request - OkrPeriodsRequest
+//
+// @param headers - OkrPeriodsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return OkrPeriodsResponse
 func (client *Client) OkrPeriodsWithOptions(request *OkrPeriodsRequest, headers *OkrPeriodsHeaders, runtime *util.RuntimeOptions) (_result *OkrPeriodsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4869,6 +5881,13 @@ func (client *Client) OkrPeriodsWithOptions(request *OkrPeriodsRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取 OKR 周期
+//
+// @param request - OkrPeriodsRequest
+//
+// @return OkrPeriodsResponse
 func (client *Client) OkrPeriods(request *OkrPeriodsRequest) (_result *OkrPeriodsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &OkrPeriodsHeaders{}
@@ -4881,6 +5900,17 @@ func (client *Client) OkrPeriods(request *OkrPeriodsRequest) (_result *OkrPeriod
 	return _result, _err
 }
 
+// Summary:
+//
+// 取消对齐Objective
+//
+// @param request - UnAlignObjectiveRequest
+//
+// @param headers - UnAlignObjectiveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UnAlignObjectiveResponse
 func (client *Client) UnAlignObjectiveWithOptions(objectiveId *string, request *UnAlignObjectiveRequest, headers *UnAlignObjectiveHeaders, runtime *util.RuntimeOptions) (_result *UnAlignObjectiveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4934,6 +5964,13 @@ func (client *Client) UnAlignObjectiveWithOptions(objectiveId *string, request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 取消对齐Objective
+//
+// @param request - UnAlignObjectiveRequest
+//
+// @return UnAlignObjectiveResponse
 func (client *Client) UnAlignObjective(objectiveId *string, request *UnAlignObjectiveRequest) (_result *UnAlignObjectiveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UnAlignObjectiveHeaders{}
@@ -4946,6 +5983,17 @@ func (client *Client) UnAlignObjective(objectiveId *string, request *UnAlignObje
 	return _result, _err
 }
 
+// Summary:
+//
+// 更改KR内容
+//
+// @param request - UpdateKROfContentRequest
+//
+// @param headers - UpdateKROfContentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateKROfContentResponse
 func (client *Client) UpdateKROfContentWithOptions(request *UpdateKROfContentRequest, headers *UpdateKROfContentHeaders, runtime *util.RuntimeOptions) (_result *UpdateKROfContentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5003,6 +6051,13 @@ func (client *Client) UpdateKROfContentWithOptions(request *UpdateKROfContentReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 更改KR内容
+//
+// @param request - UpdateKROfContentRequest
+//
+// @return UpdateKROfContentResponse
 func (client *Client) UpdateKROfContent(request *UpdateKROfContentRequest) (_result *UpdateKROfContentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateKROfContentHeaders{}
@@ -5015,6 +6070,17 @@ func (client *Client) UpdateKROfContent(request *UpdateKROfContentRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 更改KR分数
+//
+// @param request - UpdateKROfScoreRequest
+//
+// @param headers - UpdateKROfScoreHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateKROfScoreResponse
 func (client *Client) UpdateKROfScoreWithOptions(request *UpdateKROfScoreRequest, headers *UpdateKROfScoreHeaders, runtime *util.RuntimeOptions) (_result *UpdateKROfScoreResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5068,6 +6134,13 @@ func (client *Client) UpdateKROfScoreWithOptions(request *UpdateKROfScoreRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 更改KR分数
+//
+// @param request - UpdateKROfScoreRequest
+//
+// @return UpdateKROfScoreResponse
 func (client *Client) UpdateKROfScore(request *UpdateKROfScoreRequest) (_result *UpdateKROfScoreResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateKROfScoreHeaders{}
@@ -5080,6 +6153,17 @@ func (client *Client) UpdateKROfScore(request *UpdateKROfScoreRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 更改 KR 权重
+//
+// @param request - UpdateKROfWeightRequest
+//
+// @param headers - UpdateKROfWeightHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateKROfWeightResponse
 func (client *Client) UpdateKROfWeightWithOptions(request *UpdateKROfWeightRequest, headers *UpdateKROfWeightHeaders, runtime *util.RuntimeOptions) (_result *UpdateKROfWeightResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5133,6 +6217,13 @@ func (client *Client) UpdateKROfWeightWithOptions(request *UpdateKROfWeightReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 更改 KR 权重
+//
+// @param request - UpdateKROfWeightRequest
+//
+// @return UpdateKROfWeightResponse
 func (client *Client) UpdateKROfWeight(request *UpdateKROfWeightRequest) (_result *UpdateKROfWeightResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateKROfWeightHeaders{}
@@ -5145,6 +6236,17 @@ func (client *Client) UpdateKROfWeight(request *UpdateKROfWeightRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新目标
+//
+// @param request - UpdateObjectiveRequest
+//
+// @param headers - UpdateObjectiveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateObjectiveResponse
 func (client *Client) UpdateObjectiveWithOptions(objectiveId *string, request *UpdateObjectiveRequest, headers *UpdateObjectiveHeaders, runtime *util.RuntimeOptions) (_result *UpdateObjectiveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5194,6 +6296,13 @@ func (client *Client) UpdateObjectiveWithOptions(objectiveId *string, request *U
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新目标
+//
+// @param request - UpdateObjectiveRequest
+//
+// @return UpdateObjectiveResponse
 func (client *Client) UpdateObjective(objectiveId *string, request *UpdateObjectiveRequest) (_result *UpdateObjectiveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateObjectiveHeaders{}
@@ -5206,6 +6315,17 @@ func (client *Client) UpdateObjective(objectiveId *string, request *UpdateObject
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新资源隐私策略
+//
+// @param request - UpdatePrivacyRequest
+//
+// @param headers - UpdatePrivacyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdatePrivacyResponse
 func (client *Client) UpdatePrivacyWithOptions(request *UpdatePrivacyRequest, headers *UpdatePrivacyHeaders, runtime *util.RuntimeOptions) (_result *UpdatePrivacyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5263,6 +6383,13 @@ func (client *Client) UpdatePrivacyWithOptions(request *UpdatePrivacyRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新资源隐私策略
+//
+// @param request - UpdatePrivacyRequest
+//
+// @return UpdatePrivacyResponse
 func (client *Client) UpdatePrivacy(request *UpdatePrivacyRequest) (_result *UpdatePrivacyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdatePrivacyHeaders{}

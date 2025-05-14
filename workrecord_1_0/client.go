@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package workrecord_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,6 +33,7 @@ func (s *CountWorkRecordHeaders) SetXAcsDingtalkAccessToken(v string) *CountWork
 }
 
 type CountWorkRecordRequest struct {
+	// This parameter is required.
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -54,6 +51,11 @@ func (s *CountWorkRecordRequest) SetUserId(v string) *CountWorkRecordRequest {
 }
 
 type CountWorkRecordResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
 	UndoCount *int64 `json:"undoCount,omitempty" xml:"undoCount,omitempty"`
 }
 
@@ -114,12 +116,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -128,6 +130,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 查询个人单企业待办数
+//
+// @param request - CountWorkRecordRequest
+//
+// @param headers - CountWorkRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CountWorkRecordResponse
 func (client *Client) CountWorkRecordWithOptions(request *CountWorkRecordRequest, headers *CountWorkRecordHeaders, runtime *util.RuntimeOptions) (_result *CountWorkRecordResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -171,6 +184,13 @@ func (client *Client) CountWorkRecordWithOptions(request *CountWorkRecordRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询个人单企业待办数
+//
+// @param request - CountWorkRecordRequest
+//
+// @return CountWorkRecordResponse
 func (client *Client) CountWorkRecord(request *CountWorkRecordRequest) (_result *CountWorkRecordResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CountWorkRecordHeaders{}

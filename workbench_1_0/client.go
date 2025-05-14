@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package workbench_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,9 +33,20 @@ func (s *AddRecentUserAppListHeaders) SetXAcsDingtalkAccessToken(v string) *AddR
 }
 
 type AddRecentUserAppListRequest struct {
-	CorpId            *string                                         `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding48143d56cd15327624f2f5cc6abecb85
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
 	UsedAppDetailList []*AddRecentUserAppListRequestUsedAppDetailList `json:"usedAppDetailList,omitempty" xml:"usedAppDetailList,omitempty" type:"Repeated"`
-	UserId            *string                                         `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 642325391030949
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AddRecentUserAppListRequest) String() string {
@@ -66,6 +73,11 @@ func (s *AddRecentUserAppListRequest) SetUserId(v string) *AddRecentUserAppListR
 }
 
 type AddRecentUserAppListRequestUsedAppDetailList struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2636835622
 	AgentId *string `json:"agentId,omitempty" xml:"agentId,omitempty"`
 }
 
@@ -83,6 +95,11 @@ func (s *AddRecentUserAppListRequestUsedAppDetailList) SetAgentId(v string) *Add
 }
 
 type AddRecentUserAppListResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -152,7 +169,13 @@ func (s *GetDingPortalDetailHeaders) SetXAcsDingtalkAccessToken(v string) *GetDi
 }
 
 type GetDingPortalDetailResponseBody struct {
-	AppUuid        *string                                 `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// example:
+	//
+	// SWAPP-XXX
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// example:
+	//
+	// 我的自定义工作台
 	DingPortalName *string                                 `json:"dingPortalName,omitempty" xml:"dingPortalName,omitempty"`
 	Pages          []*GetDingPortalDetailResponseBodyPages `json:"pages,omitempty" xml:"pages,omitempty" type:"Repeated"`
 }
@@ -181,12 +204,21 @@ func (s *GetDingPortalDetailResponseBody) SetPages(v []*GetDingPortalDetailRespo
 }
 
 type GetDingPortalDetailResponseBodyPages struct {
-	AllVisible *bool     `json:"allVisible,omitempty" xml:"allVisible,omitempty"`
-	DeptIds    []*int64  `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
-	PageName   *string   `json:"pageName,omitempty" xml:"pageName,omitempty"`
-	PageUuid   *string   `json:"pageUuid,omitempty" xml:"pageUuid,omitempty"`
-	RoleIds    []*int64  `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
-	Userids    []*string `json:"userids,omitempty" xml:"userids,omitempty" type:"Repeated"`
+	// example:
+	//
+	// false
+	AllVisible *bool    `json:"allVisible,omitempty" xml:"allVisible,omitempty"`
+	DeptIds    []*int64 `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 我的工作台页面
+	PageName *string `json:"pageName,omitempty" xml:"pageName,omitempty"`
+	// example:
+	//
+	// XX-XX-XX
+	PageUuid *string   `json:"pageUuid,omitempty" xml:"pageUuid,omitempty"`
+	RoleIds  []*int64  `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
+	Userids  []*string `json:"userids,omitempty" xml:"userids,omitempty" type:"Repeated"`
 }
 
 func (s GetDingPortalDetailResponseBodyPages) String() string {
@@ -458,9 +490,22 @@ func (s *ListWorkBenchGroupHeaders) SetXAcsDingtalkAccessToken(v string) *ListWo
 }
 
 type ListWorkBenchGroupRequest struct {
+	// example:
+	//
+	// corpId
 	EcologicalCorpId *string `json:"ecologicalCorpId,omitempty" xml:"ecologicalCorpId,omitempty"`
-	GroupType        *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
-	OpUnionId        *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 首页 = WORK_HOME 全部页 = WORK_ALL_APP
+	GroupType *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
 }
 
 func (s ListWorkBenchGroupRequest) String() string {
@@ -504,8 +549,14 @@ func (s *ListWorkBenchGroupResponseBody) SetGroupList(v []*ListWorkBenchGroupRes
 }
 
 type ListWorkBenchGroupResponseBodyGroupList struct {
+	// example:
+	//
+	// desc
 	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
-	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s ListWorkBenchGroupResponseBodyGroupList) String() string {
@@ -579,12 +630,34 @@ func (s *ModifyWorkbenchBadgeHeaders) SetXAcsDingtalkAccessToken(v string) *Modi
 }
 
 type ModifyWorkbenchBadgeRequest struct {
-	BizIdList        []*string `json:"bizIdList,omitempty" xml:"bizIdList,omitempty" type:"Repeated"`
-	IsAdded          *bool     `json:"isAdded,omitempty" xml:"isAdded,omitempty"`
-	ModifyMode       *string   `json:"modifyMode,omitempty" xml:"modifyMode,omitempty"`
-	RedDotRelationId *string   `json:"redDotRelationId,omitempty" xml:"redDotRelationId,omitempty"`
-	RedDotType       *string   `json:"redDotType,omitempty" xml:"redDotType,omitempty"`
-	UserId           *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// if can be null:
+	// false
+	BizIdList []*string `json:"bizIdList,omitempty" xml:"bizIdList,omitempty" type:"Repeated"`
+	IsAdded   *bool     `json:"isAdded,omitempty" xml:"isAdded,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// full
+	ModifyMode *string `json:"modifyMode,omitempty" xml:"modifyMode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5000000004278081/test
+	RedDotRelationId *string `json:"redDotRelationId,omitempty" xml:"redDotRelationId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// workbench_component
+	RedDotType *string `json:"redDotType,omitempty" xml:"redDotType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0123465
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ModifyWorkbenchBadgeRequest) String() string {
@@ -845,10 +918,18 @@ func (s *UndoDeletionHeaders) SetXAcsDingtalkAccessToken(v string) *UndoDeletion
 }
 
 type UndoDeletionRequest struct {
-	BizIdList        []*string `json:"bizIdList,omitempty" xml:"bizIdList,omitempty" type:"Repeated"`
-	RedDotRelationId *string   `json:"redDotRelationId,omitempty" xml:"redDotRelationId,omitempty"`
-	RedDotType       *string   `json:"redDotType,omitempty" xml:"redDotType,omitempty"`
-	UserId           *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	BizIdList []*string `json:"bizIdList,omitempty" xml:"bizIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	RedDotRelationId *string `json:"redDotRelationId,omitempty" xml:"redDotRelationId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// workbench_component
+	RedDotType *string `json:"redDotType,omitempty" xml:"redDotType,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UndoDeletionRequest) String() string {
@@ -949,6 +1030,11 @@ func (s *UpdateDingPortalPageScopeHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type UpdateDingPortalPageScopeRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// false
 	AllVisible *bool     `json:"allVisible,omitempty" xml:"allVisible,omitempty"`
 	DeptIds    []*int64  `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
 	RoleIds    []*int64  `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
@@ -1021,12 +1107,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -1035,6 +1121,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 批量添加最近使用记录
+//
+// @param request - AddRecentUserAppListRequest
+//
+// @param headers - AddRecentUserAppListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddRecentUserAppListResponse
 func (client *Client) AddRecentUserAppListWithOptions(request *AddRecentUserAppListRequest, headers *AddRecentUserAppListHeaders, runtime *util.RuntimeOptions) (_result *AddRecentUserAppListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1086,6 +1183,13 @@ func (client *Client) AddRecentUserAppListWithOptions(request *AddRecentUserAppL
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量添加最近使用记录
+//
+// @param request - AddRecentUserAppListRequest
+//
+// @return AddRecentUserAppListResponse
 func (client *Client) AddRecentUserAppList(request *AddRecentUserAppListRequest) (_result *AddRecentUserAppListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddRecentUserAppListHeaders{}
@@ -1098,6 +1202,15 @@ func (client *Client) AddRecentUserAppList(request *AddRecentUserAppListRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询自定义工作台
+//
+// @param headers - GetDingPortalDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDingPortalDetailResponse
 func (client *Client) GetDingPortalDetailWithOptions(appUuid *string, headers *GetDingPortalDetailHeaders, runtime *util.RuntimeOptions) (_result *GetDingPortalDetailResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -1131,6 +1244,11 @@ func (client *Client) GetDingPortalDetailWithOptions(appUuid *string, headers *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询自定义工作台
+//
+// @return GetDingPortalDetailResponse
 func (client *Client) GetDingPortalDetail(appUuid *string) (_result *GetDingPortalDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDingPortalDetailHeaders{}
@@ -1143,6 +1261,17 @@ func (client *Client) GetDingPortalDetail(appUuid *string) (_result *GetDingPort
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工作台插件的权限点
+//
+// @param request - GetPluginPermissionPointRequest
+//
+// @param headers - GetPluginPermissionPointHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPluginPermissionPointResponse
 func (client *Client) GetPluginPermissionPointWithOptions(request *GetPluginPermissionPointRequest, headers *GetPluginPermissionPointHeaders, runtime *util.RuntimeOptions) (_result *GetPluginPermissionPointResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1186,6 +1315,13 @@ func (client *Client) GetPluginPermissionPointWithOptions(request *GetPluginPerm
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工作台插件的权限点
+//
+// @param request - GetPluginPermissionPointRequest
+//
+// @return GetPluginPermissionPointResponse
 func (client *Client) GetPluginPermissionPoint(request *GetPluginPermissionPointRequest) (_result *GetPluginPermissionPointResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPluginPermissionPointHeaders{}
@@ -1198,6 +1334,17 @@ func (client *Client) GetPluginPermissionPoint(request *GetPluginPermissionPoint
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取插件的校验规则
+//
+// @param request - GetPluginRuleCheckInfoRequest
+//
+// @param headers - GetPluginRuleCheckInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPluginRuleCheckInfoResponse
 func (client *Client) GetPluginRuleCheckInfoWithOptions(request *GetPluginRuleCheckInfoRequest, headers *GetPluginRuleCheckInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPluginRuleCheckInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1241,6 +1388,13 @@ func (client *Client) GetPluginRuleCheckInfoWithOptions(request *GetPluginRuleCh
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取插件的校验规则
+//
+// @param request - GetPluginRuleCheckInfoRequest
+//
+// @return GetPluginRuleCheckInfoResponse
 func (client *Client) GetPluginRuleCheckInfo(request *GetPluginRuleCheckInfoRequest) (_result *GetPluginRuleCheckInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPluginRuleCheckInfoHeaders{}
@@ -1253,6 +1407,17 @@ func (client *Client) GetPluginRuleCheckInfo(request *GetPluginRuleCheckInfoRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工作台分组列表
+//
+// @param request - ListWorkBenchGroupRequest
+//
+// @param headers - ListWorkBenchGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListWorkBenchGroupResponse
 func (client *Client) ListWorkBenchGroupWithOptions(request *ListWorkBenchGroupRequest, headers *ListWorkBenchGroupHeaders, runtime *util.RuntimeOptions) (_result *ListWorkBenchGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1304,6 +1469,13 @@ func (client *Client) ListWorkBenchGroupWithOptions(request *ListWorkBenchGroupR
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工作台分组列表
+//
+// @param request - ListWorkBenchGroupRequest
+//
+// @return ListWorkBenchGroupResponse
 func (client *Client) ListWorkBenchGroup(request *ListWorkBenchGroupRequest) (_result *ListWorkBenchGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListWorkBenchGroupHeaders{}
@@ -1316,6 +1488,17 @@ func (client *Client) ListWorkBenchGroup(request *ListWorkBenchGroupRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 工作台支持数字红点
+//
+// @param request - ModifyWorkbenchBadgeRequest
+//
+// @param headers - ModifyWorkbenchBadgeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ModifyWorkbenchBadgeResponse
 func (client *Client) ModifyWorkbenchBadgeWithOptions(request *ModifyWorkbenchBadgeRequest, headers *ModifyWorkbenchBadgeHeaders, runtime *util.RuntimeOptions) (_result *ModifyWorkbenchBadgeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1379,6 +1562,13 @@ func (client *Client) ModifyWorkbenchBadgeWithOptions(request *ModifyWorkbenchBa
 	return _result, _err
 }
 
+// Summary:
+//
+// 工作台支持数字红点
+//
+// @param request - ModifyWorkbenchBadgeRequest
+//
+// @return ModifyWorkbenchBadgeResponse
 func (client *Client) ModifyWorkbenchBadge(request *ModifyWorkbenchBadgeRequest) (_result *ModifyWorkbenchBadgeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ModifyWorkbenchBadgeHeaders{}
@@ -1391,6 +1581,15 @@ func (client *Client) ModifyWorkbenchBadge(request *ModifyWorkbenchBadgeRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 工作台组件授权范围查询
+//
+// @param headers - QueryComponentScopesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryComponentScopesResponse
 func (client *Client) QueryComponentScopesWithOptions(componentId *string, headers *QueryComponentScopesHeaders, runtime *util.RuntimeOptions) (_result *QueryComponentScopesResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -1424,6 +1623,11 @@ func (client *Client) QueryComponentScopesWithOptions(componentId *string, heade
 	return _result, _err
 }
 
+// Summary:
+//
+// 工作台组件授权范围查询
+//
+// @return QueryComponentScopesResponse
 func (client *Client) QueryComponentScopes(componentId *string) (_result *QueryComponentScopesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryComponentScopesHeaders{}
@@ -1436,6 +1640,15 @@ func (client *Client) QueryComponentScopes(componentId *string) (_result *QueryC
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询快捷方式可见范围
+//
+// @param headers - QueryShortcutScopesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryShortcutScopesResponse
 func (client *Client) QueryShortcutScopesWithOptions(shortcutKey *string, headers *QueryShortcutScopesHeaders, runtime *util.RuntimeOptions) (_result *QueryShortcutScopesResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -1469,6 +1682,11 @@ func (client *Client) QueryShortcutScopesWithOptions(shortcutKey *string, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询快捷方式可见范围
+//
+// @return QueryShortcutScopesResponse
 func (client *Client) QueryShortcutScopes(shortcutKey *string) (_result *QueryShortcutScopesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryShortcutScopesHeaders{}
@@ -1481,6 +1699,17 @@ func (client *Client) QueryShortcutScopes(shortcutKey *string) (_result *QuerySh
 	return _result, _err
 }
 
+// Summary:
+//
+// 工作台数字红点支持撤销已被删除的资源
+//
+// @param request - UndoDeletionRequest
+//
+// @param headers - UndoDeletionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UndoDeletionResponse
 func (client *Client) UndoDeletionWithOptions(request *UndoDeletionRequest, headers *UndoDeletionHeaders, runtime *util.RuntimeOptions) (_result *UndoDeletionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1536,6 +1765,13 @@ func (client *Client) UndoDeletionWithOptions(request *UndoDeletionRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 工作台数字红点支持撤销已被删除的资源
+//
+// @param request - UndoDeletionRequest
+//
+// @return UndoDeletionResponse
 func (client *Client) UndoDeletion(request *UndoDeletionRequest) (_result *UndoDeletionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UndoDeletionHeaders{}
@@ -1548,6 +1784,17 @@ func (client *Client) UndoDeletion(request *UndoDeletionRequest) (_result *UndoD
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新自定义工作台页面可见性
+//
+// @param request - UpdateDingPortalPageScopeRequest
+//
+// @param headers - UpdateDingPortalPageScopeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateDingPortalPageScopeResponse
 func (client *Client) UpdateDingPortalPageScopeWithOptions(pageUuid *string, appUuid *string, request *UpdateDingPortalPageScopeRequest, headers *UpdateDingPortalPageScopeHeaders, runtime *util.RuntimeOptions) (_result *UpdateDingPortalPageScopeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1603,6 +1850,13 @@ func (client *Client) UpdateDingPortalPageScopeWithOptions(pageUuid *string, app
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新自定义工作台页面可见性
+//
+// @param request - UpdateDingPortalPageScopeRequest
+//
+// @return UpdateDingPortalPageScopeResponse
 func (client *Client) UpdateDingPortalPageScope(pageUuid *string, appUuid *string, request *UpdateDingPortalPageScopeRequest) (_result *UpdateDingPortalPageScopeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateDingPortalPageScopeHeaders{}

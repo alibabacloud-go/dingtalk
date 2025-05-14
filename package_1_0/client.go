@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package package_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,6 +33,11 @@ func (s *CloseHPackageHeaders) SetXAcsDingtalkAccessToken(v string) *CloseHPacka
 }
 
 type CloseHPackageRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5000000000000000
 	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
 }
 
@@ -123,6 +124,9 @@ func (s *GetUploadTokenHeaders) SetXAcsDingtalkAccessToken(v string) *GetUploadT
 }
 
 type GetUploadTokenRequest struct {
+	// example:
+	//
+	// 5000000002761167
 	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
 }
 
@@ -140,14 +144,38 @@ func (s *GetUploadTokenRequest) SetMiniAppId(v string) *GetUploadTokenRequest {
 }
 
 type GetUploadTokenResponseBody struct {
-	AccessKeyId     *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	// example:
+	//
+	// STS.NUPjgnMhCVWvo1HSxfftf
+	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	// example:
+	//
+	// ASviryNDy9tTuS5KiYMA6fCYf81vHg4KdoX7CVHz4CSx
 	AccessKeySecret *string `json:"accessKeySecret,omitempty" xml:"accessKeySecret,omitempty"`
-	Bucket          *string `json:"bucket,omitempty" xml:"bucket,omitempty"`
-	Endpoint        *string `json:"endpoint,omitempty" xml:"endpoint,omitempty"`
-	Expiration      *string `json:"expiration,omitempty" xml:"expiration,omitempty"`
-	Name            *string `json:"name,omitempty" xml:"name,omitempty"`
-	Region          *string `json:"region,omitempty" xml:"region,omitempty"`
-	StsToken        *string `json:"stsToken,omitempty" xml:"stsToken,omitempty"`
+	// example:
+	//
+	// dingtalk-bucket
+	Bucket *string `json:"bucket,omitempty" xml:"bucket,omitempty"`
+	// example:
+	//
+	// oss-cn-shanghai.aliyuncs.com
+	Endpoint *string `json:"endpoint,omitempty" xml:"endpoint,omitempty"`
+	// example:
+	//
+	// 2022-09-21T09:32:16Z
+	Expiration *string `json:"expiration,omitempty" xml:"expiration,omitempty"`
+	// example:
+	//
+	// 5000000002761167/1663751835956
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// oss-cn-shanghai
+	Region *string `json:"region,omitempty" xml:"region,omitempty"`
+	// example:
+	//
+	// CAIS0QJ1q6Ft5B2yfSjIr5blId3aoLdi4ZWdbRf5t3gzavt...
+	StsToken *string `json:"stsToken,omitempty" xml:"stsToken,omitempty"`
 }
 
 func (s GetUploadTokenResponseBody) String() string {
@@ -251,9 +279,20 @@ func (s *HPackageListGetHeaders) SetXAcsDingtalkAccessToken(v string) *HPackageL
 }
 
 type HPackageListGetRequest struct {
-	MiniAppId  *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5000000000000000
+	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	// example:
+	//
+	// 0
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 20
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s HPackageListGetRequest) String() string {
@@ -303,14 +342,32 @@ func (s *HPackageListGetResponseBody) SetTotalCount(v int64) *HPackageListGetRes
 }
 
 type HPackageListGetResponseBodyList struct {
-	Avaliable     *int64  `json:"avaliable,omitempty" xml:"avaliable,omitempty"`
-	Creator       *string `json:"creator,omitempty" xml:"creator,omitempty"`
-	Finished      *bool   `json:"finished,omitempty" xml:"finished,omitempty"`
-	OperationTime *int64  `json:"operationTime,omitempty" xml:"operationTime,omitempty"`
-	PackageSize   *int64  `json:"packageSize,omitempty" xml:"packageSize,omitempty"`
-	Status        *string `json:"status,omitempty" xml:"status,omitempty"`
-	TaskId        *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	Version       *string `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// 1
+	Avaliable *int64  `json:"avaliable,omitempty" xml:"avaliable,omitempty"`
+	Creator   *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	Finished  *bool   `json:"finished,omitempty" xml:"finished,omitempty"`
+	// example:
+	//
+	// 1669261911344
+	OperationTime *int64 `json:"operationTime,omitempty" xml:"operationTime,omitempty"`
+	// example:
+	//
+	// 100
+	PackageSize *int64 `json:"packageSize,omitempty" xml:"packageSize,omitempty"`
+	// example:
+	//
+	// 1
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 00000000Azksf
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// 0.0.1
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s HPackageListGetResponseBodyList) String() string {
@@ -414,8 +471,18 @@ func (s *HPublishPackageHeaders) SetXAcsDingtalkAccessToken(v string) *HPublishP
 }
 
 type HPublishPackageRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5000000002761167
 	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	Version   *string `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.0.1
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s HPublishPackageRequest) String() string {
@@ -506,7 +573,17 @@ func (s *HUploadPackageHeaders) SetXAcsDingtalkAccessToken(v string) *HUploadPac
 }
 
 type HUploadPackageRequest struct {
-	MiniAppId    *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5000000002793153
+	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
 	OssObjectKey *string `json:"ossObjectKey,omitempty" xml:"ossObjectKey,omitempty"`
 }
 
@@ -598,8 +675,18 @@ func (s *HUploadPackageStatusHeaders) SetXAcsDingtalkAccessToken(v string) *HUpl
 }
 
 type HUploadPackageStatusRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5000000002761167
 	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	TaskId    *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s HUploadPackageStatusRequest) String() string {
@@ -621,12 +708,34 @@ func (s *HUploadPackageStatusRequest) SetTaskId(v string) *HUploadPackageStatusR
 }
 
 type HUploadPackageStatusResponseBody struct {
-	BuildTime   *int64  `json:"buildTime,omitempty" xml:"buildTime,omitempty"`
-	Finished    *bool   `json:"finished,omitempty" xml:"finished,omitempty"`
-	PackageSize *int64  `json:"packageSize,omitempty" xml:"packageSize,omitempty"`
-	Status      *string `json:"status,omitempty" xml:"status,omitempty"`
-	TaskId      *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	Version     *string `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// 1663743241146
+	BuildTime *int64 `json:"buildTime,omitempty" xml:"buildTime,omitempty"`
+	// This parameter is required.
+	Finished *bool `json:"finished,omitempty" xml:"finished,omitempty"`
+	// example:
+	//
+	// 100
+	PackageSize *int64 `json:"packageSize,omitempty" xml:"packageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1663748308644pjpF
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.0.1
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s HUploadPackageStatusResponseBody) String() string {
@@ -720,6 +829,11 @@ func (s *OpenMicroAppPackageHeaders) SetXAcsDingtalkAccessToken(v string) *OpenM
 }
 
 type OpenMicroAppPackageRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
 	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
 }
 
@@ -737,6 +851,9 @@ func (s *OpenMicroAppPackageRequest) SetAgentId(v int64) *OpenMicroAppPackageReq
 }
 
 type OpenMicroAppPackageResponseBody struct {
+	// example:
+	//
+	// 5000000000000000
 	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
 }
 
@@ -806,8 +923,18 @@ func (s *ReleaseGrayDeployHeaders) SetXAcsDingtalkAccessToken(v string) *Release
 }
 
 type ReleaseGrayDeployRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5000000000000000
 	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	Version   *string `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.0.1
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s ReleaseGrayDeployRequest) String() string {
@@ -898,8 +1025,18 @@ func (s *ReleaseGrayExitHeaders) SetXAcsDingtalkAccessToken(v string) *ReleaseGr
 }
 
 type ReleaseGrayExitRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5000000000000000
 	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	Version   *string `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.0.1
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s ReleaseGrayExitRequest) String() string {
@@ -990,8 +1127,18 @@ func (s *ReleaseGrayOrgGetHeaders) SetXAcsDingtalkAccessToken(v string) *Release
 }
 
 type ReleaseGrayOrgGetRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5000000000000000
 	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	Version   *string `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.0.1
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s ReleaseGrayOrgGetRequest) String() string {
@@ -1082,9 +1229,20 @@ func (s *ReleaseGrayOrgSetHeaders) SetXAcsDingtalkAccessToken(v string) *Release
 }
 
 type ReleaseGrayOrgSetRequest struct {
-	MiniAppId *string   `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	Value     []*string `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
-	Version   *string   `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5000000000000000
+	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	// This parameter is required.
+	Value []*string `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.0.1
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s ReleaseGrayOrgSetRequest) String() string {
@@ -1180,8 +1338,18 @@ func (s *ReleaseGrayPercentGetHeaders) SetXAcsDingtalkAccessToken(v string) *Rel
 }
 
 type ReleaseGrayPercentGetRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5000000000000000
 	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	Version   *string `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.0.1
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s ReleaseGrayPercentGetRequest) String() string {
@@ -1272,9 +1440,24 @@ func (s *ReleaseGrayPercentSetHeaders) SetXAcsDingtalkAccessToken(v string) *Rel
 }
 
 type ReleaseGrayPercentSetRequest struct {
-	MiniAppId *string  `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	Value     *float64 `json:"value,omitempty" xml:"value,omitempty"`
-	Version   *string  `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5000000000000000
+	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	Value *float64 `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.0.1
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s ReleaseGrayPercentSetRequest) String() string {
@@ -1370,8 +1553,18 @@ func (s *ReleaseGrayUserIdGetHeaders) SetXAcsDingtalkAccessToken(v string) *Rele
 }
 
 type ReleaseGrayUserIdGetRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5000000000000000
 	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	Version   *string `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.0.1
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s ReleaseGrayUserIdGetRequest) String() string {
@@ -1453,12 +1646,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -1467,6 +1660,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 关闭企业自建应用H5离线包
+//
+// @param request - CloseHPackageRequest
+//
+// @param headers - CloseHPackageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CloseHPackageResponse
 func (client *Client) CloseHPackageWithOptions(request *CloseHPackageRequest, headers *CloseHPackageHeaders, runtime *util.RuntimeOptions) (_result *CloseHPackageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1510,6 +1714,13 @@ func (client *Client) CloseHPackageWithOptions(request *CloseHPackageRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 关闭企业自建应用H5离线包
+//
+// @param request - CloseHPackageRequest
+//
+// @return CloseHPackageResponse
 func (client *Client) CloseHPackage(request *CloseHPackageRequest) (_result *CloseHPackageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CloseHPackageHeaders{}
@@ -1522,6 +1733,17 @@ func (client *Client) CloseHPackage(request *CloseHPackageRequest) (_result *Clo
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取离线包上传凭证
+//
+// @param request - GetUploadTokenRequest
+//
+// @param headers - GetUploadTokenHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUploadTokenResponse
 func (client *Client) GetUploadTokenWithOptions(request *GetUploadTokenRequest, headers *GetUploadTokenHeaders, runtime *util.RuntimeOptions) (_result *GetUploadTokenResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1565,6 +1787,13 @@ func (client *Client) GetUploadTokenWithOptions(request *GetUploadTokenRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取离线包上传凭证
+//
+// @param request - GetUploadTokenRequest
+//
+// @return GetUploadTokenResponse
 func (client *Client) GetUploadToken(request *GetUploadTokenRequest) (_result *GetUploadTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUploadTokenHeaders{}
@@ -1577,6 +1806,17 @@ func (client *Client) GetUploadToken(request *GetUploadTokenRequest) (_result *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取H5离线包版本列表
+//
+// @param request - HPackageListGetRequest
+//
+// @param headers - HPackageListGetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HPackageListGetResponse
 func (client *Client) HPackageListGetWithOptions(request *HPackageListGetRequest, headers *HPackageListGetHeaders, runtime *util.RuntimeOptions) (_result *HPackageListGetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1628,6 +1868,13 @@ func (client *Client) HPackageListGetWithOptions(request *HPackageListGetRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取H5离线包版本列表
+//
+// @param request - HPackageListGetRequest
+//
+// @return HPackageListGetResponse
 func (client *Client) HPackageListGet(request *HPackageListGetRequest) (_result *HPackageListGetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HPackageListGetHeaders{}
@@ -1640,6 +1887,17 @@ func (client *Client) HPackageListGet(request *HPackageListGetRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 发布离线包
+//
+// @param request - HPublishPackageRequest
+//
+// @param headers - HPublishPackageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HPublishPackageResponse
 func (client *Client) HPublishPackageWithOptions(request *HPublishPackageRequest, headers *HPublishPackageHeaders, runtime *util.RuntimeOptions) (_result *HPublishPackageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1687,6 +1945,13 @@ func (client *Client) HPublishPackageWithOptions(request *HPublishPackageRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 发布离线包
+//
+// @param request - HPublishPackageRequest
+//
+// @return HPublishPackageResponse
 func (client *Client) HPublishPackage(request *HPublishPackageRequest) (_result *HPublishPackageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HPublishPackageHeaders{}
@@ -1699,6 +1964,17 @@ func (client *Client) HPublishPackage(request *HPublishPackageRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 上传H5离线包
+//
+// @param request - HUploadPackageRequest
+//
+// @param headers - HUploadPackageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HUploadPackageResponse
 func (client *Client) HUploadPackageWithOptions(request *HUploadPackageRequest, headers *HUploadPackageHeaders, runtime *util.RuntimeOptions) (_result *HUploadPackageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1746,6 +2022,13 @@ func (client *Client) HUploadPackageWithOptions(request *HUploadPackageRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 上传H5离线包
+//
+// @param request - HUploadPackageRequest
+//
+// @return HUploadPackageResponse
 func (client *Client) HUploadPackage(request *HUploadPackageRequest) (_result *HUploadPackageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HUploadPackageHeaders{}
@@ -1758,6 +2041,17 @@ func (client *Client) HUploadPackage(request *HUploadPackageRequest) (_result *H
 	return _result, _err
 }
 
+// Summary:
+//
+// 上传H5离线包进度
+//
+// @param request - HUploadPackageStatusRequest
+//
+// @param headers - HUploadPackageStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HUploadPackageStatusResponse
 func (client *Client) HUploadPackageStatusWithOptions(request *HUploadPackageStatusRequest, headers *HUploadPackageStatusHeaders, runtime *util.RuntimeOptions) (_result *HUploadPackageStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1805,6 +2099,13 @@ func (client *Client) HUploadPackageStatusWithOptions(request *HUploadPackageSta
 	return _result, _err
 }
 
+// Summary:
+//
+// 上传H5离线包进度
+//
+// @param request - HUploadPackageStatusRequest
+//
+// @return HUploadPackageStatusResponse
 func (client *Client) HUploadPackageStatus(request *HUploadPackageStatusRequest) (_result *HUploadPackageStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HUploadPackageStatusHeaders{}
@@ -1817,6 +2118,17 @@ func (client *Client) HUploadPackageStatus(request *HUploadPackageStatusRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 开启企业自建应用H5离线包
+//
+// @param request - OpenMicroAppPackageRequest
+//
+// @param headers - OpenMicroAppPackageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return OpenMicroAppPackageResponse
 func (client *Client) OpenMicroAppPackageWithOptions(request *OpenMicroAppPackageRequest, headers *OpenMicroAppPackageHeaders, runtime *util.RuntimeOptions) (_result *OpenMicroAppPackageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1860,6 +2172,13 @@ func (client *Client) OpenMicroAppPackageWithOptions(request *OpenMicroAppPackag
 	return _result, _err
 }
 
+// Summary:
+//
+// 开启企业自建应用H5离线包
+//
+// @param request - OpenMicroAppPackageRequest
+//
+// @return OpenMicroAppPackageResponse
 func (client *Client) OpenMicroAppPackage(request *OpenMicroAppPackageRequest) (_result *OpenMicroAppPackageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &OpenMicroAppPackageHeaders{}
@@ -1872,6 +2191,17 @@ func (client *Client) OpenMicroAppPackage(request *OpenMicroAppPackageRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 发布离线包到灰度
+//
+// @param request - ReleaseGrayDeployRequest
+//
+// @param headers - ReleaseGrayDeployHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ReleaseGrayDeployResponse
 func (client *Client) ReleaseGrayDeployWithOptions(request *ReleaseGrayDeployRequest, headers *ReleaseGrayDeployHeaders, runtime *util.RuntimeOptions) (_result *ReleaseGrayDeployResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1919,6 +2249,13 @@ func (client *Client) ReleaseGrayDeployWithOptions(request *ReleaseGrayDeployReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 发布离线包到灰度
+//
+// @param request - ReleaseGrayDeployRequest
+//
+// @return ReleaseGrayDeployResponse
 func (client *Client) ReleaseGrayDeploy(request *ReleaseGrayDeployRequest) (_result *ReleaseGrayDeployResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ReleaseGrayDeployHeaders{}
@@ -1931,6 +2268,17 @@ func (client *Client) ReleaseGrayDeploy(request *ReleaseGrayDeployRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 退出灰度
+//
+// @param request - ReleaseGrayExitRequest
+//
+// @param headers - ReleaseGrayExitHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ReleaseGrayExitResponse
 func (client *Client) ReleaseGrayExitWithOptions(request *ReleaseGrayExitRequest, headers *ReleaseGrayExitHeaders, runtime *util.RuntimeOptions) (_result *ReleaseGrayExitResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1978,6 +2326,13 @@ func (client *Client) ReleaseGrayExitWithOptions(request *ReleaseGrayExitRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 退出灰度
+//
+// @param request - ReleaseGrayExitRequest
+//
+// @return ReleaseGrayExitResponse
 func (client *Client) ReleaseGrayExit(request *ReleaseGrayExitRequest) (_result *ReleaseGrayExitResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ReleaseGrayExitHeaders{}
@@ -1990,6 +2345,17 @@ func (client *Client) ReleaseGrayExit(request *ReleaseGrayExitRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业灰度白名单
+//
+// @param request - ReleaseGrayOrgGetRequest
+//
+// @param headers - ReleaseGrayOrgGetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ReleaseGrayOrgGetResponse
 func (client *Client) ReleaseGrayOrgGetWithOptions(request *ReleaseGrayOrgGetRequest, headers *ReleaseGrayOrgGetHeaders, runtime *util.RuntimeOptions) (_result *ReleaseGrayOrgGetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2037,6 +2403,13 @@ func (client *Client) ReleaseGrayOrgGetWithOptions(request *ReleaseGrayOrgGetReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业灰度白名单
+//
+// @param request - ReleaseGrayOrgGetRequest
+//
+// @return ReleaseGrayOrgGetResponse
 func (client *Client) ReleaseGrayOrgGet(request *ReleaseGrayOrgGetRequest) (_result *ReleaseGrayOrgGetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ReleaseGrayOrgGetHeaders{}
@@ -2049,6 +2422,17 @@ func (client *Client) ReleaseGrayOrgGet(request *ReleaseGrayOrgGetRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置企业灰度白名单
+//
+// @param request - ReleaseGrayOrgSetRequest
+//
+// @param headers - ReleaseGrayOrgSetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ReleaseGrayOrgSetResponse
 func (client *Client) ReleaseGrayOrgSetWithOptions(request *ReleaseGrayOrgSetRequest, headers *ReleaseGrayOrgSetHeaders, runtime *util.RuntimeOptions) (_result *ReleaseGrayOrgSetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2100,6 +2484,13 @@ func (client *Client) ReleaseGrayOrgSetWithOptions(request *ReleaseGrayOrgSetReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置企业灰度白名单
+//
+// @param request - ReleaseGrayOrgSetRequest
+//
+// @return ReleaseGrayOrgSetResponse
 func (client *Client) ReleaseGrayOrgSet(request *ReleaseGrayOrgSetRequest) (_result *ReleaseGrayOrgSetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ReleaseGrayOrgSetHeaders{}
@@ -2112,6 +2503,17 @@ func (client *Client) ReleaseGrayOrgSet(request *ReleaseGrayOrgSetRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取灰度离线包百分比值
+//
+// @param request - ReleaseGrayPercentGetRequest
+//
+// @param headers - ReleaseGrayPercentGetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ReleaseGrayPercentGetResponse
 func (client *Client) ReleaseGrayPercentGetWithOptions(request *ReleaseGrayPercentGetRequest, headers *ReleaseGrayPercentGetHeaders, runtime *util.RuntimeOptions) (_result *ReleaseGrayPercentGetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2159,6 +2561,13 @@ func (client *Client) ReleaseGrayPercentGetWithOptions(request *ReleaseGrayPerce
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取灰度离线包百分比值
+//
+// @param request - ReleaseGrayPercentGetRequest
+//
+// @return ReleaseGrayPercentGetResponse
 func (client *Client) ReleaseGrayPercentGet(request *ReleaseGrayPercentGetRequest) (_result *ReleaseGrayPercentGetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ReleaseGrayPercentGetHeaders{}
@@ -2171,6 +2580,17 @@ func (client *Client) ReleaseGrayPercentGet(request *ReleaseGrayPercentGetReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置灰度离线包百分比值
+//
+// @param request - ReleaseGrayPercentSetRequest
+//
+// @param headers - ReleaseGrayPercentSetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ReleaseGrayPercentSetResponse
 func (client *Client) ReleaseGrayPercentSetWithOptions(request *ReleaseGrayPercentSetRequest, headers *ReleaseGrayPercentSetHeaders, runtime *util.RuntimeOptions) (_result *ReleaseGrayPercentSetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2222,6 +2642,13 @@ func (client *Client) ReleaseGrayPercentSetWithOptions(request *ReleaseGrayPerce
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置灰度离线包百分比值
+//
+// @param request - ReleaseGrayPercentSetRequest
+//
+// @return ReleaseGrayPercentSetResponse
 func (client *Client) ReleaseGrayPercentSet(request *ReleaseGrayPercentSetRequest) (_result *ReleaseGrayPercentSetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ReleaseGrayPercentSetHeaders{}
@@ -2234,6 +2661,17 @@ func (client *Client) ReleaseGrayPercentSet(request *ReleaseGrayPercentSetReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户灰度名单
+//
+// @param request - ReleaseGrayUserIdGetRequest
+//
+// @param headers - ReleaseGrayUserIdGetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ReleaseGrayUserIdGetResponse
 func (client *Client) ReleaseGrayUserIdGetWithOptions(request *ReleaseGrayUserIdGetRequest, headers *ReleaseGrayUserIdGetHeaders, runtime *util.RuntimeOptions) (_result *ReleaseGrayUserIdGetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2281,6 +2719,13 @@ func (client *Client) ReleaseGrayUserIdGetWithOptions(request *ReleaseGrayUserId
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户灰度名单
+//
+// @param request - ReleaseGrayUserIdGetRequest
+//
+// @return ReleaseGrayUserIdGetResponse
 func (client *Client) ReleaseGrayUserIdGet(request *ReleaseGrayUserIdGetRequest) (_result *ReleaseGrayUserIdGetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ReleaseGrayUserIdGetHeaders{}

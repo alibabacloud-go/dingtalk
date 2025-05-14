@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package apaas_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,6 +33,7 @@ func (s *BatchCreateTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *Batch
 }
 
 type BatchCreateTemplateRequest struct {
+	// This parameter is required.
 	TemplateList []*BatchCreateTemplateRequestTemplateList `json:"templateList,omitempty" xml:"templateList,omitempty" type:"Repeated"`
 }
 
@@ -54,23 +51,68 @@ func (s *BatchCreateTemplateRequest) SetTemplateList(v []*BatchCreateTemplateReq
 }
 
 type BatchCreateTemplateRequestTemplateList struct {
-	AdaptEnv               []*string `json:"adaptEnv,omitempty" xml:"adaptEnv,omitempty" type:"Repeated"`
-	AppDesc                *string   `json:"appDesc,omitempty" xml:"appDesc,omitempty"`
-	AppIcon                *string   `json:"appIcon,omitempty" xml:"appIcon,omitempty"`
-	CaseVideoList          []*string `json:"caseVideoList,omitempty" xml:"caseVideoList,omitempty" type:"Repeated"`
-	CategoryCode           *string   `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
-	CoverImgList           []*string `json:"coverImgList,omitempty" xml:"coverImgList,omitempty" type:"Repeated"`
-	ExpUrl                 *string   `json:"expUrl,omitempty" xml:"expUrl,omitempty"`
-	IndustryLabelList      []*string `json:"industryLabelList,omitempty" xml:"industryLabelList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	AdaptEnv []*string `json:"adaptEnv,omitempty" xml:"adaptEnv,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 描述
+	AppDesc *string `json:"appDesc,omitempty" xml:"appDesc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// @lALPDe7s2JOuoyjNBaDNCgA
+	AppIcon       *string   `json:"appIcon,omitempty" xml:"appIcon,omitempty"`
+	CaseVideoList []*string `json:"caseVideoList,omitempty" xml:"caseVideoList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// template_category
+	CategoryCode *string   `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
+	CoverImgList []*string `json:"coverImgList,omitempty" xml:"coverImgList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// https://www.baidu.com/
+	ExpUrl *string `json:"expUrl,omitempty" xml:"expUrl,omitempty"`
+	// This parameter is required.
+	IndustryLabelList []*string `json:"industryLabelList,omitempty" xml:"industryLabelList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
 	InstallTimes           *int64    `json:"installTimes,omitempty" xml:"installTimes,omitempty"`
 	MobilePreviewMediaList []*string `json:"mobilePreviewMediaList,omitempty" xml:"mobilePreviewMediaList,omitempty" type:"Repeated"`
-	Name                   *string   `json:"name,omitempty" xml:"name,omitempty"`
-	PreviewMediaList       []*string `json:"previewMediaList,omitempty" xml:"previewMediaList,omitempty" type:"Repeated"`
-	ProviderName           *string   `json:"providerName,omitempty" xml:"providerName,omitempty"`
-	RoleLabelList          []*string `json:"roleLabelList,omitempty" xml:"roleLabelList,omitempty" type:"Repeated"`
-	SimpleDesc             *string   `json:"simpleDesc,omitempty" xml:"simpleDesc,omitempty"`
-	TemplateKey            *string   `json:"templateKey,omitempty" xml:"templateKey,omitempty"`
-	UseCasesMediaList      []*string `json:"useCasesMediaList,omitempty" xml:"useCasesMediaList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试模板
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	PreviewMediaList []*string `json:"previewMediaList,omitempty" xml:"previewMediaList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 小张
+	ProviderName *string `json:"providerName,omitempty" xml:"providerName,omitempty"`
+	// This parameter is required.
+	RoleLabelList []*string `json:"roleLabelList,omitempty" xml:"roleLabelList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 描述
+	SimpleDesc *string `json:"simpleDesc,omitempty" xml:"simpleDesc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// template_key_1
+	TemplateKey       *string   `json:"templateKey,omitempty" xml:"templateKey,omitempty"`
+	UseCasesMediaList []*string `json:"useCasesMediaList,omitempty" xml:"useCasesMediaList,omitempty" type:"Repeated"`
 }
 
 func (s BatchCreateTemplateRequestTemplateList) String() string {
@@ -167,6 +209,7 @@ func (s *BatchCreateTemplateRequestTemplateList) SetUseCasesMediaList(v []*strin
 }
 
 type BatchCreateTemplateResponseBody struct {
+	// This parameter is required.
 	CreateResultList []*BatchCreateTemplateResponseBodyCreateResultList `json:"createResultList,omitempty" xml:"createResultList,omitempty" type:"Repeated"`
 }
 
@@ -184,8 +227,10 @@ func (s *BatchCreateTemplateResponseBody) SetCreateResultList(v []*BatchCreateTe
 }
 
 type BatchCreateTemplateResponseBodyCreateResultList struct {
+	// This parameter is required.
 	TemplateKey *string `json:"templateKey,omitempty" xml:"templateKey,omitempty"`
-	Value       *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s BatchCreateTemplateResponseBodyCreateResultList) String() string {
@@ -259,6 +304,7 @@ func (s *BatchQueryByTemplateKeyHeaders) SetXAcsDingtalkAccessToken(v string) *B
 }
 
 type BatchQueryByTemplateKeyRequest struct {
+	// This parameter is required.
 	TemplateKeys []*string `json:"templateKeys,omitempty" xml:"templateKeys,omitempty" type:"Repeated"`
 }
 
@@ -276,6 +322,7 @@ func (s *BatchQueryByTemplateKeyRequest) SetTemplateKeys(v []*string) *BatchQuer
 }
 
 type BatchQueryByTemplateKeyResponseBody struct {
+	// This parameter is required.
 	TemplateList []*BatchQueryByTemplateKeyResponseBodyTemplateList `json:"templateList,omitempty" xml:"templateList,omitempty" type:"Repeated"`
 }
 
@@ -293,23 +340,76 @@ func (s *BatchQueryByTemplateKeyResponseBody) SetTemplateList(v []*BatchQueryByT
 }
 
 type BatchQueryByTemplateKeyResponseBodyTemplateList struct {
-	AdaptEnv               []*string `json:"adaptEnv,omitempty" xml:"adaptEnv,omitempty" type:"Repeated"`
-	AppDesc                *string   `json:"appDesc,omitempty" xml:"appDesc,omitempty"`
-	AppIcon                *string   `json:"appIcon,omitempty" xml:"appIcon,omitempty"`
-	CaseVideoList          []*string `json:"caseVideoList,omitempty" xml:"caseVideoList,omitempty" type:"Repeated"`
-	Category               *string   `json:"category,omitempty" xml:"category,omitempty"`
-	CoverImgList           []*string `json:"coverImgList,omitempty" xml:"coverImgList,omitempty" type:"Repeated"`
-	ExpUrl                 *string   `json:"expUrl,omitempty" xml:"expUrl,omitempty"`
-	IndustryLabelList      []*string `json:"industryLabelList,omitempty" xml:"industryLabelList,omitempty" type:"Repeated"`
-	InstallTimes           *float32  `json:"installTimes,omitempty" xml:"installTimes,omitempty"`
+	// This parameter is required.
+	AdaptEnv []*string `json:"adaptEnv,omitempty" xml:"adaptEnv,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试用
+	AppDesc *string `json:"appDesc,omitempty" xml:"appDesc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// @lALPDe7s2JOuoyjNBaDNCgA
+	AppIcon *string `json:"appIcon,omitempty" xml:"appIcon,omitempty"`
+	// This parameter is required.
+	CaseVideoList []*string `json:"caseVideoList,omitempty" xml:"caseVideoList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// template_category
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// This parameter is required.
+	CoverImgList []*string `json:"coverImgList,omitempty" xml:"coverImgList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// http://www.baidu.com
+	ExpUrl *string `json:"expUrl,omitempty" xml:"expUrl,omitempty"`
+	// This parameter is required.
+	IndustryLabelList []*string `json:"industryLabelList,omitempty" xml:"industryLabelList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	InstallTimes *float32 `json:"installTimes,omitempty" xml:"installTimes,omitempty"`
+	// This parameter is required.
 	MobilePreviewMediaList []*string `json:"mobilePreviewMediaList,omitempty" xml:"mobilePreviewMediaList,omitempty" type:"Repeated"`
-	Name                   *string   `json:"name,omitempty" xml:"name,omitempty"`
-	PreviewMediaList       []*string `json:"previewMediaList,omitempty" xml:"previewMediaList,omitempty" type:"Repeated"`
-	ProviderName           *string   `json:"providerName,omitempty" xml:"providerName,omitempty"`
-	RoleLabelList          []*string `json:"roleLabelList,omitempty" xml:"roleLabelList,omitempty" type:"Repeated"`
-	SimpleDesc             *string   `json:"simpleDesc,omitempty" xml:"simpleDesc,omitempty"`
-	TemplateKey            *string   `json:"templateKey,omitempty" xml:"templateKey,omitempty"`
-	UseCasesMediaList      []*string `json:"useCasesMediaList,omitempty" xml:"useCasesMediaList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试用
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	PreviewMediaList []*string `json:"previewMediaList,omitempty" xml:"previewMediaList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 小明
+	ProviderName *string `json:"providerName,omitempty" xml:"providerName,omitempty"`
+	// This parameter is required.
+	RoleLabelList []*string `json:"roleLabelList,omitempty" xml:"roleLabelList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试用
+	SimpleDesc *string `json:"simpleDesc,omitempty" xml:"simpleDesc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// template_key
+	TemplateKey *string `json:"templateKey,omitempty" xml:"templateKey,omitempty"`
+	// This parameter is required.
+	UseCasesMediaList []*string `json:"useCasesMediaList,omitempty" xml:"useCasesMediaList,omitempty" type:"Repeated"`
 }
 
 func (s BatchQueryByTemplateKeyResponseBodyTemplateList) String() string {
@@ -458,6 +558,7 @@ func (s *BatchUpdateTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *Batch
 }
 
 type BatchUpdateTemplateRequest struct {
+	// This parameter is required.
 	TemplateList []*BatchUpdateTemplateRequestTemplateList `json:"templateList,omitempty" xml:"templateList,omitempty" type:"Repeated"`
 }
 
@@ -475,22 +576,62 @@ func (s *BatchUpdateTemplateRequest) SetTemplateList(v []*BatchUpdateTemplateReq
 }
 
 type BatchUpdateTemplateRequestTemplateList struct {
-	AdaptEnv               []*string `json:"adaptEnv,omitempty" xml:"adaptEnv,omitempty" type:"Repeated"`
-	AppDesc                *string   `json:"appDesc,omitempty" xml:"appDesc,omitempty"`
-	AppIcon                *string   `json:"appIcon,omitempty" xml:"appIcon,omitempty"`
-	CaseVideoList          []*string `json:"caseVideoList,omitempty" xml:"caseVideoList,omitempty" type:"Repeated"`
-	CategoryCode           *string   `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
-	CoverImgList           []*string `json:"coverImgList,omitempty" xml:"coverImgList,omitempty" type:"Repeated"`
-	ExpUrl                 *string   `json:"expUrl,omitempty" xml:"expUrl,omitempty"`
+	// This parameter is required.
+	AdaptEnv []*string `json:"adaptEnv,omitempty" xml:"adaptEnv,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 这是测试
+	AppDesc *string `json:"appDesc,omitempty" xml:"appDesc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// @lALPDe7s2JOuoyjNBaDNCgA
+	AppIcon       *string   `json:"appIcon,omitempty" xml:"appIcon,omitempty"`
+	CaseVideoList []*string `json:"caseVideoList,omitempty" xml:"caseVideoList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// template_category
+	CategoryCode *string   `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
+	CoverImgList []*string `json:"coverImgList,omitempty" xml:"coverImgList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// https://www.baidu.com/
+	ExpUrl *string `json:"expUrl,omitempty" xml:"expUrl,omitempty"`
+	// This parameter is required.
 	IndustryLabelList      []*string `json:"industryLabelList,omitempty" xml:"industryLabelList,omitempty" type:"Repeated"`
 	MobilePreviewMediaList []*string `json:"mobilePreviewMediaList,omitempty" xml:"mobilePreviewMediaList,omitempty" type:"Repeated"`
-	Name                   *string   `json:"name,omitempty" xml:"name,omitempty"`
-	PreviewMediaList       []*string `json:"previewMediaList,omitempty" xml:"previewMediaList,omitempty" type:"Repeated"`
-	ProviderName           *string   `json:"providerName,omitempty" xml:"providerName,omitempty"`
-	RoleLabelList          []*string `json:"roleLabelList,omitempty" xml:"roleLabelList,omitempty" type:"Repeated"`
-	SimpleDesc             *string   `json:"simpleDesc,omitempty" xml:"simpleDesc,omitempty"`
-	TemplateKey            *string   `json:"templateKey,omitempty" xml:"templateKey,omitempty"`
-	UseCasesMediaList      []*string `json:"useCasesMediaList,omitempty" xml:"useCasesMediaList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 这是测试
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	PreviewMediaList []*string `json:"previewMediaList,omitempty" xml:"previewMediaList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 小红
+	ProviderName *string `json:"providerName,omitempty" xml:"providerName,omitempty"`
+	// This parameter is required.
+	RoleLabelList []*string `json:"roleLabelList,omitempty" xml:"roleLabelList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 这是一个描述
+	SimpleDesc *string `json:"simpleDesc,omitempty" xml:"simpleDesc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// template_key_1
+	TemplateKey       *string   `json:"templateKey,omitempty" xml:"templateKey,omitempty"`
+	UseCasesMediaList []*string `json:"useCasesMediaList,omitempty" xml:"useCasesMediaList,omitempty" type:"Repeated"`
 }
 
 func (s BatchUpdateTemplateRequestTemplateList) String() string {
@@ -582,6 +723,7 @@ func (s *BatchUpdateTemplateRequestTemplateList) SetUseCasesMediaList(v []*strin
 }
 
 type BatchUpdateTemplateResponseBody struct {
+	// This parameter is required.
 	UpdateResultList []*BatchUpdateTemplateResponseBodyUpdateResultList `json:"updateResultList,omitempty" xml:"updateResultList,omitempty" type:"Repeated"`
 }
 
@@ -599,8 +741,10 @@ func (s *BatchUpdateTemplateResponseBody) SetUpdateResultList(v []*BatchUpdateTe
 }
 
 type BatchUpdateTemplateResponseBodyUpdateResultList struct {
+	// This parameter is required.
 	TemplateKey *string `json:"templateKey,omitempty" xml:"templateKey,omitempty"`
-	Value       *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s BatchUpdateTemplateResponseBodyUpdateResultList) String() string {
@@ -674,6 +818,7 @@ func (s *QueryIndustryTagListHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryIndustryTagListResponseBody struct {
+	// This parameter is required.
 	IndustryList []*string `json:"industryList,omitempty" xml:"industryList,omitempty" type:"Repeated"`
 }
 
@@ -743,6 +888,7 @@ func (s *QueryRoleTagListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryRol
 }
 
 type QueryRoleTagListResponseBody struct {
+	// This parameter is required.
 	RoleList []*string `json:"roleList,omitempty" xml:"roleList,omitempty" type:"Repeated"`
 }
 
@@ -812,8 +958,12 @@ func (s *QueryTemplateCategorysHeaders) SetXAcsDingtalkAccessToken(v string) *Qu
 }
 
 type QueryTemplateCategorysResponseBody struct {
+	// This parameter is required.
 	CategoryList []*QueryTemplateCategorysResponseBodyCategoryList `json:"categoryList,omitempty" xml:"categoryList,omitempty" type:"Repeated"`
-	Total        *string                                           `json:"total,omitempty" xml:"total,omitempty"`
+	// example:
+	//
+	// 3
+	Total *string `json:"total,omitempty" xml:"total,omitempty"`
 }
 
 func (s QueryTemplateCategorysResponseBody) String() string {
@@ -835,7 +985,17 @@ func (s *QueryTemplateCategorysResponseBody) SetTotal(v string) *QueryTemplateCa
 }
 
 type QueryTemplateCategorysResponseBodyCategoryList struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// template_category
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 模板分类
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -910,6 +1070,7 @@ func (s *RecallAuditTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *Recal
 }
 
 type RecallAuditTemplateRequest struct {
+	// This parameter is required.
 	TemplateKeys []*string `json:"templateKeys,omitempty" xml:"templateKeys,omitempty" type:"Repeated"`
 }
 
@@ -927,6 +1088,7 @@ func (s *RecallAuditTemplateRequest) SetTemplateKeys(v []*string) *RecallAuditTe
 }
 
 type RecallAuditTemplateResponseBody struct {
+	// This parameter is required.
 	RecallResult []*RecallAuditTemplateResponseBodyRecallResult `json:"recallResult,omitempty" xml:"recallResult,omitempty" type:"Repeated"`
 }
 
@@ -944,8 +1106,18 @@ func (s *RecallAuditTemplateResponseBody) SetRecallResult(v []*RecallAuditTempla
 }
 
 type RecallAuditTemplateResponseBodyRecallResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// template_key_1
 	TemplateKey *string `json:"templateKey,omitempty" xml:"templateKey,omitempty"`
-	Value       *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// recall_success
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s RecallAuditTemplateResponseBodyRecallResult) String() string {
@@ -1010,12 +1182,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -1024,6 +1196,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 批量创建模板
+//
+// @param request - BatchCreateTemplateRequest
+//
+// @param headers - BatchCreateTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchCreateTemplateResponse
 func (client *Client) BatchCreateTemplateWithOptions(request *BatchCreateTemplateRequest, headers *BatchCreateTemplateHeaders, runtime *util.RuntimeOptions) (_result *BatchCreateTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1067,6 +1250,13 @@ func (client *Client) BatchCreateTemplateWithOptions(request *BatchCreateTemplat
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量创建模板
+//
+// @param request - BatchCreateTemplateRequest
+//
+// @return BatchCreateTemplateResponse
 func (client *Client) BatchCreateTemplate(request *BatchCreateTemplateRequest) (_result *BatchCreateTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchCreateTemplateHeaders{}
@@ -1079,6 +1269,17 @@ func (client *Client) BatchCreateTemplate(request *BatchCreateTemplateRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询模板
+//
+// @param request - BatchQueryByTemplateKeyRequest
+//
+// @param headers - BatchQueryByTemplateKeyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchQueryByTemplateKeyResponse
 func (client *Client) BatchQueryByTemplateKeyWithOptions(request *BatchQueryByTemplateKeyRequest, headers *BatchQueryByTemplateKeyHeaders, runtime *util.RuntimeOptions) (_result *BatchQueryByTemplateKeyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1122,6 +1323,13 @@ func (client *Client) BatchQueryByTemplateKeyWithOptions(request *BatchQueryByTe
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询模板
+//
+// @param request - BatchQueryByTemplateKeyRequest
+//
+// @return BatchQueryByTemplateKeyResponse
 func (client *Client) BatchQueryByTemplateKey(request *BatchQueryByTemplateKeyRequest) (_result *BatchQueryByTemplateKeyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchQueryByTemplateKeyHeaders{}
@@ -1134,6 +1342,17 @@ func (client *Client) BatchQueryByTemplateKey(request *BatchQueryByTemplateKeyRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量修改模板
+//
+// @param request - BatchUpdateTemplateRequest
+//
+// @param headers - BatchUpdateTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchUpdateTemplateResponse
 func (client *Client) BatchUpdateTemplateWithOptions(request *BatchUpdateTemplateRequest, headers *BatchUpdateTemplateHeaders, runtime *util.RuntimeOptions) (_result *BatchUpdateTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1177,6 +1396,13 @@ func (client *Client) BatchUpdateTemplateWithOptions(request *BatchUpdateTemplat
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量修改模板
+//
+// @param request - BatchUpdateTemplateRequest
+//
+// @return BatchUpdateTemplateResponse
 func (client *Client) BatchUpdateTemplate(request *BatchUpdateTemplateRequest) (_result *BatchUpdateTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchUpdateTemplateHeaders{}
@@ -1189,6 +1415,15 @@ func (client *Client) BatchUpdateTemplate(request *BatchUpdateTemplateRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询行业标签
+//
+// @param headers - QueryIndustryTagListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryIndustryTagListResponse
 func (client *Client) QueryIndustryTagListWithOptions(headers *QueryIndustryTagListHeaders, runtime *util.RuntimeOptions) (_result *QueryIndustryTagListResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -1222,6 +1457,11 @@ func (client *Client) QueryIndustryTagListWithOptions(headers *QueryIndustryTagL
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询行业标签
+//
+// @return QueryIndustryTagListResponse
 func (client *Client) QueryIndustryTagList() (_result *QueryIndustryTagListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryIndustryTagListHeaders{}
@@ -1234,6 +1474,15 @@ func (client *Client) QueryIndustryTagList() (_result *QueryIndustryTagListRespo
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询角色
+//
+// @param headers - QueryRoleTagListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryRoleTagListResponse
 func (client *Client) QueryRoleTagListWithOptions(headers *QueryRoleTagListHeaders, runtime *util.RuntimeOptions) (_result *QueryRoleTagListResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -1267,6 +1516,11 @@ func (client *Client) QueryRoleTagListWithOptions(headers *QueryRoleTagListHeade
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询角色
+//
+// @return QueryRoleTagListResponse
 func (client *Client) QueryRoleTagList() (_result *QueryRoleTagListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryRoleTagListHeaders{}
@@ -1279,6 +1533,15 @@ func (client *Client) QueryRoleTagList() (_result *QueryRoleTagListResponse, _er
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询模板分类
+//
+// @param headers - QueryTemplateCategorysHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryTemplateCategorysResponse
 func (client *Client) QueryTemplateCategorysWithOptions(headers *QueryTemplateCategorysHeaders, runtime *util.RuntimeOptions) (_result *QueryTemplateCategorysResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -1312,6 +1575,11 @@ func (client *Client) QueryTemplateCategorysWithOptions(headers *QueryTemplateCa
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询模板分类
+//
+// @return QueryTemplateCategorysResponse
 func (client *Client) QueryTemplateCategorys() (_result *QueryTemplateCategorysResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryTemplateCategorysHeaders{}
@@ -1324,6 +1592,17 @@ func (client *Client) QueryTemplateCategorys() (_result *QueryTemplateCategorysR
 	return _result, _err
 }
 
+// Summary:
+//
+// 撤回模板审核
+//
+// @param request - RecallAuditTemplateRequest
+//
+// @param headers - RecallAuditTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RecallAuditTemplateResponse
 func (client *Client) RecallAuditTemplateWithOptions(request *RecallAuditTemplateRequest, headers *RecallAuditTemplateHeaders, runtime *util.RuntimeOptions) (_result *RecallAuditTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1367,6 +1646,13 @@ func (client *Client) RecallAuditTemplateWithOptions(request *RecallAuditTemplat
 	return _result, _err
 }
 
+// Summary:
+//
+// 撤回模板审核
+//
+// @param request - RecallAuditTemplateRequest
+//
+// @return RecallAuditTemplateResponse
 func (client *Client) RecallAuditTemplate(request *RecallAuditTemplateRequest) (_result *RecallAuditTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RecallAuditTemplateHeaders{}

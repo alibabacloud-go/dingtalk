@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package calendar_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -43,6 +39,7 @@ func (s *AddAttendeeHeaders) SetXAcsDingtalkAccessToken(v string) *AddAttendeeHe
 }
 
 type AddAttendeeRequest struct {
+	// This parameter is required.
 	AttendeesToAdd   []*AddAttendeeRequestAttendeesToAdd `json:"attendeesToAdd,omitempty" xml:"attendeesToAdd,omitempty" type:"Repeated"`
 	ChatNotification *bool                               `json:"chatNotification,omitempty" xml:"chatNotification,omitempty"`
 	PushNotification *bool                               `json:"pushNotification,omitempty" xml:"pushNotification,omitempty"`
@@ -147,6 +144,7 @@ func (s *AddMeetingRoomsHeaders) SetXAcsDingtalkAccessToken(v string) *AddMeetin
 }
 
 type AddMeetingRoomsRequest struct {
+	// This parameter is required.
 	MeetingRoomsToAdd []*AddMeetingRoomsRequestMeetingRoomsToAdd `json:"meetingRoomsToAdd,omitempty" xml:"meetingRoomsToAdd,omitempty" type:"Repeated"`
 }
 
@@ -222,6 +220,98 @@ func (s *AddMeetingRoomsResponse) SetStatusCode(v int32) *AddMeetingRoomsRespons
 }
 
 func (s *AddMeetingRoomsResponse) SetBody(v *AddMeetingRoomsResponseBody) *AddMeetingRoomsResponse {
+	s.Body = v
+	return s
+}
+
+type CancelEventHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XClientToken            *string            `json:"x-client-token,omitempty" xml:"x-client-token,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CancelEventHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelEventHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CancelEventHeaders) SetCommonHeaders(v map[string]*string) *CancelEventHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CancelEventHeaders) SetXClientToken(v string) *CancelEventHeaders {
+	s.XClientToken = &v
+	return s
+}
+
+func (s *CancelEventHeaders) SetXAcsDingtalkAccessToken(v string) *CancelEventHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CancelEventRequest struct {
+	Scope *string `json:"scope,omitempty" xml:"scope,omitempty"`
+}
+
+func (s CancelEventRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelEventRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CancelEventRequest) SetScope(v string) *CancelEventRequest {
+	s.Scope = &v
+	return s
+}
+
+type CancelEventResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CancelEventResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelEventResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CancelEventResponseBody) SetResult(v bool) *CancelEventResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CancelEventResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CancelEventResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CancelEventResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelEventResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CancelEventResponse) SetHeaders(v map[string]*string) *CancelEventResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CancelEventResponse) SetStatusCode(v int32) *CancelEventResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CancelEventResponse) SetBody(v *CancelEventResponseBody) *CancelEventResponse {
 	s.Body = v
 	return s
 }
@@ -319,6 +409,7 @@ func (s *ConvertLegacyEventIdHeaders) SetXAcsDingtalkAccessToken(v string) *Conv
 }
 
 type ConvertLegacyEventIdRequest struct {
+	// This parameter is required.
 	LegacyEventIds []*string `json:"legacyEventIds,omitempty" xml:"legacyEventIds,omitempty" type:"Repeated"`
 }
 
@@ -405,9 +496,12 @@ func (s *CreateAclsHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAclsHead
 }
 
 type CreateAclsRequest struct {
-	Privilege *string                 `json:"privilege,omitempty" xml:"privilege,omitempty"`
-	Scope     *CreateAclsRequestScope `json:"scope,omitempty" xml:"scope,omitempty" type:"Struct"`
-	SendMsg   *bool                   `json:"sendMsg,omitempty" xml:"sendMsg,omitempty"`
+	// This parameter is required.
+	Privilege *string `json:"privilege,omitempty" xml:"privilege,omitempty"`
+	// This parameter is required.
+	Scope *CreateAclsRequestScope `json:"scope,omitempty" xml:"scope,omitempty" type:"Struct"`
+	// This parameter is required.
+	SendMsg *bool `json:"sendMsg,omitempty" xml:"sendMsg,omitempty"`
 }
 
 func (s CreateAclsRequest) String() string {
@@ -434,8 +528,10 @@ func (s *CreateAclsRequest) SetSendMsg(v bool) *CreateAclsRequest {
 }
 
 type CreateAclsRequestScope struct {
+	// This parameter is required.
 	ScopeType *string `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateAclsRequestScope) String() string {
@@ -567,19 +663,25 @@ func (s *CreateEventHeaders) SetXAcsDingtalkAccessToken(v string) *CreateEventHe
 }
 
 type CreateEventRequest struct {
-	Attendees           []*CreateEventRequestAttendees         `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
-	Description         *string                                `json:"description,omitempty" xml:"description,omitempty"`
+	Attendees     []*CreateEventRequestAttendees     `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	CardInstances []*CreateEventRequestCardInstances `json:"cardInstances,omitempty" xml:"cardInstances,omitempty" type:"Repeated"`
+	Categories    []*CreateEventRequestCategories    `json:"categories,omitempty" xml:"categories,omitempty" type:"Repeated"`
+	Description   *string                            `json:"description,omitempty" xml:"description,omitempty"`
+	// This parameter is required.
 	End                 *CreateEventRequestEnd                 `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
 	Extra               map[string]*string                     `json:"extra,omitempty" xml:"extra,omitempty"`
+	FreeBusyStatus      *string                                `json:"freeBusyStatus,omitempty" xml:"freeBusyStatus,omitempty"`
 	IsAllDay            *bool                                  `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
 	Location            *CreateEventRequestLocation            `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
 	OnlineMeetingInfo   *CreateEventRequestOnlineMeetingInfo   `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
 	Recurrence          *CreateEventRequestRecurrence          `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
 	Reminders           []*CreateEventRequestReminders         `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
 	RichTextDescription *CreateEventRequestRichTextDescription `json:"richTextDescription,omitempty" xml:"richTextDescription,omitempty" type:"Struct"`
-	Start               *CreateEventRequestStart               `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
-	Summary             *string                                `json:"summary,omitempty" xml:"summary,omitempty"`
-	UiConfigs           []*CreateEventRequestUiConfigs         `json:"uiConfigs,omitempty" xml:"uiConfigs,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Start *CreateEventRequestStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// This parameter is required.
+	Summary   *string                        `json:"summary,omitempty" xml:"summary,omitempty"`
+	UiConfigs []*CreateEventRequestUiConfigs `json:"uiConfigs,omitempty" xml:"uiConfigs,omitempty" type:"Repeated"`
 }
 
 func (s CreateEventRequest) String() string {
@@ -595,6 +697,16 @@ func (s *CreateEventRequest) SetAttendees(v []*CreateEventRequestAttendees) *Cre
 	return s
 }
 
+func (s *CreateEventRequest) SetCardInstances(v []*CreateEventRequestCardInstances) *CreateEventRequest {
+	s.CardInstances = v
+	return s
+}
+
+func (s *CreateEventRequest) SetCategories(v []*CreateEventRequestCategories) *CreateEventRequest {
+	s.Categories = v
+	return s
+}
+
 func (s *CreateEventRequest) SetDescription(v string) *CreateEventRequest {
 	s.Description = &v
 	return s
@@ -607,6 +719,11 @@ func (s *CreateEventRequest) SetEnd(v *CreateEventRequestEnd) *CreateEventReques
 
 func (s *CreateEventRequest) SetExtra(v map[string]*string) *CreateEventRequest {
 	s.Extra = v
+	return s
+}
+
+func (s *CreateEventRequest) SetFreeBusyStatus(v string) *CreateEventRequest {
+	s.FreeBusyStatus = &v
 	return s
 }
 
@@ -678,9 +795,64 @@ func (s *CreateEventRequestAttendees) SetIsOptional(v bool) *CreateEventRequestA
 	return s
 }
 
+type CreateEventRequestCardInstances struct {
+	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	Scenario   *string `json:"scenario,omitempty" xml:"scenario,omitempty"`
+}
+
+func (s CreateEventRequestCardInstances) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventRequestCardInstances) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventRequestCardInstances) SetOutTrackId(v string) *CreateEventRequestCardInstances {
+	s.OutTrackId = &v
+	return s
+}
+
+func (s *CreateEventRequestCardInstances) SetScenario(v string) *CreateEventRequestCardInstances {
+	s.Scenario = &v
+	return s
+}
+
+type CreateEventRequestCategories struct {
+	CategoryId  *string `json:"categoryId,omitempty" xml:"categoryId,omitempty"`
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+}
+
+func (s CreateEventRequestCategories) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventRequestCategories) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventRequestCategories) SetCategoryId(v string) *CreateEventRequestCategories {
+	s.CategoryId = &v
+	return s
+}
+
+func (s *CreateEventRequestCategories) SetDisplayName(v string) *CreateEventRequestCategories {
+	s.DisplayName = &v
+	return s
+}
+
 type CreateEventRequestEnd struct {
-	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 2020-01-01
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 2020-01-01T10:15:30+08:00
 	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	// example:
+	//
+	// Asia/Shanghai
 	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
 }
 
@@ -812,6 +984,7 @@ func (s *CreateEventRequestRecurrencePattern) SetType(v string) *CreateEventRequ
 }
 
 type CreateEventRequestRecurrenceRange struct {
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
 	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
 	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
@@ -881,8 +1054,17 @@ func (s *CreateEventRequestRichTextDescription) SetText(v string) *CreateEventRe
 }
 
 type CreateEventRequestStart struct {
-	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 2020-01-01
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 2020-01-01T10:15:30+08:00
 	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	// example:
+	//
+	// Asia/Shanghai
 	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
 }
 
@@ -933,7 +1115,10 @@ func (s *CreateEventRequestUiConfigs) SetUiStatus(v string) *CreateEventRequestU
 }
 
 type CreateEventResponseBody struct {
-	Attendees           []*CreateEventResponseBodyAttendees         `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Attendees     []*CreateEventResponseBodyAttendees     `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	CardInstances []*CreateEventResponseBodyCardInstances `json:"cardInstances,omitempty" xml:"cardInstances,omitempty" type:"Repeated"`
+	Categories    []*CreateEventResponseBodyCategories    `json:"categories,omitempty" xml:"categories,omitempty" type:"Repeated"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	CreateTime          *string                                     `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Description         *string                                     `json:"description,omitempty" xml:"description,omitempty"`
 	End                 *CreateEventResponseBodyEnd                 `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
@@ -945,10 +1130,12 @@ type CreateEventResponseBody struct {
 	Recurrence          *CreateEventResponseBodyRecurrence          `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
 	Reminders           []*CreateEventResponseBodyReminders         `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
 	RichTextDescription *CreateEventResponseBodyRichTextDescription `json:"richTextDescription,omitempty" xml:"richTextDescription,omitempty" type:"Struct"`
-	Start               *CreateEventResponseBodyStart               `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
-	Summary             *string                                     `json:"summary,omitempty" xml:"summary,omitempty"`
-	UiConfigs           []*CreateEventResponseBodyUiConfigs         `json:"uiConfigs,omitempty" xml:"uiConfigs,omitempty" type:"Repeated"`
-	UpdateTime          *string                                     `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	// This parameter is required.
+	Start     *CreateEventResponseBodyStart       `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	Summary   *string                             `json:"summary,omitempty" xml:"summary,omitempty"`
+	UiConfigs []*CreateEventResponseBodyUiConfigs `json:"uiConfigs,omitempty" xml:"uiConfigs,omitempty" type:"Repeated"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
 func (s CreateEventResponseBody) String() string {
@@ -961,6 +1148,16 @@ func (s CreateEventResponseBody) GoString() string {
 
 func (s *CreateEventResponseBody) SetAttendees(v []*CreateEventResponseBodyAttendees) *CreateEventResponseBody {
 	s.Attendees = v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetCardInstances(v []*CreateEventResponseBodyCardInstances) *CreateEventResponseBody {
+	s.CardInstances = v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetCategories(v []*CreateEventResponseBodyCategories) *CreateEventResponseBody {
+	s.Categories = v
 	return s
 }
 
@@ -1077,6 +1274,52 @@ func (s *CreateEventResponseBodyAttendees) SetResponseStatus(v string) *CreateEv
 
 func (s *CreateEventResponseBodyAttendees) SetSelf(v bool) *CreateEventResponseBodyAttendees {
 	s.Self = &v
+	return s
+}
+
+type CreateEventResponseBodyCardInstances struct {
+	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	Scenario   *string `json:"scenario,omitempty" xml:"scenario,omitempty"`
+}
+
+func (s CreateEventResponseBodyCardInstances) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponseBodyCardInstances) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponseBodyCardInstances) SetOutTrackId(v string) *CreateEventResponseBodyCardInstances {
+	s.OutTrackId = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyCardInstances) SetScenario(v string) *CreateEventResponseBodyCardInstances {
+	s.Scenario = &v
+	return s
+}
+
+type CreateEventResponseBodyCategories struct {
+	CategoryId  *string `json:"categoryId,omitempty" xml:"categoryId,omitempty"`
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+}
+
+func (s CreateEventResponseBodyCategories) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponseBodyCategories) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponseBodyCategories) SetCategoryId(v string) *CreateEventResponseBodyCategories {
+	s.CategoryId = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyCategories) SetDisplayName(v string) *CreateEventResponseBodyCategories {
+	s.DisplayName = &v
 	return s
 }
 
@@ -1267,6 +1510,7 @@ func (s *CreateEventResponseBodyRecurrencePattern) SetType(v string) *CreateEven
 }
 
 type CreateEventResponseBodyRecurrenceRange struct {
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
 	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
 	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
@@ -1456,9 +1700,11 @@ type CreateEventByMeRequest struct {
 	Recurrence          *CreateEventByMeRequestRecurrence          `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
 	Reminders           []*CreateEventByMeRequestReminders         `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
 	RichTextDescription *CreateEventByMeRequestRichTextDescription `json:"richTextDescription,omitempty" xml:"richTextDescription,omitempty" type:"Struct"`
-	Start               *CreateEventByMeRequestStart               `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
-	Summary             *string                                    `json:"summary,omitempty" xml:"summary,omitempty"`
-	UiConfigs           []*CreateEventByMeRequestUiConfigs         `json:"uiConfigs,omitempty" xml:"uiConfigs,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Start *CreateEventByMeRequestStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// This parameter is required.
+	Summary   *string                            `json:"summary,omitempty" xml:"summary,omitempty"`
+	UiConfigs []*CreateEventByMeRequestUiConfigs `json:"uiConfigs,omitempty" xml:"uiConfigs,omitempty" type:"Repeated"`
 }
 
 func (s CreateEventByMeRequest) String() string {
@@ -1558,8 +1804,17 @@ func (s *CreateEventByMeRequestAttendees) SetIsOptional(v bool) *CreateEventByMe
 }
 
 type CreateEventByMeRequestEnd struct {
-	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 2020-01-01
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 2020-01-01T10:15:30+08:00
 	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	// example:
+	//
+	// Asia/Shanghai
 	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
 }
 
@@ -1691,6 +1946,7 @@ func (s *CreateEventByMeRequestRecurrencePattern) SetType(v string) *CreateEvent
 }
 
 type CreateEventByMeRequestRecurrenceRange struct {
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
 	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
 	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
@@ -1760,8 +2016,17 @@ func (s *CreateEventByMeRequestRichTextDescription) SetText(v string) *CreateEve
 }
 
 type CreateEventByMeRequestStart struct {
-	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 2020-01-01
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 2020-01-01T10:15:30+08:00
 	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	// example:
+	//
+	// Asia/Shanghai
 	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
 }
 
@@ -1812,7 +2077,8 @@ func (s *CreateEventByMeRequestUiConfigs) SetUiStatus(v string) *CreateEventByMe
 }
 
 type CreateEventByMeResponseBody struct {
-	Attendees           []*CreateEventByMeResponseBodyAttendees         `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Attendees []*CreateEventByMeResponseBodyAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	CreateTime          *string                                         `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Description         *string                                         `json:"description,omitempty" xml:"description,omitempty"`
 	End                 *CreateEventByMeResponseBodyEnd                 `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
@@ -1824,10 +2090,12 @@ type CreateEventByMeResponseBody struct {
 	Recurrence          *CreateEventByMeResponseBodyRecurrence          `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
 	Reminders           []*CreateEventByMeResponseBodyReminders         `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
 	RichTextDescription *CreateEventByMeResponseBodyRichTextDescription `json:"richTextDescription,omitempty" xml:"richTextDescription,omitempty" type:"Struct"`
-	Start               *CreateEventByMeResponseBodyStart               `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
-	Summary             *string                                         `json:"summary,omitempty" xml:"summary,omitempty"`
-	UiConfigs           []*CreateEventByMeResponseBodyUiConfigs         `json:"uiConfigs,omitempty" xml:"uiConfigs,omitempty" type:"Repeated"`
-	UpdateTime          *string                                         `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	// This parameter is required.
+	Start     *CreateEventByMeResponseBodyStart       `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	Summary   *string                                 `json:"summary,omitempty" xml:"summary,omitempty"`
+	UiConfigs []*CreateEventByMeResponseBodyUiConfigs `json:"uiConfigs,omitempty" xml:"uiConfigs,omitempty" type:"Repeated"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
 func (s CreateEventByMeResponseBody) String() string {
@@ -2146,6 +2414,7 @@ func (s *CreateEventByMeResponseBodyRecurrencePattern) SetType(v string) *Create
 }
 
 type CreateEventByMeResponseBodyRecurrenceRange struct {
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
 	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
 	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
@@ -2319,9 +2588,11 @@ func (s *CreateSubscribedCalendarHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type CreateSubscribedCalendarRequest struct {
-	Description    *string                                        `json:"description,omitempty" xml:"description,omitempty"`
-	Managers       []*string                                      `json:"managers,omitempty" xml:"managers,omitempty" type:"Repeated"`
-	Name           *string                                        `json:"name,omitempty" xml:"name,omitempty"`
+	Description *string   `json:"description,omitempty" xml:"description,omitempty"`
+	Managers    []*string `json:"managers,omitempty" xml:"managers,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
 	SubscribeScope *CreateSubscribedCalendarRequestSubscribeScope `json:"subscribeScope,omitempty" xml:"subscribeScope,omitempty" type:"Struct"`
 }
 
@@ -2642,6 +2913,7 @@ func (s *GenerateCaldavAccountHeaders) SetXAcsDingtalkAccessToken(v string) *Gen
 }
 
 type GenerateCaldavAccountRequest struct {
+	// This parameter is required.
 	Device *string `json:"device,omitempty" xml:"device,omitempty"`
 }
 
@@ -2757,8 +3029,10 @@ func (s *GetEventRequest) SetMaxAttendees(v int64) *GetEventRequest {
 }
 
 type GetEventResponseBody struct {
-	Attendees           []*GetEventResponseBodyAttendees         `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
-	Categories          []*GetEventResponseBodyCategories        `json:"categories,omitempty" xml:"categories,omitempty" type:"Repeated"`
+	Attendees     []*GetEventResponseBodyAttendees     `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	CardInstances []*GetEventResponseBodyCardInstances `json:"cardInstances,omitempty" xml:"cardInstances,omitempty" type:"Repeated"`
+	Categories    []*GetEventResponseBodyCategories    `json:"categories,omitempty" xml:"categories,omitempty" type:"Repeated"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	CreateTime          *string                                  `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Description         *string                                  `json:"description,omitempty" xml:"description,omitempty"`
 	End                 *GetEventResponseBodyEnd                 `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
@@ -2775,9 +3049,16 @@ type GetEventResponseBody struct {
 	RichTextDescription *GetEventResponseBodyRichTextDescription `json:"richTextDescription,omitempty" xml:"richTextDescription,omitempty" type:"Struct"`
 	SeriesMasterId      *string                                  `json:"seriesMasterId,omitempty" xml:"seriesMasterId,omitempty"`
 	Start               *GetEventResponseBodyStart               `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
-	Status              *string                                  `json:"status,omitempty" xml:"status,omitempty"`
-	Summary             *string                                  `json:"summary,omitempty" xml:"summary,omitempty"`
-	UpdateTime          *string                                  `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 已取消、删除的日程是cancelled
+	Status    *string                          `json:"status,omitempty" xml:"status,omitempty"`
+	Summary   *string                          `json:"summary,omitempty" xml:"summary,omitempty"`
+	UiConfigs []*GetEventResponseBodyUiConfigs `json:"uiConfigs,omitempty" xml:"uiConfigs,omitempty" type:"Repeated"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
 func (s GetEventResponseBody) String() string {
@@ -2790,6 +3071,11 @@ func (s GetEventResponseBody) GoString() string {
 
 func (s *GetEventResponseBody) SetAttendees(v []*GetEventResponseBodyAttendees) *GetEventResponseBody {
 	s.Attendees = v
+	return s
+}
+
+func (s *GetEventResponseBody) SetCardInstances(v []*GetEventResponseBodyCardInstances) *GetEventResponseBody {
+	s.CardInstances = v
 	return s
 }
 
@@ -2888,6 +3174,11 @@ func (s *GetEventResponseBody) SetSummary(v string) *GetEventResponseBody {
 	return s
 }
 
+func (s *GetEventResponseBody) SetUiConfigs(v []*GetEventResponseBodyUiConfigs) *GetEventResponseBody {
+	s.UiConfigs = v
+	return s
+}
+
 func (s *GetEventResponseBody) SetUpdateTime(v string) *GetEventResponseBody {
 	s.UpdateTime = &v
 	return s
@@ -2931,6 +3222,29 @@ func (s *GetEventResponseBodyAttendees) SetResponseStatus(v string) *GetEventRes
 
 func (s *GetEventResponseBodyAttendees) SetSelf(v bool) *GetEventResponseBodyAttendees {
 	s.Self = &v
+	return s
+}
+
+type GetEventResponseBodyCardInstances struct {
+	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	Scenario   *string `json:"scenario,omitempty" xml:"scenario,omitempty"`
+}
+
+func (s GetEventResponseBodyCardInstances) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEventResponseBodyCardInstances) GoString() string {
+	return s.String()
+}
+
+func (s *GetEventResponseBodyCardInstances) SetOutTrackId(v string) *GetEventResponseBodyCardInstances {
+	s.OutTrackId = &v
+	return s
+}
+
+func (s *GetEventResponseBodyCardInstances) SetScenario(v string) *GetEventResponseBodyCardInstances {
+	s.Scenario = &v
 	return s
 }
 
@@ -3230,6 +3544,7 @@ func (s *GetEventResponseBodyRecurrencePattern) SetType(v string) *GetEventRespo
 }
 
 type GetEventResponseBodyRecurrenceRange struct {
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
 	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
 	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
@@ -3327,6 +3642,29 @@ func (s *GetEventResponseBodyStart) SetTimeZone(v string) *GetEventResponseBodyS
 	return s
 }
 
+type GetEventResponseBodyUiConfigs struct {
+	UiName   *string `json:"uiName,omitempty" xml:"uiName,omitempty"`
+	UiStatus *string `json:"uiStatus,omitempty" xml:"uiStatus,omitempty"`
+}
+
+func (s GetEventResponseBodyUiConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEventResponseBodyUiConfigs) GoString() string {
+	return s.String()
+}
+
+func (s *GetEventResponseBodyUiConfigs) SetUiName(v string) *GetEventResponseBodyUiConfigs {
+	s.UiName = &v
+	return s
+}
+
+func (s *GetEventResponseBodyUiConfigs) SetUiStatus(v string) *GetEventResponseBodyUiConfigs {
+	s.UiStatus = &v
+	return s
+}
+
 type GetEventResponse struct {
 	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty"`
 	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
@@ -3380,9 +3718,16 @@ func (s *GetMeetingRoomsScheduleHeaders) SetXAcsDingtalkAccessToken(v string) *G
 }
 
 type GetMeetingRoomsScheduleRequest struct {
-	EndTime   *string   `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	RoomIds   []*string `json:"roomIds,omitempty" xml:"roomIds,omitempty" type:"Repeated"`
-	StartTime *string   `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	RoomIds []*string `json:"roomIds,omitempty" xml:"roomIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
 }
 
 func (s GetMeetingRoomsScheduleRequest) String() string {
@@ -3459,7 +3804,10 @@ type GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems struct 
 	EventId   *string                                                                       `json:"eventId,omitempty" xml:"eventId,omitempty"`
 	Organizer *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsOrganizer `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
 	Start     *GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItemsStart     `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
-	Status    *string                                                                       `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// BUSY
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s GetMeetingRoomsScheduleResponseBodyScheduleInformationScheduleItems) String() string {
@@ -3611,9 +3959,16 @@ func (s *GetScheduleHeaders) SetXAcsDingtalkAccessToken(v string) *GetScheduleHe
 }
 
 type GetScheduleRequest struct {
-	EndTime   *string   `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	StartTime *string   `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	UserIds   []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s GetScheduleRequest) String() string {
@@ -3686,9 +4041,12 @@ func (s *GetScheduleResponseBodyScheduleInformation) SetUserId(v string) *GetSch
 }
 
 type GetScheduleResponseBodyScheduleInformationScheduleItems struct {
-	End    *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd   `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
-	Start  *GetScheduleResponseBodyScheduleInformationScheduleItemsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
-	Status *string                                                       `json:"status,omitempty" xml:"status,omitempty"`
+	End   *GetScheduleResponseBodyScheduleInformationScheduleItemsEnd   `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	Start *GetScheduleResponseBodyScheduleInformationScheduleItemsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// example:
+	//
+	// BUSY
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s GetScheduleResponseBodyScheduleInformationScheduleItems) String() string {
@@ -3801,6 +4159,232 @@ func (s *GetScheduleResponse) SetBody(v *GetScheduleResponseBody) *GetScheduleRe
 	return s
 }
 
+type GetScheduleByMeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XClientToken            *string            `json:"x-client-token,omitempty" xml:"x-client-token,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetScheduleByMeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetScheduleByMeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetScheduleByMeHeaders) SetCommonHeaders(v map[string]*string) *GetScheduleByMeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetScheduleByMeHeaders) SetXClientToken(v string) *GetScheduleByMeHeaders {
+	s.XClientToken = &v
+	return s
+}
+
+func (s *GetScheduleByMeHeaders) SetXAcsDingtalkAccessToken(v string) *GetScheduleByMeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetScheduleByMeRequest struct {
+	// This parameter is required.
+	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s GetScheduleByMeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetScheduleByMeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetScheduleByMeRequest) SetEndTime(v string) *GetScheduleByMeRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetScheduleByMeRequest) SetStartTime(v string) *GetScheduleByMeRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetScheduleByMeRequest) SetUserIds(v []*string) *GetScheduleByMeRequest {
+	s.UserIds = v
+	return s
+}
+
+type GetScheduleByMeResponseBody struct {
+	ScheduleInformation []*GetScheduleByMeResponseBodyScheduleInformation `json:"scheduleInformation,omitempty" xml:"scheduleInformation,omitempty" type:"Repeated"`
+}
+
+func (s GetScheduleByMeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetScheduleByMeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetScheduleByMeResponseBody) SetScheduleInformation(v []*GetScheduleByMeResponseBodyScheduleInformation) *GetScheduleByMeResponseBody {
+	s.ScheduleInformation = v
+	return s
+}
+
+type GetScheduleByMeResponseBodyScheduleInformation struct {
+	Error         *string                                                        `json:"error,omitempty" xml:"error,omitempty"`
+	ScheduleItems []*GetScheduleByMeResponseBodyScheduleInformationScheduleItems `json:"scheduleItems,omitempty" xml:"scheduleItems,omitempty" type:"Repeated"`
+	UserId        *string                                                        `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetScheduleByMeResponseBodyScheduleInformation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetScheduleByMeResponseBodyScheduleInformation) GoString() string {
+	return s.String()
+}
+
+func (s *GetScheduleByMeResponseBodyScheduleInformation) SetError(v string) *GetScheduleByMeResponseBodyScheduleInformation {
+	s.Error = &v
+	return s
+}
+
+func (s *GetScheduleByMeResponseBodyScheduleInformation) SetScheduleItems(v []*GetScheduleByMeResponseBodyScheduleInformationScheduleItems) *GetScheduleByMeResponseBodyScheduleInformation {
+	s.ScheduleItems = v
+	return s
+}
+
+func (s *GetScheduleByMeResponseBodyScheduleInformation) SetUserId(v string) *GetScheduleByMeResponseBodyScheduleInformation {
+	s.UserId = &v
+	return s
+}
+
+type GetScheduleByMeResponseBodyScheduleInformationScheduleItems struct {
+	End   *GetScheduleByMeResponseBodyScheduleInformationScheduleItemsEnd   `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	Start *GetScheduleByMeResponseBodyScheduleInformationScheduleItemsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// example:
+	//
+	// BUSY
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetScheduleByMeResponseBodyScheduleInformationScheduleItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetScheduleByMeResponseBodyScheduleInformationScheduleItems) GoString() string {
+	return s.String()
+}
+
+func (s *GetScheduleByMeResponseBodyScheduleInformationScheduleItems) SetEnd(v *GetScheduleByMeResponseBodyScheduleInformationScheduleItemsEnd) *GetScheduleByMeResponseBodyScheduleInformationScheduleItems {
+	s.End = v
+	return s
+}
+
+func (s *GetScheduleByMeResponseBodyScheduleInformationScheduleItems) SetStart(v *GetScheduleByMeResponseBodyScheduleInformationScheduleItemsStart) *GetScheduleByMeResponseBodyScheduleInformationScheduleItems {
+	s.Start = v
+	return s
+}
+
+func (s *GetScheduleByMeResponseBodyScheduleInformationScheduleItems) SetStatus(v string) *GetScheduleByMeResponseBodyScheduleInformationScheduleItems {
+	s.Status = &v
+	return s
+}
+
+type GetScheduleByMeResponseBodyScheduleInformationScheduleItemsEnd struct {
+	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s GetScheduleByMeResponseBodyScheduleInformationScheduleItemsEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetScheduleByMeResponseBodyScheduleInformationScheduleItemsEnd) GoString() string {
+	return s.String()
+}
+
+func (s *GetScheduleByMeResponseBodyScheduleInformationScheduleItemsEnd) SetDate(v string) *GetScheduleByMeResponseBodyScheduleInformationScheduleItemsEnd {
+	s.Date = &v
+	return s
+}
+
+func (s *GetScheduleByMeResponseBodyScheduleInformationScheduleItemsEnd) SetDateTime(v string) *GetScheduleByMeResponseBodyScheduleInformationScheduleItemsEnd {
+	s.DateTime = &v
+	return s
+}
+
+func (s *GetScheduleByMeResponseBodyScheduleInformationScheduleItemsEnd) SetTimeZone(v string) *GetScheduleByMeResponseBodyScheduleInformationScheduleItemsEnd {
+	s.TimeZone = &v
+	return s
+}
+
+type GetScheduleByMeResponseBodyScheduleInformationScheduleItemsStart struct {
+	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s GetScheduleByMeResponseBodyScheduleInformationScheduleItemsStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetScheduleByMeResponseBodyScheduleInformationScheduleItemsStart) GoString() string {
+	return s.String()
+}
+
+func (s *GetScheduleByMeResponseBodyScheduleInformationScheduleItemsStart) SetDate(v string) *GetScheduleByMeResponseBodyScheduleInformationScheduleItemsStart {
+	s.Date = &v
+	return s
+}
+
+func (s *GetScheduleByMeResponseBodyScheduleInformationScheduleItemsStart) SetDateTime(v string) *GetScheduleByMeResponseBodyScheduleInformationScheduleItemsStart {
+	s.DateTime = &v
+	return s
+}
+
+func (s *GetScheduleByMeResponseBodyScheduleInformationScheduleItemsStart) SetTimeZone(v string) *GetScheduleByMeResponseBodyScheduleInformationScheduleItemsStart {
+	s.TimeZone = &v
+	return s
+}
+
+type GetScheduleByMeResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetScheduleByMeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetScheduleByMeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetScheduleByMeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetScheduleByMeResponse) SetHeaders(v map[string]*string) *GetScheduleByMeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetScheduleByMeResponse) SetStatusCode(v int32) *GetScheduleByMeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetScheduleByMeResponse) SetBody(v *GetScheduleByMeResponseBody) *GetScheduleByMeResponse {
+	s.Body = v
+	return s
+}
+
 type GetSignInLinkHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3894,9 +4478,15 @@ func (s *GetSignInListHeaders) SetXAcsDingtalkAccessToken(v string) *GetSignInLi
 }
 
 type GetSignInListRequest struct {
+	// This parameter is required.
 	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// check_in
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetSignInListRequest) String() string {
@@ -4096,9 +4686,15 @@ func (s *GetSignOutListHeaders) SetXAcsDingtalkAccessToken(v string) *GetSignOut
 }
 
 type GetSignOutListRequest struct {
+	// This parameter is required.
 	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sign_out
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetSignOutListRequest) String() string {
@@ -4634,6 +5230,7 @@ func (s *ListCalendarsResponseBody) SetResponse(v *ListCalendarsResponseBodyResp
 }
 
 type ListCalendarsResponseBodyResponse struct {
+	// This parameter is required.
 	Calendars []*ListCalendarsResponseBodyResponseCalendars `json:"calendars,omitempty" xml:"calendars,omitempty" type:"Repeated"`
 }
 
@@ -4652,12 +5249,17 @@ func (s *ListCalendarsResponseBodyResponse) SetCalendars(v []*ListCalendarsRespo
 
 type ListCalendarsResponseBodyResponseCalendars struct {
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	ETag        *string `json:"eTag,omitempty" xml:"eTag,omitempty"`
-	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
-	Privilege   *string `json:"privilege,omitempty" xml:"privilege,omitempty"`
-	Summary     *string `json:"summary,omitempty" xml:"summary,omitempty"`
-	TimeZone    *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
-	Type        *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	ETag *string `json:"eTag,omitempty" xml:"eTag,omitempty"`
+	// This parameter is required.
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	Privilege *string `json:"privilege,omitempty" xml:"privilege,omitempty"`
+	// This parameter is required.
+	Summary  *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s ListCalendarsResponseBodyResponseCalendars) String() string {
@@ -4732,6 +5334,104 @@ func (s *ListCalendarsResponse) SetBody(v *ListCalendarsResponseBody) *ListCalen
 	return s
 }
 
+type ListCategoriesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XClientToken            *string            `json:"x-client-token,omitempty" xml:"x-client-token,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListCategoriesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCategoriesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListCategoriesHeaders) SetCommonHeaders(v map[string]*string) *ListCategoriesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListCategoriesHeaders) SetXClientToken(v string) *ListCategoriesHeaders {
+	s.XClientToken = &v
+	return s
+}
+
+func (s *ListCategoriesHeaders) SetXAcsDingtalkAccessToken(v string) *ListCategoriesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListCategoriesResponseBody struct {
+	Categories []*ListCategoriesResponseBodyCategories `json:"categories,omitempty" xml:"categories,omitempty" type:"Repeated"`
+}
+
+func (s ListCategoriesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCategoriesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListCategoriesResponseBody) SetCategories(v []*ListCategoriesResponseBodyCategories) *ListCategoriesResponseBody {
+	s.Categories = v
+	return s
+}
+
+type ListCategoriesResponseBodyCategories struct {
+	DisplayName    *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	OpenCategoryId *string `json:"openCategoryId,omitempty" xml:"openCategoryId,omitempty"`
+}
+
+func (s ListCategoriesResponseBodyCategories) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCategoriesResponseBodyCategories) GoString() string {
+	return s.String()
+}
+
+func (s *ListCategoriesResponseBodyCategories) SetDisplayName(v string) *ListCategoriesResponseBodyCategories {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *ListCategoriesResponseBodyCategories) SetOpenCategoryId(v string) *ListCategoriesResponseBodyCategories {
+	s.OpenCategoryId = &v
+	return s
+}
+
+type ListCategoriesResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListCategoriesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListCategoriesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCategoriesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListCategoriesResponse) SetHeaders(v map[string]*string) *ListCategoriesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListCategoriesResponse) SetStatusCode(v int32) *ListCategoriesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListCategoriesResponse) SetBody(v *ListCategoriesResponseBody) *ListCategoriesResponse {
+	s.Body = v
+	return s
+}
+
 type ListEventsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4756,14 +5456,19 @@ func (s *ListEventsHeaders) SetXAcsDingtalkAccessToken(v string) *ListEventsHead
 }
 
 type ListEventsRequest struct {
+	// example:
+	//
+	// 100
 	MaxAttendees   *int32  `json:"maxAttendees,omitempty" xml:"maxAttendees,omitempty"`
 	MaxResults     *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken      *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	SeriesMasterId *string `json:"seriesMasterId,omitempty" xml:"seriesMasterId,omitempty"`
 	ShowDeleted    *bool   `json:"showDeleted,omitempty" xml:"showDeleted,omitempty"`
 	SyncToken      *string `json:"syncToken,omitempty" xml:"syncToken,omitempty"`
-	TimeMax        *string `json:"timeMax,omitempty" xml:"timeMax,omitempty"`
-	TimeMin        *string `json:"timeMin,omitempty" xml:"timeMin,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	TimeMax *string `json:"timeMax,omitempty" xml:"timeMax,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	TimeMin *string `json:"timeMin,omitempty" xml:"timeMin,omitempty"`
 }
 
 func (s ListEventsRequest) String() string {
@@ -4844,8 +5549,9 @@ func (s *ListEventsResponseBody) SetSyncToken(v string) *ListEventsResponseBody 
 }
 
 type ListEventsResponseBodyEvents struct {
-	Attendees           []*ListEventsResponseBodyEventsAttendees         `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
-	Categories          []*ListEventsResponseBodyEventsCategories        `json:"categories,omitempty" xml:"categories,omitempty" type:"Repeated"`
+	Attendees  []*ListEventsResponseBodyEventsAttendees  `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Categories []*ListEventsResponseBodyEventsCategories `json:"categories,omitempty" xml:"categories,omitempty" type:"Repeated"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	CreateTime          *string                                          `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Description         *string                                          `json:"description,omitempty" xml:"description,omitempty"`
 	End                 *ListEventsResponseBodyEventsEnd                 `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
@@ -4864,7 +5570,8 @@ type ListEventsResponseBodyEvents struct {
 	Start               *ListEventsResponseBodyEventsStart               `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
 	Status              *string                                          `json:"status,omitempty" xml:"status,omitempty"`
 	Summary             *string                                          `json:"summary,omitempty" xml:"summary,omitempty"`
-	UpdateTime          *string                                          `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
 func (s ListEventsResponseBodyEvents) String() string {
@@ -5317,6 +6024,7 @@ func (s *ListEventsResponseBodyEventsRecurrencePattern) SetType(v string) *ListE
 }
 
 type ListEventsResponseBodyEventsRecurrenceRange struct {
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
 	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
 	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
@@ -5467,8 +6175,19 @@ func (s *ListEventsInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *ListE
 }
 
 type ListEventsInstancesRequest struct {
-	MaxAttendees      *int32  `json:"maxAttendees,omitempty" xml:"maxAttendees,omitempty"`
-	MaxResults        *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 100
+	MaxAttendees *int32 `json:"maxAttendees,omitempty" xml:"maxAttendees,omitempty"`
+	// example:
+	//
+	// 100
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cnNTbW1YbxxxxdEgvdlQrQT09
 	SeriesMasterId    *string `json:"seriesMasterId,omitempty" xml:"seriesMasterId,omitempty"`
 	StartRecurrenceId *string `json:"startRecurrenceId,omitempty" xml:"startRecurrenceId,omitempty"`
 }
@@ -5519,23 +6238,51 @@ func (s *ListEventsInstancesResponseBody) SetEvents(v []*ListEventsInstancesResp
 }
 
 type ListEventsInstancesResponseBodyEvents struct {
-	Attendees          []*ListEventsInstancesResponseBodyEventsAttendees        `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
-	CreateTime         *string                                                  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Attendees []*ListEventsInstancesResponseBodyEventsAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2020-01-01T10:15:30+08:00
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// something about this event
 	Description        *string                                                  `json:"description,omitempty" xml:"description,omitempty"`
 	End                *ListEventsInstancesResponseBodyEventsEnd                `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
 	ExtendedProperties *ListEventsInstancesResponseBodyEventsExtendedProperties `json:"extendedProperties,omitempty" xml:"extendedProperties,omitempty" type:"Struct"`
-	Id                 *string                                                  `json:"id,omitempty" xml:"id,omitempty"`
-	IsAllDay           *bool                                                    `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
-	Location           *ListEventsInstancesResponseBodyEventsLocation           `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
-	OnlineMeetingInfo  *ListEventsInstancesResponseBodyEventsOnlineMeetingInfo  `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
-	Organizer          *ListEventsInstancesResponseBodyEventsOrganizer          `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
-	Recurrence         *ListEventsInstancesResponseBodyEventsRecurrence         `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
-	Reminders          []*ListEventsInstancesResponseBodyEventsReminders        `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
-	SeriesMasterId     *string                                                  `json:"seriesMasterId,omitempty" xml:"seriesMasterId,omitempty"`
-	Start              *ListEventsInstancesResponseBodyEventsStart              `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
-	Status             *string                                                  `json:"status,omitempty" xml:"status,omitempty"`
-	Summary            *string                                                  `json:"summary,omitempty" xml:"summary,omitempty"`
-	UpdateTime         *string                                                  `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	// example:
+	//
+	// cnNTbW1YbxxxxdEgvdlQrQT09
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// false
+	IsAllDay          *bool                                                   `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
+	Location          *ListEventsInstancesResponseBodyEventsLocation          `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
+	OnlineMeetingInfo *ListEventsInstancesResponseBodyEventsOnlineMeetingInfo `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
+	Organizer         *ListEventsInstancesResponseBodyEventsOrganizer         `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
+	Recurrence        *ListEventsInstancesResponseBodyEventsRecurrence        `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
+	Reminders         []*ListEventsInstancesResponseBodyEventsReminders       `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
+	// example:
+	//
+	// cnNTbWxxxxaFJZdEgvdlQrQT09
+	SeriesMasterId *string                                     `json:"seriesMasterId,omitempty" xml:"seriesMasterId,omitempty"`
+	Start          *ListEventsInstancesResponseBodyEventsStart `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	// example:
+	//
+	// confirmed
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// test event
+	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2020-01-01T10:15:30+08:00
+	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
 func (s ListEventsInstancesResponseBodyEvents) String() string {
@@ -5632,11 +6379,23 @@ func (s *ListEventsInstancesResponseBodyEvents) SetUpdateTime(v string) *ListEve
 }
 
 type ListEventsInstancesResponseBodyEventsAttendees struct {
-	DisplayName    *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
-	Id             *string `json:"id,omitempty" xml:"id,omitempty"`
-	IsOptional     *bool   `json:"isOptional,omitempty" xml:"isOptional,omitempty"`
+	// example:
+	//
+	// jack
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	// example:
+	//
+	// iiiP35sJaxxxxRKgiEiF
+	Id         *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsOptional *bool   `json:"isOptional,omitempty" xml:"isOptional,omitempty"`
+	// example:
+	//
+	// accepted
 	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
-	Self           *bool   `json:"self,omitempty" xml:"self,omitempty"`
+	// example:
+	//
+	// false
+	Self *bool `json:"self,omitempty" xml:"self,omitempty"`
 }
 
 func (s ListEventsInstancesResponseBodyEventsAttendees) String() string {
@@ -5673,8 +6432,17 @@ func (s *ListEventsInstancesResponseBodyEventsAttendees) SetSelf(v bool) *ListEv
 }
 
 type ListEventsInstancesResponseBodyEventsEnd struct {
-	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 2020-01-01
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 2020-01-01T11:15:30+08:00
 	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	// example:
+	//
+	// Asia/Shanghai
 	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
 }
 
@@ -5736,6 +6504,9 @@ func (s *ListEventsInstancesResponseBodyEventsExtendedPropertiesSharedProperties
 }
 
 type ListEventsInstancesResponseBodyEventsLocation struct {
+	// example:
+	//
+	// room 1-2-3
 	DisplayName  *string   `json:"displayName,omitempty" xml:"displayName,omitempty"`
 	MeetingRooms []*string `json:"meetingRooms,omitempty" xml:"meetingRooms,omitempty" type:"Repeated"`
 }
@@ -5759,9 +6530,18 @@ func (s *ListEventsInstancesResponseBodyEventsLocation) SetMeetingRooms(v []*str
 }
 
 type ListEventsInstancesResponseBodyEventsOnlineMeetingInfo struct {
+	// example:
+	//
+	// 5c4df21dxxxx-a6db402b9f3a"
 	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
-	Type         *string `json:"type,omitempty" xml:"type,omitempty"`
-	Url          *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// dingtalk
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// dingtalk://dingtalkclient/page/videoCoxxxxndar?confId=5c4df21dxxxx2b9f3a&calendarId=92xxxx36
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s ListEventsInstancesResponseBodyEventsOnlineMeetingInfo) String() string {
@@ -5788,10 +6568,22 @@ func (s *ListEventsInstancesResponseBodyEventsOnlineMeetingInfo) SetUrl(v string
 }
 
 type ListEventsInstancesResponseBodyEventsOrganizer struct {
-	DisplayName    *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
-	Id             *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// tony
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	// example:
+	//
+	// iiiP35sJaxxxxRKgiEiF
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// accepted
 	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
-	Self           *bool   `json:"self,omitempty" xml:"self,omitempty"`
+	// example:
+	//
+	// true
+	Self *bool `json:"self,omitempty" xml:"self,omitempty"`
 }
 
 func (s ListEventsInstancesResponseBodyEventsOrganizer) String() string {
@@ -5846,11 +6638,26 @@ func (s *ListEventsInstancesResponseBodyEventsRecurrence) SetRange(v *ListEvents
 }
 
 type ListEventsInstancesResponseBodyEventsRecurrencePattern struct {
-	DayOfMonth *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	// example:
+	//
+	// 14
+	DayOfMonth *int32 `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	// example:
+	//
+	// sunday
 	DaysOfWeek *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
-	Index      *string `json:"index,omitempty" xml:"index,omitempty"`
-	Interval   *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
-	Type       *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// first
+	Index *string `json:"index,omitempty" xml:"index,omitempty"`
+	// example:
+	//
+	// 1
+	Interval *int32 `json:"interval,omitempty" xml:"interval,omitempty"`
+	// example:
+	//
+	// daily
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s ListEventsInstancesResponseBodyEventsRecurrencePattern) String() string {
@@ -5887,9 +6694,20 @@ func (s *ListEventsInstancesResponseBodyEventsRecurrencePattern) SetType(v strin
 }
 
 type ListEventsInstancesResponseBodyEventsRecurrenceRange struct {
-	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
-	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2020-01-01T10:15:30+08:00
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// example:
+	//
+	// 5
+	NumberOfOccurrences *int32 `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
+	// example:
+	//
+	// noEnd
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s ListEventsInstancesResponseBodyEventsRecurrenceRange) String() string {
@@ -5916,7 +6734,13 @@ func (s *ListEventsInstancesResponseBodyEventsRecurrenceRange) SetType(v string)
 }
 
 type ListEventsInstancesResponseBodyEventsReminders struct {
-	Method  *string `json:"method,omitempty" xml:"method,omitempty"`
+	// example:
+	//
+	// dingtalk
+	Method *string `json:"method,omitempty" xml:"method,omitempty"`
+	// example:
+	//
+	// 0
 	Minutes *string `json:"minutes,omitempty" xml:"minutes,omitempty"`
 }
 
@@ -5939,8 +6763,17 @@ func (s *ListEventsInstancesResponseBodyEventsReminders) SetMinutes(v string) *L
 }
 
 type ListEventsInstancesResponseBodyEventsStart struct {
-	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 2020-01-01
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 2020-01-01T10:15:30+08:00
 	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	// example:
+	//
+	// Asia/Shanghai
 	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
 }
 
@@ -6023,8 +6856,10 @@ type ListEventsViewRequest struct {
 	MaxAttendees *int32  `json:"maxAttendees,omitempty" xml:"maxAttendees,omitempty"`
 	MaxResults   *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken    *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	TimeMax      *string `json:"timeMax,omitempty" xml:"timeMax,omitempty"`
-	TimeMin      *string `json:"timeMin,omitempty" xml:"timeMin,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	TimeMax *string `json:"timeMax,omitempty" xml:"timeMax,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	TimeMin *string `json:"timeMin,omitempty" xml:"timeMin,omitempty"`
 }
 
 func (s ListEventsViewRequest) String() string {
@@ -6084,8 +6919,9 @@ func (s *ListEventsViewResponseBody) SetNextToken(v string) *ListEventsViewRespo
 }
 
 type ListEventsViewResponseBodyEvents struct {
-	Attendees           []*ListEventsViewResponseBodyEventsAttendees         `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
-	Categories          []*ListEventsViewResponseBodyEventsCategories        `json:"categories,omitempty" xml:"categories,omitempty" type:"Repeated"`
+	Attendees  []*ListEventsViewResponseBodyEventsAttendees  `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Categories []*ListEventsViewResponseBodyEventsCategories `json:"categories,omitempty" xml:"categories,omitempty" type:"Repeated"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	CreateTime          *string                                              `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Description         *string                                              `json:"description,omitempty" xml:"description,omitempty"`
 	End                 *ListEventsViewResponseBodyEventsEnd                 `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
@@ -6103,7 +6939,8 @@ type ListEventsViewResponseBodyEvents struct {
 	Start               *ListEventsViewResponseBodyEventsStart               `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
 	Status              *string                                              `json:"status,omitempty" xml:"status,omitempty"`
 	Summary             *string                                              `json:"summary,omitempty" xml:"summary,omitempty"`
-	UpdateTime          *string                                              `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
 func (s ListEventsViewResponseBodyEvents) String() string {
@@ -6302,7 +7139,8 @@ func (s *ListEventsViewResponseBodyEventsEnd) SetTimeZone(v string) *ListEventsV
 }
 
 type ListEventsViewResponseBodyEventsExtendedProperties struct {
-	SharedProperties *ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties `json:"sharedProperties,omitempty" xml:"sharedProperties,omitempty" type:"Struct"`
+	PrivateProperties *ListEventsViewResponseBodyEventsExtendedPropertiesPrivateProperties `json:"privateProperties,omitempty" xml:"privateProperties,omitempty" type:"Struct"`
+	SharedProperties  *ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties  `json:"sharedProperties,omitempty" xml:"sharedProperties,omitempty" type:"Struct"`
 }
 
 func (s ListEventsViewResponseBodyEventsExtendedProperties) String() string {
@@ -6313,8 +7151,30 @@ func (s ListEventsViewResponseBodyEventsExtendedProperties) GoString() string {
 	return s.String()
 }
 
+func (s *ListEventsViewResponseBodyEventsExtendedProperties) SetPrivateProperties(v *ListEventsViewResponseBodyEventsExtendedPropertiesPrivateProperties) *ListEventsViewResponseBodyEventsExtendedProperties {
+	s.PrivateProperties = v
+	return s
+}
+
 func (s *ListEventsViewResponseBodyEventsExtendedProperties) SetSharedProperties(v *ListEventsViewResponseBodyEventsExtendedPropertiesSharedProperties) *ListEventsViewResponseBodyEventsExtendedProperties {
 	s.SharedProperties = v
+	return s
+}
+
+type ListEventsViewResponseBodyEventsExtendedPropertiesPrivateProperties struct {
+	DingtalkDetailUrl *string `json:"dingtalkDetailUrl,omitempty" xml:"dingtalkDetailUrl,omitempty"`
+}
+
+func (s ListEventsViewResponseBodyEventsExtendedPropertiesPrivateProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewResponseBodyEventsExtendedPropertiesPrivateProperties) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewResponseBodyEventsExtendedPropertiesPrivateProperties) SetDingtalkDetailUrl(v string) *ListEventsViewResponseBodyEventsExtendedPropertiesPrivateProperties {
+	s.DingtalkDetailUrl = &v
 	return s
 }
 
@@ -6551,6 +7411,7 @@ func (s *ListEventsViewResponseBodyEventsRecurrencePattern) SetType(v string) *L
 }
 
 type ListEventsViewResponseBodyEventsRecurrenceRange struct {
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
 	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
 	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
@@ -6654,6 +7515,675 @@ func (s *ListEventsViewResponse) SetBody(v *ListEventsViewResponseBody) *ListEve
 	return s
 }
 
+type ListEventsViewByMeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XClientToken            *string            `json:"x-client-token,omitempty" xml:"x-client-token,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListEventsViewByMeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeHeaders) SetCommonHeaders(v map[string]*string) *ListEventsViewByMeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListEventsViewByMeHeaders) SetXClientToken(v string) *ListEventsViewByMeHeaders {
+	s.XClientToken = &v
+	return s
+}
+
+func (s *ListEventsViewByMeHeaders) SetXAcsDingtalkAccessToken(v string) *ListEventsViewByMeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListEventsViewByMeRequest struct {
+	MaxAttendees *int32  `json:"maxAttendees,omitempty" xml:"maxAttendees,omitempty"`
+	MaxResults   *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken    *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	TimeMax *string `json:"timeMax,omitempty" xml:"timeMax,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	TimeMin *string `json:"timeMin,omitempty" xml:"timeMin,omitempty"`
+}
+
+func (s ListEventsViewByMeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeRequest) SetMaxAttendees(v int32) *ListEventsViewByMeRequest {
+	s.MaxAttendees = &v
+	return s
+}
+
+func (s *ListEventsViewByMeRequest) SetMaxResults(v int32) *ListEventsViewByMeRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListEventsViewByMeRequest) SetNextToken(v string) *ListEventsViewByMeRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListEventsViewByMeRequest) SetTimeMax(v string) *ListEventsViewByMeRequest {
+	s.TimeMax = &v
+	return s
+}
+
+func (s *ListEventsViewByMeRequest) SetTimeMin(v string) *ListEventsViewByMeRequest {
+	s.TimeMin = &v
+	return s
+}
+
+type ListEventsViewByMeResponseBody struct {
+	Events    []*ListEventsViewByMeResponseBodyEvents `json:"events,omitempty" xml:"events,omitempty" type:"Repeated"`
+	NextToken *string                                 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListEventsViewByMeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponseBody) SetEvents(v []*ListEventsViewByMeResponseBodyEvents) *ListEventsViewByMeResponseBody {
+	s.Events = v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBody) SetNextToken(v string) *ListEventsViewByMeResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type ListEventsViewByMeResponseBodyEvents struct {
+	Attendees  []*ListEventsViewByMeResponseBodyEventsAttendees  `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Categories []*ListEventsViewByMeResponseBodyEventsCategories `json:"categories,omitempty" xml:"categories,omitempty" type:"Repeated"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	CreateTime          *string                                                  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Description         *string                                                  `json:"description,omitempty" xml:"description,omitempty"`
+	End                 *ListEventsViewByMeResponseBodyEventsEnd                 `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	ExtendedProperties  *ListEventsViewByMeResponseBodyEventsExtendedProperties  `json:"extendedProperties,omitempty" xml:"extendedProperties,omitempty" type:"Struct"`
+	Id                  *string                                                  `json:"id,omitempty" xml:"id,omitempty"`
+	IsAllDay            *bool                                                    `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
+	Location            *ListEventsViewByMeResponseBodyEventsLocation            `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
+	MeetingRooms        []*ListEventsViewByMeResponseBodyEventsMeetingRooms      `json:"meetingRooms,omitempty" xml:"meetingRooms,omitempty" type:"Repeated"`
+	OnlineMeetingInfo   *ListEventsViewByMeResponseBodyEventsOnlineMeetingInfo   `json:"onlineMeetingInfo,omitempty" xml:"onlineMeetingInfo,omitempty" type:"Struct"`
+	Organizer           *ListEventsViewByMeResponseBodyEventsOrganizer           `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
+	OriginStart         *ListEventsViewByMeResponseBodyEventsOriginStart         `json:"originStart,omitempty" xml:"originStart,omitempty" type:"Struct"`
+	Recurrence          *ListEventsViewByMeResponseBodyEventsRecurrence          `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
+	RichTextDescription *ListEventsViewByMeResponseBodyEventsRichTextDescription `json:"richTextDescription,omitempty" xml:"richTextDescription,omitempty" type:"Struct"`
+	SeriesMasterId      *string                                                  `json:"seriesMasterId,omitempty" xml:"seriesMasterId,omitempty"`
+	Start               *ListEventsViewByMeResponseBodyEventsStart               `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	Status              *string                                                  `json:"status,omitempty" xml:"status,omitempty"`
+	Summary             *string                                                  `json:"summary,omitempty" xml:"summary,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+}
+
+func (s ListEventsViewByMeResponseBodyEvents) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponseBodyEvents) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetAttendees(v []*ListEventsViewByMeResponseBodyEventsAttendees) *ListEventsViewByMeResponseBodyEvents {
+	s.Attendees = v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetCategories(v []*ListEventsViewByMeResponseBodyEventsCategories) *ListEventsViewByMeResponseBodyEvents {
+	s.Categories = v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetCreateTime(v string) *ListEventsViewByMeResponseBodyEvents {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetDescription(v string) *ListEventsViewByMeResponseBodyEvents {
+	s.Description = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetEnd(v *ListEventsViewByMeResponseBodyEventsEnd) *ListEventsViewByMeResponseBodyEvents {
+	s.End = v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetExtendedProperties(v *ListEventsViewByMeResponseBodyEventsExtendedProperties) *ListEventsViewByMeResponseBodyEvents {
+	s.ExtendedProperties = v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetId(v string) *ListEventsViewByMeResponseBodyEvents {
+	s.Id = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetIsAllDay(v bool) *ListEventsViewByMeResponseBodyEvents {
+	s.IsAllDay = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetLocation(v *ListEventsViewByMeResponseBodyEventsLocation) *ListEventsViewByMeResponseBodyEvents {
+	s.Location = v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetMeetingRooms(v []*ListEventsViewByMeResponseBodyEventsMeetingRooms) *ListEventsViewByMeResponseBodyEvents {
+	s.MeetingRooms = v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetOnlineMeetingInfo(v *ListEventsViewByMeResponseBodyEventsOnlineMeetingInfo) *ListEventsViewByMeResponseBodyEvents {
+	s.OnlineMeetingInfo = v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetOrganizer(v *ListEventsViewByMeResponseBodyEventsOrganizer) *ListEventsViewByMeResponseBodyEvents {
+	s.Organizer = v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetOriginStart(v *ListEventsViewByMeResponseBodyEventsOriginStart) *ListEventsViewByMeResponseBodyEvents {
+	s.OriginStart = v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetRecurrence(v *ListEventsViewByMeResponseBodyEventsRecurrence) *ListEventsViewByMeResponseBodyEvents {
+	s.Recurrence = v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetRichTextDescription(v *ListEventsViewByMeResponseBodyEventsRichTextDescription) *ListEventsViewByMeResponseBodyEvents {
+	s.RichTextDescription = v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetSeriesMasterId(v string) *ListEventsViewByMeResponseBodyEvents {
+	s.SeriesMasterId = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetStart(v *ListEventsViewByMeResponseBodyEventsStart) *ListEventsViewByMeResponseBodyEvents {
+	s.Start = v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetStatus(v string) *ListEventsViewByMeResponseBodyEvents {
+	s.Status = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetSummary(v string) *ListEventsViewByMeResponseBodyEvents {
+	s.Summary = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEvents) SetUpdateTime(v string) *ListEventsViewByMeResponseBodyEvents {
+	s.UpdateTime = &v
+	return s
+}
+
+type ListEventsViewByMeResponseBodyEventsAttendees struct {
+	DisplayName    *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	Id             *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsOptional     *bool   `json:"isOptional,omitempty" xml:"isOptional,omitempty"`
+	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
+	Self           *bool   `json:"self,omitempty" xml:"self,omitempty"`
+}
+
+func (s ListEventsViewByMeResponseBodyEventsAttendees) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponseBodyEventsAttendees) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsAttendees) SetDisplayName(v string) *ListEventsViewByMeResponseBodyEventsAttendees {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsAttendees) SetId(v string) *ListEventsViewByMeResponseBodyEventsAttendees {
+	s.Id = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsAttendees) SetIsOptional(v bool) *ListEventsViewByMeResponseBodyEventsAttendees {
+	s.IsOptional = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsAttendees) SetResponseStatus(v string) *ListEventsViewByMeResponseBodyEventsAttendees {
+	s.ResponseStatus = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsAttendees) SetSelf(v bool) *ListEventsViewByMeResponseBodyEventsAttendees {
+	s.Self = &v
+	return s
+}
+
+type ListEventsViewByMeResponseBodyEventsCategories struct {
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+}
+
+func (s ListEventsViewByMeResponseBodyEventsCategories) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponseBodyEventsCategories) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsCategories) SetDisplayName(v string) *ListEventsViewByMeResponseBodyEventsCategories {
+	s.DisplayName = &v
+	return s
+}
+
+type ListEventsViewByMeResponseBodyEventsEnd struct {
+	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s ListEventsViewByMeResponseBodyEventsEnd) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponseBodyEventsEnd) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsEnd) SetDate(v string) *ListEventsViewByMeResponseBodyEventsEnd {
+	s.Date = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsEnd) SetDateTime(v string) *ListEventsViewByMeResponseBodyEventsEnd {
+	s.DateTime = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsEnd) SetTimeZone(v string) *ListEventsViewByMeResponseBodyEventsEnd {
+	s.TimeZone = &v
+	return s
+}
+
+type ListEventsViewByMeResponseBodyEventsExtendedProperties struct {
+	SharedProperties *ListEventsViewByMeResponseBodyEventsExtendedPropertiesSharedProperties `json:"sharedProperties,omitempty" xml:"sharedProperties,omitempty" type:"Struct"`
+}
+
+func (s ListEventsViewByMeResponseBodyEventsExtendedProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponseBodyEventsExtendedProperties) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsExtendedProperties) SetSharedProperties(v *ListEventsViewByMeResponseBodyEventsExtendedPropertiesSharedProperties) *ListEventsViewByMeResponseBodyEventsExtendedProperties {
+	s.SharedProperties = v
+	return s
+}
+
+type ListEventsViewByMeResponseBodyEventsExtendedPropertiesSharedProperties struct {
+	BelongCorpId  *string `json:"belongCorpId,omitempty" xml:"belongCorpId,omitempty"`
+	SourceOpenCid *string `json:"sourceOpenCid,omitempty" xml:"sourceOpenCid,omitempty"`
+}
+
+func (s ListEventsViewByMeResponseBodyEventsExtendedPropertiesSharedProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponseBodyEventsExtendedPropertiesSharedProperties) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsExtendedPropertiesSharedProperties) SetBelongCorpId(v string) *ListEventsViewByMeResponseBodyEventsExtendedPropertiesSharedProperties {
+	s.BelongCorpId = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsExtendedPropertiesSharedProperties) SetSourceOpenCid(v string) *ListEventsViewByMeResponseBodyEventsExtendedPropertiesSharedProperties {
+	s.SourceOpenCid = &v
+	return s
+}
+
+type ListEventsViewByMeResponseBodyEventsLocation struct {
+	DisplayName  *string   `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	MeetingRooms []*string `json:"meetingRooms,omitempty" xml:"meetingRooms,omitempty" type:"Repeated"`
+}
+
+func (s ListEventsViewByMeResponseBodyEventsLocation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponseBodyEventsLocation) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsLocation) SetDisplayName(v string) *ListEventsViewByMeResponseBodyEventsLocation {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsLocation) SetMeetingRooms(v []*string) *ListEventsViewByMeResponseBodyEventsLocation {
+	s.MeetingRooms = v
+	return s
+}
+
+type ListEventsViewByMeResponseBodyEventsMeetingRooms struct {
+	DisplayName    *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
+	RoomId         *string `json:"roomId,omitempty" xml:"roomId,omitempty"`
+}
+
+func (s ListEventsViewByMeResponseBodyEventsMeetingRooms) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponseBodyEventsMeetingRooms) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsMeetingRooms) SetDisplayName(v string) *ListEventsViewByMeResponseBodyEventsMeetingRooms {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsMeetingRooms) SetResponseStatus(v string) *ListEventsViewByMeResponseBodyEventsMeetingRooms {
+	s.ResponseStatus = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsMeetingRooms) SetRoomId(v string) *ListEventsViewByMeResponseBodyEventsMeetingRooms {
+	s.RoomId = &v
+	return s
+}
+
+type ListEventsViewByMeResponseBodyEventsOnlineMeetingInfo struct {
+	ConferenceId *string                `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	ExtraInfo    map[string]interface{} `json:"extraInfo,omitempty" xml:"extraInfo,omitempty"`
+	Type         *string                `json:"type,omitempty" xml:"type,omitempty"`
+	Url          *string                `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s ListEventsViewByMeResponseBodyEventsOnlineMeetingInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponseBodyEventsOnlineMeetingInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsOnlineMeetingInfo) SetConferenceId(v string) *ListEventsViewByMeResponseBodyEventsOnlineMeetingInfo {
+	s.ConferenceId = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsOnlineMeetingInfo) SetExtraInfo(v map[string]interface{}) *ListEventsViewByMeResponseBodyEventsOnlineMeetingInfo {
+	s.ExtraInfo = v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsOnlineMeetingInfo) SetType(v string) *ListEventsViewByMeResponseBodyEventsOnlineMeetingInfo {
+	s.Type = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsOnlineMeetingInfo) SetUrl(v string) *ListEventsViewByMeResponseBodyEventsOnlineMeetingInfo {
+	s.Url = &v
+	return s
+}
+
+type ListEventsViewByMeResponseBodyEventsOrganizer struct {
+	DisplayName    *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	Id             *string `json:"id,omitempty" xml:"id,omitempty"`
+	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
+	Self           *bool   `json:"self,omitempty" xml:"self,omitempty"`
+}
+
+func (s ListEventsViewByMeResponseBodyEventsOrganizer) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponseBodyEventsOrganizer) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsOrganizer) SetDisplayName(v string) *ListEventsViewByMeResponseBodyEventsOrganizer {
+	s.DisplayName = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsOrganizer) SetId(v string) *ListEventsViewByMeResponseBodyEventsOrganizer {
+	s.Id = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsOrganizer) SetResponseStatus(v string) *ListEventsViewByMeResponseBodyEventsOrganizer {
+	s.ResponseStatus = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsOrganizer) SetSelf(v bool) *ListEventsViewByMeResponseBodyEventsOrganizer {
+	s.Self = &v
+	return s
+}
+
+type ListEventsViewByMeResponseBodyEventsOriginStart struct {
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+}
+
+func (s ListEventsViewByMeResponseBodyEventsOriginStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponseBodyEventsOriginStart) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsOriginStart) SetDateTime(v string) *ListEventsViewByMeResponseBodyEventsOriginStart {
+	s.DateTime = &v
+	return s
+}
+
+type ListEventsViewByMeResponseBodyEventsRecurrence struct {
+	Pattern *ListEventsViewByMeResponseBodyEventsRecurrencePattern `json:"pattern,omitempty" xml:"pattern,omitempty" type:"Struct"`
+	Range   *ListEventsViewByMeResponseBodyEventsRecurrenceRange   `json:"range,omitempty" xml:"range,omitempty" type:"Struct"`
+}
+
+func (s ListEventsViewByMeResponseBodyEventsRecurrence) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponseBodyEventsRecurrence) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsRecurrence) SetPattern(v *ListEventsViewByMeResponseBodyEventsRecurrencePattern) *ListEventsViewByMeResponseBodyEventsRecurrence {
+	s.Pattern = v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsRecurrence) SetRange(v *ListEventsViewByMeResponseBodyEventsRecurrenceRange) *ListEventsViewByMeResponseBodyEventsRecurrence {
+	s.Range = v
+	return s
+}
+
+type ListEventsViewByMeResponseBodyEventsRecurrencePattern struct {
+	DayOfMonth     *int32  `json:"dayOfMonth,omitempty" xml:"dayOfMonth,omitempty"`
+	DaysOfWeek     *string `json:"daysOfWeek,omitempty" xml:"daysOfWeek,omitempty"`
+	FirstDayOfWeek *string `json:"firstDayOfWeek,omitempty" xml:"firstDayOfWeek,omitempty"`
+	Index          *string `json:"index,omitempty" xml:"index,omitempty"`
+	Interval       *int32  `json:"interval,omitempty" xml:"interval,omitempty"`
+	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s ListEventsViewByMeResponseBodyEventsRecurrencePattern) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponseBodyEventsRecurrencePattern) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsRecurrencePattern) SetDayOfMonth(v int32) *ListEventsViewByMeResponseBodyEventsRecurrencePattern {
+	s.DayOfMonth = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsRecurrencePattern) SetDaysOfWeek(v string) *ListEventsViewByMeResponseBodyEventsRecurrencePattern {
+	s.DaysOfWeek = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsRecurrencePattern) SetFirstDayOfWeek(v string) *ListEventsViewByMeResponseBodyEventsRecurrencePattern {
+	s.FirstDayOfWeek = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsRecurrencePattern) SetIndex(v string) *ListEventsViewByMeResponseBodyEventsRecurrencePattern {
+	s.Index = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsRecurrencePattern) SetInterval(v int32) *ListEventsViewByMeResponseBodyEventsRecurrencePattern {
+	s.Interval = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsRecurrencePattern) SetType(v string) *ListEventsViewByMeResponseBodyEventsRecurrencePattern {
+	s.Type = &v
+	return s
+}
+
+type ListEventsViewByMeResponseBodyEventsRecurrenceRange struct {
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
+	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s ListEventsViewByMeResponseBodyEventsRecurrenceRange) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponseBodyEventsRecurrenceRange) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsRecurrenceRange) SetEndDate(v string) *ListEventsViewByMeResponseBodyEventsRecurrenceRange {
+	s.EndDate = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsRecurrenceRange) SetNumberOfOccurrences(v int32) *ListEventsViewByMeResponseBodyEventsRecurrenceRange {
+	s.NumberOfOccurrences = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsRecurrenceRange) SetType(v string) *ListEventsViewByMeResponseBodyEventsRecurrenceRange {
+	s.Type = &v
+	return s
+}
+
+type ListEventsViewByMeResponseBodyEventsRichTextDescription struct {
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s ListEventsViewByMeResponseBodyEventsRichTextDescription) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponseBodyEventsRichTextDescription) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsRichTextDescription) SetText(v string) *ListEventsViewByMeResponseBodyEventsRichTextDescription {
+	s.Text = &v
+	return s
+}
+
+type ListEventsViewByMeResponseBodyEventsStart struct {
+	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	DateTime *string `json:"dateTime,omitempty" xml:"dateTime,omitempty"`
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+}
+
+func (s ListEventsViewByMeResponseBodyEventsStart) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponseBodyEventsStart) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsStart) SetDate(v string) *ListEventsViewByMeResponseBodyEventsStart {
+	s.Date = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsStart) SetDateTime(v string) *ListEventsViewByMeResponseBodyEventsStart {
+	s.DateTime = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponseBodyEventsStart) SetTimeZone(v string) *ListEventsViewByMeResponseBodyEventsStart {
+	s.TimeZone = &v
+	return s
+}
+
+type ListEventsViewByMeResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListEventsViewByMeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListEventsViewByMeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListEventsViewByMeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListEventsViewByMeResponse) SetHeaders(v map[string]*string) *ListEventsViewByMeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListEventsViewByMeResponse) SetStatusCode(v int32) *ListEventsViewByMeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListEventsViewByMeResponse) SetBody(v *ListEventsViewByMeResponseBody) *ListEventsViewByMeResponse {
+	s.Body = v
+	return s
+}
+
 type ListInstancesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6678,11 +8208,16 @@ func (s *ListInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *ListInstanc
 }
 
 type ListInstancesRequest struct {
+	// example:
+	//
+	// 100
 	MaxAttendees *int32  `json:"maxAttendees,omitempty" xml:"maxAttendees,omitempty"`
 	MaxResults   *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken    *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	TimeMax      *string `json:"timeMax,omitempty" xml:"timeMax,omitempty"`
-	TimeMin      *string `json:"timeMin,omitempty" xml:"timeMin,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	TimeMax *string `json:"timeMax,omitempty" xml:"timeMax,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	TimeMin *string `json:"timeMin,omitempty" xml:"timeMin,omitempty"`
 }
 
 func (s ListInstancesRequest) String() string {
@@ -6742,7 +8277,8 @@ func (s *ListInstancesResponseBody) SetNextToken(v string) *ListInstancesRespons
 }
 
 type ListInstancesResponseBodyEvents struct {
-	Attendees          []*ListInstancesResponseBodyEventsAttendees        `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Attendees []*ListInstancesResponseBodyEventsAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	CreateTime         *string                                            `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Description        *string                                            `json:"description,omitempty" xml:"description,omitempty"`
 	End                *ListInstancesResponseBodyEventsEnd                `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
@@ -6759,7 +8295,8 @@ type ListInstancesResponseBodyEvents struct {
 	Start              *ListInstancesResponseBodyEventsStart              `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
 	Status             *string                                            `json:"status,omitempty" xml:"status,omitempty"`
 	Summary            *string                                            `json:"summary,omitempty" xml:"summary,omitempty"`
-	UpdateTime         *string                                            `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
 func (s ListInstancesResponseBodyEvents) String() string {
@@ -7151,6 +8688,7 @@ func (s *ListInstancesResponseBodyEventsRecurrencePattern) SetType(v string) *Li
 }
 
 type ListInstancesResponseBodyEventsRecurrenceRange struct {
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
 	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
 	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
@@ -7260,6 +8798,104 @@ func (s *ListInstancesResponse) SetBody(v *ListInstancesResponseBody) *ListInsta
 	return s
 }
 
+type MeetingRoomRespondHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	UserAgent               *string            `json:"userAgent,omitempty" xml:"userAgent,omitempty"`
+	XClientToken            *string            `json:"x-client-token,omitempty" xml:"x-client-token,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s MeetingRoomRespondHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MeetingRoomRespondHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *MeetingRoomRespondHeaders) SetCommonHeaders(v map[string]*string) *MeetingRoomRespondHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *MeetingRoomRespondHeaders) SetUserAgent(v string) *MeetingRoomRespondHeaders {
+	s.UserAgent = &v
+	return s
+}
+
+func (s *MeetingRoomRespondHeaders) SetXClientToken(v string) *MeetingRoomRespondHeaders {
+	s.XClientToken = &v
+	return s
+}
+
+func (s *MeetingRoomRespondHeaders) SetXAcsDingtalkAccessToken(v string) *MeetingRoomRespondHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type MeetingRoomRespondRequest struct {
+	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
+}
+
+func (s MeetingRoomRespondRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MeetingRoomRespondRequest) GoString() string {
+	return s.String()
+}
+
+func (s *MeetingRoomRespondRequest) SetResponseStatus(v string) *MeetingRoomRespondRequest {
+	s.ResponseStatus = &v
+	return s
+}
+
+type MeetingRoomRespondResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s MeetingRoomRespondResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MeetingRoomRespondResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *MeetingRoomRespondResponseBody) SetResult(v bool) *MeetingRoomRespondResponseBody {
+	s.Result = &v
+	return s
+}
+
+type MeetingRoomRespondResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *MeetingRoomRespondResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s MeetingRoomRespondResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MeetingRoomRespondResponse) GoString() string {
+	return s.String()
+}
+
+func (s *MeetingRoomRespondResponse) SetHeaders(v map[string]*string) *MeetingRoomRespondResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *MeetingRoomRespondResponse) SetStatusCode(v int32) *MeetingRoomRespondResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *MeetingRoomRespondResponse) SetBody(v *MeetingRoomRespondResponseBody) *MeetingRoomRespondResponse {
+	s.Body = v
+	return s
+}
+
 type PatchEventHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XClientToken            *string            `json:"x-client-token,omitempty" xml:"x-client-token,omitempty"`
@@ -7290,10 +8926,14 @@ func (s *PatchEventHeaders) SetXAcsDingtalkAccessToken(v string) *PatchEventHead
 }
 
 type PatchEventRequest struct {
-	Attendees           []*PatchEventRequestAttendees         `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
-	Description         *string                               `json:"description,omitempty" xml:"description,omitempty"`
-	End                 *PatchEventRequestEnd                 `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
-	Extra               map[string]*string                    `json:"extra,omitempty" xml:"extra,omitempty"`
+	Attendees      []*PatchEventRequestAttendees     `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	CardInstances  []*PatchEventRequestCardInstances `json:"cardInstances,omitempty" xml:"cardInstances,omitempty" type:"Repeated"`
+	Categories     []*PatchEventRequestCategories    `json:"categories,omitempty" xml:"categories,omitempty" type:"Repeated"`
+	Description    *string                           `json:"description,omitempty" xml:"description,omitempty"`
+	End            *PatchEventRequestEnd             `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	Extra          map[string]*string                `json:"extra,omitempty" xml:"extra,omitempty"`
+	FreeBusyStatus *string                           `json:"freeBusyStatus,omitempty" xml:"freeBusyStatus,omitempty"`
+	// This parameter is required.
 	Id                  *string                               `json:"id,omitempty" xml:"id,omitempty"`
 	IsAllDay            *bool                                 `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
 	Location            *PatchEventRequestLocation            `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
@@ -7319,6 +8959,16 @@ func (s *PatchEventRequest) SetAttendees(v []*PatchEventRequestAttendees) *Patch
 	return s
 }
 
+func (s *PatchEventRequest) SetCardInstances(v []*PatchEventRequestCardInstances) *PatchEventRequest {
+	s.CardInstances = v
+	return s
+}
+
+func (s *PatchEventRequest) SetCategories(v []*PatchEventRequestCategories) *PatchEventRequest {
+	s.Categories = v
+	return s
+}
+
 func (s *PatchEventRequest) SetDescription(v string) *PatchEventRequest {
 	s.Description = &v
 	return s
@@ -7331,6 +8981,11 @@ func (s *PatchEventRequest) SetEnd(v *PatchEventRequestEnd) *PatchEventRequest {
 
 func (s *PatchEventRequest) SetExtra(v map[string]*string) *PatchEventRequest {
 	s.Extra = v
+	return s
+}
+
+func (s *PatchEventRequest) SetFreeBusyStatus(v string) *PatchEventRequest {
+	s.FreeBusyStatus = &v
 	return s
 }
 
@@ -7410,6 +9065,52 @@ func (s *PatchEventRequestAttendees) SetId(v string) *PatchEventRequestAttendees
 
 func (s *PatchEventRequestAttendees) SetIsOptional(v bool) *PatchEventRequestAttendees {
 	s.IsOptional = &v
+	return s
+}
+
+type PatchEventRequestCardInstances struct {
+	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	Scenario   *string `json:"scenario,omitempty" xml:"scenario,omitempty"`
+}
+
+func (s PatchEventRequestCardInstances) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PatchEventRequestCardInstances) GoString() string {
+	return s.String()
+}
+
+func (s *PatchEventRequestCardInstances) SetOutTrackId(v string) *PatchEventRequestCardInstances {
+	s.OutTrackId = &v
+	return s
+}
+
+func (s *PatchEventRequestCardInstances) SetScenario(v string) *PatchEventRequestCardInstances {
+	s.Scenario = &v
+	return s
+}
+
+type PatchEventRequestCategories struct {
+	CategoryId  *string `json:"categoryId,omitempty" xml:"categoryId,omitempty"`
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+}
+
+func (s PatchEventRequestCategories) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PatchEventRequestCategories) GoString() string {
+	return s.String()
+}
+
+func (s *PatchEventRequestCategories) SetCategoryId(v string) *PatchEventRequestCategories {
+	s.CategoryId = &v
+	return s
+}
+
+func (s *PatchEventRequestCategories) SetDisplayName(v string) *PatchEventRequestCategories {
+	s.DisplayName = &v
 	return s
 }
 
@@ -7547,6 +9248,7 @@ func (s *PatchEventRequestRecurrencePattern) SetType(v string) *PatchEventReques
 }
 
 type PatchEventRequestRecurrenceRange struct {
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
 	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
 	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
@@ -7645,7 +9347,9 @@ func (s *PatchEventRequestStart) SetTimeZone(v string) *PatchEventRequestStart {
 }
 
 type PatchEventRequestUiConfigs struct {
-	UiName   *string `json:"uiName,omitempty" xml:"uiName,omitempty"`
+	// This parameter is required.
+	UiName *string `json:"uiName,omitempty" xml:"uiName,omitempty"`
+	// This parameter is required.
 	UiStatus *string `json:"uiStatus,omitempty" xml:"uiStatus,omitempty"`
 }
 
@@ -7668,7 +9372,10 @@ func (s *PatchEventRequestUiConfigs) SetUiStatus(v string) *PatchEventRequestUiC
 }
 
 type PatchEventResponseBody struct {
-	Attendees           []*PatchEventResponseBodyAttendees         `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	Attendees     []*PatchEventResponseBodyAttendees     `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	CardInstances []*PatchEventResponseBodyCardInstances `json:"cardInstances,omitempty" xml:"cardInstances,omitempty" type:"Repeated"`
+	Categories    []*PatchEventResponseBodyCategories    `json:"categories,omitempty" xml:"categories,omitempty" type:"Repeated"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	CreateTime          *string                                    `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Description         *string                                    `json:"description,omitempty" xml:"description,omitempty"`
 	End                 *PatchEventResponseBodyEnd                 `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
@@ -7680,10 +9387,12 @@ type PatchEventResponseBody struct {
 	Recurrence          *PatchEventResponseBodyRecurrence          `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Struct"`
 	Reminders           []*PatchEventResponseBodyReminders         `json:"reminders,omitempty" xml:"reminders,omitempty" type:"Repeated"`
 	RichTextDescription *PatchEventResponseBodyRichTextDescription `json:"richTextDescription,omitempty" xml:"richTextDescription,omitempty" type:"Struct"`
-	Start               *PatchEventResponseBodyStart               `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
-	Summary             *string                                    `json:"summary,omitempty" xml:"summary,omitempty"`
-	UiConfigs           []*PatchEventResponseBodyUiConfigs         `json:"uiConfigs,omitempty" xml:"uiConfigs,omitempty" type:"Repeated"`
-	UpdateTime          *string                                    `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	// This parameter is required.
+	Start     *PatchEventResponseBodyStart       `json:"start,omitempty" xml:"start,omitempty" type:"Struct"`
+	Summary   *string                            `json:"summary,omitempty" xml:"summary,omitempty"`
+	UiConfigs []*PatchEventResponseBodyUiConfigs `json:"uiConfigs,omitempty" xml:"uiConfigs,omitempty" type:"Repeated"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
 func (s PatchEventResponseBody) String() string {
@@ -7696,6 +9405,16 @@ func (s PatchEventResponseBody) GoString() string {
 
 func (s *PatchEventResponseBody) SetAttendees(v []*PatchEventResponseBodyAttendees) *PatchEventResponseBody {
 	s.Attendees = v
+	return s
+}
+
+func (s *PatchEventResponseBody) SetCardInstances(v []*PatchEventResponseBodyCardInstances) *PatchEventResponseBody {
+	s.CardInstances = v
+	return s
+}
+
+func (s *PatchEventResponseBody) SetCategories(v []*PatchEventResponseBodyCategories) *PatchEventResponseBody {
+	s.Categories = v
 	return s
 }
 
@@ -7812,6 +9531,52 @@ func (s *PatchEventResponseBodyAttendees) SetResponseStatus(v string) *PatchEven
 
 func (s *PatchEventResponseBodyAttendees) SetSelf(v bool) *PatchEventResponseBodyAttendees {
 	s.Self = &v
+	return s
+}
+
+type PatchEventResponseBodyCardInstances struct {
+	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	Scenario   *string `json:"scenario,omitempty" xml:"scenario,omitempty"`
+}
+
+func (s PatchEventResponseBodyCardInstances) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PatchEventResponseBodyCardInstances) GoString() string {
+	return s.String()
+}
+
+func (s *PatchEventResponseBodyCardInstances) SetOutTrackId(v string) *PatchEventResponseBodyCardInstances {
+	s.OutTrackId = &v
+	return s
+}
+
+func (s *PatchEventResponseBodyCardInstances) SetScenario(v string) *PatchEventResponseBodyCardInstances {
+	s.Scenario = &v
+	return s
+}
+
+type PatchEventResponseBodyCategories struct {
+	CategoryId  *string `json:"categoryId,omitempty" xml:"categoryId,omitempty"`
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+}
+
+func (s PatchEventResponseBodyCategories) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PatchEventResponseBodyCategories) GoString() string {
+	return s.String()
+}
+
+func (s *PatchEventResponseBodyCategories) SetCategoryId(v string) *PatchEventResponseBodyCategories {
+	s.CategoryId = &v
+	return s
+}
+
+func (s *PatchEventResponseBodyCategories) SetDisplayName(v string) *PatchEventResponseBodyCategories {
+	s.DisplayName = &v
 	return s
 }
 
@@ -8002,6 +9767,7 @@ func (s *PatchEventResponseBodyRecurrencePattern) SetType(v string) *PatchEventR
 }
 
 type PatchEventResponseBodyRecurrenceRange struct {
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	EndDate             *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
 	NumberOfOccurrences *int32  `json:"numberOfOccurrences,omitempty" xml:"numberOfOccurrences,omitempty"`
 	Type                *string `json:"type,omitempty" xml:"type,omitempty"`
@@ -8100,7 +9866,9 @@ func (s *PatchEventResponseBodyStart) SetTimeZone(v string) *PatchEventResponseB
 }
 
 type PatchEventResponseBodyUiConfigs struct {
-	UiName   *string `json:"uiName,omitempty" xml:"uiName,omitempty"`
+	// This parameter is required.
+	UiName *string `json:"uiName,omitempty" xml:"uiName,omitempty"`
+	// This parameter is required.
 	UiStatus *string `json:"uiStatus,omitempty" xml:"uiStatus,omitempty"`
 }
 
@@ -8376,6 +10144,7 @@ func (s *RespondEventHeaders) SetXAcsDingtalkAccessToken(v string) *RespondEvent
 }
 
 type RespondEventRequest struct {
+	// This parameter is required.
 	ResponseStatus *string `json:"responseStatus,omitempty" xml:"responseStatus,omitempty"`
 }
 
@@ -8629,9 +10398,10 @@ func (s *TransferEventHeaders) SetXAcsDingtalkAccessToken(v string) *TransferEve
 }
 
 type TransferEventRequest struct {
-	IsExitCalendar   *bool   `json:"isExitCalendar,omitempty" xml:"isExitCalendar,omitempty"`
-	NeedNotifyViaO2O *bool   `json:"needNotifyViaO2O,omitempty" xml:"needNotifyViaO2O,omitempty"`
-	NewOrganizerId   *string `json:"newOrganizerId,omitempty" xml:"newOrganizerId,omitempty"`
+	IsExitCalendar   *bool `json:"isExitCalendar,omitempty" xml:"isExitCalendar,omitempty"`
+	NeedNotifyViaO2O *bool `json:"needNotifyViaO2O,omitempty" xml:"needNotifyViaO2O,omitempty"`
+	// This parameter is required.
+	NewOrganizerId *string `json:"newOrganizerId,omitempty" xml:"newOrganizerId,omitempty"`
 }
 
 func (s TransferEventRequest) String() string {
@@ -8920,12 +10690,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -8934,6 +10704,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 新增日程参与人
+//
+// @param request - AddAttendeeRequest
+//
+// @param headers - AddAttendeeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddAttendeeResponse
 func (client *Client) AddAttendeeWithOptions(userId *string, calendarId *string, eventId *string, request *AddAttendeeRequest, headers *AddAttendeeHeaders, runtime *util.RuntimeOptions) (_result *AddAttendeeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8989,6 +10770,13 @@ func (client *Client) AddAttendeeWithOptions(userId *string, calendarId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增日程参与人
+//
+// @param request - AddAttendeeRequest
+//
+// @return AddAttendeeResponse
 func (client *Client) AddAttendee(userId *string, calendarId *string, eventId *string, request *AddAttendeeRequest) (_result *AddAttendeeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddAttendeeHeaders{}
@@ -9001,6 +10789,17 @@ func (client *Client) AddAttendee(userId *string, calendarId *string, eventId *s
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加会议室
+//
+// @param request - AddMeetingRoomsRequest
+//
+// @param headers - AddMeetingRoomsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddMeetingRoomsResponse
 func (client *Client) AddMeetingRoomsWithOptions(userId *string, calendarId *string, eventId *string, request *AddMeetingRoomsRequest, headers *AddMeetingRoomsHeaders, runtime *util.RuntimeOptions) (_result *AddMeetingRoomsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9048,6 +10847,13 @@ func (client *Client) AddMeetingRoomsWithOptions(userId *string, calendarId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加会议室
+//
+// @param request - AddMeetingRoomsRequest
+//
+// @return AddMeetingRoomsResponse
 func (client *Client) AddMeetingRooms(userId *string, calendarId *string, eventId *string, request *AddMeetingRoomsRequest) (_result *AddMeetingRoomsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddMeetingRoomsHeaders{}
@@ -9060,6 +10866,92 @@ func (client *Client) AddMeetingRooms(userId *string, calendarId *string, eventI
 	return _result, _err
 }
 
+// Summary:
+//
+// 取消指定日程
+//
+// @param request - CancelEventRequest
+//
+// @param headers - CancelEventHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CancelEventResponse
+func (client *Client) CancelEventWithOptions(userId *string, calendarId *string, eventId *string, request *CancelEventRequest, headers *CancelEventHeaders, runtime *util.RuntimeOptions) (_result *CancelEventResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Scope)) {
+		query["scope"] = request.Scope
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XClientToken)) {
+		realHeaders["x-client-token"] = util.ToJSONString(headers.XClientToken)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CancelEvent"),
+		Version:     tea.String("calendar_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/calendar/users/" + tea.StringValue(userId) + "/calendars/" + tea.StringValue(calendarId) + "/events/" + tea.StringValue(eventId) + "/cancel"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CancelEventResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 取消指定日程
+//
+// @param request - CancelEventRequest
+//
+// @return CancelEventResponse
+func (client *Client) CancelEvent(userId *string, calendarId *string, eventId *string, request *CancelEventRequest) (_result *CancelEventResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CancelEventHeaders{}
+	_result = &CancelEventResponse{}
+	_body, _err := client.CancelEventWithOptions(userId, calendarId, eventId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 签到
+//
+// @param headers - CheckInHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CheckInResponse
 func (client *Client) CheckInWithOptions(userId *string, calendarId *string, eventId *string, headers *CheckInHeaders, runtime *util.RuntimeOptions) (_result *CheckInResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -9093,6 +10985,11 @@ func (client *Client) CheckInWithOptions(userId *string, calendarId *string, eve
 	return _result, _err
 }
 
+// Summary:
+//
+// 签到
+//
+// @return CheckInResponse
 func (client *Client) CheckIn(userId *string, calendarId *string, eventId *string) (_result *CheckInResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CheckInHeaders{}
@@ -9105,6 +11002,17 @@ func (client *Client) CheckIn(userId *string, calendarId *string, eventId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 转换老版本的eventId
+//
+// @param request - ConvertLegacyEventIdRequest
+//
+// @param headers - ConvertLegacyEventIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ConvertLegacyEventIdResponse
 func (client *Client) ConvertLegacyEventIdWithOptions(userId *string, request *ConvertLegacyEventIdRequest, headers *ConvertLegacyEventIdHeaders, runtime *util.RuntimeOptions) (_result *ConvertLegacyEventIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9148,6 +11056,13 @@ func (client *Client) ConvertLegacyEventIdWithOptions(userId *string, request *C
 	return _result, _err
 }
 
+// Summary:
+//
+// 转换老版本的eventId
+//
+// @param request - ConvertLegacyEventIdRequest
+//
+// @return ConvertLegacyEventIdResponse
 func (client *Client) ConvertLegacyEventId(userId *string, request *ConvertLegacyEventIdRequest) (_result *ConvertLegacyEventIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ConvertLegacyEventIdHeaders{}
@@ -9160,6 +11075,17 @@ func (client *Client) ConvertLegacyEventId(userId *string, request *ConvertLegac
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建访问控制
+//
+// @param request - CreateAclsRequest
+//
+// @param headers - CreateAclsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateAclsResponse
 func (client *Client) CreateAclsWithOptions(userId *string, calendarId *string, request *CreateAclsRequest, headers *CreateAclsHeaders, runtime *util.RuntimeOptions) (_result *CreateAclsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9211,6 +11137,13 @@ func (client *Client) CreateAclsWithOptions(userId *string, calendarId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建访问控制
+//
+// @param request - CreateAclsRequest
+//
+// @return CreateAclsResponse
 func (client *Client) CreateAcls(userId *string, calendarId *string, request *CreateAclsRequest) (_result *CreateAclsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateAclsHeaders{}
@@ -9223,6 +11156,17 @@ func (client *Client) CreateAcls(userId *string, calendarId *string, request *Cr
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建日程
+//
+// @param request - CreateEventRequest
+//
+// @param headers - CreateEventHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateEventResponse
 func (client *Client) CreateEventWithOptions(userId *string, calendarId *string, request *CreateEventRequest, headers *CreateEventHeaders, runtime *util.RuntimeOptions) (_result *CreateEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9231,6 +11175,14 @@ func (client *Client) CreateEventWithOptions(userId *string, calendarId *string,
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Attendees)) {
 		body["attendees"] = request.Attendees
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardInstances)) {
+		body["cardInstances"] = request.CardInstances
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Categories)) {
+		body["categories"] = request.Categories
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Description)) {
@@ -9243,6 +11195,10 @@ func (client *Client) CreateEventWithOptions(userId *string, calendarId *string,
 
 	if !tea.BoolValue(util.IsUnset(request.Extra)) {
 		body["extra"] = request.Extra
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FreeBusyStatus)) {
+		body["freeBusyStatus"] = request.FreeBusyStatus
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.IsAllDay)) {
@@ -9318,6 +11274,13 @@ func (client *Client) CreateEventWithOptions(userId *string, calendarId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建日程
+//
+// @param request - CreateEventRequest
+//
+// @return CreateEventResponse
 func (client *Client) CreateEvent(userId *string, calendarId *string, request *CreateEventRequest) (_result *CreateEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateEventHeaders{}
@@ -9330,6 +11293,17 @@ func (client *Client) CreateEvent(userId *string, calendarId *string, request *C
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建日程(me接口)
+//
+// @param request - CreateEventByMeRequest
+//
+// @param headers - CreateEventByMeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateEventByMeResponse
 func (client *Client) CreateEventByMeWithOptions(calendarId *string, request *CreateEventByMeRequest, headers *CreateEventByMeHeaders, runtime *util.RuntimeOptions) (_result *CreateEventByMeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9425,6 +11399,13 @@ func (client *Client) CreateEventByMeWithOptions(calendarId *string, request *Cr
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建日程(me接口)
+//
+// @param request - CreateEventByMeRequest
+//
+// @return CreateEventByMeResponse
 func (client *Client) CreateEventByMe(calendarId *string, request *CreateEventByMeRequest) (_result *CreateEventByMeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateEventByMeHeaders{}
@@ -9437,6 +11418,17 @@ func (client *Client) CreateEventByMe(calendarId *string, request *CreateEventBy
 	return _result, _err
 }
 
+// Summary:
+//
+// 快速创建订阅日历
+//
+// @param request - CreateSubscribedCalendarRequest
+//
+// @param headers - CreateSubscribedCalendarHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateSubscribedCalendarResponse
 func (client *Client) CreateSubscribedCalendarWithOptions(userId *string, request *CreateSubscribedCalendarRequest, headers *CreateSubscribedCalendarHeaders, runtime *util.RuntimeOptions) (_result *CreateSubscribedCalendarResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9492,6 +11484,13 @@ func (client *Client) CreateSubscribedCalendarWithOptions(userId *string, reques
 	return _result, _err
 }
 
+// Summary:
+//
+// 快速创建订阅日历
+//
+// @param request - CreateSubscribedCalendarRequest
+//
+// @return CreateSubscribedCalendarResponse
 func (client *Client) CreateSubscribedCalendar(userId *string, request *CreateSubscribedCalendarRequest) (_result *CreateSubscribedCalendarResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateSubscribedCalendarHeaders{}
@@ -9504,6 +11503,15 @@ func (client *Client) CreateSubscribedCalendar(userId *string, request *CreateSu
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除访问控制
+//
+// @param headers - DeleteAclHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteAclResponse
 func (client *Client) DeleteAclWithOptions(userId *string, calendarId *string, aclId *string, headers *DeleteAclHeaders, runtime *util.RuntimeOptions) (_result *DeleteAclResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -9537,6 +11545,11 @@ func (client *Client) DeleteAclWithOptions(userId *string, calendarId *string, a
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除访问控制
+//
+// @return DeleteAclResponse
 func (client *Client) DeleteAcl(userId *string, calendarId *string, aclId *string) (_result *DeleteAclResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteAclHeaders{}
@@ -9549,6 +11562,17 @@ func (client *Client) DeleteAcl(userId *string, calendarId *string, aclId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除指定日程
+//
+// @param request - DeleteEventRequest
+//
+// @param headers - DeleteEventHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteEventResponse
 func (client *Client) DeleteEventWithOptions(userId *string, calendarId *string, eventId *string, request *DeleteEventRequest, headers *DeleteEventHeaders, runtime *util.RuntimeOptions) (_result *DeleteEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9596,6 +11620,13 @@ func (client *Client) DeleteEventWithOptions(userId *string, calendarId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除指定日程
+//
+// @param request - DeleteEventRequest
+//
+// @return DeleteEventResponse
 func (client *Client) DeleteEvent(userId *string, calendarId *string, eventId *string, request *DeleteEventRequest) (_result *DeleteEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteEventHeaders{}
@@ -9608,6 +11639,15 @@ func (client *Client) DeleteEvent(userId *string, calendarId *string, eventId *s
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除指定订阅日历
+//
+// @param headers - DeleteSubscribedCalendarHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteSubscribedCalendarResponse
 func (client *Client) DeleteSubscribedCalendarWithOptions(userId *string, calendarId *string, headers *DeleteSubscribedCalendarHeaders, runtime *util.RuntimeOptions) (_result *DeleteSubscribedCalendarResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -9641,6 +11681,11 @@ func (client *Client) DeleteSubscribedCalendarWithOptions(userId *string, calend
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除指定订阅日历
+//
+// @return DeleteSubscribedCalendarResponse
 func (client *Client) DeleteSubscribedCalendar(userId *string, calendarId *string) (_result *DeleteSubscribedCalendarResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteSubscribedCalendarHeaders{}
@@ -9653,6 +11698,17 @@ func (client *Client) DeleteSubscribedCalendar(userId *string, calendarId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 生成caldav账户
+//
+// @param request - GenerateCaldavAccountRequest
+//
+// @param headers - GenerateCaldavAccountHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GenerateCaldavAccountResponse
 func (client *Client) GenerateCaldavAccountWithOptions(userId *string, request *GenerateCaldavAccountRequest, headers *GenerateCaldavAccountHeaders, runtime *util.RuntimeOptions) (_result *GenerateCaldavAccountResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9700,6 +11756,13 @@ func (client *Client) GenerateCaldavAccountWithOptions(userId *string, request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 生成caldav账户
+//
+// @param request - GenerateCaldavAccountRequest
+//
+// @return GenerateCaldavAccountResponse
 func (client *Client) GenerateCaldavAccount(userId *string, request *GenerateCaldavAccountRequest) (_result *GenerateCaldavAccountResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GenerateCaldavAccountHeaders{}
@@ -9712,6 +11775,17 @@ func (client *Client) GenerateCaldavAccount(userId *string, request *GenerateCal
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询日程列表
+//
+// @param request - GetEventRequest
+//
+// @param headers - GetEventHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetEventResponse
 func (client *Client) GetEventWithOptions(userId *string, calendarId *string, eventId *string, request *GetEventRequest, headers *GetEventHeaders, runtime *util.RuntimeOptions) (_result *GetEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9755,6 +11829,13 @@ func (client *Client) GetEventWithOptions(userId *string, calendarId *string, ev
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询日程列表
+//
+// @param request - GetEventRequest
+//
+// @return GetEventResponse
 func (client *Client) GetEvent(userId *string, calendarId *string, eventId *string, request *GetEventRequest) (_result *GetEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetEventHeaders{}
@@ -9767,6 +11848,17 @@ func (client *Client) GetEvent(userId *string, calendarId *string, eventId *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询会议室忙闲
+//
+// @param request - GetMeetingRoomsScheduleRequest
+//
+// @param headers - GetMeetingRoomsScheduleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetMeetingRoomsScheduleResponse
 func (client *Client) GetMeetingRoomsScheduleWithOptions(userId *string, request *GetMeetingRoomsScheduleRequest, headers *GetMeetingRoomsScheduleHeaders, runtime *util.RuntimeOptions) (_result *GetMeetingRoomsScheduleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9818,6 +11910,13 @@ func (client *Client) GetMeetingRoomsScheduleWithOptions(userId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询会议室忙闲
+//
+// @param request - GetMeetingRoomsScheduleRequest
+//
+// @return GetMeetingRoomsScheduleResponse
 func (client *Client) GetMeetingRoomsSchedule(userId *string, request *GetMeetingRoomsScheduleRequest) (_result *GetMeetingRoomsScheduleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetMeetingRoomsScheduleHeaders{}
@@ -9830,6 +11929,17 @@ func (client *Client) GetMeetingRoomsSchedule(userId *string, request *GetMeetin
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询闲忙
+//
+// @param request - GetScheduleRequest
+//
+// @param headers - GetScheduleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetScheduleResponse
 func (client *Client) GetScheduleWithOptions(userId *string, request *GetScheduleRequest, headers *GetScheduleHeaders, runtime *util.RuntimeOptions) (_result *GetScheduleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9881,6 +11991,13 @@ func (client *Client) GetScheduleWithOptions(userId *string, request *GetSchedul
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询闲忙
+//
+// @param request - GetScheduleRequest
+//
+// @return GetScheduleResponse
 func (client *Client) GetSchedule(userId *string, request *GetScheduleRequest) (_result *GetScheduleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetScheduleHeaders{}
@@ -9893,6 +12010,100 @@ func (client *Client) GetSchedule(userId *string, request *GetScheduleRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询闲忙(me接口）
+//
+// @param request - GetScheduleByMeRequest
+//
+// @param headers - GetScheduleByMeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetScheduleByMeResponse
+func (client *Client) GetScheduleByMeWithOptions(request *GetScheduleByMeRequest, headers *GetScheduleByMeHeaders, runtime *util.RuntimeOptions) (_result *GetScheduleByMeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XClientToken)) {
+		realHeaders["x-client-token"] = util.ToJSONString(headers.XClientToken)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetScheduleByMe"),
+		Version:     tea.String("calendar_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/calendar/me/schedules/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetScheduleByMeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询闲忙(me接口）
+//
+// @param request - GetScheduleByMeRequest
+//
+// @return GetScheduleByMeResponse
+func (client *Client) GetScheduleByMe(request *GetScheduleByMeRequest) (_result *GetScheduleByMeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetScheduleByMeHeaders{}
+	_result = &GetScheduleByMeResponse{}
+	_body, _err := client.GetScheduleByMeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取签到链接
+//
+// @param headers - GetSignInLinkHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSignInLinkResponse
 func (client *Client) GetSignInLinkWithOptions(calendarId *string, userId *string, eventId *string, headers *GetSignInLinkHeaders, runtime *util.RuntimeOptions) (_result *GetSignInLinkResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -9926,6 +12137,11 @@ func (client *Client) GetSignInLinkWithOptions(calendarId *string, userId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取签到链接
+//
+// @return GetSignInLinkResponse
 func (client *Client) GetSignInLink(calendarId *string, userId *string, eventId *string) (_result *GetSignInLinkResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSignInLinkHeaders{}
@@ -9938,6 +12154,17 @@ func (client *Client) GetSignInLink(calendarId *string, userId *string, eventId 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取签到信息详情
+//
+// @param request - GetSignInListRequest
+//
+// @param headers - GetSignInListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSignInListResponse
 func (client *Client) GetSignInListWithOptions(userId *string, calendarId *string, eventId *string, request *GetSignInListRequest, headers *GetSignInListHeaders, runtime *util.RuntimeOptions) (_result *GetSignInListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9989,6 +12216,13 @@ func (client *Client) GetSignInListWithOptions(userId *string, calendarId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取签到信息详情
+//
+// @param request - GetSignInListRequest
+//
+// @return GetSignInListResponse
 func (client *Client) GetSignInList(userId *string, calendarId *string, eventId *string, request *GetSignInListRequest) (_result *GetSignInListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSignInListHeaders{}
@@ -10001,6 +12235,15 @@ func (client *Client) GetSignInList(userId *string, calendarId *string, eventId 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取签退链接
+//
+// @param headers - GetSignOutLinkHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSignOutLinkResponse
 func (client *Client) GetSignOutLinkWithOptions(calendarId *string, userId *string, eventId *string, headers *GetSignOutLinkHeaders, runtime *util.RuntimeOptions) (_result *GetSignOutLinkResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -10034,6 +12277,11 @@ func (client *Client) GetSignOutLinkWithOptions(calendarId *string, userId *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取签退链接
+//
+// @return GetSignOutLinkResponse
 func (client *Client) GetSignOutLink(calendarId *string, userId *string, eventId *string) (_result *GetSignOutLinkResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSignOutLinkHeaders{}
@@ -10046,6 +12294,17 @@ func (client *Client) GetSignOutLink(calendarId *string, userId *string, eventId
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取签退信息详情
+//
+// @param request - GetSignOutListRequest
+//
+// @param headers - GetSignOutListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSignOutListResponse
 func (client *Client) GetSignOutListWithOptions(userId *string, calendarId *string, eventId *string, request *GetSignOutListRequest, headers *GetSignOutListHeaders, runtime *util.RuntimeOptions) (_result *GetSignOutListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10097,6 +12356,13 @@ func (client *Client) GetSignOutListWithOptions(userId *string, calendarId *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取签退信息详情
+//
+// @param request - GetSignOutListRequest
+//
+// @return GetSignOutListResponse
 func (client *Client) GetSignOutList(userId *string, calendarId *string, eventId *string, request *GetSignOutListRequest) (_result *GetSignOutListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSignOutListHeaders{}
@@ -10109,6 +12375,15 @@ func (client *Client) GetSignOutList(userId *string, calendarId *string, eventId
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取指定订阅日历详情
+//
+// @param headers - GetSubscribedCalendarHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSubscribedCalendarResponse
 func (client *Client) GetSubscribedCalendarWithOptions(userId *string, calendarId *string, headers *GetSubscribedCalendarHeaders, runtime *util.RuntimeOptions) (_result *GetSubscribedCalendarResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -10142,6 +12417,11 @@ func (client *Client) GetSubscribedCalendarWithOptions(userId *string, calendarI
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取指定订阅日历详情
+//
+// @return GetSubscribedCalendarResponse
 func (client *Client) GetSubscribedCalendar(userId *string, calendarId *string) (_result *GetSubscribedCalendarResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSubscribedCalendarHeaders{}
@@ -10154,6 +12434,15 @@ func (client *Client) GetSubscribedCalendar(userId *string, calendarId *string) 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取访问控制列表
+//
+// @param headers - ListAclsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListAclsResponse
 func (client *Client) ListAclsWithOptions(userId *string, calendarId *string, headers *ListAclsHeaders, runtime *util.RuntimeOptions) (_result *ListAclsResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -10187,6 +12476,11 @@ func (client *Client) ListAclsWithOptions(userId *string, calendarId *string, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取访问控制列表
+//
+// @return ListAclsResponse
 func (client *Client) ListAcls(userId *string, calendarId *string) (_result *ListAclsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListAclsHeaders{}
@@ -10199,6 +12493,17 @@ func (client *Client) ListAcls(userId *string, calendarId *string) (_result *Lis
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取参与人列表
+//
+// @param request - ListAttendeesRequest
+//
+// @param headers - ListAttendeesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListAttendeesResponse
 func (client *Client) ListAttendeesWithOptions(userId *string, calendarId *string, eventId *string, request *ListAttendeesRequest, headers *ListAttendeesHeaders, runtime *util.RuntimeOptions) (_result *ListAttendeesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10246,6 +12551,13 @@ func (client *Client) ListAttendeesWithOptions(userId *string, calendarId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取参与人列表
+//
+// @param request - ListAttendeesRequest
+//
+// @return ListAttendeesResponse
 func (client *Client) ListAttendees(userId *string, calendarId *string, eventId *string, request *ListAttendeesRequest) (_result *ListAttendeesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListAttendeesHeaders{}
@@ -10258,6 +12570,15 @@ func (client *Client) ListAttendees(userId *string, calendarId *string, eventId 
 	return _result, _err
 }
 
+// Summary:
+//
+// 日历本查询
+//
+// @param headers - ListCalendarsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListCalendarsResponse
 func (client *Client) ListCalendarsWithOptions(userId *string, headers *ListCalendarsHeaders, runtime *util.RuntimeOptions) (_result *ListCalendarsResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -10291,6 +12612,11 @@ func (client *Client) ListCalendarsWithOptions(userId *string, headers *ListCale
 	return _result, _err
 }
 
+// Summary:
+//
+// 日历本查询
+//
+// @return ListCalendarsResponse
 func (client *Client) ListCalendars(userId *string) (_result *ListCalendarsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListCalendarsHeaders{}
@@ -10303,6 +12629,80 @@ func (client *Client) ListCalendars(userId *string) (_result *ListCalendarsRespo
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取会议类型列表
+//
+// @param headers - ListCategoriesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListCategoriesResponse
+func (client *Client) ListCategoriesWithOptions(userId *string, headers *ListCategoriesHeaders, runtime *util.RuntimeOptions) (_result *ListCategoriesResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XClientToken)) {
+		realHeaders["x-client-token"] = util.ToJSONString(headers.XClientToken)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListCategories"),
+		Version:     tea.String("calendar_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/calendar/categories"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListCategoriesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取会议类型列表
+//
+// @return ListCategoriesResponse
+func (client *Client) ListCategories(userId *string) (_result *ListCategoriesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListCategoriesHeaders{}
+	_result = &ListCategoriesResponse{}
+	_body, _err := client.ListCategoriesWithOptions(userId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询日程列表
+//
+// @param request - ListEventsRequest
+//
+// @param headers - ListEventsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListEventsResponse
 func (client *Client) ListEventsWithOptions(userId *string, calendarId *string, request *ListEventsRequest, headers *ListEventsHeaders, runtime *util.RuntimeOptions) (_result *ListEventsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10374,6 +12774,13 @@ func (client *Client) ListEventsWithOptions(userId *string, calendarId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询日程列表
+//
+// @param request - ListEventsRequest
+//
+// @return ListEventsResponse
 func (client *Client) ListEvents(userId *string, calendarId *string, request *ListEventsRequest) (_result *ListEventsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListEventsHeaders{}
@@ -10386,6 +12793,17 @@ func (client *Client) ListEvents(userId *string, calendarId *string, request *Li
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询同一个循环日程序列下已生成的实例
+//
+// @param request - ListEventsInstancesRequest
+//
+// @param headers - ListEventsInstancesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListEventsInstancesResponse
 func (client *Client) ListEventsInstancesWithOptions(userId *string, calendarId *string, request *ListEventsInstancesRequest, headers *ListEventsInstancesHeaders, runtime *util.RuntimeOptions) (_result *ListEventsInstancesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10441,6 +12859,13 @@ func (client *Client) ListEventsInstancesWithOptions(userId *string, calendarId 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询同一个循环日程序列下已生成的实例
+//
+// @param request - ListEventsInstancesRequest
+//
+// @return ListEventsInstancesResponse
 func (client *Client) ListEventsInstances(userId *string, calendarId *string, request *ListEventsInstancesRequest) (_result *ListEventsInstancesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListEventsInstancesHeaders{}
@@ -10453,6 +12878,17 @@ func (client *Client) ListEventsInstances(userId *string, calendarId *string, re
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询日程视图列表以查看闲忙，展开循环日程
+//
+// @param request - ListEventsViewRequest
+//
+// @param headers - ListEventsViewHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListEventsViewResponse
 func (client *Client) ListEventsViewWithOptions(userId *string, calendarId *string, request *ListEventsViewRequest, headers *ListEventsViewHeaders, runtime *util.RuntimeOptions) (_result *ListEventsViewResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10512,6 +12948,13 @@ func (client *Client) ListEventsViewWithOptions(userId *string, calendarId *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询日程视图列表以查看闲忙，展开循环日程
+//
+// @param request - ListEventsViewRequest
+//
+// @return ListEventsViewResponse
 func (client *Client) ListEventsView(userId *string, calendarId *string, request *ListEventsViewRequest) (_result *ListEventsViewResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListEventsViewHeaders{}
@@ -10524,6 +12967,110 @@ func (client *Client) ListEventsView(userId *string, calendarId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询日程视图列表以查看闲忙，展开循环日程(me接口）
+//
+// @param request - ListEventsViewByMeRequest
+//
+// @param headers - ListEventsViewByMeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListEventsViewByMeResponse
+func (client *Client) ListEventsViewByMeWithOptions(calendarId *string, request *ListEventsViewByMeRequest, headers *ListEventsViewByMeHeaders, runtime *util.RuntimeOptions) (_result *ListEventsViewByMeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxAttendees)) {
+		query["maxAttendees"] = request.MaxAttendees
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TimeMax)) {
+		query["timeMax"] = request.TimeMax
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TimeMin)) {
+		query["timeMin"] = request.TimeMin
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XClientToken)) {
+		realHeaders["x-client-token"] = util.ToJSONString(headers.XClientToken)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListEventsViewByMe"),
+		Version:     tea.String("calendar_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/calendar/me/calendars/" + tea.StringValue(calendarId) + "/eventsview"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListEventsViewByMeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询日程视图列表以查看闲忙，展开循环日程(me接口）
+//
+// @param request - ListEventsViewByMeRequest
+//
+// @return ListEventsViewByMeResponse
+func (client *Client) ListEventsViewByMe(calendarId *string, request *ListEventsViewByMeRequest) (_result *ListEventsViewByMeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListEventsViewByMeHeaders{}
+	_result = &ListEventsViewByMeResponse{}
+	_body, _err := client.ListEventsViewByMeWithOptions(calendarId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询循环日程实例列表
+//
+// @param request - ListInstancesRequest
+//
+// @param headers - ListInstancesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListInstancesResponse
 func (client *Client) ListInstancesWithOptions(userId *string, calendarId *string, eventId *string, request *ListInstancesRequest, headers *ListInstancesHeaders, runtime *util.RuntimeOptions) (_result *ListInstancesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10583,6 +13130,13 @@ func (client *Client) ListInstancesWithOptions(userId *string, calendarId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询循环日程实例列表
+//
+// @param request - ListInstancesRequest
+//
+// @return ListInstancesResponse
 func (client *Client) ListInstances(userId *string, calendarId *string, eventId *string, request *ListInstancesRequest) (_result *ListInstancesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListInstancesHeaders{}
@@ -10595,6 +13149,98 @@ func (client *Client) ListInstances(userId *string, calendarId *string, eventId 
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置会议室在日程中的响应状态
+//
+// @param request - MeetingRoomRespondRequest
+//
+// @param headers - MeetingRoomRespondHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MeetingRoomRespondResponse
+func (client *Client) MeetingRoomRespondWithOptions(calendarId *string, userId *string, eventId *string, roomId *string, request *MeetingRoomRespondRequest, headers *MeetingRoomRespondHeaders, runtime *util.RuntimeOptions) (_result *MeetingRoomRespondResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ResponseStatus)) {
+		body["responseStatus"] = request.ResponseStatus
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.UserAgent)) {
+		realHeaders["userAgent"] = util.ToJSONString(headers.UserAgent)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XClientToken)) {
+		realHeaders["x-client-token"] = util.ToJSONString(headers.XClientToken)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("MeetingRoomRespond"),
+		Version:     tea.String("calendar_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/calendar/users/" + tea.StringValue(userId) + "/calendars/" + tea.StringValue(calendarId) + "/events/" + tea.StringValue(eventId) + "/meetingRooms/" + tea.StringValue(roomId) + "/respond"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &MeetingRoomRespondResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 设置会议室在日程中的响应状态
+//
+// @param request - MeetingRoomRespondRequest
+//
+// @return MeetingRoomRespondResponse
+func (client *Client) MeetingRoomRespond(calendarId *string, userId *string, eventId *string, roomId *string, request *MeetingRoomRespondRequest) (_result *MeetingRoomRespondResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &MeetingRoomRespondHeaders{}
+	_result = &MeetingRoomRespondResponse{}
+	_body, _err := client.MeetingRoomRespondWithOptions(calendarId, userId, eventId, roomId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 修改日程
+//
+// @param request - PatchEventRequest
+//
+// @param headers - PatchEventHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PatchEventResponse
 func (client *Client) PatchEventWithOptions(userId *string, calendarId *string, eventId *string, request *PatchEventRequest, headers *PatchEventHeaders, runtime *util.RuntimeOptions) (_result *PatchEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10603,6 +13249,14 @@ func (client *Client) PatchEventWithOptions(userId *string, calendarId *string, 
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Attendees)) {
 		body["attendees"] = request.Attendees
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardInstances)) {
+		body["cardInstances"] = request.CardInstances
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Categories)) {
+		body["categories"] = request.Categories
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Description)) {
@@ -10615,6 +13269,10 @@ func (client *Client) PatchEventWithOptions(userId *string, calendarId *string, 
 
 	if !tea.BoolValue(util.IsUnset(request.Extra)) {
 		body["extra"] = request.Extra
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FreeBusyStatus)) {
+		body["freeBusyStatus"] = request.FreeBusyStatus
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Id)) {
@@ -10694,6 +13352,13 @@ func (client *Client) PatchEventWithOptions(userId *string, calendarId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改日程
+//
+// @param request - PatchEventRequest
+//
+// @return PatchEventResponse
 func (client *Client) PatchEvent(userId *string, calendarId *string, eventId *string, request *PatchEventRequest) (_result *PatchEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PatchEventHeaders{}
@@ -10706,6 +13371,17 @@ func (client *Client) PatchEvent(userId *string, calendarId *string, eventId *st
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除日程参与人
+//
+// @param request - RemoveAttendeeRequest
+//
+// @param headers - RemoveAttendeeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RemoveAttendeeResponse
 func (client *Client) RemoveAttendeeWithOptions(userId *string, calendarId *string, eventId *string, request *RemoveAttendeeRequest, headers *RemoveAttendeeHeaders, runtime *util.RuntimeOptions) (_result *RemoveAttendeeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10753,6 +13429,13 @@ func (client *Client) RemoveAttendeeWithOptions(userId *string, calendarId *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除日程参与人
+//
+// @param request - RemoveAttendeeRequest
+//
+// @return RemoveAttendeeResponse
 func (client *Client) RemoveAttendee(userId *string, calendarId *string, eventId *string, request *RemoveAttendeeRequest) (_result *RemoveAttendeeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RemoveAttendeeHeaders{}
@@ -10765,6 +13448,17 @@ func (client *Client) RemoveAttendee(userId *string, calendarId *string, eventId
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除会议室
+//
+// @param request - RemoveMeetingRoomsRequest
+//
+// @param headers - RemoveMeetingRoomsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RemoveMeetingRoomsResponse
 func (client *Client) RemoveMeetingRoomsWithOptions(userId *string, calendarId *string, eventId *string, request *RemoveMeetingRoomsRequest, headers *RemoveMeetingRoomsHeaders, runtime *util.RuntimeOptions) (_result *RemoveMeetingRoomsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10812,6 +13506,13 @@ func (client *Client) RemoveMeetingRoomsWithOptions(userId *string, calendarId *
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除会议室
+//
+// @param request - RemoveMeetingRoomsRequest
+//
+// @return RemoveMeetingRoomsResponse
 func (client *Client) RemoveMeetingRooms(userId *string, calendarId *string, eventId *string, request *RemoveMeetingRoomsRequest) (_result *RemoveMeetingRoomsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RemoveMeetingRoomsHeaders{}
@@ -10824,6 +13525,17 @@ func (client *Client) RemoveMeetingRooms(userId *string, calendarId *string, eve
 	return _result, _err
 }
 
+// Summary:
+//
+// 回复日程邀请
+//
+// @param request - RespondEventRequest
+//
+// @param headers - RespondEventHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RespondEventResponse
 func (client *Client) RespondEventWithOptions(userId *string, calendarId *string, eventId *string, request *RespondEventRequest, headers *RespondEventHeaders, runtime *util.RuntimeOptions) (_result *RespondEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10871,6 +13583,13 @@ func (client *Client) RespondEventWithOptions(userId *string, calendarId *string
 	return _result, _err
 }
 
+// Summary:
+//
+// 回复日程邀请
+//
+// @param request - RespondEventRequest
+//
+// @return RespondEventResponse
 func (client *Client) RespondEvent(userId *string, calendarId *string, eventId *string, request *RespondEventRequest) (_result *RespondEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RespondEventHeaders{}
@@ -10883,6 +13602,15 @@ func (client *Client) RespondEvent(userId *string, calendarId *string, eventId *
 	return _result, _err
 }
 
+// Summary:
+//
+// 签到
+//
+// @param headers - SignInHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SignInResponse
 func (client *Client) SignInWithOptions(userId *string, calendarId *string, eventId *string, headers *SignInHeaders, runtime *util.RuntimeOptions) (_result *SignInResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -10916,6 +13644,11 @@ func (client *Client) SignInWithOptions(userId *string, calendarId *string, even
 	return _result, _err
 }
 
+// Summary:
+//
+// 签到
+//
+// @return SignInResponse
 func (client *Client) SignIn(userId *string, calendarId *string, eventId *string) (_result *SignInResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SignInHeaders{}
@@ -10928,6 +13661,15 @@ func (client *Client) SignIn(userId *string, calendarId *string, eventId *string
 	return _result, _err
 }
 
+// Summary:
+//
+// 签退
+//
+// @param headers - SignOutHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SignOutResponse
 func (client *Client) SignOutWithOptions(userId *string, calendarId *string, eventId *string, headers *SignOutHeaders, runtime *util.RuntimeOptions) (_result *SignOutResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -10961,6 +13703,11 @@ func (client *Client) SignOutWithOptions(userId *string, calendarId *string, eve
 	return _result, _err
 }
 
+// Summary:
+//
+// 签退
+//
+// @return SignOutResponse
 func (client *Client) SignOut(userId *string, calendarId *string, eventId *string) (_result *SignOutResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SignOutHeaders{}
@@ -10973,6 +13720,15 @@ func (client *Client) SignOut(userId *string, calendarId *string, eventId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 订阅公共日历
+//
+// @param headers - SubscribeCalendarHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SubscribeCalendarResponse
 func (client *Client) SubscribeCalendarWithOptions(userId *string, calendarId *string, headers *SubscribeCalendarHeaders, runtime *util.RuntimeOptions) (_result *SubscribeCalendarResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -11006,6 +13762,11 @@ func (client *Client) SubscribeCalendarWithOptions(userId *string, calendarId *s
 	return _result, _err
 }
 
+// Summary:
+//
+// 订阅公共日历
+//
+// @return SubscribeCalendarResponse
 func (client *Client) SubscribeCalendar(userId *string, calendarId *string) (_result *SubscribeCalendarResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SubscribeCalendarHeaders{}
@@ -11018,6 +13779,17 @@ func (client *Client) SubscribeCalendar(userId *string, calendarId *string) (_re
 	return _result, _err
 }
 
+// Summary:
+//
+// 日程转让
+//
+// @param request - TransferEventRequest
+//
+// @param headers - TransferEventHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TransferEventResponse
 func (client *Client) TransferEventWithOptions(calendarId *string, userId *string, eventId *string, request *TransferEventRequest, headers *TransferEventHeaders, runtime *util.RuntimeOptions) (_result *TransferEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11073,6 +13845,13 @@ func (client *Client) TransferEventWithOptions(calendarId *string, userId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 日程转让
+//
+// @param request - TransferEventRequest
+//
+// @return TransferEventResponse
 func (client *Client) TransferEvent(calendarId *string, userId *string, eventId *string, request *TransferEventRequest) (_result *TransferEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &TransferEventHeaders{}
@@ -11085,6 +13864,15 @@ func (client *Client) TransferEvent(calendarId *string, userId *string, eventId 
 	return _result, _err
 }
 
+// Summary:
+//
+// 取消订阅公共日历
+//
+// @param headers - UnsubscribeCalendarHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UnsubscribeCalendarResponse
 func (client *Client) UnsubscribeCalendarWithOptions(userId *string, calendarId *string, headers *UnsubscribeCalendarHeaders, runtime *util.RuntimeOptions) (_result *UnsubscribeCalendarResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -11118,6 +13906,11 @@ func (client *Client) UnsubscribeCalendarWithOptions(userId *string, calendarId 
 	return _result, _err
 }
 
+// Summary:
+//
+// 取消订阅公共日历
+//
+// @return UnsubscribeCalendarResponse
 func (client *Client) UnsubscribeCalendar(userId *string, calendarId *string) (_result *UnsubscribeCalendarResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UnsubscribeCalendarHeaders{}
@@ -11130,6 +13923,17 @@ func (client *Client) UnsubscribeCalendar(userId *string, calendarId *string) (_
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新指定订阅日历
+//
+// @param request - UpdateSubscribedCalendarsRequest
+//
+// @param headers - UpdateSubscribedCalendarsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateSubscribedCalendarsResponse
 func (client *Client) UpdateSubscribedCalendarsWithOptions(calendarId *string, userId *string, request *UpdateSubscribedCalendarsRequest, headers *UpdateSubscribedCalendarsHeaders, runtime *util.RuntimeOptions) (_result *UpdateSubscribedCalendarsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11185,6 +13989,13 @@ func (client *Client) UpdateSubscribedCalendarsWithOptions(calendarId *string, u
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新指定订阅日历
+//
+// @param request - UpdateSubscribedCalendarsRequest
+//
+// @return UpdateSubscribedCalendarsResponse
 func (client *Client) UpdateSubscribedCalendars(calendarId *string, userId *string, request *UpdateSubscribedCalendarsRequest) (_result *UpdateSubscribedCalendarsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateSubscribedCalendarsHeaders{}

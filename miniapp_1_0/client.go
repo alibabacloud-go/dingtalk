@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package miniapp_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,12 +33,17 @@ func (s *CreateMiniAppHeaders) SetXAcsDingtalkAccessToken(v string) *CreateMiniA
 }
 
 type CreateMiniAppRequest struct {
-	BizId    *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
 	BizType  *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
 	BundleId *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
-	Desc     *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	Icon     *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// This parameter is required.
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CreateMiniAppRequest) String() string {
@@ -153,12 +154,17 @@ func (s *CreateMiniAppPluginHeaders) SetXAcsDingtalkAccessToken(v string) *Creat
 }
 
 type CreateMiniAppPluginRequest struct {
-	BizId    *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
 	BizType  *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
 	BundleId *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
-	Desc     *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	Icon     *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// This parameter is required.
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CreateMiniAppPluginRequest) String() string {
@@ -616,6 +622,7 @@ func (s *GetSettingByMiniAppIdHeaders) SetXAcsDingtalkAccessToken(v string) *Get
 }
 
 type GetSettingByMiniAppIdResponseBody struct {
+	// This parameter is required.
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -685,9 +692,12 @@ func (s *InvokeHtmlBundleBuildHeaders) SetXAcsDingtalkAccessToken(v string) *Inv
 }
 
 type InvokeHtmlBundleBuildRequest struct {
-	BundleId  *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
+	// This parameter is required.
+	BundleId *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
+	// This parameter is required.
 	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	Version   *string `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s InvokeHtmlBundleBuildRequest) String() string {
@@ -714,6 +724,7 @@ func (s *InvokeHtmlBundleBuildRequest) SetVersion(v string) *InvokeHtmlBundleBui
 }
 
 type InvokeHtmlBundleBuildResponseBody struct {
+	// This parameter is required.
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -783,10 +794,15 @@ func (s *ListAvaiableVersionHeaders) SetXAcsDingtalkAccessToken(v string) *ListA
 }
 
 type ListAvaiableVersionRequest struct {
-	BundleId       *string  `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
-	MiniAppId      *string  `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	PageNum        *int32   `json:"pageNum,omitempty" xml:"pageNum,omitempty"`
-	PageSize       *int32   `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	BundleId *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
+	// This parameter is required.
+	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	// This parameter is required.
+	PageNum *int32 `json:"pageNum,omitempty" xml:"pageNum,omitempty"`
+	// This parameter is required.
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
 	VersionTypeSet []*int32 `json:"versionTypeSet,omitempty" xml:"versionTypeSet,omitempty" type:"Repeated"`
 }
 
@@ -841,11 +857,16 @@ func (s *ListAvaiableVersionResponseBody) SetVersions(v []*ListAvaiableVersionRe
 }
 
 type ListAvaiableVersionResponseBodyVersions struct {
-	BuildStatus *int64  `json:"buildStatus,omitempty" xml:"buildStatus,omitempty"`
-	H5Bundle    *string `json:"h5Bundle,omitempty" xml:"h5Bundle,omitempty"`
+	// This parameter is required.
+	BuildStatus *int64 `json:"buildStatus,omitempty" xml:"buildStatus,omitempty"`
+	// This parameter is required.
+	H5Bundle *string `json:"h5Bundle,omitempty" xml:"h5Bundle,omitempty"`
+	// This parameter is required.
 	PackageSize *string `json:"packageSize,omitempty" xml:"packageSize,omitempty"`
-	PackageUrl  *string `json:"packageUrl,omitempty" xml:"packageUrl,omitempty"`
-	Version     *string `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	PackageUrl *string `json:"packageUrl,omitempty" xml:"packageUrl,omitempty"`
+	// This parameter is required.
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s ListAvaiableVersionResponseBodyVersions) String() string {
@@ -963,6 +984,7 @@ func (s *QueryHtmlBundleBuildRequest) SetVersion(v string) *QueryHtmlBundleBuild
 }
 
 type QueryHtmlBundleBuildResponseBody struct {
+	// This parameter is required.
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1009,10 +1031,14 @@ func (s *QueryHtmlBundleBuildResponse) SetBody(v *QueryHtmlBundleBuildResponseBo
 }
 
 type RollBackVersionRequest struct {
-	BundleId        *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
-	MiniAppId       *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	// This parameter is required.
+	BundleId *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
+	// This parameter is required.
+	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	// This parameter is required.
 	RollbackVersion *string `json:"rollbackVersion,omitempty" xml:"rollbackVersion,omitempty"`
-	TargetVersion   *string `json:"targetVersion,omitempty" xml:"targetVersion,omitempty"`
+	// This parameter is required.
+	TargetVersion *string `json:"targetVersion,omitempty" xml:"targetVersion,omitempty"`
 }
 
 func (s RollBackVersionRequest) String() string {
@@ -1113,8 +1139,10 @@ func (s *SetExtendSettingHeaders) SetXAcsDingtalkAccessToken(v string) *SetExten
 }
 
 type SetExtendSettingRequest struct {
-	BuildH5Bundle *bool   `json:"buildH5Bundle,omitempty" xml:"buildH5Bundle,omitempty"`
-	MiniAppId     *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	// This parameter is required.
+	BuildH5Bundle *bool `json:"buildH5Bundle,omitempty" xml:"buildH5Bundle,omitempty"`
+	// This parameter is required.
+	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
 }
 
 func (s SetExtendSettingRequest) String() string {
@@ -1136,6 +1164,7 @@ func (s *SetExtendSettingRequest) SetMiniAppId(v string) *SetExtendSettingReques
 }
 
 type SetExtendSettingResponseBody struct {
+	// This parameter is required.
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1205,10 +1234,13 @@ func (s *UpdateVersionStatusHeaders) SetXAcsDingtalkAccessToken(v string) *Updat
 }
 
 type UpdateVersionStatusRequest struct {
-	BundleId    *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
-	MiniAppId   *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
-	Version     *string `json:"version,omitempty" xml:"version,omitempty"`
-	VersionType *int32  `json:"versionType,omitempty" xml:"versionType,omitempty"`
+	// This parameter is required.
+	BundleId *string `json:"bundleId,omitempty" xml:"bundleId,omitempty"`
+	// This parameter is required.
+	MiniAppId *string `json:"miniAppId,omitempty" xml:"miniAppId,omitempty"`
+	Version   *string `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	VersionType *int32 `json:"versionType,omitempty" xml:"versionType,omitempty"`
 }
 
 func (s UpdateVersionStatusRequest) String() string {
@@ -1240,6 +1272,7 @@ func (s *UpdateVersionStatusRequest) SetVersionType(v int32) *UpdateVersionStatu
 }
 
 type UpdateVersionStatusResponseBody struct {
+	// This parameter is required.
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1300,12 +1333,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
@@ -1315,6 +1348,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 创建小程序
+//
+// @param request - CreateMiniAppRequest
+//
+// @param headers - CreateMiniAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateMiniAppResponse
 func (client *Client) CreateMiniAppWithOptions(request *CreateMiniAppRequest, headers *CreateMiniAppHeaders, runtime *util.RuntimeOptions) (_result *CreateMiniAppResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1378,6 +1422,13 @@ func (client *Client) CreateMiniAppWithOptions(request *CreateMiniAppRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建小程序
+//
+// @param request - CreateMiniAppRequest
+//
+// @return CreateMiniAppResponse
 func (client *Client) CreateMiniApp(request *CreateMiniAppRequest) (_result *CreateMiniAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateMiniAppHeaders{}
@@ -1390,6 +1441,17 @@ func (client *Client) CreateMiniApp(request *CreateMiniAppRequest) (_result *Cre
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建小程序组件
+//
+// @param request - CreateMiniAppPluginRequest
+//
+// @param headers - CreateMiniAppPluginHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateMiniAppPluginResponse
 func (client *Client) CreateMiniAppPluginWithOptions(request *CreateMiniAppPluginRequest, headers *CreateMiniAppPluginHeaders, runtime *util.RuntimeOptions) (_result *CreateMiniAppPluginResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1453,6 +1515,13 @@ func (client *Client) CreateMiniAppPluginWithOptions(request *CreateMiniAppPlugi
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建小程序组件
+//
+// @param request - CreateMiniAppPluginRequest
+//
+// @return CreateMiniAppPluginResponse
 func (client *Client) CreateMiniAppPlugin(request *CreateMiniAppPluginRequest) (_result *CreateMiniAppPluginResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateMiniAppPluginHeaders{}
@@ -1465,6 +1534,17 @@ func (client *Client) CreateMiniAppPlugin(request *CreateMiniAppPluginRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 小程序多端发布版本
+//
+// @param request - CreateVersionAcrossBundleRequest
+//
+// @param headers - CreateVersionAcrossBundleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateVersionAcrossBundleResponse
 func (client *Client) CreateVersionAcrossBundleWithOptions(request *CreateVersionAcrossBundleRequest, headers *CreateVersionAcrossBundleHeaders, runtime *util.RuntimeOptions) (_result *CreateVersionAcrossBundleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1524,6 +1604,13 @@ func (client *Client) CreateVersionAcrossBundleWithOptions(request *CreateVersio
 	return _result, _err
 }
 
+// Summary:
+//
+// 小程序多端发布版本
+//
+// @param request - CreateVersionAcrossBundleRequest
+//
+// @return CreateVersionAcrossBundleResponse
 func (client *Client) CreateVersionAcrossBundle(request *CreateVersionAcrossBundleRequest) (_result *CreateVersionAcrossBundleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateVersionAcrossBundleHeaders{}
@@ -1536,6 +1623,17 @@ func (client *Client) CreateVersionAcrossBundle(request *CreateVersionAcrossBund
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取小程序最大的构建版本
+//
+// @param request - GetMaxVersionRequest
+//
+// @param headers - GetMaxVersionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetMaxVersionResponse
 func (client *Client) GetMaxVersionWithOptions(request *GetMaxVersionRequest, headers *GetMaxVersionHeaders, runtime *util.RuntimeOptions) (_result *GetMaxVersionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1587,6 +1685,13 @@ func (client *Client) GetMaxVersionWithOptions(request *GetMaxVersionRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取小程序最大的构建版本
+//
+// @param request - GetMaxVersionRequest
+//
+// @return GetMaxVersionResponse
 func (client *Client) GetMaxVersion(request *GetMaxVersionRequest) (_result *GetMaxVersionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetMaxVersionHeaders{}
@@ -1599,6 +1704,17 @@ func (client *Client) GetMaxVersion(request *GetMaxVersionRequest) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 同步小程序元数据
+//
+// @param request - GetMiniAppMetaDataRequest
+//
+// @param headers - GetMiniAppMetaDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetMiniAppMetaDataResponse
 func (client *Client) GetMiniAppMetaDataWithOptions(request *GetMiniAppMetaDataRequest, headers *GetMiniAppMetaDataHeaders, runtime *util.RuntimeOptions) (_result *GetMiniAppMetaDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1654,6 +1770,13 @@ func (client *Client) GetMiniAppMetaDataWithOptions(request *GetMiniAppMetaDataR
 	return _result, _err
 }
 
+// Summary:
+//
+// 同步小程序元数据
+//
+// @param request - GetMiniAppMetaDataRequest
+//
+// @return GetMiniAppMetaDataResponse
 func (client *Client) GetMiniAppMetaData(request *GetMiniAppMetaDataRequest) (_result *GetMiniAppMetaDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetMiniAppMetaDataHeaders{}
@@ -1666,6 +1789,15 @@ func (client *Client) GetMiniAppMetaData(request *GetMiniAppMetaDataRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询小程序配置
+//
+// @param headers - GetSettingByMiniAppIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSettingByMiniAppIdResponse
 func (client *Client) GetSettingByMiniAppIdWithOptions(miniAppId *string, headers *GetSettingByMiniAppIdHeaders, runtime *util.RuntimeOptions) (_result *GetSettingByMiniAppIdResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -1699,6 +1831,11 @@ func (client *Client) GetSettingByMiniAppIdWithOptions(miniAppId *string, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询小程序配置
+//
+// @return GetSettingByMiniAppIdResponse
 func (client *Client) GetSettingByMiniAppId(miniAppId *string) (_result *GetSettingByMiniAppIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSettingByMiniAppIdHeaders{}
@@ -1711,6 +1848,17 @@ func (client *Client) GetSettingByMiniAppId(miniAppId *string) (_result *GetSett
 	return _result, _err
 }
 
+// Summary:
+//
+// 构建H5Bundle
+//
+// @param request - InvokeHtmlBundleBuildRequest
+//
+// @param headers - InvokeHtmlBundleBuildHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InvokeHtmlBundleBuildResponse
 func (client *Client) InvokeHtmlBundleBuildWithOptions(request *InvokeHtmlBundleBuildRequest, headers *InvokeHtmlBundleBuildHeaders, runtime *util.RuntimeOptions) (_result *InvokeHtmlBundleBuildResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1762,6 +1910,13 @@ func (client *Client) InvokeHtmlBundleBuildWithOptions(request *InvokeHtmlBundle
 	return _result, _err
 }
 
+// Summary:
+//
+// 构建H5Bundle
+//
+// @param request - InvokeHtmlBundleBuildRequest
+//
+// @return InvokeHtmlBundleBuildResponse
 func (client *Client) InvokeHtmlBundleBuild(request *InvokeHtmlBundleBuildRequest) (_result *InvokeHtmlBundleBuildResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InvokeHtmlBundleBuildHeaders{}
@@ -1774,6 +1929,17 @@ func (client *Client) InvokeHtmlBundleBuild(request *InvokeHtmlBundleBuildReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取小程序版本列表
+//
+// @param request - ListAvaiableVersionRequest
+//
+// @param headers - ListAvaiableVersionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListAvaiableVersionResponse
 func (client *Client) ListAvaiableVersionWithOptions(request *ListAvaiableVersionRequest, headers *ListAvaiableVersionHeaders, runtime *util.RuntimeOptions) (_result *ListAvaiableVersionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1833,6 +1999,13 @@ func (client *Client) ListAvaiableVersionWithOptions(request *ListAvaiableVersio
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取小程序版本列表
+//
+// @param request - ListAvaiableVersionRequest
+//
+// @return ListAvaiableVersionResponse
 func (client *Client) ListAvaiableVersion(request *ListAvaiableVersionRequest) (_result *ListAvaiableVersionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListAvaiableVersionHeaders{}
@@ -1845,6 +2018,17 @@ func (client *Client) ListAvaiableVersion(request *ListAvaiableVersionRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询H5构建结果
+//
+// @param request - QueryHtmlBundleBuildRequest
+//
+// @param headers - QueryHtmlBundleBuildHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryHtmlBundleBuildResponse
 func (client *Client) QueryHtmlBundleBuildWithOptions(request *QueryHtmlBundleBuildRequest, headers *QueryHtmlBundleBuildHeaders, runtime *util.RuntimeOptions) (_result *QueryHtmlBundleBuildResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1896,6 +2080,13 @@ func (client *Client) QueryHtmlBundleBuildWithOptions(request *QueryHtmlBundleBu
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询H5构建结果
+//
+// @param request - QueryHtmlBundleBuildRequest
+//
+// @return QueryHtmlBundleBuildResponse
 func (client *Client) QueryHtmlBundleBuild(request *QueryHtmlBundleBuildRequest) (_result *QueryHtmlBundleBuildResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryHtmlBundleBuildHeaders{}
@@ -1908,6 +2099,17 @@ func (client *Client) QueryHtmlBundleBuild(request *QueryHtmlBundleBuildRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 回滚版本
+//
+// @param request - RollBackVersionRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RollBackVersionResponse
 func (client *Client) RollBackVersionWithOptions(request *RollBackVersionRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *RollBackVersionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1954,6 +2156,13 @@ func (client *Client) RollBackVersionWithOptions(request *RollBackVersionRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 回滚版本
+//
+// @param request - RollBackVersionRequest
+//
+// @return RollBackVersionResponse
 func (client *Client) RollBackVersion(request *RollBackVersionRequest) (_result *RollBackVersionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -1966,6 +2175,17 @@ func (client *Client) RollBackVersion(request *RollBackVersionRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改小程序配置
+//
+// @param request - SetExtendSettingRequest
+//
+// @param headers - SetExtendSettingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetExtendSettingResponse
 func (client *Client) SetExtendSettingWithOptions(request *SetExtendSettingRequest, headers *SetExtendSettingHeaders, runtime *util.RuntimeOptions) (_result *SetExtendSettingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2013,6 +2233,13 @@ func (client *Client) SetExtendSettingWithOptions(request *SetExtendSettingReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改小程序配置
+//
+// @param request - SetExtendSettingRequest
+//
+// @return SetExtendSettingResponse
 func (client *Client) SetExtendSetting(request *SetExtendSettingRequest) (_result *SetExtendSettingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SetExtendSettingHeaders{}
@@ -2025,6 +2252,17 @@ func (client *Client) SetExtendSetting(request *SetExtendSettingRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 发布版本
+//
+// @param request - UpdateVersionStatusRequest
+//
+// @param headers - UpdateVersionStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateVersionStatusResponse
 func (client *Client) UpdateVersionStatusWithOptions(request *UpdateVersionStatusRequest, headers *UpdateVersionStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateVersionStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2080,6 +2318,13 @@ func (client *Client) UpdateVersionStatusWithOptions(request *UpdateVersionStatu
 	return _result, _err
 }
 
+// Summary:
+//
+// 发布版本
+//
+// @param request - UpdateVersionStatusRequest
+//
+// @return UpdateVersionStatusResponse
 func (client *Client) UpdateVersionStatus(request *UpdateVersionStatusRequest) (_result *UpdateVersionStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateVersionStatusHeaders{}

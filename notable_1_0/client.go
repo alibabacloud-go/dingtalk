@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package notable_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,10 +33,42 @@ func (s *CreateFieldHeaders) SetXAcsDingtalkAccessToken(v string) *CreateFieldHe
 }
 
 type CreateFieldRequest struct {
-	Name       *string                `json:"name,omitempty" xml:"name,omitempty"`
-	Property   map[string]interface{} `json:"property,omitempty" xml:"property,omitempty"`
-	Type       *string                `json:"type,omitempty" xml:"type,omitempty"`
-	OperatorId *string                `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// key: id或者name
+	//
+	//     value: 对应字段值,不同类型的字段传入的value值不同
+	//
+	//       - text: "TextString"          // 文本字符串
+	//
+	//       - number: 123                 // 整数/浮点数均可
+	//
+	//       - singleSelect: "optionIdxxx1" | "optionName1" // 单选选项Id/单选选项名
+	//
+	//       - date: 1688601600000 ｜ "2023-12-20 03:00"
+	//
+	//                                     // 支持传时间戳或ISO 8601字符串
+	//
+	//       - user: [{
+	//
+	//           uid: \"1234567\"            // 用户uid
+	//
+	//         }, {
+	//
+	//           uid: \"2345678\"
+	//
+	//         }]
+	Property map[string]interface{} `json:"property,omitempty" xml:"property,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s CreateFieldRequest) String() string {
@@ -72,8 +100,33 @@ func (s *CreateFieldRequest) SetOperatorId(v string) *CreateFieldRequest {
 }
 
 type CreateFieldResponseBody struct {
-	Id       *string                `json:"id,omitempty" xml:"id,omitempty"`
-	Name     *string                `json:"name,omitempty" xml:"name,omitempty"`
+	Id   *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// key: id或者name
+	//
+	//     value: 对应字段值,不同类型的字段传入的value值不同
+	//
+	//       - text: "TextString"          // 文本字符串
+	//
+	//       - number: 123                 // 整数/浮点数均可
+	//
+	//       - singleSelect: "optionIdxxx1" | "optionName1" // 单选选项Id/单选选项名
+	//
+	//       - date: 1688601600000 ｜ "2023-12-20 03:00"
+	//
+	//                                     // 支持传时间戳或ISO 8601字符串
+	//
+	//       - user: [{
+	//
+	//           uid: \"1234567\"            // 用户uid
+	//
+	//         }, {
+	//
+	//           uid: \"2345678\"
+	//
+	//         }]
 	Property map[string]interface{} `json:"property,omitempty" xml:"property,omitempty"`
 	Type     *string                `json:"type,omitempty" xml:"type,omitempty"`
 }
@@ -159,9 +212,14 @@ func (s *CreateSheetHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSheetHe
 }
 
 type CreateSheetRequest struct {
-	Fields     []*CreateSheetRequestFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
-	Name       *string                     `json:"name,omitempty" xml:"name,omitempty"`
-	OperatorId *string                     `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	Fields []*CreateSheetRequestFields `json:"fields,omitempty" xml:"fields,omitempty" type:"Repeated"`
+	Name   *string                     `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s CreateSheetRequest) String() string {
@@ -188,9 +246,36 @@ func (s *CreateSheetRequest) SetOperatorId(v string) *CreateSheetRequest {
 }
 
 type CreateSheetRequestFields struct {
-	Name     *string                `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// key: id或者name
+	//
+	//     value: 对应字段值,不同类型的字段传入的value值不同
+	//
+	//       - text: "TextString"          // 文本字符串
+	//
+	//       - number: 123                 // 整数/浮点数均可
+	//
+	//       - singleSelect: "optionIdxxx1" | "optionName1" // 单选选项Id/单选选项名
+	//
+	//       - date: 1688601600000 ｜ "2023-12-20 03:00"
+	//
+	//                                     // 支持传时间戳或ISO 8601字符串
+	//
+	//       - user: [{
+	//
+	//           uid: \"1234567\"            // 用户uid
+	//
+	//         }, {
+	//
+	//           uid: \"2345678\"
+	//
+	//         }]
 	Property map[string]interface{} `json:"property,omitempty" xml:"property,omitempty"`
-	Type     *string                `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s CreateSheetRequestFields) String() string {
@@ -292,6 +377,11 @@ func (s *DeleteFieldHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteFieldHe
 }
 
 type DeleteFieldRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -309,6 +399,9 @@ func (s *DeleteFieldRequest) SetOperatorId(v string) *DeleteFieldRequest {
 }
 
 type DeleteFieldResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -378,8 +471,14 @@ func (s *DeleteRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteRecor
 }
 
 type DeleteRecordsRequest struct {
-	RecordIds  []*string `json:"recordIds,omitempty" xml:"recordIds,omitempty" type:"Repeated"`
-	OperatorId *string   `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	RecordIds []*string `json:"recordIds,omitempty" xml:"recordIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s DeleteRecordsRequest) String() string {
@@ -401,6 +500,9 @@ func (s *DeleteRecordsRequest) SetOperatorId(v string) *DeleteRecordsRequest {
 }
 
 type DeleteRecordsResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -470,6 +572,11 @@ func (s *DeleteSheetHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteSheetHe
 }
 
 type DeleteSheetRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -487,6 +594,9 @@ func (s *DeleteSheetRequest) SetOperatorId(v string) *DeleteSheetRequest {
 }
 
 type DeleteSheetResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -556,6 +666,11 @@ func (s *GetAllFieldsHeaders) SetXAcsDingtalkAccessToken(v string) *GetAllFields
 }
 
 type GetAllFieldsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -590,8 +705,33 @@ func (s *GetAllFieldsResponseBody) SetValue(v []*GetAllFieldsResponseBodyValue) 
 }
 
 type GetAllFieldsResponseBodyValue struct {
-	Id       *string                `json:"id,omitempty" xml:"id,omitempty"`
-	Name     *string                `json:"name,omitempty" xml:"name,omitempty"`
+	Id   *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// key: id或者name
+	//
+	//     value: 对应字段值,不同类型的字段传入的value值不同
+	//
+	//       - text: "TextString"          // 文本字符串
+	//
+	//       - number: 123                 // 整数/浮点数均可
+	//
+	//       - singleSelect: "optionIdxxx1" | "optionName1" // 单选选项Id/单选选项名
+	//
+	//       - date: 1688601600000 ｜ "2023-12-20 03:00"
+	//
+	//                                     // 支持传时间戳或ISO 8601字符串
+	//
+	//       - user: [{
+	//
+	//           uid: \"1234567\"            // 用户uid
+	//
+	//         }, {
+	//
+	//           uid: \"2345678\"
+	//
+	//         }]
 	Property map[string]interface{} `json:"property,omitempty" xml:"property,omitempty"`
 	Type     *string                `json:"type,omitempty" xml:"type,omitempty"`
 }
@@ -677,6 +817,11 @@ func (s *GetAllSheetsHeaders) SetXAcsDingtalkAccessToken(v string) *GetAllSheets
 }
 
 type GetAllSheetsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -786,6 +931,11 @@ func (s *GetRecordHeaders) SetXAcsDingtalkAccessToken(v string) *GetRecordHeader
 }
 
 type GetRecordRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -803,8 +953,12 @@ func (s *GetRecordRequest) SetOperatorId(v string) *GetRecordRequest {
 }
 
 type GetRecordResponseBody struct {
-	Fields map[string]interface{} `json:"fields,omitempty" xml:"fields,omitempty"`
-	Id     *string                `json:"id,omitempty" xml:"id,omitempty"`
+	CreatedBy        *GetRecordResponseBodyCreatedBy      `json:"createdBy,omitempty" xml:"createdBy,omitempty" type:"Struct"`
+	CreatedTime      *int64                               `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
+	Fields           map[string]interface{}               `json:"fields,omitempty" xml:"fields,omitempty"`
+	Id               *string                              `json:"id,omitempty" xml:"id,omitempty"`
+	LastModifiedBy   *GetRecordResponseBodyLastModifiedBy `json:"lastModifiedBy,omitempty" xml:"lastModifiedBy,omitempty" type:"Struct"`
+	LastModifiedTime *int64                               `json:"lastModifiedTime,omitempty" xml:"lastModifiedTime,omitempty"`
 }
 
 func (s GetRecordResponseBody) String() string {
@@ -815,6 +969,16 @@ func (s GetRecordResponseBody) GoString() string {
 	return s.String()
 }
 
+func (s *GetRecordResponseBody) SetCreatedBy(v *GetRecordResponseBodyCreatedBy) *GetRecordResponseBody {
+	s.CreatedBy = v
+	return s
+}
+
+func (s *GetRecordResponseBody) SetCreatedTime(v int64) *GetRecordResponseBody {
+	s.CreatedTime = &v
+	return s
+}
+
 func (s *GetRecordResponseBody) SetFields(v map[string]interface{}) *GetRecordResponseBody {
 	s.Fields = v
 	return s
@@ -822,6 +986,50 @@ func (s *GetRecordResponseBody) SetFields(v map[string]interface{}) *GetRecordRe
 
 func (s *GetRecordResponseBody) SetId(v string) *GetRecordResponseBody {
 	s.Id = &v
+	return s
+}
+
+func (s *GetRecordResponseBody) SetLastModifiedBy(v *GetRecordResponseBodyLastModifiedBy) *GetRecordResponseBody {
+	s.LastModifiedBy = v
+	return s
+}
+
+func (s *GetRecordResponseBody) SetLastModifiedTime(v int64) *GetRecordResponseBody {
+	s.LastModifiedTime = &v
+	return s
+}
+
+type GetRecordResponseBodyCreatedBy struct {
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetRecordResponseBodyCreatedBy) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecordResponseBodyCreatedBy) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecordResponseBodyCreatedBy) SetUnionId(v string) *GetRecordResponseBodyCreatedBy {
+	s.UnionId = &v
+	return s
+}
+
+type GetRecordResponseBodyLastModifiedBy struct {
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetRecordResponseBodyLastModifiedBy) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecordResponseBodyLastModifiedBy) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecordResponseBodyLastModifiedBy) SetUnionId(v string) *GetRecordResponseBodyLastModifiedBy {
+	s.UnionId = &v
 	return s
 }
 
@@ -880,6 +1088,11 @@ func (s *GetRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *GetRecordsHead
 type GetRecordsRequest struct {
 	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -907,7 +1120,13 @@ func (s *GetRecordsRequest) SetOperatorId(v string) *GetRecordsRequest {
 }
 
 type GetRecordsResponseBody struct {
-	HasMore   *bool                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// nextToken
 	NextToken *string                          `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Records   []*GetRecordsResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
 }
@@ -936,8 +1155,12 @@ func (s *GetRecordsResponseBody) SetRecords(v []*GetRecordsResponseBodyRecords) 
 }
 
 type GetRecordsResponseBodyRecords struct {
-	Fields map[string]interface{} `json:"fields,omitempty" xml:"fields,omitempty"`
-	Id     *string                `json:"id,omitempty" xml:"id,omitempty"`
+	CreatedBy        *GetRecordsResponseBodyRecordsCreatedBy      `json:"createdBy,omitempty" xml:"createdBy,omitempty" type:"Struct"`
+	CreatedTime      *int64                                       `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
+	Fields           map[string]interface{}                       `json:"fields,omitempty" xml:"fields,omitempty"`
+	Id               *string                                      `json:"id,omitempty" xml:"id,omitempty"`
+	LastModifiedBy   *GetRecordsResponseBodyRecordsLastModifiedBy `json:"lastModifiedBy,omitempty" xml:"lastModifiedBy,omitempty" type:"Struct"`
+	LastModifiedTime *int64                                       `json:"lastModifiedTime,omitempty" xml:"lastModifiedTime,omitempty"`
 }
 
 func (s GetRecordsResponseBodyRecords) String() string {
@@ -948,6 +1171,16 @@ func (s GetRecordsResponseBodyRecords) GoString() string {
 	return s.String()
 }
 
+func (s *GetRecordsResponseBodyRecords) SetCreatedBy(v *GetRecordsResponseBodyRecordsCreatedBy) *GetRecordsResponseBodyRecords {
+	s.CreatedBy = v
+	return s
+}
+
+func (s *GetRecordsResponseBodyRecords) SetCreatedTime(v int64) *GetRecordsResponseBodyRecords {
+	s.CreatedTime = &v
+	return s
+}
+
 func (s *GetRecordsResponseBodyRecords) SetFields(v map[string]interface{}) *GetRecordsResponseBodyRecords {
 	s.Fields = v
 	return s
@@ -955,6 +1188,50 @@ func (s *GetRecordsResponseBodyRecords) SetFields(v map[string]interface{}) *Get
 
 func (s *GetRecordsResponseBodyRecords) SetId(v string) *GetRecordsResponseBodyRecords {
 	s.Id = &v
+	return s
+}
+
+func (s *GetRecordsResponseBodyRecords) SetLastModifiedBy(v *GetRecordsResponseBodyRecordsLastModifiedBy) *GetRecordsResponseBodyRecords {
+	s.LastModifiedBy = v
+	return s
+}
+
+func (s *GetRecordsResponseBodyRecords) SetLastModifiedTime(v int64) *GetRecordsResponseBodyRecords {
+	s.LastModifiedTime = &v
+	return s
+}
+
+type GetRecordsResponseBodyRecordsCreatedBy struct {
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetRecordsResponseBodyRecordsCreatedBy) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecordsResponseBodyRecordsCreatedBy) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecordsResponseBodyRecordsCreatedBy) SetUnionId(v string) *GetRecordsResponseBodyRecordsCreatedBy {
+	s.UnionId = &v
+	return s
+}
+
+type GetRecordsResponseBodyRecordsLastModifiedBy struct {
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetRecordsResponseBodyRecordsLastModifiedBy) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecordsResponseBodyRecordsLastModifiedBy) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecordsResponseBodyRecordsLastModifiedBy) SetUnionId(v string) *GetRecordsResponseBodyRecordsLastModifiedBy {
+	s.UnionId = &v
 	return s
 }
 
@@ -1011,6 +1288,11 @@ func (s *GetSheetHeaders) SetXAcsDingtalkAccessToken(v string) *GetSheetHeaders 
 }
 
 type GetSheetRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -1103,8 +1385,14 @@ func (s *InsertRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *InsertRecor
 }
 
 type InsertRecordsRequest struct {
-	Records    []*InsertRecordsRequestRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
-	OperatorId *string                        `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	Records []*InsertRecordsRequestRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s InsertRecordsRequest) String() string {
@@ -1126,6 +1414,7 @@ func (s *InsertRecordsRequest) SetOperatorId(v string) *InsertRecordsRequest {
 }
 
 type InsertRecordsRequestRecords struct {
+	// This parameter is required.
 	Fields map[string]interface{} `json:"fields,omitempty" xml:"fields,omitempty"`
 }
 
@@ -1205,6 +1494,401 @@ func (s *InsertRecordsResponse) SetBody(v *InsertRecordsResponseBody) *InsertRec
 	return s
 }
 
+type ListRecordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListRecordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRecordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListRecordsHeaders) SetCommonHeaders(v map[string]*string) *ListRecordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *ListRecordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListRecordsRequest struct {
+	Filter     *ListRecordsRequestFilter `json:"filter,omitempty" xml:"filter,omitempty" type:"Struct"`
+	MaxResults *int32                    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string                   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s ListRecordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRecordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListRecordsRequest) SetFilter(v *ListRecordsRequestFilter) *ListRecordsRequest {
+	s.Filter = v
+	return s
+}
+
+func (s *ListRecordsRequest) SetMaxResults(v int32) *ListRecordsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListRecordsRequest) SetNextToken(v string) *ListRecordsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListRecordsRequest) SetOperatorId(v string) *ListRecordsRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type ListRecordsRequestFilter struct {
+	Combination *string `json:"combination,omitempty" xml:"combination,omitempty"`
+	// This parameter is required.
+	Conditions []*ListRecordsRequestFilterConditions `json:"conditions,omitempty" xml:"conditions,omitempty" type:"Repeated"`
+}
+
+func (s ListRecordsRequestFilter) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRecordsRequestFilter) GoString() string {
+	return s.String()
+}
+
+func (s *ListRecordsRequestFilter) SetCombination(v string) *ListRecordsRequestFilter {
+	s.Combination = &v
+	return s
+}
+
+func (s *ListRecordsRequestFilter) SetConditions(v []*ListRecordsRequestFilterConditions) *ListRecordsRequestFilter {
+	s.Conditions = v
+	return s
+}
+
+type ListRecordsRequestFilterConditions struct {
+	// This parameter is required.
+	Field *string `json:"field,omitempty" xml:"field,omitempty"`
+	// This parameter is required.
+	Operator *string       `json:"operator,omitempty" xml:"operator,omitempty"`
+	Value    []interface{} `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+}
+
+func (s ListRecordsRequestFilterConditions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRecordsRequestFilterConditions) GoString() string {
+	return s.String()
+}
+
+func (s *ListRecordsRequestFilterConditions) SetField(v string) *ListRecordsRequestFilterConditions {
+	s.Field = &v
+	return s
+}
+
+func (s *ListRecordsRequestFilterConditions) SetOperator(v string) *ListRecordsRequestFilterConditions {
+	s.Operator = &v
+	return s
+}
+
+func (s *ListRecordsRequestFilterConditions) SetValue(v []interface{}) *ListRecordsRequestFilterConditions {
+	s.Value = v
+	return s
+}
+
+type ListRecordsResponseBody struct {
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// nextToken
+	NextToken *string                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Records   []*ListRecordsResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+}
+
+func (s ListRecordsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRecordsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListRecordsResponseBody) SetHasMore(v bool) *ListRecordsResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *ListRecordsResponseBody) SetNextToken(v string) *ListRecordsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListRecordsResponseBody) SetRecords(v []*ListRecordsResponseBodyRecords) *ListRecordsResponseBody {
+	s.Records = v
+	return s
+}
+
+type ListRecordsResponseBodyRecords struct {
+	CreatedBy        *ListRecordsResponseBodyRecordsCreatedBy      `json:"createdBy,omitempty" xml:"createdBy,omitempty" type:"Struct"`
+	CreatedTime      *int64                                        `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
+	Fields           map[string]interface{}                        `json:"fields,omitempty" xml:"fields,omitempty"`
+	Id               *string                                       `json:"id,omitempty" xml:"id,omitempty"`
+	LastModifiedBy   *ListRecordsResponseBodyRecordsLastModifiedBy `json:"lastModifiedBy,omitempty" xml:"lastModifiedBy,omitempty" type:"Struct"`
+	LastModifiedTime *int64                                        `json:"lastModifiedTime,omitempty" xml:"lastModifiedTime,omitempty"`
+}
+
+func (s ListRecordsResponseBodyRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRecordsResponseBodyRecords) GoString() string {
+	return s.String()
+}
+
+func (s *ListRecordsResponseBodyRecords) SetCreatedBy(v *ListRecordsResponseBodyRecordsCreatedBy) *ListRecordsResponseBodyRecords {
+	s.CreatedBy = v
+	return s
+}
+
+func (s *ListRecordsResponseBodyRecords) SetCreatedTime(v int64) *ListRecordsResponseBodyRecords {
+	s.CreatedTime = &v
+	return s
+}
+
+func (s *ListRecordsResponseBodyRecords) SetFields(v map[string]interface{}) *ListRecordsResponseBodyRecords {
+	s.Fields = v
+	return s
+}
+
+func (s *ListRecordsResponseBodyRecords) SetId(v string) *ListRecordsResponseBodyRecords {
+	s.Id = &v
+	return s
+}
+
+func (s *ListRecordsResponseBodyRecords) SetLastModifiedBy(v *ListRecordsResponseBodyRecordsLastModifiedBy) *ListRecordsResponseBodyRecords {
+	s.LastModifiedBy = v
+	return s
+}
+
+func (s *ListRecordsResponseBodyRecords) SetLastModifiedTime(v int64) *ListRecordsResponseBodyRecords {
+	s.LastModifiedTime = &v
+	return s
+}
+
+type ListRecordsResponseBodyRecordsCreatedBy struct {
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s ListRecordsResponseBodyRecordsCreatedBy) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRecordsResponseBodyRecordsCreatedBy) GoString() string {
+	return s.String()
+}
+
+func (s *ListRecordsResponseBodyRecordsCreatedBy) SetUnionId(v string) *ListRecordsResponseBodyRecordsCreatedBy {
+	s.UnionId = &v
+	return s
+}
+
+type ListRecordsResponseBodyRecordsLastModifiedBy struct {
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s ListRecordsResponseBodyRecordsLastModifiedBy) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRecordsResponseBodyRecordsLastModifiedBy) GoString() string {
+	return s.String()
+}
+
+func (s *ListRecordsResponseBodyRecordsLastModifiedBy) SetUnionId(v string) *ListRecordsResponseBodyRecordsLastModifiedBy {
+	s.UnionId = &v
+	return s
+}
+
+type ListRecordsResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListRecordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRecordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListRecordsResponse) SetHeaders(v map[string]*string) *ListRecordsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListRecordsResponse) SetStatusCode(v int32) *ListRecordsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListRecordsResponse) SetBody(v *ListRecordsResponseBody) *ListRecordsResponse {
+	s.Body = v
+	return s
+}
+
+type PrepareSetRichTextHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PrepareSetRichTextHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrepareSetRichTextHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PrepareSetRichTextHeaders) SetCommonHeaders(v map[string]*string) *PrepareSetRichTextHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PrepareSetRichTextHeaders) SetXAcsDingtalkAccessToken(v string) *PrepareSetRichTextHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PrepareSetRichTextRequest struct {
+	Markdown *string `json:"markdown,omitempty" xml:"markdown,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s PrepareSetRichTextRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrepareSetRichTextRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PrepareSetRichTextRequest) SetMarkdown(v string) *PrepareSetRichTextRequest {
+	s.Markdown = &v
+	return s
+}
+
+func (s *PrepareSetRichTextRequest) SetOperatorId(v string) *PrepareSetRichTextRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type PrepareSetRichTextResponseBody struct {
+	Markdown    *string                                      `json:"markdown,omitempty" xml:"markdown,omitempty"`
+	UploadInfos []*PrepareSetRichTextResponseBodyUploadInfos `json:"uploadInfos,omitempty" xml:"uploadInfos,omitempty" type:"Repeated"`
+}
+
+func (s PrepareSetRichTextResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrepareSetRichTextResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PrepareSetRichTextResponseBody) SetMarkdown(v string) *PrepareSetRichTextResponseBody {
+	s.Markdown = &v
+	return s
+}
+
+func (s *PrepareSetRichTextResponseBody) SetUploadInfos(v []*PrepareSetRichTextResponseBodyUploadInfos) *PrepareSetRichTextResponseBody {
+	s.UploadInfos = v
+	return s
+}
+
+type PrepareSetRichTextResponseBodyUploadInfos struct {
+	ResourceId  *string `json:"resourceId,omitempty" xml:"resourceId,omitempty"`
+	ResourceUrl *string `json:"resourceUrl,omitempty" xml:"resourceUrl,omitempty"`
+	UploadUrl   *string `json:"uploadUrl,omitempty" xml:"uploadUrl,omitempty"`
+}
+
+func (s PrepareSetRichTextResponseBodyUploadInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrepareSetRichTextResponseBodyUploadInfos) GoString() string {
+	return s.String()
+}
+
+func (s *PrepareSetRichTextResponseBodyUploadInfos) SetResourceId(v string) *PrepareSetRichTextResponseBodyUploadInfos {
+	s.ResourceId = &v
+	return s
+}
+
+func (s *PrepareSetRichTextResponseBodyUploadInfos) SetResourceUrl(v string) *PrepareSetRichTextResponseBodyUploadInfos {
+	s.ResourceUrl = &v
+	return s
+}
+
+func (s *PrepareSetRichTextResponseBodyUploadInfos) SetUploadUrl(v string) *PrepareSetRichTextResponseBodyUploadInfos {
+	s.UploadUrl = &v
+	return s
+}
+
+type PrepareSetRichTextResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PrepareSetRichTextResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PrepareSetRichTextResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrepareSetRichTextResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PrepareSetRichTextResponse) SetHeaders(v map[string]*string) *PrepareSetRichTextResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PrepareSetRichTextResponse) SetStatusCode(v int32) *PrepareSetRichTextResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PrepareSetRichTextResponse) SetBody(v *PrepareSetRichTextResponseBody) *PrepareSetRichTextResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateFieldHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1229,9 +1913,40 @@ func (s *UpdateFieldHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateFieldHe
 }
 
 type UpdateFieldRequest struct {
-	Name       *string                `json:"name,omitempty" xml:"name,omitempty"`
-	Property   map[string]interface{} `json:"property,omitempty" xml:"property,omitempty"`
-	OperatorId *string                `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// key: id或者name
+	//
+	//     value: 对应字段值,不同类型的字段传入的value值不同
+	//
+	//       - text: "TextString"          // 文本字符串
+	//
+	//       - number: 123                 // 整数/浮点数均可
+	//
+	//       - singleSelect: "optionIdxxx1" | "optionName1" // 单选选项Id/单选选项名
+	//
+	//       - date: 1688601600000 ｜ "2023-12-20 03:00"
+	//
+	//                                     // 支持传时间戳或ISO 8601字符串
+	//
+	//       - user: [{
+	//
+	//           uid: \"1234567\"            // 用户uid
+	//
+	//         }, {
+	//
+	//           uid: \"2345678\"
+	//
+	//         }]
+	Property map[string]interface{} `json:"property,omitempty" xml:"property,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s UpdateFieldRequest) String() string {
@@ -1327,8 +2042,14 @@ func (s *UpdateRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRecor
 }
 
 type UpdateRecordsRequest struct {
-	Records    []*UpdateRecordsRequestRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
-	OperatorId *string                        `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	Records []*UpdateRecordsRequestRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s UpdateRecordsRequest) String() string {
@@ -1350,8 +2071,10 @@ func (s *UpdateRecordsRequest) SetOperatorId(v string) *UpdateRecordsRequest {
 }
 
 type UpdateRecordsRequestRecords struct {
+	// This parameter is required.
 	Fields map[string]interface{} `json:"fields,omitempty" xml:"fields,omitempty"`
-	Id     *string                `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
 func (s UpdateRecordsRequestRecords) String() string {
@@ -1459,7 +2182,13 @@ func (s *UpdateSheetHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateSheetHe
 }
 
 type UpdateSheetRequest struct {
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -1548,12 +2277,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -1562,6 +2291,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 新增数据表字段
+//
+// @param request - CreateFieldRequest
+//
+// @param headers - CreateFieldHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateFieldResponse
 func (client *Client) CreateFieldWithOptions(baseId *string, sheetIdOrName *string, request *CreateFieldRequest, headers *CreateFieldHeaders, runtime *util.RuntimeOptions) (_result *CreateFieldResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1619,6 +2359,13 @@ func (client *Client) CreateFieldWithOptions(baseId *string, sheetIdOrName *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增数据表字段
+//
+// @param request - CreateFieldRequest
+//
+// @return CreateFieldResponse
 func (client *Client) CreateField(baseId *string, sheetIdOrName *string, request *CreateFieldRequest) (_result *CreateFieldResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateFieldHeaders{}
@@ -1631,6 +2378,17 @@ func (client *Client) CreateField(baseId *string, sheetIdOrName *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建数据表
+//
+// @param request - CreateSheetRequest
+//
+// @param headers - CreateSheetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateSheetResponse
 func (client *Client) CreateSheetWithOptions(baseId *string, request *CreateSheetRequest, headers *CreateSheetHeaders, runtime *util.RuntimeOptions) (_result *CreateSheetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1684,6 +2442,13 @@ func (client *Client) CreateSheetWithOptions(baseId *string, request *CreateShee
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建数据表
+//
+// @param request - CreateSheetRequest
+//
+// @return CreateSheetResponse
 func (client *Client) CreateSheet(baseId *string, request *CreateSheetRequest) (_result *CreateSheetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateSheetHeaders{}
@@ -1696,6 +2461,17 @@ func (client *Client) CreateSheet(baseId *string, request *CreateSheetRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除数据表字段
+//
+// @param request - DeleteFieldRequest
+//
+// @param headers - DeleteFieldHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteFieldResponse
 func (client *Client) DeleteFieldWithOptions(baseId *string, sheetIdOrName *string, fieldIdOrName *string, request *DeleteFieldRequest, headers *DeleteFieldHeaders, runtime *util.RuntimeOptions) (_result *DeleteFieldResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1739,6 +2515,13 @@ func (client *Client) DeleteFieldWithOptions(baseId *string, sheetIdOrName *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除数据表字段
+//
+// @param request - DeleteFieldRequest
+//
+// @return DeleteFieldResponse
 func (client *Client) DeleteField(baseId *string, sheetIdOrName *string, fieldIdOrName *string, request *DeleteFieldRequest) (_result *DeleteFieldResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteFieldHeaders{}
@@ -1751,6 +2534,17 @@ func (client *Client) DeleteField(baseId *string, sheetIdOrName *string, fieldId
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除数据表多行记录
+//
+// @param request - DeleteRecordsRequest
+//
+// @param headers - DeleteRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteRecordsResponse
 func (client *Client) DeleteRecordsWithOptions(baseId *string, sheetIdOrName *string, request *DeleteRecordsRequest, headers *DeleteRecordsHeaders, runtime *util.RuntimeOptions) (_result *DeleteRecordsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1800,6 +2594,13 @@ func (client *Client) DeleteRecordsWithOptions(baseId *string, sheetIdOrName *st
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除数据表多行记录
+//
+// @param request - DeleteRecordsRequest
+//
+// @return DeleteRecordsResponse
 func (client *Client) DeleteRecords(baseId *string, sheetIdOrName *string, request *DeleteRecordsRequest) (_result *DeleteRecordsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteRecordsHeaders{}
@@ -1812,6 +2613,17 @@ func (client *Client) DeleteRecords(baseId *string, sheetIdOrName *string, reque
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除数据表
+//
+// @param request - DeleteSheetRequest
+//
+// @param headers - DeleteSheetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteSheetResponse
 func (client *Client) DeleteSheetWithOptions(baseId *string, sheetIdOrName *string, request *DeleteSheetRequest, headers *DeleteSheetHeaders, runtime *util.RuntimeOptions) (_result *DeleteSheetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1855,6 +2667,13 @@ func (client *Client) DeleteSheetWithOptions(baseId *string, sheetIdOrName *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除数据表
+//
+// @param request - DeleteSheetRequest
+//
+// @return DeleteSheetResponse
 func (client *Client) DeleteSheet(baseId *string, sheetIdOrName *string, request *DeleteSheetRequest) (_result *DeleteSheetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteSheetHeaders{}
@@ -1867,6 +2686,17 @@ func (client *Client) DeleteSheet(baseId *string, sheetIdOrName *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取所有字段
+//
+// @param request - GetAllFieldsRequest
+//
+// @param headers - GetAllFieldsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAllFieldsResponse
 func (client *Client) GetAllFieldsWithOptions(baseId *string, sheetIdOrName *string, request *GetAllFieldsRequest, headers *GetAllFieldsHeaders, runtime *util.RuntimeOptions) (_result *GetAllFieldsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1910,6 +2740,13 @@ func (client *Client) GetAllFieldsWithOptions(baseId *string, sheetIdOrName *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取所有字段
+//
+// @param request - GetAllFieldsRequest
+//
+// @return GetAllFieldsResponse
 func (client *Client) GetAllFields(baseId *string, sheetIdOrName *string, request *GetAllFieldsRequest) (_result *GetAllFieldsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAllFieldsHeaders{}
@@ -1922,6 +2759,17 @@ func (client *Client) GetAllFields(baseId *string, sheetIdOrName *string, reques
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取所有数据表
+//
+// @param request - GetAllSheetsRequest
+//
+// @param headers - GetAllSheetsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAllSheetsResponse
 func (client *Client) GetAllSheetsWithOptions(baseId *string, request *GetAllSheetsRequest, headers *GetAllSheetsHeaders, runtime *util.RuntimeOptions) (_result *GetAllSheetsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1965,6 +2813,13 @@ func (client *Client) GetAllSheetsWithOptions(baseId *string, request *GetAllShe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取所有数据表
+//
+// @param request - GetAllSheetsRequest
+//
+// @return GetAllSheetsResponse
 func (client *Client) GetAllSheets(baseId *string, request *GetAllSheetsRequest) (_result *GetAllSheetsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAllSheetsHeaders{}
@@ -1977,6 +2832,17 @@ func (client *Client) GetAllSheets(baseId *string, request *GetAllSheetsRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取记录
+//
+// @param request - GetRecordRequest
+//
+// @param headers - GetRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetRecordResponse
 func (client *Client) GetRecordWithOptions(baseId *string, sheetIdOrName *string, recordId *string, request *GetRecordRequest, headers *GetRecordHeaders, runtime *util.RuntimeOptions) (_result *GetRecordResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2020,6 +2886,13 @@ func (client *Client) GetRecordWithOptions(baseId *string, sheetIdOrName *string
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取记录
+//
+// @param request - GetRecordRequest
+//
+// @return GetRecordResponse
 func (client *Client) GetRecord(baseId *string, sheetIdOrName *string, recordId *string, request *GetRecordRequest) (_result *GetRecordResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetRecordHeaders{}
@@ -2032,6 +2905,17 @@ func (client *Client) GetRecord(baseId *string, sheetIdOrName *string, recordId 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取多行记录
+//
+// @param request - GetRecordsRequest
+//
+// @param headers - GetRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetRecordsResponse
 func (client *Client) GetRecordsWithOptions(baseId *string, sheetIdOrName *string, request *GetRecordsRequest, headers *GetRecordsHeaders, runtime *util.RuntimeOptions) (_result *GetRecordsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2083,6 +2967,13 @@ func (client *Client) GetRecordsWithOptions(baseId *string, sheetIdOrName *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取多行记录
+//
+// @param request - GetRecordsRequest
+//
+// @return GetRecordsResponse
 func (client *Client) GetRecords(baseId *string, sheetIdOrName *string, request *GetRecordsRequest) (_result *GetRecordsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetRecordsHeaders{}
@@ -2095,6 +2986,17 @@ func (client *Client) GetRecords(baseId *string, sheetIdOrName *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取数据表
+//
+// @param request - GetSheetRequest
+//
+// @param headers - GetSheetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSheetResponse
 func (client *Client) GetSheetWithOptions(baseId *string, sheetIdOrName *string, request *GetSheetRequest, headers *GetSheetHeaders, runtime *util.RuntimeOptions) (_result *GetSheetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2138,6 +3040,13 @@ func (client *Client) GetSheetWithOptions(baseId *string, sheetIdOrName *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取数据表
+//
+// @param request - GetSheetRequest
+//
+// @return GetSheetResponse
 func (client *Client) GetSheet(baseId *string, sheetIdOrName *string, request *GetSheetRequest) (_result *GetSheetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSheetHeaders{}
@@ -2150,6 +3059,17 @@ func (client *Client) GetSheet(baseId *string, sheetIdOrName *string, request *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增记录
+//
+// @param request - InsertRecordsRequest
+//
+// @param headers - InsertRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InsertRecordsResponse
 func (client *Client) InsertRecordsWithOptions(baseId *string, sheetIdOrName *string, request *InsertRecordsRequest, headers *InsertRecordsHeaders, runtime *util.RuntimeOptions) (_result *InsertRecordsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2199,6 +3119,13 @@ func (client *Client) InsertRecordsWithOptions(baseId *string, sheetIdOrName *st
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增记录
+//
+// @param request - InsertRecordsRequest
+//
+// @return InsertRecordsResponse
 func (client *Client) InsertRecords(baseId *string, sheetIdOrName *string, request *InsertRecordsRequest) (_result *InsertRecordsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InsertRecordsHeaders{}
@@ -2211,6 +3138,183 @@ func (client *Client) InsertRecords(baseId *string, sheetIdOrName *string, reque
 	return _result, _err
 }
 
+// Summary:
+//
+// 列出多行记录
+//
+// @param request - ListRecordsRequest
+//
+// @param headers - ListRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListRecordsResponse
+func (client *Client) ListRecordsWithOptions(baseId *string, sheetIdOrName *string, request *ListRecordsRequest, headers *ListRecordsHeaders, runtime *util.RuntimeOptions) (_result *ListRecordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Filter)) {
+		body["filter"] = request.Filter
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListRecords"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/bases/" + tea.StringValue(baseId) + "/sheets/" + tea.StringValue(sheetIdOrName) + "/records/list"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListRecordsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 列出多行记录
+//
+// @param request - ListRecordsRequest
+//
+// @return ListRecordsResponse
+func (client *Client) ListRecords(baseId *string, sheetIdOrName *string, request *ListRecordsRequest) (_result *ListRecordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListRecordsHeaders{}
+	_result = &ListRecordsResponse{}
+	_body, _err := client.ListRecordsWithOptions(baseId, sheetIdOrName, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 富文本值预处理
+//
+// @param request - PrepareSetRichTextRequest
+//
+// @param headers - PrepareSetRichTextHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PrepareSetRichTextResponse
+func (client *Client) PrepareSetRichTextWithOptions(baseId *string, request *PrepareSetRichTextRequest, headers *PrepareSetRichTextHeaders, runtime *util.RuntimeOptions) (_result *PrepareSetRichTextResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Markdown)) {
+		body["markdown"] = request.Markdown
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PrepareSetRichText"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/bases/" + tea.StringValue(baseId) + "/prepareSetRichText"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PrepareSetRichTextResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 富文本值预处理
+//
+// @param request - PrepareSetRichTextRequest
+//
+// @return PrepareSetRichTextResponse
+func (client *Client) PrepareSetRichText(baseId *string, request *PrepareSetRichTextRequest) (_result *PrepareSetRichTextResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PrepareSetRichTextHeaders{}
+	_result = &PrepareSetRichTextResponse{}
+	_body, _err := client.PrepareSetRichTextWithOptions(baseId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新数据表字段
+//
+// @param request - UpdateFieldRequest
+//
+// @param headers - UpdateFieldHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateFieldResponse
 func (client *Client) UpdateFieldWithOptions(baseId *string, sheetIdOrName *string, fieldIdOrName *string, request *UpdateFieldRequest, headers *UpdateFieldHeaders, runtime *util.RuntimeOptions) (_result *UpdateFieldResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2264,6 +3368,13 @@ func (client *Client) UpdateFieldWithOptions(baseId *string, sheetIdOrName *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新数据表字段
+//
+// @param request - UpdateFieldRequest
+//
+// @return UpdateFieldResponse
 func (client *Client) UpdateField(baseId *string, sheetIdOrName *string, fieldIdOrName *string, request *UpdateFieldRequest) (_result *UpdateFieldResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateFieldHeaders{}
@@ -2276,6 +3387,17 @@ func (client *Client) UpdateField(baseId *string, sheetIdOrName *string, fieldId
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新数据表多行记录
+//
+// @param request - UpdateRecordsRequest
+//
+// @param headers - UpdateRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateRecordsResponse
 func (client *Client) UpdateRecordsWithOptions(baseId *string, sheetIdOrName *string, request *UpdateRecordsRequest, headers *UpdateRecordsHeaders, runtime *util.RuntimeOptions) (_result *UpdateRecordsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2325,6 +3447,13 @@ func (client *Client) UpdateRecordsWithOptions(baseId *string, sheetIdOrName *st
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新数据表多行记录
+//
+// @param request - UpdateRecordsRequest
+//
+// @return UpdateRecordsResponse
 func (client *Client) UpdateRecords(baseId *string, sheetIdOrName *string, request *UpdateRecordsRequest) (_result *UpdateRecordsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateRecordsHeaders{}
@@ -2337,6 +3466,17 @@ func (client *Client) UpdateRecords(baseId *string, sheetIdOrName *string, reque
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新数据表
+//
+// @param request - UpdateSheetRequest
+//
+// @param headers - UpdateSheetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateSheetResponse
 func (client *Client) UpdateSheetWithOptions(baseId *string, sheetIdOrName *string, request *UpdateSheetRequest, headers *UpdateSheetHeaders, runtime *util.RuntimeOptions) (_result *UpdateSheetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2386,6 +3526,13 @@ func (client *Client) UpdateSheetWithOptions(baseId *string, sheetIdOrName *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新数据表
+//
+// @param request - UpdateSheetRequest
+//
+// @return UpdateSheetResponse
 func (client *Client) UpdateSheet(baseId *string, sheetIdOrName *string, request *UpdateSheetRequest) (_result *UpdateSheetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateSheetHeaders{}

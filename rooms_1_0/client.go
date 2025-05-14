@@ -1,17 +1,144 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package rooms_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
+
+type CreateBookingBlacklistHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateBookingBlacklistHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateBookingBlacklistHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateBookingBlacklistHeaders) SetCommonHeaders(v map[string]*string) *CreateBookingBlacklistHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateBookingBlacklistHeaders) SetXAcsDingtalkAccessToken(v string) *CreateBookingBlacklistHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateBookingBlacklistRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	BlacklistUnionId *string `json:"blacklistUnionId,omitempty" xml:"blacklistUnionId,omitempty"`
+	// example:
+	//
+	// 1728539655110
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 备注
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1728539655017
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s CreateBookingBlacklistRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateBookingBlacklistRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateBookingBlacklistRequest) SetBlacklistUnionId(v string) *CreateBookingBlacklistRequest {
+	s.BlacklistUnionId = &v
+	return s
+}
+
+func (s *CreateBookingBlacklistRequest) SetEndTime(v int64) *CreateBookingBlacklistRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *CreateBookingBlacklistRequest) SetMemo(v string) *CreateBookingBlacklistRequest {
+	s.Memo = &v
+	return s
+}
+
+func (s *CreateBookingBlacklistRequest) SetStartTime(v int64) *CreateBookingBlacklistRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *CreateBookingBlacklistRequest) SetUnionId(v string) *CreateBookingBlacklistRequest {
+	s.UnionId = &v
+	return s
+}
+
+type CreateBookingBlacklistResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CreateBookingBlacklistResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateBookingBlacklistResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateBookingBlacklistResponseBody) SetResult(v bool) *CreateBookingBlacklistResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CreateBookingBlacklistResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateBookingBlacklistResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateBookingBlacklistResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateBookingBlacklistResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateBookingBlacklistResponse) SetHeaders(v map[string]*string) *CreateBookingBlacklistResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateBookingBlacklistResponse) SetStatusCode(v int32) *CreateBookingBlacklistResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateBookingBlacklistResponse) SetBody(v *CreateBookingBlacklistResponseBody) *CreateBookingBlacklistResponse {
+	s.Body = v
+	return s
+}
 
 type CreateDeviceCustomTemplateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
@@ -37,24 +164,50 @@ func (s *CreateDeviceCustomTemplateHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type CreateDeviceCustomTemplateRequest struct {
-	BgImgList                    []*string `json:"bgImgList,omitempty" xml:"bgImgList,omitempty" type:"Repeated"`
-	BgType                       *int32    `json:"bgType,omitempty" xml:"bgType,omitempty"`
-	BgUrl                        *string   `json:"bgUrl,omitempty" xml:"bgUrl,omitempty"`
+	BgImgList []*string `json:"bgImgList,omitempty" xml:"bgImgList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	BgType *int32 `json:"bgType,omitempty" xml:"bgType,omitempty"`
+	// example:
+	//
+	// https://img.alicdn.com/imgextra/i2/O1CN01GWWCCR1y2D9D9EHej_!!6000000006520-2-tps-1920-470.png
+	BgUrl *string `json:"bgUrl,omitempty" xml:"bgUrl,omitempty"`
+	// example:
+	//
+	// 测试文本
 	CustomDoc                    *string   `json:"customDoc,omitempty" xml:"customDoc,omitempty"`
 	DesensitizeUserName          *bool     `json:"desensitizeUserName,omitempty" xml:"desensitizeUserName,omitempty"`
 	DeviceUnionIds               []*string `json:"deviceUnionIds,omitempty" xml:"deviceUnionIds,omitempty" type:"Repeated"`
 	GroupIds                     []*int64  `json:"groupIds,omitempty" xml:"groupIds,omitempty" type:"Repeated"`
 	HideServerCodeWhenProjecting *bool     `json:"hideServerCodeWhenProjecting,omitempty" xml:"hideServerCodeWhenProjecting,omitempty"`
 	Instruction                  *bool     `json:"instruction,omitempty" xml:"instruction,omitempty"`
-	IsPicTop                     *int32    `json:"isPicTop,omitempty" xml:"isPicTop,omitempty"`
-	Logo                         *string   `json:"logo,omitempty" xml:"logo,omitempty"`
-	OrgName                      *string   `json:"orgName,omitempty" xml:"orgName,omitempty"`
-	PicturePlayInterval          *int32    `json:"picturePlayInterval,omitempty" xml:"picturePlayInterval,omitempty"`
-	RoomIds                      []*string `json:"roomIds,omitempty" xml:"roomIds,omitempty" type:"Repeated"`
-	ShowCalendarCard             *bool     `json:"showCalendarCard,omitempty" xml:"showCalendarCard,omitempty"`
-	ShowCalendarTitle            *bool     `json:"showCalendarTitle,omitempty" xml:"showCalendarTitle,omitempty"`
-	ShowFunctionCard             *bool     `json:"showFunctionCard,omitempty" xml:"showFunctionCard,omitempty"`
-	TemplateName                 *string   `json:"templateName,omitempty" xml:"templateName,omitempty"`
+	// example:
+	//
+	// 1
+	IsPicTop *int32 `json:"isPicTop,omitempty" xml:"isPicTop,omitempty"`
+	// example:
+	//
+	// logo
+	Logo *string `json:"logo,omitempty" xml:"logo,omitempty"`
+	// example:
+	//
+	// 测试企业
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// example:
+	//
+	// 10
+	PicturePlayInterval *int32    `json:"picturePlayInterval,omitempty" xml:"picturePlayInterval,omitempty"`
+	RoomIds             []*string `json:"roomIds,omitempty" xml:"roomIds,omitempty" type:"Repeated"`
+	ShowCalendarCard    *bool     `json:"showCalendarCard,omitempty" xml:"showCalendarCard,omitempty"`
+	ShowCalendarTitle   *bool     `json:"showCalendarTitle,omitempty" xml:"showCalendarTitle,omitempty"`
+	ShowFunctionCard    *bool     `json:"showFunctionCard,omitempty" xml:"showFunctionCard,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试模板
+	TemplateName *string `json:"templateName,omitempty" xml:"templateName,omitempty"`
 }
 
 func (s CreateDeviceCustomTemplateRequest) String() string {
@@ -225,17 +378,47 @@ func (s *CreateMeetingRoomHeaders) SetXAcsDingtalkAccessToken(v string) *CreateM
 }
 
 type CreateMeetingRoomRequest struct {
-	EnableCycleReservation *bool                                         `json:"enableCycleReservation,omitempty" xml:"enableCycleReservation,omitempty"`
-	GroupId                *int64                                        `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	IsvRoomId              *string                                       `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
-	ReservationAuthority   *CreateMeetingRoomRequestReservationAuthority `json:"reservationAuthority,omitempty" xml:"reservationAuthority,omitempty" type:"Struct"`
-	RoomCapacity           *int32                                        `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
-	RoomLabelIds           []*int64                                      `json:"roomLabelIds,omitempty" xml:"roomLabelIds,omitempty" type:"Repeated"`
-	RoomLocation           *CreateMeetingRoomRequestRoomLocation         `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
-	RoomName               *string                                       `json:"roomName,omitempty" xml:"roomName,omitempty"`
-	RoomPicture            *string                                       `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
-	RoomStatus             *int32                                        `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
-	UnionId                *string                                       `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	EnableCycleReservation *bool `json:"enableCycleReservation,omitempty" xml:"enableCycleReservation,omitempty"`
+	// example:
+	//
+	// 0
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxIsvRoomId
+	IsvRoomId            *string                                       `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
+	OpenReservation      *bool                                         `json:"openReservation,omitempty" xml:"openReservation,omitempty"`
+	ReservationAuthority *CreateMeetingRoomRequestReservationAuthority `json:"reservationAuthority,omitempty" xml:"reservationAuthority,omitempty" type:"Struct"`
+	// example:
+	//
+	// 10
+	RoomCapacity *int32                                `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
+	RoomLabelIds []*int64                              `json:"roomLabelIds,omitempty" xml:"roomLabelIds,omitempty" type:"Repeated"`
+	RoomLocation *CreateMeetingRoomRequestRoomLocation `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试会议室
+	RoomName *string `json:"roomName,omitempty" xml:"roomName,omitempty"`
+	// example:
+	//
+	// https://static.dingtalk.com/media/lADPDgfLPFjNPu3NAWjNAWg_360_360.jpg
+	RoomPicture *string `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.全员可用 1.仅管理员可用
+	RoomStatus *int32 `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s CreateMeetingRoomRequest) String() string {
@@ -258,6 +441,11 @@ func (s *CreateMeetingRoomRequest) SetGroupId(v int64) *CreateMeetingRoomRequest
 
 func (s *CreateMeetingRoomRequest) SetIsvRoomId(v string) *CreateMeetingRoomRequest {
 	s.IsvRoomId = &v
+	return s
+}
+
+func (s *CreateMeetingRoomRequest) SetOpenReservation(v bool) *CreateMeetingRoomRequest {
+	s.OpenReservation = &v
 	return s
 }
 
@@ -319,8 +507,17 @@ func (s *CreateMeetingRoomRequestReservationAuthority) SetAuthorizedMembers(v []
 }
 
 type CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers struct {
-	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// example:
+	//
+	// lPHhSZDLXXXXXXpBlC9lxLwiEiE
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// example:
+	//
+	// 张三
 	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+	// example:
+	//
+	// user
 	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
 }
 
@@ -348,7 +545,13 @@ func (s *CreateMeetingRoomRequestReservationAuthorityAuthorizedMembers) SetMembe
 }
 
 type CreateMeetingRoomRequestRoomLocation struct {
-	Desc  *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// example:
+	//
+	// xx市xx区xx路xx号
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// example:
+	//
+	// xxx公司
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -371,6 +574,9 @@ func (s *CreateMeetingRoomRequestRoomLocation) SetTitle(v string) *CreateMeeting
 }
 
 type CreateMeetingRoomResponseBody struct {
+	// example:
+	//
+	// 0ffb71843fbb7fc362cb1a0de97fd20b808b09d6ca6282ed
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -416,6 +622,224 @@ func (s *CreateMeetingRoomResponse) SetBody(v *CreateMeetingRoomResponseBody) *C
 	return s
 }
 
+type CreateMeetingRoomControlPanelHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateMeetingRoomControlPanelHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateMeetingRoomControlPanelHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateMeetingRoomControlPanelHeaders) SetCommonHeaders(v map[string]*string) *CreateMeetingRoomControlPanelHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateMeetingRoomControlPanelHeaders) SetXAcsDingtalkAccessToken(v string) *CreateMeetingRoomControlPanelHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateMeetingRoomControlPanelRequest struct {
+	Extra *CreateMeetingRoomControlPanelRequestExtra `json:"extra,omitempty" xml:"extra,omitempty" type:"Struct"`
+	// This parameter is required.
+	RoomConfig []*CreateMeetingRoomControlPanelRequestRoomConfig `json:"roomConfig,omitempty" xml:"roomConfig,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 25SDWxxxxxx
+	RoomId *string `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s CreateMeetingRoomControlPanelRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateMeetingRoomControlPanelRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateMeetingRoomControlPanelRequest) SetExtra(v *CreateMeetingRoomControlPanelRequestExtra) *CreateMeetingRoomControlPanelRequest {
+	s.Extra = v
+	return s
+}
+
+func (s *CreateMeetingRoomControlPanelRequest) SetRoomConfig(v []*CreateMeetingRoomControlPanelRequestRoomConfig) *CreateMeetingRoomControlPanelRequest {
+	s.RoomConfig = v
+	return s
+}
+
+func (s *CreateMeetingRoomControlPanelRequest) SetRoomId(v string) *CreateMeetingRoomControlPanelRequest {
+	s.RoomId = &v
+	return s
+}
+
+func (s *CreateMeetingRoomControlPanelRequest) SetStatus(v int32) *CreateMeetingRoomControlPanelRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *CreateMeetingRoomControlPanelRequest) SetUnionId(v string) *CreateMeetingRoomControlPanelRequest {
+	s.UnionId = &v
+	return s
+}
+
+type CreateMeetingRoomControlPanelRequestExtra struct {
+	Param map[string]*string `json:"param,omitempty" xml:"param,omitempty"`
+}
+
+func (s CreateMeetingRoomControlPanelRequestExtra) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateMeetingRoomControlPanelRequestExtra) GoString() string {
+	return s.String()
+}
+
+func (s *CreateMeetingRoomControlPanelRequestExtra) SetParam(v map[string]*string) *CreateMeetingRoomControlPanelRequestExtra {
+	s.Param = v
+	return s
+}
+
+type CreateMeetingRoomControlPanelRequestRoomConfig struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// name
+	EnName *string `json:"enName,omitempty" xml:"enName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// www.xxx.com
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 栗子xx
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 30
+	ShowTime *int32 `json:"showTime,omitempty" xml:"showTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Sort *int32 `json:"sort,omitempty" xml:"sort,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://www.taoxxx.com
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s CreateMeetingRoomControlPanelRequestRoomConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateMeetingRoomControlPanelRequestRoomConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CreateMeetingRoomControlPanelRequestRoomConfig) SetEnName(v string) *CreateMeetingRoomControlPanelRequestRoomConfig {
+	s.EnName = &v
+	return s
+}
+
+func (s *CreateMeetingRoomControlPanelRequestRoomConfig) SetIcon(v string) *CreateMeetingRoomControlPanelRequestRoomConfig {
+	s.Icon = &v
+	return s
+}
+
+func (s *CreateMeetingRoomControlPanelRequestRoomConfig) SetName(v string) *CreateMeetingRoomControlPanelRequestRoomConfig {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateMeetingRoomControlPanelRequestRoomConfig) SetShowTime(v int32) *CreateMeetingRoomControlPanelRequestRoomConfig {
+	s.ShowTime = &v
+	return s
+}
+
+func (s *CreateMeetingRoomControlPanelRequestRoomConfig) SetSort(v int32) *CreateMeetingRoomControlPanelRequestRoomConfig {
+	s.Sort = &v
+	return s
+}
+
+func (s *CreateMeetingRoomControlPanelRequestRoomConfig) SetUrl(v string) *CreateMeetingRoomControlPanelRequestRoomConfig {
+	s.Url = &v
+	return s
+}
+
+type CreateMeetingRoomControlPanelResponseBody struct {
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CreateMeetingRoomControlPanelResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateMeetingRoomControlPanelResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateMeetingRoomControlPanelResponseBody) SetResult(v string) *CreateMeetingRoomControlPanelResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CreateMeetingRoomControlPanelResponse struct {
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateMeetingRoomControlPanelResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateMeetingRoomControlPanelResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateMeetingRoomControlPanelResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateMeetingRoomControlPanelResponse) SetHeaders(v map[string]*string) *CreateMeetingRoomControlPanelResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateMeetingRoomControlPanelResponse) SetStatusCode(v int32) *CreateMeetingRoomControlPanelResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateMeetingRoomControlPanelResponse) SetBody(v *CreateMeetingRoomControlPanelResponseBody) *CreateMeetingRoomControlPanelResponse {
+	s.Body = v
+	return s
+}
+
 type CreateMeetingRoomGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -440,9 +864,22 @@ func (s *CreateMeetingRoomGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Cr
 }
 
 type CreateMeetingRoomGroupRequest struct {
-	GroupName     *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	ParentGroupId *int64  `json:"parentGroupId,omitempty" xml:"parentGroupId,omitempty"`
-	UnionId       *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 测试分组
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 172
+	ParentGroupId *int64 `json:"parentGroupId,omitempty" xml:"parentGroupId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s CreateMeetingRoomGroupRequest) String() string {
@@ -469,6 +906,9 @@ func (s *CreateMeetingRoomGroupRequest) SetUnionId(v string) *CreateMeetingRoomG
 }
 
 type CreateMeetingRoomGroupResponseBody struct {
+	// example:
+	//
+	// 172
 	Result *int64 `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -514,6 +954,98 @@ func (s *CreateMeetingRoomGroupResponse) SetBody(v *CreateMeetingRoomGroupRespon
 	return s
 }
 
+type DeleteBookingBlacklistHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteBookingBlacklistHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteBookingBlacklistHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteBookingBlacklistHeaders) SetCommonHeaders(v map[string]*string) *DeleteBookingBlacklistHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteBookingBlacklistHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteBookingBlacklistHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteBookingBlacklistRequest struct {
+	BlacklistUnionIds []*string `json:"blacklistUnionIds,omitempty" xml:"blacklistUnionIds,omitempty" type:"Repeated"`
+	UnionId           *string   `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s DeleteBookingBlacklistRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteBookingBlacklistRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteBookingBlacklistRequest) SetBlacklistUnionIds(v []*string) *DeleteBookingBlacklistRequest {
+	s.BlacklistUnionIds = v
+	return s
+}
+
+func (s *DeleteBookingBlacklistRequest) SetUnionId(v string) *DeleteBookingBlacklistRequest {
+	s.UnionId = &v
+	return s
+}
+
+type DeleteBookingBlacklistResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteBookingBlacklistResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteBookingBlacklistResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteBookingBlacklistResponseBody) SetResult(v bool) *DeleteBookingBlacklistResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeleteBookingBlacklistResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteBookingBlacklistResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteBookingBlacklistResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteBookingBlacklistResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteBookingBlacklistResponse) SetHeaders(v map[string]*string) *DeleteBookingBlacklistResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteBookingBlacklistResponse) SetStatusCode(v int32) *DeleteBookingBlacklistResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteBookingBlacklistResponse) SetBody(v *DeleteBookingBlacklistResponseBody) *DeleteBookingBlacklistResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteDeviceCustomTemplateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -538,6 +1070,7 @@ func (s *DeleteDeviceCustomTemplateHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type DeleteDeviceCustomTemplateRequest struct {
+	// This parameter is required.
 	TemplateId *int64 `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
 
@@ -555,6 +1088,9 @@ func (s *DeleteDeviceCustomTemplateRequest) SetTemplateId(v int64) *DeleteDevice
 }
 
 type DeleteDeviceCustomTemplateResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -624,6 +1160,11 @@ func (s *DeleteMeetingRoomHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteM
 }
 
 type DeleteMeetingRoomRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -641,6 +1182,9 @@ func (s *DeleteMeetingRoomRequest) SetUnionId(v string) *DeleteMeetingRoomReques
 }
 
 type DeleteMeetingRoomResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -686,6 +1230,104 @@ func (s *DeleteMeetingRoomResponse) SetBody(v *DeleteMeetingRoomResponseBody) *D
 	return s
 }
 
+type DeleteMeetingRoomControlPanelHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteMeetingRoomControlPanelHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteMeetingRoomControlPanelHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteMeetingRoomControlPanelHeaders) SetCommonHeaders(v map[string]*string) *DeleteMeetingRoomControlPanelHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteMeetingRoomControlPanelHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteMeetingRoomControlPanelHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteMeetingRoomControlPanelRequest struct {
+	// This parameter is required.
+	RoomIds []*string `json:"roomIds,omitempty" xml:"roomIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// A1FAxxxxx
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s DeleteMeetingRoomControlPanelRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteMeetingRoomControlPanelRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteMeetingRoomControlPanelRequest) SetRoomIds(v []*string) *DeleteMeetingRoomControlPanelRequest {
+	s.RoomIds = v
+	return s
+}
+
+func (s *DeleteMeetingRoomControlPanelRequest) SetUnionId(v string) *DeleteMeetingRoomControlPanelRequest {
+	s.UnionId = &v
+	return s
+}
+
+type DeleteMeetingRoomControlPanelResponseBody struct {
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteMeetingRoomControlPanelResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteMeetingRoomControlPanelResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteMeetingRoomControlPanelResponseBody) SetResult(v string) *DeleteMeetingRoomControlPanelResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeleteMeetingRoomControlPanelResponse struct {
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteMeetingRoomControlPanelResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteMeetingRoomControlPanelResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteMeetingRoomControlPanelResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteMeetingRoomControlPanelResponse) SetHeaders(v map[string]*string) *DeleteMeetingRoomControlPanelResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteMeetingRoomControlPanelResponse) SetStatusCode(v int32) *DeleteMeetingRoomControlPanelResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteMeetingRoomControlPanelResponse) SetBody(v *DeleteMeetingRoomControlPanelResponseBody) *DeleteMeetingRoomControlPanelResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteMeetingRoomGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -710,6 +1352,11 @@ func (s *DeleteMeetingRoomGroupHeaders) SetXAcsDingtalkAccessToken(v string) *De
 }
 
 type DeleteMeetingRoomGroupRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -727,6 +1374,9 @@ func (s *DeleteMeetingRoomGroupRequest) SetUnionId(v string) *DeleteMeetingRoomG
 }
 
 type DeleteMeetingRoomGroupResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -848,25 +1498,79 @@ func (s *QueryDeviceCustomTemplateResponseBodyResult) SetRoomIds(v []*string) *Q
 }
 
 type QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate struct {
-	BgImageList                  []*string `json:"bgImageList,omitempty" xml:"bgImageList,omitempty" type:"Repeated"`
-	BgType                       *int32    `json:"bgType,omitempty" xml:"bgType,omitempty"`
-	BgUrl                        *string   `json:"bgUrl,omitempty" xml:"bgUrl,omitempty"`
-	ConfSubType                  *int32    `json:"confSubType,omitempty" xml:"confSubType,omitempty"`
-	ConfType                     *int32    `json:"confType,omitempty" xml:"confType,omitempty"`
-	CorpId                       *string   `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CustomDoc                    *string   `json:"customDoc,omitempty" xml:"customDoc,omitempty"`
-	DesensitizeUserName          *bool     `json:"desensitizeUserName,omitempty" xml:"desensitizeUserName,omitempty"`
-	HideServerCodeWhenProjecting *bool     `json:"hideServerCodeWhenProjecting,omitempty" xml:"hideServerCodeWhenProjecting,omitempty"`
-	Instruction                  *bool     `json:"instruction,omitempty" xml:"instruction,omitempty"`
-	IsPicTop                     *int32    `json:"isPicTop,omitempty" xml:"isPicTop,omitempty"`
-	Logo                         *string   `json:"logo,omitempty" xml:"logo,omitempty"`
-	OrgName                      *string   `json:"orgName,omitempty" xml:"orgName,omitempty"`
-	PicturePlayInterval          *int32    `json:"picturePlayInterval,omitempty" xml:"picturePlayInterval,omitempty"`
-	ShowCalendarCard             *bool     `json:"showCalendarCard,omitempty" xml:"showCalendarCard,omitempty"`
-	ShowCalendarTitle            *bool     `json:"showCalendarTitle,omitempty" xml:"showCalendarTitle,omitempty"`
-	ShowFunctionCard             *bool     `json:"showFunctionCard,omitempty" xml:"showFunctionCard,omitempty"`
-	TemplateId                   *int64    `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	TemplateName                 *string   `json:"templateName,omitempty" xml:"templateName,omitempty"`
+	BgImageList []*string `json:"bgImageList,omitempty" xml:"bgImageList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	BgType *int32 `json:"bgType,omitempty" xml:"bgType,omitempty"`
+	// example:
+	//
+	// https://img.alicdn.com/imgextra/i2/O1CN01GWWCCR1y2D9D9EHej_!!6000000006520-2-tps-1920-470.png
+	BgUrl *string `json:"bgUrl,omitempty" xml:"bgUrl,omitempty"`
+	// example:
+	//
+	// 1
+	ConfSubType *int32 `json:"confSubType,omitempty" xml:"confSubType,omitempty"`
+	// example:
+	//
+	// 1
+	ConfType *int32 `json:"confType,omitempty" xml:"confType,omitempty"`
+	// example:
+	//
+	// dingc02f685faxxxxc44ac5d6980864d335
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 测试文本
+	CustomDoc *string `json:"customDoc,omitempty" xml:"customDoc,omitempty"`
+	// example:
+	//
+	// true：脱敏 false：不脱敏
+	DesensitizeUserName *bool `json:"desensitizeUserName,omitempty" xml:"desensitizeUserName,omitempty"`
+	// example:
+	//
+	// true：隐藏 false：不隐藏
+	HideServerCodeWhenProjecting *bool `json:"hideServerCodeWhenProjecting,omitempty" xml:"hideServerCodeWhenProjecting,omitempty"`
+	// example:
+	//
+	// true：显示 false：不显示
+	Instruction *bool `json:"instruction,omitempty" xml:"instruction,omitempty"`
+	// example:
+	//
+	// 1
+	IsPicTop *int32 `json:"isPicTop,omitempty" xml:"isPicTop,omitempty"`
+	// example:
+	//
+	// logo
+	Logo *string `json:"logo,omitempty" xml:"logo,omitempty"`
+	// example:
+	//
+	// 测试企业
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// example:
+	//
+	// 10
+	PicturePlayInterval *int32 `json:"picturePlayInterval,omitempty" xml:"picturePlayInterval,omitempty"`
+	// example:
+	//
+	// true：展示 false：不展示
+	ShowCalendarCard *bool `json:"showCalendarCard,omitempty" xml:"showCalendarCard,omitempty"`
+	// example:
+	//
+	// true：展示 false：不展示
+	ShowCalendarTitle *bool `json:"showCalendarTitle,omitempty" xml:"showCalendarTitle,omitempty"`
+	// example:
+	//
+	// true：展示 false：不展示
+	ShowFunctionCard *bool `json:"showFunctionCard,omitempty" xml:"showFunctionCard,omitempty"`
+	// example:
+	//
+	// 89
+	TemplateId *int64 `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// example:
+	//
+	// 测试模板
+	TemplateName *string `json:"templateName,omitempty" xml:"templateName,omitempty"`
 }
 
 func (s QueryDeviceCustomTemplateResponseBodyResultDeviceCustomTemplate) String() string {
@@ -1077,25 +1781,79 @@ func (s *QueryDeviceCustomTemplateListResponseBodyResult) SetRoomIdTemplateMap(v
 }
 
 type QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates struct {
-	BgImageList                  []*string `json:"bgImageList,omitempty" xml:"bgImageList,omitempty" type:"Repeated"`
-	BgType                       *int32    `json:"bgType,omitempty" xml:"bgType,omitempty"`
-	BgUrl                        *string   `json:"bgUrl,omitempty" xml:"bgUrl,omitempty"`
-	ConfSubType                  *int32    `json:"confSubType,omitempty" xml:"confSubType,omitempty"`
-	ConfType                     *int32    `json:"confType,omitempty" xml:"confType,omitempty"`
-	CorpId                       *string   `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CustomDoc                    *string   `json:"customDoc,omitempty" xml:"customDoc,omitempty"`
-	DesensitizeUserName          *bool     `json:"desensitizeUserName,omitempty" xml:"desensitizeUserName,omitempty"`
-	HideServerCodeWhenProjecting *bool     `json:"hideServerCodeWhenProjecting,omitempty" xml:"hideServerCodeWhenProjecting,omitempty"`
-	Instruction                  *bool     `json:"instruction,omitempty" xml:"instruction,omitempty"`
-	IsPicTop                     *int32    `json:"isPicTop,omitempty" xml:"isPicTop,omitempty"`
-	Logo                         *string   `json:"logo,omitempty" xml:"logo,omitempty"`
-	OrgName                      *string   `json:"orgName,omitempty" xml:"orgName,omitempty"`
-	PicturePlayInterval          *int32    `json:"picturePlayInterval,omitempty" xml:"picturePlayInterval,omitempty"`
-	ShowCalendarCard             *bool     `json:"showCalendarCard,omitempty" xml:"showCalendarCard,omitempty"`
-	ShowCalendarTitle            *bool     `json:"showCalendarTitle,omitempty" xml:"showCalendarTitle,omitempty"`
-	ShowFunctionCard             *bool     `json:"showFunctionCard,omitempty" xml:"showFunctionCard,omitempty"`
-	TemplateId                   *int64    `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	TemplateName                 *string   `json:"templateName,omitempty" xml:"templateName,omitempty"`
+	BgImageList []*string `json:"bgImageList,omitempty" xml:"bgImageList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	BgType *int32 `json:"bgType,omitempty" xml:"bgType,omitempty"`
+	// example:
+	//
+	// https://img.alicdn.com/imgextra/i2/O1CN01GWWCCR1y2D9D9EHej_!!6000000006520-2-tps-1920-470.png
+	BgUrl *string `json:"bgUrl,omitempty" xml:"bgUrl,omitempty"`
+	// example:
+	//
+	// 1
+	ConfSubType *int32 `json:"confSubType,omitempty" xml:"confSubType,omitempty"`
+	// example:
+	//
+	// 1
+	ConfType *int32 `json:"confType,omitempty" xml:"confType,omitempty"`
+	// example:
+	//
+	// dingc02f685fxxxx81c44ac5d6980864d335
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 测试文本
+	CustomDoc *string `json:"customDoc,omitempty" xml:"customDoc,omitempty"`
+	// example:
+	//
+	// true：脱敏 false：不脱敏
+	DesensitizeUserName *bool `json:"desensitizeUserName,omitempty" xml:"desensitizeUserName,omitempty"`
+	// example:
+	//
+	// true：隐藏 false：不隐藏
+	HideServerCodeWhenProjecting *bool `json:"hideServerCodeWhenProjecting,omitempty" xml:"hideServerCodeWhenProjecting,omitempty"`
+	// example:
+	//
+	// true：显示 false：不显示
+	Instruction *bool `json:"instruction,omitempty" xml:"instruction,omitempty"`
+	// example:
+	//
+	// 1
+	IsPicTop *int32 `json:"isPicTop,omitempty" xml:"isPicTop,omitempty"`
+	// example:
+	//
+	// logo
+	Logo *string `json:"logo,omitempty" xml:"logo,omitempty"`
+	// example:
+	//
+	// 测试企业
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// example:
+	//
+	// 10
+	PicturePlayInterval *int32 `json:"picturePlayInterval,omitempty" xml:"picturePlayInterval,omitempty"`
+	// example:
+	//
+	// true：展示 false：不展示
+	ShowCalendarCard *bool `json:"showCalendarCard,omitempty" xml:"showCalendarCard,omitempty"`
+	// example:
+	//
+	// true：展示 false：不展示
+	ShowCalendarTitle *bool `json:"showCalendarTitle,omitempty" xml:"showCalendarTitle,omitempty"`
+	// example:
+	//
+	// true：展示 false：不展示
+	ShowFunctionCard *bool `json:"showFunctionCard,omitempty" xml:"showFunctionCard,omitempty"`
+	// example:
+	//
+	// 89
+	TemplateId *int64 `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// example:
+	//
+	// 测试模板
+	TemplateName *string `json:"templateName,omitempty" xml:"templateName,omitempty"`
 }
 
 func (s QueryDeviceCustomTemplateListResponseBodyResultDeviceCustomTemplates) String() string {
@@ -1254,6 +2012,9 @@ func (s *QueryDeviceIpByCodeHeaders) SetXAcsDingtalkAccessToken(v string) *Query
 }
 
 type QueryDeviceIpByCodeRequest struct {
+	// example:
+	//
+	// 1005F1K203604N000676
 	DeviceSn *string `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
 }
 
@@ -1294,6 +2055,9 @@ func (s *QueryDeviceIpByCodeResponseBody) SetSuccess(v bool) *QueryDeviceIpByCod
 }
 
 type QueryDeviceIpByCodeResponseBodyResult struct {
+	// example:
+	//
+	// 30.12.1.100
 	DeviceIp *string `json:"deviceIp,omitempty" xml:"deviceIp,omitempty"`
 }
 
@@ -1363,10 +2127,21 @@ func (s *QueryDevicePropertiesHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 }
 
 type QueryDevicePropertiesRequest struct {
-	PropertyNames   []*string `json:"propertyNames,omitempty" xml:"propertyNames,omitempty" type:"Repeated"`
-	DeviceId        *string   `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	DeviceUnionId   *string   `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
-	OperatorUnionId *string   `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
+	PropertyNames []*string `json:"propertyNames,omitempty" xml:"propertyNames,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1234
+	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// example:
+	//
+	// "lmvUrRkpboRrSMtgsiS9V3AiEiE"
+	DeviceUnionId *string `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// "lmvUrEjpboFrSMtgsiS9V3AiEiE"
+	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
 }
 
 func (s QueryDevicePropertiesRequest) String() string {
@@ -1415,7 +2190,13 @@ func (s *QueryDevicePropertiesResponseBody) SetResult(v []*QueryDeviceProperties
 }
 
 type QueryDevicePropertiesResponseBodyResult struct {
-	PropertyName  *string `json:"propertyName,omitempty" xml:"propertyName,omitempty"`
+	// example:
+	//
+	// "dev_app_status"
+	PropertyName *string `json:"propertyName,omitempty" xml:"propertyName,omitempty"`
+	// example:
+	//
+	// "idle"
 	PropertyValue *string `json:"propertyValue,omitempty" xml:"propertyValue,omitempty"`
 }
 
@@ -1490,6 +2271,11 @@ func (s *QueryMeetingRoomHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMee
 }
 
 type QueryMeetingRoomRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -1524,20 +2310,49 @@ func (s *QueryMeetingRoomResponseBody) SetResult(v *QueryMeetingRoomResponseBody
 }
 
 type QueryMeetingRoomResponseBodyResult struct {
-	CorpId                 *string                                                 `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	DeviceUnionIds         []*string                                               `json:"deviceUnionIds,omitempty" xml:"deviceUnionIds,omitempty" type:"Repeated"`
-	EnableCycleReservation *bool                                                   `json:"enableCycleReservation,omitempty" xml:"enableCycleReservation,omitempty"`
-	IsvRoomId              *string                                                 `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
-	ReservationAuthority   *QueryMeetingRoomResponseBodyResultReservationAuthority `json:"reservationAuthority,omitempty" xml:"reservationAuthority,omitempty" type:"Struct"`
-	RoomCapacity           *int32                                                  `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
-	RoomGroup              *QueryMeetingRoomResponseBodyResultRoomGroup            `json:"roomGroup,omitempty" xml:"roomGroup,omitempty" type:"Struct"`
-	RoomId                 *string                                                 `json:"roomId,omitempty" xml:"roomId,omitempty"`
-	RoomLabels             []*QueryMeetingRoomResponseBodyResultRoomLabels         `json:"roomLabels,omitempty" xml:"roomLabels,omitempty" type:"Repeated"`
-	RoomLocation           *QueryMeetingRoomResponseBodyResultRoomLocation         `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
-	RoomName               *string                                                 `json:"roomName,omitempty" xml:"roomName,omitempty"`
-	RoomPicture            *string                                                 `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
-	RoomStaffId            *string                                                 `json:"roomStaffId,omitempty" xml:"roomStaffId,omitempty"`
-	RoomStatus             *int32                                                  `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
+	// example:
+	//
+	// ding994a046bca84545935c2f4657eb6378f
+	CorpId                 *string                                            `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DeviceUnionIds         []*string                                          `json:"deviceUnionIds,omitempty" xml:"deviceUnionIds,omitempty" type:"Repeated"`
+	EnableCycleReservation *bool                                              `json:"enableCycleReservation,omitempty" xml:"enableCycleReservation,omitempty"`
+	ExtensionConfig        *QueryMeetingRoomResponseBodyResultExtensionConfig `json:"extensionConfig,omitempty" xml:"extensionConfig,omitempty" type:"Struct"`
+	// example:
+	//
+	// xxxIsvRoomId
+	IsvRoomId            *string                                                 `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
+	ReservationAuthority *QueryMeetingRoomResponseBodyResultReservationAuthority `json:"reservationAuthority,omitempty" xml:"reservationAuthority,omitempty" type:"Struct"`
+	// example:
+	//
+	// 10
+	RoomCapacity *int32                                       `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
+	RoomGroup    *QueryMeetingRoomResponseBodyResultRoomGroup `json:"roomGroup,omitempty" xml:"roomGroup,omitempty" type:"Struct"`
+	// example:
+	//
+	// 0ffb71843fbb7fc362cb1a0de97fd20b808b09d6ca6282ed
+	RoomId       *string                                         `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	RoomLabels   []*QueryMeetingRoomResponseBodyResultRoomLabels `json:"roomLabels,omitempty" xml:"roomLabels,omitempty" type:"Repeated"`
+	RoomLocation *QueryMeetingRoomResponseBodyResultRoomLocation `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
+	// example:
+	//
+	// 测试会议室
+	RoomName *string `json:"roomName,omitempty" xml:"roomName,omitempty"`
+	// example:
+	//
+	// https://static.dingtalk.com/media/lADPDgfLPFjNPu3NAWjNAWg_360_360.jpg
+	RoomPicture *string `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
+	// example:
+	//
+	// 01224148194623278976
+	RoomStaffId *string `json:"roomStaffId,omitempty" xml:"roomStaffId,omitempty"`
+	// example:
+	//
+	// 0.全员可用 1.仅管理员可用
+	RoomStatus *int32 `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
+	// example:
+	//
+	// DtB8VDzXXXXXX41rgiE
+	RoomUnionId *string `json:"roomUnionId,omitempty" xml:"roomUnionId,omitempty"`
 }
 
 func (s QueryMeetingRoomResponseBodyResult) String() string {
@@ -1560,6 +2375,11 @@ func (s *QueryMeetingRoomResponseBodyResult) SetDeviceUnionIds(v []*string) *Que
 
 func (s *QueryMeetingRoomResponseBodyResult) SetEnableCycleReservation(v bool) *QueryMeetingRoomResponseBodyResult {
 	s.EnableCycleReservation = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResult) SetExtensionConfig(v *QueryMeetingRoomResponseBodyResultExtensionConfig) *QueryMeetingRoomResponseBodyResult {
+	s.ExtensionConfig = v
 	return s
 }
 
@@ -1618,6 +2438,158 @@ func (s *QueryMeetingRoomResponseBodyResult) SetRoomStatus(v int32) *QueryMeetin
 	return s
 }
 
+func (s *QueryMeetingRoomResponseBodyResult) SetRoomUnionId(v string) *QueryMeetingRoomResponseBodyResult {
+	s.RoomUnionId = &v
+	return s
+}
+
+type QueryMeetingRoomResponseBodyResultExtensionConfig struct {
+	AdvanceReservation *QueryMeetingRoomResponseBodyResultExtensionConfigAdvanceReservation `json:"advanceReservation,omitempty" xml:"advanceReservation,omitempty" type:"Struct"`
+	// example:
+	//
+	// 60
+	MaxReservationTimeInterval *int32 `json:"maxReservationTimeInterval,omitempty" xml:"maxReservationTimeInterval,omitempty"`
+	// example:
+	//
+	// 15
+	MinReservationTimeInterval *int32                                                                   `json:"minReservationTimeInterval,omitempty" xml:"minReservationTimeInterval,omitempty"`
+	OpenReservation            *bool                                                                    `json:"openReservation,omitempty" xml:"openReservation,omitempty"`
+	ReservationCloseDetail     *QueryMeetingRoomResponseBodyResultExtensionConfigReservationCloseDetail `json:"reservationCloseDetail,omitempty" xml:"reservationCloseDetail,omitempty" type:"Struct"`
+}
+
+func (s QueryMeetingRoomResponseBodyResultExtensionConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomResponseBodyResultExtensionConfig) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomResponseBodyResultExtensionConfig) SetAdvanceReservation(v *QueryMeetingRoomResponseBodyResultExtensionConfigAdvanceReservation) *QueryMeetingRoomResponseBodyResultExtensionConfig {
+	s.AdvanceReservation = v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResultExtensionConfig) SetMaxReservationTimeInterval(v int32) *QueryMeetingRoomResponseBodyResultExtensionConfig {
+	s.MaxReservationTimeInterval = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResultExtensionConfig) SetMinReservationTimeInterval(v int32) *QueryMeetingRoomResponseBodyResultExtensionConfig {
+	s.MinReservationTimeInterval = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResultExtensionConfig) SetOpenReservation(v bool) *QueryMeetingRoomResponseBodyResultExtensionConfig {
+	s.OpenReservation = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResultExtensionConfig) SetReservationCloseDetail(v *QueryMeetingRoomResponseBodyResultExtensionConfigReservationCloseDetail) *QueryMeetingRoomResponseBodyResultExtensionConfig {
+	s.ReservationCloseDetail = v
+	return s
+}
+
+type QueryMeetingRoomResponseBodyResultExtensionConfigAdvanceReservation struct {
+	// example:
+	//
+	// 09:00
+	AdvanceBookTimeFormat *string `json:"advanceBookTimeFormat,omitempty" xml:"advanceBookTimeFormat,omitempty"`
+	// example:
+	//
+	// 3
+	AdvanceReservationTime *int32 `json:"advanceReservationTime,omitempty" xml:"advanceReservationTime,omitempty"`
+	// example:
+	//
+	// days
+	AdvanceReservationTimeUnit *string `json:"advanceReservationTimeUnit,omitempty" xml:"advanceReservationTimeUnit,omitempty"`
+}
+
+func (s QueryMeetingRoomResponseBodyResultExtensionConfigAdvanceReservation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomResponseBodyResultExtensionConfigAdvanceReservation) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomResponseBodyResultExtensionConfigAdvanceReservation) SetAdvanceBookTimeFormat(v string) *QueryMeetingRoomResponseBodyResultExtensionConfigAdvanceReservation {
+	s.AdvanceBookTimeFormat = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResultExtensionConfigAdvanceReservation) SetAdvanceReservationTime(v int32) *QueryMeetingRoomResponseBodyResultExtensionConfigAdvanceReservation {
+	s.AdvanceReservationTime = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResultExtensionConfigAdvanceReservation) SetAdvanceReservationTimeUnit(v string) *QueryMeetingRoomResponseBodyResultExtensionConfigAdvanceReservation {
+	s.AdvanceReservationTimeUnit = &v
+	return s
+}
+
+type QueryMeetingRoomResponseBodyResultExtensionConfigReservationCloseDetail struct {
+	// example:
+	//
+	// 因为装修临时关闭预定
+	CloseReason *string `json:"closeReason,omitempty" xml:"closeReason,omitempty"`
+	// example:
+	//
+	// nick
+	ContactNick *string `json:"contactNick,omitempty" xml:"contactNick,omitempty"`
+	// example:
+	//
+	// 2iPOLbpxxxxuwggiiqiPwiEiF
+	ContactUnionId *string `json:"contactUnionId,omitempty" xml:"contactUnionId,omitempty"`
+	SendNotify     *bool   `json:"sendNotify,omitempty" xml:"sendNotify,omitempty"`
+	// example:
+	//
+	// 1740045030000
+	TaskEndTime *int64 `json:"taskEndTime,omitempty" xml:"taskEndTime,omitempty"`
+	// example:
+	//
+	// 1740463800000
+	TaskStartTime *int64 `json:"taskStartTime,omitempty" xml:"taskStartTime,omitempty"`
+}
+
+func (s QueryMeetingRoomResponseBodyResultExtensionConfigReservationCloseDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomResponseBodyResultExtensionConfigReservationCloseDetail) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomResponseBodyResultExtensionConfigReservationCloseDetail) SetCloseReason(v string) *QueryMeetingRoomResponseBodyResultExtensionConfigReservationCloseDetail {
+	s.CloseReason = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResultExtensionConfigReservationCloseDetail) SetContactNick(v string) *QueryMeetingRoomResponseBodyResultExtensionConfigReservationCloseDetail {
+	s.ContactNick = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResultExtensionConfigReservationCloseDetail) SetContactUnionId(v string) *QueryMeetingRoomResponseBodyResultExtensionConfigReservationCloseDetail {
+	s.ContactUnionId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResultExtensionConfigReservationCloseDetail) SetSendNotify(v bool) *QueryMeetingRoomResponseBodyResultExtensionConfigReservationCloseDetail {
+	s.SendNotify = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResultExtensionConfigReservationCloseDetail) SetTaskEndTime(v int64) *QueryMeetingRoomResponseBodyResultExtensionConfigReservationCloseDetail {
+	s.TaskEndTime = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResultExtensionConfigReservationCloseDetail) SetTaskStartTime(v int64) *QueryMeetingRoomResponseBodyResultExtensionConfigReservationCloseDetail {
+	s.TaskStartTime = &v
+	return s
+}
+
 type QueryMeetingRoomResponseBodyResultReservationAuthority struct {
 	AuthorizedMembers []*QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers `json:"authorizedMembers,omitempty" xml:"authorizedMembers,omitempty" type:"Repeated"`
 }
@@ -1636,8 +2608,17 @@ func (s *QueryMeetingRoomResponseBodyResultReservationAuthority) SetAuthorizedMe
 }
 
 type QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers struct {
-	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// example:
+	//
+	// lPHhSZDLXXXXXXpBlC9lxLwiEiE
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// example:
+	//
+	// 张三
 	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+	// example:
+	//
+	// user
 	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
 }
 
@@ -1665,9 +2646,18 @@ func (s *QueryMeetingRoomResponseBodyResultReservationAuthorityAuthorizedMembers
 }
 
 type QueryMeetingRoomResponseBodyResultRoomGroup struct {
-	GroupId   *int64  `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// example:
+	//
+	// 1
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// example:
+	//
+	// 测试分组
 	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	ParentId  *int64  `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// 0
+	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
 }
 
 func (s QueryMeetingRoomResponseBodyResultRoomGroup) String() string {
@@ -1717,7 +2707,13 @@ func (s *QueryMeetingRoomResponseBodyResultRoomLabels) SetLabelName(v string) *Q
 }
 
 type QueryMeetingRoomResponseBodyResultRoomLocation struct {
-	Desc  *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// example:
+	//
+	// xx市xx区xx街道xx号
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// example:
+	//
+	// xxx公司
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -1768,6 +2764,237 @@ func (s *QueryMeetingRoomResponse) SetBody(v *QueryMeetingRoomResponseBody) *Que
 	return s
 }
 
+type QueryMeetingRoomControlPanelListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryMeetingRoomControlPanelListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomControlPanelListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomControlPanelListHeaders) SetCommonHeaders(v map[string]*string) *QueryMeetingRoomControlPanelListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryMeetingRoomControlPanelListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMeetingRoomControlPanelListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryMeetingRoomControlPanelListRequest struct {
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 0
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 2iPOLxxxxx
+	RoomId *string `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryMeetingRoomControlPanelListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomControlPanelListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomControlPanelListRequest) SetMaxResults(v int32) *QueryMeetingRoomControlPanelListRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryMeetingRoomControlPanelListRequest) SetNextToken(v int64) *QueryMeetingRoomControlPanelListRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryMeetingRoomControlPanelListRequest) SetRoomId(v string) *QueryMeetingRoomControlPanelListRequest {
+	s.RoomId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomControlPanelListRequest) SetUnionId(v string) *QueryMeetingRoomControlPanelListRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryMeetingRoomControlPanelListResponseBody struct {
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// 0
+	NextToken *int64                                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result    []*QueryMeetingRoomControlPanelListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 10
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryMeetingRoomControlPanelListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomControlPanelListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomControlPanelListResponseBody) SetHasMore(v bool) *QueryMeetingRoomControlPanelListResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryMeetingRoomControlPanelListResponseBody) SetNextToken(v int64) *QueryMeetingRoomControlPanelListResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryMeetingRoomControlPanelListResponseBody) SetResult(v []*QueryMeetingRoomControlPanelListResponseBodyResult) *QueryMeetingRoomControlPanelListResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryMeetingRoomControlPanelListResponseBody) SetTotalCount(v int32) *QueryMeetingRoomControlPanelListResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryMeetingRoomControlPanelListResponseBodyResult struct {
+	// example:
+	//
+	// 1WADFxxxxxx
+	RoomId        *string                                                            `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	RoomIotConfig []*QueryMeetingRoomControlPanelListResponseBodyResultRoomIotConfig `json:"roomIotConfig,omitempty" xml:"roomIotConfig,omitempty" type:"Repeated"`
+}
+
+func (s QueryMeetingRoomControlPanelListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomControlPanelListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomControlPanelListResponseBodyResult) SetRoomId(v string) *QueryMeetingRoomControlPanelListResponseBodyResult {
+	s.RoomId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomControlPanelListResponseBodyResult) SetRoomIotConfig(v []*QueryMeetingRoomControlPanelListResponseBodyResultRoomIotConfig) *QueryMeetingRoomControlPanelListResponseBodyResult {
+	s.RoomIotConfig = v
+	return s
+}
+
+type QueryMeetingRoomControlPanelListResponseBodyResultRoomIotConfig struct {
+	// example:
+	//
+	// name
+	EnName *string `json:"enName,omitempty" xml:"enName,omitempty"`
+	// example:
+	//
+	// https://www.taoxxxxx.com
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// example:
+	//
+	// 栗子xx
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 30
+	ShowTime *int32 `json:"showTime,omitempty" xml:"showTime,omitempty"`
+	// example:
+	//
+	// 0
+	Sort *int32 `json:"sort,omitempty" xml:"sort,omitempty"`
+	// example:
+	//
+	// https://www.taoxxxxx.com
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s QueryMeetingRoomControlPanelListResponseBodyResultRoomIotConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomControlPanelListResponseBodyResultRoomIotConfig) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomControlPanelListResponseBodyResultRoomIotConfig) SetEnName(v string) *QueryMeetingRoomControlPanelListResponseBodyResultRoomIotConfig {
+	s.EnName = &v
+	return s
+}
+
+func (s *QueryMeetingRoomControlPanelListResponseBodyResultRoomIotConfig) SetIcon(v string) *QueryMeetingRoomControlPanelListResponseBodyResultRoomIotConfig {
+	s.Icon = &v
+	return s
+}
+
+func (s *QueryMeetingRoomControlPanelListResponseBodyResultRoomIotConfig) SetName(v string) *QueryMeetingRoomControlPanelListResponseBodyResultRoomIotConfig {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryMeetingRoomControlPanelListResponseBodyResultRoomIotConfig) SetShowTime(v int32) *QueryMeetingRoomControlPanelListResponseBodyResultRoomIotConfig {
+	s.ShowTime = &v
+	return s
+}
+
+func (s *QueryMeetingRoomControlPanelListResponseBodyResultRoomIotConfig) SetSort(v int32) *QueryMeetingRoomControlPanelListResponseBodyResultRoomIotConfig {
+	s.Sort = &v
+	return s
+}
+
+func (s *QueryMeetingRoomControlPanelListResponseBodyResultRoomIotConfig) SetUrl(v string) *QueryMeetingRoomControlPanelListResponseBodyResultRoomIotConfig {
+	s.Url = &v
+	return s
+}
+
+type QueryMeetingRoomControlPanelListResponse struct {
+	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryMeetingRoomControlPanelListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryMeetingRoomControlPanelListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomControlPanelListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomControlPanelListResponse) SetHeaders(v map[string]*string) *QueryMeetingRoomControlPanelListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryMeetingRoomControlPanelListResponse) SetStatusCode(v int32) *QueryMeetingRoomControlPanelListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryMeetingRoomControlPanelListResponse) SetBody(v *QueryMeetingRoomControlPanelListResponseBody) *QueryMeetingRoomControlPanelListResponse {
+	s.Body = v
+	return s
+}
+
 type QueryMeetingRoomDeviceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1792,8 +3019,19 @@ func (s *QueryMeetingRoomDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *Qu
 }
 
 type QueryMeetingRoomDeviceRequest struct {
-	DeviceId        *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	DeviceUnionId   *string `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
+	// example:
+	//
+	// 1234
+	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// example:
+	//
+	// "lmvUrRkpboRrSMtgsiS9V3AiEiE"
+	DeviceUnionId *string `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// "lmvUrEjpboFrSMtgsiS9V3AiEiE"
 	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
 }
 
@@ -1838,34 +3076,115 @@ func (s *QueryMeetingRoomDeviceResponseBody) SetResult(v *QueryMeetingRoomDevice
 }
 
 type QueryMeetingRoomDeviceResponseBodyResult struct {
-	ActiveTime      *int64                                                 `json:"activeTime,omitempty" xml:"activeTime,omitempty"`
-	Controllers     []*QueryMeetingRoomDeviceResponseBodyResultControllers `json:"controllers,omitempty" xml:"controllers,omitempty" type:"Repeated"`
-	CorpId          *string                                                `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CreatorUnionId  *string                                                `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
-	DevCamera       *string                                                `json:"devCamera,omitempty" xml:"devCamera,omitempty"`
-	DevHdmi         *string                                                `json:"devHdmi,omitempty" xml:"devHdmi,omitempty"`
-	DevMic          *string                                                `json:"devMic,omitempty" xml:"devMic,omitempty"`
-	DevMirror       *string                                                `json:"devMirror,omitempty" xml:"devMirror,omitempty"`
-	DevNetIp        *string                                                `json:"devNetIp,omitempty" xml:"devNetIp,omitempty"`
-	DevNetType      *string                                                `json:"devNetType,omitempty" xml:"devNetType,omitempty"`
-	DevVoice        *string                                                `json:"devVoice,omitempty" xml:"devVoice,omitempty"`
-	DevWifiMac      *string                                                `json:"devWifiMac,omitempty" xml:"devWifiMac,omitempty"`
-	DevWireMac      *string                                                `json:"devWireMac,omitempty" xml:"devWireMac,omitempty"`
-	DeviceId        *string                                                `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	DeviceMac       *string                                                `json:"deviceMac,omitempty" xml:"deviceMac,omitempty"`
-	DeviceModel     *string                                                `json:"deviceModel,omitempty" xml:"deviceModel,omitempty"`
-	DeviceName      *string                                                `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	DeviceServiceId *int32                                                 `json:"deviceServiceId,omitempty" xml:"deviceServiceId,omitempty"`
-	DeviceSn        *string                                                `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
-	DeviceStatus    *string                                                `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
-	DeviceType      *string                                                `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
-	DeviceUnionId   *string                                                `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
-	FirmwareVersion *string                                                `json:"firmwareVersion,omitempty" xml:"firmwareVersion,omitempty"`
-	OpenRoomId      *string                                                `json:"openRoomId,omitempty" xml:"openRoomId,omitempty"`
-	RoomName        *string                                                `json:"roomName,omitempty" xml:"roomName,omitempty"`
-	ShareCode       *string                                                `json:"shareCode,omitempty" xml:"shareCode,omitempty"`
-	SipAccountName  *string                                                `json:"sipAccountName,omitempty" xml:"sipAccountName,omitempty"`
-	SoftwareVersion *string                                                `json:"softwareVersion,omitempty" xml:"softwareVersion,omitempty"`
+	// example:
+	//
+	// 1697198045000
+	ActiveTime  *int64                                                 `json:"activeTime,omitempty" xml:"activeTime,omitempty"`
+	Controllers []*QueryMeetingRoomDeviceResponseBodyResultControllers `json:"controllers,omitempty" xml:"controllers,omitempty" type:"Repeated"`
+	// example:
+	//
+	// "ding994a046bca84545935c2f4657eb6378f"
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// lPHhSZDLXXXXXXpBlC9lxLwiEiE
+	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	// example:
+	//
+	// Smart Camera
+	DevCamera *string `json:"devCamera,omitempty" xml:"devCamera,omitempty"`
+	// example:
+	//
+	// false
+	DevHdmi *string `json:"devHdmi,omitempty" xml:"devHdmi,omitempty"`
+	// example:
+	//
+	// Microphone (2- Built-in Audio)
+	DevMic *string `json:"devMic,omitempty" xml:"devMic,omitempty"`
+	// example:
+	//
+	// false
+	DevMirror *string `json:"devMirror,omitempty" xml:"devMirror,omitempty"`
+	// example:
+	//
+	// 127.0.0.10
+	DevNetIp *string `json:"devNetIp,omitempty" xml:"devNetIp,omitempty"`
+	// example:
+	//
+	// net_wired
+	DevNetType *string `json:"devNetType,omitempty" xml:"devNetType,omitempty"`
+	// example:
+	//
+	// Speaker (2- Built-in Audio)
+	DevVoice *string `json:"devVoice,omitempty" xml:"devVoice,omitempty"`
+	// example:
+	//
+	// d4:aa:ee:e8:4d:55
+	DevWifiMac *string `json:"devWifiMac,omitempty" xml:"devWifiMac,omitempty"`
+	// example:
+	//
+	// d4:3a:ee:aa:45:85
+	DevWireMac *string `json:"devWireMac,omitempty" xml:"devWireMac,omitempty"`
+	// example:
+	//
+	// 1234
+	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// example:
+	//
+	// "14:85:7f:e5:f3:f3"
+	DeviceMac *string `json:"deviceMac,omitempty" xml:"deviceMac,omitempty"`
+	// example:
+	//
+	// winbox
+	DeviceModel *string `json:"deviceModel,omitempty" xml:"deviceModel,omitempty"`
+	// example:
+	//
+	// 钉钉会议设备_xxxx
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// example:
+	//
+	// 1204
+	DeviceServiceId *int32 `json:"deviceServiceId,omitempty" xml:"deviceServiceId,omitempty"`
+	// example:
+	//
+	// "02caa8169c80f74a2d375093a6107016"
+	DeviceSn *string `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
+	// example:
+	//
+	// 空闲：idle  投屏中：projection   会议响铃中：conf_incoming   会议中：conf_running   使用白板中：white_board   离线: offline
+	DeviceStatus *string `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
+	// example:
+	//
+	// 视频会议设备:"touyingyi"   设备控制器:"meetingaccessory"
+	DeviceType *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	// example:
+	//
+	// "lmvUrRkpboRrSMtgsiS9V3AiEiE"
+	DeviceUnionId *string `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
+	// example:
+	//
+	// LMVXXX.20XX0818
+	FirmwareVersion *string `json:"firmwareVersion,omitempty" xml:"firmwareVersion,omitempty"`
+	// example:
+	//
+	// "7263defed6b361fedf0fe6a3b578b96e808b09d6ca6282ed"
+	OpenRoomId *string `json:"openRoomId,omitempty" xml:"openRoomId,omitempty"`
+	// example:
+	//
+	// 测试会议室
+	RoomName *string `json:"roomName,omitempty" xml:"roomName,omitempty"`
+	// example:
+	//
+	// 123456
+	ShareCode *string `json:"shareCode,omitempty" xml:"shareCode,omitempty"`
+	// example:
+	//
+	// sip13492
+	SipAccountName *string `json:"sipAccountName,omitempty" xml:"sipAccountName,omitempty"`
+	// example:
+	//
+	// 7.14.1
+	SoftwareVersion *string `json:"softwareVersion,omitempty" xml:"softwareVersion,omitempty"`
 }
 
 func (s QueryMeetingRoomDeviceResponseBodyResult) String() string {
@@ -2017,18 +3336,54 @@ func (s *QueryMeetingRoomDeviceResponseBodyResult) SetSoftwareVersion(v string) 
 }
 
 type QueryMeetingRoomDeviceResponseBodyResultControllers struct {
-	CorpId          *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	DeviceId        *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	DeviceMac       *string `json:"deviceMac,omitempty" xml:"deviceMac,omitempty"`
-	DeviceModel     *string `json:"deviceModel,omitempty" xml:"deviceModel,omitempty"`
-	DeviceName      *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	DeviceServiceId *int32  `json:"deviceServiceId,omitempty" xml:"deviceServiceId,omitempty"`
-	DeviceSn        *string `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
-	DeviceStatus    *string `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
-	DeviceType      *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
-	DeviceUnionId   *string `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
-	OpenRoomId      *string `json:"openRoomId,omitempty" xml:"openRoomId,omitempty"`
-	ShareCode       *string `json:"shareCode,omitempty" xml:"shareCode,omitempty"`
+	// example:
+	//
+	// "ding994a046bca84545935c2f4657eb6378f"
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 2345
+	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// example:
+	//
+	// "d8:2f:e6:d9:ab:5b"
+	DeviceMac *string `json:"deviceMac,omitempty" xml:"deviceMac,omitempty"`
+	// example:
+	//
+	// "AILABS_S3_T1"
+	DeviceModel *string `json:"deviceModel,omitempty" xml:"deviceModel,omitempty"`
+	// example:
+	//
+	// 会控平板_xxxx
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// example:
+	//
+	// 1190
+	DeviceServiceId *int32 `json:"deviceServiceId,omitempty" xml:"deviceServiceId,omitempty"`
+	// example:
+	//
+	// "02caa8169c80f74a2d375093a6107017"
+	DeviceSn *string `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
+	// example:
+	//
+	// 空闲：idle  投屏中：projection   会议响铃中：conf_incoming   会议中：conf_running   使用白板中：white_board   离线: offline
+	DeviceStatus *string `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
+	// example:
+	//
+	// 视频会议设备:"touyingyi"   设备控制器:"meetingaccessory"
+	DeviceType *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	// example:
+	//
+	// "lmvUrRkpboRrSMtgsiS9V4AiEiE"
+	DeviceUnionId *string `json:"deviceUnionId,omitempty" xml:"deviceUnionId,omitempty"`
+	// example:
+	//
+	// "7263defed6b361fedf0fe6a3b578b96e808b09d6ca6282ed"
+	OpenRoomId *string `json:"openRoomId,omitempty" xml:"openRoomId,omitempty"`
+	// example:
+	//
+	// 234567
+	ShareCode *string `json:"shareCode,omitempty" xml:"shareCode,omitempty"`
 }
 
 func (s QueryMeetingRoomDeviceResponseBodyResultControllers) String() string {
@@ -2152,6 +3507,11 @@ func (s *QueryMeetingRoomGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 }
 
 type QueryMeetingRoomGroupRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -2169,9 +3529,18 @@ func (s *QueryMeetingRoomGroupRequest) SetUnionId(v string) *QueryMeetingRoomGro
 }
 
 type QueryMeetingRoomGroupResponseBody struct {
-	GroupId   *int64  `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// example:
+	//
+	// 172
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// example:
+	//
+	// 测试分组
 	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	ParentId  *int64  `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// 0
+	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
 }
 
 func (s QueryMeetingRoomGroupResponseBody) String() string {
@@ -2250,6 +3619,11 @@ func (s *QueryMeetingRoomGroupListHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type QueryMeetingRoomGroupListRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -2284,9 +3658,18 @@ func (s *QueryMeetingRoomGroupListResponseBody) SetResult(v []*QueryMeetingRoomG
 }
 
 type QueryMeetingRoomGroupListResponseBodyResult struct {
-	GroupId   *int64  `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// example:
+	//
+	// 172
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// example:
+	//
+	// 测试分组
 	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	ParentId  *int64  `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// 0
+	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
 }
 
 func (s QueryMeetingRoomGroupListResponseBodyResult) String() string {
@@ -2365,9 +3748,20 @@ func (s *QueryMeetingRoomListHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryMeetingRoomListRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	UnionId    *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 124
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s QueryMeetingRoomListRequest) String() string {
@@ -2394,7 +3788,13 @@ func (s *QueryMeetingRoomListRequest) SetUnionId(v string) *QueryMeetingRoomList
 }
 
 type QueryMeetingRoomListResponseBody struct {
-	HasMore   *bool                                     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// 123
 	NextToken *int64                                    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Result    []*QueryMeetingRoomListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
@@ -2423,17 +3823,41 @@ func (s *QueryMeetingRoomListResponseBody) SetResult(v []*QueryMeetingRoomListRe
 }
 
 type QueryMeetingRoomListResponseBodyResult struct {
-	CorpId       *string                                             `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	IsvRoomId    *string                                             `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
-	RoomCapacity *int32                                              `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
-	RoomGroup    *QueryMeetingRoomListResponseBodyResultRoomGroup    `json:"roomGroup,omitempty" xml:"roomGroup,omitempty" type:"Struct"`
+	// example:
+	//
+	// ding994a046bca84545935c2f4657eb6378f
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// xxxIsvRoomId
+	IsvRoomId *string `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
+	// example:
+	//
+	// 10
+	RoomCapacity *int32                                           `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
+	RoomGroup    *QueryMeetingRoomListResponseBodyResultRoomGroup `json:"roomGroup,omitempty" xml:"roomGroup,omitempty" type:"Struct"`
+	// example:
+	//
+	// 0ffb71843fbb7fc362cb1a0de97fd20b808b09d6ca6282ed
 	RoomId       *string                                             `json:"roomId,omitempty" xml:"roomId,omitempty"`
 	RoomLabels   []*QueryMeetingRoomListResponseBodyResultRoomLabels `json:"roomLabels,omitempty" xml:"roomLabels,omitempty" type:"Repeated"`
 	RoomLocation *QueryMeetingRoomListResponseBodyResultRoomLocation `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
-	RoomName     *string                                             `json:"roomName,omitempty" xml:"roomName,omitempty"`
-	RoomPicture  *string                                             `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
-	RoomStaffId  *string                                             `json:"roomStaffId,omitempty" xml:"roomStaffId,omitempty"`
-	RoomStatus   *int32                                              `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
+	// example:
+	//
+	// 测试会议室
+	RoomName *string `json:"roomName,omitempty" xml:"roomName,omitempty"`
+	// example:
+	//
+	// https://static.dingtalk.com/media/lADPDgfLPFjNPu3NAWjNAWg_360_360.jpg
+	RoomPicture *string `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
+	// example:
+	//
+	// 01224148194623278976
+	RoomStaffId *string `json:"roomStaffId,omitempty" xml:"roomStaffId,omitempty"`
+	// example:
+	//
+	// 0.全员可用 1.仅管理员可用
+	RoomStatus *int32 `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
 }
 
 func (s QueryMeetingRoomListResponseBodyResult) String() string {
@@ -2500,9 +3924,18 @@ func (s *QueryMeetingRoomListResponseBodyResult) SetRoomStatus(v int32) *QueryMe
 }
 
 type QueryMeetingRoomListResponseBodyResultRoomGroup struct {
-	GroupId   *int64  `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// example:
+	//
+	// 1
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// example:
+	//
+	// 测试分组
 	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	ParentId  *int64  `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// 0
+	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
 }
 
 func (s QueryMeetingRoomListResponseBodyResultRoomGroup) String() string {
@@ -2552,7 +3985,13 @@ func (s *QueryMeetingRoomListResponseBodyResultRoomLabels) SetLabelName(v string
 }
 
 type QueryMeetingRoomListResponseBodyResultRoomLocation struct {
-	Desc  *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// example:
+	//
+	// xx市xx区xx街道xx号
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// example:
+	//
+	// xxx公司
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -2627,7 +4066,17 @@ func (s *RemoveSuperUserMeetingRoomHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type RemoveSuperUserMeetingRoomRequest struct {
-	RoomId  *string `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0ffb71843fbb7fc362cb1a0de97fd20b808b09d6ca6282ed
+	RoomId *string `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -2719,8 +4168,14 @@ func (s *SetSuperUserMeetingRoomHeaders) SetXAcsDingtalkAccessToken(v string) *S
 }
 
 type SetSuperUserMeetingRoomRequest struct {
-	DeptIdWhiteList []*int64  `json:"deptIdWhiteList,omitempty" xml:"deptIdWhiteList,omitempty" type:"Repeated"`
-	RoomId          *string   `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	DeptIdWhiteList []*int64 `json:"deptIdWhiteList,omitempty" xml:"deptIdWhiteList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	RoomId *string `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// OcMXXXXXM2eRogiEiE
 	UnionId         *string   `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	UserIdWhiteList []*string `json:"userIdWhiteList,omitempty" xml:"userIdWhiteList,omitempty" type:"Repeated"`
 }
@@ -2823,25 +4278,74 @@ func (s *UpdateDeviceCustomTemplateHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type UpdateDeviceCustomTemplateRequest struct {
-	BgImgList                    []*string `json:"bgImgList,omitempty" xml:"bgImgList,omitempty" type:"Repeated"`
-	BgType                       *int32    `json:"bgType,omitempty" xml:"bgType,omitempty"`
-	BgUrl                        *string   `json:"bgUrl,omitempty" xml:"bgUrl,omitempty"`
-	CustomDoc                    *string   `json:"customDoc,omitempty" xml:"customDoc,omitempty"`
-	DesensitizeUserName          *bool     `json:"desensitizeUserName,omitempty" xml:"desensitizeUserName,omitempty"`
-	DeviceUnionIds               []*string `json:"deviceUnionIds,omitempty" xml:"deviceUnionIds,omitempty" type:"Repeated"`
-	GroupIds                     []*int64  `json:"groupIds,omitempty" xml:"groupIds,omitempty" type:"Repeated"`
-	HideServerCodeWhenProjecting *bool     `json:"hideServerCodeWhenProjecting,omitempty" xml:"hideServerCodeWhenProjecting,omitempty"`
-	Instruction                  *bool     `json:"instruction,omitempty" xml:"instruction,omitempty"`
-	IsPicTop                     *int32    `json:"isPicTop,omitempty" xml:"isPicTop,omitempty"`
-	Logo                         *string   `json:"logo,omitempty" xml:"logo,omitempty"`
-	OrgName                      *string   `json:"orgName,omitempty" xml:"orgName,omitempty"`
-	PicturePlayInterval          *int32    `json:"picturePlayInterval,omitempty" xml:"picturePlayInterval,omitempty"`
-	RoomIds                      []*string `json:"roomIds,omitempty" xml:"roomIds,omitempty" type:"Repeated"`
-	ShowCalendarCard             *bool     `json:"showCalendarCard,omitempty" xml:"showCalendarCard,omitempty"`
-	ShowCalendarTitle            *bool     `json:"showCalendarTitle,omitempty" xml:"showCalendarTitle,omitempty"`
-	ShowFunctionCard             *bool     `json:"showFunctionCard,omitempty" xml:"showFunctionCard,omitempty"`
-	TemplateId                   *int64    `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	TemplateName                 *string   `json:"templateName,omitempty" xml:"templateName,omitempty"`
+	BgImgList []*string `json:"bgImgList,omitempty" xml:"bgImgList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	BgType *int32 `json:"bgType,omitempty" xml:"bgType,omitempty"`
+	// example:
+	//
+	// https://img.alicdn.com/imgextra/i2/O1CN01GWWCCR1y2D9D9EHej_!!6000000006520-2-tps-1920-470.png
+	BgUrl *string `json:"bgUrl,omitempty" xml:"bgUrl,omitempty"`
+	// example:
+	//
+	// 测试文本
+	CustomDoc *string `json:"customDoc,omitempty" xml:"customDoc,omitempty"`
+	// example:
+	//
+	// true：脱敏 false：不脱敏
+	DesensitizeUserName *bool     `json:"desensitizeUserName,omitempty" xml:"desensitizeUserName,omitempty"`
+	DeviceUnionIds      []*string `json:"deviceUnionIds,omitempty" xml:"deviceUnionIds,omitempty" type:"Repeated"`
+	GroupIds            []*int64  `json:"groupIds,omitempty" xml:"groupIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true：隐藏 false：不隐藏
+	HideServerCodeWhenProjecting *bool `json:"hideServerCodeWhenProjecting,omitempty" xml:"hideServerCodeWhenProjecting,omitempty"`
+	// example:
+	//
+	// true：显示 false：不显示
+	Instruction *bool `json:"instruction,omitempty" xml:"instruction,omitempty"`
+	// example:
+	//
+	// 1
+	IsPicTop *int32 `json:"isPicTop,omitempty" xml:"isPicTop,omitempty"`
+	// example:
+	//
+	// logo
+	Logo *string `json:"logo,omitempty" xml:"logo,omitempty"`
+	// example:
+	//
+	// 测试企业
+	OrgName *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	// example:
+	//
+	// 10
+	PicturePlayInterval *int32    `json:"picturePlayInterval,omitempty" xml:"picturePlayInterval,omitempty"`
+	RoomIds             []*string `json:"roomIds,omitempty" xml:"roomIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true：展示 false：不展示
+	ShowCalendarCard *bool `json:"showCalendarCard,omitempty" xml:"showCalendarCard,omitempty"`
+	// example:
+	//
+	// true：展示 false：不展示
+	ShowCalendarTitle *bool `json:"showCalendarTitle,omitempty" xml:"showCalendarTitle,omitempty"`
+	// example:
+	//
+	// true：展示 false：不展示
+	ShowFunctionCard *bool `json:"showFunctionCard,omitempty" xml:"showFunctionCard,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 89
+	TemplateId *int64 `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试模板
+	TemplateName *string `json:"templateName,omitempty" xml:"templateName,omitempty"`
 }
 
 func (s UpdateDeviceCustomTemplateRequest) String() string {
@@ -2948,6 +4452,9 @@ func (s *UpdateDeviceCustomTemplateRequest) SetTemplateName(v string) *UpdateDev
 }
 
 type UpdateDeviceCustomTemplateResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3017,18 +4524,47 @@ func (s *UpdateMeetingRoomHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateM
 }
 
 type UpdateMeetingRoomRequest struct {
-	EnableCycleReservation *bool                                         `json:"enableCycleReservation,omitempty" xml:"enableCycleReservation,omitempty"`
-	GroupId                *int64                                        `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	IsvRoomId              *string                                       `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
-	ReservationAuthority   *UpdateMeetingRoomRequestReservationAuthority `json:"reservationAuthority,omitempty" xml:"reservationAuthority,omitempty" type:"Struct"`
-	RoomCapacity           *int32                                        `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
-	RoomId                 *string                                       `json:"roomId,omitempty" xml:"roomId,omitempty"`
-	RoomLabelIds           []*int64                                      `json:"roomLabelIds,omitempty" xml:"roomLabelIds,omitempty" type:"Repeated"`
-	RoomLocation           *UpdateMeetingRoomRequestRoomLocation         `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
-	RoomName               *string                                       `json:"roomName,omitempty" xml:"roomName,omitempty"`
-	RoomPicture            *string                                       `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
-	RoomStatus             *int32                                        `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
-	UnionId                *string                                       `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	EnableCycleReservation *bool `json:"enableCycleReservation,omitempty" xml:"enableCycleReservation,omitempty"`
+	// example:
+	//
+	// 0
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// example:
+	//
+	// xxxIsvRoomId
+	IsvRoomId            *string                                       `json:"isvRoomId,omitempty" xml:"isvRoomId,omitempty"`
+	OpenReservation      *bool                                         `json:"openReservation,omitempty" xml:"openReservation,omitempty"`
+	ReservationAuthority *UpdateMeetingRoomRequestReservationAuthority `json:"reservationAuthority,omitempty" xml:"reservationAuthority,omitempty" type:"Struct"`
+	// example:
+	//
+	// 10
+	RoomCapacity *int32 `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0ffb71843fbb7fc362cb1a0de97fd20b808b09d6ca6282ed
+	RoomId       *string                               `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	RoomLabelIds []*int64                              `json:"roomLabelIds,omitempty" xml:"roomLabelIds,omitempty" type:"Repeated"`
+	RoomLocation *UpdateMeetingRoomRequestRoomLocation `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
+	// example:
+	//
+	// 测试会议室
+	RoomName *string `json:"roomName,omitempty" xml:"roomName,omitempty"`
+	// example:
+	//
+	// https://static.dingtalk.com/media/lADPDgfLPFjNPu3NAWjNAWg_360_360.jpg
+	RoomPicture *string `json:"roomPicture,omitempty" xml:"roomPicture,omitempty"`
+	// example:
+	//
+	// 0.全员可用 1.仅管理员可用
+	RoomStatus *int32 `json:"roomStatus,omitempty" xml:"roomStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s UpdateMeetingRoomRequest) String() string {
@@ -3051,6 +4587,11 @@ func (s *UpdateMeetingRoomRequest) SetGroupId(v int64) *UpdateMeetingRoomRequest
 
 func (s *UpdateMeetingRoomRequest) SetIsvRoomId(v string) *UpdateMeetingRoomRequest {
 	s.IsvRoomId = &v
+	return s
+}
+
+func (s *UpdateMeetingRoomRequest) SetOpenReservation(v bool) *UpdateMeetingRoomRequest {
+	s.OpenReservation = &v
 	return s
 }
 
@@ -3117,8 +4658,17 @@ func (s *UpdateMeetingRoomRequestReservationAuthority) SetAuthorizedMembers(v []
 }
 
 type UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers struct {
-	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// example:
+	//
+	// lPHhSZDLXXXXXXpBlC9lxLwiEiE
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// example:
+	//
+	// 张三
 	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+	// example:
+	//
+	// user
 	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
 }
 
@@ -3146,7 +4696,13 @@ func (s *UpdateMeetingRoomRequestReservationAuthorityAuthorizedMembers) SetMembe
 }
 
 type UpdateMeetingRoomRequestRoomLocation struct {
-	Desc  *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// example:
+	//
+	// xx市xx区xx路xx号
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// example:
+	//
+	// xxx公司
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -3169,6 +4725,9 @@ func (s *UpdateMeetingRoomRequestRoomLocation) SetTitle(v string) *UpdateMeeting
 }
 
 type UpdateMeetingRoomResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3238,9 +4797,22 @@ func (s *UpdateMeetingRoomGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Up
 }
 
 type UpdateMeetingRoomGroupRequest struct {
-	GroupId   *int64  `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 172
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// example:
+	//
+	// 测试分组
 	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s UpdateMeetingRoomGroupRequest) String() string {
@@ -3267,6 +4839,9 @@ func (s *UpdateMeetingRoomGroupRequest) SetUnionId(v string) *UpdateMeetingRoomG
 }
 
 type UpdateMeetingRoomGroupResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3327,12 +4902,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -3341,6 +4916,106 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 创建会议室预定黑名单
+//
+// @param request - CreateBookingBlacklistRequest
+//
+// @param headers - CreateBookingBlacklistHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateBookingBlacklistResponse
+func (client *Client) CreateBookingBlacklistWithOptions(request *CreateBookingBlacklistRequest, headers *CreateBookingBlacklistHeaders, runtime *util.RuntimeOptions) (_result *CreateBookingBlacklistResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BlacklistUnionId)) {
+		body["blacklistUnionId"] = request.BlacklistUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Memo)) {
+		body["memo"] = request.Memo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateBookingBlacklist"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/bookings/blacklist"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateBookingBlacklistResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建会议室预定黑名单
+//
+// @param request - CreateBookingBlacklistRequest
+//
+// @return CreateBookingBlacklistResponse
+func (client *Client) CreateBookingBlacklist(request *CreateBookingBlacklistRequest) (_result *CreateBookingBlacklistResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateBookingBlacklistHeaders{}
+	_result = &CreateBookingBlacklistResponse{}
+	_body, _err := client.CreateBookingBlacklistWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建自定义屏幕模版
+//
+// @param request - CreateDeviceCustomTemplateRequest
+//
+// @param headers - CreateDeviceCustomTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateDeviceCustomTemplateResponse
 func (client *Client) CreateDeviceCustomTemplateWithOptions(request *CreateDeviceCustomTemplateRequest, headers *CreateDeviceCustomTemplateHeaders, runtime *util.RuntimeOptions) (_result *CreateDeviceCustomTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3452,6 +5127,13 @@ func (client *Client) CreateDeviceCustomTemplateWithOptions(request *CreateDevic
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建自定义屏幕模版
+//
+// @param request - CreateDeviceCustomTemplateRequest
+//
+// @return CreateDeviceCustomTemplateResponse
 func (client *Client) CreateDeviceCustomTemplate(request *CreateDeviceCustomTemplateRequest) (_result *CreateDeviceCustomTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateDeviceCustomTemplateHeaders{}
@@ -3464,6 +5146,17 @@ func (client *Client) CreateDeviceCustomTemplate(request *CreateDeviceCustomTemp
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建智能会议室
+//
+// @param request - CreateMeetingRoomRequest
+//
+// @param headers - CreateMeetingRoomHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateMeetingRoomResponse
 func (client *Client) CreateMeetingRoomWithOptions(request *CreateMeetingRoomRequest, headers *CreateMeetingRoomHeaders, runtime *util.RuntimeOptions) (_result *CreateMeetingRoomResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3480,6 +5173,10 @@ func (client *Client) CreateMeetingRoomWithOptions(request *CreateMeetingRoomReq
 
 	if !tea.BoolValue(util.IsUnset(request.IsvRoomId)) {
 		body["isvRoomId"] = request.IsvRoomId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenReservation)) {
+		body["openReservation"] = request.OpenReservation
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ReservationAuthority)) {
@@ -3547,6 +5244,13 @@ func (client *Client) CreateMeetingRoomWithOptions(request *CreateMeetingRoomReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建智能会议室
+//
+// @param request - CreateMeetingRoomRequest
+//
+// @return CreateMeetingRoomResponse
 func (client *Client) CreateMeetingRoom(request *CreateMeetingRoomRequest) (_result *CreateMeetingRoomResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateMeetingRoomHeaders{}
@@ -3559,6 +5263,106 @@ func (client *Client) CreateMeetingRoom(request *CreateMeetingRoomRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建智能会议室IOT配置
+//
+// @param request - CreateMeetingRoomControlPanelRequest
+//
+// @param headers - CreateMeetingRoomControlPanelHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateMeetingRoomControlPanelResponse
+func (client *Client) CreateMeetingRoomControlPanelWithOptions(request *CreateMeetingRoomControlPanelRequest, headers *CreateMeetingRoomControlPanelHeaders, runtime *util.RuntimeOptions) (_result *CreateMeetingRoomControlPanelResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Extra)) {
+		body["extra"] = request.Extra
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoomConfig)) {
+		body["roomConfig"] = request.RoomConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoomId)) {
+		body["roomId"] = request.RoomId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateMeetingRoomControlPanel"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/panels"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateMeetingRoomControlPanelResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建智能会议室IOT配置
+//
+// @param request - CreateMeetingRoomControlPanelRequest
+//
+// @return CreateMeetingRoomControlPanelResponse
+func (client *Client) CreateMeetingRoomControlPanel(request *CreateMeetingRoomControlPanelRequest) (_result *CreateMeetingRoomControlPanelResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateMeetingRoomControlPanelHeaders{}
+	_result = &CreateMeetingRoomControlPanelResponse{}
+	_body, _err := client.CreateMeetingRoomControlPanelWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建会议室分组
+//
+// @param request - CreateMeetingRoomGroupRequest
+//
+// @param headers - CreateMeetingRoomGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateMeetingRoomGroupResponse
 func (client *Client) CreateMeetingRoomGroupWithOptions(request *CreateMeetingRoomGroupRequest, headers *CreateMeetingRoomGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateMeetingRoomGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3610,6 +5414,13 @@ func (client *Client) CreateMeetingRoomGroupWithOptions(request *CreateMeetingRo
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建会议室分组
+//
+// @param request - CreateMeetingRoomGroupRequest
+//
+// @return CreateMeetingRoomGroupResponse
 func (client *Client) CreateMeetingRoomGroup(request *CreateMeetingRoomGroupRequest) (_result *CreateMeetingRoomGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateMeetingRoomGroupHeaders{}
@@ -3622,6 +5433,94 @@ func (client *Client) CreateMeetingRoomGroup(request *CreateMeetingRoomGroupRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除会议室预定黑名单
+//
+// @param request - DeleteBookingBlacklistRequest
+//
+// @param headers - DeleteBookingBlacklistHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteBookingBlacklistResponse
+func (client *Client) DeleteBookingBlacklistWithOptions(request *DeleteBookingBlacklistRequest, headers *DeleteBookingBlacklistHeaders, runtime *util.RuntimeOptions) (_result *DeleteBookingBlacklistResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BlacklistUnionIds)) {
+		body["blacklistUnionIds"] = request.BlacklistUnionIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteBookingBlacklist"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/bookings/blacklist/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteBookingBlacklistResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除会议室预定黑名单
+//
+// @param request - DeleteBookingBlacklistRequest
+//
+// @return DeleteBookingBlacklistResponse
+func (client *Client) DeleteBookingBlacklist(request *DeleteBookingBlacklistRequest) (_result *DeleteBookingBlacklistResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteBookingBlacklistHeaders{}
+	_result = &DeleteBookingBlacklistResponse{}
+	_body, _err := client.DeleteBookingBlacklistWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除自定义屏幕模板
+//
+// @param request - DeleteDeviceCustomTemplateRequest
+//
+// @param headers - DeleteDeviceCustomTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteDeviceCustomTemplateResponse
 func (client *Client) DeleteDeviceCustomTemplateWithOptions(request *DeleteDeviceCustomTemplateRequest, headers *DeleteDeviceCustomTemplateHeaders, runtime *util.RuntimeOptions) (_result *DeleteDeviceCustomTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3665,6 +5564,13 @@ func (client *Client) DeleteDeviceCustomTemplateWithOptions(request *DeleteDevic
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除自定义屏幕模板
+//
+// @param request - DeleteDeviceCustomTemplateRequest
+//
+// @return DeleteDeviceCustomTemplateResponse
 func (client *Client) DeleteDeviceCustomTemplate(request *DeleteDeviceCustomTemplateRequest) (_result *DeleteDeviceCustomTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteDeviceCustomTemplateHeaders{}
@@ -3677,6 +5583,17 @@ func (client *Client) DeleteDeviceCustomTemplate(request *DeleteDeviceCustomTemp
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除会议室
+//
+// @param request - DeleteMeetingRoomRequest
+//
+// @param headers - DeleteMeetingRoomHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteMeetingRoomResponse
 func (client *Client) DeleteMeetingRoomWithOptions(roomId *string, request *DeleteMeetingRoomRequest, headers *DeleteMeetingRoomHeaders, runtime *util.RuntimeOptions) (_result *DeleteMeetingRoomResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3720,6 +5637,13 @@ func (client *Client) DeleteMeetingRoomWithOptions(roomId *string, request *Dele
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除会议室
+//
+// @param request - DeleteMeetingRoomRequest
+//
+// @return DeleteMeetingRoomResponse
 func (client *Client) DeleteMeetingRoom(roomId *string, request *DeleteMeetingRoomRequest) (_result *DeleteMeetingRoomResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteMeetingRoomHeaders{}
@@ -3732,6 +5656,94 @@ func (client *Client) DeleteMeetingRoom(roomId *string, request *DeleteMeetingRo
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除会议室配置
+//
+// @param request - DeleteMeetingRoomControlPanelRequest
+//
+// @param headers - DeleteMeetingRoomControlPanelHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteMeetingRoomControlPanelResponse
+func (client *Client) DeleteMeetingRoomControlPanelWithOptions(request *DeleteMeetingRoomControlPanelRequest, headers *DeleteMeetingRoomControlPanelHeaders, runtime *util.RuntimeOptions) (_result *DeleteMeetingRoomControlPanelResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RoomIds)) {
+		body["roomIds"] = request.RoomIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteMeetingRoomControlPanel"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/panels/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteMeetingRoomControlPanelResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除会议室配置
+//
+// @param request - DeleteMeetingRoomControlPanelRequest
+//
+// @return DeleteMeetingRoomControlPanelResponse
+func (client *Client) DeleteMeetingRoomControlPanel(request *DeleteMeetingRoomControlPanelRequest) (_result *DeleteMeetingRoomControlPanelResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteMeetingRoomControlPanelHeaders{}
+	_result = &DeleteMeetingRoomControlPanelResponse{}
+	_body, _err := client.DeleteMeetingRoomControlPanelWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除会议室分组
+//
+// @param request - DeleteMeetingRoomGroupRequest
+//
+// @param headers - DeleteMeetingRoomGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteMeetingRoomGroupResponse
 func (client *Client) DeleteMeetingRoomGroupWithOptions(groupId *string, request *DeleteMeetingRoomGroupRequest, headers *DeleteMeetingRoomGroupHeaders, runtime *util.RuntimeOptions) (_result *DeleteMeetingRoomGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3775,6 +5787,13 @@ func (client *Client) DeleteMeetingRoomGroupWithOptions(groupId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除会议室分组
+//
+// @param request - DeleteMeetingRoomGroupRequest
+//
+// @return DeleteMeetingRoomGroupResponse
 func (client *Client) DeleteMeetingRoomGroup(groupId *string, request *DeleteMeetingRoomGroupRequest) (_result *DeleteMeetingRoomGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteMeetingRoomGroupHeaders{}
@@ -3787,6 +5806,15 @@ func (client *Client) DeleteMeetingRoomGroup(groupId *string, request *DeleteMee
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询自定义屏幕模板
+//
+// @param headers - QueryDeviceCustomTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDeviceCustomTemplateResponse
 func (client *Client) QueryDeviceCustomTemplateWithOptions(templateId *string, headers *QueryDeviceCustomTemplateHeaders, runtime *util.RuntimeOptions) (_result *QueryDeviceCustomTemplateResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -3820,6 +5848,11 @@ func (client *Client) QueryDeviceCustomTemplateWithOptions(templateId *string, h
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询自定义屏幕模板
+//
+// @return QueryDeviceCustomTemplateResponse
 func (client *Client) QueryDeviceCustomTemplate(templateId *string) (_result *QueryDeviceCustomTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryDeviceCustomTemplateHeaders{}
@@ -3832,6 +5865,15 @@ func (client *Client) QueryDeviceCustomTemplate(templateId *string) (_result *Qu
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询自定义屏幕模板列表
+//
+// @param headers - QueryDeviceCustomTemplateListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDeviceCustomTemplateListResponse
 func (client *Client) QueryDeviceCustomTemplateListWithOptions(headers *QueryDeviceCustomTemplateListHeaders, runtime *util.RuntimeOptions) (_result *QueryDeviceCustomTemplateListResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -3865,6 +5907,11 @@ func (client *Client) QueryDeviceCustomTemplateListWithOptions(headers *QueryDev
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询自定义屏幕模板列表
+//
+// @return QueryDeviceCustomTemplateListResponse
 func (client *Client) QueryDeviceCustomTemplateList() (_result *QueryDeviceCustomTemplateListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryDeviceCustomTemplateListHeaders{}
@@ -3877,6 +5924,17 @@ func (client *Client) QueryDeviceCustomTemplateList() (_result *QueryDeviceCusto
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据设备投屏码查询设备ip
+//
+// @param request - QueryDeviceIpByCodeRequest
+//
+// @param headers - QueryDeviceIpByCodeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDeviceIpByCodeResponse
 func (client *Client) QueryDeviceIpByCodeWithOptions(shareCode *string, request *QueryDeviceIpByCodeRequest, headers *QueryDeviceIpByCodeHeaders, runtime *util.RuntimeOptions) (_result *QueryDeviceIpByCodeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3920,6 +5978,13 @@ func (client *Client) QueryDeviceIpByCodeWithOptions(shareCode *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据设备投屏码查询设备ip
+//
+// @param request - QueryDeviceIpByCodeRequest
+//
+// @return QueryDeviceIpByCodeResponse
 func (client *Client) QueryDeviceIpByCode(shareCode *string, request *QueryDeviceIpByCodeRequest) (_result *QueryDeviceIpByCodeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryDeviceIpByCodeHeaders{}
@@ -3932,6 +5997,17 @@ func (client *Client) QueryDeviceIpByCode(shareCode *string, request *QueryDevic
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询设备属性
+//
+// @param request - QueryDevicePropertiesRequest
+//
+// @param headers - QueryDevicePropertiesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDevicePropertiesResponse
 func (client *Client) QueryDevicePropertiesWithOptions(request *QueryDevicePropertiesRequest, headers *QueryDevicePropertiesHeaders, runtime *util.RuntimeOptions) (_result *QueryDevicePropertiesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3989,6 +6065,13 @@ func (client *Client) QueryDevicePropertiesWithOptions(request *QueryDevicePrope
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询设备属性
+//
+// @param request - QueryDevicePropertiesRequest
+//
+// @return QueryDevicePropertiesResponse
 func (client *Client) QueryDeviceProperties(request *QueryDevicePropertiesRequest) (_result *QueryDevicePropertiesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryDevicePropertiesHeaders{}
@@ -4001,6 +6084,17 @@ func (client *Client) QueryDeviceProperties(request *QueryDevicePropertiesReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询会议室详情
+//
+// @param request - QueryMeetingRoomRequest
+//
+// @param headers - QueryMeetingRoomHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMeetingRoomResponse
 func (client *Client) QueryMeetingRoomWithOptions(roomId *string, request *QueryMeetingRoomRequest, headers *QueryMeetingRoomHeaders, runtime *util.RuntimeOptions) (_result *QueryMeetingRoomResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4044,6 +6138,13 @@ func (client *Client) QueryMeetingRoomWithOptions(roomId *string, request *Query
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询会议室详情
+//
+// @param request - QueryMeetingRoomRequest
+//
+// @return QueryMeetingRoomResponse
 func (client *Client) QueryMeetingRoom(roomId *string, request *QueryMeetingRoomRequest) (_result *QueryMeetingRoomResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryMeetingRoomHeaders{}
@@ -4056,6 +6157,102 @@ func (client *Client) QueryMeetingRoom(roomId *string, request *QueryMeetingRoom
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取会议室IOT配置列表
+//
+// @param request - QueryMeetingRoomControlPanelListRequest
+//
+// @param headers - QueryMeetingRoomControlPanelListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMeetingRoomControlPanelListResponse
+func (client *Client) QueryMeetingRoomControlPanelListWithOptions(request *QueryMeetingRoomControlPanelListRequest, headers *QueryMeetingRoomControlPanelListHeaders, runtime *util.RuntimeOptions) (_result *QueryMeetingRoomControlPanelListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoomId)) {
+		query["roomId"] = request.RoomId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMeetingRoomControlPanelList"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/panels/lists"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryMeetingRoomControlPanelListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取会议室IOT配置列表
+//
+// @param request - QueryMeetingRoomControlPanelListRequest
+//
+// @return QueryMeetingRoomControlPanelListResponse
+func (client *Client) QueryMeetingRoomControlPanelList(request *QueryMeetingRoomControlPanelListRequest) (_result *QueryMeetingRoomControlPanelListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryMeetingRoomControlPanelListHeaders{}
+	_result = &QueryMeetingRoomControlPanelListResponse{}
+	_body, _err := client.QueryMeetingRoomControlPanelListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询设备信息
+//
+// @param request - QueryMeetingRoomDeviceRequest
+//
+// @param headers - QueryMeetingRoomDeviceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMeetingRoomDeviceResponse
 func (client *Client) QueryMeetingRoomDeviceWithOptions(request *QueryMeetingRoomDeviceRequest, headers *QueryMeetingRoomDeviceHeaders, runtime *util.RuntimeOptions) (_result *QueryMeetingRoomDeviceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4107,6 +6304,13 @@ func (client *Client) QueryMeetingRoomDeviceWithOptions(request *QueryMeetingRoo
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询设备信息
+//
+// @param request - QueryMeetingRoomDeviceRequest
+//
+// @return QueryMeetingRoomDeviceResponse
 func (client *Client) QueryMeetingRoomDevice(request *QueryMeetingRoomDeviceRequest) (_result *QueryMeetingRoomDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryMeetingRoomDeviceHeaders{}
@@ -4119,6 +6323,17 @@ func (client *Client) QueryMeetingRoomDevice(request *QueryMeetingRoomDeviceRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询会议室分组信息
+//
+// @param request - QueryMeetingRoomGroupRequest
+//
+// @param headers - QueryMeetingRoomGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMeetingRoomGroupResponse
 func (client *Client) QueryMeetingRoomGroupWithOptions(groupId *string, request *QueryMeetingRoomGroupRequest, headers *QueryMeetingRoomGroupHeaders, runtime *util.RuntimeOptions) (_result *QueryMeetingRoomGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4162,6 +6377,13 @@ func (client *Client) QueryMeetingRoomGroupWithOptions(groupId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询会议室分组信息
+//
+// @param request - QueryMeetingRoomGroupRequest
+//
+// @return QueryMeetingRoomGroupResponse
 func (client *Client) QueryMeetingRoomGroup(groupId *string, request *QueryMeetingRoomGroupRequest) (_result *QueryMeetingRoomGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryMeetingRoomGroupHeaders{}
@@ -4174,6 +6396,17 @@ func (client *Client) QueryMeetingRoomGroup(groupId *string, request *QueryMeeti
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询会议室分组列表
+//
+// @param request - QueryMeetingRoomGroupListRequest
+//
+// @param headers - QueryMeetingRoomGroupListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMeetingRoomGroupListResponse
 func (client *Client) QueryMeetingRoomGroupListWithOptions(request *QueryMeetingRoomGroupListRequest, headers *QueryMeetingRoomGroupListHeaders, runtime *util.RuntimeOptions) (_result *QueryMeetingRoomGroupListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4217,6 +6450,13 @@ func (client *Client) QueryMeetingRoomGroupListWithOptions(request *QueryMeeting
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询会议室分组列表
+//
+// @param request - QueryMeetingRoomGroupListRequest
+//
+// @return QueryMeetingRoomGroupListResponse
 func (client *Client) QueryMeetingRoomGroupList(request *QueryMeetingRoomGroupListRequest) (_result *QueryMeetingRoomGroupListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryMeetingRoomGroupListHeaders{}
@@ -4229,6 +6469,17 @@ func (client *Client) QueryMeetingRoomGroupList(request *QueryMeetingRoomGroupLi
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询会议室列表
+//
+// @param request - QueryMeetingRoomListRequest
+//
+// @param headers - QueryMeetingRoomListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMeetingRoomListResponse
 func (client *Client) QueryMeetingRoomListWithOptions(request *QueryMeetingRoomListRequest, headers *QueryMeetingRoomListHeaders, runtime *util.RuntimeOptions) (_result *QueryMeetingRoomListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4280,6 +6531,13 @@ func (client *Client) QueryMeetingRoomListWithOptions(request *QueryMeetingRoomL
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询会议室列表
+//
+// @param request - QueryMeetingRoomListRequest
+//
+// @return QueryMeetingRoomListResponse
 func (client *Client) QueryMeetingRoomList(request *QueryMeetingRoomListRequest) (_result *QueryMeetingRoomListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryMeetingRoomListHeaders{}
@@ -4292,6 +6550,17 @@ func (client *Client) QueryMeetingRoomList(request *QueryMeetingRoomListRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 取消会议室高级用户模式。
+//
+// @param request - RemoveSuperUserMeetingRoomRequest
+//
+// @param headers - RemoveSuperUserMeetingRoomHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RemoveSuperUserMeetingRoomResponse
 func (client *Client) RemoveSuperUserMeetingRoomWithOptions(request *RemoveSuperUserMeetingRoomRequest, headers *RemoveSuperUserMeetingRoomHeaders, runtime *util.RuntimeOptions) (_result *RemoveSuperUserMeetingRoomResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4339,6 +6608,13 @@ func (client *Client) RemoveSuperUserMeetingRoomWithOptions(request *RemoveSuper
 	return _result, _err
 }
 
+// Summary:
+//
+// 取消会议室高级用户模式。
+//
+// @param request - RemoveSuperUserMeetingRoomRequest
+//
+// @return RemoveSuperUserMeetingRoomResponse
 func (client *Client) RemoveSuperUserMeetingRoom(request *RemoveSuperUserMeetingRoomRequest) (_result *RemoveSuperUserMeetingRoomResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RemoveSuperUserMeetingRoomHeaders{}
@@ -4351,6 +6627,17 @@ func (client *Client) RemoveSuperUserMeetingRoom(request *RemoveSuperUserMeeting
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置会议室成为高级用户模式。只有设置在白名单里的人员或部门，才能呼叫此会议室。
+//
+// @param request - SetSuperUserMeetingRoomRequest
+//
+// @param headers - SetSuperUserMeetingRoomHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetSuperUserMeetingRoomResponse
 func (client *Client) SetSuperUserMeetingRoomWithOptions(request *SetSuperUserMeetingRoomRequest, headers *SetSuperUserMeetingRoomHeaders, runtime *util.RuntimeOptions) (_result *SetSuperUserMeetingRoomResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4406,6 +6693,13 @@ func (client *Client) SetSuperUserMeetingRoomWithOptions(request *SetSuperUserMe
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置会议室成为高级用户模式。只有设置在白名单里的人员或部门，才能呼叫此会议室。
+//
+// @param request - SetSuperUserMeetingRoomRequest
+//
+// @return SetSuperUserMeetingRoomResponse
 func (client *Client) SetSuperUserMeetingRoom(request *SetSuperUserMeetingRoomRequest) (_result *SetSuperUserMeetingRoomResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SetSuperUserMeetingRoomHeaders{}
@@ -4418,6 +6712,17 @@ func (client *Client) SetSuperUserMeetingRoom(request *SetSuperUserMeetingRoomRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新自定义屏幕模板
+//
+// @param request - UpdateDeviceCustomTemplateRequest
+//
+// @param headers - UpdateDeviceCustomTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateDeviceCustomTemplateResponse
 func (client *Client) UpdateDeviceCustomTemplateWithOptions(request *UpdateDeviceCustomTemplateRequest, headers *UpdateDeviceCustomTemplateHeaders, runtime *util.RuntimeOptions) (_result *UpdateDeviceCustomTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4533,6 +6838,13 @@ func (client *Client) UpdateDeviceCustomTemplateWithOptions(request *UpdateDevic
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新自定义屏幕模板
+//
+// @param request - UpdateDeviceCustomTemplateRequest
+//
+// @return UpdateDeviceCustomTemplateResponse
 func (client *Client) UpdateDeviceCustomTemplate(request *UpdateDeviceCustomTemplateRequest) (_result *UpdateDeviceCustomTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateDeviceCustomTemplateHeaders{}
@@ -4545,6 +6857,17 @@ func (client *Client) UpdateDeviceCustomTemplate(request *UpdateDeviceCustomTemp
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新会议室信息
+//
+// @param request - UpdateMeetingRoomRequest
+//
+// @param headers - UpdateMeetingRoomHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateMeetingRoomResponse
 func (client *Client) UpdateMeetingRoomWithOptions(request *UpdateMeetingRoomRequest, headers *UpdateMeetingRoomHeaders, runtime *util.RuntimeOptions) (_result *UpdateMeetingRoomResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4561,6 +6884,10 @@ func (client *Client) UpdateMeetingRoomWithOptions(request *UpdateMeetingRoomReq
 
 	if !tea.BoolValue(util.IsUnset(request.IsvRoomId)) {
 		body["isvRoomId"] = request.IsvRoomId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenReservation)) {
+		body["openReservation"] = request.OpenReservation
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ReservationAuthority)) {
@@ -4632,6 +6959,13 @@ func (client *Client) UpdateMeetingRoomWithOptions(request *UpdateMeetingRoomReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新会议室信息
+//
+// @param request - UpdateMeetingRoomRequest
+//
+// @return UpdateMeetingRoomResponse
 func (client *Client) UpdateMeetingRoom(request *UpdateMeetingRoomRequest) (_result *UpdateMeetingRoomResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateMeetingRoomHeaders{}
@@ -4644,6 +6978,17 @@ func (client *Client) UpdateMeetingRoom(request *UpdateMeetingRoomRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新会议室分组
+//
+// @param request - UpdateMeetingRoomGroupRequest
+//
+// @param headers - UpdateMeetingRoomGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateMeetingRoomGroupResponse
 func (client *Client) UpdateMeetingRoomGroupWithOptions(request *UpdateMeetingRoomGroupRequest, headers *UpdateMeetingRoomGroupHeaders, runtime *util.RuntimeOptions) (_result *UpdateMeetingRoomGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4695,6 +7040,13 @@ func (client *Client) UpdateMeetingRoomGroupWithOptions(request *UpdateMeetingRo
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新会议室分组
+//
+// @param request - UpdateMeetingRoomGroupRequest
+//
+// @return UpdateMeetingRoomGroupResponse
 func (client *Client) UpdateMeetingRoomGroup(request *UpdateMeetingRoomGroupRequest) (_result *UpdateMeetingRoomGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateMeetingRoomGroupHeaders{}

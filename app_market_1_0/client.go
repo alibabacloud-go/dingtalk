@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package app_market_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,8 +33,10 @@ func (s *CreateAppGoodsServiceConversationHeaders) SetXAcsDingtalkAccessToken(v 
 }
 
 type CreateAppGoodsServiceConversationRequest struct {
+	// This parameter is required.
 	IsvUserId *string `json:"isvUserId,omitempty" xml:"isvUserId,omitempty"`
-	OrderId   *int64  `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	// This parameter is required.
+	OrderId *int64 `json:"orderId,omitempty" xml:"orderId,omitempty"`
 }
 
 func (s CreateAppGoodsServiceConversationRequest) String() string {
@@ -135,8 +133,23 @@ func (s *GetCoolAppAccessStatusHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetCoolAppAccessStatusRequest struct {
-	AuthCode        *string `json:"authCode,omitempty" xml:"authCode,omitempty"`
-	CoolAppCode     *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// b195bb70dde337aabf3bcc020bf6250c
+	AuthCode *string `json:"authCode,omitempty" xml:"authCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// COOLAPP-1-1019F4BBC7D6212C5861000T
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cid5uZRmigtVWpjcKPLrp5Pag==
 	EncFieldBizCode *string `json:"encFieldBizCode,omitempty" xml:"encFieldBizCode,omitempty"`
 }
 
@@ -235,8 +248,9 @@ func (s *GetInAppSkuUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetInAppSk
 type GetInAppSkuUrlRequest struct {
 	CallbackPage *string `json:"callbackPage,omitempty" xml:"callbackPage,omitempty"`
 	ExtendParam  *string `json:"extendParam,omitempty" xml:"extendParam,omitempty"`
-	GoodsCode    *string `json:"goodsCode,omitempty" xml:"goodsCode,omitempty"`
-	ItemCode     *string `json:"itemCode,omitempty" xml:"itemCode,omitempty"`
+	// This parameter is required.
+	GoodsCode *string `json:"goodsCode,omitempty" xml:"goodsCode,omitempty"`
+	ItemCode  *string `json:"itemCode,omitempty" xml:"itemCode,omitempty"`
 }
 
 func (s GetInAppSkuUrlRequest) String() string {
@@ -371,6 +385,9 @@ func (s *GetPersonalExperienceInfoResponseBody) SetResult(v *GetPersonalExperien
 }
 
 type GetPersonalExperienceInfoResponseBodyResult struct {
+	// example:
+	//
+	// ding1234
 	MainCorpId *string `json:"mainCorpId,omitempty" xml:"mainCorpId,omitempty"`
 }
 
@@ -416,6 +433,110 @@ func (s *GetPersonalExperienceInfoResponse) SetBody(v *GetPersonalExperienceInfo
 	return s
 }
 
+type NotifyOnCrmDataChangeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s NotifyOnCrmDataChangeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s NotifyOnCrmDataChangeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *NotifyOnCrmDataChangeHeaders) SetCommonHeaders(v map[string]*string) *NotifyOnCrmDataChangeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *NotifyOnCrmDataChangeHeaders) SetXAcsDingtalkAccessToken(v string) *NotifyOnCrmDataChangeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type NotifyOnCrmDataChangeRequest struct {
+	DataId    *string            `json:"dataId,omitempty" xml:"dataId,omitempty"`
+	Extension map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
+	Operate   *string            `json:"operate,omitempty" xml:"operate,omitempty"`
+	Type      *string            `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s NotifyOnCrmDataChangeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s NotifyOnCrmDataChangeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *NotifyOnCrmDataChangeRequest) SetDataId(v string) *NotifyOnCrmDataChangeRequest {
+	s.DataId = &v
+	return s
+}
+
+func (s *NotifyOnCrmDataChangeRequest) SetExtension(v map[string]*string) *NotifyOnCrmDataChangeRequest {
+	s.Extension = v
+	return s
+}
+
+func (s *NotifyOnCrmDataChangeRequest) SetOperate(v string) *NotifyOnCrmDataChangeRequest {
+	s.Operate = &v
+	return s
+}
+
+func (s *NotifyOnCrmDataChangeRequest) SetType(v string) *NotifyOnCrmDataChangeRequest {
+	s.Type = &v
+	return s
+}
+
+type NotifyOnCrmDataChangeResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s NotifyOnCrmDataChangeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s NotifyOnCrmDataChangeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *NotifyOnCrmDataChangeResponseBody) SetSuccess(v bool) *NotifyOnCrmDataChangeResponseBody {
+	s.Success = &v
+	return s
+}
+
+type NotifyOnCrmDataChangeResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *NotifyOnCrmDataChangeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s NotifyOnCrmDataChangeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s NotifyOnCrmDataChangeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *NotifyOnCrmDataChangeResponse) SetHeaders(v map[string]*string) *NotifyOnCrmDataChangeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *NotifyOnCrmDataChangeResponse) SetStatusCode(v int32) *NotifyOnCrmDataChangeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *NotifyOnCrmDataChangeResponse) SetBody(v *NotifyOnCrmDataChangeResponseBody) *NotifyOnCrmDataChangeResponse {
+	s.Body = v
+	return s
+}
+
 type QueryMarketOrderHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -440,20 +561,75 @@ func (s *QueryMarketOrderHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMar
 }
 
 type QueryMarketOrderResponseBody struct {
-	BizOrderId        *int64  `json:"bizOrderId,omitempty" xml:"bizOrderId,omitempty"`
-	CorpId            *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CreateTimestamp   *int64  `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
-	EndTimestamp      *int64  `json:"endTimestamp,omitempty" xml:"endTimestamp,omitempty"`
-	GoodsCode         *string `json:"goodsCode,omitempty" xml:"goodsCode,omitempty"`
-	GoodsName         *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	InAppOrder        *bool   `json:"inAppOrder,omitempty" xml:"inAppOrder,omitempty"`
-	ItemCode          *string `json:"itemCode,omitempty" xml:"itemCode,omitempty"`
-	ItemName          *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
-	PaidTimestamp     *int64  `json:"paidTimestamp,omitempty" xml:"paidTimestamp,omitempty"`
-	Quantity          *int64  `json:"quantity,omitempty" xml:"quantity,omitempty"`
-	StartTimestamp    *int64  `json:"startTimestamp,omitempty" xml:"startTimestamp,omitempty"`
-	Status            *int64  `json:"status,omitempty" xml:"status,omitempty"`
-	TotalActualPayFee *int64  `json:"totalActualPayFee,omitempty" xml:"totalActualPayFee,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2092310001312
+	BizOrderId *int64 `json:"bizOrderId,omitempty" xml:"bizOrderId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding23219001
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10003298001
+	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	EndTimestamp    *int64 `json:"endTimestamp,omitempty" xml:"endTimestamp,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FW_GOODS_12319001
+	GoodsCode *string `json:"goodsCode,omitempty" xml:"goodsCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试商品001
+	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	// This parameter is required.
+	InAppOrder *bool `json:"inAppOrder,omitempty" xml:"inAppOrder,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FW_GOODS_31001
+	ItemCode *string `json:"itemCode,omitempty" xml:"itemCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试规格001
+	ItemName *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
+	// example:
+	//
+	// 10003299001
+	PaidTimestamp *int64 `json:"paidTimestamp,omitempty" xml:"paidTimestamp,omitempty"`
+	// example:
+	//
+	// 1
+	Quantity *int64 `json:"quantity,omitempty" xml:"quantity,omitempty"`
+	// example:
+	//
+	// 10003298003
+	StartTimestamp *int64 `json:"startTimestamp,omitempty" xml:"startTimestamp,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Status *int64 `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	TotalActualPayFee *int64 `json:"totalActualPayFee,omitempty" xml:"totalActualPayFee,omitempty"`
 }
 
 func (s QueryMarketOrderResponseBody) String() string {
@@ -587,10 +763,30 @@ func (s *UserTaskReportHeaders) SetXAcsDingtalkAccessToken(v string) *UserTaskRe
 }
 
 type UserTaskReportRequest struct {
-	BizNo       *string `json:"bizNo,omitempty" xml:"bizNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// biz1231231231abcd
+	BizNo *string `json:"bizNo,omitempty" xml:"bizNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2020-12-12 12:00:00
 	OperateDate *string `json:"operateDate,omitempty" xml:"operateDate,omitempty"`
-	TaskTag     *string `json:"taskTag,omitempty" xml:"taskTag,omitempty"`
-	Userid      *string `json:"userid,omitempty" xml:"userid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// task-create
+	TaskTag *string `json:"taskTag,omitempty" xml:"taskTag,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2312
+	Userid *string `json:"userid,omitempty" xml:"userid,omitempty"`
 }
 
 func (s UserTaskReportRequest) String() string {
@@ -665,12 +861,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -679,6 +875,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 创建应用商品服务群
+//
+// @param request - CreateAppGoodsServiceConversationRequest
+//
+// @param headers - CreateAppGoodsServiceConversationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateAppGoodsServiceConversationResponse
 func (client *Client) CreateAppGoodsServiceConversationWithOptions(request *CreateAppGoodsServiceConversationRequest, headers *CreateAppGoodsServiceConversationHeaders, runtime *util.RuntimeOptions) (_result *CreateAppGoodsServiceConversationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -726,6 +933,13 @@ func (client *Client) CreateAppGoodsServiceConversationWithOptions(request *Crea
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建应用商品服务群
+//
+// @param request - CreateAppGoodsServiceConversationRequest
+//
+// @return CreateAppGoodsServiceConversationResponse
 func (client *Client) CreateAppGoodsServiceConversation(request *CreateAppGoodsServiceConversationRequest) (_result *CreateAppGoodsServiceConversationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateAppGoodsServiceConversationHeaders{}
@@ -738,6 +952,17 @@ func (client *Client) CreateAppGoodsServiceConversation(request *CreateAppGoodsS
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取酷应用访问状态
+//
+// @param request - GetCoolAppAccessStatusRequest
+//
+// @param headers - GetCoolAppAccessStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCoolAppAccessStatusResponse
 func (client *Client) GetCoolAppAccessStatusWithOptions(request *GetCoolAppAccessStatusRequest, headers *GetCoolAppAccessStatusHeaders, runtime *util.RuntimeOptions) (_result *GetCoolAppAccessStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -789,6 +1014,13 @@ func (client *Client) GetCoolAppAccessStatusWithOptions(request *GetCoolAppAcces
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取酷应用访问状态
+//
+// @param request - GetCoolAppAccessStatusRequest
+//
+// @return GetCoolAppAccessStatusResponse
 func (client *Client) GetCoolAppAccessStatus(request *GetCoolAppAccessStatusRequest) (_result *GetCoolAppAccessStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCoolAppAccessStatusHeaders{}
@@ -801,6 +1033,17 @@ func (client *Client) GetCoolAppAccessStatus(request *GetCoolAppAccessStatusRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取内购商品SKU页面地址
+//
+// @param request - GetInAppSkuUrlRequest
+//
+// @param headers - GetInAppSkuUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetInAppSkuUrlResponse
 func (client *Client) GetInAppSkuUrlWithOptions(request *GetInAppSkuUrlRequest, headers *GetInAppSkuUrlHeaders, runtime *util.RuntimeOptions) (_result *GetInAppSkuUrlResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -856,6 +1099,13 @@ func (client *Client) GetInAppSkuUrlWithOptions(request *GetInAppSkuUrlRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取内购商品SKU页面地址
+//
+// @param request - GetInAppSkuUrlRequest
+//
+// @return GetInAppSkuUrlResponse
 func (client *Client) GetInAppSkuUrl(request *GetInAppSkuUrlRequest) (_result *GetInAppSkuUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetInAppSkuUrlHeaders{}
@@ -868,6 +1118,17 @@ func (client *Client) GetInAppSkuUrl(request *GetInAppSkuUrlRequest) (_result *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取个人体验相关信息
+//
+// @param request - GetPersonalExperienceInfoRequest
+//
+// @param headers - GetPersonalExperienceInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPersonalExperienceInfoResponse
 func (client *Client) GetPersonalExperienceInfoWithOptions(request *GetPersonalExperienceInfoRequest, headers *GetPersonalExperienceInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPersonalExperienceInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -911,6 +1172,13 @@ func (client *Client) GetPersonalExperienceInfoWithOptions(request *GetPersonalE
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取个人体验相关信息
+//
+// @param request - GetPersonalExperienceInfoRequest
+//
+// @return GetPersonalExperienceInfoResponse
 func (client *Client) GetPersonalExperienceInfo(request *GetPersonalExperienceInfoRequest) (_result *GetPersonalExperienceInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPersonalExperienceInfoHeaders{}
@@ -923,6 +1191,100 @@ func (client *Client) GetPersonalExperienceInfo(request *GetPersonalExperienceIn
 	return _result, _err
 }
 
+// Summary:
+//
+// 销售助理CRM数据变更回调通知
+//
+// @param request - NotifyOnCrmDataChangeRequest
+//
+// @param headers - NotifyOnCrmDataChangeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return NotifyOnCrmDataChangeResponse
+func (client *Client) NotifyOnCrmDataChangeWithOptions(request *NotifyOnCrmDataChangeRequest, headers *NotifyOnCrmDataChangeHeaders, runtime *util.RuntimeOptions) (_result *NotifyOnCrmDataChangeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DataId)) {
+		body["dataId"] = request.DataId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extension)) {
+		body["extension"] = request.Extension
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operate)) {
+		body["operate"] = request.Operate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("NotifyOnCrmDataChange"),
+		Version:     tea.String("appMarket_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/appMarket/saleAssistants/crmDataChanges/notify"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &NotifyOnCrmDataChangeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 销售助理CRM数据变更回调通知
+//
+// @param request - NotifyOnCrmDataChangeRequest
+//
+// @return NotifyOnCrmDataChangeResponse
+func (client *Client) NotifyOnCrmDataChange(request *NotifyOnCrmDataChangeRequest) (_result *NotifyOnCrmDataChangeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &NotifyOnCrmDataChangeHeaders{}
+	_result = &NotifyOnCrmDataChangeResponse{}
+	_body, _err := client.NotifyOnCrmDataChangeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 应用市场订单查询
+//
+// @param headers - QueryMarketOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMarketOrderResponse
 func (client *Client) QueryMarketOrderWithOptions(orderId *string, headers *QueryMarketOrderHeaders, runtime *util.RuntimeOptions) (_result *QueryMarketOrderResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -956,6 +1318,11 @@ func (client *Client) QueryMarketOrderWithOptions(orderId *string, headers *Quer
 	return _result, _err
 }
 
+// Summary:
+//
+// 应用市场订单查询
+//
+// @return QueryMarketOrderResponse
 func (client *Client) QueryMarketOrder(orderId *string) (_result *QueryMarketOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryMarketOrderHeaders{}
@@ -968,6 +1335,17 @@ func (client *Client) QueryMarketOrder(orderId *string) (_result *QueryMarketOrd
 	return _result, _err
 }
 
+// Summary:
+//
+// app内用户操作任务同步
+//
+// @param request - UserTaskReportRequest
+//
+// @param headers - UserTaskReportHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UserTaskReportResponse
 func (client *Client) UserTaskReportWithOptions(request *UserTaskReportRequest, headers *UserTaskReportHeaders, runtime *util.RuntimeOptions) (_result *UserTaskReportResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1023,6 +1401,13 @@ func (client *Client) UserTaskReportWithOptions(request *UserTaskReportRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// app内用户操作任务同步
+//
+// @param request - UserTaskReportRequest
+//
+// @return UserTaskReportResponse
 func (client *Client) UserTaskReport(request *UserTaskReportRequest) (_result *UserTaskReportResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UserTaskReportHeaders{}

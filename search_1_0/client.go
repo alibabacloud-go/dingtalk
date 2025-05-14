@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package search_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,6 +33,7 @@ func (s *BatchInsertSearchItemHeaders) SetXAcsDingtalkAccessToken(v string) *Bat
 }
 
 type BatchInsertSearchItemRequest struct {
+	// This parameter is required.
 	SearchItemModels []*BatchInsertSearchItemRequestSearchItemModels `json:"searchItemModels,omitempty" xml:"searchItemModels,omitempty" type:"Repeated"`
 }
 
@@ -54,14 +51,39 @@ func (s *BatchInsertSearchItemRequest) SetSearchItemModels(v []*BatchInsertSearc
 }
 
 type BatchInsertSearchItemRequestSearchItemModels struct {
-	Footer    *string `json:"footer,omitempty" xml:"footer,omitempty"`
-	Icon      *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	ItemId    *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	// example:
+	//
+	// 四大名著
+	Footer *string `json:"footer,omitempty" xml:"footer,omitempty"`
+	Icon   *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1111
+	ItemId *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	// example:
+	//
+	// www.baidu.com
 	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
-	PcUrl     *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
-	Summary   *string `json:"summary,omitempty" xml:"summary,omitempty"`
-	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
-	Url       *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// www.baidu.com
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// example:
+	//
+	// 中国古代章回体长篇小说
+	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 红楼梦
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// www.baidu.com
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s BatchInsertSearchItemRequestSearchItemModels) String() string {
@@ -160,11 +182,28 @@ func (s *CreateSearchTabHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSea
 
 type CreateSearchTabRequest struct {
 	DarkIcon *string `json:"darkIcon,omitempty" xml:"darkIcon,omitempty"`
-	Icon     *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	// if can be null:
+	// false
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 书籍
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	Priority *int32  `json:"priority,omitempty" xml:"priority,omitempty"`
 	Source   *string `json:"source,omitempty" xml:"source,omitempty"`
-	Status   *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s CreateSearchTabRequest) String() string {
@@ -206,6 +245,11 @@ func (s *CreateSearchTabRequest) SetStatus(v int32) *CreateSearchTabRequest {
 }
 
 type CreateSearchTabResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3333
 	TabId *int32 `json:"tabId,omitempty" xml:"tabId,omitempty"`
 }
 
@@ -367,17 +411,68 @@ func (s *GetSearchItemHeaders) SetXAcsDingtalkAccessToken(v string) *GetSearchIt
 }
 
 type GetSearchItemResponseBody struct {
-	Footer      *string `json:"footer,omitempty" xml:"footer,omitempty"`
-	GmtCreate   *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 四大名著
+	Footer *string `json:"footer,omitempty" xml:"footer,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-09-17T19:43Z
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-09-17T19:43Z
 	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	Icon        *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	ItemId      *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
-	MobileUrl   *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
-	PcUrl       *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
-	Summary     *string `json:"summary,omitempty" xml:"summary,omitempty"`
-	TabId       *int32  `json:"tabId,omitempty" xml:"tabId,omitempty"`
-	Title       *string `json:"title,omitempty" xml:"title,omitempty"`
-	Url         *string `json:"url,omitempty" xml:"url,omitempty"`
+	// This parameter is required.
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1111
+	ItemId *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// www.baidu.com
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// www.baidu.com
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 中国古代章回体长篇小说
+	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3333
+	TabId *int32 `json:"tabId,omitempty" xml:"tabId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 红楼梦
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// www.baidu.com
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s GetSearchItemResponseBody) String() string {
@@ -496,9 +591,24 @@ func (s *GetSearchItemsByKeyWordHeaders) SetXAcsDingtalkAccessToken(v string) *G
 }
 
 type GetSearchItemsByKeyWordRequest struct {
-	KeyWord    *string `json:"keyWord,omitempty" xml:"keyWord,omitempty"`
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 诺贝尔奖
+	KeyWord *string `json:"keyWord,omitempty" xml:"keyWord,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GetSearchItemsByKeyWordRequest) String() string {
@@ -525,9 +635,16 @@ func (s *GetSearchItemsByKeyWordRequest) SetNextToken(v string) *GetSearchItemsB
 }
 
 type GetSearchItemsByKeyWordResponseBody struct {
-	NextToken  *string                                     `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	TotalCount *int32                                      `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
-	Value      []*GetSearchItemsByKeyWordResponseBodyValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	// This parameter is required.
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	Value []*GetSearchItemsByKeyWordResponseBodyValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
 func (s GetSearchItemsByKeyWordResponseBody) String() string {
@@ -554,17 +671,68 @@ func (s *GetSearchItemsByKeyWordResponseBody) SetValue(v []*GetSearchItemsByKeyW
 }
 
 type GetSearchItemsByKeyWordResponseBodyValue struct {
-	Footer      *string `json:"footer,omitempty" xml:"footer,omitempty"`
-	GmtCreate   *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 四大名著
+	Footer *string `json:"footer,omitempty" xml:"footer,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-09-17T19:43Z
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-09-17T19:43Z
 	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	Icon        *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	ItemId      *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
-	MobileUrl   *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
-	PcUrl       *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
-	Summary     *string `json:"summary,omitempty" xml:"summary,omitempty"`
-	TabId       *int32  `json:"tabId,omitempty" xml:"tabId,omitempty"`
-	Title       *string `json:"title,omitempty" xml:"title,omitempty"`
-	Url         *string `json:"url,omitempty" xml:"url,omitempty"`
+	// This parameter is required.
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1111
+	ItemId *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// www.baidu.com
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// www.baidu.com
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 中国古代章回体长篇小说
+	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3333
+	TabId *int32 `json:"tabId,omitempty" xml:"tabId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 红楼梦
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// www.baidu.com
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s GetSearchItemsByKeyWordResponseBodyValue) String() string {
@@ -683,15 +851,45 @@ func (s *GetSearchTabHeaders) SetXAcsDingtalkAccessToken(v string) *GetSearchTab
 }
 
 type GetSearchTabResponseBody struct {
-	DarkIcon    *string `json:"darkIcon,omitempty" xml:"darkIcon,omitempty"`
-	GmtCreate   *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	DarkIcon *string `json:"darkIcon,omitempty" xml:"darkIcon,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-09-17T19:43Z
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-09-17T19:43Z
 	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
 	Icon        *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
-	Priority    *int32  `json:"priority,omitempty" xml:"priority,omitempty"`
-	Source      *string `json:"source,omitempty" xml:"source,omitempty"`
-	Status      *int32  `json:"status,omitempty" xml:"status,omitempty"`
-	TabId       *int32  `json:"tabId,omitempty" xml:"tabId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 专辑
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Priority *int32  `json:"priority,omitempty" xml:"priority,omitempty"`
+	Source   *string `json:"source,omitempty" xml:"source,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3333
+	TabId *int32 `json:"tabId,omitempty" xml:"tabId,omitempty"`
 }
 
 func (s GetSearchTabResponseBody) String() string {
@@ -800,14 +998,39 @@ func (s *InsertSearchItemHeaders) SetXAcsDingtalkAccessToken(v string) *InsertSe
 }
 
 type InsertSearchItemRequest struct {
-	Footer    *string `json:"footer,omitempty" xml:"footer,omitempty"`
-	Icon      *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	ItemId    *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	// example:
+	//
+	// 四大名著
+	Footer *string `json:"footer,omitempty" xml:"footer,omitempty"`
+	Icon   *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1111
+	ItemId *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	// example:
+	//
+	// www.baidu.com
 	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
-	PcUrl     *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
-	Summary   *string `json:"summary,omitempty" xml:"summary,omitempty"`
-	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
-	Url       *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// www.baidu.com
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// example:
+	//
+	// 中国古代章回体长篇小说
+	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 红楼梦
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// www.baidu.com
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s InsertSearchItemRequest) String() string {
@@ -905,6 +1128,7 @@ func (s *ListSearchTabsByOrgIdHeaders) SetXAcsDingtalkAccessToken(v string) *Lis
 }
 
 type ListSearchTabsByOrgIdResponseBody struct {
+	// This parameter is required.
 	SearchTabResult []*ListSearchTabsByOrgIdResponseBodySearchTabResult `json:"searchTabResult,omitempty" xml:"searchTabResult,omitempty" type:"Repeated"`
 }
 
@@ -922,15 +1146,45 @@ func (s *ListSearchTabsByOrgIdResponseBody) SetSearchTabResult(v []*ListSearchTa
 }
 
 type ListSearchTabsByOrgIdResponseBodySearchTabResult struct {
-	DarkIcon    *string `json:"darkIcon,omitempty" xml:"darkIcon,omitempty"`
-	GmtCreate   *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	DarkIcon *string `json:"darkIcon,omitempty" xml:"darkIcon,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-09-17T19:43Z
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-09-17T19:43Z
 	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
 	Icon        *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
-	Priority    *int32  `json:"priority,omitempty" xml:"priority,omitempty"`
-	Source      *string `json:"source,omitempty" xml:"source,omitempty"`
-	Status      *int32  `json:"status,omitempty" xml:"status,omitempty"`
-	TabId       *int32  `json:"tabId,omitempty" xml:"tabId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 专辑
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Priority *int32  `json:"priority,omitempty" xml:"priority,omitempty"`
+	Source   *string `json:"source,omitempty" xml:"source,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3333
+	TabId *int32 `json:"tabId,omitempty" xml:"tabId,omitempty"`
 }
 
 func (s ListSearchTabsByOrgIdResponseBodySearchTabResult) String() string {
@@ -1040,11 +1294,28 @@ func (s *UpdateSearchTabHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateSea
 
 type UpdateSearchTabRequest struct {
 	DarkIcon *string `json:"darkIcon,omitempty" xml:"darkIcon,omitempty"`
-	Icon     *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	// if can be null:
+	// false
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 专辑
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	Priority *int32  `json:"priority,omitempty" xml:"priority,omitempty"`
 	Source   *string `json:"source,omitempty" xml:"source,omitempty"`
-	Status   *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s UpdateSearchTabRequest) String() string {
@@ -1123,12 +1394,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -1137,6 +1408,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 为指定的数据源批量添加数据项
+//
+// @param request - BatchInsertSearchItemRequest
+//
+// @param headers - BatchInsertSearchItemHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchInsertSearchItemResponse
 func (client *Client) BatchInsertSearchItemWithOptions(tabId *string, request *BatchInsertSearchItemRequest, headers *BatchInsertSearchItemHeaders, runtime *util.RuntimeOptions) (_result *BatchInsertSearchItemResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1180,6 +1462,13 @@ func (client *Client) BatchInsertSearchItemWithOptions(tabId *string, request *B
 	return _result, _err
 }
 
+// Summary:
+//
+// 为指定的数据源批量添加数据项
+//
+// @param request - BatchInsertSearchItemRequest
+//
+// @return BatchInsertSearchItemResponse
 func (client *Client) BatchInsertSearchItem(tabId *string, request *BatchInsertSearchItemRequest) (_result *BatchInsertSearchItemResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchInsertSearchItemHeaders{}
@@ -1192,6 +1481,17 @@ func (client *Client) BatchInsertSearchItem(tabId *string, request *BatchInsertS
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建搜索数据源
+//
+// @param request - CreateSearchTabRequest
+//
+// @param headers - CreateSearchTabHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateSearchTabResponse
 func (client *Client) CreateSearchTabWithOptions(request *CreateSearchTabRequest, headers *CreateSearchTabHeaders, runtime *util.RuntimeOptions) (_result *CreateSearchTabResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1255,6 +1555,13 @@ func (client *Client) CreateSearchTabWithOptions(request *CreateSearchTabRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建搜索数据源
+//
+// @param request - CreateSearchTabRequest
+//
+// @return CreateSearchTabResponse
 func (client *Client) CreateSearchTab(request *CreateSearchTabRequest) (_result *CreateSearchTabResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateSearchTabHeaders{}
@@ -1267,6 +1574,15 @@ func (client *Client) CreateSearchTab(request *CreateSearchTabRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 从指定的数据源中删除一条数据项
+//
+// @param headers - DeleteSearchItemHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteSearchItemResponse
 func (client *Client) DeleteSearchItemWithOptions(tabId *string, itemId *string, headers *DeleteSearchItemHeaders, runtime *util.RuntimeOptions) (_result *DeleteSearchItemResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -1300,6 +1616,11 @@ func (client *Client) DeleteSearchItemWithOptions(tabId *string, itemId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 从指定的数据源中删除一条数据项
+//
+// @return DeleteSearchItemResponse
 func (client *Client) DeleteSearchItem(tabId *string, itemId *string) (_result *DeleteSearchItemResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteSearchItemHeaders{}
@@ -1312,6 +1633,15 @@ func (client *Client) DeleteSearchItem(tabId *string, itemId *string) (_result *
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除搜索数据源
+//
+// @param headers - DeleteSearchTabHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteSearchTabResponse
 func (client *Client) DeleteSearchTabWithOptions(tabId *string, headers *DeleteSearchTabHeaders, runtime *util.RuntimeOptions) (_result *DeleteSearchTabResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -1345,6 +1675,11 @@ func (client *Client) DeleteSearchTabWithOptions(tabId *string, headers *DeleteS
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除搜索数据源
+//
+// @return DeleteSearchTabResponse
 func (client *Client) DeleteSearchTab(tabId *string) (_result *DeleteSearchTabResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteSearchTabHeaders{}
@@ -1357,6 +1692,15 @@ func (client *Client) DeleteSearchTab(tabId *string) (_result *DeleteSearchTabRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取指定数据源中的一条数据项
+//
+// @param headers - GetSearchItemHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSearchItemResponse
 func (client *Client) GetSearchItemWithOptions(tabId *string, itemId *string, headers *GetSearchItemHeaders, runtime *util.RuntimeOptions) (_result *GetSearchItemResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -1390,6 +1734,11 @@ func (client *Client) GetSearchItemWithOptions(tabId *string, itemId *string, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取指定数据源中的一条数据项
+//
+// @return GetSearchItemResponse
 func (client *Client) GetSearchItem(tabId *string, itemId *string) (_result *GetSearchItemResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSearchItemHeaders{}
@@ -1402,6 +1751,17 @@ func (client *Client) GetSearchItem(tabId *string, itemId *string) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据搜索关键词获取相关数据项
+//
+// @param request - GetSearchItemsByKeyWordRequest
+//
+// @param headers - GetSearchItemsByKeyWordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSearchItemsByKeyWordResponse
 func (client *Client) GetSearchItemsByKeyWordWithOptions(tabId *string, request *GetSearchItemsByKeyWordRequest, headers *GetSearchItemsByKeyWordHeaders, runtime *util.RuntimeOptions) (_result *GetSearchItemsByKeyWordResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1453,6 +1813,13 @@ func (client *Client) GetSearchItemsByKeyWordWithOptions(tabId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据搜索关键词获取相关数据项
+//
+// @param request - GetSearchItemsByKeyWordRequest
+//
+// @return GetSearchItemsByKeyWordResponse
 func (client *Client) GetSearchItemsByKeyWord(tabId *string, request *GetSearchItemsByKeyWordRequest) (_result *GetSearchItemsByKeyWordResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSearchItemsByKeyWordHeaders{}
@@ -1465,6 +1832,15 @@ func (client *Client) GetSearchItemsByKeyWord(tabId *string, request *GetSearchI
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取搜索数据源
+//
+// @param headers - GetSearchTabHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSearchTabResponse
 func (client *Client) GetSearchTabWithOptions(tabId *string, headers *GetSearchTabHeaders, runtime *util.RuntimeOptions) (_result *GetSearchTabResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -1498,6 +1874,11 @@ func (client *Client) GetSearchTabWithOptions(tabId *string, headers *GetSearchT
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取搜索数据源
+//
+// @return GetSearchTabResponse
 func (client *Client) GetSearchTab(tabId *string) (_result *GetSearchTabResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSearchTabHeaders{}
@@ -1510,6 +1891,17 @@ func (client *Client) GetSearchTab(tabId *string) (_result *GetSearchTabResponse
 	return _result, _err
 }
 
+// Summary:
+//
+// 为指定的数据源添加一条数据项
+//
+// @param request - InsertSearchItemRequest
+//
+// @param headers - InsertSearchItemHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InsertSearchItemResponse
 func (client *Client) InsertSearchItemWithOptions(tabId *string, request *InsertSearchItemRequest, headers *InsertSearchItemHeaders, runtime *util.RuntimeOptions) (_result *InsertSearchItemResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1581,6 +1973,13 @@ func (client *Client) InsertSearchItemWithOptions(tabId *string, request *Insert
 	return _result, _err
 }
 
+// Summary:
+//
+// 为指定的数据源添加一条数据项
+//
+// @param request - InsertSearchItemRequest
+//
+// @return InsertSearchItemResponse
 func (client *Client) InsertSearchItem(tabId *string, request *InsertSearchItemRequest) (_result *InsertSearchItemResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InsertSearchItemHeaders{}
@@ -1593,6 +1992,15 @@ func (client *Client) InsertSearchItem(tabId *string, request *InsertSearchItemR
 	return _result, _err
 }
 
+// Summary:
+//
+// 列出企业所有的搜索数据源
+//
+// @param headers - ListSearchTabsByOrgIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListSearchTabsByOrgIdResponse
 func (client *Client) ListSearchTabsByOrgIdWithOptions(headers *ListSearchTabsByOrgIdHeaders, runtime *util.RuntimeOptions) (_result *ListSearchTabsByOrgIdResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -1626,6 +2034,11 @@ func (client *Client) ListSearchTabsByOrgIdWithOptions(headers *ListSearchTabsBy
 	return _result, _err
 }
 
+// Summary:
+//
+// 列出企业所有的搜索数据源
+//
+// @return ListSearchTabsByOrgIdResponse
 func (client *Client) ListSearchTabsByOrgId() (_result *ListSearchTabsByOrgIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListSearchTabsByOrgIdHeaders{}
@@ -1638,6 +2051,17 @@ func (client *Client) ListSearchTabsByOrgId() (_result *ListSearchTabsByOrgIdRes
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新搜索数据源
+//
+// @param request - UpdateSearchTabRequest
+//
+// @param headers - UpdateSearchTabHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateSearchTabResponse
 func (client *Client) UpdateSearchTabWithOptions(tabId *string, request *UpdateSearchTabRequest, headers *UpdateSearchTabHeaders, runtime *util.RuntimeOptions) (_result *UpdateSearchTabResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1701,6 +2125,13 @@ func (client *Client) UpdateSearchTabWithOptions(tabId *string, request *UpdateS
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新搜索数据源
+//
+// @param request - UpdateSearchTabRequest
+//
+// @return UpdateSearchTabResponse
 func (client *Client) UpdateSearchTab(tabId *string, request *UpdateSearchTabRequest) (_result *UpdateSearchTabResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateSearchTabHeaders{}

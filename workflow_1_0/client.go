@@ -1,20 +1,26 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package workflow_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
 type AvaliableTemplate struct {
-	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 出差申请
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-abcd
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -37,9 +43,15 @@ func (s *AvaliableTemplate) SetProcessCode(v string) *AvaliableTemplate {
 }
 
 type FormComponent struct {
-	Children      []*FormComponent    `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
-	ComponentType *string             `json:"componentType,omitempty" xml:"componentType,omitempty"`
-	Props         *FormComponentProps `json:"props,omitempty" xml:"props,omitempty"`
+	Children []*FormComponent `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField
+	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	// This parameter is required.
+	Props *FormComponentProps `json:"props,omitempty" xml:"props,omitempty"`
 }
 
 func (s FormComponent) String() string {
@@ -66,40 +78,136 @@ func (s *FormComponent) SetProps(v *FormComponentProps) *FormComponent {
 }
 
 type FormComponentProps struct {
-	ActionName         *string                        `json:"actionName,omitempty" xml:"actionName,omitempty"`
-	AddressModel       *string                        `json:"addressModel,omitempty" xml:"addressModel,omitempty"`
-	Align              *string                        `json:"align,omitempty" xml:"align,omitempty"`
-	AsyncCondition     *bool                          `json:"asyncCondition,omitempty" xml:"asyncCondition,omitempty"`
-	AvailableTemplates []*AvaliableTemplate           `json:"availableTemplates,omitempty" xml:"availableTemplates,omitempty" type:"Repeated"`
-	BizAlias           *string                        `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	BizType            *string                        `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Choice             *string                        `json:"choice,omitempty" xml:"choice,omitempty"`
-	CommonBizType      *string                        `json:"commonBizType,omitempty" xml:"commonBizType,omitempty"`
-	ComponentId        *string                        `json:"componentId,omitempty" xml:"componentId,omitempty"`
-	Content            *string                        `json:"content,omitempty" xml:"content,omitempty"`
-	DataSource         *FormDataSource                `json:"dataSource,omitempty" xml:"dataSource,omitempty"`
-	Disabled           *bool                          `json:"disabled,omitempty" xml:"disabled,omitempty"`
-	Duration           *bool                          `json:"duration,omitempty" xml:"duration,omitempty"`
-	DurationLabel      *string                        `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
-	Format             *string                        `json:"format,omitempty" xml:"format,omitempty"`
-	Formula            *string                        `json:"formula,omitempty" xml:"formula,omitempty"`
-	Invisible          *bool                          `json:"invisible,omitempty" xml:"invisible,omitempty"`
-	Label              *string                        `json:"label,omitempty" xml:"label,omitempty"`
-	Limit              *int32                         `json:"limit,omitempty" xml:"limit,omitempty"`
-	Link               *string                        `json:"link,omitempty" xml:"link,omitempty"`
-	MaxLength          *int32                         `json:"maxLength,omitempty" xml:"maxLength,omitempty"`
-	Mode               *string                        `json:"mode,omitempty" xml:"mode,omitempty"`
-	Multiple           *bool                          `json:"multiple,omitempty" xml:"multiple,omitempty"`
-	Options            []*SelectOption                `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
-	Placeholder        *string                        `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
-	Precision          *int32                         `json:"precision,omitempty" xml:"precision,omitempty"`
-	Print              *string                        `json:"print,omitempty" xml:"print,omitempty"`
-	Required           *bool                          `json:"required,omitempty" xml:"required,omitempty"`
-	StatField          []*FormComponentPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
-	TableViewMode      *string                        `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
-	Unit               *string                        `json:"unit,omitempty" xml:"unit,omitempty"`
-	Upper              *string                        `json:"upper,omitempty" xml:"upper,omitempty"`
-	VerticalPrint      *bool                          `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// example:
+	//
+	// 增加明细
+	ActionName   *string `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	AddressModel *string `json:"addressModel,omitempty" xml:"addressModel,omitempty"`
+	// example:
+	//
+	// top
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// example:
+	//
+	// true
+	AsyncCondition     *bool                `json:"asyncCondition,omitempty" xml:"asyncCondition,omitempty"`
+	AvailableTemplates []*AvaliableTemplate `json:"availableTemplates,omitempty" xml:"availableTemplates,omitempty" type:"Repeated"`
+	// example:
+	//
+	// finance_name
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// example:
+	//
+	// attendance.leave
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// 0
+	Choice *string `json:"choice,omitempty" xml:"choice,omitempty"`
+	// example:
+	//
+	// custom_view
+	CommonBizType *string `json:"commonBizType,omitempty" xml:"commonBizType,omitempty"`
+	// example:
+	//
+	// TextField-abcd
+	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
+	// example:
+	//
+	// 我是说明文字控件
+	Content    *string         `json:"content,omitempty" xml:"content,omitempty"`
+	DataSource *FormDataSource `json:"dataSource,omitempty" xml:"dataSource,omitempty"`
+	// example:
+	//
+	// true
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// example:
+	//
+	// true
+	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
+	// example:
+	//
+	// 时长
+	DurationLabel *string `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
+	// example:
+	//
+	// yyyy-MM-dd
+	Format  *string `json:"format,omitempty" xml:"format,omitempty"`
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// example:
+	//
+	// true
+	Invisible *bool `json:"invisible,omitempty" xml:"invisible,omitempty"`
+	// example:
+	//
+	// 姓名
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// example:
+	//
+	// 5
+	Limit *int32 `json:"limit,omitempty" xml:"limit,omitempty"`
+	// example:
+	//
+	// http://www.
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// example:
+	//
+	// 20
+	MaxLength *int32 `json:"maxLength,omitempty" xml:"maxLength,omitempty"`
+	// example:
+	//
+	// phone_tel
+	Mode *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	// example:
+	//
+	// true
+	Multiple *bool           `json:"multiple,omitempty" xml:"multiple,omitempty"`
+	Options  []*SelectOption `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 请输入
+	Placeholder *string `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// 2
+	Precision *int32 `json:"precision,omitempty" xml:"precision,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// 1
+	Print *string `json:"print,omitempty" xml:"print,omitempty"`
+	// example:
+	//
+	// true
+	Required  *bool                          `json:"required,omitempty" xml:"required,omitempty"`
+	StatField []*FormComponentPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// example:
+	//
+	// table
+	TableViewMode *string `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
+	// example:
+	//
+	// 天
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// 1
+	Upper *string `json:"upper,omitempty" xml:"upper,omitempty"`
+	// example:
+	//
+	// true
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
 }
 
 func (s FormComponentProps) String() string {
@@ -281,9 +389,25 @@ func (s *FormComponentProps) SetVerticalPrint(v bool) *FormComponentProps {
 }
 
 type FormComponentPropsStatField struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// NumberField-abcd
 	ComponentId *string `json:"componentId,omitempty" xml:"componentId,omitempty"`
-	Label       *string `json:"label,omitempty" xml:"label,omitempty"`
-	Upper       *string `json:"upper,omitempty" xml:"upper,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 金额
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// 1
+	Upper *string `json:"upper,omitempty" xml:"upper,omitempty"`
 }
 
 func (s FormComponentPropsStatField) String() string {
@@ -310,8 +434,12 @@ func (s *FormComponentPropsStatField) SetUpper(v string) *FormComponentPropsStat
 }
 
 type FormDataSource struct {
+	// This parameter is required.
 	Target *FormDataSourceTarget `json:"target,omitempty" xml:"target,omitempty" type:"Struct"`
-	Type   *string               `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// form
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s FormDataSource) String() string {
@@ -333,9 +461,18 @@ func (s *FormDataSource) SetType(v string) *FormDataSource {
 }
 
 type FormDataSourceTarget struct {
-	AppType  *int32  `json:"appType,omitempty" xml:"appType,omitempty"`
-	AppUuid  *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	BizType  *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	AppType *int32 `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// SWAPP-abcd
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
 	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
 }
 
@@ -368,7 +505,13 @@ func (s *FormDataSourceTarget) SetFormCode(v string) *FormDataSourceTarget {
 }
 
 type SelectOption struct {
-	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// finance
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// 财务
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -437,8 +580,14 @@ func (s *AddApproveDentryAuthHeaders) SetXAcsDingtalkAccessToken(v string) *AddA
 }
 
 type AddApproveDentryAuthRequest struct {
+	// This parameter is required.
 	FileInfos []*AddApproveDentryAuthRequestFileInfos `json:"fileInfos,omitempty" xml:"fileInfos,omitempty" type:"Repeated"`
-	UserId    *string                                 `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AddApproveDentryAuthRequest) String() string {
@@ -460,8 +609,18 @@ func (s *AddApproveDentryAuthRequest) SetUserId(v string) *AddApproveDentryAuthR
 }
 
 type AddApproveDentryAuthRequestFileInfos struct {
-	FileId  *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	SpaceId *int64  `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// B1oQixxxx
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	SpaceId *int64 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s AddApproveDentryAuthRequestFileInfos) String() string {
@@ -483,7 +642,13 @@ func (s *AddApproveDentryAuthRequestFileInfos) SetSpaceId(v int64) *AddApproveDe
 }
 
 type AddApproveDentryAuthResponseBody struct {
-	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -558,10 +723,25 @@ func (s *AddProcessInstanceCommentHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type AddProcessInstanceCommentRequest struct {
-	CommentUserId     *string                               `json:"commentUserId,omitempty" xml:"commentUserId,omitempty"`
-	File              *AddProcessInstanceCommentRequestFile `json:"file,omitempty" xml:"file,omitempty" type:"Struct"`
-	ProcessInstanceId *string                               `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Text              *string                               `json:"text,omitempty" xml:"text,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user123
+	CommentUserId *string                               `json:"commentUserId,omitempty" xml:"commentUserId,omitempty"`
+	File          *AddProcessInstanceCommentRequestFile `json:"file,omitempty" xml:"file,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a171de6c-8bxxxx
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 同意。
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
 }
 
 func (s AddProcessInstanceCommentRequest) String() string {
@@ -616,11 +796,26 @@ func (s *AddProcessInstanceCommentRequestFile) SetPhotos(v []*string) *AddProces
 }
 
 type AddProcessInstanceCommentRequestFileAttachments struct {
-	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// example:
+	//
+	// B1oQixxxx
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// example:
+	//
+	// 文件名称。
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// example:
+	//
+	// 1024
 	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// example:
+	//
+	// file
 	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	SpaceId  *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// 123
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s AddProcessInstanceCommentRequestFileAttachments) String() string {
@@ -657,7 +852,13 @@ func (s *AddProcessInstanceCommentRequestFileAttachments) SetSpaceId(v string) *
 }
 
 type AddProcessInstanceCommentResponseBody struct {
-	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -708,6 +909,120 @@ func (s *AddProcessInstanceCommentResponse) SetBody(v *AddProcessInstanceComment
 	return s
 }
 
+type ArchiveProcessInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ArchiveProcessInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ArchiveProcessInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ArchiveProcessInstanceHeaders) SetCommonHeaders(v map[string]*string) *ArchiveProcessInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ArchiveProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *ArchiveProcessInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ArchiveProcessInstanceRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 133743186427339452
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a171de6c-8bxxxx
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+}
+
+func (s ArchiveProcessInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ArchiveProcessInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ArchiveProcessInstanceRequest) SetOpUserId(v string) *ArchiveProcessInstanceRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *ArchiveProcessInstanceRequest) SetProcessInstanceId(v string) *ArchiveProcessInstanceRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+type ArchiveProcessInstanceResponseBody struct {
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ArchiveProcessInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ArchiveProcessInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ArchiveProcessInstanceResponseBody) SetResult(v bool) *ArchiveProcessInstanceResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *ArchiveProcessInstanceResponseBody) SetSuccess(v bool) *ArchiveProcessInstanceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ArchiveProcessInstanceResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ArchiveProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ArchiveProcessInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ArchiveProcessInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ArchiveProcessInstanceResponse) SetHeaders(v map[string]*string) *ArchiveProcessInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ArchiveProcessInstanceResponse) SetStatusCode(v int32) *ArchiveProcessInstanceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ArchiveProcessInstanceResponse) SetBody(v *ArchiveProcessInstanceResponseBody) *ArchiveProcessInstanceResponse {
+	s.Body = v
+	return s
+}
+
 type BatchExecuteProcessInstancesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -732,10 +1047,21 @@ func (s *BatchExecuteProcessInstancesHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type BatchExecuteProcessInstancesRequest struct {
-	ActionerUserId *string                                            `json:"actionerUserId,omitempty" xml:"actionerUserId,omitempty"`
-	Remark         *string                                            `json:"remark,omitempty" xml:"remark,omitempty"`
-	Result         *string                                            `json:"result,omitempty" xml:"result,omitempty"`
-	TaskInfoList   []*BatchExecuteProcessInstancesRequestTaskInfoList `json:"taskInfoList,omitempty" xml:"taskInfoList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 67583405630
+	ActionerUserId *string `json:"actionerUserId,omitempty" xml:"actionerUserId,omitempty"`
+	Remark         *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// agree
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
+	TaskInfoList []*BatchExecuteProcessInstancesRequestTaskInfoList `json:"taskInfoList,omitempty" xml:"taskInfoList,omitempty" type:"Repeated"`
 }
 
 func (s BatchExecuteProcessInstancesRequest) String() string {
@@ -767,8 +1093,14 @@ func (s *BatchExecuteProcessInstancesRequest) SetTaskInfoList(v []*BatchExecuteP
 }
 
 type BatchExecuteProcessInstancesRequestTaskInfoList struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a171de6c-8bxxxx
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	TaskId            *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// This parameter is required.
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s BatchExecuteProcessInstancesRequestTaskInfoList) String() string {
@@ -841,6 +1173,217 @@ func (s *BatchExecuteProcessInstancesResponse) SetBody(v *BatchExecuteProcessIns
 	return s
 }
 
+type BatchTasksRedirectHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchTasksRedirectHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchTasksRedirectHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchTasksRedirectHeaders) SetCommonHeaders(v map[string]*string) *BatchTasksRedirectHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchTasksRedirectHeaders) SetXAcsDingtalkAccessToken(v string) *BatchTasksRedirectHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchTasksRedirectRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// staffId-B
+	HandoverUserId *string `json:"handoverUserId,omitempty" xml:"handoverUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager-12
+	ManagerUserId *string `json:"managerUserId,omitempty" xml:"managerUserId,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	TaskIds []*int64 `json:"taskIds,omitempty" xml:"taskIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// staffId-A
+	TransfereeUserId *string `json:"transfereeUserId,omitempty" xml:"transfereeUserId,omitempty"`
+}
+
+func (s BatchTasksRedirectRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchTasksRedirectRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchTasksRedirectRequest) SetHandoverUserId(v string) *BatchTasksRedirectRequest {
+	s.HandoverUserId = &v
+	return s
+}
+
+func (s *BatchTasksRedirectRequest) SetManagerUserId(v string) *BatchTasksRedirectRequest {
+	s.ManagerUserId = &v
+	return s
+}
+
+func (s *BatchTasksRedirectRequest) SetTaskIds(v []*int64) *BatchTasksRedirectRequest {
+	s.TaskIds = v
+	return s
+}
+
+func (s *BatchTasksRedirectRequest) SetTransfereeUserId(v string) *BatchTasksRedirectRequest {
+	s.TransfereeUserId = &v
+	return s
+}
+
+type BatchTasksRedirectResponseBody struct {
+	Result  *BatchTasksRedirectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                 `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchTasksRedirectResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchTasksRedirectResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchTasksRedirectResponseBody) SetResult(v *BatchTasksRedirectResponseBodyResult) *BatchTasksRedirectResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *BatchTasksRedirectResponseBody) SetSuccess(v bool) *BatchTasksRedirectResponseBody {
+	s.Success = &v
+	return s
+}
+
+type BatchTasksRedirectResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	FailCount *int64 `json:"failCount,omitempty" xml:"failCount,omitempty"`
+	// This parameter is required.
+	RedirectResults []*BatchTasksRedirectResponseBodyResultRedirectResults `json:"redirectResults,omitempty" xml:"redirectResults,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s BatchTasksRedirectResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchTasksRedirectResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *BatchTasksRedirectResponseBodyResult) SetFailCount(v int64) *BatchTasksRedirectResponseBodyResult {
+	s.FailCount = &v
+	return s
+}
+
+func (s *BatchTasksRedirectResponseBodyResult) SetRedirectResults(v []*BatchTasksRedirectResponseBodyResultRedirectResults) *BatchTasksRedirectResponseBodyResult {
+	s.RedirectResults = v
+	return s
+}
+
+func (s *BatchTasksRedirectResponseBodyResult) SetTotalCount(v int64) *BatchTasksRedirectResponseBodyResult {
+	s.TotalCount = &v
+	return s
+}
+
+type BatchTasksRedirectResponseBodyResultRedirectResults struct {
+	// example:
+	//
+	// 外部流程不允许转交
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234567
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s BatchTasksRedirectResponseBodyResultRedirectResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchTasksRedirectResponseBodyResultRedirectResults) GoString() string {
+	return s.String()
+}
+
+func (s *BatchTasksRedirectResponseBodyResultRedirectResults) SetErrorMsg(v string) *BatchTasksRedirectResponseBodyResultRedirectResults {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *BatchTasksRedirectResponseBodyResultRedirectResults) SetSuccess(v bool) *BatchTasksRedirectResponseBodyResultRedirectResults {
+	s.Success = &v
+	return s
+}
+
+func (s *BatchTasksRedirectResponseBodyResultRedirectResults) SetTaskId(v int64) *BatchTasksRedirectResponseBodyResultRedirectResults {
+	s.TaskId = &v
+	return s
+}
+
+type BatchTasksRedirectResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchTasksRedirectResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s BatchTasksRedirectResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchTasksRedirectResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchTasksRedirectResponse) SetHeaders(v map[string]*string) *BatchTasksRedirectResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchTasksRedirectResponse) SetStatusCode(v int32) *BatchTasksRedirectResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchTasksRedirectResponse) SetBody(v *BatchTasksRedirectResponseBody) *BatchTasksRedirectResponse {
+	s.Body = v
+	return s
+}
+
 type BatchUpdateProcessInstanceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -882,10 +1425,23 @@ func (s *BatchUpdateProcessInstanceRequest) SetUpdateProcessInstanceRequests(v [
 }
 
 type BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests struct {
-	Notifiers         []*BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequestsNotifiers `json:"notifiers,omitempty" xml:"notifiers,omitempty" type:"Repeated"`
-	ProcessInstanceId *string                                                                    `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Result            *string                                                                    `json:"result,omitempty" xml:"result,omitempty"`
-	Status            *string                                                                    `json:"status,omitempty" xml:"status,omitempty"`
+	Notifiers []*BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequestsNotifiers `json:"notifiers,omitempty" xml:"notifiers,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// example:
+	//
+	// agree
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// COMPLETED
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests) String() string {
@@ -917,6 +1473,11 @@ func (s *BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequests) SetStat
 }
 
 type BatchUpdateProcessInstanceRequestUpdateProcessInstanceRequestsNotifiers struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager001
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -1003,9 +1564,24 @@ func (s *CancelIntegratedTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Canc
 }
 
 type CancelIntegratedTaskRequest struct {
-	ActivityId        *string   `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	ActivityIds       []*string `json:"activityIds,omitempty" xml:"activityIds,omitempty" type:"Repeated"`
-	ProcessInstanceId *string   `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// act_xxxx
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// if can be null:
+	// true
+	ActivityIds []*string `json:"activityIds,omitempty" xml:"activityIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// tPr_FB_mT_xxxxxxxxx2hQ05201655306463
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
 }
 
 func (s CancelIntegratedTaskRequest) String() string {
@@ -1101,7 +1677,17 @@ func (s *CleanProcessDataHeaders) SetXAcsDingtalkAccessToken(v string) *CleanPro
 }
 
 type CleanProcessDataRequest struct {
-	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding1234
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-EF6YJL35
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -1193,8 +1779,14 @@ func (s *CopyProcessHeaders) SetXAcsDingtalkAccessToken(v string) *CopyProcessHe
 }
 
 type CopyProcessRequest struct {
-	CopyOptions         *CopyProcessRequestCopyOptions           `json:"copyOptions,omitempty" xml:"copyOptions,omitempty" type:"Struct"`
-	SourceCorpId        *string                                  `json:"sourceCorpId,omitempty" xml:"sourceCorpId,omitempty"`
+	CopyOptions *CopyProcessRequestCopyOptions `json:"copyOptions,omitempty" xml:"copyOptions,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingabc
+	SourceCorpId *string `json:"sourceCorpId,omitempty" xml:"sourceCorpId,omitempty"`
+	// This parameter is required.
 	SourceProcessVOList []*CopyProcessRequestSourceProcessVOList `json:"sourceProcessVOList,omitempty" xml:"sourceProcessVOList,omitempty" type:"Repeated"`
 }
 
@@ -1222,6 +1814,9 @@ func (s *CopyProcessRequest) SetSourceProcessVOList(v []*CopyProcessRequestSourc
 }
 
 type CopyProcessRequestCopyOptions struct {
+	// example:
+	//
+	// 1
 	CopyType *int32 `json:"copyType,omitempty" xml:"copyType,omitempty"`
 }
 
@@ -1239,8 +1834,19 @@ func (s *CopyProcessRequestCopyOptions) SetCopyType(v int32) *CopyProcessRequest
 }
 
 type CopyProcessRequestSourceProcessVOList struct {
-	BizType     *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// abc
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// example:
+	//
+	// abc
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// proc-abc
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -1285,8 +1891,17 @@ func (s *CopyProcessResponseBody) SetResult(v []*CopyProcessResponseBodyResult) 
 }
 
 type CopyProcessResponseBodyResult struct {
-	BizType     *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// abc
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// example:
+	//
+	// abc
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// proc-abc
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -1366,9 +1981,19 @@ func (s *CreateIntegratedTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Crea
 }
 
 type CreateIntegratedTaskRequest struct {
-	ActivityId        *string                             `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	ProcessInstanceId *string                             `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Tasks             []*CreateIntegratedTaskRequestTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+	// example:
+	//
+	// act_xxxx
+	ActivityId    *string                                   `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	FeatureConfig *CreateIntegratedTaskRequestFeatureConfig `json:"featureConfig,omitempty" xml:"featureConfig,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// tPr_FB_mT_xxxxxxxxx2hQ05201655306463
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// This parameter is required.
+	Tasks []*CreateIntegratedTaskRequestTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
 }
 
 func (s CreateIntegratedTaskRequest) String() string {
@@ -1384,6 +2009,11 @@ func (s *CreateIntegratedTaskRequest) SetActivityId(v string) *CreateIntegratedT
 	return s
 }
 
+func (s *CreateIntegratedTaskRequest) SetFeatureConfig(v *CreateIntegratedTaskRequestFeatureConfig) *CreateIntegratedTaskRequest {
+	s.FeatureConfig = v
+	return s
+}
+
 func (s *CreateIntegratedTaskRequest) SetProcessInstanceId(v string) *CreateIntegratedTaskRequest {
 	s.ProcessInstanceId = &v
 	return s
@@ -1394,10 +2024,135 @@ func (s *CreateIntegratedTaskRequest) SetTasks(v []*CreateIntegratedTaskRequestT
 	return s
 }
 
+type CreateIntegratedTaskRequestFeatureConfig struct {
+	Features []*CreateIntegratedTaskRequestFeatureConfigFeatures `json:"features,omitempty" xml:"features,omitempty" type:"Repeated"`
+}
+
+func (s CreateIntegratedTaskRequestFeatureConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateIntegratedTaskRequestFeatureConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CreateIntegratedTaskRequestFeatureConfig) SetFeatures(v []*CreateIntegratedTaskRequestFeatureConfigFeatures) *CreateIntegratedTaskRequestFeatureConfig {
+	s.Features = v
+	return s
+}
+
+type CreateIntegratedTaskRequestFeatureConfigFeatures struct {
+	Callback *CreateIntegratedTaskRequestFeatureConfigFeaturesCallback `json:"callback,omitempty" xml:"callback,omitempty" type:"Struct"`
+	// if can be null:
+	// true
+	Config *string `json:"config,omitempty" xml:"config,omitempty"`
+	// example:
+	//
+	// www.dingtalk.com
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// example:
+	//
+	// abc
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// www.dingtalk.com
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// example:
+	//
+	// ORIGIN
+	RunType *string `json:"runType,omitempty" xml:"runType,omitempty"`
+}
+
+func (s CreateIntegratedTaskRequestFeatureConfigFeatures) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateIntegratedTaskRequestFeatureConfigFeatures) GoString() string {
+	return s.String()
+}
+
+func (s *CreateIntegratedTaskRequestFeatureConfigFeatures) SetCallback(v *CreateIntegratedTaskRequestFeatureConfigFeaturesCallback) *CreateIntegratedTaskRequestFeatureConfigFeatures {
+	s.Callback = v
+	return s
+}
+
+func (s *CreateIntegratedTaskRequestFeatureConfigFeatures) SetConfig(v string) *CreateIntegratedTaskRequestFeatureConfigFeatures {
+	s.Config = &v
+	return s
+}
+
+func (s *CreateIntegratedTaskRequestFeatureConfigFeatures) SetMobileUrl(v string) *CreateIntegratedTaskRequestFeatureConfigFeatures {
+	s.MobileUrl = &v
+	return s
+}
+
+func (s *CreateIntegratedTaskRequestFeatureConfigFeatures) SetName(v string) *CreateIntegratedTaskRequestFeatureConfigFeatures {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateIntegratedTaskRequestFeatureConfigFeatures) SetPcUrl(v string) *CreateIntegratedTaskRequestFeatureConfigFeatures {
+	s.PcUrl = &v
+	return s
+}
+
+func (s *CreateIntegratedTaskRequestFeatureConfigFeatures) SetRunType(v string) *CreateIntegratedTaskRequestFeatureConfigFeatures {
+	s.RunType = &v
+	return s
+}
+
+type CreateIntegratedTaskRequestFeatureConfigFeaturesCallback struct {
+	// example:
+	//
+	// abc
+	ApiKey *string `json:"apiKey,omitempty" xml:"apiKey,omitempty"`
+	// example:
+	//
+	// abc
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s CreateIntegratedTaskRequestFeatureConfigFeaturesCallback) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateIntegratedTaskRequestFeatureConfigFeaturesCallback) GoString() string {
+	return s.String()
+}
+
+func (s *CreateIntegratedTaskRequestFeatureConfigFeaturesCallback) SetApiKey(v string) *CreateIntegratedTaskRequestFeatureConfigFeaturesCallback {
+	s.ApiKey = &v
+	return s
+}
+
+func (s *CreateIntegratedTaskRequestFeatureConfigFeaturesCallback) SetAppUuid(v string) *CreateIntegratedTaskRequestFeatureConfigFeaturesCallback {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *CreateIntegratedTaskRequestFeatureConfigFeaturesCallback) SetVersion(v string) *CreateIntegratedTaskRequestFeatureConfigFeaturesCallback {
+	s.Version = &v
+	return s
+}
+
 type CreateIntegratedTaskRequestTasks struct {
+	// example:
+	//
+	// {\"id\":\"12345\"}
 	CustomData *string `json:"customData,omitempty" xml:"customData,omitempty"`
-	Url        *string `json:"url,omitempty" xml:"url,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// manager001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateIntegratedTaskRequestTasks) String() string {
@@ -1498,6 +2253,106 @@ func (s *CreateIntegratedTaskResponse) SetBody(v *CreateIntegratedTaskResponseBo
 	return s
 }
 
+type DeleteDirHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteDirHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDirHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDirHeaders) SetCommonHeaders(v map[string]*string) *DeleteDirHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteDirHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteDirHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteDirRequest struct {
+	// example:
+	//
+	// oaDirIdxxx
+	DirId *string `json:"dirId,omitempty" xml:"dirId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user001
+	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
+}
+
+func (s DeleteDirRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDirRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDirRequest) SetDirId(v string) *DeleteDirRequest {
+	s.DirId = &v
+	return s
+}
+
+func (s *DeleteDirRequest) SetOperateUserId(v string) *DeleteDirRequest {
+	s.OperateUserId = &v
+	return s
+}
+
+type DeleteDirResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteDirResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDirResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDirResponseBody) SetSuccess(v bool) *DeleteDirResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteDirResponse struct {
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteDirResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteDirResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteDirResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteDirResponse) SetHeaders(v map[string]*string) *DeleteDirResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteDirResponse) SetStatusCode(v int32) *DeleteDirResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteDirResponse) SetBody(v *DeleteDirResponseBody) *DeleteDirResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteProcessHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1522,8 +2377,13 @@ func (s *DeleteProcessHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteProce
 }
 
 type DeleteProcessRequest struct {
-	CleanRunningTask *bool   `json:"cleanRunningTask,omitempty" xml:"cleanRunningTask,omitempty"`
-	ProcessCode      *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	CleanRunningTask *bool `json:"cleanRunningTask,omitempty" xml:"cleanRunningTask,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// proc-abc
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
 func (s DeleteProcessRequest) String() string {
@@ -1562,6 +2422,9 @@ func (s *DeleteProcessResponseBody) SetResult(v *DeleteProcessResponseBodyResult
 }
 
 type DeleteProcessResponseBodyResult struct {
+	// example:
+	//
+	// proc-abc
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -1631,12 +2494,35 @@ func (s *ExecuteProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *Ex
 }
 
 type ExecuteProcessInstanceRequest struct {
-	ActionerUserId    *string                            `json:"actionerUserId,omitempty" xml:"actionerUserId,omitempty"`
-	File              *ExecuteProcessInstanceRequestFile `json:"file,omitempty" xml:"file,omitempty" type:"Struct"`
-	ProcessInstanceId *string                            `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Remark            *string                            `json:"remark,omitempty" xml:"remark,omitempty"`
-	Result            *string                            `json:"result,omitempty" xml:"result,omitempty"`
-	TaskId            *int64                             `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 133743186427339452
+	ActionerUserId *string                            `json:"actionerUserId,omitempty" xml:"actionerUserId,omitempty"`
+	File           *ExecuteProcessInstanceRequestFile `json:"file,omitempty" xml:"file,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a171de6c-8bxxxx
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// example:
+	//
+	// 同意。
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// agree
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 67583405630
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s ExecuteProcessInstanceRequest) String() string {
@@ -1701,11 +2587,26 @@ func (s *ExecuteProcessInstanceRequestFile) SetPhotos(v []*string) *ExecuteProce
 }
 
 type ExecuteProcessInstanceRequestFileAttachments struct {
-	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// example:
+	//
+	// B1oQixxxx
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// example:
+	//
+	// 文件名称。
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// example:
+	//
+	// 1024
 	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// example:
+	//
+	// file
 	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	SpaceId  *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// 123
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s ExecuteProcessInstanceRequestFileAttachments) String() string {
@@ -1742,7 +2643,13 @@ func (s *ExecuteProcessInstanceRequestFileAttachments) SetSpaceId(v string) *Exe
 }
 
 type ExecuteProcessInstanceResponseBody struct {
-	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -1817,8 +2724,17 @@ func (s *FormCreateHeaders) SetXAcsDingtalkAccessToken(v string) *FormCreateHead
 }
 
 type FormCreateRequest struct {
-	Description    *string                          `json:"description,omitempty" xml:"description,omitempty"`
-	FormComponents []*FormComponent                 `json:"formComponents,omitempty" xml:"formComponents,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 用于员工差旅费用报销使用
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// This parameter is required.
+	FormComponents []*FormComponent `json:"formComponents,omitempty" xml:"formComponents,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 出差报销审批
 	Name           *string                          `json:"name,omitempty" xml:"name,omitempty"`
 	ProcessCode    *string                          `json:"processCode,omitempty" xml:"processCode,omitempty"`
 	TemplateConfig *FormCreateRequestTemplateConfig `json:"templateConfig,omitempty" xml:"templateConfig,omitempty" type:"Struct"`
@@ -1858,14 +2774,38 @@ func (s *FormCreateRequest) SetTemplateConfig(v *FormCreateRequestTemplateConfig
 }
 
 type FormCreateRequestTemplateConfig struct {
-	DirId                    *string `json:"dirId,omitempty" xml:"dirId,omitempty"`
-	DisableDeleteProcess     *bool   `json:"disableDeleteProcess,omitempty" xml:"disableDeleteProcess,omitempty"`
-	DisableFormEdit          *bool   `json:"disableFormEdit,omitempty" xml:"disableFormEdit,omitempty"`
-	DisableHomepage          *bool   `json:"disableHomepage,omitempty" xml:"disableHomepage,omitempty"`
-	DisableResubmit          *bool   `json:"disableResubmit,omitempty" xml:"disableResubmit,omitempty"`
-	DisableStopProcessButton *bool   `json:"disableStopProcessButton,omitempty" xml:"disableStopProcessButton,omitempty"`
-	Hidden                   *bool   `json:"hidden,omitempty" xml:"hidden,omitempty"`
-	OriginDirId              *string `json:"originDirId,omitempty" xml:"originDirId,omitempty"`
+	// example:
+	//
+	// abcd
+	DirId *string `json:"dirId,omitempty" xml:"dirId,omitempty"`
+	// example:
+	//
+	// true
+	DisableDeleteProcess *bool `json:"disableDeleteProcess,omitempty" xml:"disableDeleteProcess,omitempty"`
+	// example:
+	//
+	// true
+	DisableFormEdit *bool `json:"disableFormEdit,omitempty" xml:"disableFormEdit,omitempty"`
+	// example:
+	//
+	// true
+	DisableHomepage *bool `json:"disableHomepage,omitempty" xml:"disableHomepage,omitempty"`
+	// example:
+	//
+	// true
+	DisableResubmit *bool `json:"disableResubmit,omitempty" xml:"disableResubmit,omitempty"`
+	// example:
+	//
+	// true
+	DisableStopProcessButton *bool `json:"disableStopProcessButton,omitempty" xml:"disableStopProcessButton,omitempty"`
+	// example:
+	//
+	// true
+	Hidden *bool `json:"hidden,omitempty" xml:"hidden,omitempty"`
+	// example:
+	//
+	// efgh
+	OriginDirId *string `json:"originDirId,omitempty" xml:"originDirId,omitempty"`
 }
 
 func (s FormCreateRequestTemplateConfig) String() string {
@@ -1934,6 +2874,11 @@ func (s *FormCreateResponseBody) SetResult(v *FormCreateResponseBodyResult) *For
 }
 
 type FormCreateResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-abcdef-example
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -2003,8 +2948,16 @@ func (s *GetAttachmentSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *GetAtt
 }
 
 type GetAttachmentSpaceRequest struct {
-	AgentId *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 8345000
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetAttachmentSpaceRequest) String() string {
@@ -2026,8 +2979,11 @@ func (s *GetAttachmentSpaceRequest) SetUserId(v string) *GetAttachmentSpaceReque
 }
 
 type GetAttachmentSpaceResponseBody struct {
-	Result  *GetAttachmentSpaceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                                 `json:"success,omitempty" xml:"success,omitempty"`
+	Result *GetAttachmentSpaceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetAttachmentSpaceResponseBody) String() string {
@@ -2049,6 +3005,9 @@ func (s *GetAttachmentSpaceResponseBody) SetSuccess(v bool) *GetAttachmentSpaceR
 }
 
 type GetAttachmentSpaceResponseBodyResult struct {
+	// example:
+	//
+	// 3996960664
 	SpaceId *int64 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
@@ -2118,7 +3077,15 @@ func (s *GetConditionFormComponentHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type GetConditionFormComponentRequest struct {
-	AgentId     *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// example:
+	//
+	// 10
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-xxx
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -2158,7 +3125,17 @@ func (s *GetConditionFormComponentResponseBody) SetResult(v []*GetConditionFormC
 }
 
 type GetConditionFormComponentResponseBodyResult struct {
-	Id    *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 输入框
 	Label *string `json:"label,omitempty" xml:"label,omitempty"`
 }
 
@@ -2302,7 +3279,17 @@ func (s *GetFieldModifiedHistoryHeaders) SetXAcsDingtalkAccessToken(v string) *G
 }
 
 type GetFieldModifiedHistoryRequest struct {
-	FieldId           *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField-abcd
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// proc-FF6Y2xxxx
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
 }
 
@@ -2325,8 +3312,11 @@ func (s *GetFieldModifiedHistoryRequest) SetProcessInstanceId(v string) *GetFiel
 }
 
 type GetFieldModifiedHistoryResponseBody struct {
-	Result  []*GetFieldModifiedHistoryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	Success *bool                                        `json:"success,omitempty" xml:"success,omitempty"`
+	Result []*GetFieldModifiedHistoryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetFieldModifiedHistoryResponseBody) String() string {
@@ -2348,11 +3338,28 @@ func (s *GetFieldModifiedHistoryResponseBody) SetSuccess(v bool) *GetFieldModifi
 }
 
 type GetFieldModifiedHistoryResponseBodyResult struct {
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2024-04-02T11:52Z
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	FieldId    *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	Value      *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// TextField-abcd
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// example:
+	//
+	// 钉钉1
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// userId1
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 从 111 修改到 222
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s GetFieldModifiedHistoryResponseBodyResult) String() string {
@@ -2417,6 +3424,140 @@ func (s *GetFieldModifiedHistoryResponse) SetBody(v *GetFieldModifiedHistoryResp
 	return s
 }
 
+type GetHandSignDownloadUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetHandSignDownloadUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetHandSignDownloadUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetHandSignDownloadUrlHeaders) SetCommonHeaders(v map[string]*string) *GetHandSignDownloadUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetHandSignDownloadUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetHandSignDownloadUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetHandSignDownloadUrlRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// AzBltRlvKukX3Wxxxx
+	HandSignToken *string `json:"handSignToken,omitempty" xml:"handSignToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ag187wewxxxx
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+}
+
+func (s GetHandSignDownloadUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetHandSignDownloadUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetHandSignDownloadUrlRequest) SetHandSignToken(v string) *GetHandSignDownloadUrlRequest {
+	s.HandSignToken = &v
+	return s
+}
+
+func (s *GetHandSignDownloadUrlRequest) SetProcessInstanceId(v string) *GetHandSignDownloadUrlRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+type GetHandSignDownloadUrlResponseBody struct {
+	Result  *GetHandSignDownloadUrlResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *string                                   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetHandSignDownloadUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetHandSignDownloadUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetHandSignDownloadUrlResponseBody) SetResult(v *GetHandSignDownloadUrlResponseBodyResult) *GetHandSignDownloadUrlResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetHandSignDownloadUrlResponseBody) SetSuccess(v string) *GetHandSignDownloadUrlResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetHandSignDownloadUrlResponseBodyResult struct {
+	// example:
+	//
+	// https://dingding-file-zjk.oss-cn-zhangjiakouxxxx
+	DownloadUrl *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	ExpireIn    *int64  `json:"expireIn,omitempty" xml:"expireIn,omitempty"`
+}
+
+func (s GetHandSignDownloadUrlResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetHandSignDownloadUrlResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetHandSignDownloadUrlResponseBodyResult) SetDownloadUrl(v string) *GetHandSignDownloadUrlResponseBodyResult {
+	s.DownloadUrl = &v
+	return s
+}
+
+func (s *GetHandSignDownloadUrlResponseBodyResult) SetExpireIn(v int64) *GetHandSignDownloadUrlResponseBodyResult {
+	s.ExpireIn = &v
+	return s
+}
+
+type GetHandSignDownloadUrlResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetHandSignDownloadUrlResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetHandSignDownloadUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetHandSignDownloadUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetHandSignDownloadUrlResponse) SetHeaders(v map[string]*string) *GetHandSignDownloadUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetHandSignDownloadUrlResponse) SetStatusCode(v int32) *GetHandSignDownloadUrlResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetHandSignDownloadUrlResponse) SetBody(v *GetHandSignDownloadUrlResponseBody) *GetHandSignDownloadUrlResponse {
+	s.Body = v
+	return s
+}
+
 type GetManageProcessByStaffIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2441,6 +3582,11 @@ func (s *GetManageProcessByStaffIdHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type GetManageProcessByStaffIdRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager7078
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -2458,8 +3604,11 @@ func (s *GetManageProcessByStaffIdRequest) SetUserId(v string) *GetManageProcess
 }
 
 type GetManageProcessByStaffIdResponseBody struct {
-	Result  []*GetManageProcessByStaffIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	Success *bool                                          `json:"success,omitempty" xml:"success,omitempty"`
+	Result []*GetManageProcessByStaffIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetManageProcessByStaffIdResponseBody) String() string {
@@ -2481,13 +3630,36 @@ func (s *GetManageProcessByStaffIdResponseBody) SetSuccess(v bool) *GetManagePro
 }
 
 type GetManageProcessByStaffIdResponseBodyResult struct {
-	AttendanceType *int32  `json:"attendanceType,omitempty" xml:"attendanceType,omitempty"`
-	FlowTitle      *string `json:"flowTitle,omitempty" xml:"flowTitle,omitempty"`
-	GmtModified    *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	IconName       *string `json:"iconName,omitempty" xml:"iconName,omitempty"`
-	IconUrl        *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
-	NewProcess     *bool   `json:"newProcess,omitempty" xml:"newProcess,omitempty"`
-	ProcessCode    *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// example:
+	//
+	// 0
+	AttendanceType *int32 `json:"attendanceType,omitempty" xml:"attendanceType,omitempty"`
+	// example:
+	//
+	// 通用审批
+	FlowTitle *string `json:"flowTitle,omitempty" xml:"flowTitle,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2020-07-14 14:24:59
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// example:
+	//
+	// common
+	IconName *string `json:"iconName,omitempty" xml:"iconName,omitempty"`
+	// example:
+	//
+	// https://gw.alicdn.com/tfs/xxxx-112-112.png
+	IconUrl *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
+	// example:
+	//
+	// true
+	NewProcess *bool `json:"newProcess,omitempty" xml:"newProcess,omitempty"`
+	// example:
+	//
+	// PROC-44E84FC1-16E2-4A69-BB3C-xxxx
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
 func (s GetManageProcessByStaffIdResponseBodyResult) String() string {
@@ -2586,6 +3758,11 @@ func (s *GetProcessCodeByNameHeaders) SetXAcsDingtalkAccessToken(v string) *GetP
 }
 
 type GetProcessCodeByNameRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -2620,7 +3797,19 @@ func (s *GetProcessCodeByNameResponseBody) SetResult(v *GetProcessCodeByNameResp
 }
 
 type GetProcessCodeByNameResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2024-03-22T11:50Z
 	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-abcdef-example
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -2695,6 +3884,11 @@ func (s *GetProcessConfigHeaders) SetXAcsDingtalkAccessToken(v string) *GetProce
 }
 
 type GetProcessConfigRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-BEFC22B7-EA64-4336-86EB-AB773AA2EB12
 	ProcCode *string `json:"procCode,omitempty" xml:"procCode,omitempty"`
 }
 
@@ -2729,25 +3923,46 @@ func (s *GetProcessConfigResponseBody) SetResult(v *GetProcessConfigResponseBody
 }
 
 type GetProcessConfigResponseBodyResult struct {
-	AbstractGenRule            []*string                                               `json:"abstractGenRule,omitempty" xml:"abstractGenRule,omitempty" type:"Repeated"`
-	ActivityAuth               *string                                                 `json:"activityAuth,omitempty" xml:"activityAuth,omitempty"`
-	AllowRevoke                *bool                                                   `json:"allowRevoke,omitempty" xml:"allowRevoke,omitempty"`
-	AppendEnable               *bool                                                   `json:"appendEnable,omitempty" xml:"appendEnable,omitempty"`
-	AutoExecuteOriginatorTasks *bool                                                   `json:"autoExecuteOriginatorTasks,omitempty" xml:"autoExecuteOriginatorTasks,omitempty"`
-	BizCategoryId              *string                                                 `json:"bizCategoryId,omitempty" xml:"bizCategoryId,omitempty"`
-	BizType                    *string                                                 `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	CommentConf                *GetProcessConfigResponseBodyResultCommentConf          `json:"commentConf,omitempty" xml:"commentConf,omitempty" type:"Struct"`
-	DuplicateRemoval           *string                                                 `json:"duplicateRemoval,omitempty" xml:"duplicateRemoval,omitempty"`
-	FormSchema                 *string                                                 `json:"formSchema,omitempty" xml:"formSchema,omitempty"`
-	HandSignConf               *GetProcessConfigResponseBodyResultHandSignConf         `json:"handSignConf,omitempty" xml:"handSignConf,omitempty" type:"Struct"`
-	Managers                   []*string                                               `json:"managers,omitempty" xml:"managers,omitempty" type:"Repeated"`
-	Name                       *string                                                 `json:"name,omitempty" xml:"name,omitempty"`
-	ProcessAppType             *bool                                                   `json:"processAppType,omitempty" xml:"processAppType,omitempty"`
-	ProcessConfig              *string                                                 `json:"processConfig,omitempty" xml:"processConfig,omitempty"`
-	StaticProc                 *bool                                                   `json:"staticProc,omitempty" xml:"staticProc,omitempty"`
-	SubstituteSubmitConf       *GetProcessConfigResponseBodyResultSubstituteSubmitConf `json:"substituteSubmitConf,omitempty" xml:"substituteSubmitConf,omitempty" type:"Struct"`
-	TitleGenRule               *GetProcessConfigResponseBodyResultTitleGenRule         `json:"titleGenRule,omitempty" xml:"titleGenRule,omitempty" type:"Struct"`
-	Visibility                 []*GetProcessConfigResponseBodyResultVisibility         `json:"visibility,omitempty" xml:"visibility,omitempty" type:"Repeated"`
+	AbstractGenRule []*string `json:"abstractGenRule,omitempty" xml:"abstractGenRule,omitempty" type:"Repeated"`
+	// example:
+	//
+	// {"sid_instStart":[{"fieldId":"TextField-K2AD4O5B","fieldBehavior":"HIDDEN","componentName":"TextField","disableBehaviors":[]}],"1918_5cd3":[{"fieldId":"TextField-K2AD4O5B","fieldBehavior":"HIDDEN","componentName":"TextField","disableBehaviors":[]}],"d01c_a677":[{"fieldId":"TextField-K2AD4O5B","fieldBehavior":"NORMAL","componentName":"TextField","disableBehaviors":[]}]}
+	ActivityAuth               *string `json:"activityAuth,omitempty" xml:"activityAuth,omitempty"`
+	AllowRevoke                *bool   `json:"allowRevoke,omitempty" xml:"allowRevoke,omitempty"`
+	AppendEnable               *bool   `json:"appendEnable,omitempty" xml:"appendEnable,omitempty"`
+	AutoExecuteOriginatorTasks *bool   `json:"autoExecuteOriginatorTasks,omitempty" xml:"autoExecuteOriginatorTasks,omitempty"`
+	// example:
+	//
+	// alitrip.business
+	BizCategoryId *string `json:"bizCategoryId,omitempty" xml:"bizCategoryId,omitempty"`
+	// example:
+	//
+	// crm_customer
+	BizType     *string                                        `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	CommentConf *GetProcessConfigResponseBodyResultCommentConf `json:"commentConf,omitempty" xml:"commentConf,omitempty" type:"Struct"`
+	// example:
+	//
+	// continuousFirst
+	DuplicateRemoval *string `json:"duplicateRemoval,omitempty" xml:"duplicateRemoval,omitempty"`
+	// example:
+	//
+	// {"items":[]}
+	FormSchema   *string                                         `json:"formSchema,omitempty" xml:"formSchema,omitempty"`
+	HandSignConf *GetProcessConfigResponseBodyResultHandSignConf `json:"handSignConf,omitempty" xml:"handSignConf,omitempty" type:"Struct"`
+	Managers     []*string                                       `json:"managers,omitempty" xml:"managers,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 模板名称
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	ProcessAppType *bool   `json:"processAppType,omitempty" xml:"processAppType,omitempty"`
+	// example:
+	//
+	// {"type":"","properties":{},"childNode":{}}
+	ProcessConfig        *string                                                 `json:"processConfig,omitempty" xml:"processConfig,omitempty"`
+	StaticProc           *bool                                                   `json:"staticProc,omitempty" xml:"staticProc,omitempty"`
+	SubstituteSubmitConf *GetProcessConfigResponseBodyResultSubstituteSubmitConf `json:"substituteSubmitConf,omitempty" xml:"substituteSubmitConf,omitempty" type:"Struct"`
+	TitleGenRule         *GetProcessConfigResponseBodyResultTitleGenRule         `json:"titleGenRule,omitempty" xml:"titleGenRule,omitempty" type:"Struct"`
+	Visibility           []*GetProcessConfigResponseBodyResultVisibility         `json:"visibility,omitempty" xml:"visibility,omitempty" type:"Repeated"`
 }
 
 func (s GetProcessConfigResponseBodyResult) String() string {
@@ -2854,6 +4069,9 @@ func (s *GetProcessConfigResponseBodyResult) SetVisibility(v []*GetProcessConfig
 }
 
 type GetProcessConfigResponseBodyResultCommentConf struct {
+	// example:
+	//
+	// 评论描述
 	CommentDescription       *string `json:"commentDescription,omitempty" xml:"commentDescription,omitempty"`
 	CommentHiddenForProposer *bool   `json:"commentHiddenForProposer,omitempty" xml:"commentHiddenForProposer,omitempty"`
 	CommentRequired          *bool   `json:"commentRequired,omitempty" xml:"commentRequired,omitempty"`
@@ -2929,8 +4147,17 @@ func (s *GetProcessConfigResponseBodyResultSubstituteSubmitConf) SetSubmitterLis
 }
 
 type GetProcessConfigResponseBodyResultSubstituteSubmitConfSubmitterList struct {
-	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
-	Type  *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 钉三多
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// approval
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// manager1234
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -2958,8 +4185,14 @@ func (s *GetProcessConfigResponseBodyResultSubstituteSubmitConfSubmitterList) Se
 }
 
 type GetProcessConfigResponseBodyResultTitleGenRule struct {
+	// example:
+	//
+	// #{originator}#{formName}#{createTime}
 	Express *string `json:"express,omitempty" xml:"express,omitempty"`
-	Type    *int32  `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 2
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetProcessConfigResponseBodyResultTitleGenRule) String() string {
@@ -2981,7 +4214,13 @@ func (s *GetProcessConfigResponseBodyResultTitleGenRule) SetType(v int32) *GetPr
 }
 
 type GetProcessConfigResponseBodyResultVisibility struct {
-	Type  *int32  `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 1
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// manager345
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -3056,6 +4295,11 @@ func (s *GetProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *GetPro
 }
 
 type GetProcessInstanceRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a171de6c-8bxxxx
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
 }
 
@@ -3073,8 +4317,11 @@ func (s *GetProcessInstanceRequest) SetProcessInstanceId(v string) *GetProcessIn
 }
 
 type GetProcessInstanceResponseBody struct {
-	Result  *GetProcessInstanceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *string                               `json:"success,omitempty" xml:"success,omitempty"`
+	Result *GetProcessInstanceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetProcessInstanceResponseBody) String() string {
@@ -3096,24 +4343,65 @@ func (s *GetProcessInstanceResponseBody) SetSuccess(v string) *GetProcessInstanc
 }
 
 type GetProcessInstanceResponseBodyResult struct {
-	ApproverUserIds            []*string                                                  `json:"approverUserIds,omitempty" xml:"approverUserIds,omitempty" type:"Repeated"`
-	AttachedProcessInstanceIds []*string                                                  `json:"attachedProcessInstanceIds,omitempty" xml:"attachedProcessInstanceIds,omitempty" type:"Repeated"`
-	BizAction                  *string                                                    `json:"bizAction,omitempty" xml:"bizAction,omitempty"`
-	BizData                    *string                                                    `json:"bizData,omitempty" xml:"bizData,omitempty"`
-	BusinessId                 *string                                                    `json:"businessId,omitempty" xml:"businessId,omitempty"`
-	CcUserIds                  []*string                                                  `json:"ccUserIds,omitempty" xml:"ccUserIds,omitempty" type:"Repeated"`
-	CreateTime                 *string                                                    `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	FinishTime                 *string                                                    `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
-	FormComponentValues        []*GetProcessInstanceResponseBodyResultFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
-	MainProcessInstanceId      *string                                                    `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
-	OperationRecords           []*GetProcessInstanceResponseBodyResultOperationRecords    `json:"operationRecords,omitempty" xml:"operationRecords,omitempty" type:"Repeated"`
-	OriginatorDeptId           *string                                                    `json:"originatorDeptId,omitempty" xml:"originatorDeptId,omitempty"`
-	OriginatorDeptName         *string                                                    `json:"originatorDeptName,omitempty" xml:"originatorDeptName,omitempty"`
-	OriginatorUserId           *string                                                    `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
-	Result                     *string                                                    `json:"result,omitempty" xml:"result,omitempty"`
-	Status                     *string                                                    `json:"status,omitempty" xml:"status,omitempty"`
-	Tasks                      []*GetProcessInstanceResponseBodyResultTasks               `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
-	Title                      *string                                                    `json:"title,omitempty" xml:"title,omitempty"`
+	ApproverUserIds []*string `json:"approverUserIds,omitempty" xml:"approverUserIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// ["instance1","instance2"]
+	AttachedProcessInstanceIds []*string `json:"attachedProcessInstanceIds,omitempty" xml:"attachedProcessInstanceIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// MODIFY
+	BizAction *string `json:"bizAction,omitempty" xml:"bizAction,omitempty"`
+	// example:
+	//
+	// {"mykey": "myData"}
+	BizData *string `json:"bizData,omitempty" xml:"bizData,omitempty"`
+	// example:
+	//
+	// 111
+	BusinessId *string   `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	CcUserIds  []*string `json:"ccUserIds,omitempty" xml:"ccUserIds,omitempty" type:"Repeated"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2022-08-31T11:52Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// 2022-08-31T11:52Z
+	FinishTime          *string                                                    `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	FormComponentValues []*GetProcessInstanceResponseBodyResultFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
+	// example:
+	//
+	// AG3U12xWRFex63h6bCPUWw10221698052827
+	MainProcessInstanceId *string                                                 `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
+	OperationRecords      []*GetProcessInstanceResponseBodyResultOperationRecords `json:"operationRecords,omitempty" xml:"operationRecords,omitempty" type:"Repeated"`
+	// example:
+	//
+	// -1
+	OriginatorDeptId *string `json:"originatorDeptId,omitempty" xml:"originatorDeptId,omitempty"`
+	// example:
+	//
+	// 测试
+	OriginatorDeptName *string `json:"originatorDeptName,omitempty" xml:"originatorDeptName,omitempty"`
+	// example:
+	//
+	// manager1
+	OriginatorUserId *string `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
+	// example:
+	//
+	// agree
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// NEW
+	Status *string                                      `json:"status,omitempty" xml:"status,omitempty"`
+	Tasks  []*GetProcessInstanceResponseBodyResultTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+	// example:
+	//
+	// xx提交的请假申请
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s GetProcessInstanceResponseBodyResult) String() string {
@@ -3215,12 +4503,30 @@ func (s *GetProcessInstanceResponseBodyResult) SetTitle(v string) *GetProcessIns
 }
 
 type GetProcessInstanceResponseBodyResultFormComponentValues struct {
-	BizAlias      *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// example:
+	//
+	// TextField-bizAlias
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// example:
+	//
+	// DDSelectField
 	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
-	ExtValue      *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	Id            *string `json:"id,omitempty" xml:"id,omitempty"`
-	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
-	Value         *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// 示例值
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// example:
+	//
+	// DDHolidayField-J2Bxxxx
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 组件1
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 示例值
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s GetProcessInstanceResponseBodyResultFormComponentValues) String() string {
@@ -3262,13 +4568,33 @@ func (s *GetProcessInstanceResponseBodyResultFormComponentValues) SetValue(v str
 }
 
 type GetProcessInstanceResponseBodyResultOperationRecords struct {
+	ActivityId  *string                                                            `json:"activityId,omitempty" xml:"activityId,omitempty"`
 	Attachments []*GetProcessInstanceResponseBodyResultOperationRecordsAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
 	CcUserIds   []*string                                                          `json:"ccUserIds,omitempty" xml:"ccUserIds,omitempty" type:"Repeated"`
-	Date        *string                                                            `json:"date,omitempty" xml:"date,omitempty"`
-	Remark      *string                                                            `json:"remark,omitempty" xml:"remark,omitempty"`
-	Result      *string                                                            `json:"result,omitempty" xml:"result,omitempty"`
-	Type        *string                                                            `json:"type,omitempty" xml:"type,omitempty"`
-	UserId      *string                                                            `json:"userId,omitempty" xml:"userId,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2022-08-31T11:52Z
+	Date   *string   `json:"date,omitempty" xml:"date,omitempty"`
+	Images []*string `json:"images,omitempty" xml:"images,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 评论
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// AGREE
+	Result   *string `json:"result,omitempty" xml:"result,omitempty"`
+	ShowName *string `json:"showName,omitempty" xml:"showName,omitempty"`
+	// example:
+	//
+	// EXECUTE_TASK_NORMAL
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// manager1
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetProcessInstanceResponseBodyResultOperationRecords) String() string {
@@ -3277,6 +4603,11 @@ func (s GetProcessInstanceResponseBodyResultOperationRecords) String() string {
 
 func (s GetProcessInstanceResponseBodyResultOperationRecords) GoString() string {
 	return s.String()
+}
+
+func (s *GetProcessInstanceResponseBodyResultOperationRecords) SetActivityId(v string) *GetProcessInstanceResponseBodyResultOperationRecords {
+	s.ActivityId = &v
+	return s
 }
 
 func (s *GetProcessInstanceResponseBodyResultOperationRecords) SetAttachments(v []*GetProcessInstanceResponseBodyResultOperationRecordsAttachments) *GetProcessInstanceResponseBodyResultOperationRecords {
@@ -3294,6 +4625,11 @@ func (s *GetProcessInstanceResponseBodyResultOperationRecords) SetDate(v string)
 	return s
 }
 
+func (s *GetProcessInstanceResponseBodyResultOperationRecords) SetImages(v []*string) *GetProcessInstanceResponseBodyResultOperationRecords {
+	s.Images = v
+	return s
+}
+
 func (s *GetProcessInstanceResponseBodyResultOperationRecords) SetRemark(v string) *GetProcessInstanceResponseBodyResultOperationRecords {
 	s.Remark = &v
 	return s
@@ -3301,6 +4637,11 @@ func (s *GetProcessInstanceResponseBodyResultOperationRecords) SetRemark(v strin
 
 func (s *GetProcessInstanceResponseBodyResultOperationRecords) SetResult(v string) *GetProcessInstanceResponseBodyResultOperationRecords {
 	s.Result = &v
+	return s
+}
+
+func (s *GetProcessInstanceResponseBodyResultOperationRecords) SetShowName(v string) *GetProcessInstanceResponseBodyResultOperationRecords {
+	s.ShowName = &v
 	return s
 }
 
@@ -3315,10 +4656,23 @@ func (s *GetProcessInstanceResponseBodyResultOperationRecords) SetUserId(v strin
 }
 
 type GetProcessInstanceResponseBodyResultOperationRecordsAttachments struct {
-	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// example:
+	//
+	// 111
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// example:
+	//
+	// 学历证明
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// example:
+	//
+	// 1024
 	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// example:
+	//
+	// pdf
 	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	SpaceId  *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s GetProcessInstanceResponseBodyResultOperationRecordsAttachments) String() string {
@@ -3349,17 +4703,56 @@ func (s *GetProcessInstanceResponseBodyResultOperationRecordsAttachments) SetFil
 	return s
 }
 
+func (s *GetProcessInstanceResponseBodyResultOperationRecordsAttachments) SetSpaceId(v string) *GetProcessInstanceResponseBodyResultOperationRecordsAttachments {
+	s.SpaceId = &v
+	return s
+}
+
 type GetProcessInstanceResponseBodyResultTasks struct {
-	ActivityId        *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	CreateTime        *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	FinishTime        *string `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
-	MobileUrl         *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
-	PcUrl             *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// example:
+	//
+	// 111
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2022-08-31T11:52Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2022-08-31T11:52Z
+	FinishTime *string `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	// example:
+	//
+	// https://www.xxxx.com
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// example:
+	//
+	// https://www.xxxx.com
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// example:
+	//
+	// 111
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Result            *string `json:"result,omitempty" xml:"result,omitempty"`
-	Status            *string `json:"status,omitempty" xml:"status,omitempty"`
-	TaskId            *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// REDIRECTED
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// NEW
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 111
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// manager1
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetProcessInstanceResponseBodyResultTasks) String() string {
@@ -3445,6 +4838,568 @@ func (s *GetProcessInstanceResponse) SetStatusCode(v int32) *GetProcessInstanceR
 }
 
 func (s *GetProcessInstanceResponse) SetBody(v *GetProcessInstanceResponseBody) *GetProcessInstanceResponse {
+	s.Body = v
+	return s
+}
+
+type GetProcessInstanceWithExtraHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetProcessInstanceWithExtraHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessInstanceWithExtraHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessInstanceWithExtraHeaders) SetCommonHeaders(v map[string]*string) *GetProcessInstanceWithExtraHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraHeaders) SetXAcsDingtalkAccessToken(v string) *GetProcessInstanceWithExtraHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetProcessInstanceWithExtraRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a171de6c-8bxxxx
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+}
+
+func (s GetProcessInstanceWithExtraRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessInstanceWithExtraRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessInstanceWithExtraRequest) SetProcessInstanceId(v string) *GetProcessInstanceWithExtraRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+type GetProcessInstanceWithExtraResponseBody struct {
+	Result *GetProcessInstanceWithExtraResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetProcessInstanceWithExtraResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessInstanceWithExtraResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessInstanceWithExtraResponseBody) SetResult(v *GetProcessInstanceWithExtraResponseBodyResult) *GetProcessInstanceWithExtraResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBody) SetSuccess(v string) *GetProcessInstanceWithExtraResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetProcessInstanceWithExtraResponseBodyResult struct {
+	ApproverUserIds            []*string `json:"approverUserIds,omitempty" xml:"approverUserIds,omitempty" type:"Repeated"`
+	AttachedProcessInstanceIds []*string `json:"attachedProcessInstanceIds,omitempty" xml:"attachedProcessInstanceIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// MODIFY
+	BizAction *string `json:"bizAction,omitempty" xml:"bizAction,omitempty"`
+	BizData   *string `json:"bizData,omitempty" xml:"bizData,omitempty"`
+	// example:
+	//
+	// 20240505xxxx
+	BusinessId *string   `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	CcUserIds  []*string `json:"ccUserIds,omitempty" xml:"ccUserIds,omitempty" type:"Repeated"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2022-08-31T11:52Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// 2022-08-31T11:52Z
+	FinishTime          *string                                                             `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	FormComponentValues []*GetProcessInstanceWithExtraResponseBodyResultFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
+	// example:
+	//
+	// fvdsfxxxxxx
+	MainProcessInstanceId *string                                                          `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
+	OperationRecords      []*GetProcessInstanceWithExtraResponseBodyResultOperationRecords `json:"operationRecords,omitempty" xml:"operationRecords,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 25489
+	OriginatorDeptId *string `json:"originatorDeptId,omitempty" xml:"originatorDeptId,omitempty"`
+	// example:
+	//
+	// 测试部门
+	OriginatorDeptName *string `json:"originatorDeptName,omitempty" xml:"originatorDeptName,omitempty"`
+	// example:
+	//
+	// manager1
+	OriginatorUserId *string `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
+	// example:
+	//
+	// agree
+	Result *string                                               `json:"result,omitempty" xml:"result,omitempty"`
+	Status *string                                               `json:"status,omitempty" xml:"status,omitempty"`
+	Tasks  []*GetProcessInstanceWithExtraResponseBodyResultTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+	// example:
+	//
+	// xx提交的请假申请
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetProcessInstanceWithExtraResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessInstanceWithExtraResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetApproverUserIds(v []*string) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.ApproverUserIds = v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetAttachedProcessInstanceIds(v []*string) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.AttachedProcessInstanceIds = v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetBizAction(v string) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.BizAction = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetBizData(v string) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.BizData = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetBusinessId(v string) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.BusinessId = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetCcUserIds(v []*string) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.CcUserIds = v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetCreateTime(v string) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetFinishTime(v string) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.FinishTime = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetFormComponentValues(v []*GetProcessInstanceWithExtraResponseBodyResultFormComponentValues) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.FormComponentValues = v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetMainProcessInstanceId(v string) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.MainProcessInstanceId = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetOperationRecords(v []*GetProcessInstanceWithExtraResponseBodyResultOperationRecords) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.OperationRecords = v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetOriginatorDeptId(v string) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.OriginatorDeptId = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetOriginatorDeptName(v string) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.OriginatorDeptName = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetOriginatorUserId(v string) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.OriginatorUserId = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetResult(v string) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.Result = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetStatus(v string) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetTasks(v []*GetProcessInstanceWithExtraResponseBodyResultTasks) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.Tasks = v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResult) SetTitle(v string) *GetProcessInstanceWithExtraResponseBodyResult {
+	s.Title = &v
+	return s
+}
+
+type GetProcessInstanceWithExtraResponseBodyResultFormComponentValues struct {
+	BizAlias      *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	ExtValue      *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// example:
+	//
+	// DDHolidayField-J2Bxxxx
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 组件1
+	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetProcessInstanceWithExtraResponseBodyResultFormComponentValues) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessInstanceWithExtraResponseBodyResultFormComponentValues) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultFormComponentValues) SetBizAlias(v string) *GetProcessInstanceWithExtraResponseBodyResultFormComponentValues {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultFormComponentValues) SetComponentType(v string) *GetProcessInstanceWithExtraResponseBodyResultFormComponentValues {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultFormComponentValues) SetExtValue(v string) *GetProcessInstanceWithExtraResponseBodyResultFormComponentValues {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultFormComponentValues) SetId(v string) *GetProcessInstanceWithExtraResponseBodyResultFormComponentValues {
+	s.Id = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultFormComponentValues) SetName(v string) *GetProcessInstanceWithExtraResponseBodyResultFormComponentValues {
+	s.Name = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultFormComponentValues) SetValue(v string) *GetProcessInstanceWithExtraResponseBodyResultFormComponentValues {
+	s.Value = &v
+	return s
+}
+
+type GetProcessInstanceWithExtraResponseBodyResultOperationRecords struct {
+	// example:
+	//
+	// aacc_ddee
+	ActivityId  *string                                                                     `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	Attachments []*GetProcessInstanceWithExtraResponseBodyResultOperationRecordsAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+	CcUserIds   []*string                                                                   `json:"ccUserIds,omitempty" xml:"ccUserIds,omitempty" type:"Repeated"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2022-08-31T11:52Z
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// AzBltRlvKukX3WsbLxpDnTZskRNK5GtVfuDlDQ_Qxsp
+	HandSignToken *string   `json:"handSignToken,omitempty" xml:"handSignToken,omitempty"`
+	Images        []*string `json:"images,omitempty" xml:"images,omitempty" type:"Repeated"`
+	Remark        *string   `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// AGREE
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// 审批人节点
+	ShowName *string `json:"showName,omitempty" xml:"showName,omitempty"`
+	// example:
+	//
+	// EXECUTE_TASK_NORMAL
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// manager123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetProcessInstanceWithExtraResponseBodyResultOperationRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessInstanceWithExtraResponseBodyResultOperationRecords) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultOperationRecords) SetActivityId(v string) *GetProcessInstanceWithExtraResponseBodyResultOperationRecords {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultOperationRecords) SetAttachments(v []*GetProcessInstanceWithExtraResponseBodyResultOperationRecordsAttachments) *GetProcessInstanceWithExtraResponseBodyResultOperationRecords {
+	s.Attachments = v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultOperationRecords) SetCcUserIds(v []*string) *GetProcessInstanceWithExtraResponseBodyResultOperationRecords {
+	s.CcUserIds = v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultOperationRecords) SetDate(v string) *GetProcessInstanceWithExtraResponseBodyResultOperationRecords {
+	s.Date = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultOperationRecords) SetHandSignToken(v string) *GetProcessInstanceWithExtraResponseBodyResultOperationRecords {
+	s.HandSignToken = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultOperationRecords) SetImages(v []*string) *GetProcessInstanceWithExtraResponseBodyResultOperationRecords {
+	s.Images = v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultOperationRecords) SetRemark(v string) *GetProcessInstanceWithExtraResponseBodyResultOperationRecords {
+	s.Remark = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultOperationRecords) SetResult(v string) *GetProcessInstanceWithExtraResponseBodyResultOperationRecords {
+	s.Result = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultOperationRecords) SetShowName(v string) *GetProcessInstanceWithExtraResponseBodyResultOperationRecords {
+	s.ShowName = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultOperationRecords) SetType(v string) *GetProcessInstanceWithExtraResponseBodyResultOperationRecords {
+	s.Type = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultOperationRecords) SetUserId(v string) *GetProcessInstanceWithExtraResponseBodyResultOperationRecords {
+	s.UserId = &v
+	return s
+}
+
+type GetProcessInstanceWithExtraResponseBodyResultOperationRecordsAttachments struct {
+	// example:
+	//
+	// 12345
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// example:
+	//
+	// 学历证明
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// example:
+	//
+	// 50000
+	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// example:
+	//
+	// .pdf
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// example:
+	//
+	// 158469
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s GetProcessInstanceWithExtraResponseBodyResultOperationRecordsAttachments) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessInstanceWithExtraResponseBodyResultOperationRecordsAttachments) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultOperationRecordsAttachments) SetFileId(v string) *GetProcessInstanceWithExtraResponseBodyResultOperationRecordsAttachments {
+	s.FileId = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultOperationRecordsAttachments) SetFileName(v string) *GetProcessInstanceWithExtraResponseBodyResultOperationRecordsAttachments {
+	s.FileName = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultOperationRecordsAttachments) SetFileSize(v string) *GetProcessInstanceWithExtraResponseBodyResultOperationRecordsAttachments {
+	s.FileSize = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultOperationRecordsAttachments) SetFileType(v string) *GetProcessInstanceWithExtraResponseBodyResultOperationRecordsAttachments {
+	s.FileType = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultOperationRecordsAttachments) SetSpaceId(v string) *GetProcessInstanceWithExtraResponseBodyResultOperationRecordsAttachments {
+	s.SpaceId = &v
+	return s
+}
+
+type GetProcessInstanceWithExtraResponseBodyResultTasks struct {
+	// example:
+	//
+	// aabb_ccdd
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2024-06-12T14:17Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2024-06-12T14:17Z
+	FinishTime *string `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	// example:
+	//
+	// aflow.dingtalk.com?procInsId=lTGxxx
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// example:
+	//
+	// aflow.dingtalk.com?procInsId=lTGxxx
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// example:
+	//
+	// fewferxxxx
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// example:
+	//
+	// REDIRECTED
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// CANCELED
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	TaskId *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// manager123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetProcessInstanceWithExtraResponseBodyResultTasks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessInstanceWithExtraResponseBodyResultTasks) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultTasks) SetActivityId(v string) *GetProcessInstanceWithExtraResponseBodyResultTasks {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultTasks) SetCreateTime(v string) *GetProcessInstanceWithExtraResponseBodyResultTasks {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultTasks) SetFinishTime(v string) *GetProcessInstanceWithExtraResponseBodyResultTasks {
+	s.FinishTime = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultTasks) SetMobileUrl(v string) *GetProcessInstanceWithExtraResponseBodyResultTasks {
+	s.MobileUrl = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultTasks) SetPcUrl(v string) *GetProcessInstanceWithExtraResponseBodyResultTasks {
+	s.PcUrl = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultTasks) SetProcessInstanceId(v string) *GetProcessInstanceWithExtraResponseBodyResultTasks {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultTasks) SetResult(v string) *GetProcessInstanceWithExtraResponseBodyResultTasks {
+	s.Result = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultTasks) SetStatus(v string) *GetProcessInstanceWithExtraResponseBodyResultTasks {
+	s.Status = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultTasks) SetTaskId(v int64) *GetProcessInstanceWithExtraResponseBodyResultTasks {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponseBodyResultTasks) SetUserId(v string) *GetProcessInstanceWithExtraResponseBodyResultTasks {
+	s.UserId = &v
+	return s
+}
+
+type GetProcessInstanceWithExtraResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetProcessInstanceWithExtraResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetProcessInstanceWithExtraResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessInstanceWithExtraResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessInstanceWithExtraResponse) SetHeaders(v map[string]*string) *GetProcessInstanceWithExtraResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponse) SetStatusCode(v int32) *GetProcessInstanceWithExtraResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetProcessInstanceWithExtraResponse) SetBody(v *GetProcessInstanceWithExtraResponseBody) *GetProcessInstanceWithExtraResponse {
 	s.Body = v
 	return s
 }
@@ -3671,11 +5626,32 @@ func (s *GetSpaceWithDownloadAuthHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type GetSpaceWithDownloadAuthRequest struct {
-	AgentId           *int64    `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	FileId            *string   `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	FileIdList        []*string `json:"fileIdList,omitempty" xml:"fileIdList,omitempty" type:"Repeated"`
-	ProcessInstanceId *string   `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	UserId            *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 8345000
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	FileId     *string   `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileIdList []*string `json:"fileIdList,omitempty" xml:"fileIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a17444d1-075b-4a4d-xxxx
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// if can be null:
+	// true
+	WithCommentAttatchment *bool `json:"withCommentAttatchment,omitempty" xml:"withCommentAttatchment,omitempty"`
 }
 
 func (s GetSpaceWithDownloadAuthRequest) String() string {
@@ -3711,9 +5687,17 @@ func (s *GetSpaceWithDownloadAuthRequest) SetUserId(v string) *GetSpaceWithDownl
 	return s
 }
 
+func (s *GetSpaceWithDownloadAuthRequest) SetWithCommentAttatchment(v bool) *GetSpaceWithDownloadAuthRequest {
+	s.WithCommentAttatchment = &v
+	return s
+}
+
 type GetSpaceWithDownloadAuthResponseBody struct {
-	Result  *GetSpaceWithDownloadAuthResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                                       `json:"success,omitempty" xml:"success,omitempty"`
+	Result *GetSpaceWithDownloadAuthResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetSpaceWithDownloadAuthResponseBody) String() string {
@@ -3735,6 +5719,9 @@ func (s *GetSpaceWithDownloadAuthResponseBody) SetSuccess(v bool) *GetSpaceWithD
 }
 
 type GetSpaceWithDownloadAuthResponseBodyResult struct {
+	// example:
+	//
+	// 3996960664
 	SpaceId *int64 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
@@ -3804,6 +5791,11 @@ func (s *GetUserTodoTaskSumHeaders) SetXAcsDingtalkAccessToken(v string) *GetUse
 }
 
 type GetUserTodoTaskSumRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager123
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -3821,6 +5813,9 @@ func (s *GetUserTodoTaskSumRequest) SetUserId(v string) *GetUserTodoTaskSumReque
 }
 
 type GetUserTodoTaskSumResponseBody struct {
+	// example:
+	//
+	// 10
 	Result *int32 `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3890,10 +5885,28 @@ func (s *GrantCspaceAuthorizationHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type GrantCspaceAuthorizationRequest struct {
-	DurationSeconds *int64  `json:"durationSeconds,omitempty" xml:"durationSeconds,omitempty"`
-	SpaceId         *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Type            *string `json:"type,omitempty" xml:"type,omitempty"`
-	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 3600
+	DurationSeconds *int64 `json:"durationSeconds,omitempty" xml:"durationSeconds,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 163xxxx658
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// add
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 26652461xxxx5992
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GrantCspaceAuthorizationRequest) String() string {
@@ -3971,8 +5984,21 @@ func (s *GrantProcessInstanceForDownloadFileHeaders) SetXAcsDingtalkAccessToken(
 }
 
 type GrantProcessInstanceForDownloadFileRequest struct {
-	FileId            *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a17444d1-075b-4a4d-xxxx
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// if can be null:
+	// true
+	WithCommentAttatchment *bool `json:"withCommentAttatchment,omitempty" xml:"withCommentAttatchment,omitempty"`
 }
 
 func (s GrantProcessInstanceForDownloadFileRequest) String() string {
@@ -3993,9 +6019,17 @@ func (s *GrantProcessInstanceForDownloadFileRequest) SetProcessInstanceId(v stri
 	return s
 }
 
+func (s *GrantProcessInstanceForDownloadFileRequest) SetWithCommentAttatchment(v bool) *GrantProcessInstanceForDownloadFileRequest {
+	s.WithCommentAttatchment = &v
+	return s
+}
+
 type GrantProcessInstanceForDownloadFileResponseBody struct {
-	Result  *GrantProcessInstanceForDownloadFileResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                                                  `json:"success,omitempty" xml:"success,omitempty"`
+	Result *GrantProcessInstanceForDownloadFileResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GrantProcessInstanceForDownloadFileResponseBody) String() string {
@@ -4017,9 +6051,18 @@ func (s *GrantProcessInstanceForDownloadFileResponseBody) SetSuccess(v bool) *Gr
 }
 
 type GrantProcessInstanceForDownloadFileResponseBodyResult struct {
+	// example:
+	//
+	// http://lippi-space-zjk.oss-cn-zhangjiakou.aliyuncs.com/xxxxx
 	DownloadUri *string `json:"downloadUri,omitempty" xml:"downloadUri,omitempty"`
-	FileId      *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	SpaceId     *int64  `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// 26748422566
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// example:
+	//
+	// 3996960664
+	SpaceId *int64 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s GrantProcessInstanceForDownloadFileResponseBodyResult) String() string {
@@ -4074,6 +6117,170 @@ func (s *GrantProcessInstanceForDownloadFileResponse) SetBody(v *GrantProcessIns
 	return s
 }
 
+type InsertOrUpdateDirHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s InsertOrUpdateDirHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertOrUpdateDirHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *InsertOrUpdateDirHeaders) SetCommonHeaders(v map[string]*string) *InsertOrUpdateDirHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *InsertOrUpdateDirHeaders) SetXAcsDingtalkAccessToken(v string) *InsertOrUpdateDirHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type InsertOrUpdateDirRequest struct {
+	// example:
+	//
+	// administeration
+	BizGroup *string `json:"bizGroup,omitempty" xml:"bizGroup,omitempty"`
+	// example:
+	//
+	// 分组描述信息
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// example:
+	//
+	// 行政管理
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {\"en_US\":\"test\",\"ja_JP\":\"test\",\"vi_VN\":\"test\",\"zh_CN\":\"测试\",\"zh_HK\":\"测试\",\"zh_TW\":\"测试\"}
+	Name18n *string `json:"name18n,omitempty" xml:"name18n,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user001
+	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
+}
+
+func (s InsertOrUpdateDirRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertOrUpdateDirRequest) GoString() string {
+	return s.String()
+}
+
+func (s *InsertOrUpdateDirRequest) SetBizGroup(v string) *InsertOrUpdateDirRequest {
+	s.BizGroup = &v
+	return s
+}
+
+func (s *InsertOrUpdateDirRequest) SetDescription(v string) *InsertOrUpdateDirRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *InsertOrUpdateDirRequest) SetName(v string) *InsertOrUpdateDirRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *InsertOrUpdateDirRequest) SetName18n(v string) *InsertOrUpdateDirRequest {
+	s.Name18n = &v
+	return s
+}
+
+func (s *InsertOrUpdateDirRequest) SetOperateUserId(v string) *InsertOrUpdateDirRequest {
+	s.OperateUserId = &v
+	return s
+}
+
+type InsertOrUpdateDirResponseBody struct {
+	Result  *InsertOrUpdateDirResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s InsertOrUpdateDirResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertOrUpdateDirResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *InsertOrUpdateDirResponseBody) SetResult(v *InsertOrUpdateDirResponseBodyResult) *InsertOrUpdateDirResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *InsertOrUpdateDirResponseBody) SetSuccess(v bool) *InsertOrUpdateDirResponseBody {
+	s.Success = &v
+	return s
+}
+
+type InsertOrUpdateDirResponseBodyResult struct {
+	// example:
+	//
+	// {应用appId}_administeration
+	BizGroup *string `json:"bizGroup,omitempty" xml:"bizGroup,omitempty"`
+	// example:
+	//
+	// oaDirIdxxx
+	DirId *string `json:"dirId,omitempty" xml:"dirId,omitempty"`
+}
+
+func (s InsertOrUpdateDirResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertOrUpdateDirResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *InsertOrUpdateDirResponseBodyResult) SetBizGroup(v string) *InsertOrUpdateDirResponseBodyResult {
+	s.BizGroup = &v
+	return s
+}
+
+func (s *InsertOrUpdateDirResponseBodyResult) SetDirId(v string) *InsertOrUpdateDirResponseBodyResult {
+	s.DirId = &v
+	return s
+}
+
+type InsertOrUpdateDirResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *InsertOrUpdateDirResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s InsertOrUpdateDirResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertOrUpdateDirResponse) GoString() string {
+	return s.String()
+}
+
+func (s *InsertOrUpdateDirResponse) SetHeaders(v map[string]*string) *InsertOrUpdateDirResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *InsertOrUpdateDirResponse) SetStatusCode(v int32) *InsertOrUpdateDirResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *InsertOrUpdateDirResponse) SetBody(v *InsertOrUpdateDirResponseBody) *InsertOrUpdateDirResponse {
+	s.Body = v
+	return s
+}
+
 type InstallAppHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4098,9 +6305,15 @@ func (s *InstallAppHeaders) SetXAcsDingtalkAccessToken(v string) *InstallAppHead
 }
 
 type InstallAppRequest struct {
-	BizGroup      *string                         `json:"bizGroup,omitempty" xml:"bizGroup,omitempty"`
+	BizGroup *string `json:"bizGroup,omitempty" xml:"bizGroup,omitempty"`
+	// This parameter is required.
 	InstallOption *InstallAppRequestInstallOption `json:"installOption,omitempty" xml:"installOption,omitempty" type:"Struct"`
-	SourceDirName *string                         `json:"sourceDirName,omitempty" xml:"sourceDirName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// finance
+	SourceDirName *string `json:"sourceDirName,omitempty" xml:"sourceDirName,omitempty"`
 }
 
 func (s InstallAppRequest) String() string {
@@ -4161,8 +6374,17 @@ func (s *InstallAppResponseBody) SetResult(v []*InstallAppResponseBodyResult) *I
 }
 
 type InstallAppResponseBodyResult struct {
-	BizType     *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// abc
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// example:
+	//
+	// abc
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// PROC-ABC
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -4242,13 +6464,36 @@ func (s *ListProcessInstanceIdsHeaders) SetXAcsDingtalkAccessToken(v string) *Li
 }
 
 type ListProcessInstanceIdsRequest struct {
-	EndTime     *int64    `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	MaxResults  *int64    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken   *int64    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	ProcessCode *string   `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	StartTime   *int64    `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Statuses    []*string `json:"statuses,omitempty" xml:"statuses,omitempty" type:"Repeated"`
-	UserIds     []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1496678400000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-FF6Y2xxxx
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1496678400000
+	StartTime *int64    `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Statuses  []*string `json:"statuses,omitempty" xml:"statuses,omitempty" type:"Repeated"`
+	UserIds   []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s ListProcessInstanceIdsRequest) String() string {
@@ -4295,8 +6540,11 @@ func (s *ListProcessInstanceIdsRequest) SetUserIds(v []*string) *ListProcessInst
 }
 
 type ListProcessInstanceIdsResponseBody struct {
-	Result  *ListProcessInstanceIdsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                                     `json:"success,omitempty" xml:"success,omitempty"`
+	Result *ListProcessInstanceIdsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s ListProcessInstanceIdsResponseBody) String() string {
@@ -4318,8 +6566,11 @@ func (s *ListProcessInstanceIdsResponseBody) SetSuccess(v bool) *ListProcessInst
 }
 
 type ListProcessInstanceIdsResponseBodyResult struct {
-	List      []*string `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	NextToken *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	List []*string `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 10
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListProcessInstanceIdsResponseBodyResult) String() string {
@@ -4393,10 +6644,30 @@ func (s *ListTodoWorkRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *ListT
 }
 
 type ListTodoWorkRecordsRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *int32  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Status     *int32  `json:"status,omitempty" xml:"status,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ListTodoWorkRecordsRequest) String() string {
@@ -4468,11 +6739,23 @@ func (s *ListTodoWorkRecordsResponseBodyResult) SetNextToken(v int64) *ListTodoW
 }
 
 type ListTodoWorkRecordsResponseBodyResultList struct {
-	Forms      []*ListTodoWorkRecordsResponseBodyResultListForms `json:"forms,omitempty" xml:"forms,omitempty" type:"Repeated"`
-	InstanceId *string                                           `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	TaskId     *int64                                            `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	Title      *string                                           `json:"title,omitempty" xml:"title,omitempty"`
-	Url        *string                                           `json:"url,omitempty" xml:"url,omitempty"`
+	Forms []*ListTodoWorkRecordsResponseBodyResultListForms `json:"forms,omitempty" xml:"forms,omitempty" type:"Repeated"`
+	// example:
+	//
+	// Siw2WNVZS4KiUt3tTmaNKg04*****809950
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// example:
+	//
+	// 1234567
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// xxx提交的入职审批
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s ListTodoWorkRecordsResponseBodyResultList) String() string {
@@ -4509,8 +6792,14 @@ func (s *ListTodoWorkRecordsResponseBodyResultList) SetUrl(v string) *ListTodoWo
 }
 
 type ListTodoWorkRecordsResponseBodyResultListForms struct {
+	// example:
+	//
+	// 钉三多
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
-	Title   *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 入职员工姓名
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s ListTodoWorkRecordsResponseBodyResultListForms) String() string {
@@ -4584,9 +6873,22 @@ func (s *ListUserVisibleBpmsProcessesHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type ListUserVisibleBpmsProcessesRequest struct {
-	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// manager7078
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ListUserVisibleBpmsProcessesRequest) String() string {
@@ -4630,6 +6932,9 @@ func (s *ListUserVisibleBpmsProcessesResponseBody) SetResult(v *ListUserVisibleB
 }
 
 type ListUserVisibleBpmsProcessesResponseBodyResult struct {
+	// example:
+	//
+	// 10
 	NextToken   *int64                                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	ProcessList []*ListUserVisibleBpmsProcessesResponseBodyResultProcessList `json:"processList,omitempty" xml:"processList,omitempty" type:"Repeated"`
 }
@@ -4653,12 +6958,30 @@ func (s *ListUserVisibleBpmsProcessesResponseBodyResult) SetProcessList(v []*Lis
 }
 
 type ListUserVisibleBpmsProcessesResponseBodyResultProcessList struct {
-	DirId       *string `json:"dirId,omitempty" xml:"dirId,omitempty"`
-	DirName     *string `json:"dirName,omitempty" xml:"dirName,omitempty"`
-	IconUrl     *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
-	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 12347899
+	DirId *string `json:"dirId,omitempty" xml:"dirId,omitempty"`
+	// example:
+	//
+	// 财务管理
+	DirName *string `json:"dirName,omitempty" xml:"dirName,omitempty"`
+	// example:
+	//
+	// https://gw.xxxx/T-102-102.png
+	IconUrl *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
+	// example:
+	//
+	// 物品领用
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// PROC-YMLA1-xxxx-11WFJ-1
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	Url         *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// https://aflow.dingtalk.com/dingtalk/mobile/homepage.htm?xxxx
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s ListUserVisibleBpmsProcessesResponseBodyResultProcessList) String() string {
@@ -4752,11 +7075,15 @@ func (s *PagesExportInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *Page
 }
 
 type PagesExportInstancesRequest struct {
-	EndTimeInMills   *int64  `json:"endTimeInMills,omitempty" xml:"endTimeInMills,omitempty"`
-	MaxResults       *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken        *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	OrderBy          *string `json:"orderBy,omitempty" xml:"orderBy,omitempty"`
-	ProcessCode      *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	EndTimeInMills *int64 `json:"endTimeInMills,omitempty" xml:"endTimeInMills,omitempty"`
+	// This parameter is required.
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OrderBy   *string `json:"orderBy,omitempty" xml:"orderBy,omitempty"`
+	// This parameter is required.
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// This parameter is required.
 	StartTimeInMills *int64  `json:"startTimeInMills,omitempty" xml:"startTimeInMills,omitempty"`
 	Status           *string `json:"status,omitempty" xml:"status,omitempty"`
 }
@@ -4822,9 +7149,19 @@ func (s *PagesExportInstancesResponseBody) SetResult(v *PagesExportInstancesResp
 }
 
 type PagesExportInstancesResponseBodyResult struct {
-	HasMore   *bool                                         `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	List      []*PagesExportInstancesResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	NextToken *string                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	HasMore *bool                                         `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*PagesExportInstancesResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s PagesExportInstancesResponseBodyResult) String() string {
@@ -4851,20 +7188,76 @@ func (s *PagesExportInstancesResponseBodyResult) SetNextToken(v string) *PagesEx
 }
 
 type PagesExportInstancesResponseBodyResultList struct {
-	AttachedProcessInstanceIds *string                                                          `json:"attachedProcessInstanceIds,omitempty" xml:"attachedProcessInstanceIds,omitempty"`
-	BusinessId                 *string                                                          `json:"businessId,omitempty" xml:"businessId,omitempty"`
-	CreateTime                 *int64                                                           `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	FinishTime                 *int64                                                           `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
-	FormComponentValues        []*PagesExportInstancesResponseBodyResultListFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
-	MainProcessInstanceId      *string                                                          `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
-	OperationRecords           []*PagesExportInstancesResponseBodyResultListOperationRecords    `json:"operationRecords,omitempty" xml:"operationRecords,omitempty" type:"Repeated"`
-	OriginatorDeptId           *string                                                          `json:"originatorDeptId,omitempty" xml:"originatorDeptId,omitempty"`
-	OriginatorUserid           *string                                                          `json:"originatorUserid,omitempty" xml:"originatorUserid,omitempty"`
-	ProcessInstanceId          *string                                                          `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Result                     *string                                                          `json:"result,omitempty" xml:"result,omitempty"`
-	Status                     *string                                                          `json:"status,omitempty" xml:"status,omitempty"`
-	Tasks                      []*PagesExportInstancesResponseBodyResultListTasks               `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
-	Title                      *string                                                          `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cdef-dae2fd2-example
+	AttachedProcessInstanceIds *string `json:"attachedProcessInstanceIds,omitempty" xml:"attachedProcessInstanceIds,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202110111558000355024
+	BusinessId *string `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1635165470201
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1633795200000
+	FinishTime *int64 `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	// This parameter is required.
+	FormComponentValues []*PagesExportInstancesResponseBodyResultListFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dcdse-dae2fd2-example
+	MainProcessInstanceId *string                                                       `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
+	OperationRecords      []*PagesExportInstancesResponseBodyResultListOperationRecords `json:"operationRecords,omitempty" xml:"operationRecords,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 默认-1，企业根部门
+	OriginatorDeptId *string `json:"originatorDeptId,omitempty" xml:"originatorDeptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// staff1234
+	OriginatorUserid *string `json:"originatorUserid,omitempty" xml:"originatorUserid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abcdse-dse-example
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// AGREE同意，REFUSE拒绝
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// RUNNING审批中、TERMINATED撤销、COMPLETED审批完成、CANCELED取消
+	Status *string                                            `json:"status,omitempty" xml:"status,omitempty"`
+	Tasks  []*PagesExportInstancesResponseBodyResultListTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 员工A提交的小肖审批单
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s PagesExportInstancesResponseBodyResultList) String() string {
@@ -4947,10 +7340,28 @@ func (s *PagesExportInstancesResponseBodyResultList) SetTitle(v string) *PagesEx
 
 type PagesExportInstancesResponseBodyResultListFormComponentValues struct {
 	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
-	ExtValue      *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	Id            *string `json:"id,omitempty" xml:"id,omitempty"`
-	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
-	Value         *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// {"staffId":"abcd"}
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField-a32bcdef
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s PagesExportInstancesResponseBodyResultListFormComponentValues) String() string {
@@ -4987,15 +7398,39 @@ func (s *PagesExportInstancesResponseBodyResultListFormComponentValues) SetValue
 }
 
 type PagesExportInstancesResponseBodyResultListOperationRecords struct {
-	ActivityId    *string                                                                  `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	Attachments   []*PagesExportInstancesResponseBodyResultListOperationRecordsAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	Images        []*string                                                                `json:"images,omitempty" xml:"images,omitempty" type:"Repeated"`
-	OperationType *string                                                                  `json:"operationType,omitempty" xml:"operationType,omitempty"`
-	Remark        *string                                                                  `json:"remark,omitempty" xml:"remark,omitempty"`
-	Result        *string                                                                  `json:"result,omitempty" xml:"result,omitempty"`
-	TaskId        *int64                                                                   `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	Timestamp     *int64                                                                   `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
-	UserId        *string                                                                  `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 1234_abcd
+	ActivityId  *string                                                                  `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	Attachments []*PagesExportInstancesResponseBodyResultListOperationRecordsAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+	// example:
+	//
+	// []
+	Images []*string `json:"images,omitempty" xml:"images,omitempty" type:"Repeated"`
+	// example:
+	//
+	// EXECUTE_TASK_NORMAL（正常执行任务），EXECUTE_TASK_AGENT（代理人执行任务），APPEND_TASK_BEFORE（前加签任务），APPEND_TASK_AFTER（后加签任务），REDIRECT_TASK（转交任务），START_PROCESS_INSTANCE（发起流程实例），TERMINATE_PROCESS_INSTANCE（终止(撤销)流程实例），FINISH_PROCESS_INSTANCE（结束流程实例），ADD_REMARK（添加评论）
+	OperationType *string `json:"operationType,omitempty" xml:"operationType,omitempty"`
+	// example:
+	//
+	// 同意
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// AGREE（同意），REFUSE（拒绝），NONE（未知）
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// 12345
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// 1657522271000
+	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	// example:
+	//
+	// manager1
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s PagesExportInstancesResponseBodyResultListOperationRecords) String() string {
@@ -5052,9 +7487,21 @@ func (s *PagesExportInstancesResponseBodyResultListOperationRecords) SetUserId(v
 }
 
 type PagesExportInstancesResponseBodyResultListOperationRecordsAttachments struct {
-	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// example:
+	//
+	// 1234567
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// example:
+	//
+	// 附件
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// example:
+	//
+	// 123
 	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// example:
+	//
+	// pdf
 	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
 }
 
@@ -5087,13 +7534,38 @@ func (s *PagesExportInstancesResponseBodyResultListOperationRecordsAttachments) 
 }
 
 type PagesExportInstancesResponseBodyResultListTasks struct {
-	ActivityId      *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	CreateTimestamp *int64  `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
-	FinishTimestamp *int64  `json:"finishTimestamp,omitempty" xml:"finishTimestamp,omitempty"`
-	Result          *string `json:"result,omitempty" xml:"result,omitempty"`
-	Status          *string `json:"status,omitempty" xml:"status,omitempty"`
-	TaskId          *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 1234_abcd
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// example:
+	//
+	// 1657522271000
+	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	// example:
+	//
+	// 1657522271000
+	FinishTimestamp *int64 `json:"finishTimestamp,omitempty" xml:"finishTimestamp,omitempty"`
+	// example:
+	//
+	// 分为AGREE（同意），REFUSE（拒绝），REDIRECTED（转交）
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// NEW（未启动），RUNNING（处理中），PAUSED（暂停），CANCELED（取消），COMPLETED（完成），TERMINATED（终止）
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// staff1234
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s PagesExportInstancesResponseBodyResultListTasks) String() string {
@@ -5168,6 +7640,7157 @@ func (s *PagesExportInstancesResponse) SetBody(v *PagesExportInstancesResponseBo
 	return s
 }
 
+type PremiumAddApproveDentryAuthHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumAddApproveDentryAuthHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumAddApproveDentryAuthHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumAddApproveDentryAuthHeaders) SetCommonHeaders(v map[string]*string) *PremiumAddApproveDentryAuthHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumAddApproveDentryAuthHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumAddApproveDentryAuthHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumAddApproveDentryAuthRequest struct {
+	// This parameter is required.
+	FileInfos []*PremiumAddApproveDentryAuthRequestFileInfos `json:"fileInfos,omitempty" xml:"fileInfos,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PremiumAddApproveDentryAuthRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumAddApproveDentryAuthRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumAddApproveDentryAuthRequest) SetFileInfos(v []*PremiumAddApproveDentryAuthRequestFileInfos) *PremiumAddApproveDentryAuthRequest {
+	s.FileInfos = v
+	return s
+}
+
+func (s *PremiumAddApproveDentryAuthRequest) SetUserId(v string) *PremiumAddApproveDentryAuthRequest {
+	s.UserId = &v
+	return s
+}
+
+type PremiumAddApproveDentryAuthRequestFileInfos struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// B1oQixxxx
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	SpaceId *int64 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s PremiumAddApproveDentryAuthRequestFileInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumAddApproveDentryAuthRequestFileInfos) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumAddApproveDentryAuthRequestFileInfos) SetFileId(v string) *PremiumAddApproveDentryAuthRequestFileInfos {
+	s.FileId = &v
+	return s
+}
+
+func (s *PremiumAddApproveDentryAuthRequestFileInfos) SetSpaceId(v int64) *PremiumAddApproveDentryAuthRequestFileInfos {
+	s.SpaceId = &v
+	return s
+}
+
+type PremiumAddApproveDentryAuthResponseBody struct {
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PremiumAddApproveDentryAuthResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumAddApproveDentryAuthResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumAddApproveDentryAuthResponseBody) SetResult(v bool) *PremiumAddApproveDentryAuthResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *PremiumAddApproveDentryAuthResponseBody) SetSuccess(v bool) *PremiumAddApproveDentryAuthResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PremiumAddApproveDentryAuthResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumAddApproveDentryAuthResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumAddApproveDentryAuthResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumAddApproveDentryAuthResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumAddApproveDentryAuthResponse) SetHeaders(v map[string]*string) *PremiumAddApproveDentryAuthResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumAddApproveDentryAuthResponse) SetStatusCode(v int32) *PremiumAddApproveDentryAuthResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumAddApproveDentryAuthResponse) SetBody(v *PremiumAddApproveDentryAuthResponseBody) *PremiumAddApproveDentryAuthResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumBatchExecuteProcessInstancesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumBatchExecuteProcessInstancesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumBatchExecuteProcessInstancesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumBatchExecuteProcessInstancesHeaders) SetCommonHeaders(v map[string]*string) *PremiumBatchExecuteProcessInstancesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumBatchExecuteProcessInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumBatchExecuteProcessInstancesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumBatchExecuteProcessInstancesRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 67583405630
+	ActionerUserId *string `json:"actionerUserId,omitempty" xml:"actionerUserId,omitempty"`
+	Remark         *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// agree
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
+	TaskInfoList []*PremiumBatchExecuteProcessInstancesRequestTaskInfoList `json:"taskInfoList,omitempty" xml:"taskInfoList,omitempty" type:"Repeated"`
+}
+
+func (s PremiumBatchExecuteProcessInstancesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumBatchExecuteProcessInstancesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumBatchExecuteProcessInstancesRequest) SetActionerUserId(v string) *PremiumBatchExecuteProcessInstancesRequest {
+	s.ActionerUserId = &v
+	return s
+}
+
+func (s *PremiumBatchExecuteProcessInstancesRequest) SetRemark(v string) *PremiumBatchExecuteProcessInstancesRequest {
+	s.Remark = &v
+	return s
+}
+
+func (s *PremiumBatchExecuteProcessInstancesRequest) SetResult(v string) *PremiumBatchExecuteProcessInstancesRequest {
+	s.Result = &v
+	return s
+}
+
+func (s *PremiumBatchExecuteProcessInstancesRequest) SetTaskInfoList(v []*PremiumBatchExecuteProcessInstancesRequestTaskInfoList) *PremiumBatchExecuteProcessInstancesRequest {
+	s.TaskInfoList = v
+	return s
+}
+
+type PremiumBatchExecuteProcessInstancesRequestTaskInfoList struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a171de6c-8bxxxx
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// This parameter is required.
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s PremiumBatchExecuteProcessInstancesRequestTaskInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumBatchExecuteProcessInstancesRequestTaskInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumBatchExecuteProcessInstancesRequestTaskInfoList) SetProcessInstanceId(v string) *PremiumBatchExecuteProcessInstancesRequestTaskInfoList {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *PremiumBatchExecuteProcessInstancesRequestTaskInfoList) SetTaskId(v int64) *PremiumBatchExecuteProcessInstancesRequestTaskInfoList {
+	s.TaskId = &v
+	return s
+}
+
+type PremiumBatchExecuteProcessInstancesResponseBody struct {
+	Result  map[string]*ResultValue `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool                   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PremiumBatchExecuteProcessInstancesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumBatchExecuteProcessInstancesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumBatchExecuteProcessInstancesResponseBody) SetResult(v map[string]*ResultValue) *PremiumBatchExecuteProcessInstancesResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *PremiumBatchExecuteProcessInstancesResponseBody) SetSuccess(v bool) *PremiumBatchExecuteProcessInstancesResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PremiumBatchExecuteProcessInstancesResponse struct {
+	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumBatchExecuteProcessInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumBatchExecuteProcessInstancesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumBatchExecuteProcessInstancesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumBatchExecuteProcessInstancesResponse) SetHeaders(v map[string]*string) *PremiumBatchExecuteProcessInstancesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumBatchExecuteProcessInstancesResponse) SetStatusCode(v int32) *PremiumBatchExecuteProcessInstancesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumBatchExecuteProcessInstancesResponse) SetBody(v *PremiumBatchExecuteProcessInstancesResponseBody) *PremiumBatchExecuteProcessInstancesResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumDelDirHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumDelDirHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumDelDirHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumDelDirHeaders) SetCommonHeaders(v map[string]*string) *PremiumDelDirHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumDelDirHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumDelDirHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumDelDirRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// oaDirIdxxx
+	DirId *string `json:"dirId,omitempty" xml:"dirId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user001
+	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
+}
+
+func (s PremiumDelDirRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumDelDirRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumDelDirRequest) SetDirId(v string) *PremiumDelDirRequest {
+	s.DirId = &v
+	return s
+}
+
+func (s *PremiumDelDirRequest) SetOperateUserId(v string) *PremiumDelDirRequest {
+	s.OperateUserId = &v
+	return s
+}
+
+type PremiumDelDirResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PremiumDelDirResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumDelDirResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumDelDirResponseBody) SetSuccess(v bool) *PremiumDelDirResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PremiumDelDirResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumDelDirResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumDelDirResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumDelDirResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumDelDirResponse) SetHeaders(v map[string]*string) *PremiumDelDirResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumDelDirResponse) SetStatusCode(v int32) *PremiumDelDirResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumDelDirResponse) SetBody(v *PremiumDelDirResponseBody) *PremiumDelDirResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumDeleteFormInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumDeleteFormInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumDeleteFormInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumDeleteFormInstanceHeaders) SetCommonHeaders(v map[string]*string) *PremiumDeleteFormInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumDeleteFormInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumDeleteFormInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumDeleteFormInstanceRequest struct {
+	FormInstanceIds []*string `json:"formInstanceIds,omitempty" xml:"formInstanceIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-EF6YJL35P2-SCKICSB7P750S0YISYKV3-xxxx-1
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PremiumDeleteFormInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumDeleteFormInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumDeleteFormInstanceRequest) SetFormInstanceIds(v []*string) *PremiumDeleteFormInstanceRequest {
+	s.FormInstanceIds = v
+	return s
+}
+
+func (s *PremiumDeleteFormInstanceRequest) SetProcessCode(v string) *PremiumDeleteFormInstanceRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *PremiumDeleteFormInstanceRequest) SetUserId(v string) *PremiumDeleteFormInstanceRequest {
+	s.UserId = &v
+	return s
+}
+
+type PremiumDeleteFormInstanceResponseBody struct {
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PremiumDeleteFormInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumDeleteFormInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumDeleteFormInstanceResponseBody) SetSuccess(v string) *PremiumDeleteFormInstanceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PremiumDeleteFormInstanceResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumDeleteFormInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumDeleteFormInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumDeleteFormInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumDeleteFormInstanceResponse) SetHeaders(v map[string]*string) *PremiumDeleteFormInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumDeleteFormInstanceResponse) SetStatusCode(v int32) *PremiumDeleteFormInstanceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumDeleteFormInstanceResponse) SetBody(v *PremiumDeleteFormInstanceResponseBody) *PremiumDeleteFormInstanceResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumGetAttachmentSpaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumGetAttachmentSpaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetAttachmentSpaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetAttachmentSpaceHeaders) SetCommonHeaders(v map[string]*string) *PremiumGetAttachmentSpaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumGetAttachmentSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumGetAttachmentSpaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumGetAttachmentSpaceRequest struct {
+	// example:
+	//
+	// 8345000
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PremiumGetAttachmentSpaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetAttachmentSpaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetAttachmentSpaceRequest) SetAgentId(v int64) *PremiumGetAttachmentSpaceRequest {
+	s.AgentId = &v
+	return s
+}
+
+func (s *PremiumGetAttachmentSpaceRequest) SetUserId(v string) *PremiumGetAttachmentSpaceRequest {
+	s.UserId = &v
+	return s
+}
+
+type PremiumGetAttachmentSpaceResponseBody struct {
+	Result *PremiumGetAttachmentSpaceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PremiumGetAttachmentSpaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetAttachmentSpaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetAttachmentSpaceResponseBody) SetResult(v *PremiumGetAttachmentSpaceResponseBodyResult) *PremiumGetAttachmentSpaceResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *PremiumGetAttachmentSpaceResponseBody) SetSuccess(v bool) *PremiumGetAttachmentSpaceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PremiumGetAttachmentSpaceResponseBodyResult struct {
+	// example:
+	//
+	// 3996960664
+	SpaceId *int64 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s PremiumGetAttachmentSpaceResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetAttachmentSpaceResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetAttachmentSpaceResponseBodyResult) SetSpaceId(v int64) *PremiumGetAttachmentSpaceResponseBodyResult {
+	s.SpaceId = &v
+	return s
+}
+
+type PremiumGetAttachmentSpaceResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumGetAttachmentSpaceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumGetAttachmentSpaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetAttachmentSpaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetAttachmentSpaceResponse) SetHeaders(v map[string]*string) *PremiumGetAttachmentSpaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumGetAttachmentSpaceResponse) SetStatusCode(v int32) *PremiumGetAttachmentSpaceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumGetAttachmentSpaceResponse) SetBody(v *PremiumGetAttachmentSpaceResponseBody) *PremiumGetAttachmentSpaceResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumGetDoneTasksHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumGetDoneTasksHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetDoneTasksHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetDoneTasksHeaders) SetCommonHeaders(v map[string]*string) *PremiumGetDoneTasksHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumGetDoneTasksHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumGetDoneTasksHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumGetDoneTasksRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PremiumGetDoneTasksRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetDoneTasksRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetDoneTasksRequest) SetPageNumber(v int32) *PremiumGetDoneTasksRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *PremiumGetDoneTasksRequest) SetPageSize(v int32) *PremiumGetDoneTasksRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *PremiumGetDoneTasksRequest) SetUserId(v string) *PremiumGetDoneTasksRequest {
+	s.UserId = &v
+	return s
+}
+
+type PremiumGetDoneTasksResponseBody struct {
+	Result  *PremiumGetDoneTasksResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                  `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PremiumGetDoneTasksResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetDoneTasksResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetDoneTasksResponseBody) SetResult(v *PremiumGetDoneTasksResponseBodyResult) *PremiumGetDoneTasksResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *PremiumGetDoneTasksResponseBody) SetSuccess(v bool) *PremiumGetDoneTasksResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PremiumGetDoneTasksResponseBodyResult struct {
+	HasMore *bool                                        `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*PremiumGetDoneTasksResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s PremiumGetDoneTasksResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetDoneTasksResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetDoneTasksResponseBodyResult) SetHasMore(v bool) *PremiumGetDoneTasksResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *PremiumGetDoneTasksResponseBodyResult) SetList(v []*PremiumGetDoneTasksResponseBodyResultList) *PremiumGetDoneTasksResponseBodyResult {
+	s.List = v
+	return s
+}
+
+type PremiumGetDoneTasksResponseBodyResultList struct {
+	ActivityId      *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	FormMassage     *string `json:"formMassage,omitempty" xml:"formMassage,omitempty"`
+	OriginatorId    *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	OriginatorName  *string `json:"originatorName,omitempty" xml:"originatorName,omitempty"`
+	OriginatorPhoto *string `json:"originatorPhoto,omitempty" xml:"originatorPhoto,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	ProcessCreateTime *string `json:"processCreateTime,omitempty" xml:"processCreateTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	ProcessEndTime    *string `json:"processEndTime,omitempty" xml:"processEndTime,omitempty"`
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	ProcessType       *int32  `json:"processType,omitempty" xml:"processType,omitempty"`
+	// example:
+	//
+	// agree
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// RUNNING
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	Title  *string `json:"title,omitempty" xml:"title,omitempty"`
+	Url    *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s PremiumGetDoneTasksResponseBodyResultList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetDoneTasksResponseBodyResultList) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetDoneTasksResponseBodyResultList) SetActivityId(v string) *PremiumGetDoneTasksResponseBodyResultList {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *PremiumGetDoneTasksResponseBodyResultList) SetFormMassage(v string) *PremiumGetDoneTasksResponseBodyResultList {
+	s.FormMassage = &v
+	return s
+}
+
+func (s *PremiumGetDoneTasksResponseBodyResultList) SetOriginatorId(v string) *PremiumGetDoneTasksResponseBodyResultList {
+	s.OriginatorId = &v
+	return s
+}
+
+func (s *PremiumGetDoneTasksResponseBodyResultList) SetOriginatorName(v string) *PremiumGetDoneTasksResponseBodyResultList {
+	s.OriginatorName = &v
+	return s
+}
+
+func (s *PremiumGetDoneTasksResponseBodyResultList) SetOriginatorPhoto(v string) *PremiumGetDoneTasksResponseBodyResultList {
+	s.OriginatorPhoto = &v
+	return s
+}
+
+func (s *PremiumGetDoneTasksResponseBodyResultList) SetProcessCreateTime(v string) *PremiumGetDoneTasksResponseBodyResultList {
+	s.ProcessCreateTime = &v
+	return s
+}
+
+func (s *PremiumGetDoneTasksResponseBodyResultList) SetProcessEndTime(v string) *PremiumGetDoneTasksResponseBodyResultList {
+	s.ProcessEndTime = &v
+	return s
+}
+
+func (s *PremiumGetDoneTasksResponseBodyResultList) SetProcessInstanceId(v string) *PremiumGetDoneTasksResponseBodyResultList {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *PremiumGetDoneTasksResponseBodyResultList) SetProcessType(v int32) *PremiumGetDoneTasksResponseBodyResultList {
+	s.ProcessType = &v
+	return s
+}
+
+func (s *PremiumGetDoneTasksResponseBodyResultList) SetResult(v string) *PremiumGetDoneTasksResponseBodyResultList {
+	s.Result = &v
+	return s
+}
+
+func (s *PremiumGetDoneTasksResponseBodyResultList) SetStatus(v string) *PremiumGetDoneTasksResponseBodyResultList {
+	s.Status = &v
+	return s
+}
+
+func (s *PremiumGetDoneTasksResponseBodyResultList) SetTaskId(v string) *PremiumGetDoneTasksResponseBodyResultList {
+	s.TaskId = &v
+	return s
+}
+
+func (s *PremiumGetDoneTasksResponseBodyResultList) SetTitle(v string) *PremiumGetDoneTasksResponseBodyResultList {
+	s.Title = &v
+	return s
+}
+
+func (s *PremiumGetDoneTasksResponseBodyResultList) SetUrl(v string) *PremiumGetDoneTasksResponseBodyResultList {
+	s.Url = &v
+	return s
+}
+
+type PremiumGetDoneTasksResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumGetDoneTasksResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumGetDoneTasksResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetDoneTasksResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetDoneTasksResponse) SetHeaders(v map[string]*string) *PremiumGetDoneTasksResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumGetDoneTasksResponse) SetStatusCode(v int32) *PremiumGetDoneTasksResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumGetDoneTasksResponse) SetBody(v *PremiumGetDoneTasksResponseBody) *PremiumGetDoneTasksResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumGetFieldModifiedHistoryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumGetFieldModifiedHistoryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFieldModifiedHistoryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFieldModifiedHistoryHeaders) SetCommonHeaders(v map[string]*string) *PremiumGetFieldModifiedHistoryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumGetFieldModifiedHistoryHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumGetFieldModifiedHistoryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumGetFieldModifiedHistoryRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField-abcd
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// proc-FF6Y2xxxx
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+}
+
+func (s PremiumGetFieldModifiedHistoryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFieldModifiedHistoryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFieldModifiedHistoryRequest) SetFieldId(v string) *PremiumGetFieldModifiedHistoryRequest {
+	s.FieldId = &v
+	return s
+}
+
+func (s *PremiumGetFieldModifiedHistoryRequest) SetProcessInstanceId(v string) *PremiumGetFieldModifiedHistoryRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+type PremiumGetFieldModifiedHistoryResponseBody struct {
+	Result []*PremiumGetFieldModifiedHistoryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PremiumGetFieldModifiedHistoryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFieldModifiedHistoryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFieldModifiedHistoryResponseBody) SetResult(v []*PremiumGetFieldModifiedHistoryResponseBodyResult) *PremiumGetFieldModifiedHistoryResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *PremiumGetFieldModifiedHistoryResponseBody) SetSuccess(v bool) *PremiumGetFieldModifiedHistoryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PremiumGetFieldModifiedHistoryResponseBodyResult struct {
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2024-04-02T11:52Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// TextField-abcd
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// example:
+	//
+	// 钉钉1
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// userId1
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 从 111 修改到 222
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s PremiumGetFieldModifiedHistoryResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFieldModifiedHistoryResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFieldModifiedHistoryResponseBodyResult) SetCreateTime(v string) *PremiumGetFieldModifiedHistoryResponseBodyResult {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *PremiumGetFieldModifiedHistoryResponseBodyResult) SetFieldId(v string) *PremiumGetFieldModifiedHistoryResponseBodyResult {
+	s.FieldId = &v
+	return s
+}
+
+func (s *PremiumGetFieldModifiedHistoryResponseBodyResult) SetName(v string) *PremiumGetFieldModifiedHistoryResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *PremiumGetFieldModifiedHistoryResponseBodyResult) SetUserId(v string) *PremiumGetFieldModifiedHistoryResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+func (s *PremiumGetFieldModifiedHistoryResponseBodyResult) SetValue(v string) *PremiumGetFieldModifiedHistoryResponseBodyResult {
+	s.Value = &v
+	return s
+}
+
+type PremiumGetFieldModifiedHistoryResponse struct {
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumGetFieldModifiedHistoryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumGetFieldModifiedHistoryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFieldModifiedHistoryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFieldModifiedHistoryResponse) SetHeaders(v map[string]*string) *PremiumGetFieldModifiedHistoryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumGetFieldModifiedHistoryResponse) SetStatusCode(v int32) *PremiumGetFieldModifiedHistoryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumGetFieldModifiedHistoryResponse) SetBody(v *PremiumGetFieldModifiedHistoryResponseBody) *PremiumGetFieldModifiedHistoryResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumGetFormInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumGetFormInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormInstanceHeaders) SetCommonHeaders(v map[string]*string) *PremiumGetFormInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumGetFormInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumGetFormInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumGetFormInstanceRequest struct {
+	// example:
+	//
+	// SWAPP-dfeacds-example
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-abcdef-example
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 951a8-8828-430c-b3e-example
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+}
+
+func (s PremiumGetFormInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormInstanceRequest) SetAppUuid(v string) *PremiumGetFormInstanceRequest {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *PremiumGetFormInstanceRequest) SetFormCode(v string) *PremiumGetFormInstanceRequest {
+	s.FormCode = &v
+	return s
+}
+
+func (s *PremiumGetFormInstanceRequest) SetFormInstanceId(v string) *PremiumGetFormInstanceRequest {
+	s.FormInstanceId = &v
+	return s
+}
+
+type PremiumGetFormInstanceResponseBody struct {
+	// example:
+	//
+	// SWAPP-dfeacds-example
+	AppUuid    *string                `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	Attributes map[string]interface{} `json:"attributes,omitempty" xml:"attributes,omitempty"`
+	// example:
+	//
+	// 1631870043000
+	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 00003
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-abcdef-example
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	FormInstDataList []*PremiumGetFormInstanceResponseBodyFormInstDataList `json:"formInstDataList,omitempty" xml:"formInstDataList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 951a8-8828-430c-b3e-example
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// example:
+	//
+	// 000025
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	// example:
+	//
+	// 1631870043000
+	ModifyTimestamp *int64 `json:"modifyTimestamp,omitempty" xml:"modifyTimestamp,omitempty"`
+	// example:
+	//
+	// PROC-abcdef-example
+	OutBizCode *string `json:"outBizCode,omitempty" xml:"outBizCode,omitempty"`
+	// example:
+	//
+	// 951a8-8828-430c-b3e-example
+	OutInstanceId *string `json:"outInstanceId,omitempty" xml:"outInstanceId,omitempty"`
+	// example:
+	//
+	// xxx提交的表单数据
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s PremiumGetFormInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormInstanceResponseBody) SetAppUuid(v string) *PremiumGetFormInstanceResponseBody {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponseBody) SetAttributes(v map[string]interface{}) *PremiumGetFormInstanceResponseBody {
+	s.Attributes = v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponseBody) SetCreateTimestamp(v int64) *PremiumGetFormInstanceResponseBody {
+	s.CreateTimestamp = &v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponseBody) SetCreator(v string) *PremiumGetFormInstanceResponseBody {
+	s.Creator = &v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponseBody) SetFormCode(v string) *PremiumGetFormInstanceResponseBody {
+	s.FormCode = &v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponseBody) SetFormInstDataList(v []*PremiumGetFormInstanceResponseBodyFormInstDataList) *PremiumGetFormInstanceResponseBody {
+	s.FormInstDataList = v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponseBody) SetFormInstanceId(v string) *PremiumGetFormInstanceResponseBody {
+	s.FormInstanceId = &v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponseBody) SetModifier(v string) *PremiumGetFormInstanceResponseBody {
+	s.Modifier = &v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponseBody) SetModifyTimestamp(v int64) *PremiumGetFormInstanceResponseBody {
+	s.ModifyTimestamp = &v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponseBody) SetOutBizCode(v string) *PremiumGetFormInstanceResponseBody {
+	s.OutBizCode = &v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponseBody) SetOutInstanceId(v string) *PremiumGetFormInstanceResponseBody {
+	s.OutInstanceId = &v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponseBody) SetTitle(v string) *PremiumGetFormInstanceResponseBody {
+	s.Title = &v
+	return s
+}
+
+type PremiumGetFormInstanceResponseBodyFormInstDataList struct {
+	// This parameter is required.
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
+	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	// This parameter is required.
+	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
+	// This parameter is required.
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s PremiumGetFormInstanceResponseBodyFormInstDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormInstanceResponseBodyFormInstDataList) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormInstanceResponseBodyFormInstDataList) SetBizAlias(v string) *PremiumGetFormInstanceResponseBodyFormInstDataList {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponseBodyFormInstDataList) SetComponentType(v string) *PremiumGetFormInstanceResponseBodyFormInstDataList {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponseBodyFormInstDataList) SetExtendValue(v string) *PremiumGetFormInstanceResponseBodyFormInstDataList {
+	s.ExtendValue = &v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponseBodyFormInstDataList) SetKey(v string) *PremiumGetFormInstanceResponseBodyFormInstDataList {
+	s.Key = &v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponseBodyFormInstDataList) SetLabel(v string) *PremiumGetFormInstanceResponseBodyFormInstDataList {
+	s.Label = &v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponseBodyFormInstDataList) SetValue(v string) *PremiumGetFormInstanceResponseBodyFormInstDataList {
+	s.Value = &v
+	return s
+}
+
+type PremiumGetFormInstanceResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumGetFormInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumGetFormInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormInstanceResponse) SetHeaders(v map[string]*string) *PremiumGetFormInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponse) SetStatusCode(v int32) *PremiumGetFormInstanceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumGetFormInstanceResponse) SetBody(v *PremiumGetFormInstanceResponseBody) *PremiumGetFormInstanceResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumGetFormInstancesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumGetFormInstancesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormInstancesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormInstancesHeaders) SetCommonHeaders(v map[string]*string) *PremiumGetFormInstancesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumGetFormInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumGetFormInstancesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumGetFormInstancesRequest struct {
+	// example:
+	//
+	// SWAPP-dacdsa-example
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-daccea-example
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 100010
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s PremiumGetFormInstancesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormInstancesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormInstancesRequest) SetAppUuid(v string) *PremiumGetFormInstancesRequest {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesRequest) SetFormCode(v string) *PremiumGetFormInstancesRequest {
+	s.FormCode = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesRequest) SetMaxResults(v int32) *PremiumGetFormInstancesRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesRequest) SetNextToken(v string) *PremiumGetFormInstancesRequest {
+	s.NextToken = &v
+	return s
+}
+
+type PremiumGetFormInstancesResponseBody struct {
+	// This parameter is required.
+	Result *PremiumGetFormInstancesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s PremiumGetFormInstancesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormInstancesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormInstancesResponseBody) SetResult(v *PremiumGetFormInstancesResponseBodyResult) *PremiumGetFormInstancesResponseBody {
+	s.Result = v
+	return s
+}
+
+type PremiumGetFormInstancesResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	Values []*PremiumGetFormInstancesResponseBodyResultValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+}
+
+func (s PremiumGetFormInstancesResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormInstancesResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResult) SetHasMore(v bool) *PremiumGetFormInstancesResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResult) SetMaxResults(v int64) *PremiumGetFormInstancesResponseBodyResult {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResult) SetNextToken(v string) *PremiumGetFormInstancesResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResult) SetValues(v []*PremiumGetFormInstancesResponseBodyResultValues) *PremiumGetFormInstancesResponseBodyResult {
+	s.Values = v
+	return s
+}
+
+type PremiumGetFormInstancesResponseBodyResultValues struct {
+	// example:
+	//
+	// SWAPP-abcd-example
+	AppUuid    *string                `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	Attributes map[string]interface{} `json:"attributes,omitempty" xml:"attributes,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1635151039000
+	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 30314512
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-abcd-example
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	FormInstDataList []*PremiumGetFormInstancesResponseBodyResultValuesFormInstDataList `json:"formInstDataList,omitempty" xml:"formInstDataList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abcd-eaf-acde12f
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 032142312
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	// example:
+	//
+	// 1635151039000
+	ModifyTimestamp *int64 `json:"modifyTimestamp,omitempty" xml:"modifyTimestamp,omitempty"`
+	// example:
+	//
+	// abcd
+	OutBizCode *string `json:"outBizCode,omitempty" xml:"outBizCode,omitempty"`
+	// example:
+	//
+	// 323
+	OutInstanceId *string `json:"outInstanceId,omitempty" xml:"outInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx提交的数据
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s PremiumGetFormInstancesResponseBodyResultValues) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormInstancesResponseBodyResultValues) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValues) SetAppUuid(v string) *PremiumGetFormInstancesResponseBodyResultValues {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValues) SetAttributes(v map[string]interface{}) *PremiumGetFormInstancesResponseBodyResultValues {
+	s.Attributes = v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValues) SetCreateTimestamp(v int64) *PremiumGetFormInstancesResponseBodyResultValues {
+	s.CreateTimestamp = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValues) SetCreator(v string) *PremiumGetFormInstancesResponseBodyResultValues {
+	s.Creator = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValues) SetFormCode(v string) *PremiumGetFormInstancesResponseBodyResultValues {
+	s.FormCode = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValues) SetFormInstDataList(v []*PremiumGetFormInstancesResponseBodyResultValuesFormInstDataList) *PremiumGetFormInstancesResponseBodyResultValues {
+	s.FormInstDataList = v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValues) SetFormInstanceId(v string) *PremiumGetFormInstancesResponseBodyResultValues {
+	s.FormInstanceId = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValues) SetModifier(v string) *PremiumGetFormInstancesResponseBodyResultValues {
+	s.Modifier = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValues) SetModifyTimestamp(v int64) *PremiumGetFormInstancesResponseBodyResultValues {
+	s.ModifyTimestamp = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValues) SetOutBizCode(v string) *PremiumGetFormInstancesResponseBodyResultValues {
+	s.OutBizCode = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValues) SetOutInstanceId(v string) *PremiumGetFormInstancesResponseBodyResultValues {
+	s.OutInstanceId = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValues) SetTitle(v string) *PremiumGetFormInstancesResponseBodyResultValues {
+	s.Title = &v
+	return s
+}
+
+type PremiumGetFormInstancesResponseBodyResultValuesFormInstDataList struct {
+	// example:
+	//
+	// staff_name
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 具体参见审批控件列表
+	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	// example:
+	//
+	// {"key":"value}
+	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField-abcdefg
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 员工姓名
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s PremiumGetFormInstancesResponseBodyResultValuesFormInstDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormInstancesResponseBodyResultValuesFormInstDataList) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValuesFormInstDataList) SetBizAlias(v string) *PremiumGetFormInstancesResponseBodyResultValuesFormInstDataList {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValuesFormInstDataList) SetComponentType(v string) *PremiumGetFormInstancesResponseBodyResultValuesFormInstDataList {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValuesFormInstDataList) SetExtendValue(v string) *PremiumGetFormInstancesResponseBodyResultValuesFormInstDataList {
+	s.ExtendValue = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValuesFormInstDataList) SetKey(v string) *PremiumGetFormInstancesResponseBodyResultValuesFormInstDataList {
+	s.Key = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValuesFormInstDataList) SetLabel(v string) *PremiumGetFormInstancesResponseBodyResultValuesFormInstDataList {
+	s.Label = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponseBodyResultValuesFormInstDataList) SetValue(v string) *PremiumGetFormInstancesResponseBodyResultValuesFormInstDataList {
+	s.Value = &v
+	return s
+}
+
+type PremiumGetFormInstancesResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumGetFormInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumGetFormInstancesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormInstancesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormInstancesResponse) SetHeaders(v map[string]*string) *PremiumGetFormInstancesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponse) SetStatusCode(v int32) *PremiumGetFormInstancesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumGetFormInstancesResponse) SetBody(v *PremiumGetFormInstancesResponseBody) *PremiumGetFormInstancesResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumGetFormSchemaHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumGetFormSchemaHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormSchemaHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormSchemaHeaders) SetCommonHeaders(v map[string]*string) *PremiumGetFormSchemaHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumGetFormSchemaHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumGetFormSchemaHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumGetFormSchemaRequest struct {
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-17428B8C-6C60-xxxx-924C-64F1037AE067
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s PremiumGetFormSchemaRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormSchemaRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormSchemaRequest) SetAppUuid(v string) *PremiumGetFormSchemaRequest {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaRequest) SetProcessCode(v string) *PremiumGetFormSchemaRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+type PremiumGetFormSchemaResponseBody struct {
+	// This parameter is required.
+	Result *PremiumGetFormSchemaResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s PremiumGetFormSchemaResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormSchemaResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormSchemaResponseBody) SetResult(v *PremiumGetFormSchemaResponseBodyResult) *PremiumGetFormSchemaResponseBody {
+	s.Result = v
+	return s
+}
+
+type PremiumGetFormSchemaResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	AppType *int32 `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 26652461xxxx5992
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-17428B8C-6C60-470E-xxxx-64F1037AE067
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-12-01T10:49Z
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-12-01T10:49Z
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// example:
+	//
+	// null
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// example:
+	//
+	// xxxx
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// example:
+	//
+	// 示例模板
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	SchemaContent *PremiumGetFormSchemaResponseBodyResultSchemaContent `json:"schemaContent,omitempty" xml:"schemaContent,omitempty" type:"Struct"`
+	// example:
+	//
+	// PUBLISHED
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s PremiumGetFormSchemaResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormSchemaResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResult) SetAppType(v int32) *PremiumGetFormSchemaResponseBodyResult {
+	s.AppType = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResult) SetCreatorUserId(v string) *PremiumGetFormSchemaResponseBodyResult {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResult) SetFormCode(v string) *PremiumGetFormSchemaResponseBodyResult {
+	s.FormCode = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResult) SetGmtCreate(v string) *PremiumGetFormSchemaResponseBodyResult {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResult) SetGmtModified(v string) *PremiumGetFormSchemaResponseBodyResult {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResult) SetIcon(v string) *PremiumGetFormSchemaResponseBodyResult {
+	s.Icon = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResult) SetMemo(v string) *PremiumGetFormSchemaResponseBodyResult {
+	s.Memo = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResult) SetName(v string) *PremiumGetFormSchemaResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResult) SetSchemaContent(v *PremiumGetFormSchemaResponseBodyResultSchemaContent) *PremiumGetFormSchemaResponseBodyResult {
+	s.SchemaContent = v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResult) SetStatus(v string) *PremiumGetFormSchemaResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+type PremiumGetFormSchemaResponseBodyResultSchemaContent struct {
+	// example:
+	//
+	// common
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// This parameter is required.
+	Items []*PremiumGetFormSchemaResponseBodyResultSchemaContentItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 示例模板
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContent) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContent) SetIcon(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContent {
+	s.Icon = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContent) SetItems(v []*PremiumGetFormSchemaResponseBodyResultSchemaContentItems) *PremiumGetFormSchemaResponseBodyResultSchemaContent {
+	s.Items = v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContent) SetTitle(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContent {
+	s.Title = &v
+	return s
+}
+
+type PremiumGetFormSchemaResponseBodyResultSchemaContentItems struct {
+	Children []*PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	Props *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItems) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItems) SetChildren(v []*PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildren) *PremiumGetFormSchemaResponseBodyResultSchemaContentItems {
+	s.Children = v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItems) SetComponentName(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItems {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItems) SetProps(v *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) *PremiumGetFormSchemaResponseBodyResultSchemaContentItems {
+	s.Props = v
+	return s
+}
+
+type PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildren struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	Props *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildrenProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildren) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildren) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildren) SetComponentName(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildren {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildren) SetProps(v *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildrenProps) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildren {
+	s.Props = v
+	return s
+}
+
+type PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildrenProps struct {
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
+	Id       *string   `json:"id,omitempty" xml:"id,omitempty"`
+	Label    *string   `json:"label,omitempty" xml:"label,omitempty"`
+	Options  []*string `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	Required *bool     `json:"required,omitempty" xml:"required,omitempty"`
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildrenProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildrenProps) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildrenProps) SetBizAlias(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildrenProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildrenProps) SetId(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildrenProps {
+	s.Id = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildrenProps) SetLabel(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildrenProps {
+	s.Label = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildrenProps) SetOptions(v []*string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildrenProps {
+	s.Options = v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildrenProps) SetRequired(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsChildrenProps {
+	s.Required = &v
+	return s
+}
+
+type PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps struct {
+	// example:
+	//
+	// 添加
+	ActionName *string `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	// example:
+	//
+	// top
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// example:
+	//
+	// 1234567
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// example:
+	//
+	// true
+	AsyncCondition *bool `json:"asyncCondition,omitempty" xml:"asyncCondition,omitempty"`
+	// example:
+	//
+	// 请假
+	AttendTypeLabel *string                                                                         `json:"attendTypeLabel,omitempty" xml:"attendTypeLabel,omitempty"`
+	BehaviorLinkage []*PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkage `json:"behaviorLinkage,omitempty" xml:"behaviorLinkage,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 我的单行输入框
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// example:
+	//
+	// hrm.xxxx
+	BizType           *string          `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	ChildFieldVisible map[string]*bool `json:"childFieldVisible,omitempty" xml:"childFieldVisible,omitempty"`
+	// example:
+	//
+	// 1
+	Choice *int32 `json:"choice,omitempty" xml:"choice,omitempty"`
+	// example:
+	//
+	// xxxx
+	CommonBizType *string `json:"commonBizType,omitempty" xml:"commonBizType,omitempty"`
+	// example:
+	//
+	// true
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// example:
+	//
+	// true
+	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
+	// example:
+	//
+	// xxxx
+	DurationLabel *string `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
+	// example:
+	//
+	// true
+	ESign *bool `json:"eSign,omitempty" xml:"eSign,omitempty"`
+	// example:
+	//
+	// true
+	Extract *bool `json:"extract,omitempty" xml:"extract,omitempty"`
+	// example:
+	//
+	// xxxx
+	FieldsInfo *string `json:"fieldsInfo,omitempty" xml:"fieldsInfo,omitempty"`
+	// example:
+	//
+	// yyyy-MM-dd
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// example:
+	//
+	// xxxx
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// example:
+	//
+	// true
+	Hidden *bool `json:"hidden,omitempty" xml:"hidden,omitempty"`
+	// example:
+	//
+	// true
+	HiddenInApprovalDetail *bool `json:"hiddenInApprovalDetail,omitempty" xml:"hiddenInApprovalDetail,omitempty"`
+	// example:
+	//
+	// true
+	HideLabel *bool `json:"hideLabel,omitempty" xml:"hideLabel,omitempty"`
+	// example:
+	//
+	// "[{\"name\":\"\open"}]"
+	HolidayOptions []map[string]*string `json:"holidayOptions,omitempty" xml:"holidayOptions,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField-K2AD4O5B
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 单行输入框
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// example:
+	//
+	// true
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// example:
+	//
+	// xxxx
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// example:
+	//
+	// xxxx
+	MainTitle *string `json:"mainTitle,omitempty" xml:"mainTitle,omitempty"`
+	// example:
+	//
+	// 1
+	NotPrint *string `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	// example:
+	//
+	// 1
+	NotUpper   *string                                                                    `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	ObjOptions []*PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsObjOptions `json:"objOptions,omitempty" xml:"objOptions,omitempty" type:"Repeated"`
+	Options    []*string                                                                  `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	// example:
+	//
+	// 请输入文字
+	Placeholder *string                                                            `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	Push        *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsPush `json:"push,omitempty" xml:"push,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	PushToAttendance *bool `json:"pushToAttendance,omitempty" xml:"pushToAttendance,omitempty"`
+	// example:
+	//
+	// 1
+	PushToCalendar *int32 `json:"pushToCalendar,omitempty" xml:"pushToCalendar,omitempty"`
+	// example:
+	//
+	// true
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// example:
+	//
+	// true
+	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	// example:
+	//
+	// true
+	ShowAttendOptions *bool `json:"showAttendOptions,omitempty" xml:"showAttendOptions,omitempty"`
+	// example:
+	//
+	// true
+	StaffStatusEnabled *bool                                                                     `json:"staffStatusEnabled,omitempty" xml:"staffStatusEnabled,omitempty"`
+	StatField          []*PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// example:
+	//
+	// list
+	TableViewMode *string `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
+	// example:
+	//
+	// 天
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// example:
+	//
+	// true
+	UseCalendar *bool `json:"useCalendar,omitempty" xml:"useCalendar,omitempty"`
+	// example:
+	//
+	// true
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetActionName(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.ActionName = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetAlign(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.Align = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetAppId(v int64) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.AppId = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetAsyncCondition(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.AsyncCondition = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetAttendTypeLabel(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.AttendTypeLabel = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetBehaviorLinkage(v []*PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkage) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.BehaviorLinkage = v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetBizAlias(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetBizType(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.BizType = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetChildFieldVisible(v map[string]*bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.ChildFieldVisible = v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetChoice(v int32) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.Choice = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetCommonBizType(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.CommonBizType = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetDisabled(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.Disabled = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetDuration(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.Duration = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetDurationLabel(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.DurationLabel = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetESign(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.ESign = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetExtract(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.Extract = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetFieldsInfo(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.FieldsInfo = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetFormat(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.Format = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetFormula(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.Formula = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetHidden(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.Hidden = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetHiddenInApprovalDetail(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.HiddenInApprovalDetail = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetHideLabel(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.HideLabel = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetHolidayOptions(v []map[string]*string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.HolidayOptions = v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetId(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.Id = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetLabel(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.Label = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetLabelEditableFreeze(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.LabelEditableFreeze = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetLink(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.Link = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetMainTitle(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.MainTitle = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetNotPrint(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.NotPrint = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetNotUpper(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.NotUpper = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetObjOptions(v []*PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsObjOptions) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.ObjOptions = v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetOptions(v []*string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.Options = v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetPayEnable(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.PayEnable = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetPlaceholder(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetPush(v *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsPush) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.Push = v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetPushToAttendance(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.PushToAttendance = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetPushToCalendar(v int32) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.PushToCalendar = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetRequired(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.Required = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetRequiredEditableFreeze(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.RequiredEditableFreeze = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetShowAttendOptions(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.ShowAttendOptions = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetStaffStatusEnabled(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.StaffStatusEnabled = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetStatField(v []*PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsStatField) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.StatField = v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetTableViewMode(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.TableViewMode = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetUnit(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.Unit = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetUseCalendar(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.UseCalendar = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps) SetVerticalPrint(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsProps {
+	s.VerticalPrint = &v
+	return s
+}
+
+type PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkage struct {
+	Targets []*PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets `json:"targets,omitempty" xml:"targets,omitempty" type:"Repeated"`
+	// example:
+	//
+	// xxxx
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkage) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkage) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkage) SetTargets(v []*PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkage {
+	s.Targets = v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkage) SetValue(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkage {
+	s.Value = &v
+	return s
+}
+
+type PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets struct {
+	// example:
+	//
+	// xxxx
+	Behavior *string `json:"behavior,omitempty" xml:"behavior,omitempty"`
+	// example:
+	//
+	// TextField-K2AD4O5B
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets) SetBehavior(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets {
+	s.Behavior = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets) SetFieldId(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets {
+	s.FieldId = &v
+	return s
+}
+
+type PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsObjOptions struct {
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsObjOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsObjOptions) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsObjOptions) SetValue(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsObjOptions {
+	s.Value = &v
+	return s
+}
+
+type PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsPush struct {
+	// example:
+	//
+	// 1
+	AttendanceRule *int32 `json:"attendanceRule,omitempty" xml:"attendanceRule,omitempty"`
+	// example:
+	//
+	// 1
+	PushSwitch *int32 `json:"pushSwitch,omitempty" xml:"pushSwitch,omitempty"`
+	// example:
+	//
+	// xxxx
+	PushTag *string `json:"pushTag,omitempty" xml:"pushTag,omitempty"`
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsPush) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsPush) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsPush) SetAttendanceRule(v int32) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsPush {
+	s.AttendanceRule = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsPush) SetPushSwitch(v int32) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsPush {
+	s.PushSwitch = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsPush) SetPushTag(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsPush {
+	s.PushTag = &v
+	return s
+}
+
+type PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsStatField struct {
+	// example:
+	//
+	// TextField-K2AD4O5B
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 单行输入框
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// example:
+	//
+	// xxxx
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// example:
+	//
+	// true
+	Upper *bool `json:"upper,omitempty" xml:"upper,omitempty"`
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsStatField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsStatField) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsStatField) SetId(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsStatField {
+	s.Id = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsStatField) SetLabel(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsStatField {
+	s.Label = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsStatField) SetUnit(v string) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsStatField {
+	s.Unit = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsStatField) SetUpper(v bool) *PremiumGetFormSchemaResponseBodyResultSchemaContentItemsPropsStatField {
+	s.Upper = &v
+	return s
+}
+
+type PremiumGetFormSchemaResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumGetFormSchemaResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumGetFormSchemaResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetFormSchemaResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetFormSchemaResponse) SetHeaders(v map[string]*string) *PremiumGetFormSchemaResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponse) SetStatusCode(v int32) *PremiumGetFormSchemaResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumGetFormSchemaResponse) SetBody(v *PremiumGetFormSchemaResponseBody) *PremiumGetFormSchemaResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumGetInstFieldSettingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumGetInstFieldSettingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetInstFieldSettingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetInstFieldSettingHeaders) SetCommonHeaders(v map[string]*string) *PremiumGetInstFieldSettingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumGetInstFieldSettingHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumGetInstFieldSettingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumGetInstFieldSettingRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// proc-FF6Y2xxxx
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// userId123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PremiumGetInstFieldSettingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetInstFieldSettingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetInstFieldSettingRequest) SetProcessInstanceId(v string) *PremiumGetInstFieldSettingRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *PremiumGetInstFieldSettingRequest) SetUserId(v string) *PremiumGetInstFieldSettingRequest {
+	s.UserId = &v
+	return s
+}
+
+type PremiumGetInstFieldSettingResponseBody struct {
+	Result []*PremiumGetInstFieldSettingResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PremiumGetInstFieldSettingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetInstFieldSettingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetInstFieldSettingResponseBody) SetResult(v []*PremiumGetInstFieldSettingResponseBodyResult) *PremiumGetInstFieldSettingResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *PremiumGetInstFieldSettingResponseBody) SetSuccess(v bool) *PremiumGetInstFieldSettingResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PremiumGetInstFieldSettingResponseBodyResult struct {
+	// example:
+	//
+	// TextField
+	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	// example:
+	//
+	// READONLY
+	FieldBehavior *string `json:"fieldBehavior,omitempty" xml:"fieldBehavior,omitempty"`
+	// example:
+	//
+	// TextField-abcd
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+}
+
+func (s PremiumGetInstFieldSettingResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetInstFieldSettingResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetInstFieldSettingResponseBodyResult) SetComponentType(v string) *PremiumGetInstFieldSettingResponseBodyResult {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *PremiumGetInstFieldSettingResponseBodyResult) SetFieldBehavior(v string) *PremiumGetInstFieldSettingResponseBodyResult {
+	s.FieldBehavior = &v
+	return s
+}
+
+func (s *PremiumGetInstFieldSettingResponseBodyResult) SetFieldId(v string) *PremiumGetInstFieldSettingResponseBodyResult {
+	s.FieldId = &v
+	return s
+}
+
+type PremiumGetInstFieldSettingResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumGetInstFieldSettingResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumGetInstFieldSettingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetInstFieldSettingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetInstFieldSettingResponse) SetHeaders(v map[string]*string) *PremiumGetInstFieldSettingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumGetInstFieldSettingResponse) SetStatusCode(v int32) *PremiumGetInstFieldSettingResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumGetInstFieldSettingResponse) SetBody(v *PremiumGetInstFieldSettingResponseBody) *PremiumGetInstFieldSettingResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumGetNoticedInstancesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumGetNoticedInstancesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetNoticedInstancesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetNoticedInstancesHeaders) SetCommonHeaders(v map[string]*string) *PremiumGetNoticedInstancesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumGetNoticedInstancesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumGetNoticedInstancesRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PremiumGetNoticedInstancesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetNoticedInstancesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetNoticedInstancesRequest) SetPageNumber(v int32) *PremiumGetNoticedInstancesRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesRequest) SetPageSize(v int32) *PremiumGetNoticedInstancesRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesRequest) SetUserId(v string) *PremiumGetNoticedInstancesRequest {
+	s.UserId = &v
+	return s
+}
+
+type PremiumGetNoticedInstancesResponseBody struct {
+	Result  *PremiumGetNoticedInstancesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                         `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PremiumGetNoticedInstancesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetNoticedInstancesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetNoticedInstancesResponseBody) SetResult(v *PremiumGetNoticedInstancesResponseBodyResult) *PremiumGetNoticedInstancesResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesResponseBody) SetSuccess(v bool) *PremiumGetNoticedInstancesResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PremiumGetNoticedInstancesResponseBodyResult struct {
+	HasMore *bool                                               `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*PremiumGetNoticedInstancesResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s PremiumGetNoticedInstancesResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetNoticedInstancesResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetNoticedInstancesResponseBodyResult) SetHasMore(v bool) *PremiumGetNoticedInstancesResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesResponseBodyResult) SetList(v []*PremiumGetNoticedInstancesResponseBodyResultList) *PremiumGetNoticedInstancesResponseBodyResult {
+	s.List = v
+	return s
+}
+
+type PremiumGetNoticedInstancesResponseBodyResultList struct {
+	FormMassage     *string `json:"formMassage,omitempty" xml:"formMassage,omitempty"`
+	OriginatorId    *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	OriginatorName  *string `json:"originatorName,omitempty" xml:"originatorName,omitempty"`
+	OriginatorPhoto *string `json:"originatorPhoto,omitempty" xml:"originatorPhoto,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	ProcessCreateTime *string `json:"processCreateTime,omitempty" xml:"processCreateTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	ProcessEndTime    *string `json:"processEndTime,omitempty" xml:"processEndTime,omitempty"`
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	ProcessType       *int32  `json:"processType,omitempty" xml:"processType,omitempty"`
+	// example:
+	//
+	// agree
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// RUNNING
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	Title  *string `json:"title,omitempty" xml:"title,omitempty"`
+	Url    *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s PremiumGetNoticedInstancesResponseBodyResultList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetNoticedInstancesResponseBodyResultList) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetNoticedInstancesResponseBodyResultList) SetFormMassage(v string) *PremiumGetNoticedInstancesResponseBodyResultList {
+	s.FormMassage = &v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesResponseBodyResultList) SetOriginatorId(v string) *PremiumGetNoticedInstancesResponseBodyResultList {
+	s.OriginatorId = &v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesResponseBodyResultList) SetOriginatorName(v string) *PremiumGetNoticedInstancesResponseBodyResultList {
+	s.OriginatorName = &v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesResponseBodyResultList) SetOriginatorPhoto(v string) *PremiumGetNoticedInstancesResponseBodyResultList {
+	s.OriginatorPhoto = &v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesResponseBodyResultList) SetProcessCreateTime(v string) *PremiumGetNoticedInstancesResponseBodyResultList {
+	s.ProcessCreateTime = &v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesResponseBodyResultList) SetProcessEndTime(v string) *PremiumGetNoticedInstancesResponseBodyResultList {
+	s.ProcessEndTime = &v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesResponseBodyResultList) SetProcessInstanceId(v string) *PremiumGetNoticedInstancesResponseBodyResultList {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesResponseBodyResultList) SetProcessType(v int32) *PremiumGetNoticedInstancesResponseBodyResultList {
+	s.ProcessType = &v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesResponseBodyResultList) SetResult(v string) *PremiumGetNoticedInstancesResponseBodyResultList {
+	s.Result = &v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesResponseBodyResultList) SetStatus(v string) *PremiumGetNoticedInstancesResponseBodyResultList {
+	s.Status = &v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesResponseBodyResultList) SetTitle(v string) *PremiumGetNoticedInstancesResponseBodyResultList {
+	s.Title = &v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesResponseBodyResultList) SetUrl(v string) *PremiumGetNoticedInstancesResponseBodyResultList {
+	s.Url = &v
+	return s
+}
+
+type PremiumGetNoticedInstancesResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumGetNoticedInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumGetNoticedInstancesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetNoticedInstancesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetNoticedInstancesResponse) SetHeaders(v map[string]*string) *PremiumGetNoticedInstancesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesResponse) SetStatusCode(v int32) *PremiumGetNoticedInstancesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumGetNoticedInstancesResponse) SetBody(v *PremiumGetNoticedInstancesResponseBody) *PremiumGetNoticedInstancesResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumGetProcessInstancesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumGetProcessInstancesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetProcessInstancesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetProcessInstancesHeaders) SetCommonHeaders(v map[string]*string) *PremiumGetProcessInstancesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumGetProcessInstancesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumGetProcessInstancesRequest struct {
+	// example:
+	//
+	// SWAPP-4C2F4B-example
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// example:
+	//
+	// 1633795200000
+	EndTimeInMills *int64 `json:"endTimeInMills,omitempty" xml:"endTimeInMills,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 1
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-C53-example
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1631289600000
+	StartTimeInMills *int64 `json:"startTimeInMills,omitempty" xml:"startTimeInMills,omitempty"`
+}
+
+func (s PremiumGetProcessInstancesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetProcessInstancesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetProcessInstancesRequest) SetAppUuid(v string) *PremiumGetProcessInstancesRequest {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesRequest) SetEndTimeInMills(v int64) *PremiumGetProcessInstancesRequest {
+	s.EndTimeInMills = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesRequest) SetMaxResults(v int64) *PremiumGetProcessInstancesRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesRequest) SetNextToken(v string) *PremiumGetProcessInstancesRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesRequest) SetProcessCode(v string) *PremiumGetProcessInstancesRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesRequest) SetStartTimeInMills(v int64) *PremiumGetProcessInstancesRequest {
+	s.StartTimeInMills = &v
+	return s
+}
+
+type PremiumGetProcessInstancesResponseBody struct {
+	Result *PremiumGetProcessInstancesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s PremiumGetProcessInstancesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetProcessInstancesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetProcessInstancesResponseBody) SetResult(v *PremiumGetProcessInstancesResponseBodyResult) *PremiumGetProcessInstancesResponseBody {
+	s.Result = v
+	return s
+}
+
+type PremiumGetProcessInstancesResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	HasMore *bool                                               `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*PremiumGetProcessInstancesResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s PremiumGetProcessInstancesResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetProcessInstancesResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResult) SetHasMore(v bool) *PremiumGetProcessInstancesResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResult) SetList(v []*PremiumGetProcessInstancesResponseBodyResultList) *PremiumGetProcessInstancesResponseBodyResult {
+	s.List = v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResult) SetMaxResults(v int64) *PremiumGetProcessInstancesResponseBodyResult {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResult) SetNextToken(v string) *PremiumGetProcessInstancesResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
+type PremiumGetProcessInstancesResponseBodyResultList struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cdef-dae2fd2-example
+	AttachedProcessInstanceIds *string `json:"attachedProcessInstanceIds,omitempty" xml:"attachedProcessInstanceIds,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202110111558000355024
+	BusinessId *string `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1635165470201
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1633795200000
+	FinishTime *int64 `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	// This parameter is required.
+	FormComponentValues []*PremiumGetProcessInstancesResponseBodyResultListFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dcdse-dae2fd2-example
+	MainProcessInstanceId *string                                                             `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
+	OperationRecords      []*PremiumGetProcessInstancesResponseBodyResultListOperationRecords `json:"operationRecords,omitempty" xml:"operationRecords,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 默认-1，企业根部门
+	OriginatorDeptId *string `json:"originatorDeptId,omitempty" xml:"originatorDeptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// staff1234
+	OriginatorUserid *string `json:"originatorUserid,omitempty" xml:"originatorUserid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abcdse-dse-example
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// AGREE同意，REFUSE拒绝
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// RUNNING审批中、TERMINATED撤销、COMPLETED审批完成、CANCELED取消
+	Status *string                                                  `json:"status,omitempty" xml:"status,omitempty"`
+	Tasks  []*PremiumGetProcessInstancesResponseBodyResultListTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 员工A提交的小肖审批单
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s PremiumGetProcessInstancesResponseBodyResultList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetProcessInstancesResponseBodyResultList) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultList) SetAttachedProcessInstanceIds(v string) *PremiumGetProcessInstancesResponseBodyResultList {
+	s.AttachedProcessInstanceIds = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultList) SetBusinessId(v string) *PremiumGetProcessInstancesResponseBodyResultList {
+	s.BusinessId = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultList) SetCreateTime(v int64) *PremiumGetProcessInstancesResponseBodyResultList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultList) SetFinishTime(v int64) *PremiumGetProcessInstancesResponseBodyResultList {
+	s.FinishTime = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultList) SetFormComponentValues(v []*PremiumGetProcessInstancesResponseBodyResultListFormComponentValues) *PremiumGetProcessInstancesResponseBodyResultList {
+	s.FormComponentValues = v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultList) SetMainProcessInstanceId(v string) *PremiumGetProcessInstancesResponseBodyResultList {
+	s.MainProcessInstanceId = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultList) SetOperationRecords(v []*PremiumGetProcessInstancesResponseBodyResultListOperationRecords) *PremiumGetProcessInstancesResponseBodyResultList {
+	s.OperationRecords = v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultList) SetOriginatorDeptId(v string) *PremiumGetProcessInstancesResponseBodyResultList {
+	s.OriginatorDeptId = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultList) SetOriginatorUserid(v string) *PremiumGetProcessInstancesResponseBodyResultList {
+	s.OriginatorUserid = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultList) SetProcessInstanceId(v string) *PremiumGetProcessInstancesResponseBodyResultList {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultList) SetResult(v string) *PremiumGetProcessInstancesResponseBodyResultList {
+	s.Result = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultList) SetStatus(v string) *PremiumGetProcessInstancesResponseBodyResultList {
+	s.Status = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultList) SetTasks(v []*PremiumGetProcessInstancesResponseBodyResultListTasks) *PremiumGetProcessInstancesResponseBodyResultList {
+	s.Tasks = v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultList) SetTitle(v string) *PremiumGetProcessInstancesResponseBodyResultList {
+	s.Title = &v
+	return s
+}
+
+type PremiumGetProcessInstancesResponseBodyResultListFormComponentValues struct {
+	// example:
+	//
+	// {"staffId":"abcd"}
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField-a32bcdef
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s PremiumGetProcessInstancesResponseBodyResultListFormComponentValues) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetProcessInstancesResponseBodyResultListFormComponentValues) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListFormComponentValues) SetExtValue(v string) *PremiumGetProcessInstancesResponseBodyResultListFormComponentValues {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListFormComponentValues) SetId(v string) *PremiumGetProcessInstancesResponseBodyResultListFormComponentValues {
+	s.Id = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListFormComponentValues) SetName(v string) *PremiumGetProcessInstancesResponseBodyResultListFormComponentValues {
+	s.Name = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListFormComponentValues) SetValue(v string) *PremiumGetProcessInstancesResponseBodyResultListFormComponentValues {
+	s.Value = &v
+	return s
+}
+
+type PremiumGetProcessInstancesResponseBodyResultListOperationRecords struct {
+	Attachments []*PremiumGetProcessInstancesResponseBodyResultListOperationRecordsAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+	// example:
+	//
+	// EXECUTE_TASK_NORMAL（正常执行任务），EXECUTE_TASK_AGENT（代理人执行任务），APPEND_TASK_BEFORE（前加签任务），APPEND_TASK_AFTER（后加签任务），REDIRECT_TASK（转交任务），START_PROCESS_INSTANCE（发起流程实例），TERMINATE_PROCESS_INSTANCE（终止(撤销)流程实例），FINISH_PROCESS_INSTANCE（结束流程实例），ADD_REMARK（添加评论）
+	OperationType *string `json:"operationType,omitempty" xml:"operationType,omitempty"`
+	// example:
+	//
+	// 同意
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// AGREE（同意），REFUSE（拒绝），NONE（未知）
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// 1657522271000
+	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	// example:
+	//
+	// manager1
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PremiumGetProcessInstancesResponseBodyResultListOperationRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetProcessInstancesResponseBodyResultListOperationRecords) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListOperationRecords) SetAttachments(v []*PremiumGetProcessInstancesResponseBodyResultListOperationRecordsAttachments) *PremiumGetProcessInstancesResponseBodyResultListOperationRecords {
+	s.Attachments = v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListOperationRecords) SetOperationType(v string) *PremiumGetProcessInstancesResponseBodyResultListOperationRecords {
+	s.OperationType = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListOperationRecords) SetRemark(v string) *PremiumGetProcessInstancesResponseBodyResultListOperationRecords {
+	s.Remark = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListOperationRecords) SetResult(v string) *PremiumGetProcessInstancesResponseBodyResultListOperationRecords {
+	s.Result = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListOperationRecords) SetTimestamp(v int64) *PremiumGetProcessInstancesResponseBodyResultListOperationRecords {
+	s.Timestamp = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListOperationRecords) SetUserId(v string) *PremiumGetProcessInstancesResponseBodyResultListOperationRecords {
+	s.UserId = &v
+	return s
+}
+
+type PremiumGetProcessInstancesResponseBodyResultListOperationRecordsAttachments struct {
+	// example:
+	//
+	// 1234567
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// example:
+	//
+	// 附件
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// example:
+	//
+	// 123
+	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// example:
+	//
+	// pdf
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+}
+
+func (s PremiumGetProcessInstancesResponseBodyResultListOperationRecordsAttachments) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetProcessInstancesResponseBodyResultListOperationRecordsAttachments) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListOperationRecordsAttachments) SetFileId(v string) *PremiumGetProcessInstancesResponseBodyResultListOperationRecordsAttachments {
+	s.FileId = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListOperationRecordsAttachments) SetFileName(v string) *PremiumGetProcessInstancesResponseBodyResultListOperationRecordsAttachments {
+	s.FileName = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListOperationRecordsAttachments) SetFileSize(v string) *PremiumGetProcessInstancesResponseBodyResultListOperationRecordsAttachments {
+	s.FileSize = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListOperationRecordsAttachments) SetFileType(v string) *PremiumGetProcessInstancesResponseBodyResultListOperationRecordsAttachments {
+	s.FileType = &v
+	return s
+}
+
+type PremiumGetProcessInstancesResponseBodyResultListTasks struct {
+	// example:
+	//
+	// 1234_abcd
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// example:
+	//
+	// 1657522271000
+	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	// example:
+	//
+	// 1657522271000
+	FinishTimestamp *int64 `json:"finishTimestamp,omitempty" xml:"finishTimestamp,omitempty"`
+	// example:
+	//
+	// 分为AGREE（同意），REFUSE（拒绝），REDIRECTED（转交）
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// NEW（未启动），RUNNING（处理中），PAUSED（暂停），CANCELED（取消），COMPLETED（完成），TERMINATED（终止）
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// staff1234
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PremiumGetProcessInstancesResponseBodyResultListTasks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetProcessInstancesResponseBodyResultListTasks) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListTasks) SetActivityId(v string) *PremiumGetProcessInstancesResponseBodyResultListTasks {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListTasks) SetCreateTimestamp(v int64) *PremiumGetProcessInstancesResponseBodyResultListTasks {
+	s.CreateTimestamp = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListTasks) SetFinishTimestamp(v int64) *PremiumGetProcessInstancesResponseBodyResultListTasks {
+	s.FinishTimestamp = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListTasks) SetResult(v string) *PremiumGetProcessInstancesResponseBodyResultListTasks {
+	s.Result = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListTasks) SetStatus(v string) *PremiumGetProcessInstancesResponseBodyResultListTasks {
+	s.Status = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListTasks) SetTaskId(v int64) *PremiumGetProcessInstancesResponseBodyResultListTasks {
+	s.TaskId = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultListTasks) SetUserId(v string) *PremiumGetProcessInstancesResponseBodyResultListTasks {
+	s.UserId = &v
+	return s
+}
+
+type PremiumGetProcessInstancesResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumGetProcessInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumGetProcessInstancesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetProcessInstancesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetProcessInstancesResponse) SetHeaders(v map[string]*string) *PremiumGetProcessInstancesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponse) SetStatusCode(v int32) *PremiumGetProcessInstancesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponse) SetBody(v *PremiumGetProcessInstancesResponseBody) *PremiumGetProcessInstancesResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumGetSpaceWithDownloadAuthHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumGetSpaceWithDownloadAuthHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetSpaceWithDownloadAuthHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetSpaceWithDownloadAuthHeaders) SetCommonHeaders(v map[string]*string) *PremiumGetSpaceWithDownloadAuthHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumGetSpaceWithDownloadAuthHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumGetSpaceWithDownloadAuthHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumGetSpaceWithDownloadAuthRequest struct {
+	// example:
+	//
+	// 8345000
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	FileId     *string   `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileIdList []*string `json:"fileIdList,omitempty" xml:"fileIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a17444d1-075b-4a4d-xxxx
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// if can be null:
+	// true
+	WithCommentAttatchment *bool `json:"withCommentAttatchment,omitempty" xml:"withCommentAttatchment,omitempty"`
+}
+
+func (s PremiumGetSpaceWithDownloadAuthRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetSpaceWithDownloadAuthRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetSpaceWithDownloadAuthRequest) SetAgentId(v int64) *PremiumGetSpaceWithDownloadAuthRequest {
+	s.AgentId = &v
+	return s
+}
+
+func (s *PremiumGetSpaceWithDownloadAuthRequest) SetFileId(v string) *PremiumGetSpaceWithDownloadAuthRequest {
+	s.FileId = &v
+	return s
+}
+
+func (s *PremiumGetSpaceWithDownloadAuthRequest) SetFileIdList(v []*string) *PremiumGetSpaceWithDownloadAuthRequest {
+	s.FileIdList = v
+	return s
+}
+
+func (s *PremiumGetSpaceWithDownloadAuthRequest) SetProcessInstanceId(v string) *PremiumGetSpaceWithDownloadAuthRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *PremiumGetSpaceWithDownloadAuthRequest) SetUserId(v string) *PremiumGetSpaceWithDownloadAuthRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *PremiumGetSpaceWithDownloadAuthRequest) SetWithCommentAttatchment(v bool) *PremiumGetSpaceWithDownloadAuthRequest {
+	s.WithCommentAttatchment = &v
+	return s
+}
+
+type PremiumGetSpaceWithDownloadAuthResponseBody struct {
+	Result *PremiumGetSpaceWithDownloadAuthResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PremiumGetSpaceWithDownloadAuthResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetSpaceWithDownloadAuthResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetSpaceWithDownloadAuthResponseBody) SetResult(v *PremiumGetSpaceWithDownloadAuthResponseBodyResult) *PremiumGetSpaceWithDownloadAuthResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *PremiumGetSpaceWithDownloadAuthResponseBody) SetSuccess(v bool) *PremiumGetSpaceWithDownloadAuthResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PremiumGetSpaceWithDownloadAuthResponseBodyResult struct {
+	// example:
+	//
+	// 3996960664
+	SpaceId *int64 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s PremiumGetSpaceWithDownloadAuthResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetSpaceWithDownloadAuthResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetSpaceWithDownloadAuthResponseBodyResult) SetSpaceId(v int64) *PremiumGetSpaceWithDownloadAuthResponseBodyResult {
+	s.SpaceId = &v
+	return s
+}
+
+type PremiumGetSpaceWithDownloadAuthResponse struct {
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumGetSpaceWithDownloadAuthResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumGetSpaceWithDownloadAuthResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetSpaceWithDownloadAuthResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetSpaceWithDownloadAuthResponse) SetHeaders(v map[string]*string) *PremiumGetSpaceWithDownloadAuthResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumGetSpaceWithDownloadAuthResponse) SetStatusCode(v int32) *PremiumGetSpaceWithDownloadAuthResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumGetSpaceWithDownloadAuthResponse) SetBody(v *PremiumGetSpaceWithDownloadAuthResponseBody) *PremiumGetSpaceWithDownloadAuthResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumGetSubmittedInstancesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumGetSubmittedInstancesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetSubmittedInstancesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetSubmittedInstancesHeaders) SetCommonHeaders(v map[string]*string) *PremiumGetSubmittedInstancesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumGetSubmittedInstancesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumGetSubmittedInstancesRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PremiumGetSubmittedInstancesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetSubmittedInstancesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetSubmittedInstancesRequest) SetPageNumber(v int32) *PremiumGetSubmittedInstancesRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesRequest) SetPageSize(v int32) *PremiumGetSubmittedInstancesRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesRequest) SetUserId(v string) *PremiumGetSubmittedInstancesRequest {
+	s.UserId = &v
+	return s
+}
+
+type PremiumGetSubmittedInstancesResponseBody struct {
+	Result  *PremiumGetSubmittedInstancesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PremiumGetSubmittedInstancesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetSubmittedInstancesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetSubmittedInstancesResponseBody) SetResult(v *PremiumGetSubmittedInstancesResponseBodyResult) *PremiumGetSubmittedInstancesResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesResponseBody) SetSuccess(v bool) *PremiumGetSubmittedInstancesResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PremiumGetSubmittedInstancesResponseBodyResult struct {
+	HasMore *bool                                                 `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*PremiumGetSubmittedInstancesResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s PremiumGetSubmittedInstancesResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetSubmittedInstancesResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetSubmittedInstancesResponseBodyResult) SetHasMore(v bool) *PremiumGetSubmittedInstancesResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesResponseBodyResult) SetList(v []*PremiumGetSubmittedInstancesResponseBodyResultList) *PremiumGetSubmittedInstancesResponseBodyResult {
+	s.List = v
+	return s
+}
+
+type PremiumGetSubmittedInstancesResponseBodyResultList struct {
+	AppType         *int32  `json:"appType,omitempty" xml:"appType,omitempty"`
+	FormMassage     *string `json:"formMassage,omitempty" xml:"formMassage,omitempty"`
+	OriginatorId    *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	OriginatorName  *string `json:"originatorName,omitempty" xml:"originatorName,omitempty"`
+	OriginatorPhoto *string `json:"originatorPhoto,omitempty" xml:"originatorPhoto,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	ProcessCreateTime *string `json:"processCreateTime,omitempty" xml:"processCreateTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	ProcessEndTime    *string `json:"processEndTime,omitempty" xml:"processEndTime,omitempty"`
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	ProcessType       *int32  `json:"processType,omitempty" xml:"processType,omitempty"`
+	// example:
+	//
+	// agree
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// RUNNING
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	Title  *string `json:"title,omitempty" xml:"title,omitempty"`
+	Url    *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s PremiumGetSubmittedInstancesResponseBodyResultList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetSubmittedInstancesResponseBodyResultList) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetSubmittedInstancesResponseBodyResultList) SetAppType(v int32) *PremiumGetSubmittedInstancesResponseBodyResultList {
+	s.AppType = &v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesResponseBodyResultList) SetFormMassage(v string) *PremiumGetSubmittedInstancesResponseBodyResultList {
+	s.FormMassage = &v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesResponseBodyResultList) SetOriginatorId(v string) *PremiumGetSubmittedInstancesResponseBodyResultList {
+	s.OriginatorId = &v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesResponseBodyResultList) SetOriginatorName(v string) *PremiumGetSubmittedInstancesResponseBodyResultList {
+	s.OriginatorName = &v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesResponseBodyResultList) SetOriginatorPhoto(v string) *PremiumGetSubmittedInstancesResponseBodyResultList {
+	s.OriginatorPhoto = &v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesResponseBodyResultList) SetProcessCreateTime(v string) *PremiumGetSubmittedInstancesResponseBodyResultList {
+	s.ProcessCreateTime = &v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesResponseBodyResultList) SetProcessEndTime(v string) *PremiumGetSubmittedInstancesResponseBodyResultList {
+	s.ProcessEndTime = &v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesResponseBodyResultList) SetProcessInstanceId(v string) *PremiumGetSubmittedInstancesResponseBodyResultList {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesResponseBodyResultList) SetProcessType(v int32) *PremiumGetSubmittedInstancesResponseBodyResultList {
+	s.ProcessType = &v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesResponseBodyResultList) SetResult(v string) *PremiumGetSubmittedInstancesResponseBodyResultList {
+	s.Result = &v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesResponseBodyResultList) SetStatus(v string) *PremiumGetSubmittedInstancesResponseBodyResultList {
+	s.Status = &v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesResponseBodyResultList) SetTitle(v string) *PremiumGetSubmittedInstancesResponseBodyResultList {
+	s.Title = &v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesResponseBodyResultList) SetUrl(v string) *PremiumGetSubmittedInstancesResponseBodyResultList {
+	s.Url = &v
+	return s
+}
+
+type PremiumGetSubmittedInstancesResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumGetSubmittedInstancesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumGetSubmittedInstancesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetSubmittedInstancesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetSubmittedInstancesResponse) SetHeaders(v map[string]*string) *PremiumGetSubmittedInstancesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesResponse) SetStatusCode(v int32) *PremiumGetSubmittedInstancesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumGetSubmittedInstancesResponse) SetBody(v *PremiumGetSubmittedInstancesResponseBody) *PremiumGetSubmittedInstancesResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumGetTodoTasksHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumGetTodoTasksHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetTodoTasksHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetTodoTasksHeaders) SetCommonHeaders(v map[string]*string) *PremiumGetTodoTasksHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumGetTodoTasksHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumGetTodoTasksHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumGetTodoTasksRequest struct {
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	CreateBefore *string `json:"createBefore,omitempty" xml:"createBefore,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PremiumGetTodoTasksRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetTodoTasksRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetTodoTasksRequest) SetCreateBefore(v string) *PremiumGetTodoTasksRequest {
+	s.CreateBefore = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksRequest) SetPageNumber(v int32) *PremiumGetTodoTasksRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksRequest) SetPageSize(v int32) *PremiumGetTodoTasksRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksRequest) SetUserId(v string) *PremiumGetTodoTasksRequest {
+	s.UserId = &v
+	return s
+}
+
+type PremiumGetTodoTasksResponseBody struct {
+	Result *PremiumGetTodoTasksResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s PremiumGetTodoTasksResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetTodoTasksResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetTodoTasksResponseBody) SetResult(v *PremiumGetTodoTasksResponseBodyResult) *PremiumGetTodoTasksResponseBody {
+	s.Result = v
+	return s
+}
+
+type PremiumGetTodoTasksResponseBodyResult struct {
+	HasMore *bool                                        `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*PremiumGetTodoTasksResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	Success *bool                                        `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PremiumGetTodoTasksResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetTodoTasksResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetTodoTasksResponseBodyResult) SetHasMore(v bool) *PremiumGetTodoTasksResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksResponseBodyResult) SetList(v []*PremiumGetTodoTasksResponseBodyResultList) *PremiumGetTodoTasksResponseBodyResult {
+	s.List = v
+	return s
+}
+
+func (s *PremiumGetTodoTasksResponseBodyResult) SetSuccess(v bool) *PremiumGetTodoTasksResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type PremiumGetTodoTasksResponseBodyResultList struct {
+	ActivityId      *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	AppType         *int32  `json:"appType,omitempty" xml:"appType,omitempty"`
+	FormMassage     *string `json:"formMassage,omitempty" xml:"formMassage,omitempty"`
+	OriginatorId    *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	OriginatorName  *string `json:"originatorName,omitempty" xml:"originatorName,omitempty"`
+	OriginatorPhoto *string `json:"originatorPhoto,omitempty" xml:"originatorPhoto,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	ProcessCreateTime *string `json:"processCreateTime,omitempty" xml:"processCreateTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	ProcessEndTime    *string `json:"processEndTime,omitempty" xml:"processEndTime,omitempty"`
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	ProcessType       *int32  `json:"processType,omitempty" xml:"processType,omitempty"`
+	// example:
+	//
+	// RUNNING
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	Title  *string `json:"title,omitempty" xml:"title,omitempty"`
+	Url    *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s PremiumGetTodoTasksResponseBodyResultList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetTodoTasksResponseBodyResultList) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetTodoTasksResponseBodyResultList) SetActivityId(v string) *PremiumGetTodoTasksResponseBodyResultList {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksResponseBodyResultList) SetAppType(v int32) *PremiumGetTodoTasksResponseBodyResultList {
+	s.AppType = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksResponseBodyResultList) SetFormMassage(v string) *PremiumGetTodoTasksResponseBodyResultList {
+	s.FormMassage = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksResponseBodyResultList) SetOriginatorId(v string) *PremiumGetTodoTasksResponseBodyResultList {
+	s.OriginatorId = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksResponseBodyResultList) SetOriginatorName(v string) *PremiumGetTodoTasksResponseBodyResultList {
+	s.OriginatorName = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksResponseBodyResultList) SetOriginatorPhoto(v string) *PremiumGetTodoTasksResponseBodyResultList {
+	s.OriginatorPhoto = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksResponseBodyResultList) SetProcessCreateTime(v string) *PremiumGetTodoTasksResponseBodyResultList {
+	s.ProcessCreateTime = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksResponseBodyResultList) SetProcessEndTime(v string) *PremiumGetTodoTasksResponseBodyResultList {
+	s.ProcessEndTime = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksResponseBodyResultList) SetProcessInstanceId(v string) *PremiumGetTodoTasksResponseBodyResultList {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksResponseBodyResultList) SetProcessType(v int32) *PremiumGetTodoTasksResponseBodyResultList {
+	s.ProcessType = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksResponseBodyResultList) SetStatus(v string) *PremiumGetTodoTasksResponseBodyResultList {
+	s.Status = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksResponseBodyResultList) SetTaskId(v string) *PremiumGetTodoTasksResponseBodyResultList {
+	s.TaskId = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksResponseBodyResultList) SetTitle(v string) *PremiumGetTodoTasksResponseBodyResultList {
+	s.Title = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksResponseBodyResultList) SetUrl(v string) *PremiumGetTodoTasksResponseBodyResultList {
+	s.Url = &v
+	return s
+}
+
+type PremiumGetTodoTasksResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumGetTodoTasksResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumGetTodoTasksResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGetTodoTasksResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGetTodoTasksResponse) SetHeaders(v map[string]*string) *PremiumGetTodoTasksResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumGetTodoTasksResponse) SetStatusCode(v int32) *PremiumGetTodoTasksResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumGetTodoTasksResponse) SetBody(v *PremiumGetTodoTasksResponseBody) *PremiumGetTodoTasksResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumGrantProcessInstanceForDownloadFileHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumGrantProcessInstanceForDownloadFileHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGrantProcessInstanceForDownloadFileHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGrantProcessInstanceForDownloadFileHeaders) SetCommonHeaders(v map[string]*string) *PremiumGrantProcessInstanceForDownloadFileHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumGrantProcessInstanceForDownloadFileHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumGrantProcessInstanceForDownloadFileHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumGrantProcessInstanceForDownloadFileRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a17444d1-075b-4a4d-xxxx
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// if can be null:
+	// true
+	WithCommentAttatchment *bool `json:"withCommentAttatchment,omitempty" xml:"withCommentAttatchment,omitempty"`
+}
+
+func (s PremiumGrantProcessInstanceForDownloadFileRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGrantProcessInstanceForDownloadFileRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGrantProcessInstanceForDownloadFileRequest) SetFileId(v string) *PremiumGrantProcessInstanceForDownloadFileRequest {
+	s.FileId = &v
+	return s
+}
+
+func (s *PremiumGrantProcessInstanceForDownloadFileRequest) SetProcessInstanceId(v string) *PremiumGrantProcessInstanceForDownloadFileRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *PremiumGrantProcessInstanceForDownloadFileRequest) SetWithCommentAttatchment(v bool) *PremiumGrantProcessInstanceForDownloadFileRequest {
+	s.WithCommentAttatchment = &v
+	return s
+}
+
+type PremiumGrantProcessInstanceForDownloadFileResponseBody struct {
+	Result *PremiumGrantProcessInstanceForDownloadFileResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PremiumGrantProcessInstanceForDownloadFileResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGrantProcessInstanceForDownloadFileResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGrantProcessInstanceForDownloadFileResponseBody) SetResult(v *PremiumGrantProcessInstanceForDownloadFileResponseBodyResult) *PremiumGrantProcessInstanceForDownloadFileResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *PremiumGrantProcessInstanceForDownloadFileResponseBody) SetSuccess(v bool) *PremiumGrantProcessInstanceForDownloadFileResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PremiumGrantProcessInstanceForDownloadFileResponseBodyResult struct {
+	// example:
+	//
+	// http://lippi-space-zjk.oss-cn-zhangjiakou.aliyuncs.com/xxxxx
+	DownloadUri *string `json:"downloadUri,omitempty" xml:"downloadUri,omitempty"`
+	// example:
+	//
+	// 26748422566
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// example:
+	//
+	// 3996960664
+	SpaceId *int64 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s PremiumGrantProcessInstanceForDownloadFileResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGrantProcessInstanceForDownloadFileResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGrantProcessInstanceForDownloadFileResponseBodyResult) SetDownloadUri(v string) *PremiumGrantProcessInstanceForDownloadFileResponseBodyResult {
+	s.DownloadUri = &v
+	return s
+}
+
+func (s *PremiumGrantProcessInstanceForDownloadFileResponseBodyResult) SetFileId(v string) *PremiumGrantProcessInstanceForDownloadFileResponseBodyResult {
+	s.FileId = &v
+	return s
+}
+
+func (s *PremiumGrantProcessInstanceForDownloadFileResponseBodyResult) SetSpaceId(v int64) *PremiumGrantProcessInstanceForDownloadFileResponseBodyResult {
+	s.SpaceId = &v
+	return s
+}
+
+type PremiumGrantProcessInstanceForDownloadFileResponse struct {
+	Headers    map[string]*string                                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumGrantProcessInstanceForDownloadFileResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumGrantProcessInstanceForDownloadFileResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumGrantProcessInstanceForDownloadFileResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumGrantProcessInstanceForDownloadFileResponse) SetHeaders(v map[string]*string) *PremiumGrantProcessInstanceForDownloadFileResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumGrantProcessInstanceForDownloadFileResponse) SetStatusCode(v int32) *PremiumGrantProcessInstanceForDownloadFileResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumGrantProcessInstanceForDownloadFileResponse) SetBody(v *PremiumGrantProcessInstanceForDownloadFileResponseBody) *PremiumGrantProcessInstanceForDownloadFileResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumInsertOrUpdateDirHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumInsertOrUpdateDirHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumInsertOrUpdateDirHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumInsertOrUpdateDirHeaders) SetCommonHeaders(v map[string]*string) *PremiumInsertOrUpdateDirHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumInsertOrUpdateDirHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumInsertOrUpdateDirHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumInsertOrUpdateDirRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// administeration
+	BizGroup *string `json:"bizGroup,omitempty" xml:"bizGroup,omitempty"`
+	// example:
+	//
+	// 分组描述信息
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 行政管理
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {\"en_US\":\"test\",\"ja_JP\":\"test\",\"vi_VN\":\"test\",\"zh_CN\":\"测试\",\"zh_HK\":\"测试\",\"zh_TW\":\"测试\"}
+	Name18n *string `json:"name18n,omitempty" xml:"name18n,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user001
+	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
+}
+
+func (s PremiumInsertOrUpdateDirRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumInsertOrUpdateDirRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumInsertOrUpdateDirRequest) SetBizGroup(v string) *PremiumInsertOrUpdateDirRequest {
+	s.BizGroup = &v
+	return s
+}
+
+func (s *PremiumInsertOrUpdateDirRequest) SetDescription(v string) *PremiumInsertOrUpdateDirRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *PremiumInsertOrUpdateDirRequest) SetName(v string) *PremiumInsertOrUpdateDirRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *PremiumInsertOrUpdateDirRequest) SetName18n(v string) *PremiumInsertOrUpdateDirRequest {
+	s.Name18n = &v
+	return s
+}
+
+func (s *PremiumInsertOrUpdateDirRequest) SetOperateUserId(v string) *PremiumInsertOrUpdateDirRequest {
+	s.OperateUserId = &v
+	return s
+}
+
+type PremiumInsertOrUpdateDirResponseBody struct {
+	Result  *PremiumInsertOrUpdateDirResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                       `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PremiumInsertOrUpdateDirResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumInsertOrUpdateDirResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumInsertOrUpdateDirResponseBody) SetResult(v *PremiumInsertOrUpdateDirResponseBodyResult) *PremiumInsertOrUpdateDirResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *PremiumInsertOrUpdateDirResponseBody) SetSuccess(v bool) *PremiumInsertOrUpdateDirResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PremiumInsertOrUpdateDirResponseBodyResult struct {
+	// example:
+	//
+	// {应用appId}_administeration
+	BizGroup *string `json:"bizGroup,omitempty" xml:"bizGroup,omitempty"`
+	// example:
+	//
+	// oaDirIdxxx
+	DirId *string `json:"dirId,omitempty" xml:"dirId,omitempty"`
+}
+
+func (s PremiumInsertOrUpdateDirResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumInsertOrUpdateDirResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumInsertOrUpdateDirResponseBodyResult) SetBizGroup(v string) *PremiumInsertOrUpdateDirResponseBodyResult {
+	s.BizGroup = &v
+	return s
+}
+
+func (s *PremiumInsertOrUpdateDirResponseBodyResult) SetDirId(v string) *PremiumInsertOrUpdateDirResponseBodyResult {
+	s.DirId = &v
+	return s
+}
+
+type PremiumInsertOrUpdateDirResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumInsertOrUpdateDirResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumInsertOrUpdateDirResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumInsertOrUpdateDirResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumInsertOrUpdateDirResponse) SetHeaders(v map[string]*string) *PremiumInsertOrUpdateDirResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumInsertOrUpdateDirResponse) SetStatusCode(v int32) *PremiumInsertOrUpdateDirResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumInsertOrUpdateDirResponse) SetBody(v *PremiumInsertOrUpdateDirResponseBody) *PremiumInsertOrUpdateDirResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumQuerySchemaAndProcessByCodeListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumQuerySchemaAndProcessByCodeListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumQuerySchemaAndProcessByCodeListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListHeaders) SetCommonHeaders(v map[string]*string) *PremiumQuerySchemaAndProcessByCodeListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumQuerySchemaAndProcessByCodeListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumQuerySchemaAndProcessByCodeListRequest struct {
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	ProcessCodes []*string `json:"processCodes,omitempty" xml:"processCodes,omitempty" type:"Repeated"`
+}
+
+func (s PremiumQuerySchemaAndProcessByCodeListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumQuerySchemaAndProcessByCodeListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListRequest) SetProcessCodes(v []*string) *PremiumQuerySchemaAndProcessByCodeListRequest {
+	s.ProcessCodes = v
+	return s
+}
+
+type PremiumQuerySchemaAndProcessByCodeListResponseBody struct {
+	Result []*PremiumQuerySchemaAndProcessByCodeListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PremiumQuerySchemaAndProcessByCodeListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumQuerySchemaAndProcessByCodeListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponseBody) SetResult(v []*PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) *PremiumQuerySchemaAndProcessByCodeListResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponseBody) SetSuccess(v bool) *PremiumQuerySchemaAndProcessByCodeListResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PremiumQuerySchemaAndProcessByCodeListResponseBodyResult struct {
+	// example:
+	//
+	// ding123
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// example:
+	//
+	// hrm.xxx
+	BizCategoryId *string `json:"bizCategoryId,omitempty" xml:"bizCategoryId,omitempty"`
+	// example:
+	//
+	// 1638326995000
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// userId123
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// example:
+	//
+	// FORM-28215C3E-00E3-4118-xxxx-4091F828AF2F
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// https//:xxx
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// example:
+	//
+	// 模板描述1
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// example:
+	//
+	// userId123
+	ModifierUserId *string `json:"modifierUserId,omitempty" xml:"modifierUserId,omitempty"`
+	// example:
+	//
+	// 1638326995000
+	ModifyTime *int64 `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	// example:
+	//
+	// 示例模板
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// PROC-17428B8C-6C60-470E-xxxx-64F1037AE067
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// example:
+	//
+	// {\"name\":\"发起人\",\"type\":\"start\",\"nodeId\":\"sid-startevent\",\"childNode\":{\"name\":\"审批人\",\"prevId\":\"sid-startevent\",\"type\":\"approver\",\"nodeId\":\"sid-1234_5678\",\"properties\":{\"activateType\":\"ONE_BY_ONE\",\"approvalType\":\"MANUAL\",\"actionerRules\":[{\"select\":[\"allStaff\"],\"range\":{\"approvals\":[],\"labels\":[]},\"type\":\"target_select\",\"key\":\"manual_sid-1234_5678_30a8_b373\",\"multi\":1}],\"agreeAll\":false},\"childNode\":{\"name\":\"抄送人\",\"prevId\":\"sid-1234_5678\",\"type\":\"notifier\",\"nodeId\":\"9955_7e43\",\"properties\":{\"actionerRules\":[{\"select\":[\"allStaff\"],\"range\":{},\"type\":\"target_select\",\"key\":\"manual_9955_7e43_0c96_39d8\",\"multi\":1}]}}}}
+	ProcessConfig *string `json:"processConfig,omitempty" xml:"processConfig,omitempty"`
+	ProcessId     *int64  `json:"processId,omitempty" xml:"processId,omitempty"`
+	// example:
+	//
+	// {\"commentHiddenForProposer\":\"\",\"commentRequired\":\"\",\"icon\":\"timefades#red\",\"commentDescription\":\"\",\"description\":\"支持地址控件\",\"title\":\"官方OA审批-POP-2025-0109\",\"items\":[{\"componentName\":\"TimeAndLocationField\",\"props\":{\"label\":[\"当前时间\",\"当前地点\"],\"id\":\"TimeAndLocationField_1CVHM5TIIWR9C\",\"required\":false}},{\"componentName\":\"TextField\",\"props\":{\"placeholder\":\"请输入\",\"label\":\"单行输入框\",\"id\":\"TextField_17EZKEGSOCTC0\",\"required\":false}}]}
+	SchemaContent *string `json:"schemaContent,omitempty" xml:"schemaContent,omitempty"`
+	// example:
+	//
+	// PUBLISHED
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) SetAppUuid(v string) *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) SetBizCategoryId(v string) *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult {
+	s.BizCategoryId = &v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) SetCreateTime(v int64) *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) SetCreatorUserId(v string) *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) SetFormUuid(v string) *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) SetIcon(v string) *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult {
+	s.Icon = &v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) SetMemo(v string) *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult {
+	s.Memo = &v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) SetModifierUserId(v string) *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult {
+	s.ModifierUserId = &v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) SetModifyTime(v int64) *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult {
+	s.ModifyTime = &v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) SetName(v string) *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) SetProcessCode(v string) *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) SetProcessConfig(v string) *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult {
+	s.ProcessConfig = &v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) SetProcessId(v int64) *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult {
+	s.ProcessId = &v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) SetSchemaContent(v string) *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult {
+	s.SchemaContent = &v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult) SetStatus(v string) *PremiumQuerySchemaAndProcessByCodeListResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+type PremiumQuerySchemaAndProcessByCodeListResponse struct {
+	Headers    map[string]*string                                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumQuerySchemaAndProcessByCodeListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumQuerySchemaAndProcessByCodeListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumQuerySchemaAndProcessByCodeListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponse) SetHeaders(v map[string]*string) *PremiumQuerySchemaAndProcessByCodeListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponse) SetStatusCode(v int32) *PremiumQuerySchemaAndProcessByCodeListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumQuerySchemaAndProcessByCodeListResponse) SetBody(v *PremiumQuerySchemaAndProcessByCodeListResponseBody) *PremiumQuerySchemaAndProcessByCodeListResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumQueryTodoTasksByManagerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumQueryTodoTasksByManagerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumQueryTodoTasksByManagerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumQueryTodoTasksByManagerHeaders) SetCommonHeaders(v map[string]*string) *PremiumQueryTodoTasksByManagerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumQueryTodoTasksByManagerHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumQueryTodoTasksByManagerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumQueryTodoTasksByManagerRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// staffId123
+	ActionerUserId *string `json:"actionerUserId,omitempty" xml:"actionerUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager123
+	ManagerUserId *string `json:"managerUserId,omitempty" xml:"managerUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s PremiumQueryTodoTasksByManagerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumQueryTodoTasksByManagerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumQueryTodoTasksByManagerRequest) SetActionerUserId(v string) *PremiumQueryTodoTasksByManagerRequest {
+	s.ActionerUserId = &v
+	return s
+}
+
+func (s *PremiumQueryTodoTasksByManagerRequest) SetManagerUserId(v string) *PremiumQueryTodoTasksByManagerRequest {
+	s.ManagerUserId = &v
+	return s
+}
+
+func (s *PremiumQueryTodoTasksByManagerRequest) SetMaxResults(v int32) *PremiumQueryTodoTasksByManagerRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *PremiumQueryTodoTasksByManagerRequest) SetNextToken(v int32) *PremiumQueryTodoTasksByManagerRequest {
+	s.NextToken = &v
+	return s
+}
+
+type PremiumQueryTodoTasksByManagerResponseBody struct {
+	Result *PremiumQueryTodoTasksByManagerResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s PremiumQueryTodoTasksByManagerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumQueryTodoTasksByManagerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumQueryTodoTasksByManagerResponseBody) SetResult(v *PremiumQueryTodoTasksByManagerResponseBodyResult) *PremiumQueryTodoTasksByManagerResponseBody {
+	s.Result = v
+	return s
+}
+
+type PremiumQueryTodoTasksByManagerResponseBodyResult struct {
+	HasMore *bool                                                   `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*PremiumQueryTodoTasksByManagerResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s PremiumQueryTodoTasksByManagerResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumQueryTodoTasksByManagerResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumQueryTodoTasksByManagerResponseBodyResult) SetHasMore(v bool) *PremiumQueryTodoTasksByManagerResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *PremiumQueryTodoTasksByManagerResponseBodyResult) SetList(v []*PremiumQueryTodoTasksByManagerResponseBodyResultList) *PremiumQueryTodoTasksByManagerResponseBodyResult {
+	s.List = v
+	return s
+}
+
+type PremiumQueryTodoTasksByManagerResponseBodyResultList struct {
+	// example:
+	//
+	// RUNNING
+	BusinessId  *string `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	CanRedirect *bool   `json:"canRedirect,omitempty" xml:"canRedirect,omitempty"`
+	CreateTime  *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// act_0001
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// example:
+	//
+	// Siw2WNVZS4KiUt3tTmaNKg04*****809950
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// example:
+	//
+	// 1234567
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// manager001
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 2022-10-17T15:12Z
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PremiumQueryTodoTasksByManagerResponseBodyResultList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumQueryTodoTasksByManagerResponseBodyResultList) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumQueryTodoTasksByManagerResponseBodyResultList) SetBusinessId(v string) *PremiumQueryTodoTasksByManagerResponseBodyResultList {
+	s.BusinessId = &v
+	return s
+}
+
+func (s *PremiumQueryTodoTasksByManagerResponseBodyResultList) SetCanRedirect(v bool) *PremiumQueryTodoTasksByManagerResponseBodyResultList {
+	s.CanRedirect = &v
+	return s
+}
+
+func (s *PremiumQueryTodoTasksByManagerResponseBodyResultList) SetCreateTime(v int64) *PremiumQueryTodoTasksByManagerResponseBodyResultList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *PremiumQueryTodoTasksByManagerResponseBodyResultList) SetProcessCode(v string) *PremiumQueryTodoTasksByManagerResponseBodyResultList {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *PremiumQueryTodoTasksByManagerResponseBodyResultList) SetProcessInstanceId(v string) *PremiumQueryTodoTasksByManagerResponseBodyResultList {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *PremiumQueryTodoTasksByManagerResponseBodyResultList) SetTaskId(v int64) *PremiumQueryTodoTasksByManagerResponseBodyResultList {
+	s.TaskId = &v
+	return s
+}
+
+func (s *PremiumQueryTodoTasksByManagerResponseBodyResultList) SetTitle(v string) *PremiumQueryTodoTasksByManagerResponseBodyResultList {
+	s.Title = &v
+	return s
+}
+
+func (s *PremiumQueryTodoTasksByManagerResponseBodyResultList) SetUserId(v string) *PremiumQueryTodoTasksByManagerResponseBodyResultList {
+	s.UserId = &v
+	return s
+}
+
+type PremiumQueryTodoTasksByManagerResponse struct {
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumQueryTodoTasksByManagerResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumQueryTodoTasksByManagerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumQueryTodoTasksByManagerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumQueryTodoTasksByManagerResponse) SetHeaders(v map[string]*string) *PremiumQueryTodoTasksByManagerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumQueryTodoTasksByManagerResponse) SetStatusCode(v int32) *PremiumQueryTodoTasksByManagerResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumQueryTodoTasksByManagerResponse) SetBody(v *PremiumQueryTodoTasksByManagerResponseBody) *PremiumQueryTodoTasksByManagerResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumRedirectTasksByManagerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumRedirectTasksByManagerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumRedirectTasksByManagerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumRedirectTasksByManagerHeaders) SetCommonHeaders(v map[string]*string) *PremiumRedirectTasksByManagerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumRedirectTasksByManagerHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumRedirectTasksByManagerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumRedirectTasksByManagerRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// staffId-B
+	HandoverUserId *string `json:"handoverUserId,omitempty" xml:"handoverUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager-12
+	ManagerUserId *string `json:"managerUserId,omitempty" xml:"managerUserId,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	TaskIds []*int64 `json:"taskIds,omitempty" xml:"taskIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// staffId-A
+	TransfereeUserId *string `json:"transfereeUserId,omitempty" xml:"transfereeUserId,omitempty"`
+}
+
+func (s PremiumRedirectTasksByManagerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumRedirectTasksByManagerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumRedirectTasksByManagerRequest) SetHandoverUserId(v string) *PremiumRedirectTasksByManagerRequest {
+	s.HandoverUserId = &v
+	return s
+}
+
+func (s *PremiumRedirectTasksByManagerRequest) SetManagerUserId(v string) *PremiumRedirectTasksByManagerRequest {
+	s.ManagerUserId = &v
+	return s
+}
+
+func (s *PremiumRedirectTasksByManagerRequest) SetTaskIds(v []*int64) *PremiumRedirectTasksByManagerRequest {
+	s.TaskIds = v
+	return s
+}
+
+func (s *PremiumRedirectTasksByManagerRequest) SetTransfereeUserId(v string) *PremiumRedirectTasksByManagerRequest {
+	s.TransfereeUserId = &v
+	return s
+}
+
+type PremiumRedirectTasksByManagerResponseBody struct {
+	Result  *PremiumRedirectTasksByManagerResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                            `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PremiumRedirectTasksByManagerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumRedirectTasksByManagerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumRedirectTasksByManagerResponseBody) SetResult(v *PremiumRedirectTasksByManagerResponseBodyResult) *PremiumRedirectTasksByManagerResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *PremiumRedirectTasksByManagerResponseBody) SetSuccess(v bool) *PremiumRedirectTasksByManagerResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PremiumRedirectTasksByManagerResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	FailCount *int64 `json:"failCount,omitempty" xml:"failCount,omitempty"`
+	// This parameter is required.
+	RedirectResults []*PremiumRedirectTasksByManagerResponseBodyResultRedirectResults `json:"redirectResults,omitempty" xml:"redirectResults,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s PremiumRedirectTasksByManagerResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumRedirectTasksByManagerResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumRedirectTasksByManagerResponseBodyResult) SetFailCount(v int64) *PremiumRedirectTasksByManagerResponseBodyResult {
+	s.FailCount = &v
+	return s
+}
+
+func (s *PremiumRedirectTasksByManagerResponseBodyResult) SetRedirectResults(v []*PremiumRedirectTasksByManagerResponseBodyResultRedirectResults) *PremiumRedirectTasksByManagerResponseBodyResult {
+	s.RedirectResults = v
+	return s
+}
+
+func (s *PremiumRedirectTasksByManagerResponseBodyResult) SetTotalCount(v int64) *PremiumRedirectTasksByManagerResponseBodyResult {
+	s.TotalCount = &v
+	return s
+}
+
+type PremiumRedirectTasksByManagerResponseBodyResultRedirectResults struct {
+	// example:
+	//
+	// 外部流程不允许转交
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// success
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234567
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s PremiumRedirectTasksByManagerResponseBodyResultRedirectResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumRedirectTasksByManagerResponseBodyResultRedirectResults) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumRedirectTasksByManagerResponseBodyResultRedirectResults) SetErrorMsg(v string) *PremiumRedirectTasksByManagerResponseBodyResultRedirectResults {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *PremiumRedirectTasksByManagerResponseBodyResultRedirectResults) SetSuccess(v bool) *PremiumRedirectTasksByManagerResponseBodyResultRedirectResults {
+	s.Success = &v
+	return s
+}
+
+func (s *PremiumRedirectTasksByManagerResponseBodyResultRedirectResults) SetTaskId(v int64) *PremiumRedirectTasksByManagerResponseBodyResultRedirectResults {
+	s.TaskId = &v
+	return s
+}
+
+type PremiumRedirectTasksByManagerResponse struct {
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumRedirectTasksByManagerResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumRedirectTasksByManagerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumRedirectTasksByManagerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumRedirectTasksByManagerResponse) SetHeaders(v map[string]*string) *PremiumRedirectTasksByManagerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumRedirectTasksByManagerResponse) SetStatusCode(v int32) *PremiumRedirectTasksByManagerResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumRedirectTasksByManagerResponse) SetBody(v *PremiumRedirectTasksByManagerResponseBody) *PremiumRedirectTasksByManagerResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumSaveFormHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumSaveFormHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveFormHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveFormHeaders) SetCommonHeaders(v map[string]*string) *PremiumSaveFormHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumSaveFormHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumSaveFormHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumSaveFormRequest struct {
+	// example:
+	//
+	// 用于员工差旅费用报销使用
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// This parameter is required.
+	FormComponents []*FormComponent `json:"formComponents,omitempty" xml:"formComponents,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 出差报销审批
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// proc-abc
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PremiumSaveFormRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveFormRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveFormRequest) SetDescription(v string) *PremiumSaveFormRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *PremiumSaveFormRequest) SetFormComponents(v []*FormComponent) *PremiumSaveFormRequest {
+	s.FormComponents = v
+	return s
+}
+
+func (s *PremiumSaveFormRequest) SetName(v string) *PremiumSaveFormRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *PremiumSaveFormRequest) SetProcessCode(v string) *PremiumSaveFormRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *PremiumSaveFormRequest) SetUserId(v string) *PremiumSaveFormRequest {
+	s.UserId = &v
+	return s
+}
+
+type PremiumSaveFormResponseBody struct {
+	Result *PremiumSaveFormResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s PremiumSaveFormResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveFormResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveFormResponseBody) SetResult(v *PremiumSaveFormResponseBodyResult) *PremiumSaveFormResponseBody {
+	s.Result = v
+	return s
+}
+
+type PremiumSaveFormResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-abcdef-example
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s PremiumSaveFormResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveFormResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveFormResponseBodyResult) SetProcessCode(v string) *PremiumSaveFormResponseBodyResult {
+	s.ProcessCode = &v
+	return s
+}
+
+type PremiumSaveFormResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumSaveFormResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumSaveFormResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveFormResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveFormResponse) SetHeaders(v map[string]*string) *PremiumSaveFormResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumSaveFormResponse) SetStatusCode(v int32) *PremiumSaveFormResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumSaveFormResponse) SetBody(v *PremiumSaveFormResponseBody) *PremiumSaveFormResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumSaveFormInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumSaveFormInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveFormInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveFormInstanceHeaders) SetCommonHeaders(v map[string]*string) *PremiumSaveFormInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumSaveFormInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumSaveFormInstanceRequest struct {
+	// This parameter is required.
+	FormComponentValueList []*PremiumSaveFormInstanceRequestFormComponentValueList `json:"formComponentValueList,omitempty" xml:"formComponentValueList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager432
+	OriginatorUserId *string `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-EF6YJL35P2-SCKICSB7P750S0YISYKV3-xxxx-1
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s PremiumSaveFormInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveFormInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveFormInstanceRequest) SetFormComponentValueList(v []*PremiumSaveFormInstanceRequestFormComponentValueList) *PremiumSaveFormInstanceRequest {
+	s.FormComponentValueList = v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequest) SetOriginatorUserId(v string) *PremiumSaveFormInstanceRequest {
+	s.OriginatorUserId = &v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequest) SetProcessCode(v string) *PremiumSaveFormInstanceRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+type PremiumSaveFormInstanceRequestFormComponentValueList struct {
+	// example:
+	//
+	// Phone
+	BizAlias      *string                                                        `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	ComponentType *string                                                        `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	Details       []*PremiumSaveFormInstanceRequestFormComponentValueListDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 总个数:1
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// example:
+	//
+	// PhoneField_IZI2LP8QF6O0
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PhoneField
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123xxxxxxxx
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s PremiumSaveFormInstanceRequestFormComponentValueList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveFormInstanceRequestFormComponentValueList) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueList) SetBizAlias(v string) *PremiumSaveFormInstanceRequestFormComponentValueList {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueList) SetComponentType(v string) *PremiumSaveFormInstanceRequestFormComponentValueList {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueList) SetDetails(v []*PremiumSaveFormInstanceRequestFormComponentValueListDetails) *PremiumSaveFormInstanceRequestFormComponentValueList {
+	s.Details = v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueList) SetExtValue(v string) *PremiumSaveFormInstanceRequestFormComponentValueList {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueList) SetId(v string) *PremiumSaveFormInstanceRequestFormComponentValueList {
+	s.Id = &v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueList) SetName(v string) *PremiumSaveFormInstanceRequestFormComponentValueList {
+	s.Name = &v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueList) SetValue(v string) *PremiumSaveFormInstanceRequestFormComponentValueList {
+	s.Value = &v
+	return s
+}
+
+type PremiumSaveFormInstanceRequestFormComponentValueListDetails struct {
+	// example:
+	//
+	// Phone
+	BizAlias *string                                                               `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	Details  []*PremiumSaveFormInstanceRequestFormComponentValueListDetailsDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 总个数:1
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// example:
+	//
+	// PhoneField_IZI2LP8QF6O0
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// PhoneField
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 123xxxxxxxx
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s PremiumSaveFormInstanceRequestFormComponentValueListDetails) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveFormInstanceRequestFormComponentValueListDetails) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueListDetails) SetBizAlias(v string) *PremiumSaveFormInstanceRequestFormComponentValueListDetails {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueListDetails) SetDetails(v []*PremiumSaveFormInstanceRequestFormComponentValueListDetailsDetails) *PremiumSaveFormInstanceRequestFormComponentValueListDetails {
+	s.Details = v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueListDetails) SetExtValue(v string) *PremiumSaveFormInstanceRequestFormComponentValueListDetails {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueListDetails) SetId(v string) *PremiumSaveFormInstanceRequestFormComponentValueListDetails {
+	s.Id = &v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueListDetails) SetName(v string) *PremiumSaveFormInstanceRequestFormComponentValueListDetails {
+	s.Name = &v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueListDetails) SetValue(v string) *PremiumSaveFormInstanceRequestFormComponentValueListDetails {
+	s.Value = &v
+	return s
+}
+
+type PremiumSaveFormInstanceRequestFormComponentValueListDetailsDetails struct {
+	// example:
+	//
+	// Phone
+	BizAlias      *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	// example:
+	//
+	// 总个数:1
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// example:
+	//
+	// PhoneField_IZI2LP8QF6O0
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// PhoneField
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 123xxxxxxxx
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s PremiumSaveFormInstanceRequestFormComponentValueListDetailsDetails) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveFormInstanceRequestFormComponentValueListDetailsDetails) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueListDetailsDetails) SetBizAlias(v string) *PremiumSaveFormInstanceRequestFormComponentValueListDetailsDetails {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueListDetailsDetails) SetComponentType(v string) *PremiumSaveFormInstanceRequestFormComponentValueListDetailsDetails {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueListDetailsDetails) SetExtValue(v string) *PremiumSaveFormInstanceRequestFormComponentValueListDetailsDetails {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueListDetailsDetails) SetId(v string) *PremiumSaveFormInstanceRequestFormComponentValueListDetailsDetails {
+	s.Id = &v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueListDetailsDetails) SetName(v string) *PremiumSaveFormInstanceRequestFormComponentValueListDetailsDetails {
+	s.Name = &v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceRequestFormComponentValueListDetailsDetails) SetValue(v string) *PremiumSaveFormInstanceRequestFormComponentValueListDetailsDetails {
+	s.Value = &v
+	return s
+}
+
+type PremiumSaveFormInstanceResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 91ef1076-c3ed-4a78-a7a5-fa29ef2d6252
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+}
+
+func (s PremiumSaveFormInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveFormInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveFormInstanceResponseBody) SetInstanceId(v string) *PremiumSaveFormInstanceResponseBody {
+	s.InstanceId = &v
+	return s
+}
+
+type PremiumSaveFormInstanceResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumSaveFormInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumSaveFormInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveFormInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveFormInstanceResponse) SetHeaders(v map[string]*string) *PremiumSaveFormInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceResponse) SetStatusCode(v int32) *PremiumSaveFormInstanceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumSaveFormInstanceResponse) SetBody(v *PremiumSaveFormInstanceResponseBody) *PremiumSaveFormInstanceResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumSaveIntegratedProcessHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumSaveIntegratedProcessHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessHeaders) SetCommonHeaders(v map[string]*string) *PremiumSaveIntegratedProcessHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumSaveIntegratedProcessHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumSaveIntegratedProcessRequest struct {
+	// example:
+	//
+	// 用于员工差旅费用报销使用
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// This parameter is required.
+	FormComponents []*FormComponent `json:"formComponents,omitempty" xml:"formComponents,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 出差报销审批
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// proc-abc
+	ProcessCode          *string                                                  `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	ProcessFeatureConfig *PremiumSaveIntegratedProcessRequestProcessFeatureConfig `json:"processFeatureConfig,omitempty" xml:"processFeatureConfig,omitempty" type:"Struct"`
+	// Deprecated
+	//
+	// if can be null:
+	// true
+	TemplateConfig *PremiumSaveIntegratedProcessRequestTemplateConfig `json:"templateConfig,omitempty" xml:"templateConfig,omitempty" type:"Struct"`
+}
+
+func (s PremiumSaveIntegratedProcessRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessRequest) SetDescription(v string) *PremiumSaveIntegratedProcessRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessRequest) SetFormComponents(v []*FormComponent) *PremiumSaveIntegratedProcessRequest {
+	s.FormComponents = v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessRequest) SetName(v string) *PremiumSaveIntegratedProcessRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessRequest) SetProcessCode(v string) *PremiumSaveIntegratedProcessRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessRequest) SetProcessFeatureConfig(v *PremiumSaveIntegratedProcessRequestProcessFeatureConfig) *PremiumSaveIntegratedProcessRequest {
+	s.ProcessFeatureConfig = v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessRequest) SetTemplateConfig(v *PremiumSaveIntegratedProcessRequestTemplateConfig) *PremiumSaveIntegratedProcessRequest {
+	s.TemplateConfig = v
+	return s
+}
+
+type PremiumSaveIntegratedProcessRequestProcessFeatureConfig struct {
+	Features []*PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeatures `json:"features,omitempty" xml:"features,omitempty" type:"Repeated"`
+}
+
+func (s PremiumSaveIntegratedProcessRequestProcessFeatureConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessRequestProcessFeatureConfig) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessRequestProcessFeatureConfig) SetFeatures(v []*PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeatures) *PremiumSaveIntegratedProcessRequestProcessFeatureConfig {
+	s.Features = v
+	return s
+}
+
+type PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeatures struct {
+	Callback *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeaturesCallback `json:"callback,omitempty" xml:"callback,omitempty" type:"Struct"`
+	// example:
+	//
+	// www.dingtalk.com
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// example:
+	//
+	// abc
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// www.dingtalk.com
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// example:
+	//
+	// ORIGIN
+	RunType *string `json:"runType,omitempty" xml:"runType,omitempty"`
+}
+
+func (s PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeatures) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeatures) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeatures) SetCallback(v *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeaturesCallback) *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeatures {
+	s.Callback = v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeatures) SetMobileUrl(v string) *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeatures {
+	s.MobileUrl = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeatures) SetName(v string) *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeatures {
+	s.Name = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeatures) SetPcUrl(v string) *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeatures {
+	s.PcUrl = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeatures) SetRunType(v string) *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeatures {
+	s.RunType = &v
+	return s
+}
+
+type PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeaturesCallback struct {
+	// example:
+	//
+	// abc
+	ApiKey *string `json:"apiKey,omitempty" xml:"apiKey,omitempty"`
+	// example:
+	//
+	// abc
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeaturesCallback) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeaturesCallback) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeaturesCallback) SetApiKey(v string) *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeaturesCallback {
+	s.ApiKey = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeaturesCallback) SetAppUuid(v string) *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeaturesCallback {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeaturesCallback) SetVersion(v string) *PremiumSaveIntegratedProcessRequestProcessFeatureConfigFeaturesCallback {
+	s.Version = &v
+	return s
+}
+
+type PremiumSaveIntegratedProcessRequestTemplateConfig struct {
+	// Deprecated
+	//
+	// example:
+	//
+	// https://open.dingtalk.com/
+	CreateInstanceMobileUrl *string `json:"createInstanceMobileUrl,omitempty" xml:"createInstanceMobileUrl,omitempty"`
+	// Deprecated
+	//
+	// example:
+	//
+	// https://open.dingtalk.com/
+	CreateInstancePcUrl *string `json:"createInstancePcUrl,omitempty" xml:"createInstancePcUrl,omitempty"`
+	// if can be null:
+	// true
+	DisableSendCard *bool `json:"disableSendCard,omitempty" xml:"disableSendCard,omitempty"`
+	// example:
+	//
+	// true
+	Hidden *bool `json:"hidden,omitempty" xml:"hidden,omitempty"`
+	// Deprecated
+	//
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// https://open.dingtalk.com/
+	TemplateEditUrl *string `json:"templateEditUrl,omitempty" xml:"templateEditUrl,omitempty"`
+}
+
+func (s PremiumSaveIntegratedProcessRequestTemplateConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessRequestTemplateConfig) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessRequestTemplateConfig) SetCreateInstanceMobileUrl(v string) *PremiumSaveIntegratedProcessRequestTemplateConfig {
+	s.CreateInstanceMobileUrl = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessRequestTemplateConfig) SetCreateInstancePcUrl(v string) *PremiumSaveIntegratedProcessRequestTemplateConfig {
+	s.CreateInstancePcUrl = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessRequestTemplateConfig) SetDisableSendCard(v bool) *PremiumSaveIntegratedProcessRequestTemplateConfig {
+	s.DisableSendCard = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessRequestTemplateConfig) SetHidden(v bool) *PremiumSaveIntegratedProcessRequestTemplateConfig {
+	s.Hidden = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessRequestTemplateConfig) SetTemplateEditUrl(v string) *PremiumSaveIntegratedProcessRequestTemplateConfig {
+	s.TemplateEditUrl = &v
+	return s
+}
+
+type PremiumSaveIntegratedProcessResponseBody struct {
+	Result *PremiumSaveIntegratedProcessResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s PremiumSaveIntegratedProcessResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessResponseBody) SetResult(v *PremiumSaveIntegratedProcessResponseBodyResult) *PremiumSaveIntegratedProcessResponseBody {
+	s.Result = v
+	return s
+}
+
+type PremiumSaveIntegratedProcessResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-abcdef-example
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s PremiumSaveIntegratedProcessResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessResponseBodyResult) SetProcessCode(v string) *PremiumSaveIntegratedProcessResponseBodyResult {
+	s.ProcessCode = &v
+	return s
+}
+
+type PremiumSaveIntegratedProcessResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumSaveIntegratedProcessResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumSaveIntegratedProcessResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessResponse) SetHeaders(v map[string]*string) *PremiumSaveIntegratedProcessResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessResponse) SetStatusCode(v int32) *PremiumSaveIntegratedProcessResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessResponse) SetBody(v *PremiumSaveIntegratedProcessResponseBody) *PremiumSaveIntegratedProcessResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumSaveIntegratedProcessInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumSaveIntegratedProcessInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceHeaders) SetCommonHeaders(v map[string]*string) *PremiumSaveIntegratedProcessInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumSaveIntegratedProcessInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumSaveIntegratedProcessInstanceRequest struct {
+	// example:
+	//
+	// "{\"mykey\": \"myData\"}"
+	BizData                *string                                                              `json:"bizData,omitempty" xml:"bizData,omitempty"`
+	FeatureConfig          *PremiumSaveIntegratedProcessInstanceRequestFeatureConfig            `json:"featureConfig,omitempty" xml:"featureConfig,omitempty" type:"Struct"`
+	FormComponentValueList []*PremiumSaveIntegratedProcessInstanceRequestFormComponentValueList `json:"formComponentValueList,omitempty" xml:"formComponentValueList,omitempty" type:"Repeated"`
+	Notifiers              []*PremiumSaveIntegratedProcessInstanceRequestNotifiers              `json:"notifiers,omitempty" xml:"notifiers,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OriginatorUserId *string `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
+	// This parameter is required.
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	Title       *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://www.dingtalk.com/
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s PremiumSaveIntegratedProcessInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequest) SetBizData(v string) *PremiumSaveIntegratedProcessInstanceRequest {
+	s.BizData = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequest) SetFeatureConfig(v *PremiumSaveIntegratedProcessInstanceRequestFeatureConfig) *PremiumSaveIntegratedProcessInstanceRequest {
+	s.FeatureConfig = v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequest) SetFormComponentValueList(v []*PremiumSaveIntegratedProcessInstanceRequestFormComponentValueList) *PremiumSaveIntegratedProcessInstanceRequest {
+	s.FormComponentValueList = v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequest) SetNotifiers(v []*PremiumSaveIntegratedProcessInstanceRequestNotifiers) *PremiumSaveIntegratedProcessInstanceRequest {
+	s.Notifiers = v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequest) SetOriginatorUserId(v string) *PremiumSaveIntegratedProcessInstanceRequest {
+	s.OriginatorUserId = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequest) SetProcessCode(v string) *PremiumSaveIntegratedProcessInstanceRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequest) SetTitle(v string) *PremiumSaveIntegratedProcessInstanceRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequest) SetUrl(v string) *PremiumSaveIntegratedProcessInstanceRequest {
+	s.Url = &v
+	return s
+}
+
+type PremiumSaveIntegratedProcessInstanceRequestFeatureConfig struct {
+	Features []*PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeatures `json:"features,omitempty" xml:"features,omitempty" type:"Repeated"`
+}
+
+func (s PremiumSaveIntegratedProcessInstanceRequestFeatureConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessInstanceRequestFeatureConfig) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestFeatureConfig) SetFeatures(v []*PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeatures) *PremiumSaveIntegratedProcessInstanceRequestFeatureConfig {
+	s.Features = v
+	return s
+}
+
+type PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeatures struct {
+	Callback *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeaturesCallback `json:"callback,omitempty" xml:"callback,omitempty" type:"Struct"`
+	// if can be null:
+	// true
+	Config *string `json:"config,omitempty" xml:"config,omitempty"`
+	// example:
+	//
+	// www.dingtalk.com
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// example:
+	//
+	// abc
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// www.dingtalk.com
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// example:
+	//
+	// ORIGIN
+	RunType *string `json:"runType,omitempty" xml:"runType,omitempty"`
+}
+
+func (s PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeatures) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeatures) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeatures) SetCallback(v *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeaturesCallback) *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeatures {
+	s.Callback = v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeatures) SetConfig(v string) *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeatures {
+	s.Config = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeatures) SetMobileUrl(v string) *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeatures {
+	s.MobileUrl = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeatures) SetName(v string) *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeatures {
+	s.Name = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeatures) SetPcUrl(v string) *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeatures {
+	s.PcUrl = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeatures) SetRunType(v string) *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeatures {
+	s.RunType = &v
+	return s
+}
+
+type PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeaturesCallback struct {
+	// example:
+	//
+	// abc
+	ApiKey *string `json:"apiKey,omitempty" xml:"apiKey,omitempty"`
+	// example:
+	//
+	// abc
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeaturesCallback) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeaturesCallback) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeaturesCallback) SetApiKey(v string) *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeaturesCallback {
+	s.ApiKey = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeaturesCallback) SetAppUuid(v string) *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeaturesCallback {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeaturesCallback) SetVersion(v string) *PremiumSaveIntegratedProcessInstanceRequestFeatureConfigFeaturesCallback {
+	s.Version = &v
+	return s
+}
+
+type PremiumSaveIntegratedProcessInstanceRequestFormComponentValueList struct {
+	BizAlias      *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	ExtValue      *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	Id            *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
+	Value         *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s PremiumSaveIntegratedProcessInstanceRequestFormComponentValueList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessInstanceRequestFormComponentValueList) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestFormComponentValueList) SetBizAlias(v string) *PremiumSaveIntegratedProcessInstanceRequestFormComponentValueList {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestFormComponentValueList) SetComponentType(v string) *PremiumSaveIntegratedProcessInstanceRequestFormComponentValueList {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestFormComponentValueList) SetExtValue(v string) *PremiumSaveIntegratedProcessInstanceRequestFormComponentValueList {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestFormComponentValueList) SetId(v string) *PremiumSaveIntegratedProcessInstanceRequestFormComponentValueList {
+	s.Id = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestFormComponentValueList) SetName(v string) *PremiumSaveIntegratedProcessInstanceRequestFormComponentValueList {
+	s.Name = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestFormComponentValueList) SetValue(v string) *PremiumSaveIntegratedProcessInstanceRequestFormComponentValueList {
+	s.Value = &v
+	return s
+}
+
+type PremiumSaveIntegratedProcessInstanceRequestNotifiers struct {
+	// example:
+	//
+	// start
+	Position *string `json:"position,omitempty" xml:"position,omitempty"`
+	// example:
+	//
+	// manager001
+	Userid *string `json:"userid,omitempty" xml:"userid,omitempty"`
+}
+
+func (s PremiumSaveIntegratedProcessInstanceRequestNotifiers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessInstanceRequestNotifiers) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestNotifiers) SetPosition(v string) *PremiumSaveIntegratedProcessInstanceRequestNotifiers {
+	s.Position = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceRequestNotifiers) SetUserid(v string) *PremiumSaveIntegratedProcessInstanceRequestNotifiers {
+	s.Userid = &v
+	return s
+}
+
+type PremiumSaveIntegratedProcessInstanceResponseBody struct {
+	Result *PremiumSaveIntegratedProcessInstanceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s PremiumSaveIntegratedProcessInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceResponseBody) SetResult(v *PremiumSaveIntegratedProcessInstanceResponseBodyResult) *PremiumSaveIntegratedProcessInstanceResponseBody {
+	s.Result = v
+	return s
+}
+
+type PremiumSaveIntegratedProcessInstanceResponseBodyResult struct {
+	// example:
+	//
+	// proc-abc
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+}
+
+func (s PremiumSaveIntegratedProcessInstanceResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessInstanceResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceResponseBodyResult) SetProcessInstanceId(v string) *PremiumSaveIntegratedProcessInstanceResponseBodyResult {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+type PremiumSaveIntegratedProcessInstanceResponse struct {
+	Headers    map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumSaveIntegratedProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumSaveIntegratedProcessInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedProcessInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceResponse) SetHeaders(v map[string]*string) *PremiumSaveIntegratedProcessInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceResponse) SetStatusCode(v int32) *PremiumSaveIntegratedProcessInstanceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedProcessInstanceResponse) SetBody(v *PremiumSaveIntegratedProcessInstanceResponseBody) *PremiumSaveIntegratedProcessInstanceResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumSaveIntegratedTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumSaveIntegratedTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedTaskHeaders) SetCommonHeaders(v map[string]*string) *PremiumSaveIntegratedTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumSaveIntegratedTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumSaveIntegratedTaskRequest struct {
+	// example:
+	//
+	// act_xxxx
+	ActivityId    *string                                        `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	FeatureConfig *PremiumSaveIntegratedTaskRequestFeatureConfig `json:"featureConfig,omitempty" xml:"featureConfig,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// tPr_FB_mT_xxxxxxxxx2hQ05201655306463
+	ProcessInstanceId *string                                     `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	TaskConfig        *PremiumSaveIntegratedTaskRequestTaskConfig `json:"taskConfig,omitempty" xml:"taskConfig,omitempty" type:"Struct"`
+	// This parameter is required.
+	Tasks []*PremiumSaveIntegratedTaskRequestTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+}
+
+func (s PremiumSaveIntegratedTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedTaskRequest) SetActivityId(v string) *PremiumSaveIntegratedTaskRequest {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskRequest) SetFeatureConfig(v *PremiumSaveIntegratedTaskRequestFeatureConfig) *PremiumSaveIntegratedTaskRequest {
+	s.FeatureConfig = v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskRequest) SetProcessInstanceId(v string) *PremiumSaveIntegratedTaskRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskRequest) SetTaskConfig(v *PremiumSaveIntegratedTaskRequestTaskConfig) *PremiumSaveIntegratedTaskRequest {
+	s.TaskConfig = v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskRequest) SetTasks(v []*PremiumSaveIntegratedTaskRequestTasks) *PremiumSaveIntegratedTaskRequest {
+	s.Tasks = v
+	return s
+}
+
+type PremiumSaveIntegratedTaskRequestFeatureConfig struct {
+	Features []*PremiumSaveIntegratedTaskRequestFeatureConfigFeatures `json:"features,omitempty" xml:"features,omitempty" type:"Repeated"`
+}
+
+func (s PremiumSaveIntegratedTaskRequestFeatureConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedTaskRequestFeatureConfig) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedTaskRequestFeatureConfig) SetFeatures(v []*PremiumSaveIntegratedTaskRequestFeatureConfigFeatures) *PremiumSaveIntegratedTaskRequestFeatureConfig {
+	s.Features = v
+	return s
+}
+
+type PremiumSaveIntegratedTaskRequestFeatureConfigFeatures struct {
+	Callback *PremiumSaveIntegratedTaskRequestFeatureConfigFeaturesCallback `json:"callback,omitempty" xml:"callback,omitempty" type:"Struct"`
+	// if can be null:
+	// true
+	Config *string `json:"config,omitempty" xml:"config,omitempty"`
+	// example:
+	//
+	// www.dingtalk.com
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// example:
+	//
+	// abc
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// www.dingtalk.com
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// example:
+	//
+	// ORIGIN
+	RunType *string `json:"runType,omitempty" xml:"runType,omitempty"`
+}
+
+func (s PremiumSaveIntegratedTaskRequestFeatureConfigFeatures) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedTaskRequestFeatureConfigFeatures) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedTaskRequestFeatureConfigFeatures) SetCallback(v *PremiumSaveIntegratedTaskRequestFeatureConfigFeaturesCallback) *PremiumSaveIntegratedTaskRequestFeatureConfigFeatures {
+	s.Callback = v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskRequestFeatureConfigFeatures) SetConfig(v string) *PremiumSaveIntegratedTaskRequestFeatureConfigFeatures {
+	s.Config = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskRequestFeatureConfigFeatures) SetMobileUrl(v string) *PremiumSaveIntegratedTaskRequestFeatureConfigFeatures {
+	s.MobileUrl = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskRequestFeatureConfigFeatures) SetName(v string) *PremiumSaveIntegratedTaskRequestFeatureConfigFeatures {
+	s.Name = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskRequestFeatureConfigFeatures) SetPcUrl(v string) *PremiumSaveIntegratedTaskRequestFeatureConfigFeatures {
+	s.PcUrl = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskRequestFeatureConfigFeatures) SetRunType(v string) *PremiumSaveIntegratedTaskRequestFeatureConfigFeatures {
+	s.RunType = &v
+	return s
+}
+
+type PremiumSaveIntegratedTaskRequestFeatureConfigFeaturesCallback struct {
+	// example:
+	//
+	// abc
+	ApiKey *string `json:"apiKey,omitempty" xml:"apiKey,omitempty"`
+	// example:
+	//
+	// abc
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s PremiumSaveIntegratedTaskRequestFeatureConfigFeaturesCallback) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedTaskRequestFeatureConfigFeaturesCallback) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedTaskRequestFeatureConfigFeaturesCallback) SetApiKey(v string) *PremiumSaveIntegratedTaskRequestFeatureConfigFeaturesCallback {
+	s.ApiKey = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskRequestFeatureConfigFeaturesCallback) SetAppUuid(v string) *PremiumSaveIntegratedTaskRequestFeatureConfigFeaturesCallback {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskRequestFeatureConfigFeaturesCallback) SetVersion(v string) *PremiumSaveIntegratedTaskRequestFeatureConfigFeaturesCallback {
+	s.Version = &v
+	return s
+}
+
+type PremiumSaveIntegratedTaskRequestTaskConfig struct {
+	DisableSendCard *bool `json:"disableSendCard,omitempty" xml:"disableSendCard,omitempty"`
+}
+
+func (s PremiumSaveIntegratedTaskRequestTaskConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedTaskRequestTaskConfig) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedTaskRequestTaskConfig) SetDisableSendCard(v bool) *PremiumSaveIntegratedTaskRequestTaskConfig {
+	s.DisableSendCard = &v
+	return s
+}
+
+type PremiumSaveIntegratedTaskRequestTasks struct {
+	// example:
+	//
+	// {\"id\":\"12345\"}
+	CustomData *string `json:"customData,omitempty" xml:"customData,omitempty"`
+	// example:
+	//
+	// https://www.dingtalk.com
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// manager001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PremiumSaveIntegratedTaskRequestTasks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedTaskRequestTasks) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedTaskRequestTasks) SetCustomData(v string) *PremiumSaveIntegratedTaskRequestTasks {
+	s.CustomData = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskRequestTasks) SetUrl(v string) *PremiumSaveIntegratedTaskRequestTasks {
+	s.Url = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskRequestTasks) SetUserId(v string) *PremiumSaveIntegratedTaskRequestTasks {
+	s.UserId = &v
+	return s
+}
+
+type PremiumSaveIntegratedTaskResponseBody struct {
+	Result  []*PremiumSaveIntegratedTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success *bool                                          `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PremiumSaveIntegratedTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedTaskResponseBody) SetResult(v []*PremiumSaveIntegratedTaskResponseBodyResult) *PremiumSaveIntegratedTaskResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskResponseBody) SetSuccess(v bool) *PremiumSaveIntegratedTaskResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PremiumSaveIntegratedTaskResponseBodyResult struct {
+	TaskId *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s PremiumSaveIntegratedTaskResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedTaskResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedTaskResponseBodyResult) SetTaskId(v int64) *PremiumSaveIntegratedTaskResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskResponseBodyResult) SetUserId(v string) *PremiumSaveIntegratedTaskResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+type PremiumSaveIntegratedTaskResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumSaveIntegratedTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumSaveIntegratedTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumSaveIntegratedTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumSaveIntegratedTaskResponse) SetHeaders(v map[string]*string) *PremiumSaveIntegratedTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskResponse) SetStatusCode(v int32) *PremiumSaveIntegratedTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskResponse) SetBody(v *PremiumSaveIntegratedTaskResponseBody) *PremiumSaveIntegratedTaskResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumUpdateFormInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumUpdateFormInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumUpdateFormInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumUpdateFormInstanceHeaders) SetCommonHeaders(v map[string]*string) *PremiumUpdateFormInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumUpdateFormInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumUpdateFormInstanceRequest struct {
+	// This parameter is required.
+	FormComponentValueList []*PremiumUpdateFormInstanceRequestFormComponentValueList `json:"formComponentValueList,omitempty" xml:"formComponentValueList,omitempty" type:"Repeated"`
+	FormInstanceIds        []*string                                                 `json:"formInstanceIds,omitempty" xml:"formInstanceIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager432
+	OriginatorUserId *string `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-EF6YJL35P2-SCKICSB7P750S0YISYKV3-xxxx-1
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+}
+
+func (s PremiumUpdateFormInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumUpdateFormInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumUpdateFormInstanceRequest) SetFormComponentValueList(v []*PremiumUpdateFormInstanceRequestFormComponentValueList) *PremiumUpdateFormInstanceRequest {
+	s.FormComponentValueList = v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequest) SetFormInstanceIds(v []*string) *PremiumUpdateFormInstanceRequest {
+	s.FormInstanceIds = v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequest) SetOriginatorUserId(v string) *PremiumUpdateFormInstanceRequest {
+	s.OriginatorUserId = &v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequest) SetProcessCode(v string) *PremiumUpdateFormInstanceRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+type PremiumUpdateFormInstanceRequestFormComponentValueList struct {
+	// example:
+	//
+	// Phone
+	BizAlias      *string                                                          `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	ComponentType *string                                                          `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	Details       []*PremiumUpdateFormInstanceRequestFormComponentValueListDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 总个数:1
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// example:
+	//
+	// PhoneField_IZI2LP8QF6O0
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PhoneField
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123xxxxxxxx
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s PremiumUpdateFormInstanceRequestFormComponentValueList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumUpdateFormInstanceRequestFormComponentValueList) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueList) SetBizAlias(v string) *PremiumUpdateFormInstanceRequestFormComponentValueList {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueList) SetComponentType(v string) *PremiumUpdateFormInstanceRequestFormComponentValueList {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueList) SetDetails(v []*PremiumUpdateFormInstanceRequestFormComponentValueListDetails) *PremiumUpdateFormInstanceRequestFormComponentValueList {
+	s.Details = v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueList) SetExtValue(v string) *PremiumUpdateFormInstanceRequestFormComponentValueList {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueList) SetId(v string) *PremiumUpdateFormInstanceRequestFormComponentValueList {
+	s.Id = &v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueList) SetName(v string) *PremiumUpdateFormInstanceRequestFormComponentValueList {
+	s.Name = &v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueList) SetValue(v string) *PremiumUpdateFormInstanceRequestFormComponentValueList {
+	s.Value = &v
+	return s
+}
+
+type PremiumUpdateFormInstanceRequestFormComponentValueListDetails struct {
+	// example:
+	//
+	// Phone
+	BizAlias *string                                                                 `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	Details  []*PremiumUpdateFormInstanceRequestFormComponentValueListDetailsDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 总个数:1
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// example:
+	//
+	// PhoneField_IZI2LP8QF6O0
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// PhoneField
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 123xxxxxxxx
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s PremiumUpdateFormInstanceRequestFormComponentValueListDetails) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumUpdateFormInstanceRequestFormComponentValueListDetails) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueListDetails) SetBizAlias(v string) *PremiumUpdateFormInstanceRequestFormComponentValueListDetails {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueListDetails) SetDetails(v []*PremiumUpdateFormInstanceRequestFormComponentValueListDetailsDetails) *PremiumUpdateFormInstanceRequestFormComponentValueListDetails {
+	s.Details = v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueListDetails) SetExtValue(v string) *PremiumUpdateFormInstanceRequestFormComponentValueListDetails {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueListDetails) SetId(v string) *PremiumUpdateFormInstanceRequestFormComponentValueListDetails {
+	s.Id = &v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueListDetails) SetName(v string) *PremiumUpdateFormInstanceRequestFormComponentValueListDetails {
+	s.Name = &v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueListDetails) SetValue(v string) *PremiumUpdateFormInstanceRequestFormComponentValueListDetails {
+	s.Value = &v
+	return s
+}
+
+type PremiumUpdateFormInstanceRequestFormComponentValueListDetailsDetails struct {
+	// example:
+	//
+	// Phone
+	BizAlias      *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	// example:
+	//
+	// 总个数:1
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// example:
+	//
+	// PhoneField_IZI2LP8QF6O0
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// PhoneField
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 123xxxxxxxx
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s PremiumUpdateFormInstanceRequestFormComponentValueListDetailsDetails) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumUpdateFormInstanceRequestFormComponentValueListDetailsDetails) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueListDetailsDetails) SetBizAlias(v string) *PremiumUpdateFormInstanceRequestFormComponentValueListDetailsDetails {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueListDetailsDetails) SetComponentType(v string) *PremiumUpdateFormInstanceRequestFormComponentValueListDetailsDetails {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueListDetailsDetails) SetExtValue(v string) *PremiumUpdateFormInstanceRequestFormComponentValueListDetailsDetails {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueListDetailsDetails) SetId(v string) *PremiumUpdateFormInstanceRequestFormComponentValueListDetailsDetails {
+	s.Id = &v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueListDetailsDetails) SetName(v string) *PremiumUpdateFormInstanceRequestFormComponentValueListDetailsDetails {
+	s.Name = &v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceRequestFormComponentValueListDetailsDetails) SetValue(v string) *PremiumUpdateFormInstanceRequestFormComponentValueListDetailsDetails {
+	s.Value = &v
+	return s
+}
+
+type PremiumUpdateFormInstanceResponseBody struct {
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+}
+
+func (s PremiumUpdateFormInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumUpdateFormInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumUpdateFormInstanceResponseBody) SetInstanceId(v string) *PremiumUpdateFormInstanceResponseBody {
+	s.InstanceId = &v
+	return s
+}
+
+type PremiumUpdateFormInstanceResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumUpdateFormInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumUpdateFormInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumUpdateFormInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumUpdateFormInstanceResponse) SetHeaders(v map[string]*string) *PremiumUpdateFormInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceResponse) SetStatusCode(v int32) *PremiumUpdateFormInstanceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumUpdateFormInstanceResponse) SetBody(v *PremiumUpdateFormInstanceResponseBody) *PremiumUpdateFormInstanceResponse {
+	s.Body = v
+	return s
+}
+
+type PremiumUpdateProcessInstanceVariablesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumUpdateProcessInstanceVariablesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumUpdateProcessInstanceVariablesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumUpdateProcessInstanceVariablesHeaders) SetCommonHeaders(v map[string]*string) *PremiumUpdateProcessInstanceVariablesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumUpdateProcessInstanceVariablesHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumUpdateProcessInstanceVariablesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumUpdateProcessInstanceVariablesRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager432
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// example:
+	//
+	// PROC-EF6YJL35P2-SCKICSB7P750S0YISYKV3-xxxx-1
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// processInstanceId-1
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// example:
+	//
+	// processInstanceId-1
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	Variables []*PremiumUpdateProcessInstanceVariablesRequestVariables `json:"variables,omitempty" xml:"variables,omitempty" type:"Repeated"`
+}
+
+func (s PremiumUpdateProcessInstanceVariablesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumUpdateProcessInstanceVariablesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumUpdateProcessInstanceVariablesRequest) SetOpUserId(v string) *PremiumUpdateProcessInstanceVariablesRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *PremiumUpdateProcessInstanceVariablesRequest) SetProcessCode(v string) *PremiumUpdateProcessInstanceVariablesRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *PremiumUpdateProcessInstanceVariablesRequest) SetProcessInstanceId(v string) *PremiumUpdateProcessInstanceVariablesRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *PremiumUpdateProcessInstanceVariablesRequest) SetRemark(v string) *PremiumUpdateProcessInstanceVariablesRequest {
+	s.Remark = &v
+	return s
+}
+
+func (s *PremiumUpdateProcessInstanceVariablesRequest) SetVariables(v []*PremiumUpdateProcessInstanceVariablesRequestVariables) *PremiumUpdateProcessInstanceVariablesRequest {
+	s.Variables = v
+	return s
+}
+
+type PremiumUpdateProcessInstanceVariablesRequestVariables struct {
+	// example:
+	//
+	// Phone
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// example:
+	//
+	// 总个数:1
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PhoneField_IZI2LP8QF6O0
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123xxxxxxxx
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s PremiumUpdateProcessInstanceVariablesRequestVariables) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumUpdateProcessInstanceVariablesRequestVariables) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumUpdateProcessInstanceVariablesRequestVariables) SetBizAlias(v string) *PremiumUpdateProcessInstanceVariablesRequestVariables {
+	s.BizAlias = &v
+	return s
+}
+
+func (s *PremiumUpdateProcessInstanceVariablesRequestVariables) SetExtValue(v string) *PremiumUpdateProcessInstanceVariablesRequestVariables {
+	s.ExtValue = &v
+	return s
+}
+
+func (s *PremiumUpdateProcessInstanceVariablesRequestVariables) SetId(v string) *PremiumUpdateProcessInstanceVariablesRequestVariables {
+	s.Id = &v
+	return s
+}
+
+func (s *PremiumUpdateProcessInstanceVariablesRequestVariables) SetValue(v string) *PremiumUpdateProcessInstanceVariablesRequestVariables {
+	s.Value = &v
+	return s
+}
+
+type PremiumUpdateProcessInstanceVariablesResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s PremiumUpdateProcessInstanceVariablesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumUpdateProcessInstanceVariablesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumUpdateProcessInstanceVariablesResponseBody) SetResult(v bool) *PremiumUpdateProcessInstanceVariablesResponseBody {
+	s.Result = &v
+	return s
+}
+
+type PremiumUpdateProcessInstanceVariablesResponse struct {
+	Headers    map[string]*string                                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumUpdateProcessInstanceVariablesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumUpdateProcessInstanceVariablesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumUpdateProcessInstanceVariablesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumUpdateProcessInstanceVariablesResponse) SetHeaders(v map[string]*string) *PremiumUpdateProcessInstanceVariablesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumUpdateProcessInstanceVariablesResponse) SetStatusCode(v int32) *PremiumUpdateProcessInstanceVariablesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumUpdateProcessInstanceVariablesResponse) SetBody(v *PremiumUpdateProcessInstanceVariablesResponseBody) *PremiumUpdateProcessInstanceVariablesResponse {
+	s.Body = v
+	return s
+}
+
 type ProcessForecastHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5192,10 +14815,26 @@ func (s *ProcessForecastHeaders) SetXAcsDingtalkAccessToken(v string) *ProcessFo
 }
 
 type ProcessForecastRequest struct {
-	DeptId              *int32                                       `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	DeptId *int32 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
 	FormComponentValues []*ProcessForecastRequestFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
-	ProcessCode         *string                                      `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	UserId              *string                                      `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-EF6YJL35P2-SCKICSB7P750S0YISYKV3-xxxx-1
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager432
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ProcessForecastRequest) String() string {
@@ -5227,13 +14866,32 @@ func (s *ProcessForecastRequest) SetUserId(v string) *ProcessForecastRequest {
 }
 
 type ProcessForecastRequestFormComponentValues struct {
+	// example:
+	//
+	// Phone
 	BizAlias      *string                                             `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
 	ComponentType *string                                             `json:"componentType,omitempty" xml:"componentType,omitempty"`
 	Details       []*ProcessForecastRequestFormComponentValuesDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
-	ExtValue      *string                                             `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	Id            *string                                             `json:"id,omitempty" xml:"id,omitempty"`
-	Name          *string                                             `json:"name,omitempty" xml:"name,omitempty"`
-	Value         *string                                             `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// 总个数:1
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// example:
+	//
+	// PhoneField_IZI2LP8QF6O0
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PhoneField
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123xxxxxxxx
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s ProcessForecastRequestFormComponentValues) String() string {
@@ -5280,12 +14938,27 @@ func (s *ProcessForecastRequestFormComponentValues) SetValue(v string) *ProcessF
 }
 
 type ProcessForecastRequestFormComponentValuesDetails struct {
+	// example:
+	//
+	// Phone
 	BizAlias *string                                                    `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
 	Details  []*ProcessForecastRequestFormComponentValuesDetailsDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
-	ExtValue *string                                                    `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	Id       *string                                                    `json:"id,omitempty" xml:"id,omitempty"`
-	Name     *string                                                    `json:"name,omitempty" xml:"name,omitempty"`
-	Value    *string                                                    `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// 总个数:1
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// example:
+	//
+	// PhoneField_IZI2LP8QF6O0
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// PhoneField
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 123xxxxxxxx
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s ProcessForecastRequestFormComponentValuesDetails) String() string {
@@ -5327,12 +15000,27 @@ func (s *ProcessForecastRequestFormComponentValuesDetails) SetValue(v string) *P
 }
 
 type ProcessForecastRequestFormComponentValuesDetailsDetails struct {
+	// example:
+	//
+	// Phone
 	BizAlias      *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
 	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
-	ExtValue      *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	Id            *string `json:"id,omitempty" xml:"id,omitempty"`
-	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
-	Value         *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// 总个数:1
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// example:
+	//
+	// PhoneField_IZI2LP8QF6O0
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// PhoneField
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 123xxxxxxxx
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s ProcessForecastRequestFormComponentValuesDetailsDetails) String() string {
@@ -5391,12 +15079,38 @@ func (s *ProcessForecastResponseBody) SetResult(v *ProcessForecastResponseBodyRe
 }
 
 type ProcessForecastResponseBodyResult struct {
-	IsForecastSuccess     *bool                                                     `json:"isForecastSuccess,omitempty" xml:"isForecastSuccess,omitempty"`
-	IsStaticWorkflow      *bool                                                     `json:"isStaticWorkflow,omitempty" xml:"isStaticWorkflow,omitempty"`
-	ProcessCode           *string                                                   `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	ProcessId             *int64                                                    `json:"processId,omitempty" xml:"processId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	IsForecastSuccess *bool `json:"isForecastSuccess,omitempty" xml:"isForecastSuccess,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	IsStaticWorkflow *bool `json:"isStaticWorkflow,omitempty" xml:"isStaticWorkflow,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-2B60E506-D6CB-43F3-B661-359B27F90947
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 63657309999
+	ProcessId *int64 `json:"processId,omitempty" xml:"processId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2665246100805992
 	UserId                *string                                                   `json:"userId,omitempty" xml:"userId,omitempty"`
 	WorkflowActivityRules []*ProcessForecastResponseBodyResultWorkflowActivityRules `json:"workflowActivityRules,omitempty" xml:"workflowActivityRules,omitempty" type:"Repeated"`
+	// This parameter is required.
 	WorkflowForecastNodes []*ProcessForecastResponseBodyResultWorkflowForecastNodes `json:"workflowForecastNodes,omitempty" xml:"workflowForecastNodes,omitempty" type:"Repeated"`
 }
 
@@ -5444,10 +15158,26 @@ func (s *ProcessForecastResponseBodyResult) SetWorkflowForecastNodes(v []*Proces
 }
 
 type ProcessForecastResponseBodyResultWorkflowActivityRules struct {
-	ActivityId     *string                                                              `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	ActivityName   *string                                                              `json:"activityName,omitempty" xml:"activityName,omitempty"`
-	ActivityType   *string                                                              `json:"activityType,omitempty" xml:"activityType,omitempty"`
-	IsTargetSelect *bool                                                                `json:"isTargetSelect,omitempty" xml:"isTargetSelect,omitempty"`
+	ActivityActioners []*ProcessForecastResponseBodyResultWorkflowActivityRulesActivityActioners `json:"activityActioners,omitempty" xml:"activityActioners,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1918_5cd3
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// example:
+	//
+	// 审批人
+	ActivityName *string `json:"activityName,omitempty" xml:"activityName,omitempty"`
+	// example:
+	//
+	// 包括 target_select、target_approval 等
+	ActivityType *string `json:"activityType,omitempty" xml:"activityType,omitempty"`
+	// example:
+	//
+	// true
+	IsTargetSelect *bool `json:"isTargetSelect,omitempty" xml:"isTargetSelect,omitempty"`
+	// example:
+	//
+	// 1918_5cd3
 	PrevActivityId *string                                                              `json:"prevActivityId,omitempty" xml:"prevActivityId,omitempty"`
 	WorkflowActor  *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor `json:"workflowActor,omitempty" xml:"workflowActor,omitempty" type:"Struct"`
 }
@@ -5458,6 +15188,11 @@ func (s ProcessForecastResponseBodyResultWorkflowActivityRules) String() string 
 
 func (s ProcessForecastResponseBodyResultWorkflowActivityRules) GoString() string {
 	return s.String()
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRules) SetActivityActioners(v []*ProcessForecastResponseBodyResultWorkflowActivityRulesActivityActioners) *ProcessForecastResponseBodyResultWorkflowActivityRules {
+	s.ActivityActioners = v
+	return s
 }
 
 func (s *ProcessForecastResponseBodyResultWorkflowActivityRules) SetActivityId(v string) *ProcessForecastResponseBodyResultWorkflowActivityRules {
@@ -5490,16 +15225,69 @@ func (s *ProcessForecastResponseBodyResultWorkflowActivityRules) SetWorkflowActo
 	return s
 }
 
+type ProcessForecastResponseBodyResultWorkflowActivityRulesActivityActioners struct {
+	Avatar *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ProcessForecastResponseBodyResultWorkflowActivityRulesActivityActioners) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessForecastResponseBodyResultWorkflowActivityRulesActivityActioners) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesActivityActioners) SetAvatar(v string) *ProcessForecastResponseBodyResultWorkflowActivityRulesActivityActioners {
+	s.Avatar = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesActivityActioners) SetName(v string) *ProcessForecastResponseBodyResultWorkflowActivityRulesActivityActioners {
+	s.Name = &v
+	return s
+}
+
+func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesActivityActioners) SetUserId(v string) *ProcessForecastResponseBodyResultWorkflowActivityRulesActivityActioners {
+	s.UserId = &v
+	return s
+}
+
 type ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor struct {
-	ActorActivateType   *string                                                                                 `json:"actorActivateType,omitempty" xml:"actorActivateType,omitempty"`
+	// example:
+	//
+	// ALL:并行，ONE_BY_ONE:串行
+	ActorActivateType *string `json:"actorActivateType,omitempty" xml:"actorActivateType,omitempty"`
+	// example:
+	//
+	// manual_e203_14a3_895a_45ad
 	ActorKey            *string                                                                                 `json:"actorKey,omitempty" xml:"actorKey,omitempty"`
 	ActorSelectionRange *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActorSelectionRange `json:"actorSelectionRange,omitempty" xml:"actorSelectionRange,omitempty" type:"Struct"`
-	ActorSelectionType  *string                                                                                 `json:"actorSelectionType,omitempty" xml:"actorSelectionType,omitempty"`
-	ActorType           *string                                                                                 `json:"actorType,omitempty" xml:"actorType,omitempty"`
-	AllowedMulti        *bool                                                                                   `json:"allowedMulti,omitempty" xml:"allowedMulti,omitempty"`
-	ApprovalMethod      *string                                                                                 `json:"approvalMethod,omitempty" xml:"approvalMethod,omitempty"`
-	ApprovalType        *string                                                                                 `json:"approvalType,omitempty" xml:"approvalType,omitempty"`
-	Required            *bool                                                                                   `json:"required,omitempty" xml:"required,omitempty"`
+	// example:
+	//
+	// allStaff：全公司，approvals：指定成员，labels：角色
+	ActorSelectionType *string `json:"actorSelectionType,omitempty" xml:"actorSelectionType,omitempty"`
+	// example:
+	//
+	// approver:审批人，notifier:抄送人，audit：办理人
+	ActorType *string `json:"actorType,omitempty" xml:"actorType,omitempty"`
+	// example:
+	//
+	// true
+	AllowedMulti *bool `json:"allowedMulti,omitempty" xml:"allowedMulti,omitempty"`
+	// example:
+	//
+	// ONE_BY_ONE：依次审批，AND：会签审批，OR：或签审批
+	ApprovalMethod *string `json:"approvalMethod,omitempty" xml:"approvalMethod,omitempty"`
+	// example:
+	//
+	// MANUAL:人工审批，AUTO_AGREE:自动通过，AUTO_REFUSE:自动拒绝
+	ApprovalType *string `json:"approvalType,omitempty" xml:"approvalType,omitempty"`
+	// example:
+	//
+	// true
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
 }
 
 func (s ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActor) String() string {
@@ -5625,8 +15413,18 @@ func (s *ProcessForecastResponseBodyResultWorkflowActivityRulesWorkflowActorActo
 }
 
 type ProcessForecastResponseBodyResultWorkflowForecastNodes struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1cc3_959a
 	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	OutId      *string `json:"outId,omitempty" xml:"outId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// line-random-1cc3_959a-831a_607b
+	OutId *string `json:"outId,omitempty" xml:"outId,omitempty"`
 }
 
 func (s ProcessForecastResponseBodyResultWorkflowForecastNodes) String() string {
@@ -5700,10 +15498,26 @@ func (s *QueryAllFormInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 }
 
 type QueryAllFormInstancesRequest struct {
-	AppUuid    *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	FormCode   *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// SWAPP-dacdsa-example
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-daccea-example
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 100010
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryAllFormInstancesRequest) String() string {
@@ -5735,6 +15549,7 @@ func (s *QueryAllFormInstancesRequest) SetNextToken(v string) *QueryAllFormInsta
 }
 
 type QueryAllFormInstancesResponseBody struct {
+	// This parameter is required.
 	Result *QueryAllFormInstancesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -5752,10 +15567,26 @@ func (s *QueryAllFormInstancesResponseBody) SetResult(v *QueryAllFormInstancesRe
 }
 
 type QueryAllFormInstancesResponseBodyResult struct {
-	HasMore    *bool                                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	MaxResults *int64                                           `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string                                          `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Values     []*QueryAllFormInstancesResponseBodyResultValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	Values []*QueryAllFormInstancesResponseBodyResultValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 }
 
 func (s QueryAllFormInstancesResponseBodyResult) String() string {
@@ -5787,18 +15618,61 @@ func (s *QueryAllFormInstancesResponseBodyResult) SetValues(v []*QueryAllFormIns
 }
 
 type QueryAllFormInstancesResponseBodyResultValues struct {
-	AppUuid          *string                                                          `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	Attributes       map[string]interface{}                                           `json:"attributes,omitempty" xml:"attributes,omitempty"`
-	CreateTimestamp  *int64                                                           `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
-	Creator          *string                                                          `json:"creator,omitempty" xml:"creator,omitempty"`
-	FormCode         *string                                                          `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// example:
+	//
+	// SWAPP-abcd-example
+	AppUuid    *string                `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	Attributes map[string]interface{} `json:"attributes,omitempty" xml:"attributes,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1635151039000
+	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 30314512
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-abcd-example
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
 	FormInstDataList []*QueryAllFormInstancesResponseBodyResultValuesFormInstDataList `json:"formInstDataList,omitempty" xml:"formInstDataList,omitempty" type:"Repeated"`
-	FormInstanceId   *string                                                          `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
-	Modifier         *string                                                          `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	ModifyTimestamp  *int64                                                           `json:"modifyTimestamp,omitempty" xml:"modifyTimestamp,omitempty"`
-	OutBizCode       *string                                                          `json:"outBizCode,omitempty" xml:"outBizCode,omitempty"`
-	OutInstanceId    *string                                                          `json:"outInstanceId,omitempty" xml:"outInstanceId,omitempty"`
-	Title            *string                                                          `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abcd-eaf-acde12f
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 032142312
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	// example:
+	//
+	// 1635151039000
+	ModifyTimestamp *int64 `json:"modifyTimestamp,omitempty" xml:"modifyTimestamp,omitempty"`
+	// example:
+	//
+	// abcd
+	OutBizCode *string `json:"outBizCode,omitempty" xml:"outBizCode,omitempty"`
+	// example:
+	//
+	// 323
+	OutInstanceId *string `json:"outInstanceId,omitempty" xml:"outInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx提交的数据
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryAllFormInstancesResponseBodyResultValues) String() string {
@@ -5870,12 +15744,38 @@ func (s *QueryAllFormInstancesResponseBodyResultValues) SetTitle(v string) *Quer
 }
 
 type QueryAllFormInstancesResponseBodyResultValuesFormInstDataList struct {
-	BizAlias      *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// example:
+	//
+	// staff_name
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 具体参见审批控件列表
 	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
-	ExtendValue   *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
-	Key           *string `json:"key,omitempty" xml:"key,omitempty"`
-	Label         *string `json:"label,omitempty" xml:"label,omitempty"`
-	Value         *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// {"key":"value}
+	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField-abcdefg
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 员工姓名
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s QueryAllFormInstancesResponseBodyResultValuesFormInstDataList) String() string {
@@ -5969,12 +15869,36 @@ func (s *QueryAllProcessInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type QueryAllProcessInstancesRequest struct {
-	AppUuid          *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	EndTimeInMills   *int64  `json:"endTimeInMills,omitempty" xml:"endTimeInMills,omitempty"`
-	MaxResults       *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken        *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	ProcessCode      *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	StartTimeInMills *int64  `json:"startTimeInMills,omitempty" xml:"startTimeInMills,omitempty"`
+	// example:
+	//
+	// SWAPP-4C2F4B-example
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// example:
+	//
+	// 1633795200000
+	EndTimeInMills *int64 `json:"endTimeInMills,omitempty" xml:"endTimeInMills,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 1
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-C53-example
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1631289600000
+	StartTimeInMills *int64 `json:"startTimeInMills,omitempty" xml:"startTimeInMills,omitempty"`
 }
 
 func (s QueryAllProcessInstancesRequest) String() string {
@@ -6033,10 +15957,25 @@ func (s *QueryAllProcessInstancesResponseBody) SetResult(v *QueryAllProcessInsta
 }
 
 type QueryAllProcessInstancesResponseBodyResult struct {
-	HasMore    *bool                                             `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	List       []*QueryAllProcessInstancesResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	MaxResults *int64                                            `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string                                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	HasMore *bool                                             `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*QueryAllProcessInstancesResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryAllProcessInstancesResponseBodyResult) String() string {
@@ -6068,20 +16007,76 @@ func (s *QueryAllProcessInstancesResponseBodyResult) SetNextToken(v string) *Que
 }
 
 type QueryAllProcessInstancesResponseBodyResultList struct {
-	AttachedProcessInstanceIds *string                                                              `json:"attachedProcessInstanceIds,omitempty" xml:"attachedProcessInstanceIds,omitempty"`
-	BusinessId                 *string                                                              `json:"businessId,omitempty" xml:"businessId,omitempty"`
-	CreateTime                 *int64                                                               `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	FinishTime                 *int64                                                               `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
-	FormComponentValues        []*QueryAllProcessInstancesResponseBodyResultListFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
-	MainProcessInstanceId      *string                                                              `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
-	OperationRecords           []*QueryAllProcessInstancesResponseBodyResultListOperationRecords    `json:"operationRecords,omitempty" xml:"operationRecords,omitempty" type:"Repeated"`
-	OriginatorDeptId           *string                                                              `json:"originatorDeptId,omitempty" xml:"originatorDeptId,omitempty"`
-	OriginatorUserid           *string                                                              `json:"originatorUserid,omitempty" xml:"originatorUserid,omitempty"`
-	ProcessInstanceId          *string                                                              `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Result                     *string                                                              `json:"result,omitempty" xml:"result,omitempty"`
-	Status                     *string                                                              `json:"status,omitempty" xml:"status,omitempty"`
-	Tasks                      []*QueryAllProcessInstancesResponseBodyResultListTasks               `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
-	Title                      *string                                                              `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cdef-dae2fd2-example
+	AttachedProcessInstanceIds *string `json:"attachedProcessInstanceIds,omitempty" xml:"attachedProcessInstanceIds,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 202110111558000355024
+	BusinessId *string `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1635165470201
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1633795200000
+	FinishTime *int64 `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	// This parameter is required.
+	FormComponentValues []*QueryAllProcessInstancesResponseBodyResultListFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dcdse-dae2fd2-example
+	MainProcessInstanceId *string                                                           `json:"mainProcessInstanceId,omitempty" xml:"mainProcessInstanceId,omitempty"`
+	OperationRecords      []*QueryAllProcessInstancesResponseBodyResultListOperationRecords `json:"operationRecords,omitempty" xml:"operationRecords,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 默认-1，企业根部门
+	OriginatorDeptId *string `json:"originatorDeptId,omitempty" xml:"originatorDeptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// staff1234
+	OriginatorUserid *string `json:"originatorUserid,omitempty" xml:"originatorUserid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abcdse-dse-example
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// AGREE同意，REFUSE拒绝
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// RUNNING审批中、TERMINATED撤销、COMPLETED审批完成、CANCELED取消
+	Status *string                                                `json:"status,omitempty" xml:"status,omitempty"`
+	Tasks  []*QueryAllProcessInstancesResponseBodyResultListTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 员工A提交的小肖审批单
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryAllProcessInstancesResponseBodyResultList) String() string {
@@ -6163,10 +16158,28 @@ func (s *QueryAllProcessInstancesResponseBodyResultList) SetTitle(v string) *Que
 }
 
 type QueryAllProcessInstancesResponseBodyResultListFormComponentValues struct {
+	// example:
+	//
+	// {"staffId":"abcd"}
 	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	Id       *string `json:"id,omitempty" xml:"id,omitempty"`
-	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
-	Value    *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField-a32bcdef
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 姓名
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s QueryAllProcessInstancesResponseBodyResultListFormComponentValues) String() string {
@@ -6198,12 +16211,27 @@ func (s *QueryAllProcessInstancesResponseBodyResultListFormComponentValues) SetV
 }
 
 type QueryAllProcessInstancesResponseBodyResultListOperationRecords struct {
-	Attachments   []*QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	OperationType *string                                                                      `json:"operationType,omitempty" xml:"operationType,omitempty"`
-	Remark        *string                                                                      `json:"remark,omitempty" xml:"remark,omitempty"`
-	Result        *string                                                                      `json:"result,omitempty" xml:"result,omitempty"`
-	Timestamp     *int64                                                                       `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
-	UserId        *string                                                                      `json:"userId,omitempty" xml:"userId,omitempty"`
+	Attachments []*QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+	// example:
+	//
+	// EXECUTE_TASK_NORMAL（正常执行任务），EXECUTE_TASK_AGENT（代理人执行任务），APPEND_TASK_BEFORE（前加签任务），APPEND_TASK_AFTER（后加签任务），REDIRECT_TASK（转交任务），START_PROCESS_INSTANCE（发起流程实例），TERMINATE_PROCESS_INSTANCE（终止(撤销)流程实例），FINISH_PROCESS_INSTANCE（结束流程实例），ADD_REMARK（添加评论）
+	OperationType *string `json:"operationType,omitempty" xml:"operationType,omitempty"`
+	// example:
+	//
+	// 同意
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// AGREE（同意），REFUSE（拒绝），NONE（未知）
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// 1657522271000
+	Timestamp *int64 `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	// example:
+	//
+	// manager1
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryAllProcessInstancesResponseBodyResultListOperationRecords) String() string {
@@ -6245,9 +16273,21 @@ func (s *QueryAllProcessInstancesResponseBodyResultListOperationRecords) SetUser
 }
 
 type QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachments struct {
-	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// example:
+	//
+	// 1234567
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// example:
+	//
+	// 附件
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// example:
+	//
+	// 123
 	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// example:
+	//
+	// pdf
 	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
 }
 
@@ -6280,13 +16320,38 @@ func (s *QueryAllProcessInstancesResponseBodyResultListOperationRecordsAttachmen
 }
 
 type QueryAllProcessInstancesResponseBodyResultListTasks struct {
-	ActivityId      *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	CreateTimestamp *int64  `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
-	FinishTimestamp *int64  `json:"finishTimestamp,omitempty" xml:"finishTimestamp,omitempty"`
-	Result          *string `json:"result,omitempty" xml:"result,omitempty"`
-	Status          *string `json:"status,omitempty" xml:"status,omitempty"`
-	TaskId          *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 1234_abcd
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// example:
+	//
+	// 1657522271000
+	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	// example:
+	//
+	// 1657522271000
+	FinishTimestamp *int64 `json:"finishTimestamp,omitempty" xml:"finishTimestamp,omitempty"`
+	// example:
+	//
+	// 分为AGREE（同意），REFUSE（拒绝），REDIRECTED（转交）
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// NEW（未启动），RUNNING（处理中），PAUSED（暂停），CANCELED（取消），COMPLETED（完成），TERMINATED（终止）
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// staff1234
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryAllProcessInstancesResponseBodyResultListTasks) String() string {
@@ -6385,7 +16450,13 @@ func (s *QueryFormByBizTypeHeaders) SetXAcsDingtalkAccessToken(v string) *QueryF
 }
 
 type QueryFormByBizTypeRequest struct {
-	AppUuid  *string   `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SWAPP-abcdef-example
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// This parameter is required.
 	BizTypes []*string `json:"bizTypes,omitempty" xml:"bizTypes,omitempty" type:"Repeated"`
 }
 
@@ -6425,19 +16496,66 @@ func (s *QueryFormByBizTypeResponseBody) SetResult(v []*QueryFormByBizTypeRespon
 }
 
 type QueryFormByBizTypeResponseBodyResult struct {
-	AppType     *int32  `json:"appType,omitempty" xml:"appType,omitempty"`
-	AppUuid     *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	BizType     *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Content     *string `json:"content,omitempty" xml:"content,omitempty"`
-	CreateTime  *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	Creator     *string `json:"creator,omitempty" xml:"creator,omitempty"`
-	FormCode    *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	FormUuid    *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	Memo        *string `json:"memo,omitempty" xml:"memo,omitempty"`
-	ModifedTime *int64  `json:"modifedTime,omitempty" xml:"modifedTime,omitempty"`
-	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
-	OwnerId     *string `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
-	Status      *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 应用类型
+	AppType *int32 `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// SWAPP-abcdef-example
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// example:
+	//
+	// 表单业务标识
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 1635151039000
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// 02501234567890
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-abcdef-example
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-example
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// 用于收集休假信息
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// example:
+	//
+	// 1635151039000
+	ModifedTime *int64 `json:"modifedTime,omitempty" xml:"modifedTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 休假申请
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 02501234567890
+	OwnerId *string `json:"ownerId,omitempty" xml:"ownerId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PUBLISHED(启用), INVALID(停用), SAVED(草稿)
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryFormByBizTypeResponseBodyResult) String() string {
@@ -6566,8 +16684,21 @@ func (s *QueryFormInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryFo
 }
 
 type QueryFormInstanceRequest struct {
-	AppUuid        *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	FormCode       *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// example:
+	//
+	// SWAPP-dfeacds-example
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-abcdef-example
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 951a8-8828-430c-b3e-example
 	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
 }
 
@@ -6595,18 +16726,55 @@ func (s *QueryFormInstanceRequest) SetFormInstanceId(v string) *QueryFormInstanc
 }
 
 type QueryFormInstanceResponseBody struct {
-	AppUuid          *string                                          `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	Attributes       map[string]interface{}                           `json:"attributes,omitempty" xml:"attributes,omitempty"`
-	CreateTimestamp  *int64                                           `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
-	Creator          *string                                          `json:"creator,omitempty" xml:"creator,omitempty"`
-	FormCode         *string                                          `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// example:
+	//
+	// SWAPP-dfeacds-example
+	AppUuid    *string                `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	Attributes map[string]interface{} `json:"attributes,omitempty" xml:"attributes,omitempty"`
+	// example:
+	//
+	// 1631870043000
+	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 00003
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-abcdef-example
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
 	FormInstDataList []*QueryFormInstanceResponseBodyFormInstDataList `json:"formInstDataList,omitempty" xml:"formInstDataList,omitempty" type:"Repeated"`
-	FormInstanceId   *string                                          `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
-	Modifier         *string                                          `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	ModifyTimestamp  *int64                                           `json:"modifyTimestamp,omitempty" xml:"modifyTimestamp,omitempty"`
-	OutBizCode       *string                                          `json:"outBizCode,omitempty" xml:"outBizCode,omitempty"`
-	OutInstanceId    *string                                          `json:"outInstanceId,omitempty" xml:"outInstanceId,omitempty"`
-	Title            *string                                          `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 951a8-8828-430c-b3e-example
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// example:
+	//
+	// 000025
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	// example:
+	//
+	// 1631870043000
+	ModifyTimestamp *int64 `json:"modifyTimestamp,omitempty" xml:"modifyTimestamp,omitempty"`
+	// example:
+	//
+	// PROC-abcdef-example
+	OutBizCode *string `json:"outBizCode,omitempty" xml:"outBizCode,omitempty"`
+	// example:
+	//
+	// 951a8-8828-430c-b3e-example
+	OutInstanceId *string `json:"outInstanceId,omitempty" xml:"outInstanceId,omitempty"`
+	// example:
+	//
+	// xxx提交的表单数据
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryFormInstanceResponseBody) String() string {
@@ -6678,12 +16846,18 @@ func (s *QueryFormInstanceResponseBody) SetTitle(v string) *QueryFormInstanceRes
 }
 
 type QueryFormInstanceResponseBodyFormInstDataList struct {
-	BizAlias      *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
 	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
-	ExtendValue   *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
-	Key           *string `json:"key,omitempty" xml:"key,omitempty"`
-	Label         *string `json:"label,omitempty" xml:"label,omitempty"`
-	Value         *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	ExtendValue *string `json:"extendValue,omitempty" xml:"extendValue,omitempty"`
+	// This parameter is required.
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// This parameter is required.
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s QueryFormInstanceResponseBodyFormInstDataList) String() string {
@@ -6777,10 +16951,28 @@ func (s *QueryIntegratedTodoTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Q
 }
 
 type QueryIntegratedTodoTaskRequest struct {
-	CreateBefore *int64  `json:"createBefore,omitempty" xml:"createBefore,omitempty"`
-	PageNumber   *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize     *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 1660036833411
+	CreateBefore *int64 `json:"createBefore,omitempty" xml:"createBefore,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryIntegratedTodoTaskRequest) String() string {
@@ -6852,14 +17044,38 @@ func (s *QueryIntegratedTodoTaskResponseBodyResult) SetList(v []*QueryIntegrated
 }
 
 type QueryIntegratedTodoTaskResponseBodyResultList struct {
-	ActivityId        *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	CreateTime        *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	FinishTime        *string `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	// example:
+	//
+	// act_0001
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// example:
+	//
+	// 2022-10-17T15:12Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// 2022-10-17T15:12Z
+	FinishTime *string `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	// example:
+	//
+	// Siw2WNVZS4KiUt3tTmaNKg04*****809950
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Result            *string `json:"result,omitempty" xml:"result,omitempty"`
-	Status            *string `json:"status,omitempty" xml:"status,omitempty"`
-	TaskId            *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// agree
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// RUNNING
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 1234567
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// manager001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryIntegratedTodoTaskResponseBodyResultList) String() string {
@@ -6963,8 +17179,16 @@ func (s *QueryProcessByBizCategoryIdHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type QueryProcessByBizCategoryIdRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc
 	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// manager123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryProcessByBizCategoryIdRequest) String() string {
@@ -7090,7 +17314,12 @@ func (s *QuerySchemaAndProcessHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 }
 
 type QuerySchemaAndProcessRequest struct {
-	AppUuid     *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-17428B8C-6C60-xxxx-924C-64F1037AE067
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -7229,7 +17458,12 @@ func (s *QuerySchemaByProcessCodeHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type QuerySchemaByProcessCodeRequest struct {
-	AppUuid     *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-17428B8C-6C60-xxxx-924C-64F1037AE067
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -7252,6 +17486,7 @@ func (s *QuerySchemaByProcessCodeRequest) SetProcessCode(v string) *QuerySchemaB
 }
 
 type QuerySchemaByProcessCodeResponseBody struct {
+	// This parameter is required.
 	Result *QuerySchemaByProcessCodeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -7269,25 +17504,96 @@ func (s *QuerySchemaByProcessCodeResponseBody) SetResult(v *QuerySchemaByProcess
 }
 
 type QuerySchemaByProcessCodeResponseBodyResult struct {
-	AppType       *int32                                                   `json:"appType,omitempty" xml:"appType,omitempty"`
-	AppUuid       *string                                                  `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
-	BizType       *string                                                  `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	CreatorUserId *string                                                  `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	CustomSetting *string                                                  `json:"customSetting,omitempty" xml:"customSetting,omitempty"`
-	EngineType    *int32                                                   `json:"engineType,omitempty" xml:"engineType,omitempty"`
-	FormCode      *string                                                  `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	FormUuid      *string                                                  `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	GmtCreate     *string                                                  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified   *string                                                  `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	Icon          *string                                                  `json:"icon,omitempty" xml:"icon,omitempty"`
-	ListOrder     *int32                                                   `json:"listOrder,omitempty" xml:"listOrder,omitempty"`
-	Memo          *string                                                  `json:"memo,omitempty" xml:"memo,omitempty"`
-	Name          *string                                                  `json:"name,omitempty" xml:"name,omitempty"`
-	OwnerIdType   *string                                                  `json:"ownerIdType,omitempty" xml:"ownerIdType,omitempty"`
-	ProcType      *string                                                  `json:"procType,omitempty" xml:"procType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	AppType *int32 `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// example:
+	//
+	// hrm.xxxx
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 26652461xxxx5992
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// example:
+	//
+	// null
+	CustomSetting *string `json:"customSetting,omitempty" xml:"customSetting,omitempty"`
+	// example:
+	//
+	// 0
+	EngineType *int32 `json:"engineType,omitempty" xml:"engineType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-17428B8C-6C60-470E-xxxx-64F1037AE067
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-28215C3E-00E3-4118-xxxx-4091F828AF2F
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-12-01T10:49Z
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-12-01T10:49Z
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// example:
+	//
+	// null
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// example:
+	//
+	// 1
+	ListOrder *int32 `json:"listOrder,omitempty" xml:"listOrder,omitempty"`
+	// example:
+	//
+	// xxxx
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
+	// example:
+	//
+	// 示例模板
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 25xxxx01
+	OwnerIdType *string `json:"ownerIdType,omitempty" xml:"ownerIdType,omitempty"`
+	// example:
+	//
+	// inner
+	ProcType *string `json:"procType,omitempty" xml:"procType,omitempty"`
+	// This parameter is required.
 	SchemaContent *QuerySchemaByProcessCodeResponseBodyResultSchemaContent `json:"schemaContent,omitempty" xml:"schemaContent,omitempty" type:"Struct"`
-	Status        *string                                                  `json:"status,omitempty" xml:"status,omitempty"`
-	VisibleRange  *string                                                  `json:"visibleRange,omitempty" xml:"visibleRange,omitempty"`
+	// example:
+	//
+	// PUBLISHED
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// PRIVATE
+	VisibleRange *string `json:"visibleRange,omitempty" xml:"visibleRange,omitempty"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResult) String() string {
@@ -7394,9 +17700,18 @@ func (s *QuerySchemaByProcessCodeResponseBodyResult) SetVisibleRange(v string) *
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContent struct {
-	Icon  *string                                                         `json:"icon,omitempty" xml:"icon,omitempty"`
+	// example:
+	//
+	// common
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// This parameter is required.
 	Items []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
-	Title *string                                                         `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 示例模板
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContent) String() string {
@@ -7423,9 +17738,15 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContent) SetTitle(v str
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems struct {
-	Children      []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
-	ComponentName *string                                                                 `json:"componentName,omitempty" xml:"componentName,omitempty"`
-	Props         *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps      `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+	Children []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	Props *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems) String() string {
@@ -7452,8 +17773,14 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItems) SetProps(
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren struct {
-	ComponentName *string                                                                    `json:"componentName,omitempty" xml:"componentName,omitempty"`
-	Props         *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField
+	ComponentName *string `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	// This parameter is required.
+	Props *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren) String() string {
@@ -7475,7 +17802,8 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildren) S
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenProps struct {
-	BizAlias *string   `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// This parameter is required.
 	Id       *string   `json:"id,omitempty" xml:"id,omitempty"`
 	Label    *string   `json:"label,omitempty" xml:"label,omitempty"`
 	Options  []*string `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
@@ -7516,52 +17844,176 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsChildrenPro
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps struct {
-	ActionName             *string                                                                             `json:"actionName,omitempty" xml:"actionName,omitempty"`
-	Align                  *string                                                                             `json:"align,omitempty" xml:"align,omitempty"`
-	AppId                  *int64                                                                              `json:"appId,omitempty" xml:"appId,omitempty"`
-	AsyncCondition         *bool                                                                               `json:"asyncCondition,omitempty" xml:"asyncCondition,omitempty"`
-	AttendTypeLabel        *string                                                                             `json:"attendTypeLabel,omitempty" xml:"attendTypeLabel,omitempty"`
-	BehaviorLinkage        []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkage `json:"behaviorLinkage,omitempty" xml:"behaviorLinkage,omitempty" type:"Repeated"`
-	BizAlias               *string                                                                             `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
-	BizType                *string                                                                             `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	ChildFieldVisible      map[string]*bool                                                                    `json:"childFieldVisible,omitempty" xml:"childFieldVisible,omitempty"`
-	Choice                 *int32                                                                              `json:"choice,omitempty" xml:"choice,omitempty"`
-	CommonBizType          *string                                                                             `json:"commonBizType,omitempty" xml:"commonBizType,omitempty"`
-	Disabled               *bool                                                                               `json:"disabled,omitempty" xml:"disabled,omitempty"`
-	Duration               *bool                                                                               `json:"duration,omitempty" xml:"duration,omitempty"`
-	DurationLabel          *string                                                                             `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
-	ESign                  *bool                                                                               `json:"eSign,omitempty" xml:"eSign,omitempty"`
-	Extract                *bool                                                                               `json:"extract,omitempty" xml:"extract,omitempty"`
-	FieldsInfo             *string                                                                             `json:"fieldsInfo,omitempty" xml:"fieldsInfo,omitempty"`
-	Format                 *string                                                                             `json:"format,omitempty" xml:"format,omitempty"`
-	Formula                *string                                                                             `json:"formula,omitempty" xml:"formula,omitempty"`
-	Hidden                 *bool                                                                               `json:"hidden,omitempty" xml:"hidden,omitempty"`
-	HiddenInApprovalDetail *bool                                                                               `json:"hiddenInApprovalDetail,omitempty" xml:"hiddenInApprovalDetail,omitempty"`
-	HideLabel              *bool                                                                               `json:"hideLabel,omitempty" xml:"hideLabel,omitempty"`
-	HolidayOptions         []map[string]*string                                                                `json:"holidayOptions,omitempty" xml:"holidayOptions,omitempty" type:"Repeated"`
-	Id                     *string                                                                             `json:"id,omitempty" xml:"id,omitempty"`
-	Label                  *string                                                                             `json:"label,omitempty" xml:"label,omitempty"`
-	LabelEditableFreeze    *bool                                                                               `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
-	Link                   *string                                                                             `json:"link,omitempty" xml:"link,omitempty"`
-	MainTitle              *string                                                                             `json:"mainTitle,omitempty" xml:"mainTitle,omitempty"`
-	NotPrint               *string                                                                             `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
-	NotUpper               *string                                                                             `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
-	ObjOptions             []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsObjOptions      `json:"objOptions,omitempty" xml:"objOptions,omitempty" type:"Repeated"`
-	Options                []*string                                                                           `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
-	PayEnable              *bool                                                                               `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
-	Placeholder            *string                                                                             `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
-	Push                   *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush              `json:"push,omitempty" xml:"push,omitempty" type:"Struct"`
-	PushToAttendance       *bool                                                                               `json:"pushToAttendance,omitempty" xml:"pushToAttendance,omitempty"`
-	PushToCalendar         *int32                                                                              `json:"pushToCalendar,omitempty" xml:"pushToCalendar,omitempty"`
-	Required               *bool                                                                               `json:"required,omitempty" xml:"required,omitempty"`
-	RequiredEditableFreeze *bool                                                                               `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
-	ShowAttendOptions      *bool                                                                               `json:"showAttendOptions,omitempty" xml:"showAttendOptions,omitempty"`
-	StaffStatusEnabled     *bool                                                                               `json:"staffStatusEnabled,omitempty" xml:"staffStatusEnabled,omitempty"`
-	StatField              []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField       `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
-	TableViewMode          *string                                                                             `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
-	Unit                   *string                                                                             `json:"unit,omitempty" xml:"unit,omitempty"`
-	UseCalendar            *bool                                                                               `json:"useCalendar,omitempty" xml:"useCalendar,omitempty"`
-	VerticalPrint          *bool                                                                               `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
+	// example:
+	//
+	// 添加
+	ActionName *string `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	// example:
+	//
+	// top
+	Align *string `json:"align,omitempty" xml:"align,omitempty"`
+	// example:
+	//
+	// 1234567
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// example:
+	//
+	// true
+	AsyncCondition *bool `json:"asyncCondition,omitempty" xml:"asyncCondition,omitempty"`
+	// example:
+	//
+	// 请假
+	AttendTypeLabel *string                                                                             `json:"attendTypeLabel,omitempty" xml:"attendTypeLabel,omitempty"`
+	BehaviorLinkage []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkage `json:"behaviorLinkage,omitempty" xml:"behaviorLinkage,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 我的单行输入框
+	BizAlias *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
+	// example:
+	//
+	// hrm.xxxx
+	BizType           *string          `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	ChildFieldVisible map[string]*bool `json:"childFieldVisible,omitempty" xml:"childFieldVisible,omitempty"`
+	// example:
+	//
+	// 1
+	Choice *int32 `json:"choice,omitempty" xml:"choice,omitempty"`
+	// example:
+	//
+	// xxxx
+	CommonBizType *string `json:"commonBizType,omitempty" xml:"commonBizType,omitempty"`
+	// example:
+	//
+	// true
+	Disabled *bool `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// example:
+	//
+	// true
+	Duration *bool `json:"duration,omitempty" xml:"duration,omitempty"`
+	// example:
+	//
+	// xxxx
+	DurationLabel *string `json:"durationLabel,omitempty" xml:"durationLabel,omitempty"`
+	// example:
+	//
+	// true
+	ESign *bool `json:"eSign,omitempty" xml:"eSign,omitempty"`
+	// example:
+	//
+	// true
+	Extract *bool `json:"extract,omitempty" xml:"extract,omitempty"`
+	// example:
+	//
+	// xxxx
+	FieldsInfo *string `json:"fieldsInfo,omitempty" xml:"fieldsInfo,omitempty"`
+	// example:
+	//
+	// yyyy-MM-dd
+	Format *string `json:"format,omitempty" xml:"format,omitempty"`
+	// example:
+	//
+	// xxxx
+	Formula *string `json:"formula,omitempty" xml:"formula,omitempty"`
+	// example:
+	//
+	// true
+	Hidden *bool `json:"hidden,omitempty" xml:"hidden,omitempty"`
+	// example:
+	//
+	// true
+	HiddenInApprovalDetail *bool `json:"hiddenInApprovalDetail,omitempty" xml:"hiddenInApprovalDetail,omitempty"`
+	// example:
+	//
+	// true
+	HideLabel *bool `json:"hideLabel,omitempty" xml:"hideLabel,omitempty"`
+	// example:
+	//
+	// "[{\"name\":\"\open"}]"
+	HolidayOptions []map[string]*string `json:"holidayOptions,omitempty" xml:"holidayOptions,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TextField-K2AD4O5B
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 单行输入框
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// example:
+	//
+	// true
+	LabelEditableFreeze *bool `json:"labelEditableFreeze,omitempty" xml:"labelEditableFreeze,omitempty"`
+	// example:
+	//
+	// xxxx
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// example:
+	//
+	// xxxx
+	MainTitle *string `json:"mainTitle,omitempty" xml:"mainTitle,omitempty"`
+	// example:
+	//
+	// 1
+	NotPrint *string `json:"notPrint,omitempty" xml:"notPrint,omitempty"`
+	// example:
+	//
+	// 1
+	NotUpper   *string                                                                        `json:"notUpper,omitempty" xml:"notUpper,omitempty"`
+	ObjOptions []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsObjOptions `json:"objOptions,omitempty" xml:"objOptions,omitempty" type:"Repeated"`
+	Options    []*string                                                                      `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	PayEnable *bool `json:"payEnable,omitempty" xml:"payEnable,omitempty"`
+	// example:
+	//
+	// 请输入文字
+	Placeholder *string                                                                `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	Push        *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush `json:"push,omitempty" xml:"push,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	PushToAttendance *bool `json:"pushToAttendance,omitempty" xml:"pushToAttendance,omitempty"`
+	// example:
+	//
+	// 1
+	PushToCalendar *int32 `json:"pushToCalendar,omitempty" xml:"pushToCalendar,omitempty"`
+	// example:
+	//
+	// true
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// example:
+	//
+	// true
+	RequiredEditableFreeze *bool `json:"requiredEditableFreeze,omitempty" xml:"requiredEditableFreeze,omitempty"`
+	// example:
+	//
+	// true
+	ShowAttendOptions *bool `json:"showAttendOptions,omitempty" xml:"showAttendOptions,omitempty"`
+	// example:
+	//
+	// true
+	StaffStatusEnabled *bool                                                                         `json:"staffStatusEnabled,omitempty" xml:"staffStatusEnabled,omitempty"`
+	StatField          []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField `json:"statField,omitempty" xml:"statField,omitempty" type:"Repeated"`
+	// example:
+	//
+	// list
+	TableViewMode *string `json:"tableViewMode,omitempty" xml:"tableViewMode,omitempty"`
+	// example:
+	//
+	// 天
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// example:
+	//
+	// true
+	UseCalendar *bool `json:"useCalendar,omitempty" xml:"useCalendar,omitempty"`
+	// example:
+	//
+	// true
+	VerticalPrint *bool `json:"verticalPrint,omitempty" xml:"verticalPrint,omitempty"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) String() string {
@@ -7804,7 +18256,10 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsProps) SetV
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkage struct {
 	Targets []*QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets `json:"targets,omitempty" xml:"targets,omitempty" type:"Repeated"`
-	Value   *string                                                                                    `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// xxxx
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkage) String() string {
@@ -7826,8 +18281,14 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehavi
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets struct {
+	// example:
+	//
+	// xxxx
 	Behavior *string `json:"behavior,omitempty" xml:"behavior,omitempty"`
-	FieldId  *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+	// example:
+	//
+	// TextField-K2AD4O5B
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsBehaviorLinkageTargets) String() string {
@@ -7866,9 +18327,18 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsObjOpt
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush struct {
-	AttendanceRule *int32  `json:"attendanceRule,omitempty" xml:"attendanceRule,omitempty"`
-	PushSwitch     *int32  `json:"pushSwitch,omitempty" xml:"pushSwitch,omitempty"`
-	PushTag        *string `json:"pushTag,omitempty" xml:"pushTag,omitempty"`
+	// example:
+	//
+	// 1
+	AttendanceRule *int32 `json:"attendanceRule,omitempty" xml:"attendanceRule,omitempty"`
+	// example:
+	//
+	// 1
+	PushSwitch *int32 `json:"pushSwitch,omitempty" xml:"pushSwitch,omitempty"`
+	// example:
+	//
+	// xxxx
+	PushTag *string `json:"pushTag,omitempty" xml:"pushTag,omitempty"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush) String() string {
@@ -7895,10 +18365,22 @@ func (s *QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsPush) 
 }
 
 type QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField struct {
-	Id    *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// TextField-K2AD4O5B
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 单行输入框
 	Label *string `json:"label,omitempty" xml:"label,omitempty"`
-	Unit  *string `json:"unit,omitempty" xml:"unit,omitempty"`
-	Upper *bool   `json:"upper,omitempty" xml:"upper,omitempty"`
+	// example:
+	//
+	// xxxx
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// example:
+	//
+	// true
+	Upper *bool `json:"upper,omitempty" xml:"upper,omitempty"`
 }
 
 func (s QuerySchemaByProcessCodeResponseBodyResultSchemaContentItemsPropsStatField) String() string {
@@ -7982,12 +18464,33 @@ func (s *RedirectWorkflowTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Redi
 }
 
 type RedirectWorkflowTaskRequest struct {
-	ActionName    *string                          `json:"actionName,omitempty" xml:"actionName,omitempty"`
-	File          *RedirectWorkflowTaskRequestFile `json:"file,omitempty" xml:"file,omitempty" type:"Struct"`
-	OperateUserId *string                          `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
-	Remark        *string                          `json:"remark,omitempty" xml:"remark,omitempty"`
-	TaskId        *int64                           `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	ToUserId      *string                          `json:"toUserId,omitempty" xml:"toUserId,omitempty"`
+	// example:
+	//
+	// test
+	ActionName *string                          `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	File       *RedirectWorkflowTaskRequestFile `json:"file,omitempty" xml:"file,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager001
+	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
+	// example:
+	//
+	// 请XX帮忙审批一下
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234567
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager001
+	ToUserId *string `json:"toUserId,omitempty" xml:"toUserId,omitempty"`
 }
 
 func (s RedirectWorkflowTaskRequest) String() string {
@@ -8052,11 +18555,26 @@ func (s *RedirectWorkflowTaskRequestFile) SetPhotos(v []*string) *RedirectWorkfl
 }
 
 type RedirectWorkflowTaskRequestFileAttachments struct {
-	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// example:
+	//
+	// B1oQixxxx
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// example:
+	//
+	// 文件名称。
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// example:
+	//
+	// 1024
 	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// example:
+	//
+	// file
 	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	SpaceId  *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// 123
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s RedirectWorkflowTaskRequestFileAttachments) String() string {
@@ -8162,13 +18680,24 @@ func (s *SaveIntegratedInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *Sa
 }
 
 type SaveIntegratedInstanceRequest struct {
+	// example:
+	//
+	// "{\"mykey\": \"myData\"}"
 	BizData                *string                                                `json:"bizData,omitempty" xml:"bizData,omitempty"`
+	FeatureConfig          *SaveIntegratedInstanceRequestFeatureConfig            `json:"featureConfig,omitempty" xml:"featureConfig,omitempty" type:"Struct"`
 	FormComponentValueList []*SaveIntegratedInstanceRequestFormComponentValueList `json:"formComponentValueList,omitempty" xml:"formComponentValueList,omitempty" type:"Repeated"`
 	Notifiers              []*SaveIntegratedInstanceRequestNotifiers              `json:"notifiers,omitempty" xml:"notifiers,omitempty" type:"Repeated"`
-	OriginatorUserId       *string                                                `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
-	ProcessCode            *string                                                `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	Title                  *string                                                `json:"title,omitempty" xml:"title,omitempty"`
-	Url                    *string                                                `json:"url,omitempty" xml:"url,omitempty"`
+	// This parameter is required.
+	OriginatorUserId *string `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
+	// This parameter is required.
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	Title       *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://www.dingtalk.com/
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s SaveIntegratedInstanceRequest) String() string {
@@ -8181,6 +18710,11 @@ func (s SaveIntegratedInstanceRequest) GoString() string {
 
 func (s *SaveIntegratedInstanceRequest) SetBizData(v string) *SaveIntegratedInstanceRequest {
 	s.BizData = &v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequest) SetFeatureConfig(v *SaveIntegratedInstanceRequestFeatureConfig) *SaveIntegratedInstanceRequest {
+	s.FeatureConfig = v
 	return s
 }
 
@@ -8211,6 +18745,122 @@ func (s *SaveIntegratedInstanceRequest) SetTitle(v string) *SaveIntegratedInstan
 
 func (s *SaveIntegratedInstanceRequest) SetUrl(v string) *SaveIntegratedInstanceRequest {
 	s.Url = &v
+	return s
+}
+
+type SaveIntegratedInstanceRequestFeatureConfig struct {
+	Features []*SaveIntegratedInstanceRequestFeatureConfigFeatures `json:"features,omitempty" xml:"features,omitempty" type:"Repeated"`
+}
+
+func (s SaveIntegratedInstanceRequestFeatureConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveIntegratedInstanceRequestFeatureConfig) GoString() string {
+	return s.String()
+}
+
+func (s *SaveIntegratedInstanceRequestFeatureConfig) SetFeatures(v []*SaveIntegratedInstanceRequestFeatureConfigFeatures) *SaveIntegratedInstanceRequestFeatureConfig {
+	s.Features = v
+	return s
+}
+
+type SaveIntegratedInstanceRequestFeatureConfigFeatures struct {
+	Callback *SaveIntegratedInstanceRequestFeatureConfigFeaturesCallback `json:"callback,omitempty" xml:"callback,omitempty" type:"Struct"`
+	// if can be null:
+	// true
+	Config *string `json:"config,omitempty" xml:"config,omitempty"`
+	// example:
+	//
+	// www.dingtalk.com
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// example:
+	//
+	// abc
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// www.dingtalk.com
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// example:
+	//
+	// ORIGIN
+	RunType *string `json:"runType,omitempty" xml:"runType,omitempty"`
+}
+
+func (s SaveIntegratedInstanceRequestFeatureConfigFeatures) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveIntegratedInstanceRequestFeatureConfigFeatures) GoString() string {
+	return s.String()
+}
+
+func (s *SaveIntegratedInstanceRequestFeatureConfigFeatures) SetCallback(v *SaveIntegratedInstanceRequestFeatureConfigFeaturesCallback) *SaveIntegratedInstanceRequestFeatureConfigFeatures {
+	s.Callback = v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequestFeatureConfigFeatures) SetConfig(v string) *SaveIntegratedInstanceRequestFeatureConfigFeatures {
+	s.Config = &v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequestFeatureConfigFeatures) SetMobileUrl(v string) *SaveIntegratedInstanceRequestFeatureConfigFeatures {
+	s.MobileUrl = &v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequestFeatureConfigFeatures) SetName(v string) *SaveIntegratedInstanceRequestFeatureConfigFeatures {
+	s.Name = &v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequestFeatureConfigFeatures) SetPcUrl(v string) *SaveIntegratedInstanceRequestFeatureConfigFeatures {
+	s.PcUrl = &v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequestFeatureConfigFeatures) SetRunType(v string) *SaveIntegratedInstanceRequestFeatureConfigFeatures {
+	s.RunType = &v
+	return s
+}
+
+type SaveIntegratedInstanceRequestFeatureConfigFeaturesCallback struct {
+	// example:
+	//
+	// abc
+	ApiKey *string `json:"apiKey,omitempty" xml:"apiKey,omitempty"`
+	// example:
+	//
+	// abc
+	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
+}
+
+func (s SaveIntegratedInstanceRequestFeatureConfigFeaturesCallback) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveIntegratedInstanceRequestFeatureConfigFeaturesCallback) GoString() string {
+	return s.String()
+}
+
+func (s *SaveIntegratedInstanceRequestFeatureConfigFeaturesCallback) SetApiKey(v string) *SaveIntegratedInstanceRequestFeatureConfigFeaturesCallback {
+	s.ApiKey = &v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequestFeatureConfigFeaturesCallback) SetAppUuid(v string) *SaveIntegratedInstanceRequestFeatureConfigFeaturesCallback {
+	s.AppUuid = &v
+	return s
+}
+
+func (s *SaveIntegratedInstanceRequestFeatureConfigFeaturesCallback) SetVersion(v string) *SaveIntegratedInstanceRequestFeatureConfigFeaturesCallback {
+	s.Version = &v
 	return s
 }
 
@@ -8262,8 +18912,14 @@ func (s *SaveIntegratedInstanceRequestFormComponentValueList) SetValue(v string)
 }
 
 type SaveIntegratedInstanceRequestNotifiers struct {
+	// example:
+	//
+	// start
 	Position *string `json:"position,omitempty" xml:"position,omitempty"`
-	Userid   *string `json:"userid,omitempty" xml:"userid,omitempty"`
+	// example:
+	//
+	// manager001
+	Userid *string `json:"userid,omitempty" xml:"userid,omitempty"`
 }
 
 func (s SaveIntegratedInstanceRequestNotifiers) String() string {
@@ -8302,6 +18958,9 @@ func (s *SaveIntegratedInstanceResponseBody) SetResult(v *SaveIntegratedInstance
 }
 
 type SaveIntegratedInstanceResponseBodyResult struct {
+	// example:
+	//
+	// proc-abc
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
 }
 
@@ -8371,12 +19030,27 @@ func (s *SaveProcessHeaders) SetXAcsDingtalkAccessToken(v string) *SaveProcessHe
 }
 
 type SaveProcessRequest struct {
-	Description          *string                                 `json:"description,omitempty" xml:"description,omitempty"`
-	FormComponents       []*FormComponent                        `json:"formComponents,omitempty" xml:"formComponents,omitempty" type:"Repeated"`
-	Name                 *string                                 `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 用于员工差旅费用报销使用
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// This parameter is required.
+	FormComponents []*FormComponent `json:"formComponents,omitempty" xml:"formComponents,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 出差报销审批
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// proc-abc
 	ProcessCode          *string                                 `json:"processCode,omitempty" xml:"processCode,omitempty"`
 	ProcessFeatureConfig *SaveProcessRequestProcessFeatureConfig `json:"processFeatureConfig,omitempty" xml:"processFeatureConfig,omitempty" type:"Struct"`
 	// Deprecated
+	//
+	// if can be null:
+	// true
 	TemplateConfig *SaveProcessRequestTemplateConfig `json:"templateConfig,omitempty" xml:"templateConfig,omitempty" type:"Struct"`
 }
 
@@ -8436,11 +19110,26 @@ func (s *SaveProcessRequestProcessFeatureConfig) SetFeatures(v []*SaveProcessReq
 }
 
 type SaveProcessRequestProcessFeatureConfigFeatures struct {
-	Callback  *SaveProcessRequestProcessFeatureConfigFeaturesCallback `json:"callback,omitempty" xml:"callback,omitempty" type:"Struct"`
-	MobileUrl *string                                                 `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
-	Name      *string                                                 `json:"name,omitempty" xml:"name,omitempty"`
-	PcUrl     *string                                                 `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
-	RunType   *string                                                 `json:"runType,omitempty" xml:"runType,omitempty"`
+	Callback *SaveProcessRequestProcessFeatureConfigFeaturesCallback `json:"callback,omitempty" xml:"callback,omitempty" type:"Struct"`
+	// if can be null:
+	// true
+	Config *string `json:"config,omitempty" xml:"config,omitempty"`
+	// example:
+	//
+	// www.dingtalk.com
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// example:
+	//
+	// abc
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// www.dingtalk.com
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// example:
+	//
+	// ORIGIN
+	RunType *string `json:"runType,omitempty" xml:"runType,omitempty"`
 }
 
 func (s SaveProcessRequestProcessFeatureConfigFeatures) String() string {
@@ -8453,6 +19142,11 @@ func (s SaveProcessRequestProcessFeatureConfigFeatures) GoString() string {
 
 func (s *SaveProcessRequestProcessFeatureConfigFeatures) SetCallback(v *SaveProcessRequestProcessFeatureConfigFeaturesCallback) *SaveProcessRequestProcessFeatureConfigFeatures {
 	s.Callback = v
+	return s
+}
+
+func (s *SaveProcessRequestProcessFeatureConfigFeatures) SetConfig(v string) *SaveProcessRequestProcessFeatureConfigFeatures {
+	s.Config = &v
 	return s
 }
 
@@ -8477,8 +19171,17 @@ func (s *SaveProcessRequestProcessFeatureConfigFeatures) SetRunType(v string) *S
 }
 
 type SaveProcessRequestProcessFeatureConfigFeaturesCallback struct {
-	ApiKey  *string `json:"apiKey,omitempty" xml:"apiKey,omitempty"`
+	// example:
+	//
+	// abc
+	ApiKey *string `json:"apiKey,omitempty" xml:"apiKey,omitempty"`
+	// example:
+	//
+	// abc
 	AppUuid *string `json:"appUuid,omitempty" xml:"appUuid,omitempty"`
+	// example:
+	//
+	// 1
 	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
@@ -8507,12 +19210,32 @@ func (s *SaveProcessRequestProcessFeatureConfigFeaturesCallback) SetVersion(v st
 
 type SaveProcessRequestTemplateConfig struct {
 	// Deprecated
+	//
+	// example:
+	//
+	// https://open.dingtalk.com/
 	CreateInstanceMobileUrl *string `json:"createInstanceMobileUrl,omitempty" xml:"createInstanceMobileUrl,omitempty"`
 	// Deprecated
+	//
+	// example:
+	//
+	// https://open.dingtalk.com/
 	CreateInstancePcUrl *string `json:"createInstancePcUrl,omitempty" xml:"createInstancePcUrl,omitempty"`
-	DisableSendCard     *bool   `json:"disableSendCard,omitempty" xml:"disableSendCard,omitempty"`
-	Hidden              *bool   `json:"hidden,omitempty" xml:"hidden,omitempty"`
+	// if can be null:
+	// true
+	DisableSendCard *bool `json:"disableSendCard,omitempty" xml:"disableSendCard,omitempty"`
+	// example:
+	//
+	// true
+	Hidden *bool `json:"hidden,omitempty" xml:"hidden,omitempty"`
 	// Deprecated
+	//
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// https://open.dingtalk.com/
 	TemplateEditUrl *string `json:"templateEditUrl,omitempty" xml:"templateEditUrl,omitempty"`
 }
 
@@ -8567,6 +19290,11 @@ func (s *SaveProcessResponseBody) SetResult(v *SaveProcessResponseBodyResult) *S
 }
 
 type SaveProcessResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-abcdef-example
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 }
 
@@ -8636,13 +19364,37 @@ func (s *StartProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *Star
 }
 
 type StartProcessInstanceRequest struct {
-	Approvers             []*StartProcessInstanceRequestApprovers             `json:"approvers,omitempty" xml:"approvers,omitempty" type:"Repeated"`
-	CcList                []*string                                           `json:"ccList,omitempty" xml:"ccList,omitempty" type:"Repeated"`
-	CcPosition            *string                                             `json:"ccPosition,omitempty" xml:"ccPosition,omitempty"`
-	DeptId                *int64                                              `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	FormComponentValues   []*StartProcessInstanceRequestFormComponentValues   `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
-	MicroappAgentId       *int64                                              `json:"microappAgentId,omitempty" xml:"microappAgentId,omitempty"`
-	OriginatorUserId      *string                                             `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
+	Approvers []*StartProcessInstanceRequestApprovers `json:"approvers,omitempty" xml:"approvers,omitempty" type:"Repeated"`
+	// example:
+	//
+	// https://www.dingtalk.com/
+	BizDetailPageUrl *string   `json:"bizDetailPageUrl,omitempty" xml:"bizDetailPageUrl,omitempty"`
+	CcList           []*string `json:"ccList,omitempty" xml:"ccList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// START、FINISH、START_FINISH
+	CcPosition *string `json:"ccPosition,omitempty" xml:"ccPosition,omitempty"`
+	// example:
+	//
+	// 1
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	FormComponentValues []*StartProcessInstanceRequestFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 41605932
+	MicroappAgentId *int64 `json:"microappAgentId,omitempty" xml:"microappAgentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager432
+	OriginatorUserId *string `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-EF6YJL35P2-SCKICSB7P750S0YISYKV3-xxxx-1
 	ProcessCode           *string                                             `json:"processCode,omitempty" xml:"processCode,omitempty"`
 	TargetSelectActioners []*StartProcessInstanceRequestTargetSelectActioners `json:"targetSelectActioners,omitempty" xml:"targetSelectActioners,omitempty" type:"Repeated"`
 }
@@ -8657,6 +19409,11 @@ func (s StartProcessInstanceRequest) GoString() string {
 
 func (s *StartProcessInstanceRequest) SetApprovers(v []*StartProcessInstanceRequestApprovers) *StartProcessInstanceRequest {
 	s.Approvers = v
+	return s
+}
+
+func (s *StartProcessInstanceRequest) SetBizDetailPageUrl(v string) *StartProcessInstanceRequest {
+	s.BizDetailPageUrl = &v
 	return s
 }
 
@@ -8701,6 +19458,9 @@ func (s *StartProcessInstanceRequest) SetTargetSelectActioners(v []*StartProcess
 }
 
 type StartProcessInstanceRequestApprovers struct {
+	// example:
+	//
+	// 会签：AND；或签：OR；单人：NONE
 	ActionType *string   `json:"actionType,omitempty" xml:"actionType,omitempty"`
 	UserIds    []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
@@ -8724,13 +19484,32 @@ func (s *StartProcessInstanceRequestApprovers) SetUserIds(v []*string) *StartPro
 }
 
 type StartProcessInstanceRequestFormComponentValues struct {
+	// example:
+	//
+	// Phone
 	BizAlias      *string                                                  `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
 	ComponentType *string                                                  `json:"componentType,omitempty" xml:"componentType,omitempty"`
 	Details       []*StartProcessInstanceRequestFormComponentValuesDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
-	ExtValue      *string                                                  `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	Id            *string                                                  `json:"id,omitempty" xml:"id,omitempty"`
-	Name          *string                                                  `json:"name,omitempty" xml:"name,omitempty"`
-	Value         *string                                                  `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// 总个数:1
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// example:
+	//
+	// PhoneField_IZI2LP8QF6O0
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PhoneField
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123xxxxxxxx
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s StartProcessInstanceRequestFormComponentValues) String() string {
@@ -8777,12 +19556,27 @@ func (s *StartProcessInstanceRequestFormComponentValues) SetValue(v string) *Sta
 }
 
 type StartProcessInstanceRequestFormComponentValuesDetails struct {
+	// example:
+	//
+	// Phone
 	BizAlias *string                                                         `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
 	Details  []*StartProcessInstanceRequestFormComponentValuesDetailsDetails `json:"details,omitempty" xml:"details,omitempty" type:"Repeated"`
-	ExtValue *string                                                         `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	Id       *string                                                         `json:"id,omitempty" xml:"id,omitempty"`
-	Name     *string                                                         `json:"name,omitempty" xml:"name,omitempty"`
-	Value    *string                                                         `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// 总个数:1
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// example:
+	//
+	// PhoneField_IZI2LP8QF6O0
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// PhoneField
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 123xxxxxxxx
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s StartProcessInstanceRequestFormComponentValuesDetails) String() string {
@@ -8824,12 +19618,27 @@ func (s *StartProcessInstanceRequestFormComponentValuesDetails) SetValue(v strin
 }
 
 type StartProcessInstanceRequestFormComponentValuesDetailsDetails struct {
+	// example:
+	//
+	// Phone
 	BizAlias      *string `json:"bizAlias,omitempty" xml:"bizAlias,omitempty"`
 	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
-	ExtValue      *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
-	Id            *string `json:"id,omitempty" xml:"id,omitempty"`
-	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
-	Value         *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// 总个数:1
+	ExtValue *string `json:"extValue,omitempty" xml:"extValue,omitempty"`
+	// example:
+	//
+	// PhoneField_IZI2LP8QF6O0
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// PhoneField
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 123xxxxxxxx
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s StartProcessInstanceRequestFormComponentValuesDetailsDetails) String() string {
@@ -8871,6 +19680,9 @@ func (s *StartProcessInstanceRequestFormComponentValuesDetailsDetails) SetValue(
 }
 
 type StartProcessInstanceRequestTargetSelectActioners struct {
+	// example:
+	//
+	// manual_1918_5cd3_5e19_6a98
 	ActionerKey     *string   `json:"actionerKey,omitempty" xml:"actionerKey,omitempty"`
 	ActionerUserIds []*string `json:"actionerUserIds,omitempty" xml:"actionerUserIds,omitempty" type:"Repeated"`
 }
@@ -8894,6 +19706,11 @@ func (s *StartProcessInstanceRequestTargetSelectActioners) SetActionerUserIds(v 
 }
 
 type StartProcessInstanceResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 91ef1076-c3ed-4a78-a7a5-fa29ef2d6252
 	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
 }
 
@@ -8963,10 +19780,21 @@ func (s *TerminateProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type TerminateProcessInstanceRequest struct {
-	IsSystem          *bool   `json:"isSystem,omitempty" xml:"isSystem,omitempty"`
-	OperatingUserId   *string `json:"operatingUserId,omitempty" xml:"operatingUserId,omitempty"`
+	IsSystem *bool `json:"isSystem,omitempty" xml:"isSystem,omitempty"`
+	// example:
+	//
+	// 133743186427339452
+	OperatingUserId *string `json:"operatingUserId,omitempty" xml:"operatingUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a171de6c-8bxxxx
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Remark            *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// 终止说明。
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 }
 
 func (s TerminateProcessInstanceRequest) String() string {
@@ -8998,7 +19826,13 @@ func (s *TerminateProcessInstanceRequest) SetRemark(v string) *TerminateProcessI
 }
 
 type TerminateProcessInstanceResponseBody struct {
-	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -9049,6 +19883,226 @@ func (s *TerminateProcessInstanceResponse) SetBody(v *TerminateProcessInstanceRe
 	return s
 }
 
+type TodoTasksHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TodoTasksHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TodoTasksHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TodoTasksHeaders) SetCommonHeaders(v map[string]*string) *TodoTasksHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TodoTasksHeaders) SetXAcsDingtalkAccessToken(v string) *TodoTasksHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TodoTasksRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// staffId123
+	ActionerUserId *string `json:"actionerUserId,omitempty" xml:"actionerUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager123
+	ManagerUserId *string `json:"managerUserId,omitempty" xml:"managerUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s TodoTasksRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TodoTasksRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TodoTasksRequest) SetActionerUserId(v string) *TodoTasksRequest {
+	s.ActionerUserId = &v
+	return s
+}
+
+func (s *TodoTasksRequest) SetManagerUserId(v string) *TodoTasksRequest {
+	s.ManagerUserId = &v
+	return s
+}
+
+func (s *TodoTasksRequest) SetMaxResults(v int32) *TodoTasksRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *TodoTasksRequest) SetNextToken(v int32) *TodoTasksRequest {
+	s.NextToken = &v
+	return s
+}
+
+type TodoTasksResponseBody struct {
+	Result *TodoTasksResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s TodoTasksResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TodoTasksResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TodoTasksResponseBody) SetResult(v *TodoTasksResponseBodyResult) *TodoTasksResponseBody {
+	s.Result = v
+	return s
+}
+
+type TodoTasksResponseBodyResult struct {
+	HasMore *bool                              `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*TodoTasksResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+}
+
+func (s TodoTasksResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TodoTasksResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *TodoTasksResponseBodyResult) SetHasMore(v bool) *TodoTasksResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *TodoTasksResponseBodyResult) SetList(v []*TodoTasksResponseBodyResultList) *TodoTasksResponseBodyResult {
+	s.List = v
+	return s
+}
+
+type TodoTasksResponseBodyResultList struct {
+	// example:
+	//
+	// RUNNING
+	BusinessId  *string `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	CanRedirect *bool   `json:"canRedirect,omitempty" xml:"canRedirect,omitempty"`
+	CreateTime  *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// act_0001
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// example:
+	//
+	// Siw2WNVZS4KiUt3tTmaNKg04*****809950
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// example:
+	//
+	// 1234567
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// manager001
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 2022-10-17T15:12Z
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s TodoTasksResponseBodyResultList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TodoTasksResponseBodyResultList) GoString() string {
+	return s.String()
+}
+
+func (s *TodoTasksResponseBodyResultList) SetBusinessId(v string) *TodoTasksResponseBodyResultList {
+	s.BusinessId = &v
+	return s
+}
+
+func (s *TodoTasksResponseBodyResultList) SetCanRedirect(v bool) *TodoTasksResponseBodyResultList {
+	s.CanRedirect = &v
+	return s
+}
+
+func (s *TodoTasksResponseBodyResultList) SetCreateTime(v int64) *TodoTasksResponseBodyResultList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *TodoTasksResponseBodyResultList) SetProcessCode(v string) *TodoTasksResponseBodyResultList {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *TodoTasksResponseBodyResultList) SetProcessInstanceId(v string) *TodoTasksResponseBodyResultList {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *TodoTasksResponseBodyResultList) SetTaskId(v int64) *TodoTasksResponseBodyResultList {
+	s.TaskId = &v
+	return s
+}
+
+func (s *TodoTasksResponseBodyResultList) SetTitle(v string) *TodoTasksResponseBodyResultList {
+	s.Title = &v
+	return s
+}
+
+func (s *TodoTasksResponseBodyResultList) SetUserId(v string) *TodoTasksResponseBodyResultList {
+	s.UserId = &v
+	return s
+}
+
+type TodoTasksResponse struct {
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TodoTasksResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TodoTasksResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TodoTasksResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TodoTasksResponse) SetHeaders(v map[string]*string) *TodoTasksResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TodoTasksResponse) SetStatusCode(v int32) *TodoTasksResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TodoTasksResponse) SetBody(v *TodoTasksResponseBody) *TodoTasksResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateIntegratedTaskHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9073,8 +20127,15 @@ func (s *UpdateIntegratedTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Upda
 }
 
 type UpdateIntegratedTaskRequest struct {
-	ProcessInstanceId *string                             `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Tasks             []*UpdateIntegratedTaskRequestTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// tPr_FB_mT_xxxxxxxxx2hQ05201655306463
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// This parameter is required.
+	Tasks []*UpdateIntegratedTaskRequestTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
 }
 
 func (s UpdateIntegratedTaskRequest) String() string {
@@ -9096,9 +20157,21 @@ func (s *UpdateIntegratedTaskRequest) SetTasks(v []*UpdateIntegratedTaskRequestT
 }
 
 type UpdateIntegratedTaskRequestTasks struct {
+	// example:
+	//
+	// AGREE
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// COMPLETED
 	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	TaskId *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// true
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s UpdateIntegratedTaskRequestTasks) String() string {
@@ -9194,10 +20267,23 @@ func (s *UpdateProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *Upd
 }
 
 type UpdateProcessInstanceRequest struct {
-	Notifiers         []*UpdateProcessInstanceRequestNotifiers `json:"notifiers,omitempty" xml:"notifiers,omitempty" type:"Repeated"`
-	ProcessInstanceId *string                                  `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Result            *string                                  `json:"result,omitempty" xml:"result,omitempty"`
-	Status            *string                                  `json:"status,omitempty" xml:"status,omitempty"`
+	Notifiers []*UpdateProcessInstanceRequestNotifiers `json:"notifiers,omitempty" xml:"notifiers,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// example:
+	//
+	// agree
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// COMPLETED
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s UpdateProcessInstanceRequest) String() string {
@@ -9229,6 +20315,11 @@ func (s *UpdateProcessInstanceRequest) SetStatus(v string) *UpdateProcessInstanc
 }
 
 type UpdateProcessInstanceRequestNotifiers struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager001
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -9306,12 +20397,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -9320,6 +20411,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 授权下载审批钉盘文件
+//
+// @param request - AddApproveDentryAuthRequest
+//
+// @param headers - AddApproveDentryAuthHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddApproveDentryAuthResponse
 func (client *Client) AddApproveDentryAuthWithOptions(request *AddApproveDentryAuthRequest, headers *AddApproveDentryAuthHeaders, runtime *util.RuntimeOptions) (_result *AddApproveDentryAuthResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9367,6 +20469,13 @@ func (client *Client) AddApproveDentryAuthWithOptions(request *AddApproveDentryA
 	return _result, _err
 }
 
+// Summary:
+//
+// 授权下载审批钉盘文件
+//
+// @param request - AddApproveDentryAuthRequest
+//
+// @return AddApproveDentryAuthResponse
 func (client *Client) AddApproveDentryAuth(request *AddApproveDentryAuthRequest) (_result *AddApproveDentryAuthResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddApproveDentryAuthHeaders{}
@@ -9379,6 +20488,17 @@ func (client *Client) AddApproveDentryAuth(request *AddApproveDentryAuthRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加审批评论
+//
+// @param request - AddProcessInstanceCommentRequest
+//
+// @param headers - AddProcessInstanceCommentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddProcessInstanceCommentResponse
 func (client *Client) AddProcessInstanceCommentWithOptions(request *AddProcessInstanceCommentRequest, headers *AddProcessInstanceCommentHeaders, runtime *util.RuntimeOptions) (_result *AddProcessInstanceCommentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9434,6 +20554,13 @@ func (client *Client) AddProcessInstanceCommentWithOptions(request *AddProcessIn
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加审批评论
+//
+// @param request - AddProcessInstanceCommentRequest
+//
+// @return AddProcessInstanceCommentResponse
 func (client *Client) AddProcessInstanceComment(request *AddProcessInstanceCommentRequest) (_result *AddProcessInstanceCommentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddProcessInstanceCommentHeaders{}
@@ -9446,6 +20573,94 @@ func (client *Client) AddProcessInstanceComment(request *AddProcessInstanceComme
 	return _result, _err
 }
 
+// Summary:
+//
+// 归档审批实例(OA高级版专享)
+//
+// @param request - ArchiveProcessInstanceRequest
+//
+// @param headers - ArchiveProcessInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ArchiveProcessInstanceResponse
+func (client *Client) ArchiveProcessInstanceWithOptions(request *ArchiveProcessInstanceRequest, headers *ArchiveProcessInstanceHeaders, runtime *util.RuntimeOptions) (_result *ArchiveProcessInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ArchiveProcessInstance"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processInstances/archive"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ArchiveProcessInstanceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 归档审批实例(OA高级版专享)
+//
+// @param request - ArchiveProcessInstanceRequest
+//
+// @return ArchiveProcessInstanceResponse
+func (client *Client) ArchiveProcessInstance(request *ArchiveProcessInstanceRequest) (_result *ArchiveProcessInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ArchiveProcessInstanceHeaders{}
+	_result = &ArchiveProcessInstanceResponse{}
+	_body, _err := client.ArchiveProcessInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量同意或拒绝审批任务
+//
+// @param request - BatchExecuteProcessInstancesRequest
+//
+// @param headers - BatchExecuteProcessInstancesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchExecuteProcessInstancesResponse
 func (client *Client) BatchExecuteProcessInstancesWithOptions(request *BatchExecuteProcessInstancesRequest, headers *BatchExecuteProcessInstancesHeaders, runtime *util.RuntimeOptions) (_result *BatchExecuteProcessInstancesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9501,6 +20716,13 @@ func (client *Client) BatchExecuteProcessInstancesWithOptions(request *BatchExec
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量同意或拒绝审批任务
+//
+// @param request - BatchExecuteProcessInstancesRequest
+//
+// @return BatchExecuteProcessInstancesResponse
 func (client *Client) BatchExecuteProcessInstances(request *BatchExecuteProcessInstancesRequest) (_result *BatchExecuteProcessInstancesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchExecuteProcessInstancesHeaders{}
@@ -9513,6 +20735,102 @@ func (client *Client) BatchExecuteProcessInstances(request *BatchExecuteProcessI
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量流程审批任务转交
+//
+// @param request - BatchTasksRedirectRequest
+//
+// @param headers - BatchTasksRedirectHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchTasksRedirectResponse
+func (client *Client) BatchTasksRedirectWithOptions(request *BatchTasksRedirectRequest, headers *BatchTasksRedirectHeaders, runtime *util.RuntimeOptions) (_result *BatchTasksRedirectResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.HandoverUserId)) {
+		body["handoverUserId"] = request.HandoverUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManagerUserId)) {
+		body["managerUserId"] = request.ManagerUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskIds)) {
+		body["taskIds"] = request.TaskIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TransfereeUserId)) {
+		body["transfereeUserId"] = request.TransfereeUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchTasksRedirect"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/tasks/batchRedirect"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchTasksRedirectResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量流程审批任务转交
+//
+// @param request - BatchTasksRedirectRequest
+//
+// @return BatchTasksRedirectResponse
+func (client *Client) BatchTasksRedirect(request *BatchTasksRedirectRequest) (_result *BatchTasksRedirectResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchTasksRedirectHeaders{}
+	_result = &BatchTasksRedirectResponse{}
+	_body, _err := client.BatchTasksRedirectWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量更新实例状态
+//
+// @param request - BatchUpdateProcessInstanceRequest
+//
+// @param headers - BatchUpdateProcessInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchUpdateProcessInstanceResponse
 func (client *Client) BatchUpdateProcessInstanceWithOptions(request *BatchUpdateProcessInstanceRequest, headers *BatchUpdateProcessInstanceHeaders, runtime *util.RuntimeOptions) (_result *BatchUpdateProcessInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9556,6 +20874,13 @@ func (client *Client) BatchUpdateProcessInstanceWithOptions(request *BatchUpdate
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量更新实例状态
+//
+// @param request - BatchUpdateProcessInstanceRequest
+//
+// @return BatchUpdateProcessInstanceResponse
 func (client *Client) BatchUpdateProcessInstance(request *BatchUpdateProcessInstanceRequest) (_result *BatchUpdateProcessInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchUpdateProcessInstanceHeaders{}
@@ -9568,6 +20893,17 @@ func (client *Client) BatchUpdateProcessInstance(request *BatchUpdateProcessInst
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量取消流程中心待处理任务
+//
+// @param request - CancelIntegratedTaskRequest
+//
+// @param headers - CancelIntegratedTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CancelIntegratedTaskResponse
 func (client *Client) CancelIntegratedTaskWithOptions(request *CancelIntegratedTaskRequest, headers *CancelIntegratedTaskHeaders, runtime *util.RuntimeOptions) (_result *CancelIntegratedTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9619,6 +20955,13 @@ func (client *Client) CancelIntegratedTaskWithOptions(request *CancelIntegratedT
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量取消流程中心待处理任务
+//
+// @param request - CancelIntegratedTaskRequest
+//
+// @return CancelIntegratedTaskResponse
 func (client *Client) CancelIntegratedTask(request *CancelIntegratedTaskRequest) (_result *CancelIntegratedTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CancelIntegratedTaskHeaders{}
@@ -9631,6 +20974,17 @@ func (client *Client) CancelIntegratedTask(request *CancelIntegratedTaskRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 清理审批数据
+//
+// @param request - CleanProcessDataRequest
+//
+// @param headers - CleanProcessDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CleanProcessDataResponse
 func (client *Client) CleanProcessDataWithOptions(request *CleanProcessDataRequest, headers *CleanProcessDataHeaders, runtime *util.RuntimeOptions) (_result *CleanProcessDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9678,6 +21032,13 @@ func (client *Client) CleanProcessDataWithOptions(request *CleanProcessDataReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 清理审批数据
+//
+// @param request - CleanProcessDataRequest
+//
+// @return CleanProcessDataResponse
 func (client *Client) CleanProcessData(request *CleanProcessDataRequest) (_result *CleanProcessDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CleanProcessDataHeaders{}
@@ -9690,6 +21051,17 @@ func (client *Client) CleanProcessData(request *CleanProcessDataRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 复制审批流
+//
+// @param request - CopyProcessRequest
+//
+// @param headers - CopyProcessHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CopyProcessResponse
 func (client *Client) CopyProcessWithOptions(request *CopyProcessRequest, headers *CopyProcessHeaders, runtime *util.RuntimeOptions) (_result *CopyProcessResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9741,6 +21113,13 @@ func (client *Client) CopyProcessWithOptions(request *CopyProcessRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 复制审批流
+//
+// @param request - CopyProcessRequest
+//
+// @return CopyProcessResponse
 func (client *Client) CopyProcess(request *CopyProcessRequest) (_result *CopyProcessResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CopyProcessHeaders{}
@@ -9753,6 +21132,17 @@ func (client *Client) CopyProcess(request *CopyProcessRequest) (_result *CopyPro
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建流程中心待处理任务
+//
+// @param request - CreateIntegratedTaskRequest
+//
+// @param headers - CreateIntegratedTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateIntegratedTaskResponse
 func (client *Client) CreateIntegratedTaskWithOptions(request *CreateIntegratedTaskRequest, headers *CreateIntegratedTaskHeaders, runtime *util.RuntimeOptions) (_result *CreateIntegratedTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9761,6 +21151,10 @@ func (client *Client) CreateIntegratedTaskWithOptions(request *CreateIntegratedT
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ActivityId)) {
 		body["activityId"] = request.ActivityId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FeatureConfig)) {
+		body["featureConfig"] = request.FeatureConfig
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
@@ -9804,6 +21198,13 @@ func (client *Client) CreateIntegratedTaskWithOptions(request *CreateIntegratedT
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建流程中心待处理任务
+//
+// @param request - CreateIntegratedTaskRequest
+//
+// @return CreateIntegratedTaskResponse
 func (client *Client) CreateIntegratedTask(request *CreateIntegratedTaskRequest) (_result *CreateIntegratedTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateIntegratedTaskHeaders{}
@@ -9816,6 +21217,94 @@ func (client *Client) CreateIntegratedTask(request *CreateIntegratedTaskRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除分组
+//
+// @param request - DeleteDirRequest
+//
+// @param headers - DeleteDirHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteDirResponse
+func (client *Client) DeleteDirWithOptions(request *DeleteDirRequest, headers *DeleteDirHeaders, runtime *util.RuntimeOptions) (_result *DeleteDirResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DirId)) {
+		query["dirId"] = request.DirId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperateUserId)) {
+		query["operateUserId"] = request.OperateUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteDir"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processCentres/directories"),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteDirResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除分组
+//
+// @param request - DeleteDirRequest
+//
+// @return DeleteDirResponse
+func (client *Client) DeleteDir(request *DeleteDirRequest) (_result *DeleteDirResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteDirHeaders{}
+	_result = &DeleteDirResponse{}
+	_body, _err := client.DeleteDirWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除模板
+//
+// @param request - DeleteProcessRequest
+//
+// @param headers - DeleteProcessHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteProcessResponse
 func (client *Client) DeleteProcessWithOptions(request *DeleteProcessRequest, headers *DeleteProcessHeaders, runtime *util.RuntimeOptions) (_result *DeleteProcessResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9863,6 +21352,13 @@ func (client *Client) DeleteProcessWithOptions(request *DeleteProcessRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除模板
+//
+// @param request - DeleteProcessRequest
+//
+// @return DeleteProcessResponse
 func (client *Client) DeleteProcess(request *DeleteProcessRequest) (_result *DeleteProcessResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteProcessHeaders{}
@@ -9875,6 +21371,17 @@ func (client *Client) DeleteProcess(request *DeleteProcessRequest) (_result *Del
 	return _result, _err
 }
 
+// Summary:
+//
+// 同意或拒绝审批任务
+//
+// @param request - ExecuteProcessInstanceRequest
+//
+// @param headers - ExecuteProcessInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExecuteProcessInstanceResponse
 func (client *Client) ExecuteProcessInstanceWithOptions(request *ExecuteProcessInstanceRequest, headers *ExecuteProcessInstanceHeaders, runtime *util.RuntimeOptions) (_result *ExecuteProcessInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9938,6 +21445,13 @@ func (client *Client) ExecuteProcessInstanceWithOptions(request *ExecuteProcessI
 	return _result, _err
 }
 
+// Summary:
+//
+// 同意或拒绝审批任务
+//
+// @param request - ExecuteProcessInstanceRequest
+//
+// @return ExecuteProcessInstanceResponse
 func (client *Client) ExecuteProcessInstance(request *ExecuteProcessInstanceRequest) (_result *ExecuteProcessInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ExecuteProcessInstanceHeaders{}
@@ -9950,6 +21464,17 @@ func (client *Client) ExecuteProcessInstance(request *ExecuteProcessInstanceRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建或更新审批表单模板
+//
+// @param request - FormCreateRequest
+//
+// @param headers - FormCreateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return FormCreateResponse
 func (client *Client) FormCreateWithOptions(request *FormCreateRequest, headers *FormCreateHeaders, runtime *util.RuntimeOptions) (_result *FormCreateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10009,6 +21534,13 @@ func (client *Client) FormCreateWithOptions(request *FormCreateRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建或更新审批表单模板
+//
+// @param request - FormCreateRequest
+//
+// @return FormCreateResponse
 func (client *Client) FormCreate(request *FormCreateRequest) (_result *FormCreateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &FormCreateHeaders{}
@@ -10021,6 +21553,17 @@ func (client *Client) FormCreate(request *FormCreateRequest) (_result *FormCreat
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取审批钉盘空间信息
+//
+// @param request - GetAttachmentSpaceRequest
+//
+// @param headers - GetAttachmentSpaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAttachmentSpaceResponse
 func (client *Client) GetAttachmentSpaceWithOptions(request *GetAttachmentSpaceRequest, headers *GetAttachmentSpaceHeaders, runtime *util.RuntimeOptions) (_result *GetAttachmentSpaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10068,6 +21611,13 @@ func (client *Client) GetAttachmentSpaceWithOptions(request *GetAttachmentSpaceR
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取审批钉盘空间信息
+//
+// @param request - GetAttachmentSpaceRequest
+//
+// @return GetAttachmentSpaceResponse
 func (client *Client) GetAttachmentSpace(request *GetAttachmentSpaceRequest) (_result *GetAttachmentSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAttachmentSpaceHeaders{}
@@ -10080,6 +21630,17 @@ func (client *Client) GetAttachmentSpace(request *GetAttachmentSpaceRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询已设置为条件的表单组件
+//
+// @param request - GetConditionFormComponentRequest
+//
+// @param headers - GetConditionFormComponentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetConditionFormComponentResponse
 func (client *Client) GetConditionFormComponentWithOptions(request *GetConditionFormComponentRequest, headers *GetConditionFormComponentHeaders, runtime *util.RuntimeOptions) (_result *GetConditionFormComponentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10127,6 +21688,13 @@ func (client *Client) GetConditionFormComponentWithOptions(request *GetCondition
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询已设置为条件的表单组件
+//
+// @param request - GetConditionFormComponentRequest
+//
+// @return GetConditionFormComponentResponse
 func (client *Client) GetConditionFormComponent(request *GetConditionFormComponentRequest) (_result *GetConditionFormComponentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetConditionFormComponentHeaders{}
@@ -10139,6 +21707,15 @@ func (client *Client) GetConditionFormComponent(request *GetConditionFormCompone
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取CRM所有流程code
+//
+// @param headers - GetCrmProcCodesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCrmProcCodesResponse
 func (client *Client) GetCrmProcCodesWithOptions(headers *GetCrmProcCodesHeaders, runtime *util.RuntimeOptions) (_result *GetCrmProcCodesResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -10172,6 +21749,11 @@ func (client *Client) GetCrmProcCodesWithOptions(headers *GetCrmProcCodesHeaders
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取CRM所有流程code
+//
+// @return GetCrmProcCodesResponse
 func (client *Client) GetCrmProcCodes() (_result *GetCrmProcCodesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCrmProcCodesHeaders{}
@@ -10184,6 +21766,17 @@ func (client *Client) GetCrmProcCodes() (_result *GetCrmProcCodesResponse, _err 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取表单字段修改历史
+//
+// @param request - GetFieldModifiedHistoryRequest
+//
+// @param headers - GetFieldModifiedHistoryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFieldModifiedHistoryResponse
 func (client *Client) GetFieldModifiedHistoryWithOptions(request *GetFieldModifiedHistoryRequest, headers *GetFieldModifiedHistoryHeaders, runtime *util.RuntimeOptions) (_result *GetFieldModifiedHistoryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10231,6 +21824,13 @@ func (client *Client) GetFieldModifiedHistoryWithOptions(request *GetFieldModifi
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取表单字段修改历史
+//
+// @param request - GetFieldModifiedHistoryRequest
+//
+// @return GetFieldModifiedHistoryResponse
 func (client *Client) GetFieldModifiedHistory(request *GetFieldModifiedHistoryRequest) (_result *GetFieldModifiedHistoryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetFieldModifiedHistoryHeaders{}
@@ -10243,6 +21843,94 @@ func (client *Client) GetFieldModifiedHistory(request *GetFieldModifiedHistoryRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取手写签名的下载链接
+//
+// @param request - GetHandSignDownloadUrlRequest
+//
+// @param headers - GetHandSignDownloadUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetHandSignDownloadUrlResponse
+func (client *Client) GetHandSignDownloadUrlWithOptions(request *GetHandSignDownloadUrlRequest, headers *GetHandSignDownloadUrlHeaders, runtime *util.RuntimeOptions) (_result *GetHandSignDownloadUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.HandSignToken)) {
+		body["handSignToken"] = request.HandSignToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetHandSignDownloadUrl"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processInstances/handSigns/downloadUrls/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetHandSignDownloadUrlResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取手写签名的下载链接
+//
+// @param request - GetHandSignDownloadUrlRequest
+//
+// @return GetHandSignDownloadUrlResponse
+func (client *Client) GetHandSignDownloadUrl(request *GetHandSignDownloadUrlRequest) (_result *GetHandSignDownloadUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetHandSignDownloadUrlHeaders{}
+	_result = &GetHandSignDownloadUrlResponse{}
+	_body, _err := client.GetHandSignDownloadUrlWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取当前企业所有可管理的表单
+//
+// @param request - GetManageProcessByStaffIdRequest
+//
+// @param headers - GetManageProcessByStaffIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetManageProcessByStaffIdResponse
 func (client *Client) GetManageProcessByStaffIdWithOptions(request *GetManageProcessByStaffIdRequest, headers *GetManageProcessByStaffIdHeaders, runtime *util.RuntimeOptions) (_result *GetManageProcessByStaffIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10286,6 +21974,13 @@ func (client *Client) GetManageProcessByStaffIdWithOptions(request *GetManagePro
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取当前企业所有可管理的表单
+//
+// @param request - GetManageProcessByStaffIdRequest
+//
+// @return GetManageProcessByStaffIdResponse
 func (client *Client) GetManageProcessByStaffId(request *GetManageProcessByStaffIdRequest) (_result *GetManageProcessByStaffIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetManageProcessByStaffIdHeaders{}
@@ -10298,6 +21993,17 @@ func (client *Client) GetManageProcessByStaffId(request *GetManageProcessByStaff
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取模板code
+//
+// @param request - GetProcessCodeByNameRequest
+//
+// @param headers - GetProcessCodeByNameHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetProcessCodeByNameResponse
 func (client *Client) GetProcessCodeByNameWithOptions(request *GetProcessCodeByNameRequest, headers *GetProcessCodeByNameHeaders, runtime *util.RuntimeOptions) (_result *GetProcessCodeByNameResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10341,6 +22047,13 @@ func (client *Client) GetProcessCodeByNameWithOptions(request *GetProcessCodeByN
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取模板code
+//
+// @param request - GetProcessCodeByNameRequest
+//
+// @return GetProcessCodeByNameResponse
 func (client *Client) GetProcessCodeByName(request *GetProcessCodeByNameRequest) (_result *GetProcessCodeByNameResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetProcessCodeByNameHeaders{}
@@ -10353,6 +22066,17 @@ func (client *Client) GetProcessCodeByName(request *GetProcessCodeByNameRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取流程配置
+//
+// @param request - GetProcessConfigRequest
+//
+// @param headers - GetProcessConfigHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetProcessConfigResponse
 func (client *Client) GetProcessConfigWithOptions(request *GetProcessConfigRequest, headers *GetProcessConfigHeaders, runtime *util.RuntimeOptions) (_result *GetProcessConfigResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10396,6 +22120,13 @@ func (client *Client) GetProcessConfigWithOptions(request *GetProcessConfigReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取流程配置
+//
+// @param request - GetProcessConfigRequest
+//
+// @return GetProcessConfigResponse
 func (client *Client) GetProcessConfig(request *GetProcessConfigRequest) (_result *GetProcessConfigResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetProcessConfigHeaders{}
@@ -10408,6 +22139,17 @@ func (client *Client) GetProcessConfig(request *GetProcessConfigRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取单个审批实例详情
+//
+// @param request - GetProcessInstanceRequest
+//
+// @param headers - GetProcessInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetProcessInstanceResponse
 func (client *Client) GetProcessInstanceWithOptions(request *GetProcessInstanceRequest, headers *GetProcessInstanceHeaders, runtime *util.RuntimeOptions) (_result *GetProcessInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10451,6 +22193,13 @@ func (client *Client) GetProcessInstanceWithOptions(request *GetProcessInstanceR
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取单个审批实例详情
+//
+// @param request - GetProcessInstanceRequest
+//
+// @return GetProcessInstanceResponse
 func (client *Client) GetProcessInstance(request *GetProcessInstanceRequest) (_result *GetProcessInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetProcessInstanceHeaders{}
@@ -10463,6 +22212,90 @@ func (client *Client) GetProcessInstance(request *GetProcessInstanceRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取审批单详情高级接口，可以返回审批流程中的手写签名密码消息
+//
+// @param request - GetProcessInstanceWithExtraRequest
+//
+// @param headers - GetProcessInstanceWithExtraHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetProcessInstanceWithExtraResponse
+func (client *Client) GetProcessInstanceWithExtraWithOptions(request *GetProcessInstanceWithExtraRequest, headers *GetProcessInstanceWithExtraHeaders, runtime *util.RuntimeOptions) (_result *GetProcessInstanceWithExtraResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		query["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetProcessInstanceWithExtra"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processInstances"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetProcessInstanceWithExtraResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取审批单详情高级接口，可以返回审批流程中的手写签名密码消息
+//
+// @param request - GetProcessInstanceWithExtraRequest
+//
+// @return GetProcessInstanceWithExtraResponse
+func (client *Client) GetProcessInstanceWithExtra(request *GetProcessInstanceWithExtraRequest) (_result *GetProcessInstanceWithExtraResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetProcessInstanceWithExtraHeaders{}
+	_result = &GetProcessInstanceWithExtraResponse{}
+	_body, _err := client.GetProcessInstanceWithExtraWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据模版code列表批量查询模板最新表单和流程配置
+//
+// @param tmpReq - GetSchemaAndProcessconfigBatchllyRequest
+//
+// @param headers - GetSchemaAndProcessconfigBatchllyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSchemaAndProcessconfigBatchllyResponse
 func (client *Client) GetSchemaAndProcessconfigBatchllyWithOptions(tmpReq *GetSchemaAndProcessconfigBatchllyRequest, headers *GetSchemaAndProcessconfigBatchllyHeaders, runtime *util.RuntimeOptions) (_result *GetSchemaAndProcessconfigBatchllyResponse, _err error) {
 	_err = util.ValidateModel(tmpReq)
 	if _err != nil {
@@ -10512,6 +22345,13 @@ func (client *Client) GetSchemaAndProcessconfigBatchllyWithOptions(tmpReq *GetSc
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据模版code列表批量查询模板最新表单和流程配置
+//
+// @param request - GetSchemaAndProcessconfigBatchllyRequest
+//
+// @return GetSchemaAndProcessconfigBatchllyResponse
 func (client *Client) GetSchemaAndProcessconfigBatchlly(request *GetSchemaAndProcessconfigBatchllyRequest) (_result *GetSchemaAndProcessconfigBatchllyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSchemaAndProcessconfigBatchllyHeaders{}
@@ -10524,6 +22364,17 @@ func (client *Client) GetSchemaAndProcessconfigBatchlly(request *GetSchemaAndPro
 	return _result, _err
 }
 
+// Summary:
+//
+// 授权预览审批附件
+//
+// @param request - GetSpaceWithDownloadAuthRequest
+//
+// @param headers - GetSpaceWithDownloadAuthHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSpaceWithDownloadAuthResponse
 func (client *Client) GetSpaceWithDownloadAuthWithOptions(request *GetSpaceWithDownloadAuthRequest, headers *GetSpaceWithDownloadAuthHeaders, runtime *util.RuntimeOptions) (_result *GetSpaceWithDownloadAuthResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10548,6 +22399,10 @@ func (client *Client) GetSpaceWithDownloadAuthWithOptions(request *GetSpaceWithD
 
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WithCommentAttatchment)) {
+		body["withCommentAttatchment"] = request.WithCommentAttatchment
 	}
 
 	realHeaders := make(map[string]*string)
@@ -10583,6 +22438,13 @@ func (client *Client) GetSpaceWithDownloadAuthWithOptions(request *GetSpaceWithD
 	return _result, _err
 }
 
+// Summary:
+//
+// 授权预览审批附件
+//
+// @param request - GetSpaceWithDownloadAuthRequest
+//
+// @return GetSpaceWithDownloadAuthResponse
 func (client *Client) GetSpaceWithDownloadAuth(request *GetSpaceWithDownloadAuthRequest) (_result *GetSpaceWithDownloadAuthResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSpaceWithDownloadAuthHeaders{}
@@ -10595,6 +22457,17 @@ func (client *Client) GetSpaceWithDownloadAuth(request *GetSpaceWithDownloadAuth
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户待审批数量
+//
+// @param request - GetUserTodoTaskSumRequest
+//
+// @param headers - GetUserTodoTaskSumHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserTodoTaskSumResponse
 func (client *Client) GetUserTodoTaskSumWithOptions(request *GetUserTodoTaskSumRequest, headers *GetUserTodoTaskSumHeaders, runtime *util.RuntimeOptions) (_result *GetUserTodoTaskSumResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10638,6 +22511,13 @@ func (client *Client) GetUserTodoTaskSumWithOptions(request *GetUserTodoTaskSumR
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户待审批数量
+//
+// @param request - GetUserTodoTaskSumRequest
+//
+// @return GetUserTodoTaskSumResponse
 func (client *Client) GetUserTodoTaskSum(request *GetUserTodoTaskSumRequest) (_result *GetUserTodoTaskSumResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUserTodoTaskSumHeaders{}
@@ -10650,6 +22530,17 @@ func (client *Client) GetUserTodoTaskSum(request *GetUserTodoTaskSumRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 授权用户钉盘空间权限
+//
+// @param request - GrantCspaceAuthorizationRequest
+//
+// @param headers - GrantCspaceAuthorizationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GrantCspaceAuthorizationResponse
 func (client *Client) GrantCspaceAuthorizationWithOptions(request *GrantCspaceAuthorizationRequest, headers *GrantCspaceAuthorizationHeaders, runtime *util.RuntimeOptions) (_result *GrantCspaceAuthorizationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10705,6 +22596,13 @@ func (client *Client) GrantCspaceAuthorizationWithOptions(request *GrantCspaceAu
 	return _result, _err
 }
 
+// Summary:
+//
+// 授权用户钉盘空间权限
+//
+// @param request - GrantCspaceAuthorizationRequest
+//
+// @return GrantCspaceAuthorizationResponse
 func (client *Client) GrantCspaceAuthorization(request *GrantCspaceAuthorizationRequest) (_result *GrantCspaceAuthorizationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GrantCspaceAuthorizationHeaders{}
@@ -10717,6 +22615,17 @@ func (client *Client) GrantCspaceAuthorization(request *GrantCspaceAuthorization
 	return _result, _err
 }
 
+// Summary:
+//
+// 下载审批附件
+//
+// @param request - GrantProcessInstanceForDownloadFileRequest
+//
+// @param headers - GrantProcessInstanceForDownloadFileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GrantProcessInstanceForDownloadFileResponse
 func (client *Client) GrantProcessInstanceForDownloadFileWithOptions(request *GrantProcessInstanceForDownloadFileRequest, headers *GrantProcessInstanceForDownloadFileHeaders, runtime *util.RuntimeOptions) (_result *GrantProcessInstanceForDownloadFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10729,6 +22638,10 @@ func (client *Client) GrantProcessInstanceForDownloadFileWithOptions(request *Gr
 
 	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
 		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WithCommentAttatchment)) {
+		body["withCommentAttatchment"] = request.WithCommentAttatchment
 	}
 
 	realHeaders := make(map[string]*string)
@@ -10764,6 +22677,13 @@ func (client *Client) GrantProcessInstanceForDownloadFileWithOptions(request *Gr
 	return _result, _err
 }
 
+// Summary:
+//
+// 下载审批附件
+//
+// @param request - GrantProcessInstanceForDownloadFileRequest
+//
+// @return GrantProcessInstanceForDownloadFileResponse
 func (client *Client) GrantProcessInstanceForDownloadFile(request *GrantProcessInstanceForDownloadFileRequest) (_result *GrantProcessInstanceForDownloadFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GrantProcessInstanceForDownloadFileHeaders{}
@@ -10776,6 +22696,106 @@ func (client *Client) GrantProcessInstanceForDownloadFile(request *GrantProcessI
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建或更新分组
+//
+// @param request - InsertOrUpdateDirRequest
+//
+// @param headers - InsertOrUpdateDirHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InsertOrUpdateDirResponse
+func (client *Client) InsertOrUpdateDirWithOptions(request *InsertOrUpdateDirRequest, headers *InsertOrUpdateDirHeaders, runtime *util.RuntimeOptions) (_result *InsertOrUpdateDirResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizGroup)) {
+		body["bizGroup"] = request.BizGroup
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name18n)) {
+		body["name18n"] = request.Name18n
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperateUserId)) {
+		body["operateUserId"] = request.OperateUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("InsertOrUpdateDir"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/processCentres/directories"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &InsertOrUpdateDirResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建或更新分组
+//
+// @param request - InsertOrUpdateDirRequest
+//
+// @return InsertOrUpdateDirResponse
+func (client *Client) InsertOrUpdateDir(request *InsertOrUpdateDirRequest) (_result *InsertOrUpdateDirResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &InsertOrUpdateDirHeaders{}
+	_result = &InsertOrUpdateDirResponse{}
+	_body, _err := client.InsertOrUpdateDirWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 应用安装
+//
+// @param request - InstallAppRequest
+//
+// @param headers - InstallAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InstallAppResponse
 func (client *Client) InstallAppWithOptions(request *InstallAppRequest, headers *InstallAppHeaders, runtime *util.RuntimeOptions) (_result *InstallAppResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10827,6 +22847,13 @@ func (client *Client) InstallAppWithOptions(request *InstallAppRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 应用安装
+//
+// @param request - InstallAppRequest
+//
+// @return InstallAppResponse
 func (client *Client) InstallApp(request *InstallAppRequest) (_result *InstallAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InstallAppHeaders{}
@@ -10839,6 +22866,17 @@ func (client *Client) InstallApp(request *InstallAppRequest) (_result *InstallAp
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取审批实例ID列表
+//
+// @param request - ListProcessInstanceIdsRequest
+//
+// @param headers - ListProcessInstanceIdsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListProcessInstanceIdsResponse
 func (client *Client) ListProcessInstanceIdsWithOptions(request *ListProcessInstanceIdsRequest, headers *ListProcessInstanceIdsHeaders, runtime *util.RuntimeOptions) (_result *ListProcessInstanceIdsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10906,6 +22944,13 @@ func (client *Client) ListProcessInstanceIdsWithOptions(request *ListProcessInst
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取审批实例ID列表
+//
+// @param request - ListProcessInstanceIdsRequest
+//
+// @return ListProcessInstanceIdsResponse
 func (client *Client) ListProcessInstanceIds(request *ListProcessInstanceIdsRequest) (_result *ListProcessInstanceIdsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListProcessInstanceIdsHeaders{}
@@ -10918,6 +22963,17 @@ func (client *Client) ListProcessInstanceIds(request *ListProcessInstanceIdsRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户待办事项
+//
+// @param request - ListTodoWorkRecordsRequest
+//
+// @param headers - ListTodoWorkRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListTodoWorkRecordsResponse
 func (client *Client) ListTodoWorkRecordsWithOptions(request *ListTodoWorkRecordsRequest, headers *ListTodoWorkRecordsHeaders, runtime *util.RuntimeOptions) (_result *ListTodoWorkRecordsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10973,6 +23029,13 @@ func (client *Client) ListTodoWorkRecordsWithOptions(request *ListTodoWorkRecord
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户待办事项
+//
+// @param request - ListTodoWorkRecordsRequest
+//
+// @return ListTodoWorkRecordsResponse
 func (client *Client) ListTodoWorkRecords(request *ListTodoWorkRecordsRequest) (_result *ListTodoWorkRecordsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListTodoWorkRecordsHeaders{}
@@ -10985,6 +23048,17 @@ func (client *Client) ListTodoWorkRecords(request *ListTodoWorkRecordsRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取指定用户可见的审批表单列表
+//
+// @param request - ListUserVisibleBpmsProcessesRequest
+//
+// @param headers - ListUserVisibleBpmsProcessesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListUserVisibleBpmsProcessesResponse
 func (client *Client) ListUserVisibleBpmsProcessesWithOptions(request *ListUserVisibleBpmsProcessesRequest, headers *ListUserVisibleBpmsProcessesHeaders, runtime *util.RuntimeOptions) (_result *ListUserVisibleBpmsProcessesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11036,6 +23110,13 @@ func (client *Client) ListUserVisibleBpmsProcessesWithOptions(request *ListUserV
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取指定用户可见的审批表单列表
+//
+// @param request - ListUserVisibleBpmsProcessesRequest
+//
+// @return ListUserVisibleBpmsProcessesResponse
 func (client *Client) ListUserVisibleBpmsProcesses(request *ListUserVisibleBpmsProcessesRequest) (_result *ListUserVisibleBpmsProcessesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListUserVisibleBpmsProcessesHeaders{}
@@ -11048,6 +23129,17 @@ func (client *Client) ListUserVisibleBpmsProcesses(request *ListUserVisibleBpmsP
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页查询实例数据
+//
+// @param request - PagesExportInstancesRequest
+//
+// @param headers - PagesExportInstancesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PagesExportInstancesResponse
 func (client *Client) PagesExportInstancesWithOptions(request *PagesExportInstancesRequest, headers *PagesExportInstancesHeaders, runtime *util.RuntimeOptions) (_result *PagesExportInstancesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11115,6 +23207,13 @@ func (client *Client) PagesExportInstancesWithOptions(request *PagesExportInstan
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页查询实例数据
+//
+// @param request - PagesExportInstancesRequest
+//
+// @return PagesExportInstancesResponse
 func (client *Client) PagesExportInstances(request *PagesExportInstancesRequest) (_result *PagesExportInstancesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PagesExportInstancesHeaders{}
@@ -11127,6 +23226,2365 @@ func (client *Client) PagesExportInstances(request *PagesExportInstancesRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 授权下载审批钉盘文件(OA高级版专享)
+//
+// @param request - PremiumAddApproveDentryAuthRequest
+//
+// @param headers - PremiumAddApproveDentryAuthHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumAddApproveDentryAuthResponse
+func (client *Client) PremiumAddApproveDentryAuthWithOptions(request *PremiumAddApproveDentryAuthRequest, headers *PremiumAddApproveDentryAuthHeaders, runtime *util.RuntimeOptions) (_result *PremiumAddApproveDentryAuthResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FileInfos)) {
+		body["fileInfos"] = request.FileInfos
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumAddApproveDentryAuth"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processInstances/spaces/files/authDownload"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumAddApproveDentryAuthResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 授权下载审批钉盘文件(OA高级版专享)
+//
+// @param request - PremiumAddApproveDentryAuthRequest
+//
+// @return PremiumAddApproveDentryAuthResponse
+func (client *Client) PremiumAddApproveDentryAuth(request *PremiumAddApproveDentryAuthRequest) (_result *PremiumAddApproveDentryAuthResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumAddApproveDentryAuthHeaders{}
+	_result = &PremiumAddApproveDentryAuthResponse{}
+	_body, _err := client.PremiumAddApproveDentryAuthWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量同意或拒绝审批任务(OA高级版专享接口)
+//
+// @param request - PremiumBatchExecuteProcessInstancesRequest
+//
+// @param headers - PremiumBatchExecuteProcessInstancesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumBatchExecuteProcessInstancesResponse
+func (client *Client) PremiumBatchExecuteProcessInstancesWithOptions(request *PremiumBatchExecuteProcessInstancesRequest, headers *PremiumBatchExecuteProcessInstancesHeaders, runtime *util.RuntimeOptions) (_result *PremiumBatchExecuteProcessInstancesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActionerUserId)) {
+		body["actionerUserId"] = request.ActionerUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Result)) {
+		body["result"] = request.Result
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskInfoList)) {
+		body["taskInfoList"] = request.TaskInfoList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumBatchExecuteProcessInstances"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processInstances/batchExecute"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumBatchExecuteProcessInstancesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量同意或拒绝审批任务(OA高级版专享接口)
+//
+// @param request - PremiumBatchExecuteProcessInstancesRequest
+//
+// @return PremiumBatchExecuteProcessInstancesResponse
+func (client *Client) PremiumBatchExecuteProcessInstances(request *PremiumBatchExecuteProcessInstancesRequest) (_result *PremiumBatchExecuteProcessInstancesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumBatchExecuteProcessInstancesHeaders{}
+	_result = &PremiumBatchExecuteProcessInstancesResponse{}
+	_body, _err := client.PremiumBatchExecuteProcessInstancesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除业务分组(高级版专享接口)
+//
+// @param request - PremiumDelDirRequest
+//
+// @param headers - PremiumDelDirHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumDelDirResponse
+func (client *Client) PremiumDelDirWithOptions(request *PremiumDelDirRequest, headers *PremiumDelDirHeaders, runtime *util.RuntimeOptions) (_result *PremiumDelDirResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DirId)) {
+		query["dirId"] = request.DirId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperateUserId)) {
+		query["operateUserId"] = request.OperateUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumDelDir"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processCentres/directories"),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumDelDirResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除业务分组(高级版专享接口)
+//
+// @param request - PremiumDelDirRequest
+//
+// @return PremiumDelDirResponse
+func (client *Client) PremiumDelDir(request *PremiumDelDirRequest) (_result *PremiumDelDirResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumDelDirHeaders{}
+	_result = &PremiumDelDirResponse{}
+	_body, _err := client.PremiumDelDirWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除数据表单实例(OA高级版专享)
+//
+// @param request - PremiumDeleteFormInstanceRequest
+//
+// @param headers - PremiumDeleteFormInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumDeleteFormInstanceResponse
+func (client *Client) PremiumDeleteFormInstanceWithOptions(request *PremiumDeleteFormInstanceRequest, headers *PremiumDeleteFormInstanceHeaders, runtime *util.RuntimeOptions) (_result *PremiumDeleteFormInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormInstanceIds)) {
+		body["formInstanceIds"] = request.FormInstanceIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumDeleteFormInstance"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/dataForms/formInstances/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumDeleteFormInstanceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除数据表单实例(OA高级版专享)
+//
+// @param request - PremiumDeleteFormInstanceRequest
+//
+// @return PremiumDeleteFormInstanceResponse
+func (client *Client) PremiumDeleteFormInstance(request *PremiumDeleteFormInstanceRequest) (_result *PremiumDeleteFormInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumDeleteFormInstanceHeaders{}
+	_result = &PremiumDeleteFormInstanceResponse{}
+	_body, _err := client.PremiumDeleteFormInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取审批钉盘空间信息(OA高级版专享)
+//
+// @param request - PremiumGetAttachmentSpaceRequest
+//
+// @param headers - PremiumGetAttachmentSpaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumGetAttachmentSpaceResponse
+func (client *Client) PremiumGetAttachmentSpaceWithOptions(request *PremiumGetAttachmentSpaceRequest, headers *PremiumGetAttachmentSpaceHeaders, runtime *util.RuntimeOptions) (_result *PremiumGetAttachmentSpaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentId)) {
+		body["agentId"] = request.AgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumGetAttachmentSpace"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processInstances/spaces/infos/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumGetAttachmentSpaceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取审批钉盘空间信息(OA高级版专享)
+//
+// @param request - PremiumGetAttachmentSpaceRequest
+//
+// @return PremiumGetAttachmentSpaceResponse
+func (client *Client) PremiumGetAttachmentSpace(request *PremiumGetAttachmentSpaceRequest) (_result *PremiumGetAttachmentSpaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumGetAttachmentSpaceHeaders{}
+	_result = &PremiumGetAttachmentSpaceResponse{}
+	_body, _err := client.PremiumGetAttachmentSpaceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询审批中心已处理任务列表(OA高级版专享接口)
+//
+// @param request - PremiumGetDoneTasksRequest
+//
+// @param headers - PremiumGetDoneTasksHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumGetDoneTasksResponse
+func (client *Client) PremiumGetDoneTasksWithOptions(request *PremiumGetDoneTasksRequest, headers *PremiumGetDoneTasksHeaders, runtime *util.RuntimeOptions) (_result *PremiumGetDoneTasksResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumGetDoneTasks"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processCentres/doneTasks"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumGetDoneTasksResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询审批中心已处理任务列表(OA高级版专享接口)
+//
+// @param request - PremiumGetDoneTasksRequest
+//
+// @return PremiumGetDoneTasksResponse
+func (client *Client) PremiumGetDoneTasks(request *PremiumGetDoneTasksRequest) (_result *PremiumGetDoneTasksResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumGetDoneTasksHeaders{}
+	_result = &PremiumGetDoneTasksResponse{}
+	_body, _err := client.PremiumGetDoneTasksWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取字段修改历史(高级版专享接口)
+//
+// @param request - PremiumGetFieldModifiedHistoryRequest
+//
+// @param headers - PremiumGetFieldModifiedHistoryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumGetFieldModifiedHistoryResponse
+func (client *Client) PremiumGetFieldModifiedHistoryWithOptions(request *PremiumGetFieldModifiedHistoryRequest, headers *PremiumGetFieldModifiedHistoryHeaders, runtime *util.RuntimeOptions) (_result *PremiumGetFieldModifiedHistoryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FieldId)) {
+		body["fieldId"] = request.FieldId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumGetFieldModifiedHistory"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processes/fields/modifiedRecords/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumGetFieldModifiedHistoryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取字段修改历史(高级版专享接口)
+//
+// @param request - PremiumGetFieldModifiedHistoryRequest
+//
+// @return PremiumGetFieldModifiedHistoryResponse
+func (client *Client) PremiumGetFieldModifiedHistory(request *PremiumGetFieldModifiedHistoryRequest) (_result *PremiumGetFieldModifiedHistoryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumGetFieldModifiedHistoryHeaders{}
+	_result = &PremiumGetFieldModifiedHistoryResponse{}
+	_body, _err := client.PremiumGetFieldModifiedHistoryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取单个数据表单实例详情(OA高级版专享)
+//
+// @param request - PremiumGetFormInstanceRequest
+//
+// @param headers - PremiumGetFormInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumGetFormInstanceResponse
+func (client *Client) PremiumGetFormInstanceWithOptions(request *PremiumGetFormInstanceRequest, headers *PremiumGetFormInstanceHeaders, runtime *util.RuntimeOptions) (_result *PremiumGetFormInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppUuid)) {
+		query["appUuid"] = request.AppUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormCode)) {
+		query["formCode"] = request.FormCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormInstanceId)) {
+		query["formInstanceId"] = request.FormInstanceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumGetFormInstance"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/dataForms/formInstances"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumGetFormInstanceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取单个数据表单实例详情(OA高级版专享)
+//
+// @param request - PremiumGetFormInstanceRequest
+//
+// @return PremiumGetFormInstanceResponse
+func (client *Client) PremiumGetFormInstance(request *PremiumGetFormInstanceRequest) (_result *PremiumGetFormInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumGetFormInstanceHeaders{}
+	_result = &PremiumGetFormInstanceResponse{}
+	_body, _err := client.PremiumGetFormInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据formCode分页获取数据表单实例(OA高级版专享)
+//
+// @param request - PremiumGetFormInstancesRequest
+//
+// @param headers - PremiumGetFormInstancesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumGetFormInstancesResponse
+func (client *Client) PremiumGetFormInstancesWithOptions(request *PremiumGetFormInstancesRequest, headers *PremiumGetFormInstancesHeaders, runtime *util.RuntimeOptions) (_result *PremiumGetFormInstancesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppUuid)) {
+		query["appUuid"] = request.AppUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormCode)) {
+		query["formCode"] = request.FormCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumGetFormInstances"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/dataForms/formInstances/pages"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumGetFormInstancesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据formCode分页获取数据表单实例(OA高级版专享)
+//
+// @param request - PremiumGetFormInstancesRequest
+//
+// @return PremiumGetFormInstancesResponse
+func (client *Client) PremiumGetFormInstances(request *PremiumGetFormInstancesRequest) (_result *PremiumGetFormInstancesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumGetFormInstancesHeaders{}
+	_result = &PremiumGetFormInstancesResponse{}
+	_body, _err := client.PremiumGetFormInstancesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过formCode获取数据表单schema(OA高级版专享)
+//
+// @param request - PremiumGetFormSchemaRequest
+//
+// @param headers - PremiumGetFormSchemaHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumGetFormSchemaResponse
+func (client *Client) PremiumGetFormSchemaWithOptions(request *PremiumGetFormSchemaRequest, headers *PremiumGetFormSchemaHeaders, runtime *util.RuntimeOptions) (_result *PremiumGetFormSchemaResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppUuid)) {
+		query["appUuid"] = request.AppUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		query["processCode"] = request.ProcessCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumGetFormSchema"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/dataForms/schema/formCodes"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumGetFormSchemaResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过formCode获取数据表单schema(OA高级版专享)
+//
+// @param request - PremiumGetFormSchemaRequest
+//
+// @return PremiumGetFormSchemaResponse
+func (client *Client) PremiumGetFormSchema(request *PremiumGetFormSchemaRequest) (_result *PremiumGetFormSchemaResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumGetFormSchemaHeaders{}
+	_result = &PremiumGetFormSchemaResponse{}
+	_body, _err := client.PremiumGetFormSchemaWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取流程表单字段操作权限(高级版专享接口)
+//
+// @param request - PremiumGetInstFieldSettingRequest
+//
+// @param headers - PremiumGetInstFieldSettingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumGetInstFieldSettingResponse
+func (client *Client) PremiumGetInstFieldSettingWithOptions(request *PremiumGetInstFieldSettingRequest, headers *PremiumGetInstFieldSettingHeaders, runtime *util.RuntimeOptions) (_result *PremiumGetInstFieldSettingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumGetInstFieldSetting"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processes/fields/settings/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumGetInstFieldSettingResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取流程表单字段操作权限(高级版专享接口)
+//
+// @param request - PremiumGetInstFieldSettingRequest
+//
+// @return PremiumGetInstFieldSettingResponse
+func (client *Client) PremiumGetInstFieldSetting(request *PremiumGetInstFieldSettingRequest) (_result *PremiumGetInstFieldSettingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumGetInstFieldSettingHeaders{}
+	_result = &PremiumGetInstFieldSettingResponse{}
+	_body, _err := client.PremiumGetInstFieldSettingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询审批中心我收到的实例列表(OA高级版专享接口)
+//
+// @param request - PremiumGetNoticedInstancesRequest
+//
+// @param headers - PremiumGetNoticedInstancesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumGetNoticedInstancesResponse
+func (client *Client) PremiumGetNoticedInstancesWithOptions(request *PremiumGetNoticedInstancesRequest, headers *PremiumGetNoticedInstancesHeaders, runtime *util.RuntimeOptions) (_result *PremiumGetNoticedInstancesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumGetNoticedInstances"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processCentres/noticedInstances"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumGetNoticedInstancesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询审批中心我收到的实例列表(OA高级版专享接口)
+//
+// @param request - PremiumGetNoticedInstancesRequest
+//
+// @return PremiumGetNoticedInstancesResponse
+func (client *Client) PremiumGetNoticedInstances(request *PremiumGetNoticedInstancesRequest) (_result *PremiumGetNoticedInstancesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumGetNoticedInstancesHeaders{}
+	_result = &PremiumGetNoticedInstancesResponse{}
+	_body, _err := client.PremiumGetNoticedInstancesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据processCode分页获取审批流程数据(高级版专享接口)
+//
+// @param request - PremiumGetProcessInstancesRequest
+//
+// @param headers - PremiumGetProcessInstancesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumGetProcessInstancesResponse
+func (client *Client) PremiumGetProcessInstancesWithOptions(request *PremiumGetProcessInstancesRequest, headers *PremiumGetProcessInstancesHeaders, runtime *util.RuntimeOptions) (_result *PremiumGetProcessInstancesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppUuid)) {
+		query["appUuid"] = request.AppUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTimeInMills)) {
+		query["endTimeInMills"] = request.EndTimeInMills
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		query["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTimeInMills)) {
+		query["startTimeInMills"] = request.StartTimeInMills
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumGetProcessInstances"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processes/pages/instances"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumGetProcessInstancesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据processCode分页获取审批流程数据(高级版专享接口)
+//
+// @param request - PremiumGetProcessInstancesRequest
+//
+// @return PremiumGetProcessInstancesResponse
+func (client *Client) PremiumGetProcessInstances(request *PremiumGetProcessInstancesRequest) (_result *PremiumGetProcessInstancesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumGetProcessInstancesHeaders{}
+	_result = &PremiumGetProcessInstancesResponse{}
+	_body, _err := client.PremiumGetProcessInstancesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 授权预览审批附件(OA高级版专享)
+//
+// @param request - PremiumGetSpaceWithDownloadAuthRequest
+//
+// @param headers - PremiumGetSpaceWithDownloadAuthHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumGetSpaceWithDownloadAuthResponse
+func (client *Client) PremiumGetSpaceWithDownloadAuthWithOptions(request *PremiumGetSpaceWithDownloadAuthRequest, headers *PremiumGetSpaceWithDownloadAuthHeaders, runtime *util.RuntimeOptions) (_result *PremiumGetSpaceWithDownloadAuthResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentId)) {
+		body["agentId"] = request.AgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileId)) {
+		body["fileId"] = request.FileId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileIdList)) {
+		body["fileIdList"] = request.FileIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WithCommentAttatchment)) {
+		body["withCommentAttatchment"] = request.WithCommentAttatchment
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumGetSpaceWithDownloadAuth"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processInstances/spaces/authPreview"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumGetSpaceWithDownloadAuthResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 授权预览审批附件(OA高级版专享)
+//
+// @param request - PremiumGetSpaceWithDownloadAuthRequest
+//
+// @return PremiumGetSpaceWithDownloadAuthResponse
+func (client *Client) PremiumGetSpaceWithDownloadAuth(request *PremiumGetSpaceWithDownloadAuthRequest) (_result *PremiumGetSpaceWithDownloadAuthResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumGetSpaceWithDownloadAuthHeaders{}
+	_result = &PremiumGetSpaceWithDownloadAuthResponse{}
+	_body, _err := client.PremiumGetSpaceWithDownloadAuthWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询审批中心已发起实例列表(OA高级版专享接口)
+//
+// @param request - PremiumGetSubmittedInstancesRequest
+//
+// @param headers - PremiumGetSubmittedInstancesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumGetSubmittedInstancesResponse
+func (client *Client) PremiumGetSubmittedInstancesWithOptions(request *PremiumGetSubmittedInstancesRequest, headers *PremiumGetSubmittedInstancesHeaders, runtime *util.RuntimeOptions) (_result *PremiumGetSubmittedInstancesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumGetSubmittedInstances"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processCentres/submittedInstances"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumGetSubmittedInstancesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询审批中心已发起实例列表(OA高级版专享接口)
+//
+// @param request - PremiumGetSubmittedInstancesRequest
+//
+// @return PremiumGetSubmittedInstancesResponse
+func (client *Client) PremiumGetSubmittedInstances(request *PremiumGetSubmittedInstancesRequest) (_result *PremiumGetSubmittedInstancesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumGetSubmittedInstancesHeaders{}
+	_result = &PremiumGetSubmittedInstancesResponse{}
+	_body, _err := client.PremiumGetSubmittedInstancesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询审批中心待处理任务列表(OA高级版专享接口)
+//
+// @param request - PremiumGetTodoTasksRequest
+//
+// @param headers - PremiumGetTodoTasksHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumGetTodoTasksResponse
+func (client *Client) PremiumGetTodoTasksWithOptions(request *PremiumGetTodoTasksRequest, headers *PremiumGetTodoTasksHeaders, runtime *util.RuntimeOptions) (_result *PremiumGetTodoTasksResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CreateBefore)) {
+		query["createBefore"] = request.CreateBefore
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumGetTodoTasks"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processCentres/todoTasks"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumGetTodoTasksResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询审批中心待处理任务列表(OA高级版专享接口)
+//
+// @param request - PremiumGetTodoTasksRequest
+//
+// @return PremiumGetTodoTasksResponse
+func (client *Client) PremiumGetTodoTasks(request *PremiumGetTodoTasksRequest) (_result *PremiumGetTodoTasksResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumGetTodoTasksHeaders{}
+	_result = &PremiumGetTodoTasksResponse{}
+	_body, _err := client.PremiumGetTodoTasksWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 下载审批附件(OA高级版专享)
+//
+// @param request - PremiumGrantProcessInstanceForDownloadFileRequest
+//
+// @param headers - PremiumGrantProcessInstanceForDownloadFileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumGrantProcessInstanceForDownloadFileResponse
+func (client *Client) PremiumGrantProcessInstanceForDownloadFileWithOptions(request *PremiumGrantProcessInstanceForDownloadFileRequest, headers *PremiumGrantProcessInstanceForDownloadFileHeaders, runtime *util.RuntimeOptions) (_result *PremiumGrantProcessInstanceForDownloadFileResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FileId)) {
+		body["fileId"] = request.FileId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WithCommentAttatchment)) {
+		body["withCommentAttatchment"] = request.WithCommentAttatchment
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumGrantProcessInstanceForDownloadFile"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processInstances/spaces/files/urls/download"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumGrantProcessInstanceForDownloadFileResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 下载审批附件(OA高级版专享)
+//
+// @param request - PremiumGrantProcessInstanceForDownloadFileRequest
+//
+// @return PremiumGrantProcessInstanceForDownloadFileResponse
+func (client *Client) PremiumGrantProcessInstanceForDownloadFile(request *PremiumGrantProcessInstanceForDownloadFileRequest) (_result *PremiumGrantProcessInstanceForDownloadFileResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumGrantProcessInstanceForDownloadFileHeaders{}
+	_result = &PremiumGrantProcessInstanceForDownloadFileResponse{}
+	_body, _err := client.PremiumGrantProcessInstanceForDownloadFileWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建或更新分组(高级版专享接口)
+//
+// @param request - PremiumInsertOrUpdateDirRequest
+//
+// @param headers - PremiumInsertOrUpdateDirHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumInsertOrUpdateDirResponse
+func (client *Client) PremiumInsertOrUpdateDirWithOptions(request *PremiumInsertOrUpdateDirRequest, headers *PremiumInsertOrUpdateDirHeaders, runtime *util.RuntimeOptions) (_result *PremiumInsertOrUpdateDirResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizGroup)) {
+		body["bizGroup"] = request.BizGroup
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name18n)) {
+		body["name18n"] = request.Name18n
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperateUserId)) {
+		body["operateUserId"] = request.OperateUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumInsertOrUpdateDir"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processCentres/directories"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumInsertOrUpdateDirResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建或更新分组(高级版专享接口)
+//
+// @param request - PremiumInsertOrUpdateDirRequest
+//
+// @return PremiumInsertOrUpdateDirResponse
+func (client *Client) PremiumInsertOrUpdateDir(request *PremiumInsertOrUpdateDirRequest) (_result *PremiumInsertOrUpdateDirResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumInsertOrUpdateDirHeaders{}
+	_result = &PremiumInsertOrUpdateDirResponse{}
+	_body, _err := client.PremiumInsertOrUpdateDirWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量获取审批模板信息（包含表单和流程配置信息）(高级版专享接口)
+//
+// @param request - PremiumQuerySchemaAndProcessByCodeListRequest
+//
+// @param headers - PremiumQuerySchemaAndProcessByCodeListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumQuerySchemaAndProcessByCodeListResponse
+func (client *Client) PremiumQuerySchemaAndProcessByCodeListWithOptions(request *PremiumQuerySchemaAndProcessByCodeListRequest, headers *PremiumQuerySchemaAndProcessByCodeListHeaders, runtime *util.RuntimeOptions) (_result *PremiumQuerySchemaAndProcessByCodeListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProcessCodes)) {
+		body["processCodes"] = request.ProcessCodes
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumQuerySchemaAndProcessByCodeList"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processes/schemas/batchQuery"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumQuerySchemaAndProcessByCodeListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量获取审批模板信息（包含表单和流程配置信息）(高级版专享接口)
+//
+// @param request - PremiumQuerySchemaAndProcessByCodeListRequest
+//
+// @return PremiumQuerySchemaAndProcessByCodeListResponse
+func (client *Client) PremiumQuerySchemaAndProcessByCodeList(request *PremiumQuerySchemaAndProcessByCodeListRequest) (_result *PremiumQuerySchemaAndProcessByCodeListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumQuerySchemaAndProcessByCodeListHeaders{}
+	_result = &PremiumQuerySchemaAndProcessByCodeListResponse{}
+	_body, _err := client.PremiumQuerySchemaAndProcessByCodeListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 流程转交待处理任务查询(高级版专享接口)
+//
+// @param request - PremiumQueryTodoTasksByManagerRequest
+//
+// @param headers - PremiumQueryTodoTasksByManagerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumQueryTodoTasksByManagerResponse
+func (client *Client) PremiumQueryTodoTasksByManagerWithOptions(request *PremiumQueryTodoTasksByManagerRequest, headers *PremiumQueryTodoTasksByManagerHeaders, runtime *util.RuntimeOptions) (_result *PremiumQueryTodoTasksByManagerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActionerUserId)) {
+		query["actionerUserId"] = request.ActionerUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManagerUserId)) {
+		query["managerUserId"] = request.ManagerUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumQueryTodoTasksByManager"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/tasks/todoTasks"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumQueryTodoTasksByManagerResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 流程转交待处理任务查询(高级版专享接口)
+//
+// @param request - PremiumQueryTodoTasksByManagerRequest
+//
+// @return PremiumQueryTodoTasksByManagerResponse
+func (client *Client) PremiumQueryTodoTasksByManager(request *PremiumQueryTodoTasksByManagerRequest) (_result *PremiumQueryTodoTasksByManagerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumQueryTodoTasksByManagerHeaders{}
+	_result = &PremiumQueryTodoTasksByManagerResponse{}
+	_body, _err := client.PremiumQueryTodoTasksByManagerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量流程审批任务转交(高级版专享接口)
+//
+// @param request - PremiumRedirectTasksByManagerRequest
+//
+// @param headers - PremiumRedirectTasksByManagerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumRedirectTasksByManagerResponse
+func (client *Client) PremiumRedirectTasksByManagerWithOptions(request *PremiumRedirectTasksByManagerRequest, headers *PremiumRedirectTasksByManagerHeaders, runtime *util.RuntimeOptions) (_result *PremiumRedirectTasksByManagerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.HandoverUserId)) {
+		body["handoverUserId"] = request.HandoverUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManagerUserId)) {
+		body["managerUserId"] = request.ManagerUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskIds)) {
+		body["taskIds"] = request.TaskIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TransfereeUserId)) {
+		body["transfereeUserId"] = request.TransfereeUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumRedirectTasksByManager"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/tasks/batchRedirect"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumRedirectTasksByManagerResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量流程审批任务转交(高级版专享接口)
+//
+// @param request - PremiumRedirectTasksByManagerRequest
+//
+// @return PremiumRedirectTasksByManagerResponse
+func (client *Client) PremiumRedirectTasksByManager(request *PremiumRedirectTasksByManagerRequest) (_result *PremiumRedirectTasksByManagerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumRedirectTasksByManagerHeaders{}
+	_result = &PremiumRedirectTasksByManagerResponse{}
+	_body, _err := client.PremiumRedirectTasksByManagerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建或更新数据表单模板(OA高级版专享)
+//
+// @param request - PremiumSaveFormRequest
+//
+// @param headers - PremiumSaveFormHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumSaveFormResponse
+func (client *Client) PremiumSaveFormWithOptions(request *PremiumSaveFormRequest, headers *PremiumSaveFormHeaders, runtime *util.RuntimeOptions) (_result *PremiumSaveFormResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormComponents)) {
+		body["formComponents"] = request.FormComponents
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumSaveForm"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/dataForms/templates"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumSaveFormResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建或更新数据表单模板(OA高级版专享)
+//
+// @param request - PremiumSaveFormRequest
+//
+// @return PremiumSaveFormResponse
+func (client *Client) PremiumSaveForm(request *PremiumSaveFormRequest) (_result *PremiumSaveFormResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumSaveFormHeaders{}
+	_result = &PremiumSaveFormResponse{}
+	_body, _err := client.PremiumSaveFormWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建数据表单实例(OA高级版专享)
+//
+// @param request - PremiumSaveFormInstanceRequest
+//
+// @param headers - PremiumSaveFormInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumSaveFormInstanceResponse
+func (client *Client) PremiumSaveFormInstanceWithOptions(request *PremiumSaveFormInstanceRequest, headers *PremiumSaveFormInstanceHeaders, runtime *util.RuntimeOptions) (_result *PremiumSaveFormInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormComponentValueList)) {
+		body["formComponentValueList"] = request.FormComponentValueList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OriginatorUserId)) {
+		body["originatorUserId"] = request.OriginatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumSaveFormInstance"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/dataForms/formInstances/save"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumSaveFormInstanceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建数据表单实例(OA高级版专享)
+//
+// @param request - PremiumSaveFormInstanceRequest
+//
+// @return PremiumSaveFormInstanceResponse
+func (client *Client) PremiumSaveFormInstance(request *PremiumSaveFormInstanceRequest) (_result *PremiumSaveFormInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumSaveFormInstanceHeaders{}
+	_result = &PremiumSaveFormInstanceResponse{}
+	_body, _err := client.PremiumSaveFormInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建或更新流程中心外部集成模板(高级版专享接口)
+//
+// @param request - PremiumSaveIntegratedProcessRequest
+//
+// @param headers - PremiumSaveIntegratedProcessHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumSaveIntegratedProcessResponse
+func (client *Client) PremiumSaveIntegratedProcessWithOptions(request *PremiumSaveIntegratedProcessRequest, headers *PremiumSaveIntegratedProcessHeaders, runtime *util.RuntimeOptions) (_result *PremiumSaveIntegratedProcessResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormComponents)) {
+		body["formComponents"] = request.FormComponents
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessFeatureConfig)) {
+		body["processFeatureConfig"] = request.ProcessFeatureConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateConfig)) {
+		body["templateConfig"] = request.TemplateConfig
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumSaveIntegratedProcess"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processCentres/schemas"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumSaveIntegratedProcessResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建或更新流程中心外部集成模板(高级版专享接口)
+//
+// @param request - PremiumSaveIntegratedProcessRequest
+//
+// @return PremiumSaveIntegratedProcessResponse
+func (client *Client) PremiumSaveIntegratedProcess(request *PremiumSaveIntegratedProcessRequest) (_result *PremiumSaveIntegratedProcessResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumSaveIntegratedProcessHeaders{}
+	_result = &PremiumSaveIntegratedProcessResponse{}
+	_body, _err := client.PremiumSaveIntegratedProcessWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建流程中心外部集成实例(高级版专享接口)
+//
+// @param request - PremiumSaveIntegratedProcessInstanceRequest
+//
+// @param headers - PremiumSaveIntegratedProcessInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumSaveIntegratedProcessInstanceResponse
+func (client *Client) PremiumSaveIntegratedProcessInstanceWithOptions(request *PremiumSaveIntegratedProcessInstanceRequest, headers *PremiumSaveIntegratedProcessInstanceHeaders, runtime *util.RuntimeOptions) (_result *PremiumSaveIntegratedProcessInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizData)) {
+		body["bizData"] = request.BizData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FeatureConfig)) {
+		body["featureConfig"] = request.FeatureConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormComponentValueList)) {
+		body["formComponentValueList"] = request.FormComponentValueList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Notifiers)) {
+		body["notifiers"] = request.Notifiers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OriginatorUserId)) {
+		body["originatorUserId"] = request.OriginatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Url)) {
+		body["url"] = request.Url
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumSaveIntegratedProcessInstance"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processCentres/instances"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumSaveIntegratedProcessInstanceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建流程中心外部集成实例(高级版专享接口)
+//
+// @param request - PremiumSaveIntegratedProcessInstanceRequest
+//
+// @return PremiumSaveIntegratedProcessInstanceResponse
+func (client *Client) PremiumSaveIntegratedProcessInstance(request *PremiumSaveIntegratedProcessInstanceRequest) (_result *PremiumSaveIntegratedProcessInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumSaveIntegratedProcessInstanceHeaders{}
+	_result = &PremiumSaveIntegratedProcessInstanceResponse{}
+	_body, _err := client.PremiumSaveIntegratedProcessInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建流程中心外部集成待处理任务(高级版专享接口)
+//
+// @param request - PremiumSaveIntegratedTaskRequest
+//
+// @param headers - PremiumSaveIntegratedTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumSaveIntegratedTaskResponse
+func (client *Client) PremiumSaveIntegratedTaskWithOptions(request *PremiumSaveIntegratedTaskRequest, headers *PremiumSaveIntegratedTaskHeaders, runtime *util.RuntimeOptions) (_result *PremiumSaveIntegratedTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActivityId)) {
+		body["activityId"] = request.ActivityId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FeatureConfig)) {
+		body["featureConfig"] = request.FeatureConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskConfig)) {
+		body["taskConfig"] = request.TaskConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Tasks)) {
+		body["tasks"] = request.Tasks
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumSaveIntegratedTask"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processCentres/tasks"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumSaveIntegratedTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建流程中心外部集成待处理任务(高级版专享接口)
+//
+// @param request - PremiumSaveIntegratedTaskRequest
+//
+// @return PremiumSaveIntegratedTaskResponse
+func (client *Client) PremiumSaveIntegratedTask(request *PremiumSaveIntegratedTaskRequest) (_result *PremiumSaveIntegratedTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumSaveIntegratedTaskHeaders{}
+	_result = &PremiumSaveIntegratedTaskResponse{}
+	_body, _err := client.PremiumSaveIntegratedTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新数据表单实例(OA高级版专享)
+//
+// @param request - PremiumUpdateFormInstanceRequest
+//
+// @param headers - PremiumUpdateFormInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumUpdateFormInstanceResponse
+func (client *Client) PremiumUpdateFormInstanceWithOptions(request *PremiumUpdateFormInstanceRequest, headers *PremiumUpdateFormInstanceHeaders, runtime *util.RuntimeOptions) (_result *PremiumUpdateFormInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormComponentValueList)) {
+		body["formComponentValueList"] = request.FormComponentValueList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormInstanceIds)) {
+		body["formInstanceIds"] = request.FormInstanceIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OriginatorUserId)) {
+		body["originatorUserId"] = request.OriginatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumUpdateFormInstance"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/dataForms/formInstances"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumUpdateFormInstanceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新数据表单实例(OA高级版专享)
+//
+// @param request - PremiumUpdateFormInstanceRequest
+//
+// @return PremiumUpdateFormInstanceResponse
+func (client *Client) PremiumUpdateFormInstance(request *PremiumUpdateFormInstanceRequest) (_result *PremiumUpdateFormInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumUpdateFormInstanceHeaders{}
+	_result = &PremiumUpdateFormInstanceResponse{}
+	_body, _err := client.PremiumUpdateFormInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新审批实例(OA高级版专享)
+//
+// @param request - PremiumUpdateProcessInstanceVariablesRequest
+//
+// @param headers - PremiumUpdateProcessInstanceVariablesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumUpdateProcessInstanceVariablesResponse
+func (client *Client) PremiumUpdateProcessInstanceVariablesWithOptions(request *PremiumUpdateProcessInstanceVariablesRequest, headers *PremiumUpdateProcessInstanceVariablesHeaders, runtime *util.RuntimeOptions) (_result *PremiumUpdateProcessInstanceVariablesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Variables)) {
+		body["variables"] = request.Variables
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumUpdateProcessInstanceVariables"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/processInstances"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumUpdateProcessInstanceVariablesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新审批实例(OA高级版专享)
+//
+// @param request - PremiumUpdateProcessInstanceVariablesRequest
+//
+// @return PremiumUpdateProcessInstanceVariablesResponse
+func (client *Client) PremiumUpdateProcessInstanceVariables(request *PremiumUpdateProcessInstanceVariablesRequest) (_result *PremiumUpdateProcessInstanceVariablesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumUpdateProcessInstanceVariablesHeaders{}
+	_result = &PremiumUpdateProcessInstanceVariablesResponse{}
+	_body, _err := client.PremiumUpdateProcessInstanceVariablesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 审批流程预测
+//
+// @param request - ProcessForecastRequest
+//
+// @param headers - ProcessForecastHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ProcessForecastResponse
 func (client *Client) ProcessForecastWithOptions(request *ProcessForecastRequest, headers *ProcessForecastHeaders, runtime *util.RuntimeOptions) (_result *ProcessForecastResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11182,6 +25640,13 @@ func (client *Client) ProcessForecastWithOptions(request *ProcessForecastRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 审批流程预测
+//
+// @param request - ProcessForecastRequest
+//
+// @return ProcessForecastResponse
 func (client *Client) ProcessForecast(request *ProcessForecastRequest) (_result *ProcessForecastResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ProcessForecastHeaders{}
@@ -11194,6 +25659,17 @@ func (client *Client) ProcessForecast(request *ProcessForecastRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据processCode分页获取表单数据
+//
+// @param request - QueryAllFormInstancesRequest
+//
+// @param headers - QueryAllFormInstancesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryAllFormInstancesResponse
 func (client *Client) QueryAllFormInstancesWithOptions(request *QueryAllFormInstancesRequest, headers *QueryAllFormInstancesHeaders, runtime *util.RuntimeOptions) (_result *QueryAllFormInstancesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11249,6 +25725,13 @@ func (client *Client) QueryAllFormInstancesWithOptions(request *QueryAllFormInst
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据processCode分页获取表单数据
+//
+// @param request - QueryAllFormInstancesRequest
+//
+// @return QueryAllFormInstancesResponse
 func (client *Client) QueryAllFormInstances(request *QueryAllFormInstancesRequest) (_result *QueryAllFormInstancesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryAllFormInstancesHeaders{}
@@ -11261,6 +25744,17 @@ func (client *Client) QueryAllFormInstances(request *QueryAllFormInstancesReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询审批流程实例
+//
+// @param request - QueryAllProcessInstancesRequest
+//
+// @param headers - QueryAllProcessInstancesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryAllProcessInstancesResponse
 func (client *Client) QueryAllProcessInstancesWithOptions(request *QueryAllProcessInstancesRequest, headers *QueryAllProcessInstancesHeaders, runtime *util.RuntimeOptions) (_result *QueryAllProcessInstancesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11324,6 +25818,13 @@ func (client *Client) QueryAllProcessInstancesWithOptions(request *QueryAllProce
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询审批流程实例
+//
+// @param request - QueryAllProcessInstancesRequest
+//
+// @return QueryAllProcessInstancesResponse
 func (client *Client) QueryAllProcessInstances(request *QueryAllProcessInstancesRequest) (_result *QueryAllProcessInstancesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryAllProcessInstancesHeaders{}
@@ -11336,6 +25837,17 @@ func (client *Client) QueryAllProcessInstances(request *QueryAllProcessInstances
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据业务标识查询表单描述信息
+//
+// @param request - QueryFormByBizTypeRequest
+//
+// @param headers - QueryFormByBizTypeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryFormByBizTypeResponse
 func (client *Client) QueryFormByBizTypeWithOptions(request *QueryFormByBizTypeRequest, headers *QueryFormByBizTypeHeaders, runtime *util.RuntimeOptions) (_result *QueryFormByBizTypeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11383,6 +25895,13 @@ func (client *Client) QueryFormByBizTypeWithOptions(request *QueryFormByBizTypeR
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据业务标识查询表单描述信息
+//
+// @param request - QueryFormByBizTypeRequest
+//
+// @return QueryFormByBizTypeResponse
 func (client *Client) QueryFormByBizType(request *QueryFormByBizTypeRequest) (_result *QueryFormByBizTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryFormByBizTypeHeaders{}
@@ -11395,6 +25914,17 @@ func (client *Client) QueryFormByBizType(request *QueryFormByBizTypeRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询数据表单
+//
+// @param request - QueryFormInstanceRequest
+//
+// @param headers - QueryFormInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryFormInstanceResponse
 func (client *Client) QueryFormInstanceWithOptions(request *QueryFormInstanceRequest, headers *QueryFormInstanceHeaders, runtime *util.RuntimeOptions) (_result *QueryFormInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11446,6 +25976,13 @@ func (client *Client) QueryFormInstanceWithOptions(request *QueryFormInstanceReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询数据表单
+//
+// @param request - QueryFormInstanceRequest
+//
+// @return QueryFormInstanceResponse
 func (client *Client) QueryFormInstance(request *QueryFormInstanceRequest) (_result *QueryFormInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryFormInstanceHeaders{}
@@ -11458,6 +25995,17 @@ func (client *Client) QueryFormInstance(request *QueryFormInstanceRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询通过流程中心集成的OA审批任务
+//
+// @param request - QueryIntegratedTodoTaskRequest
+//
+// @param headers - QueryIntegratedTodoTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryIntegratedTodoTaskResponse
 func (client *Client) QueryIntegratedTodoTaskWithOptions(request *QueryIntegratedTodoTaskRequest, headers *QueryIntegratedTodoTaskHeaders, runtime *util.RuntimeOptions) (_result *QueryIntegratedTodoTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11513,6 +26061,13 @@ func (client *Client) QueryIntegratedTodoTaskWithOptions(request *QueryIntegrate
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询通过流程中心集成的OA审批任务
+//
+// @param request - QueryIntegratedTodoTaskRequest
+//
+// @return QueryIntegratedTodoTaskResponse
 func (client *Client) QueryIntegratedTodoTask(request *QueryIntegratedTodoTaskRequest) (_result *QueryIntegratedTodoTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryIntegratedTodoTaskHeaders{}
@@ -11525,6 +26080,17 @@ func (client *Client) QueryIntegratedTodoTask(request *QueryIntegratedTodoTaskRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据业务标识查询模板
+//
+// @param request - QueryProcessByBizCategoryIdRequest
+//
+// @param headers - QueryProcessByBizCategoryIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryProcessByBizCategoryIdResponse
 func (client *Client) QueryProcessByBizCategoryIdWithOptions(request *QueryProcessByBizCategoryIdRequest, headers *QueryProcessByBizCategoryIdHeaders, runtime *util.RuntimeOptions) (_result *QueryProcessByBizCategoryIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11572,6 +26138,13 @@ func (client *Client) QueryProcessByBizCategoryIdWithOptions(request *QueryProce
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据业务标识查询模板
+//
+// @param request - QueryProcessByBizCategoryIdRequest
+//
+// @return QueryProcessByBizCategoryIdResponse
 func (client *Client) QueryProcessByBizCategoryId(request *QueryProcessByBizCategoryIdRequest) (_result *QueryProcessByBizCategoryIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryProcessByBizCategoryIdHeaders{}
@@ -11584,6 +26157,17 @@ func (client *Client) QueryProcessByBizCategoryId(request *QueryProcessByBizCate
 	return _result, _err
 }
 
+// Summary:
+//
+// 蓝凌获取schema和流程信息
+//
+// @param request - QuerySchemaAndProcessRequest
+//
+// @param headers - QuerySchemaAndProcessHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QuerySchemaAndProcessResponse
 func (client *Client) QuerySchemaAndProcessWithOptions(request *QuerySchemaAndProcessRequest, headers *QuerySchemaAndProcessHeaders, runtime *util.RuntimeOptions) (_result *QuerySchemaAndProcessResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11631,6 +26215,13 @@ func (client *Client) QuerySchemaAndProcessWithOptions(request *QuerySchemaAndPr
 	return _result, _err
 }
 
+// Summary:
+//
+// 蓝凌获取schema和流程信息
+//
+// @param request - QuerySchemaAndProcessRequest
+//
+// @return QuerySchemaAndProcessResponse
 func (client *Client) QuerySchemaAndProcess(request *QuerySchemaAndProcessRequest) (_result *QuerySchemaAndProcessResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QuerySchemaAndProcessHeaders{}
@@ -11643,6 +26234,17 @@ func (client *Client) QuerySchemaAndProcess(request *QuerySchemaAndProcessReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过 processCode 获取表单 schema 信息
+//
+// @param request - QuerySchemaByProcessCodeRequest
+//
+// @param headers - QuerySchemaByProcessCodeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QuerySchemaByProcessCodeResponse
 func (client *Client) QuerySchemaByProcessCodeWithOptions(request *QuerySchemaByProcessCodeRequest, headers *QuerySchemaByProcessCodeHeaders, runtime *util.RuntimeOptions) (_result *QuerySchemaByProcessCodeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11690,6 +26292,13 @@ func (client *Client) QuerySchemaByProcessCodeWithOptions(request *QuerySchemaBy
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过 processCode 获取表单 schema 信息
+//
+// @param request - QuerySchemaByProcessCodeRequest
+//
+// @return QuerySchemaByProcessCodeResponse
 func (client *Client) QuerySchemaByProcessCode(request *QuerySchemaByProcessCodeRequest) (_result *QuerySchemaByProcessCodeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QuerySchemaByProcessCodeHeaders{}
@@ -11702,6 +26311,17 @@ func (client *Client) QuerySchemaByProcessCode(request *QuerySchemaByProcessCode
 	return _result, _err
 }
 
+// Summary:
+//
+// 转交OA审批任务
+//
+// @param request - RedirectWorkflowTaskRequest
+//
+// @param headers - RedirectWorkflowTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RedirectWorkflowTaskResponse
 func (client *Client) RedirectWorkflowTaskWithOptions(request *RedirectWorkflowTaskRequest, headers *RedirectWorkflowTaskHeaders, runtime *util.RuntimeOptions) (_result *RedirectWorkflowTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11765,6 +26385,13 @@ func (client *Client) RedirectWorkflowTaskWithOptions(request *RedirectWorkflowT
 	return _result, _err
 }
 
+// Summary:
+//
+// 转交OA审批任务
+//
+// @param request - RedirectWorkflowTaskRequest
+//
+// @return RedirectWorkflowTaskResponse
 func (client *Client) RedirectWorkflowTask(request *RedirectWorkflowTaskRequest) (_result *RedirectWorkflowTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RedirectWorkflowTaskHeaders{}
@@ -11777,6 +26404,17 @@ func (client *Client) RedirectWorkflowTask(request *RedirectWorkflowTaskRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建实例
+//
+// @param request - SaveIntegratedInstanceRequest
+//
+// @param headers - SaveIntegratedInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SaveIntegratedInstanceResponse
 func (client *Client) SaveIntegratedInstanceWithOptions(request *SaveIntegratedInstanceRequest, headers *SaveIntegratedInstanceHeaders, runtime *util.RuntimeOptions) (_result *SaveIntegratedInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11785,6 +26423,10 @@ func (client *Client) SaveIntegratedInstanceWithOptions(request *SaveIntegratedI
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.BizData)) {
 		body["bizData"] = request.BizData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FeatureConfig)) {
+		body["featureConfig"] = request.FeatureConfig
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.FormComponentValueList)) {
@@ -11844,6 +26486,13 @@ func (client *Client) SaveIntegratedInstanceWithOptions(request *SaveIntegratedI
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建实例
+//
+// @param request - SaveIntegratedInstanceRequest
+//
+// @return SaveIntegratedInstanceResponse
 func (client *Client) SaveIntegratedInstance(request *SaveIntegratedInstanceRequest) (_result *SaveIntegratedInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SaveIntegratedInstanceHeaders{}
@@ -11856,6 +26505,17 @@ func (client *Client) SaveIntegratedInstance(request *SaveIntegratedInstanceRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建或更新审批模板
+//
+// @param request - SaveProcessRequest
+//
+// @param headers - SaveProcessHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SaveProcessResponse
 func (client *Client) SaveProcessWithOptions(request *SaveProcessRequest, headers *SaveProcessHeaders, runtime *util.RuntimeOptions) (_result *SaveProcessResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11919,6 +26579,13 @@ func (client *Client) SaveProcessWithOptions(request *SaveProcessRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建或更新审批模板
+//
+// @param request - SaveProcessRequest
+//
+// @return SaveProcessResponse
 func (client *Client) SaveProcess(request *SaveProcessRequest) (_result *SaveProcessResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SaveProcessHeaders{}
@@ -11931,6 +26598,17 @@ func (client *Client) SaveProcess(request *SaveProcessRequest) (_result *SavePro
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建审批实例
+//
+// @param request - StartProcessInstanceRequest
+//
+// @param headers - StartProcessInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return StartProcessInstanceResponse
 func (client *Client) StartProcessInstanceWithOptions(request *StartProcessInstanceRequest, headers *StartProcessInstanceHeaders, runtime *util.RuntimeOptions) (_result *StartProcessInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11939,6 +26617,10 @@ func (client *Client) StartProcessInstanceWithOptions(request *StartProcessInsta
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Approvers)) {
 		body["approvers"] = request.Approvers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizDetailPageUrl)) {
+		body["bizDetailPageUrl"] = request.BizDetailPageUrl
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.CcList)) {
@@ -12006,6 +26688,13 @@ func (client *Client) StartProcessInstanceWithOptions(request *StartProcessInsta
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建审批实例
+//
+// @param request - StartProcessInstanceRequest
+//
+// @return StartProcessInstanceResponse
 func (client *Client) StartProcessInstance(request *StartProcessInstanceRequest) (_result *StartProcessInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &StartProcessInstanceHeaders{}
@@ -12018,6 +26707,17 @@ func (client *Client) StartProcessInstance(request *StartProcessInstanceRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 撤销审批实例
+//
+// @param request - TerminateProcessInstanceRequest
+//
+// @param headers - TerminateProcessInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TerminateProcessInstanceResponse
 func (client *Client) TerminateProcessInstanceWithOptions(request *TerminateProcessInstanceRequest, headers *TerminateProcessInstanceHeaders, runtime *util.RuntimeOptions) (_result *TerminateProcessInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12073,6 +26773,13 @@ func (client *Client) TerminateProcessInstanceWithOptions(request *TerminateProc
 	return _result, _err
 }
 
+// Summary:
+//
+// 撤销审批实例
+//
+// @param request - TerminateProcessInstanceRequest
+//
+// @return TerminateProcessInstanceResponse
 func (client *Client) TerminateProcessInstance(request *TerminateProcessInstanceRequest) (_result *TerminateProcessInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &TerminateProcessInstanceHeaders{}
@@ -12085,6 +26792,102 @@ func (client *Client) TerminateProcessInstance(request *TerminateProcessInstance
 	return _result, _err
 }
 
+// Summary:
+//
+// 流程转交待处理任务查询
+//
+// @param request - TodoTasksRequest
+//
+// @param headers - TodoTasksHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TodoTasksResponse
+func (client *Client) TodoTasksWithOptions(request *TodoTasksRequest, headers *TodoTasksHeaders, runtime *util.RuntimeOptions) (_result *TodoTasksResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActionerUserId)) {
+		query["actionerUserId"] = request.ActionerUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManagerUserId)) {
+		query["managerUserId"] = request.ManagerUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TodoTasks"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/tasks/todoTasks"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TodoTasksResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 流程转交待处理任务查询
+//
+// @param request - TodoTasksRequest
+//
+// @return TodoTasksResponse
+func (client *Client) TodoTasks(request *TodoTasksRequest) (_result *TodoTasksResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TodoTasksHeaders{}
+	_result = &TodoTasksResponse{}
+	_body, _err := client.TodoTasksWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新流程中心任务状态
+//
+// @param request - UpdateIntegratedTaskRequest
+//
+// @param headers - UpdateIntegratedTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateIntegratedTaskResponse
 func (client *Client) UpdateIntegratedTaskWithOptions(request *UpdateIntegratedTaskRequest, headers *UpdateIntegratedTaskHeaders, runtime *util.RuntimeOptions) (_result *UpdateIntegratedTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12132,6 +26935,13 @@ func (client *Client) UpdateIntegratedTaskWithOptions(request *UpdateIntegratedT
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新流程中心任务状态
+//
+// @param request - UpdateIntegratedTaskRequest
+//
+// @return UpdateIntegratedTaskResponse
 func (client *Client) UpdateIntegratedTask(request *UpdateIntegratedTaskRequest) (_result *UpdateIntegratedTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateIntegratedTaskHeaders{}
@@ -12144,6 +26954,17 @@ func (client *Client) UpdateIntegratedTask(request *UpdateIntegratedTaskRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新实例状态
+//
+// @param request - UpdateProcessInstanceRequest
+//
+// @param headers - UpdateProcessInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateProcessInstanceResponse
 func (client *Client) UpdateProcessInstanceWithOptions(request *UpdateProcessInstanceRequest, headers *UpdateProcessInstanceHeaders, runtime *util.RuntimeOptions) (_result *UpdateProcessInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12199,6 +27020,13 @@ func (client *Client) UpdateProcessInstanceWithOptions(request *UpdateProcessIns
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新实例状态
+//
+// @param request - UpdateProcessInstanceRequest
+//
+// @return UpdateProcessInstanceResponse
 func (client *Client) UpdateProcessInstance(request *UpdateProcessInstanceRequest) (_result *UpdateProcessInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateProcessInstanceHeaders{}

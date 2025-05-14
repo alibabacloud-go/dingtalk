@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package ding_phone_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,10 +33,24 @@ func (s *AddCallConfigHeaders) SetXAcsDingtalkAccessToken(v string) *AddCallConf
 }
 
 type AddCallConfigRequest struct {
-	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	IsvToken    *string `json:"isvToken,omitempty" xml:"isvToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding3f583b067f2q450c12d
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// token12345
+	IsvToken *string `json:"isvToken,omitempty" xml:"isvToken,omitempty"`
+	// example:
+	//
+	// 057112345678
 	PhoneNumber *string `json:"phoneNumber,omitempty" xml:"phoneNumber,omitempty"`
-	ScopeType   *string `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+	// example:
+	//
+	// call
+	ScopeType *string `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
 }
 
 func (s AddCallConfigRequest) String() string {
@@ -141,8 +151,17 @@ func (s *DelCallConfigHeaders) SetXAcsDingtalkAccessToken(v string) *DelCallConf
 }
 
 type DelCallConfigRequest struct {
-	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	IsvToken    *string `json:"isvToken,omitempty" xml:"isvToken,omitempty"`
+	// example:
+	//
+	// ding3f583b067250d34dd
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// token1233143
+	IsvToken *string `json:"isvToken,omitempty" xml:"isvToken,omitempty"`
+	// example:
+	//
+	// 057112345678
 	PhoneNumber *string `json:"phoneNumber,omitempty" xml:"phoneNumber,omitempty"`
 }
 
@@ -239,10 +258,22 @@ func (s *QueryCallConfigHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCall
 }
 
 type QueryCallConfigRequest struct {
-	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	IsvToken    *string `json:"isvToken,omitempty" xml:"isvToken,omitempty"`
+	// example:
+	//
+	// ding3f583b0672efc12d
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// token23dafds
+	IsvToken *string `json:"isvToken,omitempty" xml:"isvToken,omitempty"`
+	// example:
+	//
+	// 057112345678
 	PhoneNumber *string `json:"phoneNumber,omitempty" xml:"phoneNumber,omitempty"`
-	ScopeType   *string `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+	// example:
+	//
+	// call
+	ScopeType *string `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
 }
 
 func (s QueryCallConfigRequest) String() string {
@@ -405,12 +436,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -419,6 +450,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 添加外呼码号配置
+//
+// @param request - AddCallConfigRequest
+//
+// @param headers - AddCallConfigHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddCallConfigResponse
 func (client *Client) AddCallConfigWithOptions(request *AddCallConfigRequest, headers *AddCallConfigHeaders, runtime *util.RuntimeOptions) (_result *AddCallConfigResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -474,6 +516,13 @@ func (client *Client) AddCallConfigWithOptions(request *AddCallConfigRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加外呼码号配置
+//
+// @param request - AddCallConfigRequest
+//
+// @return AddCallConfigResponse
 func (client *Client) AddCallConfig(request *AddCallConfigRequest) (_result *AddCallConfigResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddCallConfigHeaders{}
@@ -486,6 +535,17 @@ func (client *Client) AddCallConfig(request *AddCallConfigRequest) (_result *Add
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除码号配置
+//
+// @param request - DelCallConfigRequest
+//
+// @param headers - DelCallConfigHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DelCallConfigResponse
 func (client *Client) DelCallConfigWithOptions(request *DelCallConfigRequest, headers *DelCallConfigHeaders, runtime *util.RuntimeOptions) (_result *DelCallConfigResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -537,6 +597,13 @@ func (client *Client) DelCallConfigWithOptions(request *DelCallConfigRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除码号配置
+//
+// @param request - DelCallConfigRequest
+//
+// @return DelCallConfigResponse
 func (client *Client) DelCallConfig(request *DelCallConfigRequest) (_result *DelCallConfigResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DelCallConfigHeaders{}
@@ -549,6 +616,17 @@ func (client *Client) DelCallConfig(request *DelCallConfigRequest) (_result *Del
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询外呼码号配置
+//
+// @param request - QueryCallConfigRequest
+//
+// @param headers - QueryCallConfigHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCallConfigResponse
 func (client *Client) QueryCallConfigWithOptions(request *QueryCallConfigRequest, headers *QueryCallConfigHeaders, runtime *util.RuntimeOptions) (_result *QueryCallConfigResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -604,6 +682,13 @@ func (client *Client) QueryCallConfigWithOptions(request *QueryCallConfigRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询外呼码号配置
+//
+// @param request - QueryCallConfigRequest
+//
+// @return QueryCallConfigResponse
 func (client *Client) QueryCallConfig(request *QueryCallConfigRequest) (_result *QueryCallConfigResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryCallConfigHeaders{}

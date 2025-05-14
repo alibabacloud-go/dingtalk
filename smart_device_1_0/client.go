@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package smart_device_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,6 +33,7 @@ func (s *AddDeviceVideoConferenceMembersHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type AddDeviceVideoConferenceMembersRequest struct {
+	// This parameter is required.
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -100,6 +97,7 @@ func (s *CreateDeviceVideoConferenceHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type CreateDeviceVideoConferenceRequest struct {
+	// This parameter is required.
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -117,7 +115,9 @@ func (s *CreateDeviceVideoConferenceRequest) SetUserIds(v []*string) *CreateDevi
 }
 
 type CreateDeviceVideoConferenceResponseBody struct {
-	Code         *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
 	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
 }
 
@@ -192,8 +192,10 @@ func (s *ExtractFacialFeatureHeaders) SetXAcsDingtalkAccessToken(v string) *Extr
 }
 
 type ExtractFacialFeatureRequest struct {
+	// This parameter is required.
 	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	Userid  *string `json:"userid,omitempty" xml:"userid,omitempty"`
+	// This parameter is required.
+	Userid *string `json:"userid,omitempty" xml:"userid,omitempty"`
 }
 
 func (s ExtractFacialFeatureRequest) String() string {
@@ -215,6 +217,7 @@ func (s *ExtractFacialFeatureRequest) SetUserid(v string) *ExtractFacialFeatureR
 }
 
 type ExtractFacialFeatureResponseBody struct {
+	// This parameter is required.
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -284,6 +287,7 @@ func (s *KickDeviceVideoConferenceMembersHeaders) SetXAcsDingtalkAccessToken(v s
 }
 
 type KickDeviceVideoConferenceMembersRequest struct {
+	// This parameter is required.
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -348,9 +352,15 @@ func (s *MachineManagerUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *Mach
 
 type MachineManagerUpdateRequest struct {
 	AtmManagerRightMap *MachineManagerUpdateRequestAtmManagerRightMap `json:"atmManagerRightMap,omitempty" xml:"atmManagerRightMap,omitempty" type:"Struct"`
-	DeviceId           *int64                                         `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	ScopeDeptIds       []*int64                                       `json:"scopeDeptIds,omitempty" xml:"scopeDeptIds,omitempty" type:"Repeated"`
-	UserId             *string                                        `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 165441111
+	DeviceId     *int64   `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	ScopeDeptIds []*int64 `json:"scopeDeptIds,omitempty" xml:"scopeDeptIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// user01
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s MachineManagerUpdateRequest) String() string {
@@ -382,12 +392,30 @@ func (s *MachineManagerUpdateRequest) SetUserId(v string) *MachineManagerUpdateR
 }
 
 type MachineManagerUpdateRequestAtmManagerRightMap struct {
+	// example:
+	//
+	// true
 	AttendancePersonManage *bool `json:"attendancePersonManage,omitempty" xml:"attendancePersonManage,omitempty"`
-	BluetoothPunchManage   *bool `json:"bluetoothPunchManage,omitempty" xml:"bluetoothPunchManage,omitempty"`
-	DeviceReset            *bool `json:"deviceReset,omitempty" xml:"deviceReset,omitempty"`
-	DeviceSettings         *bool `json:"deviceSettings,omitempty" xml:"deviceSettings,omitempty"`
-	FacePunchManage        *bool `json:"facePunchManage,omitempty" xml:"facePunchManage,omitempty"`
-	FingerPunchManage      *bool `json:"fingerPunchManage,omitempty" xml:"fingerPunchManage,omitempty"`
+	// example:
+	//
+	// true
+	BluetoothPunchManage *bool `json:"bluetoothPunchManage,omitempty" xml:"bluetoothPunchManage,omitempty"`
+	// example:
+	//
+	// true
+	DeviceReset *bool `json:"deviceReset,omitempty" xml:"deviceReset,omitempty"`
+	// example:
+	//
+	// true
+	DeviceSettings *bool `json:"deviceSettings,omitempty" xml:"deviceSettings,omitempty"`
+	// example:
+	//
+	// true
+	FacePunchManage *bool `json:"facePunchManage,omitempty" xml:"facePunchManage,omitempty"`
+	// example:
+	//
+	// true
+	FingerPunchManage *bool `json:"fingerPunchManage,omitempty" xml:"fingerPunchManage,omitempty"`
 }
 
 func (s MachineManagerUpdateRequestAtmManagerRightMap) String() string {
@@ -568,7 +596,9 @@ func (s *QueryDeviceVideoConferenceBookHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type QueryDeviceVideoConferenceBookResponseBody struct {
-	Code         *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
 	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
 }
 
@@ -619,6 +649,299 @@ func (s *QueryDeviceVideoConferenceBookResponse) SetBody(v *QueryDeviceVideoConf
 	return s
 }
 
+type TextToImageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TextToImageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TextToImageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TextToImageHeaders) SetCommonHeaders(v map[string]*string) *TextToImageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TextToImageHeaders) SetXAcsDingtalkAccessToken(v string) *TextToImageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TextToImageRequest struct {
+	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	// example:
+	//
+	// 1
+	PictureNum *int64 `json:"pictureNum,omitempty" xml:"pictureNum,omitempty"`
+	// example:
+	//
+	// 1024*1024
+	PictureSize *string `json:"pictureSize,omitempty" xml:"pictureSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 帮我生成一个小猫在草坪上奔跑的图片
+	Query *string `json:"query,omitempty" xml:"query,omitempty"`
+}
+
+func (s TextToImageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TextToImageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TextToImageRequest) SetModelId(v string) *TextToImageRequest {
+	s.ModelId = &v
+	return s
+}
+
+func (s *TextToImageRequest) SetPictureNum(v int64) *TextToImageRequest {
+	s.PictureNum = &v
+	return s
+}
+
+func (s *TextToImageRequest) SetPictureSize(v string) *TextToImageRequest {
+	s.PictureSize = &v
+	return s
+}
+
+func (s *TextToImageRequest) SetQuery(v string) *TextToImageRequest {
+	s.Query = &v
+	return s
+}
+
+type TextToImageResponseBody struct {
+	Result  *TextToImageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                          `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s TextToImageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TextToImageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TextToImageResponseBody) SetResult(v *TextToImageResponseBodyResult) *TextToImageResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *TextToImageResponseBody) SetSuccess(v bool) *TextToImageResponseBody {
+	s.Success = &v
+	return s
+}
+
+type TextToImageResponseBodyResult struct {
+	RequestId  *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	TaskId     *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskStatus *string `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
+}
+
+func (s TextToImageResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TextToImageResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *TextToImageResponseBodyResult) SetRequestId(v string) *TextToImageResponseBodyResult {
+	s.RequestId = &v
+	return s
+}
+
+func (s *TextToImageResponseBodyResult) SetTaskId(v string) *TextToImageResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *TextToImageResponseBodyResult) SetTaskStatus(v string) *TextToImageResponseBodyResult {
+	s.TaskStatus = &v
+	return s
+}
+
+type TextToImageResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TextToImageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TextToImageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TextToImageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TextToImageResponse) SetHeaders(v map[string]*string) *TextToImageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TextToImageResponse) SetStatusCode(v int32) *TextToImageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TextToImageResponse) SetBody(v *TextToImageResponseBody) *TextToImageResponse {
+	s.Body = v
+	return s
+}
+
+type VoiceCloneHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s VoiceCloneHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VoiceCloneHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *VoiceCloneHeaders) SetCommonHeaders(v map[string]*string) *VoiceCloneHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *VoiceCloneHeaders) SetXAcsDingtalkAccessToken(v string) *VoiceCloneHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type VoiceCloneRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 你好，我叫小智，是来自阿里云的超大规模语言模型。我是一个能够回答问题、创作文字，还能表达观点、撰写代码的全能型AI助手。如果您有任何问题或需要帮助，请随时告诉我，我会尽我所能为您提供帮助！
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+	// example:
+	//
+	// manager4224
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// qhtestvoice-01
+	VoiceId *string `json:"voiceId,omitempty" xml:"voiceId,omitempty"`
+}
+
+func (s VoiceCloneRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VoiceCloneRequest) GoString() string {
+	return s.String()
+}
+
+func (s *VoiceCloneRequest) SetText(v string) *VoiceCloneRequest {
+	s.Text = &v
+	return s
+}
+
+func (s *VoiceCloneRequest) SetUserId(v string) *VoiceCloneRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *VoiceCloneRequest) SetVoiceId(v string) *VoiceCloneRequest {
+	s.VoiceId = &v
+	return s
+}
+
+type VoiceCloneResponseBody struct {
+	Result  *VoiceCloneResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                         `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s VoiceCloneResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VoiceCloneResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *VoiceCloneResponseBody) SetResult(v *VoiceCloneResponseBodyResult) *VoiceCloneResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *VoiceCloneResponseBody) SetSuccess(v bool) *VoiceCloneResponseBody {
+	s.Success = &v
+	return s
+}
+
+type VoiceCloneResponseBodyResult struct {
+	// example:
+	//
+	// https://xxxx
+	MediaUrl  *string `json:"mediaUrl,omitempty" xml:"mediaUrl,omitempty"`
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s VoiceCloneResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VoiceCloneResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *VoiceCloneResponseBodyResult) SetMediaUrl(v string) *VoiceCloneResponseBodyResult {
+	s.MediaUrl = &v
+	return s
+}
+
+func (s *VoiceCloneResponseBodyResult) SetRequestId(v string) *VoiceCloneResponseBodyResult {
+	s.RequestId = &v
+	return s
+}
+
+type VoiceCloneResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *VoiceCloneResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s VoiceCloneResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VoiceCloneResponse) GoString() string {
+	return s.String()
+}
+
+func (s *VoiceCloneResponse) SetHeaders(v map[string]*string) *VoiceCloneResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *VoiceCloneResponse) SetStatusCode(v int32) *VoiceCloneResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *VoiceCloneResponse) SetBody(v *VoiceCloneResponseBody) *VoiceCloneResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -634,12 +957,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -648,6 +971,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 添加硬件视频会议参会人
+//
+// @param request - AddDeviceVideoConferenceMembersRequest
+//
+// @param headers - AddDeviceVideoConferenceMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddDeviceVideoConferenceMembersResponse
 func (client *Client) AddDeviceVideoConferenceMembersWithOptions(deviceId *string, conferenceId *string, request *AddDeviceVideoConferenceMembersRequest, headers *AddDeviceVideoConferenceMembersHeaders, runtime *util.RuntimeOptions) (_result *AddDeviceVideoConferenceMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -691,6 +1025,13 @@ func (client *Client) AddDeviceVideoConferenceMembersWithOptions(deviceId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加硬件视频会议参会人
+//
+// @param request - AddDeviceVideoConferenceMembersRequest
+//
+// @return AddDeviceVideoConferenceMembersResponse
 func (client *Client) AddDeviceVideoConferenceMembers(deviceId *string, conferenceId *string, request *AddDeviceVideoConferenceMembersRequest) (_result *AddDeviceVideoConferenceMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddDeviceVideoConferenceMembersHeaders{}
@@ -703,6 +1044,17 @@ func (client *Client) AddDeviceVideoConferenceMembers(deviceId *string, conferen
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建硬件视频会议
+//
+// @param request - CreateDeviceVideoConferenceRequest
+//
+// @param headers - CreateDeviceVideoConferenceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateDeviceVideoConferenceResponse
 func (client *Client) CreateDeviceVideoConferenceWithOptions(deviceId *string, request *CreateDeviceVideoConferenceRequest, headers *CreateDeviceVideoConferenceHeaders, runtime *util.RuntimeOptions) (_result *CreateDeviceVideoConferenceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -746,6 +1098,13 @@ func (client *Client) CreateDeviceVideoConferenceWithOptions(deviceId *string, r
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建硬件视频会议
+//
+// @param request - CreateDeviceVideoConferenceRequest
+//
+// @return CreateDeviceVideoConferenceResponse
 func (client *Client) CreateDeviceVideoConference(deviceId *string, request *CreateDeviceVideoConferenceRequest) (_result *CreateDeviceVideoConferenceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateDeviceVideoConferenceHeaders{}
@@ -758,6 +1117,17 @@ func (client *Client) CreateDeviceVideoConference(deviceId *string, request *Cre
 	return _result, _err
 }
 
+// Summary:
+//
+// 基于企业员工照片为终端提取人脸识别特征
+//
+// @param request - ExtractFacialFeatureRequest
+//
+// @param headers - ExtractFacialFeatureHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExtractFacialFeatureResponse
 func (client *Client) ExtractFacialFeatureWithOptions(request *ExtractFacialFeatureRequest, headers *ExtractFacialFeatureHeaders, runtime *util.RuntimeOptions) (_result *ExtractFacialFeatureResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -805,6 +1175,13 @@ func (client *Client) ExtractFacialFeatureWithOptions(request *ExtractFacialFeat
 	return _result, _err
 }
 
+// Summary:
+//
+// 基于企业员工照片为终端提取人脸识别特征
+//
+// @param request - ExtractFacialFeatureRequest
+//
+// @return ExtractFacialFeatureResponse
 func (client *Client) ExtractFacialFeature(request *ExtractFacialFeatureRequest) (_result *ExtractFacialFeatureResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ExtractFacialFeatureHeaders{}
@@ -817,6 +1194,17 @@ func (client *Client) ExtractFacialFeature(request *ExtractFacialFeatureRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 踢出硬件视频会议参会人
+//
+// @param request - KickDeviceVideoConferenceMembersRequest
+//
+// @param headers - KickDeviceVideoConferenceMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return KickDeviceVideoConferenceMembersResponse
 func (client *Client) KickDeviceVideoConferenceMembersWithOptions(deviceId *string, conferenceId *string, request *KickDeviceVideoConferenceMembersRequest, headers *KickDeviceVideoConferenceMembersHeaders, runtime *util.RuntimeOptions) (_result *KickDeviceVideoConferenceMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -860,6 +1248,13 @@ func (client *Client) KickDeviceVideoConferenceMembersWithOptions(deviceId *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 踢出硬件视频会议参会人
+//
+// @param request - KickDeviceVideoConferenceMembersRequest
+//
+// @return KickDeviceVideoConferenceMembersResponse
 func (client *Client) KickDeviceVideoConferenceMembers(deviceId *string, conferenceId *string, request *KickDeviceVideoConferenceMembersRequest) (_result *KickDeviceVideoConferenceMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &KickDeviceVideoConferenceMembersHeaders{}
@@ -872,6 +1267,17 @@ func (client *Client) KickDeviceVideoConferenceMembers(deviceId *string, confere
 	return _result, _err
 }
 
+// Summary:
+//
+// 变更智能考勤机设备管理员
+//
+// @param request - MachineManagerUpdateRequest
+//
+// @param headers - MachineManagerUpdateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MachineManagerUpdateResponse
 func (client *Client) MachineManagerUpdateWithOptions(request *MachineManagerUpdateRequest, headers *MachineManagerUpdateHeaders, runtime *util.RuntimeOptions) (_result *MachineManagerUpdateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -927,6 +1333,13 @@ func (client *Client) MachineManagerUpdateWithOptions(request *MachineManagerUpd
 	return _result, _err
 }
 
+// Summary:
+//
+// 变更智能考勤机设备管理员
+//
+// @param request - MachineManagerUpdateRequest
+//
+// @return MachineManagerUpdateResponse
 func (client *Client) MachineManagerUpdate(request *MachineManagerUpdateRequest) (_result *MachineManagerUpdateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &MachineManagerUpdateHeaders{}
@@ -939,6 +1352,17 @@ func (client *Client) MachineManagerUpdate(request *MachineManagerUpdateRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 变更智能考勤机员工
+//
+// @param request - MachineUsersUpdateRequest
+//
+// @param headers - MachineUsersUpdateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MachineUsersUpdateResponse
 func (client *Client) MachineUsersUpdateWithOptions(request *MachineUsersUpdateRequest, headers *MachineUsersUpdateHeaders, runtime *util.RuntimeOptions) (_result *MachineUsersUpdateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1002,6 +1426,13 @@ func (client *Client) MachineUsersUpdateWithOptions(request *MachineUsersUpdateR
 	return _result, _err
 }
 
+// Summary:
+//
+// 变更智能考勤机员工
+//
+// @param request - MachineUsersUpdateRequest
+//
+// @return MachineUsersUpdateResponse
 func (client *Client) MachineUsersUpdate(request *MachineUsersUpdateRequest) (_result *MachineUsersUpdateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &MachineUsersUpdateHeaders{}
@@ -1014,6 +1445,15 @@ func (client *Client) MachineUsersUpdate(request *MachineUsersUpdateRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询硬件视频会议预约信息
+//
+// @param headers - QueryDeviceVideoConferenceBookHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDeviceVideoConferenceBookResponse
 func (client *Client) QueryDeviceVideoConferenceBookWithOptions(deviceId *string, bookId *string, headers *QueryDeviceVideoConferenceBookHeaders, runtime *util.RuntimeOptions) (_result *QueryDeviceVideoConferenceBookResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -1047,11 +1487,182 @@ func (client *Client) QueryDeviceVideoConferenceBookWithOptions(deviceId *string
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询硬件视频会议预约信息
+//
+// @return QueryDeviceVideoConferenceBookResponse
 func (client *Client) QueryDeviceVideoConferenceBook(deviceId *string, bookId *string) (_result *QueryDeviceVideoConferenceBookResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryDeviceVideoConferenceBookHeaders{}
 	_result = &QueryDeviceVideoConferenceBookResponse{}
 	_body, _err := client.QueryDeviceVideoConferenceBookWithOptions(deviceId, bookId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 文生图开放接口
+//
+// @param request - TextToImageRequest
+//
+// @param headers - TextToImageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TextToImageResponse
+func (client *Client) TextToImageWithOptions(request *TextToImageRequest, headers *TextToImageHeaders, runtime *util.RuntimeOptions) (_result *TextToImageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ModelId)) {
+		body["modelId"] = request.ModelId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PictureNum)) {
+		body["pictureNum"] = request.PictureNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PictureSize)) {
+		body["pictureSize"] = request.PictureSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Query)) {
+		body["query"] = request.Query
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TextToImage"),
+		Version:     tea.String("smartDevice_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/smartDevice/textToImages/generate"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TextToImageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 文生图开放接口
+//
+// @param request - TextToImageRequest
+//
+// @return TextToImageResponse
+func (client *Client) TextToImage(request *TextToImageRequest) (_result *TextToImageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TextToImageHeaders{}
+	_result = &TextToImageResponse{}
+	_body, _err := client.TextToImageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 音频复刻
+//
+// @param request - VoiceCloneRequest
+//
+// @param headers - VoiceCloneHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return VoiceCloneResponse
+func (client *Client) VoiceCloneWithOptions(request *VoiceCloneRequest, headers *VoiceCloneHeaders, runtime *util.RuntimeOptions) (_result *VoiceCloneResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Text)) {
+		body["text"] = request.Text
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VoiceId)) {
+		body["voiceId"] = request.VoiceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("VoiceClone"),
+		Version:     tea.String("smartDevice_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/smartDevice/voices/clone"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &VoiceCloneResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 音频复刻
+//
+// @param request - VoiceCloneRequest
+//
+// @return VoiceCloneResponse
+func (client *Client) VoiceClone(request *VoiceCloneRequest) (_result *VoiceCloneResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &VoiceCloneHeaders{}
+	_result = &VoiceCloneResponse{}
+	_body, _err := client.VoiceCloneWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

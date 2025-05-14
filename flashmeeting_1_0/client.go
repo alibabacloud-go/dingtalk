@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package flashmeeting_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,7 +33,9 @@ func (s *CreateFlashMeetingHeaders) SetXAcsDingtalkAccessToken(v string) *Create
 }
 
 type CreateFlashMeetingRequest struct {
+	// This parameter is required.
 	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// This parameter is required.
 	EventId *string `json:"eventId,omitempty" xml:"eventId,omitempty"`
 	Title   *string `json:"title,omitempty" xml:"title,omitempty"`
 }
@@ -66,11 +64,16 @@ func (s *CreateFlashMeetingRequest) SetTitle(v string) *CreateFlashMeetingReques
 }
 
 type CreateFlashMeetingResponseBody struct {
-	EndTime         *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
 	FlashMeetingKey *string `json:"flashMeetingKey,omitempty" xml:"flashMeetingKey,omitempty"`
-	StartTime       *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Title           *string `json:"title,omitempty" xml:"title,omitempty"`
-	Url             *string `json:"url,omitempty" xml:"url,omitempty"`
+	// This parameter is required.
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s CreateFlashMeetingResponseBody) String() string {
@@ -135,6 +138,122 @@ func (s *CreateFlashMeetingResponse) SetBody(v *CreateFlashMeetingResponseBody) 
 	return s
 }
 
+type ExportShanhuiToDocHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ExportShanhuiToDocHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExportShanhuiToDocHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ExportShanhuiToDocHeaders) SetCommonHeaders(v map[string]*string) *ExportShanhuiToDocHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ExportShanhuiToDocHeaders) SetXAcsDingtalkAccessToken(v string) *ExportShanhuiToDocHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ExportShanhuiToDocRequest struct {
+	ContentEnums  []*string `json:"contentEnums,omitempty" xml:"contentEnums,omitempty" type:"Repeated"`
+	ParentNodeKey *string   `json:"parentNodeKey,omitempty" xml:"parentNodeKey,omitempty"`
+	ShanhuiKey    *string   `json:"shanhuiKey,omitempty" xml:"shanhuiKey,omitempty"`
+	UserId        *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	WorkspaceKey  *string   `json:"workspaceKey,omitempty" xml:"workspaceKey,omitempty"`
+}
+
+func (s ExportShanhuiToDocRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExportShanhuiToDocRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExportShanhuiToDocRequest) SetContentEnums(v []*string) *ExportShanhuiToDocRequest {
+	s.ContentEnums = v
+	return s
+}
+
+func (s *ExportShanhuiToDocRequest) SetParentNodeKey(v string) *ExportShanhuiToDocRequest {
+	s.ParentNodeKey = &v
+	return s
+}
+
+func (s *ExportShanhuiToDocRequest) SetShanhuiKey(v string) *ExportShanhuiToDocRequest {
+	s.ShanhuiKey = &v
+	return s
+}
+
+func (s *ExportShanhuiToDocRequest) SetUserId(v string) *ExportShanhuiToDocRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *ExportShanhuiToDocRequest) SetWorkspaceKey(v string) *ExportShanhuiToDocRequest {
+	s.WorkspaceKey = &v
+	return s
+}
+
+type ExportShanhuiToDocResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ExportShanhuiToDocResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExportShanhuiToDocResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ExportShanhuiToDocResponseBody) SetResult(v string) *ExportShanhuiToDocResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *ExportShanhuiToDocResponseBody) SetSuccess(v bool) *ExportShanhuiToDocResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ExportShanhuiToDocResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ExportShanhuiToDocResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ExportShanhuiToDocResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExportShanhuiToDocResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExportShanhuiToDocResponse) SetHeaders(v map[string]*string) *ExportShanhuiToDocResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ExportShanhuiToDocResponse) SetStatusCode(v int32) *ExportShanhuiToDocResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ExportShanhuiToDocResponse) SetBody(v *ExportShanhuiToDocResponseBody) *ExportShanhuiToDocResponse {
+	s.Body = v
+	return s
+}
+
 type GetShanhuiByCalendarHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -159,8 +278,18 @@ func (s *GetShanhuiByCalendarHeaders) SetXAcsDingtalkAccessToken(v string) *GetS
 }
 
 type GetShanhuiByCalendarRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// VGZCWXpvTmxpQmorbUhiSXUveTB98Iok
 	EventId *string `json:"eventId,omitempty" xml:"eventId,omitempty"`
-	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// EUiSN7beu1Q2wR
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetShanhuiByCalendarRequest) String() string {
@@ -182,8 +311,11 @@ func (s *GetShanhuiByCalendarRequest) SetUserId(v string) *GetShanhuiByCalendarR
 }
 
 type GetShanhuiByCalendarResponseBody struct {
-	Result  *GetShanhuiByCalendarResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                                   `json:"success,omitempty" xml:"success,omitempty"`
+	Result *GetShanhuiByCalendarResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetShanhuiByCalendarResponseBody) String() string {
@@ -205,13 +337,33 @@ func (s *GetShanhuiByCalendarResponseBody) SetSuccess(v bool) *GetShanhuiByCalen
 }
 
 type GetShanhuiByCalendarResponseBodyResult struct {
-	EndTime         *int64                                          `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	FlashmeetingKey *string                                         `json:"flashmeetingKey,omitempty" xml:"flashmeetingKey,omitempty"`
-	HasSummary      *bool                                           `json:"hasSummary,omitempty" xml:"hasSummary,omitempty"`
-	StartTime       *int64                                          `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	SummaryDocKey   *string                                         `json:"summaryDocKey,omitempty" xml:"summaryDocKey,omitempty"`
-	Title           *string                                         `json:"title,omitempty" xml:"title,omitempty"`
-	Topics          []*GetShanhuiByCalendarResponseBodyResultTopics `json:"topics,omitempty" xml:"topics,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1685332800000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 8K4ny9P9No06sjhk
+	FlashmeetingKey *string `json:"flashmeetingKey,omitempty" xml:"flashmeetingKey,omitempty"`
+	// example:
+	//
+	// false
+	HasSummary *bool `json:"hasSummary,omitempty" xml:"hasSummary,omitempty"`
+	// example:
+	//
+	// 1685318400000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 2Hj32Uio28fjmMiu9Klsk
+	SummaryDocKey *string `json:"summaryDocKey,omitempty" xml:"summaryDocKey,omitempty"`
+	// example:
+	//
+	// 测试闪会
+	Title  *string                                         `json:"title,omitempty" xml:"title,omitempty"`
+	Topics []*GetShanhuiByCalendarResponseBodyResultTopics `json:"topics,omitempty" xml:"topics,omitempty" type:"Repeated"`
 }
 
 func (s GetShanhuiByCalendarResponseBodyResult) String() string {
@@ -258,8 +410,14 @@ func (s *GetShanhuiByCalendarResponseBodyResult) SetTopics(v []*GetShanhuiByCale
 }
 
 type GetShanhuiByCalendarResponseBodyResultTopics struct {
+	// example:
+	//
+	// 27Hio9BV23Ghj8LkRe34QzSdP94UtMkju
 	DocKey *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
-	Title  *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 会议1
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s GetShanhuiByCalendarResponseBodyResultTopics) String() string {
@@ -333,8 +491,11 @@ func (s *GetShanhuiByShanhuiKeyHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetShanhuiByShanhuiKeyResponseBody struct {
-	Result  *GetShanhuiByShanhuiKeyResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                                     `json:"success,omitempty" xml:"success,omitempty"`
+	Result *GetShanhuiByShanhuiKeyResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s GetShanhuiByShanhuiKeyResponseBody) String() string {
@@ -356,14 +517,35 @@ func (s *GetShanhuiByShanhuiKeyResponseBody) SetSuccess(v bool) *GetShanhuiBySha
 }
 
 type GetShanhuiByShanhuiKeyResponseBodyResult struct {
-	EndTime         *int64                                            `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	EventId         *string                                           `json:"eventId,omitempty" xml:"eventId,omitempty"`
-	FlashmeetingKey *string                                           `json:"flashmeetingKey,omitempty" xml:"flashmeetingKey,omitempty"`
-	HasSummary      *bool                                             `json:"hasSummary,omitempty" xml:"hasSummary,omitempty"`
-	StartTime       *int64                                            `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	SummaryDocKey   *string                                           `json:"summaryDocKey,omitempty" xml:"summaryDocKey,omitempty"`
-	Title           *string                                           `json:"title,omitempty" xml:"title,omitempty"`
-	Topics          []*GetShanhuiByShanhuiKeyResponseBodyResultTopics `json:"topics,omitempty" xml:"topics,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1685332800000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 2kms47sjhb882
+	EventId *string `json:"eventId,omitempty" xml:"eventId,omitempty"`
+	// example:
+	//
+	// 8K4ny9P9No06sjhk
+	FlashmeetingKey *string `json:"flashmeetingKey,omitempty" xml:"flashmeetingKey,omitempty"`
+	// example:
+	//
+	// false
+	HasSummary *bool `json:"hasSummary,omitempty" xml:"hasSummary,omitempty"`
+	// example:
+	//
+	// 1685318400000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 2Hj32Uio28fjmMiu9Klsk
+	SummaryDocKey *string `json:"summaryDocKey,omitempty" xml:"summaryDocKey,omitempty"`
+	// example:
+	//
+	// 测试闪会
+	Title  *string                                           `json:"title,omitempty" xml:"title,omitempty"`
+	Topics []*GetShanhuiByShanhuiKeyResponseBodyResultTopics `json:"topics,omitempty" xml:"topics,omitempty" type:"Repeated"`
 }
 
 func (s GetShanhuiByShanhuiKeyResponseBodyResult) String() string {
@@ -415,8 +597,18 @@ func (s *GetShanhuiByShanhuiKeyResponseBodyResult) SetTopics(v []*GetShanhuiBySh
 }
 
 type GetShanhuiByShanhuiKeyResponseBodyResultTopics struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 27Hio9BV23Ghj8LkRe34QzSdP94UtMkju
 	DocKey *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
-	Title  *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 会议1
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s GetShanhuiByShanhuiKeyResponseBodyResultTopics) String() string {
@@ -490,10 +682,26 @@ func (s *GetTaskFromShanhuiDocHeaders) SetXAcsDingtalkAccessToken(v string) *Get
 }
 
 type GetTaskFromShanhuiDocRequest struct {
-	DocKey     *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
-	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	UnionId    *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// gMp7ldNxoWbAqBQN
+	DocKey *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 0
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DMvP2vrwe5QVUk0RcNb2FgiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetTaskFromShanhuiDocRequest) String() string {
@@ -691,12 +899,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -705,6 +913,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 创建钉闪会并绑定日程
+//
+// @param request - CreateFlashMeetingRequest
+//
+// @param headers - CreateFlashMeetingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateFlashMeetingResponse
 func (client *Client) CreateFlashMeetingWithOptions(request *CreateFlashMeetingRequest, headers *CreateFlashMeetingHeaders, runtime *util.RuntimeOptions) (_result *CreateFlashMeetingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -756,6 +975,13 @@ func (client *Client) CreateFlashMeetingWithOptions(request *CreateFlashMeetingR
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建钉闪会并绑定日程
+//
+// @param request - CreateFlashMeetingRequest
+//
+// @return CreateFlashMeetingResponse
 func (client *Client) CreateFlashMeeting(request *CreateFlashMeetingRequest) (_result *CreateFlashMeetingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateFlashMeetingHeaders{}
@@ -768,6 +994,106 @@ func (client *Client) CreateFlashMeeting(request *CreateFlashMeetingRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 将闪会导出到文档
+//
+// @param request - ExportShanhuiToDocRequest
+//
+// @param headers - ExportShanhuiToDocHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExportShanhuiToDocResponse
+func (client *Client) ExportShanhuiToDocWithOptions(request *ExportShanhuiToDocRequest, headers *ExportShanhuiToDocHeaders, runtime *util.RuntimeOptions) (_result *ExportShanhuiToDocResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ContentEnums)) {
+		body["contentEnums"] = request.ContentEnums
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ParentNodeKey)) {
+		body["parentNodeKey"] = request.ParentNodeKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ShanhuiKey)) {
+		body["shanhuiKey"] = request.ShanhuiKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WorkspaceKey)) {
+		body["workspaceKey"] = request.WorkspaceKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ExportShanhuiToDoc"),
+		Version:     tea.String("flashmeeting_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/flashmeeting/meetings/export"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ExportShanhuiToDocResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 将闪会导出到文档
+//
+// @param request - ExportShanhuiToDocRequest
+//
+// @return ExportShanhuiToDocResponse
+func (client *Client) ExportShanhuiToDoc(request *ExportShanhuiToDocRequest) (_result *ExportShanhuiToDocResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ExportShanhuiToDocHeaders{}
+	_result = &ExportShanhuiToDocResponse{}
+	_body, _err := client.ExportShanhuiToDocWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据日程获取闪会的信息
+//
+// @param request - GetShanhuiByCalendarRequest
+//
+// @param headers - GetShanhuiByCalendarHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetShanhuiByCalendarResponse
 func (client *Client) GetShanhuiByCalendarWithOptions(request *GetShanhuiByCalendarRequest, headers *GetShanhuiByCalendarHeaders, runtime *util.RuntimeOptions) (_result *GetShanhuiByCalendarResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -815,6 +1141,13 @@ func (client *Client) GetShanhuiByCalendarWithOptions(request *GetShanhuiByCalen
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据日程获取闪会的信息
+//
+// @param request - GetShanhuiByCalendarRequest
+//
+// @return GetShanhuiByCalendarResponse
 func (client *Client) GetShanhuiByCalendar(request *GetShanhuiByCalendarRequest) (_result *GetShanhuiByCalendarResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetShanhuiByCalendarHeaders{}
@@ -827,6 +1160,15 @@ func (client *Client) GetShanhuiByCalendar(request *GetShanhuiByCalendarRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据闪会key来闪会的信息，包含关联的日程、会议时间、议题等
+//
+// @param headers - GetShanhuiByShanhuiKeyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetShanhuiByShanhuiKeyResponse
 func (client *Client) GetShanhuiByShanhuiKeyWithOptions(flashmeetingKey *string, headers *GetShanhuiByShanhuiKeyHeaders, runtime *util.RuntimeOptions) (_result *GetShanhuiByShanhuiKeyResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -860,6 +1202,11 @@ func (client *Client) GetShanhuiByShanhuiKeyWithOptions(flashmeetingKey *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据闪会key来闪会的信息，包含关联的日程、会议时间、议题等
+//
+// @return GetShanhuiByShanhuiKeyResponse
 func (client *Client) GetShanhuiByShanhuiKey(flashmeetingKey *string) (_result *GetShanhuiByShanhuiKeyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetShanhuiByShanhuiKeyHeaders{}
@@ -872,6 +1219,17 @@ func (client *Client) GetShanhuiByShanhuiKey(flashmeetingKey *string) (_result *
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据闪会文档id获取待办任务
+//
+// @param request - GetTaskFromShanhuiDocRequest
+//
+// @param headers - GetTaskFromShanhuiDocHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTaskFromShanhuiDocResponse
 func (client *Client) GetTaskFromShanhuiDocWithOptions(request *GetTaskFromShanhuiDocRequest, headers *GetTaskFromShanhuiDocHeaders, runtime *util.RuntimeOptions) (_result *GetTaskFromShanhuiDocResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -927,6 +1285,13 @@ func (client *Client) GetTaskFromShanhuiDocWithOptions(request *GetTaskFromShanh
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据闪会文档id获取待办任务
+//
+// @param request - GetTaskFromShanhuiDocRequest
+//
+// @return GetTaskFromShanhuiDocResponse
 func (client *Client) GetTaskFromShanhuiDoc(request *GetTaskFromShanhuiDocRequest) (_result *GetTaskFromShanhuiDocResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTaskFromShanhuiDocHeaders{}

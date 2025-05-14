@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package cool_ops_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -88,11 +84,26 @@ func (s *BatchQueryOpportunityTagResponseBodyResult) SetOpportunityList(v []*Bat
 }
 
 type BatchQueryOpportunityTagResponseBodyResultOpportunityList struct {
-	ActiveUserCnt7d        *int64  `json:"activeUserCnt7d,omitempty" xml:"activeUserCnt7d,omitempty"`
-	AppActiveState         *string `json:"appActiveState,omitempty" xml:"appActiveState,omitempty"`
-	CorpId                 *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 50
+	ActiveUserCnt7d *int64 `json:"activeUserCnt7d,omitempty" xml:"activeUserCnt7d,omitempty"`
+	// example:
+	//
+	// c:近7日活跃
+	AppActiveState *string `json:"appActiveState,omitempty" xml:"appActiveState,omitempty"`
+	// example:
+	//
+	// ding939a85cb101e83b0
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 2-广场
 	FstFunnelsourceNameLv1 *string `json:"fstFunnelsourceNameLv1,omitempty" xml:"fstFunnelsourceNameLv1,omitempty"`
-	FunnelsourceNameLv1    *string `json:"funnelsourceNameLv1,omitempty" xml:"funnelsourceNameLv1,omitempty"`
+	// example:
+	//
+	// 2-广场
+	FunnelsourceNameLv1 *string `json:"funnelsourceNameLv1,omitempty" xml:"funnelsourceNameLv1,omitempty"`
 }
 
 func (s BatchQueryOpportunityTagResponseBodyResultOpportunityList) String() string {
@@ -198,17 +209,25 @@ func (s *UpdateIsvOppStatusRequest) SetIsvOpportunityStatusList(v []*UpdateIsvOp
 }
 
 type UpdateIsvOppStatusRequestIsvOpportunityStatusList struct {
-	IsvCorpId         *string `json:"isvCorpId,omitempty" xml:"isvCorpId,omitempty"`
-	MicroAppId        *string `json:"microAppId,omitempty" xml:"microAppId,omitempty"`
-	Name              *string `json:"name,omitempty" xml:"name,omitempty"`
-	Note              *string `json:"note,omitempty" xml:"note,omitempty"`
-	OperCorpId        *string `json:"operCorpId,omitempty" xml:"operCorpId,omitempty"`
-	OperName          *string `json:"operName,omitempty" xml:"operName,omitempty"`
-	OperTime          *string `json:"operTime,omitempty" xml:"operTime,omitempty"`
-	OperUserId        *string `json:"operUserId,omitempty" xml:"operUserId,omitempty"`
-	OppSourceCorpId   *string `json:"oppSourceCorpId,omitempty" xml:"oppSourceCorpId,omitempty"`
+	IsvCorpId *string `json:"isvCorpId,omitempty" xml:"isvCorpId,omitempty"`
+	// This parameter is required.
+	MicroAppId *string `json:"microAppId,omitempty" xml:"microAppId,omitempty"`
+	// This parameter is required.
+	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	Note       *string `json:"note,omitempty" xml:"note,omitempty"`
+	OperCorpId *string `json:"operCorpId,omitempty" xml:"operCorpId,omitempty"`
+	// This parameter is required.
+	OperName *string `json:"operName,omitempty" xml:"operName,omitempty"`
+	// This parameter is required.
+	OperTime *string `json:"operTime,omitempty" xml:"operTime,omitempty"`
+	// This parameter is required.
+	OperUserId *string `json:"operUserId,omitempty" xml:"operUserId,omitempty"`
+	// This parameter is required.
+	OppSourceCorpId *string `json:"oppSourceCorpId,omitempty" xml:"oppSourceCorpId,omitempty"`
+	// This parameter is required.
 	OpportunityStatus *string `json:"opportunityStatus,omitempty" xml:"opportunityStatus,omitempty"`
-	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateIsvOppStatusRequestIsvOpportunityStatusList) String() string {
@@ -335,12 +354,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -349,6 +368,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// # ISV批量查询商机标签
+//
+// @param request - BatchQueryOpportunityTagRequest
+//
+// @param headers - BatchQueryOpportunityTagHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchQueryOpportunityTagResponse
 func (client *Client) BatchQueryOpportunityTagWithOptions(request *BatchQueryOpportunityTagRequest, headers *BatchQueryOpportunityTagHeaders, runtime *util.RuntimeOptions) (_result *BatchQueryOpportunityTagResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -392,6 +422,13 @@ func (client *Client) BatchQueryOpportunityTagWithOptions(request *BatchQueryOpp
 	return _result, _err
 }
 
+// Summary:
+//
+// # ISV批量查询商机标签
+//
+// @param request - BatchQueryOpportunityTagRequest
+//
+// @return BatchQueryOpportunityTagResponse
 func (client *Client) BatchQueryOpportunityTag(request *BatchQueryOpportunityTagRequest) (_result *BatchQueryOpportunityTagResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchQueryOpportunityTagHeaders{}
@@ -404,6 +441,17 @@ func (client *Client) BatchQueryOpportunityTag(request *BatchQueryOpportunityTag
 	return _result, _err
 }
 
+// Summary:
+//
+// # ISV商机状态同步
+//
+// @param request - UpdateIsvOppStatusRequest
+//
+// @param headers - UpdateIsvOppStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateIsvOppStatusResponse
 func (client *Client) UpdateIsvOppStatusWithOptions(request *UpdateIsvOppStatusRequest, headers *UpdateIsvOppStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateIsvOppStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -447,6 +495,13 @@ func (client *Client) UpdateIsvOppStatusWithOptions(request *UpdateIsvOppStatusR
 	return _result, _err
 }
 
+// Summary:
+//
+// # ISV商机状态同步
+//
+// @param request - UpdateIsvOppStatusRequest
+//
+// @return UpdateIsvOppStatusResponse
 func (client *Client) UpdateIsvOppStatus(request *UpdateIsvOppStatusRequest) (_result *UpdateIsvOppStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateIsvOppStatusHeaders{}

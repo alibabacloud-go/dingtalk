@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package attendance_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -172,24 +168,81 @@ func (s *AddLeaveTypeHeaders) SetXAcsDingtalkAccessToken(v string) *AddLeaveType
 }
 
 type AddLeaveTypeRequest struct {
-	BizType              *string                               `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Extras               *string                               `json:"extras,omitempty" xml:"extras,omitempty"`
-	FreedomLeave         *bool                                 `json:"freedomLeave,omitempty" xml:"freedomLeave,omitempty"`
-	HoursInPerDay        *int64                                `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
-	LeaveCertificate     *AddLeaveTypeRequestLeaveCertificate  `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
-	LeaveHourCeil        *string                               `json:"leaveHourCeil,omitempty" xml:"leaveHourCeil,omitempty"`
-	LeaveName            *string                               `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
-	LeaveTimeCeil        *bool                                 `json:"leaveTimeCeil,omitempty" xml:"leaveTimeCeil,omitempty"`
-	LeaveTimeCeilMinUnit *string                               `json:"leaveTimeCeilMinUnit,omitempty" xml:"leaveTimeCeilMinUnit,omitempty"`
-	LeaveViewUnit        *string                               `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
-	MaxLeaveTime         *int64                                `json:"maxLeaveTime,omitempty" xml:"maxLeaveTime,omitempty"`
-	MinLeaveHour         *float64                              `json:"minLeaveHour,omitempty" xml:"minLeaveHour,omitempty"`
-	NaturalDayLeave      *bool                                 `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
-	PaidLeave            *bool                                 `json:"paidLeave,omitempty" xml:"paidLeave,omitempty"`
-	SubmitTimeRule       *AddLeaveTypeRequestSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
-	VisibilityRules      []*AddLeaveTypeRequestVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
-	WhenCanLeave         *string                               `json:"whenCanLeave,omitempty" xml:"whenCanLeave,omitempty"`
-	OpUserId             *string                               `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// general_leave
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// example:
+	//
+	// {"validity_type":"absolute_time","validity_value":"12-31"}
+	Extras *string `json:"extras,omitempty" xml:"extras,omitempty"`
+	// example:
+	//
+	// false
+	FreedomLeave *bool `json:"freedomLeave,omitempty" xml:"freedomLeave,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1000
+	HoursInPerDay    *int64                               `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	LeaveCertificate *AddLeaveTypeRequestLeaveCertificate `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	// example:
+	//
+	// up
+	LeaveHourCeil *string `json:"leaveHourCeil,omitempty" xml:"leaveHourCeil,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 年假
+	LeaveName *string `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	// example:
+	//
+	// false
+	LeaveTimeCeil *bool `json:"leaveTimeCeil,omitempty" xml:"leaveTimeCeil,omitempty"`
+	// example:
+	//
+	// hour
+	LeaveTimeCeilMinUnit *string `json:"leaveTimeCeilMinUnit,omitempty" xml:"leaveTimeCeilMinUnit,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// day
+	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	// example:
+	//
+	// 1
+	MaxLeaveTime *int64 `json:"maxLeaveTime,omitempty" xml:"maxLeaveTime,omitempty"`
+	// example:
+	//
+	// 2
+	MinLeaveHour *float64 `json:"minLeaveHour,omitempty" xml:"minLeaveHour,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	NaturalDayLeave *bool `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	// example:
+	//
+	// false
+	PaidLeave       *bool                                 `json:"paidLeave,omitempty" xml:"paidLeave,omitempty"`
+	SubmitTimeRule  *AddLeaveTypeRequestSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	VisibilityRules []*AddLeaveTypeRequestVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
+	// example:
+	//
+	// entry
+	WhenCanLeave *string `json:"whenCanLeave,omitempty" xml:"whenCanLeave,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user01
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s AddLeaveTypeRequest) String() string {
@@ -291,10 +344,22 @@ func (s *AddLeaveTypeRequest) SetOpUserId(v string) *AddLeaveTypeRequest {
 }
 
 type AddLeaveTypeRequestLeaveCertificate struct {
-	Duration          *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
-	Enable            *bool    `json:"enable,omitempty" xml:"enable,omitempty"`
-	PromptInformation *string  `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
-	Unit              *string  `json:"unit,omitempty" xml:"unit,omitempty"`
+	// example:
+	//
+	// 1
+	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// example:
+	//
+	// false
+	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
+	// example:
+	//
+	// 请假文案
+	PromptInformation *string `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
+	// example:
+	//
+	// hour
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s AddLeaveTypeRequestLeaveCertificate) String() string {
@@ -326,10 +391,22 @@ func (s *AddLeaveTypeRequestLeaveCertificate) SetUnit(v string) *AddLeaveTypeReq
 }
 
 type AddLeaveTypeRequestSubmitTimeRule struct {
-	EnableTimeLimit *bool   `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
-	TimeType        *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
-	TimeUnit        *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
-	TimeValue       *int64  `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
+	// example:
+	//
+	// true
+	EnableTimeLimit *bool `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
+	// example:
+	//
+	// before
+	TimeType *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
+	// example:
+	//
+	// day
+	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	// example:
+	//
+	// 2
+	TimeValue *int64 `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
 }
 
 func (s AddLeaveTypeRequestSubmitTimeRule) String() string {
@@ -361,6 +438,9 @@ func (s *AddLeaveTypeRequestSubmitTimeRule) SetTimeValue(v int64) *AddLeaveTypeR
 }
 
 type AddLeaveTypeRequestVisibilityRules struct {
+	// example:
+	//
+	// staff
 	Type    *string   `json:"type,omitempty" xml:"type,omitempty"`
 	Visible []*string `json:"visible,omitempty" xml:"visible,omitempty" type:"Repeated"`
 }
@@ -384,6 +464,7 @@ func (s *AddLeaveTypeRequestVisibilityRules) SetVisible(v []*string) *AddLeaveTy
 }
 
 type AddLeaveTypeResponseBody struct {
+	// This parameter is required.
 	Result *AddLeaveTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -401,15 +482,33 @@ func (s *AddLeaveTypeResponseBody) SetResult(v *AddLeaveTypeResponseBodyResult) 
 }
 
 type AddLeaveTypeResponseBodyResult struct {
-	BizType          *string                                          `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	HoursInPerDay    *int64                                           `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
-	LeaveCertificate *AddLeaveTypeResponseBodyResultLeaveCertificate  `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
-	LeaveCode        *string                                          `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	LeaveName        *string                                          `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
-	LeaveViewUnit    *string                                          `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
-	NaturalDayLeave  *bool                                            `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
-	SubmitTimeRule   *AddLeaveTypeResponseBodyResultSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
-	VisibilityRules  []*AddLeaveTypeResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
+	// example:
+	//
+	// general_leave
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// example:
+	//
+	// 1000
+	HoursInPerDay    *int64                                          `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	LeaveCertificate *AddLeaveTypeResponseBodyResultLeaveCertificate `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	// example:
+	//
+	// 037477ae-1009-4632-b8e9-e919ae5e7973
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// example:
+	//
+	// 年假
+	LeaveName *string `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	// example:
+	//
+	// day
+	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	// example:
+	//
+	// true
+	NaturalDayLeave *bool                                            `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	SubmitTimeRule  *AddLeaveTypeResponseBodyResultSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	VisibilityRules []*AddLeaveTypeResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
 }
 
 func (s AddLeaveTypeResponseBodyResult) String() string {
@@ -466,10 +565,22 @@ func (s *AddLeaveTypeResponseBodyResult) SetVisibilityRules(v []*AddLeaveTypeRes
 }
 
 type AddLeaveTypeResponseBodyResultLeaveCertificate struct {
-	Duration          *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
-	Enable            *bool    `json:"enable,omitempty" xml:"enable,omitempty"`
-	PromptInformation *string  `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
-	Unit              *string  `json:"unit,omitempty" xml:"unit,omitempty"`
+	// example:
+	//
+	// 1
+	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// example:
+	//
+	// false
+	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
+	// example:
+	//
+	// 请假文案
+	PromptInformation *string `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
+	// example:
+	//
+	// hour
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s AddLeaveTypeResponseBodyResultLeaveCertificate) String() string {
@@ -501,10 +612,22 @@ func (s *AddLeaveTypeResponseBodyResultLeaveCertificate) SetUnit(v string) *AddL
 }
 
 type AddLeaveTypeResponseBodyResultSubmitTimeRule struct {
-	EnableTimeLimit *bool   `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
-	TimeType        *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
-	TimeUnit        *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
-	TimeValue       *int64  `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
+	// example:
+	//
+	// false
+	EnableTimeLimit *bool `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
+	// example:
+	//
+	// before
+	TimeType *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
+	// example:
+	//
+	// day
+	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	// example:
+	//
+	// 1
+	TimeValue *int64 `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
 }
 
 func (s AddLeaveTypeResponseBodyResultSubmitTimeRule) String() string {
@@ -536,6 +659,9 @@ func (s *AddLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeValue(v int64) *Ad
 }
 
 type AddLeaveTypeResponseBodyResultVisibilityRules struct {
+	// example:
+	//
+	// staff
 	Type    *string   `json:"type,omitempty" xml:"type,omitempty"`
 	Visible []*string `json:"visible,omitempty" xml:"visible,omitempty" type:"Repeated"`
 }
@@ -611,9 +737,18 @@ func (s *AttendanceBleDevicesAddHeaders) SetXAcsDingtalkAccessToken(v string) *A
 }
 
 type AttendanceBleDevicesAddRequest struct {
+	// This parameter is required.
 	DeviceIdList []*int64 `json:"deviceIdList,omitempty" xml:"deviceIdList,omitempty" type:"Repeated"`
-	GroupKey     *string  `json:"groupKey,omitempty" xml:"groupKey,omitempty"`
-	OpUserId     *string  `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 62001E1C5B9362D369D316DED25F3656
+	GroupKey *string `json:"groupKey,omitempty" xml:"groupKey,omitempty"`
+	// example:
+	//
+	// userId001
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s AttendanceBleDevicesAddRequest) String() string {
@@ -663,9 +798,15 @@ func (s *AttendanceBleDevicesAddResponseBody) SetSuccessList(v []*AttendanceBleD
 }
 
 type AttendanceBleDevicesAddResponseBodyErrorList struct {
+	// example:
+	//
+	// 400001
 	Code        *string                                                    `json:"code,omitempty" xml:"code,omitempty"`
 	FailureList []*AttendanceBleDevicesAddResponseBodyErrorListFailureList `json:"failureList,omitempty" xml:"failureList,omitempty" type:"Repeated"`
-	Msg         *string                                                    `json:"msg,omitempty" xml:"msg,omitempty"`
+	// example:
+	//
+	// error
+	Msg *string `json:"msg,omitempty" xml:"msg,omitempty"`
 }
 
 func (s AttendanceBleDevicesAddResponseBodyErrorList) String() string {
@@ -692,9 +833,18 @@ func (s *AttendanceBleDevicesAddResponseBodyErrorList) SetMsg(v string) *Attenda
 }
 
 type AttendanceBleDevicesAddResponseBodyErrorListFailureList struct {
-	DeviceId   *int64  `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// example:
+	//
+	// 3244523553
+	DeviceId *int64 `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// example:
+	//
+	// 蓝牙设备1
 	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	Sn         *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// example:
+	//
+	// dfsgdsdgd
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
 }
 
 func (s AttendanceBleDevicesAddResponseBodyErrorListFailureList) String() string {
@@ -721,9 +871,18 @@ func (s *AttendanceBleDevicesAddResponseBodyErrorListFailureList) SetSn(v string
 }
 
 type AttendanceBleDevicesAddResponseBodySuccessList struct {
-	DeviceId   *int64  `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// example:
+	//
+	// 6567575
+	DeviceId *int64 `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// example:
+	//
+	// 蓝牙设备2
 	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	Sn         *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// example:
+	//
+	// xfdfsdfgsdgfs
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
 }
 
 func (s AttendanceBleDevicesAddResponseBodySuccessList) String() string {
@@ -802,7 +961,15 @@ func (s *AttendanceBleDevicesQueryHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type AttendanceBleDevicesQueryRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 62001E1C5B9XXXX369D316DED25FXXXX
 	GroupKey *string `json:"groupKey,omitempty" xml:"groupKey,omitempty"`
+	// example:
+	//
+	// userId001
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
@@ -842,9 +1009,18 @@ func (s *AttendanceBleDevicesQueryResponseBody) SetResult(v []*AttendanceBleDevi
 }
 
 type AttendanceBleDevicesQueryResponseBodyResult struct {
-	DeviceId   *int64  `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// example:
+	//
+	// 34666777
+	DeviceId *int64 `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// example:
+	//
+	// 蓝牙设备
 	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	Sn         *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// example:
+	//
+	// 12321kllksdf
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
 }
 
 func (s AttendanceBleDevicesQueryResponseBodyResult) String() string {
@@ -923,9 +1099,18 @@ func (s *AttendanceBleDevicesRemoveHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type AttendanceBleDevicesRemoveRequest struct {
+	// This parameter is required.
 	DeviceIdList []*int64 `json:"deviceIdList,omitempty" xml:"deviceIdList,omitempty" type:"Repeated"`
-	GroupKey     *string  `json:"groupKey,omitempty" xml:"groupKey,omitempty"`
-	OpUserId     *string  `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 62001E1C5B9362D369D316DED25F3656
+	GroupKey *string `json:"groupKey,omitempty" xml:"groupKey,omitempty"`
+	// example:
+	//
+	// userId001
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s AttendanceBleDevicesRemoveRequest) String() string {
@@ -975,9 +1160,15 @@ func (s *AttendanceBleDevicesRemoveResponseBody) SetSuccessList(v []*int64) *Att
 }
 
 type AttendanceBleDevicesRemoveResponseBodyErrorList struct {
+	// example:
+	//
+	// 400001
 	Code        *string  `json:"code,omitempty" xml:"code,omitempty"`
 	FailureList []*int64 `json:"failureList,omitempty" xml:"failureList,omitempty" type:"Repeated"`
-	Msg         *string  `json:"msg,omitempty" xml:"msg,omitempty"`
+	// example:
+	//
+	// error
+	Msg *string `json:"msg,omitempty" xml:"msg,omitempty"`
 }
 
 func (s AttendanceBleDevicesRemoveResponseBodyErrorList) String() string {
@@ -1056,8 +1247,9 @@ func (s *BatchBossCheckHeaders) SetXAcsDingtalkAccessToken(v string) *BatchBossC
 }
 
 type BatchBossCheckRequest struct {
-	Models   []*BatchBossCheckRequestModels `json:"models,omitempty" xml:"models,omitempty" type:"Repeated"`
-	OpUserId *string                        `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	Models []*BatchBossCheckRequestModels `json:"models,omitempty" xml:"models,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s BatchBossCheckRequest) String() string {
@@ -1079,9 +1271,22 @@ func (s *BatchBossCheckRequest) SetOpUserId(v string) *BatchBossCheckRequest {
 }
 
 type BatchBossCheckRequestModels struct {
-	AbsentMin  *int64  `json:"absentMin,omitempty" xml:"absentMin,omitempty"`
-	PlanId     *int64  `json:"planId,omitempty" xml:"planId,omitempty"`
-	Remark     *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// 1
+	AbsentMin *int64 `json:"absentMin,omitempty" xml:"absentMin,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	PlanId *int64  `json:"planId,omitempty" xml:"planId,omitempty"`
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Normal
 	TimeResult *string `json:"timeResult,omitempty" xml:"timeResult,omitempty"`
 }
 
@@ -1114,6 +1319,11 @@ func (s *BatchBossCheckRequestModels) SetTimeResult(v string) *BatchBossCheckReq
 }
 
 type BatchBossCheckResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1183,13 +1393,34 @@ func (s *CalculateDurationHeaders) SetXAcsDingtalkAccessToken(v string) *Calcula
 }
 
 type CalculateDurationRequest struct {
-	BizType        *int64  `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	CalculateModel *int64  `json:"calculateModel,omitempty" xml:"calculateModel,omitempty"`
-	DurationUnit   *string `json:"durationUnit,omitempty" xml:"durationUnit,omitempty"`
-	FromTime       *string `json:"fromTime,omitempty" xml:"fromTime,omitempty"`
-	LeaveCode      *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	ToTime         *string `json:"toTime,omitempty" xml:"toTime,omitempty"`
-	UserId         *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 3
+	BizType *int64 `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// example:
+	//
+	// 1
+	CalculateModel *int64 `json:"calculateModel,omitempty" xml:"calculateModel,omitempty"`
+	// example:
+	//
+	// day
+	DurationUnit *string `json:"durationUnit,omitempty" xml:"durationUnit,omitempty"`
+	// example:
+	//
+	// 2019-08-15
+	FromTime *string `json:"fromTime,omitempty" xml:"fromTime,omitempty"`
+	// example:
+	//
+	// e2dsad-34dfa-2vas23da
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// example:
+	//
+	// 2019-08-15
+	ToTime *string `json:"toTime,omitempty" xml:"toTime,omitempty"`
+	// example:
+	//
+	// manager123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CalculateDurationRequest) String() string {
@@ -1259,6 +1490,9 @@ func (s *CalculateDurationResponseBody) SetSuccess(v bool) *CalculateDurationRes
 }
 
 type CalculateDurationResponseBodyResult struct {
+	// example:
+	//
+	// 2.0
 	Duration       *float64                                             `json:"duration,omitempty" xml:"duration,omitempty"`
 	DurationDetail []*CalculateDurationResponseBodyResultDurationDetail `json:"durationDetail,omitempty" xml:"durationDetail,omitempty" type:"Repeated"`
 }
@@ -1282,7 +1516,13 @@ func (s *CalculateDurationResponseBodyResult) SetDurationDetail(v []*CalculateDu
 }
 
 type CalculateDurationResponseBodyResultDurationDetail struct {
-	Date     *string  `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 2019-08-15
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 1.0
 	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
 }
 
@@ -1357,8 +1597,11 @@ func (s *CheckClosingAccountHeaders) SetXAcsDingtalkAccessToken(v string) *Check
 }
 
 type CheckClosingAccountRequest struct {
-	BizCode       *string                                    `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	UserIds       []*string                                  `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// This parameter is required.
 	UserTimeRange []*CheckClosingAccountRequestUserTimeRange `json:"userTimeRange,omitempty" xml:"userTimeRange,omitempty" type:"Repeated"`
 }
 
@@ -1386,7 +1629,9 @@ func (s *CheckClosingAccountRequest) SetUserTimeRange(v []*CheckClosingAccountRe
 }
 
 type CheckClosingAccountRequestUserTimeRange struct {
-	EndTime   *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
 	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
 }
 
@@ -1409,9 +1654,12 @@ func (s *CheckClosingAccountRequestUserTimeRange) SetStartTime(v int64) *CheckCl
 }
 
 type CheckClosingAccountResponseBody struct {
-	Code   *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// This parameter is required.
 	Mesage *string `json:"mesage,omitempty" xml:"mesage,omitempty"`
-	Pass   *bool   `json:"pass,omitempty" xml:"pass,omitempty"`
+	// This parameter is required.
+	Pass *bool `json:"pass,omitempty" xml:"pass,omitempty"`
 }
 
 func (s CheckClosingAccountResponseBody) String() string {
@@ -1490,10 +1738,26 @@ func (s *CheckWritePermissionHeaders) SetXAcsDingtalkAccessToken(v string) *Chec
 }
 
 type CheckWritePermissionRequest struct {
-	Category    *string  `json:"category,omitempty" xml:"category,omitempty"`
-	EntityIds   []*int64 `json:"entityIds,omitempty" xml:"entityIds,omitempty" type:"Repeated"`
-	OpUserId    *string  `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	ResourceKey *string  `json:"resourceKey,omitempty" xml:"resourceKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// GROUP
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// This parameter is required.
+	EntityIds []*int64 `json:"entityIds,omitempty" xml:"entityIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 050728xxx921
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SCHEDULE
+	ResourceKey *string `json:"resourceKey,omitempty" xml:"resourceKey,omitempty"`
 }
 
 func (s CheckWritePermissionRequest) String() string {
@@ -1525,6 +1789,7 @@ func (s *CheckWritePermissionRequest) SetResourceKey(v string) *CheckWritePermis
 }
 
 type CheckWritePermissionResponseBody struct {
+	// This parameter is required.
 	EntityPermissionMap map[string]*bool `json:"entityPermissionMap,omitempty" xml:"entityPermissionMap,omitempty"`
 }
 
@@ -1594,12 +1859,29 @@ func (s *CreateApproveHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAppro
 }
 
 type CreateApproveRequest struct {
-	ApproveId  *string                         `json:"approveId,omitempty" xml:"approveId,omitempty"`
+	// example:
+	//
+	// 341lkfjdkf
+	ApproveId *string `json:"approveId,omitempty" xml:"approveId,omitempty"`
+	// example:
+	//
+	// 4243235dfd
 	OpUserid   *string                         `json:"opUserid,omitempty" xml:"opUserid,omitempty"`
 	PunchParam *CreateApproveRequestPunchParam `json:"punchParam,omitempty" xml:"punchParam,omitempty" type:"Struct"`
-	SubType    *string                         `json:"subType,omitempty" xml:"subType,omitempty"`
-	TagName    *string                         `json:"tagName,omitempty" xml:"tagName,omitempty"`
-	Userid     *string                         `json:"userid,omitempty" xml:"userid,omitempty"`
+	// example:
+	//
+	// 年假
+	SubType *string `json:"subType,omitempty" xml:"subType,omitempty"`
+	// example:
+	//
+	// 请假
+	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// fdfi3435
+	Userid *string `json:"userid,omitempty" xml:"userid,omitempty"`
 }
 
 func (s CreateApproveRequest) String() string {
@@ -1641,10 +1923,22 @@ func (s *CreateApproveRequest) SetUserid(v string) *CreateApproveRequest {
 }
 
 type CreateApproveRequestPunchParam struct {
-	PositionId   *string `json:"positionId,omitempty" xml:"positionId,omitempty"`
+	// example:
+	//
+	// 120.023425_30.291465
+	PositionId *string `json:"positionId,omitempty" xml:"positionId,omitempty"`
+	// example:
+	//
+	// 余杭区五常街道
 	PositionName *string `json:"positionName,omitempty" xml:"positionName,omitempty"`
+	// example:
+	//
+	// gps
 	PositionType *string `json:"positionType,omitempty" xml:"positionType,omitempty"`
-	PunchTime    *int64  `json:"punchTime,omitempty" xml:"punchTime,omitempty"`
+	// example:
+	//
+	// 1614222064000
+	PunchTime *int64 `json:"punchTime,omitempty" xml:"punchTime,omitempty"`
 }
 
 func (s CreateApproveRequestPunchParam) String() string {
@@ -1745,6 +2039,11 @@ func (s *DeleteLeaveRequestHeaders) SetXAcsDingtalkAccessToken(v string) *Delete
 }
 
 type DeleteLeaveRequestRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// zxfgsdfsdfvsd
 	OuterId *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
 }
 
@@ -1837,11 +2136,30 @@ func (s *DeleteWaterMarkTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *D
 }
 
 type DeleteWaterMarkTemplateRequest struct {
-	FormCode           *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	FormContent        *string `json:"formContent,omitempty" xml:"formContent,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-292988B1-5064-4A42-9389-A76B97xxxxx
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// example:
+	//
+	// {     \"items\":[         {             \"componentName\":\"HiddenField\",             \"props\":{                 \"bizAlias\":\"enableModifyPlace\",                 \"id\":\"enableModifyPlace-undefined\",                 \"value\":\"true\"             }         },         {             \"componentName\":\"HiddenField\",             \"props\":{                 \"bizAlias\":\"modifyPlaceDistance\",                 \"id\":\"modifyPlaceDistance-undefined\",                 \"value\":200             }         },         {             \"componentName\":\"HiddenField\",             \"props\":{                 \"bizAlias\":\"title\",                 \"id\":\"title-undefined\",                 \"value\":\"wofu1\"             }         },         {             \"componentName\":\"HiddenField\",             \"props\":{                 \"bizAlias\":\"titleBgColor\",                 \"id\":\"titleBgColor-undefined\",                 \"value\":\"#0089FF\"             }         }     ] }
+	FormContent *string `json:"formContent,omitempty" xml:"formContent,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234567
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	SystemTemplate     *bool   `json:"systemTemplate,omitempty" xml:"systemTemplate,omitempty"`
-	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	SystemTemplate *bool `json:"systemTemplate,omitempty" xml:"systemTemplate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manage123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DeleteWaterMarkTemplateRequest) String() string {
@@ -1878,6 +2196,9 @@ func (s *DeleteWaterMarkTemplateRequest) SetUserId(v string) *DeleteWaterMarkTem
 }
 
 type DeleteWaterMarkTemplateResponseBody struct {
+	// example:
+	//
+	// PROC-292988B1-5064-4A42-9389-A76B97xxxxx
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1947,11 +2268,36 @@ func (s *DingTalkSecurityCheckHeaders) SetXAcsDingtalkAccessToken(v string) *Din
 }
 
 type DingTalkSecurityCheckRequest struct {
-	ClientVer   *string `json:"clientVer,omitempty" xml:"clientVer,omitempty"`
-	Platform    *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 6.3.30
+	ClientVer *string `json:"clientVer,omitempty" xml:"clientVer,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// iOS
+	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 15
 	PlatformVer *string `json:"platformVer,omitempty" xml:"platformVer,omitempty"`
-	Sec         *string `json:"sec,omitempty" xml:"sec,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"lbsWuaToken": "lbsWua","ddSec":"ddSec"}
+	Sec *string `json:"sec,omitempty" xml:"sec,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user01
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DingTalkSecurityCheckRequest) String() string {
@@ -1988,6 +2334,7 @@ func (s *DingTalkSecurityCheckRequest) SetUserId(v string) *DingTalkSecurityChec
 }
 
 type DingTalkSecurityCheckResponseBody struct {
+	// This parameter is required.
 	Result *DingTalkSecurityCheckResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -2005,7 +2352,13 @@ func (s *DingTalkSecurityCheckResponseBody) SetResult(v *DingTalkSecurityCheckRe
 }
 
 type DingTalkSecurityCheckResponseBodyResult struct {
-	HasRisk  *bool              `json:"hasRisk,omitempty" xml:"hasRisk,omitempty"`
+	// example:
+	//
+	// true
+	HasRisk *bool `json:"hasRisk,omitempty" xml:"hasRisk,omitempty"`
+	// example:
+	//
+	// {"riskTypeMinor":"bbbb""riskTypeMajor":"aaaa""riskTypeMsg":"ccc"}
 	RiskInfo map[string]*string `json:"riskInfo,omitempty" xml:"riskInfo,omitempty"`
 }
 
@@ -2080,9 +2433,24 @@ func (s *GetATManageScopeHeaders) SetXAcsDingtalkAccessToken(v string) *GetATMan
 }
 
 type GetATManageScopeRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 50
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user01
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetATManageScopeRequest) String() string {
@@ -2126,7 +2494,17 @@ func (s *GetATManageScopeResponseBody) SetResult(v []*GetATManageScopeResponseBo
 }
 
 type GetATManageScopeResponseBodyResult struct {
-	HasMore     *bool     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// false
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// partial
 	ManageScope *string   `json:"manageScope,omitempty" xml:"manageScope,omitempty"`
 	UserIds     []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
@@ -2207,8 +2585,18 @@ func (s *GetAdjustmentsHeaders) SetXAcsDingtalkAccessToken(v string) *GetAdjustm
 }
 
 type GetAdjustmentsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s GetAdjustmentsRequest) String() string {
@@ -2247,9 +2635,15 @@ func (s *GetAdjustmentsResponseBody) SetResult(v *GetAdjustmentsResponseBodyResu
 }
 
 type GetAdjustmentsResponseBodyResult struct {
-	Items      []*GetAdjustmentsResponseBodyResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
-	PageNumber *int64                                   `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	TotalPage  *int64                                   `json:"totalPage,omitempty" xml:"totalPage,omitempty"`
+	Items []*GetAdjustmentsResponseBodyResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 1
+	TotalPage *int64 `json:"totalPage,omitempty" xml:"totalPage,omitempty"`
 }
 
 func (s GetAdjustmentsResponseBodyResult) String() string {
@@ -2276,9 +2670,15 @@ func (s *GetAdjustmentsResponseBodyResult) SetTotalPage(v int64) *GetAdjustments
 }
 
 type GetAdjustmentsResponseBodyResultItems struct {
-	Id        *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	SettingId *int64  `json:"settingId,omitempty" xml:"settingId,omitempty"`
+	// example:
+	//
+	// 1
+	Id   *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1
+	SettingId *int64 `json:"settingId,omitempty" xml:"settingId,omitempty"`
 }
 
 func (s GetAdjustmentsResponseBodyResultItems) String() string {
@@ -2357,10 +2757,28 @@ func (s *GetCheckInSchemaTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type GetCheckInSchemaTemplateRequest struct {
-	BizCode            *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// water_mark_checkin
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234567
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	SceneCode          *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
-	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// water_mark_checkin
+	SceneCode *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manage123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetCheckInSchemaTemplateRequest) String() string {
@@ -2409,10 +2827,16 @@ func (s *GetCheckInSchemaTemplateResponseBody) SetResult(v *GetCheckInSchemaTemp
 }
 
 type GetCheckInSchemaTemplateResponseBodyResult struct {
-	BizCode                 *string                                                              `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	CanModifyAndAddTemplate *bool                                                                `json:"canModifyAndAddTemplate,omitempty" xml:"canModifyAndAddTemplate,omitempty"`
-	ConversationAdmin       *bool                                                                `json:"conversationAdmin,omitempty" xml:"conversationAdmin,omitempty"`
-	CustomTemplateMaxSize   *int32                                                               `json:"customTemplateMaxSize,omitempty" xml:"customTemplateMaxSize,omitempty"`
+	// example:
+	//
+	// water_mark_checkin
+	BizCode                 *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	CanModifyAndAddTemplate *bool   `json:"canModifyAndAddTemplate,omitempty" xml:"canModifyAndAddTemplate,omitempty"`
+	ConversationAdmin       *bool   `json:"conversationAdmin,omitempty" xml:"conversationAdmin,omitempty"`
+	CustomTemplateMaxSize   *int32  `json:"customTemplateMaxSize,omitempty" xml:"customTemplateMaxSize,omitempty"`
+	// example:
+	//
+	// 1234567
 	OpenConversationId      *string                                                              `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	ShowStat                *bool                                                                `json:"showStat,omitempty" xml:"showStat,omitempty"`
 	TemplateDegrade         *bool                                                                `json:"templateDegrade,omitempty" xml:"templateDegrade,omitempty"`
@@ -2468,16 +2892,40 @@ func (s *GetCheckInSchemaTemplateResponseBodyResult) SetWaterMarkTemplateModels(
 }
 
 type GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels struct {
-	CanModify      *bool   `json:"canModify,omitempty" xml:"canModify,omitempty"`
-	FormCode       *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	Icon           *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	LayoutDesign   *string `json:"layoutDesign,omitempty" xml:"layoutDesign,omitempty"`
-	SceneCode      *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
-	SchemaContent  *string `json:"schemaContent,omitempty" xml:"schemaContent,omitempty"`
+	CanModify *bool `json:"canModify,omitempty" xml:"canModify,omitempty"`
+	// example:
+	//
+	// PROC-292988B1-5064-4A42-9389-xxxxx
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// example:
+	//
+	// https://xx.xx.png
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// example:
+	//
+	// {     \"widgetName\":\"dd_watermark_xxx_xxx\",     \"miniAppId\":\"50000xxx\",     \"templateRule\":{         \"maxItems\":6,         \"canEditColor\":true,         \"canEditTitle\":true,         \"items\":[          ]     },     \"layoutDesignId\":\"industry_xx_xx\",     \"width\":\"111\" }
+	LayoutDesign *string `json:"layoutDesign,omitempty" xml:"layoutDesign,omitempty"`
+	// example:
+	//
+	// water_mark_checkin_open
+	SceneCode *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
+	// example:
+	//
+	// {     \"items\":[         {             \"componentName\":\"HiddenField\",             \"props\":{                 \"bizAlias\":\"enableModifyPlace\",                 \"id\":\"enableModifyPlace-undefined\",                 \"value\":\"true\"             }         },         {             \"componentName\":\"HiddenField\",             \"props\":{                 \"bizAlias\":\"modifyPlaceDistance\",                 \"id\":\"modifyPlaceDistance-undefined\",                 \"value\":200             }         },         {             \"componentName\":\"HiddenField\",             \"props\":{                 \"bizAlias\":\"title\",                 \"id\":\"title-undefined\",                 \"value\":\"wofu1\"             }         },         {             \"componentName\":\"HiddenField\",             \"props\":{                 \"bizAlias\":\"titleBgColor\",                 \"id\":\"titleBgColor-undefined\",                 \"value\":\"#0089FF\"             }         }     ] }
+	SchemaContent *string `json:"schemaContent,omitempty" xml:"schemaContent,omitempty"`
+	// example:
+	//
+	// suiteKey
 	SuiteKey       *string `json:"suiteKey,omitempty" xml:"suiteKey,omitempty"`
 	SystemTemplate *bool   `json:"systemTemplate,omitempty" xml:"systemTemplate,omitempty"`
-	Title          *string `json:"title,omitempty" xml:"title,omitempty"`
-	WaterMarkId    *string `json:"waterMarkId,omitempty" xml:"waterMarkId,omitempty"`
+	// example:
+	//
+	// 标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// PROC-292988B1-5064-4A42-9389-xxxxx
+	WaterMarkId *string `json:"waterMarkId,omitempty" xml:"waterMarkId,omitempty"`
 }
 
 func (s GetCheckInSchemaTemplateResponseBodyResultWaterMarkTemplateModels) String() string {
@@ -2591,12 +3039,18 @@ func (s *GetCheckinRecordByUserHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetCheckinRecordByUserRequest struct {
-	EndTime        *int64    `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	MaxResults     *int64    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken      *int64    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	OperatorUserId *string   `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
-	StartTime      *int64    `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	UserIdList     []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
 func (s GetCheckinRecordByUserRequest) String() string {
@@ -2847,12 +3301,21 @@ func (s *GetClassWithDeletedResponseBody) SetResult(v *GetClassWithDeletedRespon
 }
 
 type GetClassWithDeletedResponseBodyResult struct {
+	// example:
+	//
+	// 1
 	ClassId      *int64                                             `json:"classId,omitempty" xml:"classId,omitempty"`
 	ClassSetting *GetClassWithDeletedResponseBodyResultClassSetting `json:"classSetting,omitempty" xml:"classSetting,omitempty" type:"Struct"`
-	CorpId       *string                                            `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Name         *string                                            `json:"name,omitempty" xml:"name,omitempty"`
-	Sections     []*GetClassWithDeletedResponseBodyResultSections   `json:"sections,omitempty" xml:"sections,omitempty" type:"Repeated"`
-	WorkDays     []*int32                                           `json:"workDays,omitempty" xml:"workDays,omitempty" type:"Repeated"`
+	// example:
+	//
+	// ding1234
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 夜班
+	Name     *string                                          `json:"name,omitempty" xml:"name,omitempty"`
+	Sections []*GetClassWithDeletedResponseBodyResultSections `json:"sections,omitempty" xml:"sections,omitempty" type:"Repeated"`
+	WorkDays []*int32                                         `json:"workDays,omitempty" xml:"workDays,omitempty" type:"Repeated"`
 }
 
 func (s GetClassWithDeletedResponseBodyResult) String() string {
@@ -2894,6 +3357,9 @@ func (s *GetClassWithDeletedResponseBodyResult) SetWorkDays(v []*int32) *GetClas
 }
 
 type GetClassWithDeletedResponseBodyResultClassSetting struct {
+	// example:
+	//
+	// 1
 	ClassSettingId *int64                                                           `json:"classSettingId,omitempty" xml:"classSettingId,omitempty"`
 	RestTimeList   []*GetClassWithDeletedResponseBodyResultClassSettingRestTimeList `json:"restTimeList,omitempty" xml:"restTimeList,omitempty" type:"Repeated"`
 }
@@ -2940,7 +3406,13 @@ func (s *GetClassWithDeletedResponseBodyResultClassSettingRestTimeList) SetEnd(v
 }
 
 type GetClassWithDeletedResponseBodyResultClassSettingRestTimeListBegin struct {
-	Across    *int32  `json:"across,omitempty" xml:"across,omitempty"`
+	// example:
+	//
+	// 0
+	Across *int32 `json:"across,omitempty" xml:"across,omitempty"`
+	// example:
+	//
+	// 1970-01-01T12:00Z
 	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
 }
 
@@ -2963,7 +3435,13 @@ func (s *GetClassWithDeletedResponseBodyResultClassSettingRestTimeListBegin) Set
 }
 
 type GetClassWithDeletedResponseBodyResultClassSettingRestTimeListEnd struct {
-	Across    *int32  `json:"across,omitempty" xml:"across,omitempty"`
+	// example:
+	//
+	// 0
+	Across *int32 `json:"across,omitempty" xml:"across,omitempty"`
+	// example:
+	//
+	// 1970-01-01T13:00Z
 	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
 }
 
@@ -3003,11 +3481,26 @@ func (s *GetClassWithDeletedResponseBodyResultSections) SetTimes(v []*GetClassWi
 }
 
 type GetClassWithDeletedResponseBodyResultSectionsTimes struct {
-	Across    *int32  `json:"across,omitempty" xml:"across,omitempty"`
-	BeginMin  *int64  `json:"beginMin,omitempty" xml:"beginMin,omitempty"`
+	// example:
+	//
+	// 0
+	Across *int32 `json:"across,omitempty" xml:"across,omitempty"`
+	// example:
+	//
+	// 10
+	BeginMin *int64 `json:"beginMin,omitempty" xml:"beginMin,omitempty"`
+	// example:
+	//
+	// 1970-01-01T09:00Z
 	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	// example:
+	//
+	// OnDuty
 	CheckType *string `json:"checkType,omitempty" xml:"checkType,omitempty"`
-	EndMin    *int64  `json:"endMin,omitempty" xml:"endMin,omitempty"`
+	// example:
+	//
+	// 10
+	EndMin *int64 `json:"endMin,omitempty" xml:"endMin,omitempty"`
 }
 
 func (s GetClassWithDeletedResponseBodyResultSectionsTimes) String() string {
@@ -3096,6 +3589,7 @@ func (s *GetClosingAccountsHeaders) SetXAcsDingtalkAccessToken(v string) *GetClo
 }
 
 type GetClosingAccountsRequest struct {
+	// This parameter is required.
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -3113,6 +3607,7 @@ func (s *GetClosingAccountsRequest) SetUserIds(v []*string) *GetClosingAccountsR
 }
 
 type GetClosingAccountsResponseBody struct {
+	// This parameter is required.
 	Result []*GetClosingAccountsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -3130,10 +3625,14 @@ func (s *GetClosingAccountsResponseBody) SetResult(v []*GetClosingAccountsRespon
 }
 
 type GetClosingAccountsResponseBodyResult struct {
-	ClosingAccountModel       *GetClosingAccountsResponseBodyResultClosingAccountModel       `json:"closingAccountModel,omitempty" xml:"closingAccountModel,omitempty" type:"Struct"`
-	SwitchOn                  *bool                                                          `json:"switchOn,omitempty" xml:"switchOn,omitempty"`
+	// This parameter is required.
+	ClosingAccountModel *GetClosingAccountsResponseBodyResultClosingAccountModel `json:"closingAccountModel,omitempty" xml:"closingAccountModel,omitempty" type:"Struct"`
+	// This parameter is required.
+	SwitchOn *bool `json:"switchOn,omitempty" xml:"switchOn,omitempty"`
+	// This parameter is required.
 	UnsealClosingAccountModel *GetClosingAccountsResponseBodyResultUnsealClosingAccountModel `json:"unsealClosingAccountModel,omitempty" xml:"unsealClosingAccountModel,omitempty" type:"Struct"`
-	UserId                    *string                                                        `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetClosingAccountsResponseBodyResult) String() string {
@@ -3165,12 +3664,18 @@ func (s *GetClosingAccountsResponseBodyResult) SetUserId(v string) *GetClosingAc
 }
 
 type GetClosingAccountsResponseBodyResultClosingAccountModel struct {
-	ClosingDay         *int32 `json:"closingDay,omitempty" xml:"closingDay,omitempty"`
+	// This parameter is required.
+	ClosingDay *int32 `json:"closingDay,omitempty" xml:"closingDay,omitempty"`
+	// This parameter is required.
 	ClosingHourMinutes *int64 `json:"closingHourMinutes,omitempty" xml:"closingHourMinutes,omitempty"`
-	EndDay             *int32 `json:"endDay,omitempty" xml:"endDay,omitempty"`
-	EndMonth           *int32 `json:"endMonth,omitempty" xml:"endMonth,omitempty"`
-	StartDay           *int32 `json:"startDay,omitempty" xml:"startDay,omitempty"`
-	StartMonth         *int32 `json:"startMonth,omitempty" xml:"startMonth,omitempty"`
+	// This parameter is required.
+	EndDay *int32 `json:"endDay,omitempty" xml:"endDay,omitempty"`
+	// This parameter is required.
+	EndMonth *int32 `json:"endMonth,omitempty" xml:"endMonth,omitempty"`
+	// This parameter is required.
+	StartDay *int32 `json:"startDay,omitempty" xml:"startDay,omitempty"`
+	// This parameter is required.
+	StartMonth *int32 `json:"startMonth,omitempty" xml:"startMonth,omitempty"`
 }
 
 func (s GetClosingAccountsResponseBodyResultClosingAccountModel) String() string {
@@ -3212,6 +3717,7 @@ func (s *GetClosingAccountsResponseBodyResultClosingAccountModel) SetStartMonth(
 }
 
 type GetClosingAccountsResponseBodyResultUnsealClosingAccountModel struct {
+	// This parameter is required.
 	InvalidTimeStamp *int64 `json:"invalidTimeStamp,omitempty" xml:"invalidTimeStamp,omitempty"`
 }
 
@@ -3281,10 +3787,22 @@ func (s *GetColumnvalsHeaders) SetXAcsDingtalkAccessToken(v string) *GetColumnva
 }
 
 type GetColumnvalsRequest struct {
+	// This parameter is required.
 	ColumnIdList []*string `json:"columnIdList,omitempty" xml:"columnIdList,omitempty" type:"Repeated"`
-	FromDate     *int64    `json:"fromDate,omitempty" xml:"fromDate,omitempty"`
-	ToDate       *int64    `json:"toDate,omitempty" xml:"toDate,omitempty"`
-	UserIds      []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1709222400000
+	FromDate *int64 `json:"fromDate,omitempty" xml:"fromDate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1711728000000
+	ToDate *int64 `json:"toDate,omitempty" xml:"toDate,omitempty"`
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s GetColumnvalsRequest) String() string {
@@ -3334,7 +3852,10 @@ func (s *GetColumnvalsResponseBody) SetResult(v []*GetColumnvalsResponseBodyResu
 
 type GetColumnvalsResponseBodyResult struct {
 	ColumnData []*GetColumnvalsResponseBodyResultColumnData `json:"columnData,omitempty" xml:"columnData,omitempty" type:"Repeated"`
-	UserId     *string                                      `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// manager123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetColumnvalsResponseBodyResult) String() string {
@@ -3357,8 +3878,14 @@ func (s *GetColumnvalsResponseBodyResult) SetUserId(v string) *GetColumnvalsResp
 
 type GetColumnvalsResponseBodyResultColumnData struct {
 	ColumnValues []*GetColumnvalsResponseBodyResultColumnDataColumnValues `json:"columnValues,omitempty" xml:"columnValues,omitempty" type:"Repeated"`
-	FixedValue   *string                                                  `json:"fixedValue,omitempty" xml:"fixedValue,omitempty"`
-	Id           *int64                                                   `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 0
+	FixedValue *string `json:"fixedValue,omitempty" xml:"fixedValue,omitempty"`
+	// example:
+	//
+	// 129339038
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
 }
 
 func (s GetColumnvalsResponseBodyResultColumnData) String() string {
@@ -3385,6 +3912,9 @@ func (s *GetColumnvalsResponseBodyResultColumnData) SetId(v int64) *GetColumnval
 }
 
 type GetColumnvalsResponseBodyResultColumnDataColumnValues struct {
+	// example:
+	//
+	// 1709222400000
 	Date  *int64  `json:"date,omitempty" xml:"date,omitempty"`
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
@@ -3460,11 +3990,32 @@ func (s *GetLeaveRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *GetLeaveR
 }
 
 type GetLeaveRecordsRequest struct {
-	LeaveCode  *string   `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	OpUserId   *string   `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	PageNumber *int64    `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32    `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	UserIds    []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// f84a2dxxxx
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user01
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s GetLeaveRecordsRequest) String() string {
@@ -3547,22 +4098,70 @@ func (s *GetLeaveRecordsResponseBodyResult) SetLeaveRecords(v []*GetLeaveRecords
 }
 
 type GetLeaveRecordsResponseBodyResultLeaveRecords struct {
-	CalType          *string `json:"calType,omitempty" xml:"calType,omitempty"`
-	EndTime          *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	GmtCreate        *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified      *int64  `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	LeaveCode        *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	LeaveReason      *string `json:"leaveReason,omitempty" xml:"leaveReason,omitempty"`
-	LeaveRecordType  *string `json:"leaveRecordType,omitempty" xml:"leaveRecordType,omitempty"`
-	LeaveStatus      *string `json:"leaveStatus,omitempty" xml:"leaveStatus,omitempty"`
-	LeaveViewUnit    *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
-	OpUserId         *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	QuotaId          *string `json:"quotaId,omitempty" xml:"quotaId,omitempty"`
-	RecordId         *string `json:"recordId,omitempty" xml:"recordId,omitempty"`
-	RecordNumPerDay  *int64  `json:"recordNumPerDay,omitempty" xml:"recordNumPerDay,omitempty"`
-	RecordNumPerHour *int64  `json:"recordNumPerHour,omitempty" xml:"recordNumPerHour,omitempty"`
-	StartTime        *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	UserId           *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// add
+	CalType *string `json:"calType,omitempty" xml:"calType,omitempty"`
+	// example:
+	//
+	// 1753851001000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 1653851001000
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 1753851001000
+	GmtModified *int64 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// example:
+	//
+	// f84a2dxxxx
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// example:
+	//
+	// 管理员导入
+	LeaveReason *string `json:"leaveReason,omitempty" xml:"leaveReason,omitempty"`
+	// example:
+	//
+	// update
+	LeaveRecordType *string `json:"leaveRecordType,omitempty" xml:"leaveRecordType,omitempty"`
+	// example:
+	//
+	// init
+	LeaveStatus *string `json:"leaveStatus,omitempty" xml:"leaveStatus,omitempty"`
+	// example:
+	//
+	// day
+	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	// example:
+	//
+	// manage223
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// example:
+	//
+	// db1d74xxxxbaa
+	QuotaId *string `json:"quotaId,omitempty" xml:"quotaId,omitempty"`
+	// example:
+	//
+	// db1d74xxxxbaa
+	RecordId *string `json:"recordId,omitempty" xml:"recordId,omitempty"`
+	// example:
+	//
+	// 100
+	RecordNumPerDay *int64 `json:"recordNumPerDay,omitempty" xml:"recordNumPerDay,omitempty"`
+	// example:
+	//
+	// 100
+	RecordNumPerHour *int64 `json:"recordNumPerHour,omitempty" xml:"recordNumPerHour,omitempty"`
+	// example:
+	//
+	// 1653851001000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// user1
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetLeaveRecordsResponseBodyResultLeaveRecords) String() string {
@@ -3706,7 +4305,15 @@ func (s *GetLeaveTypeHeaders) SetXAcsDingtalkAccessToken(v string) *GetLeaveType
 }
 
 type GetLeaveTypeRequest struct {
-	OpUserId       *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user01
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// example:
+	//
+	// all
 	VacationSource *string `json:"vacationSource,omitempty" xml:"vacationSource,omitempty"`
 }
 
@@ -3729,6 +4336,7 @@ func (s *GetLeaveTypeRequest) SetVacationSource(v string) *GetLeaveTypeRequest {
 }
 
 type GetLeaveTypeResponseBody struct {
+	// This parameter is required.
 	Result []*GetLeaveTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -3746,18 +4354,45 @@ func (s *GetLeaveTypeResponseBody) SetResult(v []*GetLeaveTypeResponseBodyResult
 }
 
 type GetLeaveTypeResponseBodyResult struct {
-	BizType          *string                                          `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	HoursInPerDay    *int64                                           `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
-	LeaveCertificate *GetLeaveTypeResponseBodyResultLeaveCertificate  `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
-	LeaveCode        *string                                          `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	LeaveName        *string                                          `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
-	LeaveViewUnit    *string                                          `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
-	NaturalDayLeave  *bool                                            `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
-	Source           *string                                          `json:"source,omitempty" xml:"source,omitempty"`
-	SubmitTimeRule   *GetLeaveTypeResponseBodyResultSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
-	ValidityType     *string                                          `json:"validityType,omitempty" xml:"validityType,omitempty"`
-	ValidityValue    *string                                          `json:"validityValue,omitempty" xml:"validityValue,omitempty"`
-	VisibilityRules  []*GetLeaveTypeResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
+	// example:
+	//
+	// general_leave
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// example:
+	//
+	// 1000
+	HoursInPerDay    *int64                                          `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	LeaveCertificate *GetLeaveTypeResponseBodyResultLeaveCertificate `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	// example:
+	//
+	// 037477ae-1009-4632-b8e9-e919ae5e7973
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// example:
+	//
+	// 年假
+	LeaveName *string `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	// example:
+	//
+	// day
+	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	// example:
+	//
+	// true
+	NaturalDayLeave *bool `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	// example:
+	//
+	// external
+	Source         *string                                       `json:"source,omitempty" xml:"source,omitempty"`
+	SubmitTimeRule *GetLeaveTypeResponseBodyResultSubmitTimeRule `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	// example:
+	//
+	// absolute_time
+	ValidityType *string `json:"validityType,omitempty" xml:"validityType,omitempty"`
+	// example:
+	//
+	// 12-31
+	ValidityValue   *string                                          `json:"validityValue,omitempty" xml:"validityValue,omitempty"`
+	VisibilityRules []*GetLeaveTypeResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
 }
 
 func (s GetLeaveTypeResponseBodyResult) String() string {
@@ -3829,10 +4464,22 @@ func (s *GetLeaveTypeResponseBodyResult) SetVisibilityRules(v []*GetLeaveTypeRes
 }
 
 type GetLeaveTypeResponseBodyResultLeaveCertificate struct {
-	Duration          *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
-	Enable            *bool    `json:"enable,omitempty" xml:"enable,omitempty"`
-	PromptInformation *string  `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
-	Unit              *string  `json:"unit,omitempty" xml:"unit,omitempty"`
+	// example:
+	//
+	// 1
+	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// example:
+	//
+	// false
+	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
+	// example:
+	//
+	// 请假文案
+	PromptInformation *string `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
+	// example:
+	//
+	// hour
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s GetLeaveTypeResponseBodyResultLeaveCertificate) String() string {
@@ -3864,10 +4511,22 @@ func (s *GetLeaveTypeResponseBodyResultLeaveCertificate) SetUnit(v string) *GetL
 }
 
 type GetLeaveTypeResponseBodyResultSubmitTimeRule struct {
-	EnableTimeLimit *bool   `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
-	TimeType        *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
-	TimeUnit        *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
-	TimeValue       *int64  `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
+	// example:
+	//
+	// false
+	EnableTimeLimit *bool `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
+	// example:
+	//
+	// before
+	TimeType *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
+	// example:
+	//
+	// day
+	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	// example:
+	//
+	// 1
+	TimeValue *int64 `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
 }
 
 func (s GetLeaveTypeResponseBodyResultSubmitTimeRule) String() string {
@@ -3899,6 +4558,9 @@ func (s *GetLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeValue(v int64) *Ge
 }
 
 type GetLeaveTypeResponseBodyResultVisibilityRules struct {
+	// example:
+	//
+	// staff
 	Type    *string   `json:"type,omitempty" xml:"type,omitempty"`
 	Visible []*string `json:"visible,omitempty" xml:"visible,omitempty" type:"Repeated"`
 }
@@ -3974,6 +4636,7 @@ func (s *GetMachineHeaders) SetXAcsDingtalkAccessToken(v string) *GetMachineHead
 }
 
 type GetMachineResponseBody struct {
+	// This parameter is required.
 	Result *GetMachineResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -3991,17 +4654,64 @@ func (s *GetMachineResponseBody) SetResult(v *GetMachineResponseBodyResult) *Get
 }
 
 type GetMachineResponseBodyResult struct {
-	AtmManagerList     []*string                                       `json:"atmManagerList,omitempty" xml:"atmManagerList,omitempty" type:"Repeated"`
-	DevId              *int64                                          `json:"devId,omitempty" xml:"devId,omitempty"`
-	DeviceId           *string                                         `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	DeviceName         *string                                         `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	DeviceSn           *string                                         `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
+	// This parameter is required.
+	AtmManagerList []*string `json:"atmManagerList,omitempty" xml:"atmManagerList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1406333705
+	DevId *int64 `json:"devId,omitempty" xml:"devId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2078053438
+	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 泱云❄️的体00056
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0601IFW201001N000056
+	DeviceSn *string `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
+	// This parameter is required.
 	MachineBluetoothVO *GetMachineResponseBodyResultMachineBluetoothVO `json:"machineBluetoothVO,omitempty" xml:"machineBluetoothVO,omitempty" type:"Struct"`
-	MaxFace            *int32                                          `json:"maxFace,omitempty" xml:"maxFace,omitempty"`
-	NetStatus          *string                                         `json:"netStatus,omitempty" xml:"netStatus,omitempty"`
-	ProductName        *string                                         `json:"productName,omitempty" xml:"productName,omitempty"`
-	ProductVersion     *string                                         `json:"productVersion,omitempty" xml:"productVersion,omitempty"`
-	VoiceMode          *int32                                          `json:"voiceMode,omitempty" xml:"voiceMode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10000
+	MaxFace *int32 `json:"maxFace,omitempty" xml:"maxFace,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 4
+	NetStatus *string `json:"netStatus,omitempty" xml:"netStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// M1F
+	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1.0.1-R-20200326.1543
+	ProductVersion *string `json:"productVersion,omitempty" xml:"productVersion,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2
+	VoiceMode *int32 `json:"voiceMode,omitempty" xml:"voiceMode,omitempty"`
 }
 
 func (s GetMachineResponseBodyResult) String() string {
@@ -4068,16 +4778,66 @@ func (s *GetMachineResponseBodyResult) SetVoiceMode(v int32) *GetMachineResponse
 }
 
 type GetMachineResponseBodyResultMachineBluetoothVO struct {
-	Address                   *string  `json:"address,omitempty" xml:"address,omitempty"`
-	BluetoothCheckWithFace    *bool    `json:"bluetoothCheckWithFace,omitempty" xml:"bluetoothCheckWithFace,omitempty"`
-	BluetoothDistanceMode     *string  `json:"bluetoothDistanceMode,omitempty" xml:"bluetoothDistanceMode,omitempty"`
-	BluetoothDistanceModeDesc *string  `json:"bluetoothDistanceModeDesc,omitempty" xml:"bluetoothDistanceModeDesc,omitempty"`
-	BluetoothValue            *bool    `json:"bluetoothValue,omitempty" xml:"bluetoothValue,omitempty"`
-	Latitude                  *float64 `json:"latitude,omitempty" xml:"latitude,omitempty"`
-	LimitUserDeviceCount      *bool    `json:"limitUserDeviceCount,omitempty" xml:"limitUserDeviceCount,omitempty"`
-	Longitude                 *float64 `json:"longitude,omitempty" xml:"longitude,omitempty"`
-	MonitorLocationAbnormal   *bool    `json:"monitorLocationAbnormal,omitempty" xml:"monitorLocationAbnormal,omitempty"`
-	UserDeviceCount           *int32   `json:"userDeviceCount,omitempty" xml:"userDeviceCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 绿城-未来park
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	BluetoothCheckWithFace *bool `json:"bluetoothCheckWithFace,omitempty" xml:"bluetoothCheckWithFace,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// default
+	BluetoothDistanceMode *string `json:"bluetoothDistanceMode,omitempty" xml:"bluetoothDistanceMode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 默认 (最远5-10米)
+	BluetoothDistanceModeDesc *string `json:"bluetoothDistanceModeDesc,omitempty" xml:"bluetoothDistanceModeDesc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	BluetoothValue *bool `json:"bluetoothValue,omitempty" xml:"bluetoothValue,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 30.285871310763888
+	Latitude *float64 `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	LimitUserDeviceCount *bool `json:"limitUserDeviceCount,omitempty" xml:"limitUserDeviceCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 120.01757758246528
+	Longitude *float64 `json:"longitude,omitempty" xml:"longitude,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	MonitorLocationAbnormal *bool `json:"monitorLocationAbnormal,omitempty" xml:"monitorLocationAbnormal,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	UserDeviceCount *int32 `json:"userDeviceCount,omitempty" xml:"userDeviceCount,omitempty"`
 }
 
 func (s GetMachineResponseBodyResultMachineBluetoothVO) String() string {
@@ -4191,8 +4951,10 @@ func (s *GetMachineUserHeaders) SetXAcsDingtalkAccessToken(v string) *GetMachine
 }
 
 type GetMachineUserRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GetMachineUserRequest) String() string {
@@ -4214,6 +4976,7 @@ func (s *GetMachineUserRequest) SetNextToken(v string) *GetMachineUserRequest {
 }
 
 type GetMachineUserResponseBody struct {
+	// This parameter is required.
 	Result *GetMachineUserResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -4231,9 +4994,12 @@ func (s *GetMachineUserResponseBody) SetResult(v *GetMachineUserResponseBodyResu
 }
 
 type GetMachineUserResponseBodyResult struct {
-	HasMore   *bool                                       `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextToken *string                                     `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	UserList  []*GetMachineUserResponseBodyResultUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	UserList []*GetMachineUserResponseBodyResultUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
 }
 
 func (s GetMachineUserResponseBodyResult) String() string {
@@ -4260,9 +5026,12 @@ func (s *GetMachineUserResponseBodyResult) SetUserList(v []*GetMachineUserRespon
 }
 
 type GetMachineUserResponseBodyResultUserList struct {
-	HasFace *bool   `json:"hasFace,omitempty" xml:"hasFace,omitempty"`
-	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
-	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	HasFace *bool `json:"hasFace,omitempty" xml:"hasFace,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetMachineUserResponseBodyResultUserList) String() string {
@@ -4317,6 +5086,129 @@ func (s *GetMachineUserResponse) SetBody(v *GetMachineUserResponseBody) *GetMach
 	return s
 }
 
+type GetOverdraftInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetOverdraftInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOverdraftInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetOverdraftInfoHeaders) SetCommonHeaders(v map[string]*string) *GetOverdraftInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetOverdraftInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetOverdraftInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetOverdraftInfoRequest struct {
+	// This parameter is required.
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// This parameter is required.
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s GetOverdraftInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOverdraftInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetOverdraftInfoRequest) SetLeaveCode(v string) *GetOverdraftInfoRequest {
+	s.LeaveCode = &v
+	return s
+}
+
+func (s *GetOverdraftInfoRequest) SetUserIdList(v []*string) *GetOverdraftInfoRequest {
+	s.UserIdList = v
+	return s
+}
+
+type GetOverdraftInfoResponseBody struct {
+	OverdraftList []*GetOverdraftInfoResponseBodyOverdraftList `json:"overdraftList,omitempty" xml:"overdraftList,omitempty" type:"Repeated"`
+}
+
+func (s GetOverdraftInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOverdraftInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetOverdraftInfoResponseBody) SetOverdraftList(v []*GetOverdraftInfoResponseBodyOverdraftList) *GetOverdraftInfoResponseBody {
+	s.OverdraftList = v
+	return s
+}
+
+type GetOverdraftInfoResponseBodyOverdraftList struct {
+	Overdraft *int32  `json:"overdraft,omitempty" xml:"overdraft,omitempty"`
+	Unit      *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetOverdraftInfoResponseBodyOverdraftList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOverdraftInfoResponseBodyOverdraftList) GoString() string {
+	return s.String()
+}
+
+func (s *GetOverdraftInfoResponseBodyOverdraftList) SetOverdraft(v int32) *GetOverdraftInfoResponseBodyOverdraftList {
+	s.Overdraft = &v
+	return s
+}
+
+func (s *GetOverdraftInfoResponseBodyOverdraftList) SetUnit(v string) *GetOverdraftInfoResponseBodyOverdraftList {
+	s.Unit = &v
+	return s
+}
+
+func (s *GetOverdraftInfoResponseBodyOverdraftList) SetUserId(v string) *GetOverdraftInfoResponseBodyOverdraftList {
+	s.UserId = &v
+	return s
+}
+
+type GetOverdraftInfoResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetOverdraftInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetOverdraftInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetOverdraftInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetOverdraftInfoResponse) SetHeaders(v map[string]*string) *GetOverdraftInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetOverdraftInfoResponse) SetStatusCode(v int32) *GetOverdraftInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetOverdraftInfoResponse) SetBody(v *GetOverdraftInfoResponseBody) *GetOverdraftInfoResponse {
+	s.Body = v
+	return s
+}
+
 type GetOvertimeSettingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4358,6 +5250,7 @@ func (s *GetOvertimeSettingRequest) SetOvertimeSettingIds(v []*int64) *GetOverti
 }
 
 type GetOvertimeSettingResponseBody struct {
+	// This parameter is required.
 	Result []*GetOvertimeSettingResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -4375,8 +5268,9 @@ func (s *GetOvertimeSettingResponseBody) SetResult(v []*GetOvertimeSettingRespon
 }
 
 type GetOvertimeSettingResponseBodyResult struct {
-	Default           *bool                                                    `json:"default,omitempty" xml:"default,omitempty"`
-	DurationSettings  map[string]*ResultDurationSettingsValue                  `json:"durationSettings,omitempty" xml:"durationSettings,omitempty"`
+	Default          *bool                                   `json:"default,omitempty" xml:"default,omitempty"`
+	DurationSettings map[string]*ResultDurationSettingsValue `json:"durationSettings,omitempty" xml:"durationSettings,omitempty"`
+	// This parameter is required.
 	Id                *int64                                                   `json:"id,omitempty" xml:"id,omitempty"`
 	Name              *string                                                  `json:"name,omitempty" xml:"name,omitempty"`
 	OvertimeDivisions []*GetOvertimeSettingResponseBodyResultOvertimeDivisions `json:"overtimeDivisions,omitempty" xml:"overtimeDivisions,omitempty" type:"Repeated"`
@@ -4557,7 +5451,12 @@ func (s *GetShiftHeaders) SetXAcsDingtalkAccessToken(v string) *GetShiftHeaders 
 
 type GetShiftRequest struct {
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	ShiftId  *int64  `json:"shiftId,omitempty" xml:"shiftId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	ShiftId *int64 `json:"shiftId,omitempty" xml:"shiftId,omitempty"`
 }
 
 func (s GetShiftRequest) String() string {
@@ -4596,12 +5495,27 @@ func (s *GetShiftResponseBody) SetResult(v *GetShiftResponseBodyResult) *GetShif
 }
 
 type GetShiftResponseBodyResult struct {
-	CorpId         *string                                 `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Id             *int64                                  `json:"id,omitempty" xml:"id,omitempty"`
-	Name           *string                                 `json:"name,omitempty" xml:"name,omitempty"`
-	Owner          *string                                 `json:"owner,omitempty" xml:"owner,omitempty"`
-	Sections       []*GetShiftResponseBodyResultSections   `json:"sections,omitempty" xml:"sections,omitempty" type:"Repeated"`
-	ShiftGroupId   *int64                                  `json:"shiftGroupId,omitempty" xml:"shiftGroupId,omitempty"`
+	// example:
+	//
+	// dinge87f1xxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 678215070
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// B
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// user123
+	Owner        *string                               `json:"owner,omitempty" xml:"owner,omitempty"`
+	Sections     []*GetShiftResponseBodyResultSections `json:"sections,omitempty" xml:"sections,omitempty" type:"Repeated"`
+	ShiftGroupId *int64                                `json:"shiftGroupId,omitempty" xml:"shiftGroupId,omitempty"`
+	// example:
+	//
+	// 考勤班
 	ShiftGroupName *string                                 `json:"shiftGroupName,omitempty" xml:"shiftGroupName,omitempty"`
 	ShiftSetting   *GetShiftResponseBodyResultShiftSetting `json:"shiftSetting,omitempty" xml:"shiftSetting,omitempty" type:"Struct"`
 }
@@ -4684,18 +5598,38 @@ func (s *GetShiftResponseBodyResultSections) SetSectionId(v int64) *GetShiftResp
 }
 
 type GetShiftResponseBodyResultSectionsPunches struct {
-	AbsenteeismLateMinutes *int64                                                    `json:"absenteeismLateMinutes,omitempty" xml:"absenteeismLateMinutes,omitempty"`
-	Across                 *int64                                                    `json:"across,omitempty" xml:"across,omitempty"`
-	BeginMin               *int64                                                    `json:"beginMin,omitempty" xml:"beginMin,omitempty"`
-	CheckTime              *string                                                   `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
-	CheckType              *string                                                   `json:"checkType,omitempty" xml:"checkType,omitempty"`
-	EndMin                 *int64                                                    `json:"endMin,omitempty" xml:"endMin,omitempty"`
-	FlexMinutes            []*int64                                                  `json:"flexMinutes,omitempty" xml:"flexMinutes,omitempty" type:"Repeated"`
-	FreeCheck              *bool                                                     `json:"freeCheck,omitempty" xml:"freeCheck,omitempty"`
-	LateBackSetting        *GetShiftResponseBodyResultSectionsPunchesLateBackSetting `json:"lateBackSetting,omitempty" xml:"lateBackSetting,omitempty" type:"Struct"`
-	PermitMinutes          *int64                                                    `json:"permitMinutes,omitempty" xml:"permitMinutes,omitempty"`
-	PuncheId               *int64                                                    `json:"puncheId,omitempty" xml:"puncheId,omitempty"`
-	SeriousLateMinutes     *int64                                                    `json:"seriousLateMinutes,omitempty" xml:"seriousLateMinutes,omitempty"`
+	AbsenteeismLateMinutes *int64 `json:"absenteeismLateMinutes,omitempty" xml:"absenteeismLateMinutes,omitempty"`
+	// example:
+	//
+	// 0
+	Across   *int64 `json:"across,omitempty" xml:"across,omitempty"`
+	BeginMin *int64 `json:"beginMin,omitempty" xml:"beginMin,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 1970-01-01 19:00:00
+	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	// example:
+	//
+	// OnDuty
+	CheckType *string `json:"checkType,omitempty" xml:"checkType,omitempty"`
+	// example:
+	//
+	// -1
+	EndMin          *int64                                                    `json:"endMin,omitempty" xml:"endMin,omitempty"`
+	FlexMinutes     []*int64                                                  `json:"flexMinutes,omitempty" xml:"flexMinutes,omitempty" type:"Repeated"`
+	FreeCheck       *bool                                                     `json:"freeCheck,omitempty" xml:"freeCheck,omitempty"`
+	LateBackSetting *GetShiftResponseBodyResultSectionsPunchesLateBackSetting `json:"lateBackSetting,omitempty" xml:"lateBackSetting,omitempty" type:"Struct"`
+	// example:
+	//
+	// 0
+	PermitMinutes *int64 `json:"permitMinutes,omitempty" xml:"permitMinutes,omitempty"`
+	// example:
+	//
+	// 33928201
+	PuncheId           *int64 `json:"puncheId,omitempty" xml:"puncheId,omitempty"`
+	SeriousLateMinutes *int64 `json:"seriousLateMinutes,omitempty" xml:"seriousLateMinutes,omitempty"`
 }
 
 func (s GetShiftResponseBodyResultSectionsPunches) String() string {
@@ -4807,7 +5741,8 @@ func (s *GetShiftResponseBodyResultSectionsPunchesLateBackSettingLateBackPairs) 
 }
 
 type GetShiftResponseBodyResultSectionsRests struct {
-	Across    *int64  `json:"across,omitempty" xml:"across,omitempty"`
+	Across *int64 `json:"across,omitempty" xml:"across,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
 	CheckType *string `json:"checkType,omitempty" xml:"checkType,omitempty"`
 	RestId    *int64  `json:"restId,omitempty" xml:"restId,omitempty"`
@@ -4842,13 +5777,42 @@ func (s *GetShiftResponseBodyResultSectionsRests) SetRestId(v int64) *GetShiftRe
 }
 
 type GetShiftResponseBodyResultShiftSetting struct {
-	AttendDays      *string `json:"attendDays,omitempty" xml:"attendDays,omitempty"`
-	CorpId          *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	GmtCreate       *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified     *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	ShiftId         *int64  `json:"shiftId,omitempty" xml:"shiftId,omitempty"`
-	ShiftSettingId  *int64  `json:"shiftSettingId,omitempty" xml:"shiftSettingId,omitempty"`
-	WorkTimeMinutes *int64  `json:"workTimeMinutes,omitempty" xml:"workTimeMinutes,omitempty"`
+	// example:
+	//
+	// 12
+	AttendDays *string `json:"attendDays,omitempty" xml:"attendDays,omitempty"`
+	// example:
+	//
+	// dinge87f1xxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2020-09-06 15:49:27
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2020-09-06 15:49:27
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// example:
+	//
+	// 678215070
+	ShiftId *int64 `json:"shiftId,omitempty" xml:"shiftId,omitempty"`
+	// example:
+	//
+	// 233840112
+	ShiftSettingId *int64 `json:"shiftSettingId,omitempty" xml:"shiftSettingId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	ShiftType *string `json:"shiftType,omitempty" xml:"shiftType,omitempty"`
+	// example:
+	//
+	// 600
+	WorkTimeMinutes *int64 `json:"workTimeMinutes,omitempty" xml:"workTimeMinutes,omitempty"`
 }
 
 func (s GetShiftResponseBodyResultShiftSetting) String() string {
@@ -4886,6 +5850,11 @@ func (s *GetShiftResponseBodyResultShiftSetting) SetShiftId(v int64) *GetShiftRe
 
 func (s *GetShiftResponseBodyResultShiftSetting) SetShiftSettingId(v int64) *GetShiftResponseBodyResultShiftSetting {
 	s.ShiftSettingId = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultShiftSetting) SetShiftType(v string) *GetShiftResponseBodyResultShiftSetting {
+	s.ShiftType = &v
 	return s
 }
 
@@ -4947,8 +5916,18 @@ func (s *GetSimpleGroupsHeaders) SetXAcsDingtalkAccessToken(v string) *GetSimple
 }
 
 type GetSimpleGroupsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GetSimpleGroupsRequest) String() string {
@@ -4987,8 +5966,14 @@ func (s *GetSimpleGroupsResponseBody) SetResult(v *GetSimpleGroupsResponseBodyRe
 }
 
 type GetSimpleGroupsResponseBodyResult struct {
-	Groups  []*GetSimpleGroupsResponseBodyResultGroups `json:"groups,omitempty" xml:"groups,omitempty" type:"Repeated"`
-	HasMore *bool                                      `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// []
+	Groups []*GetSimpleGroupsResponseBodyResultGroups `json:"groups,omitempty" xml:"groups,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
 }
 
 func (s GetSimpleGroupsResponseBodyResult) String() string {
@@ -5010,25 +5995,61 @@ func (s *GetSimpleGroupsResponseBodyResult) SetHasMore(v bool) *GetSimpleGroupsR
 }
 
 type GetSimpleGroupsResponseBodyResultGroups struct {
-	ClassesList                 []*string                                               `json:"classesList,omitempty" xml:"classesList,omitempty" type:"Repeated"`
-	DefaultClassId              *int64                                                  `json:"defaultClassId,omitempty" xml:"defaultClassId,omitempty"`
-	DeptIds                     []*int64                                                `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
-	DeptNameList                []*string                                               `json:"deptNameList,omitempty" xml:"deptNameList,omitempty" type:"Repeated"`
-	DisableCheckWhenRest        *bool                                                   `json:"disableCheckWhenRest,omitempty" xml:"disableCheckWhenRest,omitempty"`
-	DisableCheckWithoutSchedule *bool                                                   `json:"disableCheckWithoutSchedule,omitempty" xml:"disableCheckWithoutSchedule,omitempty"`
-	EnableEmpSelectClass        *bool                                                   `json:"enableEmpSelectClass,omitempty" xml:"enableEmpSelectClass,omitempty"`
-	FreeCheckDayStartMinOffset  *int32                                                  `json:"freeCheckDayStartMinOffset,omitempty" xml:"freeCheckDayStartMinOffset,omitempty"`
-	FreecheckWorkDays           []*int32                                                `json:"freecheckWorkDays,omitempty" xml:"freecheckWorkDays,omitempty" type:"Repeated"`
-	GroupId                     *int64                                                  `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	GroupName                   *string                                                 `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	IsDefault                   *bool                                                   `json:"isDefault,omitempty" xml:"isDefault,omitempty"`
-	ManagerList                 []*string                                               `json:"managerList,omitempty" xml:"managerList,omitempty" type:"Repeated"`
-	MemberCount                 *int32                                                  `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
-	OwnerUserId                 *string                                                 `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
-	SelectedClass               []*GetSimpleGroupsResponseBodyResultGroupsSelectedClass `json:"selectedClass,omitempty" xml:"selectedClass,omitempty" type:"Repeated"`
-	Type                        *string                                                 `json:"type,omitempty" xml:"type,omitempty"`
-	UserIds                     []*string                                               `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
-	WorkDayList                 []*string                                               `json:"workDayList,omitempty" xml:"workDayList,omitempty" type:"Repeated"`
+	ClassesList []*string `json:"classesList,omitempty" xml:"classesList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 111
+	DefaultClassId *int64    `json:"defaultClassId,omitempty" xml:"defaultClassId,omitempty"`
+	DeptIds        []*int64  `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	DeptNameList   []*string `json:"deptNameList,omitempty" xml:"deptNameList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// false
+	DisableCheckWhenRest *bool `json:"disableCheckWhenRest,omitempty" xml:"disableCheckWhenRest,omitempty"`
+	// example:
+	//
+	// false
+	DisableCheckWithoutSchedule *bool `json:"disableCheckWithoutSchedule,omitempty" xml:"disableCheckWithoutSchedule,omitempty"`
+	// example:
+	//
+	// false
+	EnableEmpSelectClass *bool `json:"enableEmpSelectClass,omitempty" xml:"enableEmpSelectClass,omitempty"`
+	// example:
+	//
+	// 240
+	FreeCheckDayStartMinOffset *int32   `json:"freeCheckDayStartMinOffset,omitempty" xml:"freeCheckDayStartMinOffset,omitempty"`
+	FreecheckWorkDays          []*int32 `json:"freecheckWorkDays,omitempty" xml:"freecheckWorkDays,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 20015047
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// example:
+	//
+	// 固定排班
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// example:
+	//
+	// false
+	IsDefault *bool `json:"isDefault,omitempty" xml:"isDefault,omitempty"`
+	// example:
+	//
+	// 1,2
+	ManagerList []*string `json:"managerList,omitempty" xml:"managerList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	MemberCount *int32 `json:"memberCount,omitempty" xml:"memberCount,omitempty"`
+	// example:
+	//
+	// 123
+	OwnerUserId   *string                                                 `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	SelectedClass []*GetSimpleGroupsResponseBodyResultGroupsSelectedClass `json:"selectedClass,omitempty" xml:"selectedClass,omitempty" type:"Repeated"`
+	// example:
+	//
+	// FIXED
+	Type        *string   `json:"type,omitempty" xml:"type,omitempty"`
+	UserIds     []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	WorkDayList []*string `json:"workDayList,omitempty" xml:"workDayList,omitempty" type:"Repeated"`
 }
 
 func (s GetSimpleGroupsResponseBodyResultGroups) String() string {
@@ -5135,7 +6156,13 @@ func (s *GetSimpleGroupsResponseBodyResultGroups) SetWorkDayList(v []*string) *G
 }
 
 type GetSimpleGroupsResponseBodyResultGroupsSelectedClass struct {
-	ClassId   *int64                                                          `json:"classId,omitempty" xml:"classId,omitempty"`
+	// example:
+	//
+	// 20008010
+	ClassId *int64 `json:"classId,omitempty" xml:"classId,omitempty"`
+	// example:
+	//
+	// 早班
 	ClassName *string                                                         `json:"className,omitempty" xml:"className,omitempty"`
 	Sections  []*GetSimpleGroupsResponseBodyResultGroupsSelectedClassSections `json:"sections,omitempty" xml:"sections,omitempty" type:"Repeated"`
 	Setting   *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting    `json:"setting,omitempty" xml:"setting,omitempty" type:"Struct"`
@@ -5187,8 +6214,17 @@ func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSections) SetTimes(
 }
 
 type GetSimpleGroupsResponseBodyResultGroupsSelectedClassSectionsTimes struct {
-	Across    *int32  `json:"across,omitempty" xml:"across,omitempty"`
+	// example:
+	//
+	// 0
+	Across *int32 `json:"across,omitempty" xml:"across,omitempty"`
+	// example:
+	//
+	// 1970-01-01T09:00Z
 	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	// example:
+	//
+	// OnDuty
 	CheckType *string `json:"checkType,omitempty" xml:"checkType,omitempty"`
 }
 
@@ -5216,13 +6252,31 @@ func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSectionsTimes) SetC
 }
 
 type GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting struct {
-	AbsenteeismLateMinutes *int32                                                                     `json:"absenteeismLateMinutes,omitempty" xml:"absenteeismLateMinutes,omitempty"`
-	ClassSettingId         *int64                                                                     `json:"classSettingId,omitempty" xml:"classSettingId,omitempty"`
-	IsOffDutyFreeCheck     *string                                                                    `json:"isOffDutyFreeCheck,omitempty" xml:"isOffDutyFreeCheck,omitempty"`
-	PermitLateMinutes      *int32                                                                     `json:"permitLateMinutes,omitempty" xml:"permitLateMinutes,omitempty"`
-	RestTimeList           []*GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeList `json:"restTimeList,omitempty" xml:"restTimeList,omitempty" type:"Repeated"`
-	SeriousLateMinutes     *int32                                                                     `json:"seriousLateMinutes,omitempty" xml:"seriousLateMinutes,omitempty"`
-	WorkTimeMinutes        *int32                                                                     `json:"workTimeMinutes,omitempty" xml:"workTimeMinutes,omitempty"`
+	// example:
+	//
+	// 30
+	AbsenteeismLateMinutes *int32 `json:"absenteeismLateMinutes,omitempty" xml:"absenteeismLateMinutes,omitempty"`
+	// example:
+	//
+	// 1
+	ClassSettingId *int64 `json:"classSettingId,omitempty" xml:"classSettingId,omitempty"`
+	// example:
+	//
+	// Y
+	IsOffDutyFreeCheck *string `json:"isOffDutyFreeCheck,omitempty" xml:"isOffDutyFreeCheck,omitempty"`
+	// example:
+	//
+	// 10
+	PermitLateMinutes *int32                                                                     `json:"permitLateMinutes,omitempty" xml:"permitLateMinutes,omitempty"`
+	RestTimeList      []*GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeList `json:"restTimeList,omitempty" xml:"restTimeList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 20
+	SeriousLateMinutes *int32 `json:"seriousLateMinutes,omitempty" xml:"seriousLateMinutes,omitempty"`
+	// example:
+	//
+	// -1
+	WorkTimeMinutes *int32 `json:"workTimeMinutes,omitempty" xml:"workTimeMinutes,omitempty"`
 }
 
 func (s GetSimpleGroupsResponseBodyResultGroupsSelectedClassSetting) String() string {
@@ -5292,7 +6346,13 @@ func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeList
 }
 
 type GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListBegin struct {
-	Across    *int32  `json:"across,omitempty" xml:"across,omitempty"`
+	// example:
+	//
+	// 0
+	Across *int32 `json:"across,omitempty" xml:"across,omitempty"`
+	// example:
+	//
+	// 1970-01-01T12:00Z
 	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
 }
 
@@ -5315,7 +6375,13 @@ func (s *GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeList
 }
 
 type GetSimpleGroupsResponseBodyResultGroupsSelectedClassSettingRestTimeListEnd struct {
-	Across    *int32  `json:"across,omitempty" xml:"across,omitempty"`
+	// example:
+	//
+	// 0
+	Across *int32 `json:"across,omitempty" xml:"across,omitempty"`
+	// example:
+	//
+	// 1970-01-01T13:00Z
 	CheckTime *string `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
 }
 
@@ -5390,8 +6456,18 @@ func (s *GetSimpleOvertimeSettingHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type GetSimpleOvertimeSettingRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s GetSimpleOvertimeSettingRequest) String() string {
@@ -5430,9 +6506,15 @@ func (s *GetSimpleOvertimeSettingResponseBody) SetResult(v *GetSimpleOvertimeSet
 }
 
 type GetSimpleOvertimeSettingResponseBodyResult struct {
-	Items      []*GetSimpleOvertimeSettingResponseBodyResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
-	PageNumber *int64                                             `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	TotalPage  *int64                                             `json:"totalPage,omitempty" xml:"totalPage,omitempty"`
+	Items []*GetSimpleOvertimeSettingResponseBodyResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 1
+	TotalPage *int64 `json:"totalPage,omitempty" xml:"totalPage,omitempty"`
 }
 
 func (s GetSimpleOvertimeSettingResponseBodyResult) String() string {
@@ -5459,9 +6541,15 @@ func (s *GetSimpleOvertimeSettingResponseBodyResult) SetTotalPage(v int64) *GetS
 }
 
 type GetSimpleOvertimeSettingResponseBodyResultItems struct {
-	Id        *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	SettingId *int64  `json:"settingId,omitempty" xml:"settingId,omitempty"`
+	// example:
+	//
+	// 1
+	Id   *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1
+	SettingId *int64 `json:"settingId,omitempty" xml:"settingId,omitempty"`
 }
 
 func (s GetSimpleOvertimeSettingResponseBodyResultItems) String() string {
@@ -5540,9 +6628,12 @@ func (s *GetUserHolidaysHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserHo
 }
 
 type GetUserHolidaysRequest struct {
-	UserIds      []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
-	WorkDateFrom *int64    `json:"workDateFrom,omitempty" xml:"workDateFrom,omitempty"`
-	WorkDateTo   *int64    `json:"workDateTo,omitempty" xml:"workDateTo,omitempty"`
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	WorkDateFrom *int64 `json:"workDateFrom,omitempty" xml:"workDateFrom,omitempty"`
+	// This parameter is required.
+	WorkDateTo *int64 `json:"workDateTo,omitempty" xml:"workDateTo,omitempty"`
 }
 
 func (s GetUserHolidaysRequest) String() string {
@@ -5696,50 +6787,151 @@ func (s *GroupAddHeaders) SetXAcsDingtalkAccessToken(v string) *GroupAddHeaders 
 }
 
 type GroupAddRequest struct {
-	AdjustmentSettingId            *int64                           `json:"adjustmentSettingId,omitempty" xml:"adjustmentSettingId,omitempty"`
-	BleDeviceList                  []*GroupAddRequestBleDeviceList  `json:"bleDeviceList,omitempty" xml:"bleDeviceList,omitempty" type:"Repeated"`
-	CheckNeedHealthyCode           *bool                            `json:"checkNeedHealthyCode,omitempty" xml:"checkNeedHealthyCode,omitempty"`
-	DefaultClassId                 *int64                           `json:"defaultClassId,omitempty" xml:"defaultClassId,omitempty"`
-	DisableCheckWhenRest           *bool                            `json:"disableCheckWhenRest,omitempty" xml:"disableCheckWhenRest,omitempty"`
-	DisableCheckWithoutSchedule    *bool                            `json:"disableCheckWithoutSchedule,omitempty" xml:"disableCheckWithoutSchedule,omitempty"`
-	EnableCameraCheck              *bool                            `json:"enableCameraCheck,omitempty" xml:"enableCameraCheck,omitempty"`
-	EnableEmpSelectClass           *bool                            `json:"enableEmpSelectClass,omitempty" xml:"enableEmpSelectClass,omitempty"`
-	EnableFaceCheck                *bool                            `json:"enableFaceCheck,omitempty" xml:"enableFaceCheck,omitempty"`
-	EnableFaceStrictMode           *bool                            `json:"enableFaceStrictMode,omitempty" xml:"enableFaceStrictMode,omitempty"`
-	EnableNextDay                  *bool                            `json:"enableNextDay,omitempty" xml:"enableNextDay,omitempty"`
-	EnableOutSideUpdateNormalCheck *bool                            `json:"enableOutSideUpdateNormalCheck,omitempty" xml:"enableOutSideUpdateNormalCheck,omitempty"`
-	EnableOutsideApply             *bool                            `json:"enableOutsideApply,omitempty" xml:"enableOutsideApply,omitempty"`
-	EnableOutsideCameraCheck       *bool                            `json:"enableOutsideCameraCheck,omitempty" xml:"enableOutsideCameraCheck,omitempty"`
-	EnableOutsideCheck             *bool                            `json:"enableOutsideCheck,omitempty" xml:"enableOutsideCheck,omitempty"`
-	EnableOutsideRemark            *bool                            `json:"enableOutsideRemark,omitempty" xml:"enableOutsideRemark,omitempty"`
-	EnablePositionBle              *bool                            `json:"enablePositionBle,omitempty" xml:"enablePositionBle,omitempty"`
-	EnableTrimDistance             *bool                            `json:"enableTrimDistance,omitempty" xml:"enableTrimDistance,omitempty"`
-	ForbidHideOutSideAddress       *bool                            `json:"forbidHideOutSideAddress,omitempty" xml:"forbidHideOutSideAddress,omitempty"`
-	FreeCheckSetting               *GroupAddRequestFreeCheckSetting `json:"freeCheckSetting,omitempty" xml:"freeCheckSetting,omitempty" type:"Struct"`
-	FreeCheckTypeId                *int32                           `json:"freeCheckTypeId,omitempty" xml:"freeCheckTypeId,omitempty"`
-	FreecheckDayStartMinOffset     *int32                           `json:"freecheckDayStartMinOffset,omitempty" xml:"freecheckDayStartMinOffset,omitempty"`
-	FreecheckWorkDays              []*int32                         `json:"freecheckWorkDays,omitempty" xml:"freecheckWorkDays,omitempty" type:"Repeated"`
-	GroupId                        *int64                           `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	GroupName                      *string                          `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	ManagerList                    []*string                        `json:"managerList,omitempty" xml:"managerList,omitempty" type:"Repeated"`
-	Members                        []*GroupAddRequestMembers        `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	ModifyMember                   *bool                            `json:"modifyMember,omitempty" xml:"modifyMember,omitempty"`
-	Offset                         *int32                           `json:"offset,omitempty" xml:"offset,omitempty"`
-	OpenCameraCheck                *bool                            `json:"openCameraCheck,omitempty" xml:"openCameraCheck,omitempty"`
-	OpenFaceCheck                  *bool                            `json:"openFaceCheck,omitempty" xml:"openFaceCheck,omitempty"`
-	OutsideCheckApproveModeId      *int32                           `json:"outsideCheckApproveModeId,omitempty" xml:"outsideCheckApproveModeId,omitempty"`
-	OvertimeSettingId              *int64                           `json:"overtimeSettingId,omitempty" xml:"overtimeSettingId,omitempty"`
-	Owner                          *string                          `json:"owner,omitempty" xml:"owner,omitempty"`
-	Positions                      []*GroupAddRequestPositions      `json:"positions,omitempty" xml:"positions,omitempty" type:"Repeated"`
-	ResourcePermissionMap          map[string]interface{}           `json:"resourcePermissionMap,omitempty" xml:"resourcePermissionMap,omitempty"`
-	ShiftVOList                    []*GroupAddRequestShiftVOList    `json:"shiftVOList,omitempty" xml:"shiftVOList,omitempty" type:"Repeated"`
-	SkipHolidays                   *bool                            `json:"skipHolidays,omitempty" xml:"skipHolidays,omitempty"`
-	SpecialDays                    *string                          `json:"specialDays,omitempty" xml:"specialDays,omitempty"`
-	TrimDistance                   *int32                           `json:"trimDistance,omitempty" xml:"trimDistance,omitempty"`
-	Type                           *string                          `json:"type,omitempty" xml:"type,omitempty"`
-	Wifis                          []*GroupAddRequestWifis          `json:"wifis,omitempty" xml:"wifis,omitempty" type:"Repeated"`
-	WorkdayClassList               []*int64                         `json:"workdayClassList,omitempty" xml:"workdayClassList,omitempty" type:"Repeated"`
-	OpUserId                       *string                          `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// example:
+	//
+	// 123L
+	AdjustmentSettingId *int64                          `json:"adjustmentSettingId,omitempty" xml:"adjustmentSettingId,omitempty"`
+	BleDeviceList       []*GroupAddRequestBleDeviceList `json:"bleDeviceList,omitempty" xml:"bleDeviceList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	CheckNeedHealthyCode *bool `json:"checkNeedHealthyCode,omitempty" xml:"checkNeedHealthyCode,omitempty"`
+	// example:
+	//
+	// 1234
+	DefaultClassId *int64 `json:"defaultClassId,omitempty" xml:"defaultClassId,omitempty"`
+	// example:
+	//
+	// true
+	DisableCheckWhenRest *bool `json:"disableCheckWhenRest,omitempty" xml:"disableCheckWhenRest,omitempty"`
+	// example:
+	//
+	// true
+	DisableCheckWithoutSchedule *bool `json:"disableCheckWithoutSchedule,omitempty" xml:"disableCheckWithoutSchedule,omitempty"`
+	// example:
+	//
+	// true
+	EnableCameraCheck *bool `json:"enableCameraCheck,omitempty" xml:"enableCameraCheck,omitempty"`
+	// example:
+	//
+	// true
+	EnableEmpSelectClass *bool `json:"enableEmpSelectClass,omitempty" xml:"enableEmpSelectClass,omitempty"`
+	// example:
+	//
+	// true
+	EnableFaceCheck *bool `json:"enableFaceCheck,omitempty" xml:"enableFaceCheck,omitempty"`
+	// example:
+	//
+	// true
+	EnableFaceStrictMode *bool `json:"enableFaceStrictMode,omitempty" xml:"enableFaceStrictMode,omitempty"`
+	// example:
+	//
+	// true
+	EnableNextDay *bool `json:"enableNextDay,omitempty" xml:"enableNextDay,omitempty"`
+	// example:
+	//
+	// true
+	EnableOutSideUpdateNormalCheck *bool `json:"enableOutSideUpdateNormalCheck,omitempty" xml:"enableOutSideUpdateNormalCheck,omitempty"`
+	// example:
+	//
+	// true
+	EnableOutsideApply *bool `json:"enableOutsideApply,omitempty" xml:"enableOutsideApply,omitempty"`
+	// example:
+	//
+	// true
+	EnableOutsideCameraCheck *bool `json:"enableOutsideCameraCheck,omitempty" xml:"enableOutsideCameraCheck,omitempty"`
+	// example:
+	//
+	// true
+	EnableOutsideCheck *bool `json:"enableOutsideCheck,omitempty" xml:"enableOutsideCheck,omitempty"`
+	// example:
+	//
+	// true
+	EnableOutsideRemark *bool `json:"enableOutsideRemark,omitempty" xml:"enableOutsideRemark,omitempty"`
+	EnablePositionBle   *bool `json:"enablePositionBle,omitempty" xml:"enablePositionBle,omitempty"`
+	EnableTrimDistance  *bool `json:"enableTrimDistance,omitempty" xml:"enableTrimDistance,omitempty"`
+	// example:
+	//
+	// true
+	ForbidHideOutSideAddress *bool                            `json:"forbidHideOutSideAddress,omitempty" xml:"forbidHideOutSideAddress,omitempty"`
+	FreeCheckSetting         *GroupAddRequestFreeCheckSetting `json:"freeCheckSetting,omitempty" xml:"freeCheckSetting,omitempty" type:"Struct"`
+	// example:
+	//
+	// 0
+	FreeCheckTypeId *int32 `json:"freeCheckTypeId,omitempty" xml:"freeCheckTypeId,omitempty"`
+	// example:
+	//
+	// 240
+	FreecheckDayStartMinOffset *int32   `json:"freecheckDayStartMinOffset,omitempty" xml:"freecheckDayStartMinOffset,omitempty"`
+	FreecheckWorkDays          []*int32 `json:"freecheckWorkDays,omitempty" xml:"freecheckWorkDays,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 123
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 白班考勤
+	GroupName   *string   `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	ManagerList []*string `json:"managerList,omitempty" xml:"managerList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Members []*GroupAddRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	ModifyMember *bool `json:"modifyMember,omitempty" xml:"modifyMember,omitempty"`
+	// example:
+	//
+	// 500
+	Offset           *int32 `json:"offset,omitempty" xml:"offset,omitempty"`
+	OnlyMachineCheck *bool  `json:"onlyMachineCheck,omitempty" xml:"onlyMachineCheck,omitempty"`
+	OpenCameraCheck  *bool  `json:"openCameraCheck,omitempty" xml:"openCameraCheck,omitempty"`
+	// example:
+	//
+	// true
+	OpenFaceCheck *bool `json:"openFaceCheck,omitempty" xml:"openFaceCheck,omitempty"`
+	// example:
+	//
+	// -1
+	OutsideCheckApproveModeId *int32 `json:"outsideCheckApproveModeId,omitempty" xml:"outsideCheckApproveModeId,omitempty"`
+	// example:
+	//
+	// 123L
+	OvertimeSettingId *int64 `json:"overtimeSettingId,omitempty" xml:"overtimeSettingId,omitempty"`
+	// example:
+	//
+	// 123dfdf
+	Owner                 *string                       `json:"owner,omitempty" xml:"owner,omitempty"`
+	Positions             []*GroupAddRequestPositions   `json:"positions,omitempty" xml:"positions,omitempty" type:"Repeated"`
+	ResourcePermissionMap map[string]interface{}        `json:"resourcePermissionMap,omitempty" xml:"resourcePermissionMap,omitempty"`
+	ShiftVOList           []*GroupAddRequestShiftVOList `json:"shiftVOList,omitempty" xml:"shiftVOList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	SkipHolidays *bool `json:"skipHolidays,omitempty" xml:"skipHolidays,omitempty"`
+	// example:
+	//
+	// {"onDuty":{1400000:123,1400001:123},"offDuty":[1400000,1400001]}
+	SpecialDays *string `json:"specialDays,omitempty" xml:"specialDays,omitempty"`
+	// example:
+	//
+	// 100
+	TrimDistance *int32 `json:"trimDistance,omitempty" xml:"trimDistance,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TURN
+	Type             *string                 `json:"type,omitempty" xml:"type,omitempty"`
+	Wifis            []*GroupAddRequestWifis `json:"wifis,omitempty" xml:"wifis,omitempty" type:"Repeated"`
+	WorkdayClassList []*int64                `json:"workdayClassList,omitempty" xml:"workdayClassList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123dfd
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s GroupAddRequest) String() string {
@@ -5895,6 +7087,11 @@ func (s *GroupAddRequest) SetOffset(v int32) *GroupAddRequest {
 	return s
 }
 
+func (s *GroupAddRequest) SetOnlyMachineCheck(v bool) *GroupAddRequest {
+	s.OnlyMachineCheck = &v
+	return s
+}
+
 func (s *GroupAddRequest) SetOpenCameraCheck(v bool) *GroupAddRequest {
 	s.OpenCameraCheck = &v
 	return s
@@ -5971,6 +7168,9 @@ func (s *GroupAddRequest) SetOpUserId(v string) *GroupAddRequest {
 }
 
 type GroupAddRequestBleDeviceList struct {
+	// example:
+	//
+	// 1311089987
 	DeviceId *int64 `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
 }
 
@@ -6011,7 +7211,13 @@ func (s *GroupAddRequestFreeCheckSetting) SetFreeCheckGap(v *GroupAddRequestFree
 }
 
 type GroupAddRequestFreeCheckSettingFreeCheckGap struct {
+	// example:
+	//
+	// 0
 	OffOnCheckGapMinutes *int32 `json:"offOnCheckGapMinutes,omitempty" xml:"offOnCheckGapMinutes,omitempty"`
+	// example:
+	//
+	// 0
 	OnOffCheckGapMinutes *int32 `json:"onOffCheckGapMinutes,omitempty" xml:"onOffCheckGapMinutes,omitempty"`
 }
 
@@ -6034,8 +7240,23 @@ func (s *GroupAddRequestFreeCheckSettingFreeCheckGap) SetOnOffCheckGapMinutes(v 
 }
 
 type GroupAddRequestMembers struct {
-	Role   *string `json:"role,omitempty" xml:"role,omitempty"`
-	Type   *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Attendance
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// StaffMember
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1212jfkd
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -6063,11 +7284,26 @@ func (s *GroupAddRequestMembers) SetUserId(v string) *GroupAddRequestMembers {
 }
 
 type GroupAddRequestPositions struct {
-	Address   *string `json:"address,omitempty" xml:"address,omitempty"`
-	Latitude  *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	// example:
+	//
+	// 生物科技产业园区经二路21号
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// example:
+	//
+	// 36.687495
+	Latitude *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	// example:
+	//
+	// 101.750329
 	Longitude *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
-	Offset    *int32  `json:"offset,omitempty" xml:"offset,omitempty"`
-	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 500
+	Offset *int32 `json:"offset,omitempty" xml:"offset,omitempty"`
+	// example:
+	//
+	// 青藏高原自然博物馆
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s GroupAddRequestPositions) String() string {
@@ -6104,6 +7340,9 @@ func (s *GroupAddRequestPositions) SetTitle(v string) *GroupAddRequestPositions 
 }
 
 type GroupAddRequestShiftVOList struct {
+	// example:
+	//
+	// 123
 	ShiftId *int64 `json:"shiftId,omitempty" xml:"shiftId,omitempty"`
 }
 
@@ -6121,8 +7360,14 @@ func (s *GroupAddRequestShiftVOList) SetShiftId(v int64) *GroupAddRequestShiftVO
 }
 
 type GroupAddRequestWifis struct {
+	// example:
+	//
+	// C0:E0:D0:E0:C0:0F
 	MacAddr *string `json:"macAddr,omitempty" xml:"macAddr,omitempty"`
-	Ssid    *string `json:"ssid,omitempty" xml:"ssid,omitempty"`
+	// example:
+	//
+	// OFFICE-WiFi
+	Ssid *string `json:"ssid,omitempty" xml:"ssid,omitempty"`
 }
 
 func (s GroupAddRequestWifis) String() string {
@@ -6242,37 +7487,113 @@ func (s *GroupUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *GroupUpdateHe
 }
 
 type GroupUpdateRequest struct {
-	AdjustmentSettingId            *int64                              `json:"adjustmentSettingId,omitempty" xml:"adjustmentSettingId,omitempty"`
-	DisableCheckWhenRest           *bool                               `json:"disableCheckWhenRest,omitempty" xml:"disableCheckWhenRest,omitempty"`
-	DisableCheckWithoutSchedule    *bool                               `json:"disableCheckWithoutSchedule,omitempty" xml:"disableCheckWithoutSchedule,omitempty"`
-	EnableCameraCheck              *bool                               `json:"enableCameraCheck,omitempty" xml:"enableCameraCheck,omitempty"`
-	EnableEmpSelectClass           *bool                               `json:"enableEmpSelectClass,omitempty" xml:"enableEmpSelectClass,omitempty"`
-	EnableFaceCheck                *bool                               `json:"enableFaceCheck,omitempty" xml:"enableFaceCheck,omitempty"`
-	EnableFaceStrictMode           *bool                               `json:"enableFaceStrictMode,omitempty" xml:"enableFaceStrictMode,omitempty"`
-	EnableOutSideUpdateNormalCheck *bool                               `json:"enableOutSideUpdateNormalCheck,omitempty" xml:"enableOutSideUpdateNormalCheck,omitempty"`
-	EnableOutsideApply             *bool                               `json:"enableOutsideApply,omitempty" xml:"enableOutsideApply,omitempty"`
-	EnableOutsideCheck             *bool                               `json:"enableOutsideCheck,omitempty" xml:"enableOutsideCheck,omitempty"`
-	EnableOutsideRemark            *bool                               `json:"enableOutsideRemark,omitempty" xml:"enableOutsideRemark,omitempty"`
-	EnableTrimDistance             *bool                               `json:"enableTrimDistance,omitempty" xml:"enableTrimDistance,omitempty"`
-	ForbidHideOutSideAddress       *bool                               `json:"forbidHideOutSideAddress,omitempty" xml:"forbidHideOutSideAddress,omitempty"`
-	FreeCheckSetting               *GroupUpdateRequestFreeCheckSetting `json:"freeCheckSetting,omitempty" xml:"freeCheckSetting,omitempty" type:"Struct"`
-	FreeCheckTypeId                *int32                              `json:"freeCheckTypeId,omitempty" xml:"freeCheckTypeId,omitempty"`
-	GroupId                        *int64                              `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	GroupName                      *string                             `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	ManagerList                    []*string                           `json:"managerList,omitempty" xml:"managerList,omitempty" type:"Repeated"`
-	Offset                         *int32                              `json:"offset,omitempty" xml:"offset,omitempty"`
-	OpenCameraCheck                *bool                               `json:"openCameraCheck,omitempty" xml:"openCameraCheck,omitempty"`
-	OpenFaceCheck                  *bool                               `json:"openFaceCheck,omitempty" xml:"openFaceCheck,omitempty"`
-	OutsideCheckApproveModeId      *int32                              `json:"outsideCheckApproveModeId,omitempty" xml:"outsideCheckApproveModeId,omitempty"`
-	OvertimeSettingId              *int64                              `json:"overtimeSettingId,omitempty" xml:"overtimeSettingId,omitempty"`
-	Owner                          *string                             `json:"owner,omitempty" xml:"owner,omitempty"`
-	Positions                      []*GroupUpdateRequestPositions      `json:"positions,omitempty" xml:"positions,omitempty" type:"Repeated"`
-	ResourcePermissionMap          map[string]interface{}              `json:"resourcePermissionMap,omitempty" xml:"resourcePermissionMap,omitempty"`
-	ShiftVOList                    []*GroupUpdateRequestShiftVOList    `json:"shiftVOList,omitempty" xml:"shiftVOList,omitempty" type:"Repeated"`
-	SkipHolidays                   *bool                               `json:"skipHolidays,omitempty" xml:"skipHolidays,omitempty"`
-	TrimDistance                   *int32                              `json:"trimDistance,omitempty" xml:"trimDistance,omitempty"`
-	WorkdayClassList               []*int64                            `json:"workdayClassList,omitempty" xml:"workdayClassList,omitempty" type:"Repeated"`
-	OpUserId                       *string                             `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// example:
+	//
+	// 123L
+	AdjustmentSettingId *int64 `json:"adjustmentSettingId,omitempty" xml:"adjustmentSettingId,omitempty"`
+	// example:
+	//
+	// true
+	DisableCheckWhenRest *bool `json:"disableCheckWhenRest,omitempty" xml:"disableCheckWhenRest,omitempty"`
+	// example:
+	//
+	// true
+	DisableCheckWithoutSchedule *bool `json:"disableCheckWithoutSchedule,omitempty" xml:"disableCheckWithoutSchedule,omitempty"`
+	// example:
+	//
+	// true
+	EnableCameraCheck *bool `json:"enableCameraCheck,omitempty" xml:"enableCameraCheck,omitempty"`
+	// example:
+	//
+	// true
+	EnableEmpSelectClass *bool `json:"enableEmpSelectClass,omitempty" xml:"enableEmpSelectClass,omitempty"`
+	// example:
+	//
+	// true
+	EnableFaceCheck *bool `json:"enableFaceCheck,omitempty" xml:"enableFaceCheck,omitempty"`
+	// example:
+	//
+	// true
+	EnableFaceStrictMode *bool `json:"enableFaceStrictMode,omitempty" xml:"enableFaceStrictMode,omitempty"`
+	// example:
+	//
+	// true
+	EnableOutSideUpdateNormalCheck *bool `json:"enableOutSideUpdateNormalCheck,omitempty" xml:"enableOutSideUpdateNormalCheck,omitempty"`
+	// example:
+	//
+	// true
+	EnableOutsideApply *bool `json:"enableOutsideApply,omitempty" xml:"enableOutsideApply,omitempty"`
+	// example:
+	//
+	// true
+	EnableOutsideCheck *bool `json:"enableOutsideCheck,omitempty" xml:"enableOutsideCheck,omitempty"`
+	// example:
+	//
+	// true
+	EnableOutsideRemark *bool `json:"enableOutsideRemark,omitempty" xml:"enableOutsideRemark,omitempty"`
+	// example:
+	//
+	// true
+	EnableTrimDistance *bool `json:"enableTrimDistance,omitempty" xml:"enableTrimDistance,omitempty"`
+	// example:
+	//
+	// true
+	ForbidHideOutSideAddress *bool                               `json:"forbidHideOutSideAddress,omitempty" xml:"forbidHideOutSideAddress,omitempty"`
+	FreeCheckSetting         *GroupUpdateRequestFreeCheckSetting `json:"freeCheckSetting,omitempty" xml:"freeCheckSetting,omitempty" type:"Struct"`
+	// example:
+	//
+	// 0
+	FreeCheckTypeId            *int32 `json:"freeCheckTypeId,omitempty" xml:"freeCheckTypeId,omitempty"`
+	FreecheckDayStartMinOffset *int32 `json:"freecheckDayStartMinOffset,omitempty" xml:"freecheckDayStartMinOffset,omitempty"`
+	// example:
+	//
+	// 123
+	GroupId *int64 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// example:
+	//
+	// 白班考勤
+	GroupName   *string   `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	ManagerList []*string `json:"managerList,omitempty" xml:"managerList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 500
+	Offset           *int32 `json:"offset,omitempty" xml:"offset,omitempty"`
+	OnlyMachineCheck *bool  `json:"onlyMachineCheck,omitempty" xml:"onlyMachineCheck,omitempty"`
+	OpenCameraCheck  *bool  `json:"openCameraCheck,omitempty" xml:"openCameraCheck,omitempty"`
+	// example:
+	//
+	// true
+	OpenFaceCheck *bool `json:"openFaceCheck,omitempty" xml:"openFaceCheck,omitempty"`
+	// example:
+	//
+	// -1
+	OutsideCheckApproveModeId *int32 `json:"outsideCheckApproveModeId,omitempty" xml:"outsideCheckApproveModeId,omitempty"`
+	// example:
+	//
+	// 123L
+	OvertimeSettingId *int64 `json:"overtimeSettingId,omitempty" xml:"overtimeSettingId,omitempty"`
+	// example:
+	//
+	// 123dfdf
+	Owner                 *string                          `json:"owner,omitempty" xml:"owner,omitempty"`
+	Positions             []*GroupUpdateRequestPositions   `json:"positions,omitempty" xml:"positions,omitempty" type:"Repeated"`
+	ResourcePermissionMap map[string]interface{}           `json:"resourcePermissionMap,omitempty" xml:"resourcePermissionMap,omitempty"`
+	ShiftVOList           []*GroupUpdateRequestShiftVOList `json:"shiftVOList,omitempty" xml:"shiftVOList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	SkipHolidays *bool `json:"skipHolidays,omitempty" xml:"skipHolidays,omitempty"`
+	// example:
+	//
+	// 100
+	TrimDistance     *int32   `json:"trimDistance,omitempty" xml:"trimDistance,omitempty"`
+	WorkdayClassList []*int64 `json:"workdayClassList,omitempty" xml:"workdayClassList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123dfd
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s GroupUpdateRequest) String() string {
@@ -6358,6 +7679,11 @@ func (s *GroupUpdateRequest) SetFreeCheckTypeId(v int32) *GroupUpdateRequest {
 	return s
 }
 
+func (s *GroupUpdateRequest) SetFreecheckDayStartMinOffset(v int32) *GroupUpdateRequest {
+	s.FreecheckDayStartMinOffset = &v
+	return s
+}
+
 func (s *GroupUpdateRequest) SetGroupId(v int64) *GroupUpdateRequest {
 	s.GroupId = &v
 	return s
@@ -6375,6 +7701,11 @@ func (s *GroupUpdateRequest) SetManagerList(v []*string) *GroupUpdateRequest {
 
 func (s *GroupUpdateRequest) SetOffset(v int32) *GroupUpdateRequest {
 	s.Offset = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetOnlyMachineCheck(v bool) *GroupUpdateRequest {
+	s.OnlyMachineCheck = &v
 	return s
 }
 
@@ -6462,7 +7793,13 @@ func (s *GroupUpdateRequestFreeCheckSetting) SetFreeCheckGap(v *GroupUpdateReque
 }
 
 type GroupUpdateRequestFreeCheckSettingFreeCheckGap struct {
+	// example:
+	//
+	// 0
 	OffOnCheckGapMinutes *int32 `json:"offOnCheckGapMinutes,omitempty" xml:"offOnCheckGapMinutes,omitempty"`
+	// example:
+	//
+	// 0
 	OnOffCheckGapMinutes *int32 `json:"onOffCheckGapMinutes,omitempty" xml:"onOffCheckGapMinutes,omitempty"`
 }
 
@@ -6485,11 +7822,26 @@ func (s *GroupUpdateRequestFreeCheckSettingFreeCheckGap) SetOnOffCheckGapMinutes
 }
 
 type GroupUpdateRequestPositions struct {
-	Address   *string `json:"address,omitempty" xml:"address,omitempty"`
-	Latitude  *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	// example:
+	//
+	// 生物科技产业园区经二路21号
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// example:
+	//
+	// 36.687495
+	Latitude *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	// example:
+	//
+	// 101.750329
 	Longitude *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
-	Offset    *int32  `json:"offset,omitempty" xml:"offset,omitempty"`
-	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 500
+	Offset *int32 `json:"offset,omitempty" xml:"offset,omitempty"`
+	// example:
+	//
+	// 青藏高原自然博物馆
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s GroupUpdateRequestPositions) String() string {
@@ -6526,6 +7878,9 @@ func (s *GroupUpdateRequestPositions) SetTitle(v string) *GroupUpdateRequestPosi
 }
 
 type GroupUpdateRequestShiftVOList struct {
+	// example:
+	//
+	// 123
 	ShiftId *int64 `json:"shiftId,omitempty" xml:"shiftId,omitempty"`
 }
 
@@ -6641,9 +7996,22 @@ func (s *InitAndGetLeaveALlocationQuotasHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type InitAndGetLeaveALlocationQuotasRequest struct {
+	// example:
+	//
+	// f84a2829-xxxx0653
 	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	OpUserId  *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager1
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager211
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s InitAndGetLeaveALlocationQuotasRequest) String() string {
@@ -6687,16 +8055,46 @@ func (s *InitAndGetLeaveALlocationQuotasResponseBody) SetResult(v []*InitAndGetL
 }
 
 type InitAndGetLeaveALlocationQuotasResponseBodyResult struct {
-	EndTime         *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	LeaveCode       *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	QuotaCycle      *string `json:"quotaCycle,omitempty" xml:"quotaCycle,omitempty"`
-	QuotaId         *string `json:"quotaId,omitempty" xml:"quotaId,omitempty"`
-	QuotaNumPerDay  *int64  `json:"quotaNumPerDay,omitempty" xml:"quotaNumPerDay,omitempty"`
-	QuotaNumPerHour *int64  `json:"quotaNumPerHour,omitempty" xml:"quotaNumPerHour,omitempty"`
-	StartTime       *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	UsedNumPerDay   *int64  `json:"usedNumPerDay,omitempty" xml:"usedNumPerDay,omitempty"`
-	UsedNumPerHour  *int64  `json:"usedNumPerHour,omitempty" xml:"usedNumPerHour,omitempty"`
-	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 1753851001000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// c00ced14-xxxxxd438748
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// example:
+	//
+	// 2022
+	QuotaCycle *string `json:"quotaCycle,omitempty" xml:"quotaCycle,omitempty"`
+	// example:
+	//
+	// b13cc5b0--xxxx5b0
+	QuotaId *string `json:"quotaId,omitempty" xml:"quotaId,omitempty"`
+	// example:
+	//
+	// 700
+	QuotaNumPerDay *int64 `json:"quotaNumPerDay,omitempty" xml:"quotaNumPerDay,omitempty"`
+	// example:
+	//
+	// 800
+	QuotaNumPerHour *int64 `json:"quotaNumPerHour,omitempty" xml:"quotaNumPerHour,omitempty"`
+	// example:
+	//
+	// 1653851001000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 200
+	UsedNumPerDay *int64 `json:"usedNumPerDay,omitempty" xml:"usedNumPerDay,omitempty"`
+	// example:
+	//
+	// 100
+	UsedNumPerHour *int64 `json:"usedNumPerHour,omitempty" xml:"usedNumPerHour,omitempty"`
+	// example:
+	//
+	// user1
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s InitAndGetLeaveALlocationQuotasResponseBodyResult) String() string {
@@ -6810,10 +8208,19 @@ func (s *ListApproveByUsersHeaders) SetXAcsDingtalkAccessToken(v string) *ListAp
 }
 
 type ListApproveByUsersRequest struct {
-	BizTypes     []*int32 `json:"bizTypes,omitempty" xml:"bizTypes,omitempty" type:"Repeated"`
-	FromDateTime *int64   `json:"fromDateTime,omitempty" xml:"fromDateTime,omitempty"`
-	ToDateTime   *int64   `json:"toDateTime,omitempty" xml:"toDateTime,omitempty"`
-	UserIds      *string  `json:"userIds,omitempty" xml:"userIds,omitempty"`
+	BizTypes []*int32 `json:"bizTypes,omitempty" xml:"bizTypes,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1678636800000
+	FromDateTime *int64 `json:"fromDateTime,omitempty" xml:"fromDateTime,omitempty"`
+	// example:
+	//
+	// 1678636800000
+	ToDateTime *int64 `json:"toDateTime,omitempty" xml:"toDateTime,omitempty"`
+	// example:
+	//
+	// user1,user2
+	UserIds *string `json:"userIds,omitempty" xml:"userIds,omitempty"`
 }
 
 func (s ListApproveByUsersRequest) String() string {
@@ -6862,15 +8269,42 @@ func (s *ListApproveByUsersResponseBody) SetResult(v []*ListApproveByUsersRespon
 }
 
 type ListApproveByUsersResponseBodyResult struct {
-	ApproveId      *string `json:"approveId,omitempty" xml:"approveId,omitempty"`
-	BeginTime      *string `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
-	BizType        *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	CalculateModel *int32  `json:"calculateModel,omitempty" xml:"calculateModel,omitempty"`
-	DurationUnit   *string `json:"durationUnit,omitempty" xml:"durationUnit,omitempty"`
-	EndTime        *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	SubType        *string `json:"subType,omitempty" xml:"subType,omitempty"`
-	TagName        *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
-	UserId         *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 4850378c0ee83
+	ApproveId *string `json:"approveId,omitempty" xml:"approveId,omitempty"`
+	// example:
+	//
+	// 2023-03-15 AM
+	BeginTime *string `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
+	// example:
+	//
+	// 1
+	BizType *int32 `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// example:
+	//
+	// 1
+	CalculateModel *int32 `json:"calculateModel,omitempty" xml:"calculateModel,omitempty"`
+	// example:
+	//
+	// hour
+	DurationUnit *string `json:"durationUnit,omitempty" xml:"durationUnit,omitempty"`
+	// example:
+	//
+	// 2023-03-15 AM
+	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 年假
+	SubType *string `json:"subType,omitempty" xml:"subType,omitempty"`
+	// example:
+	//
+	// 请假
+	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+	// example:
+	//
+	// user1
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ListApproveByUsersResponseBodyResult) String() string {
@@ -6979,14 +8413,46 @@ func (s *ModifyWaterMarkTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *M
 }
 
 type ModifyWaterMarkTemplateRequest struct {
-	FormCode           *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	Icon               *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	LayoutDesignId     *string `json:"layoutDesignId,omitempty" xml:"layoutDesignId,omitempty"`
-	SchemaContent      *string `json:"schemaContent,omitempty" xml:"schemaContent,omitempty"`
-	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
-	WaterMarkId        *string `json:"waterMarkId,omitempty" xml:"waterMarkId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROC-292988B1-5064-4A42-9389-A76B97xxxxx
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// example:
+	//
+	// https://xx.xx.png
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// example:
+	//
+	// industry_dx_xx
+	LayoutDesignId *string `json:"layoutDesignId,omitempty" xml:"layoutDesignId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// { \"items\":[ { \"componentName\":\"HiddenField\", \"props\":{ \"bizAlias\":\"enableModifyPlace\", \"id\":\"enableModifyPlace-undefined\", \"value\":\"true\" } }, { \"componentName\":\"HiddenField\", \"props\":{ \"bizAlias\":\"modifyPlaceDistance\", \"id\":\"modifyPlaceDistance-undefined\", \"value\":200 } }, { \"componentName\":\"HiddenField\", \"props\":{ \"bizAlias\":\"title\", \"id\":\"title-undefined\", \"value\":\"wofu1\" } }, { \"componentName\":\"HiddenField\", \"props\":{ \"bizAlias\":\"titleBgColor\", \"id\":\"titleBgColor-undefined\", \"value\":\"#0089FF\" } } ] }
+	SchemaContent *string `json:"schemaContent,omitempty" xml:"schemaContent,omitempty"`
+	// example:
+	//
+	// 标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// PROC-292988B1-5064-4A42-9389-A76B97xxxxx
+	WaterMarkId *string `json:"waterMarkId,omitempty" xml:"waterMarkId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234567
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manage123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ModifyWaterMarkTemplateRequest) String() string {
@@ -7038,6 +8504,9 @@ func (s *ModifyWaterMarkTemplateRequest) SetUserId(v string) *ModifyWaterMarkTem
 }
 
 type ModifyWaterMarkTemplateResponseBody struct {
+	// example:
+	//
+	// PROC-292988B1-5064-4A42-9389-A76B97xxxxx
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -7107,12 +8576,38 @@ func (s *ProcessApproveCreateHeaders) SetXAcsDingtalkAccessToken(v string) *Proc
 }
 
 type ProcessApproveCreateRequest struct {
-	ApproveId  *string                                `json:"approveId,omitempty" xml:"approveId,omitempty"`
-	OpUserId   *string                                `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 25c4c49f-cf3a-4ba1-b321-7defd93b7f89
+	ApproveId *string `json:"approveId,omitempty" xml:"approveId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user02
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
 	PunchParam *ProcessApproveCreateRequestPunchParam `json:"punchParam,omitempty" xml:"punchParam,omitempty" type:"Struct"`
-	SubType    *string                                `json:"subType,omitempty" xml:"subType,omitempty"`
-	TagName    *string                                `json:"tagName,omitempty" xml:"tagName,omitempty"`
-	UserId     *string                                `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// shiftGroup
+	SubType *string `json:"subType,omitempty" xml:"subType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 请假
+	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user01
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ProcessApproveCreateRequest) String() string {
@@ -7154,10 +8649,24 @@ func (s *ProcessApproveCreateRequest) SetUserId(v string) *ProcessApproveCreateR
 }
 
 type ProcessApproveCreateRequestPunchParam struct {
-	PositionId   *string `json:"positionId,omitempty" xml:"positionId,omitempty"`
+	// example:
+	//
+	// longitude_latitude
+	PositionId *string `json:"positionId,omitempty" xml:"positionId,omitempty"`
+	// example:
+	//
+	// 未来park
 	PositionName *string `json:"positionName,omitempty" xml:"positionName,omitempty"`
+	// example:
+	//
+	// gps
 	PositionType *string `json:"positionType,omitempty" xml:"positionType,omitempty"`
-	PunchTime    *int64  `json:"punchTime,omitempty" xml:"punchTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1650511474978
+	PunchTime *int64 `json:"punchTime,omitempty" xml:"punchTime,omitempty"`
 }
 
 func (s ProcessApproveCreateRequestPunchParam) String() string {
@@ -7206,6 +8715,11 @@ func (s *ProcessApproveCreateResponseBody) SetResult(v *ProcessApproveCreateResp
 }
 
 type ProcessApproveCreateResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3534654765756234
 	DingtalkApproveId *string `json:"dingtalkApproveId,omitempty" xml:"dingtalkApproveId,omitempty"`
 }
 
@@ -7275,14 +8789,35 @@ func (s *ProcessApproveFinishHeaders) SetXAcsDingtalkAccessToken(v string) *Proc
 }
 
 type ProcessApproveFinishRequest struct {
-	ApproveId                        *string                                                      `json:"approveId,omitempty" xml:"approveId,omitempty"`
-	JumpUrl                          *string                                                      `json:"jumpUrl,omitempty" xml:"jumpUrl,omitempty"`
-	OverTimeToMore                   *int64                                                       `json:"overTimeToMore,omitempty" xml:"overTimeToMore,omitempty"`
-	OvertimeDuration                 *string                                                      `json:"overtimeDuration,omitempty" xml:"overtimeDuration,omitempty"`
-	SubType                          *string                                                      `json:"subType,omitempty" xml:"subType,omitempty"`
+	// example:
+	//
+	// 1234abcd
+	ApproveId *string `json:"approveId,omitempty" xml:"approveId,omitempty"`
+	// example:
+	//
+	// https://open.dingtalk.com/
+	JumpUrl *string `json:"jumpUrl,omitempty" xml:"jumpUrl,omitempty"`
+	// example:
+	//
+	// 1
+	OverTimeToMore *int64 `json:"overTimeToMore,omitempty" xml:"overTimeToMore,omitempty"`
+	// example:
+	//
+	// 1.07
+	OvertimeDuration *string `json:"overtimeDuration,omitempty" xml:"overtimeDuration,omitempty"`
+	// example:
+	//
+	// 年假
+	SubType *string `json:"subType,omitempty" xml:"subType,omitempty"`
+	// example:
+	//
+	// 请假
 	TagName                          *string                                                      `json:"tagName,omitempty" xml:"tagName,omitempty"`
 	TopCalculateApproveDurationParam *ProcessApproveFinishRequestTopCalculateApproveDurationParam `json:"topCalculateApproveDurationParam,omitempty" xml:"topCalculateApproveDurationParam,omitempty" type:"Struct"`
-	UserId                           *string                                                      `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// manager123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ProcessApproveFinishRequest) String() string {
@@ -7334,12 +8869,30 @@ func (s *ProcessApproveFinishRequest) SetUserId(v string) *ProcessApproveFinishR
 }
 
 type ProcessApproveFinishRequestTopCalculateApproveDurationParam struct {
-	BizType        *int64  `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	CalculateModel *int64  `json:"calculateModel,omitempty" xml:"calculateModel,omitempty"`
-	DurationUnit   *string `json:"durationUnit,omitempty" xml:"durationUnit,omitempty"`
-	FromTime       *string `json:"fromTime,omitempty" xml:"fromTime,omitempty"`
-	LeaveCode      *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	ToTime         *string `json:"toTime,omitempty" xml:"toTime,omitempty"`
+	// example:
+	//
+	// 3
+	BizType *int64 `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// example:
+	//
+	// 1
+	CalculateModel *int64 `json:"calculateModel,omitempty" xml:"calculateModel,omitempty"`
+	// example:
+	//
+	// day
+	DurationUnit *string `json:"durationUnit,omitempty" xml:"durationUnit,omitempty"`
+	// example:
+	//
+	// 2019-08-15
+	FromTime *string `json:"fromTime,omitempty" xml:"fromTime,omitempty"`
+	// example:
+	//
+	// 3afdsf-143dsadw3-ad23
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// example:
+	//
+	// 2019-08-15
+	ToTime *string `json:"toTime,omitempty" xml:"toTime,omitempty"`
 }
 
 func (s ProcessApproveFinishRequestTopCalculateApproveDurationParam) String() string {
@@ -7404,6 +8957,9 @@ func (s *ProcessApproveFinishResponseBody) SetSuccess(v bool) *ProcessApproveFin
 }
 
 type ProcessApproveFinishResponseBodyResult struct {
+	// example:
+	//
+	// 2.0
 	Duration       *float64                                                `json:"duration,omitempty" xml:"duration,omitempty"`
 	DurationDetail []*ProcessApproveFinishResponseBodyResultDurationDetail `json:"durationDetail,omitempty" xml:"durationDetail,omitempty" type:"Repeated"`
 }
@@ -7427,7 +8983,13 @@ func (s *ProcessApproveFinishResponseBodyResult) SetDurationDetail(v []*ProcessA
 }
 
 type ProcessApproveFinishResponseBodyResultDurationDetail struct {
-	Date     *string  `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 2019-08-15
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 1.0
 	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
 }
 
@@ -7502,12 +9064,32 @@ func (s *ReduceQuotaWithLeaveRecordHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type ReduceQuotaWithLeaveRecordRequest struct {
-	EndTime   *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// asdfaad-asdfadfa-asdfa
 	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	OuterId   *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
-	QuotaNum  *int32  `json:"quotaNum,omitempty" xml:"quotaNum,omitempty"`
-	Reason    *string `json:"reason,omitempty" xml:"reason,omitempty"`
-	StartTime *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123342345
+	OuterId *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	QuotaNum *int32 `json:"quotaNum,omitempty" xml:"quotaNum,omitempty"`
+	// example:
+	//
+	// 家中有事请假1天
+	Reason *string `json:"reason,omitempty" xml:"reason,omitempty"`
+	// This parameter is required.
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
 }
 
 func (s ReduceQuotaWithLeaveRecordRequest) String() string {
@@ -7625,8 +9207,16 @@ func (s *RetainLeaveTypesHeaders) SetXAcsDingtalkAccessToken(v string) *RetainLe
 
 type RetainLeaveTypesRequest struct {
 	LeaveCodes []*string `json:"leaveCodes,omitempty" xml:"leaveCodes,omitempty" type:"Repeated"`
-	OpUserId   *string   `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	Source     *int64    `json:"source,omitempty" xml:"source,omitempty"`
+	// example:
+	//
+	// manager233
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Source *int64 `json:"source,omitempty" xml:"source,omitempty"`
 }
 
 func (s RetainLeaveTypesRequest) String() string {
@@ -7670,24 +9260,60 @@ func (s *RetainLeaveTypesResponseBody) SetResult(v []*RetainLeaveTypesResponseBo
 }
 
 type RetainLeaveTypesResponseBodyResult struct {
-	BizType              *string                                              `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	HoursInPerDay        *int64                                               `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
-	LeaveCertificate     *RetainLeaveTypesResponseBodyResultLeaveCertificate  `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
-	LeaveCode            *string                                              `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	LeaveHourCeil        *string                                              `json:"leaveHourCeil,omitempty" xml:"leaveHourCeil,omitempty"`
-	LeaveName            *string                                              `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
-	LeaveTimeCeil        *bool                                                `json:"leaveTimeCeil,omitempty" xml:"leaveTimeCeil,omitempty"`
-	LeaveTimeCeilMinUnit *string                                              `json:"leaveTimeCeilMinUnit,omitempty" xml:"leaveTimeCeilMinUnit,omitempty"`
-	LeaveViewUnit        *string                                              `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
-	LieuDelayNum         *int64                                               `json:"lieuDelayNum,omitempty" xml:"lieuDelayNum,omitempty"`
-	LieuDelayUnit        *string                                              `json:"lieuDelayUnit,omitempty" xml:"lieuDelayUnit,omitempty"`
-	MaxLeaveTime         *int64                                               `json:"maxLeaveTime,omitempty" xml:"maxLeaveTime,omitempty"`
-	MinLeaveHour         *float64                                             `json:"minLeaveHour,omitempty" xml:"minLeaveHour,omitempty"`
-	NaturalDayLeave      *bool                                                `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
-	PaidLeave            *bool                                                `json:"paidLeave,omitempty" xml:"paidLeave,omitempty"`
-	SubmitTimeRule       *RetainLeaveTypesResponseBodyResultSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
-	VisibilityRules      []*RetainLeaveTypesResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
-	WhenCanLeave         *string                                              `json:"whenCanLeave,omitempty" xml:"whenCanLeave,omitempty"`
+	// example:
+	//
+	// lieu_leave
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// example:
+	//
+	// 8
+	HoursInPerDay    *int64                                              `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	LeaveCertificate *RetainLeaveTypesResponseBodyResultLeaveCertificate `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	// example:
+	//
+	// 2e8b764e-7989-4b5d-ac64-xxxxx
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// example:
+	//
+	// ""
+	LeaveHourCeil *string `json:"leaveHourCeil,omitempty" xml:"leaveHourCeil,omitempty"`
+	// example:
+	//
+	// 高级测试假期
+	LeaveName     *string `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	LeaveTimeCeil *bool   `json:"leaveTimeCeil,omitempty" xml:"leaveTimeCeil,omitempty"`
+	// example:
+	//
+	// hour
+	LeaveTimeCeilMinUnit *string `json:"leaveTimeCeilMinUnit,omitempty" xml:"leaveTimeCeilMinUnit,omitempty"`
+	// example:
+	//
+	// hour
+	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	// example:
+	//
+	// 30
+	LieuDelayNum *int64 `json:"lieuDelayNum,omitempty" xml:"lieuDelayNum,omitempty"`
+	// example:
+	//
+	// day
+	LieuDelayUnit *string `json:"lieuDelayUnit,omitempty" xml:"lieuDelayUnit,omitempty"`
+	// example:
+	//
+	// 24
+	MaxLeaveTime *int64 `json:"maxLeaveTime,omitempty" xml:"maxLeaveTime,omitempty"`
+	// example:
+	//
+	// 0.5
+	MinLeaveHour    *float64                                             `json:"minLeaveHour,omitempty" xml:"minLeaveHour,omitempty"`
+	NaturalDayLeave *bool                                                `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	PaidLeave       *bool                                                `json:"paidLeave,omitempty" xml:"paidLeave,omitempty"`
+	SubmitTimeRule  *RetainLeaveTypesResponseBodyResultSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	VisibilityRules []*RetainLeaveTypesResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
+	// example:
+	//
+	// formal
+	WhenCanLeave *string `json:"whenCanLeave,omitempty" xml:"whenCanLeave,omitempty"`
 }
 
 func (s RetainLeaveTypesResponseBodyResult) String() string {
@@ -7789,10 +9415,19 @@ func (s *RetainLeaveTypesResponseBodyResult) SetWhenCanLeave(v string) *RetainLe
 }
 
 type RetainLeaveTypesResponseBodyResultLeaveCertificate struct {
-	Duration          *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
-	Enable            *bool    `json:"enable,omitempty" xml:"enable,omitempty"`
-	PromptInformation *string  `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
-	Unit              *string  `json:"unit,omitempty" xml:"unit,omitempty"`
+	// example:
+	//
+	// 2
+	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	Enable   *bool    `json:"enable,omitempty" xml:"enable,omitempty"`
+	// example:
+	//
+	// leaveCertificate
+	PromptInformation *string `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
+	// example:
+	//
+	// hour
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s RetainLeaveTypesResponseBodyResultLeaveCertificate) String() string {
@@ -7824,10 +9459,19 @@ func (s *RetainLeaveTypesResponseBodyResultLeaveCertificate) SetUnit(v string) *
 }
 
 type RetainLeaveTypesResponseBodyResultSubmitTimeRule struct {
-	EnableTimeLimit *bool   `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
-	TimeType        *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
-	TimeUnit        *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
-	TimeValue       *int64  `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
+	EnableTimeLimit *bool `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
+	// example:
+	//
+	// after
+	TimeType *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
+	// example:
+	//
+	// hour
+	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	// example:
+	//
+	// 10
+	TimeValue *int64 `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
 }
 
 func (s RetainLeaveTypesResponseBodyResultSubmitTimeRule) String() string {
@@ -7859,6 +9503,9 @@ func (s *RetainLeaveTypesResponseBodyResultSubmitTimeRule) SetTimeValue(v int64)
 }
 
 type RetainLeaveTypesResponseBodyResultVisibilityRules struct {
+	// example:
+	//
+	// dept
 	Type    *string   `json:"type,omitempty" xml:"type,omitempty"`
 	Visible []*string `json:"visible,omitempty" xml:"visible,omitempty" type:"Repeated"`
 }
@@ -7934,8 +9581,14 @@ func (s *ReverseTrialAdvancedLeaveHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type ReverseTrialAdvancedLeaveRequest struct {
+	// example:
+	//
+	// manager234
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	ServCode *int64  `json:"servCode,omitempty" xml:"servCode,omitempty"`
+	// example:
+	//
+	// 1
+	ServCode *int64 `json:"servCode,omitempty" xml:"servCode,omitempty"`
 }
 
 func (s ReverseTrialAdvancedLeaveRequest) String() string {
@@ -8008,6 +9661,195 @@ func (s *ReverseTrialAdvancedLeaveResponse) SetBody(v *ReverseTrialAdvancedLeave
 	return s
 }
 
+type SalaryThirdDataIntegrationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SalaryThirdDataIntegrationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SalaryThirdDataIntegrationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SalaryThirdDataIntegrationHeaders) SetCommonHeaders(v map[string]*string) *SalaryThirdDataIntegrationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SalaryThirdDataIntegrationHeaders) SetXAcsDingtalkAccessToken(v string) *SalaryThirdDataIntegrationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SalaryThirdDataIntegrationRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// atData
+	BizType *string                                   `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Items   []*SalaryThirdDataIntegrationRequestItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+}
+
+func (s SalaryThirdDataIntegrationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SalaryThirdDataIntegrationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SalaryThirdDataIntegrationRequest) SetBizType(v string) *SalaryThirdDataIntegrationRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *SalaryThirdDataIntegrationRequest) SetItems(v []*SalaryThirdDataIntegrationRequestItems) *SalaryThirdDataIntegrationRequest {
+	s.Items = v
+	return s
+}
+
+type SalaryThirdDataIntegrationRequestItems struct {
+	BizContents []*SalaryThirdDataIntegrationRequestItemsBizContents `json:"bizContents,omitempty" xml:"bizContents,omitempty" type:"Repeated"`
+	// This parameter is required.
+	BizDate *string `json:"bizDate,omitempty" xml:"bizDate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100001
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SalaryThirdDataIntegrationRequestItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SalaryThirdDataIntegrationRequestItems) GoString() string {
+	return s.String()
+}
+
+func (s *SalaryThirdDataIntegrationRequestItems) SetBizContents(v []*SalaryThirdDataIntegrationRequestItemsBizContents) *SalaryThirdDataIntegrationRequestItems {
+	s.BizContents = v
+	return s
+}
+
+func (s *SalaryThirdDataIntegrationRequestItems) SetBizDate(v string) *SalaryThirdDataIntegrationRequestItems {
+	s.BizDate = &v
+	return s
+}
+
+func (s *SalaryThirdDataIntegrationRequestItems) SetBizId(v string) *SalaryThirdDataIntegrationRequestItems {
+	s.BizId = &v
+	return s
+}
+
+func (s *SalaryThirdDataIntegrationRequestItems) SetUserId(v string) *SalaryThirdDataIntegrationRequestItems {
+	s.UserId = &v
+	return s
+}
+
+type SalaryThirdDataIntegrationRequestItemsBizContents struct {
+	// example:
+	//
+	// 工作时长
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// 9
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s SalaryThirdDataIntegrationRequestItemsBizContents) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SalaryThirdDataIntegrationRequestItemsBizContents) GoString() string {
+	return s.String()
+}
+
+func (s *SalaryThirdDataIntegrationRequestItemsBizContents) SetKey(v string) *SalaryThirdDataIntegrationRequestItemsBizContents {
+	s.Key = &v
+	return s
+}
+
+func (s *SalaryThirdDataIntegrationRequestItemsBizContents) SetValue(v string) *SalaryThirdDataIntegrationRequestItemsBizContents {
+	s.Value = &v
+	return s
+}
+
+type SalaryThirdDataIntegrationResponseBody struct {
+	Result *SalaryThirdDataIntegrationResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s SalaryThirdDataIntegrationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SalaryThirdDataIntegrationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SalaryThirdDataIntegrationResponseBody) SetResult(v *SalaryThirdDataIntegrationResponseBodyResult) *SalaryThirdDataIntegrationResponseBody {
+	s.Result = v
+	return s
+}
+
+type SalaryThirdDataIntegrationResponseBodyResult struct {
+	Reason map[string]interface{} `json:"reason,omitempty" xml:"reason,omitempty"`
+}
+
+func (s SalaryThirdDataIntegrationResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SalaryThirdDataIntegrationResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SalaryThirdDataIntegrationResponseBodyResult) SetReason(v map[string]interface{}) *SalaryThirdDataIntegrationResponseBodyResult {
+	s.Reason = v
+	return s
+}
+
+type SalaryThirdDataIntegrationResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SalaryThirdDataIntegrationResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SalaryThirdDataIntegrationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SalaryThirdDataIntegrationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SalaryThirdDataIntegrationResponse) SetHeaders(v map[string]*string) *SalaryThirdDataIntegrationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SalaryThirdDataIntegrationResponse) SetStatusCode(v int32) *SalaryThirdDataIntegrationResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SalaryThirdDataIntegrationResponse) SetBody(v *SalaryThirdDataIntegrationResponseBody) *SalaryThirdDataIntegrationResponse {
+	s.Body = v
+	return s
+}
+
 type SaveCustomWaterMarkTemplateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8032,14 +9874,54 @@ func (s *SaveCustomWaterMarkTemplateHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type SaveCustomWaterMarkTemplateRequest struct {
-	BizCode            *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	Icon               *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	LayoutDesignId     *string `json:"layoutDesignId,omitempty" xml:"layoutDesignId,omitempty"`
-	SceneCode          *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
-	SchemaContent      *string `json:"schemaContent,omitempty" xml:"schemaContent,omitempty"`
-	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// water_mark_checkin
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://xx.xx.png
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// industry_dx_xx
+	LayoutDesignId *string `json:"layoutDesignId,omitempty" xml:"layoutDesignId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// water_mark_checkin_open
+	SceneCode *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// { \"items\":[ { \"componentName\":\"HiddenField\", \"props\":{ \"bizAlias\":\"enableModifyPlace\", \"id\":\"enableModifyPlace-undefined\", \"value\":\"true\" } }, { \"componentName\":\"HiddenField\", \"props\":{ \"bizAlias\":\"modifyPlaceDistance\", \"id\":\"modifyPlaceDistance-undefined\", \"value\":200 } }, { \"componentName\":\"HiddenField\", \"props\":{ \"bizAlias\":\"title\", \"id\":\"title-undefined\", \"value\":\"wofu1\" } }, { \"componentName\":\"HiddenField\", \"props\":{ \"bizAlias\":\"titleBgColor\", \"id\":\"titleBgColor-undefined\", \"value\":\"#0089FF\" } } ] }
+	SchemaContent *string `json:"schemaContent,omitempty" xml:"schemaContent,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234567
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manage123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SaveCustomWaterMarkTemplateRequest) String() string {
@@ -8108,7 +9990,13 @@ func (s *SaveCustomWaterMarkTemplateResponseBody) SetResult(v *SaveCustomWaterMa
 }
 
 type SaveCustomWaterMarkTemplateResponseBodyResult struct {
-	FormCode    *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// example:
+	//
+	// PROC-292988B1-5064-4A42-9389-A76B97xxxxx
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// example:
+	//
+	// PROC-292988B1-5064-4A42-9389-A76B97xxxxx
 	WaterMarkId *string `json:"waterMarkId,omitempty" xml:"waterMarkId,omitempty"`
 }
 
@@ -8159,6 +10047,472 @@ func (s *SaveCustomWaterMarkTemplateResponse) SetBody(v *SaveCustomWaterMarkTemp
 	return s
 }
 
+type ShiftAddHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ShiftAddHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ShiftAddHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ShiftAddHeaders) SetCommonHeaders(v map[string]*string) *ShiftAddHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ShiftAddHeaders) SetXAcsDingtalkAccessToken(v string) *ShiftAddHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ShiftAddRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 白班
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// user01
+	Owner *string `json:"owner,omitempty" xml:"owner,omitempty"`
+	// This parameter is required.
+	Sections []*ShiftAddRequestSections `json:"sections,omitempty" xml:"sections,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 123
+	ServiceId *int64                  `json:"serviceId,omitempty" xml:"serviceId,omitempty"`
+	Setting   *ShiftAddRequestSetting `json:"setting,omitempty" xml:"setting,omitempty" type:"Struct"`
+	// example:
+	//
+	// 1234
+	ShiftId *int64 `json:"shiftId,omitempty" xml:"shiftId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user01
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s ShiftAddRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ShiftAddRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ShiftAddRequest) SetName(v string) *ShiftAddRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *ShiftAddRequest) SetOwner(v string) *ShiftAddRequest {
+	s.Owner = &v
+	return s
+}
+
+func (s *ShiftAddRequest) SetSections(v []*ShiftAddRequestSections) *ShiftAddRequest {
+	s.Sections = v
+	return s
+}
+
+func (s *ShiftAddRequest) SetServiceId(v int64) *ShiftAddRequest {
+	s.ServiceId = &v
+	return s
+}
+
+func (s *ShiftAddRequest) SetSetting(v *ShiftAddRequestSetting) *ShiftAddRequest {
+	s.Setting = v
+	return s
+}
+
+func (s *ShiftAddRequest) SetShiftId(v int64) *ShiftAddRequest {
+	s.ShiftId = &v
+	return s
+}
+
+func (s *ShiftAddRequest) SetOpUserId(v string) *ShiftAddRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type ShiftAddRequestSections struct {
+	// This parameter is required.
+	Times []*ShiftAddRequestSectionsTimes `json:"times,omitempty" xml:"times,omitempty" type:"Repeated"`
+}
+
+func (s ShiftAddRequestSections) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ShiftAddRequestSections) GoString() string {
+	return s.String()
+}
+
+func (s *ShiftAddRequestSections) SetTimes(v []*ShiftAddRequestSectionsTimes) *ShiftAddRequestSections {
+	s.Times = v
+	return s
+}
+
+type ShiftAddRequestSectionsTimes struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Across *int32 `json:"across,omitempty" xml:"across,omitempty"`
+	// example:
+	//
+	// 30
+	BeginMin *int32 `json:"beginMin,omitempty" xml:"beginMin,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1714298274613
+	CheckTime *int64 `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// OnDuty
+	CheckType *string `json:"checkType,omitempty" xml:"checkType,omitempty"`
+	// example:
+	//
+	// -1
+	EndMin      *int32   `json:"endMin,omitempty" xml:"endMin,omitempty"`
+	FlexMinutes []*int32 `json:"flexMinutes,omitempty" xml:"flexMinutes,omitempty" type:"Repeated"`
+	FreeCheck   *bool    `json:"freeCheck,omitempty" xml:"freeCheck,omitempty"`
+}
+
+func (s ShiftAddRequestSectionsTimes) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ShiftAddRequestSectionsTimes) GoString() string {
+	return s.String()
+}
+
+func (s *ShiftAddRequestSectionsTimes) SetAcross(v int32) *ShiftAddRequestSectionsTimes {
+	s.Across = &v
+	return s
+}
+
+func (s *ShiftAddRequestSectionsTimes) SetBeginMin(v int32) *ShiftAddRequestSectionsTimes {
+	s.BeginMin = &v
+	return s
+}
+
+func (s *ShiftAddRequestSectionsTimes) SetCheckTime(v int64) *ShiftAddRequestSectionsTimes {
+	s.CheckTime = &v
+	return s
+}
+
+func (s *ShiftAddRequestSectionsTimes) SetCheckType(v string) *ShiftAddRequestSectionsTimes {
+	s.CheckType = &v
+	return s
+}
+
+func (s *ShiftAddRequestSectionsTimes) SetEndMin(v int32) *ShiftAddRequestSectionsTimes {
+	s.EndMin = &v
+	return s
+}
+
+func (s *ShiftAddRequestSectionsTimes) SetFlexMinutes(v []*int32) *ShiftAddRequestSectionsTimes {
+	s.FlexMinutes = v
+	return s
+}
+
+func (s *ShiftAddRequestSectionsTimes) SetFreeCheck(v bool) *ShiftAddRequestSectionsTimes {
+	s.FreeCheck = &v
+	return s
+}
+
+type ShiftAddRequestSetting struct {
+	// example:
+	//
+	// 60
+	AbsenteeismLateMinutes *int32 `json:"absenteeismLateMinutes,omitempty" xml:"absenteeismLateMinutes,omitempty"`
+	// example:
+	//
+	// 0.8
+	AttendDays *float64 `json:"attendDays,omitempty" xml:"attendDays,omitempty"`
+	// example:
+	//
+	// 480
+	DemandWorkTimeMinutes *int32                                 `json:"demandWorkTimeMinutes,omitempty" xml:"demandWorkTimeMinutes,omitempty"`
+	EnableOutsideLateBack *bool                                  `json:"enableOutsideLateBack,omitempty" xml:"enableOutsideLateBack,omitempty"`
+	Extras                map[string]interface{}                 `json:"extras,omitempty" xml:"extras,omitempty"`
+	IsFlexible            *bool                                  `json:"isFlexible,omitempty" xml:"isFlexible,omitempty"`
+	LateBackSetting       *ShiftAddRequestSettingLateBackSetting `json:"lateBackSetting,omitempty" xml:"lateBackSetting,omitempty" type:"Struct"`
+	// example:
+	//
+	// 1234
+	ReferenceClassId *int64 `json:"referenceClassId,omitempty" xml:"referenceClassId,omitempty"`
+	// example:
+	//
+	// 31
+	SeriousLateMinutes *int32 `json:"seriousLateMinutes,omitempty" xml:"seriousLateMinutes,omitempty"`
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// NORMAL
+	ShiftType *string `json:"shiftType,omitempty" xml:"shiftType,omitempty"`
+	// example:
+	//
+	// temp:schedule:isv
+	Tags            *string                                  `json:"tags,omitempty" xml:"tags,omitempty"`
+	TopRestTimeList []*ShiftAddRequestSettingTopRestTimeList `json:"topRestTimeList,omitempty" xml:"topRestTimeList,omitempty" type:"Repeated"`
+}
+
+func (s ShiftAddRequestSetting) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ShiftAddRequestSetting) GoString() string {
+	return s.String()
+}
+
+func (s *ShiftAddRequestSetting) SetAbsenteeismLateMinutes(v int32) *ShiftAddRequestSetting {
+	s.AbsenteeismLateMinutes = &v
+	return s
+}
+
+func (s *ShiftAddRequestSetting) SetAttendDays(v float64) *ShiftAddRequestSetting {
+	s.AttendDays = &v
+	return s
+}
+
+func (s *ShiftAddRequestSetting) SetDemandWorkTimeMinutes(v int32) *ShiftAddRequestSetting {
+	s.DemandWorkTimeMinutes = &v
+	return s
+}
+
+func (s *ShiftAddRequestSetting) SetEnableOutsideLateBack(v bool) *ShiftAddRequestSetting {
+	s.EnableOutsideLateBack = &v
+	return s
+}
+
+func (s *ShiftAddRequestSetting) SetExtras(v map[string]interface{}) *ShiftAddRequestSetting {
+	s.Extras = v
+	return s
+}
+
+func (s *ShiftAddRequestSetting) SetIsFlexible(v bool) *ShiftAddRequestSetting {
+	s.IsFlexible = &v
+	return s
+}
+
+func (s *ShiftAddRequestSetting) SetLateBackSetting(v *ShiftAddRequestSettingLateBackSetting) *ShiftAddRequestSetting {
+	s.LateBackSetting = v
+	return s
+}
+
+func (s *ShiftAddRequestSetting) SetReferenceClassId(v int64) *ShiftAddRequestSetting {
+	s.ReferenceClassId = &v
+	return s
+}
+
+func (s *ShiftAddRequestSetting) SetSeriousLateMinutes(v int32) *ShiftAddRequestSetting {
+	s.SeriousLateMinutes = &v
+	return s
+}
+
+func (s *ShiftAddRequestSetting) SetShiftType(v string) *ShiftAddRequestSetting {
+	s.ShiftType = &v
+	return s
+}
+
+func (s *ShiftAddRequestSetting) SetTags(v string) *ShiftAddRequestSetting {
+	s.Tags = &v
+	return s
+}
+
+func (s *ShiftAddRequestSetting) SetTopRestTimeList(v []*ShiftAddRequestSettingTopRestTimeList) *ShiftAddRequestSetting {
+	s.TopRestTimeList = v
+	return s
+}
+
+type ShiftAddRequestSettingLateBackSetting struct {
+	Enable   *bool                                            `json:"enable,omitempty" xml:"enable,omitempty"`
+	Sections []*ShiftAddRequestSettingLateBackSettingSections `json:"sections,omitempty" xml:"sections,omitempty" type:"Repeated"`
+}
+
+func (s ShiftAddRequestSettingLateBackSetting) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ShiftAddRequestSettingLateBackSetting) GoString() string {
+	return s.String()
+}
+
+func (s *ShiftAddRequestSettingLateBackSetting) SetEnable(v bool) *ShiftAddRequestSettingLateBackSetting {
+	s.Enable = &v
+	return s
+}
+
+func (s *ShiftAddRequestSettingLateBackSetting) SetSections(v []*ShiftAddRequestSettingLateBackSettingSections) *ShiftAddRequestSettingLateBackSetting {
+	s.Sections = v
+	return s
+}
+
+type ShiftAddRequestSettingLateBackSettingSections struct {
+	// example:
+	//
+	// 120
+	Extra *int32 `json:"extra,omitempty" xml:"extra,omitempty"`
+	// example:
+	//
+	// 60
+	Late *int32 `json:"late,omitempty" xml:"late,omitempty"`
+}
+
+func (s ShiftAddRequestSettingLateBackSettingSections) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ShiftAddRequestSettingLateBackSettingSections) GoString() string {
+	return s.String()
+}
+
+func (s *ShiftAddRequestSettingLateBackSettingSections) SetExtra(v int32) *ShiftAddRequestSettingLateBackSettingSections {
+	s.Extra = &v
+	return s
+}
+
+func (s *ShiftAddRequestSettingLateBackSettingSections) SetLate(v int32) *ShiftAddRequestSettingLateBackSettingSections {
+	s.Late = &v
+	return s
+}
+
+type ShiftAddRequestSettingTopRestTimeList struct {
+	// example:
+	//
+	// 0
+	Across *int32 `json:"across,omitempty" xml:"across,omitempty"`
+	// example:
+	//
+	// 1714298002940
+	CheckTime *int64 `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	// example:
+	//
+	// OnDuty
+	CheckType *string `json:"checkType,omitempty" xml:"checkType,omitempty"`
+}
+
+func (s ShiftAddRequestSettingTopRestTimeList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ShiftAddRequestSettingTopRestTimeList) GoString() string {
+	return s.String()
+}
+
+func (s *ShiftAddRequestSettingTopRestTimeList) SetAcross(v int32) *ShiftAddRequestSettingTopRestTimeList {
+	s.Across = &v
+	return s
+}
+
+func (s *ShiftAddRequestSettingTopRestTimeList) SetCheckTime(v int64) *ShiftAddRequestSettingTopRestTimeList {
+	s.CheckTime = &v
+	return s
+}
+
+func (s *ShiftAddRequestSettingTopRestTimeList) SetCheckType(v string) *ShiftAddRequestSettingTopRestTimeList {
+	s.CheckType = &v
+	return s
+}
+
+type ShiftAddResponseBody struct {
+	Result  *ShiftAddResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                       `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ShiftAddResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ShiftAddResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ShiftAddResponseBody) SetResult(v *ShiftAddResponseBodyResult) *ShiftAddResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *ShiftAddResponseBody) SetSuccess(v bool) *ShiftAddResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ShiftAddResponseBodyResult struct {
+	// example:
+	//
+	// 白班
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1111
+	ShiftId *int64 `json:"shiftId,omitempty" xml:"shiftId,omitempty"`
+}
+
+func (s ShiftAddResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ShiftAddResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ShiftAddResponseBodyResult) SetName(v string) *ShiftAddResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *ShiftAddResponseBodyResult) SetShiftId(v int64) *ShiftAddResponseBodyResult {
+	s.ShiftId = &v
+	return s
+}
+
+type ShiftAddResponse struct {
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ShiftAddResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ShiftAddResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ShiftAddResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ShiftAddResponse) SetHeaders(v map[string]*string) *ShiftAddResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ShiftAddResponse) SetStatusCode(v int32) *ShiftAddResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ShiftAddResponse) SetBody(v *ShiftAddResponseBody) *ShiftAddResponse {
+	s.Body = v
+	return s
+}
+
 type SyncScheduleInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8183,7 +10537,9 @@ func (s *SyncScheduleInfoHeaders) SetXAcsDingtalkAccessToken(v string) *SyncSche
 }
 
 type SyncScheduleInfoRequest struct {
-	OpUserId      *string                                 `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
 	ScheduleInfos []*SyncScheduleInfoRequestScheduleInfos `json:"scheduleInfos,omitempty" xml:"scheduleInfos,omitempty" type:"Repeated"`
 }
 
@@ -8206,6 +10562,7 @@ func (s *SyncScheduleInfoRequest) SetScheduleInfos(v []*SyncScheduleInfoRequestS
 }
 
 type SyncScheduleInfoRequestScheduleInfos struct {
+	// This parameter is required.
 	PlanId                *int64    `json:"planId,omitempty" xml:"planId,omitempty"`
 	PositionKeys          []*string `json:"positionKeys,omitempty" xml:"positionKeys,omitempty" type:"Repeated"`
 	RetainAttendanceCheck *bool     `json:"retainAttendanceCheck,omitempty" xml:"retainAttendanceCheck,omitempty"`
@@ -8287,17 +10644,50 @@ func (s *UpdateLeaveTypeHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateLea
 }
 
 type UpdateLeaveTypeRequest struct {
-	BizType          *string                                  `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Extras           *string                                  `json:"extras,omitempty" xml:"extras,omitempty"`
-	HoursInPerDay    *int64                                   `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
-	LeaveCertificate *UpdateLeaveTypeRequestLeaveCertificate  `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
-	LeaveCode        *string                                  `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	LeaveName        *string                                  `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
-	LeaveViewUnit    *string                                  `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
-	NaturalDayLeave  *bool                                    `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
-	SubmitTimeRule   *UpdateLeaveTypeRequestSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
-	VisibilityRules  []*UpdateLeaveTypeRequestVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
-	OpUserId         *string                                  `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// general_leave
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// example:
+	//
+	// {"validity_type":"absolute_time","validity_value":"12-31"}
+	Extras       *string `json:"extras,omitempty" xml:"extras,omitempty"`
+	FreedomLeave *bool   `json:"freedomLeave,omitempty" xml:"freedomLeave,omitempty"`
+	// example:
+	//
+	// 1000
+	HoursInPerDay    *int64                                  `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	LeaveCertificate *UpdateLeaveTypeRequestLeaveCertificate `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 047477ae-1009-4632-b8e9-e919ae5e7973
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// example:
+	//
+	// 年假
+	LeaveName *string `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// day
+	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	// example:
+	//
+	// true
+	NaturalDayLeave *bool                                    `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	SubmitTimeRule  *UpdateLeaveTypeRequestSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	VisibilityRules []*UpdateLeaveTypeRequestVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user01
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s UpdateLeaveTypeRequest) String() string {
@@ -8315,6 +10705,11 @@ func (s *UpdateLeaveTypeRequest) SetBizType(v string) *UpdateLeaveTypeRequest {
 
 func (s *UpdateLeaveTypeRequest) SetExtras(v string) *UpdateLeaveTypeRequest {
 	s.Extras = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeRequest) SetFreedomLeave(v bool) *UpdateLeaveTypeRequest {
+	s.FreedomLeave = &v
 	return s
 }
 
@@ -8364,10 +10759,22 @@ func (s *UpdateLeaveTypeRequest) SetOpUserId(v string) *UpdateLeaveTypeRequest {
 }
 
 type UpdateLeaveTypeRequestLeaveCertificate struct {
-	Duration          *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
-	Enable            *bool    `json:"enable,omitempty" xml:"enable,omitempty"`
-	PromptInformation *string  `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
-	Unit              *string  `json:"unit,omitempty" xml:"unit,omitempty"`
+	// example:
+	//
+	// 1
+	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// example:
+	//
+	// false
+	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
+	// example:
+	//
+	// 请假文案
+	PromptInformation *string `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
+	// example:
+	//
+	// hour
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s UpdateLeaveTypeRequestLeaveCertificate) String() string {
@@ -8399,10 +10806,22 @@ func (s *UpdateLeaveTypeRequestLeaveCertificate) SetUnit(v string) *UpdateLeaveT
 }
 
 type UpdateLeaveTypeRequestSubmitTimeRule struct {
-	EnableTimeLimit *bool   `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
-	TimeType        *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
-	TimeUnit        *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
-	TimeValue       *int64  `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
+	// example:
+	//
+	// true
+	EnableTimeLimit *bool `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
+	// example:
+	//
+	// before
+	TimeType *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
+	// example:
+	//
+	// day
+	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	// example:
+	//
+	// 2
+	TimeValue *int64 `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
 }
 
 func (s UpdateLeaveTypeRequestSubmitTimeRule) String() string {
@@ -8434,6 +10853,9 @@ func (s *UpdateLeaveTypeRequestSubmitTimeRule) SetTimeValue(v int64) *UpdateLeav
 }
 
 type UpdateLeaveTypeRequestVisibilityRules struct {
+	// example:
+	//
+	// staff
 	Type    *string   `json:"type,omitempty" xml:"type,omitempty"`
 	Visible []*string `json:"visible,omitempty" xml:"visible,omitempty" type:"Repeated"`
 }
@@ -8457,6 +10879,7 @@ func (s *UpdateLeaveTypeRequestVisibilityRules) SetVisible(v []*string) *UpdateL
 }
 
 type UpdateLeaveTypeResponseBody struct {
+	// This parameter is required.
 	Result *UpdateLeaveTypeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -8474,15 +10897,34 @@ func (s *UpdateLeaveTypeResponseBody) SetResult(v *UpdateLeaveTypeResponseBodyRe
 }
 
 type UpdateLeaveTypeResponseBodyResult struct {
-	BizType          *string                                             `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	HoursInPerDay    *int64                                              `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
-	LeaveCertificate *UpdateLeaveTypeResponseBodyResultLeaveCertificate  `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
-	LeaveCode        *string                                             `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
-	LeaveName        *string                                             `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
-	LeaveViewUnit    *string                                             `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
-	NaturalDayLeave  *bool                                               `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
-	SubmitTimeRule   *UpdateLeaveTypeResponseBodyResultSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
-	VisibilityRules  []*UpdateLeaveTypeResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
+	// example:
+	//
+	// general_leave
+	BizType      *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	FreedomLeave *bool   `json:"freedomLeave,omitempty" xml:"freedomLeave,omitempty"`
+	// example:
+	//
+	// 1000
+	HoursInPerDay    *int64                                             `json:"hoursInPerDay,omitempty" xml:"hoursInPerDay,omitempty"`
+	LeaveCertificate *UpdateLeaveTypeResponseBodyResultLeaveCertificate `json:"leaveCertificate,omitempty" xml:"leaveCertificate,omitempty" type:"Struct"`
+	// example:
+	//
+	// 037477ae-1009-4632-b8e9-e919ae5e7973
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// example:
+	//
+	// 年假
+	LeaveName *string `json:"leaveName,omitempty" xml:"leaveName,omitempty"`
+	// example:
+	//
+	// day
+	LeaveViewUnit *string `json:"leaveViewUnit,omitempty" xml:"leaveViewUnit,omitempty"`
+	// example:
+	//
+	// true
+	NaturalDayLeave *bool                                               `json:"naturalDayLeave,omitempty" xml:"naturalDayLeave,omitempty"`
+	SubmitTimeRule  *UpdateLeaveTypeResponseBodyResultSubmitTimeRule    `json:"submitTimeRule,omitempty" xml:"submitTimeRule,omitempty" type:"Struct"`
+	VisibilityRules []*UpdateLeaveTypeResponseBodyResultVisibilityRules `json:"visibilityRules,omitempty" xml:"visibilityRules,omitempty" type:"Repeated"`
 }
 
 func (s UpdateLeaveTypeResponseBodyResult) String() string {
@@ -8495,6 +10937,11 @@ func (s UpdateLeaveTypeResponseBodyResult) GoString() string {
 
 func (s *UpdateLeaveTypeResponseBodyResult) SetBizType(v string) *UpdateLeaveTypeResponseBodyResult {
 	s.BizType = &v
+	return s
+}
+
+func (s *UpdateLeaveTypeResponseBodyResult) SetFreedomLeave(v bool) *UpdateLeaveTypeResponseBodyResult {
+	s.FreedomLeave = &v
 	return s
 }
 
@@ -8539,10 +10986,22 @@ func (s *UpdateLeaveTypeResponseBodyResult) SetVisibilityRules(v []*UpdateLeaveT
 }
 
 type UpdateLeaveTypeResponseBodyResultLeaveCertificate struct {
-	Duration          *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
-	Enable            *bool    `json:"enable,omitempty" xml:"enable,omitempty"`
-	PromptInformation *string  `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
-	Unit              *string  `json:"unit,omitempty" xml:"unit,omitempty"`
+	// example:
+	//
+	// 1
+	Duration *float64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// example:
+	//
+	// false
+	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
+	// example:
+	//
+	// 请假文案
+	PromptInformation *string `json:"promptInformation,omitempty" xml:"promptInformation,omitempty"`
+	// example:
+	//
+	// hour
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s UpdateLeaveTypeResponseBodyResultLeaveCertificate) String() string {
@@ -8574,10 +11033,22 @@ func (s *UpdateLeaveTypeResponseBodyResultLeaveCertificate) SetUnit(v string) *U
 }
 
 type UpdateLeaveTypeResponseBodyResultSubmitTimeRule struct {
-	EnableTimeLimit *bool   `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
-	TimeType        *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
-	TimeUnit        *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
-	TimeValue       *int64  `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
+	// example:
+	//
+	// false
+	EnableTimeLimit *bool `json:"enableTimeLimit,omitempty" xml:"enableTimeLimit,omitempty"`
+	// example:
+	//
+	// before
+	TimeType *string `json:"timeType,omitempty" xml:"timeType,omitempty"`
+	// example:
+	//
+	// day
+	TimeUnit *string `json:"timeUnit,omitempty" xml:"timeUnit,omitempty"`
+	// example:
+	//
+	// 1
+	TimeValue *int64 `json:"timeValue,omitempty" xml:"timeValue,omitempty"`
 }
 
 func (s UpdateLeaveTypeResponseBodyResultSubmitTimeRule) String() string {
@@ -8609,6 +11080,9 @@ func (s *UpdateLeaveTypeResponseBodyResultSubmitTimeRule) SetTimeValue(v int64) 
 }
 
 type UpdateLeaveTypeResponseBodyResultVisibilityRules struct {
+	// example:
+	//
+	// staff
 	Type    *string   `json:"type,omitempty" xml:"type,omitempty"`
 	Visible []*string `json:"visible,omitempty" xml:"visible,omitempty" type:"Repeated"`
 }
@@ -8675,12 +11149,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -8689,6 +11163,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 添加假期规则
+//
+// @param request - AddLeaveTypeRequest
+//
+// @param headers - AddLeaveTypeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddLeaveTypeResponse
 func (client *Client) AddLeaveTypeWithOptions(request *AddLeaveTypeRequest, headers *AddLeaveTypeHeaders, runtime *util.RuntimeOptions) (_result *AddLeaveTypeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8802,6 +11287,13 @@ func (client *Client) AddLeaveTypeWithOptions(request *AddLeaveTypeRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加假期规则
+//
+// @param request - AddLeaveTypeRequest
+//
+// @return AddLeaveTypeResponse
 func (client *Client) AddLeaveType(request *AddLeaveTypeRequest) (_result *AddLeaveTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddLeaveTypeHeaders{}
@@ -8814,6 +11306,17 @@ func (client *Client) AddLeaveType(request *AddLeaveTypeRequest) (_result *AddLe
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量给考勤组添加蓝牙设备
+//
+// @param request - AttendanceBleDevicesAddRequest
+//
+// @param headers - AttendanceBleDevicesAddHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AttendanceBleDevicesAddResponse
 func (client *Client) AttendanceBleDevicesAddWithOptions(request *AttendanceBleDevicesAddRequest, headers *AttendanceBleDevicesAddHeaders, runtime *util.RuntimeOptions) (_result *AttendanceBleDevicesAddResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8865,6 +11368,13 @@ func (client *Client) AttendanceBleDevicesAddWithOptions(request *AttendanceBleD
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量给考勤组添加蓝牙设备
+//
+// @param request - AttendanceBleDevicesAddRequest
+//
+// @return AttendanceBleDevicesAddResponse
 func (client *Client) AttendanceBleDevicesAdd(request *AttendanceBleDevicesAddRequest) (_result *AttendanceBleDevicesAddResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AttendanceBleDevicesAddHeaders{}
@@ -8877,6 +11387,17 @@ func (client *Client) AttendanceBleDevicesAdd(request *AttendanceBleDevicesAddRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询蓝牙设备
+//
+// @param request - AttendanceBleDevicesQueryRequest
+//
+// @param headers - AttendanceBleDevicesQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AttendanceBleDevicesQueryResponse
 func (client *Client) AttendanceBleDevicesQueryWithOptions(request *AttendanceBleDevicesQueryRequest, headers *AttendanceBleDevicesQueryHeaders, runtime *util.RuntimeOptions) (_result *AttendanceBleDevicesQueryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8924,6 +11445,13 @@ func (client *Client) AttendanceBleDevicesQueryWithOptions(request *AttendanceBl
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询蓝牙设备
+//
+// @param request - AttendanceBleDevicesQueryRequest
+//
+// @return AttendanceBleDevicesQueryResponse
 func (client *Client) AttendanceBleDevicesQuery(request *AttendanceBleDevicesQueryRequest) (_result *AttendanceBleDevicesQueryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AttendanceBleDevicesQueryHeaders{}
@@ -8936,6 +11464,17 @@ func (client *Client) AttendanceBleDevicesQuery(request *AttendanceBleDevicesQue
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量删除考勤组的蓝牙设备
+//
+// @param request - AttendanceBleDevicesRemoveRequest
+//
+// @param headers - AttendanceBleDevicesRemoveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AttendanceBleDevicesRemoveResponse
 func (client *Client) AttendanceBleDevicesRemoveWithOptions(request *AttendanceBleDevicesRemoveRequest, headers *AttendanceBleDevicesRemoveHeaders, runtime *util.RuntimeOptions) (_result *AttendanceBleDevicesRemoveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8987,6 +11526,13 @@ func (client *Client) AttendanceBleDevicesRemoveWithOptions(request *AttendanceB
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量删除考勤组的蓝牙设备
+//
+// @param request - AttendanceBleDevicesRemoveRequest
+//
+// @return AttendanceBleDevicesRemoveResponse
 func (client *Client) AttendanceBleDevicesRemove(request *AttendanceBleDevicesRemoveRequest) (_result *AttendanceBleDevicesRemoveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AttendanceBleDevicesRemoveHeaders{}
@@ -8999,6 +11545,17 @@ func (client *Client) AttendanceBleDevicesRemove(request *AttendanceBleDevicesRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量修改考勤结果
+//
+// @param request - BatchBossCheckRequest
+//
+// @param headers - BatchBossCheckHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchBossCheckResponse
 func (client *Client) BatchBossCheckWithOptions(request *BatchBossCheckRequest, headers *BatchBossCheckHeaders, runtime *util.RuntimeOptions) (_result *BatchBossCheckResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9048,6 +11605,13 @@ func (client *Client) BatchBossCheckWithOptions(request *BatchBossCheckRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量修改考勤结果
+//
+// @param request - BatchBossCheckRequest
+//
+// @return BatchBossCheckResponse
 func (client *Client) BatchBossCheck(request *BatchBossCheckRequest) (_result *BatchBossCheckResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchBossCheckHeaders{}
@@ -9060,6 +11624,17 @@ func (client *Client) BatchBossCheck(request *BatchBossCheckRequest) (_result *B
 	return _result, _err
 }
 
+// Summary:
+//
+// 预计算时长
+//
+// @param request - CalculateDurationRequest
+//
+// @param headers - CalculateDurationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CalculateDurationResponse
 func (client *Client) CalculateDurationWithOptions(request *CalculateDurationRequest, headers *CalculateDurationHeaders, runtime *util.RuntimeOptions) (_result *CalculateDurationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9129,6 +11704,13 @@ func (client *Client) CalculateDurationWithOptions(request *CalculateDurationReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 预计算时长
+//
+// @param request - CalculateDurationRequest
+//
+// @return CalculateDurationResponse
 func (client *Client) CalculateDuration(request *CalculateDurationRequest) (_result *CalculateDurationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CalculateDurationHeaders{}
@@ -9141,6 +11723,17 @@ func (client *Client) CalculateDuration(request *CalculateDurationRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 针对某些员工某段时间内封账状态的查询
+//
+// @param request - CheckClosingAccountRequest
+//
+// @param headers - CheckClosingAccountHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CheckClosingAccountResponse
 func (client *Client) CheckClosingAccountWithOptions(request *CheckClosingAccountRequest, headers *CheckClosingAccountHeaders, runtime *util.RuntimeOptions) (_result *CheckClosingAccountResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9192,6 +11785,13 @@ func (client *Client) CheckClosingAccountWithOptions(request *CheckClosingAccoun
 	return _result, _err
 }
 
+// Summary:
+//
+// 针对某些员工某段时间内封账状态的查询
+//
+// @param request - CheckClosingAccountRequest
+//
+// @return CheckClosingAccountResponse
 func (client *Client) CheckClosingAccount(request *CheckClosingAccountRequest) (_result *CheckClosingAccountResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CheckClosingAccountHeaders{}
@@ -9204,6 +11804,17 @@ func (client *Client) CheckClosingAccount(request *CheckClosingAccountRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 考勤资源的写权限查询
+//
+// @param request - CheckWritePermissionRequest
+//
+// @param headers - CheckWritePermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CheckWritePermissionResponse
 func (client *Client) CheckWritePermissionWithOptions(request *CheckWritePermissionRequest, headers *CheckWritePermissionHeaders, runtime *util.RuntimeOptions) (_result *CheckWritePermissionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9259,6 +11870,13 @@ func (client *Client) CheckWritePermissionWithOptions(request *CheckWritePermiss
 	return _result, _err
 }
 
+// Summary:
+//
+// 考勤资源的写权限查询
+//
+// @param request - CheckWritePermissionRequest
+//
+// @return CheckWritePermissionResponse
 func (client *Client) CheckWritePermission(request *CheckWritePermissionRequest) (_result *CheckWritePermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CheckWritePermissionHeaders{}
@@ -9271,6 +11889,17 @@ func (client *Client) CheckWritePermission(request *CheckWritePermissionRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建考勤打卡审批单
+//
+// @param request - CreateApproveRequest
+//
+// @param headers - CreateApproveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateApproveResponse
 func (client *Client) CreateApproveWithOptions(request *CreateApproveRequest, headers *CreateApproveHeaders, runtime *util.RuntimeOptions) (_result *CreateApproveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9334,6 +11963,13 @@ func (client *Client) CreateApproveWithOptions(request *CreateApproveRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建考勤打卡审批单
+//
+// @param request - CreateApproveRequest
+//
+// @return CreateApproveResponse
 func (client *Client) CreateApprove(request *CreateApproveRequest) (_result *CreateApproveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateApproveHeaders{}
@@ -9346,6 +11982,17 @@ func (client *Client) CreateApprove(request *CreateApproveRequest) (_result *Cre
 	return _result, _err
 }
 
+// Summary:
+//
+// 撤销请假
+//
+// @param request - DeleteLeaveRequestRequest
+//
+// @param headers - DeleteLeaveRequestHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteLeaveRequestResponse
 func (client *Client) DeleteLeaveRequestWithOptions(unionId *string, request *DeleteLeaveRequestRequest, headers *DeleteLeaveRequestHeaders, runtime *util.RuntimeOptions) (_result *DeleteLeaveRequestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9389,6 +12036,13 @@ func (client *Client) DeleteLeaveRequestWithOptions(unionId *string, request *De
 	return _result, _err
 }
 
+// Summary:
+//
+// 撤销请假
+//
+// @param request - DeleteLeaveRequestRequest
+//
+// @return DeleteLeaveRequestResponse
 func (client *Client) DeleteLeaveRequest(unionId *string, request *DeleteLeaveRequestRequest) (_result *DeleteLeaveRequestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteLeaveRequestHeaders{}
@@ -9401,6 +12055,17 @@ func (client *Client) DeleteLeaveRequest(unionId *string, request *DeleteLeaveRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除水印模板
+//
+// @param request - DeleteWaterMarkTemplateRequest
+//
+// @param headers - DeleteWaterMarkTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteWaterMarkTemplateResponse
 func (client *Client) DeleteWaterMarkTemplateWithOptions(request *DeleteWaterMarkTemplateRequest, headers *DeleteWaterMarkTemplateHeaders, runtime *util.RuntimeOptions) (_result *DeleteWaterMarkTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9460,6 +12125,13 @@ func (client *Client) DeleteWaterMarkTemplateWithOptions(request *DeleteWaterMar
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除水印模板
+//
+// @param request - DeleteWaterMarkTemplateRequest
+//
+// @return DeleteWaterMarkTemplateResponse
 func (client *Client) DeleteWaterMarkTemplate(request *DeleteWaterMarkTemplateRequest) (_result *DeleteWaterMarkTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteWaterMarkTemplateHeaders{}
@@ -9472,6 +12144,17 @@ func (client *Client) DeleteWaterMarkTemplate(request *DeleteWaterMarkTemplateRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 钉钉安全检查
+//
+// @param request - DingTalkSecurityCheckRequest
+//
+// @param headers - DingTalkSecurityCheckHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DingTalkSecurityCheckResponse
 func (client *Client) DingTalkSecurityCheckWithOptions(request *DingTalkSecurityCheckRequest, headers *DingTalkSecurityCheckHeaders, runtime *util.RuntimeOptions) (_result *DingTalkSecurityCheckResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9531,6 +12214,13 @@ func (client *Client) DingTalkSecurityCheckWithOptions(request *DingTalkSecurity
 	return _result, _err
 }
 
+// Summary:
+//
+// 钉钉安全检查
+//
+// @param request - DingTalkSecurityCheckRequest
+//
+// @return DingTalkSecurityCheckResponse
 func (client *Client) DingTalkSecurityCheck(request *DingTalkSecurityCheckRequest) (_result *DingTalkSecurityCheckResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DingTalkSecurityCheckHeaders{}
@@ -9543,6 +12233,17 @@ func (client *Client) DingTalkSecurityCheck(request *DingTalkSecurityCheckReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询管理员管理范围下的userid
+//
+// @param request - GetATManageScopeRequest
+//
+// @param headers - GetATManageScopeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetATManageScopeResponse
 func (client *Client) GetATManageScopeWithOptions(request *GetATManageScopeRequest, headers *GetATManageScopeHeaders, runtime *util.RuntimeOptions) (_result *GetATManageScopeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9594,6 +12295,13 @@ func (client *Client) GetATManageScopeWithOptions(request *GetATManageScopeReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询管理员管理范围下的userid
+//
+// @param request - GetATManageScopeRequest
+//
+// @return GetATManageScopeResponse
 func (client *Client) GetATManageScope(request *GetATManageScopeRequest) (_result *GetATManageScopeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetATManageScopeHeaders{}
@@ -9606,6 +12314,17 @@ func (client *Client) GetATManageScope(request *GetATManageScopeRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取补卡规则列表
+//
+// @param request - GetAdjustmentsRequest
+//
+// @param headers - GetAdjustmentsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAdjustmentsResponse
 func (client *Client) GetAdjustmentsWithOptions(request *GetAdjustmentsRequest, headers *GetAdjustmentsHeaders, runtime *util.RuntimeOptions) (_result *GetAdjustmentsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9653,6 +12372,13 @@ func (client *Client) GetAdjustmentsWithOptions(request *GetAdjustmentsRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取补卡规则列表
+//
+// @param request - GetAdjustmentsRequest
+//
+// @return GetAdjustmentsResponse
 func (client *Client) GetAdjustments(request *GetAdjustmentsRequest) (_result *GetAdjustmentsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAdjustmentsHeaders{}
@@ -9665,6 +12391,17 @@ func (client *Client) GetAdjustments(request *GetAdjustmentsRequest) (_result *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取水印打卡模板
+//
+// @param request - GetCheckInSchemaTemplateRequest
+//
+// @param headers - GetCheckInSchemaTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCheckInSchemaTemplateResponse
 func (client *Client) GetCheckInSchemaTemplateWithOptions(request *GetCheckInSchemaTemplateRequest, headers *GetCheckInSchemaTemplateHeaders, runtime *util.RuntimeOptions) (_result *GetCheckInSchemaTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9720,6 +12457,13 @@ func (client *Client) GetCheckInSchemaTemplateWithOptions(request *GetCheckInSch
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取水印打卡模板
+//
+// @param request - GetCheckInSchemaTemplateRequest
+//
+// @return GetCheckInSchemaTemplateResponse
 func (client *Client) GetCheckInSchemaTemplate(request *GetCheckInSchemaTemplateRequest) (_result *GetCheckInSchemaTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCheckInSchemaTemplateHeaders{}
@@ -9732,6 +12476,17 @@ func (client *Client) GetCheckInSchemaTemplate(request *GetCheckInSchemaTemplate
 	return _result, _err
 }
 
+// Summary:
+//
+// 调用本接口，获取用户签到记录。
+//
+// @param request - GetCheckinRecordByUserRequest
+//
+// @param headers - GetCheckinRecordByUserHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCheckinRecordByUserResponse
 func (client *Client) GetCheckinRecordByUserWithOptions(request *GetCheckinRecordByUserRequest, headers *GetCheckinRecordByUserHeaders, runtime *util.RuntimeOptions) (_result *GetCheckinRecordByUserResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9795,6 +12550,13 @@ func (client *Client) GetCheckinRecordByUserWithOptions(request *GetCheckinRecor
 	return _result, _err
 }
 
+// Summary:
+//
+// 调用本接口，获取用户签到记录。
+//
+// @param request - GetCheckinRecordByUserRequest
+//
+// @return GetCheckinRecordByUserResponse
 func (client *Client) GetCheckinRecordByUser(request *GetCheckinRecordByUserRequest) (_result *GetCheckinRecordByUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCheckinRecordByUserHeaders{}
@@ -9807,6 +12569,15 @@ func (client *Client) GetCheckinRecordByUser(request *GetCheckinRecordByUserRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 班次查询（包含已删除班次）
+//
+// @param headers - GetClassWithDeletedHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetClassWithDeletedResponse
 func (client *Client) GetClassWithDeletedWithOptions(classId *string, headers *GetClassWithDeletedHeaders, runtime *util.RuntimeOptions) (_result *GetClassWithDeletedResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -9840,6 +12611,11 @@ func (client *Client) GetClassWithDeletedWithOptions(classId *string, headers *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 班次查询（包含已删除班次）
+//
+// @return GetClassWithDeletedResponse
 func (client *Client) GetClassWithDeleted(classId *string) (_result *GetClassWithDeletedResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetClassWithDeletedHeaders{}
@@ -9852,6 +12628,17 @@ func (client *Client) GetClassWithDeleted(classId *string) (_result *GetClassWit
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询指定用户的封账规则
+//
+// @param request - GetClosingAccountsRequest
+//
+// @param headers - GetClosingAccountsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetClosingAccountsResponse
 func (client *Client) GetClosingAccountsWithOptions(request *GetClosingAccountsRequest, headers *GetClosingAccountsHeaders, runtime *util.RuntimeOptions) (_result *GetClosingAccountsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9895,6 +12682,13 @@ func (client *Client) GetClosingAccountsWithOptions(request *GetClosingAccountsR
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询指定用户的封账规则
+//
+// @param request - GetClosingAccountsRequest
+//
+// @return GetClosingAccountsResponse
 func (client *Client) GetClosingAccounts(request *GetClosingAccountsRequest) (_result *GetClosingAccountsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetClosingAccountsHeaders{}
@@ -9907,6 +12701,17 @@ func (client *Client) GetClosingAccounts(request *GetClosingAccountsRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取多个用户的智能考勤报表的列值
+//
+// @param request - GetColumnvalsRequest
+//
+// @param headers - GetColumnvalsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetColumnvalsResponse
 func (client *Client) GetColumnvalsWithOptions(request *GetColumnvalsRequest, headers *GetColumnvalsHeaders, runtime *util.RuntimeOptions) (_result *GetColumnvalsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9962,6 +12767,13 @@ func (client *Client) GetColumnvalsWithOptions(request *GetColumnvalsRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取多个用户的智能考勤报表的列值
+//
+// @param request - GetColumnvalsRequest
+//
+// @return GetColumnvalsResponse
 func (client *Client) GetColumnvals(request *GetColumnvalsRequest) (_result *GetColumnvalsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetColumnvalsHeaders{}
@@ -9974,6 +12786,17 @@ func (client *Client) GetColumnvals(request *GetColumnvalsRequest) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询员工假期余额变更记录
+//
+// @param request - GetLeaveRecordsRequest
+//
+// @param headers - GetLeaveRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetLeaveRecordsResponse
 func (client *Client) GetLeaveRecordsWithOptions(request *GetLeaveRecordsRequest, headers *GetLeaveRecordsHeaders, runtime *util.RuntimeOptions) (_result *GetLeaveRecordsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10033,6 +12856,13 @@ func (client *Client) GetLeaveRecordsWithOptions(request *GetLeaveRecordsRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询员工假期余额变更记录
+//
+// @param request - GetLeaveRecordsRequest
+//
+// @return GetLeaveRecordsResponse
 func (client *Client) GetLeaveRecords(request *GetLeaveRecordsRequest) (_result *GetLeaveRecordsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetLeaveRecordsHeaders{}
@@ -10045,6 +12875,17 @@ func (client *Client) GetLeaveRecords(request *GetLeaveRecordsRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询假期规则列表
+//
+// @param request - GetLeaveTypeRequest
+//
+// @param headers - GetLeaveTypeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetLeaveTypeResponse
 func (client *Client) GetLeaveTypeWithOptions(request *GetLeaveTypeRequest, headers *GetLeaveTypeHeaders, runtime *util.RuntimeOptions) (_result *GetLeaveTypeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10092,6 +12933,13 @@ func (client *Client) GetLeaveTypeWithOptions(request *GetLeaveTypeRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询假期规则列表
+//
+// @param request - GetLeaveTypeRequest
+//
+// @return GetLeaveTypeResponse
 func (client *Client) GetLeaveType(request *GetLeaveTypeRequest) (_result *GetLeaveTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetLeaveTypeHeaders{}
@@ -10104,6 +12952,15 @@ func (client *Client) GetLeaveType(request *GetLeaveTypeRequest) (_result *GetLe
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据设备id获取考勤机信息
+//
+// @param headers - GetMachineHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetMachineResponse
 func (client *Client) GetMachineWithOptions(devId *string, headers *GetMachineHeaders, runtime *util.RuntimeOptions) (_result *GetMachineResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -10137,6 +12994,11 @@ func (client *Client) GetMachineWithOptions(devId *string, headers *GetMachineHe
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据设备id获取考勤机信息
+//
+// @return GetMachineResponse
 func (client *Client) GetMachine(devId *string) (_result *GetMachineResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetMachineHeaders{}
@@ -10149,6 +13011,17 @@ func (client *Client) GetMachine(devId *string) (_result *GetMachineResponse, _e
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据设备id获取员工信息
+//
+// @param request - GetMachineUserRequest
+//
+// @param headers - GetMachineUserHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetMachineUserResponse
 func (client *Client) GetMachineUserWithOptions(devId *string, request *GetMachineUserRequest, headers *GetMachineUserHeaders, runtime *util.RuntimeOptions) (_result *GetMachineUserResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10196,6 +13069,13 @@ func (client *Client) GetMachineUserWithOptions(devId *string, request *GetMachi
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据设备id获取员工信息
+//
+// @param request - GetMachineUserRequest
+//
+// @return GetMachineUserResponse
 func (client *Client) GetMachineUser(devId *string, request *GetMachineUserRequest) (_result *GetMachineUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetMachineUserHeaders{}
@@ -10208,6 +13088,94 @@ func (client *Client) GetMachineUser(devId *string, request *GetMachineUserReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 假期透支信息查询
+//
+// @param request - GetOverdraftInfoRequest
+//
+// @param headers - GetOverdraftInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetOverdraftInfoResponse
+func (client *Client) GetOverdraftInfoWithOptions(request *GetOverdraftInfoRequest, headers *GetOverdraftInfoHeaders, runtime *util.RuntimeOptions) (_result *GetOverdraftInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LeaveCode)) {
+		body["leaveCode"] = request.LeaveCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdList)) {
+		body["userIdList"] = request.UserIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetOverdraftInfo"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/vacations/overdraft/get"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetOverdraftInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 假期透支信息查询
+//
+// @param request - GetOverdraftInfoRequest
+//
+// @return GetOverdraftInfoResponse
+func (client *Client) GetOverdraftInfo(request *GetOverdraftInfoRequest) (_result *GetOverdraftInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetOverdraftInfoHeaders{}
+	_result = &GetOverdraftInfoResponse{}
+	_body, _err := client.GetOverdraftInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量获取加班规则设置
+//
+// @param request - GetOvertimeSettingRequest
+//
+// @param headers - GetOvertimeSettingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetOvertimeSettingResponse
 func (client *Client) GetOvertimeSettingWithOptions(request *GetOvertimeSettingRequest, headers *GetOvertimeSettingHeaders, runtime *util.RuntimeOptions) (_result *GetOvertimeSettingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10251,6 +13219,13 @@ func (client *Client) GetOvertimeSettingWithOptions(request *GetOvertimeSettingR
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取加班规则设置
+//
+// @param request - GetOvertimeSettingRequest
+//
+// @return GetOvertimeSettingResponse
 func (client *Client) GetOvertimeSetting(request *GetOvertimeSettingRequest) (_result *GetOvertimeSettingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOvertimeSettingHeaders{}
@@ -10263,6 +13238,17 @@ func (client *Client) GetOvertimeSetting(request *GetOvertimeSettingRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 班次详情
+//
+// @param request - GetShiftRequest
+//
+// @param headers - GetShiftHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetShiftResponse
 func (client *Client) GetShiftWithOptions(request *GetShiftRequest, headers *GetShiftHeaders, runtime *util.RuntimeOptions) (_result *GetShiftResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10310,6 +13296,13 @@ func (client *Client) GetShiftWithOptions(request *GetShiftRequest, headers *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 班次详情
+//
+// @param request - GetShiftRequest
+//
+// @return GetShiftResponse
 func (client *Client) GetShift(request *GetShiftRequest) (_result *GetShiftResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetShiftHeaders{}
@@ -10322,6 +13315,17 @@ func (client *Client) GetShift(request *GetShiftRequest) (_result *GetShiftRespo
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取考勤组列表详情
+//
+// @param request - GetSimpleGroupsRequest
+//
+// @param headers - GetSimpleGroupsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSimpleGroupsResponse
 func (client *Client) GetSimpleGroupsWithOptions(request *GetSimpleGroupsRequest, headers *GetSimpleGroupsHeaders, runtime *util.RuntimeOptions) (_result *GetSimpleGroupsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10369,6 +13373,13 @@ func (client *Client) GetSimpleGroupsWithOptions(request *GetSimpleGroupsRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取考勤组列表详情
+//
+// @param request - GetSimpleGroupsRequest
+//
+// @return GetSimpleGroupsResponse
 func (client *Client) GetSimpleGroups(request *GetSimpleGroupsRequest) (_result *GetSimpleGroupsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSimpleGroupsHeaders{}
@@ -10381,6 +13392,17 @@ func (client *Client) GetSimpleGroups(request *GetSimpleGroupsRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 加班规则列表
+//
+// @param request - GetSimpleOvertimeSettingRequest
+//
+// @param headers - GetSimpleOvertimeSettingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSimpleOvertimeSettingResponse
 func (client *Client) GetSimpleOvertimeSettingWithOptions(request *GetSimpleOvertimeSettingRequest, headers *GetSimpleOvertimeSettingHeaders, runtime *util.RuntimeOptions) (_result *GetSimpleOvertimeSettingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10428,6 +13450,13 @@ func (client *Client) GetSimpleOvertimeSettingWithOptions(request *GetSimpleOver
 	return _result, _err
 }
 
+// Summary:
+//
+// 加班规则列表
+//
+// @param request - GetSimpleOvertimeSettingRequest
+//
+// @return GetSimpleOvertimeSettingResponse
 func (client *Client) GetSimpleOvertimeSetting(request *GetSimpleOvertimeSettingRequest) (_result *GetSimpleOvertimeSettingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSimpleOvertimeSettingHeaders{}
@@ -10440,6 +13469,17 @@ func (client *Client) GetSimpleOvertimeSetting(request *GetSimpleOvertimeSetting
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询员工某段时间的假期
+//
+// @param request - GetUserHolidaysRequest
+//
+// @param headers - GetUserHolidaysHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserHolidaysResponse
 func (client *Client) GetUserHolidaysWithOptions(request *GetUserHolidaysRequest, headers *GetUserHolidaysHeaders, runtime *util.RuntimeOptions) (_result *GetUserHolidaysResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10491,6 +13531,13 @@ func (client *Client) GetUserHolidaysWithOptions(request *GetUserHolidaysRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询员工某段时间的假期
+//
+// @param request - GetUserHolidaysRequest
+//
+// @return GetUserHolidaysResponse
 func (client *Client) GetUserHolidays(request *GetUserHolidaysRequest) (_result *GetUserHolidaysResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUserHolidaysHeaders{}
@@ -10503,6 +13550,17 @@ func (client *Client) GetUserHolidays(request *GetUserHolidaysRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建考勤组
+//
+// @param request - GroupAddRequest
+//
+// @param headers - GroupAddHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GroupAddResponse
 func (client *Client) GroupAddWithOptions(request *GroupAddRequest, headers *GroupAddHeaders, runtime *util.RuntimeOptions) (_result *GroupAddResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10630,6 +13688,10 @@ func (client *Client) GroupAddWithOptions(request *GroupAddRequest, headers *Gro
 		body["offset"] = request.Offset
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.OnlyMachineCheck)) {
+		body["onlyMachineCheck"] = request.OnlyMachineCheck
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.OpenCameraCheck)) {
 		body["openCameraCheck"] = request.OpenCameraCheck
 	}
@@ -10720,6 +13782,13 @@ func (client *Client) GroupAddWithOptions(request *GroupAddRequest, headers *Gro
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建考勤组
+//
+// @param request - GroupAddRequest
+//
+// @return GroupAddResponse
 func (client *Client) GroupAdd(request *GroupAddRequest) (_result *GroupAddResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GroupAddHeaders{}
@@ -10732,6 +13801,17 @@ func (client *Client) GroupAdd(request *GroupAddRequest) (_result *GroupAddRespo
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改考勤组
+//
+// @param request - GroupUpdateRequest
+//
+// @param headers - GroupUpdateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GroupUpdateResponse
 func (client *Client) GroupUpdateWithOptions(request *GroupUpdateRequest, headers *GroupUpdateHeaders, runtime *util.RuntimeOptions) (_result *GroupUpdateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10803,6 +13883,10 @@ func (client *Client) GroupUpdateWithOptions(request *GroupUpdateRequest, header
 		body["freeCheckTypeId"] = request.FreeCheckTypeId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.FreecheckDayStartMinOffset)) {
+		body["freecheckDayStartMinOffset"] = request.FreecheckDayStartMinOffset
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.GroupId)) {
 		body["groupId"] = request.GroupId
 	}
@@ -10817,6 +13901,10 @@ func (client *Client) GroupUpdateWithOptions(request *GroupUpdateRequest, header
 
 	if !tea.BoolValue(util.IsUnset(request.Offset)) {
 		body["offset"] = request.Offset
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OnlyMachineCheck)) {
+		body["onlyMachineCheck"] = request.OnlyMachineCheck
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OpenCameraCheck)) {
@@ -10897,6 +13985,13 @@ func (client *Client) GroupUpdateWithOptions(request *GroupUpdateRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改考勤组
+//
+// @param request - GroupUpdateRequest
+//
+// @return GroupUpdateResponse
 func (client *Client) GroupUpdate(request *GroupUpdateRequest) (_result *GroupUpdateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GroupUpdateHeaders{}
@@ -10909,6 +14004,17 @@ func (client *Client) GroupUpdate(request *GroupUpdateRequest) (_result *GroupUp
 	return _result, _err
 }
 
+// Summary:
+//
+// 生态系统假期初始化查询余额接口
+//
+// @param request - InitAndGetLeaveALlocationQuotasRequest
+//
+// @param headers - InitAndGetLeaveALlocationQuotasHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InitAndGetLeaveALlocationQuotasResponse
 func (client *Client) InitAndGetLeaveALlocationQuotasWithOptions(request *InitAndGetLeaveALlocationQuotasRequest, headers *InitAndGetLeaveALlocationQuotasHeaders, runtime *util.RuntimeOptions) (_result *InitAndGetLeaveALlocationQuotasResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10960,6 +14066,13 @@ func (client *Client) InitAndGetLeaveALlocationQuotasWithOptions(request *InitAn
 	return _result, _err
 }
 
+// Summary:
+//
+// 生态系统假期初始化查询余额接口
+//
+// @param request - InitAndGetLeaveALlocationQuotasRequest
+//
+// @return InitAndGetLeaveALlocationQuotasResponse
 func (client *Client) InitAndGetLeaveALlocationQuotas(request *InitAndGetLeaveALlocationQuotasRequest) (_result *InitAndGetLeaveALlocationQuotasResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InitAndGetLeaveALlocationQuotasHeaders{}
@@ -10972,6 +14085,17 @@ func (client *Client) InitAndGetLeaveALlocationQuotas(request *InitAndGetLeaveAL
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户某段时间内同步到考勤的审批单信息
+//
+// @param request - ListApproveByUsersRequest
+//
+// @param headers - ListApproveByUsersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListApproveByUsersResponse
 func (client *Client) ListApproveByUsersWithOptions(request *ListApproveByUsersRequest, headers *ListApproveByUsersHeaders, runtime *util.RuntimeOptions) (_result *ListApproveByUsersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11027,6 +14151,13 @@ func (client *Client) ListApproveByUsersWithOptions(request *ListApproveByUsersR
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户某段时间内同步到考勤的审批单信息
+//
+// @param request - ListApproveByUsersRequest
+//
+// @return ListApproveByUsersResponse
 func (client *Client) ListApproveByUsers(request *ListApproveByUsersRequest) (_result *ListApproveByUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListApproveByUsersHeaders{}
@@ -11039,6 +14170,17 @@ func (client *Client) ListApproveByUsers(request *ListApproveByUsersRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改水印模板
+//
+// @param request - ModifyWaterMarkTemplateRequest
+//
+// @param headers - ModifyWaterMarkTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ModifyWaterMarkTemplateResponse
 func (client *Client) ModifyWaterMarkTemplateWithOptions(request *ModifyWaterMarkTemplateRequest, headers *ModifyWaterMarkTemplateHeaders, runtime *util.RuntimeOptions) (_result *ModifyWaterMarkTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11112,6 +14254,13 @@ func (client *Client) ModifyWaterMarkTemplateWithOptions(request *ModifyWaterMar
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改水印模板
+//
+// @param request - ModifyWaterMarkTemplateRequest
+//
+// @return ModifyWaterMarkTemplateResponse
 func (client *Client) ModifyWaterMarkTemplate(request *ModifyWaterMarkTemplateRequest) (_result *ModifyWaterMarkTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ModifyWaterMarkTemplateHeaders{}
@@ -11124,6 +14273,17 @@ func (client *Client) ModifyWaterMarkTemplate(request *ModifyWaterMarkTemplateRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建考勤打卡审批单
+//
+// @param request - ProcessApproveCreateRequest
+//
+// @param headers - ProcessApproveCreateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ProcessApproveCreateResponse
 func (client *Client) ProcessApproveCreateWithOptions(request *ProcessApproveCreateRequest, headers *ProcessApproveCreateHeaders, runtime *util.RuntimeOptions) (_result *ProcessApproveCreateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11187,6 +14347,13 @@ func (client *Client) ProcessApproveCreateWithOptions(request *ProcessApproveCre
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建考勤打卡审批单
+//
+// @param request - ProcessApproveCreateRequest
+//
+// @return ProcessApproveCreateResponse
 func (client *Client) ProcessApproveCreate(request *ProcessApproveCreateRequest) (_result *ProcessApproveCreateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ProcessApproveCreateHeaders{}
@@ -11199,6 +14366,17 @@ func (client *Client) ProcessApproveCreate(request *ProcessApproveCreateRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 通知审批通过
+//
+// @param request - ProcessApproveFinishRequest
+//
+// @param headers - ProcessApproveFinishHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ProcessApproveFinishResponse
 func (client *Client) ProcessApproveFinishWithOptions(request *ProcessApproveFinishRequest, headers *ProcessApproveFinishHeaders, runtime *util.RuntimeOptions) (_result *ProcessApproveFinishResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11272,6 +14450,13 @@ func (client *Client) ProcessApproveFinishWithOptions(request *ProcessApproveFin
 	return _result, _err
 }
 
+// Summary:
+//
+// 通知审批通过
+//
+// @param request - ProcessApproveFinishRequest
+//
+// @return ProcessApproveFinishResponse
 func (client *Client) ProcessApproveFinish(request *ProcessApproveFinishRequest) (_result *ProcessApproveFinishResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ProcessApproveFinishHeaders{}
@@ -11284,6 +14469,17 @@ func (client *Client) ProcessApproveFinish(request *ProcessApproveFinishRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 扣减员工假期余额
+//
+// @param request - ReduceQuotaWithLeaveRecordRequest
+//
+// @param headers - ReduceQuotaWithLeaveRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ReduceQuotaWithLeaveRecordResponse
 func (client *Client) ReduceQuotaWithLeaveRecordWithOptions(unionId *string, request *ReduceQuotaWithLeaveRecordRequest, headers *ReduceQuotaWithLeaveRecordHeaders, runtime *util.RuntimeOptions) (_result *ReduceQuotaWithLeaveRecordResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11347,6 +14543,13 @@ func (client *Client) ReduceQuotaWithLeaveRecordWithOptions(unionId *string, req
 	return _result, _err
 }
 
+// Summary:
+//
+// 扣减员工假期余额
+//
+// @param request - ReduceQuotaWithLeaveRecordRequest
+//
+// @return ReduceQuotaWithLeaveRecordResponse
 func (client *Client) ReduceQuotaWithLeaveRecord(unionId *string, request *ReduceQuotaWithLeaveRecordRequest) (_result *ReduceQuotaWithLeaveRecordResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ReduceQuotaWithLeaveRecordHeaders{}
@@ -11359,6 +14562,17 @@ func (client *Client) ReduceQuotaWithLeaveRecord(unionId *string, request *Reduc
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改假期规则来源
+//
+// @param request - RetainLeaveTypesRequest
+//
+// @param headers - RetainLeaveTypesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RetainLeaveTypesResponse
 func (client *Client) RetainLeaveTypesWithOptions(request *RetainLeaveTypesRequest, headers *RetainLeaveTypesHeaders, runtime *util.RuntimeOptions) (_result *RetainLeaveTypesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11410,6 +14624,13 @@ func (client *Client) RetainLeaveTypesWithOptions(request *RetainLeaveTypesReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改假期规则来源
+//
+// @param request - RetainLeaveTypesRequest
+//
+// @return RetainLeaveTypesResponse
 func (client *Client) RetainLeaveTypes(request *RetainLeaveTypesRequest) (_result *RetainLeaveTypesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RetainLeaveTypesHeaders{}
@@ -11422,6 +14643,17 @@ func (client *Client) RetainLeaveTypes(request *RetainLeaveTypesRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 提供给高级假期的试用订单回退
+//
+// @param request - ReverseTrialAdvancedLeaveRequest
+//
+// @param headers - ReverseTrialAdvancedLeaveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ReverseTrialAdvancedLeaveResponse
 func (client *Client) ReverseTrialAdvancedLeaveWithOptions(request *ReverseTrialAdvancedLeaveRequest, headers *ReverseTrialAdvancedLeaveHeaders, runtime *util.RuntimeOptions) (_result *ReverseTrialAdvancedLeaveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11469,6 +14701,13 @@ func (client *Client) ReverseTrialAdvancedLeaveWithOptions(request *ReverseTrial
 	return _result, _err
 }
 
+// Summary:
+//
+// 提供给高级假期的试用订单回退
+//
+// @param request - ReverseTrialAdvancedLeaveRequest
+//
+// @return ReverseTrialAdvancedLeaveResponse
 func (client *Client) ReverseTrialAdvancedLeave(request *ReverseTrialAdvancedLeaveRequest) (_result *ReverseTrialAdvancedLeaveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ReverseTrialAdvancedLeaveHeaders{}
@@ -11481,6 +14720,94 @@ func (client *Client) ReverseTrialAdvancedLeave(request *ReverseTrialAdvancedLea
 	return _result, _err
 }
 
+// Summary:
+//
+// 薪酬三方数据写入
+//
+// @param request - SalaryThirdDataIntegrationRequest
+//
+// @param headers - SalaryThirdDataIntegrationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SalaryThirdDataIntegrationResponse
+func (client *Client) SalaryThirdDataIntegrationWithOptions(request *SalaryThirdDataIntegrationRequest, headers *SalaryThirdDataIntegrationHeaders, runtime *util.RuntimeOptions) (_result *SalaryThirdDataIntegrationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		body["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Items)) {
+		body["items"] = request.Items
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SalaryThirdDataIntegration"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/salaries/tripartiteDatas/write"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SalaryThirdDataIntegrationResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 薪酬三方数据写入
+//
+// @param request - SalaryThirdDataIntegrationRequest
+//
+// @return SalaryThirdDataIntegrationResponse
+func (client *Client) SalaryThirdDataIntegration(request *SalaryThirdDataIntegrationRequest) (_result *SalaryThirdDataIntegrationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SalaryThirdDataIntegrationHeaders{}
+	_result = &SalaryThirdDataIntegrationResponse{}
+	_body, _err := client.SalaryThirdDataIntegrationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 新增水印签到模板
+//
+// @param request - SaveCustomWaterMarkTemplateRequest
+//
+// @param headers - SaveCustomWaterMarkTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SaveCustomWaterMarkTemplateResponse
 func (client *Client) SaveCustomWaterMarkTemplateWithOptions(request *SaveCustomWaterMarkTemplateRequest, headers *SaveCustomWaterMarkTemplateHeaders, runtime *util.RuntimeOptions) (_result *SaveCustomWaterMarkTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11554,6 +14881,13 @@ func (client *Client) SaveCustomWaterMarkTemplateWithOptions(request *SaveCustom
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增水印签到模板
+//
+// @param request - SaveCustomWaterMarkTemplateRequest
+//
+// @return SaveCustomWaterMarkTemplateResponse
 func (client *Client) SaveCustomWaterMarkTemplate(request *SaveCustomWaterMarkTemplateRequest) (_result *SaveCustomWaterMarkTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SaveCustomWaterMarkTemplateHeaders{}
@@ -11566,6 +14900,116 @@ func (client *Client) SaveCustomWaterMarkTemplate(request *SaveCustomWaterMarkTe
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建班次
+//
+// @param request - ShiftAddRequest
+//
+// @param headers - ShiftAddHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ShiftAddResponse
+func (client *Client) ShiftAddWithOptions(request *ShiftAddRequest, headers *ShiftAddHeaders, runtime *util.RuntimeOptions) (_result *ShiftAddResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Owner)) {
+		body["owner"] = request.Owner
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sections)) {
+		body["sections"] = request.Sections
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ServiceId)) {
+		body["serviceId"] = request.ServiceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Setting)) {
+		body["setting"] = request.Setting
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ShiftId)) {
+		body["shiftId"] = request.ShiftId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ShiftAdd"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/shifts"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ShiftAddResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建班次
+//
+// @param request - ShiftAddRequest
+//
+// @return ShiftAddResponse
+func (client *Client) ShiftAdd(request *ShiftAddRequest) (_result *ShiftAddResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ShiftAddHeaders{}
+	_result = &ShiftAddResponse{}
+	_body, _err := client.ShiftAddWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 用于考勤排班附加信息，例如打卡位置，打卡wifi等
+//
+// @param request - SyncScheduleInfoRequest
+//
+// @param headers - SyncScheduleInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncScheduleInfoResponse
 func (client *Client) SyncScheduleInfoWithOptions(request *SyncScheduleInfoRequest, headers *SyncScheduleInfoHeaders, runtime *util.RuntimeOptions) (_result *SyncScheduleInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11613,6 +15057,13 @@ func (client *Client) SyncScheduleInfoWithOptions(request *SyncScheduleInfoReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 用于考勤排班附加信息，例如打卡位置，打卡wifi等
+//
+// @param request - SyncScheduleInfoRequest
+//
+// @return SyncScheduleInfoResponse
 func (client *Client) SyncScheduleInfo(request *SyncScheduleInfoRequest) (_result *SyncScheduleInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SyncScheduleInfoHeaders{}
@@ -11625,6 +15076,17 @@ func (client *Client) SyncScheduleInfo(request *SyncScheduleInfoRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新假期规则
+//
+// @param request - UpdateLeaveTypeRequest
+//
+// @param headers - UpdateLeaveTypeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateLeaveTypeResponse
 func (client *Client) UpdateLeaveTypeWithOptions(request *UpdateLeaveTypeRequest, headers *UpdateLeaveTypeHeaders, runtime *util.RuntimeOptions) (_result *UpdateLeaveTypeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11642,6 +15104,10 @@ func (client *Client) UpdateLeaveTypeWithOptions(request *UpdateLeaveTypeRequest
 
 	if !tea.BoolValue(util.IsUnset(request.Extras)) {
 		body["extras"] = request.Extras
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FreedomLeave)) {
+		body["freedomLeave"] = request.FreedomLeave
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.HoursInPerDay)) {
@@ -11710,6 +15176,13 @@ func (client *Client) UpdateLeaveTypeWithOptions(request *UpdateLeaveTypeRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新假期规则
+//
+// @param request - UpdateLeaveTypeRequest
+//
+// @return UpdateLeaveTypeResponse
 func (client *Client) UpdateLeaveType(request *UpdateLeaveTypeRequest) (_result *UpdateLeaveTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateLeaveTypeHeaders{}

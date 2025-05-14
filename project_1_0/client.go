@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package project_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,6 +33,7 @@ func (s *AddProjectMemberHeaders) SetXAcsDingtalkAccessToken(v string) *AddProje
 }
 
 type AddProjectMemberRequest struct {
+	// This parameter is required.
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -163,8 +160,14 @@ func (s *ArchiveProjectResponseBody) SetResult(v *ArchiveProjectResponseBodyResu
 }
 
 type ArchiveProjectResponseBodyResult struct {
-	IsArchived *bool   `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
-	Updated    *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// true
+	IsArchived *bool `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s ArchiveProjectResponseBodyResult) String() string {
@@ -255,6 +258,9 @@ func (s *ArchiveTaskResponseBody) SetResult(v *ArchiveTaskResponseBodyResult) *A
 }
 
 type ArchiveTaskResponseBodyResult struct {
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -324,16 +330,55 @@ func (s *CreateOrganizationTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Cr
 }
 
 type CreateOrganizationTaskRequest struct {
-	Content             *string   `json:"content,omitempty" xml:"content,omitempty"`
-	CreateTime          *string   `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	DisableActivity     *bool     `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
-	DisableNotification *bool     `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
-	DueDate             *string   `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	ExecutorId          *string   `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	InvolveMembers      []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	Note                *string   `json:"note,omitempty" xml:"note,omitempty"`
-	Priority            *int32    `json:"priority,omitempty" xml:"priority,omitempty"`
-	Visible             *string   `json:"visible,omitempty" xml:"visible,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 明天12点前完成周报撰写
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// false
+	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// false
+	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// example:
+	//
+	// 173xxxx
+	ExecutorId     *string   `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 我是一条任务备注
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// -10
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// members
+	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s CreateOrganizationTaskRequest) String() string {
@@ -412,25 +457,67 @@ func (s *CreateOrganizationTaskResponseBody) SetResult(v *CreateOrganizationTask
 }
 
 type CreateOrganizationTaskResponseBodyResult struct {
-	AncestorIds      []*string                                            `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
-	AttachmentsCount *int32                                               `json:"attachmentsCount,omitempty" xml:"attachmentsCount,omitempty"`
-	Content          *string                                              `json:"content,omitempty" xml:"content,omitempty"`
-	Created          *string                                              `json:"created,omitempty" xml:"created,omitempty"`
-	Creator          *CreateOrganizationTaskResponseBodyResultCreator     `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
-	CreatorId        *string                                              `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	DueDate          *string                                              `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	Executor         *CreateOrganizationTaskResponseBodyResultExecutor    `json:"executor,omitempty" xml:"executor,omitempty" type:"Struct"`
-	ExecutorId       *string                                              `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	HasReminder      *bool                                                `json:"hasReminder,omitempty" xml:"hasReminder,omitempty"`
-	Id               *string                                              `json:"id,omitempty" xml:"id,omitempty"`
-	InvolveMembers   []*string                                            `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	Involvers        []*CreateOrganizationTaskResponseBodyResultInvolvers `json:"involvers,omitempty" xml:"involvers,omitempty" type:"Repeated"`
-	IsDeleted        *bool                                                `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	IsDone           *string                                              `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	Note             *string                                              `json:"note,omitempty" xml:"note,omitempty"`
-	Priority         *int32                                               `json:"priority,omitempty" xml:"priority,omitempty"`
-	Updated          *string                                              `json:"updated,omitempty" xml:"updated,omitempty"`
-	Visible          *string                                              `json:"visible,omitempty" xml:"visible,omitempty"`
+	AncestorIds []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 0
+	AttachmentsCount *int32 `json:"attachmentsCount,omitempty" xml:"attachmentsCount,omitempty"`
+	// example:
+	//
+	// 明天12点前写好周报
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	Created *string                                          `json:"created,omitempty" xml:"created,omitempty"`
+	Creator *CreateOrganizationTaskResponseBodyResultCreator `json:"creator,omitempty" xml:"creator,omitempty" type:"Struct"`
+	// example:
+	//
+	// 173xxxx
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	DueDate  *string                                           `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	Executor *CreateOrganizationTaskResponseBodyResultExecutor `json:"executor,omitempty" xml:"executor,omitempty" type:"Struct"`
+	// example:
+	//
+	// 173xxxx
+	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	// example:
+	//
+	// false
+	HasReminder *bool `json:"hasReminder,omitempty" xml:"hasReminder,omitempty"`
+	// example:
+	//
+	// 62a697c053c2ef5xxxxxx
+	Id             *string                                              `json:"id,omitempty" xml:"id,omitempty"`
+	InvolveMembers []*string                                            `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	Involvers      []*CreateOrganizationTaskResponseBodyResultInvolvers `json:"involvers,omitempty" xml:"involvers,omitempty" type:"Repeated"`
+	// example:
+	//
+	// false
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// example:
+	//
+	// false
+	IsDone *string `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// example:
+	//
+	// 我是一条备注哦
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// example:
+	//
+	// -10
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// members
+	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s CreateOrganizationTaskResponseBodyResult) String() string {
@@ -537,9 +624,18 @@ func (s *CreateOrganizationTaskResponseBodyResult) SetVisible(v string) *CreateO
 }
 
 type CreateOrganizationTaskResponseBodyResultCreator struct {
+	// example:
+	//
+	// https://xxxxxxxxxx
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 鬼斩
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 173xxxx
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateOrganizationTaskResponseBodyResultCreator) String() string {
@@ -566,9 +662,18 @@ func (s *CreateOrganizationTaskResponseBodyResultCreator) SetUserId(v string) *C
 }
 
 type CreateOrganizationTaskResponseBodyResultExecutor struct {
+	// example:
+	//
+	// https://xxxxxxxxxx
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 鬼斩
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 173xxxx
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateOrganizationTaskResponseBodyResultExecutor) String() string {
@@ -595,9 +700,18 @@ func (s *CreateOrganizationTaskResponseBodyResultExecutor) SetUserId(v string) *
 }
 
 type CreateOrganizationTaskResponseBodyResultInvolvers struct {
+	// example:
+	//
+	// httpx://xxx
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-	Id        *string `json:"id,omitempty" xml:"id,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 173xxxx
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 鬼斩
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CreateOrganizationTaskResponseBodyResultInvolvers) String() string {
@@ -676,16 +790,58 @@ func (s *CreatePlanTimeHeaders) SetXAcsDingtalkAccessToken(v string) *CreatePlan
 }
 
 type CreatePlanTimeRequest struct {
-	EndDate          *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	ExecutorId       *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	IncludesHolidays *bool   `json:"includesHolidays,omitempty" xml:"includesHolidays,omitempty"`
-	IsDuration       *bool   `json:"isDuration,omitempty" xml:"isDuration,omitempty"`
-	ObjectId         *string `json:"objectId,omitempty" xml:"objectId,omitempty"`
-	ObjectType       *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
-	PlanTime         *int64  `json:"planTime,omitempty" xml:"planTime,omitempty"`
-	StartDate        *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	SubmitterId      *string `json:"submitterId,omitempty" xml:"submitterId,omitempty"`
-	TenantType       *string `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2022-09-05
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	// This parameter is required.
+	IncludesHolidays *bool `json:"includesHolidays,omitempty" xml:"includesHolidays,omitempty"`
+	// This parameter is required.
+	IsDuration *bool `json:"isDuration,omitempty" xml:"isDuration,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 63186e54e07f18003fea6b90
+	ObjectId *string `json:"objectId,omitempty" xml:"objectId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// task
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3600000
+	PlanTime *int64 `json:"planTime,omitempty" xml:"planTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2022-09-05
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	SubmitterId *string `json:"submitterId,omitempty" xml:"submitterId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// organization
+	TenantType *string `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
 }
 
 func (s CreatePlanTimeRequest) String() string {
@@ -764,9 +920,12 @@ func (s *CreatePlanTimeResponseBody) SetResult(v *CreatePlanTimeResponseBodyResu
 }
 
 type CreatePlanTimeResponseBodyResult struct {
-	Body    []*CreatePlanTimeResponseBodyResultBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	Message *string                                 `json:"message,omitempty" xml:"message,omitempty"`
-	Ok      *bool                                   `json:"ok,omitempty" xml:"ok,omitempty"`
+	Body []*CreatePlanTimeResponseBodyResultBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 创建工时成功
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	Ok      *bool   `json:"ok,omitempty" xml:"ok,omitempty"`
 }
 
 func (s CreatePlanTimeResponseBodyResult) String() string {
@@ -793,9 +952,18 @@ func (s *CreatePlanTimeResponseBodyResult) SetOk(v bool) *CreatePlanTimeResponse
 }
 
 type CreatePlanTimeResponseBodyResultBody struct {
-	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 2022-09-05T00:00:00.000Z
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 63186e54e07f18003fea6b90
 	ObjectId *string `json:"objectId,omitempty" xml:"objectId,omitempty"`
-	PlanTime *int64  `json:"planTime,omitempty" xml:"planTime,omitempty"`
+	// example:
+	//
+	// 360000
+	PlanTime *int64 `json:"planTime,omitempty" xml:"planTime,omitempty"`
 }
 
 func (s CreatePlanTimeResponseBodyResultBody) String() string {
@@ -874,6 +1042,9 @@ func (s *CreateProjectHeaders) SetXAcsDingtalkAccessToken(v string) *CreateProje
 }
 
 type CreateProjectRequest struct {
+	// example:
+	//
+	// 项目1
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -908,22 +1079,67 @@ func (s *CreateProjectResponseBody) SetResult(v *CreateProjectResponseBodyResult
 }
 
 type CreateProjectResponseBodyResult struct {
-	Created             *string                                        `json:"created,omitempty" xml:"created,omitempty"`
-	CreatorId           *string                                        `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	CustomFields        []*CreateProjectResponseBodyResultCustomFields `json:"customFields,omitempty" xml:"customFields,omitempty" type:"Repeated"`
-	DefaultCollectionId *string                                        `json:"defaultCollectionId,omitempty" xml:"defaultCollectionId,omitempty"`
-	IsArchived          *bool                                          `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
-	IsSuspended         *bool                                          `json:"isSuspended,omitempty" xml:"isSuspended,omitempty"`
-	IsTemplate          *bool                                          `json:"isTemplate,omitempty" xml:"isTemplate,omitempty"`
-	Logo                *string                                        `json:"logo,omitempty" xml:"logo,omitempty"`
-	Name                *string                                        `json:"name,omitempty" xml:"name,omitempty"`
-	NormalType          *string                                        `json:"normalType,omitempty" xml:"normalType,omitempty"`
-	ProjectId           *string                                        `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	RootCollectionId    *string                                        `json:"rootCollectionId,omitempty" xml:"rootCollectionId,omitempty"`
-	SourceId            *string                                        `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
-	UniqueIdPrefix      *string                                        `json:"uniqueIdPrefix,omitempty" xml:"uniqueIdPrefix,omitempty"`
-	Updated             *string                                        `json:"updated,omitempty" xml:"updated,omitempty"`
-	Visibility          *string                                        `json:"visibility,omitempty" xml:"visibility,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 0517xxxxxxx
+	CreatorId    *string                                        `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	CustomFields []*CreateProjectResponseBodyResultCustomFields `json:"customFields,omitempty" xml:"customFields,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 6398042ec98a4e4e33xxxxxx
+	DefaultCollectionId *string `json:"defaultCollectionId,omitempty" xml:"defaultCollectionId,omitempty"`
+	// example:
+	//
+	// false
+	IsArchived *bool `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	// example:
+	//
+	// false
+	IsSuspended *bool `json:"isSuspended,omitempty" xml:"isSuspended,omitempty"`
+	// example:
+	//
+	// false
+	IsTemplate *bool `json:"isTemplate,omitempty" xml:"isTemplate,omitempty"`
+	// example:
+	//
+	// "https://tcs-ga.teambition.net/thumb/xxxxxxx
+	Logo *string `json:"logo,omitempty" xml:"logo,omitempty"`
+	// example:
+	//
+	// 项目1
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// taskflow
+	NormalType *string `json:"normalType,omitempty" xml:"normalType,omitempty"`
+	// example:
+	//
+	// 62c25e3b376ecxxxxxxx
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// example:
+	//
+	// 6398042ec98a4e4e33
+	RootCollectionId *string `json:"rootCollectionId,omitempty" xml:"rootCollectionId,omitempty"`
+	// example:
+	//
+	// 62c25e3b376ecxxxxxxx
+	SourceId *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	// example:
+	//
+	// ""
+	UniqueIdPrefix *string `json:"uniqueIdPrefix,omitempty" xml:"uniqueIdPrefix,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// project
+	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
 func (s CreateProjectResponseBodyResult) String() string {
@@ -1125,7 +1341,17 @@ func (s *CreateProjectByTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *C
 }
 
 type CreateProjectByTemplateRequest struct {
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 项目1
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 578cae9dbf83e5xxxx
 	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
 
@@ -1165,10 +1391,22 @@ func (s *CreateProjectByTemplateResponseBody) SetResult(v *CreateProjectByTempla
 }
 
 type CreateProjectByTemplateResponseBodyResult struct {
+	// example:
+	//
+	// 2022-08-01T09:50:31.275Z
 	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	Id      *string `json:"id,omitempty" xml:"id,omitempty"`
-	Logo    *string `json:"logo,omitempty" xml:"logo,omitempty"`
-	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 62e7a1e721d20b5aexxx
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// https://www.xxx.com/xxxxx
+	Logo *string `json:"logo,omitempty" xml:"logo,omitempty"`
+	// example:
+	//
+	// 项目1
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CreateProjectByTemplateResponseBodyResult) String() string {
@@ -1252,10 +1490,20 @@ func (s *CreateProjectCustomfieldStatusHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type CreateProjectCustomfieldStatusRequest struct {
-	CustomFieldId         *string                                       `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
-	CustomFieldInstanceId *string                                       `json:"customFieldInstanceId,omitempty" xml:"customFieldInstanceId,omitempty"`
-	CustomFieldName       *string                                       `json:"customFieldName,omitempty" xml:"customFieldName,omitempty"`
-	Value                 []*CreateProjectCustomfieldStatusRequestValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 63a5301e420637003f5dxxxx
+	CustomFieldId *string `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
+	// example:
+	//
+	// 64a5301e420637003f5dxxxx
+	CustomFieldInstanceId *string `json:"customFieldInstanceId,omitempty" xml:"customFieldInstanceId,omitempty"`
+	// example:
+	//
+	// 项目进度
+	CustomFieldName *string `json:"customFieldName,omitempty" xml:"customFieldName,omitempty"`
+	// This parameter is required.
+	Value []*CreateProjectCustomfieldStatusRequestValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
 func (s CreateProjectCustomfieldStatusRequest) String() string {
@@ -1287,9 +1535,18 @@ func (s *CreateProjectCustomfieldStatusRequest) SetValue(v []*CreateProjectCusto
 }
 
 type CreateProjectCustomfieldStatusRequestValue struct {
+	// example:
+	//
+	// 63a5301e420637003f5dxxxx
 	CustomFieldValueId *string `json:"customFieldValueId,omitempty" xml:"customFieldValueId,omitempty"`
-	MetaString         *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
-	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// {}
+	MetaString *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	// example:
+	//
+	// 进行中
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateProjectCustomfieldStatusRequestValue) String() string {
@@ -1333,12 +1590,27 @@ func (s *CreateProjectCustomfieldStatusResponseBody) SetResult(v *CreateProjectC
 }
 
 type CreateProjectCustomfieldStatusResponseBodyResult struct {
-	AdvancedCustomFieldObjectType *string                                                  `json:"advancedCustomFieldObjectType,omitempty" xml:"advancedCustomFieldObjectType,omitempty"`
-	CustomFieldId                 *string                                                  `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
-	Name                          *string                                                  `json:"name,omitempty" xml:"name,omitempty"`
-	OriginalId                    *string                                                  `json:"originalId,omitempty" xml:"originalId,omitempty"`
-	Type                          *string                                                  `json:"type,omitempty" xml:"type,omitempty"`
-	Value                         []*CreateProjectCustomfieldStatusResponseBodyResultValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	// example:
+	//
+	// lookup2
+	AdvancedCustomFieldObjectType *string `json:"advancedCustomFieldObjectType,omitempty" xml:"advancedCustomFieldObjectType,omitempty"`
+	// example:
+	//
+	// 63a5301e420637003f5dxxxx
+	CustomFieldId *string `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
+	// example:
+	//
+	// 项目进度
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 62a5301e420637003f5dxxxx
+	OriginalId *string `json:"originalId,omitempty" xml:"originalId,omitempty"`
+	// example:
+	//
+	// number
+	Type  *string                                                  `json:"type,omitempty" xml:"type,omitempty"`
+	Value []*CreateProjectCustomfieldStatusResponseBodyResultValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
 func (s CreateProjectCustomfieldStatusResponseBodyResult) String() string {
@@ -1380,9 +1652,15 @@ func (s *CreateProjectCustomfieldStatusResponseBodyResult) SetValue(v []*CreateP
 }
 
 type CreateProjectCustomfieldStatusResponseBodyResultValue struct {
+	// example:
+	//
+	// 63a5301e420637003f5dxxxx
 	CustomFieldValueId *string `json:"customFieldValueId,omitempty" xml:"customFieldValueId,omitempty"`
 	MetaString         *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
-	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 13
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateProjectCustomfieldStatusResponseBodyResultValue) String() string {
@@ -1461,18 +1739,55 @@ func (s *CreateTaskHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTaskHead
 }
 
 type CreateTaskRequest struct {
-	Content               *string                          `json:"content,omitempty" xml:"content,omitempty"`
-	Customfields          []*CreateTaskRequestCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
-	DueDate               *string                          `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	ExecutorId            *string                          `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	Note                  *string                          `json:"note,omitempty" xml:"note,omitempty"`
-	ParentTaskId          *string                          `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
-	Priority              *int32                           `json:"priority,omitempty" xml:"priority,omitempty"`
-	ProjectId             *string                          `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	ScenariofieldconfigId *string                          `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
-	StageId               *string                          `json:"stageId,omitempty" xml:"stageId,omitempty"`
-	StartDate             *string                          `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	Visible               *string                          `json:"visible,omitempty" xml:"visible,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 任务标题
+	Content      *string                          `json:"content,omitempty" xml:"content,omitempty"`
+	Customfields []*CreateTaskRequestCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 2022-06-13T07:36:50.318Z
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// example:
+	//
+	// 173xxxx
+	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	// example:
+	//
+	// 我是一条任务备注
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// example:
+	//
+	// 62c25e3b376exxxxxx
+	ParentTaskId *string `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
+	// example:
+	//
+	// -10
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 62c25e3b376exxxxxx
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// example:
+	//
+	// 62c25e3b376exxxxxx
+	ScenariofieldconfigId *string `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
+	// example:
+	//
+	// 62c25e3b376exxxxxx
+	StageId *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
+	// example:
+	//
+	// 2022-06-13T07:36:50.318Z
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// example:
+	//
+	// members
+	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s CreateTaskRequest) String() string {
@@ -1544,7 +1859,13 @@ func (s *CreateTaskRequest) SetVisible(v string) *CreateTaskRequest {
 }
 
 type CreateTaskRequestCustomfields struct {
-	CustomfieldId   *string                               `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	// example:
+	//
+	// 62fb0bxxxxxxx
+	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
+	// example:
+	//
+	// 自定义字段-文本
 	CustomfieldName *string                               `json:"customfieldName,omitempty" xml:"customfieldName,omitempty"`
 	Value           []*CreateTaskRequestCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
@@ -1573,6 +1894,11 @@ func (s *CreateTaskRequestCustomfields) SetValue(v []*CreateTaskRequestCustomfie
 }
 
 type CreateTaskRequestCustomfieldsValue struct {
+	Id       *string `json:"id,omitempty" xml:"id,omitempty"`
+	ThumbUrl *string `json:"thumbUrl,omitempty" xml:"thumbUrl,omitempty"`
+	// example:
+	//
+	// 我是自定义字段显示值
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -1582,6 +1908,16 @@ func (s CreateTaskRequestCustomfieldsValue) String() string {
 
 func (s CreateTaskRequestCustomfieldsValue) GoString() string {
 	return s.String()
+}
+
+func (s *CreateTaskRequestCustomfieldsValue) SetId(v string) *CreateTaskRequestCustomfieldsValue {
+	s.Id = &v
+	return s
+}
+
+func (s *CreateTaskRequestCustomfieldsValue) SetThumbUrl(v string) *CreateTaskRequestCustomfieldsValue {
+	s.ThumbUrl = &v
+	return s
 }
 
 func (s *CreateTaskRequestCustomfieldsValue) SetTitle(v string) *CreateTaskRequestCustomfieldsValue {
@@ -1607,18 +1943,48 @@ func (s *CreateTaskResponseBody) SetResult(v *CreateTaskResponseBodyResult) *Cre
 }
 
 type CreateTaskResponseBodyResult struct {
-	Content        *string                                     `json:"content,omitempty" xml:"content,omitempty"`
-	Created        *string                                     `json:"created,omitempty" xml:"created,omitempty"`
-	CreatorId      *string                                     `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Customfields   []*CreateTaskResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
-	DueDate        *string                                     `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	ExecutorId     *string                                     `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	InvolveMembers []*string                                   `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	Note           *string                                     `json:"note,omitempty" xml:"note,omitempty"`
-	Priority       *int32                                      `json:"priority,omitempty" xml:"priority,omitempty"`
-	ProjectId      *string                                     `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	TaskId         *string                                     `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	Updated        *string                                     `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// 任务标题
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 173xxxxx
+	CreatorId    *string                                     `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	Customfields []*CreateTaskResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 2022-08-13T07:36:50.318Z
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// example:
+	//
+	// 173xxxx
+	ExecutorId     *string   `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 我是一条备注
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// example:
+	//
+	// -10
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// example:
+	//
+	// 62c25e3b376ecxxxxxx
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// example:
+	//
+	// 62a697c053c2ef5xxxxxx
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s CreateTaskResponseBodyResult) String() string {
@@ -1690,6 +2056,9 @@ func (s *CreateTaskResponseBodyResult) SetUpdated(v string) *CreateTaskResponseB
 }
 
 type CreateTaskResponseBodyResultCustomfields struct {
+	// example:
+	//
+	// 625bcxdxxxxxx
 	CustomfieldId *string                                          `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
 	Value         []*CreateTaskResponseBodyResultCustomfieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
@@ -1713,6 +2082,11 @@ func (s *CreateTaskResponseBodyResultCustomfields) SetValue(v []*CreateTaskRespo
 }
 
 type CreateTaskResponseBodyResultCustomfieldsValue struct {
+	Id       *string `json:"id,omitempty" xml:"id,omitempty"`
+	ThumbUrl *string `json:"thumbUrl,omitempty" xml:"thumbUrl,omitempty"`
+	// example:
+	//
+	// 我是自定义字段显示值
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -1722,6 +2096,16 @@ func (s CreateTaskResponseBodyResultCustomfieldsValue) String() string {
 
 func (s CreateTaskResponseBodyResultCustomfieldsValue) GoString() string {
 	return s.String()
+}
+
+func (s *CreateTaskResponseBodyResultCustomfieldsValue) SetId(v string) *CreateTaskResponseBodyResultCustomfieldsValue {
+	s.Id = &v
+	return s
+}
+
+func (s *CreateTaskResponseBodyResultCustomfieldsValue) SetThumbUrl(v string) *CreateTaskResponseBodyResultCustomfieldsValue {
+	s.ThumbUrl = &v
+	return s
 }
 
 func (s *CreateTaskResponseBodyResultCustomfieldsValue) SetTitle(v string) *CreateTaskResponseBodyResultCustomfieldsValue {
@@ -1799,10 +2183,26 @@ func (s *CreateTaskObjectLinkRequest) SetLinkedData(v *CreateTaskObjectLinkReque
 }
 
 type CreateTaskObjectLinkRequestLinkedData struct {
-	Content      *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 我是内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// https://abc.com/url
 	ThumbnailUrl *string `json:"thumbnailUrl,omitempty" xml:"thumbnailUrl,omitempty"`
-	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
-	Url          *string `json:"url,omitempty" xml:"url,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 我是标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://abcd.com/url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s CreateTaskObjectLinkRequestLinkedData) String() string {
@@ -1851,7 +2251,13 @@ func (s *CreateTaskObjectLinkResponseBody) SetResult(v *CreateTaskObjectLinkResp
 }
 
 type CreateTaskObjectLinkResponseBodyResult struct {
-	Created      *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// xxxx
 	ObjectLinkId *string `json:"objectLinkId,omitempty" xml:"objectLinkId,omitempty"`
 }
 
@@ -1926,17 +2332,55 @@ func (s *CreateWorkTimeHeaders) SetXAcsDingtalkAccessToken(v string) *CreateWork
 }
 
 type CreateWorkTimeRequest struct {
-	Description      *string `json:"description,omitempty" xml:"description,omitempty"`
-	EndDate          *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	ExecutorId       *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	IncludesHolidays *bool   `json:"includesHolidays,omitempty" xml:"includesHolidays,omitempty"`
-	IsDuration       *bool   `json:"isDuration,omitempty" xml:"isDuration,omitempty"`
-	ObjectId         *string `json:"objectId,omitempty" xml:"objectId,omitempty"`
-	ObjectType       *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
-	StartDate        *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	SubmitterId      *string `json:"submitterId,omitempty" xml:"submitterId,omitempty"`
-	WorkTime         *int64  `json:"workTime,omitempty" xml:"workTime,omitempty"`
-	TenantType       *string `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2022-09-05
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	// This parameter is required.
+	IncludesHolidays *bool `json:"includesHolidays,omitempty" xml:"includesHolidays,omitempty"`
+	// This parameter is required.
+	IsDuration *bool `json:"isDuration,omitempty" xml:"isDuration,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 63186e54e07f18003fea6b90
+	ObjectId *string `json:"objectId,omitempty" xml:"objectId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// task
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2022-09-05
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	SubmitterId *string `json:"submitterId,omitempty" xml:"submitterId,omitempty"`
+	// This parameter is required.
+	WorkTime *int64 `json:"workTime,omitempty" xml:"workTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// organization
+	TenantType *string `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
 }
 
 func (s CreateWorkTimeRequest) String() string {
@@ -2020,9 +2464,12 @@ func (s *CreateWorkTimeResponseBody) SetResult(v *CreateWorkTimeResponseBodyResu
 }
 
 type CreateWorkTimeResponseBodyResult struct {
-	Body    []*CreateWorkTimeResponseBodyResultBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	Message *string                                 `json:"message,omitempty" xml:"message,omitempty"`
-	Ok      *bool                                   `json:"ok,omitempty" xml:"ok,omitempty"`
+	Body []*CreateWorkTimeResponseBodyResultBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 创建成功
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	Ok      *bool   `json:"ok,omitempty" xml:"ok,omitempty"`
 }
 
 func (s CreateWorkTimeResponseBodyResult) String() string {
@@ -2049,9 +2496,18 @@ func (s *CreateWorkTimeResponseBodyResult) SetOk(v bool) *CreateWorkTimeResponse
 }
 
 type CreateWorkTimeResponseBodyResultBody struct {
-	Date     *string `json:"date,omitempty" xml:"date,omitempty"`
-	TaskId   *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	WorkTime *int64  `json:"workTime,omitempty" xml:"workTime,omitempty"`
+	// example:
+	//
+	// 2022-09-05T00:00:00.000Z
+	Date *string `json:"date,omitempty" xml:"date,omitempty"`
+	// example:
+	//
+	// 63186e54e07f18003fea6b90
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// 3600000
+	WorkTime *int64 `json:"workTime,omitempty" xml:"workTime,omitempty"`
 }
 
 func (s CreateWorkTimeResponseBodyResultBody) String() string {
@@ -2130,6 +2586,7 @@ func (s *CreateWorkTimeApproveHeaders) SetXAcsDingtalkAccessToken(v string) *Cre
 }
 
 type CreateWorkTimeApproveRequest struct {
+	// This parameter is required.
 	WorkTimeIds []*string `json:"workTimeIds,omitempty" xml:"workTimeIds,omitempty" type:"Repeated"`
 }
 
@@ -2147,7 +2604,13 @@ func (s *CreateWorkTimeApproveRequest) SetWorkTimeIds(v []*string) *CreateWorkTi
 }
 
 type CreateWorkTimeApproveResponseBody struct {
-	Message   *string                                  `json:"message,omitempty" xml:"message,omitempty"`
+	// example:
+	//
+	// 执行成功
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// example:
+	//
+	// 1234
 	RequestId *string                                  `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	Result    *CreateWorkTimeApproveResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
@@ -2176,16 +2639,43 @@ func (s *CreateWorkTimeApproveResponseBody) SetResult(v *CreateWorkTimeApproveRe
 }
 
 type CreateWorkTimeApproveResponseBodyResult struct {
-	ApproveOpenId  *string   `json:"approveOpenId,omitempty" xml:"approveOpenId,omitempty"`
-	CreatedAt      *string   `json:"createdAt,omitempty" xml:"createdAt,omitempty"`
-	CreatorId      *string   `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	OrganizationId *string   `json:"organizationId,omitempty" xml:"organizationId,omitempty"`
-	Status         *string   `json:"status,omitempty" xml:"status,omitempty"`
-	TaskId         *string   `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	Time           *int32    `json:"time,omitempty" xml:"time,omitempty"`
-	UpdatedAt      *string   `json:"updatedAt,omitempty" xml:"updatedAt,omitempty"`
-	UserId         *string   `json:"userId,omitempty" xml:"userId,omitempty"`
-	WorkTimeIds    []*string `json:"workTimeIds,omitempty" xml:"workTimeIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 636c9634b183ac0040ee85b4
+	ApproveOpenId *string `json:"approveOpenId,omitempty" xml:"approveOpenId,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	CreatedAt *string `json:"createdAt,omitempty" xml:"createdAt,omitempty"`
+	// example:
+	//
+	// 6446626a9fb5a70c05fc3fc3
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// ding123xxx
+	OrganizationId *string `json:"organizationId,omitempty" xml:"organizationId,omitempty"`
+	// example:
+	//
+	// NEW
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 636c9634b183ac0040ee85b4
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// 100000
+	Time *int32 `json:"time,omitempty" xml:"time,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	UpdatedAt *string `json:"updatedAt,omitempty" xml:"updatedAt,omitempty"`
+	// example:
+	//
+	// 6446626a9fb5a70c05fc3fc3
+	UserId      *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	WorkTimeIds []*string `json:"workTimeIds,omitempty" xml:"workTimeIds,omitempty" type:"Repeated"`
 }
 
 func (s CreateWorkTimeApproveResponseBodyResult) String() string {
@@ -2299,6 +2789,7 @@ func (s *DeleteProjectMemberHeaders) SetXAcsDingtalkAccessToken(v string) *Delet
 }
 
 type DeleteProjectMemberRequest struct {
+	// This parameter is required.
 	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -2584,6 +3075,7 @@ func (s *GetDeptsByOrgIdResponse) SetBody(v *GetDeptsByOrgIdResponseBody) *GetDe
 type GetEmpsByOrgIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	DingAccessTokenType     *string            `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
+	DingIsvOrgId            *string            `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
 	DingOrgId               *string            `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
 }
@@ -2603,6 +3095,11 @@ func (s *GetEmpsByOrgIdHeaders) SetCommonHeaders(v map[string]*string) *GetEmpsB
 
 func (s *GetEmpsByOrgIdHeaders) SetDingAccessTokenType(v string) *GetEmpsByOrgIdHeaders {
 	s.DingAccessTokenType = &v
+	return s
+}
+
+func (s *GetEmpsByOrgIdHeaders) SetDingIsvOrgId(v string) *GetEmpsByOrgIdHeaders {
+	s.DingIsvOrgId = &v
 	return s
 }
 
@@ -2792,6 +3289,11 @@ func (s *GetOrganizatioTaskByIdsHeaders) SetXAcsDingtalkAccessToken(v string) *G
 }
 
 type GetOrganizatioTaskByIdsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 62a010c153c2ef5244xxxx, 62a010c153c2ef524xxxxxx
 	TaskIds *string `json:"taskIds,omitempty" xml:"taskIds,omitempty"`
 }
 
@@ -2826,22 +3328,61 @@ func (s *GetOrganizatioTaskByIdsResponseBody) SetResult(v []*GetOrganizatioTaskB
 }
 
 type GetOrganizatioTaskByIdsResponseBodyResult struct {
-	AncestorIds    []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
-	Content        *string   `json:"content,omitempty" xml:"content,omitempty"`
-	Created        *string   `json:"created,omitempty" xml:"created,omitempty"`
-	CreatorId      *string   `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	DueDate        *string   `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	AncestorIds []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 明天12点前写好周报
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 173xxxx
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// example:
+	//
+	// 173xxxx
 	ExecutorId     *string   `json:"executorId,omitempty" xml:"executorId,omitempty"`
 	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	IsDeleted      *bool     `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	IsDone         *bool     `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	Labels         []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
-	Note           *string   `json:"note,omitempty" xml:"note,omitempty"`
-	Priority       *int32    `json:"priority,omitempty" xml:"priority,omitempty"`
-	StartDate      *string   `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	TaskId         *string   `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	Updated        *string   `json:"updated,omitempty" xml:"updated,omitempty"`
-	Visible        *string   `json:"visible,omitempty" xml:"visible,omitempty"`
+	// example:
+	//
+	// false
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// example:
+	//
+	// false
+	IsDone *bool     `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	Labels []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 我是一条备注哦
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// example:
+	//
+	// -10
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// example:
+	//
+	// 62a010c153c2efxxxxxxx
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// members
+	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s GetOrganizatioTaskByIdsResponseBodyResult) String() string {
@@ -3002,9 +3543,21 @@ func (s *GetOrganizationPriorityListResponseBody) SetResult(v []*GetOrganization
 }
 
 type GetOrganizationPriorityListResponseBodyResult struct {
-	Color      *string `json:"color,omitempty" xml:"color,omitempty"`
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	Priority   *string `json:"priority,omitempty" xml:"priority,omitempty"`
+	// example:
+	//
+	// blue
+	Color *string `json:"color,omitempty" xml:"color,omitempty"`
+	// example:
+	//
+	// 普通
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1
+	Priority *string `json:"priority,omitempty" xml:"priority,omitempty"`
+	// example:
+	//
+	// 5e870bc35b79b70xxxxx
 	PriorityId *string `json:"priorityId,omitempty" xml:"priorityId,omitempty"`
 }
 
@@ -3106,22 +3659,61 @@ func (s *GetOrganizationTaskResponseBody) SetResult(v *GetOrganizationTaskRespon
 }
 
 type GetOrganizationTaskResponseBodyResult struct {
-	AncestorIds    []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
-	Content        *string   `json:"content,omitempty" xml:"content,omitempty"`
-	Created        *string   `json:"created,omitempty" xml:"created,omitempty"`
-	CreatorId      *string   `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	DueDate        *string   `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	AncestorIds []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 明天12点前写好周报
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 173xxxx
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// example:
+	//
+	// 173xxxx
 	ExecutorId     *string   `json:"executorId,omitempty" xml:"executorId,omitempty"`
 	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	IsDeleted      *bool     `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	IsDone         *bool     `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	Labels         []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
-	Note           *string   `json:"note,omitempty" xml:"note,omitempty"`
-	Priority       *int32    `json:"priority,omitempty" xml:"priority,omitempty"`
-	StartDate      *string   `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	TaskId         *string   `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	Updated        *string   `json:"updated,omitempty" xml:"updated,omitempty"`
-	Visible        *string   `json:"visible,omitempty" xml:"visible,omitempty"`
+	// example:
+	//
+	// false
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// example:
+	//
+	// false
+	IsDone *bool     `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	Labels []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 我是一条备注哦
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// example:
+	//
+	// -10
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// example:
+	//
+	// 62a010c153c2exxxxxxxxx
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// members
+	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s GetOrganizationTaskResponseBodyResult) String() string {
@@ -3265,7 +3857,13 @@ func (s *GetProjectGroupHeaders) SetXAcsDingtalkAccessToken(v string) *GetProjec
 }
 
 type GetProjectGroupRequest struct {
-	PageSize *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 01525006000512579xxx
 	ViewerId *string `json:"viewerId,omitempty" xml:"viewerId,omitempty"`
 }
 
@@ -3305,10 +3903,25 @@ func (s *GetProjectGroupResponseBody) SetResult(v []*GetProjectGroupResponseBody
 }
 
 type GetProjectGroupResponseBodyResult struct {
+	// example:
+	//
+	// 2022-06-13T07:36:50.318Z
 	Created *string `json:"created,omitempty" xml:"created,omitempty"`
-	Id      *string `json:"id,omitempty" xml:"id,omitempty"`
-	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 6215dce28972510xxxxx
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 分组1
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 2022-06-13T07:36:50.318Z
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// organization
 	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
@@ -3398,10 +4011,22 @@ func (s *GetProjectMemebersHeaders) SetXAcsDingtalkAccessToken(v string) *GetPro
 }
 
 type GetProjectMemebersRequest struct {
-	MaxResults    *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
 	ProjectRoleId *string `json:"projectRoleId,omitempty" xml:"projectRoleId,omitempty"`
-	Skip          *int32  `json:"skip,omitempty" xml:"skip,omitempty"`
-	UserIds       *string `json:"userIds,omitempty" xml:"userIds,omitempty"`
+	// example:
+	//
+	// 55
+	Skip *int32 `json:"skip,omitempty" xml:"skip,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx,60a2187eb72xxxxxxx
+	UserIds *string `json:"userIds,omitempty" xml:"userIds,omitempty"`
 }
 
 func (s GetProjectMemebersRequest) String() string {
@@ -3451,10 +4076,20 @@ func (s *GetProjectMemebersResponseBody) SetResult(v []*GetProjectMemebersRespon
 
 type GetProjectMemebersResponseBodyResult struct {
 	// Deprecated
-	MemberId *string   `json:"memberId,omitempty" xml:"memberId,omitempty"`
-	Role     *int32    `json:"role,omitempty" xml:"role,omitempty"`
-	RoleIds  []*string `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
-	UserId   *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	//
+	// example:
+	//
+	// 62c25e3b376ec29c45xxxxx
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// example:
+	//
+	// 0
+	Role    *int32    `json:"role,omitempty" xml:"role,omitempty"`
+	RoleIds []*string `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 0715153011125xxxx
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetProjectMemebersResponseBodyResult) String() string {
@@ -3555,11 +4190,29 @@ func (s *GetProjectStatusListResponseBody) SetResult(v []*GetProjectStatusListRe
 }
 
 type GetProjectStatusListResponseBodyResult struct {
-	Content   *string `json:"content,omitempty" xml:"content,omitempty"`
-	Created   *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 进度正常，详细说明
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 0715153011xxxxxx
 	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Degree    *string `json:"degree,omitempty" xml:"degree,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// normal
+	Degree *string `json:"degree,omitempty" xml:"degree,omitempty"`
+	// example:
+	//
+	// 进度正常
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 62c25e3b376ecxxxxxxx
 	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
 }
 
@@ -3654,8 +4307,14 @@ func (s *GetTaskByIdsHeaders) SetXAcsDingtalkAccessToken(v string) *GetTaskByIds
 }
 
 type GetTaskByIdsRequest struct {
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
 	ParentTaskId *string `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
-	TaskId       *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
 
 func (s GetTaskByIdsRequest) String() string {
@@ -3694,34 +4353,103 @@ func (s *GetTaskByIdsResponseBody) SetResult(v []*GetTaskByIdsResponseBodyResult
 }
 
 type GetTaskByIdsResponseBodyResult struct {
-	AccomplishTime        *string                                       `json:"accomplishTime,omitempty" xml:"accomplishTime,omitempty"`
-	AncestorIds           []*string                                     `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
-	Content               *string                                       `json:"content,omitempty" xml:"content,omitempty"`
-	Created               *string                                       `json:"created,omitempty" xml:"created,omitempty"`
-	CreatorId             *string                                       `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	CustomFields          []*GetTaskByIdsResponseBodyResultCustomFields `json:"customFields,omitempty" xml:"customFields,omitempty" type:"Repeated"`
-	DueDate               *string                                       `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	ExecutorId            *string                                       `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	InvolveMembers        []*string                                     `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	IsArchived            *bool                                         `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
-	IsDone                *bool                                         `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	Note                  *string                                       `json:"note,omitempty" xml:"note,omitempty"`
-	ParentTaskId          *string                                       `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
-	Priority              *int32                                        `json:"priority,omitempty" xml:"priority,omitempty"`
-	ProjectId             *string                                       `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	Recurrence            []*string                                     `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Repeated"`
-	ScenarioFieldConfigId *string                                       `json:"scenarioFieldConfigId,omitempty" xml:"scenarioFieldConfigId,omitempty"`
-	SprintId              *string                                       `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
-	StartDate             *string                                       `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	StoryPoint            *string                                       `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
-	TagIds                []*string                                     `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
-	TaskId                *string                                       `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	TaskListId            *string                                       `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
-	TaskStageId           *string                                       `json:"taskStageId,omitempty" xml:"taskStageId,omitempty"`
-	TaskflowStatusId      *string                                       `json:"taskflowStatusId,omitempty" xml:"taskflowStatusId,omitempty"`
-	UniqueId              *string                                       `json:"uniqueId,omitempty" xml:"uniqueId,omitempty"`
-	Updated               *string                                       `json:"updated,omitempty" xml:"updated,omitempty"`
-	Visible               *string                                       `json:"visible,omitempty" xml:"visible,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	AccomplishTime *string   `json:"accomplishTime,omitempty" xml:"accomplishTime,omitempty"`
+	AncestorIds    []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 任务标题
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 0517xxxxxxx
+	CreatorId    *string                                       `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	CustomFields []*GetTaskByIdsResponseBodyResultCustomFields `json:"customFields,omitempty" xml:"customFields,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// example:
+	//
+	// 0517xxxxxxx
+	ExecutorId     *string   `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	// example:
+	//
+	// false
+	IsArchived *bool `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	// example:
+	//
+	// true
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// example:
+	//
+	// 任务备注
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
+	ParentTaskId *string `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
+	// example:
+	//
+	// 0
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// example:
+	//
+	// 62c25e3b376ecxxxxxxx
+	ProjectId  *string   `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	Recurrence []*string `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 6922xxxxxxxx
+	ScenarioFieldConfigId *string `json:"scenarioFieldConfigId,omitempty" xml:"scenarioFieldConfigId,omitempty"`
+	// example:
+	//
+	// 61922xxxxxxxx
+	SprintId *string `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// example:
+	//
+	// 1
+	StoryPoint *string   `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
+	TagIds     []*string `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// 6922xxxxxxxx
+	TaskListId *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	// example:
+	//
+	// 6622134xxxxxx
+	TaskStageId *string `json:"taskStageId,omitempty" xml:"taskStageId,omitempty"`
+	// example:
+	//
+	// 6722xxxxxxxx
+	TaskflowStatusId *string `json:"taskflowStatusId,omitempty" xml:"taskflowStatusId,omitempty"`
+	// example:
+	//
+	// 0
+	UniqueId *string `json:"uniqueId,omitempty" xml:"uniqueId,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// member
+	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s GetTaskByIdsResponseBodyResult) String() string {
@@ -3873,6 +4601,9 @@ func (s *GetTaskByIdsResponseBodyResult) SetVisible(v string) *GetTaskByIdsRespo
 }
 
 type GetTaskByIdsResponseBodyResultCustomFields struct {
+	// example:
+	//
+	// 61122xxxxxxxx
 	CustomFieldId *string                                            `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
 	Type          *string                                            `json:"type,omitempty" xml:"type,omitempty"`
 	Value         []*GetTaskByIdsResponseBodyResultCustomFieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
@@ -3902,9 +4633,18 @@ func (s *GetTaskByIdsResponseBodyResultCustomFields) SetValue(v []*GetTaskByIdsR
 }
 
 type GetTaskByIdsResponseBodyResultCustomFieldsValue struct {
+	// example:
+	//
+	// 6722223xxxxxxxx
 	CustomFieldValueId *string `json:"customFieldValueId,omitempty" xml:"customFieldValueId,omitempty"`
-	MetaString         *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
-	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 拓展数据
+	MetaString *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	// example:
+	//
+	// 自定义字段1
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s GetTaskByIdsResponseBodyResultCustomFieldsValue) String() string {
@@ -3983,6 +4723,11 @@ func (s *GetTbOrgIdByDingOrgIdHeaders) SetXAcsDingtalkAccessToken(v string) *Get
 }
 
 type GetTbOrgIdByDingOrgIdRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0175xxxx
 	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
 }
 
@@ -4000,6 +4745,7 @@ func (s *GetTbOrgIdByDingOrgIdRequest) SetOptUserId(v string) *GetTbOrgIdByDingO
 }
 
 type GetTbOrgIdByDingOrgIdResponseBody struct {
+	// This parameter is required.
 	Result *GetTbOrgIdByDingOrgIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -4017,6 +4763,11 @@ func (s *GetTbOrgIdByDingOrgIdResponseBody) SetResult(v *GetTbOrgIdByDingOrgIdRe
 }
 
 type GetTbOrgIdByDingOrgIdResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 50c32afae8cf1439xxxx
 	TbOrganizationId *string `json:"tbOrganizationId,omitempty" xml:"tbOrganizationId,omitempty"`
 }
 
@@ -4116,6 +4867,11 @@ func (s *GetTbProjectGrayHeaders) SetXAcsDingtalkAccessToken(v string) *GetTbPro
 }
 
 type GetTbProjectGrayRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// project_teambition
 	Label *string `json:"label,omitempty" xml:"label,omitempty"`
 }
 
@@ -4134,7 +4890,10 @@ func (s *GetTbProjectGrayRequest) SetLabel(v string) *GetTbProjectGrayRequest {
 
 type GetTbProjectGrayResponseBody struct {
 	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
 func (s GetTbProjectGrayResponseBody) String() string {
@@ -4238,6 +4997,9 @@ func (s *GetTbProjectSourceHeaders) SetXAcsDingtalkAccessToken(v string) *GetTbP
 }
 
 type GetTbProjectSourceResponseBody struct {
+	// example:
+	//
+	// ”0“
 	InstallSource *string `json:"installSource,omitempty" xml:"installSource,omitempty"`
 }
 
@@ -4307,8 +5069,18 @@ func (s *GetTbUserIdByStaffIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetT
 }
 
 type GetTbUserIdByStaffIdRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0175xxxx
 	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0175xxxx
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetTbUserIdByStaffIdRequest) String() string {
@@ -4330,6 +5102,7 @@ func (s *GetTbUserIdByStaffIdRequest) SetUserId(v string) *GetTbUserIdByStaffIdR
 }
 
 type GetTbUserIdByStaffIdResponseBody struct {
+	// This parameter is required.
 	Result *GetTbUserIdByStaffIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
 
@@ -4347,6 +5120,11 @@ func (s *GetTbUserIdByStaffIdResponseBody) SetResult(v *GetTbUserIdByStaffIdResp
 }
 
 type GetTbUserIdByStaffIdResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 601fdeb17f8681c9xxxx
 	TbUserId *string `json:"tbUserId,omitempty" xml:"tbUserId,omitempty"`
 }
 
@@ -4416,8 +5194,14 @@ func (s *GetUserJoinedProjectHeaders) SetXAcsDingtalkAccessToken(v string) *GetU
 }
 
 type GetUserJoinedProjectRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// f279e812xxxxxx
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s GetUserJoinedProjectRequest) String() string {
@@ -4439,6 +5223,9 @@ func (s *GetUserJoinedProjectRequest) SetNextToken(v string) *GetUserJoinedProje
 }
 
 type GetUserJoinedProjectResponseBody struct {
+	// example:
+	//
+	// f279e812xxxxxx
 	NextToken *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Result    []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
@@ -4514,11 +5301,26 @@ func (s *QueryProjectHeaders) SetXAcsDingtalkAccessToken(v string) *QueryProject
 }
 
 type QueryProjectRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 测试项目
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// f279e812xxxxxx
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
 	ProjectIds *string `json:"projectIds,omitempty" xml:"projectIds,omitempty"`
-	SourceId   *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
+	SourceId *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
 }
 
 func (s QueryProjectRequest) String() string {
@@ -4555,7 +5357,13 @@ func (s *QueryProjectRequest) SetSourceId(v string) *QueryProjectRequest {
 }
 
 type QueryProjectResponseBody struct {
-	NextToken *string                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// "10"
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// c825b82b-a87a-49f3-a8b2-7a948b979975
 	RequestId *string                           `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	Result    []*QueryProjectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
@@ -4584,22 +5392,67 @@ func (s *QueryProjectResponseBody) SetResult(v []*QueryProjectResponseBodyResult
 }
 
 type QueryProjectResponseBodyResult struct {
-	Created        *string                                       `json:"created,omitempty" xml:"created,omitempty"`
-	CreatorId      *string                                       `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	CustomFields   []*QueryProjectResponseBodyResultCustomFields `json:"customFields,omitempty" xml:"customFields,omitempty" type:"Repeated"`
-	Description    *string                                       `json:"description,omitempty" xml:"description,omitempty"`
-	EndDate        *string                                       `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	IsArchived     *bool                                         `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
-	IsSuspended    *bool                                         `json:"isSuspended,omitempty" xml:"isSuspended,omitempty"`
-	IsTemplate     *bool                                         `json:"isTemplate,omitempty" xml:"isTemplate,omitempty"`
-	Logo           *string                                       `json:"logo,omitempty" xml:"logo,omitempty"`
-	Name           *string                                       `json:"name,omitempty" xml:"name,omitempty"`
-	OrganizationId *string                                       `json:"organizationId,omitempty" xml:"organizationId,omitempty"`
-	ProjectId      *string                                       `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	StartDate      *string                                       `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	UniqueIdPrefix *string                                       `json:"uniqueIdPrefix,omitempty" xml:"uniqueIdPrefix,omitempty"`
-	Updated        *string                                       `json:"updated,omitempty" xml:"updated,omitempty"`
-	Visibility     *string                                       `json:"visibility,omitempty" xml:"visibility,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 0715153011125xxxx
+	CreatorId    *string                                       `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	CustomFields []*QueryProjectResponseBodyResultCustomFields `json:"customFields,omitempty" xml:"customFields,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 描述内容
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// example:
+	//
+	// false
+	IsArchived *bool `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	// example:
+	//
+	// false
+	IsSuspended *bool `json:"isSuspended,omitempty" xml:"isSuspended,omitempty"`
+	// example:
+	//
+	// false
+	IsTemplate *bool `json:"isTemplate,omitempty" xml:"isTemplate,omitempty"`
+	// example:
+	//
+	// http://xxxxx
+	Logo *string `json:"logo,omitempty" xml:"logo,omitempty"`
+	// example:
+	//
+	// 测试项目
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// dingc23b7b9682b4xxxx
+	OrganizationId *string `json:"organizationId,omitempty" xml:"organizationId,omitempty"`
+	// example:
+	//
+	// 64ba333e4206372f3f5cxxxx
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// example:
+	//
+	// UNI
+	UniqueIdPrefix *string `json:"uniqueIdPrefix,omitempty" xml:"uniqueIdPrefix,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// organization
+	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
 func (s QueryProjectResponseBodyResult) String() string {
@@ -4691,9 +5544,15 @@ func (s *QueryProjectResponseBodyResult) SetVisibility(v string) *QueryProjectRe
 }
 
 type QueryProjectResponseBodyResultCustomFields struct {
-	CustomFieldId *string                                            `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
-	Type          *string                                            `json:"type,omitempty" xml:"type,omitempty"`
-	Value         []*QueryProjectResponseBodyResultCustomFieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 64ba333e4206372f3f5cxxxx
+	CustomFieldId *string `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
+	// example:
+	//
+	// number
+	Type  *string                                            `json:"type,omitempty" xml:"type,omitempty"`
+	Value []*QueryProjectResponseBodyResultCustomFieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
 func (s QueryProjectResponseBodyResultCustomFields) String() string {
@@ -4720,9 +5579,18 @@ func (s *QueryProjectResponseBodyResultCustomFields) SetValue(v []*QueryProjectR
 }
 
 type QueryProjectResponseBodyResultCustomFieldsValue struct {
+	// example:
+	//
+	// 64ba333e4206372f3f5cxxxx
 	CustomFieldValueId *string `json:"customFieldValueId,omitempty" xml:"customFieldValueId,omitempty"`
-	MetaString         *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
-	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 3
+	MetaString *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	// example:
+	//
+	// 自定义字段1
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryProjectResponseBodyResultCustomFieldsValue) String() string {
@@ -4801,9 +5669,18 @@ func (s *QueryTaskOfProjectHeaders) SetXAcsDingtalkAccessToken(v string) *QueryT
 }
 
 type QueryTaskOfProjectRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Query      *string `json:"query,omitempty" xml:"query,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// f279e812-e431-428d-846d-cxxxxxx
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// involveMembers NOT IN ["0612xx"] AND executorId="057xxx" AND content~标题2
+	Query *string `json:"query,omitempty" xml:"query,omitempty"`
 }
 
 func (s QueryTaskOfProjectRequest) String() string {
@@ -4830,9 +5707,19 @@ func (s *QueryTaskOfProjectRequest) SetQuery(v string) *QueryTaskOfProjectReques
 }
 
 type QueryTaskOfProjectResponseBody struct {
-	NextToken  *string                                 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Result     []*QueryTaskOfProjectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	TotalCount *int32                                  `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// f279e812-e431-428d-846d-cxxxxxx
+	NextToken *string                                 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result    []*QueryTaskOfProjectResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 35
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s QueryTaskOfProjectResponseBody) String() string {
@@ -4859,33 +5746,102 @@ func (s *QueryTaskOfProjectResponseBody) SetTotalCount(v int32) *QueryTaskOfProj
 }
 
 type QueryTaskOfProjectResponseBodyResult struct {
-	Accomplished          *string                                             `json:"accomplished,omitempty" xml:"accomplished,omitempty"`
-	AncestorIds           []*string                                           `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
-	Content               *string                                             `json:"content,omitempty" xml:"content,omitempty"`
-	Created               *string                                             `json:"created,omitempty" xml:"created,omitempty"`
-	CreatorId             *string                                             `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Customfields          []*QueryTaskOfProjectResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
-	DueDate               *string                                             `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	ExecutorId            *string                                             `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	InvolveMembers        []*string                                           `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	IsArchived            *bool                                               `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
-	IsDeleted             *bool                                               `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	IsDone                *bool                                               `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	Labels                []*string                                           `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
-	Note                  *string                                             `json:"note,omitempty" xml:"note,omitempty"`
-	Priority              *int64                                              `json:"priority,omitempty" xml:"priority,omitempty"`
-	Progress              *int32                                              `json:"progress,omitempty" xml:"progress,omitempty"`
-	ProjectId             *string                                             `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	ScenariofieldconfigId *string                                             `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
-	SprintId              *string                                             `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
-	StageId               *string                                             `json:"stageId,omitempty" xml:"stageId,omitempty"`
-	StartDate             *string                                             `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	StoryPoint            *int32                                              `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
-	TagIds                []*string                                           `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
-	TaskId                *string                                             `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	TaskflowstatusId      *string                                             `json:"taskflowstatusId,omitempty" xml:"taskflowstatusId,omitempty"`
-	Updated               *string                                             `json:"updated,omitempty" xml:"updated,omitempty"`
-	Visible               *string                                             `json:"visible,omitempty" xml:"visible,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Accomplished *string   `json:"accomplished,omitempty" xml:"accomplished,omitempty"`
+	AncestorIds  []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 标题2
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 62c25e3bba7ce40xxx
+	CreatorId    *string                                             `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	Customfields []*QueryTaskOfProjectResponseBodyResultCustomfields `json:"customfields,omitempty" xml:"customfields,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// example:
+	//
+	// 62cxxxxxxx
+	ExecutorId     *string   `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	IsArchived *bool `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	// example:
+	//
+	// true
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// example:
+	//
+	// true
+	IsDone *bool     `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	Labels []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 备注
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// example:
+	//
+	// 0
+	Priority *int64 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// example:
+	//
+	// 0
+	Progress *int32 `json:"progress,omitempty" xml:"progress,omitempty"`
+	// example:
+	//
+	// 62c25e3bbaxxxxx
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// example:
+	//
+	// 62c25e3bbxx0xxx
+	ScenariofieldconfigId *string `json:"scenariofieldconfigId,omitempty" xml:"scenariofieldconfigId,omitempty"`
+	// example:
+	//
+	// 62c25e3bbxx0xxx
+	SprintId *string `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
+	// example:
+	//
+	// 62c25e3bbxx0xxx
+	StageId *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// example:
+	//
+	// 2
+	StoryPoint *int32 `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
+	// example:
+	//
+	// 62c25e3bbxx0xxx
+	TagIds []*string `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 62c25e3bbaxxx
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// 62c25e3bbxx0xxx
+	TaskflowstatusId *string `json:"taskflowstatusId,omitempty" xml:"taskflowstatusId,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// member
+	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s QueryTaskOfProjectResponseBodyResult) String() string {
@@ -5032,6 +5988,9 @@ func (s *QueryTaskOfProjectResponseBodyResult) SetVisible(v string) *QueryTaskOf
 }
 
 type QueryTaskOfProjectResponseBodyResultCustomfields struct {
+	// example:
+	//
+	// 62c25e3bbxx0xxx
 	CustomfieldId *string `json:"customfieldId,omitempty" xml:"customfieldId,omitempty"`
 }
 
@@ -5101,10 +6060,25 @@ func (s *SeachTaskStageHeaders) SetXAcsDingtalkAccessToken(v string) *SeachTaskS
 }
 
 type SeachTaskStageRequest struct {
-	MaxResults   *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken    *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Query        *string `json:"query,omitempty" xml:"query,omitempty"`
-	TaskListId   *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// f279e812xxxxxx
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 自定义列1
+	Query *string `json:"query,omitempty" xml:"query,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
+	TaskListId *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx,60a2187eb72xxxxxxx
 	TaskStageIds *string `json:"taskStageIds,omitempty" xml:"taskStageIds,omitempty"`
 }
 
@@ -5142,6 +6116,9 @@ func (s *SeachTaskStageRequest) SetTaskStageIds(v string) *SeachTaskStageRequest
 }
 
 type SeachTaskStageResponseBody struct {
+	// example:
+	//
+	// f279e812-e431-428d-846d-cxxxxxx
 	NextToken *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Result    []*SeachTaskStageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
@@ -5165,14 +6142,38 @@ func (s *SeachTaskStageResponseBody) SetResult(v []*SeachTaskStageResponseBodyRe
 }
 
 type SeachTaskStageResponseBodyResult struct {
-	Created     *string `json:"created,omitempty" xml:"created,omitempty"`
-	CreatorId   *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 0715153011125xxxx
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// 描述...
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
-	ProjectId   *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	TaskListId  *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	// example:
+	//
+	// 自定义列1
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 62c25e3b376ecxxxxxxx
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
+	TaskListId *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
 	TaskStageId *string `json:"taskStageId,omitempty" xml:"taskStageId,omitempty"`
-	Updated     *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s SeachTaskStageResponseBodyResult) String() string {
@@ -5276,9 +6277,18 @@ func (s *SearchAllTasksByTqlHeaders) SetXAcsDingtalkAccessToken(v string) *Searc
 }
 
 type SearchAllTasksByTqlRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Tql        *string `json:"tql,omitempty" xml:"tql,omitempty"`
+	// example:
+	//
+	// 50
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// DXF1ZXJ5QW5kRmV0Y2gBAAAAAAKC9p4WVjNKbUstaldRX3lOOHNBbElzcjA5Zw==
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// isDone = false
+	Tql *string `json:"tql,omitempty" xml:"tql,omitempty"`
 }
 
 func (s SearchAllTasksByTqlRequest) String() string {
@@ -5305,10 +6315,19 @@ func (s *SearchAllTasksByTqlRequest) SetTql(v string) *SearchAllTasksByTqlReques
 }
 
 type SearchAllTasksByTqlResponseBody struct {
-	NextToken *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// f279e812-e431-428d-846d-cxxxxxx
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 60BEE277-347B-1D5E-B6A4-E90788531911
 	RequestId *string   `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	Result    []*string `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	TotalSize *int32    `json:"totalSize,omitempty" xml:"totalSize,omitempty"`
+	// example:
+	//
+	// 1
+	TotalSize *int32 `json:"totalSize,omitempty" xml:"totalSize,omitempty"`
 }
 
 func (s SearchAllTasksByTqlResponseBody) String() string {
@@ -5392,12 +6411,30 @@ func (s *SearchOranizationCustomfieldHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type SearchOranizationCustomfieldRequest struct {
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
 	CustomFieldIds *string `json:"customFieldIds,omitempty" xml:"customFieldIds,omitempty"`
-	InstanceIds    *string `json:"instanceIds,omitempty" xml:"instanceIds,omitempty"`
-	MaxResults     *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken      *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	ProjectIds     *string `json:"projectIds,omitempty" xml:"projectIds,omitempty"`
-	Query          *string `json:"query,omitempty" xml:"query,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
+	InstanceIds *string `json:"instanceIds,omitempty" xml:"instanceIds,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// f279e812xxxxxx
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx,60a2187eb72xxxxxxx
+	ProjectIds *string `json:"projectIds,omitempty" xml:"projectIds,omitempty"`
+	// example:
+	//
+	// 自定义字段1
+	Query *string `json:"query,omitempty" xml:"query,omitempty"`
 }
 
 func (s SearchOranizationCustomfieldRequest) String() string {
@@ -5439,6 +6476,9 @@ func (s *SearchOranizationCustomfieldRequest) SetQuery(v string) *SearchOranizat
 }
 
 type SearchOranizationCustomfieldResponseBody struct {
+	// example:
+	//
+	// f279e812-e431-428d-846d-cxxxxxx
 	NextToken *string                                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Result    []*SearchOranizationCustomfieldResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
@@ -5464,12 +6504,30 @@ func (s *SearchOranizationCustomfieldResponseBody) SetResult(v []*SearchOranizat
 type SearchOranizationCustomfieldResponseBodyResult struct {
 	AdvancedCustomField *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomField `json:"advancedCustomField,omitempty" xml:"advancedCustomField,omitempty" type:"Struct"`
 	Choices             []*SearchOranizationCustomfieldResponseBodyResultChoices           `json:"choices,omitempty" xml:"choices,omitempty" type:"Repeated"`
-	Created             *string                                                            `json:"created,omitempty" xml:"created,omitempty"`
-	CreatorId           *string                                                            `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	CustomFieldsId      *string                                                            `json:"customFieldsId,omitempty" xml:"customFieldsId,omitempty"`
-	Name                *string                                                            `json:"name,omitempty" xml:"name,omitempty"`
-	Payload             map[string]interface{}                                             `json:"payload,omitempty" xml:"payload,omitempty"`
-	Type                *string                                                            `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 0715153011125xxxx
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
+	CustomFieldsId *string `json:"customFieldsId,omitempty" xml:"customFieldsId,omitempty"`
+	// example:
+	//
+	// 自定义字段
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// {"_appId":"5937b10b83963200444b1ff8","kanbanCardAddCustomfieldDisable":true,"locales":{"name":{"en":"Progress update time","zh":"进展更新时间"}}}
+	Payload map[string]interface{} `json:"payload,omitempty" xml:"payload,omitempty"`
+	// example:
+	//
+	// number
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s SearchOranizationCustomfieldResponseBodyResult) String() string {
@@ -5521,9 +6579,15 @@ func (s *SearchOranizationCustomfieldResponseBodyResult) SetType(v string) *Sear
 }
 
 type SearchOranizationCustomfieldResponseBodyResultAdvancedCustomField struct {
+	// example:
+	//
+	// 63a5301e420637003f5dxxxx
 	AdvancedCustomFieldId *string `json:"advancedCustomFieldId,omitempty" xml:"advancedCustomFieldId,omitempty"`
-	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
-	ObjectType            *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	// example:
+	//
+	// 所思文档
+	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
 }
 
 func (s SearchOranizationCustomfieldResponseBodyResultAdvancedCustomField) String() string {
@@ -5550,8 +6614,14 @@ func (s *SearchOranizationCustomfieldResponseBodyResultAdvancedCustomField) SetO
 }
 
 type SearchOranizationCustomfieldResponseBodyResultChoices struct {
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
 	ChoiceId *string `json:"choiceId,omitempty" xml:"choiceId,omitempty"`
-	Value    *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// 选项一
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s SearchOranizationCustomfieldResponseBodyResultChoices) String() string {
@@ -5625,11 +6695,29 @@ func (s *SearchProjectCustomfieldHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type SearchProjectCustomfieldRequest struct {
-	CustomFieldIds        *string `json:"customFieldIds,omitempty" xml:"customFieldIds,omitempty"`
-	InstanceIds           *string `json:"instanceIds,omitempty" xml:"instanceIds,omitempty"`
-	MaxResults            *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken             *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Query                 *string `json:"query,omitempty" xml:"query,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx,60a2187eb72xxxxxxx
+	CustomFieldIds *string `json:"customFieldIds,omitempty" xml:"customFieldIds,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx,60a2187eb72xxxxxxx
+	InstanceIds *string `json:"instanceIds,omitempty" xml:"instanceIds,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// f279e812xxxxxx
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 自定义字段名1
+	Query *string `json:"query,omitempty" xml:"query,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
 	ScenarioFieldConfigId *string `json:"scenarioFieldConfigId,omitempty" xml:"scenarioFieldConfigId,omitempty"`
 }
 
@@ -5672,6 +6760,9 @@ func (s *SearchProjectCustomfieldRequest) SetScenarioFieldConfigId(v string) *Se
 }
 
 type SearchProjectCustomfieldResponseBody struct {
+	// example:
+	//
+	// f279e812-e431-428d-846d-cxxxxxx
 	NextToken *string                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Result    []*SearchProjectCustomfieldResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
@@ -5696,15 +6787,39 @@ func (s *SearchProjectCustomfieldResponseBody) SetResult(v []*SearchProjectCusto
 
 type SearchProjectCustomfieldResponseBodyResult struct {
 	AdvancedCustomField *SearchProjectCustomfieldResponseBodyResultAdvancedCustomField `json:"advancedCustomField,omitempty" xml:"advancedCustomField,omitempty" type:"Struct"`
-	BoundToObjectId     *string                                                        `json:"boundToObjectId,omitempty" xml:"boundToObjectId,omitempty"`
-	Choices             []*SearchProjectCustomfieldResponseBodyResultChoices           `json:"choices,omitempty" xml:"choices,omitempty" type:"Repeated"`
-	Created             *string                                                        `json:"created,omitempty" xml:"created,omitempty"`
-	CreatorId           *string                                                        `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	CustomFieldId       *string                                                        `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
-	Name                *string                                                        `json:"name,omitempty" xml:"name,omitempty"`
-	OriginalId          *string                                                        `json:"originalId,omitempty" xml:"originalId,omitempty"`
-	Payload             map[string]interface{}                                         `json:"payload,omitempty" xml:"payload,omitempty"`
-	Type                *string                                                        `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 63a5301e420637003f5dxxxx
+	BoundToObjectId *string                                              `json:"boundToObjectId,omitempty" xml:"boundToObjectId,omitempty"`
+	Choices         []*SearchProjectCustomfieldResponseBodyResultChoices `json:"choices,omitempty" xml:"choices,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 0715153011125xxxx
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// 63a5301e420637003f5dxxxx
+	CustomFieldId *string `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
+	// example:
+	//
+	// 名字1
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 63a5301e420637003f5dxxxx
+	OriginalId *string `json:"originalId,omitempty" xml:"originalId,omitempty"`
+	// example:
+	//
+	// {"_appId":"5937b10b83963200444b1ff8","kanbanCardAddCustomfieldDisable":true,"locales":{"name":{"en":"Progress update time","zh":"进展更新时间"}}}
+	Payload map[string]interface{} `json:"payload,omitempty" xml:"payload,omitempty"`
+	// example:
+	//
+	// number
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s SearchProjectCustomfieldResponseBodyResult) String() string {
@@ -5766,9 +6881,18 @@ func (s *SearchProjectCustomfieldResponseBodyResult) SetType(v string) *SearchPr
 }
 
 type SearchProjectCustomfieldResponseBodyResultAdvancedCustomField struct {
+	// example:
+	//
+	// 63a5301e420637003f5dxxxx
 	AdvancedCustomFieldId *string `json:"advancedCustomFieldId,omitempty" xml:"advancedCustomFieldId,omitempty"`
-	Name                  *string `json:"name,omitempty" xml:"name,omitempty"`
-	ObjectType            *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
+	// example:
+	//
+	// 所思文档
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// thoughts.document
+	ObjectType *string `json:"objectType,omitempty" xml:"objectType,omitempty"`
 }
 
 func (s SearchProjectCustomfieldResponseBodyResultAdvancedCustomField) String() string {
@@ -5795,8 +6919,14 @@ func (s *SearchProjectCustomfieldResponseBodyResultAdvancedCustomField) SetObjec
 }
 
 type SearchProjectCustomfieldResponseBodyResultChoices struct {
+	// example:
+	//
+	// 63a5301e420637003f5dxxxx
 	ChoiceId *string `json:"choiceId,omitempty" xml:"choiceId,omitempty"`
-	Value    *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// 选项一
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s SearchProjectCustomfieldResponseBodyResultChoices) String() string {
@@ -5870,6 +7000,9 @@ func (s *SearchProjectTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *Sea
 }
 
 type SearchProjectTemplateRequest struct {
+	// example:
+	//
+	// 模板1
 	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
 }
 
@@ -5904,15 +7037,42 @@ func (s *SearchProjectTemplateResponseBody) SetResult(v []*SearchProjectTemplate
 }
 
 type SearchProjectTemplateResponseBodyResult struct {
-	Created     *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 2022-06-13T07:36:50.318Z
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 我是描述内容
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
-	IsDeleted   *bool   `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	IsDemo      *bool   `json:"isDemo,omitempty" xml:"isDemo,omitempty"`
-	Logo        *string `json:"logo,omitempty" xml:"logo,omitempty"`
-	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
-	Updated     *string `json:"updated,omitempty" xml:"updated,omitempty"`
-	Visible     *string `json:"visible,omitempty" xml:"visible,omitempty"`
+	// example:
+	//
+	// 62e0a88c0axxxx
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// false
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// example:
+	//
+	// false
+	IsDemo *bool `json:"isDemo,omitempty" xml:"isDemo,omitempty"`
+	// example:
+	//
+	// https://www.xxx.com/xxxx
+	Logo *string `json:"logo,omitempty" xml:"logo,omitempty"`
+	// example:
+	//
+	// 模板1
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 2022-06-13T07:36:50.318Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// organization
+	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s SearchProjectTemplateResponseBodyResult) String() string {
@@ -6021,9 +7181,21 @@ func (s *SearchTaskFlowHeaders) SetXAcsDingtalkAccessToken(v string) *SearchTask
 }
 
 type SearchTaskFlowRequest struct {
-	MaxResults  *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken   *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Query       *string `json:"query,omitempty" xml:"query,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// f279e812xxxxxx
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 工作流1
+	Query *string `json:"query,omitempty" xml:"query,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx,60a2187eb72xxxxxxx
 	TaskflowIds *string `json:"taskflowIds,omitempty" xml:"taskflowIds,omitempty"`
 }
 
@@ -6073,14 +7245,38 @@ func (s *SearchTaskFlowResponseBody) SetResult(v []*SearchTaskFlowResponseBodyRe
 }
 
 type SearchTaskFlowResponseBodyResult struct {
-	BoundToObjectId   *string `json:"boundToObjectId,omitempty" xml:"boundToObjectId,omitempty"`
+	// example:
+	//
+	// 62c25e3b376ecxxxxxxx
+	BoundToObjectId *string `json:"boundToObjectId,omitempty" xml:"boundToObjectId,omitempty"`
+	// example:
+	//
+	// project
 	BoundToObjectType *string `json:"boundToObjectType,omitempty" xml:"boundToObjectType,omitempty"`
-	Created           *string `json:"created,omitempty" xml:"created,omitempty"`
-	CreatorId         *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	IsDeleted         *bool   `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	Name              *string `json:"name,omitempty" xml:"name,omitempty"`
-	TaskflowId        *string `json:"taskflowId,omitempty" xml:"taskflowId,omitempty"`
-	Updated           *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 07151530111xxxxx
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// false
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// example:
+	//
+	// 工作流1
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
+	TaskflowId *string `json:"taskflowId,omitempty" xml:"taskflowId,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s SearchTaskFlowResponseBodyResult) String() string {
@@ -6184,9 +7380,21 @@ func (s *SearchTaskListHeaders) SetXAcsDingtalkAccessToken(v string) *SearchTask
 }
 
 type SearchTaskListRequest struct {
-	MaxResults  *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken   *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Query       *string `json:"query,omitempty" xml:"query,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// f279e812xxxxxx
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 自定义分组1
+	Query *string `json:"query,omitempty" xml:"query,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx,60a2187eb72xxxxxxx
 	TaskListIds *string `json:"taskListIds,omitempty" xml:"taskListIds,omitempty"`
 }
 
@@ -6219,6 +7427,9 @@ func (s *SearchTaskListRequest) SetTaskListIds(v string) *SearchTaskListRequest 
 }
 
 type SearchTaskListResponseBody struct {
+	// example:
+	//
+	// f279e812-e431-428d-846d-cxxxxxx
 	NextToken *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Result    []*SearchTaskListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
@@ -6242,13 +7453,34 @@ func (s *SearchTaskListResponseBody) SetResult(v []*SearchTaskListResponseBodyRe
 }
 
 type SearchTaskListResponseBodyResult struct {
-	Created     *string `json:"created,omitempty" xml:"created,omitempty"`
-	CreatorId   *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 0715153011125xxxx
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// 描述...
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	ProjectId   *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	TaskListId  *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
-	Title       *string `json:"title,omitempty" xml:"title,omitempty"`
-	Updated     *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// 62c25e3b376ecxxxxxxx
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
+	TaskListId *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	// example:
+	//
+	// 自定义分组1
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s SearchTaskListResponseBodyResult) String() string {
@@ -6347,11 +7579,26 @@ func (s *SearchTaskflowStatusHeaders) SetXAcsDingtalkAccessToken(v string) *Sear
 }
 
 type SearchTaskflowStatusRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Query      *string `json:"query,omitempty" xml:"query,omitempty"`
-	TfIds      *string `json:"tfIds,omitempty" xml:"tfIds,omitempty"`
-	TfsIds     *string `json:"tfsIds,omitempty" xml:"tfsIds,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// f279e812xxxxxx
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 未开始
+	Query *string `json:"query,omitempty" xml:"query,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx,60a2187eb72xxxxxxx
+	TfIds *string `json:"tfIds,omitempty" xml:"tfIds,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx,60a2187eb72xxxxxxx
+	TfsIds *string `json:"tfsIds,omitempty" xml:"tfsIds,omitempty"`
 }
 
 func (s SearchTaskflowStatusRequest) String() string {
@@ -6405,17 +7652,47 @@ func (s *SearchTaskflowStatusResponseBody) SetResult(v []*SearchTaskflowStatusRe
 }
 
 type SearchTaskflowStatusResponseBodyResult struct {
-	Created                     *string   `json:"created,omitempty" xml:"created,omitempty"`
-	CreatorId                   *string   `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	IsDeleted                   *bool     `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	IsTaskflowstatusruleexector *bool     `json:"isTaskflowstatusruleexector,omitempty" xml:"isTaskflowstatusruleexector,omitempty"`
-	Kind                        *string   `json:"kind,omitempty" xml:"kind,omitempty"`
-	Name                        *string   `json:"name,omitempty" xml:"name,omitempty"`
-	Pos                         *int32    `json:"pos,omitempty" xml:"pos,omitempty"`
-	RejectStatusIds             []*string `json:"rejectStatusIds,omitempty" xml:"rejectStatusIds,omitempty" type:"Repeated"`
-	TaskflowId                  *string   `json:"taskflowId,omitempty" xml:"taskflowId,omitempty"`
-	TaskflowStatusId            *string   `json:"taskflowStatusId,omitempty" xml:"taskflowStatusId,omitempty"`
-	Updated                     *string   `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 601fdeb17f86xxxxxxxx
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// false
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// example:
+	//
+	// false
+	IsTaskflowstatusruleexector *bool `json:"isTaskflowstatusruleexector,omitempty" xml:"isTaskflowstatusruleexector,omitempty"`
+	// example:
+	//
+	// start
+	Kind *string `json:"kind,omitempty" xml:"kind,omitempty"`
+	// example:
+	//
+	// 未开始
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 0
+	Pos             *int32    `json:"pos,omitempty" xml:"pos,omitempty"`
+	RejectStatusIds []*string `json:"rejectStatusIds,omitempty" xml:"rejectStatusIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
+	TaskflowId *string `json:"taskflowId,omitempty" xml:"taskflowId,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
+	TaskflowStatusId *string `json:"taskflowStatusId,omitempty" xml:"taskflowStatusId,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s SearchTaskflowStatusResponseBodyResult) String() string {
@@ -6536,8 +7813,9 @@ func (s *SearchUserTaskHeaders) SetXAcsDingtalkAccessToken(v string) *SearchUser
 type SearchUserTaskRequest struct {
 	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	RoleTypes  *string `json:"roleTypes,omitempty" xml:"roleTypes,omitempty"`
-	Tql        *string `json:"tql,omitempty" xml:"tql,omitempty"`
+	// This parameter is required.
+	RoleTypes *string `json:"roleTypes,omitempty" xml:"roleTypes,omitempty"`
+	Tql       *string `json:"tql,omitempty" xml:"tql,omitempty"`
 }
 
 func (s SearchUserTaskRequest) String() string {
@@ -6569,7 +7847,13 @@ func (s *SearchUserTaskRequest) SetTql(v string) *SearchUserTaskRequest {
 }
 
 type SearchUserTaskResponseBody struct {
-	NextToken *string                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// DXF1ZXJ5QW5kRmV0Y2gBAAAAAAbMXT4WVjNKbUstaldRX3lOOHNBbElzcjA5Zw==
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// F86698E9-E4F5-1231-AC99-2ECFC0D37BDE
 	RequestId *string                             `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	Result    []*SearchUserTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
@@ -6598,34 +7882,94 @@ func (s *SearchUserTaskResponseBody) SetResult(v []*SearchUserTaskResponseBodyRe
 }
 
 type SearchUserTaskResponseBodyResult struct {
-	AccomplishTime        *string                                         `json:"accomplishTime,omitempty" xml:"accomplishTime,omitempty"`
-	AncestorIds           []*string                                       `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
-	Content               *string                                         `json:"content,omitempty" xml:"content,omitempty"`
-	Created               *string                                         `json:"created,omitempty" xml:"created,omitempty"`
-	CreatorId             *string                                         `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	CustomFields          []*SearchUserTaskResponseBodyResultCustomFields `json:"customFields,omitempty" xml:"customFields,omitempty" type:"Repeated"`
-	DueDate               *string                                         `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
-	ExecutorId            *string                                         `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	InvolveMembers        []*string                                       `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	IsArchived            *bool                                           `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
-	IsDone                *bool                                           `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	Note                  *string                                         `json:"note,omitempty" xml:"note,omitempty"`
-	ParentTaskId          *string                                         `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
-	Priority              *int32                                          `json:"priority,omitempty" xml:"priority,omitempty"`
-	ProjectId             *string                                         `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	Recurrence            []*string                                       `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Repeated"`
-	ScenarioFieldConfigId *string                                         `json:"scenarioFieldConfigId,omitempty" xml:"scenarioFieldConfigId,omitempty"`
-	SprintId              *string                                         `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
-	StartDate             *string                                         `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	StoryPoint            *string                                         `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
-	TagIds                []*string                                       `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
-	TaskId                *string                                         `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	TaskListId            *string                                         `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
-	TaskStageId           *string                                         `json:"taskStageId,omitempty" xml:"taskStageId,omitempty"`
-	TaskflowStatusId      *string                                         `json:"taskflowStatusId,omitempty" xml:"taskflowStatusId,omitempty"`
-	UniqueId              *string                                         `json:"uniqueId,omitempty" xml:"uniqueId,omitempty"`
-	Updated               *string                                         `json:"updated,omitempty" xml:"updated,omitempty"`
-	Visible               *string                                         `json:"visible,omitempty" xml:"visible,omitempty"`
+	// example:
+	//
+	// 2023-04-12T03:39:54.918Z
+	AccomplishTime *string   `json:"accomplishTime,omitempty" xml:"accomplishTime,omitempty"`
+	AncestorIds    []*string `json:"ancestorIds,omitempty" xml:"ancestorIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 任务内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Created *string `json:"created,omitempty" xml:"created,omitempty"`
+	// example:
+	//
+	// 63a9207a042f7c254f60519c
+	CreatorId    *string                                         `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	CustomFields []*SearchUserTaskResponseBodyResultCustomFields `json:"customFields,omitempty" xml:"customFields,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 2022-07-05T03:29:34.770Z
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// example:
+	//
+	// 63a9207a042f7c254f60519c
+	ExecutorId     *string   `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
+	IsArchived     *bool     `json:"isArchived,omitempty" xml:"isArchived,omitempty"`
+	IsDone         *bool     `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// example:
+	//
+	// 备注内容
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// example:
+	//
+	// 644b6f4cca369863fbc8abbb
+	ParentTaskId *string `json:"parentTaskId,omitempty" xml:"parentTaskId,omitempty"`
+	Priority     *int32  `json:"priority,omitempty" xml:"priority,omitempty"`
+	// example:
+	//
+	// 643394f81502a928dbd5ba37
+	ProjectId  *string   `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	Recurrence []*string `json:"recurrence,omitempty" xml:"recurrence,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 64099d5b2f404400174d7fc1
+	ScenarioFieldConfigId *string `json:"scenarioFieldConfigId,omitempty" xml:"scenarioFieldConfigId,omitempty"`
+	// example:
+	//
+	// 64099d5b2f404400174d7fc1
+	SprintId *string `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// example:
+	//
+	// 0
+	StoryPoint *string   `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
+	TagIds     []*string `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 642befe827feb683f91bd529
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// 6436278ea14fe435351668a2
+	TaskListId *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	// example:
+	//
+	// 6436278ea14fe435351668a4
+	TaskStageId *string `json:"taskStageId,omitempty" xml:"taskStageId,omitempty"`
+	// example:
+	//
+	// 64099d5b2f404400174d7fbb
+	TaskflowStatusId *string `json:"taskflowStatusId,omitempty" xml:"taskflowStatusId,omitempty"`
+	// example:
+	//
+	// 3
+	UniqueId *string `json:"uniqueId,omitempty" xml:"uniqueId,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// projectMembers
+	Visible *string `json:"visible,omitempty" xml:"visible,omitempty"`
 }
 
 func (s SearchUserTaskResponseBodyResult) String() string {
@@ -6777,9 +8121,12 @@ func (s *SearchUserTaskResponseBodyResult) SetVisible(v string) *SearchUserTaskR
 }
 
 type SearchUserTaskResponseBodyResultCustomFields struct {
-	CustomFieldId *string                                              `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
-	Type          *string                                              `json:"type,omitempty" xml:"type,omitempty"`
-	Value         []*SearchUserTaskResponseBodyResultCustomFieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	CustomFieldId *string `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
+	// example:
+	//
+	// number
+	Type  *string                                              `json:"type,omitempty" xml:"type,omitempty"`
+	Value []*SearchUserTaskResponseBodyResultCustomFieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
 func (s SearchUserTaskResponseBodyResultCustomFields) String() string {
@@ -6806,9 +8153,18 @@ func (s *SearchUserTaskResponseBodyResultCustomFields) SetValue(v []*SearchUserT
 }
 
 type SearchUserTaskResponseBodyResultCustomFieldsValue struct {
+	// example:
+	//
+	// 642fb16c4a622b2e3184229c
 	CustomFieldValueId *string `json:"customFieldValueId,omitempty" xml:"customFieldValueId,omitempty"`
-	MetaString         *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
-	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 元数据内容
+	MetaString *string `json:"metaString,omitempty" xml:"metaString,omitempty"`
+	// example:
+	//
+	// 标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s SearchUserTaskResponseBodyResultCustomFieldsValue) String() string {
@@ -6904,6 +8260,9 @@ func (s *SuspendProjectResponseBody) SetResult(v *SuspendProjectResponseBodyResu
 }
 
 type SuspendProjectResponseBodyResult struct {
+	// example:
+	//
+	// 2022-06-08T07:32:48.958Z
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -6990,6 +8349,9 @@ func (s *UnSuspendProjectResponseBody) SetResult(v *UnSuspendProjectResponseBody
 }
 
 type UnSuspendProjectResponseBodyResult struct {
+	// example:
+	//
+	// 2022-06-08T07:32:48.958Z
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -7059,9 +8421,16 @@ func (s *UpdateCustomfieldValueHeaders) SetXAcsDingtalkAccessToken(v string) *Up
 }
 
 type UpdateCustomfieldValueRequest struct {
-	CustomFieldId   *string                               `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
-	CustomFieldName *string                               `json:"customFieldName,omitempty" xml:"customFieldName,omitempty"`
-	Value           []*UpdateCustomfieldValueRequestValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 62a010c153c2ef52xxxx
+	CustomFieldId *string `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
+	// example:
+	//
+	// 自定义字段-文本
+	CustomFieldName *string `json:"customFieldName,omitempty" xml:"customFieldName,omitempty"`
+	// This parameter is required.
+	Value []*UpdateCustomfieldValueRequestValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
 
 func (s UpdateCustomfieldValueRequest) String() string {
@@ -7088,6 +8457,11 @@ func (s *UpdateCustomfieldValueRequest) SetValue(v []*UpdateCustomfieldValueRequ
 }
 
 type UpdateCustomfieldValueRequestValue struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 我是具体显示值
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -7139,6 +8513,9 @@ func (s *UpdateCustomfieldValueResponseBodyResult) SetCustomFields(v []*UpdateCu
 }
 
 type UpdateCustomfieldValueResponseBodyResultCustomFields struct {
+	// example:
+	//
+	// 62fb0b77xxxxx
 	CustomFieldId *string                                                      `json:"customFieldId,omitempty" xml:"customFieldId,omitempty"`
 	Value         []*UpdateCustomfieldValueResponseBodyResultCustomFieldsValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
 }
@@ -7162,6 +8539,11 @@ func (s *UpdateCustomfieldValueResponseBodyResultCustomFields) SetValue(v []*Upd
 }
 
 type UpdateCustomfieldValueResponseBodyResultCustomFieldsValue struct {
+	Id       *string `json:"id,omitempty" xml:"id,omitempty"`
+	ThumbUrl *string `json:"thumbUrl,omitempty" xml:"thumbUrl,omitempty"`
+	// example:
+	//
+	// 我是具体显示值
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
@@ -7171,6 +8553,16 @@ func (s UpdateCustomfieldValueResponseBodyResultCustomFieldsValue) String() stri
 
 func (s UpdateCustomfieldValueResponseBodyResultCustomFieldsValue) GoString() string {
 	return s.String()
+}
+
+func (s *UpdateCustomfieldValueResponseBodyResultCustomFieldsValue) SetId(v string) *UpdateCustomfieldValueResponseBodyResultCustomFieldsValue {
+	s.Id = &v
+	return s
+}
+
+func (s *UpdateCustomfieldValueResponseBodyResultCustomFieldsValue) SetThumbUrl(v string) *UpdateCustomfieldValueResponseBodyResultCustomFieldsValue {
+	s.ThumbUrl = &v
+	return s
 }
 
 func (s *UpdateCustomfieldValueResponseBodyResultCustomFieldsValue) SetTitle(v string) *UpdateCustomfieldValueResponseBodyResultCustomFieldsValue {
@@ -7231,9 +8623,20 @@ func (s *UpdateOrganizationTaskContentHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type UpdateOrganizationTaskContentRequest struct {
-	Content             *string `json:"content,omitempty" xml:"content,omitempty"`
-	DisableActivity     *bool   `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
-	DisableNotification *bool   `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 后天交周报
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// true
+	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	// example:
+	//
+	// true
+	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
 }
 
 func (s UpdateOrganizationTaskContentRequest) String() string {
@@ -7277,7 +8680,13 @@ func (s *UpdateOrganizationTaskContentResponseBody) SetResult(v *UpdateOrganizat
 }
 
 type UpdateOrganizationTaskContentResponseBodyResult struct {
+	// example:
+	//
+	// 后天交周报
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 2022-06-08T07:32:48.958Z
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -7352,9 +8761,20 @@ func (s *UpdateOrganizationTaskDueDateHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type UpdateOrganizationTaskDueDateRequest struct {
-	DisableActivity     *bool   `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
-	DisableNotification *bool   `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
-	DueDate             *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// example:
+	//
+	// true
+	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	// example:
+	//
+	// true
+	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2022-06-13T03:30:42.830Z
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
 }
 
 func (s UpdateOrganizationTaskDueDateRequest) String() string {
@@ -7398,7 +8818,13 @@ func (s *UpdateOrganizationTaskDueDateResponseBody) SetResult(v *UpdateOrganizat
 }
 
 type UpdateOrganizationTaskDueDateResponseBodyResult struct {
-	DueDate    *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// example:
+	//
+	// 2022-06-13T03:30:42.830Z
+	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// example:
+	//
+	// 2022-06-13T03:30:42.830Z
 	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
@@ -7473,9 +8899,10 @@ func (s *UpdateOrganizationTaskExecutorHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type UpdateOrganizationTaskExecutorRequest struct {
-	DisableActivity     *bool   `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
-	DisableNotification *bool   `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
-	ExecutorId          *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	DisableActivity     *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	// This parameter is required.
+	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
 }
 
 func (s UpdateOrganizationTaskExecutorRequest) String() string {
@@ -7519,10 +8946,16 @@ func (s *UpdateOrganizationTaskExecutorResponseBody) SetResult(v *UpdateOrganiza
 }
 
 type UpdateOrganizationTaskExecutorResponseBodyResult struct {
-	Executor   *UpdateOrganizationTaskExecutorResponseBodyResultExecutor    `json:"executor,omitempty" xml:"executor,omitempty" type:"Struct"`
+	Executor *UpdateOrganizationTaskExecutorResponseBodyResultExecutor `json:"executor,omitempty" xml:"executor,omitempty" type:"Struct"`
+	// example:
+	//
+	// 173xxxx
 	ExecutorId *string                                                      `json:"executorId,omitempty" xml:"executorId,omitempty"`
 	Involvers  []*UpdateOrganizationTaskExecutorResponseBodyResultInvolvers `json:"involvers,omitempty" xml:"involvers,omitempty" type:"Repeated"`
-	Updated    *string                                                      `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// 2022-06-08T03:00:17.031Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s UpdateOrganizationTaskExecutorResponseBodyResult) String() string {
@@ -7554,9 +8987,18 @@ func (s *UpdateOrganizationTaskExecutorResponseBodyResult) SetUpdated(v string) 
 }
 
 type UpdateOrganizationTaskExecutorResponseBodyResultExecutor struct {
+	// example:
+	//
+	// http://xxxxx
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 鬼斩
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 173xxxx
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateOrganizationTaskExecutorResponseBodyResultExecutor) String() string {
@@ -7583,9 +9025,18 @@ func (s *UpdateOrganizationTaskExecutorResponseBodyResultExecutor) SetUserId(v s
 }
 
 type UpdateOrganizationTaskExecutorResponseBodyResultInvolvers struct {
+	// example:
+	//
+	// http://xxxxx
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 鬼斩
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 173xxxx
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateOrganizationTaskExecutorResponseBodyResultInvolvers) String() string {
@@ -7664,9 +9115,15 @@ func (s *UpdateOrganizationTaskInvolveMembersHeaders) SetXAcsDingtalkAccessToken
 }
 
 type UpdateOrganizationTaskInvolveMembersRequest struct {
-	AddInvolvers        []*string `json:"addInvolvers,omitempty" xml:"addInvolvers,omitempty" type:"Repeated"`
-	DelInvolvers        []*string `json:"delInvolvers,omitempty" xml:"delInvolvers,omitempty" type:"Repeated"`
-	DisableActivity     *bool     `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	AddInvolvers []*string `json:"addInvolvers,omitempty" xml:"addInvolvers,omitempty" type:"Repeated"`
+	DelInvolvers []*string `json:"delInvolvers,omitempty" xml:"delInvolvers,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	// example:
+	//
+	// true
 	DisableNotification *bool     `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
 	InvolveMembers      []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
 }
@@ -7723,7 +9180,10 @@ func (s *UpdateOrganizationTaskInvolveMembersResponseBody) SetResult(v *UpdateOr
 
 type UpdateOrganizationTaskInvolveMembersResponseBodyResult struct {
 	Involvers []*UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers `json:"involvers,omitempty" xml:"involvers,omitempty" type:"Repeated"`
-	Updated   *string                                                            `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// 2022-06-13T05:33:42.826Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s UpdateOrganizationTaskInvolveMembersResponseBodyResult) String() string {
@@ -7745,9 +9205,18 @@ func (s *UpdateOrganizationTaskInvolveMembersResponseBodyResult) SetUpdated(v st
 }
 
 type UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers struct {
+	// example:
+	//
+	// http://xxxx
 	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 鬼斩
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 173xxxxx
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateOrganizationTaskInvolveMembersResponseBodyResultInvolvers) String() string {
@@ -7826,9 +9295,20 @@ func (s *UpdateOrganizationTaskNoteHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type UpdateOrganizationTaskNoteRequest struct {
-	DisableActivity     *bool   `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
-	DisableNotification *bool   `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
-	Note                *string `json:"note,omitempty" xml:"note,omitempty"`
+	// example:
+	//
+	// true
+	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	// example:
+	//
+	// true
+	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 我是一条备注哦
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
 }
 
 func (s UpdateOrganizationTaskNoteRequest) String() string {
@@ -7872,7 +9352,13 @@ func (s *UpdateOrganizationTaskNoteResponseBody) SetResult(v *UpdateOrganization
 }
 
 type UpdateOrganizationTaskNoteResponseBodyResult struct {
-	Note    *string `json:"note,omitempty" xml:"note,omitempty"`
+	// example:
+	//
+	// 我是一条备注哦
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// example:
+	//
+	// 2022-06-13T05:48:45.788Z
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -7947,9 +9433,20 @@ func (s *UpdateOrganizationTaskPriorityHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type UpdateOrganizationTaskPriorityRequest struct {
-	DisableActivity     *bool  `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
-	DisableNotification *bool  `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
-	Priority            *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// example:
+	//
+	// true
+	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	// example:
+	//
+	// true
+	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// -10
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
 }
 
 func (s UpdateOrganizationTaskPriorityRequest) String() string {
@@ -7993,8 +9490,14 @@ func (s *UpdateOrganizationTaskPriorityResponseBody) SetResult(v *UpdateOrganiza
 }
 
 type UpdateOrganizationTaskPriorityResponseBodyResult struct {
-	Priority *int32  `json:"priority,omitempty" xml:"priority,omitempty"`
-	Updated  *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// -10
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// example:
+	//
+	// 2022-06-13T06:02:44.835Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s UpdateOrganizationTaskPriorityResponseBodyResult) String() string {
@@ -8068,9 +9571,20 @@ func (s *UpdateOrganizationTaskStatusHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type UpdateOrganizationTaskStatusRequest struct {
-	DisableActivity     *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	// example:
+	//
+	// false
+	DisableActivity *bool `json:"disableActivity,omitempty" xml:"disableActivity,omitempty"`
+	// example:
+	//
+	// false
 	DisableNotification *bool `json:"disableNotification,omitempty" xml:"disableNotification,omitempty"`
-	IsDone              *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
 }
 
 func (s UpdateOrganizationTaskStatusRequest) String() string {
@@ -8114,7 +9628,13 @@ func (s *UpdateOrganizationTaskStatusResponseBody) SetResult(v *UpdateOrganizati
 }
 
 type UpdateOrganizationTaskStatusResponseBodyResult struct {
-	IsDone     *bool   `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// example:
+	//
+	// true
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// example:
+	//
+	// 2022-06-08T07:32:48.958Z
 	UpdateTime *string `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
@@ -8229,6 +9749,9 @@ func (s *UpdateProjectGroupResponseBody) SetResult(v *UpdateProjectGroupResponse
 }
 
 type UpdateProjectGroupResponseBodyResult struct {
+	// example:
+	//
+	// true
 	Ok *bool `json:"ok,omitempty" xml:"ok,omitempty"`
 }
 
@@ -8298,6 +9821,9 @@ func (s *UpdateTaskContentHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateT
 }
 
 type UpdateTaskContentRequest struct {
+	// example:
+	//
+	// 更改后的标题
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 }
 
@@ -8332,7 +9858,13 @@ func (s *UpdateTaskContentResponseBody) SetResult(v *UpdateTaskContentResponseBo
 }
 
 type UpdateTaskContentResponseBodyResult struct {
+	// example:
+	//
+	// 更改后的标题
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -8407,6 +9939,9 @@ func (s *UpdateTaskDueDateHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateT
 }
 
 type UpdateTaskDueDateRequest struct {
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
 	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
 }
 
@@ -8441,7 +9976,13 @@ func (s *UpdateTaskDueDateResponseBody) SetResult(v *UpdateTaskDueDateResponseBo
 }
 
 type UpdateTaskDueDateResponseBodyResult struct {
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
 	DueDate *string `json:"dueDate,omitempty" xml:"dueDate,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -8516,6 +10057,9 @@ func (s *UpdateTaskExecutorHeaders) SetXAcsDingtalkAccessToken(v string) *Update
 }
 
 type UpdateTaskExecutorRequest struct {
+	// example:
+	//
+	// 0517xxxxxxx
 	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
 }
 
@@ -8550,8 +10094,14 @@ func (s *UpdateTaskExecutorResponseBody) SetResult(v *UpdateTaskExecutorResponse
 }
 
 type UpdateTaskExecutorResponseBodyResult struct {
+	// example:
+	//
+	// 0517xxxxxxx
 	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
-	Updated    *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s UpdateTaskExecutorResponseBodyResult) String() string {
@@ -8672,7 +10222,10 @@ func (s *UpdateTaskInvolvemembersResponseBody) SetResult(v *UpdateTaskInvolvemem
 
 type UpdateTaskInvolvemembersResponseBodyResult struct {
 	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
-	Updated        *string   `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s UpdateTaskInvolvemembersResponseBodyResult) String() string {
@@ -8746,6 +10299,9 @@ func (s *UpdateTaskNoteHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTask
 }
 
 type UpdateTaskNoteRequest struct {
+	// example:
+	//
+	// 更改后的备注
 	Note *string `json:"note,omitempty" xml:"note,omitempty"`
 }
 
@@ -8780,7 +10336,13 @@ func (s *UpdateTaskNoteResponseBody) SetResult(v *UpdateTaskNoteResponseBodyResu
 }
 
 type UpdateTaskNoteResponseBodyResult struct {
-	Note    *string `json:"note,omitempty" xml:"note,omitempty"`
+	// example:
+	//
+	// 更改后的备注
+	Note *string `json:"note,omitempty" xml:"note,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -8855,6 +10417,9 @@ func (s *UpdateTaskPriorityHeaders) SetXAcsDingtalkAccessToken(v string) *Update
 }
 
 type UpdateTaskPriorityRequest struct {
+	// example:
+	//
+	// 1
 	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
 }
 
@@ -8889,8 +10454,14 @@ func (s *UpdateTaskPriorityResponseBody) SetResult(v *UpdateTaskPriorityResponse
 }
 
 type UpdateTaskPriorityResponseBodyResult struct {
-	Priority *int32  `json:"priority,omitempty" xml:"priority,omitempty"`
-	Updated  *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// 1
+	Priority *int32 `json:"priority,omitempty" xml:"priority,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s UpdateTaskPriorityResponseBodyResult) String() string {
@@ -8964,6 +10535,9 @@ func (s *UpdateTaskStageHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTas
 }
 
 type UpdateTaskStageRequest struct {
+	// example:
+	//
+	// 64ba333e4206372f3f5cxxxx
 	TaskStageId *string `json:"taskStageId,omitempty" xml:"taskStageId,omitempty"`
 }
 
@@ -8998,13 +10572,34 @@ func (s *UpdateTaskStageResponseBody) SetResult(v *UpdateTaskStageResponseBodyRe
 }
 
 type UpdateTaskStageResponseBodyResult struct {
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
 	AccomplishTime *string `json:"accomplishTime,omitempty" xml:"accomplishTime,omitempty"`
-	IsDone         *bool   `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	ProjectId      *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
-	TaskId         *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	TaskListId     *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
-	TaskStageId    *string `json:"taskStageId,omitempty" xml:"taskStageId,omitempty"`
-	Updated        *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// false
+	IsDone *bool `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	// example:
+	//
+	// 64a5301e420637003f5dxxxx
+	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	// example:
+	//
+	// 63a5301e420637003f5dxxxx
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// 66a5301e420637003f5dxxxx
+	TaskListId *string `json:"taskListId,omitempty" xml:"taskListId,omitempty"`
+	// example:
+	//
+	// 69a5301e420637003f5dxxxx
+	TaskStageId *string `json:"taskStageId,omitempty" xml:"taskStageId,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s UpdateTaskStageResponseBodyResult) String() string {
@@ -9103,6 +10698,9 @@ func (s *UpdateTaskStartdateHeaders) SetXAcsDingtalkAccessToken(v string) *Updat
 }
 
 type UpdateTaskStartdateRequest struct {
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
 	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
 }
 
@@ -9137,8 +10735,14 @@ func (s *UpdateTaskStartdateResponseBody) SetResult(v *UpdateTaskStartdateRespon
 }
 
 type UpdateTaskStartdateResponseBodyResult struct {
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
 	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
-	Updated   *string `json:"updated,omitempty" xml:"updated,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
 func (s UpdateTaskStartdateResponseBodyResult) String() string {
@@ -9212,7 +10816,13 @@ func (s *UpdateTaskTaskflowstatusHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type UpdateTaskTaskflowstatusRequest struct {
-	TaskflowStatusId         *string `json:"taskflowStatusId,omitempty" xml:"taskflowStatusId,omitempty"`
+	// example:
+	//
+	// 60a2187eb72xxxxxxx
+	TaskflowStatusId *string `json:"taskflowStatusId,omitempty" xml:"taskflowStatusId,omitempty"`
+	// example:
+	//
+	// 说明。
 	TaskflowStatusUpdateNote *string `json:"taskflowStatusUpdateNote,omitempty" xml:"taskflowStatusUpdateNote,omitempty"`
 }
 
@@ -9252,6 +10862,9 @@ func (s *UpdateTaskTaskflowstatusResponseBody) SetResult(v *UpdateTaskTaskflowst
 }
 
 type UpdateTaskTaskflowstatusResponseBodyResult struct {
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
 	Updated *string `json:"updated,omitempty" xml:"updated,omitempty"`
 }
 
@@ -9321,12 +10934,30 @@ func (s *UpdateWorkTimeApproveHeaders) SetXAcsDingtalkAccessToken(v string) *Upd
 }
 
 type UpdateWorkTimeApproveRequest struct {
+	// example:
+	//
+	// 2023-04-04T00:00:00.000Z
 	FinishTime *string `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	// example:
+	//
+	// 1233
 	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	Status     *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// NEW
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 2023-04-04T00:00:00.000Z
 	SubmitTime *string `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
-	Title      *string `json:"title,omitempty" xml:"title,omitempty"`
-	Url        *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// xxxx 用工申请
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// https://xxxbpms.xxx/xxxx
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s UpdateWorkTimeApproveRequest) String() string {
@@ -9368,7 +10999,13 @@ func (s *UpdateWorkTimeApproveRequest) SetUrl(v string) *UpdateWorkTimeApproveRe
 }
 
 type UpdateWorkTimeApproveResponseBody struct {
-	Message   *string                                  `json:"message,omitempty" xml:"message,omitempty"`
+	// example:
+	//
+	// 执行成功
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// example:
+	//
+	// 1234
 	RequestId *string                                  `json:"requestId,omitempty" xml:"requestId,omitempty"`
 	Result    *UpdateWorkTimeApproveResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 }
@@ -9397,21 +11034,63 @@ func (s *UpdateWorkTimeApproveResponseBody) SetResult(v *UpdateWorkTimeApproveRe
 }
 
 type UpdateWorkTimeApproveResponseBodyResult struct {
-	ApproveOpenId  *string   `json:"approveOpenId,omitempty" xml:"approveOpenId,omitempty"`
-	CreatedAt      *string   `json:"createdAt,omitempty" xml:"createdAt,omitempty"`
-	CreatorId      *string   `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	FinishTime     *string   `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
-	InstanceId     *string   `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	OrganizationId *string   `json:"organizationId,omitempty" xml:"organizationId,omitempty"`
-	Status         *string   `json:"status,omitempty" xml:"status,omitempty"`
-	SubmitTime     *string   `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
-	TaskId         *string   `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	Time           *int32    `json:"time,omitempty" xml:"time,omitempty"`
-	Title          *string   `json:"title,omitempty" xml:"title,omitempty"`
-	UpdatedAt      *string   `json:"updatedAt,omitempty" xml:"updatedAt,omitempty"`
-	Url            *string   `json:"url,omitempty" xml:"url,omitempty"`
-	UserId         *string   `json:"userId,omitempty" xml:"userId,omitempty"`
-	WorkTimeIds    []*string `json:"workTimeIds,omitempty" xml:"workTimeIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 6446626a9fb5a70c05fc3fc3
+	ApproveOpenId *string `json:"approveOpenId,omitempty" xml:"approveOpenId,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	CreatedAt *string `json:"createdAt,omitempty" xml:"createdAt,omitempty"`
+	// example:
+	//
+	// 6446626a9fb5a70c05fc3fc3
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// 2023-04-04T00:00:00.000Z
+	FinishTime *string `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	// example:
+	//
+	// 12345
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// example:
+	//
+	// dingxxxx
+	OrganizationId *string `json:"organizationId,omitempty" xml:"organizationId,omitempty"`
+	// example:
+	//
+	// NEW
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 2023-04-04T00:00:00.000Z
+	SubmitTime *string `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
+	// example:
+	//
+	// 6446626a9fb5a70c05fc3fc3
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// 10000
+	Time *int32 `json:"time,omitempty" xml:"time,omitempty"`
+	// example:
+	//
+	// xxx用工申请
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 2022-07-04T03:29:34.770Z
+	UpdatedAt *string `json:"updatedAt,omitempty" xml:"updatedAt,omitempty"`
+	// example:
+	//
+	// https://xxxbpms.xxx/xxxx
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// 6446626a9fb5a70c05fc3fc3
+	UserId      *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	WorkTimeIds []*string `json:"workTimeIds,omitempty" xml:"workTimeIds,omitempty" type:"Repeated"`
 }
 
 func (s UpdateWorkTimeApproveResponseBodyResult) String() string {
@@ -9541,12 +11220,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -9555,6 +11234,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 增加项目成员
+//
+// @param request - AddProjectMemberRequest
+//
+// @param headers - AddProjectMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddProjectMemberResponse
 func (client *Client) AddProjectMemberWithOptions(userId *string, projectId *string, request *AddProjectMemberRequest, headers *AddProjectMemberHeaders, runtime *util.RuntimeOptions) (_result *AddProjectMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9598,6 +11288,13 @@ func (client *Client) AddProjectMemberWithOptions(userId *string, projectId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 增加项目成员
+//
+// @param request - AddProjectMemberRequest
+//
+// @return AddProjectMemberResponse
 func (client *Client) AddProjectMember(userId *string, projectId *string, request *AddProjectMemberRequest) (_result *AddProjectMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddProjectMemberHeaders{}
@@ -9610,6 +11307,15 @@ func (client *Client) AddProjectMember(userId *string, projectId *string, reques
 	return _result, _err
 }
 
+// Summary:
+//
+// 项目放入回收站
+//
+// @param headers - ArchiveProjectHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ArchiveProjectResponse
 func (client *Client) ArchiveProjectWithOptions(userId *string, projectId *string, headers *ArchiveProjectHeaders, runtime *util.RuntimeOptions) (_result *ArchiveProjectResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -9643,6 +11349,11 @@ func (client *Client) ArchiveProjectWithOptions(userId *string, projectId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 项目放入回收站
+//
+// @return ArchiveProjectResponse
 func (client *Client) ArchiveProject(userId *string, projectId *string) (_result *ArchiveProjectResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ArchiveProjectHeaders{}
@@ -9655,6 +11366,15 @@ func (client *Client) ArchiveProject(userId *string, projectId *string) (_result
 	return _result, _err
 }
 
+// Summary:
+//
+// 任务迁移至回收站
+//
+// @param headers - ArchiveTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ArchiveTaskResponse
 func (client *Client) ArchiveTaskWithOptions(userId *string, taskId *string, headers *ArchiveTaskHeaders, runtime *util.RuntimeOptions) (_result *ArchiveTaskResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -9688,6 +11408,11 @@ func (client *Client) ArchiveTaskWithOptions(userId *string, taskId *string, hea
 	return _result, _err
 }
 
+// Summary:
+//
+// 任务迁移至回收站
+//
+// @return ArchiveTaskResponse
 func (client *Client) ArchiveTask(userId *string, taskId *string) (_result *ArchiveTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ArchiveTaskHeaders{}
@@ -9700,6 +11425,17 @@ func (client *Client) ArchiveTask(userId *string, taskId *string) (_result *Arch
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建自由任务
+//
+// @param request - CreateOrganizationTaskRequest
+//
+// @param headers - CreateOrganizationTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateOrganizationTaskResponse
 func (client *Client) CreateOrganizationTaskWithOptions(userId *string, request *CreateOrganizationTaskRequest, headers *CreateOrganizationTaskHeaders, runtime *util.RuntimeOptions) (_result *CreateOrganizationTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9779,6 +11515,13 @@ func (client *Client) CreateOrganizationTaskWithOptions(userId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建自由任务
+//
+// @param request - CreateOrganizationTaskRequest
+//
+// @return CreateOrganizationTaskResponse
 func (client *Client) CreateOrganizationTask(userId *string, request *CreateOrganizationTaskRequest) (_result *CreateOrganizationTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateOrganizationTaskHeaders{}
@@ -9791,6 +11534,17 @@ func (client *Client) CreateOrganizationTask(userId *string, request *CreateOrga
 	return _result, _err
 }
 
+// Summary:
+//
+// 录入计划工时
+//
+// @param request - CreatePlanTimeRequest
+//
+// @param headers - CreatePlanTimeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreatePlanTimeResponse
 func (client *Client) CreatePlanTimeWithOptions(userId *string, request *CreatePlanTimeRequest, headers *CreatePlanTimeHeaders, runtime *util.RuntimeOptions) (_result *CreatePlanTimeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9872,6 +11626,13 @@ func (client *Client) CreatePlanTimeWithOptions(userId *string, request *CreateP
 	return _result, _err
 }
 
+// Summary:
+//
+// 录入计划工时
+//
+// @param request - CreatePlanTimeRequest
+//
+// @return CreatePlanTimeResponse
 func (client *Client) CreatePlanTime(userId *string, request *CreatePlanTimeRequest) (_result *CreatePlanTimeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreatePlanTimeHeaders{}
@@ -9884,6 +11645,17 @@ func (client *Client) CreatePlanTime(userId *string, request *CreatePlanTimeRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建项目
+//
+// @param request - CreateProjectRequest
+//
+// @param headers - CreateProjectHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateProjectResponse
 func (client *Client) CreateProjectWithOptions(userId *string, request *CreateProjectRequest, headers *CreateProjectHeaders, runtime *util.RuntimeOptions) (_result *CreateProjectResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9927,6 +11699,13 @@ func (client *Client) CreateProjectWithOptions(userId *string, request *CreatePr
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建项目
+//
+// @param request - CreateProjectRequest
+//
+// @return CreateProjectResponse
 func (client *Client) CreateProject(userId *string, request *CreateProjectRequest) (_result *CreateProjectResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateProjectHeaders{}
@@ -9939,6 +11718,17 @@ func (client *Client) CreateProject(userId *string, request *CreateProjectReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据项目模板创建项目
+//
+// @param request - CreateProjectByTemplateRequest
+//
+// @param headers - CreateProjectByTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateProjectByTemplateResponse
 func (client *Client) CreateProjectByTemplateWithOptions(userId *string, request *CreateProjectByTemplateRequest, headers *CreateProjectByTemplateHeaders, runtime *util.RuntimeOptions) (_result *CreateProjectByTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9986,6 +11776,13 @@ func (client *Client) CreateProjectByTemplateWithOptions(userId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据项目模板创建项目
+//
+// @param request - CreateProjectByTemplateRequest
+//
+// @return CreateProjectByTemplateResponse
 func (client *Client) CreateProjectByTemplate(userId *string, request *CreateProjectByTemplateRequest) (_result *CreateProjectByTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateProjectByTemplateHeaders{}
@@ -9998,6 +11795,17 @@ func (client *Client) CreateProjectByTemplate(userId *string, request *CreatePro
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建或更新项目概览中自定义字段值
+//
+// @param request - CreateProjectCustomfieldStatusRequest
+//
+// @param headers - CreateProjectCustomfieldStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateProjectCustomfieldStatusResponse
 func (client *Client) CreateProjectCustomfieldStatusWithOptions(userId *string, projectId *string, request *CreateProjectCustomfieldStatusRequest, headers *CreateProjectCustomfieldStatusHeaders, runtime *util.RuntimeOptions) (_result *CreateProjectCustomfieldStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10053,6 +11861,13 @@ func (client *Client) CreateProjectCustomfieldStatusWithOptions(userId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建或更新项目概览中自定义字段值
+//
+// @param request - CreateProjectCustomfieldStatusRequest
+//
+// @return CreateProjectCustomfieldStatusResponse
 func (client *Client) CreateProjectCustomfieldStatus(userId *string, projectId *string, request *CreateProjectCustomfieldStatusRequest) (_result *CreateProjectCustomfieldStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateProjectCustomfieldStatusHeaders{}
@@ -10065,6 +11880,17 @@ func (client *Client) CreateProjectCustomfieldStatus(userId *string, projectId *
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建项目任务
+//
+// @param request - CreateTaskRequest
+//
+// @param headers - CreateTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateTaskResponse
 func (client *Client) CreateTaskWithOptions(userId *string, request *CreateTaskRequest, headers *CreateTaskHeaders, runtime *util.RuntimeOptions) (_result *CreateTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10152,6 +11978,13 @@ func (client *Client) CreateTaskWithOptions(userId *string, request *CreateTaskR
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建项目任务
+//
+// @param request - CreateTaskRequest
+//
+// @return CreateTaskResponse
 func (client *Client) CreateTask(userId *string, request *CreateTaskRequest) (_result *CreateTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateTaskHeaders{}
@@ -10164,6 +11997,17 @@ func (client *Client) CreateTask(userId *string, request *CreateTaskRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建任务关联对象
+//
+// @param request - CreateTaskObjectLinkRequest
+//
+// @param headers - CreateTaskObjectLinkHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateTaskObjectLinkResponse
 func (client *Client) CreateTaskObjectLinkWithOptions(userId *string, taskId *string, request *CreateTaskObjectLinkRequest, headers *CreateTaskObjectLinkHeaders, runtime *util.RuntimeOptions) (_result *CreateTaskObjectLinkResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10207,6 +12051,13 @@ func (client *Client) CreateTaskObjectLinkWithOptions(userId *string, taskId *st
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建任务关联对象
+//
+// @param request - CreateTaskObjectLinkRequest
+//
+// @return CreateTaskObjectLinkResponse
 func (client *Client) CreateTaskObjectLink(userId *string, taskId *string, request *CreateTaskObjectLinkRequest) (_result *CreateTaskObjectLinkResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateTaskObjectLinkHeaders{}
@@ -10219,6 +12070,17 @@ func (client *Client) CreateTaskObjectLink(userId *string, taskId *string, reque
 	return _result, _err
 }
 
+// Summary:
+//
+// 录入实际工时接口
+//
+// @param request - CreateWorkTimeRequest
+//
+// @param headers - CreateWorkTimeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateWorkTimeResponse
 func (client *Client) CreateWorkTimeWithOptions(userId *string, request *CreateWorkTimeRequest, headers *CreateWorkTimeHeaders, runtime *util.RuntimeOptions) (_result *CreateWorkTimeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10304,6 +12166,13 @@ func (client *Client) CreateWorkTimeWithOptions(userId *string, request *CreateW
 	return _result, _err
 }
 
+// Summary:
+//
+// 录入实际工时接口
+//
+// @param request - CreateWorkTimeRequest
+//
+// @return CreateWorkTimeResponse
 func (client *Client) CreateWorkTime(userId *string, request *CreateWorkTimeRequest) (_result *CreateWorkTimeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateWorkTimeHeaders{}
@@ -10316,6 +12185,17 @@ func (client *Client) CreateWorkTime(userId *string, request *CreateWorkTimeRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建实际工时审批对象。
+//
+// @param request - CreateWorkTimeApproveRequest
+//
+// @param headers - CreateWorkTimeApproveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateWorkTimeApproveResponse
 func (client *Client) CreateWorkTimeApproveWithOptions(userId *string, request *CreateWorkTimeApproveRequest, headers *CreateWorkTimeApproveHeaders, runtime *util.RuntimeOptions) (_result *CreateWorkTimeApproveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10359,6 +12239,13 @@ func (client *Client) CreateWorkTimeApproveWithOptions(userId *string, request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建实际工时审批对象。
+//
+// @param request - CreateWorkTimeApproveRequest
+//
+// @return CreateWorkTimeApproveResponse
 func (client *Client) CreateWorkTimeApprove(userId *string, request *CreateWorkTimeApproveRequest) (_result *CreateWorkTimeApproveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateWorkTimeApproveHeaders{}
@@ -10371,6 +12258,17 @@ func (client *Client) CreateWorkTimeApprove(userId *string, request *CreateWorkT
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除项目成员
+//
+// @param request - DeleteProjectMemberRequest
+//
+// @param headers - DeleteProjectMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteProjectMemberResponse
 func (client *Client) DeleteProjectMemberWithOptions(userId *string, projectId *string, request *DeleteProjectMemberRequest, headers *DeleteProjectMemberHeaders, runtime *util.RuntimeOptions) (_result *DeleteProjectMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10414,6 +12312,13 @@ func (client *Client) DeleteProjectMemberWithOptions(userId *string, projectId *
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除项目成员
+//
+// @param request - DeleteProjectMemberRequest
+//
+// @return DeleteProjectMemberResponse
 func (client *Client) DeleteProjectMember(userId *string, projectId *string, request *DeleteProjectMemberRequest) (_result *DeleteProjectMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteProjectMemberHeaders{}
@@ -10426,6 +12331,15 @@ func (client *Client) DeleteProjectMember(userId *string, projectId *string, req
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除任务
+//
+// @param headers - DeleteTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteTaskResponse
 func (client *Client) DeleteTaskWithOptions(userId *string, taskId *string, headers *DeleteTaskHeaders, runtime *util.RuntimeOptions) (_result *DeleteTaskResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -10459,6 +12373,11 @@ func (client *Client) DeleteTaskWithOptions(userId *string, taskId *string, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除任务
+//
+// @return DeleteTaskResponse
 func (client *Client) DeleteTask(userId *string, taskId *string) (_result *DeleteTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteTaskHeaders{}
@@ -10471,6 +12390,17 @@ func (client *Client) DeleteTask(userId *string, taskId *string) (_result *Delet
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据企业Id获取部门
+//
+// @param request - GetDeptsByOrgIdRequest
+//
+// @param headers - GetDeptsByOrgIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDeptsByOrgIdResponse
 func (client *Client) GetDeptsByOrgIdWithOptions(request *GetDeptsByOrgIdRequest, headers *GetDeptsByOrgIdHeaders, runtime *util.RuntimeOptions) (_result *GetDeptsByOrgIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10526,6 +12456,13 @@ func (client *Client) GetDeptsByOrgIdWithOptions(request *GetDeptsByOrgIdRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据企业Id获取部门
+//
+// @param request - GetDeptsByOrgIdRequest
+//
+// @return GetDeptsByOrgIdResponse
 func (client *Client) GetDeptsByOrgId(request *GetDeptsByOrgIdRequest) (_result *GetDeptsByOrgIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDeptsByOrgIdHeaders{}
@@ -10538,6 +12475,17 @@ func (client *Client) GetDeptsByOrgId(request *GetDeptsByOrgIdRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据企业Id获取企业内的员工信息
+//
+// @param request - GetEmpsByOrgIdRequest
+//
+// @param headers - GetEmpsByOrgIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetEmpsByOrgIdResponse
 func (client *Client) GetEmpsByOrgIdWithOptions(request *GetEmpsByOrgIdRequest, headers *GetEmpsByOrgIdHeaders, runtime *util.RuntimeOptions) (_result *GetEmpsByOrgIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10563,6 +12511,10 @@ func (client *Client) GetEmpsByOrgIdWithOptions(request *GetEmpsByOrgIdRequest, 
 
 	if !tea.BoolValue(util.IsUnset(headers.DingAccessTokenType)) {
 		realHeaders["dingAccessTokenType"] = util.ToJSONString(headers.DingAccessTokenType)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.DingIsvOrgId)) {
+		realHeaders["dingIsvOrgId"] = util.ToJSONString(headers.DingIsvOrgId)
 	}
 
 	if !tea.BoolValue(util.IsUnset(headers.DingOrgId)) {
@@ -10597,6 +12549,13 @@ func (client *Client) GetEmpsByOrgIdWithOptions(request *GetEmpsByOrgIdRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据企业Id获取企业内的员工信息
+//
+// @param request - GetEmpsByOrgIdRequest
+//
+// @return GetEmpsByOrgIdResponse
 func (client *Client) GetEmpsByOrgId(request *GetEmpsByOrgIdRequest) (_result *GetEmpsByOrgIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetEmpsByOrgIdHeaders{}
@@ -10609,6 +12568,17 @@ func (client *Client) GetEmpsByOrgId(request *GetEmpsByOrgIdRequest) (_result *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取任务详情
+//
+// @param request - GetOrganizatioTaskByIdsRequest
+//
+// @param headers - GetOrganizatioTaskByIdsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetOrganizatioTaskByIdsResponse
 func (client *Client) GetOrganizatioTaskByIdsWithOptions(userId *string, request *GetOrganizatioTaskByIdsRequest, headers *GetOrganizatioTaskByIdsHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizatioTaskByIdsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10652,6 +12622,13 @@ func (client *Client) GetOrganizatioTaskByIdsWithOptions(userId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取任务详情
+//
+// @param request - GetOrganizatioTaskByIdsRequest
+//
+// @return GetOrganizatioTaskByIdsResponse
 func (client *Client) GetOrganizatioTaskByIds(userId *string, request *GetOrganizatioTaskByIdsRequest) (_result *GetOrganizatioTaskByIdsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOrganizatioTaskByIdsHeaders{}
@@ -10664,6 +12641,15 @@ func (client *Client) GetOrganizatioTaskByIds(userId *string, request *GetOrgani
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业优先级列表
+//
+// @param headers - GetOrganizationPriorityListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetOrganizationPriorityListResponse
 func (client *Client) GetOrganizationPriorityListWithOptions(userId *string, headers *GetOrganizationPriorityListHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizationPriorityListResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -10697,6 +12683,11 @@ func (client *Client) GetOrganizationPriorityListWithOptions(userId *string, hea
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取企业优先级列表
+//
+// @return GetOrganizationPriorityListResponse
 func (client *Client) GetOrganizationPriorityList(userId *string) (_result *GetOrganizationPriorityListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOrganizationPriorityListHeaders{}
@@ -10709,6 +12700,15 @@ func (client *Client) GetOrganizationPriorityList(userId *string) (_result *GetO
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取自由任务详情
+//
+// @param headers - GetOrganizationTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetOrganizationTaskResponse
 func (client *Client) GetOrganizationTaskWithOptions(taskId *string, userId *string, headers *GetOrganizationTaskHeaders, runtime *util.RuntimeOptions) (_result *GetOrganizationTaskResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -10742,6 +12742,11 @@ func (client *Client) GetOrganizationTaskWithOptions(taskId *string, userId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取自由任务详情
+//
+// @return GetOrganizationTaskResponse
 func (client *Client) GetOrganizationTask(taskId *string, userId *string) (_result *GetOrganizationTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOrganizationTaskHeaders{}
@@ -10754,6 +12759,17 @@ func (client *Client) GetOrganizationTask(taskId *string, userId *string) (_resu
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询可见的项目分组
+//
+// @param request - GetProjectGroupRequest
+//
+// @param headers - GetProjectGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetProjectGroupResponse
 func (client *Client) GetProjectGroupWithOptions(userId *string, request *GetProjectGroupRequest, headers *GetProjectGroupHeaders, runtime *util.RuntimeOptions) (_result *GetProjectGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10801,6 +12817,13 @@ func (client *Client) GetProjectGroupWithOptions(userId *string, request *GetPro
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询可见的项目分组
+//
+// @param request - GetProjectGroupRequest
+//
+// @return GetProjectGroupResponse
 func (client *Client) GetProjectGroup(userId *string, request *GetProjectGroupRequest) (_result *GetProjectGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetProjectGroupHeaders{}
@@ -10813,6 +12836,17 @@ func (client *Client) GetProjectGroup(userId *string, request *GetProjectGroupRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取项目成员
+//
+// @param request - GetProjectMemebersRequest
+//
+// @param headers - GetProjectMemebersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetProjectMemebersResponse
 func (client *Client) GetProjectMemebersWithOptions(userId *string, projectId *string, request *GetProjectMemebersRequest, headers *GetProjectMemebersHeaders, runtime *util.RuntimeOptions) (_result *GetProjectMemebersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10868,6 +12902,13 @@ func (client *Client) GetProjectMemebersWithOptions(userId *string, projectId *s
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取项目成员
+//
+// @param request - GetProjectMemebersRequest
+//
+// @return GetProjectMemebersResponse
 func (client *Client) GetProjectMemebers(userId *string, projectId *string, request *GetProjectMemebersRequest) (_result *GetProjectMemebersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetProjectMemebersHeaders{}
@@ -10880,6 +12921,15 @@ func (client *Client) GetProjectMemebers(userId *string, projectId *string, requ
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询项目状态
+//
+// @param headers - GetProjectStatusListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetProjectStatusListResponse
 func (client *Client) GetProjectStatusListWithOptions(userId *string, projectId *string, headers *GetProjectStatusListHeaders, runtime *util.RuntimeOptions) (_result *GetProjectStatusListResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -10913,6 +12963,11 @@ func (client *Client) GetProjectStatusListWithOptions(userId *string, projectId 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询项目状态
+//
+// @return GetProjectStatusListResponse
 func (client *Client) GetProjectStatusList(userId *string, projectId *string) (_result *GetProjectStatusListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetProjectStatusListHeaders{}
@@ -10925,6 +12980,17 @@ func (client *Client) GetProjectStatusList(userId *string, projectId *string) (_
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取任务详情
+//
+// @param request - GetTaskByIdsRequest
+//
+// @param headers - GetTaskByIdsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTaskByIdsResponse
 func (client *Client) GetTaskByIdsWithOptions(userId *string, request *GetTaskByIdsRequest, headers *GetTaskByIdsHeaders, runtime *util.RuntimeOptions) (_result *GetTaskByIdsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10972,6 +13038,13 @@ func (client *Client) GetTaskByIdsWithOptions(userId *string, request *GetTaskBy
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取任务详情
+//
+// @param request - GetTaskByIdsRequest
+//
+// @return GetTaskByIdsResponse
 func (client *Client) GetTaskByIds(userId *string, request *GetTaskByIdsRequest) (_result *GetTaskByIdsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTaskByIdsHeaders{}
@@ -10984,6 +13057,17 @@ func (client *Client) GetTaskByIds(userId *string, request *GetTaskByIdsRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取Teambition企业Id
+//
+// @param request - GetTbOrgIdByDingOrgIdRequest
+//
+// @param headers - GetTbOrgIdByDingOrgIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTbOrgIdByDingOrgIdResponse
 func (client *Client) GetTbOrgIdByDingOrgIdWithOptions(request *GetTbOrgIdByDingOrgIdRequest, headers *GetTbOrgIdByDingOrgIdHeaders, runtime *util.RuntimeOptions) (_result *GetTbOrgIdByDingOrgIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11027,6 +13111,13 @@ func (client *Client) GetTbOrgIdByDingOrgIdWithOptions(request *GetTbOrgIdByDing
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取Teambition企业Id
+//
+// @param request - GetTbOrgIdByDingOrgIdRequest
+//
+// @return GetTbOrgIdByDingOrgIdResponse
 func (client *Client) GetTbOrgIdByDingOrgId(request *GetTbOrgIdByDingOrgIdRequest) (_result *GetTbOrgIdByDingOrgIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTbOrgIdByDingOrgIdHeaders{}
@@ -11039,6 +13130,17 @@ func (client *Client) GetTbOrgIdByDingOrgId(request *GetTbOrgIdByDingOrgIdReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取项目灰度标
+//
+// @param request - GetTbProjectGrayRequest
+//
+// @param headers - GetTbProjectGrayHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTbProjectGrayResponse
 func (client *Client) GetTbProjectGrayWithOptions(request *GetTbProjectGrayRequest, headers *GetTbProjectGrayHeaders, runtime *util.RuntimeOptions) (_result *GetTbProjectGrayResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11102,6 +13204,13 @@ func (client *Client) GetTbProjectGrayWithOptions(request *GetTbProjectGrayReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取项目灰度标
+//
+// @param request - GetTbProjectGrayRequest
+//
+// @return GetTbProjectGrayResponse
 func (client *Client) GetTbProjectGray(request *GetTbProjectGrayRequest) (_result *GetTbProjectGrayResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTbProjectGrayHeaders{}
@@ -11114,6 +13223,15 @@ func (client *Client) GetTbProjectGray(request *GetTbProjectGrayRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取项目来源
+//
+// @param headers - GetTbProjectSourceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTbProjectSourceResponse
 func (client *Client) GetTbProjectSourceWithOptions(headers *GetTbProjectSourceHeaders, runtime *util.RuntimeOptions) (_result *GetTbProjectSourceResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -11167,6 +13285,11 @@ func (client *Client) GetTbProjectSourceWithOptions(headers *GetTbProjectSourceH
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取项目来源
+//
+// @return GetTbProjectSourceResponse
 func (client *Client) GetTbProjectSource() (_result *GetTbProjectSourceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTbProjectSourceHeaders{}
@@ -11179,6 +13302,17 @@ func (client *Client) GetTbProjectSource() (_result *GetTbProjectSourceResponse,
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据钉钉UserId获取Teambition用户Id
+//
+// @param request - GetTbUserIdByStaffIdRequest
+//
+// @param headers - GetTbUserIdByStaffIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTbUserIdByStaffIdResponse
 func (client *Client) GetTbUserIdByStaffIdWithOptions(request *GetTbUserIdByStaffIdRequest, headers *GetTbUserIdByStaffIdHeaders, runtime *util.RuntimeOptions) (_result *GetTbUserIdByStaffIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11226,6 +13360,13 @@ func (client *Client) GetTbUserIdByStaffIdWithOptions(request *GetTbUserIdByStaf
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据钉钉UserId获取Teambition用户Id
+//
+// @param request - GetTbUserIdByStaffIdRequest
+//
+// @return GetTbUserIdByStaffIdResponse
 func (client *Client) GetTbUserIdByStaffId(request *GetTbUserIdByStaffIdRequest) (_result *GetTbUserIdByStaffIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTbUserIdByStaffIdHeaders{}
@@ -11238,6 +13379,17 @@ func (client *Client) GetTbUserIdByStaffId(request *GetTbUserIdByStaffIdRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户加入的项目
+//
+// @param request - GetUserJoinedProjectRequest
+//
+// @param headers - GetUserJoinedProjectHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserJoinedProjectResponse
 func (client *Client) GetUserJoinedProjectWithOptions(userId *string, request *GetUserJoinedProjectRequest, headers *GetUserJoinedProjectHeaders, runtime *util.RuntimeOptions) (_result *GetUserJoinedProjectResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11285,6 +13437,13 @@ func (client *Client) GetUserJoinedProjectWithOptions(userId *string, request *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户加入的项目
+//
+// @param request - GetUserJoinedProjectRequest
+//
+// @return GetUserJoinedProjectResponse
 func (client *Client) GetUserJoinedProject(userId *string, request *GetUserJoinedProjectRequest) (_result *GetUserJoinedProjectResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUserJoinedProjectHeaders{}
@@ -11297,6 +13456,17 @@ func (client *Client) GetUserJoinedProject(userId *string, request *GetUserJoine
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询项目
+//
+// @param request - QueryProjectRequest
+//
+// @param headers - QueryProjectHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryProjectResponse
 func (client *Client) QueryProjectWithOptions(userId *string, request *QueryProjectRequest, headers *QueryProjectHeaders, runtime *util.RuntimeOptions) (_result *QueryProjectResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11356,6 +13526,13 @@ func (client *Client) QueryProjectWithOptions(userId *string, request *QueryProj
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询项目
+//
+// @param request - QueryProjectRequest
+//
+// @return QueryProjectResponse
 func (client *Client) QueryProject(userId *string, request *QueryProjectRequest) (_result *QueryProjectResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryProjectHeaders{}
@@ -11368,6 +13545,17 @@ func (client *Client) QueryProject(userId *string, request *QueryProjectRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询项目中的任务
+//
+// @param request - QueryTaskOfProjectRequest
+//
+// @param headers - QueryTaskOfProjectHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryTaskOfProjectResponse
 func (client *Client) QueryTaskOfProjectWithOptions(userId *string, projectId *string, request *QueryTaskOfProjectRequest, headers *QueryTaskOfProjectHeaders, runtime *util.RuntimeOptions) (_result *QueryTaskOfProjectResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11419,6 +13607,13 @@ func (client *Client) QueryTaskOfProjectWithOptions(userId *string, projectId *s
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询项目中的任务
+//
+// @param request - QueryTaskOfProjectRequest
+//
+// @return QueryTaskOfProjectResponse
 func (client *Client) QueryTaskOfProject(userId *string, projectId *string, request *QueryTaskOfProjectRequest) (_result *QueryTaskOfProjectResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryTaskOfProjectHeaders{}
@@ -11431,6 +13626,17 @@ func (client *Client) QueryTaskOfProject(userId *string, projectId *string, requ
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取任务列表
+//
+// @param request - SeachTaskStageRequest
+//
+// @param headers - SeachTaskStageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SeachTaskStageResponse
 func (client *Client) SeachTaskStageWithOptions(userId *string, projectId *string, request *SeachTaskStageRequest, headers *SeachTaskStageHeaders, runtime *util.RuntimeOptions) (_result *SeachTaskStageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11490,6 +13696,13 @@ func (client *Client) SeachTaskStageWithOptions(userId *string, projectId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取任务列表
+//
+// @param request - SeachTaskStageRequest
+//
+// @return SeachTaskStageResponse
 func (client *Client) SeachTaskStage(userId *string, projectId *string, request *SeachTaskStageRequest) (_result *SeachTaskStageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SeachTaskStageHeaders{}
@@ -11502,6 +13715,17 @@ func (client *Client) SeachTaskStage(userId *string, projectId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过TQL搜索自由任务和项目任务ID。
+//
+// @param request - SearchAllTasksByTqlRequest
+//
+// @param headers - SearchAllTasksByTqlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchAllTasksByTqlResponse
 func (client *Client) SearchAllTasksByTqlWithOptions(userId *string, request *SearchAllTasksByTqlRequest, headers *SearchAllTasksByTqlHeaders, runtime *util.RuntimeOptions) (_result *SearchAllTasksByTqlResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11553,6 +13777,13 @@ func (client *Client) SearchAllTasksByTqlWithOptions(userId *string, request *Se
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过TQL搜索自由任务和项目任务ID。
+//
+// @param request - SearchAllTasksByTqlRequest
+//
+// @return SearchAllTasksByTqlResponse
 func (client *Client) SearchAllTasksByTql(userId *string, request *SearchAllTasksByTqlRequest) (_result *SearchAllTasksByTqlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchAllTasksByTqlHeaders{}
@@ -11565,6 +13796,17 @@ func (client *Client) SearchAllTasksByTql(userId *string, request *SearchAllTask
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询企业自定义字段
+//
+// @param request - SearchOranizationCustomfieldRequest
+//
+// @param headers - SearchOranizationCustomfieldHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchOranizationCustomfieldResponse
 func (client *Client) SearchOranizationCustomfieldWithOptions(userId *string, request *SearchOranizationCustomfieldRequest, headers *SearchOranizationCustomfieldHeaders, runtime *util.RuntimeOptions) (_result *SearchOranizationCustomfieldResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11628,6 +13870,13 @@ func (client *Client) SearchOranizationCustomfieldWithOptions(userId *string, re
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询企业自定义字段
+//
+// @param request - SearchOranizationCustomfieldRequest
+//
+// @return SearchOranizationCustomfieldResponse
 func (client *Client) SearchOranizationCustomfield(userId *string, request *SearchOranizationCustomfieldRequest) (_result *SearchOranizationCustomfieldResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchOranizationCustomfieldHeaders{}
@@ -11640,6 +13889,17 @@ func (client *Client) SearchOranizationCustomfield(userId *string, request *Sear
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询项目自定义字段
+//
+// @param request - SearchProjectCustomfieldRequest
+//
+// @param headers - SearchProjectCustomfieldHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchProjectCustomfieldResponse
 func (client *Client) SearchProjectCustomfieldWithOptions(userId *string, projectId *string, request *SearchProjectCustomfieldRequest, headers *SearchProjectCustomfieldHeaders, runtime *util.RuntimeOptions) (_result *SearchProjectCustomfieldResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11703,6 +13963,13 @@ func (client *Client) SearchProjectCustomfieldWithOptions(userId *string, projec
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询项目自定义字段
+//
+// @param request - SearchProjectCustomfieldRequest
+//
+// @return SearchProjectCustomfieldResponse
 func (client *Client) SearchProjectCustomfield(userId *string, projectId *string, request *SearchProjectCustomfieldRequest) (_result *SearchProjectCustomfieldResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchProjectCustomfieldHeaders{}
@@ -11715,6 +13982,17 @@ func (client *Client) SearchProjectCustomfield(userId *string, projectId *string
 	return _result, _err
 }
 
+// Summary:
+//
+// 按项目模板名字搜索企业自定义模板
+//
+// @param request - SearchProjectTemplateRequest
+//
+// @param headers - SearchProjectTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchProjectTemplateResponse
 func (client *Client) SearchProjectTemplateWithOptions(userId *string, request *SearchProjectTemplateRequest, headers *SearchProjectTemplateHeaders, runtime *util.RuntimeOptions) (_result *SearchProjectTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11758,6 +14036,13 @@ func (client *Client) SearchProjectTemplateWithOptions(userId *string, request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 按项目模板名字搜索企业自定义模板
+//
+// @param request - SearchProjectTemplateRequest
+//
+// @return SearchProjectTemplateResponse
 func (client *Client) SearchProjectTemplate(userId *string, request *SearchProjectTemplateRequest) (_result *SearchProjectTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchProjectTemplateHeaders{}
@@ -11770,6 +14055,17 @@ func (client *Client) SearchProjectTemplate(userId *string, request *SearchProje
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询任务工作流
+//
+// @param request - SearchTaskFlowRequest
+//
+// @param headers - SearchTaskFlowHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchTaskFlowResponse
 func (client *Client) SearchTaskFlowWithOptions(userId *string, projectId *string, request *SearchTaskFlowRequest, headers *SearchTaskFlowHeaders, runtime *util.RuntimeOptions) (_result *SearchTaskFlowResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11825,6 +14121,13 @@ func (client *Client) SearchTaskFlowWithOptions(userId *string, projectId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询任务工作流
+//
+// @param request - SearchTaskFlowRequest
+//
+// @return SearchTaskFlowResponse
 func (client *Client) SearchTaskFlow(userId *string, projectId *string, request *SearchTaskFlowRequest) (_result *SearchTaskFlowResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchTaskFlowHeaders{}
@@ -11837,6 +14140,17 @@ func (client *Client) SearchTaskFlow(userId *string, projectId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询任务分组
+//
+// @param request - SearchTaskListRequest
+//
+// @param headers - SearchTaskListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchTaskListResponse
 func (client *Client) SearchTaskListWithOptions(userId *string, projectId *string, request *SearchTaskListRequest, headers *SearchTaskListHeaders, runtime *util.RuntimeOptions) (_result *SearchTaskListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11892,6 +14206,13 @@ func (client *Client) SearchTaskListWithOptions(userId *string, projectId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询任务分组
+//
+// @param request - SearchTaskListRequest
+//
+// @return SearchTaskListResponse
 func (client *Client) SearchTaskList(userId *string, projectId *string, request *SearchTaskListRequest) (_result *SearchTaskListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchTaskListHeaders{}
@@ -11904,6 +14225,17 @@ func (client *Client) SearchTaskList(userId *string, projectId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 搜索任务工作流状态
+//
+// @param request - SearchTaskflowStatusRequest
+//
+// @param headers - SearchTaskflowStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchTaskflowStatusResponse
 func (client *Client) SearchTaskflowStatusWithOptions(userId *string, projectId *string, request *SearchTaskflowStatusRequest, headers *SearchTaskflowStatusHeaders, runtime *util.RuntimeOptions) (_result *SearchTaskflowStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11963,6 +14295,13 @@ func (client *Client) SearchTaskflowStatusWithOptions(userId *string, projectId 
 	return _result, _err
 }
 
+// Summary:
+//
+// 搜索任务工作流状态
+//
+// @param request - SearchTaskflowStatusRequest
+//
+// @return SearchTaskflowStatusResponse
 func (client *Client) SearchTaskflowStatus(userId *string, projectId *string, request *SearchTaskflowStatusRequest) (_result *SearchTaskflowStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchTaskflowStatusHeaders{}
@@ -11975,6 +14314,17 @@ func (client *Client) SearchTaskflowStatus(userId *string, projectId *string, re
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户任务列表
+//
+// @param request - SearchUserTaskRequest
+//
+// @param headers - SearchUserTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchUserTaskResponse
 func (client *Client) SearchUserTaskWithOptions(userId *string, request *SearchUserTaskRequest, headers *SearchUserTaskHeaders, runtime *util.RuntimeOptions) (_result *SearchUserTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12030,6 +14380,13 @@ func (client *Client) SearchUserTaskWithOptions(userId *string, request *SearchU
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户任务列表
+//
+// @param request - SearchUserTaskRequest
+//
+// @return SearchUserTaskResponse
 func (client *Client) SearchUserTask(userId *string, request *SearchUserTaskRequest) (_result *SearchUserTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchUserTaskHeaders{}
@@ -12042,6 +14399,15 @@ func (client *Client) SearchUserTask(userId *string, request *SearchUserTaskRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 归档项目
+//
+// @param headers - SuspendProjectHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SuspendProjectResponse
 func (client *Client) SuspendProjectWithOptions(projectId *string, userId *string, headers *SuspendProjectHeaders, runtime *util.RuntimeOptions) (_result *SuspendProjectResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -12075,6 +14441,11 @@ func (client *Client) SuspendProjectWithOptions(projectId *string, userId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 归档项目
+//
+// @return SuspendProjectResponse
 func (client *Client) SuspendProject(projectId *string, userId *string) (_result *SuspendProjectResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SuspendProjectHeaders{}
@@ -12087,6 +14458,15 @@ func (client *Client) SuspendProject(projectId *string, userId *string) (_result
 	return _result, _err
 }
 
+// Summary:
+//
+// 恢复项目归档
+//
+// @param headers - UnSuspendProjectHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UnSuspendProjectResponse
 func (client *Client) UnSuspendProjectWithOptions(projectId *string, userId *string, headers *UnSuspendProjectHeaders, runtime *util.RuntimeOptions) (_result *UnSuspendProjectResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -12120,6 +14500,11 @@ func (client *Client) UnSuspendProjectWithOptions(projectId *string, userId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 恢复项目归档
+//
+// @return UnSuspendProjectResponse
 func (client *Client) UnSuspendProject(projectId *string, userId *string) (_result *UnSuspendProjectResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UnSuspendProjectHeaders{}
@@ -12132,6 +14517,17 @@ func (client *Client) UnSuspendProject(projectId *string, userId *string) (_resu
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务自定义字段的值
+//
+// @param request - UpdateCustomfieldValueRequest
+//
+// @param headers - UpdateCustomfieldValueHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateCustomfieldValueResponse
 func (client *Client) UpdateCustomfieldValueWithOptions(userId *string, taskId *string, request *UpdateCustomfieldValueRequest, headers *UpdateCustomfieldValueHeaders, runtime *util.RuntimeOptions) (_result *UpdateCustomfieldValueResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12183,6 +14579,13 @@ func (client *Client) UpdateCustomfieldValueWithOptions(userId *string, taskId *
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务自定义字段的值
+//
+// @param request - UpdateCustomfieldValueRequest
+//
+// @return UpdateCustomfieldValueResponse
 func (client *Client) UpdateCustomfieldValue(userId *string, taskId *string, request *UpdateCustomfieldValueRequest) (_result *UpdateCustomfieldValueResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateCustomfieldValueHeaders{}
@@ -12195,6 +14598,17 @@ func (client *Client) UpdateCustomfieldValue(userId *string, taskId *string, req
 	return _result, _err
 }
 
+// Summary:
+//
+// 更改自由任务标题
+//
+// @param request - UpdateOrganizationTaskContentRequest
+//
+// @param headers - UpdateOrganizationTaskContentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateOrganizationTaskContentResponse
 func (client *Client) UpdateOrganizationTaskContentWithOptions(taskId *string, userId *string, request *UpdateOrganizationTaskContentRequest, headers *UpdateOrganizationTaskContentHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskContentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12246,6 +14660,13 @@ func (client *Client) UpdateOrganizationTaskContentWithOptions(taskId *string, u
 	return _result, _err
 }
 
+// Summary:
+//
+// 更改自由任务标题
+//
+// @param request - UpdateOrganizationTaskContentRequest
+//
+// @return UpdateOrganizationTaskContentResponse
 func (client *Client) UpdateOrganizationTaskContent(taskId *string, userId *string, request *UpdateOrganizationTaskContentRequest) (_result *UpdateOrganizationTaskContentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateOrganizationTaskContentHeaders{}
@@ -12258,6 +14679,17 @@ func (client *Client) UpdateOrganizationTaskContent(taskId *string, userId *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新自由任务截止时间
+//
+// @param request - UpdateOrganizationTaskDueDateRequest
+//
+// @param headers - UpdateOrganizationTaskDueDateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateOrganizationTaskDueDateResponse
 func (client *Client) UpdateOrganizationTaskDueDateWithOptions(taskId *string, userId *string, request *UpdateOrganizationTaskDueDateRequest, headers *UpdateOrganizationTaskDueDateHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskDueDateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12309,6 +14741,13 @@ func (client *Client) UpdateOrganizationTaskDueDateWithOptions(taskId *string, u
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新自由任务截止时间
+//
+// @param request - UpdateOrganizationTaskDueDateRequest
+//
+// @return UpdateOrganizationTaskDueDateResponse
 func (client *Client) UpdateOrganizationTaskDueDate(taskId *string, userId *string, request *UpdateOrganizationTaskDueDateRequest) (_result *UpdateOrganizationTaskDueDateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateOrganizationTaskDueDateHeaders{}
@@ -12321,6 +14760,17 @@ func (client *Client) UpdateOrganizationTaskDueDate(taskId *string, userId *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 更改自由任务执行者
+//
+// @param request - UpdateOrganizationTaskExecutorRequest
+//
+// @param headers - UpdateOrganizationTaskExecutorHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateOrganizationTaskExecutorResponse
 func (client *Client) UpdateOrganizationTaskExecutorWithOptions(taskId *string, userId *string, request *UpdateOrganizationTaskExecutorRequest, headers *UpdateOrganizationTaskExecutorHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskExecutorResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12372,6 +14822,13 @@ func (client *Client) UpdateOrganizationTaskExecutorWithOptions(taskId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 更改自由任务执行者
+//
+// @param request - UpdateOrganizationTaskExecutorRequest
+//
+// @return UpdateOrganizationTaskExecutorResponse
 func (client *Client) UpdateOrganizationTaskExecutor(taskId *string, userId *string, request *UpdateOrganizationTaskExecutorRequest) (_result *UpdateOrganizationTaskExecutorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateOrganizationTaskExecutorHeaders{}
@@ -12384,6 +14841,17 @@ func (client *Client) UpdateOrganizationTaskExecutor(taskId *string, userId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新自由任务参与者
+//
+// @param request - UpdateOrganizationTaskInvolveMembersRequest
+//
+// @param headers - UpdateOrganizationTaskInvolveMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateOrganizationTaskInvolveMembersResponse
 func (client *Client) UpdateOrganizationTaskInvolveMembersWithOptions(taskId *string, userId *string, request *UpdateOrganizationTaskInvolveMembersRequest, headers *UpdateOrganizationTaskInvolveMembersHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskInvolveMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12443,6 +14911,13 @@ func (client *Client) UpdateOrganizationTaskInvolveMembersWithOptions(taskId *st
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新自由任务参与者
+//
+// @param request - UpdateOrganizationTaskInvolveMembersRequest
+//
+// @return UpdateOrganizationTaskInvolveMembersResponse
 func (client *Client) UpdateOrganizationTaskInvolveMembers(taskId *string, userId *string, request *UpdateOrganizationTaskInvolveMembersRequest) (_result *UpdateOrganizationTaskInvolveMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateOrganizationTaskInvolveMembersHeaders{}
@@ -12455,6 +14930,17 @@ func (client *Client) UpdateOrganizationTaskInvolveMembers(taskId *string, userI
 	return _result, _err
 }
 
+// Summary:
+//
+// 更改自由任务备注
+//
+// @param request - UpdateOrganizationTaskNoteRequest
+//
+// @param headers - UpdateOrganizationTaskNoteHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateOrganizationTaskNoteResponse
 func (client *Client) UpdateOrganizationTaskNoteWithOptions(taskId *string, userId *string, request *UpdateOrganizationTaskNoteRequest, headers *UpdateOrganizationTaskNoteHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskNoteResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12506,6 +14992,13 @@ func (client *Client) UpdateOrganizationTaskNoteWithOptions(taskId *string, user
 	return _result, _err
 }
 
+// Summary:
+//
+// 更改自由任务备注
+//
+// @param request - UpdateOrganizationTaskNoteRequest
+//
+// @return UpdateOrganizationTaskNoteResponse
 func (client *Client) UpdateOrganizationTaskNote(taskId *string, userId *string, request *UpdateOrganizationTaskNoteRequest) (_result *UpdateOrganizationTaskNoteResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateOrganizationTaskNoteHeaders{}
@@ -12518,6 +15011,17 @@ func (client *Client) UpdateOrganizationTaskNote(taskId *string, userId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新自由任务优先级
+//
+// @param request - UpdateOrganizationTaskPriorityRequest
+//
+// @param headers - UpdateOrganizationTaskPriorityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateOrganizationTaskPriorityResponse
 func (client *Client) UpdateOrganizationTaskPriorityWithOptions(taskId *string, userId *string, request *UpdateOrganizationTaskPriorityRequest, headers *UpdateOrganizationTaskPriorityHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskPriorityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12569,6 +15073,13 @@ func (client *Client) UpdateOrganizationTaskPriorityWithOptions(taskId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新自由任务优先级
+//
+// @param request - UpdateOrganizationTaskPriorityRequest
+//
+// @return UpdateOrganizationTaskPriorityResponse
 func (client *Client) UpdateOrganizationTaskPriority(taskId *string, userId *string, request *UpdateOrganizationTaskPriorityRequest) (_result *UpdateOrganizationTaskPriorityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateOrganizationTaskPriorityHeaders{}
@@ -12581,6 +15092,17 @@ func (client *Client) UpdateOrganizationTaskPriority(taskId *string, userId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 更改自由任务状态
+//
+// @param request - UpdateOrganizationTaskStatusRequest
+//
+// @param headers - UpdateOrganizationTaskStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateOrganizationTaskStatusResponse
 func (client *Client) UpdateOrganizationTaskStatusWithOptions(taskId *string, userId *string, request *UpdateOrganizationTaskStatusRequest, headers *UpdateOrganizationTaskStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrganizationTaskStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12632,6 +15154,13 @@ func (client *Client) UpdateOrganizationTaskStatusWithOptions(taskId *string, us
 	return _result, _err
 }
 
+// Summary:
+//
+// 更改自由任务状态
+//
+// @param request - UpdateOrganizationTaskStatusRequest
+//
+// @return UpdateOrganizationTaskStatusResponse
 func (client *Client) UpdateOrganizationTaskStatus(taskId *string, userId *string, request *UpdateOrganizationTaskStatusRequest) (_result *UpdateOrganizationTaskStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateOrganizationTaskStatusHeaders{}
@@ -12644,6 +15173,17 @@ func (client *Client) UpdateOrganizationTaskStatus(taskId *string, userId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新项目的分组
+//
+// @param request - UpdateProjectGroupRequest
+//
+// @param headers - UpdateProjectGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateProjectGroupResponse
 func (client *Client) UpdateProjectGroupWithOptions(userId *string, projectId *string, request *UpdateProjectGroupRequest, headers *UpdateProjectGroupHeaders, runtime *util.RuntimeOptions) (_result *UpdateProjectGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12691,6 +15231,13 @@ func (client *Client) UpdateProjectGroupWithOptions(userId *string, projectId *s
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新项目的分组
+//
+// @param request - UpdateProjectGroupRequest
+//
+// @return UpdateProjectGroupResponse
 func (client *Client) UpdateProjectGroup(userId *string, projectId *string, request *UpdateProjectGroupRequest) (_result *UpdateProjectGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateProjectGroupHeaders{}
@@ -12703,6 +15250,17 @@ func (client *Client) UpdateProjectGroup(userId *string, projectId *string, requ
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务标题
+//
+// @param request - UpdateTaskContentRequest
+//
+// @param headers - UpdateTaskContentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateTaskContentResponse
 func (client *Client) UpdateTaskContentWithOptions(userId *string, taskId *string, request *UpdateTaskContentRequest, headers *UpdateTaskContentHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskContentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12746,6 +15304,13 @@ func (client *Client) UpdateTaskContentWithOptions(userId *string, taskId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务标题
+//
+// @param request - UpdateTaskContentRequest
+//
+// @return UpdateTaskContentResponse
 func (client *Client) UpdateTaskContent(userId *string, taskId *string, request *UpdateTaskContentRequest) (_result *UpdateTaskContentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateTaskContentHeaders{}
@@ -12758,6 +15323,17 @@ func (client *Client) UpdateTaskContent(userId *string, taskId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务截止时间
+//
+// @param request - UpdateTaskDueDateRequest
+//
+// @param headers - UpdateTaskDueDateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateTaskDueDateResponse
 func (client *Client) UpdateTaskDueDateWithOptions(userId *string, taskId *string, request *UpdateTaskDueDateRequest, headers *UpdateTaskDueDateHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskDueDateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12801,6 +15377,13 @@ func (client *Client) UpdateTaskDueDateWithOptions(userId *string, taskId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务截止时间
+//
+// @param request - UpdateTaskDueDateRequest
+//
+// @return UpdateTaskDueDateResponse
 func (client *Client) UpdateTaskDueDate(userId *string, taskId *string, request *UpdateTaskDueDateRequest) (_result *UpdateTaskDueDateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateTaskDueDateHeaders{}
@@ -12813,6 +15396,17 @@ func (client *Client) UpdateTaskDueDate(userId *string, taskId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务执行者
+//
+// @param request - UpdateTaskExecutorRequest
+//
+// @param headers - UpdateTaskExecutorHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateTaskExecutorResponse
 func (client *Client) UpdateTaskExecutorWithOptions(userId *string, taskId *string, request *UpdateTaskExecutorRequest, headers *UpdateTaskExecutorHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskExecutorResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12856,6 +15450,13 @@ func (client *Client) UpdateTaskExecutorWithOptions(userId *string, taskId *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务执行者
+//
+// @param request - UpdateTaskExecutorRequest
+//
+// @return UpdateTaskExecutorResponse
 func (client *Client) UpdateTaskExecutor(userId *string, taskId *string, request *UpdateTaskExecutorRequest) (_result *UpdateTaskExecutorResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateTaskExecutorHeaders{}
@@ -12868,6 +15469,17 @@ func (client *Client) UpdateTaskExecutor(userId *string, taskId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务参与者
+//
+// @param request - UpdateTaskInvolvemembersRequest
+//
+// @param headers - UpdateTaskInvolvemembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateTaskInvolvemembersResponse
 func (client *Client) UpdateTaskInvolvemembersWithOptions(userId *string, taskId *string, request *UpdateTaskInvolvemembersRequest, headers *UpdateTaskInvolvemembersHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskInvolvemembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12919,6 +15531,13 @@ func (client *Client) UpdateTaskInvolvemembersWithOptions(userId *string, taskId
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务参与者
+//
+// @param request - UpdateTaskInvolvemembersRequest
+//
+// @return UpdateTaskInvolvemembersResponse
 func (client *Client) UpdateTaskInvolvemembers(userId *string, taskId *string, request *UpdateTaskInvolvemembersRequest) (_result *UpdateTaskInvolvemembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateTaskInvolvemembersHeaders{}
@@ -12931,6 +15550,17 @@ func (client *Client) UpdateTaskInvolvemembers(userId *string, taskId *string, r
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务备注
+//
+// @param request - UpdateTaskNoteRequest
+//
+// @param headers - UpdateTaskNoteHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateTaskNoteResponse
 func (client *Client) UpdateTaskNoteWithOptions(userId *string, taskId *string, request *UpdateTaskNoteRequest, headers *UpdateTaskNoteHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskNoteResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12974,6 +15604,13 @@ func (client *Client) UpdateTaskNoteWithOptions(userId *string, taskId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务备注
+//
+// @param request - UpdateTaskNoteRequest
+//
+// @return UpdateTaskNoteResponse
 func (client *Client) UpdateTaskNote(userId *string, taskId *string, request *UpdateTaskNoteRequest) (_result *UpdateTaskNoteResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateTaskNoteHeaders{}
@@ -12986,6 +15623,17 @@ func (client *Client) UpdateTaskNote(userId *string, taskId *string, request *Up
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务优先级
+//
+// @param request - UpdateTaskPriorityRequest
+//
+// @param headers - UpdateTaskPriorityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateTaskPriorityResponse
 func (client *Client) UpdateTaskPriorityWithOptions(userId *string, taskId *string, request *UpdateTaskPriorityRequest, headers *UpdateTaskPriorityHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskPriorityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13029,6 +15677,13 @@ func (client *Client) UpdateTaskPriorityWithOptions(userId *string, taskId *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务优先级
+//
+// @param request - UpdateTaskPriorityRequest
+//
+// @return UpdateTaskPriorityResponse
 func (client *Client) UpdateTaskPriority(userId *string, taskId *string, request *UpdateTaskPriorityRequest) (_result *UpdateTaskPriorityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateTaskPriorityHeaders{}
@@ -13041,6 +15696,17 @@ func (client *Client) UpdateTaskPriority(userId *string, taskId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务列表
+//
+// @param request - UpdateTaskStageRequest
+//
+// @param headers - UpdateTaskStageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateTaskStageResponse
 func (client *Client) UpdateTaskStageWithOptions(userId *string, taskId *string, request *UpdateTaskStageRequest, headers *UpdateTaskStageHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskStageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13084,6 +15750,13 @@ func (client *Client) UpdateTaskStageWithOptions(userId *string, taskId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务列表
+//
+// @param request - UpdateTaskStageRequest
+//
+// @return UpdateTaskStageResponse
 func (client *Client) UpdateTaskStage(userId *string, taskId *string, request *UpdateTaskStageRequest) (_result *UpdateTaskStageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateTaskStageHeaders{}
@@ -13096,6 +15769,17 @@ func (client *Client) UpdateTaskStage(userId *string, taskId *string, request *U
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务开始时间
+//
+// @param request - UpdateTaskStartdateRequest
+//
+// @param headers - UpdateTaskStartdateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateTaskStartdateResponse
 func (client *Client) UpdateTaskStartdateWithOptions(userId *string, taskId *string, request *UpdateTaskStartdateRequest, headers *UpdateTaskStartdateHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskStartdateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13139,6 +15823,13 @@ func (client *Client) UpdateTaskStartdateWithOptions(userId *string, taskId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务开始时间
+//
+// @param request - UpdateTaskStartdateRequest
+//
+// @return UpdateTaskStartdateResponse
 func (client *Client) UpdateTaskStartdate(userId *string, taskId *string, request *UpdateTaskStartdateRequest) (_result *UpdateTaskStartdateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateTaskStartdateHeaders{}
@@ -13151,6 +15842,17 @@ func (client *Client) UpdateTaskStartdate(userId *string, taskId *string, reques
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务工作流状态
+//
+// @param request - UpdateTaskTaskflowstatusRequest
+//
+// @param headers - UpdateTaskTaskflowstatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateTaskTaskflowstatusResponse
 func (client *Client) UpdateTaskTaskflowstatusWithOptions(userId *string, taskId *string, request *UpdateTaskTaskflowstatusRequest, headers *UpdateTaskTaskflowstatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateTaskTaskflowstatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13198,6 +15900,13 @@ func (client *Client) UpdateTaskTaskflowstatusWithOptions(userId *string, taskId
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新任务工作流状态
+//
+// @param request - UpdateTaskTaskflowstatusRequest
+//
+// @return UpdateTaskTaskflowstatusResponse
 func (client *Client) UpdateTaskTaskflowstatus(userId *string, taskId *string, request *UpdateTaskTaskflowstatusRequest) (_result *UpdateTaskTaskflowstatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateTaskTaskflowstatusHeaders{}
@@ -13210,6 +15919,17 @@ func (client *Client) UpdateTaskTaskflowstatus(userId *string, taskId *string, r
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新工时审批对象
+//
+// @param request - UpdateWorkTimeApproveRequest
+//
+// @param headers - UpdateWorkTimeApproveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateWorkTimeApproveResponse
 func (client *Client) UpdateWorkTimeApproveWithOptions(userId *string, approveOpenId *string, request *UpdateWorkTimeApproveRequest, headers *UpdateWorkTimeApproveHeaders, runtime *util.RuntimeOptions) (_result *UpdateWorkTimeApproveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13273,6 +15993,13 @@ func (client *Client) UpdateWorkTimeApproveWithOptions(userId *string, approveOp
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新工时审批对象
+//
+// @param request - UpdateWorkTimeApproveRequest
+//
+// @return UpdateWorkTimeApproveResponse
 func (client *Client) UpdateWorkTimeApprove(userId *string, approveOpenId *string, request *UpdateWorkTimeApproveRequest) (_result *UpdateWorkTimeApproveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateWorkTimeApproveHeaders{}

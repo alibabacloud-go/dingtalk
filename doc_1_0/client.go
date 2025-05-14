@@ -1,22 +1,28 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package doc_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
 type AttachmentsMapValue struct {
+	// example:
+	//
+	// upload_key
 	UploadKey *string `json:"uploadKey,omitempty" xml:"uploadKey,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	MediaType *string `json:"mediaType,omitempty" xml:"mediaType,omitempty"`
+	// example:
+	//
+	// name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// media_type
+	MediaType  *string `json:"mediaType,omitempty" xml:"mediaType,omitempty"`
+	ResourceId *string `json:"resourceId,omitempty" xml:"resourceId,omitempty"`
 }
 
 func (s AttachmentsMapValue) String() string {
@@ -39,6 +45,11 @@ func (s *AttachmentsMapValue) SetName(v string) *AttachmentsMapValue {
 
 func (s *AttachmentsMapValue) SetMediaType(v string) *AttachmentsMapValue {
 	s.MediaType = &v
+	return s
+}
+
+func (s *AttachmentsMapValue) SetResourceId(v string) *AttachmentsMapValue {
+	s.ResourceId = &v
 	return s
 }
 
@@ -66,10 +77,17 @@ func (s *AddCommentHeaders) SetXAcsDingtalkAccessToken(v string) *AddCommentHead
 }
 
 type AddCommentRequest struct {
-	CommentContent *string                  `json:"commentContent,omitempty" xml:"commentContent,omitempty"`
-	CommentType    *string                  `json:"commentType,omitempty" xml:"commentType,omitempty"`
-	Option         *AddCommentRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	OperatorId     *string                  `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	CommentContent *string `json:"commentContent,omitempty" xml:"commentContent,omitempty"`
+	// This parameter is required.
+	CommentType *string                  `json:"commentType,omitempty" xml:"commentType,omitempty"`
+	Option      *AddCommentRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s AddCommentRequest) String() string {
@@ -101,6 +119,9 @@ func (s *AddCommentRequest) SetOperatorId(v string) *AddCommentRequest {
 }
 
 type AddCommentRequestOption struct {
+	// example:
+	//
+	// create_time
 	CreateTime *string            `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Extra      map[string]*string `json:"extra,omitempty" xml:"extra,omitempty"`
 }
@@ -124,7 +145,8 @@ func (s *AddCommentRequestOption) SetExtra(v map[string]*string) *AddCommentRequ
 }
 
 type AddCommentResponseBody struct {
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *AddCommentResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                         `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s AddCommentResponseBody) String() string {
@@ -135,8 +157,30 @@ func (s AddCommentResponseBody) GoString() string {
 	return s.String()
 }
 
+func (s *AddCommentResponseBody) SetResult(v *AddCommentResponseBodyResult) *AddCommentResponseBody {
+	s.Result = v
+	return s
+}
+
 func (s *AddCommentResponseBody) SetSuccess(v bool) *AddCommentResponseBody {
 	s.Success = &v
+	return s
+}
+
+type AddCommentResponseBodyResult struct {
+	CommentId *string `json:"commentId,omitempty" xml:"commentId,omitempty"`
+}
+
+func (s AddCommentResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCommentResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AddCommentResponseBodyResult) SetCommentId(v string) *AddCommentResponseBodyResult {
+	s.CommentId = &v
 	return s
 }
 
@@ -193,8 +237,10 @@ func (s *AddWorkspaceDocMembersHeaders) SetXAcsDingtalkAccessToken(v string) *Ad
 }
 
 type AddWorkspaceDocMembersRequest struct {
-	Members    []*AddWorkspaceDocMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	OperatorId *string                                 `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	Members []*AddWorkspaceDocMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s AddWorkspaceDocMembersRequest) String() string {
@@ -216,9 +262,12 @@ func (s *AddWorkspaceDocMembersRequest) SetOperatorId(v string) *AddWorkspaceDoc
 }
 
 type AddWorkspaceDocMembersRequestMembers struct {
-	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
 	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
-	RoleType   *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
+	// This parameter is required.
+	RoleType *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
 }
 
 func (s AddWorkspaceDocMembersRequestMembers) String() string {
@@ -291,8 +340,10 @@ func (s *AddWorkspaceMembersHeaders) SetXAcsDingtalkAccessToken(v string) *AddWo
 }
 
 type AddWorkspaceMembersRequest struct {
-	Members    []*AddWorkspaceMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	OperatorId *string                              `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	Members []*AddWorkspaceMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s AddWorkspaceMembersRequest) String() string {
@@ -314,9 +365,12 @@ func (s *AddWorkspaceMembersRequest) SetOperatorId(v string) *AddWorkspaceMember
 }
 
 type AddWorkspaceMembersRequestMembers struct {
-	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
 	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
-	RoleType   *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
+	// This parameter is required.
+	RoleType *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
 }
 
 func (s AddWorkspaceMembersRequestMembers) String() string {
@@ -343,6 +397,7 @@ func (s *AddWorkspaceMembersRequestMembers) SetRoleType(v string) *AddWorkspaceM
 }
 
 type AddWorkspaceMembersResponseBody struct {
+	// This parameter is required.
 	NotInOrgList []*string `json:"notInOrgList,omitempty" xml:"notInOrgList,omitempty" type:"Repeated"`
 }
 
@@ -412,8 +467,14 @@ func (s *AppendRowsHeaders) SetXAcsDingtalkAccessToken(v string) *AppendRowsHead
 }
 
 type AppendRowsRequest struct {
-	Values     [][]*string `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
-	OperatorId *string     `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	Values [][]*string `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s AppendRowsRequest) String() string {
@@ -481,8 +542,14 @@ func (s *BatchHeaders) SetXAcsDingtalkAccessToken(v string) *BatchHeaders {
 }
 
 type BatchRequest struct {
-	Requests   []*BatchRequestRequests `json:"requests,omitempty" xml:"requests,omitempty" type:"Repeated"`
-	OperatorId *string                 `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	Requests []*BatchRequestRequests `json:"requests,omitempty" xml:"requests,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ppgAQuHxxxxx
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s BatchRequest) String() string {
@@ -504,9 +571,21 @@ func (s *BatchRequest) SetOperatorId(v string) *BatchRequest {
 }
 
 type BatchRequestRequests struct {
-	Body   interface{} `json:"body,omitempty" xml:"body,omitempty"`
-	Method *string     `json:"method,omitempty" xml:"method,omitempty"`
-	Path   *string     `json:"path,omitempty" xml:"path,omitempty"`
+	// if can be null:
+	// true
+	Body interface{} `json:"body,omitempty" xml:"body,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// get
+	Method *string `json:"method,omitempty" xml:"method,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sheets
+	Path *string `json:"path,omitempty" xml:"path,omitempty"`
 }
 
 func (s BatchRequestRequests) String() string {
@@ -602,8 +681,10 @@ func (s *BatchGetWorkspaceDocsHeaders) SetXAcsDingtalkAccessToken(v string) *Bat
 }
 
 type BatchGetWorkspaceDocsRequest struct {
-	NodeIds    []*string `json:"nodeIds,omitempty" xml:"nodeIds,omitempty" type:"Repeated"`
-	OperatorId *string   `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	NodeIds []*string `json:"nodeIds,omitempty" xml:"nodeIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s BatchGetWorkspaceDocsRequest) String() string {
@@ -625,6 +706,7 @@ func (s *BatchGetWorkspaceDocsRequest) SetOperatorId(v string) *BatchGetWorkspac
 }
 
 type BatchGetWorkspaceDocsResponseBody struct {
+	// This parameter is required.
 	Result []*BatchGetWorkspaceDocsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -642,6 +724,7 @@ func (s *BatchGetWorkspaceDocsResponseBody) SetResult(v []*BatchGetWorkspaceDocs
 }
 
 type BatchGetWorkspaceDocsResponseBodyResult struct {
+	// This parameter is required.
 	HasPermission *bool                                               `json:"hasPermission,omitempty" xml:"hasPermission,omitempty"`
 	NodeBO        *BatchGetWorkspaceDocsResponseBodyResultNodeBO      `json:"nodeBO,omitempty" xml:"nodeBO,omitempty" type:"Struct"`
 	WorkspaceBO   *BatchGetWorkspaceDocsResponseBodyResultWorkspaceBO `json:"workspaceBO,omitempty" xml:"workspaceBO,omitempty" type:"Struct"`
@@ -793,9 +876,11 @@ func (s *BatchGetWorkspacesHeaders) SetXAcsDingtalkAccessToken(v string) *BatchG
 }
 
 type BatchGetWorkspacesRequest struct {
-	IncludeRecent *bool     `json:"includeRecent,omitempty" xml:"includeRecent,omitempty"`
-	OperatorId    *string   `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	WorkspaceIds  []*string `json:"workspaceIds,omitempty" xml:"workspaceIds,omitempty" type:"Repeated"`
+	IncludeRecent *bool `json:"includeRecent,omitempty" xml:"includeRecent,omitempty"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	WorkspaceIds []*string `json:"workspaceIds,omitempty" xml:"workspaceIds,omitempty" type:"Repeated"`
 }
 
 func (s BatchGetWorkspacesRequest) String() string {
@@ -839,6 +924,7 @@ func (s *BatchGetWorkspacesResponseBody) SetWorkspaces(v []*BatchGetWorkspacesRe
 }
 
 type BatchGetWorkspacesResponseBodyWorkspaces struct {
+	// This parameter is required.
 	HasPermission *bool                                              `json:"hasPermission,omitempty" xml:"hasPermission,omitempty"`
 	Workspace     *BatchGetWorkspacesResponseBodyWorkspacesWorkspace `json:"workspace,omitempty" xml:"workspace,omitempty" type:"Struct"`
 }
@@ -972,6 +1058,131 @@ func (s *BatchGetWorkspacesResponse) SetBody(v *BatchGetWorkspacesResponseBody) 
 	return s
 }
 
+type BatchOperateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchOperateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchOperateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchOperateHeaders) SetCommonHeaders(v map[string]*string) *BatchOperateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchOperateHeaders) SetXAcsDingtalkAccessToken(v string) *BatchOperateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchOperateRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// requests
+	Requests []interface{} `json:"requests,omitempty" xml:"requests,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s BatchOperateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchOperateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchOperateRequest) SetRequests(v []interface{}) *BatchOperateRequest {
+	s.Requests = v
+	return s
+}
+
+func (s *BatchOperateRequest) SetOperatorId(v string) *BatchOperateRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type BatchOperateResponseBody struct {
+	Result  *BatchOperateResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchOperateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchOperateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchOperateResponseBody) SetResult(v *BatchOperateResponseBodyResult) *BatchOperateResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *BatchOperateResponseBody) SetSuccess(v bool) *BatchOperateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type BatchOperateResponseBodyResult struct {
+	Data []interface{} `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s BatchOperateResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchOperateResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *BatchOperateResponseBodyResult) SetData(v []interface{}) *BatchOperateResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+type BatchOperateResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchOperateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s BatchOperateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchOperateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchOperateResponse) SetHeaders(v map[string]*string) *BatchOperateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchOperateResponse) SetStatusCode(v int32) *BatchOperateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchOperateResponse) SetBody(v *BatchOperateResponseBody) *BatchOperateResponse {
+	s.Body = v
+	return s
+}
+
 type BindCoolAppToSheetHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -996,8 +1207,16 @@ func (s *BindCoolAppToSheetHeaders) SetXAcsDingtalkAccessToken(v string) *BindCo
 }
 
 type BindCoolAppToSheetRequest struct {
+	// example:
+	//
+	// cool_app_code
 	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	OperatorId  *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s BindCoolAppToSheetRequest) String() string {
@@ -1019,6 +1238,9 @@ func (s *BindCoolAppToSheetRequest) SetOperatorId(v string) *BindCoolAppToSheetR
 }
 
 type BindCoolAppToSheetResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -1088,6 +1310,11 @@ func (s *ClearHeaders) SetXAcsDingtalkAccessToken(v string) *ClearHeaders {
 }
 
 type ClearRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -1105,6 +1332,9 @@ func (s *ClearRequest) SetOperatorId(v string) *ClearRequest {
 }
 
 type ClearResponseBody struct {
+	// example:
+	//
+	// a1_notation
 	A1Notation *string `json:"a1Notation,omitempty" xml:"a1Notation,omitempty"`
 }
 
@@ -1174,6 +1404,11 @@ func (s *ClearDataHeaders) SetXAcsDingtalkAccessToken(v string) *ClearDataHeader
 }
 
 type ClearDataRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -1191,6 +1426,9 @@ func (s *ClearDataRequest) SetOperatorId(v string) *ClearDataRequest {
 }
 
 type ClearDataResponseBody struct {
+	// example:
+	//
+	// a1_notation
 	A1Notation *string `json:"a1Notation,omitempty" xml:"a1Notation,omitempty"`
 }
 
@@ -1262,8 +1500,15 @@ func (s *CreateConditionalFormattingRuleHeaders) SetXAcsDingtalkAccessToken(v st
 type CreateConditionalFormattingRuleRequest struct {
 	CellStyle          *CreateConditionalFormattingRuleRequestCellStyle          `json:"cellStyle,omitempty" xml:"cellStyle,omitempty" type:"Struct"`
 	DuplicateCondition *CreateConditionalFormattingRuleRequestDuplicateCondition `json:"duplicateCondition,omitempty" xml:"duplicateCondition,omitempty" type:"Struct"`
-	Ranges             []*string                                                 `json:"ranges,omitempty" xml:"ranges,omitempty" type:"Repeated"`
-	OperatorId         *string                                                   `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	NumberCondition    *CreateConditionalFormattingRuleRequestNumberCondition    `json:"numberCondition,omitempty" xml:"numberCondition,omitempty" type:"Struct"`
+	// This parameter is required.
+	Ranges []*string `json:"ranges,omitempty" xml:"ranges,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ppgAQuHfOoNVpJiStDwWCEgiEiE
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s CreateConditionalFormattingRuleRequest) String() string {
@@ -1284,6 +1529,11 @@ func (s *CreateConditionalFormattingRuleRequest) SetDuplicateCondition(v *Create
 	return s
 }
 
+func (s *CreateConditionalFormattingRuleRequest) SetNumberCondition(v *CreateConditionalFormattingRuleRequestNumberCondition) *CreateConditionalFormattingRuleRequest {
+	s.NumberCondition = v
+	return s
+}
+
 func (s *CreateConditionalFormattingRuleRequest) SetRanges(v []*string) *CreateConditionalFormattingRuleRequest {
 	s.Ranges = v
 	return s
@@ -1296,6 +1546,7 @@ func (s *CreateConditionalFormattingRuleRequest) SetOperatorId(v string) *Create
 
 type CreateConditionalFormattingRuleRequestCellStyle struct {
 	BackgroundColor *string `json:"backgroundColor,omitempty" xml:"backgroundColor,omitempty"`
+	FontColor       *string `json:"fontColor,omitempty" xml:"fontColor,omitempty"`
 }
 
 func (s CreateConditionalFormattingRuleRequestCellStyle) String() string {
@@ -1308,6 +1559,11 @@ func (s CreateConditionalFormattingRuleRequestCellStyle) GoString() string {
 
 func (s *CreateConditionalFormattingRuleRequestCellStyle) SetBackgroundColor(v string) *CreateConditionalFormattingRuleRequestCellStyle {
 	s.BackgroundColor = &v
+	return s
+}
+
+func (s *CreateConditionalFormattingRuleRequestCellStyle) SetFontColor(v string) *CreateConditionalFormattingRuleRequestCellStyle {
+	s.FontColor = &v
 	return s
 }
 
@@ -1325,6 +1581,35 @@ func (s CreateConditionalFormattingRuleRequestDuplicateCondition) GoString() str
 
 func (s *CreateConditionalFormattingRuleRequestDuplicateCondition) SetOperator(v string) *CreateConditionalFormattingRuleRequestDuplicateCondition {
 	s.Operator = &v
+	return s
+}
+
+type CreateConditionalFormattingRuleRequestNumberCondition struct {
+	Operator *string     `json:"operator,omitempty" xml:"operator,omitempty"`
+	Value1   interface{} `json:"value1,omitempty" xml:"value1,omitempty"`
+	Value2   interface{} `json:"value2,omitempty" xml:"value2,omitempty"`
+}
+
+func (s CreateConditionalFormattingRuleRequestNumberCondition) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateConditionalFormattingRuleRequestNumberCondition) GoString() string {
+	return s.String()
+}
+
+func (s *CreateConditionalFormattingRuleRequestNumberCondition) SetOperator(v string) *CreateConditionalFormattingRuleRequestNumberCondition {
+	s.Operator = &v
+	return s
+}
+
+func (s *CreateConditionalFormattingRuleRequestNumberCondition) SetValue1(v interface{}) *CreateConditionalFormattingRuleRequestNumberCondition {
+	s.Value1 = v
+	return s
+}
+
+func (s *CreateConditionalFormattingRuleRequestNumberCondition) SetValue2(v interface{}) *CreateConditionalFormattingRuleRequestNumberCondition {
+	s.Value2 = v
 	return s
 }
 
@@ -1401,7 +1686,12 @@ type CreateDeveloperMetadataRequest struct {
 	AssociatedColumn *CreateDeveloperMetadataRequestAssociatedColumn `json:"associatedColumn,omitempty" xml:"associatedColumn,omitempty" type:"Struct"`
 	AssociatedRow    *CreateDeveloperMetadataRequestAssociatedRow    `json:"associatedRow,omitempty" xml:"associatedRow,omitempty" type:"Struct"`
 	Value            *string                                         `json:"value,omitempty" xml:"value,omitempty"`
-	OperatorId       *string                                         `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ppgAQuHfOoNVpJiStDwWCEgiEiE
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s CreateDeveloperMetadataRequest) String() string {
@@ -1433,8 +1723,10 @@ func (s *CreateDeveloperMetadataRequest) SetOperatorId(v string) *CreateDevelope
 }
 
 type CreateDeveloperMetadataRequestAssociatedColumn struct {
-	Column *int32  `json:"column,omitempty" xml:"column,omitempty"`
-	Sheet  *string `json:"sheet,omitempty" xml:"sheet,omitempty"`
+	// This parameter is required.
+	Column *int32 `json:"column,omitempty" xml:"column,omitempty"`
+	// This parameter is required.
+	Sheet *string `json:"sheet,omitempty" xml:"sheet,omitempty"`
 }
 
 func (s CreateDeveloperMetadataRequestAssociatedColumn) String() string {
@@ -1456,7 +1748,9 @@ func (s *CreateDeveloperMetadataRequestAssociatedColumn) SetSheet(v string) *Cre
 }
 
 type CreateDeveloperMetadataRequestAssociatedRow struct {
-	Row   *int32  `json:"row,omitempty" xml:"row,omitempty"`
+	// This parameter is required.
+	Row *int32 `json:"row,omitempty" xml:"row,omitempty"`
+	// This parameter is required.
 	Sheet *string `json:"sheet,omitempty" xml:"sheet,omitempty"`
 }
 
@@ -1548,9 +1842,16 @@ func (s *CreateRangeProtectionHeaders) SetXAcsDingtalkAccessToken(v string) *Cre
 }
 
 type CreateRangeProtectionRequest struct {
-	EditableSetting     *CreateRangeProtectionRequestEditableSetting `json:"editableSetting,omitempty" xml:"editableSetting,omitempty" type:"Struct"`
-	OtherUserPermission *string                                      `json:"otherUserPermission,omitempty" xml:"otherUserPermission,omitempty"`
-	OperatorId          *string                                      `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	EditableSetting *CreateRangeProtectionRequestEditableSetting `json:"editableSetting,omitempty" xml:"editableSetting,omitempty" type:"Struct"`
+	Members         []*CreateRangeProtectionRequestMembers       `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OtherUserPermission *string `json:"otherUserPermission,omitempty" xml:"otherUserPermission,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ppgAQuHfOoNVpJiStDwWCEgiEiE
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s CreateRangeProtectionRequest) String() string {
@@ -1563,6 +1864,11 @@ func (s CreateRangeProtectionRequest) GoString() string {
 
 func (s *CreateRangeProtectionRequest) SetEditableSetting(v *CreateRangeProtectionRequestEditableSetting) *CreateRangeProtectionRequest {
 	s.EditableSetting = v
+	return s
+}
+
+func (s *CreateRangeProtectionRequest) SetMembers(v []*CreateRangeProtectionRequestMembers) *CreateRangeProtectionRequest {
+	s.Members = v
 	return s
 }
 
@@ -1635,7 +1941,51 @@ func (s *CreateRangeProtectionRequestEditableSetting) SetToggleRowsVisibility(v 
 	return s
 }
 
+type CreateRangeProtectionRequestMembers struct {
+	DeptId             *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	MemberType         *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	Permission         *string `json:"permission,omitempty" xml:"permission,omitempty"`
+	UnionId            *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s CreateRangeProtectionRequestMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRangeProtectionRequestMembers) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRangeProtectionRequestMembers) SetDeptId(v string) *CreateRangeProtectionRequestMembers {
+	s.DeptId = &v
+	return s
+}
+
+func (s *CreateRangeProtectionRequestMembers) SetMemberType(v string) *CreateRangeProtectionRequestMembers {
+	s.MemberType = &v
+	return s
+}
+
+func (s *CreateRangeProtectionRequestMembers) SetOpenConversationId(v string) *CreateRangeProtectionRequestMembers {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *CreateRangeProtectionRequestMembers) SetPermission(v string) *CreateRangeProtectionRequestMembers {
+	s.Permission = &v
+	return s
+}
+
+func (s *CreateRangeProtectionRequestMembers) SetUnionId(v string) *CreateRangeProtectionRequestMembers {
+	s.UnionId = &v
+	return s
+}
+
 type CreateRangeProtectionResponseBody struct {
+	// example:
+	//
+	// lkxxxx
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
@@ -1705,7 +2055,17 @@ func (s *CreateSheetHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSheetHe
 }
 
 type CreateSheetRequest struct {
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sheet_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -1728,8 +2088,17 @@ func (s *CreateSheetRequest) SetOperatorId(v string) *CreateSheetRequest {
 }
 
 type CreateSheetResponseBody struct {
-	Id         *string `json:"id,omitempty" xml:"id,omitempty"`
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// sheet_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// sheet_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// visible
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
@@ -1810,8 +2179,10 @@ func (s *CreateWorkspaceHeaders) SetXAcsDingtalkAccessToken(v string) *CreateWor
 
 type CreateWorkspaceRequest struct {
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
-	OperatorId  *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s CreateWorkspaceRequest) String() string {
@@ -1839,8 +2210,11 @@ func (s *CreateWorkspaceRequest) SetOperatorId(v string) *CreateWorkspaceRequest
 
 type CreateWorkspaceResponseBody struct {
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
-	Url         *string `json:"url,omitempty" xml:"url,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// This parameter is required.
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
@@ -1925,11 +2299,16 @@ func (s *CreateWorkspaceDocHeaders) SetXAcsDingtalkAccessToken(v string) *Create
 }
 
 type CreateWorkspaceDocRequest struct {
-	DocType      *string `json:"docType,omitempty" xml:"docType,omitempty"`
-	Name         *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	DocType *string `json:"docType,omitempty" xml:"docType,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
 	OperatorId   *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 	ParentNodeId *string `json:"parentNodeId,omitempty" xml:"parentNodeId,omitempty"`
 	TemplateId   *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// if can be null:
+	// true
 	TemplateType *string `json:"templateType,omitempty" xml:"templateType,omitempty"`
 }
 
@@ -1972,10 +2351,14 @@ func (s *CreateWorkspaceDocRequest) SetTemplateType(v string) *CreateWorkspaceDo
 }
 
 type CreateWorkspaceDocResponseBody struct {
-	DentryUuid  *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
-	DocKey      *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
-	NodeId      *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
-	Url         *string `json:"url,omitempty" xml:"url,omitempty"`
+	DentryUuid *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	// This parameter is required.
+	DocKey *string `json:"docKey,omitempty" xml:"docKey,omitempty"`
+	// This parameter is required.
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// This parameter is required.
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// This parameter is required.
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
@@ -2065,9 +2448,24 @@ func (s *DeleteColumnsHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteColum
 }
 
 type DeleteColumnsRequest struct {
-	Column      *int64  `json:"column,omitempty" xml:"column,omitempty"`
-	ColumnCount *int64  `json:"columnCount,omitempty" xml:"columnCount,omitempty"`
-	OperatorId  *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// column
+	Column *int64 `json:"column,omitempty" xml:"column,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// column_count
+	ColumnCount *int64 `json:"columnCount,omitempty" xml:"columnCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s DeleteColumnsRequest) String() string {
@@ -2094,6 +2492,9 @@ func (s *DeleteColumnsRequest) SetOperatorId(v string) *DeleteColumnsRequest {
 }
 
 type DeleteColumnsResponseBody struct {
+	// example:
+	//
+	// sheet_id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
@@ -2163,6 +2564,11 @@ func (s *DeleteDropdownListsHeaders) SetXAcsDingtalkAccessToken(v string) *Delet
 }
 
 type DeleteDropdownListsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ppgAQuHfOoNVpJiStDwWCEgiEiE
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -2249,6 +2655,7 @@ func (s *DeleteRangeProtectionHeaders) SetXAcsDingtalkAccessToken(v string) *Del
 }
 
 type DeleteRangeProtectionRequest struct {
+	// This parameter is required.
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -2266,6 +2673,9 @@ func (s *DeleteRangeProtectionRequest) SetOperatorId(v string) *DeleteRangeProte
 }
 
 type DeleteRangeProtectionResponseBody struct {
+	// example:
+	//
+	// A1
 	A1Notation *string `json:"a1Notation,omitempty" xml:"a1Notation,omitempty"`
 }
 
@@ -2335,8 +2745,23 @@ func (s *DeleteRowsHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteRowsHead
 }
 
 type DeleteRowsRequest struct {
-	Row        *int64  `json:"row,omitempty" xml:"row,omitempty"`
-	RowCount   *int64  `json:"rowCount,omitempty" xml:"rowCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// row
+	Row *int64 `json:"row,omitempty" xml:"row,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// row_count
+	RowCount *int64 `json:"rowCount,omitempty" xml:"rowCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -2364,6 +2789,9 @@ func (s *DeleteRowsRequest) SetOperatorId(v string) *DeleteRowsRequest {
 }
 
 type DeleteRowsResponseBody struct {
+	// example:
+	//
+	// sheet_id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
@@ -2433,6 +2861,11 @@ func (s *DeleteSheetHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteSheetHe
 }
 
 type DeleteSheetRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -2450,6 +2883,9 @@ func (s *DeleteSheetRequest) SetOperatorId(v string) *DeleteSheetRequest {
 }
 
 type DeleteSheetResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -2519,6 +2955,7 @@ func (s *DeleteWorkspaceDocHeaders) SetXAcsDingtalkAccessToken(v string) *Delete
 }
 
 type DeleteWorkspaceDocRequest struct {
+	// This parameter is required.
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -2582,8 +3019,10 @@ func (s *DeleteWorkspaceDocMembersHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type DeleteWorkspaceDocMembersRequest struct {
-	Members    []*DeleteWorkspaceDocMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	OperatorId *string                                    `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	Members []*DeleteWorkspaceDocMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s DeleteWorkspaceDocMembersRequest) String() string {
@@ -2605,7 +3044,9 @@ func (s *DeleteWorkspaceDocMembersRequest) SetOperatorId(v string) *DeleteWorksp
 }
 
 type DeleteWorkspaceDocMembersRequestMembers struct {
-	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
 	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
 }
 
@@ -2674,8 +3115,10 @@ func (s *DeleteWorkspaceMembersHeaders) SetXAcsDingtalkAccessToken(v string) *De
 }
 
 type DeleteWorkspaceMembersRequest struct {
-	Members    []*DeleteWorkspaceMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	OperatorId *string                                 `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	Members []*DeleteWorkspaceMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s DeleteWorkspaceMembersRequest) String() string {
@@ -2697,7 +3140,9 @@ func (s *DeleteWorkspaceMembersRequest) SetOperatorId(v string) *DeleteWorkspace
 }
 
 type DeleteWorkspaceMembersRequestMembers struct {
-	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
 	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
 }
 
@@ -2766,9 +3211,24 @@ func (s *DocAppendParagraphHeaders) SetXAcsDingtalkAccessToken(v string) *DocApp
 }
 
 type DocAppendParagraphRequest struct {
-	ElementType *string                `json:"elementType,omitempty" xml:"elementType,omitempty"`
-	Properties  map[string]interface{} `json:"properties,omitempty" xml:"properties,omitempty"`
-	OperatorId  *string                `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// element_type
+	ElementType *string `json:"elementType,omitempty" xml:"elementType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// properties
+	Properties map[string]interface{} `json:"properties,omitempty" xml:"properties,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s DocAppendParagraphRequest) String() string {
@@ -2887,7 +3347,17 @@ func (s *DocAppendTextHeaders) SetXAcsDingtalkAccessToken(v string) *DocAppendTe
 }
 
 type DocAppendTextRequest struct {
-	Text       *string `json:"text,omitempty" xml:"text,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// text
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -2978,6 +3448,131 @@ func (s *DocAppendTextResponse) SetBody(v *DocAppendTextResponseBody) *DocAppend
 	return s
 }
 
+type DocBlocksModifyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DocBlocksModifyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocBlocksModifyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DocBlocksModifyHeaders) SetCommonHeaders(v map[string]*string) *DocBlocksModifyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DocBlocksModifyHeaders) SetXAcsDingtalkAccessToken(v string) *DocBlocksModifyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DocBlocksModifyRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// element
+	Element map[string]interface{} `json:"element,omitempty" xml:"element,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DocBlocksModifyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocBlocksModifyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DocBlocksModifyRequest) SetElement(v map[string]interface{}) *DocBlocksModifyRequest {
+	s.Element = v
+	return s
+}
+
+func (s *DocBlocksModifyRequest) SetOperatorId(v string) *DocBlocksModifyRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DocBlocksModifyResponseBody struct {
+	Result  *DocBlocksModifyResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                              `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DocBlocksModifyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocBlocksModifyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DocBlocksModifyResponseBody) SetResult(v *DocBlocksModifyResponseBodyResult) *DocBlocksModifyResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *DocBlocksModifyResponseBody) SetSuccess(v bool) *DocBlocksModifyResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DocBlocksModifyResponseBodyResult struct {
+	Result []interface{} `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s DocBlocksModifyResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocBlocksModifyResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DocBlocksModifyResponseBodyResult) SetResult(v []interface{}) *DocBlocksModifyResponseBodyResult {
+	s.Result = v
+	return s
+}
+
+type DocBlocksModifyResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DocBlocksModifyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DocBlocksModifyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocBlocksModifyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DocBlocksModifyResponse) SetHeaders(v map[string]*string) *DocBlocksModifyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DocBlocksModifyResponse) SetStatusCode(v int32) *DocBlocksModifyResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DocBlocksModifyResponse) SetBody(v *DocBlocksModifyResponseBody) *DocBlocksModifyResponse {
+	s.Body = v
+	return s
+}
+
 type DocBlocksQueryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3002,10 +3597,24 @@ func (s *DocBlocksQueryHeaders) SetXAcsDingtalkAccessToken(v string) *DocBlocksQ
 }
 
 type DocBlocksQueryRequest struct {
-	BlockType  *string `json:"blockType,omitempty" xml:"blockType,omitempty"`
-	EndIndex   *int32  `json:"endIndex,omitempty" xml:"endIndex,omitempty"`
+	// example:
+	//
+	// block_type
+	BlockType *string `json:"blockType,omitempty" xml:"blockType,omitempty"`
+	// example:
+	//
+	// end_index
+	EndIndex *int32 `json:"endIndex,omitempty" xml:"endIndex,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	StartIndex *int32  `json:"startIndex,omitempty" xml:"startIndex,omitempty"`
+	// example:
+	//
+	// start_index
+	StartIndex *int32 `json:"startIndex,omitempty" xml:"startIndex,omitempty"`
 }
 
 func (s DocBlocksQueryRequest) String() string {
@@ -3129,6 +3738,11 @@ func (s *DocDeleteBlockHeaders) SetXAcsDingtalkAccessToken(v string) *DocDeleteB
 }
 
 type DocDeleteBlockRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -3214,6 +3828,232 @@ func (s *DocDeleteBlockResponse) SetBody(v *DocDeleteBlockResponseBody) *DocDele
 	return s
 }
 
+type DocExportHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DocExportHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocExportHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DocExportHeaders) SetCommonHeaders(v map[string]*string) *DocExportHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DocExportHeaders) SetXAcsDingtalkAccessToken(v string) *DocExportHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DocExportRequest struct {
+	// example:
+	//
+	// markdown
+	TargetFormat *string `json:"targetFormat,omitempty" xml:"targetFormat,omitempty"`
+}
+
+func (s DocExportRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocExportRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DocExportRequest) SetTargetFormat(v string) *DocExportRequest {
+	s.TargetFormat = &v
+	return s
+}
+
+type DocExportResponseBody struct {
+	Result  *DocExportResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                        `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DocExportResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocExportResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DocExportResponseBody) SetResult(v *DocExportResponseBodyResult) *DocExportResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *DocExportResponseBody) SetSuccess(v bool) *DocExportResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DocExportResponseBodyResult struct {
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s DocExportResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocExportResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DocExportResponseBodyResult) SetTaskId(v int64) *DocExportResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+type DocExportResponse struct {
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DocExportResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DocExportResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocExportResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DocExportResponse) SetHeaders(v map[string]*string) *DocExportResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DocExportResponse) SetStatusCode(v int32) *DocExportResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DocExportResponse) SetBody(v *DocExportResponseBody) *DocExportResponse {
+	s.Body = v
+	return s
+}
+
+type DocExportSnapshotHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DocExportSnapshotHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocExportSnapshotHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DocExportSnapshotHeaders) SetCommonHeaders(v map[string]*string) *DocExportSnapshotHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DocExportSnapshotHeaders) SetXAcsDingtalkAccessToken(v string) *DocExportSnapshotHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DocExportSnapshotRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DocExportSnapshotRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocExportSnapshotRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DocExportSnapshotRequest) SetOperatorId(v string) *DocExportSnapshotRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DocExportSnapshotResponseBody struct {
+	Result  *DocExportSnapshotResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DocExportSnapshotResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocExportSnapshotResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DocExportSnapshotResponseBody) SetResult(v *DocExportSnapshotResponseBodyResult) *DocExportSnapshotResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *DocExportSnapshotResponseBody) SetSuccess(v bool) *DocExportSnapshotResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DocExportSnapshotResponseBodyResult struct {
+	Data map[string]*string `json:"data,omitempty" xml:"data,omitempty"`
+}
+
+func (s DocExportSnapshotResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocExportSnapshotResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DocExportSnapshotResponseBodyResult) SetData(v map[string]*string) *DocExportSnapshotResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+type DocExportSnapshotResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DocExportSnapshotResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DocExportSnapshotResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocExportSnapshotResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DocExportSnapshotResponse) SetHeaders(v map[string]*string) *DocExportSnapshotResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DocExportSnapshotResponse) SetStatusCode(v int32) *DocExportSnapshotResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DocExportSnapshotResponse) SetBody(v *DocExportSnapshotResponseBody) *DocExportSnapshotResponse {
+	s.Body = v
+	return s
+}
+
 type DocInsertBlocksHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3238,11 +4078,30 @@ func (s *DocInsertBlocksHeaders) SetXAcsDingtalkAccessToken(v string) *DocInsert
 }
 
 type DocInsertBlocksRequest struct {
-	BlockId    *string                `json:"blockId,omitempty" xml:"blockId,omitempty"`
-	Element    map[string]interface{} `json:"element,omitempty" xml:"element,omitempty"`
-	Index      *int32                 `json:"index,omitempty" xml:"index,omitempty"`
-	Where      *string                `json:"where,omitempty" xml:"where,omitempty"`
-	OperatorId *string                `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// example:
+	//
+	// block_id
+	BlockId *string `json:"blockId,omitempty" xml:"blockId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// element
+	Element map[string]interface{} `json:"element,omitempty" xml:"element,omitempty"`
+	// example:
+	//
+	// index
+	Index *int32 `json:"index,omitempty" xml:"index,omitempty"`
+	// example:
+	//
+	// where
+	Where *string `json:"where,omitempty" xml:"where,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s DocInsertBlocksRequest) String() string {
@@ -3347,6 +4206,266 @@ func (s *DocInsertBlocksResponse) SetBody(v *DocInsertBlocksResponseBody) *DocIn
 	return s
 }
 
+type DocSlotsModifyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DocSlotsModifyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocSlotsModifyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DocSlotsModifyHeaders) SetCommonHeaders(v map[string]*string) *DocSlotsModifyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DocSlotsModifyHeaders) SetXAcsDingtalkAccessToken(v string) *DocSlotsModifyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DocSlotsModifyRequest struct {
+	// example:
+	//
+	// contentBody
+	Request []*DocSlotsModifyRequestRequest `json:"request,omitempty" xml:"request,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DocSlotsModifyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocSlotsModifyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DocSlotsModifyRequest) SetRequest(v []*DocSlotsModifyRequestRequest) *DocSlotsModifyRequest {
+	s.Request = v
+	return s
+}
+
+func (s *DocSlotsModifyRequest) SetOperatorId(v string) *DocSlotsModifyRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DocSlotsModifyRequestRequest struct {
+	Body   map[string]interface{} `json:"body,omitempty" xml:"body,omitempty"`
+	SlotId *string                `json:"slotId,omitempty" xml:"slotId,omitempty"`
+}
+
+func (s DocSlotsModifyRequestRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocSlotsModifyRequestRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DocSlotsModifyRequestRequest) SetBody(v map[string]interface{}) *DocSlotsModifyRequestRequest {
+	s.Body = v
+	return s
+}
+
+func (s *DocSlotsModifyRequestRequest) SetSlotId(v string) *DocSlotsModifyRequestRequest {
+	s.SlotId = &v
+	return s
+}
+
+type DocSlotsModifyResponseBody struct {
+	Result  *DocSlotsModifyResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                             `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DocSlotsModifyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocSlotsModifyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DocSlotsModifyResponseBody) SetResult(v *DocSlotsModifyResponseBodyResult) *DocSlotsModifyResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *DocSlotsModifyResponseBody) SetSuccess(v bool) *DocSlotsModifyResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DocSlotsModifyResponseBodyResult struct {
+	Data map[string]*string `json:"data,omitempty" xml:"data,omitempty"`
+}
+
+func (s DocSlotsModifyResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocSlotsModifyResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DocSlotsModifyResponseBodyResult) SetData(v map[string]*string) *DocSlotsModifyResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+type DocSlotsModifyResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DocSlotsModifyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DocSlotsModifyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocSlotsModifyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DocSlotsModifyResponse) SetHeaders(v map[string]*string) *DocSlotsModifyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DocSlotsModifyResponse) SetStatusCode(v int32) *DocSlotsModifyResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DocSlotsModifyResponse) SetBody(v *DocSlotsModifyResponseBody) *DocSlotsModifyResponse {
+	s.Body = v
+	return s
+}
+
+type DocSlotsQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DocSlotsQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocSlotsQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DocSlotsQueryHeaders) SetCommonHeaders(v map[string]*string) *DocSlotsQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DocSlotsQueryHeaders) SetXAcsDingtalkAccessToken(v string) *DocSlotsQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DocSlotsQueryRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DocSlotsQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocSlotsQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DocSlotsQueryRequest) SetOperatorId(v string) *DocSlotsQueryRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DocSlotsQueryResponseBody struct {
+	Result  *DocSlotsQueryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                            `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DocSlotsQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocSlotsQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DocSlotsQueryResponseBody) SetResult(v *DocSlotsQueryResponseBodyResult) *DocSlotsQueryResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *DocSlotsQueryResponseBody) SetSuccess(v bool) *DocSlotsQueryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DocSlotsQueryResponseBodyResult struct {
+	Data []interface{} `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s DocSlotsQueryResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocSlotsQueryResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DocSlotsQueryResponseBodyResult) SetData(v []interface{}) *DocSlotsQueryResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+type DocSlotsQueryResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DocSlotsQueryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DocSlotsQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocSlotsQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DocSlotsQueryResponse) SetHeaders(v map[string]*string) *DocSlotsQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DocSlotsQueryResponse) SetStatusCode(v int32) *DocSlotsQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DocSlotsQueryResponse) SetBody(v *DocSlotsQueryResponseBody) *DocSlotsQueryResponse {
+	s.Body = v
+	return s
+}
+
 type DocUpdateContentHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3371,8 +4490,21 @@ func (s *DocUpdateContentHeaders) SetXAcsDingtalkAccessToken(v string) *DocUpdat
 }
 
 type DocUpdateContentRequest struct {
-	Content    *string `json:"content,omitempty" xml:"content,omitempty"`
-	DataType   *string `json:"dataType,omitempty" xml:"dataType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// content
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// data_type
+	DataType *string `json:"dataType,omitempty" xml:"dataType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -3400,7 +4532,8 @@ func (s *DocUpdateContentRequest) SetOperatorId(v string) *DocUpdateContentReque
 }
 
 type DocUpdateContentResponseBody struct {
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  *DocUpdateContentResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                               `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s DocUpdateContentResponseBody) String() string {
@@ -3411,8 +4544,30 @@ func (s DocUpdateContentResponseBody) GoString() string {
 	return s.String()
 }
 
+func (s *DocUpdateContentResponseBody) SetResult(v *DocUpdateContentResponseBodyResult) *DocUpdateContentResponseBody {
+	s.Result = v
+	return s
+}
+
 func (s *DocUpdateContentResponseBody) SetSuccess(v bool) *DocUpdateContentResponseBody {
 	s.Success = &v
+	return s
+}
+
+type DocUpdateContentResponseBodyResult struct {
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+}
+
+func (s DocUpdateContentResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocUpdateContentResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DocUpdateContentResponseBodyResult) SetData(v map[string]interface{}) *DocUpdateContentResponseBodyResult {
+	s.Data = v
 	return s
 }
 
@@ -3469,6 +4624,11 @@ func (s *GetAllSheetsHeaders) SetXAcsDingtalkAccessToken(v string) *GetAllSheets
 }
 
 type GetAllSheetsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -3503,7 +4663,13 @@ func (s *GetAllSheetsResponseBody) SetValue(v []*GetAllSheetsResponseBodyValue) 
 }
 
 type GetAllSheetsResponseBodyValue struct {
-	Id   *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// sheet_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// sheet_name
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
@@ -3578,6 +4744,7 @@ func (s *GetDeveloperMetadataHeaders) SetXAcsDingtalkAccessToken(v string) *GetD
 }
 
 type GetDeveloperMetadataRequest struct {
+	// This parameter is required.
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -3624,7 +4791,9 @@ func (s *GetDeveloperMetadataResponseBody) SetValue(v interface{}) *GetDeveloper
 }
 
 type GetDeveloperMetadataResponseBodyAssociatedColumn struct {
-	Column  *int32  `json:"column,omitempty" xml:"column,omitempty"`
+	// This parameter is required.
+	Column *int32 `json:"column,omitempty" xml:"column,omitempty"`
+	// This parameter is required.
 	SheetId *string `json:"sheetId,omitempty" xml:"sheetId,omitempty"`
 }
 
@@ -3647,7 +4816,9 @@ func (s *GetDeveloperMetadataResponseBodyAssociatedColumn) SetSheetId(v string) 
 }
 
 type GetDeveloperMetadataResponseBodyAssociatedRow struct {
-	Row     *int32  `json:"row,omitempty" xml:"row,omitempty"`
+	// This parameter is required.
+	Row *int32 `json:"row,omitempty" xml:"row,omitempty"`
+	// This parameter is required.
 	SheetId *string `json:"sheetId,omitempty" xml:"sheetId,omitempty"`
 }
 
@@ -3698,6 +4869,132 @@ func (s *GetDeveloperMetadataResponse) SetBody(v *GetDeveloperMetadataResponseBo
 	return s
 }
 
+type GetImportDocumentMarkHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetImportDocumentMarkHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetImportDocumentMarkHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetImportDocumentMarkHeaders) SetCommonHeaders(v map[string]*string) *GetImportDocumentMarkHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetImportDocumentMarkHeaders) SetXAcsDingtalkAccessToken(v string) *GetImportDocumentMarkHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetImportDocumentMarkRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetImportDocumentMarkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetImportDocumentMarkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetImportDocumentMarkRequest) SetOperatorId(v string) *GetImportDocumentMarkRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetImportDocumentMarkResponseBody struct {
+	Result  *GetImportDocumentMarkResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                    `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetImportDocumentMarkResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetImportDocumentMarkResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetImportDocumentMarkResponseBody) SetResult(v *GetImportDocumentMarkResponseBodyResult) *GetImportDocumentMarkResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetImportDocumentMarkResponseBody) SetSuccess(v bool) *GetImportDocumentMarkResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetImportDocumentMarkResponseBodyResult struct {
+	// example:
+	//
+	// doc_id
+	DocId *string `json:"docId,omitempty" xml:"docId,omitempty"`
+	// example:
+	//
+	// mark_map
+	MarkMap map[string]*string `json:"markMap,omitempty" xml:"markMap,omitempty"`
+}
+
+func (s GetImportDocumentMarkResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetImportDocumentMarkResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetImportDocumentMarkResponseBodyResult) SetDocId(v string) *GetImportDocumentMarkResponseBodyResult {
+	s.DocId = &v
+	return s
+}
+
+func (s *GetImportDocumentMarkResponseBodyResult) SetMarkMap(v map[string]*string) *GetImportDocumentMarkResponseBodyResult {
+	s.MarkMap = v
+	return s
+}
+
+type GetImportDocumentMarkResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetImportDocumentMarkResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetImportDocumentMarkResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetImportDocumentMarkResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetImportDocumentMarkResponse) SetHeaders(v map[string]*string) *GetImportDocumentMarkResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetImportDocumentMarkResponse) SetStatusCode(v int32) *GetImportDocumentMarkResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetImportDocumentMarkResponse) SetBody(v *GetImportDocumentMarkResponseBody) *GetImportDocumentMarkResponse {
+	s.Body = v
+	return s
+}
+
 type GetRangeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3722,8 +5019,16 @@ func (s *GetRangeHeaders) SetXAcsDingtalkAccessToken(v string) *GetRangeHeaders 
 }
 
 type GetRangeRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	Select     *string `json:"select,omitempty" xml:"select,omitempty"`
+	// example:
+	//
+	// select
+	Select *string `json:"select,omitempty" xml:"select,omitempty"`
 }
 
 func (s GetRangeRequest) String() string {
@@ -3746,11 +5051,13 @@ func (s *GetRangeRequest) SetSelect(v string) *GetRangeRequest {
 
 type GetRangeResponseBody struct {
 	BackgroundColors     [][]*GetRangeResponseBodyBackgroundColors `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
+	ComplexValues        [][]interface{}                           `json:"complexValues,omitempty" xml:"complexValues,omitempty" type:"Repeated"`
 	DisplayValues        [][]*string                               `json:"displayValues,omitempty" xml:"displayValues,omitempty" type:"Repeated"`
 	FontSizes            [][]*int32                                `json:"fontSizes,omitempty" xml:"fontSizes,omitempty" type:"Repeated"`
 	FontWeights          [][]*string                               `json:"fontWeights,omitempty" xml:"fontWeights,omitempty" type:"Repeated"`
 	Formulas             [][]*string                               `json:"formulas,omitempty" xml:"formulas,omitempty" type:"Repeated"`
 	HorizontalAlignments [][]*string                               `json:"horizontalAlignments,omitempty" xml:"horizontalAlignments,omitempty" type:"Repeated"`
+	Hyperlinks           [][]*GetRangeResponseBodyHyperlinks       `json:"hyperlinks,omitempty" xml:"hyperlinks,omitempty" type:"Repeated"`
 	Values               [][]interface{}                           `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 	VerticalAlignments   [][]*string                               `json:"verticalAlignments,omitempty" xml:"verticalAlignments,omitempty" type:"Repeated"`
 }
@@ -3765,6 +5072,11 @@ func (s GetRangeResponseBody) GoString() string {
 
 func (s *GetRangeResponseBody) SetBackgroundColors(v [][]*GetRangeResponseBodyBackgroundColors) *GetRangeResponseBody {
 	s.BackgroundColors = v
+	return s
+}
+
+func (s *GetRangeResponseBody) SetComplexValues(v [][]interface{}) *GetRangeResponseBody {
+	s.ComplexValues = v
 	return s
 }
 
@@ -3793,6 +5105,11 @@ func (s *GetRangeResponseBody) SetHorizontalAlignments(v [][]*string) *GetRangeR
 	return s
 }
 
+func (s *GetRangeResponseBody) SetHyperlinks(v [][]*GetRangeResponseBodyHyperlinks) *GetRangeResponseBody {
+	s.Hyperlinks = v
+	return s
+}
+
 func (s *GetRangeResponseBody) SetValues(v [][]interface{}) *GetRangeResponseBody {
 	s.Values = v
 	return s
@@ -3804,9 +5121,21 @@ func (s *GetRangeResponseBody) SetVerticalAlignments(v [][]*string) *GetRangeRes
 }
 
 type GetRangeResponseBodyBackgroundColors struct {
-	Red       *int32  `json:"red,omitempty" xml:"red,omitempty"`
-	Green     *int32  `json:"green,omitempty" xml:"green,omitempty"`
-	Blue      *int32  `json:"blue,omitempty" xml:"blue,omitempty"`
+	// example:
+	//
+	// red_value
+	Red *int32 `json:"red,omitempty" xml:"red,omitempty"`
+	// example:
+	//
+	// green_value
+	Green *int32 `json:"green,omitempty" xml:"green,omitempty"`
+	// example:
+	//
+	// blue_value
+	Blue *int32 `json:"blue,omitempty" xml:"blue,omitempty"`
+	// example:
+	//
+	// hex_string_value
 	HexString *string `json:"hexString,omitempty" xml:"hexString,omitempty"`
 }
 
@@ -3835,6 +5164,35 @@ func (s *GetRangeResponseBodyBackgroundColors) SetBlue(v int32) *GetRangeRespons
 
 func (s *GetRangeResponseBodyBackgroundColors) SetHexString(v string) *GetRangeResponseBodyBackgroundColors {
 	s.HexString = &v
+	return s
+}
+
+type GetRangeResponseBodyHyperlinks struct {
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s GetRangeResponseBodyHyperlinks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRangeResponseBodyHyperlinks) GoString() string {
+	return s.String()
+}
+
+func (s *GetRangeResponseBodyHyperlinks) SetType(v string) *GetRangeResponseBodyHyperlinks {
+	s.Type = &v
+	return s
+}
+
+func (s *GetRangeResponseBodyHyperlinks) SetLink(v string) *GetRangeResponseBodyHyperlinks {
+	s.Link = &v
+	return s
+}
+
+func (s *GetRangeResponseBodyHyperlinks) SetText(v string) *GetRangeResponseBodyHyperlinks {
+	s.Text = &v
 	return s
 }
 
@@ -3891,8 +5249,10 @@ func (s *GetRecentEditDocsHeaders) SetXAcsDingtalkAccessToken(v string) *GetRece
 }
 
 type GetRecentEditDocsRequest struct {
+	// This parameter is required.
 	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -3943,7 +5303,9 @@ func (s *GetRecentEditDocsResponseBody) SetRecentList(v []*GetRecentEditDocsResp
 }
 
 type GetRecentEditDocsResponseBodyRecentList struct {
-	NodeBO      *GetRecentEditDocsResponseBodyRecentListNodeBO      `json:"nodeBO,omitempty" xml:"nodeBO,omitempty" type:"Struct"`
+	// This parameter is required.
+	NodeBO *GetRecentEditDocsResponseBodyRecentListNodeBO `json:"nodeBO,omitempty" xml:"nodeBO,omitempty" type:"Struct"`
+	// This parameter is required.
 	WorkspaceBO *GetRecentEditDocsResponseBodyRecentListWorkspaceBO `json:"workspaceBO,omitempty" xml:"workspaceBO,omitempty" type:"Struct"`
 }
 
@@ -3966,14 +5328,18 @@ func (s *GetRecentEditDocsResponseBodyRecentList) SetWorkspaceBO(v *GetRecentEdi
 }
 
 type GetRecentEditDocsResponseBodyRecentListNodeBO struct {
-	CreateTime   *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	DocType      *string `json:"docType,omitempty" xml:"docType,omitempty"`
-	IsDeleted    *bool   `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	LastEditTime *int64  `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
-	NodeId       *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
-	NodeName     *string `json:"nodeName,omitempty" xml:"nodeName,omitempty"`
-	UpdateTime   *int64  `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
-	Url          *string `json:"url,omitempty" xml:"url,omitempty"`
+	CreateTime *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	DocType    *string `json:"docType,omitempty" xml:"docType,omitempty"`
+	IsDeleted  *bool   `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// This parameter is required.
+	LastEditTime *int64 `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
+	// This parameter is required.
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// This parameter is required.
+	NodeName   *string `json:"nodeName,omitempty" xml:"nodeName,omitempty"`
+	UpdateTime *int64  `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	// This parameter is required.
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s GetRecentEditDocsResponseBodyRecentListNodeBO) String() string {
@@ -4025,8 +5391,10 @@ func (s *GetRecentEditDocsResponseBodyRecentListNodeBO) SetUrl(v string) *GetRec
 }
 
 type GetRecentEditDocsResponseBodyRecentListWorkspaceBO struct {
-	Url           *string `json:"url,omitempty" xml:"url,omitempty"`
-	WorkspaceId   *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// This parameter is required.
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	// This parameter is required.
 	WorkspaceName *string `json:"workspaceName,omitempty" xml:"workspaceName,omitempty"`
 }
 
@@ -4106,8 +5474,10 @@ func (s *GetRecentOpenDocsHeaders) SetXAcsDingtalkAccessToken(v string) *GetRece
 }
 
 type GetRecentOpenDocsRequest struct {
+	// This parameter is required.
 	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -4158,7 +5528,9 @@ func (s *GetRecentOpenDocsResponseBody) SetRecentList(v []*GetRecentOpenDocsResp
 }
 
 type GetRecentOpenDocsResponseBodyRecentList struct {
-	NodeBO      *GetRecentOpenDocsResponseBodyRecentListNodeBO      `json:"nodeBO,omitempty" xml:"nodeBO,omitempty" type:"Struct"`
+	// This parameter is required.
+	NodeBO *GetRecentOpenDocsResponseBodyRecentListNodeBO `json:"nodeBO,omitempty" xml:"nodeBO,omitempty" type:"Struct"`
+	// This parameter is required.
 	WorkspaceBO *GetRecentOpenDocsResponseBodyRecentListWorkspaceBO `json:"workspaceBO,omitempty" xml:"workspaceBO,omitempty" type:"Struct"`
 }
 
@@ -4181,14 +5553,18 @@ func (s *GetRecentOpenDocsResponseBodyRecentList) SetWorkspaceBO(v *GetRecentOpe
 }
 
 type GetRecentOpenDocsResponseBodyRecentListNodeBO struct {
-	CreateTime   *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	DocType      *string `json:"docType,omitempty" xml:"docType,omitempty"`
-	IsDeleted    *bool   `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
-	LastOpenTime *int64  `json:"lastOpenTime,omitempty" xml:"lastOpenTime,omitempty"`
-	NodeId       *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
-	NodeName     *string `json:"nodeName,omitempty" xml:"nodeName,omitempty"`
-	UpdateTime   *int64  `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
-	Url          *string `json:"url,omitempty" xml:"url,omitempty"`
+	CreateTime *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	DocType    *string `json:"docType,omitempty" xml:"docType,omitempty"`
+	IsDeleted  *bool   `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// This parameter is required.
+	LastOpenTime *int64 `json:"lastOpenTime,omitempty" xml:"lastOpenTime,omitempty"`
+	// This parameter is required.
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// This parameter is required.
+	NodeName   *string `json:"nodeName,omitempty" xml:"nodeName,omitempty"`
+	UpdateTime *int64  `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	// This parameter is required.
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s GetRecentOpenDocsResponseBodyRecentListNodeBO) String() string {
@@ -4240,8 +5616,10 @@ func (s *GetRecentOpenDocsResponseBodyRecentListNodeBO) SetUrl(v string) *GetRec
 }
 
 type GetRecentOpenDocsResponseBodyRecentListWorkspaceBO struct {
-	Url           *string `json:"url,omitempty" xml:"url,omitempty"`
-	WorkspaceId   *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// This parameter is required.
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	// This parameter is required.
 	WorkspaceName *string `json:"workspaceName,omitempty" xml:"workspaceName,omitempty"`
 }
 
@@ -4321,8 +5699,9 @@ func (s *GetRelatedWorkspacesHeaders) SetXAcsDingtalkAccessToken(v string) *GetR
 }
 
 type GetRelatedWorkspacesRequest struct {
-	IncludeRecent *bool   `json:"includeRecent,omitempty" xml:"includeRecent,omitempty"`
-	OperatorId    *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	IncludeRecent *bool `json:"includeRecent,omitempty" xml:"includeRecent,omitempty"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s GetRelatedWorkspacesRequest) String() string {
@@ -4344,6 +5723,7 @@ func (s *GetRelatedWorkspacesRequest) SetOperatorId(v string) *GetRelatedWorkspa
 }
 
 type GetRelatedWorkspacesResponseBody struct {
+	// This parameter is required.
 	Workspaces []*GetRelatedWorkspacesResponseBodyWorkspaces `json:"workspaces,omitempty" xml:"workspaces,omitempty" type:"Repeated"`
 }
 
@@ -4361,14 +5741,21 @@ func (s *GetRelatedWorkspacesResponseBody) SetWorkspaces(v []*GetRelatedWorkspac
 }
 
 type GetRelatedWorkspacesResponseBodyWorkspaces struct {
-	CreateTime  *int64                                                  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	Deleted     *bool                                                   `json:"deleted,omitempty" xml:"deleted,omitempty"`
-	Name        *string                                                 `json:"name,omitempty" xml:"name,omitempty"`
-	Owner       *string                                                 `json:"owner,omitempty" xml:"owner,omitempty"`
-	RecentList  []*GetRelatedWorkspacesResponseBodyWorkspacesRecentList `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
-	Role        *string                                                 `json:"role,omitempty" xml:"role,omitempty"`
-	Url         *string                                                 `json:"url,omitempty" xml:"url,omitempty"`
-	WorkspaceId *string                                                 `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// This parameter is required.
+	Deleted *bool `json:"deleted,omitempty" xml:"deleted,omitempty"`
+	// This parameter is required.
+	Name       *string                                                 `json:"name,omitempty" xml:"name,omitempty"`
+	Owner      *string                                                 `json:"owner,omitempty" xml:"owner,omitempty"`
+	RecentList []*GetRelatedWorkspacesResponseBodyWorkspacesRecentList `json:"recentList,omitempty" xml:"recentList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// OWNER：所有者；MANAGER：管理者；EDITOR：可编辑；VIEWER：可查询\下载；ONLY_VIEWER：尽可查看
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
+	// This parameter is required.
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// This parameter is required.
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
 func (s GetRelatedWorkspacesResponseBodyWorkspaces) String() string {
@@ -4420,10 +5807,13 @@ func (s *GetRelatedWorkspacesResponseBodyWorkspaces) SetWorkspaceId(v string) *G
 }
 
 type GetRelatedWorkspacesResponseBodyWorkspacesRecentList struct {
-	LastEditTime *int64  `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
-	Name         *string `json:"name,omitempty" xml:"name,omitempty"`
-	NodeId       *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
-	Url          *string `json:"url,omitempty" xml:"url,omitempty"`
+	LastEditTime *int64 `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// This parameter is required.
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s GetRelatedWorkspacesResponseBodyWorkspacesRecentList) String() string {
@@ -4483,6 +5873,261 @@ func (s *GetRelatedWorkspacesResponse) SetBody(v *GetRelatedWorkspacesResponseBo
 	return s
 }
 
+type GetResourceDownloadInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetResourceDownloadInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetResourceDownloadInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetResourceDownloadInfoHeaders) SetCommonHeaders(v map[string]*string) *GetResourceDownloadInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetResourceDownloadInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetResourceDownloadInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetResourceDownloadInfoRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetResourceDownloadInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetResourceDownloadInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetResourceDownloadInfoRequest) SetOperatorId(v string) *GetResourceDownloadInfoRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetResourceDownloadInfoResponseBody struct {
+	Result  *GetResourceDownloadInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                      `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetResourceDownloadInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetResourceDownloadInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetResourceDownloadInfoResponseBody) SetResult(v *GetResourceDownloadInfoResponseBodyResult) *GetResourceDownloadInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetResourceDownloadInfoResponseBody) SetSuccess(v bool) *GetResourceDownloadInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetResourceDownloadInfoResponseBodyResult struct {
+	DownloadUrl *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+}
+
+func (s GetResourceDownloadInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetResourceDownloadInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetResourceDownloadInfoResponseBodyResult) SetDownloadUrl(v string) *GetResourceDownloadInfoResponseBodyResult {
+	s.DownloadUrl = &v
+	return s
+}
+
+type GetResourceDownloadInfoResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetResourceDownloadInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetResourceDownloadInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetResourceDownloadInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetResourceDownloadInfoResponse) SetHeaders(v map[string]*string) *GetResourceDownloadInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetResourceDownloadInfoResponse) SetStatusCode(v int32) *GetResourceDownloadInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetResourceDownloadInfoResponse) SetBody(v *GetResourceDownloadInfoResponseBody) *GetResourceDownloadInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetResourceUploadInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetResourceUploadInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetResourceUploadInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetResourceUploadInfoHeaders) SetCommonHeaders(v map[string]*string) *GetResourceUploadInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetResourceUploadInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetResourceUploadInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetResourceUploadInfoRequest struct {
+	// This parameter is required.
+	MediaType *string `json:"mediaType,omitempty" xml:"mediaType,omitempty"`
+	// This parameter is required.
+	ResourceName *string `json:"resourceName,omitempty" xml:"resourceName,omitempty"`
+	// This parameter is required.
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetResourceUploadInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetResourceUploadInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetResourceUploadInfoRequest) SetMediaType(v string) *GetResourceUploadInfoRequest {
+	s.MediaType = &v
+	return s
+}
+
+func (s *GetResourceUploadInfoRequest) SetResourceName(v string) *GetResourceUploadInfoRequest {
+	s.ResourceName = &v
+	return s
+}
+
+func (s *GetResourceUploadInfoRequest) SetSize(v int64) *GetResourceUploadInfoRequest {
+	s.Size = &v
+	return s
+}
+
+func (s *GetResourceUploadInfoRequest) SetOperatorId(v string) *GetResourceUploadInfoRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetResourceUploadInfoResponseBody struct {
+	Result  *GetResourceUploadInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                    `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetResourceUploadInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetResourceUploadInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetResourceUploadInfoResponseBody) SetResult(v *GetResourceUploadInfoResponseBodyResult) *GetResourceUploadInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetResourceUploadInfoResponseBody) SetSuccess(v bool) *GetResourceUploadInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetResourceUploadInfoResponseBodyResult struct {
+	ResourceId *string `json:"resourceId,omitempty" xml:"resourceId,omitempty"`
+	UploadUrl  *string `json:"uploadUrl,omitempty" xml:"uploadUrl,omitempty"`
+}
+
+func (s GetResourceUploadInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetResourceUploadInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetResourceUploadInfoResponseBodyResult) SetResourceId(v string) *GetResourceUploadInfoResponseBodyResult {
+	s.ResourceId = &v
+	return s
+}
+
+func (s *GetResourceUploadInfoResponseBodyResult) SetUploadUrl(v string) *GetResourceUploadInfoResponseBodyResult {
+	s.UploadUrl = &v
+	return s
+}
+
+type GetResourceUploadInfoResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetResourceUploadInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetResourceUploadInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetResourceUploadInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetResourceUploadInfoResponse) SetHeaders(v map[string]*string) *GetResourceUploadInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetResourceUploadInfoResponse) SetStatusCode(v int32) *GetResourceUploadInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetResourceUploadInfoResponse) SetBody(v *GetResourceUploadInfoResponseBody) *GetResourceUploadInfoResponse {
+	s.Body = v
+	return s
+}
+
 type GetSheetHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4507,6 +6152,11 @@ func (s *GetSheetHeaders) SetXAcsDingtalkAccessToken(v string) *GetSheetHeaders 
 }
 
 type GetSheetRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -4524,13 +6174,36 @@ func (s *GetSheetRequest) SetOperatorId(v string) *GetSheetRequest {
 }
 
 type GetSheetResponseBody struct {
-	ColumnCount        *int64  `json:"columnCount,omitempty" xml:"columnCount,omitempty"`
-	Id                 *string `json:"id,omitempty" xml:"id,omitempty"`
-	LastNonEmptyColumn *int64  `json:"lastNonEmptyColumn,omitempty" xml:"lastNonEmptyColumn,omitempty"`
-	LastNonEmptyRow    *int64  `json:"lastNonEmptyRow,omitempty" xml:"lastNonEmptyRow,omitempty"`
-	Name               *string `json:"name,omitempty" xml:"name,omitempty"`
-	RowCount           *int64  `json:"rowCount,omitempty" xml:"rowCount,omitempty"`
-	Visibility         *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
+	// example:
+	//
+	// column_count
+	ColumnCount       *int64 `json:"columnCount,omitempty" xml:"columnCount,omitempty"`
+	FrozenColumnCount *int64 `json:"frozenColumnCount,omitempty" xml:"frozenColumnCount,omitempty"`
+	FrozenRowCount    *int64 `json:"frozenRowCount,omitempty" xml:"frozenRowCount,omitempty"`
+	// example:
+	//
+	// sheet_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// last_non_empty_column
+	LastNonEmptyColumn *int64 `json:"lastNonEmptyColumn,omitempty" xml:"lastNonEmptyColumn,omitempty"`
+	// example:
+	//
+	// last_non_empty_row
+	LastNonEmptyRow *int64 `json:"lastNonEmptyRow,omitempty" xml:"lastNonEmptyRow,omitempty"`
+	// example:
+	//
+	// sheet_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// row_count
+	RowCount *int64 `json:"rowCount,omitempty" xml:"rowCount,omitempty"`
+	// example:
+	//
+	// visible
+	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
 func (s GetSheetResponseBody) String() string {
@@ -4543,6 +6216,16 @@ func (s GetSheetResponseBody) GoString() string {
 
 func (s *GetSheetResponseBody) SetColumnCount(v int64) *GetSheetResponseBody {
 	s.ColumnCount = &v
+	return s
+}
+
+func (s *GetSheetResponseBody) SetFrozenColumnCount(v int64) *GetSheetResponseBody {
+	s.FrozenColumnCount = &v
+	return s
+}
+
+func (s *GetSheetResponseBody) SetFrozenRowCount(v int64) *GetSheetResponseBody {
+	s.FrozenRowCount = &v
 	return s
 }
 
@@ -4629,7 +6312,9 @@ func (s *GetTemplateByIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetTempla
 }
 
 type GetTemplateByIdRequest struct {
-	Belong     *string `json:"belong,omitempty" xml:"belong,omitempty"`
+	// This parameter is required.
+	Belong *string `json:"belong,omitempty" xml:"belong,omitempty"`
+	// This parameter is required.
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -4763,10 +6448,13 @@ func (s *GetWorkspaceHeaders) SetXAcsDingtalkAccessToken(v string) *GetWorkspace
 }
 
 type GetWorkspaceResponseBody struct {
-	IsDeleted      *bool   `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// This parameter is required.
+	IsDeleted *bool `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// This parameter is required.
 	Owner          *string `json:"owner,omitempty" xml:"owner,omitempty"`
 	RootDentryUuid *string `json:"rootDentryUuid,omitempty" xml:"rootDentryUuid,omitempty"`
-	Url            *string `json:"url,omitempty" xml:"url,omitempty"`
+	// This parameter is required.
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s GetWorkspaceResponseBody) String() string {
@@ -4850,6 +6538,7 @@ func (s *GetWorkspaceNodeHeaders) SetXAcsDingtalkAccessToken(v string) *GetWorks
 }
 
 type GetWorkspaceNodeRequest struct {
+	// This parameter is required.
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -4867,6 +6556,7 @@ func (s *GetWorkspaceNodeRequest) SetOperatorId(v string) *GetWorkspaceNodeReque
 }
 
 type GetWorkspaceNodeResponseBody struct {
+	// This parameter is required.
 	HasPermission *bool                                    `json:"hasPermission,omitempty" xml:"hasPermission,omitempty"`
 	NodeBO        *GetWorkspaceNodeResponseBodyNodeBO      `json:"nodeBO,omitempty" xml:"nodeBO,omitempty" type:"Struct"`
 	WorkspaceBO   *GetWorkspaceNodeResponseBodyWorkspaceBO `json:"workspaceBO,omitempty" xml:"workspaceBO,omitempty" type:"Struct"`
@@ -5012,10 +6702,30 @@ func (s *InitDocumentHeaders) SetXAcsDingtalkAccessToken(v string) *InitDocument
 }
 
 type InitDocumentRequest struct {
+	// example:
+	//
+	// attachments_key
+	AttachmentsKey *string `json:"attachmentsKey,omitempty" xml:"attachmentsKey,omitempty"`
+	// example:
+	//
+	// attachments_map
 	AttachmentsMap map[string]*AttachmentsMapValue `json:"attachmentsMap,omitempty" xml:"attachmentsMap,omitempty"`
-	ImportType     *int32                          `json:"importType,omitempty" xml:"importType,omitempty"`
-	LinksKey       *string                         `json:"linksKey,omitempty" xml:"linksKey,omitempty"`
-	OperatorId     *string                         `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// import_type
+	ImportType *int32 `json:"importType,omitempty" xml:"importType,omitempty"`
+	// example:
+	//
+	// links_key
+	LinksKey *string `json:"linksKey,omitempty" xml:"linksKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s InitDocumentRequest) String() string {
@@ -5024,6 +6734,11 @@ func (s InitDocumentRequest) String() string {
 
 func (s InitDocumentRequest) GoString() string {
 	return s.String()
+}
+
+func (s *InitDocumentRequest) SetAttachmentsKey(v string) *InitDocumentRequest {
+	s.AttachmentsKey = &v
+	return s
 }
 
 func (s *InitDocumentRequest) SetAttachmentsMap(v map[string]*AttachmentsMapValue) *InitDocumentRequest {
@@ -5047,7 +6762,8 @@ func (s *InitDocumentRequest) SetOperatorId(v string) *InitDocumentRequest {
 }
 
 type InitDocumentResponseBody struct {
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	Result  map[string]interface{} `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool                  `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s InitDocumentResponseBody) String() string {
@@ -5056,6 +6772,11 @@ func (s InitDocumentResponseBody) String() string {
 
 func (s InitDocumentResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *InitDocumentResponseBody) SetResult(v map[string]interface{}) *InitDocumentResponseBody {
+	s.Result = v
+	return s
 }
 
 func (s *InitDocumentResponseBody) SetSuccess(v bool) *InitDocumentResponseBody {
@@ -5116,9 +6837,11 @@ func (s *InsertBlocksHeaders) SetXAcsDingtalkAccessToken(v string) *InsertBlocks
 }
 
 type InsertBlocksRequest struct {
-	Blocks     []*InsertBlocksRequestBlocks `json:"blocks,omitempty" xml:"blocks,omitempty" type:"Repeated"`
-	Location   *InsertBlocksRequestLocation `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
-	OperatorId *string                      `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	Blocks   []*InsertBlocksRequestBlocks `json:"blocks,omitempty" xml:"blocks,omitempty" type:"Repeated"`
+	Location *InsertBlocksRequestLocation `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s InsertBlocksRequest) String() string {
@@ -5145,6 +6868,7 @@ func (s *InsertBlocksRequest) SetOperatorId(v string) *InsertBlocksRequest {
 }
 
 type InsertBlocksRequestBlocks struct {
+	// This parameter is required.
 	BlockType *string                             `json:"blockType,omitempty" xml:"blockType,omitempty"`
 	Paragraph *InsertBlocksRequestBlocksParagraph `json:"paragraph,omitempty" xml:"paragraph,omitempty" type:"Struct"`
 }
@@ -5191,6 +6915,7 @@ func (s *InsertBlocksRequestBlocksParagraph) SetStyle(v *InsertBlocksRequestBloc
 }
 
 type InsertBlocksRequestBlocksParagraphChildren struct {
+	// This parameter is required.
 	ElementType *string                                         `json:"elementType,omitempty" xml:"elementType,omitempty"`
 	Text        *InsertBlocksRequestBlocksParagraphChildrenText `json:"text,omitempty" xml:"text,omitempty" type:"Struct"`
 }
@@ -5214,6 +6939,7 @@ func (s *InsertBlocksRequestBlocksParagraphChildren) SetText(v *InsertBlocksRequ
 }
 
 type InsertBlocksRequestBlocksParagraphChildrenText struct {
+	// This parameter is required.
 	Content   *string                                                  `json:"content,omitempty" xml:"content,omitempty"`
 	TextStyle *InsertBlocksRequestBlocksParagraphChildrenTextTextStyle `json:"textStyle,omitempty" xml:"textStyle,omitempty" type:"Struct"`
 }
@@ -5237,7 +6963,8 @@ func (s *InsertBlocksRequestBlocksParagraphChildrenText) SetTextStyle(v *InsertB
 }
 
 type InsertBlocksRequestBlocksParagraphChildrenTextTextStyle struct {
-	Bold     *bool   `json:"bold,omitempty" xml:"bold,omitempty"`
+	Bold *bool `json:"bold,omitempty" xml:"bold,omitempty"`
+	// This parameter is required.
 	DataType *string `json:"dataType,omitempty" xml:"dataType,omitempty"`
 	FontSize *int32  `json:"fontSize,omitempty" xml:"fontSize,omitempty"`
 	SizeUnit *string `json:"sizeUnit,omitempty" xml:"sizeUnit,omitempty"`
@@ -5352,9 +7079,24 @@ func (s *InsertColumnsBeforeHeaders) SetXAcsDingtalkAccessToken(v string) *Inser
 }
 
 type InsertColumnsBeforeRequest struct {
-	Column      *int64  `json:"column,omitempty" xml:"column,omitempty"`
-	ColumnCount *int64  `json:"columnCount,omitempty" xml:"columnCount,omitempty"`
-	OperatorId  *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// column
+	Column *int64 `json:"column,omitempty" xml:"column,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// column_count
+	ColumnCount *int64 `json:"columnCount,omitempty" xml:"columnCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s InsertColumnsBeforeRequest) String() string {
@@ -5381,6 +7123,9 @@ func (s *InsertColumnsBeforeRequest) SetOperatorId(v string) *InsertColumnsBefor
 }
 
 type InsertColumnsBeforeResponseBody struct {
+	// example:
+	//
+	// sheet_id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
@@ -5426,6 +7171,132 @@ func (s *InsertColumnsBeforeResponse) SetBody(v *InsertColumnsBeforeResponseBody
 	return s
 }
 
+type InsertContentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s InsertContentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertContentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *InsertContentHeaders) SetCommonHeaders(v map[string]*string) *InsertContentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *InsertContentHeaders) SetXAcsDingtalkAccessToken(v string) *InsertContentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type InsertContentRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// content
+	Content map[string]interface{} `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// index
+	Index *int32 `json:"index,omitempty" xml:"index,omitempty"`
+	// example:
+	//
+	// path
+	Path []*int32 `json:"path,omitempty" xml:"path,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s InsertContentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertContentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *InsertContentRequest) SetContent(v map[string]interface{}) *InsertContentRequest {
+	s.Content = v
+	return s
+}
+
+func (s *InsertContentRequest) SetIndex(v int32) *InsertContentRequest {
+	s.Index = &v
+	return s
+}
+
+func (s *InsertContentRequest) SetPath(v []*int32) *InsertContentRequest {
+	s.Path = v
+	return s
+}
+
+func (s *InsertContentRequest) SetOperatorId(v string) *InsertContentRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type InsertContentResponseBody struct {
+	Result  map[string]interface{} `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool                  `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s InsertContentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertContentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *InsertContentResponseBody) SetResult(v map[string]interface{}) *InsertContentResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *InsertContentResponseBody) SetSuccess(v bool) *InsertContentResponseBody {
+	s.Success = &v
+	return s
+}
+
+type InsertContentResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *InsertContentResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s InsertContentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertContentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *InsertContentResponse) SetHeaders(v map[string]*string) *InsertContentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *InsertContentResponse) SetStatusCode(v int32) *InsertContentResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *InsertContentResponse) SetBody(v *InsertContentResponseBody) *InsertContentResponse {
+	s.Body = v
+	return s
+}
+
 type InsertDropdownListsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5450,8 +7321,14 @@ func (s *InsertDropdownListsHeaders) SetXAcsDingtalkAccessToken(v string) *Inser
 }
 
 type InsertDropdownListsRequest struct {
-	Options    []*InsertDropdownListsRequestOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
-	OperatorId *string                              `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	Options []*InsertDropdownListsRequestOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ppgAQuHfOoNVpJiStDwWCEgiEiE
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s InsertDropdownListsRequest) String() string {
@@ -5474,6 +7351,7 @@ func (s *InsertDropdownListsRequest) SetOperatorId(v string) *InsertDropdownList
 
 type InsertDropdownListsRequestOptions struct {
 	Color *string `json:"color,omitempty" xml:"color,omitempty"`
+	// This parameter is required.
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -5565,8 +7443,23 @@ func (s *InsertRowsBeforeHeaders) SetXAcsDingtalkAccessToken(v string) *InsertRo
 }
 
 type InsertRowsBeforeRequest struct {
-	Row        *int64  `json:"row,omitempty" xml:"row,omitempty"`
-	RowCount   *int64  `json:"rowCount,omitempty" xml:"rowCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// row
+	Row *int64 `json:"row,omitempty" xml:"row,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// row_count
+	RowCount *int64 `json:"rowCount,omitempty" xml:"rowCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -5594,6 +7487,9 @@ func (s *InsertRowsBeforeRequest) SetOperatorId(v string) *InsertRowsBeforeReque
 }
 
 type InsertRowsBeforeResponseBody struct {
+	// example:
+	//
+	// sheet_id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
@@ -5639,6 +7535,259 @@ func (s *InsertRowsBeforeResponse) SetBody(v *InsertRowsBeforeResponseBody) *Ins
 	return s
 }
 
+type ListCommentsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListCommentsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCommentsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListCommentsHeaders) SetCommonHeaders(v map[string]*string) *ListCommentsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListCommentsHeaders) SetXAcsDingtalkAccessToken(v string) *ListCommentsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListCommentsRequest struct {
+	IsGlobal   *bool  `json:"isGlobal,omitempty" xml:"isGlobal,omitempty"`
+	IsSolved   *bool  `json:"isSolved,omitempty" xml:"isSolved,omitempty"`
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// next_token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s ListCommentsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCommentsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListCommentsRequest) SetIsGlobal(v bool) *ListCommentsRequest {
+	s.IsGlobal = &v
+	return s
+}
+
+func (s *ListCommentsRequest) SetIsSolved(v bool) *ListCommentsRequest {
+	s.IsSolved = &v
+	return s
+}
+
+func (s *ListCommentsRequest) SetMaxResults(v int32) *ListCommentsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListCommentsRequest) SetNextToken(v string) *ListCommentsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListCommentsRequest) SetOperatorId(v string) *ListCommentsRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type ListCommentsResponseBody struct {
+	Result  *ListCommentsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ListCommentsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCommentsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListCommentsResponseBody) SetResult(v *ListCommentsResponseBodyResult) *ListCommentsResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *ListCommentsResponseBody) SetSuccess(v bool) *ListCommentsResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ListCommentsResponseBodyResult struct {
+	CommentList []*ListCommentsResponseBodyResultCommentList `json:"commentList,omitempty" xml:"commentList,omitempty" type:"Repeated"`
+	HasMore     *bool                                        `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// next_token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListCommentsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCommentsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListCommentsResponseBodyResult) SetCommentList(v []*ListCommentsResponseBodyResultCommentList) *ListCommentsResponseBodyResult {
+	s.CommentList = v
+	return s
+}
+
+func (s *ListCommentsResponseBodyResult) SetHasMore(v bool) *ListCommentsResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *ListCommentsResponseBodyResult) SetNextToken(v string) *ListCommentsResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
+type ListCommentsResponseBodyResultCommentList struct {
+	// example:
+	//
+	// comment_id
+	CommentId  *string                                           `json:"commentId,omitempty" xml:"commentId,omitempty"`
+	Content    *ListCommentsResponseBodyResultCommentListContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	CreateTime *int64                                            `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// user_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	IsGlobal  *bool   `json:"isGlobal,omitempty" xml:"isGlobal,omitempty"`
+	// example:
+	//
+	// quote
+	IsSolved *bool `json:"isSolved,omitempty" xml:"isSolved,omitempty"`
+	// example:
+	//
+	// quote
+	Quote *string `json:"quote,omitempty" xml:"quote,omitempty"`
+	// example:
+	//
+	// topic_id
+	TopicId    *string `json:"topicId,omitempty" xml:"topicId,omitempty"`
+	UpdateTime *int64  `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+}
+
+func (s ListCommentsResponseBodyResultCommentList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCommentsResponseBodyResultCommentList) GoString() string {
+	return s.String()
+}
+
+func (s *ListCommentsResponseBodyResultCommentList) SetCommentId(v string) *ListCommentsResponseBodyResultCommentList {
+	s.CommentId = &v
+	return s
+}
+
+func (s *ListCommentsResponseBodyResultCommentList) SetContent(v *ListCommentsResponseBodyResultCommentListContent) *ListCommentsResponseBodyResultCommentList {
+	s.Content = v
+	return s
+}
+
+func (s *ListCommentsResponseBodyResultCommentList) SetCreateTime(v int64) *ListCommentsResponseBodyResultCommentList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *ListCommentsResponseBodyResultCommentList) SetCreatorId(v string) *ListCommentsResponseBodyResultCommentList {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *ListCommentsResponseBodyResultCommentList) SetIsGlobal(v bool) *ListCommentsResponseBodyResultCommentList {
+	s.IsGlobal = &v
+	return s
+}
+
+func (s *ListCommentsResponseBodyResultCommentList) SetIsSolved(v bool) *ListCommentsResponseBodyResultCommentList {
+	s.IsSolved = &v
+	return s
+}
+
+func (s *ListCommentsResponseBodyResultCommentList) SetQuote(v string) *ListCommentsResponseBodyResultCommentList {
+	s.Quote = &v
+	return s
+}
+
+func (s *ListCommentsResponseBodyResultCommentList) SetTopicId(v string) *ListCommentsResponseBodyResultCommentList {
+	s.TopicId = &v
+	return s
+}
+
+func (s *ListCommentsResponseBodyResultCommentList) SetUpdateTime(v int64) *ListCommentsResponseBodyResultCommentList {
+	s.UpdateTime = &v
+	return s
+}
+
+type ListCommentsResponseBodyResultCommentListContent struct {
+	Elements []interface{} `json:"elements,omitempty" xml:"elements,omitempty" type:"Repeated"`
+}
+
+func (s ListCommentsResponseBodyResultCommentListContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCommentsResponseBodyResultCommentListContent) GoString() string {
+	return s.String()
+}
+
+func (s *ListCommentsResponseBodyResultCommentListContent) SetElements(v []interface{}) *ListCommentsResponseBodyResultCommentListContent {
+	s.Elements = v
+	return s
+}
+
+type ListCommentsResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListCommentsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListCommentsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCommentsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListCommentsResponse) SetHeaders(v map[string]*string) *ListCommentsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListCommentsResponse) SetStatusCode(v int32) *ListCommentsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListCommentsResponse) SetBody(v *ListCommentsResponseBody) *ListCommentsResponse {
+	s.Body = v
+	return s
+}
+
 type ListTemplateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5663,9 +7812,12 @@ func (s *ListTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *ListTemplate
 }
 
 type ListTemplateRequest struct {
-	MaxResults   *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken    *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	OperatorId   *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
 	TemplateType *string `json:"templateType,omitempty" xml:"templateType,omitempty"`
 	WorkspaceId  *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
@@ -5704,8 +7856,10 @@ func (s *ListTemplateRequest) SetWorkspaceId(v string) *ListTemplateRequest {
 }
 
 type ListTemplateResponseBody struct {
-	HasMore      *bool                                   `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextToken    *string                                 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	HasMore   *bool   `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
 	TemplateList []*ListTemplateResponseBodyTemplateList `json:"templateList,omitempty" xml:"templateList,omitempty" type:"Repeated"`
 }
 
@@ -5733,14 +7887,19 @@ func (s *ListTemplateResponseBody) SetTemplateList(v []*ListTemplateResponseBody
 }
 
 type ListTemplateResponseBodyTemplateList struct {
-	CoverUrl     *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
-	CreateTime   *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	DocType      *string `json:"docType,omitempty" xml:"docType,omitempty"`
-	Id           *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	CoverUrl   *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
+	CreateTime *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// This parameter is required.
+	DocType *string `json:"docType,omitempty" xml:"docType,omitempty"`
+	// This parameter is required.
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
 	TemplateType *string `json:"templateType,omitempty" xml:"templateType,omitempty"`
-	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
-	UpdateTime   *int64  `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
-	WorkspaceId  *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	// This parameter is required.
+	Title       *string `json:"title,omitempty" xml:"title,omitempty"`
+	UpdateTime  *int64  `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
 func (s ListTemplateResponseBodyTemplateList) String() string {
@@ -5844,6 +8003,12 @@ func (s *MergeRangeHeaders) SetXAcsDingtalkAccessToken(v string) *MergeRangeHead
 }
 
 type MergeRangeRequest struct {
+	MergeType *string `json:"mergeType,omitempty" xml:"mergeType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ppgAQuHfOoNVpJiStDwWCEgiEiE
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -5853,6 +8018,11 @@ func (s MergeRangeRequest) String() string {
 
 func (s MergeRangeRequest) GoString() string {
 	return s.String()
+}
+
+func (s *MergeRangeRequest) SetMergeType(v string) *MergeRangeRequest {
+	s.MergeType = &v
+	return s
 }
 
 func (s *MergeRangeRequest) SetOperatorId(v string) *MergeRangeRequest {
@@ -5931,8 +8101,14 @@ func (s *RangeFindNextHeaders) SetXAcsDingtalkAccessToken(v string) *RangeFindNe
 
 type RangeFindNextRequest struct {
 	FindOptions *RangeFindNextRequestFindOptions `json:"findOptions,omitempty" xml:"findOptions,omitempty" type:"Struct"`
-	Text        *string                          `json:"text,omitempty" xml:"text,omitempty"`
-	OperatorId  *string                          `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DingTalk
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s RangeFindNextRequest) String() string {
@@ -5959,12 +8135,24 @@ func (s *RangeFindNextRequest) SetOperatorId(v string) *RangeFindNextRequest {
 }
 
 type RangeFindNextRequestFindOptions struct {
-	IncludeHidden    *bool   `json:"includeHidden,omitempty" xml:"includeHidden,omitempty"`
-	MatchCase        *bool   `json:"matchCase,omitempty" xml:"matchCase,omitempty"`
-	MatchEntireCell  *bool   `json:"matchEntireCell,omitempty" xml:"matchEntireCell,omitempty"`
+	IncludeHidden *bool `json:"includeHidden,omitempty" xml:"includeHidden,omitempty"`
+	// example:
+	//
+	// true
+	MatchCase *bool `json:"matchCase,omitempty" xml:"matchCase,omitempty"`
+	// example:
+	//
+	// true
+	MatchEntireCell *bool `json:"matchEntireCell,omitempty" xml:"matchEntireCell,omitempty"`
+	// example:
+	//
+	// true
 	MatchFormulaText *bool   `json:"matchFormulaText,omitempty" xml:"matchFormulaText,omitempty"`
 	Scope            *string `json:"scope,omitempty" xml:"scope,omitempty"`
-	UseRegExp        *bool   `json:"useRegExp,omitempty" xml:"useRegExp,omitempty"`
+	// example:
+	//
+	// true
+	UseRegExp *bool `json:"useRegExp,omitempty" xml:"useRegExp,omitempty"`
 }
 
 func (s RangeFindNextRequestFindOptions) String() string {
@@ -6006,6 +8194,11 @@ func (s *RangeFindNextRequestFindOptions) SetUseRegExp(v bool) *RangeFindNextReq
 }
 
 type RangeFindNextResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// A2
 	A1Notation *string `json:"a1Notation,omitempty" xml:"a1Notation,omitempty"`
 }
 
@@ -6075,9 +8268,12 @@ func (s *SearchWorkspaceDocsHeaders) SetXAcsDingtalkAccessToken(v string) *Searc
 }
 
 type SearchWorkspaceDocsRequest struct {
-	Keyword     *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
-	MaxResults  *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken   *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// This parameter is required.
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
 	OperatorId  *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
@@ -6116,9 +8312,10 @@ func (s *SearchWorkspaceDocsRequest) SetWorkspaceId(v string) *SearchWorkspaceDo
 }
 
 type SearchWorkspaceDocsResponseBody struct {
-	Docs      []*SearchWorkspaceDocsResponseBodyDocs `json:"docs,omitempty" xml:"docs,omitempty" type:"Repeated"`
-	HasMore   *bool                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextToken *string                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Docs []*SearchWorkspaceDocsResponseBodyDocs `json:"docs,omitempty" xml:"docs,omitempty" type:"Repeated"`
+	// This parameter is required.
+	HasMore   *bool   `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s SearchWorkspaceDocsResponseBody) String() string {
@@ -6170,10 +8367,14 @@ func (s *SearchWorkspaceDocsResponseBodyDocs) SetWorkspaceBO(v *SearchWorkspaceD
 type SearchWorkspaceDocsResponseBodyDocsNodeBO struct {
 	DocType      *string `json:"docType,omitempty" xml:"docType,omitempty"`
 	LastEditTime *int64  `json:"lastEditTime,omitempty" xml:"lastEditTime,omitempty"`
-	Name         *string `json:"name,omitempty" xml:"name,omitempty"`
-	NodeId       *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
-	OriginName   *string `json:"originName,omitempty" xml:"originName,omitempty"`
-	Url          *string `json:"url,omitempty" xml:"url,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// This parameter is required.
+	OriginName *string `json:"originName,omitempty" xml:"originName,omitempty"`
+	// This parameter is required.
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s SearchWorkspaceDocsResponseBodyDocsNodeBO) String() string {
@@ -6215,7 +8416,8 @@ func (s *SearchWorkspaceDocsResponseBodyDocsNodeBO) SetUrl(v string) *SearchWork
 }
 
 type SearchWorkspaceDocsResponseBodyDocsWorkspaceBO struct {
-	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
 	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
@@ -6266,6 +8468,162 @@ func (s *SearchWorkspaceDocsResponse) SetBody(v *SearchWorkspaceDocsResponseBody
 	return s
 }
 
+type SetBorderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetBorderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetBorderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetBorderHeaders) SetCommonHeaders(v map[string]*string) *SetBorderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetBorderHeaders) SetXAcsDingtalkAccessToken(v string) *SetBorderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetBorderRequest struct {
+	Color *string               `json:"color,omitempty" xml:"color,omitempty"`
+	Style *string               `json:"style,omitempty" xml:"style,omitempty"`
+	Type  *SetBorderRequestType `json:"type,omitempty" xml:"type,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ppgAQuHfOoNVpJiStDwWCEgiEiE
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s SetBorderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetBorderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetBorderRequest) SetColor(v string) *SetBorderRequest {
+	s.Color = &v
+	return s
+}
+
+func (s *SetBorderRequest) SetStyle(v string) *SetBorderRequest {
+	s.Style = &v
+	return s
+}
+
+func (s *SetBorderRequest) SetType(v *SetBorderRequestType) *SetBorderRequest {
+	s.Type = v
+	return s
+}
+
+func (s *SetBorderRequest) SetOperatorId(v string) *SetBorderRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type SetBorderRequestType struct {
+	Bottom     *bool `json:"bottom,omitempty" xml:"bottom,omitempty"`
+	Horizontal *bool `json:"horizontal,omitempty" xml:"horizontal,omitempty"`
+	Left       *bool `json:"left,omitempty" xml:"left,omitempty"`
+	Right      *bool `json:"right,omitempty" xml:"right,omitempty"`
+	Top        *bool `json:"top,omitempty" xml:"top,omitempty"`
+	Vertical   *bool `json:"vertical,omitempty" xml:"vertical,omitempty"`
+}
+
+func (s SetBorderRequestType) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetBorderRequestType) GoString() string {
+	return s.String()
+}
+
+func (s *SetBorderRequestType) SetBottom(v bool) *SetBorderRequestType {
+	s.Bottom = &v
+	return s
+}
+
+func (s *SetBorderRequestType) SetHorizontal(v bool) *SetBorderRequestType {
+	s.Horizontal = &v
+	return s
+}
+
+func (s *SetBorderRequestType) SetLeft(v bool) *SetBorderRequestType {
+	s.Left = &v
+	return s
+}
+
+func (s *SetBorderRequestType) SetRight(v bool) *SetBorderRequestType {
+	s.Right = &v
+	return s
+}
+
+func (s *SetBorderRequestType) SetTop(v bool) *SetBorderRequestType {
+	s.Top = &v
+	return s
+}
+
+func (s *SetBorderRequestType) SetVertical(v bool) *SetBorderRequestType {
+	s.Vertical = &v
+	return s
+}
+
+type SetBorderResponseBody struct {
+	Data interface{} `json:"data,omitempty" xml:"data,omitempty"`
+}
+
+func (s SetBorderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetBorderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetBorderResponseBody) SetData(v interface{}) *SetBorderResponseBody {
+	s.Data = v
+	return s
+}
+
+type SetBorderResponse struct {
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SetBorderResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SetBorderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetBorderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetBorderResponse) SetHeaders(v map[string]*string) *SetBorderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SetBorderResponse) SetStatusCode(v int32) *SetBorderResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SetBorderResponse) SetBody(v *SetBorderResponseBody) *SetBorderResponse {
+	s.Body = v
+	return s
+}
+
 type SetColumnWidthHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6290,8 +8648,15 @@ func (s *SetColumnWidthHeaders) SetXAcsDingtalkAccessToken(v string) *SetColumnW
 }
 
 type SetColumnWidthRequest struct {
-	Column     *int32  `json:"column,omitempty" xml:"column,omitempty"`
-	Width      *int32  `json:"width,omitempty" xml:"width,omitempty"`
+	// This parameter is required.
+	Column *int32 `json:"column,omitempty" xml:"column,omitempty"`
+	// This parameter is required.
+	Width *int32 `json:"width,omitempty" xml:"width,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ppgAQuHfOoNVpJiStDwWCEgiEiE
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -6394,10 +8759,30 @@ func (s *SetColumnsVisibilityHeaders) SetXAcsDingtalkAccessToken(v string) *SetC
 }
 
 type SetColumnsVisibilityRequest struct {
-	Column      *int64  `json:"column,omitempty" xml:"column,omitempty"`
-	ColumnCount *int64  `json:"columnCount,omitempty" xml:"columnCount,omitempty"`
-	Visibility  *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
-	OperatorId  *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// column
+	Column *int64 `json:"column,omitempty" xml:"column,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// column_count
+	ColumnCount *int64 `json:"columnCount,omitempty" xml:"columnCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// visible
+	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s SetColumnsVisibilityRequest) String() string {
@@ -6429,6 +8814,9 @@ func (s *SetColumnsVisibilityRequest) SetOperatorId(v string) *SetColumnsVisibil
 }
 
 type SetColumnsVisibilityResponseBody struct {
+	// example:
+	//
+	// sheet_id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
@@ -6474,6 +8862,124 @@ func (s *SetColumnsVisibilityResponse) SetBody(v *SetColumnsVisibilityResponseBo
 	return s
 }
 
+type SetColumnsWidthHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetColumnsWidthHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetColumnsWidthHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetColumnsWidthHeaders) SetCommonHeaders(v map[string]*string) *SetColumnsWidthHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetColumnsWidthHeaders) SetXAcsDingtalkAccessToken(v string) *SetColumnsWidthHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetColumnsWidthRequest struct {
+	// This parameter is required.
+	Column *int32 `json:"column,omitempty" xml:"column,omitempty"`
+	// This parameter is required.
+	ColumnCount *int32 `json:"columnCount,omitempty" xml:"columnCount,omitempty"`
+	// This parameter is required.
+	Width *int32 `json:"width,omitempty" xml:"width,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ppgAQuHfOoNVpJiStDwWCEgiEiE
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s SetColumnsWidthRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetColumnsWidthRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetColumnsWidthRequest) SetColumn(v int32) *SetColumnsWidthRequest {
+	s.Column = &v
+	return s
+}
+
+func (s *SetColumnsWidthRequest) SetColumnCount(v int32) *SetColumnsWidthRequest {
+	s.ColumnCount = &v
+	return s
+}
+
+func (s *SetColumnsWidthRequest) SetWidth(v int32) *SetColumnsWidthRequest {
+	s.Width = &v
+	return s
+}
+
+func (s *SetColumnsWidthRequest) SetOperatorId(v string) *SetColumnsWidthRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type SetColumnsWidthResponseBody struct {
+	SheetId   *string `json:"sheetId,omitempty" xml:"sheetId,omitempty"`
+	SheetName *string `json:"sheetName,omitempty" xml:"sheetName,omitempty"`
+}
+
+func (s SetColumnsWidthResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetColumnsWidthResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetColumnsWidthResponseBody) SetSheetId(v string) *SetColumnsWidthResponseBody {
+	s.SheetId = &v
+	return s
+}
+
+func (s *SetColumnsWidthResponseBody) SetSheetName(v string) *SetColumnsWidthResponseBody {
+	s.SheetName = &v
+	return s
+}
+
+type SetColumnsWidthResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SetColumnsWidthResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SetColumnsWidthResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetColumnsWidthResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetColumnsWidthResponse) SetHeaders(v map[string]*string) *SetColumnsWidthResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SetColumnsWidthResponse) SetStatusCode(v int32) *SetColumnsWidthResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SetColumnsWidthResponse) SetBody(v *SetColumnsWidthResponseBody) *SetColumnsWidthResponse {
+	s.Body = v
+	return s
+}
+
 type SetRowHeightHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6498,8 +9004,13 @@ func (s *SetRowHeightHeaders) SetXAcsDingtalkAccessToken(v string) *SetRowHeight
 }
 
 type SetRowHeightRequest struct {
-	Height     *int32  `json:"height,omitempty" xml:"height,omitempty"`
-	Row        *int32  `json:"row,omitempty" xml:"row,omitempty"`
+	Height *int32 `json:"height,omitempty" xml:"height,omitempty"`
+	Row    *int32 `json:"row,omitempty" xml:"row,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ppgAQuHfOoNVpJiStDwWCEgiEiE
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -6578,6 +9089,130 @@ func (s *SetRowHeightResponse) SetBody(v *SetRowHeightResponseBody) *SetRowHeigh
 	return s
 }
 
+type SetRowsHeightHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetRowsHeightHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRowsHeightHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetRowsHeightHeaders) SetCommonHeaders(v map[string]*string) *SetRowsHeightHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetRowsHeightHeaders) SetXAcsDingtalkAccessToken(v string) *SetRowsHeightHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetRowsHeightRequest struct {
+	// This parameter is required.
+	Height *int64 `json:"height,omitempty" xml:"height,omitempty"`
+	// This parameter is required.
+	Row *int64 `json:"row,omitempty" xml:"row,omitempty"`
+	// This parameter is required.
+	RowCount            *int64  `json:"rowCount,omitempty" xml:"rowCount,omitempty"`
+	DingAccessTokenType *string `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ppgAQuHfOoNVpJiStDwWCEgiEiE
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s SetRowsHeightRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRowsHeightRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetRowsHeightRequest) SetHeight(v int64) *SetRowsHeightRequest {
+	s.Height = &v
+	return s
+}
+
+func (s *SetRowsHeightRequest) SetRow(v int64) *SetRowsHeightRequest {
+	s.Row = &v
+	return s
+}
+
+func (s *SetRowsHeightRequest) SetRowCount(v int64) *SetRowsHeightRequest {
+	s.RowCount = &v
+	return s
+}
+
+func (s *SetRowsHeightRequest) SetDingAccessTokenType(v string) *SetRowsHeightRequest {
+	s.DingAccessTokenType = &v
+	return s
+}
+
+func (s *SetRowsHeightRequest) SetOperatorId(v string) *SetRowsHeightRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type SetRowsHeightResponseBody struct {
+	SheetId   *string `json:"sheetId,omitempty" xml:"sheetId,omitempty"`
+	SheetName *string `json:"sheetName,omitempty" xml:"sheetName,omitempty"`
+}
+
+func (s SetRowsHeightResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRowsHeightResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetRowsHeightResponseBody) SetSheetId(v string) *SetRowsHeightResponseBody {
+	s.SheetId = &v
+	return s
+}
+
+func (s *SetRowsHeightResponseBody) SetSheetName(v string) *SetRowsHeightResponseBody {
+	s.SheetName = &v
+	return s
+}
+
+type SetRowsHeightResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SetRowsHeightResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SetRowsHeightResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetRowsHeightResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetRowsHeightResponse) SetHeaders(v map[string]*string) *SetRowsHeightResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SetRowsHeightResponse) SetStatusCode(v int32) *SetRowsHeightResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SetRowsHeightResponse) SetBody(v *SetRowsHeightResponseBody) *SetRowsHeightResponse {
+	s.Body = v
+	return s
+}
+
 type SetRowsVisibilityHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6602,9 +9237,29 @@ func (s *SetRowsVisibilityHeaders) SetXAcsDingtalkAccessToken(v string) *SetRows
 }
 
 type SetRowsVisibilityRequest struct {
-	Row        *int64  `json:"row,omitempty" xml:"row,omitempty"`
-	RowCount   *int64  `json:"rowCount,omitempty" xml:"rowCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// row
+	Row *int64 `json:"row,omitempty" xml:"row,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// row_count
+	RowCount *int64 `json:"rowCount,omitempty" xml:"rowCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// visible
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -6637,6 +9292,9 @@ func (s *SetRowsVisibilityRequest) SetOperatorId(v string) *SetRowsVisibilityReq
 }
 
 type SetRowsVisibilityResponseBody struct {
+	// example:
+	//
+	// sheet_id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
@@ -6706,9 +9364,21 @@ func (s *SheetAutofitRowsHeaders) SetXAcsDingtalkAccessToken(v string) *SheetAut
 }
 
 type SheetAutofitRowsRequest struct {
-	FontWidth  *int64  `json:"fontWidth,omitempty" xml:"fontWidth,omitempty"`
-	Row        *int64  `json:"row,omitempty" xml:"row,omitempty"`
-	RowCount   *int64  `json:"rowCount,omitempty" xml:"rowCount,omitempty"`
+	// This parameter is required.
+	FontWidth *int64 `json:"fontWidth,omitempty" xml:"fontWidth,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Row *int64 `json:"row,omitempty" xml:"row,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	RowCount *int64 `json:"rowCount,omitempty" xml:"rowCount,omitempty"`
+	// This parameter is required.
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -6741,6 +9411,11 @@ func (s *SheetAutofitRowsRequest) SetOperatorId(v string) *SheetAutofitRowsReque
 }
 
 type SheetAutofitRowsResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// stxxxx
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 }
 
@@ -6810,10 +9485,17 @@ func (s *SheetFindAllHeaders) SetXAcsDingtalkAccessToken(v string) *SheetFindAll
 }
 
 type SheetFindAllRequest struct {
+	// This parameter is required.
 	FindOptions *SheetFindAllRequestFindOptions `json:"findOptions,omitempty" xml:"findOptions,omitempty" type:"Struct"`
-	Text        *string                         `json:"text,omitempty" xml:"text,omitempty"`
-	OperatorId  *string                         `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	Select      *string                         `json:"select,omitempty" xml:"select,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DingTalk
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	Select     *string `json:"select,omitempty" xml:"select,omitempty"`
 }
 
 func (s SheetFindAllRequest) String() string {
@@ -6845,13 +9527,26 @@ func (s *SheetFindAllRequest) SetSelect(v string) *SheetFindAllRequest {
 }
 
 type SheetFindAllRequestFindOptions struct {
-	IncludeHidden    *bool   `json:"includeHidden,omitempty" xml:"includeHidden,omitempty"`
-	MatchCase        *bool   `json:"matchCase,omitempty" xml:"matchCase,omitempty"`
-	MatchEntireCell  *bool   `json:"matchEntireCell,omitempty" xml:"matchEntireCell,omitempty"`
+	IncludeHidden *bool `json:"includeHidden,omitempty" xml:"includeHidden,omitempty"`
+	// example:
+	//
+	// true
+	MatchCase *bool `json:"matchCase,omitempty" xml:"matchCase,omitempty"`
+	// example:
+	//
+	// true
+	MatchEntireCell *bool `json:"matchEntireCell,omitempty" xml:"matchEntireCell,omitempty"`
+	// example:
+	//
+	// true
 	MatchFormulaText *bool   `json:"matchFormulaText,omitempty" xml:"matchFormulaText,omitempty"`
 	Scope            *string `json:"scope,omitempty" xml:"scope,omitempty"`
-	UnionCells       *bool   `json:"unionCells,omitempty" xml:"unionCells,omitempty"`
-	UseRegExp        *bool   `json:"useRegExp,omitempty" xml:"useRegExp,omitempty"`
+	// This parameter is required.
+	UnionCells *bool `json:"unionCells,omitempty" xml:"unionCells,omitempty"`
+	// example:
+	//
+	// true
+	UseRegExp *bool `json:"useRegExp,omitempty" xml:"useRegExp,omitempty"`
 }
 
 func (s SheetFindAllRequestFindOptions) String() string {
@@ -6990,8 +9685,16 @@ func (s *UnbindCoolAppToSheetHeaders) SetXAcsDingtalkAccessToken(v string) *Unbi
 }
 
 type UnbindCoolAppToSheetRequest struct {
+	// example:
+	//
+	// cool_app_code
 	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	OperatorId  *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s UnbindCoolAppToSheetRequest) String() string {
@@ -7013,6 +9716,9 @@ func (s *UnbindCoolAppToSheetRequest) SetOperatorId(v string) *UnbindCoolAppToSh
 }
 
 type UnbindCoolAppToSheetResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -7083,14 +9789,28 @@ func (s *UpdateRangeHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRangeHe
 
 type UpdateRangeRequest struct {
 	BackgroundColors     [][]*string                       `json:"backgroundColors,omitempty" xml:"backgroundColors,omitempty" type:"Repeated"`
+	ComplexValues        [][]interface{}                   `json:"complexValues,omitempty" xml:"complexValues,omitempty" type:"Repeated"`
+	FontColors           [][]*string                       `json:"fontColors,omitempty" xml:"fontColors,omitempty" type:"Repeated"`
 	FontSizes            [][]*int32                        `json:"fontSizes,omitempty" xml:"fontSizes,omitempty" type:"Repeated"`
 	FontWeights          [][]*string                       `json:"fontWeights,omitempty" xml:"fontWeights,omitempty" type:"Repeated"`
 	HorizontalAlignments [][]*string                       `json:"horizontalAlignments,omitempty" xml:"horizontalAlignments,omitempty" type:"Repeated"`
 	Hyperlinks           [][]*UpdateRangeRequestHyperlinks `json:"hyperlinks,omitempty" xml:"hyperlinks,omitempty" type:"Repeated"`
-	NumberFormat         *string                           `json:"numberFormat,omitempty" xml:"numberFormat,omitempty"`
-	Values               [][]*string                       `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
-	VerticalAlignments   [][]*string                       `json:"verticalAlignments,omitempty" xml:"verticalAlignments,omitempty" type:"Repeated"`
-	OperatorId           *string                           `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// example:
+	//
+	// number_format
+	NumberFormat       *string     `json:"numberFormat,omitempty" xml:"numberFormat,omitempty"`
+	Values             [][]*string `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+	VerticalAlignments [][]*string `json:"verticalAlignments,omitempty" xml:"verticalAlignments,omitempty" type:"Repeated"`
+	// example:
+	//
+	// word_wrap
+	WordWrap *string `json:"wordWrap,omitempty" xml:"wordWrap,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s UpdateRangeRequest) String() string {
@@ -7103,6 +9823,16 @@ func (s UpdateRangeRequest) GoString() string {
 
 func (s *UpdateRangeRequest) SetBackgroundColors(v [][]*string) *UpdateRangeRequest {
 	s.BackgroundColors = v
+	return s
+}
+
+func (s *UpdateRangeRequest) SetComplexValues(v [][]interface{}) *UpdateRangeRequest {
+	s.ComplexValues = v
+	return s
+}
+
+func (s *UpdateRangeRequest) SetFontColors(v [][]*string) *UpdateRangeRequest {
+	s.FontColors = v
 	return s
 }
 
@@ -7141,14 +9871,28 @@ func (s *UpdateRangeRequest) SetVerticalAlignments(v [][]*string) *UpdateRangeRe
 	return s
 }
 
+func (s *UpdateRangeRequest) SetWordWrap(v string) *UpdateRangeRequest {
+	s.WordWrap = &v
+	return s
+}
+
 func (s *UpdateRangeRequest) SetOperatorId(v string) *UpdateRangeRequest {
 	s.OperatorId = &v
 	return s
 }
 
 type UpdateRangeRequestHyperlinks struct {
+	// example:
+	//
+	// hyperlink_type
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// hyperlink_link
 	Link *string `json:"link,omitempty" xml:"link,omitempty"`
+	// example:
+	//
+	// hyperlink_text
 	Text *string `json:"text,omitempty" xml:"text,omitempty"`
 }
 
@@ -7176,6 +9920,9 @@ func (s *UpdateRangeRequestHyperlinks) SetText(v string) *UpdateRangeRequestHype
 }
 
 type UpdateRangeResponseBody struct {
+	// example:
+	//
+	// a1_notation
 	A1Notation *string `json:"a1Notation,omitempty" xml:"a1Notation,omitempty"`
 }
 
@@ -7245,8 +9992,21 @@ func (s *UpdateSheetHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateSheetHe
 }
 
 type UpdateSheetRequest struct {
-	Name       *string `json:"name,omitempty" xml:"name,omitempty"`
+	FrozenColumnCount *int64 `json:"frozenColumnCount,omitempty" xml:"frozenColumnCount,omitempty"`
+	FrozenRowCount    *int64 `json:"frozenRowCount,omitempty" xml:"frozenRowCount,omitempty"`
+	// example:
+	//
+	// sheet_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// visible
 	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -7256,6 +10016,16 @@ func (s UpdateSheetRequest) String() string {
 
 func (s UpdateSheetRequest) GoString() string {
 	return s.String()
+}
+
+func (s *UpdateSheetRequest) SetFrozenColumnCount(v int64) *UpdateSheetRequest {
+	s.FrozenColumnCount = &v
+	return s
+}
+
+func (s *UpdateSheetRequest) SetFrozenRowCount(v int64) *UpdateSheetRequest {
+	s.FrozenRowCount = &v
+	return s
 }
 
 func (s *UpdateSheetRequest) SetName(v string) *UpdateSheetRequest {
@@ -7320,8 +10090,10 @@ func (s *UpdateWorkspaceDocMembersHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type UpdateWorkspaceDocMembersRequest struct {
-	Members    []*UpdateWorkspaceDocMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	OperatorId *string                                    `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	Members []*UpdateWorkspaceDocMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s UpdateWorkspaceDocMembersRequest) String() string {
@@ -7343,9 +10115,12 @@ func (s *UpdateWorkspaceDocMembersRequest) SetOperatorId(v string) *UpdateWorksp
 }
 
 type UpdateWorkspaceDocMembersRequestMembers struct {
-	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
 	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
-	RoleType   *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
+	// This parameter is required.
+	RoleType *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
 }
 
 func (s UpdateWorkspaceDocMembersRequestMembers) String() string {
@@ -7418,8 +10193,10 @@ func (s *UpdateWorkspaceMembersHeaders) SetXAcsDingtalkAccessToken(v string) *Up
 }
 
 type UpdateWorkspaceMembersRequest struct {
-	Members    []*UpdateWorkspaceMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	OperatorId *string                                 `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	Members []*UpdateWorkspaceMembersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s UpdateWorkspaceMembersRequest) String() string {
@@ -7441,9 +10218,12 @@ func (s *UpdateWorkspaceMembersRequest) SetOperatorId(v string) *UpdateWorkspace
 }
 
 type UpdateWorkspaceMembersRequestMembers struct {
-	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
 	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
-	RoleType   *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
+	// This parameter is required.
+	RoleType *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
 }
 
 func (s UpdateWorkspaceMembersRequestMembers) String() string {
@@ -7507,12 +10287,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -7521,6 +10301,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 添加评论
+//
+// @param request - AddCommentRequest
+//
+// @param headers - AddCommentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddCommentResponse
 func (client *Client) AddCommentWithOptions(docId *string, request *AddCommentRequest, headers *AddCommentHeaders, runtime *util.RuntimeOptions) (_result *AddCommentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7578,6 +10369,13 @@ func (client *Client) AddCommentWithOptions(docId *string, request *AddCommentRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加评论
+//
+// @param request - AddCommentRequest
+//
+// @return AddCommentResponse
 func (client *Client) AddComment(docId *string, request *AddCommentRequest) (_result *AddCommentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddCommentHeaders{}
@@ -7590,6 +10388,17 @@ func (client *Client) AddComment(docId *string, request *AddCommentRequest) (_re
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加知识库文档成员
+//
+// @param request - AddWorkspaceDocMembersRequest
+//
+// @param headers - AddWorkspaceDocMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddWorkspaceDocMembersResponse
 func (client *Client) AddWorkspaceDocMembersWithOptions(workspaceId *string, nodeId *string, request *AddWorkspaceDocMembersRequest, headers *AddWorkspaceDocMembersHeaders, runtime *util.RuntimeOptions) (_result *AddWorkspaceDocMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7637,6 +10446,13 @@ func (client *Client) AddWorkspaceDocMembersWithOptions(workspaceId *string, nod
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加知识库文档成员
+//
+// @param request - AddWorkspaceDocMembersRequest
+//
+// @return AddWorkspaceDocMembersResponse
 func (client *Client) AddWorkspaceDocMembers(workspaceId *string, nodeId *string, request *AddWorkspaceDocMembersRequest) (_result *AddWorkspaceDocMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddWorkspaceDocMembersHeaders{}
@@ -7649,6 +10465,17 @@ func (client *Client) AddWorkspaceDocMembers(workspaceId *string, nodeId *string
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加知识库成员
+//
+// @param request - AddWorkspaceMembersRequest
+//
+// @param headers - AddWorkspaceMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddWorkspaceMembersResponse
 func (client *Client) AddWorkspaceMembersWithOptions(workspaceId *string, request *AddWorkspaceMembersRequest, headers *AddWorkspaceMembersHeaders, runtime *util.RuntimeOptions) (_result *AddWorkspaceMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7696,6 +10523,13 @@ func (client *Client) AddWorkspaceMembersWithOptions(workspaceId *string, reques
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加知识库成员
+//
+// @param request - AddWorkspaceMembersRequest
+//
+// @return AddWorkspaceMembersResponse
 func (client *Client) AddWorkspaceMembers(workspaceId *string, request *AddWorkspaceMembersRequest) (_result *AddWorkspaceMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddWorkspaceMembersHeaders{}
@@ -7708,6 +10542,17 @@ func (client *Client) AddWorkspaceMembers(workspaceId *string, request *AddWorks
 	return _result, _err
 }
 
+// Summary:
+//
+// 追加行
+//
+// @param request - AppendRowsRequest
+//
+// @param headers - AppendRowsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AppendRowsResponse
 func (client *Client) AppendRowsWithOptions(workbookId *string, sheetId *string, request *AppendRowsRequest, headers *AppendRowsHeaders, runtime *util.RuntimeOptions) (_result *AppendRowsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7757,6 +10602,13 @@ func (client *Client) AppendRowsWithOptions(workbookId *string, sheetId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 追加行
+//
+// @param request - AppendRowsRequest
+//
+// @return AppendRowsResponse
 func (client *Client) AppendRows(workbookId *string, sheetId *string, request *AppendRowsRequest) (_result *AppendRowsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AppendRowsHeaders{}
@@ -7769,6 +10621,17 @@ func (client *Client) AppendRows(workbookId *string, sheetId *string, request *A
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量执行表格操作
+//
+// @param request - BatchRequest
+//
+// @param headers - BatchHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchResponse
 func (client *Client) BatchWithOptions(workbookId *string, request *BatchRequest, headers *BatchHeaders, runtime *util.RuntimeOptions) (_result *BatchResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7818,6 +10681,13 @@ func (client *Client) BatchWithOptions(workbookId *string, request *BatchRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量执行表格操作
+//
+// @param request - BatchRequest
+//
+// @return BatchResponse
 func (client *Client) Batch(workbookId *string, request *BatchRequest) (_result *BatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchHeaders{}
@@ -7830,6 +10700,17 @@ func (client *Client) Batch(workbookId *string, request *BatchRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询知识库文档
+//
+// @param request - BatchGetWorkspaceDocsRequest
+//
+// @param headers - BatchGetWorkspaceDocsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchGetWorkspaceDocsResponse
 func (client *Client) BatchGetWorkspaceDocsWithOptions(request *BatchGetWorkspaceDocsRequest, headers *BatchGetWorkspaceDocsHeaders, runtime *util.RuntimeOptions) (_result *BatchGetWorkspaceDocsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7877,6 +10758,13 @@ func (client *Client) BatchGetWorkspaceDocsWithOptions(request *BatchGetWorkspac
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询知识库文档
+//
+// @param request - BatchGetWorkspaceDocsRequest
+//
+// @return BatchGetWorkspaceDocsResponse
 func (client *Client) BatchGetWorkspaceDocs(request *BatchGetWorkspaceDocsRequest) (_result *BatchGetWorkspaceDocsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchGetWorkspaceDocsHeaders{}
@@ -7889,6 +10777,17 @@ func (client *Client) BatchGetWorkspaceDocs(request *BatchGetWorkspaceDocsReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 知识库批量查询
+//
+// @param request - BatchGetWorkspacesRequest
+//
+// @param headers - BatchGetWorkspacesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchGetWorkspacesResponse
 func (client *Client) BatchGetWorkspacesWithOptions(request *BatchGetWorkspacesRequest, headers *BatchGetWorkspacesHeaders, runtime *util.RuntimeOptions) (_result *BatchGetWorkspacesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -7940,6 +10839,13 @@ func (client *Client) BatchGetWorkspacesWithOptions(request *BatchGetWorkspacesR
 	return _result, _err
 }
 
+// Summary:
+//
+// 知识库批量查询
+//
+// @param request - BatchGetWorkspacesRequest
+//
+// @return BatchGetWorkspacesResponse
 func (client *Client) BatchGetWorkspaces(request *BatchGetWorkspacesRequest) (_result *BatchGetWorkspacesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchGetWorkspacesHeaders{}
@@ -7952,6 +10858,96 @@ func (client *Client) BatchGetWorkspaces(request *BatchGetWorkspacesRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据入参批量调用多个文档API
+//
+// @param request - BatchOperateRequest
+//
+// @param headers - BatchOperateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchOperateResponse
+func (client *Client) BatchOperateWithOptions(documentId *string, request *BatchOperateRequest, headers *BatchOperateHeaders, runtime *util.RuntimeOptions) (_result *BatchOperateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Requests)) {
+		body["requests"] = request.Requests
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchOperate"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/suites/documents/" + tea.StringValue(documentId) + "/batch"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchOperateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据入参批量调用多个文档API
+//
+// @param request - BatchOperateRequest
+//
+// @return BatchOperateResponse
+func (client *Client) BatchOperate(documentId *string, request *BatchOperateRequest) (_result *BatchOperateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchOperateHeaders{}
+	_result = &BatchOperateResponse{}
+	_body, _err := client.BatchOperateWithOptions(documentId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 关联文档酷应用到表格
+//
+// @param request - BindCoolAppToSheetRequest
+//
+// @param headers - BindCoolAppToSheetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BindCoolAppToSheetResponse
 func (client *Client) BindCoolAppToSheetWithOptions(workbookId *string, request *BindCoolAppToSheetRequest, headers *BindCoolAppToSheetHeaders, runtime *util.RuntimeOptions) (_result *BindCoolAppToSheetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8001,6 +10997,13 @@ func (client *Client) BindCoolAppToSheetWithOptions(workbookId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 关联文档酷应用到表格
+//
+// @param request - BindCoolAppToSheetRequest
+//
+// @return BindCoolAppToSheetResponse
 func (client *Client) BindCoolAppToSheet(workbookId *string, request *BindCoolAppToSheetRequest) (_result *BindCoolAppToSheetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BindCoolAppToSheetHeaders{}
@@ -8013,6 +11016,17 @@ func (client *Client) BindCoolAppToSheet(workbookId *string, request *BindCoolAp
 	return _result, _err
 }
 
+// Summary:
+//
+// 清除单元格区域内所有内容
+//
+// @param request - ClearRequest
+//
+// @param headers - ClearHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ClearResponse
 func (client *Client) ClearWithOptions(workbookId *string, sheetId *string, rangeAddress *string, request *ClearRequest, headers *ClearHeaders, runtime *util.RuntimeOptions) (_result *ClearResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8056,6 +11070,13 @@ func (client *Client) ClearWithOptions(workbookId *string, sheetId *string, rang
 	return _result, _err
 }
 
+// Summary:
+//
+// 清除单元格区域内所有内容
+//
+// @param request - ClearRequest
+//
+// @return ClearResponse
 func (client *Client) Clear(workbookId *string, sheetId *string, rangeAddress *string, request *ClearRequest) (_result *ClearResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ClearHeaders{}
@@ -8068,6 +11089,17 @@ func (client *Client) Clear(workbookId *string, sheetId *string, rangeAddress *s
 	return _result, _err
 }
 
+// Summary:
+//
+// 清除单元格区域内数据
+//
+// @param request - ClearDataRequest
+//
+// @param headers - ClearDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ClearDataResponse
 func (client *Client) ClearDataWithOptions(workbookId *string, sheetId *string, rangeAddress *string, request *ClearDataRequest, headers *ClearDataHeaders, runtime *util.RuntimeOptions) (_result *ClearDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8111,6 +11143,13 @@ func (client *Client) ClearDataWithOptions(workbookId *string, sheetId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 清除单元格区域内数据
+//
+// @param request - ClearDataRequest
+//
+// @return ClearDataResponse
 func (client *Client) ClearData(workbookId *string, sheetId *string, rangeAddress *string, request *ClearDataRequest) (_result *ClearDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ClearDataHeaders{}
@@ -8123,6 +11162,17 @@ func (client *Client) ClearData(workbookId *string, sheetId *string, rangeAddres
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建条件格式
+//
+// @param request - CreateConditionalFormattingRuleRequest
+//
+// @param headers - CreateConditionalFormattingRuleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateConditionalFormattingRuleResponse
 func (client *Client) CreateConditionalFormattingRuleWithOptions(workbookId *string, sheetId *string, request *CreateConditionalFormattingRuleRequest, headers *CreateConditionalFormattingRuleHeaders, runtime *util.RuntimeOptions) (_result *CreateConditionalFormattingRuleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8140,6 +11190,10 @@ func (client *Client) CreateConditionalFormattingRuleWithOptions(workbookId *str
 
 	if !tea.BoolValue(util.IsUnset(request.DuplicateCondition)) {
 		body["duplicateCondition"] = request.DuplicateCondition
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NumberCondition)) {
+		body["numberCondition"] = request.NumberCondition
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Ranges)) {
@@ -8180,6 +11234,13 @@ func (client *Client) CreateConditionalFormattingRuleWithOptions(workbookId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建条件格式
+//
+// @param request - CreateConditionalFormattingRuleRequest
+//
+// @return CreateConditionalFormattingRuleResponse
 func (client *Client) CreateConditionalFormattingRule(workbookId *string, sheetId *string, request *CreateConditionalFormattingRuleRequest) (_result *CreateConditionalFormattingRuleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateConditionalFormattingRuleHeaders{}
@@ -8192,6 +11253,17 @@ func (client *Client) CreateConditionalFormattingRule(workbookId *string, sheetI
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建开发者元数据
+//
+// @param request - CreateDeveloperMetadataRequest
+//
+// @param headers - CreateDeveloperMetadataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateDeveloperMetadataResponse
 func (client *Client) CreateDeveloperMetadataWithOptions(workbookId *string, request *CreateDeveloperMetadataRequest, headers *CreateDeveloperMetadataHeaders, runtime *util.RuntimeOptions) (_result *CreateDeveloperMetadataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8249,6 +11321,13 @@ func (client *Client) CreateDeveloperMetadataWithOptions(workbookId *string, req
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建开发者元数据
+//
+// @param request - CreateDeveloperMetadataRequest
+//
+// @return CreateDeveloperMetadataResponse
 func (client *Client) CreateDeveloperMetadata(workbookId *string, request *CreateDeveloperMetadataRequest) (_result *CreateDeveloperMetadataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateDeveloperMetadataHeaders{}
@@ -8261,6 +11340,17 @@ func (client *Client) CreateDeveloperMetadata(workbookId *string, request *Creat
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建单元格锁定
+//
+// @param request - CreateRangeProtectionRequest
+//
+// @param headers - CreateRangeProtectionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateRangeProtectionResponse
 func (client *Client) CreateRangeProtectionWithOptions(workbookId *string, sheetId *string, rangeAddress *string, request *CreateRangeProtectionRequest, headers *CreateRangeProtectionHeaders, runtime *util.RuntimeOptions) (_result *CreateRangeProtectionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8274,6 +11364,10 @@ func (client *Client) CreateRangeProtectionWithOptions(workbookId *string, sheet
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.EditableSetting)) {
 		body["editableSetting"] = request.EditableSetting
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Members)) {
+		body["members"] = request.Members
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OtherUserPermission)) {
@@ -8314,6 +11408,13 @@ func (client *Client) CreateRangeProtectionWithOptions(workbookId *string, sheet
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建单元格锁定
+//
+// @param request - CreateRangeProtectionRequest
+//
+// @return CreateRangeProtectionResponse
 func (client *Client) CreateRangeProtection(workbookId *string, sheetId *string, rangeAddress *string, request *CreateRangeProtectionRequest) (_result *CreateRangeProtectionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateRangeProtectionHeaders{}
@@ -8326,6 +11427,17 @@ func (client *Client) CreateRangeProtection(workbookId *string, sheetId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建工作表
+//
+// @param request - CreateSheetRequest
+//
+// @param headers - CreateSheetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateSheetResponse
 func (client *Client) CreateSheetWithOptions(workbookId *string, request *CreateSheetRequest, headers *CreateSheetHeaders, runtime *util.RuntimeOptions) (_result *CreateSheetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8375,6 +11487,13 @@ func (client *Client) CreateSheetWithOptions(workbookId *string, request *Create
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建工作表
+//
+// @param request - CreateSheetRequest
+//
+// @return CreateSheetResponse
 func (client *Client) CreateSheet(workbookId *string, request *CreateSheetRequest) (_result *CreateSheetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateSheetHeaders{}
@@ -8387,6 +11506,17 @@ func (client *Client) CreateSheet(workbookId *string, request *CreateSheetReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 新建知识库
+//
+// @param request - CreateWorkspaceRequest
+//
+// @param headers - CreateWorkspaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateWorkspaceResponse
 func (client *Client) CreateWorkspaceWithOptions(request *CreateWorkspaceRequest, headers *CreateWorkspaceHeaders, runtime *util.RuntimeOptions) (_result *CreateWorkspaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8438,6 +11568,13 @@ func (client *Client) CreateWorkspaceWithOptions(request *CreateWorkspaceRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 新建知识库
+//
+// @param request - CreateWorkspaceRequest
+//
+// @return CreateWorkspaceResponse
 func (client *Client) CreateWorkspace(request *CreateWorkspaceRequest) (_result *CreateWorkspaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateWorkspaceHeaders{}
@@ -8450,6 +11587,17 @@ func (client *Client) CreateWorkspace(request *CreateWorkspaceRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建知识库文档
+//
+// @param request - CreateWorkspaceDocRequest
+//
+// @param headers - CreateWorkspaceDocHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateWorkspaceDocResponse
 func (client *Client) CreateWorkspaceDocWithOptions(workspaceId *string, request *CreateWorkspaceDocRequest, headers *CreateWorkspaceDocHeaders, runtime *util.RuntimeOptions) (_result *CreateWorkspaceDocResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8513,6 +11661,13 @@ func (client *Client) CreateWorkspaceDocWithOptions(workspaceId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建知识库文档
+//
+// @param request - CreateWorkspaceDocRequest
+//
+// @return CreateWorkspaceDocResponse
 func (client *Client) CreateWorkspaceDoc(workspaceId *string, request *CreateWorkspaceDocRequest) (_result *CreateWorkspaceDocResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateWorkspaceDocHeaders{}
@@ -8525,6 +11680,17 @@ func (client *Client) CreateWorkspaceDoc(workspaceId *string, request *CreateWor
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除列
+//
+// @param request - DeleteColumnsRequest
+//
+// @param headers - DeleteColumnsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteColumnsResponse
 func (client *Client) DeleteColumnsWithOptions(workbookId *string, sheetId *string, request *DeleteColumnsRequest, headers *DeleteColumnsHeaders, runtime *util.RuntimeOptions) (_result *DeleteColumnsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8578,6 +11744,13 @@ func (client *Client) DeleteColumnsWithOptions(workbookId *string, sheetId *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除列
+//
+// @param request - DeleteColumnsRequest
+//
+// @return DeleteColumnsResponse
 func (client *Client) DeleteColumns(workbookId *string, sheetId *string, request *DeleteColumnsRequest) (_result *DeleteColumnsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteColumnsHeaders{}
@@ -8590,6 +11763,17 @@ func (client *Client) DeleteColumns(workbookId *string, sheetId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除下拉列表
+//
+// @param request - DeleteDropdownListsRequest
+//
+// @param headers - DeleteDropdownListsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteDropdownListsResponse
 func (client *Client) DeleteDropdownListsWithOptions(workbookId *string, sheetId *string, rangeAddress *string, request *DeleteDropdownListsRequest, headers *DeleteDropdownListsHeaders, runtime *util.RuntimeOptions) (_result *DeleteDropdownListsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8633,6 +11817,13 @@ func (client *Client) DeleteDropdownListsWithOptions(workbookId *string, sheetId
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除下拉列表
+//
+// @param request - DeleteDropdownListsRequest
+//
+// @return DeleteDropdownListsResponse
 func (client *Client) DeleteDropdownLists(workbookId *string, sheetId *string, rangeAddress *string, request *DeleteDropdownListsRequest) (_result *DeleteDropdownListsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteDropdownListsHeaders{}
@@ -8645,6 +11836,17 @@ func (client *Client) DeleteDropdownLists(workbookId *string, sheetId *string, r
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除单元格锁定
+//
+// @param request - DeleteRangeProtectionRequest
+//
+// @param headers - DeleteRangeProtectionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteRangeProtectionResponse
 func (client *Client) DeleteRangeProtectionWithOptions(workbookId *string, sheetId *string, rangeAddress *string, protectionId *string, request *DeleteRangeProtectionRequest, headers *DeleteRangeProtectionHeaders, runtime *util.RuntimeOptions) (_result *DeleteRangeProtectionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8688,6 +11890,13 @@ func (client *Client) DeleteRangeProtectionWithOptions(workbookId *string, sheet
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除单元格锁定
+//
+// @param request - DeleteRangeProtectionRequest
+//
+// @return DeleteRangeProtectionResponse
 func (client *Client) DeleteRangeProtection(workbookId *string, sheetId *string, rangeAddress *string, protectionId *string, request *DeleteRangeProtectionRequest) (_result *DeleteRangeProtectionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteRangeProtectionHeaders{}
@@ -8700,6 +11909,17 @@ func (client *Client) DeleteRangeProtection(workbookId *string, sheetId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除行
+//
+// @param request - DeleteRowsRequest
+//
+// @param headers - DeleteRowsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteRowsResponse
 func (client *Client) DeleteRowsWithOptions(workbookId *string, sheetId *string, request *DeleteRowsRequest, headers *DeleteRowsHeaders, runtime *util.RuntimeOptions) (_result *DeleteRowsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8753,6 +11973,13 @@ func (client *Client) DeleteRowsWithOptions(workbookId *string, sheetId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除行
+//
+// @param request - DeleteRowsRequest
+//
+// @return DeleteRowsResponse
 func (client *Client) DeleteRows(workbookId *string, sheetId *string, request *DeleteRowsRequest) (_result *DeleteRowsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteRowsHeaders{}
@@ -8765,6 +11992,17 @@ func (client *Client) DeleteRows(workbookId *string, sheetId *string, request *D
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除工作表
+//
+// @param request - DeleteSheetRequest
+//
+// @param headers - DeleteSheetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteSheetResponse
 func (client *Client) DeleteSheetWithOptions(workbookId *string, sheetId *string, request *DeleteSheetRequest, headers *DeleteSheetHeaders, runtime *util.RuntimeOptions) (_result *DeleteSheetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8808,6 +12046,13 @@ func (client *Client) DeleteSheetWithOptions(workbookId *string, sheetId *string
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除工作表
+//
+// @param request - DeleteSheetRequest
+//
+// @return DeleteSheetResponse
 func (client *Client) DeleteSheet(workbookId *string, sheetId *string, request *DeleteSheetRequest) (_result *DeleteSheetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteSheetHeaders{}
@@ -8820,6 +12065,17 @@ func (client *Client) DeleteSheet(workbookId *string, sheetId *string, request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除知识库文档
+//
+// @param request - DeleteWorkspaceDocRequest
+//
+// @param headers - DeleteWorkspaceDocHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteWorkspaceDocResponse
 func (client *Client) DeleteWorkspaceDocWithOptions(workspaceId *string, nodeId *string, request *DeleteWorkspaceDocRequest, headers *DeleteWorkspaceDocHeaders, runtime *util.RuntimeOptions) (_result *DeleteWorkspaceDocResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8863,6 +12119,13 @@ func (client *Client) DeleteWorkspaceDocWithOptions(workspaceId *string, nodeId 
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除知识库文档
+//
+// @param request - DeleteWorkspaceDocRequest
+//
+// @return DeleteWorkspaceDocResponse
 func (client *Client) DeleteWorkspaceDoc(workspaceId *string, nodeId *string, request *DeleteWorkspaceDocRequest) (_result *DeleteWorkspaceDocResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteWorkspaceDocHeaders{}
@@ -8875,6 +12138,17 @@ func (client *Client) DeleteWorkspaceDoc(workspaceId *string, nodeId *string, re
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除知识库文档成员
+//
+// @param request - DeleteWorkspaceDocMembersRequest
+//
+// @param headers - DeleteWorkspaceDocMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteWorkspaceDocMembersResponse
 func (client *Client) DeleteWorkspaceDocMembersWithOptions(workspaceId *string, nodeId *string, request *DeleteWorkspaceDocMembersRequest, headers *DeleteWorkspaceDocMembersHeaders, runtime *util.RuntimeOptions) (_result *DeleteWorkspaceDocMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8922,6 +12196,13 @@ func (client *Client) DeleteWorkspaceDocMembersWithOptions(workspaceId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除知识库文档成员
+//
+// @param request - DeleteWorkspaceDocMembersRequest
+//
+// @return DeleteWorkspaceDocMembersResponse
 func (client *Client) DeleteWorkspaceDocMembers(workspaceId *string, nodeId *string, request *DeleteWorkspaceDocMembersRequest) (_result *DeleteWorkspaceDocMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteWorkspaceDocMembersHeaders{}
@@ -8934,6 +12215,17 @@ func (client *Client) DeleteWorkspaceDocMembers(workspaceId *string, nodeId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除知识库成员
+//
+// @param request - DeleteWorkspaceMembersRequest
+//
+// @param headers - DeleteWorkspaceMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteWorkspaceMembersResponse
 func (client *Client) DeleteWorkspaceMembersWithOptions(workspaceId *string, request *DeleteWorkspaceMembersRequest, headers *DeleteWorkspaceMembersHeaders, runtime *util.RuntimeOptions) (_result *DeleteWorkspaceMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -8981,6 +12273,13 @@ func (client *Client) DeleteWorkspaceMembersWithOptions(workspaceId *string, req
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除知识库成员
+//
+// @param request - DeleteWorkspaceMembersRequest
+//
+// @return DeleteWorkspaceMembersResponse
 func (client *Client) DeleteWorkspaceMembers(workspaceId *string, request *DeleteWorkspaceMembersRequest) (_result *DeleteWorkspaceMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteWorkspaceMembersHeaders{}
@@ -8993,6 +12292,17 @@ func (client *Client) DeleteWorkspaceMembers(workspaceId *string, request *Delet
 	return _result, _err
 }
 
+// Summary:
+//
+// 追加指定段落元素
+//
+// @param request - DocAppendParagraphRequest
+//
+// @param headers - DocAppendParagraphHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DocAppendParagraphResponse
 func (client *Client) DocAppendParagraphWithOptions(docKey *string, blockId *string, request *DocAppendParagraphRequest, headers *DocAppendParagraphHeaders, runtime *util.RuntimeOptions) (_result *DocAppendParagraphResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9046,6 +12356,13 @@ func (client *Client) DocAppendParagraphWithOptions(docKey *string, blockId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 追加指定段落元素
+//
+// @param request - DocAppendParagraphRequest
+//
+// @return DocAppendParagraphResponse
 func (client *Client) DocAppendParagraph(docKey *string, blockId *string, request *DocAppendParagraphRequest) (_result *DocAppendParagraphResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DocAppendParagraphHeaders{}
@@ -9058,6 +12375,17 @@ func (client *Client) DocAppendParagraph(docKey *string, blockId *string, reques
 	return _result, _err
 }
 
+// Summary:
+//
+// 在段落后追加文本
+//
+// @param request - DocAppendTextRequest
+//
+// @param headers - DocAppendTextHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DocAppendTextResponse
 func (client *Client) DocAppendTextWithOptions(docKey *string, blockId *string, request *DocAppendTextRequest, headers *DocAppendTextHeaders, runtime *util.RuntimeOptions) (_result *DocAppendTextResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9107,6 +12435,13 @@ func (client *Client) DocAppendTextWithOptions(docKey *string, blockId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 在段落后追加文本
+//
+// @param request - DocAppendTextRequest
+//
+// @return DocAppendTextResponse
 func (client *Client) DocAppendText(docKey *string, blockId *string, request *DocAppendTextRequest) (_result *DocAppendTextResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DocAppendTextHeaders{}
@@ -9119,6 +12454,96 @@ func (client *Client) DocAppendText(docKey *string, blockId *string, request *Do
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新文档中的块元素
+//
+// @param request - DocBlocksModifyRequest
+//
+// @param headers - DocBlocksModifyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DocBlocksModifyResponse
+func (client *Client) DocBlocksModifyWithOptions(documentId *string, blockId *string, request *DocBlocksModifyRequest, headers *DocBlocksModifyHeaders, runtime *util.RuntimeOptions) (_result *DocBlocksModifyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Element)) {
+		body["element"] = request.Element
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DocBlocksModify"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/suites/documents/" + tea.StringValue(documentId) + "/blocks/" + tea.StringValue(blockId)),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DocBlocksModifyResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新文档中的块元素
+//
+// @param request - DocBlocksModifyRequest
+//
+// @return DocBlocksModifyResponse
+func (client *Client) DocBlocksModify(documentId *string, blockId *string, request *DocBlocksModifyRequest) (_result *DocBlocksModifyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DocBlocksModifyHeaders{}
+	_result = &DocBlocksModifyResponse{}
+	_body, _err := client.DocBlocksModifyWithOptions(documentId, blockId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询指定Block元素
+//
+// @param request - DocBlocksQueryRequest
+//
+// @param headers - DocBlocksQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DocBlocksQueryResponse
 func (client *Client) DocBlocksQueryWithOptions(docKey *string, request *DocBlocksQueryRequest, headers *DocBlocksQueryHeaders, runtime *util.RuntimeOptions) (_result *DocBlocksQueryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9174,6 +12599,13 @@ func (client *Client) DocBlocksQueryWithOptions(docKey *string, request *DocBloc
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询指定Block元素
+//
+// @param request - DocBlocksQueryRequest
+//
+// @return DocBlocksQueryResponse
 func (client *Client) DocBlocksQuery(docKey *string, request *DocBlocksQueryRequest) (_result *DocBlocksQueryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DocBlocksQueryHeaders{}
@@ -9186,6 +12618,17 @@ func (client *Client) DocBlocksQuery(docKey *string, request *DocBlocksQueryRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除指定位置的 Block
+//
+// @param request - DocDeleteBlockRequest
+//
+// @param headers - DocDeleteBlockHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DocDeleteBlockResponse
 func (client *Client) DocDeleteBlockWithOptions(docKey *string, blockId *string, request *DocDeleteBlockRequest, headers *DocDeleteBlockHeaders, runtime *util.RuntimeOptions) (_result *DocDeleteBlockResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9229,6 +12672,13 @@ func (client *Client) DocDeleteBlockWithOptions(docKey *string, blockId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除指定位置的 Block
+//
+// @param request - DocDeleteBlockRequest
+//
+// @return DocDeleteBlockResponse
 func (client *Client) DocDeleteBlock(docKey *string, blockId *string, request *DocDeleteBlockRequest) (_result *DocDeleteBlockResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DocDeleteBlockHeaders{}
@@ -9241,6 +12691,163 @@ func (client *Client) DocDeleteBlock(docKey *string, blockId *string, request *D
 	return _result, _err
 }
 
+// Summary:
+//
+// 文档内容导出
+//
+// @param request - DocExportRequest
+//
+// @param headers - DocExportHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DocExportResponse
+func (client *Client) DocExportWithOptions(dentryUuid *string, request *DocExportRequest, headers *DocExportHeaders, runtime *util.RuntimeOptions) (_result *DocExportResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TargetFormat)) {
+		query["targetFormat"] = request.TargetFormat
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DocExport"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/" + tea.StringValue(dentryUuid) + "/export"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DocExportResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 文档内容导出
+//
+// @param request - DocExportRequest
+//
+// @return DocExportResponse
+func (client *Client) DocExport(dentryUuid *string, request *DocExportRequest) (_result *DocExportResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DocExportHeaders{}
+	_result = &DocExportResponse{}
+	_body, _err := client.DocExportWithOptions(dentryUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据传入的文档ID将文档导出为截图
+//
+// @param request - DocExportSnapshotRequest
+//
+// @param headers - DocExportSnapshotHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DocExportSnapshotResponse
+func (client *Client) DocExportSnapshotWithOptions(documentId *string, request *DocExportSnapshotRequest, headers *DocExportSnapshotHeaders, runtime *util.RuntimeOptions) (_result *DocExportSnapshotResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DocExportSnapshot"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/suites/documents/" + tea.StringValue(documentId) + "/export/snapshot"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DocExportSnapshotResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据传入的文档ID将文档导出为截图
+//
+// @param request - DocExportSnapshotRequest
+//
+// @return DocExportSnapshotResponse
+func (client *Client) DocExportSnapshot(documentId *string, request *DocExportSnapshotRequest) (_result *DocExportSnapshotResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DocExportSnapshotHeaders{}
+	_result = &DocExportSnapshotResponse{}
+	_body, _err := client.DocExportSnapshotWithOptions(documentId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 插入指定Block元素
+//
+// @param request - DocInsertBlocksRequest
+//
+// @param headers - DocInsertBlocksHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DocInsertBlocksResponse
 func (client *Client) DocInsertBlocksWithOptions(docKey *string, request *DocInsertBlocksRequest, headers *DocInsertBlocksHeaders, runtime *util.RuntimeOptions) (_result *DocInsertBlocksResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9302,6 +12909,13 @@ func (client *Client) DocInsertBlocksWithOptions(docKey *string, request *DocIns
 	return _result, _err
 }
 
+// Summary:
+//
+// 插入指定Block元素
+//
+// @param request - DocInsertBlocksRequest
+//
+// @return DocInsertBlocksResponse
 func (client *Client) DocInsertBlocks(docKey *string, request *DocInsertBlocksRequest) (_result *DocInsertBlocksResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DocInsertBlocksHeaders{}
@@ -9314,6 +12928,169 @@ func (client *Client) DocInsertBlocks(docKey *string, request *DocInsertBlocksRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据传入参数更新文档插槽
+//
+// @param request - DocSlotsModifyRequest
+//
+// @param headers - DocSlotsModifyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DocSlotsModifyResponse
+func (client *Client) DocSlotsModifyWithOptions(documentId *string, request *DocSlotsModifyRequest, headers *DocSlotsModifyHeaders, runtime *util.RuntimeOptions) (_result *DocSlotsModifyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Request)) {
+		body["request"] = request.Request
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DocSlotsModify"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/suites/documents/" + tea.StringValue(documentId) + "/slots"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DocSlotsModifyResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据传入参数更新文档插槽
+//
+// @param request - DocSlotsModifyRequest
+//
+// @return DocSlotsModifyResponse
+func (client *Client) DocSlotsModify(documentId *string, request *DocSlotsModifyRequest) (_result *DocSlotsModifyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DocSlotsModifyHeaders{}
+	_result = &DocSlotsModifyResponse{}
+	_body, _err := client.DocSlotsModifyWithOptions(documentId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据传入参数查询文档中所有的插槽
+//
+// @param request - DocSlotsQueryRequest
+//
+// @param headers - DocSlotsQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DocSlotsQueryResponse
+func (client *Client) DocSlotsQueryWithOptions(documentId *string, request *DocSlotsQueryRequest, headers *DocSlotsQueryHeaders, runtime *util.RuntimeOptions) (_result *DocSlotsQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DocSlotsQuery"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/suites/documents/" + tea.StringValue(documentId) + "/slots"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DocSlotsQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据传入参数查询文档中所有的插槽
+//
+// @param request - DocSlotsQueryRequest
+//
+// @return DocSlotsQueryResponse
+func (client *Client) DocSlotsQuery(documentId *string, request *DocSlotsQueryRequest) (_result *DocSlotsQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DocSlotsQueryHeaders{}
+	_result = &DocSlotsQueryResponse{}
+	_body, _err := client.DocSlotsQueryWithOptions(documentId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 覆写全文
+//
+// @param request - DocUpdateContentRequest
+//
+// @param headers - DocUpdateContentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DocUpdateContentResponse
 func (client *Client) DocUpdateContentWithOptions(docKey *string, request *DocUpdateContentRequest, headers *DocUpdateContentHeaders, runtime *util.RuntimeOptions) (_result *DocUpdateContentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9367,6 +13144,13 @@ func (client *Client) DocUpdateContentWithOptions(docKey *string, request *DocUp
 	return _result, _err
 }
 
+// Summary:
+//
+// 覆写全文
+//
+// @param request - DocUpdateContentRequest
+//
+// @return DocUpdateContentResponse
 func (client *Client) DocUpdateContent(docKey *string, request *DocUpdateContentRequest) (_result *DocUpdateContentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DocUpdateContentHeaders{}
@@ -9379,6 +13163,17 @@ func (client *Client) DocUpdateContent(docKey *string, request *DocUpdateContent
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取所有工作表
+//
+// @param request - GetAllSheetsRequest
+//
+// @param headers - GetAllSheetsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAllSheetsResponse
 func (client *Client) GetAllSheetsWithOptions(workbookId *string, request *GetAllSheetsRequest, headers *GetAllSheetsHeaders, runtime *util.RuntimeOptions) (_result *GetAllSheetsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9422,6 +13217,13 @@ func (client *Client) GetAllSheetsWithOptions(workbookId *string, request *GetAl
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取所有工作表
+//
+// @param request - GetAllSheetsRequest
+//
+// @return GetAllSheetsResponse
 func (client *Client) GetAllSheets(workbookId *string, request *GetAllSheetsRequest) (_result *GetAllSheetsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAllSheetsHeaders{}
@@ -9434,6 +13236,17 @@ func (client *Client) GetAllSheets(workbookId *string, request *GetAllSheetsRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取开发者元数据
+//
+// @param request - GetDeveloperMetadataRequest
+//
+// @param headers - GetDeveloperMetadataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDeveloperMetadataResponse
 func (client *Client) GetDeveloperMetadataWithOptions(workbookId *string, developerMetadataId *string, request *GetDeveloperMetadataRequest, headers *GetDeveloperMetadataHeaders, runtime *util.RuntimeOptions) (_result *GetDeveloperMetadataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9477,6 +13290,13 @@ func (client *Client) GetDeveloperMetadataWithOptions(workbookId *string, develo
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取开发者元数据
+//
+// @param request - GetDeveloperMetadataRequest
+//
+// @return GetDeveloperMetadataResponse
 func (client *Client) GetDeveloperMetadata(workbookId *string, developerMetadataId *string, request *GetDeveloperMetadataRequest) (_result *GetDeveloperMetadataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDeveloperMetadataHeaders{}
@@ -9489,6 +13309,90 @@ func (client *Client) GetDeveloperMetadata(workbookId *string, developerMetadata
 	return _result, _err
 }
 
+// Summary:
+//
+// 文档标签信息查询
+//
+// @param request - GetImportDocumentMarkRequest
+//
+// @param headers - GetImportDocumentMarkHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetImportDocumentMarkResponse
+func (client *Client) GetImportDocumentMarkWithOptions(docId *string, request *GetImportDocumentMarkRequest, headers *GetImportDocumentMarkHeaders, runtime *util.RuntimeOptions) (_result *GetImportDocumentMarkResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetImportDocumentMark"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/docs/" + tea.StringValue(docId) + "/marks"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetImportDocumentMarkResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 文档标签信息查询
+//
+// @param request - GetImportDocumentMarkRequest
+//
+// @return GetImportDocumentMarkResponse
+func (client *Client) GetImportDocumentMark(docId *string, request *GetImportDocumentMarkRequest) (_result *GetImportDocumentMarkResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetImportDocumentMarkHeaders{}
+	_result = &GetImportDocumentMarkResponse{}
+	_body, _err := client.GetImportDocumentMarkWithOptions(docId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取单元格区域
+//
+// @param request - GetRangeRequest
+//
+// @param headers - GetRangeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetRangeResponse
 func (client *Client) GetRangeWithOptions(workbookId *string, sheetId *string, rangeAddress *string, request *GetRangeRequest, headers *GetRangeHeaders, runtime *util.RuntimeOptions) (_result *GetRangeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9536,6 +13440,13 @@ func (client *Client) GetRangeWithOptions(workbookId *string, sheetId *string, r
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取单元格区域
+//
+// @param request - GetRangeRequest
+//
+// @return GetRangeResponse
 func (client *Client) GetRange(workbookId *string, sheetId *string, rangeAddress *string, request *GetRangeRequest) (_result *GetRangeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetRangeHeaders{}
@@ -9548,6 +13459,17 @@ func (client *Client) GetRange(workbookId *string, sheetId *string, rangeAddress
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取最近编辑文档
+//
+// @param request - GetRecentEditDocsRequest
+//
+// @param headers - GetRecentEditDocsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetRecentEditDocsResponse
 func (client *Client) GetRecentEditDocsWithOptions(request *GetRecentEditDocsRequest, headers *GetRecentEditDocsHeaders, runtime *util.RuntimeOptions) (_result *GetRecentEditDocsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9599,6 +13521,13 @@ func (client *Client) GetRecentEditDocsWithOptions(request *GetRecentEditDocsReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取最近编辑文档
+//
+// @param request - GetRecentEditDocsRequest
+//
+// @return GetRecentEditDocsResponse
 func (client *Client) GetRecentEditDocs(request *GetRecentEditDocsRequest) (_result *GetRecentEditDocsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetRecentEditDocsHeaders{}
@@ -9611,6 +13540,17 @@ func (client *Client) GetRecentEditDocs(request *GetRecentEditDocsRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取最近打开文档
+//
+// @param request - GetRecentOpenDocsRequest
+//
+// @param headers - GetRecentOpenDocsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetRecentOpenDocsResponse
 func (client *Client) GetRecentOpenDocsWithOptions(request *GetRecentOpenDocsRequest, headers *GetRecentOpenDocsHeaders, runtime *util.RuntimeOptions) (_result *GetRecentOpenDocsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9662,6 +13602,13 @@ func (client *Client) GetRecentOpenDocsWithOptions(request *GetRecentOpenDocsReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取最近打开文档
+//
+// @param request - GetRecentOpenDocsRequest
+//
+// @return GetRecentOpenDocsResponse
 func (client *Client) GetRecentOpenDocs(request *GetRecentOpenDocsRequest) (_result *GetRecentOpenDocsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetRecentOpenDocsHeaders{}
@@ -9674,6 +13621,17 @@ func (client *Client) GetRecentOpenDocs(request *GetRecentOpenDocsRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户有权限的知识库
+//
+// @param request - GetRelatedWorkspacesRequest
+//
+// @param headers - GetRelatedWorkspacesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetRelatedWorkspacesResponse
 func (client *Client) GetRelatedWorkspacesWithOptions(request *GetRelatedWorkspacesRequest, headers *GetRelatedWorkspacesHeaders, runtime *util.RuntimeOptions) (_result *GetRelatedWorkspacesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9721,6 +13679,13 @@ func (client *Client) GetRelatedWorkspacesWithOptions(request *GetRelatedWorkspa
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户有权限的知识库
+//
+// @param request - GetRelatedWorkspacesRequest
+//
+// @return GetRelatedWorkspacesResponse
 func (client *Client) GetRelatedWorkspaces(request *GetRelatedWorkspacesRequest) (_result *GetRelatedWorkspacesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetRelatedWorkspacesHeaders{}
@@ -9733,6 +13698,177 @@ func (client *Client) GetRelatedWorkspaces(request *GetRelatedWorkspacesRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取资源下载信息
+//
+// @param request - GetResourceDownloadInfoRequest
+//
+// @param headers - GetResourceDownloadInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetResourceDownloadInfoResponse
+func (client *Client) GetResourceDownloadInfoWithOptions(docId *string, resourceId *string, request *GetResourceDownloadInfoRequest, headers *GetResourceDownloadInfoHeaders, runtime *util.RuntimeOptions) (_result *GetResourceDownloadInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetResourceDownloadInfo"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/docs/resources/" + tea.StringValue(docId) + "/" + tea.StringValue(resourceId) + "/downloadInfo"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetResourceDownloadInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取资源下载信息
+//
+// @param request - GetResourceDownloadInfoRequest
+//
+// @return GetResourceDownloadInfoResponse
+func (client *Client) GetResourceDownloadInfo(docId *string, resourceId *string, request *GetResourceDownloadInfoRequest) (_result *GetResourceDownloadInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetResourceDownloadInfoHeaders{}
+	_result = &GetResourceDownloadInfoResponse{}
+	_body, _err := client.GetResourceDownloadInfoWithOptions(docId, resourceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取上传信息
+//
+// @param request - GetResourceUploadInfoRequest
+//
+// @param headers - GetResourceUploadInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetResourceUploadInfoResponse
+func (client *Client) GetResourceUploadInfoWithOptions(docId *string, request *GetResourceUploadInfoRequest, headers *GetResourceUploadInfoHeaders, runtime *util.RuntimeOptions) (_result *GetResourceUploadInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MediaType)) {
+		body["mediaType"] = request.MediaType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ResourceName)) {
+		body["resourceName"] = request.ResourceName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Size)) {
+		body["size"] = request.Size
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetResourceUploadInfo"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/docs/resources/" + tea.StringValue(docId) + "/uploadInfos/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetResourceUploadInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取上传信息
+//
+// @param request - GetResourceUploadInfoRequest
+//
+// @return GetResourceUploadInfoResponse
+func (client *Client) GetResourceUploadInfo(docId *string, request *GetResourceUploadInfoRequest) (_result *GetResourceUploadInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetResourceUploadInfoHeaders{}
+	_result = &GetResourceUploadInfoResponse{}
+	_body, _err := client.GetResourceUploadInfoWithOptions(docId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取工作表
+//
+// @param request - GetSheetRequest
+//
+// @param headers - GetSheetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSheetResponse
 func (client *Client) GetSheetWithOptions(workbookId *string, sheetId *string, request *GetSheetRequest, headers *GetSheetHeaders, runtime *util.RuntimeOptions) (_result *GetSheetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9776,6 +13912,13 @@ func (client *Client) GetSheetWithOptions(workbookId *string, sheetId *string, r
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工作表
+//
+// @param request - GetSheetRequest
+//
+// @return GetSheetResponse
 func (client *Client) GetSheet(workbookId *string, sheetId *string, request *GetSheetRequest) (_result *GetSheetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSheetHeaders{}
@@ -9788,6 +13931,17 @@ func (client *Client) GetSheet(workbookId *string, sheetId *string, request *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询文档模版
+//
+// @param request - GetTemplateByIdRequest
+//
+// @param headers - GetTemplateByIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTemplateByIdResponse
 func (client *Client) GetTemplateByIdWithOptions(templateId *string, request *GetTemplateByIdRequest, headers *GetTemplateByIdHeaders, runtime *util.RuntimeOptions) (_result *GetTemplateByIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9835,6 +13989,13 @@ func (client *Client) GetTemplateByIdWithOptions(templateId *string, request *Ge
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询文档模版
+//
+// @param request - GetTemplateByIdRequest
+//
+// @return GetTemplateByIdResponse
 func (client *Client) GetTemplateById(templateId *string, request *GetTemplateByIdRequest) (_result *GetTemplateByIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTemplateByIdHeaders{}
@@ -9847,6 +14008,15 @@ func (client *Client) GetTemplateById(templateId *string, request *GetTemplateBy
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询知识库信息
+//
+// @param headers - GetWorkspaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetWorkspaceResponse
 func (client *Client) GetWorkspaceWithOptions(workspaceId *string, headers *GetWorkspaceHeaders, runtime *util.RuntimeOptions) (_result *GetWorkspaceResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -9880,6 +14050,11 @@ func (client *Client) GetWorkspaceWithOptions(workspaceId *string, headers *GetW
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询知识库信息
+//
+// @return GetWorkspaceResponse
 func (client *Client) GetWorkspace(workspaceId *string) (_result *GetWorkspaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetWorkspaceHeaders{}
@@ -9892,6 +14067,17 @@ func (client *Client) GetWorkspace(workspaceId *string) (_result *GetWorkspaceRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询知识库文档
+//
+// @param request - GetWorkspaceNodeRequest
+//
+// @param headers - GetWorkspaceNodeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetWorkspaceNodeResponse
 func (client *Client) GetWorkspaceNodeWithOptions(workspaceId *string, nodeId *string, request *GetWorkspaceNodeRequest, headers *GetWorkspaceNodeHeaders, runtime *util.RuntimeOptions) (_result *GetWorkspaceNodeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9935,6 +14121,13 @@ func (client *Client) GetWorkspaceNodeWithOptions(workspaceId *string, nodeId *s
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询知识库文档
+//
+// @param request - GetWorkspaceNodeRequest
+//
+// @return GetWorkspaceNodeResponse
 func (client *Client) GetWorkspaceNode(workspaceId *string, nodeId *string, request *GetWorkspaceNodeRequest) (_result *GetWorkspaceNodeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetWorkspaceNodeHeaders{}
@@ -9947,6 +14140,17 @@ func (client *Client) GetWorkspaceNode(workspaceId *string, nodeId *string, requ
 	return _result, _err
 }
 
+// Summary:
+//
+// 文档初始化
+//
+// @param request - InitDocumentRequest
+//
+// @param headers - InitDocumentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InitDocumentResponse
 func (client *Client) InitDocumentWithOptions(docId *string, request *InitDocumentRequest, headers *InitDocumentHeaders, runtime *util.RuntimeOptions) (_result *InitDocumentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -9958,6 +14162,10 @@ func (client *Client) InitDocumentWithOptions(docId *string, request *InitDocume
 	}
 
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AttachmentsKey)) {
+		body["attachmentsKey"] = request.AttachmentsKey
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.AttachmentsMap)) {
 		body["attachmentsMap"] = request.AttachmentsMap
 	}
@@ -10004,6 +14212,13 @@ func (client *Client) InitDocumentWithOptions(docId *string, request *InitDocume
 	return _result, _err
 }
 
+// Summary:
+//
+// 文档初始化
+//
+// @param request - InitDocumentRequest
+//
+// @return InitDocumentResponse
 func (client *Client) InitDocument(docId *string, request *InitDocumentRequest) (_result *InitDocumentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InitDocumentHeaders{}
@@ -10016,6 +14231,17 @@ func (client *Client) InitDocument(docId *string, request *InitDocumentRequest) 
 	return _result, _err
 }
 
+// Summary:
+//
+// 向文档内插入块级元素
+//
+// @param request - InsertBlocksRequest
+//
+// @param headers - InsertBlocksHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InsertBlocksResponse
 func (client *Client) InsertBlocksWithOptions(documentId *string, request *InsertBlocksRequest, headers *InsertBlocksHeaders, runtime *util.RuntimeOptions) (_result *InsertBlocksResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10067,6 +14293,13 @@ func (client *Client) InsertBlocksWithOptions(documentId *string, request *Inser
 	return _result, _err
 }
 
+// Summary:
+//
+// 向文档内插入块级元素
+//
+// @param request - InsertBlocksRequest
+//
+// @return InsertBlocksResponse
 func (client *Client) InsertBlocks(documentId *string, request *InsertBlocksRequest) (_result *InsertBlocksResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InsertBlocksHeaders{}
@@ -10079,6 +14312,17 @@ func (client *Client) InsertBlocks(documentId *string, request *InsertBlocksRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 指定列左侧插入若干列
+//
+// @param request - InsertColumnsBeforeRequest
+//
+// @param headers - InsertColumnsBeforeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InsertColumnsBeforeResponse
 func (client *Client) InsertColumnsBeforeWithOptions(workbookId *string, sheetId *string, request *InsertColumnsBeforeRequest, headers *InsertColumnsBeforeHeaders, runtime *util.RuntimeOptions) (_result *InsertColumnsBeforeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10132,6 +14376,13 @@ func (client *Client) InsertColumnsBeforeWithOptions(workbookId *string, sheetId
 	return _result, _err
 }
 
+// Summary:
+//
+// 指定列左侧插入若干列
+//
+// @param request - InsertColumnsBeforeRequest
+//
+// @return InsertColumnsBeforeResponse
 func (client *Client) InsertColumnsBefore(workbookId *string, sheetId *string, request *InsertColumnsBeforeRequest) (_result *InsertColumnsBeforeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InsertColumnsBeforeHeaders{}
@@ -10144,6 +14395,104 @@ func (client *Client) InsertColumnsBefore(workbookId *string, sheetId *string, r
 	return _result, _err
 }
 
+// Summary:
+//
+// 插入整段内容
+//
+// @param request - InsertContentRequest
+//
+// @param headers - InsertContentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InsertContentResponse
+func (client *Client) InsertContentWithOptions(documentId *string, request *InsertContentRequest, headers *InsertContentHeaders, runtime *util.RuntimeOptions) (_result *InsertContentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Index)) {
+		body["index"] = request.Index
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Path)) {
+		body["path"] = request.Path
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("InsertContent"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/suites/documents/" + tea.StringValue(documentId) + "/content"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &InsertContentResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 插入整段内容
+//
+// @param request - InsertContentRequest
+//
+// @return InsertContentResponse
+func (client *Client) InsertContent(documentId *string, request *InsertContentRequest) (_result *InsertContentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &InsertContentHeaders{}
+	_result = &InsertContentResponse{}
+	_body, _err := client.InsertContentWithOptions(documentId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 插入下拉列表
+//
+// @param request - InsertDropdownListsRequest
+//
+// @param headers - InsertDropdownListsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InsertDropdownListsResponse
 func (client *Client) InsertDropdownListsWithOptions(workbookId *string, sheetId *string, rangeAddress *string, request *InsertDropdownListsRequest, headers *InsertDropdownListsHeaders, runtime *util.RuntimeOptions) (_result *InsertDropdownListsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10193,6 +14542,13 @@ func (client *Client) InsertDropdownListsWithOptions(workbookId *string, sheetId
 	return _result, _err
 }
 
+// Summary:
+//
+// 插入下拉列表
+//
+// @param request - InsertDropdownListsRequest
+//
+// @return InsertDropdownListsResponse
 func (client *Client) InsertDropdownLists(workbookId *string, sheetId *string, rangeAddress *string, request *InsertDropdownListsRequest) (_result *InsertDropdownListsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InsertDropdownListsHeaders{}
@@ -10205,6 +14561,17 @@ func (client *Client) InsertDropdownLists(workbookId *string, sheetId *string, r
 	return _result, _err
 }
 
+// Summary:
+//
+// 指定行上方插入若干行
+//
+// @param request - InsertRowsBeforeRequest
+//
+// @param headers - InsertRowsBeforeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InsertRowsBeforeResponse
 func (client *Client) InsertRowsBeforeWithOptions(workbookId *string, sheetId *string, request *InsertRowsBeforeRequest, headers *InsertRowsBeforeHeaders, runtime *util.RuntimeOptions) (_result *InsertRowsBeforeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10258,6 +14625,13 @@ func (client *Client) InsertRowsBeforeWithOptions(workbookId *string, sheetId *s
 	return _result, _err
 }
 
+// Summary:
+//
+// 指定行上方插入若干行
+//
+// @param request - InsertRowsBeforeRequest
+//
+// @return InsertRowsBeforeResponse
 func (client *Client) InsertRowsBefore(workbookId *string, sheetId *string, request *InsertRowsBeforeRequest) (_result *InsertRowsBeforeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InsertRowsBeforeHeaders{}
@@ -10270,6 +14644,106 @@ func (client *Client) InsertRowsBefore(workbookId *string, sheetId *string, requ
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文档所有评论
+//
+// @param request - ListCommentsRequest
+//
+// @param headers - ListCommentsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListCommentsResponse
+func (client *Client) ListCommentsWithOptions(docId *string, request *ListCommentsRequest, headers *ListCommentsHeaders, runtime *util.RuntimeOptions) (_result *ListCommentsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IsGlobal)) {
+		query["isGlobal"] = request.IsGlobal
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsSolved)) {
+		query["isSolved"] = request.IsSolved
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListComments"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/docs/" + tea.StringValue(docId) + "/comments"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListCommentsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取文档所有评论
+//
+// @param request - ListCommentsRequest
+//
+// @return ListCommentsResponse
+func (client *Client) ListComments(docId *string, request *ListCommentsRequest) (_result *ListCommentsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListCommentsHeaders{}
+	_result = &ListCommentsResponse{}
+	_body, _err := client.ListCommentsWithOptions(docId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询文档模版
+//
+// @param request - ListTemplateRequest
+//
+// @param headers - ListTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListTemplateResponse
 func (client *Client) ListTemplateWithOptions(request *ListTemplateRequest, headers *ListTemplateHeaders, runtime *util.RuntimeOptions) (_result *ListTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10329,6 +14803,13 @@ func (client *Client) ListTemplateWithOptions(request *ListTemplateRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询文档模版
+//
+// @param request - ListTemplateRequest
+//
+// @return ListTemplateResponse
 func (client *Client) ListTemplate(request *ListTemplateRequest) (_result *ListTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListTemplateHeaders{}
@@ -10341,6 +14822,17 @@ func (client *Client) ListTemplate(request *ListTemplateRequest) (_result *ListT
 	return _result, _err
 }
 
+// Summary:
+//
+// 合并单元格
+//
+// @param request - MergeRangeRequest
+//
+// @param headers - MergeRangeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MergeRangeResponse
 func (client *Client) MergeRangeWithOptions(workbookId *string, sheetId *string, rangeAddress *string, request *MergeRangeRequest, headers *MergeRangeHeaders, runtime *util.RuntimeOptions) (_result *MergeRangeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10349,6 +14841,11 @@ func (client *Client) MergeRangeWithOptions(workbookId *string, sheetId *string,
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MergeType)) {
+		body["mergeType"] = request.MergeType
 	}
 
 	realHeaders := make(map[string]*string)
@@ -10363,6 +14860,7 @@ func (client *Client) MergeRangeWithOptions(workbookId *string, sheetId *string,
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
 	}
 	params := &openapi.Params{
 		Action:      tea.String("MergeRange"),
@@ -10384,6 +14882,13 @@ func (client *Client) MergeRangeWithOptions(workbookId *string, sheetId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 合并单元格
+//
+// @param request - MergeRangeRequest
+//
+// @return MergeRangeResponse
 func (client *Client) MergeRange(workbookId *string, sheetId *string, rangeAddress *string, request *MergeRangeRequest) (_result *MergeRangeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &MergeRangeHeaders{}
@@ -10396,6 +14901,17 @@ func (client *Client) MergeRange(workbookId *string, sheetId *string, rangeAddre
 	return _result, _err
 }
 
+// Summary:
+//
+// 查找下一个符合条件的单元格
+//
+// @param request - RangeFindNextRequest
+//
+// @param headers - RangeFindNextHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RangeFindNextResponse
 func (client *Client) RangeFindNextWithOptions(workbookId *string, sheetId *string, rangeAddress *string, request *RangeFindNextRequest, headers *RangeFindNextHeaders, runtime *util.RuntimeOptions) (_result *RangeFindNextResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10449,6 +14965,13 @@ func (client *Client) RangeFindNextWithOptions(workbookId *string, sheetId *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 查找下一个符合条件的单元格
+//
+// @param request - RangeFindNextRequest
+//
+// @return RangeFindNextResponse
 func (client *Client) RangeFindNext(workbookId *string, sheetId *string, rangeAddress *string, request *RangeFindNextRequest) (_result *RangeFindNextResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RangeFindNextHeaders{}
@@ -10461,6 +14984,17 @@ func (client *Client) RangeFindNext(workbookId *string, sheetId *string, rangeAd
 	return _result, _err
 }
 
+// Summary:
+//
+// 搜索用户有权限的知识库文档
+//
+// @param request - SearchWorkspaceDocsRequest
+//
+// @param headers - SearchWorkspaceDocsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchWorkspaceDocsResponse
 func (client *Client) SearchWorkspaceDocsWithOptions(request *SearchWorkspaceDocsRequest, headers *SearchWorkspaceDocsHeaders, runtime *util.RuntimeOptions) (_result *SearchWorkspaceDocsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10520,6 +15054,13 @@ func (client *Client) SearchWorkspaceDocsWithOptions(request *SearchWorkspaceDoc
 	return _result, _err
 }
 
+// Summary:
+//
+// 搜索用户有权限的知识库文档
+//
+// @param request - SearchWorkspaceDocsRequest
+//
+// @return SearchWorkspaceDocsResponse
 func (client *Client) SearchWorkspaceDocs(request *SearchWorkspaceDocsRequest) (_result *SearchWorkspaceDocsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchWorkspaceDocsHeaders{}
@@ -10532,6 +15073,104 @@ func (client *Client) SearchWorkspaceDocs(request *SearchWorkspaceDocsRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置单元格边框
+//
+// @param request - SetBorderRequest
+//
+// @param headers - SetBorderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetBorderResponse
+func (client *Client) SetBorderWithOptions(workbookId *string, sheetId *string, rangeAddress *string, request *SetBorderRequest, headers *SetBorderHeaders, runtime *util.RuntimeOptions) (_result *SetBorderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Color)) {
+		body["color"] = request.Color
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Style)) {
+		body["style"] = request.Style
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SetBorder"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/ranges/" + tea.StringValue(rangeAddress) + "/setBorder"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SetBorderResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 设置单元格边框
+//
+// @param request - SetBorderRequest
+//
+// @return SetBorderResponse
+func (client *Client) SetBorder(workbookId *string, sheetId *string, rangeAddress *string, request *SetBorderRequest) (_result *SetBorderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetBorderHeaders{}
+	_result = &SetBorderResponse{}
+	_body, _err := client.SetBorderWithOptions(workbookId, sheetId, rangeAddress, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 设置列宽
+//
+// @param request - SetColumnWidthRequest
+//
+// @param headers - SetColumnWidthHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetColumnWidthResponse
 func (client *Client) SetColumnWidthWithOptions(workbookId *string, sheetId *string, request *SetColumnWidthRequest, headers *SetColumnWidthHeaders, runtime *util.RuntimeOptions) (_result *SetColumnWidthResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10585,6 +15224,13 @@ func (client *Client) SetColumnWidthWithOptions(workbookId *string, sheetId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置列宽
+//
+// @param request - SetColumnWidthRequest
+//
+// @return SetColumnWidthResponse
 func (client *Client) SetColumnWidth(workbookId *string, sheetId *string, request *SetColumnWidthRequest) (_result *SetColumnWidthResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SetColumnWidthHeaders{}
@@ -10597,6 +15243,17 @@ func (client *Client) SetColumnWidth(workbookId *string, sheetId *string, reques
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置列隐藏或显示
+//
+// @param request - SetColumnsVisibilityRequest
+//
+// @param headers - SetColumnsVisibilityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetColumnsVisibilityResponse
 func (client *Client) SetColumnsVisibilityWithOptions(workbookId *string, sheetId *string, request *SetColumnsVisibilityRequest, headers *SetColumnsVisibilityHeaders, runtime *util.RuntimeOptions) (_result *SetColumnsVisibilityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10654,6 +15311,13 @@ func (client *Client) SetColumnsVisibilityWithOptions(workbookId *string, sheetI
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置列隐藏或显示
+//
+// @param request - SetColumnsVisibilityRequest
+//
+// @return SetColumnsVisibilityResponse
 func (client *Client) SetColumnsVisibility(workbookId *string, sheetId *string, request *SetColumnsVisibilityRequest) (_result *SetColumnsVisibilityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SetColumnsVisibilityHeaders{}
@@ -10666,6 +15330,104 @@ func (client *Client) SetColumnsVisibility(workbookId *string, sheetId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量设置列宽
+//
+// @param request - SetColumnsWidthRequest
+//
+// @param headers - SetColumnsWidthHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetColumnsWidthResponse
+func (client *Client) SetColumnsWidthWithOptions(workbookId *string, sheetId *string, request *SetColumnsWidthRequest, headers *SetColumnsWidthHeaders, runtime *util.RuntimeOptions) (_result *SetColumnsWidthResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Column)) {
+		body["column"] = request.Column
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ColumnCount)) {
+		body["columnCount"] = request.ColumnCount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Width)) {
+		body["width"] = request.Width
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SetColumnsWidth"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/setColumnsWidth"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SetColumnsWidthResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量设置列宽
+//
+// @param request - SetColumnsWidthRequest
+//
+// @return SetColumnsWidthResponse
+func (client *Client) SetColumnsWidth(workbookId *string, sheetId *string, request *SetColumnsWidthRequest) (_result *SetColumnsWidthResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetColumnsWidthHeaders{}
+	_result = &SetColumnsWidthResponse{}
+	_body, _err := client.SetColumnsWidthWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 设置行高
+//
+// @param request - SetRowHeightRequest
+//
+// @param headers - SetRowHeightHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetRowHeightResponse
 func (client *Client) SetRowHeightWithOptions(workbookId *string, sheetId *string, request *SetRowHeightRequest, headers *SetRowHeightHeaders, runtime *util.RuntimeOptions) (_result *SetRowHeightResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10719,6 +15481,13 @@ func (client *Client) SetRowHeightWithOptions(workbookId *string, sheetId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置行高
+//
+// @param request - SetRowHeightRequest
+//
+// @return SetRowHeightResponse
 func (client *Client) SetRowHeight(workbookId *string, sheetId *string, request *SetRowHeightRequest) (_result *SetRowHeightResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SetRowHeightHeaders{}
@@ -10731,6 +15500,108 @@ func (client *Client) SetRowHeight(workbookId *string, sheetId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量设置行高
+//
+// @param request - SetRowsHeightRequest
+//
+// @param headers - SetRowsHeightHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetRowsHeightResponse
+func (client *Client) SetRowsHeightWithOptions(workbookId *string, sheetId *string, request *SetRowsHeightRequest, headers *SetRowsHeightHeaders, runtime *util.RuntimeOptions) (_result *SetRowsHeightResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingAccessTokenType)) {
+		query["dingAccessTokenType"] = request.DingAccessTokenType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Height)) {
+		body["height"] = request.Height
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Row)) {
+		body["row"] = request.Row
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RowCount)) {
+		body["rowCount"] = request.RowCount
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SetRowsHeight"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/setRowsHeight"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SetRowsHeightResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量设置行高
+//
+// @param request - SetRowsHeightRequest
+//
+// @return SetRowsHeightResponse
+func (client *Client) SetRowsHeight(workbookId *string, sheetId *string, request *SetRowsHeightRequest) (_result *SetRowsHeightResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetRowsHeightHeaders{}
+	_result = &SetRowsHeightResponse{}
+	_body, _err := client.SetRowsHeightWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 设置行隐藏或显示
+//
+// @param request - SetRowsVisibilityRequest
+//
+// @param headers - SetRowsVisibilityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetRowsVisibilityResponse
 func (client *Client) SetRowsVisibilityWithOptions(workbookId *string, sheetId *string, request *SetRowsVisibilityRequest, headers *SetRowsVisibilityHeaders, runtime *util.RuntimeOptions) (_result *SetRowsVisibilityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10788,6 +15659,13 @@ func (client *Client) SetRowsVisibilityWithOptions(workbookId *string, sheetId *
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置行隐藏或显示
+//
+// @param request - SetRowsVisibilityRequest
+//
+// @return SetRowsVisibilityResponse
 func (client *Client) SetRowsVisibility(workbookId *string, sheetId *string, request *SetRowsVisibilityRequest) (_result *SetRowsVisibilityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SetRowsVisibilityHeaders{}
@@ -10800,6 +15678,17 @@ func (client *Client) SetRowsVisibility(workbookId *string, sheetId *string, req
 	return _result, _err
 }
 
+// Summary:
+//
+// # SheetAutofitRows
+//
+// @param request - SheetAutofitRowsRequest
+//
+// @param headers - SheetAutofitRowsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SheetAutofitRowsResponse
 func (client *Client) SheetAutofitRowsWithOptions(workbookId *string, sheetId *string, request *SheetAutofitRowsRequest, headers *SheetAutofitRowsHeaders, runtime *util.RuntimeOptions) (_result *SheetAutofitRowsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10857,6 +15746,13 @@ func (client *Client) SheetAutofitRowsWithOptions(workbookId *string, sheetId *s
 	return _result, _err
 }
 
+// Summary:
+//
+// # SheetAutofitRows
+//
+// @param request - SheetAutofitRowsRequest
+//
+// @return SheetAutofitRowsResponse
 func (client *Client) SheetAutofitRows(workbookId *string, sheetId *string, request *SheetAutofitRowsRequest) (_result *SheetAutofitRowsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SheetAutofitRowsHeaders{}
@@ -10869,6 +15765,17 @@ func (client *Client) SheetAutofitRows(workbookId *string, sheetId *string, requ
 	return _result, _err
 }
 
+// Summary:
+//
+// 工作表上查找所有符合条件的单元格
+//
+// @param request - SheetFindAllRequest
+//
+// @param headers - SheetFindAllHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SheetFindAllResponse
 func (client *Client) SheetFindAllWithOptions(workbookId *string, sheetId *string, request *SheetFindAllRequest, headers *SheetFindAllHeaders, runtime *util.RuntimeOptions) (_result *SheetFindAllResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10926,6 +15833,13 @@ func (client *Client) SheetFindAllWithOptions(workbookId *string, sheetId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 工作表上查找所有符合条件的单元格
+//
+// @param request - SheetFindAllRequest
+//
+// @return SheetFindAllResponse
 func (client *Client) SheetFindAll(workbookId *string, sheetId *string, request *SheetFindAllRequest) (_result *SheetFindAllResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SheetFindAllHeaders{}
@@ -10938,6 +15852,17 @@ func (client *Client) SheetFindAll(workbookId *string, sheetId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 取消文档酷应用和表格的关联
+//
+// @param request - UnbindCoolAppToSheetRequest
+//
+// @param headers - UnbindCoolAppToSheetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UnbindCoolAppToSheetResponse
 func (client *Client) UnbindCoolAppToSheetWithOptions(workbookId *string, request *UnbindCoolAppToSheetRequest, headers *UnbindCoolAppToSheetHeaders, runtime *util.RuntimeOptions) (_result *UnbindCoolAppToSheetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -10985,6 +15910,13 @@ func (client *Client) UnbindCoolAppToSheetWithOptions(workbookId *string, reques
 	return _result, _err
 }
 
+// Summary:
+//
+// 取消文档酷应用和表格的关联
+//
+// @param request - UnbindCoolAppToSheetRequest
+//
+// @return UnbindCoolAppToSheetResponse
 func (client *Client) UnbindCoolAppToSheet(workbookId *string, request *UnbindCoolAppToSheetRequest) (_result *UnbindCoolAppToSheetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UnbindCoolAppToSheetHeaders{}
@@ -10997,6 +15929,17 @@ func (client *Client) UnbindCoolAppToSheet(workbookId *string, request *UnbindCo
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新单元格区域
+//
+// @param request - UpdateRangeRequest
+//
+// @param headers - UpdateRangeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateRangeResponse
 func (client *Client) UpdateRangeWithOptions(workbookId *string, sheetId *string, rangeAddress *string, request *UpdateRangeRequest, headers *UpdateRangeHeaders, runtime *util.RuntimeOptions) (_result *UpdateRangeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11010,6 +15953,14 @@ func (client *Client) UpdateRangeWithOptions(workbookId *string, sheetId *string
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.BackgroundColors)) {
 		body["backgroundColors"] = request.BackgroundColors
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ComplexValues)) {
+		body["complexValues"] = request.ComplexValues
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FontColors)) {
+		body["fontColors"] = request.FontColors
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.FontSizes)) {
@@ -11038,6 +15989,10 @@ func (client *Client) UpdateRangeWithOptions(workbookId *string, sheetId *string
 
 	if !tea.BoolValue(util.IsUnset(request.VerticalAlignments)) {
 		body["verticalAlignments"] = request.VerticalAlignments
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WordWrap)) {
+		body["wordWrap"] = request.WordWrap
 	}
 
 	realHeaders := make(map[string]*string)
@@ -11074,6 +16029,13 @@ func (client *Client) UpdateRangeWithOptions(workbookId *string, sheetId *string
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新单元格区域
+//
+// @param request - UpdateRangeRequest
+//
+// @return UpdateRangeResponse
 func (client *Client) UpdateRange(workbookId *string, sheetId *string, rangeAddress *string, request *UpdateRangeRequest) (_result *UpdateRangeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateRangeHeaders{}
@@ -11086,6 +16048,17 @@ func (client *Client) UpdateRange(workbookId *string, sheetId *string, rangeAddr
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新工作表
+//
+// @param request - UpdateSheetRequest
+//
+// @param headers - UpdateSheetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateSheetResponse
 func (client *Client) UpdateSheetWithOptions(workbookId *string, sheetId *string, request *UpdateSheetRequest, headers *UpdateSheetHeaders, runtime *util.RuntimeOptions) (_result *UpdateSheetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11097,6 +16070,14 @@ func (client *Client) UpdateSheetWithOptions(workbookId *string, sheetId *string
 	}
 
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FrozenColumnCount)) {
+		body["frozenColumnCount"] = request.FrozenColumnCount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FrozenRowCount)) {
+		body["frozenRowCount"] = request.FrozenRowCount
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
 		body["name"] = request.Name
 	}
@@ -11139,6 +16120,13 @@ func (client *Client) UpdateSheetWithOptions(workbookId *string, sheetId *string
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新工作表
+//
+// @param request - UpdateSheetRequest
+//
+// @return UpdateSheetResponse
 func (client *Client) UpdateSheet(workbookId *string, sheetId *string, request *UpdateSheetRequest) (_result *UpdateSheetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateSheetHeaders{}
@@ -11151,6 +16139,17 @@ func (client *Client) UpdateSheet(workbookId *string, sheetId *string, request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改知识库文档成员
+//
+// @param request - UpdateWorkspaceDocMembersRequest
+//
+// @param headers - UpdateWorkspaceDocMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateWorkspaceDocMembersResponse
 func (client *Client) UpdateWorkspaceDocMembersWithOptions(workspaceId *string, nodeId *string, request *UpdateWorkspaceDocMembersRequest, headers *UpdateWorkspaceDocMembersHeaders, runtime *util.RuntimeOptions) (_result *UpdateWorkspaceDocMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11198,6 +16197,13 @@ func (client *Client) UpdateWorkspaceDocMembersWithOptions(workspaceId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改知识库文档成员
+//
+// @param request - UpdateWorkspaceDocMembersRequest
+//
+// @return UpdateWorkspaceDocMembersResponse
 func (client *Client) UpdateWorkspaceDocMembers(workspaceId *string, nodeId *string, request *UpdateWorkspaceDocMembersRequest) (_result *UpdateWorkspaceDocMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateWorkspaceDocMembersHeaders{}
@@ -11210,6 +16216,17 @@ func (client *Client) UpdateWorkspaceDocMembers(workspaceId *string, nodeId *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新知识库成员
+//
+// @param request - UpdateWorkspaceMembersRequest
+//
+// @param headers - UpdateWorkspaceMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateWorkspaceMembersResponse
 func (client *Client) UpdateWorkspaceMembersWithOptions(workspaceId *string, request *UpdateWorkspaceMembersRequest, headers *UpdateWorkspaceMembersHeaders, runtime *util.RuntimeOptions) (_result *UpdateWorkspaceMembersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -11257,6 +16274,13 @@ func (client *Client) UpdateWorkspaceMembersWithOptions(workspaceId *string, req
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新知识库成员
+//
+// @param request - UpdateWorkspaceMembersRequest
+//
+// @return UpdateWorkspaceMembersResponse
 func (client *Client) UpdateWorkspaceMembers(workspaceId *string, request *UpdateWorkspaceMembersRequest) (_result *UpdateWorkspaceMembersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateWorkspaceMembersHeaders{}

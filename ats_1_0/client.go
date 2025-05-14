@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package ats_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,10 +33,31 @@ func (s *AddApplicationRegFormTemplateHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type AddApplicationRegFormTemplateRequest struct {
-	BizCode  *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	Content  *string `json:"content,omitempty" xml:"content,omitempty"`
-	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
-	OuterId  *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	// example:
+	//
+	// ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"key":"value"}
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 应聘登记表
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// xxx
+	OuterId *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
@@ -78,8 +95,18 @@ func (s *AddApplicationRegFormTemplateRequest) SetOpUserId(v string) *AddApplica
 }
 
 type AddApplicationRegFormTemplateResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxxxx
 	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	Version    *int32  `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Version *int32 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s AddApplicationRegFormTemplateResponseBody) String() string {
@@ -153,9 +180,25 @@ func (s *AddFileHeaders) SetXAcsDingtalkAccessToken(v string) *AddFileHeaders {
 }
 
 type AddFileRequest struct {
-	BizCode  *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// example:
+	//
+	// ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三的简历
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	MediaId  *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// example:
+	//
+	// manager5875
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
@@ -188,9 +231,24 @@ func (s *AddFileRequest) SetOpUserId(v string) *AddFileRequest {
 }
 
 type AddFileResponseBody struct {
-	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三的简历
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	SpaceId  *int64  `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	SpaceId *int64 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s AddFileResponseBody) String() string {
@@ -269,12 +327,30 @@ func (s *AddUserAccountHeaders) SetXAcsDingtalkAccessToken(v string) *AddUserAcc
 }
 
 type AddUserAccountRequest struct {
-	BizCode             *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	ChannelAccountName  *string `json:"channelAccountName,omitempty" xml:"channelAccountName,omitempty"`
+	// example:
+	//
+	// ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// example:
+	//
+	// 示例昵称xxx
+	ChannelAccountName *string `json:"channelAccountName,omitempty" xml:"channelAccountName,omitempty"`
+	// example:
+	//
+	// 6FSe51616SOdd394d6
 	ChannelUserIdentify *string `json:"channelUserIdentify,omitempty" xml:"channelUserIdentify,omitempty"`
-	PhoneNumber         *string `json:"phoneNumber,omitempty" xml:"phoneNumber,omitempty"`
-	CorpId              *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	UserId              *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 16600010001
+	PhoneNumber *string `json:"phoneNumber,omitempty" xml:"phoneNumber,omitempty"`
+	// example:
+	//
+	// ding123456789
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 1676451039
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AddUserAccountRequest) String() string {
@@ -385,14 +461,32 @@ func (s *CollectRecruitJobDetailHeaders) SetXAcsDingtalkAccessToken(v string) *C
 }
 
 type CollectRecruitJobDetailRequest struct {
-	BizCode         *string                                        `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	Channel         *string                                        `json:"channel,omitempty" xml:"channel,omitempty"`
-	JobInfo         *CollectRecruitJobDetailRequestJobInfo         `json:"jobInfo,omitempty" xml:"jobInfo,omitempty" type:"Struct"`
-	OutCorpId       *string                                        `json:"outCorpId,omitempty" xml:"outCorpId,omitempty"`
+	// example:
+	//
+	// ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// example:
+	//
+	// zhilian
+	Channel *string                                `json:"channel,omitempty" xml:"channel,omitempty"`
+	JobInfo *CollectRecruitJobDetailRequestJobInfo `json:"jobInfo,omitempty" xml:"jobInfo,omitempty" type:"Struct"`
+	// example:
+	//
+	// corpxxxxxxxxx
+	OutCorpId *string `json:"outCorpId,omitempty" xml:"outCorpId,omitempty"`
+	// example:
+	//
+	// 小莫科技有限公司
 	OutCorpName     *string                                        `json:"outCorpName,omitempty" xml:"outCorpName,omitempty"`
 	RecruitUserInfo *CollectRecruitJobDetailRequestRecruitUserInfo `json:"recruitUserInfo,omitempty" xml:"recruitUserInfo,omitempty" type:"Struct"`
-	Source          *string                                        `json:"source,omitempty" xml:"source,omitempty"`
-	UpdateTime      *int64                                         `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	// example:
+	//
+	// BOSS
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// example:
+	//
+	// 1677465956008
+	UpdateTime *int64 `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
 func (s CollectRecruitJobDetailRequest) String() string {
@@ -444,20 +538,47 @@ func (s *CollectRecruitJobDetailRequest) SetUpdateTime(v int64) *CollectRecruitJ
 }
 
 type CollectRecruitJobDetailRequestJobInfo struct {
-	Address      *CollectRecruitJobDetailRequestJobInfoAddress      `json:"address,omitempty" xml:"address,omitempty" type:"Struct"`
-	Category     *string                                            `json:"category,omitempty" xml:"category,omitempty"`
+	Address *CollectRecruitJobDetailRequestJobInfoAddress `json:"address,omitempty" xml:"address,omitempty" type:"Struct"`
+	// example:
+	//
+	// C10001
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// example:
+	//
+	// 园艺师职位描述
 	Description  *string                                            `json:"description,omitempty" xml:"description,omitempty"`
 	ExtInfo      *string                                            `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
 	FullTimeInfo *CollectRecruitJobDetailRequestJobInfoFullTimeInfo `json:"fullTimeInfo,omitempty" xml:"fullTimeInfo,omitempty" type:"Struct"`
-	HeadCount    *string                                            `json:"headCount,omitempty" xml:"headCount,omitempty"`
-	JobNature    *string                                            `json:"jobNature,omitempty" xml:"jobNature,omitempty"`
-	JobTags      []*string                                          `json:"jobTags,omitempty" xml:"jobTags,omitempty" type:"Repeated"`
-	MaxSalary    *string                                            `json:"maxSalary,omitempty" xml:"maxSalary,omitempty"`
-	MinSalary    *string                                            `json:"minSalary,omitempty" xml:"minSalary,omitempty"`
-	Name         *string                                            `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 20
+	HeadCount *string `json:"headCount,omitempty" xml:"headCount,omitempty"`
+	// example:
+	//
+	// FULL-TIME
+	JobNature *string   `json:"jobNature,omitempty" xml:"jobNature,omitempty"`
+	JobTags   []*string `json:"jobTags,omitempty" xml:"jobTags,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 8000
+	MaxSalary *string `json:"maxSalary,omitempty" xml:"maxSalary,omitempty"`
+	// example:
+	//
+	// 3000
+	MinSalary *string `json:"minSalary,omitempty" xml:"minSalary,omitempty"`
+	// example:
+	//
+	// 园艺师
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// jobIdxxxxxxx
 	OutJobId     *string                                            `json:"outJobId,omitempty" xml:"outJobId,omitempty"`
 	PartTimeInfo *CollectRecruitJobDetailRequestJobInfoPartTimeInfo `json:"partTimeInfo,omitempty" xml:"partTimeInfo,omitempty" type:"Struct"`
-	RequiredEdu  *string                                            `json:"requiredEdu,omitempty" xml:"requiredEdu,omitempty"`
+	// example:
+	//
+	// 高中
+	RequiredEdu *string `json:"requiredEdu,omitempty" xml:"requiredEdu,omitempty"`
 }
 
 func (s CollectRecruitJobDetailRequestJobInfo) String() string {
@@ -539,12 +660,33 @@ func (s *CollectRecruitJobDetailRequestJobInfo) SetRequiredEdu(v string) *Collec
 }
 
 type CollectRecruitJobDetailRequestJobInfoAddress struct {
-	CityCode     *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
-	Detail       *string `json:"detail,omitempty" xml:"detail,omitempty"`
+	// example:
+	//
+	// 310000
+	CityCode *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// example:
+	//
+	// 文一西路999号
+	Detail *string `json:"detail,omitempty" xml:"detail,omitempty"`
+	// example:
+	//
+	// 311000
 	DistrictCode *string `json:"districtCode,omitempty" xml:"districtCode,omitempty"`
-	Latitude     *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
-	Longitude    *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
-	Name         *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 89.54613
+	Latitude *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	// example:
+	//
+	// 128.45613
+	Longitude *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
+	// example:
+	//
+	// 总部大楼
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 300000
 	ProvinceCode *string `json:"provinceCode,omitempty" xml:"provinceCode,omitempty"`
 }
 
@@ -592,9 +734,18 @@ func (s *CollectRecruitJobDetailRequestJobInfoAddress) SetProvinceCode(v string)
 }
 
 type CollectRecruitJobDetailRequestJobInfoFullTimeInfo struct {
+	// example:
+	//
+	// 20
 	MaxJobExperience *string `json:"maxJobExperience,omitempty" xml:"maxJobExperience,omitempty"`
+	// example:
+	//
+	// 2
 	MinJobExperience *string `json:"minJobExperience,omitempty" xml:"minJobExperience,omitempty"`
-	SalaryMonth      *string `json:"salaryMonth,omitempty" xml:"salaryMonth,omitempty"`
+	// example:
+	//
+	// 12
+	SalaryMonth *string `json:"salaryMonth,omitempty" xml:"salaryMonth,omitempty"`
 }
 
 func (s CollectRecruitJobDetailRequestJobInfoFullTimeInfo) String() string {
@@ -621,16 +772,46 @@ func (s *CollectRecruitJobDetailRequestJobInfoFullTimeInfo) SetSalaryMonth(v str
 }
 
 type CollectRecruitJobDetailRequestJobInfoPartTimeInfo struct {
-	ContactNumber    *string `json:"contactNumber,omitempty" xml:"contactNumber,omitempty"`
-	SalaryPeriod     *string `json:"salaryPeriod,omitempty" xml:"salaryPeriod,omitempty"`
-	SettleType       *string `json:"settleType,omitempty" xml:"settleType,omitempty"`
-	SpecifyWorkDate  *string `json:"specifyWorkDate,omitempty" xml:"specifyWorkDate,omitempty"`
-	SpecifyWorkTime  *string `json:"specifyWorkTime,omitempty" xml:"specifyWorkTime,omitempty"`
+	// example:
+	//
+	// 158****8718
+	ContactNumber *string `json:"contactNumber,omitempty" xml:"contactNumber,omitempty"`
+	// example:
+	//
+	// MONTH
+	SalaryPeriod *string `json:"salaryPeriod,omitempty" xml:"salaryPeriod,omitempty"`
+	// example:
+	//
+	// MONTH
+	SettleType *string `json:"settleType,omitempty" xml:"settleType,omitempty"`
+	// example:
+	//
+	// N
+	SpecifyWorkDate *string `json:"specifyWorkDate,omitempty" xml:"specifyWorkDate,omitempty"`
+	// example:
+	//
+	// N
+	SpecifyWorkTime *string `json:"specifyWorkTime,omitempty" xml:"specifyWorkTime,omitempty"`
+	// example:
+	//
+	// 480
 	WorkBeginTimeMin *string `json:"workBeginTimeMin,omitempty" xml:"workBeginTimeMin,omitempty"`
-	WorkDateType     *string `json:"workDateType,omitempty" xml:"workDateType,omitempty"`
-	WorkEndDate      *string `json:"workEndDate,omitempty" xml:"workEndDate,omitempty"`
-	WorkEndTimeMin   *string `json:"workEndTimeMin,omitempty" xml:"workEndTimeMin,omitempty"`
-	WorkStartDate    *string `json:"workStartDate,omitempty" xml:"workStartDate,omitempty"`
+	// example:
+	//
+	// WORKDAY
+	WorkDateType *string `json:"workDateType,omitempty" xml:"workDateType,omitempty"`
+	// example:
+	//
+	// 2024-02-18
+	WorkEndDate *string `json:"workEndDate,omitempty" xml:"workEndDate,omitempty"`
+	// example:
+	//
+	// 1080
+	WorkEndTimeMin *string `json:"workEndTimeMin,omitempty" xml:"workEndTimeMin,omitempty"`
+	// example:
+	//
+	// 2023-02-18
+	WorkStartDate *string `json:"workStartDate,omitempty" xml:"workStartDate,omitempty"`
 }
 
 func (s CollectRecruitJobDetailRequestJobInfoPartTimeInfo) String() string {
@@ -692,10 +873,22 @@ func (s *CollectRecruitJobDetailRequestJobInfoPartTimeInfo) SetWorkStartDate(v s
 }
 
 type CollectRecruitJobDetailRequestRecruitUserInfo struct {
-	ExtInfo    *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
-	OutUserId  *string `json:"outUserId,omitempty" xml:"outUserId,omitempty"`
+	// example:
+	//
+	// {"sex":"male"}
+	ExtInfo *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	// example:
+	//
+	// userxxxxx
+	OutUserId *string `json:"outUserId,omitempty" xml:"outUserId,omitempty"`
+	// example:
+	//
+	// 158****8717
 	UserMobile *string `json:"userMobile,omitempty" xml:"userMobile,omitempty"`
-	UserName   *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// example:
+	//
+	// 陈*
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
 func (s CollectRecruitJobDetailRequestRecruitUserInfo) String() string {
@@ -796,15 +989,41 @@ func (s *CollectResumeDetailHeaders) SetXAcsDingtalkAccessToken(v string) *Colle
 }
 
 type CollectResumeDetailRequest struct {
-	BizCode          *string                               `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	ChannelCode      *string                               `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
-	ChannelOuterId   *string                               `json:"channelOuterId,omitempty" xml:"channelOuterId,omitempty"`
-	ChannelTalentId  *string                               `json:"channelTalentId,omitempty" xml:"channelTalentId,omitempty"`
-	DeliverJobId     *string                               `json:"deliverJobId,omitempty" xml:"deliverJobId,omitempty"`
-	OptUserId        *string                               `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
-	ResumeChannelUrl *string                               `json:"resumeChannelUrl,omitempty" xml:"resumeChannelUrl,omitempty"`
-	ResumeData       *CollectResumeDetailRequestResumeData `json:"resumeData,omitempty" xml:"resumeData,omitempty" type:"Struct"`
-	ResumeFile       *CollectResumeDetailRequestResumeFile `json:"resumeFile,omitempty" xml:"resumeFile,omitempty" type:"Struct"`
+	// example:
+	//
+	// ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// example:
+	//
+	// liepin
+	ChannelCode *string `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
+	// example:
+	//
+	// resumexxxxxxxxxx
+	ChannelOuterId *string `json:"channelOuterId,omitempty" xml:"channelOuterId,omitempty"`
+	// example:
+	//
+	// xxxxxx
+	ChannelTalentId *string `json:"channelTalentId,omitempty" xml:"channelTalentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// jobId8fc0d56a605d495ea0214af7axxxxxxx
+	DeliverJobId *string `json:"deliverJobId,omitempty" xml:"deliverJobId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2701606624233xxxxx
+	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+	// example:
+	//
+	// http:www.xxx.com
+	ResumeChannelUrl *string `json:"resumeChannelUrl,omitempty" xml:"resumeChannelUrl,omitempty"`
+	// This parameter is required.
+	ResumeData *CollectResumeDetailRequestResumeData `json:"resumeData,omitempty" xml:"resumeData,omitempty" type:"Struct"`
+	ResumeFile *CollectResumeDetailRequestResumeFile `json:"resumeFile,omitempty" xml:"resumeFile,omitempty" type:"Struct"`
 }
 
 func (s CollectResumeDetailRequest) String() string {
@@ -861,6 +1080,7 @@ func (s *CollectResumeDetailRequest) SetResumeFile(v *CollectResumeDetailRequest
 }
 
 type CollectResumeDetailRequestResumeData struct {
+	// This parameter is required.
 	BaseInfo             *CollectResumeDetailRequestResumeDataBaseInfo               `json:"baseInfo,omitempty" xml:"baseInfo,omitempty" type:"Struct"`
 	Certificates         []*CollectResumeDetailRequestResumeDataCertificates         `json:"certificates,omitempty" xml:"certificates,omitempty" type:"Repeated"`
 	EducationExperiences []*CollectResumeDetailRequestResumeDataEducationExperiences `json:"educationExperiences,omitempty" xml:"educationExperiences,omitempty" type:"Repeated"`
@@ -914,27 +1134,92 @@ func (s *CollectResumeDetailRequestResumeData) SetWorkExperiences(v []*CollectRe
 }
 
 type CollectResumeDetailRequestResumeDataBaseInfo struct {
-	Age              *int32  `json:"age,omitempty" xml:"age,omitempty"`
-	Avatar           *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
-	BeginWorkTime    *string `json:"beginWorkTime,omitempty" xml:"beginWorkTime,omitempty"`
-	Birthday         *string `json:"birthday,omitempty" xml:"birthday,omitempty"`
-	Email            *string `json:"email,omitempty" xml:"email,omitempty"`
-	EnglishName      *string `json:"englishName,omitempty" xml:"englishName,omitempty"`
-	GraduateTime     *string `json:"graduateTime,omitempty" xml:"graduateTime,omitempty"`
-	HighestEducation *int32  `json:"highestEducation,omitempty" xml:"highestEducation,omitempty"`
-	JobTitle         *string `json:"jobTitle,omitempty" xml:"jobTitle,omitempty"`
-	LastSchoolName   *string `json:"lastSchoolName,omitempty" xml:"lastSchoolName,omitempty"`
-	Married          *int32  `json:"married,omitempty" xml:"married,omitempty"`
-	Name             *string `json:"name,omitempty" xml:"name,omitempty"`
-	NativePlace      *string `json:"nativePlace,omitempty" xml:"nativePlace,omitempty"`
-	NowLocation      *string `json:"nowLocation,omitempty" xml:"nowLocation,omitempty"`
-	PersonalHonor    *string `json:"personalHonor,omitempty" xml:"personalHonor,omitempty"`
-	PhoneNum         *string `json:"phoneNum,omitempty" xml:"phoneNum,omitempty"`
-	PoliticalStatus  *int32  `json:"politicalStatus,omitempty" xml:"politicalStatus,omitempty"`
-	SelfEvaluation   *string `json:"selfEvaluation,omitempty" xml:"selfEvaluation,omitempty"`
-	Sex              *int32  `json:"sex,omitempty" xml:"sex,omitempty"`
-	VirtualPhoneNum  *string `json:"virtualPhoneNum,omitempty" xml:"virtualPhoneNum,omitempty"`
-	WorkingYears     *int32  `json:"workingYears,omitempty" xml:"workingYears,omitempty"`
+	// example:
+	//
+	// 18
+	Age *int32 `json:"age,omitempty" xml:"age,omitempty"`
+	// example:
+	//
+	// http://www.xxxx.com
+	Avatar *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
+	// example:
+	//
+	// yyyy-MM-dd
+	BeginWorkTime *string `json:"beginWorkTime,omitempty" xml:"beginWorkTime,omitempty"`
+	// example:
+	//
+	// yyyy-MM-dd
+	Birthday *string `json:"birthday,omitempty" xml:"birthday,omitempty"`
+	// example:
+	//
+	// xxxxxxx@alibaba-inc.com
+	Email *string `json:"email,omitempty" xml:"email,omitempty"`
+	// example:
+	//
+	// Jason
+	EnglishName *string `json:"englishName,omitempty" xml:"englishName,omitempty"`
+	// example:
+	//
+	// yyyy-MM-dd
+	GraduateTime *string `json:"graduateTime,omitempty" xml:"graduateTime,omitempty"`
+	// example:
+	//
+	// 1
+	HighestEducation *int32 `json:"highestEducation,omitempty" xml:"highestEducation,omitempty"`
+	// example:
+	//
+	// java开发工程师
+	JobTitle *string `json:"jobTitle,omitempty" xml:"jobTitle,omitempty"`
+	// example:
+	//
+	// 清华大学
+	LastSchoolName *string `json:"lastSchoolName,omitempty" xml:"lastSchoolName,omitempty"`
+	// example:
+	//
+	// 1
+	Married *int32 `json:"married,omitempty" xml:"married,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 孙先生
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 浙江省杭州市余杭区仓前街道
+	NativePlace *string `json:"nativePlace,omitempty" xml:"nativePlace,omitempty"`
+	// example:
+	//
+	// 浙江省杭州市余杭区仓前街道欧美金融城
+	NowLocation *string `json:"nowLocation,omitempty" xml:"nowLocation,omitempty"`
+	// example:
+	//
+	// 曾获得xxx比赛xxx奖项
+	PersonalHonor *string `json:"personalHonor,omitempty" xml:"personalHonor,omitempty"`
+	// example:
+	//
+	// 187xxxxxxxx
+	PhoneNum *string `json:"phoneNum,omitempty" xml:"phoneNum,omitempty"`
+	// example:
+	//
+	// 1
+	PoliticalStatus *int32 `json:"politicalStatus,omitempty" xml:"politicalStatus,omitempty"`
+	// example:
+	//
+	// 沟通能力强......
+	SelfEvaluation *string `json:"selfEvaluation,omitempty" xml:"selfEvaluation,omitempty"`
+	// example:
+	//
+	// 1
+	Sex *int32 `json:"sex,omitempty" xml:"sex,omitempty"`
+	// example:
+	//
+	// 187xxxxxxxx
+	VirtualPhoneNum *string `json:"virtualPhoneNum,omitempty" xml:"virtualPhoneNum,omitempty"`
+	// example:
+	//
+	// 3
+	WorkingYears *int32 `json:"workingYears,omitempty" xml:"workingYears,omitempty"`
 }
 
 func (s CollectResumeDetailRequestResumeDataBaseInfo) String() string {
@@ -1051,8 +1336,14 @@ func (s *CollectResumeDetailRequestResumeDataBaseInfo) SetWorkingYears(v int32) 
 }
 
 type CollectResumeDetailRequestResumeDataCertificates struct {
+	// example:
+	//
+	// 高级技工证书
 	CertificateName *string `json:"certificateName,omitempty" xml:"certificateName,omitempty"`
-	GrantTime       *string `json:"grantTime,omitempty" xml:"grantTime,omitempty"`
+	// example:
+	//
+	// yyyy-MM-dd
+	GrantTime *string `json:"grantTime,omitempty" xml:"grantTime,omitempty"`
 }
 
 func (s CollectResumeDetailRequestResumeDataCertificates) String() string {
@@ -1074,13 +1365,34 @@ func (s *CollectResumeDetailRequestResumeDataCertificates) SetGrantTime(v string
 }
 
 type CollectResumeDetailRequestResumeDataEducationExperiences struct {
-	Degree      *int32  `json:"degree,omitempty" xml:"degree,omitempty"`
-	Department  *string `json:"department,omitempty" xml:"department,omitempty"`
+	// example:
+	//
+	// 1
+	Degree *int32 `json:"degree,omitempty" xml:"degree,omitempty"`
+	// example:
+	//
+	// 计算机学院
+	Department *string `json:"department,omitempty" xml:"department,omitempty"`
+	// example:
+	//
+	// 在校期间.......
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	EndDate     *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	Major       *string `json:"major,omitempty" xml:"major,omitempty"`
-	SchoolName  *string `json:"schoolName,omitempty" xml:"schoolName,omitempty"`
-	StartDate   *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// example:
+	//
+	// yyyy-MM-dd
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// example:
+	//
+	// 计算机科学与技术
+	Major *string `json:"major,omitempty" xml:"major,omitempty"`
+	// example:
+	//
+	// 清华大学
+	SchoolName *string `json:"schoolName,omitempty" xml:"schoolName,omitempty"`
+	// example:
+	//
+	// yyyy-MM-dd
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
 }
 
 func (s CollectResumeDetailRequestResumeDataEducationExperiences) String() string {
@@ -1127,11 +1439,23 @@ func (s *CollectResumeDetailRequestResumeDataEducationExperiences) SetStartDate(
 }
 
 type CollectResumeDetailRequestResumeDataJobExpect struct {
-	JobName     *string   `json:"jobName,omitempty" xml:"jobName,omitempty"`
-	Locations   []*string `json:"locations,omitempty" xml:"locations,omitempty" type:"Repeated"`
-	MaxSalary   *string   `json:"maxSalary,omitempty" xml:"maxSalary,omitempty"`
-	MinSalary   *string   `json:"minSalary,omitempty" xml:"minSalary,omitempty"`
-	OnboardTime *string   `json:"onboardTime,omitempty" xml:"onboardTime,omitempty"`
+	// example:
+	//
+	// Java开发工程师
+	JobName   *string   `json:"jobName,omitempty" xml:"jobName,omitempty"`
+	Locations []*string `json:"locations,omitempty" xml:"locations,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 8000
+	MaxSalary *string `json:"maxSalary,omitempty" xml:"maxSalary,omitempty"`
+	// example:
+	//
+	// 3000
+	MinSalary *string `json:"minSalary,omitempty" xml:"minSalary,omitempty"`
+	// example:
+	//
+	// yyyy-MM-dd
+	OnboardTime *string `json:"onboardTime,omitempty" xml:"onboardTime,omitempty"`
 }
 
 func (s CollectResumeDetailRequestResumeDataJobExpect) String() string {
@@ -1168,8 +1492,14 @@ func (s *CollectResumeDetailRequestResumeDataJobExpect) SetOnboardTime(v string)
 }
 
 type CollectResumeDetailRequestResumeDataLanguageSkill struct {
+	// example:
+	//
+	// 大学英语六级
 	CertificateName *string `json:"certificateName,omitempty" xml:"certificateName,omitempty"`
-	LanguageName    *string `json:"languageName,omitempty" xml:"languageName,omitempty"`
+	// example:
+	//
+	// 英语
+	LanguageName *string `json:"languageName,omitempty" xml:"languageName,omitempty"`
 }
 
 func (s CollectResumeDetailRequestResumeDataLanguageSkill) String() string {
@@ -1191,12 +1521,30 @@ func (s *CollectResumeDetailRequestResumeDataLanguageSkill) SetLanguageName(v st
 }
 
 type CollectResumeDetailRequestResumeDataTrainingExperiences struct {
-	Description     *string `json:"description,omitempty" xml:"description,omitempty"`
-	EndDate         *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// example:
+	//
+	// 培训期间，学习了xxxx技能，获取xxxx证书。
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// example:
+	//
+	// yyyy-MM-dd
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// example:
+	//
+	// 新东方挖掘机学校
 	InstitutionName *string `json:"institutionName,omitempty" xml:"institutionName,omitempty"`
-	Location        *string `json:"location,omitempty" xml:"location,omitempty"`
-	Name            *string `json:"name,omitempty" xml:"name,omitempty"`
-	StartDate       *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// example:
+	//
+	// 浙江省杭州市余杭区
+	Location *string `json:"location,omitempty" xml:"location,omitempty"`
+	// example:
+	//
+	// 挖掘机专业技能培训
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// yyyy-MM-dd
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
 }
 
 func (s CollectResumeDetailRequestResumeDataTrainingExperiences) String() string {
@@ -1238,14 +1586,38 @@ func (s *CollectResumeDetailRequestResumeDataTrainingExperiences) SetStartDate(v
 }
 
 type CollectResumeDetailRequestResumeDataWorkExperiences struct {
-	CompanyName    *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
-	Department     *string `json:"department,omitempty" xml:"department,omitempty"`
-	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
-	EndDate        *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
-	JobTitle       *string `json:"jobTitle,omitempty" xml:"jobTitle,omitempty"`
-	Location       *string `json:"location,omitempty" xml:"location,omitempty"`
+	// example:
+	//
+	// 钉钉（中国）信息技术有限公司
+	CompanyName *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
+	// example:
+	//
+	// 智能人事
+	Department *string `json:"department,omitempty" xml:"department,omitempty"`
+	// example:
+	//
+	// 工作期间负责......取得了......成果
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// example:
+	//
+	// yyyy-MM-dd
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// example:
+	//
+	// Java开发工程师
+	JobTitle *string `json:"jobTitle,omitempty" xml:"jobTitle,omitempty"`
+	// example:
+	//
+	// 杭州
+	Location *string `json:"location,omitempty" xml:"location,omitempty"`
+	// example:
+	//
+	// 负责......
 	Responsibility *string `json:"responsibility,omitempty" xml:"responsibility,omitempty"`
-	StartDate      *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// example:
+	//
+	// yyyy-MM-dd
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
 }
 
 func (s CollectResumeDetailRequestResumeDataWorkExperiences) String() string {
@@ -1297,9 +1669,18 @@ func (s *CollectResumeDetailRequestResumeDataWorkExperiences) SetStartDate(v str
 }
 
 type CollectResumeDetailRequestResumeFile struct {
+	// example:
+	//
+	// http:www.xxx.com
 	DownloadUrl *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
-	FileName    *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FileType    *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// example:
+	//
+	// xxx.pdf
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// example:
+	//
+	// pdf
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
 }
 
 func (s CollectResumeDetailRequestResumeFile) String() string {
@@ -1395,19 +1776,61 @@ func (s *CollectResumeMailHeaders) SetXAcsDingtalkAccessToken(v string) *Collect
 }
 
 type CollectResumeMailRequest struct {
-	BizCode            *string                             `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	ChannelCode        *string                             `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
-	DeliverJobId       *string                             `json:"deliverJobId,omitempty" xml:"deliverJobId,omitempty"`
-	FromMailAddress    *string                             `json:"fromMailAddress,omitempty" xml:"fromMailAddress,omitempty"`
-	HistoryMailImport  *bool                               `json:"historyMailImport,omitempty" xml:"historyMailImport,omitempty"`
-	MailId             *string                             `json:"mailId,omitempty" xml:"mailId,omitempty"`
-	MailTitle          *string                             `json:"mailTitle,omitempty" xml:"mailTitle,omitempty"`
-	OptUserId          *string                             `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
-	ReceiveMailAddress *string                             `json:"receiveMailAddress,omitempty" xml:"receiveMailAddress,omitempty"`
-	ReceiveMailType    *int32                              `json:"receiveMailType,omitempty" xml:"receiveMailType,omitempty"`
-	ReceivedTime       *int64                              `json:"receivedTime,omitempty" xml:"receivedTime,omitempty"`
-	ResumeChannelUrl   *string                             `json:"resumeChannelUrl,omitempty" xml:"resumeChannelUrl,omitempty"`
-	ResumeFile         *CollectResumeMailRequestResumeFile `json:"resumeFile,omitempty" xml:"resumeFile,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// liepin
+	ChannelCode *string `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
+	// example:
+	//
+	// jobId8fc0d56a605d495ea0214af7axxxxxxx
+	DeliverJobId *string `json:"deliverJobId,omitempty" xml:"deliverJobId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx@163.com
+	FromMailAddress   *string `json:"fromMailAddress,omitempty" xml:"fromMailAddress,omitempty"`
+	HistoryMailImport *bool   `json:"historyMailImport,omitempty" xml:"historyMailImport,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxxxxxx
+	MailId *string `json:"mailId,omitempty" xml:"mailId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxxx应聘贵公司xxx职位
+	MailTitle *string `json:"mailTitle,omitempty" xml:"mailTitle,omitempty"`
+	// example:
+	//
+	// 2701606624233xxxxx
+	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx@163.com
+	ReceiveMailAddress *string `json:"receiveMailAddress,omitempty" xml:"receiveMailAddress,omitempty"`
+	// This parameter is required.
+	ReceiveMailType *int32 `json:"receiveMailType,omitempty" xml:"receiveMailType,omitempty"`
+	// This parameter is required.
+	ReceivedTime *int64 `json:"receivedTime,omitempty" xml:"receivedTime,omitempty"`
+	// example:
+	//
+	// http:www.xxx.com
+	ResumeChannelUrl *string `json:"resumeChannelUrl,omitempty" xml:"resumeChannelUrl,omitempty"`
+	// This parameter is required.
+	ResumeFile *CollectResumeMailRequestResumeFile `json:"resumeFile,omitempty" xml:"resumeFile,omitempty" type:"Struct"`
 }
 
 func (s CollectResumeMailRequest) String() string {
@@ -1484,9 +1907,24 @@ func (s *CollectResumeMailRequest) SetResumeFile(v *CollectResumeMailRequestResu
 }
 
 type CollectResumeMailRequestResumeFile struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// http:www.xxx.com
 	DownloadUrl *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
-	FileName    *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FileType    *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx的简历.pdf
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// pdf
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
 }
 
 func (s CollectResumeMailRequestResumeFile) String() string {
@@ -1582,6 +2020,9 @@ func (s *ConfirmRightsHeaders) SetXAcsDingtalkAccessToken(v string) *ConfirmRigh
 }
 
 type ConfirmRightsRequest struct {
+	// example:
+	//
+	// ddats
 	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
 }
 
@@ -1599,6 +2040,11 @@ func (s *ConfirmRightsRequest) SetBizCode(v string) *ConfirmRightsRequest {
 }
 
 type ConfirmRightsResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1668,7 +2114,15 @@ func (s *FinishBeginnerTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Finish
 }
 
 type FinishBeginnerTaskRequest struct {
-	Scope  *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	// example:
+	//
+	// advancedBeginnerTask
+	Scope *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager5875
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -1691,6 +2145,11 @@ func (s *FinishBeginnerTaskRequest) SetUserId(v string) *FinishBeginnerTaskReque
 }
 
 type FinishBeginnerTaskResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1760,6 +2219,9 @@ func (s *GetApplicationRegFormByFlowIdHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type GetApplicationRegFormByFlowIdRequest struct {
+	// example:
+	//
+	// ddats
 	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
 }
 
@@ -1777,16 +2239,66 @@ func (s *GetApplicationRegFormByFlowIdRequest) SetBizCode(v string) *GetApplicat
 }
 
 type GetApplicationRegFormByFlowIdResponseBody struct {
-	CandidateId       *string `json:"candidateId,omitempty" xml:"candidateId,omitempty"`
-	CreatorUserId     *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	FlowId            *string `json:"flowId,omitempty" xml:"flowId,omitempty"`
-	FormId            *string `json:"formId,omitempty" xml:"formId,omitempty"`
-	GmtCreateMillis   *int64  `json:"gmtCreateMillis,omitempty" xml:"gmtCreateMillis,omitempty"`
-	GmtModifiedMillis *int64  `json:"gmtModifiedMillis,omitempty" xml:"gmtModifiedMillis,omitempty"`
-	JobId             *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
-	Status            *int32  `json:"status,omitempty" xml:"status,omitempty"`
-	TemplateId        *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	TemplateVersion   *int32  `json:"templateVersion,omitempty" xml:"templateVersion,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	CandidateId *string `json:"candidateId,omitempty" xml:"candidateId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager5875
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// flowXXX
+	FlowId *string `json:"flowId,omitempty" xml:"flowId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// formXXX
+	FormId *string `json:"formId,omitempty" xml:"formId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1626775016427
+	GmtCreateMillis *int64 `json:"gmtCreateMillis,omitempty" xml:"gmtCreateMillis,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1626775016427
+	GmtModifiedMillis *int64 `json:"gmtModifiedMillis,omitempty" xml:"gmtModifiedMillis,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// jobXXX
+	JobId *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// templateXXX
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	TemplateVersion *int32 `json:"templateVersion,omitempty" xml:"templateVersion,omitempty"`
 }
 
 func (s GetApplicationRegFormByFlowIdResponseBody) String() string {
@@ -1900,7 +2412,15 @@ func (s *GetCandidateByPhoneNumberHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type GetCandidateByPhoneNumberRequest struct {
-	BizCode     *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// example:
+	//
+	// ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 13688888888
 	PhoneNumber *string `json:"phoneNumber,omitempty" xml:"phoneNumber,omitempty"`
 }
 
@@ -1923,8 +2443,16 @@ func (s *GetCandidateByPhoneNumberRequest) SetPhoneNumber(v string) *GetCandidat
 }
 
 type GetCandidateByPhoneNumberResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
 	CandidateId *string `json:"candidateId,omitempty" xml:"candidateId,omitempty"`
-	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 张三
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s GetCandidateByPhoneNumberResponseBody) String() string {
@@ -1998,10 +2526,31 @@ func (s *GetFileUploadInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetFile
 }
 
 type GetFileUploadInfoRequest struct {
-	BizCode  *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// example:
+	//
+	// ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三的简历
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FileSize *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	Md5      *string `json:"md5,omitempty" xml:"md5,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1024
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	Md5 *string `json:"md5,omitempty" xml:"md5,omitempty"`
+	// example:
+	//
+	// manager5875
 	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
@@ -2039,13 +2588,48 @@ func (s *GetFileUploadInfoRequest) SetOpUserId(v string) *GetFileUploadInfoReque
 }
 
 type GetFileUploadInfoResponseBody struct {
-	AccessKeyId                 *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
-	AccessKeySecret             *string `json:"accessKeySecret,omitempty" xml:"accessKeySecret,omitempty"`
-	AccessToken                 *string `json:"accessToken,omitempty" xml:"accessToken,omitempty"`
-	AccessTokenExpirationMillis *int64  `json:"accessTokenExpirationMillis,omitempty" xml:"accessTokenExpirationMillis,omitempty"`
-	Bucket                      *string `json:"bucket,omitempty" xml:"bucket,omitempty"`
-	EndPoint                    *string `json:"endPoint,omitempty" xml:"endPoint,omitempty"`
-	MediaId                     *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	AccessKeySecret *string `json:"accessKeySecret,omitempty" xml:"accessKeySecret,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	AccessToken *string `json:"accessToken,omitempty" xml:"accessToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1626923829000
+	AccessTokenExpirationMillis *int64 `json:"accessTokenExpirationMillis,omitempty" xml:"accessTokenExpirationMillis,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lippi-space-zjk
+	Bucket *string `json:"bucket,omitempty" xml:"bucket,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// oss-cn-zhangjiakou.aliyuncs.com
+	EndPoint *string `json:"endPoint,omitempty" xml:"endPoint,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
 }
 
 func (s GetFileUploadInfoResponseBody) String() string {
@@ -2144,8 +2728,21 @@ func (s *GetFlowIdByRelationEntityIdHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type GetFlowIdByRelationEntityIdRequest struct {
-	BizCode          *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	RelationEntity   *string `json:"relationEntity,omitempty" xml:"relationEntity,omitempty"`
+	// example:
+	//
+	// ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// interview
+	RelationEntity *string `json:"relationEntity,omitempty" xml:"relationEntity,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
 	RelationEntityId *string `json:"relationEntityId,omitempty" xml:"relationEntityId,omitempty"`
 }
 
@@ -2173,6 +2770,11 @@ func (s *GetFlowIdByRelationEntityIdRequest) SetRelationEntityId(v string) *GetF
 }
 
 type GetFlowIdByRelationEntityIdResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
 	FlowId *string `json:"flowId,omitempty" xml:"flowId,omitempty"`
 }
 
@@ -2333,6 +2935,262 @@ func (s *GetJobAuthResponse) SetBody(v *GetJobAuthResponseBody) *GetJobAuthRespo
 	return s
 }
 
+type ImportJobDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ImportJobDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportJobDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ImportJobDataHeaders) SetCommonHeaders(v map[string]*string) *ImportJobDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ImportJobDataHeaders) SetXAcsDingtalkAccessToken(v string) *ImportJobDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ImportJobDataRequest struct {
+	// This parameter is required.
+	Body []*ImportJobDataRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+}
+
+func (s ImportJobDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportJobDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ImportJobDataRequest) SetBody(v []*ImportJobDataRequestBody) *ImportJobDataRequest {
+	s.Body = v
+	return s
+}
+
+type ImportJobDataRequestBody struct {
+	// This parameter is required.
+	Address *ImportJobDataRequestBodyAddress `json:"address,omitempty" xml:"address,omitempty" type:"Struct"`
+	// This parameter is required.
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// This parameter is required.
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// This parameter is required.
+	Experience  *string                              `json:"experience,omitempty" xml:"experience,omitempty"`
+	FullTimeExt *ImportJobDataRequestBodyFullTimeExt `json:"fullTimeExt,omitempty" xml:"fullTimeExt,omitempty" type:"Struct"`
+	// This parameter is required.
+	JobNature *string `json:"jobNature,omitempty" xml:"jobNature,omitempty"`
+	// This parameter is required.
+	MaxSalary *int64 `json:"maxSalary,omitempty" xml:"maxSalary,omitempty"`
+	// This parameter is required.
+	MinSalary *int64 `json:"minSalary,omitempty" xml:"minSalary,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	RequiredEdu *int32 `json:"requiredEdu,omitempty" xml:"requiredEdu,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ImportJobDataRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportJobDataRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *ImportJobDataRequestBody) SetAddress(v *ImportJobDataRequestBodyAddress) *ImportJobDataRequestBody {
+	s.Address = v
+	return s
+}
+
+func (s *ImportJobDataRequestBody) SetCategory(v string) *ImportJobDataRequestBody {
+	s.Category = &v
+	return s
+}
+
+func (s *ImportJobDataRequestBody) SetDescription(v string) *ImportJobDataRequestBody {
+	s.Description = &v
+	return s
+}
+
+func (s *ImportJobDataRequestBody) SetExperience(v string) *ImportJobDataRequestBody {
+	s.Experience = &v
+	return s
+}
+
+func (s *ImportJobDataRequestBody) SetFullTimeExt(v *ImportJobDataRequestBodyFullTimeExt) *ImportJobDataRequestBody {
+	s.FullTimeExt = v
+	return s
+}
+
+func (s *ImportJobDataRequestBody) SetJobNature(v string) *ImportJobDataRequestBody {
+	s.JobNature = &v
+	return s
+}
+
+func (s *ImportJobDataRequestBody) SetMaxSalary(v int64) *ImportJobDataRequestBody {
+	s.MaxSalary = &v
+	return s
+}
+
+func (s *ImportJobDataRequestBody) SetMinSalary(v int64) *ImportJobDataRequestBody {
+	s.MinSalary = &v
+	return s
+}
+
+func (s *ImportJobDataRequestBody) SetName(v string) *ImportJobDataRequestBody {
+	s.Name = &v
+	return s
+}
+
+func (s *ImportJobDataRequestBody) SetRequiredEdu(v int32) *ImportJobDataRequestBody {
+	s.RequiredEdu = &v
+	return s
+}
+
+func (s *ImportJobDataRequestBody) SetUserId(v string) *ImportJobDataRequestBody {
+	s.UserId = &v
+	return s
+}
+
+type ImportJobDataRequestBodyAddress struct {
+	// This parameter is required.
+	CityCode   *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	CustomName *string `json:"customName,omitempty" xml:"customName,omitempty"`
+	// This parameter is required.
+	DistrictCode *string `json:"districtCode,omitempty" xml:"districtCode,omitempty"`
+	// This parameter is required.
+	Latitude *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	// This parameter is required.
+	Longitude *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	ProvinceCode *string `json:"provinceCode,omitempty" xml:"provinceCode,omitempty"`
+}
+
+func (s ImportJobDataRequestBodyAddress) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportJobDataRequestBodyAddress) GoString() string {
+	return s.String()
+}
+
+func (s *ImportJobDataRequestBodyAddress) SetCityCode(v string) *ImportJobDataRequestBodyAddress {
+	s.CityCode = &v
+	return s
+}
+
+func (s *ImportJobDataRequestBodyAddress) SetCustomName(v string) *ImportJobDataRequestBodyAddress {
+	s.CustomName = &v
+	return s
+}
+
+func (s *ImportJobDataRequestBodyAddress) SetDistrictCode(v string) *ImportJobDataRequestBodyAddress {
+	s.DistrictCode = &v
+	return s
+}
+
+func (s *ImportJobDataRequestBodyAddress) SetLatitude(v string) *ImportJobDataRequestBodyAddress {
+	s.Latitude = &v
+	return s
+}
+
+func (s *ImportJobDataRequestBodyAddress) SetLongitude(v string) *ImportJobDataRequestBodyAddress {
+	s.Longitude = &v
+	return s
+}
+
+func (s *ImportJobDataRequestBodyAddress) SetName(v string) *ImportJobDataRequestBodyAddress {
+	s.Name = &v
+	return s
+}
+
+func (s *ImportJobDataRequestBodyAddress) SetProvinceCode(v string) *ImportJobDataRequestBodyAddress {
+	s.ProvinceCode = &v
+	return s
+}
+
+type ImportJobDataRequestBodyFullTimeExt struct {
+	SalaryMonth *int32 `json:"salaryMonth,omitempty" xml:"salaryMonth,omitempty"`
+}
+
+func (s ImportJobDataRequestBodyFullTimeExt) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportJobDataRequestBodyFullTimeExt) GoString() string {
+	return s.String()
+}
+
+func (s *ImportJobDataRequestBodyFullTimeExt) SetSalaryMonth(v int32) *ImportJobDataRequestBodyFullTimeExt {
+	s.SalaryMonth = &v
+	return s
+}
+
+type ImportJobDataResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ImportJobDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportJobDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ImportJobDataResponseBody) SetResult(v string) *ImportJobDataResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *ImportJobDataResponseBody) SetSuccess(v bool) *ImportJobDataResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ImportJobDataResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ImportJobDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ImportJobDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportJobDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ImportJobDataResponse) SetHeaders(v map[string]*string) *ImportJobDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ImportJobDataResponse) SetStatusCode(v int32) *ImportJobDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ImportJobDataResponse) SetBody(v *ImportJobDataResponseBody) *ImportJobDataResponse {
+	s.Body = v
+	return s
+}
+
 type QueryCandidatesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2357,10 +3215,26 @@ func (s *QueryCandidatesHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCand
 }
 
 type QueryCandidatesRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	StatId     *string `json:"statId,omitempty" xml:"statId,omitempty"`
-	OpUserId   *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// example:
+	//
+	// 20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 154XXX
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// entry
+	StatId *string `json:"statId,omitempty" xml:"statId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 013224566462XXXXXXXXXX
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
 }
 
 func (s QueryCandidatesRequest) String() string {
@@ -2392,10 +3266,16 @@ func (s *QueryCandidatesRequest) SetOpUserId(v string) *QueryCandidatesRequest {
 }
 
 type QueryCandidatesResponseBody struct {
-	HasMore    *bool                              `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	List       []*QueryCandidatesResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	NextToken  *int64                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	TotalCount *int64                             `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	HasMore *bool                              `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*QueryCandidatesResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// example:
+	//
+	// xxxxxx
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s QueryCandidatesResponseBody) String() string {
@@ -2427,10 +3307,22 @@ func (s *QueryCandidatesResponseBody) SetTotalCount(v int64) *QueryCandidatesRes
 }
 
 type QueryCandidatesResponseBodyList struct {
+	// example:
+	//
+	// 64167133e3394c6b9959eexxxxxxxxxx
 	CandidateId *string `json:"candidateId,omitempty" xml:"candidateId,omitempty"`
-	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	EntryDate   *int32  `json:"entryDate,omitempty" xml:"entryDate,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// ding2c0158xxxxxxxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 1701014400000
+	EntryDate *int32 `json:"entryDate,omitempty" xml:"entryDate,omitempty"`
+	// example:
+	//
+	// 013224566462xxxxxxxxxx
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryCandidatesResponseBodyList) String() string {
@@ -2514,12 +3406,36 @@ func (s *QueryInterviewsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryInte
 }
 
 type QueryInterviewsRequest struct {
-	BizCode              *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	CandidateId          *string `json:"candidateId,omitempty" xml:"candidateId,omitempty"`
-	StartTimeBeginMillis *int64  `json:"startTimeBeginMillis,omitempty" xml:"startTimeBeginMillis,omitempty"`
-	StartTimeEndMillis   *int64  `json:"startTimeEndMillis,omitempty" xml:"startTimeEndMillis,omitempty"`
-	NextToken            *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Size                 *int64  `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	CandidateId *string `json:"candidateId,omitempty" xml:"candidateId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1626796800000
+	StartTimeBeginMillis *int64 `json:"startTimeBeginMillis,omitempty" xml:"startTimeBeginMillis,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1626883199000
+	StartTimeEndMillis *int64 `json:"startTimeEndMillis,omitempty" xml:"startTimeEndMillis,omitempty"`
+	// example:
+	//
+	// xxx
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 10
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
 }
 
 func (s QueryInterviewsRequest) String() string {
@@ -2561,10 +3477,19 @@ func (s *QueryInterviewsRequest) SetSize(v int64) *QueryInterviewsRequest {
 }
 
 type QueryInterviewsResponseBody struct {
-	HasMore    *bool                              `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	List       []*QueryInterviewsResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	NextToken  *string                            `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	TotalCount *int64                             `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// example:
+	//
+	// true
+	HasMore *bool                              `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*QueryInterviewsResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// example:
+	//
+	// xxx
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 总数量
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s QueryInterviewsResponseBody) String() string {
@@ -2596,13 +3521,31 @@ func (s *QueryInterviewsResponseBody) SetTotalCount(v int64) *QueryInterviewsRes
 }
 
 type QueryInterviewsResponseBodyList struct {
-	Cancelled       *bool                                          `json:"cancelled,omitempty" xml:"cancelled,omitempty"`
-	CreatorUserId   *string                                        `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	EndTimeMillis   *int64                                         `json:"endTimeMillis,omitempty" xml:"endTimeMillis,omitempty"`
-	InterviewId     *string                                        `json:"interviewId,omitempty" xml:"interviewId,omitempty"`
-	Interviewers    []*QueryInterviewsResponseBodyListInterviewers `json:"interviewers,omitempty" xml:"interviewers,omitempty" type:"Repeated"`
-	JobId           *string                                        `json:"jobId,omitempty" xml:"jobId,omitempty"`
-	StartTimeMillis *int64                                         `json:"startTimeMillis,omitempty" xml:"startTimeMillis,omitempty"`
+	// example:
+	//
+	// false
+	Cancelled *bool `json:"cancelled,omitempty" xml:"cancelled,omitempty"`
+	// example:
+	//
+	// xxx
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// example:
+	//
+	// 1626861600000
+	EndTimeMillis *int64 `json:"endTimeMillis,omitempty" xml:"endTimeMillis,omitempty"`
+	// example:
+	//
+	// xxx
+	InterviewId  *string                                        `json:"interviewId,omitempty" xml:"interviewId,omitempty"`
+	Interviewers []*QueryInterviewsResponseBodyListInterviewers `json:"interviewers,omitempty" xml:"interviewers,omitempty" type:"Repeated"`
+	// example:
+	//
+	// xxx
+	JobId *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
+	// example:
+	//
+	// 1626858000000
+	StartTimeMillis *int64 `json:"startTimeMillis,omitempty" xml:"startTimeMillis,omitempty"`
 }
 
 func (s QueryInterviewsResponseBodyList) String() string {
@@ -2649,6 +3592,9 @@ func (s *QueryInterviewsResponseBodyList) SetStartTimeMillis(v int64) *QueryInte
 }
 
 type QueryInterviewsResponseBodyListInterviewers struct {
+	// example:
+	//
+	// xxx
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -2718,13 +3664,34 @@ func (s *ReportMessageStatusHeaders) SetXAcsDingtalkAccessToken(v string) *Repor
 }
 
 type ReportMessageStatusRequest struct {
-	BizCode        *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	Channel        *string `json:"channel,omitempty" xml:"channel,omitempty"`
-	ErrorCode      *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	ErrorMsg       *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	MessageId      *string `json:"messageId,omitempty" xml:"messageId,omitempty"`
+	// example:
+	//
+	// ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// example:
+	//
+	// corp-ABC-prd
+	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
+	// example:
+	//
+	// INVALID_USER
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// 无效用户
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// 594c5b30-57bd-4001-8903-4dc64cdc6739
+	MessageId *string `json:"messageId,omitempty" xml:"messageId,omitempty"`
+	// example:
+	//
+	// AppUid@Channel
 	ReceiverUserId *string `json:"receiverUserId,omitempty" xml:"receiverUserId,omitempty"`
-	SenderUserId   *string `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
+	// example:
+	//
+	// AppUid@Channel
+	SenderUserId *string `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
 }
 
 func (s ReportMessageStatusRequest) String() string {
@@ -2840,13 +3807,34 @@ func (s *SyncChannelMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SyncCh
 }
 
 type SyncChannelMessageRequest struct {
-	BizCode        *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	Channel        *string `json:"channel,omitempty" xml:"channel,omitempty"`
-	Content        *string `json:"content,omitempty" xml:"content,omitempty"`
-	CreateTime     *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// example:
+	//
+	// Corp-ABC-prd
+	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
+	// example:
+	//
+	// {"msgtype":"text","text":{"content":"月会通知"}}
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 1667964772048
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// AppUid@Channel
 	ReceiverUserId *string `json:"receiverUserId,omitempty" xml:"receiverUserId,omitempty"`
-	SenderUserId   *string `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
-	Uuid           *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// AppUid@Channel
+	SenderUserId *string `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
+	// example:
+	//
+	// 594c5b30-57bd-4001-8903-4dc64cdc6739
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s SyncChannelMessageRequest) String() string {
@@ -2938,6 +3926,417 @@ func (s *SyncChannelMessageResponse) SetBody(v *SyncChannelMessageResponseBody) 
 	return s
 }
 
+type SyncInterviewInfoToAIInterviewAssistantHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantHeaders) SetCommonHeaders(v map[string]*string) *SyncInterviewInfoToAIInterviewAssistantHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantHeaders) SetXAcsDingtalkAccessToken(v string) *SyncInterviewInfoToAIInterviewAssistantHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncInterviewInfoToAIInterviewAssistantRequest struct {
+	CandidateInfoVOList   []*SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOList   `json:"candidateInfoVOList,omitempty" xml:"candidateInfoVOList,omitempty" type:"Repeated"`
+	ConferenceInfoVO      *SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVO        `json:"conferenceInfoVO,omitempty" xml:"conferenceInfoVO,omitempty" type:"Struct"`
+	InterviewEndTime      *int64                                                                 `json:"interviewEndTime,omitempty" xml:"interviewEndTime,omitempty"`
+	InterviewId           *string                                                                `json:"interviewId,omitempty" xml:"interviewId,omitempty"`
+	InterviewStartTime    *int64                                                                 `json:"interviewStartTime,omitempty" xml:"interviewStartTime,omitempty"`
+	InterviewType         *string                                                                `json:"interviewType,omitempty" xml:"interviewType,omitempty"`
+	InterviewerInfoVOList []*SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOList `json:"interviewerInfoVOList,omitempty" xml:"interviewerInfoVOList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// moka
+	IsvId        *string                                                     `json:"isvId,omitempty" xml:"isvId,omitempty"`
+	JobContentVO *SyncInterviewInfoToAIInterviewAssistantRequestJobContentVO `json:"jobContentVO,omitempty" xml:"jobContentVO,omitempty" type:"Struct"`
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequest) SetCandidateInfoVOList(v []*SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOList) *SyncInterviewInfoToAIInterviewAssistantRequest {
+	s.CandidateInfoVOList = v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequest) SetConferenceInfoVO(v *SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVO) *SyncInterviewInfoToAIInterviewAssistantRequest {
+	s.ConferenceInfoVO = v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequest) SetInterviewEndTime(v int64) *SyncInterviewInfoToAIInterviewAssistantRequest {
+	s.InterviewEndTime = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequest) SetInterviewId(v string) *SyncInterviewInfoToAIInterviewAssistantRequest {
+	s.InterviewId = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequest) SetInterviewStartTime(v int64) *SyncInterviewInfoToAIInterviewAssistantRequest {
+	s.InterviewStartTime = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequest) SetInterviewType(v string) *SyncInterviewInfoToAIInterviewAssistantRequest {
+	s.InterviewType = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequest) SetInterviewerInfoVOList(v []*SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOList) *SyncInterviewInfoToAIInterviewAssistantRequest {
+	s.InterviewerInfoVOList = v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequest) SetIsvId(v string) *SyncInterviewInfoToAIInterviewAssistantRequest {
+	s.IsvId = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequest) SetJobContentVO(v *SyncInterviewInfoToAIInterviewAssistantRequestJobContentVO) *SyncInterviewInfoToAIInterviewAssistantRequest {
+	s.JobContentVO = v
+	return s
+}
+
+type SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOList struct {
+	BizCandidateId             *string                                                                                        `json:"bizCandidateId,omitempty" xml:"bizCandidateId,omitempty"`
+	HistoryInterviewInfoVOList []*SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOList `json:"historyInterviewInfoVOList,omitempty" xml:"historyInterviewInfoVOList,omitempty" type:"Repeated"`
+	Name                       *string                                                                                        `json:"name,omitempty" xml:"name,omitempty"`
+	Phone                      *string                                                                                        `json:"phone,omitempty" xml:"phone,omitempty"`
+	ResumeContent              *string                                                                                        `json:"resumeContent,omitempty" xml:"resumeContent,omitempty"`
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOList) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOList) SetBizCandidateId(v string) *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOList {
+	s.BizCandidateId = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOList) SetHistoryInterviewInfoVOList(v []*SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOList) *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOList {
+	s.HistoryInterviewInfoVOList = v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOList) SetName(v string) *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOList {
+	s.Name = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOList) SetPhone(v string) *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOList {
+	s.Phone = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOList) SetResumeContent(v string) *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOList {
+	s.ResumeContent = &v
+	return s
+}
+
+type SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOList struct {
+	AiInterviewHistoryEvaluationContentList []*SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOListAiInterviewHistoryEvaluationContentList `json:"aiInterviewHistoryEvaluationContentList,omitempty" xml:"aiInterviewHistoryEvaluationContentList,omitempty" type:"Repeated"`
+	CanViewUserIdList                       []*string                                                                                                                             `json:"canViewUserIdList,omitempty" xml:"canViewUserIdList,omitempty" type:"Repeated"`
+	HistoryInterviewId                      *string                                                                                                                               `json:"historyInterviewId,omitempty" xml:"historyInterviewId,omitempty"`
+	HistoryInterviewRounds                  *string                                                                                                                               `json:"historyInterviewRounds,omitempty" xml:"historyInterviewRounds,omitempty"`
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOList) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOList) SetAiInterviewHistoryEvaluationContentList(v []*SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOListAiInterviewHistoryEvaluationContentList) *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOList {
+	s.AiInterviewHistoryEvaluationContentList = v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOList) SetCanViewUserIdList(v []*string) *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOList {
+	s.CanViewUserIdList = v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOList) SetHistoryInterviewId(v string) *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOList {
+	s.HistoryInterviewId = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOList) SetHistoryInterviewRounds(v string) *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOList {
+	s.HistoryInterviewRounds = &v
+	return s
+}
+
+type SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOListAiInterviewHistoryEvaluationContentList struct {
+	HistoryInterviewContent *string `json:"historyInterviewContent,omitempty" xml:"historyInterviewContent,omitempty"`
+	InterviewerUserId       *string `json:"interviewerUserId,omitempty" xml:"interviewerUserId,omitempty"`
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOListAiInterviewHistoryEvaluationContentList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOListAiInterviewHistoryEvaluationContentList) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOListAiInterviewHistoryEvaluationContentList) SetHistoryInterviewContent(v string) *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOListAiInterviewHistoryEvaluationContentList {
+	s.HistoryInterviewContent = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOListAiInterviewHistoryEvaluationContentList) SetInterviewerUserId(v string) *SyncInterviewInfoToAIInterviewAssistantRequestCandidateInfoVOListHistoryInterviewInfoVOListAiInterviewHistoryEvaluationContentList {
+	s.InterviewerUserId = &v
+	return s
+}
+
+type SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVO struct {
+	ConferenceBookerInfoVO *SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVOConferenceBookerInfoVO `json:"conferenceBookerInfoVO,omitempty" xml:"conferenceBookerInfoVO,omitempty" type:"Struct"`
+	RoomCode               *string                                                                               `json:"roomCode,omitempty" xml:"roomCode,omitempty"`
+	ScheduleConferenceId   *string                                                                               `json:"scheduleConferenceId,omitempty" xml:"scheduleConferenceId,omitempty"`
+	ScheduleConferenceUrl  *string                                                                               `json:"scheduleConferenceUrl,omitempty" xml:"scheduleConferenceUrl,omitempty"`
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVO) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVO) SetConferenceBookerInfoVO(v *SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVOConferenceBookerInfoVO) *SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVO {
+	s.ConferenceBookerInfoVO = v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVO) SetRoomCode(v string) *SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVO {
+	s.RoomCode = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVO) SetScheduleConferenceId(v string) *SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVO {
+	s.ScheduleConferenceId = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVO) SetScheduleConferenceUrl(v string) *SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVO {
+	s.ScheduleConferenceUrl = &v
+	return s
+}
+
+type SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVOConferenceBookerInfoVO struct {
+	Id   *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVOConferenceBookerInfoVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVOConferenceBookerInfoVO) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVOConferenceBookerInfoVO) SetId(v string) *SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVOConferenceBookerInfoVO {
+	s.Id = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVOConferenceBookerInfoVO) SetName(v string) *SyncInterviewInfoToAIInterviewAssistantRequestConferenceInfoVOConferenceBookerInfoVO {
+	s.Name = &v
+	return s
+}
+
+type SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOList struct {
+	Id                              *string                                                                                             `json:"id,omitempty" xml:"id,omitempty"`
+	InterviewEvaluationFormConfigVO *SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOListInterviewEvaluationFormConfigVO `json:"interviewEvaluationFormConfigVO,omitempty" xml:"interviewEvaluationFormConfigVO,omitempty" type:"Struct"`
+	Name                            *string                                                                                             `json:"name,omitempty" xml:"name,omitempty"`
+	Position                        *string                                                                                             `json:"position,omitempty" xml:"position,omitempty"`
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOList) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOList) SetId(v string) *SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOList {
+	s.Id = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOList) SetInterviewEvaluationFormConfigVO(v *SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOListInterviewEvaluationFormConfigVO) *SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOList {
+	s.InterviewEvaluationFormConfigVO = v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOList) SetName(v string) *SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOList {
+	s.Name = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOList) SetPosition(v string) *SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOList {
+	s.Position = &v
+	return s
+}
+
+type SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOListInterviewEvaluationFormConfigVO struct {
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	Id      *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOListInterviewEvaluationFormConfigVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOListInterviewEvaluationFormConfigVO) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOListInterviewEvaluationFormConfigVO) SetContent(v string) *SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOListInterviewEvaluationFormConfigVO {
+	s.Content = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOListInterviewEvaluationFormConfigVO) SetId(v string) *SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOListInterviewEvaluationFormConfigVO {
+	s.Id = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOListInterviewEvaluationFormConfigVO) SetName(v string) *SyncInterviewInfoToAIInterviewAssistantRequestInterviewerInfoVOListInterviewEvaluationFormConfigVO {
+	s.Name = &v
+	return s
+}
+
+type SyncInterviewInfoToAIInterviewAssistantRequestJobContentVO struct {
+	Commitment *string `json:"commitment,omitempty" xml:"commitment,omitempty"`
+	HireCount  *int32  `json:"hireCount,omitempty" xml:"hireCount,omitempty"`
+	JobContent *string `json:"jobContent,omitempty" xml:"jobContent,omitempty"`
+	JobName    *string `json:"jobName,omitempty" xml:"jobName,omitempty"`
+	MaxSalary  *int32  `json:"maxSalary,omitempty" xml:"maxSalary,omitempty"`
+	MinSalary  *int32  `json:"minSalary,omitempty" xml:"minSalary,omitempty"`
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequestJobContentVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantRequestJobContentVO) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestJobContentVO) SetCommitment(v string) *SyncInterviewInfoToAIInterviewAssistantRequestJobContentVO {
+	s.Commitment = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestJobContentVO) SetHireCount(v int32) *SyncInterviewInfoToAIInterviewAssistantRequestJobContentVO {
+	s.HireCount = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestJobContentVO) SetJobContent(v string) *SyncInterviewInfoToAIInterviewAssistantRequestJobContentVO {
+	s.JobContent = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestJobContentVO) SetJobName(v string) *SyncInterviewInfoToAIInterviewAssistantRequestJobContentVO {
+	s.JobName = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestJobContentVO) SetMaxSalary(v int32) *SyncInterviewInfoToAIInterviewAssistantRequestJobContentVO {
+	s.MaxSalary = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantRequestJobContentVO) SetMinSalary(v int32) *SyncInterviewInfoToAIInterviewAssistantRequestJobContentVO {
+	s.MinSalary = &v
+	return s
+}
+
+type SyncInterviewInfoToAIInterviewAssistantResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantResponseBody) SetResult(v bool) *SyncInterviewInfoToAIInterviewAssistantResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantResponseBody) SetSuccess(v bool) *SyncInterviewInfoToAIInterviewAssistantResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SyncInterviewInfoToAIInterviewAssistantResponse struct {
+	Headers    map[string]*string                                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncInterviewInfoToAIInterviewAssistantResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncInterviewInfoToAIInterviewAssistantResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantResponse) SetHeaders(v map[string]*string) *SyncInterviewInfoToAIInterviewAssistantResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantResponse) SetStatusCode(v int32) *SyncInterviewInfoToAIInterviewAssistantResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SyncInterviewInfoToAIInterviewAssistantResponse) SetBody(v *SyncInterviewInfoToAIInterviewAssistantResponseBody) *SyncInterviewInfoToAIInterviewAssistantResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateApplicationRegFormHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2962,8 +4361,17 @@ func (s *UpdateApplicationRegFormHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type UpdateApplicationRegFormRequest struct {
-	BizCode     *string                                     `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	Content     *string                                     `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"key":"value"}
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
 	DingPanFile *UpdateApplicationRegFormRequestDingPanFile `json:"dingPanFile,omitempty" xml:"dingPanFile,omitempty" type:"Struct"`
 }
 
@@ -2991,11 +4399,34 @@ func (s *UpdateApplicationRegFormRequest) SetDingPanFile(v *UpdateApplicationReg
 }
 
 type UpdateApplicationRegFormRequestDingPanFile struct {
-	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// "123456"
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// "张三的应聘登记表（开发工程师）"
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FileSize *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// example:
+	//
+	// 1024
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// pdf
 	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	SpaceId  *int64  `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 223344
+	SpaceId *int64 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s UpdateApplicationRegFormRequestDingPanFile) String() string {
@@ -3032,13 +4463,48 @@ func (s *UpdateApplicationRegFormRequestDingPanFile) SetSpaceId(v int64) *Update
 }
 
 type UpdateApplicationRegFormResponseBody struct {
-	CreatorUserId     *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	FormId            *string `json:"formId,omitempty" xml:"formId,omitempty"`
-	GmtCreateMillis   *int64  `json:"gmtCreateMillis,omitempty" xml:"gmtCreateMillis,omitempty"`
-	GmtModifiedMillis *int64  `json:"gmtModifiedMillis,omitempty" xml:"gmtModifiedMillis,omitempty"`
-	Status            *int32  `json:"status,omitempty" xml:"status,omitempty"`
-	TemplateId        *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	TemplateVersion   *int32  `json:"templateVersion,omitempty" xml:"templateVersion,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager5875
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// formXXX
+	FormId *string `json:"formId,omitempty" xml:"formId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1626775016427
+	GmtCreateMillis *int64 `json:"gmtCreateMillis,omitempty" xml:"gmtCreateMillis,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1626775016427
+	GmtModifiedMillis *int64 `json:"gmtModifiedMillis,omitempty" xml:"gmtModifiedMillis,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// templateXXX
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	TemplateVersion *int32 `json:"templateVersion,omitempty" xml:"templateVersion,omitempty"`
 }
 
 func (s UpdateApplicationRegFormResponseBody) String() string {
@@ -3137,8 +4603,16 @@ func (s *UpdateInterviewSignInInfoHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type UpdateInterviewSignInInfoRequest struct {
-	BizCode          *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
-	SignInTimeMillis *int64  `json:"signInTimeMillis,omitempty" xml:"signInTimeMillis,omitempty"`
+	// example:
+	//
+	// ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1626796800000
+	SignInTimeMillis *int64 `json:"signInTimeMillis,omitempty" xml:"signInTimeMillis,omitempty"`
 }
 
 func (s UpdateInterviewSignInInfoRequest) String() string {
@@ -3206,15 +4680,54 @@ func (s *UpdateJobDeliverHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateJo
 }
 
 type UpdateJobDeliverRequest struct {
-	BizCode        *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ddats
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// channelOuterId
 	ChannelOuterId *string `json:"channelOuterId,omitempty" xml:"channelOuterId,omitempty"`
-	DeliverUserId  *string `json:"deliverUserId,omitempty" xml:"deliverUserId,omitempty"`
-	ErrorCode      *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	ErrorMsg       *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	OpTime         *int64  `json:"opTime,omitempty" xml:"opTime,omitempty"`
-	OpUserId       *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
-	Status         *int32  `json:"status,omitempty" xml:"status,omitempty"`
-	JobId          *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 27016066248xxxxx
+	DeliverUserId *string `json:"deliverUserId,omitempty" xml:"deliverUserId,omitempty"`
+	// example:
+	//
+	// ATS001
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// 职位审核不通过
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1666780239981
+	OpTime *int64 `json:"opTime,omitempty" xml:"opTime,omitempty"`
+	// example:
+	//
+	// 27016066248xxxxx
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// jobId23ed0d46548f4e88a7b808d3f3057xxx
+	JobId *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
 }
 
 func (s UpdateJobDeliverRequest) String() string {
@@ -3331,12 +4844,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -3345,6 +4858,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 添加应聘登记表模板
+//
+// @param request - AddApplicationRegFormTemplateRequest
+//
+// @param headers - AddApplicationRegFormTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddApplicationRegFormTemplateResponse
 func (client *Client) AddApplicationRegFormTemplateWithOptions(request *AddApplicationRegFormTemplateRequest, headers *AddApplicationRegFormTemplateHeaders, runtime *util.RuntimeOptions) (_result *AddApplicationRegFormTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3406,6 +4930,13 @@ func (client *Client) AddApplicationRegFormTemplateWithOptions(request *AddAppli
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加应聘登记表模板
+//
+// @param request - AddApplicationRegFormTemplateRequest
+//
+// @return AddApplicationRegFormTemplateResponse
 func (client *Client) AddApplicationRegFormTemplate(request *AddApplicationRegFormTemplateRequest) (_result *AddApplicationRegFormTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddApplicationRegFormTemplateHeaders{}
@@ -3418,6 +4949,17 @@ func (client *Client) AddApplicationRegFormTemplate(request *AddApplicationRegFo
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加钉盘文件
+//
+// @param request - AddFileRequest
+//
+// @param headers - AddFileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddFileResponse
 func (client *Client) AddFileWithOptions(request *AddFileRequest, headers *AddFileHeaders, runtime *util.RuntimeOptions) (_result *AddFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3475,6 +5017,13 @@ func (client *Client) AddFileWithOptions(request *AddFileRequest, headers *AddFi
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加钉盘文件
+//
+// @param request - AddFileRequest
+//
+// @return AddFileResponse
 func (client *Client) AddFile(request *AddFileRequest) (_result *AddFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddFileHeaders{}
@@ -3487,6 +5036,17 @@ func (client *Client) AddFile(request *AddFileRequest) (_result *AddFileResponse
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加渠道个人账号
+//
+// @param request - AddUserAccountRequest
+//
+// @param headers - AddUserAccountHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddUserAccountResponse
 func (client *Client) AddUserAccountWithOptions(request *AddUserAccountRequest, headers *AddUserAccountHeaders, runtime *util.RuntimeOptions) (_result *AddUserAccountResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3552,6 +5112,13 @@ func (client *Client) AddUserAccountWithOptions(request *AddUserAccountRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加渠道个人账号
+//
+// @param request - AddUserAccountRequest
+//
+// @return AddUserAccountResponse
 func (client *Client) AddUserAccount(request *AddUserAccountRequest) (_result *AddUserAccountResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddUserAccountHeaders{}
@@ -3564,6 +5131,17 @@ func (client *Client) AddUserAccount(request *AddUserAccountRequest) (_result *A
 	return _result, _err
 }
 
+// Summary:
+//
+// 渠道招聘职位需求导入
+//
+// @param request - CollectRecruitJobDetailRequest
+//
+// @param headers - CollectRecruitJobDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollectRecruitJobDetailResponse
 func (client *Client) CollectRecruitJobDetailWithOptions(request *CollectRecruitJobDetailRequest, headers *CollectRecruitJobDetailHeaders, runtime *util.RuntimeOptions) (_result *CollectRecruitJobDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3637,6 +5215,13 @@ func (client *Client) CollectRecruitJobDetailWithOptions(request *CollectRecruit
 	return _result, _err
 }
 
+// Summary:
+//
+// 渠道招聘职位需求导入
+//
+// @param request - CollectRecruitJobDetailRequest
+//
+// @return CollectRecruitJobDetailResponse
 func (client *Client) CollectRecruitJobDetail(request *CollectRecruitJobDetailRequest) (_result *CollectRecruitJobDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollectRecruitJobDetailHeaders{}
@@ -3649,6 +5234,17 @@ func (client *Client) CollectRecruitJobDetail(request *CollectRecruitJobDetailRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 结构化简历信息回流
+//
+// @param request - CollectResumeDetailRequest
+//
+// @param headers - CollectResumeDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollectResumeDetailResponse
 func (client *Client) CollectResumeDetailWithOptions(request *CollectResumeDetailRequest, headers *CollectResumeDetailHeaders, runtime *util.RuntimeOptions) (_result *CollectResumeDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3726,6 +5322,13 @@ func (client *Client) CollectResumeDetailWithOptions(request *CollectResumeDetai
 	return _result, _err
 }
 
+// Summary:
+//
+// 结构化简历信息回流
+//
+// @param request - CollectResumeDetailRequest
+//
+// @return CollectResumeDetailResponse
 func (client *Client) CollectResumeDetail(request *CollectResumeDetailRequest) (_result *CollectResumeDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollectResumeDetailHeaders{}
@@ -3738,6 +5341,17 @@ func (client *Client) CollectResumeDetail(request *CollectResumeDetailRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 邮箱简历回流
+//
+// @param request - CollectResumeMailRequest
+//
+// @param headers - CollectResumeMailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CollectResumeMailResponse
 func (client *Client) CollectResumeMailWithOptions(request *CollectResumeMailRequest, headers *CollectResumeMailHeaders, runtime *util.RuntimeOptions) (_result *CollectResumeMailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3831,6 +5445,13 @@ func (client *Client) CollectResumeMailWithOptions(request *CollectResumeMailReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 邮箱简历回流
+//
+// @param request - CollectResumeMailRequest
+//
+// @return CollectResumeMailResponse
 func (client *Client) CollectResumeMail(request *CollectResumeMailRequest) (_result *CollectResumeMailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CollectResumeMailHeaders{}
@@ -3843,6 +5464,17 @@ func (client *Client) CollectResumeMail(request *CollectResumeMailRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 确认权益
+//
+// @param request - ConfirmRightsRequest
+//
+// @param headers - ConfirmRightsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ConfirmRightsResponse
 func (client *Client) ConfirmRightsWithOptions(rightsCode *string, request *ConfirmRightsRequest, headers *ConfirmRightsHeaders, runtime *util.RuntimeOptions) (_result *ConfirmRightsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3886,6 +5518,13 @@ func (client *Client) ConfirmRightsWithOptions(rightsCode *string, request *Conf
 	return _result, _err
 }
 
+// Summary:
+//
+// 确认权益
+//
+// @param request - ConfirmRightsRequest
+//
+// @return ConfirmRightsResponse
 func (client *Client) ConfirmRights(rightsCode *string, request *ConfirmRightsRequest) (_result *ConfirmRightsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ConfirmRightsHeaders{}
@@ -3898,6 +5537,17 @@ func (client *Client) ConfirmRights(rightsCode *string, request *ConfirmRightsRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 完成指定的新手任务
+//
+// @param request - FinishBeginnerTaskRequest
+//
+// @param headers - FinishBeginnerTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return FinishBeginnerTaskResponse
 func (client *Client) FinishBeginnerTaskWithOptions(taskCode *string, request *FinishBeginnerTaskRequest, headers *FinishBeginnerTaskHeaders, runtime *util.RuntimeOptions) (_result *FinishBeginnerTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3945,6 +5595,13 @@ func (client *Client) FinishBeginnerTaskWithOptions(taskCode *string, request *F
 	return _result, _err
 }
 
+// Summary:
+//
+// 完成指定的新手任务
+//
+// @param request - FinishBeginnerTaskRequest
+//
+// @return FinishBeginnerTaskResponse
 func (client *Client) FinishBeginnerTask(taskCode *string, request *FinishBeginnerTaskRequest) (_result *FinishBeginnerTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &FinishBeginnerTaskHeaders{}
@@ -3957,6 +5614,17 @@ func (client *Client) FinishBeginnerTask(taskCode *string, request *FinishBeginn
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取招聘流程关联的应聘登记表信息
+//
+// @param request - GetApplicationRegFormByFlowIdRequest
+//
+// @param headers - GetApplicationRegFormByFlowIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetApplicationRegFormByFlowIdResponse
 func (client *Client) GetApplicationRegFormByFlowIdWithOptions(flowId *string, request *GetApplicationRegFormByFlowIdRequest, headers *GetApplicationRegFormByFlowIdHeaders, runtime *util.RuntimeOptions) (_result *GetApplicationRegFormByFlowIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4000,6 +5668,13 @@ func (client *Client) GetApplicationRegFormByFlowIdWithOptions(flowId *string, r
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取招聘流程关联的应聘登记表信息
+//
+// @param request - GetApplicationRegFormByFlowIdRequest
+//
+// @return GetApplicationRegFormByFlowIdResponse
 func (client *Client) GetApplicationRegFormByFlowId(flowId *string, request *GetApplicationRegFormByFlowIdRequest) (_result *GetApplicationRegFormByFlowIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetApplicationRegFormByFlowIdHeaders{}
@@ -4012,6 +5687,17 @@ func (client *Client) GetApplicationRegFormByFlowId(flowId *string, request *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据手机号获取候选人信息
+//
+// @param request - GetCandidateByPhoneNumberRequest
+//
+// @param headers - GetCandidateByPhoneNumberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCandidateByPhoneNumberResponse
 func (client *Client) GetCandidateByPhoneNumberWithOptions(request *GetCandidateByPhoneNumberRequest, headers *GetCandidateByPhoneNumberHeaders, runtime *util.RuntimeOptions) (_result *GetCandidateByPhoneNumberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4059,6 +5745,13 @@ func (client *Client) GetCandidateByPhoneNumberWithOptions(request *GetCandidate
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据手机号获取候选人信息
+//
+// @param request - GetCandidateByPhoneNumberRequest
+//
+// @return GetCandidateByPhoneNumberResponse
 func (client *Client) GetCandidateByPhoneNumber(request *GetCandidateByPhoneNumberRequest) (_result *GetCandidateByPhoneNumberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCandidateByPhoneNumberHeaders{}
@@ -4071,6 +5764,17 @@ func (client *Client) GetCandidateByPhoneNumber(request *GetCandidateByPhoneNumb
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取钉盘上传文件信息
+//
+// @param request - GetFileUploadInfoRequest
+//
+// @param headers - GetFileUploadInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFileUploadInfoResponse
 func (client *Client) GetFileUploadInfoWithOptions(request *GetFileUploadInfoRequest, headers *GetFileUploadInfoHeaders, runtime *util.RuntimeOptions) (_result *GetFileUploadInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4130,6 +5834,13 @@ func (client *Client) GetFileUploadInfoWithOptions(request *GetFileUploadInfoReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取钉盘上传文件信息
+//
+// @param request - GetFileUploadInfoRequest
+//
+// @return GetFileUploadInfoResponse
 func (client *Client) GetFileUploadInfo(request *GetFileUploadInfoRequest) (_result *GetFileUploadInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetFileUploadInfoHeaders{}
@@ -4142,6 +5853,17 @@ func (client *Client) GetFileUploadInfo(request *GetFileUploadInfoRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据招聘流程关联的实体标识获取招聘流程标识
+//
+// @param request - GetFlowIdByRelationEntityIdRequest
+//
+// @param headers - GetFlowIdByRelationEntityIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFlowIdByRelationEntityIdResponse
 func (client *Client) GetFlowIdByRelationEntityIdWithOptions(request *GetFlowIdByRelationEntityIdRequest, headers *GetFlowIdByRelationEntityIdHeaders, runtime *util.RuntimeOptions) (_result *GetFlowIdByRelationEntityIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4193,6 +5915,13 @@ func (client *Client) GetFlowIdByRelationEntityIdWithOptions(request *GetFlowIdB
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据招聘流程关联的实体标识获取招聘流程标识
+//
+// @param request - GetFlowIdByRelationEntityIdRequest
+//
+// @return GetFlowIdByRelationEntityIdResponse
 func (client *Client) GetFlowIdByRelationEntityId(request *GetFlowIdByRelationEntityIdRequest) (_result *GetFlowIdByRelationEntityIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetFlowIdByRelationEntityIdHeaders{}
@@ -4205,6 +5934,17 @@ func (client *Client) GetFlowIdByRelationEntityId(request *GetFlowIdByRelationEn
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取职位信息
+//
+// @param request - GetJobAuthRequest
+//
+// @param headers - GetJobAuthHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetJobAuthResponse
 func (client *Client) GetJobAuthWithOptions(jobId *string, request *GetJobAuthRequest, headers *GetJobAuthHeaders, runtime *util.RuntimeOptions) (_result *GetJobAuthResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4248,6 +5988,13 @@ func (client *Client) GetJobAuthWithOptions(jobId *string, request *GetJobAuthRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取职位信息
+//
+// @param request - GetJobAuthRequest
+//
+// @return GetJobAuthResponse
 func (client *Client) GetJobAuth(jobId *string, request *GetJobAuthRequest) (_result *GetJobAuthResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetJobAuthHeaders{}
@@ -4260,6 +6007,85 @@ func (client *Client) GetJobAuth(jobId *string, request *GetJobAuthRequest) (_re
 	return _result, _err
 }
 
+// Summary:
+//
+// 导入外部渠道发布的职位数据
+//
+// @param request - ImportJobDataRequest
+//
+// @param headers - ImportJobDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ImportJobDataResponse
+func (client *Client) ImportJobDataWithOptions(request *ImportJobDataRequest, headers *ImportJobDataHeaders, runtime *util.RuntimeOptions) (_result *ImportJobDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    util.ToArray(request.Body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ImportJobData"),
+		Version:     tea.String("ats_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/ats/weHire/jobs/import"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ImportJobDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 导入外部渠道发布的职位数据
+//
+// @param request - ImportJobDataRequest
+//
+// @return ImportJobDataResponse
+func (client *Client) ImportJobData(request *ImportJobDataRequest) (_result *ImportJobDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ImportJobDataHeaders{}
+	_result = &ImportJobDataResponse{}
+	_body, _err := client.ImportJobDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询候选人详情列表
+//
+// @param request - QueryCandidatesRequest
+//
+// @param headers - QueryCandidatesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCandidatesResponse
 func (client *Client) QueryCandidatesWithOptions(request *QueryCandidatesRequest, headers *QueryCandidatesHeaders, runtime *util.RuntimeOptions) (_result *QueryCandidatesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4317,6 +6143,13 @@ func (client *Client) QueryCandidatesWithOptions(request *QueryCandidatesRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询候选人详情列表
+//
+// @param request - QueryCandidatesRequest
+//
+// @return QueryCandidatesResponse
 func (client *Client) QueryCandidates(request *QueryCandidatesRequest) (_result *QueryCandidatesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryCandidatesHeaders{}
@@ -4329,6 +6162,17 @@ func (client *Client) QueryCandidates(request *QueryCandidatesRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询面试列表
+//
+// @param request - QueryInterviewsRequest
+//
+// @param headers - QueryInterviewsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryInterviewsResponse
 func (client *Client) QueryInterviewsWithOptions(request *QueryInterviewsRequest, headers *QueryInterviewsHeaders, runtime *util.RuntimeOptions) (_result *QueryInterviewsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4394,6 +6238,13 @@ func (client *Client) QueryInterviewsWithOptions(request *QueryInterviewsRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询面试列表
+//
+// @param request - QueryInterviewsRequest
+//
+// @return QueryInterviewsResponse
 func (client *Client) QueryInterviews(request *QueryInterviewsRequest) (_result *QueryInterviewsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryInterviewsHeaders{}
@@ -4406,6 +6257,17 @@ func (client *Client) QueryInterviews(request *QueryInterviewsRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 反馈渠道消息状态
+//
+// @param request - ReportMessageStatusRequest
+//
+// @param headers - ReportMessageStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ReportMessageStatusResponse
 func (client *Client) ReportMessageStatusWithOptions(request *ReportMessageStatusRequest, headers *ReportMessageStatusHeaders, runtime *util.RuntimeOptions) (_result *ReportMessageStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4475,6 +6337,13 @@ func (client *Client) ReportMessageStatusWithOptions(request *ReportMessageStatu
 	return _result, _err
 }
 
+// Summary:
+//
+// 反馈渠道消息状态
+//
+// @param request - ReportMessageStatusRequest
+//
+// @return ReportMessageStatusResponse
 func (client *Client) ReportMessageStatus(request *ReportMessageStatusRequest) (_result *ReportMessageStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ReportMessageStatusHeaders{}
@@ -4487,6 +6356,17 @@ func (client *Client) ReportMessageStatus(request *ReportMessageStatusRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 同步渠道IM消息
+//
+// @param request - SyncChannelMessageRequest
+//
+// @param headers - SyncChannelMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncChannelMessageResponse
 func (client *Client) SyncChannelMessageWithOptions(request *SyncChannelMessageRequest, headers *SyncChannelMessageHeaders, runtime *util.RuntimeOptions) (_result *SyncChannelMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4556,6 +6436,13 @@ func (client *Client) SyncChannelMessageWithOptions(request *SyncChannelMessageR
 	return _result, _err
 }
 
+// Summary:
+//
+// 同步渠道IM消息
+//
+// @param request - SyncChannelMessageRequest
+//
+// @return SyncChannelMessageResponse
 func (client *Client) SyncChannelMessage(request *SyncChannelMessageRequest) (_result *SyncChannelMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SyncChannelMessageHeaders{}
@@ -4568,6 +6455,122 @@ func (client *Client) SyncChannelMessage(request *SyncChannelMessageRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// ats系统同步面试信息给AI面试助手
+//
+// @param request - SyncInterviewInfoToAIInterviewAssistantRequest
+//
+// @param headers - SyncInterviewInfoToAIInterviewAssistantHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncInterviewInfoToAIInterviewAssistantResponse
+func (client *Client) SyncInterviewInfoToAIInterviewAssistantWithOptions(request *SyncInterviewInfoToAIInterviewAssistantRequest, headers *SyncInterviewInfoToAIInterviewAssistantHeaders, runtime *util.RuntimeOptions) (_result *SyncInterviewInfoToAIInterviewAssistantResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CandidateInfoVOList)) {
+		body["candidateInfoVOList"] = request.CandidateInfoVOList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ConferenceInfoVO)) {
+		body["conferenceInfoVO"] = request.ConferenceInfoVO
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InterviewEndTime)) {
+		body["interviewEndTime"] = request.InterviewEndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InterviewId)) {
+		body["interviewId"] = request.InterviewId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InterviewStartTime)) {
+		body["interviewStartTime"] = request.InterviewStartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InterviewType)) {
+		body["interviewType"] = request.InterviewType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InterviewerInfoVOList)) {
+		body["interviewerInfoVOList"] = request.InterviewerInfoVOList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsvId)) {
+		body["isvId"] = request.IsvId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.JobContentVO)) {
+		body["jobContentVO"] = request.JobContentVO
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncInterviewInfoToAIInterviewAssistant"),
+		Version:     tea.String("ats_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/ats/ai/interview/interviewInfos/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SyncInterviewInfoToAIInterviewAssistantResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// ats系统同步面试信息给AI面试助手
+//
+// @param request - SyncInterviewInfoToAIInterviewAssistantRequest
+//
+// @return SyncInterviewInfoToAIInterviewAssistantResponse
+func (client *Client) SyncInterviewInfoToAIInterviewAssistant(request *SyncInterviewInfoToAIInterviewAssistantRequest) (_result *SyncInterviewInfoToAIInterviewAssistantResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncInterviewInfoToAIInterviewAssistantHeaders{}
+	_result = &SyncInterviewInfoToAIInterviewAssistantResponse{}
+	_body, _err := client.SyncInterviewInfoToAIInterviewAssistantWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新应聘登记表内容
+//
+// @param request - UpdateApplicationRegFormRequest
+//
+// @param headers - UpdateApplicationRegFormHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateApplicationRegFormResponse
 func (client *Client) UpdateApplicationRegFormWithOptions(flowId *string, request *UpdateApplicationRegFormRequest, headers *UpdateApplicationRegFormHeaders, runtime *util.RuntimeOptions) (_result *UpdateApplicationRegFormResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4621,6 +6624,13 @@ func (client *Client) UpdateApplicationRegFormWithOptions(flowId *string, reques
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新应聘登记表内容
+//
+// @param request - UpdateApplicationRegFormRequest
+//
+// @return UpdateApplicationRegFormResponse
 func (client *Client) UpdateApplicationRegForm(flowId *string, request *UpdateApplicationRegFormRequest) (_result *UpdateApplicationRegFormResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateApplicationRegFormHeaders{}
@@ -4633,6 +6643,17 @@ func (client *Client) UpdateApplicationRegForm(flowId *string, request *UpdateAp
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新面试签到信息
+//
+// @param request - UpdateInterviewSignInInfoRequest
+//
+// @param headers - UpdateInterviewSignInInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateInterviewSignInInfoResponse
 func (client *Client) UpdateInterviewSignInInfoWithOptions(interviewId *string, request *UpdateInterviewSignInInfoRequest, headers *UpdateInterviewSignInInfoHeaders, runtime *util.RuntimeOptions) (_result *UpdateInterviewSignInInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4682,6 +6703,13 @@ func (client *Client) UpdateInterviewSignInInfoWithOptions(interviewId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新面试签到信息
+//
+// @param request - UpdateInterviewSignInInfoRequest
+//
+// @return UpdateInterviewSignInInfoResponse
 func (client *Client) UpdateInterviewSignInInfo(interviewId *string, request *UpdateInterviewSignInInfoRequest) (_result *UpdateInterviewSignInInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateInterviewSignInInfoHeaders{}
@@ -4694,6 +6722,17 @@ func (client *Client) UpdateInterviewSignInInfo(interviewId *string, request *Up
 	return _result, _err
 }
 
+// Summary:
+//
+// 渠道侧职位发布状态变更回调
+//
+// @param request - UpdateJobDeliverRequest
+//
+// @param headers - UpdateJobDeliverHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateJobDeliverResponse
 func (client *Client) UpdateJobDeliverWithOptions(request *UpdateJobDeliverRequest, headers *UpdateJobDeliverHeaders, runtime *util.RuntimeOptions) (_result *UpdateJobDeliverResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4771,6 +6810,13 @@ func (client *Client) UpdateJobDeliverWithOptions(request *UpdateJobDeliverReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 渠道侧职位发布状态变更回调
+//
+// @param request - UpdateJobDeliverRequest
+//
+// @return UpdateJobDeliverResponse
 func (client *Client) UpdateJobDeliver(request *UpdateJobDeliverRequest) (_result *UpdateJobDeliverResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateJobDeliverHeaders{}

@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package drive_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,10 +33,14 @@ func (s *AddCustomSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *AddCustomS
 }
 
 type AddCustomSpaceRequest struct {
-	BizType        *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Identifier     *string `json:"identifier,omitempty" xml:"identifier,omitempty"`
+	// This parameter is required.
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	Identifier *string `json:"identifier,omitempty" xml:"identifier,omitempty"`
+	// This parameter is required.
 	PermissionMode *string `json:"permissionMode,omitempty" xml:"permissionMode,omitempty"`
-	UnionId        *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s AddCustomSpaceRequest) String() string {
@@ -72,14 +72,19 @@ func (s *AddCustomSpaceRequest) SetUnionId(v string) *AddCustomSpaceRequest {
 }
 
 type AddCustomSpaceResponseBody struct {
-	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	ModifyTime     *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
 	PermissionMode *string `json:"permissionMode,omitempty" xml:"permissionMode,omitempty"`
 	Quota          *int64  `json:"quota,omitempty" xml:"quota,omitempty"`
-	SpaceId        *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	SpaceName      *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
-	SpaceType      *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
-	UsedQuota      *int64  `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// This parameter is required.
+	SpaceId   *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	SpaceName *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	// This parameter is required.
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// This parameter is required.
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
 }
 
 func (s AddCustomSpaceResponseBody) String() string {
@@ -184,11 +189,14 @@ func (s *AddFileHeaders) SetXAcsDingtalkAccessToken(v string) *AddFileHeaders {
 
 type AddFileRequest struct {
 	AddConflictPolicy *string `json:"addConflictPolicy,omitempty" xml:"addConflictPolicy,omitempty"`
-	FileName          *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FileType          *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	MediaId           *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	ParentId          *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	UnionId           *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// This parameter is required.
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	MediaId  *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s AddFileRequest) String() string {
@@ -230,19 +238,30 @@ func (s *AddFileRequest) SetUnionId(v string) *AddFileRequest {
 }
 
 type AddFileResponseBody struct {
-	ContentType   *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	CreateTime    *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Creator       *string `json:"creator,omitempty" xml:"creator,omitempty"`
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
-	FileId        *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	FileName      *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FilePath      *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
-	FileSize      *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	FileType      *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	Modifier      *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	ModifyTime    *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
-	ParentId      *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	SpaceId       *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// This parameter is required.
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// This parameter is required.
+	FilePath *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
+	FileSize *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// This parameter is required.
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	ParentId   *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// This parameter is required.
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s AddFileResponseBody) String() string {
@@ -371,9 +390,12 @@ func (s *AddPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *AddPermissi
 }
 
 type AddPermissionRequest struct {
+	// This parameter is required.
 	Members []*AddPermissionRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	Role    *string                        `json:"role,omitempty" xml:"role,omitempty"`
-	UnionId *string                        `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s AddPermissionRequest) String() string {
@@ -400,8 +422,11 @@ func (s *AddPermissionRequest) SetUnionId(v string) *AddPermissionRequest {
 }
 
 type AddPermissionRequestMembers struct {
-	CorpId     *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
 	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
 }
 
@@ -475,7 +500,9 @@ func (s *AddSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *AddSpaceHeaders 
 }
 
 type AddSpaceRequest struct {
-	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -498,14 +525,19 @@ func (s *AddSpaceRequest) SetUnionId(v string) *AddSpaceRequest {
 }
 
 type AddSpaceResponseBody struct {
-	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	ModifyTime     *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
 	PermissionMode *string `json:"permissionMode,omitempty" xml:"permissionMode,omitempty"`
 	Quota          *int64  `json:"quota,omitempty" xml:"quota,omitempty"`
-	SpaceId        *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	SpaceName      *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
-	SpaceType      *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
-	UsedQuota      *int64  `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// This parameter is required.
+	SpaceId   *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	SpaceName *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	// This parameter is required.
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// This parameter is required.
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
 }
 
 func (s AddSpaceResponseBody) String() string {
@@ -609,8 +641,10 @@ func (s *ClearRecycleFilesHeaders) SetXAcsDingtalkAccessToken(v string) *ClearRe
 }
 
 type ClearRecycleFilesRequest struct {
+	// This parameter is required.
 	RecycleType *string `json:"recycleType,omitempty" xml:"recycleType,omitempty"`
-	UnionId     *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s ClearRecycleFilesRequest) String() string {
@@ -680,8 +714,10 @@ func (s *CopyFileHeaders) SetXAcsDingtalkAccessToken(v string) *CopyFileHeaders 
 type CopyFileRequest struct {
 	AddConflictPolicy *string `json:"addConflictPolicy,omitempty" xml:"addConflictPolicy,omitempty"`
 	TargetParentId    *string `json:"targetParentId,omitempty" xml:"targetParentId,omitempty"`
-	TargetSpaceId     *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
-	UnionId           *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	TargetSpaceId *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s CopyFileRequest) String() string {
@@ -736,7 +772,8 @@ func (s *CopyFileResponseBody) SetTaskId(v string) *CopyFileResponseBody {
 }
 
 type CopyFileResponseBodyFile struct {
-	ContentType   *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	CreateTime    *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Creator       *string `json:"creator,omitempty" xml:"creator,omitempty"`
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
@@ -746,9 +783,10 @@ type CopyFileResponseBodyFile struct {
 	FileSize      *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
 	FileType      *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
 	Modifier      *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	ModifyTime    *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
-	ParentId      *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	SpaceId       *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	ParentId   *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	SpaceId    *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s CopyFileResponseBodyFile) String() string {
@@ -877,8 +915,10 @@ func (s *DeleteFileHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteFileHead
 }
 
 type DeleteFileRequest struct {
+	// This parameter is required.
 	DeletePolicy *string `json:"deletePolicy,omitempty" xml:"deletePolicy,omitempty"`
-	UnionId      *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s DeleteFileRequest) String() string {
@@ -900,6 +940,7 @@ func (s *DeleteFileRequest) SetUnionId(v string) *DeleteFileRequest {
 }
 
 type DeleteFileResponseBody struct {
+	// This parameter is required.
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -969,9 +1010,12 @@ func (s *DeleteFilesHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteFilesHe
 }
 
 type DeleteFilesRequest struct {
-	DeletePolicy *string   `json:"deletePolicy,omitempty" xml:"deletePolicy,omitempty"`
-	FileIds      []*string `json:"fileIds,omitempty" xml:"fileIds,omitempty" type:"Repeated"`
-	UnionId      *string   `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	DeletePolicy *string `json:"deletePolicy,omitempty" xml:"deletePolicy,omitempty"`
+	// This parameter is required.
+	FileIds []*string `json:"fileIds,omitempty" xml:"fileIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s DeleteFilesRequest) String() string {
@@ -998,6 +1042,7 @@ func (s *DeleteFilesRequest) SetUnionId(v string) *DeleteFilesRequest {
 }
 
 type DeleteFilesResponseBody struct {
+	// This parameter is required.
 	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
 	TaskId  *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
@@ -1073,9 +1118,12 @@ func (s *DeletePermissionHeaders) SetXAcsDingtalkAccessToken(v string) *DeletePe
 }
 
 type DeletePermissionRequest struct {
+	// This parameter is required.
 	Members []*DeletePermissionRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	Role    *string                           `json:"role,omitempty" xml:"role,omitempty"`
-	UnionId *string                           `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s DeletePermissionRequest) String() string {
@@ -1102,8 +1150,11 @@ func (s *DeletePermissionRequest) SetUnionId(v string) *DeletePermissionRequest 
 }
 
 type DeletePermissionRequestMembers struct {
-	CorpId     *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
 	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
 }
 
@@ -1177,9 +1228,12 @@ func (s *DeleteRecycleFilesHeaders) SetXAcsDingtalkAccessToken(v string) *Delete
 }
 
 type DeleteRecycleFilesRequest struct {
+	// This parameter is required.
 	RecycleItemIdList []*int64 `json:"recycleItemIdList,omitempty" xml:"recycleItemIdList,omitempty" type:"Repeated"`
-	RecycleType       *string  `json:"recycleType,omitempty" xml:"recycleType,omitempty"`
-	UnionId           *string  `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	RecycleType *string `json:"recycleType,omitempty" xml:"recycleType,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s DeleteRecycleFilesRequest) String() string {
@@ -1252,6 +1306,7 @@ func (s *DeleteSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteSpaceHe
 }
 
 type DeleteSpaceRequest struct {
+	// This parameter is required.
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -1315,6 +1370,7 @@ func (s *GetAsyncTaskInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetAsync
 }
 
 type GetAsyncTaskInfoRequest struct {
+	// This parameter is required.
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -1332,13 +1388,23 @@ func (s *GetAsyncTaskInfoRequest) SetUnionId(v string) *GetAsyncTaskInfoRequest 
 }
 
 type GetAsyncTaskInfoResponseBody struct {
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	BeginTime *string `json:"beginTime,omitempty" xml:"beginTime,omitempty"`
-	EndTime   *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	Failed    *int32  `json:"failed,omitempty" xml:"failed,omitempty"`
-	Status    *string `json:"status,omitempty" xml:"status,omitempty"`
-	Success   *int32  `json:"success,omitempty" xml:"success,omitempty"`
-	TaskId    *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	Total     *int32  `json:"total,omitempty" xml:"total,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	EndTime *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	Failed *int32 `json:"failed,omitempty" xml:"failed,omitempty"`
+	// This parameter is required.
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	Success *int32 `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	Total  *int32  `json:"total,omitempty" xml:"total,omitempty"`
 }
 
 func (s GetAsyncTaskInfoResponseBody) String() string {
@@ -1437,6 +1503,7 @@ func (s *GetDownloadInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetDownlo
 }
 
 type GetDownloadInfoRequest struct {
+	// This parameter is required.
 	UnionId                 *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	WithInternalResourceUrl *bool   `json:"withInternalResourceUrl,omitempty" xml:"withInternalResourceUrl,omitempty"`
 	WithRegion              *bool   `json:"withRegion,omitempty" xml:"withRegion,omitempty"`
@@ -1489,10 +1556,13 @@ func (s *GetDownloadInfoResponseBody) SetRegion(v string) *GetDownloadInfoRespon
 }
 
 type GetDownloadInfoResponseBodyDownloadInfo struct {
-	ExpirationSeconds   *int32                 `json:"expirationSeconds,omitempty" xml:"expirationSeconds,omitempty"`
+	// This parameter is required.
+	ExpirationSeconds *int32 `json:"expirationSeconds,omitempty" xml:"expirationSeconds,omitempty"`
+	// This parameter is required.
 	Headers             map[string]interface{} `json:"headers,omitempty" xml:"headers,omitempty"`
 	InternalResourceUrl *string                `json:"internalResourceUrl,omitempty" xml:"internalResourceUrl,omitempty"`
-	ResourceUrl         *string                `json:"resourceUrl,omitempty" xml:"resourceUrl,omitempty"`
+	// This parameter is required.
+	ResourceUrl *string `json:"resourceUrl,omitempty" xml:"resourceUrl,omitempty"`
 }
 
 func (s GetDownloadInfoResponseBodyDownloadInfo) String() string {
@@ -1576,6 +1646,7 @@ func (s *GetFileInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetFileInfoHe
 }
 
 type GetFileInfoRequest struct {
+	// This parameter is required.
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -1593,19 +1664,30 @@ func (s *GetFileInfoRequest) SetUnionId(v string) *GetFileInfoRequest {
 }
 
 type GetFileInfoResponseBody struct {
-	ContentType   *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	CreateTime    *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Creator       *string `json:"creator,omitempty" xml:"creator,omitempty"`
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
-	FileId        *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	FileName      *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FilePath      *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
-	FileSize      *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	FileType      *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	Modifier      *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	ModifyTime    *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
-	ParentId      *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	SpaceId       *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// This parameter is required.
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// This parameter is required.
+	FilePath *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
+	FileSize *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// This parameter is required.
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	ParentId   *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// This parameter is required.
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s GetFileInfoResponseBody) String() string {
@@ -1734,6 +1816,7 @@ func (s *GetMySpaceInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetMySpace
 }
 
 type GetMySpaceInfoRequest struct {
+	// This parameter is required.
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -1751,14 +1834,25 @@ func (s *GetMySpaceInfoRequest) SetUnionId(v string) *GetMySpaceInfoRequest {
 }
 
 type GetMySpaceInfoResponseBody struct {
-	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	ModifyTime     *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
 	PermissionMode *string `json:"permissionMode,omitempty" xml:"permissionMode,omitempty"`
-	Quota          *int64  `json:"quota,omitempty" xml:"quota,omitempty"`
-	SpaceId        *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	SpaceName      *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
-	SpaceType      *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
-	UsedQuota      *int64  `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// This parameter is required.
+	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
+	// This parameter is required.
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// This parameter is required.
+	SpaceName *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	// This parameter is required.
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// This parameter is required.
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
 }
 
 func (s GetMySpaceInfoResponseBody) String() string {
@@ -1862,6 +1956,7 @@ func (s *GetPreviewInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetPreview
 }
 
 type GetPreviewInfoRequest struct {
+	// This parameter is required.
 	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	Version   *int64  `json:"version,omitempty" xml:"version,omitempty"`
 	Watermark *bool   `json:"watermark,omitempty" xml:"watermark,omitempty"`
@@ -1891,6 +1986,7 @@ func (s *GetPreviewInfoRequest) SetWatermark(v bool) *GetPreviewInfoRequest {
 }
 
 type GetPreviewInfoResponseBody struct {
+	// This parameter is required.
 	Info *GetPreviewInfoResponseBodyInfo `json:"info,omitempty" xml:"info,omitempty" type:"Struct"`
 }
 
@@ -1908,6 +2004,7 @@ func (s *GetPreviewInfoResponseBody) SetInfo(v *GetPreviewInfoResponseBodyInfo) 
 }
 
 type GetPreviewInfoResponseBodyInfo struct {
+	// This parameter is required.
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
 
@@ -1977,6 +2074,7 @@ func (s *GetPrivilegeInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetPrivi
 }
 
 type GetPrivilegeInfoRequest struct {
+	// This parameter is required.
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -1994,6 +2092,7 @@ func (s *GetPrivilegeInfoRequest) SetUnionId(v string) *GetPrivilegeInfoRequest 
 }
 
 type GetPrivilegeInfoResponseBody struct {
+	// This parameter is required.
 	Types []*string `json:"types,omitempty" xml:"types,omitempty" type:"Repeated"`
 }
 
@@ -2063,9 +2162,12 @@ func (s *GetQuotaInfosHeaders) SetXAcsDingtalkAccessToken(v string) *GetQuotaInf
 }
 
 type GetQuotaInfosRequest struct {
+	// This parameter is required.
 	Identifiers []*string `json:"identifiers,omitempty" xml:"identifiers,omitempty" type:"Repeated"`
-	Type        *string   `json:"type,omitempty" xml:"type,omitempty"`
-	UnionId     *string   `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetQuotaInfosRequest) String() string {
@@ -2092,6 +2194,7 @@ func (s *GetQuotaInfosRequest) SetUnionId(v string) *GetQuotaInfosRequest {
 }
 
 type GetQuotaInfosResponseBody struct {
+	// This parameter is required.
 	Quotas []*GetQuotaInfosResponseBodyQuotas `json:"quotas,omitempty" xml:"quotas,omitempty" type:"Repeated"`
 }
 
@@ -2196,12 +2299,16 @@ func (s *GetUploadInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetUploadIn
 }
 
 type GetUploadInfoRequest struct {
-	AddConflictPolicy    *string `json:"addConflictPolicy,omitempty" xml:"addConflictPolicy,omitempty"`
-	CallerRegion         *string `json:"callerRegion,omitempty" xml:"callerRegion,omitempty"`
-	FileName             *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FileSize             *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	Md5                  *string `json:"md5,omitempty" xml:"md5,omitempty"`
-	MediaId              *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	AddConflictPolicy *string `json:"addConflictPolicy,omitempty" xml:"addConflictPolicy,omitempty"`
+	CallerRegion      *string `json:"callerRegion,omitempty" xml:"callerRegion,omitempty"`
+	// This parameter is required.
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// This parameter is required.
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// This parameter is required.
+	Md5     *string `json:"md5,omitempty" xml:"md5,omitempty"`
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// This parameter is required.
 	UnionId              *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	WithInternalEndPoint *bool   `json:"withInternalEndPoint,omitempty" xml:"withInternalEndPoint,omitempty"`
 	WithRegion           *bool   `json:"withRegion,omitempty" xml:"withRegion,omitempty"`
@@ -2290,11 +2397,15 @@ func (s *GetUploadInfoResponseBody) SetStsUploadInfo(v *GetUploadInfoResponseBod
 }
 
 type GetUploadInfoResponseBodyHeaderSignatureUploadInfo struct {
-	ExpirationSeconds   *int32                 `json:"expirationSeconds,omitempty" xml:"expirationSeconds,omitempty"`
+	// This parameter is required.
+	ExpirationSeconds *int32 `json:"expirationSeconds,omitempty" xml:"expirationSeconds,omitempty"`
+	// This parameter is required.
 	Headers             map[string]interface{} `json:"headers,omitempty" xml:"headers,omitempty"`
 	InternalResourceUrl *string                `json:"internalResourceUrl,omitempty" xml:"internalResourceUrl,omitempty"`
-	MediaId             *string                `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	ResourceUrl         *string                `json:"resourceUrl,omitempty" xml:"resourceUrl,omitempty"`
+	// This parameter is required.
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// This parameter is required.
+	ResourceUrl *string `json:"resourceUrl,omitempty" xml:"resourceUrl,omitempty"`
 }
 
 func (s GetUploadInfoResponseBodyHeaderSignatureUploadInfo) String() string {
@@ -2331,14 +2442,21 @@ func (s *GetUploadInfoResponseBodyHeaderSignatureUploadInfo) SetResourceUrl(v st
 }
 
 type GetUploadInfoResponseBodyStsUploadInfo struct {
-	AccessKeyId                 *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
-	AccessKeySecret             *string `json:"accessKeySecret,omitempty" xml:"accessKeySecret,omitempty"`
-	AccessToken                 *string `json:"accessToken,omitempty" xml:"accessToken,omitempty"`
-	AccessTokenExpirationMillis *int64  `json:"accessTokenExpirationMillis,omitempty" xml:"accessTokenExpirationMillis,omitempty"`
-	Bucket                      *string `json:"bucket,omitempty" xml:"bucket,omitempty"`
-	EndPoint                    *string `json:"endPoint,omitempty" xml:"endPoint,omitempty"`
-	InternalEndPoint            *string `json:"internalEndPoint,omitempty" xml:"internalEndPoint,omitempty"`
-	MediaId                     *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// This parameter is required.
+	AccessKeyId *string `json:"accessKeyId,omitempty" xml:"accessKeyId,omitempty"`
+	// This parameter is required.
+	AccessKeySecret *string `json:"accessKeySecret,omitempty" xml:"accessKeySecret,omitempty"`
+	// This parameter is required.
+	AccessToken *string `json:"accessToken,omitempty" xml:"accessToken,omitempty"`
+	// This parameter is required.
+	AccessTokenExpirationMillis *int64 `json:"accessTokenExpirationMillis,omitempty" xml:"accessTokenExpirationMillis,omitempty"`
+	// This parameter is required.
+	Bucket *string `json:"bucket,omitempty" xml:"bucket,omitempty"`
+	// This parameter is required.
+	EndPoint         *string `json:"endPoint,omitempty" xml:"endPoint,omitempty"`
+	InternalEndPoint *string `json:"internalEndPoint,omitempty" xml:"internalEndPoint,omitempty"`
+	// This parameter is required.
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
 }
 
 func (s GetUploadInfoResponseBodyStsUploadInfo) String() string {
@@ -2442,11 +2560,16 @@ func (s *GrantPrivilegeOfCustomSpaceHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type GrantPrivilegeOfCustomSpaceRequest struct {
-	Duration *int64    `json:"duration,omitempty" xml:"duration,omitempty"`
-	FileIds  []*string `json:"fileIds,omitempty" xml:"fileIds,omitempty" type:"Repeated"`
-	Type     *string   `json:"type,omitempty" xml:"type,omitempty"`
-	UnionId  *string   `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId   *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	Duration *int64 `json:"duration,omitempty" xml:"duration,omitempty"`
+	// This parameter is required.
+	FileIds []*string `json:"fileIds,omitempty" xml:"fileIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GrantPrivilegeOfCustomSpaceRequest) String() string {
@@ -2529,6 +2652,7 @@ func (s *InfoSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *InfoSpaceHeader
 }
 
 type InfoSpaceRequest struct {
+	// This parameter is required.
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -2546,14 +2670,25 @@ func (s *InfoSpaceRequest) SetUnionId(v string) *InfoSpaceRequest {
 }
 
 type InfoSpaceResponseBody struct {
-	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	ModifyTime     *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
 	PermissionMode *string `json:"permissionMode,omitempty" xml:"permissionMode,omitempty"`
-	Quota          *int64  `json:"quota,omitempty" xml:"quota,omitempty"`
-	SpaceId        *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	SpaceName      *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
-	SpaceType      *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
-	UsedQuota      *int64  `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// This parameter is required.
+	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
+	// This parameter is required.
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// This parameter is required.
+	SpaceName *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	// This parameter is required.
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// This parameter is required.
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
 }
 
 func (s InfoSpaceResponseBody) String() string {
@@ -2657,12 +2792,14 @@ func (s *ListFilesHeaders) SetXAcsDingtalkAccessToken(v string) *ListFilesHeader
 }
 
 type ListFilesRequest struct {
+	// This parameter is required.
 	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	OrderType  *string `json:"orderType,omitempty" xml:"orderType,omitempty"`
 	ParentId   *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	UnionId    *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	WithIcon   *bool   `json:"withIcon,omitempty" xml:"withIcon,omitempty"`
+	// This parameter is required.
+	UnionId  *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	WithIcon *bool   `json:"withIcon,omitempty" xml:"withIcon,omitempty"`
 }
 
 func (s ListFilesRequest) String() string {
@@ -2704,8 +2841,10 @@ func (s *ListFilesRequest) SetWithIcon(v bool) *ListFilesRequest {
 }
 
 type ListFilesResponseBody struct {
-	Files     []*ListFilesResponseBodyFiles `json:"files,omitempty" xml:"files,omitempty" type:"Repeated"`
-	NextToken *string                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	Files []*ListFilesResponseBodyFiles `json:"files,omitempty" xml:"files,omitempty" type:"Repeated"`
+	// This parameter is required.
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s ListFilesResponseBody) String() string {
@@ -2727,21 +2866,32 @@ func (s *ListFilesResponseBody) SetNextToken(v string) *ListFilesResponseBody {
 }
 
 type ListFilesResponseBodyFiles struct {
-	ContentType   *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	CreateTime    *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Creator       *string `json:"creator,omitempty" xml:"creator,omitempty"`
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
-	FileId        *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	FileName      *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FilePath      *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
-	FileSize      *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	FileType      *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	Icon          *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	Modifier      *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	ModifyTime    *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
-	ParentId      *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	SpaceId       *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Thumbnail     *string `json:"thumbnail,omitempty" xml:"thumbnail,omitempty"`
+	// This parameter is required.
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// This parameter is required.
+	FilePath *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
+	FileSize *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// This parameter is required.
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	Icon     *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	ParentId   *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// This parameter is required.
+	SpaceId   *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	Thumbnail *string `json:"thumbnail,omitempty" xml:"thumbnail,omitempty"`
 }
 
 func (s ListFilesResponseBodyFiles) String() string {
@@ -2880,6 +3030,7 @@ func (s *ListPermissionsHeaders) SetXAcsDingtalkAccessToken(v string) *ListPermi
 }
 
 type ListPermissionsRequest struct {
+	// This parameter is required.
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -2897,7 +3048,9 @@ func (s *ListPermissionsRequest) SetUnionId(v string) *ListPermissionsRequest {
 }
 
 type ListPermissionsResponseBody struct {
-	Members    []*ListPermissionsResponseBodyMembers    `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Members []*ListPermissionsResponseBodyMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// This parameter is required.
 	OutMembers []*ListPermissionsResponseBodyOutMembers `json:"outMembers,omitempty" xml:"outMembers,omitempty" type:"Repeated"`
 }
 
@@ -2920,9 +3073,12 @@ func (s *ListPermissionsResponseBody) SetOutMembers(v []*ListPermissionsResponse
 }
 
 type ListPermissionsResponseBodyMembers struct {
-	Extend *bool                                     `json:"extend,omitempty" xml:"extend,omitempty"`
+	// This parameter is required.
+	Extend *bool `json:"extend,omitempty" xml:"extend,omitempty"`
+	// This parameter is required.
 	Member *ListPermissionsResponseBodyMembersMember `json:"member,omitempty" xml:"member,omitempty" type:"Struct"`
-	Role   *string                                   `json:"role,omitempty" xml:"role,omitempty"`
+	// This parameter is required.
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
 }
 
 func (s ListPermissionsResponseBodyMembers) String() string {
@@ -2952,6 +3108,7 @@ type ListPermissionsResponseBodyMembersMember struct {
 	CorpId     *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
 	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+	// This parameter is required.
 	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
 }
 
@@ -2984,9 +3141,12 @@ func (s *ListPermissionsResponseBodyMembersMember) SetMemberType(v string) *List
 }
 
 type ListPermissionsResponseBodyOutMembers struct {
-	Extend *bool                                        `json:"extend,omitempty" xml:"extend,omitempty"`
+	// This parameter is required.
+	Extend *bool `json:"extend,omitempty" xml:"extend,omitempty"`
+	// This parameter is required.
 	Member *ListPermissionsResponseBodyOutMembersMember `json:"member,omitempty" xml:"member,omitempty" type:"Struct"`
-	Role   *string                                      `json:"role,omitempty" xml:"role,omitempty"`
+	// This parameter is required.
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
 }
 
 func (s ListPermissionsResponseBodyOutMembers) String() string {
@@ -3016,6 +3176,7 @@ type ListPermissionsResponseBodyOutMembersMember struct {
 	CorpId     *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
 	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+	// This parameter is required.
 	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
 }
 
@@ -3100,11 +3261,14 @@ func (s *ListRecycleFilesHeaders) SetXAcsDingtalkAccessToken(v string) *ListRecy
 }
 
 type ListRecycleFilesRequest struct {
-	MaxResults  *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken   *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	OrderType   *string `json:"orderType,omitempty" xml:"orderType,omitempty"`
+	// This parameter is required.
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OrderType  *string `json:"orderType,omitempty" xml:"orderType,omitempty"`
+	// This parameter is required.
 	RecycleType *string `json:"recycleType,omitempty" xml:"recycleType,omitempty"`
-	UnionId     *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s ListRecycleFilesRequest) String() string {
@@ -3141,7 +3305,9 @@ func (s *ListRecycleFilesRequest) SetUnionId(v string) *ListRecycleFilesRequest 
 }
 
 type ListRecycleFilesResponseBody struct {
-	NextToken    *string                                     `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
 	RecycleItems []*ListRecycleFilesResponseBodyRecycleItems `json:"recycleItems,omitempty" xml:"recycleItems,omitempty" type:"Repeated"`
 }
 
@@ -3164,13 +3330,22 @@ func (s *ListRecycleFilesResponseBody) SetRecycleItems(v []*ListRecycleFilesResp
 }
 
 type ListRecycleFilesResponseBodyRecycleItems struct {
-	ContentType   *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	// This parameter is required.
 	DeleteStaffId *string `json:"deleteStaffId,omitempty" xml:"deleteStaffId,omitempty"`
-	DeleteTime    *string `json:"deleteTime,omitempty" xml:"deleteTime,omitempty"`
-	FileName      *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FilePath      *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
-	FileSize      *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	FileType      *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	DeleteTime *string `json:"deleteTime,omitempty" xml:"deleteTime,omitempty"`
+	// This parameter is required.
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// This parameter is required.
+	FilePath *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
+	// This parameter is required.
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// This parameter is required.
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// This parameter is required.
 	RecycleItemId *string `json:"recycleItemId,omitempty" xml:"recycleItemId,omitempty"`
 }
 
@@ -3275,10 +3450,13 @@ func (s *ListSpacesHeaders) SetXAcsDingtalkAccessToken(v string) *ListSpacesHead
 }
 
 type ListSpacesRequest struct {
+	// This parameter is required.
 	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	SpaceType  *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
-	UnionId    *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s ListSpacesRequest) String() string {
@@ -3310,8 +3488,9 @@ func (s *ListSpacesRequest) SetUnionId(v string) *ListSpacesRequest {
 }
 
 type ListSpacesResponseBody struct {
-	NextToken *string                         `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Spaces    []*ListSpacesResponseBodySpaces `json:"spaces,omitempty" xml:"spaces,omitempty" type:"Repeated"`
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	Spaces []*ListSpacesResponseBodySpaces `json:"spaces,omitempty" xml:"spaces,omitempty" type:"Repeated"`
 }
 
 func (s ListSpacesResponseBody) String() string {
@@ -3333,14 +3512,19 @@ func (s *ListSpacesResponseBody) SetSpaces(v []*ListSpacesResponseBodySpaces) *L
 }
 
 type ListSpacesResponseBodySpaces struct {
-	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	ModifyTime     *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
 	PermissionMode *string `json:"permissionMode,omitempty" xml:"permissionMode,omitempty"`
 	Quota          *int64  `json:"quota,omitempty" xml:"quota,omitempty"`
-	SpaceId        *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	SpaceName      *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
-	SpaceType      *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
-	UsedQuota      *int64  `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// This parameter is required.
+	SpaceId   *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	SpaceName *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	// This parameter is required.
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// This parameter is required.
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
 }
 
 func (s ListSpacesResponseBodySpaces) String() string {
@@ -3444,9 +3628,12 @@ func (s *ManagementBuyQuotaHeaders) SetXAcsDingtalkAccessToken(v string) *Manage
 }
 
 type ManagementBuyQuotaRequest struct {
-	Order   *ManagementBuyQuotaRequestOrder `json:"order,omitempty" xml:"order,omitempty" type:"Struct"`
-	Token   *string                         `json:"token,omitempty" xml:"token,omitempty"`
-	UnionId *string                         `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	Order *ManagementBuyQuotaRequestOrder `json:"order,omitempty" xml:"order,omitempty" type:"Struct"`
+	// This parameter is required.
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s ManagementBuyQuotaRequest) String() string {
@@ -3473,12 +3660,18 @@ func (s *ManagementBuyQuotaRequest) SetUnionId(v string) *ManagementBuyQuotaRequ
 }
 
 type ManagementBuyQuotaRequestOrder struct {
-	BizType      *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Capacity     *int64  `json:"capacity,omitempty" xml:"capacity,omitempty"`
+	// This parameter is required.
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	Capacity *int64 `json:"capacity,omitempty" xml:"capacity,omitempty"`
+	// This parameter is required.
 	CapacityType *string `json:"capacityType,omitempty" xml:"capacityType,omitempty"`
-	Day          *int32  `json:"day,omitempty" xml:"day,omitempty"`
-	Money        *int64  `json:"money,omitempty" xml:"money,omitempty"`
-	OrderId      *int64  `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	// This parameter is required.
+	Day *int32 `json:"day,omitempty" xml:"day,omitempty"`
+	// This parameter is required.
+	Money *int64 `json:"money,omitempty" xml:"money,omitempty"`
+	// This parameter is required.
+	OrderId *int64 `json:"orderId,omitempty" xml:"orderId,omitempty"`
 }
 
 func (s ManagementBuyQuotaRequestOrder) String() string {
@@ -3566,8 +3759,10 @@ func (s *ManagementListSpacesHeaders) SetXAcsDingtalkAccessToken(v string) *Mana
 }
 
 type ManagementListSpacesRequest struct {
+	// This parameter is required.
 	SpaceIds []*string `json:"spaceIds,omitempty" xml:"spaceIds,omitempty" type:"Repeated"`
-	UnionId  *string   `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s ManagementListSpacesRequest) String() string {
@@ -3589,6 +3784,7 @@ func (s *ManagementListSpacesRequest) SetUnionId(v string) *ManagementListSpaces
 }
 
 type ManagementListSpacesResponseBody struct {
+	// This parameter is required.
 	Spaces []*ManagementListSpacesResponseBodySpaces `json:"spaces,omitempty" xml:"spaces,omitempty" type:"Repeated"`
 }
 
@@ -3606,14 +3802,19 @@ func (s *ManagementListSpacesResponseBody) SetSpaces(v []*ManagementListSpacesRe
 }
 
 type ManagementListSpacesResponseBodySpaces struct {
-	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	ModifyTime     *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
 	PermissionMode *string `json:"permissionMode,omitempty" xml:"permissionMode,omitempty"`
 	Quota          *int64  `json:"quota,omitempty" xml:"quota,omitempty"`
-	SpaceId        *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	SpaceName      *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
-	SpaceType      *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
-	UsedQuota      *int64  `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// This parameter is required.
+	SpaceId   *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	SpaceName *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	// This parameter is required.
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// This parameter is required.
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
 }
 
 func (s ManagementListSpacesResponseBodySpaces) String() string {
@@ -3717,9 +3918,12 @@ func (s *ManagementModifySpaceHeaders) SetXAcsDingtalkAccessToken(v string) *Man
 }
 
 type ManagementModifySpaceRequest struct {
-	Quota    *int64    `json:"quota,omitempty" xml:"quota,omitempty"`
+	// This parameter is required.
+	Quota *int64 `json:"quota,omitempty" xml:"quota,omitempty"`
+	// This parameter is required.
 	SpaceIds []*string `json:"spaceIds,omitempty" xml:"spaceIds,omitempty" type:"Repeated"`
-	UnionId  *string   `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s ManagementModifySpaceRequest) String() string {
@@ -3746,6 +3950,7 @@ func (s *ManagementModifySpaceRequest) SetUnionId(v string) *ManagementModifySpa
 }
 
 type ManagementModifySpaceResponseBody struct {
+	// This parameter is required.
 	Spaces []*ManagementModifySpaceResponseBodySpaces `json:"spaces,omitempty" xml:"spaces,omitempty" type:"Repeated"`
 }
 
@@ -3763,14 +3968,19 @@ func (s *ManagementModifySpaceResponseBody) SetSpaces(v []*ManagementModifySpace
 }
 
 type ManagementModifySpaceResponseBodySpaces struct {
-	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	ModifyTime     *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
 	PermissionMode *string `json:"permissionMode,omitempty" xml:"permissionMode,omitempty"`
 	Quota          *int64  `json:"quota,omitempty" xml:"quota,omitempty"`
-	SpaceId        *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	SpaceName      *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
-	SpaceType      *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
-	UsedQuota      *int64  `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+	// This parameter is required.
+	SpaceId   *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	SpaceName *string `json:"spaceName,omitempty" xml:"spaceName,omitempty"`
+	// This parameter is required.
+	SpaceType *string `json:"spaceType,omitempty" xml:"spaceType,omitempty"`
+	// This parameter is required.
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
 }
 
 func (s ManagementModifySpaceResponseBodySpaces) String() string {
@@ -3874,9 +4084,12 @@ func (s *ModifyPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *ModifyPe
 }
 
 type ModifyPermissionRequest struct {
+	// This parameter is required.
 	Members []*ModifyPermissionRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	Role    *string                           `json:"role,omitempty" xml:"role,omitempty"`
-	UnionId *string                           `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s ModifyPermissionRequest) String() string {
@@ -3903,8 +4116,11 @@ func (s *ModifyPermissionRequest) SetUnionId(v string) *ModifyPermissionRequest 
 }
 
 type ModifyPermissionRequestMembers struct {
-	CorpId     *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
 	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
 }
 
@@ -3980,8 +4196,10 @@ func (s *MoveFileHeaders) SetXAcsDingtalkAccessToken(v string) *MoveFileHeaders 
 type MoveFileRequest struct {
 	AddConflictPolicy *string `json:"addConflictPolicy,omitempty" xml:"addConflictPolicy,omitempty"`
 	TargetParentId    *string `json:"targetParentId,omitempty" xml:"targetParentId,omitempty"`
-	TargetSpaceId     *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
-	UnionId           *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	TargetSpaceId *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s MoveFileRequest) String() string {
@@ -4013,19 +4231,30 @@ func (s *MoveFileRequest) SetUnionId(v string) *MoveFileRequest {
 }
 
 type MoveFileResponseBody struct {
-	ContentType   *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	CreateTime    *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Creator       *string `json:"creator,omitempty" xml:"creator,omitempty"`
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
-	FileId        *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	FileName      *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FilePath      *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
-	FileSize      *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	FileType      *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	Modifier      *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	ModifyTime    *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
-	ParentId      *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	SpaceId       *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// This parameter is required.
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// This parameter is required.
+	FilePath *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
+	FileSize *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// This parameter is required.
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	ParentId   *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// This parameter is required.
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s MoveFileResponseBody) String() string {
@@ -4154,11 +4383,14 @@ func (s *MoveFilesHeaders) SetXAcsDingtalkAccessToken(v string) *MoveFilesHeader
 }
 
 type MoveFilesRequest struct {
-	AddConflictPolicy *string   `json:"addConflictPolicy,omitempty" xml:"addConflictPolicy,omitempty"`
-	FileIds           []*string `json:"fileIds,omitempty" xml:"fileIds,omitempty" type:"Repeated"`
-	TargetParentId    *string   `json:"targetParentId,omitempty" xml:"targetParentId,omitempty"`
-	TargetSpaceId     *string   `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
-	UnionId           *string   `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	AddConflictPolicy *string `json:"addConflictPolicy,omitempty" xml:"addConflictPolicy,omitempty"`
+	// This parameter is required.
+	FileIds        []*string `json:"fileIds,omitempty" xml:"fileIds,omitempty" type:"Repeated"`
+	TargetParentId *string   `json:"targetParentId,omitempty" xml:"targetParentId,omitempty"`
+	// This parameter is required.
+	TargetSpaceId *string `json:"targetSpaceId,omitempty" xml:"targetSpaceId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s MoveFilesRequest) String() string {
@@ -4195,6 +4427,7 @@ func (s *MoveFilesRequest) SetUnionId(v string) *MoveFilesRequest {
 }
 
 type MoveFilesResponseBody struct {
+	// This parameter is required.
 	Files  []*MoveFilesResponseBodyFiles `json:"files,omitempty" xml:"files,omitempty" type:"Repeated"`
 	TaskId *string                       `json:"taskId,omitempty" xml:"taskId,omitempty"`
 }
@@ -4218,19 +4451,30 @@ func (s *MoveFilesResponseBody) SetTaskId(v string) *MoveFilesResponseBody {
 }
 
 type MoveFilesResponseBodyFiles struct {
-	ContentType   *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	CreateTime    *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Creator       *string `json:"creator,omitempty" xml:"creator,omitempty"`
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
-	FileId        *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	FileName      *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FilePath      *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
-	FileSize      *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	FileType      *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	Modifier      *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	ModifyTime    *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
-	ParentId      *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	SpaceId       *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// This parameter is required.
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// This parameter is required.
+	FilePath *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
+	FileSize *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// This parameter is required.
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	ParentId   *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// This parameter is required.
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s MoveFilesResponseBodyFiles) String() string {
@@ -4359,9 +4603,12 @@ func (s *RecoverRecycleFilesHeaders) SetXAcsDingtalkAccessToken(v string) *Recov
 }
 
 type RecoverRecycleFilesRequest struct {
+	// This parameter is required.
 	RecycleItemIdList []*int64 `json:"recycleItemIdList,omitempty" xml:"recycleItemIdList,omitempty" type:"Repeated"`
-	RecycleType       *string  `json:"recycleType,omitempty" xml:"recycleType,omitempty"`
-	UnionId           *string  `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	RecycleType *string `json:"recycleType,omitempty" xml:"recycleType,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s RecoverRecycleFilesRequest) String() string {
@@ -4434,8 +4681,10 @@ func (s *RenameFileHeaders) SetXAcsDingtalkAccessToken(v string) *RenameFileHead
 }
 
 type RenameFileRequest struct {
+	// This parameter is required.
 	NewFileName *string `json:"newFileName,omitempty" xml:"newFileName,omitempty"`
-	UnionId     *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s RenameFileRequest) String() string {
@@ -4457,19 +4706,30 @@ func (s *RenameFileRequest) SetUnionId(v string) *RenameFileRequest {
 }
 
 type RenameFileResponseBody struct {
-	ContentType   *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
 	CreateTime    *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Creator       *string `json:"creator,omitempty" xml:"creator,omitempty"`
 	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
-	FileId        *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	FileName      *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FilePath      *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
-	FileSize      *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	FileType      *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
-	Modifier      *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	ModifyTime    *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
-	ParentId      *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	SpaceId       *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// This parameter is required.
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// This parameter is required.
+	FilePath *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
+	FileSize *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// This parameter is required.
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	// This parameter is required.
+	//
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	ModifyTime *string `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	ParentId   *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// This parameter is required.
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
 
 func (s RenameFileResponseBody) String() string {
@@ -4589,12 +4849,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -4603,6 +4863,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 新建自定义空间
+//
+// @param request - AddCustomSpaceRequest
+//
+// @param headers - AddCustomSpaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddCustomSpaceResponse
 func (client *Client) AddCustomSpaceWithOptions(request *AddCustomSpaceRequest, headers *AddCustomSpaceHeaders, runtime *util.RuntimeOptions) (_result *AddCustomSpaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4658,6 +4929,13 @@ func (client *Client) AddCustomSpaceWithOptions(request *AddCustomSpaceRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 新建自定义空间
+//
+// @param request - AddCustomSpaceRequest
+//
+// @return AddCustomSpaceResponse
 func (client *Client) AddCustomSpace(request *AddCustomSpaceRequest) (_result *AddCustomSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddCustomSpaceHeaders{}
@@ -4670,6 +4948,17 @@ func (client *Client) AddCustomSpace(request *AddCustomSpaceRequest) (_result *A
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加文件
+//
+// @param request - AddFileRequest
+//
+// @param headers - AddFileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddFileResponse
 func (client *Client) AddFileWithOptions(spaceId *string, request *AddFileRequest, headers *AddFileHeaders, runtime *util.RuntimeOptions) (_result *AddFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4733,6 +5022,13 @@ func (client *Client) AddFileWithOptions(spaceId *string, request *AddFileReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加文件
+//
+// @param request - AddFileRequest
+//
+// @return AddFileResponse
 func (client *Client) AddFile(spaceId *string, request *AddFileRequest) (_result *AddFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddFileHeaders{}
@@ -4745,6 +5041,17 @@ func (client *Client) AddFile(spaceId *string, request *AddFileRequest) (_result
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加权限
+//
+// @param request - AddPermissionRequest
+//
+// @param headers - AddPermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddPermissionResponse
 func (client *Client) AddPermissionWithOptions(spaceId *string, fileId *string, request *AddPermissionRequest, headers *AddPermissionHeaders, runtime *util.RuntimeOptions) (_result *AddPermissionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4796,6 +5103,13 @@ func (client *Client) AddPermissionWithOptions(spaceId *string, fileId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加权限
+//
+// @param request - AddPermissionRequest
+//
+// @return AddPermissionResponse
 func (client *Client) AddPermission(spaceId *string, fileId *string, request *AddPermissionRequest) (_result *AddPermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddPermissionHeaders{}
@@ -4808,6 +5122,17 @@ func (client *Client) AddPermission(spaceId *string, fileId *string, request *Ad
 	return _result, _err
 }
 
+// Summary:
+//
+// 新建空间
+//
+// @param request - AddSpaceRequest
+//
+// @param headers - AddSpaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddSpaceResponse
 func (client *Client) AddSpaceWithOptions(request *AddSpaceRequest, headers *AddSpaceHeaders, runtime *util.RuntimeOptions) (_result *AddSpaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4855,6 +5180,13 @@ func (client *Client) AddSpaceWithOptions(request *AddSpaceRequest, headers *Add
 	return _result, _err
 }
 
+// Summary:
+//
+// 新建空间
+//
+// @param request - AddSpaceRequest
+//
+// @return AddSpaceResponse
 func (client *Client) AddSpace(request *AddSpaceRequest) (_result *AddSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddSpaceHeaders{}
@@ -4867,6 +5199,17 @@ func (client *Client) AddSpace(request *AddSpaceRequest) (_result *AddSpaceRespo
 	return _result, _err
 }
 
+// Summary:
+//
+// 清空回收站文件
+//
+// @param request - ClearRecycleFilesRequest
+//
+// @param headers - ClearRecycleFilesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ClearRecycleFilesResponse
 func (client *Client) ClearRecycleFilesWithOptions(request *ClearRecycleFilesRequest, headers *ClearRecycleFilesHeaders, runtime *util.RuntimeOptions) (_result *ClearRecycleFilesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4914,6 +5257,13 @@ func (client *Client) ClearRecycleFilesWithOptions(request *ClearRecycleFilesReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 清空回收站文件
+//
+// @param request - ClearRecycleFilesRequest
+//
+// @return ClearRecycleFilesResponse
 func (client *Client) ClearRecycleFiles(request *ClearRecycleFilesRequest) (_result *ClearRecycleFilesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ClearRecycleFilesHeaders{}
@@ -4926,6 +5276,17 @@ func (client *Client) ClearRecycleFiles(request *ClearRecycleFilesRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 拷贝文件
+//
+// @param request - CopyFileRequest
+//
+// @param headers - CopyFileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CopyFileResponse
 func (client *Client) CopyFileWithOptions(spaceId *string, fileId *string, request *CopyFileRequest, headers *CopyFileHeaders, runtime *util.RuntimeOptions) (_result *CopyFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4981,6 +5342,13 @@ func (client *Client) CopyFileWithOptions(spaceId *string, fileId *string, reque
 	return _result, _err
 }
 
+// Summary:
+//
+// 拷贝文件
+//
+// @param request - CopyFileRequest
+//
+// @return CopyFileResponse
 func (client *Client) CopyFile(spaceId *string, fileId *string, request *CopyFileRequest) (_result *CopyFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CopyFileHeaders{}
@@ -4993,6 +5361,17 @@ func (client *Client) CopyFile(spaceId *string, fileId *string, request *CopyFil
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除文件
+//
+// @param request - DeleteFileRequest
+//
+// @param headers - DeleteFileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteFileResponse
 func (client *Client) DeleteFileWithOptions(spaceId *string, fileId *string, request *DeleteFileRequest, headers *DeleteFileHeaders, runtime *util.RuntimeOptions) (_result *DeleteFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5040,6 +5419,13 @@ func (client *Client) DeleteFileWithOptions(spaceId *string, fileId *string, req
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除文件
+//
+// @param request - DeleteFileRequest
+//
+// @return DeleteFileResponse
 func (client *Client) DeleteFile(spaceId *string, fileId *string, request *DeleteFileRequest) (_result *DeleteFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteFileHeaders{}
@@ -5052,6 +5438,17 @@ func (client *Client) DeleteFile(spaceId *string, fileId *string, request *Delet
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量删除文件（夹）
+//
+// @param request - DeleteFilesRequest
+//
+// @param headers - DeleteFilesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteFilesResponse
 func (client *Client) DeleteFilesWithOptions(spaceId *string, request *DeleteFilesRequest, headers *DeleteFilesHeaders, runtime *util.RuntimeOptions) (_result *DeleteFilesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5103,6 +5500,13 @@ func (client *Client) DeleteFilesWithOptions(spaceId *string, request *DeleteFil
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量删除文件（夹）
+//
+// @param request - DeleteFilesRequest
+//
+// @return DeleteFilesResponse
 func (client *Client) DeleteFiles(spaceId *string, request *DeleteFilesRequest) (_result *DeleteFilesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteFilesHeaders{}
@@ -5115,6 +5519,17 @@ func (client *Client) DeleteFiles(spaceId *string, request *DeleteFilesRequest) 
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除权限
+//
+// @param request - DeletePermissionRequest
+//
+// @param headers - DeletePermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeletePermissionResponse
 func (client *Client) DeletePermissionWithOptions(spaceId *string, fileId *string, request *DeletePermissionRequest, headers *DeletePermissionHeaders, runtime *util.RuntimeOptions) (_result *DeletePermissionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5166,6 +5581,13 @@ func (client *Client) DeletePermissionWithOptions(spaceId *string, fileId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除权限
+//
+// @param request - DeletePermissionRequest
+//
+// @return DeletePermissionResponse
 func (client *Client) DeletePermission(spaceId *string, fileId *string, request *DeletePermissionRequest) (_result *DeletePermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeletePermissionHeaders{}
@@ -5178,6 +5600,17 @@ func (client *Client) DeletePermission(spaceId *string, fileId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 彻底删除回收站文件
+//
+// @param request - DeleteRecycleFilesRequest
+//
+// @param headers - DeleteRecycleFilesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteRecycleFilesResponse
 func (client *Client) DeleteRecycleFilesWithOptions(request *DeleteRecycleFilesRequest, headers *DeleteRecycleFilesHeaders, runtime *util.RuntimeOptions) (_result *DeleteRecycleFilesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5229,6 +5662,13 @@ func (client *Client) DeleteRecycleFilesWithOptions(request *DeleteRecycleFilesR
 	return _result, _err
 }
 
+// Summary:
+//
+// 彻底删除回收站文件
+//
+// @param request - DeleteRecycleFilesRequest
+//
+// @return DeleteRecycleFilesResponse
 func (client *Client) DeleteRecycleFiles(request *DeleteRecycleFilesRequest) (_result *DeleteRecycleFilesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteRecycleFilesHeaders{}
@@ -5241,6 +5681,17 @@ func (client *Client) DeleteRecycleFiles(request *DeleteRecycleFilesRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除空间
+//
+// @param request - DeleteSpaceRequest
+//
+// @param headers - DeleteSpaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteSpaceResponse
 func (client *Client) DeleteSpaceWithOptions(spaceId *string, request *DeleteSpaceRequest, headers *DeleteSpaceHeaders, runtime *util.RuntimeOptions) (_result *DeleteSpaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5284,6 +5735,13 @@ func (client *Client) DeleteSpaceWithOptions(spaceId *string, request *DeleteSpa
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除空间
+//
+// @param request - DeleteSpaceRequest
+//
+// @return DeleteSpaceResponse
 func (client *Client) DeleteSpace(spaceId *string, request *DeleteSpaceRequest) (_result *DeleteSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteSpaceHeaders{}
@@ -5296,6 +5754,17 @@ func (client *Client) DeleteSpace(spaceId *string, request *DeleteSpaceRequest) 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取异步任务信息
+//
+// @param request - GetAsyncTaskInfoRequest
+//
+// @param headers - GetAsyncTaskInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAsyncTaskInfoResponse
 func (client *Client) GetAsyncTaskInfoWithOptions(taskId *string, request *GetAsyncTaskInfoRequest, headers *GetAsyncTaskInfoHeaders, runtime *util.RuntimeOptions) (_result *GetAsyncTaskInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5339,6 +5808,13 @@ func (client *Client) GetAsyncTaskInfoWithOptions(taskId *string, request *GetAs
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取异步任务信息
+//
+// @param request - GetAsyncTaskInfoRequest
+//
+// @return GetAsyncTaskInfoResponse
 func (client *Client) GetAsyncTaskInfo(taskId *string, request *GetAsyncTaskInfoRequest) (_result *GetAsyncTaskInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAsyncTaskInfoHeaders{}
@@ -5351,6 +5827,17 @@ func (client *Client) GetAsyncTaskInfo(taskId *string, request *GetAsyncTaskInfo
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取下载信息
+//
+// @param request - GetDownloadInfoRequest
+//
+// @param headers - GetDownloadInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDownloadInfoResponse
 func (client *Client) GetDownloadInfoWithOptions(spaceId *string, fileId *string, request *GetDownloadInfoRequest, headers *GetDownloadInfoHeaders, runtime *util.RuntimeOptions) (_result *GetDownloadInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5402,6 +5889,13 @@ func (client *Client) GetDownloadInfoWithOptions(spaceId *string, fileId *string
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取下载信息
+//
+// @param request - GetDownloadInfoRequest
+//
+// @return GetDownloadInfoResponse
 func (client *Client) GetDownloadInfo(spaceId *string, fileId *string, request *GetDownloadInfoRequest) (_result *GetDownloadInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDownloadInfoHeaders{}
@@ -5414,6 +5908,17 @@ func (client *Client) GetDownloadInfo(spaceId *string, fileId *string, request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件信息
+//
+// @param request - GetFileInfoRequest
+//
+// @param headers - GetFileInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFileInfoResponse
 func (client *Client) GetFileInfoWithOptions(spaceId *string, fileId *string, request *GetFileInfoRequest, headers *GetFileInfoHeaders, runtime *util.RuntimeOptions) (_result *GetFileInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5457,6 +5962,13 @@ func (client *Client) GetFileInfoWithOptions(spaceId *string, fileId *string, re
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件信息
+//
+// @param request - GetFileInfoRequest
+//
+// @return GetFileInfoResponse
 func (client *Client) GetFileInfo(spaceId *string, fileId *string, request *GetFileInfoRequest) (_result *GetFileInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetFileInfoHeaders{}
@@ -5469,6 +5981,17 @@ func (client *Client) GetFileInfo(spaceId *string, fileId *string, request *GetF
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取我的工作空间信息
+//
+// @param request - GetMySpaceInfoRequest
+//
+// @param headers - GetMySpaceInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetMySpaceInfoResponse
 func (client *Client) GetMySpaceInfoWithOptions(request *GetMySpaceInfoRequest, headers *GetMySpaceInfoHeaders, runtime *util.RuntimeOptions) (_result *GetMySpaceInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5512,6 +6035,13 @@ func (client *Client) GetMySpaceInfoWithOptions(request *GetMySpaceInfoRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取我的工作空间信息
+//
+// @param request - GetMySpaceInfoRequest
+//
+// @return GetMySpaceInfoResponse
 func (client *Client) GetMySpaceInfo(request *GetMySpaceInfoRequest) (_result *GetMySpaceInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetMySpaceInfoHeaders{}
@@ -5524,6 +6054,17 @@ func (client *Client) GetMySpaceInfo(request *GetMySpaceInfoRequest) (_result *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取预览信息
+//
+// @param request - GetPreviewInfoRequest
+//
+// @param headers - GetPreviewInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPreviewInfoResponse
 func (client *Client) GetPreviewInfoWithOptions(spaceId *string, fileId *string, request *GetPreviewInfoRequest, headers *GetPreviewInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPreviewInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5575,6 +6116,13 @@ func (client *Client) GetPreviewInfoWithOptions(spaceId *string, fileId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取预览信息
+//
+// @param request - GetPreviewInfoRequest
+//
+// @return GetPreviewInfoResponse
 func (client *Client) GetPreviewInfo(spaceId *string, fileId *string, request *GetPreviewInfoRequest) (_result *GetPreviewInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPreviewInfoHeaders{}
@@ -5587,6 +6135,17 @@ func (client *Client) GetPreviewInfo(spaceId *string, fileId *string, request *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取权限点信息
+//
+// @param request - GetPrivilegeInfoRequest
+//
+// @param headers - GetPrivilegeInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPrivilegeInfoResponse
 func (client *Client) GetPrivilegeInfoWithOptions(spaceId *string, fileId *string, request *GetPrivilegeInfoRequest, headers *GetPrivilegeInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPrivilegeInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5630,6 +6189,13 @@ func (client *Client) GetPrivilegeInfoWithOptions(spaceId *string, fileId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取权限点信息
+//
+// @param request - GetPrivilegeInfoRequest
+//
+// @return GetPrivilegeInfoResponse
 func (client *Client) GetPrivilegeInfo(spaceId *string, fileId *string, request *GetPrivilegeInfoRequest) (_result *GetPrivilegeInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPrivilegeInfoHeaders{}
@@ -5642,6 +6208,17 @@ func (client *Client) GetPrivilegeInfo(spaceId *string, fileId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取容量信息列表
+//
+// @param request - GetQuotaInfosRequest
+//
+// @param headers - GetQuotaInfosHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetQuotaInfosResponse
 func (client *Client) GetQuotaInfosWithOptions(request *GetQuotaInfosRequest, headers *GetQuotaInfosHeaders, runtime *util.RuntimeOptions) (_result *GetQuotaInfosResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5693,6 +6270,13 @@ func (client *Client) GetQuotaInfosWithOptions(request *GetQuotaInfosRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取容量信息列表
+//
+// @param request - GetQuotaInfosRequest
+//
+// @return GetQuotaInfosResponse
 func (client *Client) GetQuotaInfos(request *GetQuotaInfosRequest) (_result *GetQuotaInfosResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetQuotaInfosHeaders{}
@@ -5705,6 +6289,17 @@ func (client *Client) GetQuotaInfos(request *GetQuotaInfosRequest) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取上传信息
+//
+// @param request - GetUploadInfoRequest
+//
+// @param headers - GetUploadInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUploadInfoResponse
 func (client *Client) GetUploadInfoWithOptions(spaceId *string, parentId *string, request *GetUploadInfoRequest, headers *GetUploadInfoHeaders, runtime *util.RuntimeOptions) (_result *GetUploadInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5780,6 +6375,13 @@ func (client *Client) GetUploadInfoWithOptions(spaceId *string, parentId *string
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取上传信息
+//
+// @param request - GetUploadInfoRequest
+//
+// @return GetUploadInfoResponse
 func (client *Client) GetUploadInfo(spaceId *string, parentId *string, request *GetUploadInfoRequest) (_result *GetUploadInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUploadInfoHeaders{}
@@ -5792,6 +6394,17 @@ func (client *Client) GetUploadInfo(spaceId *string, parentId *string, request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加自定义空间权限
+//
+// @param request - GrantPrivilegeOfCustomSpaceRequest
+//
+// @param headers - GrantPrivilegeOfCustomSpaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GrantPrivilegeOfCustomSpaceResponse
 func (client *Client) GrantPrivilegeOfCustomSpaceWithOptions(spaceId *string, request *GrantPrivilegeOfCustomSpaceRequest, headers *GrantPrivilegeOfCustomSpaceHeaders, runtime *util.RuntimeOptions) (_result *GrantPrivilegeOfCustomSpaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5851,6 +6464,13 @@ func (client *Client) GrantPrivilegeOfCustomSpaceWithOptions(spaceId *string, re
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加自定义空间权限
+//
+// @param request - GrantPrivilegeOfCustomSpaceRequest
+//
+// @return GrantPrivilegeOfCustomSpaceResponse
 func (client *Client) GrantPrivilegeOfCustomSpace(spaceId *string, request *GrantPrivilegeOfCustomSpaceRequest) (_result *GrantPrivilegeOfCustomSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GrantPrivilegeOfCustomSpaceHeaders{}
@@ -5863,6 +6483,17 @@ func (client *Client) GrantPrivilegeOfCustomSpace(spaceId *string, request *Gran
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取空间信息
+//
+// @param request - InfoSpaceRequest
+//
+// @param headers - InfoSpaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InfoSpaceResponse
 func (client *Client) InfoSpaceWithOptions(spaceId *string, request *InfoSpaceRequest, headers *InfoSpaceHeaders, runtime *util.RuntimeOptions) (_result *InfoSpaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5906,6 +6537,13 @@ func (client *Client) InfoSpaceWithOptions(spaceId *string, request *InfoSpaceRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取空间信息
+//
+// @param request - InfoSpaceRequest
+//
+// @return InfoSpaceResponse
 func (client *Client) InfoSpace(spaceId *string, request *InfoSpaceRequest) (_result *InfoSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InfoSpaceHeaders{}
@@ -5918,6 +6556,17 @@ func (client *Client) InfoSpace(spaceId *string, request *InfoSpaceRequest) (_re
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件列表
+//
+// @param request - ListFilesRequest
+//
+// @param headers - ListFilesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListFilesResponse
 func (client *Client) ListFilesWithOptions(spaceId *string, request *ListFilesRequest, headers *ListFilesHeaders, runtime *util.RuntimeOptions) (_result *ListFilesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5981,6 +6630,13 @@ func (client *Client) ListFilesWithOptions(spaceId *string, request *ListFilesRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取文件列表
+//
+// @param request - ListFilesRequest
+//
+// @return ListFilesResponse
 func (client *Client) ListFiles(spaceId *string, request *ListFilesRequest) (_result *ListFilesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListFilesHeaders{}
@@ -5993,6 +6649,17 @@ func (client *Client) ListFiles(spaceId *string, request *ListFilesRequest) (_re
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取权限列表
+//
+// @param request - ListPermissionsRequest
+//
+// @param headers - ListPermissionsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListPermissionsResponse
 func (client *Client) ListPermissionsWithOptions(spaceId *string, fileId *string, request *ListPermissionsRequest, headers *ListPermissionsHeaders, runtime *util.RuntimeOptions) (_result *ListPermissionsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6036,6 +6703,13 @@ func (client *Client) ListPermissionsWithOptions(spaceId *string, fileId *string
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取权限列表
+//
+// @param request - ListPermissionsRequest
+//
+// @return ListPermissionsResponse
 func (client *Client) ListPermissions(spaceId *string, fileId *string, request *ListPermissionsRequest) (_result *ListPermissionsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListPermissionsHeaders{}
@@ -6048,6 +6722,17 @@ func (client *Client) ListPermissions(spaceId *string, fileId *string, request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取回收站文件列表
+//
+// @param request - ListRecycleFilesRequest
+//
+// @param headers - ListRecycleFilesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListRecycleFilesResponse
 func (client *Client) ListRecycleFilesWithOptions(request *ListRecycleFilesRequest, headers *ListRecycleFilesHeaders, runtime *util.RuntimeOptions) (_result *ListRecycleFilesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6107,6 +6792,13 @@ func (client *Client) ListRecycleFilesWithOptions(request *ListRecycleFilesReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取回收站文件列表
+//
+// @param request - ListRecycleFilesRequest
+//
+// @return ListRecycleFilesResponse
 func (client *Client) ListRecycleFiles(request *ListRecycleFilesRequest) (_result *ListRecycleFilesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListRecycleFilesHeaders{}
@@ -6119,6 +6811,17 @@ func (client *Client) ListRecycleFiles(request *ListRecycleFilesRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取空间列表
+//
+// @param request - ListSpacesRequest
+//
+// @param headers - ListSpacesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListSpacesResponse
 func (client *Client) ListSpacesWithOptions(request *ListSpacesRequest, headers *ListSpacesHeaders, runtime *util.RuntimeOptions) (_result *ListSpacesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6174,6 +6877,13 @@ func (client *Client) ListSpacesWithOptions(request *ListSpacesRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取空间列表
+//
+// @param request - ListSpacesRequest
+//
+// @return ListSpacesResponse
 func (client *Client) ListSpaces(request *ListSpacesRequest) (_result *ListSpacesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListSpacesHeaders{}
@@ -6186,6 +6896,17 @@ func (client *Client) ListSpaces(request *ListSpacesRequest) (_result *ListSpace
 	return _result, _err
 }
 
+// Summary:
+//
+// 管理侧购买容量
+//
+// @param request - ManagementBuyQuotaRequest
+//
+// @param headers - ManagementBuyQuotaHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ManagementBuyQuotaResponse
 func (client *Client) ManagementBuyQuotaWithOptions(request *ManagementBuyQuotaRequest, headers *ManagementBuyQuotaHeaders, runtime *util.RuntimeOptions) (_result *ManagementBuyQuotaResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6237,6 +6958,13 @@ func (client *Client) ManagementBuyQuotaWithOptions(request *ManagementBuyQuotaR
 	return _result, _err
 }
 
+// Summary:
+//
+// 管理侧购买容量
+//
+// @param request - ManagementBuyQuotaRequest
+//
+// @return ManagementBuyQuotaResponse
 func (client *Client) ManagementBuyQuota(request *ManagementBuyQuotaRequest) (_result *ManagementBuyQuotaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ManagementBuyQuotaHeaders{}
@@ -6249,6 +6977,17 @@ func (client *Client) ManagementBuyQuota(request *ManagementBuyQuotaRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 管理侧获取空间列表
+//
+// @param request - ManagementListSpacesRequest
+//
+// @param headers - ManagementListSpacesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ManagementListSpacesResponse
 func (client *Client) ManagementListSpacesWithOptions(request *ManagementListSpacesRequest, headers *ManagementListSpacesHeaders, runtime *util.RuntimeOptions) (_result *ManagementListSpacesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6296,6 +7035,13 @@ func (client *Client) ManagementListSpacesWithOptions(request *ManagementListSpa
 	return _result, _err
 }
 
+// Summary:
+//
+// 管理侧获取空间列表
+//
+// @param request - ManagementListSpacesRequest
+//
+// @return ManagementListSpacesResponse
 func (client *Client) ManagementListSpaces(request *ManagementListSpacesRequest) (_result *ManagementListSpacesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ManagementListSpacesHeaders{}
@@ -6308,6 +7054,17 @@ func (client *Client) ManagementListSpaces(request *ManagementListSpacesRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 管理侧修改空间信息
+//
+// @param request - ManagementModifySpaceRequest
+//
+// @param headers - ManagementModifySpaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ManagementModifySpaceResponse
 func (client *Client) ManagementModifySpaceWithOptions(request *ManagementModifySpaceRequest, headers *ManagementModifySpaceHeaders, runtime *util.RuntimeOptions) (_result *ManagementModifySpaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6359,6 +7116,13 @@ func (client *Client) ManagementModifySpaceWithOptions(request *ManagementModify
 	return _result, _err
 }
 
+// Summary:
+//
+// 管理侧修改空间信息
+//
+// @param request - ManagementModifySpaceRequest
+//
+// @return ManagementModifySpaceResponse
 func (client *Client) ManagementModifySpace(request *ManagementModifySpaceRequest) (_result *ManagementModifySpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ManagementModifySpaceHeaders{}
@@ -6371,6 +7135,17 @@ func (client *Client) ManagementModifySpace(request *ManagementModifySpaceReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改权限
+//
+// @param request - ModifyPermissionRequest
+//
+// @param headers - ModifyPermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ModifyPermissionResponse
 func (client *Client) ModifyPermissionWithOptions(spaceId *string, fileId *string, request *ModifyPermissionRequest, headers *ModifyPermissionHeaders, runtime *util.RuntimeOptions) (_result *ModifyPermissionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6422,6 +7197,13 @@ func (client *Client) ModifyPermissionWithOptions(spaceId *string, fileId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改权限
+//
+// @param request - ModifyPermissionRequest
+//
+// @return ModifyPermissionResponse
 func (client *Client) ModifyPermission(spaceId *string, fileId *string, request *ModifyPermissionRequest) (_result *ModifyPermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ModifyPermissionHeaders{}
@@ -6434,6 +7216,17 @@ func (client *Client) ModifyPermission(spaceId *string, fileId *string, request 
 	return _result, _err
 }
 
+// Summary:
+//
+// 移动文件
+//
+// @param request - MoveFileRequest
+//
+// @param headers - MoveFileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MoveFileResponse
 func (client *Client) MoveFileWithOptions(spaceId *string, fileId *string, request *MoveFileRequest, headers *MoveFileHeaders, runtime *util.RuntimeOptions) (_result *MoveFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6489,6 +7282,13 @@ func (client *Client) MoveFileWithOptions(spaceId *string, fileId *string, reque
 	return _result, _err
 }
 
+// Summary:
+//
+// 移动文件
+//
+// @param request - MoveFileRequest
+//
+// @return MoveFileResponse
 func (client *Client) MoveFile(spaceId *string, fileId *string, request *MoveFileRequest) (_result *MoveFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &MoveFileHeaders{}
@@ -6501,6 +7301,17 @@ func (client *Client) MoveFile(spaceId *string, fileId *string, request *MoveFil
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量移动文件（夹）
+//
+// @param request - MoveFilesRequest
+//
+// @param headers - MoveFilesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MoveFilesResponse
 func (client *Client) MoveFilesWithOptions(spaceId *string, request *MoveFilesRequest, headers *MoveFilesHeaders, runtime *util.RuntimeOptions) (_result *MoveFilesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6560,6 +7371,13 @@ func (client *Client) MoveFilesWithOptions(spaceId *string, request *MoveFilesRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量移动文件（夹）
+//
+// @param request - MoveFilesRequest
+//
+// @return MoveFilesResponse
 func (client *Client) MoveFiles(spaceId *string, request *MoveFilesRequest) (_result *MoveFilesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &MoveFilesHeaders{}
@@ -6572,6 +7390,17 @@ func (client *Client) MoveFiles(spaceId *string, request *MoveFilesRequest) (_re
 	return _result, _err
 }
 
+// Summary:
+//
+// 还原回收站文件
+//
+// @param request - RecoverRecycleFilesRequest
+//
+// @param headers - RecoverRecycleFilesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RecoverRecycleFilesResponse
 func (client *Client) RecoverRecycleFilesWithOptions(request *RecoverRecycleFilesRequest, headers *RecoverRecycleFilesHeaders, runtime *util.RuntimeOptions) (_result *RecoverRecycleFilesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6623,6 +7452,13 @@ func (client *Client) RecoverRecycleFilesWithOptions(request *RecoverRecycleFile
 	return _result, _err
 }
 
+// Summary:
+//
+// 还原回收站文件
+//
+// @param request - RecoverRecycleFilesRequest
+//
+// @return RecoverRecycleFilesResponse
 func (client *Client) RecoverRecycleFiles(request *RecoverRecycleFilesRequest) (_result *RecoverRecycleFilesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RecoverRecycleFilesHeaders{}
@@ -6635,6 +7471,17 @@ func (client *Client) RecoverRecycleFiles(request *RecoverRecycleFilesRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 重命名文件
+//
+// @param request - RenameFileRequest
+//
+// @param headers - RenameFileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RenameFileResponse
 func (client *Client) RenameFileWithOptions(spaceId *string, fileId *string, request *RenameFileRequest, headers *RenameFileHeaders, runtime *util.RuntimeOptions) (_result *RenameFileResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6682,6 +7529,13 @@ func (client *Client) RenameFileWithOptions(spaceId *string, fileId *string, req
 	return _result, _err
 }
 
+// Summary:
+//
+// 重命名文件
+//
+// @param request - RenameFileRequest
+//
+// @return RenameFileResponse
 func (client *Client) RenameFile(spaceId *string, fileId *string, request *RenameFileRequest) (_result *RenameFileResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RenameFileHeaders{}

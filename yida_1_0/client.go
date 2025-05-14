@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package yida_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,11 +33,24 @@ func (s *AppLoginCodeGenHeaders) SetXAcsDingtalkAccessToken(v string) *AppLoginC
 }
 
 type AppLoginCodeGenRequest struct {
-	AppKey           *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// This parameter is required.
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// This parameter is required.
 	SignTimestampStr *string `json:"signTimestampStr,omitempty" xml:"signTimestampStr,omitempty"`
-	Signature        *string `json:"signature,omitempty" xml:"signature,omitempty"`
-	FullUrl          *string `json:"fullUrl,omitempty" xml:"fullUrl,omitempty"`
-	UserId           *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	Signature *string `json:"signature,omitempty" xml:"signature,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://www.aliwork.com/APP_xx/workbench
+	FullUrl *string `json:"fullUrl,omitempty" xml:"fullUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AppLoginCodeGenRequest) String() string {
@@ -147,12 +156,40 @@ func (s *BatchGetFormDataByIdListHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type BatchGetFormDataByIdListRequest struct {
-	AppType               *string   `json:"appType,omitempty" xml:"appType,omitempty"`
-	FormInstanceIdList    []*string `json:"formInstanceIdList,omitempty" xml:"formInstanceIdList,omitempty" type:"Repeated"`
-	FormUuid              *string   `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	NeedFormInstanceValue *bool     `json:"needFormInstanceValue,omitempty" xml:"needFormInstanceValue,omitempty"`
-	SystemToken           *string   `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId                *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FINST-J8766S91O2UYN87ZX3XOF1MY8MBA2912BSV0L24
+	FormInstanceIdList []*string `json:"formInstanceIdList,omitempty" xml:"formInstanceIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// true
+	NeedFormInstanceValue *bool `json:"needFormInstanceValue,omitempty" xml:"needFormInstanceValue,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchGetFormDataByIdListRequest) String() string {
@@ -211,21 +248,60 @@ func (s *BatchGetFormDataByIdListResponseBody) SetResult(v []*BatchGetFormDataBy
 }
 
 type BatchGetFormDataByIdListResponseBodyResult struct {
-	CreateTimeGMT   *string                                               `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
-	CreatorUserId   *string                                               `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	FormData        map[string]interface{}                                `json:"formData,omitempty" xml:"formData,omitempty"`
-	FormInstanceId  *string                                               `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
-	FormUuid        *string                                               `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	Id              *int64                                                `json:"id,omitempty" xml:"id,omitempty"`
-	InstanceValue   *string                                               `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
-	ModifiedTimeGMT *string                                               `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
-	Modifier        *string                                               `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	ModifyUser      *BatchGetFormDataByIdListResponseBodyResultModifyUser `json:"modifyUser,omitempty" xml:"modifyUser,omitempty" type:"Struct"`
-	Originator      *BatchGetFormDataByIdListResponseBodyResultOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
-	Sequence        *string                                               `json:"sequence,omitempty" xml:"sequence,omitempty"`
-	SerialNumber    *string                                               `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
-	Title           *string                                               `json:"title,omitempty" xml:"title,omitempty"`
-	Version         *int64                                                `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// 2021-05-01
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// example:
+	//
+	// ding12345
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// example:
+	//
+	// {"addressField_l0c1cwiy_id":"\"海南省/469027/国营红岗农场/111\"","associationFormField_l0c1hdz4_id":"\"[{\\\"formType\\\":\\\"receipt\\\",\\\"formUuid\\\":\\\"FORM-QQ866JB1QW8YM5XZZZ64VQB61OGM1MLWE1C0LG\\\",\\\"instanceId\\\":\\\"FINST-CC666Y6198RY0LAN39XGND212MSX3TFT95S0LN31\\\",\\\"subTitle\\\":\\\"{\\\\\\\"type\\\\\\\":\\\\\\\"div\\\\\\\",\\\\\\\"props\\\\\\\":{\\\\\\\"children\\\\\\\":{\\\\\\\"type\\\\\\\":\\\\\\\"a\\\\\\\",\\\\\\\"props\\\\\\\":{\\\\\\\"children\\\\\\\":\\\\\\\"查看签名\\\\\\\",\\\\\\\"className\\\\\\\":\\\\\\\"inst-cell-item-link\\\\\\\",\\\\\\\"style\\\\\\\":{\\\\\\\"cursor\\\\\\\":\\\\\\\"pointer\\\\\\\",\\\\\\\"color\\\\\\\":\\\\\\\"#0068ff\\\\\\\"}}},\\\\\\\"className\\\\\\\":\\\\\\\"inst-cell-item\\\\\\\"}}\\\",\\\"appType\\\":\\\"APP_K6IGJJ6PFAARLPDSWKXQ\\\",\\\"title\\\":\\\"1\\\"}]\"","countrySelectField_l0c1cwiu_id":["PG"]}
+	FormData map[string]interface{} `json:"formData,omitempty" xml:"formData,omitempty"`
+	// example:
+	//
+	// FINST-J8766S91O2UYN87ZX3XOF1MY8MBA2912BSV0L24
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// 12345
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 符合宜搭表单实例格式的json数据
+	InstanceValue *string `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
+	// example:
+	//
+	// 2021-05-01
+	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	// example:
+	//
+	// manager123
+	Modifier   *string                                               `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	ModifyUser *BatchGetFormDataByIdListResponseBodyResultModifyUser `json:"modifyUser,omitempty" xml:"modifyUser,omitempty" type:"Struct"`
+	Originator *BatchGetFormDataByIdListResponseBodyResultOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
+	// example:
+	//
+	// IMPORT-388664B1BAUVB3AYZE1RIUE88TDM1QI9WIOWK2
+	Sequence *string `json:"sequence,omitempty" xml:"sequence,omitempty"`
+	// example:
+	//
+	// YIDA909202202250027
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	// example:
+	//
+	// 李四发起的请购单
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 1.0
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s BatchGetFormDataByIdListResponseBodyResult) String() string {
@@ -312,8 +388,11 @@ func (s *BatchGetFormDataByIdListResponseBodyResult) SetVersion(v int64) *BatchG
 }
 
 type BatchGetFormDataByIdListResponseBodyResultModifyUser struct {
-	Name   *BatchGetFormDataByIdListResponseBodyResultModifyUserName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
-	UserId *string                                                   `json:"userId,omitempty" xml:"userId,omitempty"`
+	Name *BatchGetFormDataByIdListResponseBodyResultModifyUserName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchGetFormDataByIdListResponseBodyResultModifyUser) String() string {
@@ -335,7 +414,13 @@ func (s *BatchGetFormDataByIdListResponseBodyResultModifyUser) SetUserId(v strin
 }
 
 type BatchGetFormDataByIdListResponseBodyResultModifyUserName struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
 }
 
@@ -358,8 +443,11 @@ func (s *BatchGetFormDataByIdListResponseBodyResultModifyUserName) SetNameInEngl
 }
 
 type BatchGetFormDataByIdListResponseBodyResultOriginator struct {
-	Name   *BatchGetFormDataByIdListResponseBodyResultOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
-	UserId *string                                                   `json:"userId,omitempty" xml:"userId,omitempty"`
+	Name *BatchGetFormDataByIdListResponseBodyResultOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchGetFormDataByIdListResponseBodyResultOriginator) String() string {
@@ -381,7 +469,13 @@ func (s *BatchGetFormDataByIdListResponseBodyResultOriginator) SetUserId(v strin
 }
 
 type BatchGetFormDataByIdListResponseBodyResultOriginatorName struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
 }
 
@@ -456,13 +550,44 @@ func (s *BatchRemovalByFormInstanceIdListHeaders) SetXAcsDingtalkAccessToken(v s
 }
 
 type BatchRemovalByFormInstanceIdListRequest struct {
-	AppType               *string   `json:"appType,omitempty" xml:"appType,omitempty"`
-	AsynchronousExecution *bool     `json:"asynchronousExecution,omitempty" xml:"asynchronousExecution,omitempty"`
-	ExecuteExpression     *bool     `json:"executeExpression,omitempty" xml:"executeExpression,omitempty"`
-	FormInstanceIdList    []*string `json:"formInstanceIdList,omitempty" xml:"formInstanceIdList,omitempty" type:"Repeated"`
-	FormUuid              *string   `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	SystemToken           *string   `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId                *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// true
+	AsynchronousExecution *bool `json:"asynchronousExecution,omitempty" xml:"asynchronousExecution,omitempty"`
+	// example:
+	//
+	// true
+	ExecuteExpression *bool `json:"executeExpression,omitempty" xml:"executeExpression,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FINST-J8766S91O2UYN87ZX3XOF1MY8MBA2912BSV0L24
+	FormInstanceIdList []*string `json:"formInstanceIdList,omitempty" xml:"formInstanceIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchRemovalByFormInstanceIdListRequest) String() string {
@@ -555,14 +680,48 @@ func (s *BatchSaveFormDataHeaders) SetXAcsDingtalkAccessToken(v string) *BatchSa
 }
 
 type BatchSaveFormDataRequest struct {
-	AppType                   *string   `json:"appType,omitempty" xml:"appType,omitempty"`
-	AsynchronousExecution     *bool     `json:"asynchronousExecution,omitempty" xml:"asynchronousExecution,omitempty"`
-	FormDataJsonList          []*string `json:"formDataJsonList,omitempty" xml:"formDataJsonList,omitempty" type:"Repeated"`
-	FormUuid                  *string   `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	KeepRunningAfterException *bool     `json:"keepRunningAfterException,omitempty" xml:"keepRunningAfterException,omitempty"`
-	NoExecuteExpression       *bool     `json:"noExecuteExpression,omitempty" xml:"noExecuteExpression,omitempty"`
-	SystemToken               *string   `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId                    *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// true
+	AsynchronousExecution *bool `json:"asynchronousExecution,omitempty" xml:"asynchronousExecution,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// "{\"countrySelectField_l0c1cwiu\":[{\"value\":\"US\"}],\"addressField_l0c1cwiy\":{\"address\":\"111\",\"regionIds\":[460000,469027,469023401],\"regionText\":[{\"en_US\":\"hai+nan+sheng\",\"zh_CN\":\"海南省\"},{\"en_US\":\"cheng+mai+xian\",\"zh_CN\":\"澄迈县\"},{\"en_US\":\"guo+ying+hong+gang+nong+chang\",\"zh_CN\":\"国营红岗农场\"}]}}"
+	FormDataJsonList []*string `json:"formDataJsonList,omitempty" xml:"formDataJsonList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// true
+	KeepRunningAfterException *bool `json:"keepRunningAfterException,omitempty" xml:"keepRunningAfterException,omitempty"`
+	// example:
+	//
+	// true
+	NoExecuteExpression *bool `json:"noExecuteExpression,omitempty" xml:"noExecuteExpression,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchSaveFormDataRequest) String() string {
@@ -683,16 +842,58 @@ func (s *BatchUpdateFormDataByInstanceIdHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type BatchUpdateFormDataByInstanceIdRequest struct {
-	AppType                    *string   `json:"appType,omitempty" xml:"appType,omitempty"`
-	AsynchronousExecution      *bool     `json:"asynchronousExecution,omitempty" xml:"asynchronousExecution,omitempty"`
-	FormInstanceIdList         []*string `json:"formInstanceIdList,omitempty" xml:"formInstanceIdList,omitempty" type:"Repeated"`
-	FormUuid                   *string   `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	IgnoreEmpty                *bool     `json:"ignoreEmpty,omitempty" xml:"ignoreEmpty,omitempty"`
-	NoExecuteExpression        *bool     `json:"noExecuteExpression,omitempty" xml:"noExecuteExpression,omitempty"`
-	SystemToken                *string   `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UpdateFormDataJson         *string   `json:"updateFormDataJson,omitempty" xml:"updateFormDataJson,omitempty"`
-	UseLatestFormSchemaVersion *bool     `json:"useLatestFormSchemaVersion,omitempty" xml:"useLatestFormSchemaVersion,omitempty"`
-	UserId                     *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// true
+	AsynchronousExecution *bool `json:"asynchronousExecution,omitempty" xml:"asynchronousExecution,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FINST-J8766S91O2UYN87ZX3XOF1MY8MBA2912BSV0L24
+	FormInstanceIdList []*string `json:"formInstanceIdList,omitempty" xml:"formInstanceIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// true
+	IgnoreEmpty *bool `json:"ignoreEmpty,omitempty" xml:"ignoreEmpty,omitempty"`
+	// example:
+	//
+	// true
+	NoExecuteExpression *bool `json:"noExecuteExpression,omitempty" xml:"noExecuteExpression,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"countrySelectField_l0c1cwiu":[{"value":"US"}],"addressField_l0c1cwiy":{"address":"111","regionIds":[460000,469027,469023401],"regionText":[{"en_US":"hai+nan+sheng","zh_CN":"海南省"},{"en_US":"cheng+mai+xian","zh_CN":"澄迈县"},{"en_US":"guo+ying+hong+gang+nong+chang","zh_CN":"国营红岗农场"}]}}
+	UpdateFormDataJson *string `json:"updateFormDataJson,omitempty" xml:"updateFormDataJson,omitempty"`
+	// example:
+	//
+	// false
+	UseLatestFormSchemaVersion *bool `json:"useLatestFormSchemaVersion,omitempty" xml:"useLatestFormSchemaVersion,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchUpdateFormDataByInstanceIdRequest) String() string {
@@ -823,15 +1024,52 @@ func (s *BatchUpdateFormDataByInstanceMapHeaders) SetXAcsDingtalkAccessToken(v s
 }
 
 type BatchUpdateFormDataByInstanceMapRequest struct {
-	AppType                    *string                `json:"appType,omitempty" xml:"appType,omitempty"`
-	AsynchronousExecution      *bool                  `json:"asynchronousExecution,omitempty" xml:"asynchronousExecution,omitempty"`
-	FormUuid                   *string                `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	IgnoreEmpty                *bool                  `json:"ignoreEmpty,omitempty" xml:"ignoreEmpty,omitempty"`
-	NoExecuteExpression        *bool                  `json:"noExecuteExpression,omitempty" xml:"noExecuteExpression,omitempty"`
-	SystemToken                *string                `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UpdateFormDataJsonMap      map[string]interface{} `json:"updateFormDataJsonMap,omitempty" xml:"updateFormDataJsonMap,omitempty"`
-	UseLatestFormSchemaVersion *bool                  `json:"useLatestFormSchemaVersion,omitempty" xml:"useLatestFormSchemaVersion,omitempty"`
-	UserId                     *string                `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// true
+	AsynchronousExecution *bool `json:"asynchronousExecution,omitempty" xml:"asynchronousExecution,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// true
+	IgnoreEmpty *bool `json:"ignoreEmpty,omitempty" xml:"ignoreEmpty,omitempty"`
+	// example:
+	//
+	// true
+	NoExecuteExpression *bool `json:"noExecuteExpression,omitempty" xml:"noExecuteExpression,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"FINST-ANSFSNNDS2212NSKLKKSFD":"{\"rateField_l0c1cwis\":3,\"countrySelectField_l0c1cwiu\":[{\"value\":\"US\"}]}"}
+	UpdateFormDataJsonMap map[string]interface{} `json:"updateFormDataJsonMap,omitempty" xml:"updateFormDataJsonMap,omitempty"`
+	// example:
+	//
+	// false
+	UseLatestFormSchemaVersion *bool `json:"useLatestFormSchemaVersion,omitempty" xml:"useLatestFormSchemaVersion,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchUpdateFormDataByInstanceMapRequest) String() string {
@@ -957,17 +1195,50 @@ func (s *BuyAuthorizationOrderHeaders) SetXAcsDingtalkAccessToken(v string) *Buy
 }
 
 type BuyAuthorizationOrderRequest struct {
-	AccessKey     *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// example:
+	//
+	// hexaaaa
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// example:
+	//
+	// 123
 	AccountNumber *string `json:"accountNumber,omitempty" xml:"accountNumber,omitempty"`
-	BeginTimeGMT  *int64  `json:"beginTimeGMT,omitempty" xml:"beginTimeGMT,omitempty"`
+	// example:
+	//
+	// 1234123423459
+	BeginTimeGMT *int64 `json:"beginTimeGMT,omitempty" xml:"beginTimeGMT,omitempty"`
+	// example:
+	//
+	// 44234122
 	CallerUnionId *string `json:"callerUnionId,omitempty" xml:"callerUnionId,omitempty"`
-	ChargeType    *string `json:"chargeType,omitempty" xml:"chargeType,omitempty"`
-	CommerceType  *string `json:"commerceType,omitempty" xml:"commerceType,omitempty"`
+	// example:
+	//
+	// subscribe
+	ChargeType *string `json:"chargeType,omitempty" xml:"chargeType,omitempty"`
+	// example:
+	//
+	// subscribe
+	CommerceType *string `json:"commerceType,omitempty" xml:"commerceType,omitempty"`
+	// example:
+	//
+	// Business
 	CommodityType *string `json:"commodityType,omitempty" xml:"commodityType,omitempty"`
-	EndTimeGMT    *int64  `json:"endTimeGMT,omitempty" xml:"endTimeGMT,omitempty"`
-	InstanceId    *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	InstanceName  *string `json:"instanceName,omitempty" xml:"instanceName,omitempty"`
-	ProduceCode   *string `json:"produceCode,omitempty" xml:"produceCode,omitempty"`
+	// example:
+	//
+	// 1023451234123
+	EndTimeGMT *int64 `json:"endTimeGMT,omitempty" xml:"endTimeGMT,omitempty"`
+	// example:
+	//
+	// 12
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// example:
+	//
+	// A发起的实例
+	InstanceName *string `json:"instanceName,omitempty" xml:"instanceName,omitempty"`
+	// example:
+	//
+	// yun-1234
+	ProduceCode *string `json:"produceCode,omitempty" xml:"produceCode,omitempty"`
 }
 
 func (s BuyAuthorizationOrderRequest) String() string {
@@ -1103,17 +1374,50 @@ func (s *BuyFreshOrderHeaders) SetXAcsDingtalkAccessToken(v string) *BuyFreshOrd
 }
 
 type BuyFreshOrderRequest struct {
-	AccessKey     *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// example:
+	//
+	// hexaaaa
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// example:
+	//
+	// 123
 	AccountNumber *string `json:"accountNumber,omitempty" xml:"accountNumber,omitempty"`
-	BeginTimeGMT  *int64  `json:"beginTimeGMT,omitempty" xml:"beginTimeGMT,omitempty"`
+	// example:
+	//
+	// 1234567891234
+	BeginTimeGMT *int64 `json:"beginTimeGMT,omitempty" xml:"beginTimeGMT,omitempty"`
+	// example:
+	//
+	// 44234122
 	CallerUnionId *string `json:"callerUnionId,omitempty" xml:"callerUnionId,omitempty"`
-	ChargeType    *string `json:"chargeType,omitempty" xml:"chargeType,omitempty"`
-	CommerceType  *string `json:"commerceType,omitempty" xml:"commerceType,omitempty"`
+	// example:
+	//
+	// subscribe
+	ChargeType *string `json:"chargeType,omitempty" xml:"chargeType,omitempty"`
+	// example:
+	//
+	// subscribe
+	CommerceType *string `json:"commerceType,omitempty" xml:"commerceType,omitempty"`
+	// example:
+	//
+	// Business
 	CommodityType *string `json:"commodityType,omitempty" xml:"commodityType,omitempty"`
-	EndTimeGMT    *int64  `json:"endTimeGMT,omitempty" xml:"endTimeGMT,omitempty"`
-	InstanceId    *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	InstanceName  *string `json:"instanceName,omitempty" xml:"instanceName,omitempty"`
-	ProduceCode   *string `json:"produceCode,omitempty" xml:"produceCode,omitempty"`
+	// example:
+	//
+	// 1234567891234
+	EndTimeGMT *int64 `json:"endTimeGMT,omitempty" xml:"endTimeGMT,omitempty"`
+	// example:
+	//
+	// 12
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// example:
+	//
+	// A发起的实例
+	InstanceName *string `json:"instanceName,omitempty" xml:"instanceName,omitempty"`
+	// example:
+	//
+	// yun-1234
+	ProduceCode *string `json:"produceCode,omitempty" xml:"produceCode,omitempty"`
 }
 
 func (s BuyFreshOrderRequest) String() string {
@@ -1335,13 +1639,46 @@ func (s *CreateOrUpdateFormDataHeaders) SetXAcsDingtalkAccessToken(v string) *Cr
 }
 
 type CreateOrUpdateFormDataRequest struct {
-	AppType             *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	FormDataJson        *string `json:"formDataJson,omitempty" xml:"formDataJson,omitempty"`
-	FormUuid            *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	NoExecuteExpression *bool   `json:"noExecuteExpression,omitempty" xml:"noExecuteExpression,omitempty"`
-	SearchCondition     *string `json:"searchCondition,omitempty" xml:"searchCondition,omitempty"`
-	SystemToken         *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId              *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"countrySelectField_l0c1cwiu":[{"value":"US"}]}
+	FormDataJson *string `json:"formDataJson,omitempty" xml:"formDataJson,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// false
+	NoExecuteExpression *bool `json:"noExecuteExpression,omitempty" xml:"noExecuteExpression,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// [{"key":"currentNodeName","value":"当前审批节点名称","type":"TEXT","operator":"like","componentName":"TextField"}]。详情参考 https://www.yuque.com/yida/support/agb8im#F4S8e
+	SearchCondition *string `json:"searchCondition,omitempty" xml:"searchCondition,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateOrUpdateFormDataRequest) String() string {
@@ -1457,11 +1794,34 @@ func (s *DeleteFormDataHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteForm
 }
 
 type DeleteFormDataRequest struct {
-	AppType        *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 33f6d221-17f8-42b7-836a-682b95a046c2
 	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
-	Language       *string `json:"language,omitempty" xml:"language,omitempty"`
-	SystemToken    *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId         *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// helxxx
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DeleteFormDataRequest) String() string {
@@ -1544,11 +1904,34 @@ func (s *DeleteInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteInst
 }
 
 type DeleteInstanceRequest struct {
-	AppType           *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	Language          *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	SystemToken       *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxxx
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s DeleteInstanceRequest) String() string {
@@ -1718,12 +2101,30 @@ func (s *DeployFunctionCallbackHeaders) SetXAcsDingtalkAccessToken(v string) *De
 }
 
 type DeployFunctionCallbackRequest struct {
-	AppId            *string `json:"appId,omitempty" xml:"appId,omitempty"`
-	CustomDomain     *string `json:"customDomain,omitempty" xml:"customDomain,omitempty"`
-	DeployStage      *string `json:"deployStage,omitempty" xml:"deployStage,omitempty"`
-	GateWayAppKey    *string `json:"gateWayAppKey,omitempty" xml:"gateWayAppKey,omitempty"`
+	// example:
+	//
+	// 202201061234
+	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	// example:
+	//
+	// abc.com
+	CustomDomain *string `json:"customDomain,omitempty" xml:"customDomain,omitempty"`
+	// example:
+	//
+	// RELEASE
+	DeployStage *string `json:"deployStage,omitempty" xml:"deployStage,omitempty"`
+	// example:
+	//
+	// assdfasdfWwd12212
+	GateWayAppKey *string `json:"gateWayAppKey,omitempty" xml:"gateWayAppKey,omitempty"`
+	// example:
+	//
+	// fasdfsfasdf1212Sff
 	GateWayAppSecret *string `json:"gateWayAppSecret,omitempty" xml:"gateWayAppSecret,omitempty"`
-	GateWayDomain    *string `json:"gateWayDomain,omitempty" xml:"gateWayDomain,omitempty"`
+	// example:
+	//
+	// 1111shanghai-aliyunapi.com
+	GateWayDomain *string `json:"gateWayDomain,omitempty" xml:"gateWayDomain,omitempty"`
 }
 
 func (s DeployFunctionCallbackRequest) String() string {
@@ -1834,12 +2235,40 @@ func (s *ExecuteBatchTaskHeaders) SetXAcsDingtalkAccessToken(v string) *ExecuteB
 }
 
 type ExecuteBatchTaskRequest struct {
-	AppType             *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	OutResult           *string `json:"outResult,omitempty" xml:"outResult,omitempty"`
-	Remark              *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	SystemToken         *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 备选值：agree/disagree
+	OutResult *string `json:"outResult,omitempty" xml:"outResult,omitempty"`
+	// example:
+	//
+	// OK
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// [{"taskId":"2267855699","formInstId":"4d226eb1-1f4e-4348-a9cc-616477c3daa6"},{"taskId":"2267855700","formInstId":"905a922e-da05-4ef9-ba1c-db9ad60bbe60"}]
 	TaskInformationList *string `json:"taskInformationList,omitempty" xml:"taskInformationList,omitempty"`
-	UserId              *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ExecuteBatchTaskRequest) String() string {
@@ -1881,9 +2310,24 @@ func (s *ExecuteBatchTaskRequest) SetUserId(v string) *ExecuteBatchTaskRequest {
 }
 
 type ExecuteBatchTaskResponseBody struct {
-	FailNumber    *int32 `json:"failNumber,omitempty" xml:"failNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	FailNumber *int32 `json:"failNumber,omitempty" xml:"failNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2
 	SuccessNumber *int32 `json:"successNumber,omitempty" xml:"successNumber,omitempty"`
-	Total         *int32 `json:"total,omitempty" xml:"total,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3
+	Total *int32 `json:"total,omitempty" xml:"total,omitempty"`
 }
 
 func (s ExecuteBatchTaskResponseBody) String() string {
@@ -1962,12 +2406,17 @@ func (s *ExecuteCustomApiHeaders) SetXAcsDingtalkAccessToken(v string) *ExecuteC
 }
 
 type ExecuteCustomApiRequest struct {
-	AppType     *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	Data        *string `json:"data,omitempty" xml:"data,omitempty"`
-	Language    *string `json:"language,omitempty" xml:"language,omitempty"`
-	ServiceId   *string `json:"serviceId,omitempty" xml:"serviceId,omitempty"`
+	// This parameter is required.
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	Data     *string `json:"data,omitempty" xml:"data,omitempty"`
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	ServiceId *string `json:"serviceId,omitempty" xml:"serviceId,omitempty"`
+	// This parameter is required.
 	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ExecuteCustomApiRequest) String() string {
@@ -2078,15 +2527,60 @@ func (s *ExecutePlatformTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Execu
 }
 
 type ExecutePlatformTaskRequest struct {
-	AppType              *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	FormDataJson         *string `json:"formDataJson,omitempty" xml:"formDataJson,omitempty"`
-	Language             *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// 未知
+	FormDataJson *string `json:"formDataJson,omitempty" xml:"formDataJson,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// y
 	NoExecuteExpressions *string `json:"noExecuteExpressions,omitempty" xml:"noExecuteExpressions,omitempty"`
-	OutResult            *string `json:"outResult,omitempty" xml:"outResult,omitempty"`
-	ProcessInstanceId    *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Remark               *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	SystemToken          *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId               *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ●
+	//
+	// agree
+	//
+	// ●
+	//
+	// disagree
+	OutResult *string `json:"outResult,omitempty" xml:"outResult,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 确认同意
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxyyddd
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// yida_pub_account
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ExecutePlatformTaskRequest) String() string {
@@ -2189,17 +2683,64 @@ func (s *ExecuteTaskHeaders) SetXAcsDingtalkAccessToken(v string) *ExecuteTaskHe
 }
 
 type ExecuteTaskRequest struct {
-	AppType              *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	DigitalSignUrl       *string `json:"digitalSignUrl,omitempty" xml:"digitalSignUrl,omitempty"`
-	FormDataJson         *string `json:"formDataJson,omitempty" xml:"formDataJson,omitempty"`
-	Language             *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// https://tianshu-vpc.oss-cn-sahnghai.aliyuncs.com
+	DigitalSignUrl *string `json:"digitalSignUrl,omitempty" xml:"digitalSignUrl,omitempty"`
+	// example:
+	//
+	// 未知
+	FormDataJson *string `json:"formDataJson,omitempty" xml:"formDataJson,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// y
 	NoExecuteExpressions *string `json:"noExecuteExpressions,omitempty" xml:"noExecuteExpressions,omitempty"`
-	OutResult            *string `json:"outResult,omitempty" xml:"outResult,omitempty"`
-	ProcessInstanceId    *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Remark               *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	SystemToken          *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	TaskId               *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	UserId               *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// AGREE
+	OutResult *string `json:"outResult,omitempty" xml:"outResult,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 确认同意
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxyy
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12002575
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ExecuteTaskRequest) String() string {
@@ -2502,9 +3043,22 @@ func (s *GetActivityButtonListHeaders) SetXAcsDingtalkAccessToken(v string) *Get
 }
 
 type GetActivityButtonListRequest struct {
-	Language    *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hello1234
 	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetActivityButtonListRequest) String() string {
@@ -2548,7 +3102,13 @@ func (s *GetActivityButtonListResponseBody) SetResult(v []*GetActivityButtonList
 }
 
 type GetActivityButtonListResponseBodyResult struct {
+	// example:
+	//
+	// 同意
 	AliasInChinese *string `json:"aliasInChinese,omitempty" xml:"aliasInChinese,omitempty"`
+	// example:
+	//
+	// agree
 	AliasInEnglish *string `json:"aliasInEnglish,omitempty" xml:"aliasInEnglish,omitempty"`
 }
 
@@ -2762,13 +3322,43 @@ func (s *GetAllAuthCubesHeaders) SetXAcsDingtalkAccessToken(v string) *GetAllAut
 }
 
 type GetAllAuthCubesRequest struct {
-	AppType     *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Keywords    *string `json:"keywords,omitempty" xml:"keywords,omitempty"`
-	PageNumber  *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize    *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding5d17e3add038d44535c2f4657eb6378e
+	CorpId   *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Keywords *string `json:"keywords,omitempty" xml:"keywords,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
 	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetAllAuthCubesRequest) String() string {
@@ -2815,6 +3405,11 @@ func (s *GetAllAuthCubesRequest) SetUserId(v string) *GetAllAuthCubesRequest {
 }
 
 type GetAllAuthCubesResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
 	Count  *int64                               `json:"count,omitempty" xml:"count,omitempty"`
 	Result []*GetAllAuthCubesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
@@ -2838,16 +3433,25 @@ func (s *GetAllAuthCubesResponseBody) SetResult(v []*GetAllAuthCubesResponseBody
 }
 
 type GetAllAuthCubesResponseBodyResult struct {
-	ApappliedCount             *int32                                             `json:"apappliedCount,omitempty" xml:"apappliedCount,omitempty"`
-	AppCode                    *string                                            `json:"appCode,omitempty" xml:"appCode,omitempty"`
-	AppInstanceCode            *string                                            `json:"appInstanceCode,omitempty" xml:"appInstanceCode,omitempty"`
-	AppStoreCode               *string                                            `json:"appStoreCode,omitempty" xml:"appStoreCode,omitempty"`
-	AuthMode                   *string                                            `json:"authMode,omitempty" xml:"authMode,omitempty"`
-	AuthorizationType          *int32                                             `json:"authorizationType,omitempty" xml:"authorizationType,omitempty"`
-	BusinessProcessCode        *string                                            `json:"businessProcessCode,omitempty" xml:"businessProcessCode,omitempty"`
-	CategoriesFirst            *string                                            `json:"categoriesFirst,omitempty" xml:"categoriesFirst,omitempty"`
-	CategoriesSecond           *string                                            `json:"categoriesSecond,omitempty" xml:"categoriesSecond,omitempty"`
-	CreateTimeGMT              *string                                            `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	ApappliedCount  *int32  `json:"apappliedCount,omitempty" xml:"apappliedCount,omitempty"`
+	AppCode         *string `json:"appCode,omitempty" xml:"appCode,omitempty"`
+	AppInstanceCode *string `json:"appInstanceCode,omitempty" xml:"appInstanceCode,omitempty"`
+	AppStoreCode    *string `json:"appStoreCode,omitempty" xml:"appStoreCode,omitempty"`
+	AuthMode        *string `json:"authMode,omitempty" xml:"authMode,omitempty"`
+	// example:
+	//
+	// all
+	AuthorizationType   *int32  `json:"authorizationType,omitempty" xml:"authorizationType,omitempty"`
+	BusinessProcessCode *string `json:"businessProcessCode,omitempty" xml:"businessProcessCode,omitempty"`
+	CategoriesFirst     *string `json:"categoriesFirst,omitempty" xml:"categoriesFirst,omitempty"`
+	CategoriesSecond    *string `json:"categoriesSecond,omitempty" xml:"categoriesSecond,omitempty"`
+	// example:
+	//
+	// 2021-05-01
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// example:
+	//
+	// ding12345
 	CreatorUserId              *string                                            `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
 	CubeAuthType               *string                                            `json:"cubeAuthType,omitempty" xml:"cubeAuthType,omitempty"`
 	CubeCode                   *string                                            `json:"cubeCode,omitempty" xml:"cubeCode,omitempty"`
@@ -2856,21 +3460,39 @@ type GetAllAuthCubesResponseBodyResult struct {
 	CubeSource                 *string                                            `json:"cubeSource,omitempty" xml:"cubeSource,omitempty"`
 	DataCacheTimeConfiguration *string                                            `json:"dataCacheTimeConfiguration,omitempty" xml:"dataCacheTimeConfiguration,omitempty"`
 	DataflowCode               *string                                            `json:"dataflowCode,omitempty" xml:"dataflowCode,omitempty"`
-	Description                *string                                            `json:"description,omitempty" xml:"description,omitempty"`
-	DomainCode                 *string                                            `json:"domainCode,omitempty" xml:"domainCode,omitempty"`
-	EnableCache                *bool                                              `json:"enableCache,omitempty" xml:"enableCache,omitempty"`
-	Id                         *int64                                             `json:"id,omitempty" xml:"id,omitempty"`
-	IsNeedApplication          *string                                            `json:"isNeedApplication,omitempty" xml:"isNeedApplication,omitempty"`
-	IsTrend                    *string                                            `json:"isTrend,omitempty" xml:"isTrend,omitempty"`
-	ModifiedTimeGMT            *string                                            `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
-	Modifier                   *string                                            `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	Name                       *string                                            `json:"name,omitempty" xml:"name,omitempty"`
-	NamespaceCode              *string                                            `json:"namespaceCode,omitempty" xml:"namespaceCode,omitempty"`
-	Owner                      *string                                            `json:"owner,omitempty" xml:"owner,omitempty"`
-	SharedDataSet              *bool                                              `json:"sharedDataSet,omitempty" xml:"sharedDataSet,omitempty"`
-	TenantCorpId               *string                                            `json:"tenantCorpId,omitempty" xml:"tenantCorpId,omitempty"`
-	Type                       *string                                            `json:"type,omitempty" xml:"type,omitempty"`
-	UserInformation            *GetAllAuthCubesResponseBodyResultUserInformation  `json:"userInformation,omitempty" xml:"userInformation,omitempty" type:"Struct"`
+	// example:
+	//
+	// 步凡创建的宜搭应用
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	DomainCode  *string `json:"domainCode,omitempty" xml:"domainCode,omitempty"`
+	EnableCache *bool   `json:"enableCache,omitempty" xml:"enableCache,omitempty"`
+	// example:
+	//
+	// 12345
+	Id                *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	IsNeedApplication *string `json:"isNeedApplication,omitempty" xml:"isNeedApplication,omitempty"`
+	IsTrend           *string `json:"isTrend,omitempty" xml:"isTrend,omitempty"`
+	// example:
+	//
+	// 2021-05-01
+	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	// example:
+	//
+	// manager123
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	// example:
+	//
+	// 测试应用
+	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
+	NamespaceCode *string `json:"namespaceCode,omitempty" xml:"namespaceCode,omitempty"`
+	Owner         *string `json:"owner,omitempty" xml:"owner,omitempty"`
+	SharedDataSet *bool   `json:"sharedDataSet,omitempty" xml:"sharedDataSet,omitempty"`
+	TenantCorpId  *string `json:"tenantCorpId,omitempty" xml:"tenantCorpId,omitempty"`
+	// example:
+	//
+	// i18n
+	Type            *string                                           `json:"type,omitempty" xml:"type,omitempty"`
+	UserInformation *GetAllAuthCubesResponseBodyResultUserInformation `json:"userInformation,omitempty" xml:"userInformation,omitempty" type:"Struct"`
 }
 
 func (s GetAllAuthCubesResponseBodyResult) String() string {
@@ -3052,7 +3674,10 @@ type GetAllAuthCubesResponseBodyResultCubeDataRanges struct {
 	ConditionValue []interface{} `json:"conditionValue,omitempty" xml:"conditionValue,omitempty" type:"Repeated"`
 	ElementCode    *string       `json:"elementCode,omitempty" xml:"elementCode,omitempty"`
 	ElementType    *string       `json:"elementType,omitempty" xml:"elementType,omitempty"`
-	Operator       *string       `json:"operator,omitempty" xml:"operator,omitempty"`
+	// example:
+	//
+	// manager123
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
 }
 
 func (s GetAllAuthCubesResponseBodyResultCubeDataRanges) String() string {
@@ -3094,15 +3719,27 @@ func (s *GetAllAuthCubesResponseBodyResultCubeDataRanges) SetOperator(v string) 
 }
 
 type GetAllAuthCubesResponseBodyResultUserInformation struct {
-	AuthProvider         *string `json:"authProvider,omitempty" xml:"authProvider,omitempty"`
-	CorpId               *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	DepartmentName       *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	AuthProvider *string `json:"authProvider,omitempty" xml:"authProvider,omitempty"`
+	// example:
+	//
+	// ding5d17e3add038d44535c2f4657eb6378e
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 开发部
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// example:
+	//
+	// 测试应用
 	Name                 *string `json:"name,omitempty" xml:"name,omitempty"`
 	NickName             *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
 	RealmId              *int64  `json:"realmId,omitempty" xml:"realmId,omitempty"`
 	RefererNamespaceCode *string `json:"refererNamespaceCode,omitempty" xml:"refererNamespaceCode,omitempty"`
-	ShowName             *string `json:"showName,omitempty" xml:"showName,omitempty"`
-	WorkNo               *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
+	// example:
+	//
+	// 请购类型
+	ShowName *string `json:"showName,omitempty" xml:"showName,omitempty"`
+	WorkNo   *string `json:"workNo,omitempty" xml:"workNo,omitempty"`
 }
 
 func (s GetAllAuthCubesResponseBodyResultUserInformation) String() string {
@@ -3357,12 +3994,42 @@ func (s *GetAutoFlowLogDetailHeaders) SetXAcsDingtalkAccessToken(v string) *GetA
 }
 
 type GetAutoFlowLogDetailRequest struct {
-	CorpId         *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	PageNumber     *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize       *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding5d17e3add038d44535c2f4657eb6378e
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// vpc(国内版宜搭)/sgp_vpc(海外版宜搭)
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
 	ProcInstanceId *string `json:"procInstanceId,omitempty" xml:"procInstanceId,omitempty"`
-	Token          *string `json:"token,omitempty" xml:"token,omitempty"`
-	UserId         *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// B073AF673BEB044D59F8F612D65E1EA2
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetAutoFlowLogDetailRequest) String() string {
@@ -3375,6 +4042,11 @@ func (s GetAutoFlowLogDetailRequest) GoString() string {
 
 func (s *GetAutoFlowLogDetailRequest) SetCorpId(v string) *GetAutoFlowLogDetailRequest {
 	s.CorpId = &v
+	return s
+}
+
+func (s *GetAutoFlowLogDetailRequest) SetEnv(v string) *GetAutoFlowLogDetailRequest {
+	s.Env = &v
 	return s
 }
 
@@ -3404,10 +4076,19 @@ func (s *GetAutoFlowLogDetailRequest) SetUserId(v string) *GetAutoFlowLogDetailR
 }
 
 type GetAutoFlowLogDetailResponseBody struct {
-	Data        []*GetAutoFlowLogDetailResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	HasMoreData *bool                                   `json:"hasMoreData,omitempty" xml:"hasMoreData,omitempty"`
-	PageNumber  *int64                                  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	TotalCount  *int64                                  `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data []*GetAutoFlowLogDetailResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	HasMoreData *bool `json:"hasMoreData,omitempty" xml:"hasMoreData,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s GetAutoFlowLogDetailResponseBody) String() string {
@@ -3439,16 +4120,25 @@ func (s *GetAutoFlowLogDetailResponseBody) SetTotalCount(v int64) *GetAutoFlowLo
 }
 
 type GetAutoFlowLogDetailResponseBodyData struct {
-	ActivityKey    *string                `json:"activityKey,omitempty" xml:"activityKey,omitempty"`
-	ElapsedTimeGMT *int64                 `json:"elapsedTimeGMT,omitempty" xml:"elapsedTimeGMT,omitempty"`
-	FinishTimeGMT  *string                `json:"finishTimeGMT,omitempty" xml:"finishTimeGMT,omitempty"`
-	Flag           *string                `json:"flag,omitempty" xml:"flag,omitempty"`
-	InputParams    map[string]interface{} `json:"inputParams,omitempty" xml:"inputParams,omitempty"`
-	Name           *string                `json:"name,omitempty" xml:"name,omitempty"`
-	Others         *string                `json:"others,omitempty" xml:"others,omitempty"`
-	OutputParams   map[string]interface{} `json:"outputParams,omitempty" xml:"outputParams,omitempty"`
-	Status         *string                `json:"status,omitempty" xml:"status,omitempty"`
-	Uuid           *string                `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	ActivityKey    *string `json:"activityKey,omitempty" xml:"activityKey,omitempty"`
+	ElapsedTimeGMT *int64  `json:"elapsedTimeGMT,omitempty" xml:"elapsedTimeGMT,omitempty"`
+	// example:
+	//
+	// 2021-01-01
+	FinishTimeGMT *string                `json:"finishTimeGMT,omitempty" xml:"finishTimeGMT,omitempty"`
+	Flag          *string                `json:"flag,omitempty" xml:"flag,omitempty"`
+	InputParams   map[string]interface{} `json:"inputParams,omitempty" xml:"inputParams,omitempty"`
+	// example:
+	//
+	// 测试应用
+	Name         *string                `json:"name,omitempty" xml:"name,omitempty"`
+	Others       *string                `json:"others,omitempty" xml:"others,omitempty"`
+	OutputParams map[string]interface{} `json:"outputParams,omitempty" xml:"outputParams,omitempty"`
+	// example:
+	//
+	// running
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	Uuid   *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s GetAutoFlowLogDetailResponseBodyData) String() string {
@@ -3562,15 +4252,48 @@ func (s *GetCorpAccomplishmentTasksHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type GetCorpAccomplishmentTasksRequest struct {
-	AppTypes          *string `json:"appTypes,omitempty" xml:"appTypes,omitempty"`
-	CreateFromTimeGMT *int64  `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
-	CreateToTimeGMT   *int64  `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
-	Keyword           *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
-	Language          *string `json:"language,omitempty" xml:"language,omitempty"`
-	PageNumber        *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize          *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	ProcessCodes      *string `json:"processCodes,omitempty" xml:"processCodes,omitempty"`
-	Token             *string `json:"token,omitempty" xml:"token,omitempty"`
+	// example:
+	//
+	// ["APP_xxx","APP_xxx"]
+	AppTypes *string `json:"appTypes,omitempty" xml:"appTypes,omitempty"`
+	// example:
+	//
+	// 未知
+	CreateFromTimeGMT *int64 `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// example:
+	//
+	// 未知
+	CreateToTimeGMT *int64 `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// example:
+	//
+	// vpc(国内版宜搭)/sgp_vpc(海外版宜搭)
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
+	// example:
+	//
+	// 未知
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// ["xx","xxx"]
+	ProcessCodes *string `json:"processCodes,omitempty" xml:"processCodes,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
 }
 
 func (s GetCorpAccomplishmentTasksRequest) String() string {
@@ -3593,6 +4316,11 @@ func (s *GetCorpAccomplishmentTasksRequest) SetCreateFromTimeGMT(v int64) *GetCo
 
 func (s *GetCorpAccomplishmentTasksRequest) SetCreateToTimeGMT(v int64) *GetCorpAccomplishmentTasksRequest {
 	s.CreateToTimeGMT = &v
+	return s
+}
+
+func (s *GetCorpAccomplishmentTasksRequest) SetEnv(v string) *GetCorpAccomplishmentTasksRequest {
+	s.Env = &v
 	return s
 }
 
@@ -3627,9 +4355,15 @@ func (s *GetCorpAccomplishmentTasksRequest) SetToken(v string) *GetCorpAccomplis
 }
 
 type GetCorpAccomplishmentTasksResponseBody struct {
-	Data       []*GetCorpAccomplishmentTasksResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	PageNumber *int64                                        `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	TotalCount *int64                                        `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data []*GetCorpAccomplishmentTasksResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s GetCorpAccomplishmentTasksResponseBody) String() string {
@@ -3925,17 +4659,60 @@ func (s *GetCorpTasksHeaders) SetXAcsDingtalkAccessToken(v string) *GetCorpTasks
 }
 
 type GetCorpTasksRequest struct {
-	AppTypes          *string `json:"appTypes,omitempty" xml:"appTypes,omitempty"`
-	CorpId            *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CreateFromTimeGMT *int64  `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
-	CreateToTimeGMT   *int64  `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
-	Keyword           *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
-	Language          *string `json:"language,omitempty" xml:"language,omitempty"`
-	PageNumber        *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize          *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	ProcessCodes      *string `json:"processCodes,omitempty" xml:"processCodes,omitempty"`
-	Token             *string `json:"token,omitempty" xml:"token,omitempty"`
-	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// ["APP_xxx","APP_xxx"]
+	AppTypes *string `json:"appTypes,omitempty" xml:"appTypes,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 未知
+	CreateFromTimeGMT *int64 `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// example:
+	//
+	// 未知
+	CreateToTimeGMT *int64 `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// example:
+	//
+	// vpc(国内版宜搭)/sgp_vpc(海外版宜搭)
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
+	// example:
+	//
+	// 未知
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// ["xx","xxx"]
+	ProcessCodes *string `json:"processCodes,omitempty" xml:"processCodes,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetCorpTasksRequest) String() string {
@@ -3963,6 +4740,11 @@ func (s *GetCorpTasksRequest) SetCreateFromTimeGMT(v int64) *GetCorpTasksRequest
 
 func (s *GetCorpTasksRequest) SetCreateToTimeGMT(v int64) *GetCorpTasksRequest {
 	s.CreateToTimeGMT = &v
+	return s
+}
+
+func (s *GetCorpTasksRequest) SetEnv(v string) *GetCorpTasksRequest {
+	s.Env = &v
 	return s
 }
 
@@ -4002,9 +4784,15 @@ func (s *GetCorpTasksRequest) SetUserId(v string) *GetCorpTasksRequest {
 }
 
 type GetCorpTasksResponseBody struct {
-	Data       []*GetCorpTasksResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	PageNumber *int64                          `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	TotalCount *int64                          `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data []*GetCorpTasksResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s GetCorpTasksResponseBody) String() string {
@@ -4214,10 +5002,30 @@ func (s *GetDbConfigHeaders) SetXAcsDingtalkAccessToken(v string) *GetDbConfigHe
 }
 
 type GetDbConfigRequest struct {
-	AppType     *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding5d17e3add038d44535c2f4657eb6378e
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
 	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1160440651754805
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetDbConfigRequest) String() string {
@@ -4249,15 +5057,42 @@ func (s *GetDbConfigRequest) SetUserId(v string) *GetDbConfigRequest {
 }
 
 type GetDbConfigResponseBody struct {
-	Config          *string `json:"config,omitempty" xml:"config,omitempty"`
-	CorpId          *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CreateTimeGMT   *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
-	Creator         *string `json:"creator,omitempty" xml:"creator,omitempty"`
-	Exclusive       *string `json:"exclusive,omitempty" xml:"exclusive,omitempty"`
-	Id              *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// {\"dbName\":\"yida_exclusive_pg_db\",\"exclusiveType\":\"DATABASE\",\"maxActive\":1600,\"minIdle\":160,\"password\":\"xxx\",\"sharding\":true,\"type\":\"POSTGRES\",\"url\":\"pgm-bp17c85t9363an74194040.pg.rds.aliyuncs.com:0000\",\"username\":\"yida_xxx\"}
+	Config *string `json:"config,omitempty" xml:"config,omitempty"`
+	// example:
+	//
+	// ding5d17e3add038d44535c2f4657eb6378f
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 2022-02-23T14:46Z
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// example:
+	//
+	// 092824253426603595
+	Creator *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	// example:
+	//
+	// ding5d17e3add038d44535c2f4657eb6378f
+	Exclusive *string `json:"exclusive,omitempty" xml:"exclusive,omitempty"`
+	// example:
+	//
+	// 600001
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 2023-08-15T10:37Z
 	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
-	Modifier        *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	Type            *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 5014533041684350
+	Modifier *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	// example:
+	//
+	// DATABASE
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetDbConfigResponseBody) String() string {
@@ -4366,10 +5201,30 @@ func (s *GetFieldDefByUuidHeaders) SetXAcsDingtalkAccessToken(v string) *GetFiel
 }
 
 type GetFieldDefByUuidRequest struct {
-	AppType     *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	FormUuid    *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-J7966ZA1XN940B88DYNMNABXUXNU3F3FMLJ8L5
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FO866D71GM94CE3KBMAFL4Q6WDG93MG6MLJ8L64
 	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5014533041684350
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetFieldDefByUuidRequest) String() string {
@@ -4523,10 +5378,26 @@ func (s *GetFormComponentDefinitionListHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type GetFormComponentDefinitionListRequest struct {
-	Language    *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxxx
 	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	Version     *int64  `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s GetFormComponentDefinitionListRequest) String() string {
@@ -4662,8 +5533,17 @@ func (s *GetFormDataByIDHeaders) SetXAcsDingtalkAccessToken(v string) *GetFormDa
 }
 
 type GetFormDataByIDRequest struct {
-	AppType     *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	Language    *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// hexxx
 	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
 	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -4697,8 +5577,17 @@ func (s *GetFormDataByIDRequest) SetUserId(v string) *GetFormDataByIDRequest {
 }
 
 type GetFormDataByIDResponseBody struct {
-	FormData        map[string]interface{}                 `json:"formData,omitempty" xml:"formData,omitempty"`
-	FormInstId      *string                                `json:"formInstId,omitempty" xml:"formInstId,omitempty"`
+	// example:
+	//
+	// {       "numberField_jcr0069o": 1,       "multiSelectField_jcr0069s": [         "选项三",         "选项二"       ],       "textareaField_jcr0069n": "duohang",       "employeeField_jcr0069x": [         "xxxx"       ],       "departmentField_jcr0069z": "xxxx",       "cascadeDate_jcr0069u": [         "1514736000000",         "1517328000000"       ],       "cascadeSelectField_jcr006a0": [         "part",         "part_b"       ],       "tableField_jcr006a1": [         {           "departmentField_jcr006ad": "xxxx",           "cascadeDate_jcr006aa": [             "1514736000000",             "1517328000000"           ],           "selectField_jcr006a6": "选项三",           "citySelectField_jcr006ac": [             "天津",             "天津市",             "河东区"           ],           "radioField_jcr006a5": "选项二",           "employeeField_jcr006ab": [             "xxxxxx",             "yyyyyy"           ],           "dateField_jcr006a9": 1517328000000,           "textField_jcr006a2": "明细下单行",           "textareaField_jcr006a3": "明细下多行",           "cascadeSelectField_jcr006ae": [             "product",             "product_a"           ],           "numberField_jcr006a4": 2,           "checkboxField_jcr006a7": [             "选项一",             "选项三",             "选项二"           ],           "multiSelectField_jcr006a8": [             "选项一",             "选项三",             "选项二"           ]         }       ],       "selectField_jcr0069q": "选项一",       "citySelectField_jcr0069y": [         "北京",         "北京市",         "东城区"       ],       "checkboxField_jcr0069r": [         "选项三",         "选项二"       ],       "textField_jcr0069m": "danhang",       "radioField_jcr0069p": "选项一",       "dateField_jcr0069t": 1516636800000     }
+	FormData map[string]interface{} `json:"formData,omitempty" xml:"formData,omitempty"`
+	// example:
+	//
+	// 33f6d221-17f8-42b7-836a-682b95a046c2
+	FormInstId *string `json:"formInstId,omitempty" xml:"formInstId,omitempty"`
+	// example:
+	//
+	// 2018-01-24 11:22:01
 	ModifiedTimeGMT *string                                `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
 	Originator      *GetFormDataByIDResponseBodyOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
 }
@@ -4732,6 +5621,9 @@ func (s *GetFormDataByIDResponseBody) SetOriginator(v *GetFormDataByIDResponseBo
 }
 
 type GetFormDataByIDResponseBodyOriginator struct {
+	// example:
+	//
+	// 开发部
 	DepartmentName *string                                    `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
 	Email          *string                                    `json:"email,omitempty" xml:"email,omitempty"`
 	Name           *GetFormDataByIDResponseBodyOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
@@ -4767,9 +5659,18 @@ func (s *GetFormDataByIDResponseBodyOriginator) SetUserId(v string) *GetFormData
 }
 
 type GetFormDataByIDResponseBodyOriginatorName struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
-	Type          *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// i18n
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetFormDataByIDResponseBodyOriginatorName) String() string {
@@ -4848,12 +5749,30 @@ func (s *GetFormListInAppHeaders) SetXAcsDingtalkAccessToken(v string) *GetFormL
 }
 
 type GetFormListInAppRequest struct {
-	AppType     *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	FormTypes   *string `json:"formTypes,omitempty" xml:"formTypes,omitempty"`
-	PageNumber  *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize    *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// receipt,process
+	FormTypes  *string `json:"formTypes,omitempty" xml:"formTypes,omitempty"`
+	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FO866D71GM94CE3KBMAFL4Q6WDG93MG6MLJ8L64
 	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5014533041684350
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetFormListInAppRequest) String() string {
@@ -5063,10 +5982,28 @@ func (s *GetInstanceByIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetInstan
 }
 
 type GetInstanceByIdRequest struct {
-	AppType     *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	Language    *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxyy
 	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetInstanceByIdRequest) String() string {
@@ -5216,7 +6153,13 @@ func (s *GetInstanceByIdResponseBodyActionExecutor) SetUserId(v string) *GetInst
 }
 
 type GetInstanceByIdResponseBodyActionExecutorName struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
 	Type          *string `json:"type,omitempty" xml:"type,omitempty"`
 }
@@ -5280,7 +6223,13 @@ func (s *GetInstanceByIdResponseBodyOriginator) SetUserId(v string) *GetInstance
 }
 
 type GetInstanceByIdResponseBodyOriginatorName struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
 	Type          *string `json:"type,omitempty" xml:"type,omitempty"`
 }
@@ -5361,22 +6310,72 @@ func (s *GetInstanceIdListHeaders) SetXAcsDingtalkAccessToken(v string) *GetInst
 }
 
 type GetInstanceIdListRequest struct {
-	AppType             *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	ApprovedResult      *string `json:"approvedResult,omitempty" xml:"approvedResult,omitempty"`
-	CreateFromTimeGMT   *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
-	CreateToTimeGMT     *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
-	FormUuid            *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	InstanceStatus      *string `json:"instanceStatus,omitempty" xml:"instanceStatus,omitempty"`
-	Language            *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// agree
+	ApprovedResult *string `json:"approvedResult,omitempty" xml:"approvedResult,omitempty"`
+	// example:
+	//
+	// 2018-01-01
+	CreateFromTimeGMT *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// example:
+	//
+	// 2018-02-01
+	CreateToTimeGMT *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-EF6Y4G8WO2FN0SUB43TDQ3CGC3FMFQ1G9400RCJ3
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// RUNNING
+	InstanceStatus *string `json:"instanceStatus,omitempty" xml:"instanceStatus,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// 2018-01-01
 	ModifiedFromTimeGMT *string `json:"modifiedFromTimeGMT,omitempty" xml:"modifiedFromTimeGMT,omitempty"`
-	ModifiedToTimeGMT   *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
-	OriginatorId        *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
-	SearchFieldJson     *string `json:"searchFieldJson,omitempty" xml:"searchFieldJson,omitempty"`
-	SystemToken         *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	TaskId              *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	UserId              *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	PageNumber          *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize            *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 2018-02-01
+	ModifiedToTimeGMT *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
+	// example:
+	//
+	// ding123
+	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	// example:
+	//
+	// {"text_field":"123"}
+	SearchFieldJson *string `json:"searchFieldJson,omitempty" xml:"searchFieldJson,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxxx
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// example:
+	//
+	// 2199132092
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding123
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s GetInstanceIdListRequest) String() string {
@@ -5468,9 +6467,15 @@ func (s *GetInstanceIdListRequest) SetPageSize(v int32) *GetInstanceIdListReques
 }
 
 type GetInstanceIdListResponseBody struct {
-	Data       []*string `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	PageNumber *int64    `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	TotalCount *int64    `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data []*string `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s GetInstanceIdListResponseBody) String() string {
@@ -5549,23 +6554,78 @@ func (s *GetInstancesHeaders) SetXAcsDingtalkAccessToken(v string) *GetInstances
 }
 
 type GetInstancesRequest struct {
-	AppType             *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	ApprovedResult      *string `json:"approvedResult,omitempty" xml:"approvedResult,omitempty"`
-	CreateFromTimeGMT   *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
-	CreateToTimeGMT     *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
-	FormUuid            *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	InstanceStatus      *string `json:"instanceStatus,omitempty" xml:"instanceStatus,omitempty"`
-	Language            *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// agree
+	ApprovedResult *string `json:"approvedResult,omitempty" xml:"approvedResult,omitempty"`
+	// example:
+	//
+	// 2018-01-01
+	CreateFromTimeGMT *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// example:
+	//
+	// 2018-02-01
+	CreateToTimeGMT *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-EF6Y4G8WO2FN0SUB43TDQ3CGC3FMFQ1G9400RCJ3
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// RUNNING
+	InstanceStatus *string `json:"instanceStatus,omitempty" xml:"instanceStatus,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// 2018-01-01
 	ModifiedFromTimeGMT *string `json:"modifiedFromTimeGMT,omitempty" xml:"modifiedFromTimeGMT,omitempty"`
-	ModifiedToTimeGMT   *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
-	OrderConfigJson     *string `json:"orderConfigJson,omitempty" xml:"orderConfigJson,omitempty"`
-	OriginatorId        *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
-	SearchFieldJson     *string `json:"searchFieldJson,omitempty" xml:"searchFieldJson,omitempty"`
-	SystemToken         *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	TaskId              *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	UserId              *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	PageNumber          *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize            *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 2018-02-01
+	ModifiedToTimeGMT *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
+	// example:
+	//
+	// 例如按照创建时间升序再按照文本组件值升序排序则填{\"gmt_create\":\"+\",\"textField_1234\":\"+\"} ，详情参考 https://www.yuque.com/yida/support/agb8im#CQro8
+	OrderConfigJson *string `json:"orderConfigJson,omitempty" xml:"orderConfigJson,omitempty"`
+	// example:
+	//
+	// manager123
+	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	// example:
+	//
+	// 模式1：根据组件值模糊匹配，示例：{"textField_jcr0069m":"danhang","selectField_jcr0069q":"K"}     模式2: 采用数据管理的查询过滤条件，匹配功能更强大，示例：[{"key":"currentNodeName","value":"步凡","type":"TEXT","operator":"like","componentName":"TextField”}]，详情参考  https://www.yuque.com/yida/support/agb8im#F4S8e
+	SearchFieldJson *string `json:"searchFieldJson,omitempty" xml:"searchFieldJson,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxx
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// example:
+	//
+	// 2199132092
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s GetInstancesRequest) String() string {
@@ -5662,9 +6722,15 @@ func (s *GetInstancesRequest) SetPageSize(v int32) *GetInstancesRequest {
 }
 
 type GetInstancesResponseBody struct {
-	Data       []*GetInstancesResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	PageNumber *int64                          `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	TotalCount *int64                          `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data []*GetInstancesResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s GetInstancesResponseBody) String() string {
@@ -5809,7 +6875,13 @@ func (s *GetInstancesResponseBodyDataActionExecutor) SetUserId(v string) *GetIns
 }
 
 type GetInstancesResponseBodyDataActionExecutorName struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
 	Type          *string `json:"type,omitempty" xml:"type,omitempty"`
 }
@@ -5873,7 +6945,13 @@ func (s *GetInstancesResponseBodyDataOriginator) SetUserId(v string) *GetInstanc
 }
 
 type GetInstancesResponseBodyDataOriginatorName struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
 	Type          *string `json:"type,omitempty" xml:"type,omitempty"`
 }
@@ -5954,11 +7032,34 @@ func (s *GetInstancesByIdListHeaders) SetXAcsDingtalkAccessToken(v string) *GetI
 }
 
 type GetInstancesByIdListRequest struct {
-	AppType            *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	Language           *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// f30233fb-72e1-4af4-8cb8-c7e0ea9ee530,d230233fb-72e1-4af4-8cb8-c7e0ea9ee530
 	ProcessInstanceIds *string `json:"processInstanceIds,omitempty" xml:"processInstanceIds,omitempty"`
-	SystemToken        *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxyy
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetInstancesByIdListRequest) String() string {
@@ -6012,15 +7113,36 @@ func (s *GetInstancesByIdListResponseBody) SetResult(v []*GetInstancesByIdListRe
 }
 
 type GetInstancesByIdListResponseBodyResult struct {
-	ActionExecutor    []*GetInstancesByIdListResponseBodyResultActionExecutor `json:"actionExecutor,omitempty" xml:"actionExecutor,omitempty" type:"Repeated"`
-	ApprovedResult    *string                                                 `json:"approvedResult,omitempty" xml:"approvedResult,omitempty"`
-	Data              map[string]interface{}                                  `json:"data,omitempty" xml:"data,omitempty"`
-	FormUuid          *string                                                 `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	InstanceStatus    *string                                                 `json:"instanceStatus,omitempty" xml:"instanceStatus,omitempty"`
-	Originator        *GetInstancesByIdListResponseBodyResultOriginator       `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
-	ProcessCode       *string                                                 `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	ProcessInstanceId *string                                                 `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Title             *string                                                 `json:"title,omitempty" xml:"title,omitempty"`
+	ActionExecutor []*GetInstancesByIdListResponseBodyResultActionExecutor `json:"actionExecutor,omitempty" xml:"actionExecutor,omitempty" type:"Repeated"`
+	// example:
+	//
+	// agree
+	ApprovedResult *string `json:"approvedResult,omitempty" xml:"approvedResult,omitempty"`
+	// example:
+	//
+	// {"numberField_jcr0069o":1,"multiSelectField_jcr0069s":["选项三","选项二"],"textareaField_jcr0069n":"duohang","employeeField_jcr0069x":["xxxx"],"departmentField_jcr0069z":"信息xxx平台","cascadeDate_jcr0069u":["1514736000000","1517328000000"],"cascadeSelectField_jcr006a0":["part","part_b"],"tableField_jcr006a1":[{"departmentField_jcr006ad":"信息xxx","cascadeDate_jcr006aa":["1514736000000","1517328000000"],"selectField_jcr006a6":"选项三","citySelectField_jcr006ac":["天津","天津市","河东区"],"radioField_jcr006a5":"选项二","employeeField_jcr006ab":["yyyyy","xxxxxx"],"dateField_jcr006a9":1517328000000,"textField_jcr006a2":"明细下单行","textareaField_jcr006a3":"明细下多行","cascadeSelectField_jcr006ae":["product","product_a"],"numberField_jcr006a4":2,"checkboxField_jcr006a7":["选项一","选项三","选项二"],"multiSelectField_jcr006a8":["选项一","选项三","选项二"]}],"selectField_jcr0069q":"选项一","citySelectField_jcr0069y":["北京","北京市","东城区"],"checkboxField_jcr0069r":["选项三","选项二"],"textField_jcr0069m":"danhang","radioField_jcr0069p":"选项一","dateField_jcr0069t":1516636800000}
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	// example:
+	//
+	// FORM-EF6Y4G8WO2FN0SUB43TDQ3CGC3FMFQ1G9400RCJ3
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// RUNNING
+	InstanceStatus *string                                           `json:"instanceStatus,omitempty" xml:"instanceStatus,omitempty"`
+	Originator     *GetInstancesByIdListResponseBodyResultOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
+	// example:
+	//
+	// TPROC--EF6Y4G8WO2FN0SUB43TDQ3CGC3FMFQ1G9400RCJ4
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// example:
+	//
+	// f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// example:
+	//
+	// xxxx 发起的流程
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s GetInstancesByIdListResponseBodyResult) String() string {
@@ -6077,6 +7199,9 @@ func (s *GetInstancesByIdListResponseBodyResult) SetTitle(v string) *GetInstance
 }
 
 type GetInstancesByIdListResponseBodyResultActionExecutor struct {
+	// example:
+	//
+	// 开发部
 	DepartmentName *string                                                   `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
 	Email          *string                                                   `json:"email,omitempty" xml:"email,omitempty"`
 	Name           *GetInstancesByIdListResponseBodyResultActionExecutorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
@@ -6112,9 +7237,18 @@ func (s *GetInstancesByIdListResponseBodyResultActionExecutor) SetUserId(v strin
 }
 
 type GetInstancesByIdListResponseBodyResultActionExecutorName struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
-	Type          *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// i18n
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetInstancesByIdListResponseBodyResultActionExecutorName) String() string {
@@ -6141,6 +7275,9 @@ func (s *GetInstancesByIdListResponseBodyResultActionExecutorName) SetType(v str
 }
 
 type GetInstancesByIdListResponseBodyResultOriginator struct {
+	// example:
+	//
+	// 开发部
 	DepartmentName *string                                               `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
 	Email          *string                                               `json:"email,omitempty" xml:"email,omitempty"`
 	Name           *GetInstancesByIdListResponseBodyResultOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
@@ -6176,9 +7313,18 @@ func (s *GetInstancesByIdListResponseBodyResultOriginator) SetUserId(v string) *
 }
 
 type GetInstancesByIdListResponseBodyResultOriginatorName struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
-	Type          *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// i18n
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetInstancesByIdListResponseBodyResultOriginatorName) String() string {
@@ -6257,16 +7403,54 @@ func (s *GetMeCorpSubmissionHeaders) SetXAcsDingtalkAccessToken(v string) *GetMe
 }
 
 type GetMeCorpSubmissionRequest struct {
-	AppTypes          *string `json:"appTypes,omitempty" xml:"appTypes,omitempty"`
-	CorpId            *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CreateFromTimeGMT *int64  `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
-	CreateToTimeGMT   *int64  `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
-	Keyword           *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
-	Language          *string `json:"language,omitempty" xml:"language,omitempty"`
-	PageNumber        *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize          *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	ProcessCodes      *string `json:"processCodes,omitempty" xml:"processCodes,omitempty"`
-	Token             *string `json:"token,omitempty" xml:"token,omitempty"`
+	// example:
+	//
+	// ["APP_xxx","APP_xxx"]
+	AppTypes *string `json:"appTypes,omitempty" xml:"appTypes,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 未知
+	CreateFromTimeGMT *int64 `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// example:
+	//
+	// 未知
+	CreateToTimeGMT *int64 `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// example:
+	//
+	// vpc(国内版宜搭)/sgp_vpc(海外版宜搭)
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
+	// example:
+	//
+	// 未知
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// ["xx","xxx"]
+	ProcessCodes *string `json:"processCodes,omitempty" xml:"processCodes,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
 }
 
 func (s GetMeCorpSubmissionRequest) String() string {
@@ -6294,6 +7478,11 @@ func (s *GetMeCorpSubmissionRequest) SetCreateFromTimeGMT(v int64) *GetMeCorpSub
 
 func (s *GetMeCorpSubmissionRequest) SetCreateToTimeGMT(v int64) *GetMeCorpSubmissionRequest {
 	s.CreateToTimeGMT = &v
+	return s
+}
+
+func (s *GetMeCorpSubmissionRequest) SetEnv(v string) *GetMeCorpSubmissionRequest {
+	s.Env = &v
 	return s
 }
 
@@ -6328,9 +7517,15 @@ func (s *GetMeCorpSubmissionRequest) SetToken(v string) *GetMeCorpSubmissionRequ
 }
 
 type GetMeCorpSubmissionResponseBody struct {
-	Data       []*GetMeCorpSubmissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	PageNumber *int64                                 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	TotalCount *int64                                 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data []*GetMeCorpSubmissionResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s GetMeCorpSubmissionResponseBody) String() string {
@@ -6736,18 +7931,62 @@ func (s *GetNotifyMeHeaders) SetXAcsDingtalkAccessToken(v string) *GetNotifyMeHe
 }
 
 type GetNotifyMeRequest struct {
-	AppTypes                  *string `json:"appTypes,omitempty" xml:"appTypes,omitempty"`
-	CorpId                    *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CreateFromTimeGMT         *int64  `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
-	CreateToTimeGMT           *int64  `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
-	InstanceCreateFromTimeGMT *int64  `json:"instanceCreateFromTimeGMT,omitempty" xml:"instanceCreateFromTimeGMT,omitempty"`
-	InstanceCreateToTimeGMT   *int64  `json:"instanceCreateToTimeGMT,omitempty" xml:"instanceCreateToTimeGMT,omitempty"`
-	Keyword                   *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
-	Language                  *string `json:"language,omitempty" xml:"language,omitempty"`
-	PageNumber                *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize                  *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	ProcessCodes              *string `json:"processCodes,omitempty" xml:"processCodes,omitempty"`
-	Token                     *string `json:"token,omitempty" xml:"token,omitempty"`
+	// example:
+	//
+	// ["APP_xxx","APP_xxx"]
+	AppTypes *string `json:"appTypes,omitempty" xml:"appTypes,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 未知
+	CreateFromTimeGMT *int64 `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// example:
+	//
+	// 未知
+	CreateToTimeGMT *int64 `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// example:
+	//
+	// vpc(国内版宜搭)/sgp_vpc(海外版宜搭)
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
+	// example:
+	//
+	// 未知
+	InstanceCreateFromTimeGMT *int64 `json:"instanceCreateFromTimeGMT,omitempty" xml:"instanceCreateFromTimeGMT,omitempty"`
+	// example:
+	//
+	// 未知
+	InstanceCreateToTimeGMT *int64 `json:"instanceCreateToTimeGMT,omitempty" xml:"instanceCreateToTimeGMT,omitempty"`
+	// example:
+	//
+	// 未知
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// ["xx","xxx"]
+	ProcessCodes *string `json:"processCodes,omitempty" xml:"processCodes,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
 }
 
 func (s GetNotifyMeRequest) String() string {
@@ -6775,6 +8014,11 @@ func (s *GetNotifyMeRequest) SetCreateFromTimeGMT(v int64) *GetNotifyMeRequest {
 
 func (s *GetNotifyMeRequest) SetCreateToTimeGMT(v int64) *GetNotifyMeRequest {
 	s.CreateToTimeGMT = &v
+	return s
+}
+
+func (s *GetNotifyMeRequest) SetEnv(v string) *GetNotifyMeRequest {
+	s.Env = &v
 	return s
 }
 
@@ -6819,9 +8063,15 @@ func (s *GetNotifyMeRequest) SetToken(v string) *GetNotifyMeRequest {
 }
 
 type GetNotifyMeResponseBody struct {
-	Data       []*GetNotifyMeResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	PageNumber *int64                         `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	TotalCount *int64                         `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data []*GetNotifyMeResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s GetNotifyMeResponseBody) String() string {
@@ -6848,11 +8098,17 @@ func (s *GetNotifyMeResponseBody) SetTotalCount(v int64) *GetNotifyMeResponseBod
 }
 
 type GetNotifyMeResponseBodyData struct {
-	ActivityId      *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	AppType         *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	CorpId          *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CreateTimeGMT   *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
-	CreatorUserId   *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	ActivityId    *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	AppType       *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	CorpId        *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// example:
+	//
+	// ding12345
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// example:
+	//
+	// FORM_INST_12345
 	FormInstanceId  *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
 	InstStatus      *string `json:"instStatus,omitempty" xml:"instStatus,omitempty"`
 	MobileUrl       *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
@@ -6989,11 +8245,32 @@ func (s *GetOpenUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetOpenUrlHead
 }
 
 type GetOpenUrlRequest struct {
-	FileUrl     *string `json:"fileUrl,omitempty" xml:"fileUrl,omitempty"`
-	Language    *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://www.aliwork.com/fileHandle?appType=APP_VN7I6HVKUTXES7XX4OI8&fileName=2a4103a6-44d5-4114-990d-4147a2d53811.xlsx&instId=&type=download
+	FileUrl *string `json:"fileUrl,omitempty" xml:"fileUrl,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxxx
 	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	Timeout     *int64  `json:"timeout,omitempty" xml:"timeout,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 60000
+	Timeout *int64 `json:"timeout,omitempty" xml:"timeout,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetOpenUrlRequest) String() string {
@@ -7099,11 +8376,34 @@ func (s *GetOperationRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *GetOp
 }
 
 type GetOperationRecordsRequest struct {
-	AppType           *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	Language          *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	SystemToken       *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxyy
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetOperationRecordsRequest) String() string {
@@ -7318,30 +8618,96 @@ func (s *GetOperationRecordsResponseBodyResult) SetType(v string) *GetOperationR
 }
 
 type GetOperationRecordsResponseBodyResultDomainList struct {
-	Action              *string                                                               `json:"action,omitempty" xml:"action,omitempty"`
-	ActiveTimeGMT       *string                                                               `json:"activeTimeGMT,omitempty" xml:"activeTimeGMT,omitempty"`
-	ActivityId          *string                                                               `json:"activityId,omitempty" xml:"activityId,omitempty"`
-	DigitalSignature    *string                                                               `json:"digitalSignature,omitempty" xml:"digitalSignature,omitempty"`
-	Files               *string                                                               `json:"files,omitempty" xml:"files,omitempty"`
-	FormatAction        *string                                                               `json:"formatAction,omitempty" xml:"formatAction,omitempty"`
-	OperateTimeGMT      *string                                                               `json:"operateTimeGMT,omitempty" xml:"operateTimeGMT,omitempty"`
-	OperateType         *string                                                               `json:"operateType,omitempty" xml:"operateType,omitempty"`
-	Operator            *string                                                               `json:"operator,omitempty" xml:"operator,omitempty"`
+	// example:
+	//
+	// return
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// example:
+	//
+	// 2021-02-01
+	ActiveTimeGMT *string `json:"activeTimeGMT,omitempty" xml:"activeTimeGMT,omitempty"`
+	// example:
+	//
+	// act-xxaanfaf
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// example:
+	//
+	// https://oss.com/Signature.pdf
+	DigitalSignature *string `json:"digitalSignature,omitempty" xml:"digitalSignature,omitempty"`
+	// example:
+	//
+	// https://oss.com/a.pdf
+	Files *string `json:"files,omitempty" xml:"files,omitempty"`
+	// example:
+	//
+	// 同意
+	FormatAction *string `json:"formatAction,omitempty" xml:"formatAction,omitempty"`
+	// example:
+	//
+	// 2021-01-01
+	OperateTimeGMT *string `json:"operateTimeGMT,omitempty" xml:"operateTimeGMT,omitempty"`
+	// example:
+	//
+	// remove
+	OperateType *string `json:"operateType,omitempty" xml:"operateType,omitempty"`
+	// example:
+	//
+	// manager123
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	// example:
+	//
+	// 1732223326,1232321888,12188991
 	OperatorAgentIdList []*GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList `json:"operatorAgentIdList,omitempty" xml:"operatorAgentIdList,omitempty" type:"Repeated"`
-	OperatorDisplayName *string                                                               `json:"operatorDisplayName,omitempty" xml:"operatorDisplayName,omitempty"`
-	OperatorName        *string                                                               `json:"operatorName,omitempty" xml:"operatorName,omitempty"`
-	OperatorNickName    *string                                                               `json:"operatorNickName,omitempty" xml:"operatorNickName,omitempty"`
-	OperatorPhotoUrl    *string                                                               `json:"operatorPhotoUrl,omitempty" xml:"operatorPhotoUrl,omitempty"`
-	OperatorStatus      *string                                                               `json:"operatorStatus,omitempty" xml:"operatorStatus,omitempty"`
-	ProcessInstanceId   *string                                                               `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Remark              *string                                                               `json:"remark,omitempty" xml:"remark,omitempty"`
-	ShowName            *string                                                               `json:"showName,omitempty" xml:"showName,omitempty"`
-	Size                *int32                                                                `json:"size,omitempty" xml:"size,omitempty"`
-	TaskExecuteType     *string                                                               `json:"taskExecuteType,omitempty" xml:"taskExecuteType,omitempty"`
-	TaskHoldTimeGMT     *int64                                                                `json:"taskHoldTimeGMT,omitempty" xml:"taskHoldTimeGMT,omitempty"`
-	TaskId              *string                                                               `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	TaskType            *string                                                               `json:"taskType,omitempty" xml:"taskType,omitempty"`
-	Type                *string                                                               `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 张三
+	OperatorDisplayName *string `json:"operatorDisplayName,omitempty" xml:"operatorDisplayName,omitempty"`
+	// example:
+	//
+	// 李四
+	OperatorName *string `json:"operatorName,omitempty" xml:"operatorName,omitempty"`
+	// example:
+	//
+	// 无冬
+	OperatorNickName *string `json:"operatorNickName,omitempty" xml:"operatorNickName,omitempty"`
+	// example:
+	//
+	// https://oss.com/a.jpeg
+	OperatorPhotoUrl *string `json:"operatorPhotoUrl,omitempty" xml:"operatorPhotoUrl,omitempty"`
+	// example:
+	//
+	// 良好
+	OperatorStatus    *string `json:"operatorStatus,omitempty" xml:"operatorStatus,omitempty"`
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	Remark            *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// 请购类型
+	ShowName *string `json:"showName,omitempty" xml:"showName,omitempty"`
+	// example:
+	//
+	// 12
+	Size *int32 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// 同步
+	TaskExecuteType *string `json:"taskExecuteType,omitempty" xml:"taskExecuteType,omitempty"`
+	// example:
+	//
+	// 2021-01-01
+	TaskHoldTimeGMT *int64 `json:"taskHoldTimeGMT,omitempty" xml:"taskHoldTimeGMT,omitempty"`
+	// example:
+	//
+	// task-123
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// append task
+	TaskType *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	// example:
+	//
+	// i18n
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetOperationRecordsResponseBodyResultDomainList) String() string {
@@ -7473,14 +8839,38 @@ func (s *GetOperationRecordsResponseBodyResultDomainList) SetType(v string) *Get
 }
 
 type GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList struct {
+	// example:
+	//
+	// 开发部成立于2000年
 	DepartmentDescription *string `json:"departmentDescription,omitempty" xml:"departmentDescription,omitempty"`
-	DisplayName           *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
-	DisplayNameInEnglish  *string `json:"displayNameInEnglish,omitempty" xml:"displayNameInEnglish,omitempty"`
-	OrderNumber           *string `json:"orderNumber,omitempty" xml:"orderNumber,omitempty"`
-	PersonalPhoto         *string `json:"personalPhoto,omitempty" xml:"personalPhoto,omitempty"`
-	Status                *string `json:"status,omitempty" xml:"status,omitempty"`
-	UserId                *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserInformation       *string `json:"userInformation,omitempty" xml:"userInformation,omitempty"`
+	// example:
+	//
+	// 测试应用
+	DisplayName *string `json:"displayName,omitempty" xml:"displayName,omitempty"`
+	// example:
+	//
+	// ZhangSan
+	DisplayNameInEnglish *string `json:"displayNameInEnglish,omitempty" xml:"displayNameInEnglish,omitempty"`
+	// example:
+	//
+	// o-YDJKINSSDLLND
+	OrderNumber *string `json:"orderNumber,omitempty" xml:"orderNumber,omitempty"`
+	// example:
+	//
+	// https://abc.com/a.png
+	PersonalPhoto *string `json:"personalPhoto,omitempty" xml:"personalPhoto,omitempty"`
+	// example:
+	//
+	// running
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 张三
+	UserInformation *string `json:"userInformation,omitempty" xml:"userInformation,omitempty"`
 }
 
 func (s GetOperationRecordsResponseBodyResultDomainListOperatorAgentIdList) String() string {
@@ -7724,8 +9114,16 @@ func (s *GetPrintAppInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetPrintA
 }
 
 type GetPrintAppInfoRequest struct {
+	// example:
+	//
+	// abc
 	NameLike *string `json:"nameLike,omitempty" xml:"nameLike,omitempty"`
-	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetPrintAppInfoRequest) String() string {
@@ -7764,6 +9162,9 @@ func (s *GetPrintAppInfoResponseBody) SetResult(v []*GetPrintAppInfoResponseBody
 }
 
 type GetPrintAppInfoResponseBodyResult struct {
+	// example:
+	//
+	// 李四的宜搭应用
 	AppName      *string                                          `json:"appName,omitempty" xml:"appName,omitempty"`
 	AppType      *string                                          `json:"appType,omitempty" xml:"appType,omitempty"`
 	FormInfoList []*GetPrintAppInfoResponseBodyResultFormInfoList `json:"formInfoList,omitempty" xml:"formInfoList,omitempty" type:"Repeated"`
@@ -7874,10 +9275,28 @@ func (s *GetPrintDictionaryHeaders) SetXAcsDingtalkAccessToken(v string) *GetPri
 }
 
 type GetPrintDictionaryRequest struct {
-	AppType  *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XABJJSJ
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-XABJJSJ
 	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	Version  *int64  `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abfefw
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 0
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s GetPrintDictionaryRequest) String() string {
@@ -8478,6 +9897,1164 @@ func (s *GetProcessDefinitionResponse) SetBody(v *GetProcessDefinitionResponseBo
 	return s
 }
 
+type GetProcessDesignHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetProcessDesignHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignHeaders) SetCommonHeaders(v map[string]*string) *GetProcessDesignHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetProcessDesignHeaders) SetXAcsDingtalkAccessToken(v string) *GetProcessDesignHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetProcessDesignRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxx
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 02465454670427591261
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetProcessDesignRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignRequest) SetAppType(v string) *GetProcessDesignRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetProcessDesignRequest) SetSystemToken(v string) *GetProcessDesignRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *GetProcessDesignRequest) SetUserId(v string) *GetProcessDesignRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetProcessDesignResponseBody struct {
+	ApprovalSummary []*GetProcessDesignResponseBodyApprovalSummary `json:"approvalSummary,omitempty" xml:"approvalSummary,omitempty" type:"Repeated"`
+	FlowConfig      *GetProcessDesignResponseBodyFlowConfig        `json:"flowConfig,omitempty" xml:"flowConfig,omitempty" type:"Struct"`
+	FormulaRules    []*GetProcessDesignResponseBodyFormulaRules    `json:"formulaRules,omitempty" xml:"formulaRules,omitempty" type:"Repeated"`
+	Nodes           []*GetProcessDesignResponseBodyNodes           `json:"nodes,omitempty" xml:"nodes,omitempty" type:"Repeated"`
+	Props           *GetProcessDesignResponseBodyProps             `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+}
+
+func (s GetProcessDesignResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignResponseBody) SetApprovalSummary(v []*GetProcessDesignResponseBodyApprovalSummary) *GetProcessDesignResponseBody {
+	s.ApprovalSummary = v
+	return s
+}
+
+func (s *GetProcessDesignResponseBody) SetFlowConfig(v *GetProcessDesignResponseBodyFlowConfig) *GetProcessDesignResponseBody {
+	s.FlowConfig = v
+	return s
+}
+
+func (s *GetProcessDesignResponseBody) SetFormulaRules(v []*GetProcessDesignResponseBodyFormulaRules) *GetProcessDesignResponseBody {
+	s.FormulaRules = v
+	return s
+}
+
+func (s *GetProcessDesignResponseBody) SetNodes(v []*GetProcessDesignResponseBodyNodes) *GetProcessDesignResponseBody {
+	s.Nodes = v
+	return s
+}
+
+func (s *GetProcessDesignResponseBody) SetProps(v *GetProcessDesignResponseBodyProps) *GetProcessDesignResponseBody {
+	s.Props = v
+	return s
+}
+
+type GetProcessDesignResponseBodyApprovalSummary struct {
+	Title *GetProcessDesignResponseBodyApprovalSummaryTitle `json:"title,omitempty" xml:"title,omitempty" type:"Struct"`
+}
+
+func (s GetProcessDesignResponseBodyApprovalSummary) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignResponseBodyApprovalSummary) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignResponseBodyApprovalSummary) SetTitle(v *GetProcessDesignResponseBodyApprovalSummaryTitle) *GetProcessDesignResponseBodyApprovalSummary {
+	s.Title = v
+	return s
+}
+
+type GetProcessDesignResponseBodyApprovalSummaryTitle struct {
+	// example:
+	//
+	// zhangsan
+	EnUS *string `json:"en_US,omitempty" xml:"en_US,omitempty"`
+	// example:
+	//
+	// i18n
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 张三
+	ZhCN *string `json:"zh_CN,omitempty" xml:"zh_CN,omitempty"`
+}
+
+func (s GetProcessDesignResponseBodyApprovalSummaryTitle) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignResponseBodyApprovalSummaryTitle) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignResponseBodyApprovalSummaryTitle) SetEnUS(v string) *GetProcessDesignResponseBodyApprovalSummaryTitle {
+	s.EnUS = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyApprovalSummaryTitle) SetType(v string) *GetProcessDesignResponseBodyApprovalSummaryTitle {
+	s.Type = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyApprovalSummaryTitle) SetZhCN(v string) *GetProcessDesignResponseBodyApprovalSummaryTitle {
+	s.ZhCN = &v
+	return s
+}
+
+type GetProcessDesignResponseBodyFlowConfig struct {
+	SidInstDetail []*GetProcessDesignResponseBodyFlowConfigSidInstDetail `json:"sid_instDetail,omitempty" xml:"sid_instDetail,omitempty" type:"Repeated"`
+}
+
+func (s GetProcessDesignResponseBodyFlowConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignResponseBodyFlowConfig) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignResponseBodyFlowConfig) SetSidInstDetail(v []*GetProcessDesignResponseBodyFlowConfigSidInstDetail) *GetProcessDesignResponseBodyFlowConfig {
+	s.SidInstDetail = v
+	return s
+}
+
+type GetProcessDesignResponseBodyFlowConfigSidInstDetail struct {
+	// example:
+	//
+	// HIDDEN
+	FieldBehavior *string `json:"fieldBehavior,omitempty" xml:"fieldBehavior,omitempty"`
+	// example:
+	//
+	// textField_xxx
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+}
+
+func (s GetProcessDesignResponseBodyFlowConfigSidInstDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignResponseBodyFlowConfigSidInstDetail) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignResponseBodyFlowConfigSidInstDetail) SetFieldBehavior(v string) *GetProcessDesignResponseBodyFlowConfigSidInstDetail {
+	s.FieldBehavior = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyFlowConfigSidInstDetail) SetFieldId(v string) *GetProcessDesignResponseBodyFlowConfigSidInstDetail {
+	s.FieldId = &v
+	return s
+}
+
+type GetProcessDesignResponseBodyFormulaRules struct {
+	ActivityAction []*string `json:"activityAction,omitempty" xml:"activityAction,omitempty" type:"Repeated"`
+	ActivityId     []*string `json:"activityId,omitempty" xml:"activityId,omitempty" type:"Repeated"`
+	// example:
+	//
+	// n
+	Block *string `json:"block,omitempty" xml:"block,omitempty"`
+	// example:
+	//
+	// xxx
+	Message *string                                       `json:"message,omitempty" xml:"message,omitempty"`
+	Name    *GetProcessDesignResponseBodyFormulaRulesName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// example:
+	//
+	// START
+	NodeType *string                                       `json:"nodeType,omitempty" xml:"nodeType,omitempty"`
+	Rule     *GetProcessDesignResponseBodyFormulaRulesRule `json:"rule,omitempty" xml:"rule,omitempty" type:"Struct"`
+	// example:
+	//
+	// VALIDATOR
+	RuleType *string `json:"ruleType,omitempty" xml:"ruleType,omitempty"`
+	// example:
+	//
+	// null
+	TriggerMode *string `json:"triggerMode,omitempty" xml:"triggerMode,omitempty"`
+}
+
+func (s GetProcessDesignResponseBodyFormulaRules) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignResponseBodyFormulaRules) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignResponseBodyFormulaRules) SetActivityAction(v []*string) *GetProcessDesignResponseBodyFormulaRules {
+	s.ActivityAction = v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyFormulaRules) SetActivityId(v []*string) *GetProcessDesignResponseBodyFormulaRules {
+	s.ActivityId = v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyFormulaRules) SetBlock(v string) *GetProcessDesignResponseBodyFormulaRules {
+	s.Block = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyFormulaRules) SetMessage(v string) *GetProcessDesignResponseBodyFormulaRules {
+	s.Message = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyFormulaRules) SetName(v *GetProcessDesignResponseBodyFormulaRulesName) *GetProcessDesignResponseBodyFormulaRules {
+	s.Name = v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyFormulaRules) SetNodeType(v string) *GetProcessDesignResponseBodyFormulaRules {
+	s.NodeType = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyFormulaRules) SetRule(v *GetProcessDesignResponseBodyFormulaRulesRule) *GetProcessDesignResponseBodyFormulaRules {
+	s.Rule = v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyFormulaRules) SetRuleType(v string) *GetProcessDesignResponseBodyFormulaRules {
+	s.RuleType = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyFormulaRules) SetTriggerMode(v string) *GetProcessDesignResponseBodyFormulaRules {
+	s.TriggerMode = &v
+	return s
+}
+
+type GetProcessDesignResponseBodyFormulaRulesName struct {
+	// example:
+	//
+	// zhangsan
+	EnUS *string `json:"en_US,omitempty" xml:"en_US,omitempty"`
+	// example:
+	//
+	// 张三
+	ZhCN *string `json:"zh_CN,omitempty" xml:"zh_CN,omitempty"`
+}
+
+func (s GetProcessDesignResponseBodyFormulaRulesName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignResponseBodyFormulaRulesName) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignResponseBodyFormulaRulesName) SetEnUS(v string) *GetProcessDesignResponseBodyFormulaRulesName {
+	s.EnUS = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyFormulaRulesName) SetZhCN(v string) *GetProcessDesignResponseBodyFormulaRulesName {
+	s.ZhCN = &v
+	return s
+}
+
+type GetProcessDesignResponseBodyFormulaRulesRule struct {
+	// example:
+	//
+	// EQ(#{textField_xxx},1)
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// EQ(单行文本,1)
+	DisplayRule *string `json:"displayRule,omitempty" xml:"displayRule,omitempty"`
+	// example:
+	//
+	// EQ(#{textField_xxx},1)
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+}
+
+func (s GetProcessDesignResponseBodyFormulaRulesRule) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignResponseBodyFormulaRulesRule) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignResponseBodyFormulaRulesRule) SetContent(v string) *GetProcessDesignResponseBodyFormulaRulesRule {
+	s.Content = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyFormulaRulesRule) SetDisplayRule(v string) *GetProcessDesignResponseBodyFormulaRulesRule {
+	s.DisplayRule = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyFormulaRulesRule) SetSource(v string) *GetProcessDesignResponseBodyFormulaRulesRule {
+	s.Source = &v
+	return s
+}
+
+type GetProcessDesignResponseBodyNodes struct {
+	ChildNodes []map[string]interface{} `json:"childNodes,omitempty" xml:"childNodes,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 请选择审批人
+	Description *string                                `json:"description,omitempty" xml:"description,omitempty"`
+	Name        *GetProcessDesignResponseBodyNodesName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	NextId      []*string                              `json:"nextId,omitempty" xml:"nextId,omitempty" type:"Repeated"`
+	// example:
+	//
+	// node_xxx
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// example:
+	//
+	// node_xxx
+	PrevId *string                `json:"prevId,omitempty" xml:"prevId,omitempty"`
+	Props  map[string]interface{} `json:"props,omitempty" xml:"props,omitempty"`
+	// example:
+	//
+	// approval
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s GetProcessDesignResponseBodyNodes) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignResponseBodyNodes) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignResponseBodyNodes) SetChildNodes(v []map[string]interface{}) *GetProcessDesignResponseBodyNodes {
+	s.ChildNodes = v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyNodes) SetDescription(v string) *GetProcessDesignResponseBodyNodes {
+	s.Description = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyNodes) SetName(v *GetProcessDesignResponseBodyNodesName) *GetProcessDesignResponseBodyNodes {
+	s.Name = v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyNodes) SetNextId(v []*string) *GetProcessDesignResponseBodyNodes {
+	s.NextId = v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyNodes) SetNodeId(v string) *GetProcessDesignResponseBodyNodes {
+	s.NodeId = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyNodes) SetPrevId(v string) *GetProcessDesignResponseBodyNodes {
+	s.PrevId = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyNodes) SetProps(v map[string]interface{}) *GetProcessDesignResponseBodyNodes {
+	s.Props = v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyNodes) SetType(v string) *GetProcessDesignResponseBodyNodes {
+	s.Type = &v
+	return s
+}
+
+type GetProcessDesignResponseBodyNodesName struct {
+	// example:
+	//
+	// 张三
+	EnUS *string `json:"en_US,omitempty" xml:"en_US,omitempty"`
+	// example:
+	//
+	// zhangsan
+	ZhCN *string `json:"zh_CN,omitempty" xml:"zh_CN,omitempty"`
+}
+
+func (s GetProcessDesignResponseBodyNodesName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignResponseBodyNodesName) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignResponseBodyNodesName) SetEnUS(v string) *GetProcessDesignResponseBodyNodesName {
+	s.EnUS = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyNodesName) SetZhCN(v string) *GetProcessDesignResponseBodyNodesName {
+	s.ZhCN = &v
+	return s
+}
+
+type GetProcessDesignResponseBodyProps struct {
+	AllowCollaboration    *bool `json:"allowCollaboration,omitempty" xml:"allowCollaboration,omitempty"`
+	AllowTemporaryStorage *bool `json:"allowTemporaryStorage,omitempty" xml:"allowTemporaryStorage,omitempty"`
+	AllowWithdraw         *bool `json:"allowWithdraw,omitempty" xml:"allowWithdraw,omitempty"`
+	// example:
+	//
+	// FORM-xxx
+	BindingForm    *string `json:"bindingForm,omitempty" xml:"bindingForm,omitempty"`
+	NoRecordRecall *bool   `json:"noRecordRecall,omitempty" xml:"noRecordRecall,omitempty"`
+	// example:
+	//
+	// TPROC--BDC66HB1FIPNPCMNE5VV787RY4D5327NBKTZL0
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// example:
+	//
+	// https://xxx
+	ProcessDetailUrl *string `json:"processDetailUrl,omitempty" xml:"processDetailUrl,omitempty"`
+	// example:
+	//
+	// https://xxx
+	ProcessInitUrl *string `json:"processInitUrl,omitempty" xml:"processInitUrl,omitempty"`
+	// example:
+	//
+	// https://xxx
+	ProcessMobileDetailUrl       *string `json:"processMobileDetailUrl,omitempty" xml:"processMobileDetailUrl,omitempty"`
+	StopAssociationRulesIfFailed *bool   `json:"stopAssociationRulesIfFailed,omitempty" xml:"stopAssociationRulesIfFailed,omitempty"`
+}
+
+func (s GetProcessDesignResponseBodyProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignResponseBodyProps) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignResponseBodyProps) SetAllowCollaboration(v bool) *GetProcessDesignResponseBodyProps {
+	s.AllowCollaboration = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyProps) SetAllowTemporaryStorage(v bool) *GetProcessDesignResponseBodyProps {
+	s.AllowTemporaryStorage = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyProps) SetAllowWithdraw(v bool) *GetProcessDesignResponseBodyProps {
+	s.AllowWithdraw = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyProps) SetBindingForm(v string) *GetProcessDesignResponseBodyProps {
+	s.BindingForm = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyProps) SetNoRecordRecall(v bool) *GetProcessDesignResponseBodyProps {
+	s.NoRecordRecall = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyProps) SetProcessCode(v string) *GetProcessDesignResponseBodyProps {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyProps) SetProcessDetailUrl(v string) *GetProcessDesignResponseBodyProps {
+	s.ProcessDetailUrl = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyProps) SetProcessInitUrl(v string) *GetProcessDesignResponseBodyProps {
+	s.ProcessInitUrl = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyProps) SetProcessMobileDetailUrl(v string) *GetProcessDesignResponseBodyProps {
+	s.ProcessMobileDetailUrl = &v
+	return s
+}
+
+func (s *GetProcessDesignResponseBodyProps) SetStopAssociationRulesIfFailed(v bool) *GetProcessDesignResponseBodyProps {
+	s.StopAssociationRulesIfFailed = &v
+	return s
+}
+
+type GetProcessDesignResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetProcessDesignResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetProcessDesignResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignResponse) SetHeaders(v map[string]*string) *GetProcessDesignResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetProcessDesignResponse) SetStatusCode(v int32) *GetProcessDesignResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetProcessDesignResponse) SetBody(v *GetProcessDesignResponseBody) *GetProcessDesignResponse {
+	s.Body = v
+	return s
+}
+
+type GetProcessDesignByCodeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetProcessDesignByCodeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignByCodeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignByCodeHeaders) SetCommonHeaders(v map[string]*string) *GetProcessDesignByCodeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetProcessDesignByCodeHeaders) SetXAcsDingtalkAccessToken(v string) *GetProcessDesignByCodeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetProcessDesignByCodeRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// example:
+	//
+	// 36679675117
+	ProcessId *int64 `json:"processId,omitempty" xml:"processId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxx
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 02465454670427591261
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetProcessDesignByCodeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignByCodeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignByCodeRequest) SetAppType(v string) *GetProcessDesignByCodeRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeRequest) SetProcessCode(v string) *GetProcessDesignByCodeRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeRequest) SetProcessId(v int64) *GetProcessDesignByCodeRequest {
+	s.ProcessId = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeRequest) SetSystemToken(v string) *GetProcessDesignByCodeRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeRequest) SetUserId(v string) *GetProcessDesignByCodeRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetProcessDesignByCodeResponseBody struct {
+	ApprovalSummary []*GetProcessDesignByCodeResponseBodyApprovalSummary `json:"approvalSummary,omitempty" xml:"approvalSummary,omitempty" type:"Repeated"`
+	FlowConfig      *GetProcessDesignByCodeResponseBodyFlowConfig        `json:"flowConfig,omitempty" xml:"flowConfig,omitempty" type:"Struct"`
+	FormulaRules    []*GetProcessDesignByCodeResponseBodyFormulaRules    `json:"formulaRules,omitempty" xml:"formulaRules,omitempty" type:"Repeated"`
+	Nodes           []*GetProcessDesignByCodeResponseBodyNodes           `json:"nodes,omitempty" xml:"nodes,omitempty" type:"Repeated"`
+	Props           *GetProcessDesignByCodeResponseBodyProps             `json:"props,omitempty" xml:"props,omitempty" type:"Struct"`
+}
+
+func (s GetProcessDesignByCodeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignByCodeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignByCodeResponseBody) SetApprovalSummary(v []*GetProcessDesignByCodeResponseBodyApprovalSummary) *GetProcessDesignByCodeResponseBody {
+	s.ApprovalSummary = v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBody) SetFlowConfig(v *GetProcessDesignByCodeResponseBodyFlowConfig) *GetProcessDesignByCodeResponseBody {
+	s.FlowConfig = v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBody) SetFormulaRules(v []*GetProcessDesignByCodeResponseBodyFormulaRules) *GetProcessDesignByCodeResponseBody {
+	s.FormulaRules = v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBody) SetNodes(v []*GetProcessDesignByCodeResponseBodyNodes) *GetProcessDesignByCodeResponseBody {
+	s.Nodes = v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBody) SetProps(v *GetProcessDesignByCodeResponseBodyProps) *GetProcessDesignByCodeResponseBody {
+	s.Props = v
+	return s
+}
+
+type GetProcessDesignByCodeResponseBodyApprovalSummary struct {
+	Title *GetProcessDesignByCodeResponseBodyApprovalSummaryTitle `json:"title,omitempty" xml:"title,omitempty" type:"Struct"`
+}
+
+func (s GetProcessDesignByCodeResponseBodyApprovalSummary) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignByCodeResponseBodyApprovalSummary) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignByCodeResponseBodyApprovalSummary) SetTitle(v *GetProcessDesignByCodeResponseBodyApprovalSummaryTitle) *GetProcessDesignByCodeResponseBodyApprovalSummary {
+	s.Title = v
+	return s
+}
+
+type GetProcessDesignByCodeResponseBodyApprovalSummaryTitle struct {
+	// example:
+	//
+	// zhangsan
+	EnUS *string `json:"en_US,omitempty" xml:"en_US,omitempty"`
+	// example:
+	//
+	// i18n
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 张三
+	ZhCN *string `json:"zh_CN,omitempty" xml:"zh_CN,omitempty"`
+}
+
+func (s GetProcessDesignByCodeResponseBodyApprovalSummaryTitle) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignByCodeResponseBodyApprovalSummaryTitle) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignByCodeResponseBodyApprovalSummaryTitle) SetEnUS(v string) *GetProcessDesignByCodeResponseBodyApprovalSummaryTitle {
+	s.EnUS = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyApprovalSummaryTitle) SetType(v string) *GetProcessDesignByCodeResponseBodyApprovalSummaryTitle {
+	s.Type = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyApprovalSummaryTitle) SetZhCN(v string) *GetProcessDesignByCodeResponseBodyApprovalSummaryTitle {
+	s.ZhCN = &v
+	return s
+}
+
+type GetProcessDesignByCodeResponseBodyFlowConfig struct {
+	SidInstDetail []*GetProcessDesignByCodeResponseBodyFlowConfigSidInstDetail `json:"sid_instDetail,omitempty" xml:"sid_instDetail,omitempty" type:"Repeated"`
+}
+
+func (s GetProcessDesignByCodeResponseBodyFlowConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignByCodeResponseBodyFlowConfig) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignByCodeResponseBodyFlowConfig) SetSidInstDetail(v []*GetProcessDesignByCodeResponseBodyFlowConfigSidInstDetail) *GetProcessDesignByCodeResponseBodyFlowConfig {
+	s.SidInstDetail = v
+	return s
+}
+
+type GetProcessDesignByCodeResponseBodyFlowConfigSidInstDetail struct {
+	// example:
+	//
+	// HIDDEN
+	FieldBehavior *string `json:"fieldBehavior,omitempty" xml:"fieldBehavior,omitempty"`
+	// example:
+	//
+	// textField_xxx
+	FieldId *string `json:"fieldId,omitempty" xml:"fieldId,omitempty"`
+}
+
+func (s GetProcessDesignByCodeResponseBodyFlowConfigSidInstDetail) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignByCodeResponseBodyFlowConfigSidInstDetail) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignByCodeResponseBodyFlowConfigSidInstDetail) SetFieldBehavior(v string) *GetProcessDesignByCodeResponseBodyFlowConfigSidInstDetail {
+	s.FieldBehavior = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyFlowConfigSidInstDetail) SetFieldId(v string) *GetProcessDesignByCodeResponseBodyFlowConfigSidInstDetail {
+	s.FieldId = &v
+	return s
+}
+
+type GetProcessDesignByCodeResponseBodyFormulaRules struct {
+	ActivityAction []*string `json:"activityAction,omitempty" xml:"activityAction,omitempty" type:"Repeated"`
+	ActivityId     []*string `json:"activityId,omitempty" xml:"activityId,omitempty" type:"Repeated"`
+	// example:
+	//
+	// n
+	Block *string `json:"block,omitempty" xml:"block,omitempty"`
+	// example:
+	//
+	// xxx
+	Message *string                                             `json:"message,omitempty" xml:"message,omitempty"`
+	Name    *GetProcessDesignByCodeResponseBodyFormulaRulesName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// example:
+	//
+	// START
+	NodeType *string                                             `json:"nodeType,omitempty" xml:"nodeType,omitempty"`
+	Rule     *GetProcessDesignByCodeResponseBodyFormulaRulesRule `json:"rule,omitempty" xml:"rule,omitempty" type:"Struct"`
+	// example:
+	//
+	// VALIDATOR
+	RuleType *string `json:"ruleType,omitempty" xml:"ruleType,omitempty"`
+	// example:
+	//
+	// null
+	TriggerMode *string `json:"triggerMode,omitempty" xml:"triggerMode,omitempty"`
+}
+
+func (s GetProcessDesignByCodeResponseBodyFormulaRules) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignByCodeResponseBodyFormulaRules) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignByCodeResponseBodyFormulaRules) SetActivityAction(v []*string) *GetProcessDesignByCodeResponseBodyFormulaRules {
+	s.ActivityAction = v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyFormulaRules) SetActivityId(v []*string) *GetProcessDesignByCodeResponseBodyFormulaRules {
+	s.ActivityId = v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyFormulaRules) SetBlock(v string) *GetProcessDesignByCodeResponseBodyFormulaRules {
+	s.Block = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyFormulaRules) SetMessage(v string) *GetProcessDesignByCodeResponseBodyFormulaRules {
+	s.Message = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyFormulaRules) SetName(v *GetProcessDesignByCodeResponseBodyFormulaRulesName) *GetProcessDesignByCodeResponseBodyFormulaRules {
+	s.Name = v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyFormulaRules) SetNodeType(v string) *GetProcessDesignByCodeResponseBodyFormulaRules {
+	s.NodeType = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyFormulaRules) SetRule(v *GetProcessDesignByCodeResponseBodyFormulaRulesRule) *GetProcessDesignByCodeResponseBodyFormulaRules {
+	s.Rule = v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyFormulaRules) SetRuleType(v string) *GetProcessDesignByCodeResponseBodyFormulaRules {
+	s.RuleType = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyFormulaRules) SetTriggerMode(v string) *GetProcessDesignByCodeResponseBodyFormulaRules {
+	s.TriggerMode = &v
+	return s
+}
+
+type GetProcessDesignByCodeResponseBodyFormulaRulesName struct {
+	// example:
+	//
+	// zhangsan
+	EnUS *string `json:"en_US,omitempty" xml:"en_US,omitempty"`
+	// example:
+	//
+	// 张三
+	ZhCN *string `json:"zh_CN,omitempty" xml:"zh_CN,omitempty"`
+}
+
+func (s GetProcessDesignByCodeResponseBodyFormulaRulesName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignByCodeResponseBodyFormulaRulesName) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignByCodeResponseBodyFormulaRulesName) SetEnUS(v string) *GetProcessDesignByCodeResponseBodyFormulaRulesName {
+	s.EnUS = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyFormulaRulesName) SetZhCN(v string) *GetProcessDesignByCodeResponseBodyFormulaRulesName {
+	s.ZhCN = &v
+	return s
+}
+
+type GetProcessDesignByCodeResponseBodyFormulaRulesRule struct {
+	// example:
+	//
+	// EQ(#{textField_xxx},1)
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// EQ(单行文本,1)
+	DisplayRule *string `json:"displayRule,omitempty" xml:"displayRule,omitempty"`
+	// example:
+	//
+	// EQ(#{textField_xxx},1)
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+}
+
+func (s GetProcessDesignByCodeResponseBodyFormulaRulesRule) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignByCodeResponseBodyFormulaRulesRule) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignByCodeResponseBodyFormulaRulesRule) SetContent(v string) *GetProcessDesignByCodeResponseBodyFormulaRulesRule {
+	s.Content = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyFormulaRulesRule) SetDisplayRule(v string) *GetProcessDesignByCodeResponseBodyFormulaRulesRule {
+	s.DisplayRule = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyFormulaRulesRule) SetSource(v string) *GetProcessDesignByCodeResponseBodyFormulaRulesRule {
+	s.Source = &v
+	return s
+}
+
+type GetProcessDesignByCodeResponseBodyNodes struct {
+	ChildNodes []map[string]interface{} `json:"childNodes,omitempty" xml:"childNodes,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 请选择审批人
+	Description *string                                      `json:"description,omitempty" xml:"description,omitempty"`
+	Name        *GetProcessDesignByCodeResponseBodyNodesName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	NextId      []*string                                    `json:"nextId,omitempty" xml:"nextId,omitempty" type:"Repeated"`
+	// example:
+	//
+	// node_xxx
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// example:
+	//
+	// node_xxx
+	PrevId *string                `json:"prevId,omitempty" xml:"prevId,omitempty"`
+	Props  map[string]interface{} `json:"props,omitempty" xml:"props,omitempty"`
+	// example:
+	//
+	// approval
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s GetProcessDesignByCodeResponseBodyNodes) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignByCodeResponseBodyNodes) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignByCodeResponseBodyNodes) SetChildNodes(v []map[string]interface{}) *GetProcessDesignByCodeResponseBodyNodes {
+	s.ChildNodes = v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyNodes) SetDescription(v string) *GetProcessDesignByCodeResponseBodyNodes {
+	s.Description = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyNodes) SetName(v *GetProcessDesignByCodeResponseBodyNodesName) *GetProcessDesignByCodeResponseBodyNodes {
+	s.Name = v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyNodes) SetNextId(v []*string) *GetProcessDesignByCodeResponseBodyNodes {
+	s.NextId = v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyNodes) SetNodeId(v string) *GetProcessDesignByCodeResponseBodyNodes {
+	s.NodeId = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyNodes) SetPrevId(v string) *GetProcessDesignByCodeResponseBodyNodes {
+	s.PrevId = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyNodes) SetProps(v map[string]interface{}) *GetProcessDesignByCodeResponseBodyNodes {
+	s.Props = v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyNodes) SetType(v string) *GetProcessDesignByCodeResponseBodyNodes {
+	s.Type = &v
+	return s
+}
+
+type GetProcessDesignByCodeResponseBodyNodesName struct {
+	// example:
+	//
+	// 张三
+	EnUS *string `json:"en_US,omitempty" xml:"en_US,omitempty"`
+	// example:
+	//
+	// zhangsan
+	ZhCN *string `json:"zh_CN,omitempty" xml:"zh_CN,omitempty"`
+}
+
+func (s GetProcessDesignByCodeResponseBodyNodesName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignByCodeResponseBodyNodesName) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignByCodeResponseBodyNodesName) SetEnUS(v string) *GetProcessDesignByCodeResponseBodyNodesName {
+	s.EnUS = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyNodesName) SetZhCN(v string) *GetProcessDesignByCodeResponseBodyNodesName {
+	s.ZhCN = &v
+	return s
+}
+
+type GetProcessDesignByCodeResponseBodyProps struct {
+	AllowCollaboration    *bool `json:"allowCollaboration,omitempty" xml:"allowCollaboration,omitempty"`
+	AllowTemporaryStorage *bool `json:"allowTemporaryStorage,omitempty" xml:"allowTemporaryStorage,omitempty"`
+	AllowWithdraw         *bool `json:"allowWithdraw,omitempty" xml:"allowWithdraw,omitempty"`
+	// example:
+	//
+	// FORM-xxx
+	BindingForm    *string `json:"bindingForm,omitempty" xml:"bindingForm,omitempty"`
+	NoRecordRecall *bool   `json:"noRecordRecall,omitempty" xml:"noRecordRecall,omitempty"`
+	// example:
+	//
+	// TPROC--BDC66HB1FIPNPCMNE5VV787RY4D5327NBKTZL0
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// example:
+	//
+	// https://xxx
+	ProcessDetailUrl *string `json:"processDetailUrl,omitempty" xml:"processDetailUrl,omitempty"`
+	// example:
+	//
+	// https://xxx
+	ProcessInitUrl *string `json:"processInitUrl,omitempty" xml:"processInitUrl,omitempty"`
+	// example:
+	//
+	// https://xxx
+	ProcessMobileDetailUrl       *string `json:"processMobileDetailUrl,omitempty" xml:"processMobileDetailUrl,omitempty"`
+	StopAssociationRulesIfFailed *bool   `json:"stopAssociationRulesIfFailed,omitempty" xml:"stopAssociationRulesIfFailed,omitempty"`
+}
+
+func (s GetProcessDesignByCodeResponseBodyProps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignByCodeResponseBodyProps) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignByCodeResponseBodyProps) SetAllowCollaboration(v bool) *GetProcessDesignByCodeResponseBodyProps {
+	s.AllowCollaboration = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyProps) SetAllowTemporaryStorage(v bool) *GetProcessDesignByCodeResponseBodyProps {
+	s.AllowTemporaryStorage = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyProps) SetAllowWithdraw(v bool) *GetProcessDesignByCodeResponseBodyProps {
+	s.AllowWithdraw = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyProps) SetBindingForm(v string) *GetProcessDesignByCodeResponseBodyProps {
+	s.BindingForm = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyProps) SetNoRecordRecall(v bool) *GetProcessDesignByCodeResponseBodyProps {
+	s.NoRecordRecall = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyProps) SetProcessCode(v string) *GetProcessDesignByCodeResponseBodyProps {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyProps) SetProcessDetailUrl(v string) *GetProcessDesignByCodeResponseBodyProps {
+	s.ProcessDetailUrl = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyProps) SetProcessInitUrl(v string) *GetProcessDesignByCodeResponseBodyProps {
+	s.ProcessInitUrl = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyProps) SetProcessMobileDetailUrl(v string) *GetProcessDesignByCodeResponseBodyProps {
+	s.ProcessMobileDetailUrl = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponseBodyProps) SetStopAssociationRulesIfFailed(v bool) *GetProcessDesignByCodeResponseBodyProps {
+	s.StopAssociationRulesIfFailed = &v
+	return s
+}
+
+type GetProcessDesignByCodeResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetProcessDesignByCodeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetProcessDesignByCodeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetProcessDesignByCodeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetProcessDesignByCodeResponse) SetHeaders(v map[string]*string) *GetProcessDesignByCodeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponse) SetStatusCode(v int32) *GetProcessDesignByCodeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeResponse) SetBody(v *GetProcessDesignByCodeResponseBody) *GetProcessDesignByCodeResponse {
+	s.Body = v
+	return s
+}
+
 type GetRunningTaskListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8502,11 +11079,20 @@ func (s *GetRunningTaskListHeaders) SetXAcsDingtalkAccessToken(v string) *GetRun
 }
 
 type GetRunningTaskListRequest struct {
-	AppType               *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xaff,afdfaf,fdsfasdf
 	ProcessInstanceIdList *string `json:"processInstanceIdList,omitempty" xml:"processInstanceIdList,omitempty"`
-	SystemToken           *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserCorpId            *string `json:"userCorpId,omitempty" xml:"userCorpId,omitempty"`
-	UserId                *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	UserCorpId *string `json:"userCorpId,omitempty" xml:"userCorpId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetRunningTaskListRequest) String() string {
@@ -8560,10 +11146,22 @@ func (s *GetRunningTaskListResponseBody) SetResult(v []*GetRunningTaskListRespon
 }
 
 type GetRunningTaskListResponseBodyResult struct {
-	ActiveTimeGMT               *string `json:"activeTimeGMT,omitempty" xml:"activeTimeGMT,omitempty"`
-	ActualActionExecutorId      *string `json:"actualActionExecutorId,omitempty" xml:"actualActionExecutorId,omitempty"`
-	AppType                     *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	CreateTimeGMT               *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// example:
+	//
+	// 2021-02-01
+	ActiveTimeGMT *string `json:"activeTimeGMT,omitempty" xml:"activeTimeGMT,omitempty"`
+	// example:
+	//
+	// manager123
+	ActualActionExecutorId *string `json:"actualActionExecutorId,omitempty" xml:"actualActionExecutorId,omitempty"`
+	AppType                *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// 2021-01-01
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// example:
+	//
+	// 2021-01-01
 	FinishTimeGMT               *string `json:"finishTimeGMT,omitempty" xml:"finishTimeGMT,omitempty"`
 	OriginatorEmail             *string `json:"originatorEmail,omitempty" xml:"originatorEmail,omitempty"`
 	OriginatorId                *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
@@ -8575,11 +11173,26 @@ type GetRunningTaskListResponseBodyResult struct {
 	OutResult                   *string `json:"outResult,omitempty" xml:"outResult,omitempty"`
 	OutResultName               *string `json:"outResultName,omitempty" xml:"outResultName,omitempty"`
 	ProcessInstanceId           *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Status                      *string `json:"status,omitempty" xml:"status,omitempty"`
-	TaskId                      *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	TaskType                    *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
-	Title                       *string `json:"title,omitempty" xml:"title,omitempty"`
-	TitleInEnglish              *string `json:"titleInEnglish,omitempty" xml:"titleInEnglish,omitempty"`
+	// example:
+	//
+	// running
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// task-123
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// append task
+	TaskType *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	// example:
+	//
+	// 李四发起的请购单
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// title A
+	TitleInEnglish *string `json:"titleInEnglish,omitempty" xml:"titleInEnglish,omitempty"`
 }
 
 func (s GetRunningTaskListResponseBodyResult) String() string {
@@ -8936,9 +11549,12 @@ func (s *GetSaleUserInfoByUserIdHeaders) SetXAcsDingtalkAccessToken(v string) *G
 }
 
 type GetSaleUserInfoByUserIdRequest struct {
-	CorpId    *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
 	Namespace *string `json:"namespace,omitempty" xml:"namespace,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetSaleUserInfoByUserIdRequest) String() string {
@@ -9081,12 +11697,42 @@ func (s *GetSimpleCubeModelListHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetSimpleCubeModelListRequest struct {
-	AppType      *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	CorpId       *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CubeCode     *string `json:"cubeCode,omitempty" xml:"cubeCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_Q7D2TFJZWNMDS145Z7DP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding5d17e3add038d44535c2f4657eb6378f
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM_MT866EA17HGCUHIV7GROU72YO499257KRS0KLB
+	CubeCode *string `json:"cubeCode,omitempty" xml:"cubeCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding5d17e3add038d44535c2f4657eb6378f
 	CubeTenantId *string `json:"cubeTenantId,omitempty" xml:"cubeTenantId,omitempty"`
-	SystemToken  *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// U66663B1LLGCVCVPAF76H6955VYG2408RS0KL0
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1160440651754805
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetSimpleCubeModelListRequest) String() string {
@@ -9145,10 +11791,13 @@ func (s *GetSimpleCubeModelListResponseBody) SetResult(v []*GetSimpleCubeModelLi
 }
 
 type GetSimpleCubeModelListResponseBodyResult struct {
-	Children    []*GetSimpleCubeModelListResponseBodyResultChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
-	Id          *string                                             `json:"id,omitempty" xml:"id,omitempty"`
-	IsDimension *string                                             `json:"isDimension,omitempty" xml:"isDimension,omitempty"`
-	Text        *string                                             `json:"text,omitempty" xml:"text,omitempty"`
+	Children []*GetSimpleCubeModelListResponseBodyResultChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 12345
+	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
+	IsDimension *string `json:"isDimension,omitempty" xml:"isDimension,omitempty"`
+	Text        *string `json:"text,omitempty" xml:"text,omitempty"`
 }
 
 func (s GetSimpleCubeModelListResponseBodyResult) String() string {
@@ -9180,11 +11829,14 @@ func (s *GetSimpleCubeModelListResponseBodyResult) SetText(v string) *GetSimpleC
 }
 
 type GetSimpleCubeModelListResponseBodyResultChildren struct {
-	ClassifiedCode      *string `json:"classifiedCode,omitempty" xml:"classifiedCode,omitempty"`
-	CubeCode            *string `json:"cubeCode,omitempty" xml:"cubeCode,omitempty"`
-	DataType            *string `json:"dataType,omitempty" xml:"dataType,omitempty"`
-	DimensionType       *string `json:"dimensionType,omitempty" xml:"dimensionType,omitempty"`
-	FieldCode           *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	ClassifiedCode *string `json:"classifiedCode,omitempty" xml:"classifiedCode,omitempty"`
+	CubeCode       *string `json:"cubeCode,omitempty" xml:"cubeCode,omitempty"`
+	DataType       *string `json:"dataType,omitempty" xml:"dataType,omitempty"`
+	DimensionType  *string `json:"dimensionType,omitempty" xml:"dimensionType,omitempty"`
+	FieldCode      *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// example:
+	//
+	// 12345
 	Id                  *string `json:"id,omitempty" xml:"id,omitempty"`
 	IsDimension         *string `json:"isDimension,omitempty" xml:"isDimension,omitempty"`
 	IsVisible           *string `json:"isVisible,omitempty" xml:"isVisible,omitempty"`
@@ -9315,16 +11967,41 @@ func (s *GetTaskCopiesHeaders) SetXAcsDingtalkAccessToken(v string) *GetTaskCopi
 }
 
 type GetTaskCopiesRequest struct {
-	AppType           *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	CreateFromTimeGMT *int64  `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
-	CreateToTimeGMT   *int64  `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
-	Keyword           *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
-	Language          *string `json:"language,omitempty" xml:"language,omitempty"`
-	PageNumber        *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize          *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	ProcessCodes      *string `json:"processCodes,omitempty" xml:"processCodes,omitempty"`
-	SystemToken       *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// 1234567891234
+	CreateFromTimeGMT *int64 `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// example:
+	//
+	// 1234567891234
+	CreateToTimeGMT *int64  `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	Keyword         *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// ["xx","xxx"]
+	ProcessCodes *string `json:"processCodes,omitempty" xml:"processCodes,omitempty"`
+	// This parameter is required.
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetTaskCopiesRequest) String() string {
@@ -9386,9 +12063,15 @@ func (s *GetTaskCopiesRequest) SetUserId(v string) *GetTaskCopiesRequest {
 }
 
 type GetTaskCopiesResponseBody struct {
-	Data       []*GetTaskCopiesResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	PageNumber *int64                           `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	TotalCount *int64                           `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data []*GetTaskCopiesResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s GetTaskCopiesResponseBody) String() string {
@@ -9415,33 +12098,54 @@ func (s *GetTaskCopiesResponseBody) SetTotalCount(v int64) *GetTaskCopiesRespons
 }
 
 type GetTaskCopiesResponseBodyData struct {
-	ActionExecutorId          []*string                                                `json:"actionExecutorId,omitempty" xml:"actionExecutorId,omitempty" type:"Repeated"`
-	ActionExecutorName        []*string                                                `json:"actionExecutorName,omitempty" xml:"actionExecutorName,omitempty" type:"Repeated"`
-	AppType                   *string                                                  `json:"appType,omitempty" xml:"appType,omitempty"`
-	CarbonActivityId          *string                                                  `json:"carbonActivityId,omitempty" xml:"carbonActivityId,omitempty"`
-	CreateTimeGMT             *string                                                  `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
-	CurrentActivityInstances  []*GetTaskCopiesResponseBodyDataCurrentActivityInstances `json:"currentActivityInstances,omitempty" xml:"currentActivityInstances,omitempty" type:"Repeated"`
-	DataMap                   map[string]interface{}                                   `json:"dataMap,omitempty" xml:"dataMap,omitempty"`
-	DataType                  *string                                                  `json:"dataType,omitempty" xml:"dataType,omitempty"`
-	FinishTimeGMT             *string                                                  `json:"finishTimeGMT,omitempty" xml:"finishTimeGMT,omitempty"`
-	FormInstanceId            *string                                                  `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
-	FormUuid                  *string                                                  `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	InstanceValue             *string                                                  `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
-	ModifiedTimeGMT           *string                                                  `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
-	OriginatorAvatar          *string                                                  `json:"originatorAvatar,omitempty" xml:"originatorAvatar,omitempty"`
-	OriginatorDisplayName     *string                                                  `json:"originatorDisplayName,omitempty" xml:"originatorDisplayName,omitempty"`
-	OriginatorId              *string                                                  `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
-	ProcessApprovedResult     *string                                                  `json:"processApprovedResult,omitempty" xml:"processApprovedResult,omitempty"`
-	ProcessApprovedResultText *string                                                  `json:"processApprovedResultText,omitempty" xml:"processApprovedResultText,omitempty"`
-	ProcessCode               *string                                                  `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	ProcessId                 *int64                                                   `json:"processId,omitempty" xml:"processId,omitempty"`
-	ProcessInstanceId         *string                                                  `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	ProcessInstanceStatus     *string                                                  `json:"processInstanceStatus,omitempty" xml:"processInstanceStatus,omitempty"`
-	ProcessInstanceStatusText *string                                                  `json:"processInstanceStatusText,omitempty" xml:"processInstanceStatusText,omitempty"`
-	ProcessName               *string                                                  `json:"processName,omitempty" xml:"processName,omitempty"`
-	SerialNumber              *string                                                  `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
-	Title                     *string                                                  `json:"title,omitempty" xml:"title,omitempty"`
-	Version                   *int64                                                   `json:"version,omitempty" xml:"version,omitempty"`
+	ActionExecutorId   []*string `json:"actionExecutorId,omitempty" xml:"actionExecutorId,omitempty" type:"Repeated"`
+	ActionExecutorName []*string `json:"actionExecutorName,omitempty" xml:"actionExecutorName,omitempty" type:"Repeated"`
+	AppType            *string   `json:"appType,omitempty" xml:"appType,omitempty"`
+	CarbonActivityId   *string   `json:"carbonActivityId,omitempty" xml:"carbonActivityId,omitempty"`
+	// example:
+	//
+	// 2021-01-01
+	CreateTimeGMT            *string                                                  `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	CurrentActivityInstances []*GetTaskCopiesResponseBodyDataCurrentActivityInstances `json:"currentActivityInstances,omitempty" xml:"currentActivityInstances,omitempty" type:"Repeated"`
+	DataMap                  map[string]interface{}                                   `json:"dataMap,omitempty" xml:"dataMap,omitempty"`
+	DataType                 *string                                                  `json:"dataType,omitempty" xml:"dataType,omitempty"`
+	// example:
+	//
+	// 2021-01-01
+	FinishTimeGMT  *string `json:"finishTimeGMT,omitempty" xml:"finishTimeGMT,omitempty"`
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	FormUuid       *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// 符合宜搭表单实例格式的json数据
+	InstanceValue             *string `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
+	ModifiedTimeGMT           *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	OriginatorAvatar          *string `json:"originatorAvatar,omitempty" xml:"originatorAvatar,omitempty"`
+	OriginatorDisplayName     *string `json:"originatorDisplayName,omitempty" xml:"originatorDisplayName,omitempty"`
+	OriginatorId              *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	ProcessApprovedResult     *string `json:"processApprovedResult,omitempty" xml:"processApprovedResult,omitempty"`
+	ProcessApprovedResultText *string `json:"processApprovedResultText,omitempty" xml:"processApprovedResultText,omitempty"`
+	ProcessCode               *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// example:
+	//
+	// proc-123
+	ProcessId                 *int64  `json:"processId,omitempty" xml:"processId,omitempty"`
+	ProcessInstanceId         *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	ProcessInstanceStatus     *string `json:"processInstanceStatus,omitempty" xml:"processInstanceStatus,omitempty"`
+	ProcessInstanceStatusText *string `json:"processInstanceStatusText,omitempty" xml:"processInstanceStatusText,omitempty"`
+	ProcessName               *string `json:"processName,omitempty" xml:"processName,omitempty"`
+	// example:
+	//
+	// ser-BNANFAHHYDFNK
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	// example:
+	//
+	// 李四发起的请购单
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 1.0
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s GetTaskCopiesResponseBodyData) String() string {
@@ -9588,11 +12292,26 @@ func (s *GetTaskCopiesResponseBodyData) SetVersion(v int64) *GetTaskCopiesRespon
 }
 
 type GetTaskCopiesResponseBodyDataCurrentActivityInstances struct {
-	ActivityId             *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// example:
+	//
+	// act-xxaanfaf
+	ActivityId *string `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	// example:
+	//
+	// running
 	ActivityInstanceStatus *string `json:"activityInstanceStatus,omitempty" xml:"activityInstanceStatus,omitempty"`
-	ActivityName           *string `json:"activityName,omitempty" xml:"activityName,omitempty"`
-	ActivityNameInEnglish  *string `json:"activityNameInEnglish,omitempty" xml:"activityNameInEnglish,omitempty"`
-	Id                     *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// activity-124
+	ActivityName *string `json:"activityName,omitempty" xml:"activityName,omitempty"`
+	// example:
+	//
+	// redirect task
+	ActivityNameInEnglish *string `json:"activityNameInEnglish,omitempty" xml:"activityNameInEnglish,omitempty"`
+	// example:
+	//
+	// 12345
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
 }
 
 func (s GetTaskCopiesResponseBodyDataCurrentActivityInstances) String() string {
@@ -9681,13 +12400,44 @@ func (s *ListApplicationHeaders) SetXAcsDingtalkAccessToken(v string) *ListAppli
 }
 
 type ListApplicationRequest struct {
-	AppFilter            *string `json:"appFilter,omitempty" xml:"appFilter,omitempty"`
+	// example:
+	//
+	// createdByMe
+	AppFilter *string `json:"appFilter,omitempty" xml:"appFilter,omitempty"`
+	// example:
+	//
+	// 步凡的测试应用
 	AppNameSearchKeyword *string `json:"appNameSearchKeyword,omitempty" xml:"appNameSearchKeyword,omitempty"`
-	CorpId               *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	PageNumber           *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize             *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	Token                *string `json:"token,omitempty" xml:"token,omitempty"`
-	UserId               *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding5d17e3add038d44535c2f4657eb6378e
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// vpc(国内版宜搭)/sgp_vpc(海外版宜搭)
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// B073AF673BEB044D59F8F612D65E1EA2
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ListApplicationRequest) String() string {
@@ -9713,6 +12463,11 @@ func (s *ListApplicationRequest) SetCorpId(v string) *ListApplicationRequest {
 	return s
 }
 
+func (s *ListApplicationRequest) SetEnv(v string) *ListApplicationRequest {
+	s.Env = &v
+	return s
+}
+
 func (s *ListApplicationRequest) SetPageNumber(v int32) *ListApplicationRequest {
 	s.PageNumber = &v
 	return s
@@ -9734,9 +12489,15 @@ func (s *ListApplicationRequest) SetUserId(v string) *ListApplicationRequest {
 }
 
 type ListApplicationResponseBody struct {
-	Data       []*ListApplicationResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	PageNumber *int64                             `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	TotalCount *int64                             `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data []*ListApplicationResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s ListApplicationResponseBody) String() string {
@@ -9763,17 +12524,51 @@ func (s *ListApplicationResponseBody) SetTotalCount(v int64) *ListApplicationRes
 }
 
 type ListApplicationResponseBodyData struct {
-	AppConfig         *string `json:"appConfig,omitempty" xml:"appConfig,omitempty"`
-	AppType           *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// {"ODIN_TOPIC_ID":"2560649","APPPROVIDER":"vigo","NEEDAYALYSIS":"n","NAVTYPE":"top_side","SHOWICON":"n","REPORT_SUPPORT_META_3":"y","ALLOW_EXTERNAL_ADDRESS_BOOK":"y","REPORTVERSION":"V5","FORM_SCHEMA_VERSION":"V5","EXCEL_SOURCE":"LOCAL","DEVICETYPE":"web,mobile","ENABLE_CSRF_SWITCH":"y","NEW_ALLOW_EXTERNAL_ADDRESS_BOOK":"y","COLOUR":"blue","DINGTALK_CID":"LOCAL","APPMODE":"normal","NAVLAYOUT":"auto","SHOWNAV":"y","SHOWCRUMB":"y","SUPPORT_META_3":"y","SUPPORT_META_2":"y","SYSTEMLINK":"https://www.aliwork.com/APP_LDYQVBGT167NAON5KB1X/workbench","DATA_QUERY_VERSION":"V1","DB_SOURCE_TYPE":"TDDL_MYSQL","ISTODINGAPPCENTER":"n","REVERSION":"5.9.16","EDS_DB_INDEX":"24","NAVIGATION":"TODO,DONE,SUBMIT","APPTYPE":"single"}
+	AppConfig *string `json:"appConfig,omitempty" xml:"appConfig,omitempty"`
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// 上线:ONLINE，下线:OFFLINE
 	ApplicationStatus *string `json:"applicationStatus,omitempty" xml:"applicationStatus,omitempty"`
-	CorpId            *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CreatorUserId     *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	Description       *string `json:"description,omitempty" xml:"description,omitempty"`
-	Icon              *string `json:"icon,omitempty" xml:"icon,omitempty"`
-	Inexistence       *string `json:"inexistence,omitempty" xml:"inexistence,omitempty"`
-	Name              *string `json:"name,omitempty" xml:"name,omitempty"`
-	SubCorpId         *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
-	SystemToken       *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// example:
+	//
+	// ding5d17e3add038d44535c2f4657eb6378e
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// ding12345
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// example:
+	//
+	// 步凡创建的宜搭应用
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// example:
+	//
+	// appdiqiu%%#0089FF
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// example:
+	//
+	// 已删除:y，未删除:n
+	Inexistence *string `json:"inexistence,omitempty" xml:"inexistence,omitempty"`
+	// example:
+	//
+	// 测试应用
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 离线:offline,在线：online
+	ReleaseToDingStatus *string `json:"releaseToDingStatus,omitempty" xml:"releaseToDingStatus,omitempty"`
+	// example:
+	//
+	// ding8eaadfkksj45343wksff334
+	SubCorpId   *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
 }
 
 func (s ListApplicationResponseBodyData) String() string {
@@ -9826,6 +12621,11 @@ func (s *ListApplicationResponseBodyData) SetInexistence(v string) *ListApplicat
 
 func (s *ListApplicationResponseBodyData) SetName(v string) *ListApplicationResponseBodyData {
 	s.Name = &v
+	return s
+}
+
+func (s *ListApplicationResponseBodyData) SetReleaseToDingStatus(v string) *ListApplicationResponseBodyData {
+	s.ReleaseToDingStatus = &v
 	return s
 }
 
@@ -9928,9 +12728,18 @@ func (s *ListApplicationAuthorizationServiceApplicationInformationRequest) SetPa
 
 type ListApplicationAuthorizationServiceApplicationInformationResponseBody struct {
 	ApplicationInformation []*ListApplicationAuthorizationServiceApplicationInformationResponseBodyApplicationInformation `json:"applicationInformation,omitempty" xml:"applicationInformation,omitempty" type:"Repeated"`
-	PageNumber             *int32                                                                                         `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize               *int32                                                                                         `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	TotalCount             *int32                                                                                         `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s ListApplicationAuthorizationServiceApplicationInformationResponseBody) String() string {
@@ -10113,10 +12922,19 @@ func (s *ListApplicationAuthorizationServiceConnectorInformationRequest) SetPage
 }
 
 type ListApplicationAuthorizationServiceConnectorInformationResponseBody struct {
-	PageNumber      *int32                                                                                `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
 	PageSize        *int32                                                                                `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 	PlugInformation []*ListApplicationAuthorizationServiceConnectorInformationResponseBodyPlugInformation `json:"plugInformation,omitempty" xml:"plugInformation,omitempty" type:"Repeated"`
-	TotalCount      *int64                                                                                `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s ListApplicationAuthorizationServiceConnectorInformationResponseBody) String() string {
@@ -10312,9 +13130,18 @@ func (s *ListApplicationInformationRequest) SetPageSize(v int32) *ListApplicatio
 
 type ListApplicationInformationResponseBody struct {
 	ApplicationInformation []*ListApplicationInformationResponseBodyApplicationInformation `json:"applicationInformation,omitempty" xml:"applicationInformation,omitempty" type:"Repeated"`
-	PageNumber             *int32                                                          `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize               *int32                                                          `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	TotalCount             *int32                                                          `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s ListApplicationInformationResponseBody) String() string {
@@ -10462,10 +13289,22 @@ func (s *ListCommodityHeaders) SetXAcsDingtalkAccessToken(v string) *ListCommodi
 }
 
 type ListCommodityRequest struct {
-	AccessKey  *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
-	CallerUid  *string `json:"callerUid,omitempty" xml:"callerUid,omitempty"`
-	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// accessKey
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// example:
+	//
+	// callerUid
+	CallerUid *string `json:"callerUid,omitempty" xml:"callerUid,omitempty"`
+	// example:
+	//
+	// currentPage
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// pageSize
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s ListCommodityRequest) String() string {
@@ -10498,9 +13337,18 @@ func (s *ListCommodityRequest) SetPageSize(v int32) *ListCommodityRequest {
 
 type ListCommodityResponseBody struct {
 	CommodityVOList []*ListCommodityResponseBodyCommodityVOList `json:"commodityVOList,omitempty" xml:"commodityVOList,omitempty" type:"Repeated"`
-	PageNumber      *int32                                      `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize        *int32                                      `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	TotalCount      *int32                                      `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s ListCommodityResponseBody) String() string {
@@ -10678,10 +13526,19 @@ func (s *ListConnectorInformationRequest) SetPageSize(v int32) *ListConnectorInf
 }
 
 type ListConnectorInformationResponseBody struct {
-	PageNumber  *int32                                             `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
 	PageSize    *int32                                             `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 	PluginInfos []*ListConnectorInformationResponseBodyPluginInfos `json:"pluginInfos,omitempty" xml:"pluginInfos,omitempty" type:"Repeated"`
-	TotalCount  *int64                                             `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s ListConnectorInformationResponseBody) String() string {
@@ -10841,11 +13698,34 @@ func (s *ListFormRemarksHeaders) SetXAcsDingtalkAccessToken(v string) *ListFormR
 }
 
 type ListFormRemarksRequest struct {
-	AppType            *string   `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// FORM-INST-123
 	FormInstanceIdList []*string `json:"formInstanceIdList,omitempty" xml:"formInstanceIdList,omitempty" type:"Repeated"`
-	FormUuid           *string   `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	SystemToken        *string   `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId             *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ListFormRemarksRequest) String() string {
@@ -10882,6 +13762,9 @@ func (s *ListFormRemarksRequest) SetUserId(v string) *ListFormRemarksRequest {
 }
 
 type ListFormRemarksResponseBody struct {
+	// example:
+	//
+	// {"FINST-GW866DA1NHFZIPNE03UTM88NOAGQ27Q9VUP1L0":[{"creator":"manager9358","replyUserId":null,"images":"[]","formInstId":"FINST-GW866DA1NHFZIPNE03UTM88NOAGQ27Q9VUP1L0","replyId":null,"files":"[]","id":3261500001,"gmtCreate":1649387753000,"class":"com.alibaba.work.tianshu.api.model.form.RemarkVO","atUserId":null,"content":"评论1"}],"FINST-96766PB1LBZYTVGI52J857AFKWWR3MX3CS41LXM6":[{"creator":"manager9358","replyUserId":null,"images":"[]","formInstId":"FINST-96766PB1LBZYTVGI52J857AFKWWR3MX3CS41LXM6","replyId":null,"files":"[]","id":3261500003,"gmtCreate":1649387988000,"class":"com.alibaba.work.tianshu.api.model.form.RemarkVO","atUserId":null,"content":"评论4"}]}
 	FormRemarkVoMap map[string]interface{} `json:"formRemarkVoMap,omitempty" xml:"formRemarkVoMap,omitempty"`
 }
 
@@ -10951,11 +13834,34 @@ func (s *ListNavigationByFormTypeHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type ListNavigationByFormTypeRequest struct {
-	AppType     *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	FormType    *string `json:"formType,omitempty" xml:"formType,omitempty"`
-	Language    *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	FormType *string `json:"formType,omitempty" xml:"formType,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxxx
 	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ListNavigationByFormTypeRequest) String() string {
@@ -11038,7 +13944,13 @@ func (s *ListNavigationByFormTypeResponseBodyResult) SetTitle(v *ListNavigationB
 }
 
 type ListNavigationByFormTypeResponseBodyResultTitle struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
 	Type          *string `json:"type,omitempty" xml:"type,omitempty"`
 }
@@ -11119,11 +14031,34 @@ func (s *ListOperationLogsHeaders) SetXAcsDingtalkAccessToken(v string) *ListOpe
 }
 
 type ListOperationLogsRequest struct {
-	AppType            *string   `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// FORM-INST-123
 	FormInstanceIdList []*string `json:"formInstanceIdList,omitempty" xml:"formInstanceIdList,omitempty" type:"Repeated"`
-	FormUuid           *string   `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	SystemToken        *string   `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId             *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager9358
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ListOperationLogsRequest) String() string {
@@ -11160,6 +14095,11 @@ func (s *ListOperationLogsRequest) SetUserId(v string) *ListOperationLogsRequest
 }
 
 type ListOperationLogsResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"FINST-GW866DA1NHFZIPNE03UTM88NOAGQ27Q9VUP1L0":[{"currentText":null,"componentType":null,"gmtModified":"2022-04-08 11:15:34","preText":null,"operationType":"CREATE","componentName":"","operator":{"userInfo":null,"tbWang":null,"depDesc":null,"displayName":"娄修俊","mastedataDeptments":null,"orderNum":null,"displayEnName":null,"userId":null,"personalPhoto":null,"status":null},"fieldId":null}]}
 	OperationLogMap map[string]interface{} `json:"operationLogMap,omitempty" xml:"operationLogMap,omitempty"`
 }
 
@@ -11229,13 +14169,40 @@ func (s *ListTableDataByFormInstanceIdTableIdHeaders) SetXAcsDingtalkAccessToken
 }
 
 type ListTableDataByFormInstanceIdTableIdRequest struct {
-	AppType      *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	FormUuid     *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	PageNumber   *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize     *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SystemToken  *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-EF6Y4G8WO2FN0SUB43TDQ3CGC3FMFQ1G9400RCJ3
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// 10
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 50
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxxx
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// tableField_ksyaujq1
 	TableFieldId *string `json:"tableFieldId,omitempty" xml:"tableFieldId,omitempty"`
-	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ListTableDataByFormInstanceIdTableIdRequest) String() string {
@@ -11282,9 +14249,15 @@ func (s *ListTableDataByFormInstanceIdTableIdRequest) SetUserId(v string) *ListT
 }
 
 type ListTableDataByFormInstanceIdTableIdResponseBody struct {
-	Data       []map[string]interface{} `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	PageNumber *int64                   `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	TotalCount *int64                   `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data []map[string]interface{} `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s ListTableDataByFormInstanceIdTableIdResponseBody) String() string {
@@ -11363,6 +14336,11 @@ func (s *LoginCodeGenHeaders) SetXAcsDingtalkAccessToken(v string) *LoginCodeGen
 }
 
 type LoginCodeGenRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// zs123
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -11380,6 +14358,9 @@ func (s *LoginCodeGenRequest) SetUserId(v string) *LoginCodeGenRequest {
 }
 
 type LoginCodeGenResponseBody struct {
+	// example:
+	//
+	// cdxxxx
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -11595,17 +14576,58 @@ func (s *PageAutoFlowLogHeaders) SetXAcsDingtalkAccessToken(v string) *PageAutoF
 }
 
 type PageAutoFlowLogRequest struct {
-	AppType      *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	CorpId       *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	EndTimeGMT   *int64  `json:"endTimeGMT,omitempty" xml:"endTimeGMT,omitempty"`
-	FormUuid     *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	PageNumber   *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding5d17e3add038d44535c2f4657eb6378e
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 2021-01-01
+	EndTimeGMT *int64 `json:"endTimeGMT,omitempty" xml:"endTimeGMT,omitempty"`
+	// example:
+	//
+	// vpc(国内版宜搭)/sgp_vpc(海外版宜搭)
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
 	PageSize     *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 	ProcessCode  *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 	StartTimeGMT *int64  `json:"startTimeGMT,omitempty" xml:"startTimeGMT,omitempty"`
-	Status       *int32  `json:"status,omitempty" xml:"status,omitempty"`
-	Token        *string `json:"token,omitempty" xml:"token,omitempty"`
-	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// running
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// B073AF673BEB044D59F8F612D65E1EA2
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s PageAutoFlowLogRequest) String() string {
@@ -11628,6 +14650,11 @@ func (s *PageAutoFlowLogRequest) SetCorpId(v string) *PageAutoFlowLogRequest {
 
 func (s *PageAutoFlowLogRequest) SetEndTimeGMT(v int64) *PageAutoFlowLogRequest {
 	s.EndTimeGMT = &v
+	return s
+}
+
+func (s *PageAutoFlowLogRequest) SetEnv(v string) *PageAutoFlowLogRequest {
+	s.Env = &v
 	return s
 }
 
@@ -11672,10 +14699,19 @@ func (s *PageAutoFlowLogRequest) SetUserId(v string) *PageAutoFlowLogRequest {
 }
 
 type PageAutoFlowLogResponseBody struct {
-	Data        []*PageAutoFlowLogResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	HasMoreData *bool                              `json:"hasMoreData,omitempty" xml:"hasMoreData,omitempty"`
-	PageNumber  *int64                             `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	TotalCount  *int64                             `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data []*PageAutoFlowLogResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	HasMoreData *bool `json:"hasMoreData,omitempty" xml:"hasMoreData,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s PageAutoFlowLogResponseBody) String() string {
@@ -11707,15 +14743,24 @@ func (s *PageAutoFlowLogResponseBody) SetTotalCount(v int64) *PageAutoFlowLogRes
 }
 
 type PageAutoFlowLogResponseBodyData struct {
-	AppType                      *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	ElapsedTimeGMT               *int64  `json:"elapsedTimeGMT,omitempty" xml:"elapsedTimeGMT,omitempty"`
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType        *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	ElapsedTimeGMT *int64  `json:"elapsedTimeGMT,omitempty" xml:"elapsedTimeGMT,omitempty"`
+	// example:
+	//
+	// 2021-01-01
 	FinishTimeGMT                *string `json:"finishTimeGMT,omitempty" xml:"finishTimeGMT,omitempty"`
 	Flag                         *string `json:"flag,omitempty" xml:"flag,omitempty"`
 	ProcInstanceId               *string `json:"procInstanceId,omitempty" xml:"procInstanceId,omitempty"`
 	ProcessCode                  *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 	SrcProcInstanceFinishTimeGMT *string `json:"srcProcInstanceFinishTimeGMT,omitempty" xml:"srcProcInstanceFinishTimeGMT,omitempty"`
 	SrcProcInstanceId            *string `json:"srcProcInstanceId,omitempty" xml:"srcProcInstanceId,omitempty"`
-	Status                       *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// running
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s PageAutoFlowLogResponseBodyData) String() string {
@@ -11824,13 +14869,30 @@ func (s *PageFormBaseInfosHeaders) SetXAcsDingtalkAccessToken(v string) *PageFor
 }
 
 type PageFormBaseInfosRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
 	AppKey       *string   `json:"appKey,omitempty" xml:"appKey,omitempty"`
 	FormTypeList []*string `json:"formTypeList,omitempty" xml:"formTypeList,omitempty" type:"Repeated"`
 	Language     *string   `json:"language,omitempty" xml:"language,omitempty"`
-	PageIndex    *int32    `json:"pageIndex,omitempty" xml:"pageIndex,omitempty"`
-	PageSize     *int32    `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SystemToken  *string   `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId       *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	PageIndex *int32 `json:"pageIndex,omitempty" xml:"pageIndex,omitempty"`
+	// This parameter is required.
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxx
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// david123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s PageFormBaseInfosRequest) String() string {
@@ -12045,14 +15107,48 @@ func (s *PreviewPublishedProcessHeaders) SetXAcsDingtalkAccessToken(v string) *P
 }
 
 type PreviewPublishedProcessRequest struct {
-	AppType      *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// 18295
 	DepartmentId *string `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"textField_jcpm6agt": "单行","employeeField_jcos0sar": ["workno"]}
 	FormDataJson *string `json:"formDataJson,omitempty" xml:"formDataJson,omitempty"`
-	FormUuid     *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	Language     *string `json:"language,omitempty" xml:"language,omitempty"`
-	ProcessCode  *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	SystemToken  *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-NJYJZELV8YZRDEI2N5IQ7L6VEDMR1VE9GMPCJB
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// TPROC--EF6Y4G8WO2FN0SUB43TDQ3CGC3FMFQ1G9400RCJ4
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxx
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1731234567
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s PreviewPublishedProcessRequest) String() string {
@@ -12334,21 +15430,76 @@ func (s *QueryServiceRecordHeaders) SetXAcsDingtalkAccessToken(v string) *QueryS
 }
 
 type QueryServiceRecordRequest struct {
-	AppType             *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	FormUuid            *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	HookType            *string `json:"hookType,omitempty" xml:"hookType,omitempty"`
-	HookUuid            *string `json:"hookUuid,omitempty" xml:"hookUuid,omitempty"`
-	InstanceId          *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
-	InvokeAfterDateGMT  *string `json:"invokeAfterDateGMT,omitempty" xml:"invokeAfterDateGMT,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// HTTP
+	HookType *string `json:"hookType,omitempty" xml:"hookType,omitempty"`
+	// example:
+	//
+	// INVOKE-E7766VC1KJ4ZVFCR346USCT2ORYI2UVRBHA1L0
+	HookUuid *string `json:"hookUuid,omitempty" xml:"hookUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FINST-NJS33HHSLFNH533HHOFN
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// example:
+	//
+	// 2022-03-28
+	InvokeAfterDateGMT *string `json:"invokeAfterDateGMT,omitempty" xml:"invokeAfterDateGMT,omitempty"`
+	// example:
+	//
+	// 2022-03-29
 	InvokeBeforeDateGMT *string `json:"invokeBeforeDateGMT,omitempty" xml:"invokeBeforeDateGMT,omitempty"`
-	InvokeStatus        *string `json:"invokeStatus,omitempty" xml:"invokeStatus,omitempty"`
-	PageNumber          *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize            *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	RequestUrl          *string `json:"requestUrl,omitempty" xml:"requestUrl,omitempty"`
-	SourceUuid          *string `json:"sourceUuid,omitempty" xml:"sourceUuid,omitempty"`
-	Success             *bool   `json:"success,omitempty" xml:"success,omitempty"`
-	SystemToken         *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId              *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 可选值：SUCCESS、FAIL、FINAL_SUCCESS、ERROR
+	InvokeStatus *string `json:"invokeStatus,omitempty" xml:"invokeStatus,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// www.aliwork.com/query/
+	RequestUrl *string `json:"requestUrl,omitempty" xml:"requestUrl,omitempty"`
+	// example:
+	//
+	// INVOKE-E7766VC1KJ4ZVFCR346USCT2ORYI2UVRBHA1LI
+	SourceUuid *string `json:"sourceUuid,omitempty" xml:"sourceUuid,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryServiceRecordRequest) String() string {
@@ -12435,6 +15586,9 @@ func (s *QueryServiceRecordRequest) SetUserId(v string) *QueryServiceRecordReque
 }
 
 type QueryServiceRecordResponseBody struct {
+	// example:
+	//
+	// 100
 	TotalCount *int32                                  `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 	Values     []*QueryServiceRecordResponseBodyValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 }
@@ -12458,19 +15612,58 @@ func (s *QueryServiceRecordResponseBody) SetValues(v []*QueryServiceRecordRespon
 }
 
 type QueryServiceRecordResponseBodyValues struct {
-	FormInstanceId   *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
-	FormUuid         *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	HookType         *string `json:"hookType,omitempty" xml:"hookType,omitempty"`
-	HookUuid         *string `json:"hookUuid,omitempty" xml:"hookUuid,omitempty"`
-	InvokeParameter  *string `json:"invokeParameter,omitempty" xml:"invokeParameter,omitempty"`
-	InvokeResult     *string `json:"invokeResult,omitempty" xml:"invokeResult,omitempty"`
-	InvokeStatus     *string `json:"invokeStatus,omitempty" xml:"invokeStatus,omitempty"`
-	InvokeSuccess    *string `json:"invokeSuccess,omitempty" xml:"invokeSuccess,omitempty"`
-	InvokeUrl        *string `json:"invokeUrl,omitempty" xml:"invokeUrl,omitempty"`
-	ServiceContent   *string `json:"serviceContent,omitempty" xml:"serviceContent,omitempty"`
-	ServiceName      *string `json:"serviceName,omitempty" xml:"serviceName,omitempty"`
+	// example:
+	//
+	// FINST-J8766S91O2UYN87ZX3XOF1MY8MBA2912BSV0L24
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// HTTP
+	HookType *string `json:"hookType,omitempty" xml:"hookType,omitempty"`
+	// example:
+	//
+	// INVOKE-E7766VC1KJ4ZVFCR346USCT2ORYI2UVRBHA1L0
+	HookUuid *string `json:"hookUuid,omitempty" xml:"hookUuid,omitempty"`
+	// example:
+	//
+	// {"parameter1":"测试服务执行"}
+	InvokeParameter *string `json:"invokeParameter,omitempty" xml:"invokeParameter,omitempty"`
+	// example:
+	//
+	// {"content":{"currentPage":1,"data":[{"industry_id":"互联网","role":"人事","textField_kzi3b7ql":"场景","textField_kzi3b7qk":"角色","description":"用于企业员工假期请假、值班、就近办公等信息统计，便于假期工作事项安排。","orderNum":5,"industry":"互联网","textField_kzi3b7qj":"推荐","usageNum_value":"3365","textField_kzi3b7qm":"能力","scene":"企业应用","usageNum":3365,"role_id":"人事","suggest_id":"快速入门","imageUrl":"https://tianshu-vpc.oss-cn-shanghai.aliyuncs.com/49315603-3a20-4bd8-aeb0-a1430be3177a.jpg","templateTitle":"员工排班表","guide":"","orderNum_value":"5","author":"宜搭官方","appTplUuid":"TPL_RAOW06MPQBKKNENFMD5U","textField_kzp6ix74":"行业","scene_id":"企业应用","suggest":"快速入门","tags":["表单"],"isShow":"显示","isShow_id":"y","tags_id":["表单"]},{"industry_id":"互联网","role":"行政","textField_kzi3b7ql":"场景","textField_kzi3b7qk":"角色","description":"1.可用于公司内部收集员工意见。\n2.可意见类型对意见进行整理。\n由杭州鑫峰维网络科技有限公司免费提供，可钉钉沟通或电话咨询 肖经理：15869116881","orderNum":14,"industry":"互联网","textField_kzi3b7qj":"推荐","usageNum_value":"678","textField_kzi3b7qm":"能力","scene":"人事行政","usageNum":678,"role_id":"行政","suggest_id":"快速入门","imageUrl":"https://tianshu-vpc.oss-cn-shanghai.aliyuncs.com/72c0dcce-dded-417c-a003-db4679cc1c96.jpg","templateTitle":"意见反馈表","guide":"","orderNum_value":"14","author":"杭州鑫蜂维网络科技有限公司","appTplUuid":"TPL_KI4RE0NWXGTA1DV028XR","textField_kzp6ix74":"行业","scene_id":"人事行政","suggest":"快速入门","tags":["表单"],"isShow":"显示","isShow_id":"y","tags_id":["表单"]},{"industry_id":"制造业","role":"生产","textField_kzi3b7ql":"场景","textField_kzi3b7qk":"角色","description":"一物一码，为每台设备生成二维码，并制作成标牌。业务巡检人员使用钉钉扫码，添加巡检和维修记录，上传现场照片，实现无纸化巡检。","orderNum":29,"industry":"制造业","textField_kzi3b7qj":"推荐","usageNum_value":"145","textField_kzi3b7qm":"能力","scene":"不展示","usageNum":145,"category_id":"NEW","role_id":"生产","suggest_id":"快速入门","imageUrl":"https://tianshu-vpc.oss-cn-shanghai.aliyuncs.com/bb437d98-4015-4830-9224-42d90cfe6089.jpeg","templateTitle":"设备扫码巡检","guide":"一物一码，为每台设备生成二维码，并制作成标牌。业务巡检人员使用钉钉扫码，添加巡检和维修记录，上传现场照片，实现无纸化巡检。","orderNum_value":"29","author":"宜搭官方","appTplUuid":"TPL_G4P53OFFXISLNOWZW0QT","textField_kzp6ix74":"行业","scene_id":"不展示","suggest":"快速入门","tags":["二维码"],"isShow":"显示","isShow_id":"y","tags_id":["二维码"],"category":"NEW"},{"industry_id":"互联网","role":"行政","textField_kzi3b7ql":"场景","textField_kzi3b7qk":"角色","description":"是基于企业办公物品领用或申请的场景下，\n1、对物品自定义的录入和信息维护。\n2、库存流水，库存汇总的报表展示。\n由杭州鑫峰维网络科技有限公司免费提供，可钉钉沟通或电话咨询 肖经理：15869116881","orderNum":74,"industry":"互联网","textField_kzi3b7qj":"推荐","usageNum_value":"16238","textField_kzi3b7qm":"能力","scene":"人事行政","usageNum":16238,"role_id":"行政","suggest_id":"快速入门","imageUrl":"https://tianshu-vpc.oss-cn-shanghai.aliyuncs.com/8c6d63b2-8a9f-4b05-8299-79e7dd97efc9.jpg","templateTitle":"办公物品申请","guide":"","orderNum_value":"74","author":"杭州鑫蜂维网络科技有限公司","appTplUuid":"TPL_WDGWQFTJD6FCG44NM4JC","textField_kzp6ix74":"行业","scene_id":"人事行政","suggest":"快速入门","tags":["流程表单"],"isShow":"显示","isShow_id":"y","tags_id":["流程表单"]},{"industry_id":"互联网","role":"行政","textField_kzi3b7ql":"场景","textField_kzi3b7qk":"角色","description":"借用宜搭最新连接器能力，活动报名申请通过后自动拉入指定群。","orderNum":145,"industry":"互联网","textField_kzi3b7qj":"推荐","usageNum_value":"2522","textField_kzi3b7qm":"能力","scene":"人事行政","usageNum":2522,"role_id":"行政","suggest_id":"快速入门","imageUrl":"https://tianshu-vpc.oss-cn-shanghai.aliyuncs.com/9b6d7f1a-135b-435a-88c5-97e9fed7e75c.jpg","templateTitle":"活动报名","guide":"","orderNum_value":"145","author":"宜搭官方","appTplUuid":"TPL_GLXCK24WLMDCRV8EMU0K","textField_kzp6ix74":"行业","scene_id":"人事行政","suggest":"快速入门","tags":["连接器"],"isShow":"显示","isShow_id":"y","tags_id":["连接器"]},{"industry_id":"互联网","role":"人事","textField_kzi3b7ql":"场景","textField_kzi3b7qk":"角色","description":"一键导入工资，生成工资条消息，钉钉消息查看工资条","orderNum":277,"industry":"互联网","textField_kzi3b7qj":"推荐","usageNum_value":"746","textField_kzi3b7qm":"能力","scene":"人事行政","usageNum":746,"role_id":"人事","suggest_id":"快速入门","imageUrl":"https://tianshu-vpc.oss-cn-shanghai.aliyuncs.com/462be093-cc4f-4e7e-a72e-bdf15c2edfb7.jpg","templateTitle":"工资条","guide":"","orderNum_value":"277","author":"广州汇华信息科技有限公司","appTplUuid":"TPL_DQXKIBK2E06KKOP2BX2B","textField_kzp6ix74":"行业","scene_id":"人事行政","suggest":"快速入门","tags":["表单","快捷消息"],"isShow":"显示","isShow_id":"y","tags_id":["快捷消息","表单"]},{"industry_id":"教育行业","role":"行政","textField_kzi3b7ql":"场景","textField_kzi3b7qk":"角色","description":"多岗位、多校区、涉及人员多，班次多，调班多；\n值班岗位，值班人员一目了然；线上调班，值班表信息同步；\n值班通知，系统自动推送；值班日志，记录留痕可查；\n值班阅览室，最新公告、流程汇总可查","orderNum":318,"industry":"教育行业","textField_kzi3b7qj":"推荐","usageNum_value":"608","textField_kzi3b7qm":"能力","scene":"不展示","usageNum":608,"role_id":"行政","suggest_id":"快速入门","imageUrl":"https://tianshu-vpc.oss-cn-shanghai.aliyuncs.com/16d71251-a7ef-4a23-bcb0-77563bd3f7a9.jpg?x-oss-process=image/resize,m_fixed,h_380,w_680","templateTitle":"值班管理系统","guide":"多岗位、多校区、涉及人员多，班次多，调班多；\n值班岗位，值班人员一目了然；线上调班，值班表信息同步；\n值班通知，系统自动推送；值班日志，记录留痕可查；\n值班阅览室，最新公告、流程汇总可查","orderNum_value":"318","author":"宜搭官方","appTplUuid":"TPL_HC18Z4Y3SQDWO2SH1ZT9","textField_kzp6ix74":"行业","scene_id":"不展示","suggest":"快速入门","tags":["流程表单"],"isShow":"显示","isShow_id":"y","tags_id":["流程表单"]}],"entities":null,"hasMore":false,"idCursor":0,"totalCount":7},"errorCode":"","errorExtInfo":null,"errorLevel":"","errorMsg":"","success":true,"throwable":""}
+	InvokeResult *string `json:"invokeResult,omitempty" xml:"invokeResult,omitempty"`
+	// example:
+	//
+	// 可选值：SUCCESS、FAIL、FINAL_SUCCESS、ERROR
+	InvokeStatus *string `json:"invokeStatus,omitempty" xml:"invokeStatus,omitempty"`
+	// example:
+	//
+	// 成功：y，失败：n
+	InvokeSuccess *string `json:"invokeSuccess,omitempty" xml:"invokeSuccess,omitempty"`
+	// example:
+	//
+	// https://www.aliwork.com/query/loginFreeFormData/listFormDataByType.json?type=templateCenter&searchFieldJson=%7B%22isShow%22%3A%22y%22%2C%22suggest%22%3A%22%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%22%2C%22industry%22%3A%22%22%2C%22role%22%3A%22%22%2C%22tags%22%3A%22%22%2C%22templateTitle%22%3A%22%22%7D&dynamicOrder=%7B%22orderNum%22%3A%22%2B%22%7D&pageSize=48&currentPage=1
+	InvokeUrl *string `json:"invokeUrl,omitempty" xml:"invokeUrl,omitempty"`
+	// example:
+	//
+	// {"url":"https://www.aliwork.com/query/loginFreeFormData/listFormDataByType.json?type=templateCenter&searchFieldJson=%7B%22isShow%22%3A%22y%22%2C%22suggest%22%3A%22%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%22%2C%22industry%22%3A%22%22%2C%22role%22%3A%22%22%2C%22tags%22%3A%22%22%2C%22templateTitle%22%3A%22%22%7D&dynamicOrder=%7B%22orderNum%22%3A%22%2B%22%7D&pageSize=48&currentPage=1","isMd5":null,"signature":"","isSHA":null,"hmacSecret":"","type":"HttpExt","params":[{"field":"name","value":"name","label":{"zh_CN":"name","en_US":"name","type":"i18n"},"type":"java.lang.String"}]}
+	ServiceContent *string `json:"serviceContent,omitempty" xml:"serviceContent,omitempty"`
+	// example:
+	//
+	// 查询宜搭模板
+	ServiceName *string `json:"serviceName,omitempty" xml:"serviceName,omitempty"`
+	// example:
+	//
+	// {"parameter1":"测试服务执行"}
 	ServiceParameter *string `json:"serviceParameter,omitempty" xml:"serviceParameter,omitempty"`
-	SourceUuid       *string `json:"sourceUuid,omitempty" xml:"sourceUuid,omitempty"`
+	// example:
+	//
+	// INVOKE-E7766VC1KJ4ZVFCR346USCT2ORYI2UVRBHA1LI
+	SourceUuid *string `json:"sourceUuid,omitempty" xml:"sourceUuid,omitempty"`
 }
 
 func (s QueryServiceRecordResponseBodyValues) String() string {
@@ -12599,15 +15792,36 @@ func (s *RedirectTaskHeaders) SetXAcsDingtalkAccessToken(v string) *RedirectTask
 }
 
 type RedirectTaskRequest struct {
-	AppType             *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	ByManager           *string `json:"byManager,omitempty" xml:"byManager,omitempty"`
-	Language            *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// y
+	ByManager *string `json:"byManager,omitempty" xml:"byManager,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
 	NowActionExecutorId *string `json:"nowActionExecutorId,omitempty" xml:"nowActionExecutorId,omitempty"`
-	ProcessInstanceId   *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	Remark              *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	SystemToken         *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	TaskId              *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	UserId              *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// This parameter is required.
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// task-123
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s RedirectTaskRequest) String() string {
@@ -12814,9 +16028,18 @@ func (s *RegisterAccountsHeaders) SetXAcsDingtalkAccessToken(v string) *Register
 }
 
 type RegisterAccountsRequest struct {
-	AccessKey  *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// example:
+	//
+	// hexaaaa
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// example:
+	//
+	// acc-1732245789
 	ActiveCode *string `json:"activeCode,omitempty" xml:"activeCode,omitempty"`
-	CorpId     *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// ding123
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s RegisterAccountsRequest) String() string {
@@ -12843,6 +16066,9 @@ func (s *RegisterAccountsRequest) SetCorpId(v string) *RegisterAccountsRequest {
 }
 
 type RegisterAccountsResponseBody struct {
+	// example:
+	//
+	// 12
 	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
 }
 
@@ -13016,6 +16242,9 @@ func (s *RemoveTenantResourceHeaders) SetXAcsDingtalkAccessToken(v string) *Remo
 }
 
 type RemoveTenantResourceRequest struct {
+	// example:
+	//
+	// accessKey
 	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
 }
 
@@ -13102,18 +16331,42 @@ func (s *RenderBatchCallbackHeaders) SetXAcsDingtalkAccessToken(v string) *Rende
 }
 
 type RenderBatchCallbackRequest struct {
-	AppType     *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	FileSize    *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	Language    *string `json:"language,omitempty" xml:"language,omitempty"`
-	Namespace   *string `json:"namespace,omitempty" xml:"namespace,omitempty"`
-	OssUrl      *string `json:"ossUrl,omitempty" xml:"ossUrl,omitempty"`
-	SequenceId  *string `json:"sequenceId,omitempty" xml:"sequenceId,omitempty"`
-	Source      *string `json:"source,omitempty" xml:"source,omitempty"`
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// ding123
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 123789
+	FileSize *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// dingtalk
+	Namespace *string `json:"namespace,omitempty" xml:"namespace,omitempty"`
+	// example:
+	//
+	// https://oss/com/a/b.pdf
+	OssUrl *string `json:"ossUrl,omitempty" xml:"ossUrl,omitempty"`
+	// example:
+	//
+	// seq-xxx
+	SequenceId *string `json:"sequenceId,omitempty" xml:"sequenceId,omitempty"`
+	// example:
+	//
+	// 宜搭
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// example:
+	//
+	// running
 	Status      *string `json:"status,omitempty" xml:"status,omitempty"`
 	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	TimeZone    *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// GMT
+	TimeZone *string `json:"timeZone,omitempty" xml:"timeZone,omitempty"`
+	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s RenderBatchCallbackRequest) String() string {
@@ -13231,10 +16484,22 @@ func (s *RenewApplicationAuthorizationServiceOrderHeaders) SetXAcsDingtalkAccess
 }
 
 type RenewApplicationAuthorizationServiceOrderRequest struct {
-	AccessKey     *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// example:
+	//
+	// hexaaaa
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// example:
+	//
+	// 44234122
 	CallerUnionId *string `json:"callerUnionId,omitempty" xml:"callerUnionId,omitempty"`
-	EndTimeGMT    *int64  `json:"endTimeGMT,omitempty" xml:"endTimeGMT,omitempty"`
-	InstanceId    *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// example:
+	//
+	// 1234567891234
+	EndTimeGMT *int64 `json:"endTimeGMT,omitempty" xml:"endTimeGMT,omitempty"`
+	// example:
+	//
+	// 12
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
 }
 
 func (s RenewApplicationAuthorizationServiceOrderRequest) String() string {
@@ -13335,9 +16600,18 @@ func (s *RenewTenantOrderHeaders) SetXAcsDingtalkAccessToken(v string) *RenewTen
 }
 
 type RenewTenantOrderRequest struct {
-	AccessKey     *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// example:
+	//
+	// hexaaaa
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// example:
+	//
+	// 44234122
 	CallerUnionId *string `json:"callerUnionId,omitempty" xml:"callerUnionId,omitempty"`
-	EndTimeGMT    *int64  `json:"endTimeGMT,omitempty" xml:"endTimeGMT,omitempty"`
+	// example:
+	//
+	// 1234567891234
+	EndTimeGMT *int64 `json:"endTimeGMT,omitempty" xml:"endTimeGMT,omitempty"`
 }
 
 func (s RenewTenantOrderRequest) String() string {
@@ -13433,12 +16707,36 @@ func (s *SaveFormDataHeaders) SetXAcsDingtalkAccessToken(v string) *SaveFormData
 }
 
 type SaveFormDataRequest struct {
-	AppType      *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"textField_jcpm6agt": "单行","employeeField_jcos0sar": ["workno"]}
 	FormDataJson *string `json:"formDataJson,omitempty" xml:"formDataJson,omitempty"`
-	FormUuid     *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	Language     *string `json:"language,omitempty" xml:"language,omitempty"`
-	SystemToken  *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-NJYJZELV8YZRDEI2N5IQ7L6VEDMR1VE9GMPCJB
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxx
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SaveFormDataRequest) String() string {
@@ -13480,6 +16778,9 @@ func (s *SaveFormDataRequest) SetUserId(v string) *SaveFormDataRequest {
 }
 
 type SaveFormDataResponseBody struct {
+	// example:
+	//
+	// FINST-XIA66E71N7HSLK7H4KOZ388EEOP03A46YAYRK1
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -13549,14 +16850,48 @@ func (s *SaveFormRemarkHeaders) SetXAcsDingtalkAccessToken(v string) *SaveFormRe
 }
 
 type SaveFormRemarkRequest struct {
-	AppType        *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	AtUserId       *string `json:"atUserId,omitempty" xml:"atUserId,omitempty"`
-	Content        *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// 多个工号,用英文逗号分隔
+	AtUserId *string `json:"atUserId,omitempty" xml:"atUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 33f6d221-17f8-42b7-836a-682b95a046c2
 	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
-	Language       *string `json:"language,omitempty" xml:"language,omitempty"`
-	ReplyId        *int64  `json:"replyId,omitempty" xml:"replyId,omitempty"`
-	SystemToken    *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId         *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// 12
+	ReplyId *int64 `json:"replyId,omitempty" xml:"replyId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxxx
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SaveFormRemarkRequest) String() string {
@@ -13608,6 +16943,9 @@ func (s *SaveFormRemarkRequest) SetUserId(v string) *SaveFormRemarkRequest {
 }
 
 type SaveFormRemarkResponseBody struct {
+	// example:
+	//
+	// 123
 	Result *int64 `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -13677,16 +17015,43 @@ func (s *SavePrintTplDetailInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Sa
 }
 
 type SavePrintTplDetailInfoRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
 	AppType        *string `json:"appType,omitempty" xml:"appType,omitempty"`
 	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
 	FileNameConfig *string `json:"fileNameConfig,omitempty" xml:"fileNameConfig,omitempty"`
-	FormUuid       *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	FormVersion    *int32  `json:"formVersion,omitempty" xml:"formVersion,omitempty"`
-	Setting        *string `json:"setting,omitempty" xml:"setting,omitempty"`
-	TemplateId     *int64  `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	Title          *string `json:"title,omitempty" xml:"title,omitempty"`
-	UserId         *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	Vm             *string `json:"vm,omitempty" xml:"vm,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// 123456
+	FormVersion *int32 `json:"formVersion,omitempty" xml:"formVersion,omitempty"`
+	// example:
+	//
+	// 123456
+	Setting *string `json:"setting,omitempty" xml:"setting,omitempty"`
+	// example:
+	//
+	// 123456
+	TemplateId *int64  `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Title      *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 123456
+	Vm *string `json:"vm,omitempty" xml:"vm,omitempty"`
 }
 
 func (s SavePrintTplDetailInfoRequest) String() string {
@@ -13818,6 +17183,7 @@ func (s *SearchActivationCodeHeaders) SetXAcsDingtalkAccessToken(v string) *Sear
 
 type SearchActivationCodeRequest struct {
 	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// This parameter is required.
 	CallerUid *string `json:"callerUid,omitempty" xml:"callerUid,omitempty"`
 }
 
@@ -14085,17 +17451,45 @@ func (s *SearchFormDataIdListHeaders) SetXAcsDingtalkAccessToken(v string) *Sear
 }
 
 type SearchFormDataIdListRequest struct {
-	CreateFromTimeGMT   *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
-	CreateToTimeGMT     *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
-	Language            *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// 2018-01-01
+	CreateFromTimeGMT *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// example:
+	//
+	// 2018-02-01
+	CreateToTimeGMT *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// 2018-01-01
 	ModifiedFromTimeGMT *string `json:"modifiedFromTimeGMT,omitempty" xml:"modifiedFromTimeGMT,omitempty"`
-	ModifiedToTimeGMT   *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
-	OriginatorId        *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
-	SearchFieldJson     *string `json:"searchFieldJson,omitempty" xml:"searchFieldJson,omitempty"`
-	SystemToken         *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId              *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	PageNumber          *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize            *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 2018-02-01
+	ModifiedToTimeGMT *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
+	// example:
+	//
+	// dign1234
+	OriginatorId    *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	SearchFieldJson *string `json:"searchFieldJson,omitempty" xml:"searchFieldJson,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxx
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding1234
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s SearchFormDataIdListRequest) String() string {
@@ -14162,9 +17556,15 @@ func (s *SearchFormDataIdListRequest) SetPageSize(v int32) *SearchFormDataIdList
 }
 
 type SearchFormDataIdListResponseBody struct {
-	Data       []*string `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	PageNumber *int64    `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	TotalCount *int64    `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data []*string `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s SearchFormDataIdListResponseBody) String() string {
@@ -14243,19 +17643,66 @@ func (s *SearchFormDataRemovalTableDataHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type SearchFormDataRemovalTableDataRequest struct {
-	AppType             *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	CreateFromTimeGMT   *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
-	CreateToTimeGMT     *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
-	FormUuid            *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// 2021-05-01
+	CreateFromTimeGMT *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// example:
+	//
+	// 2021-05-01
+	CreateToTimeGMT *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// 2021-05-01
 	ModifiedFromTimeGMT *string `json:"modifiedFromTimeGMT,omitempty" xml:"modifiedFromTimeGMT,omitempty"`
-	ModifiedToTimeGMT   *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
-	OrderConfigJson     *string `json:"orderConfigJson,omitempty" xml:"orderConfigJson,omitempty"`
-	OriginatorId        *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
-	PageNumber          *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize            *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchFieldJson     *string `json:"searchFieldJson,omitempty" xml:"searchFieldJson,omitempty"`
-	SystemToken         *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId              *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 2021-09-10
+	ModifiedToTimeGMT *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
+	// example:
+	//
+	// 示例: 按照创建时间和文本组件值做升序排序则填写 {\"gmt_create\":\"+\",\"textField_1234\":\"+\"}。详情参考 https://www.yuque.com/yida/support/agb8im#CQro8
+	OrderConfigJson *string `json:"orderConfigJson,omitempty" xml:"orderConfigJson,omitempty"`
+	// example:
+	//
+	// manager123
+	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 支持2种检索规则{"numberField_l0c1cwiu":1}或者[{"key":"currentNodeName","value":"步凡","type":"TEXT","operator":"like","componentName":"TextField"}], 前一种规则仅仅做模糊匹配无法设置精确匹配, 第二种可以设置精确匹配条件。详情参考 https://www.yuque.com/yida/support/agb8im#F4S8e
+	SearchFieldJson *string `json:"searchFieldJson,omitempty" xml:"searchFieldJson,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SearchFormDataRemovalTableDataRequest) String() string {
@@ -14332,10 +17779,19 @@ func (s *SearchFormDataRemovalTableDataRequest) SetUserId(v string) *SearchFormD
 }
 
 type SearchFormDataRemovalTableDataResponseBody struct {
-	Data        []*SearchFormDataRemovalTableDataResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	HasMoreData *bool                                             `json:"hasMoreData,omitempty" xml:"hasMoreData,omitempty"`
-	PageNumber  *int64                                            `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	TotalCount  *int64                                            `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data []*SearchFormDataRemovalTableDataResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	HasMoreData *bool `json:"hasMoreData,omitempty" xml:"hasMoreData,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s SearchFormDataRemovalTableDataResponseBody) String() string {
@@ -14367,21 +17823,60 @@ func (s *SearchFormDataRemovalTableDataResponseBody) SetTotalCount(v int64) *Sea
 }
 
 type SearchFormDataRemovalTableDataResponseBodyData struct {
-	CreateTimeGMT   *string                                                   `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
-	CreatorUserId   *string                                                   `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	FormData        map[string]interface{}                                    `json:"formData,omitempty" xml:"formData,omitempty"`
-	FormInstanceId  *string                                                   `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
-	FormUuid        *string                                                   `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	Id              *int64                                                    `json:"id,omitempty" xml:"id,omitempty"`
-	InstanceValue   *string                                                   `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
-	ModifiedTimeGMT *string                                                   `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
-	Modifier        *string                                                   `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	ModifyUser      *SearchFormDataRemovalTableDataResponseBodyDataModifyUser `json:"modifyUser,omitempty" xml:"modifyUser,omitempty" type:"Struct"`
-	Originator      *SearchFormDataRemovalTableDataResponseBodyDataOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
-	Sequence        *string                                                   `json:"sequence,omitempty" xml:"sequence,omitempty"`
-	SerialNumber    *string                                                   `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
-	Title           *string                                                   `json:"title,omitempty" xml:"title,omitempty"`
-	Version         *int64                                                    `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// 2021-05-01
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// example:
+	//
+	// ding12345
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// example:
+	//
+	// {"countrySelectField_l0c1cwiu":[{"value":"US"}]}
+	FormData map[string]interface{} `json:"formData,omitempty" xml:"formData,omitempty"`
+	// example:
+	//
+	// FINST-J8766S91O2UYN87ZX3XOF1MY8MBA2912BSV0L24
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// 12345
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 符合宜搭表单实例格式的json数据
+	InstanceValue *string `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
+	// example:
+	//
+	// 2021-05-01
+	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	// example:
+	//
+	// manager123
+	Modifier   *string                                                   `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	ModifyUser *SearchFormDataRemovalTableDataResponseBodyDataModifyUser `json:"modifyUser,omitempty" xml:"modifyUser,omitempty" type:"Struct"`
+	Originator *SearchFormDataRemovalTableDataResponseBodyDataOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
+	// example:
+	//
+	// IMPORT-388664B1BAUVB3AYZE1RIUE88TDM1QI9WIOWK2
+	Sequence *string `json:"sequence,omitempty" xml:"sequence,omitempty"`
+	// example:
+	//
+	// YIDA909202202250027
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	// example:
+	//
+	// 李四发起的请购单
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 1.0
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s SearchFormDataRemovalTableDataResponseBodyData) String() string {
@@ -14468,10 +17963,19 @@ func (s *SearchFormDataRemovalTableDataResponseBodyData) SetVersion(v int64) *Se
 }
 
 type SearchFormDataRemovalTableDataResponseBodyDataModifyUser struct {
-	DepartmentName *string                                                       `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	Email          *string                                                       `json:"email,omitempty" xml:"email,omitempty"`
-	Name           *SearchFormDataRemovalTableDataResponseBodyDataModifyUserName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
-	UserId         *string                                                       `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 开发部
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// example:
+	//
+	// abc@alimail.com
+	Email *string                                                       `json:"email,omitempty" xml:"email,omitempty"`
+	Name  *SearchFormDataRemovalTableDataResponseBodyDataModifyUserName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SearchFormDataRemovalTableDataResponseBodyDataModifyUser) String() string {
@@ -14503,7 +18007,13 @@ func (s *SearchFormDataRemovalTableDataResponseBodyDataModifyUser) SetUserId(v s
 }
 
 type SearchFormDataRemovalTableDataResponseBodyDataModifyUserName struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
 }
 
@@ -14526,10 +18036,19 @@ func (s *SearchFormDataRemovalTableDataResponseBodyDataModifyUserName) SetNameIn
 }
 
 type SearchFormDataRemovalTableDataResponseBodyDataOriginator struct {
-	DepartmentName *string                                                       `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	Email          *string                                                       `json:"email,omitempty" xml:"email,omitempty"`
-	Name           *SearchFormDataRemovalTableDataResponseBodyDataOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
-	UserId         *string                                                       `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 开发部
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// example:
+	//
+	// abc@alimail.com
+	Email *string                                                       `json:"email,omitempty" xml:"email,omitempty"`
+	Name  *SearchFormDataRemovalTableDataResponseBodyDataOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SearchFormDataRemovalTableDataResponseBodyDataOriginator) String() string {
@@ -14561,7 +18080,13 @@ func (s *SearchFormDataRemovalTableDataResponseBodyDataOriginator) SetUserId(v s
 }
 
 type SearchFormDataRemovalTableDataResponseBodyDataOriginatorName struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
 }
 
@@ -14636,19 +18161,66 @@ func (s *SearchFormDataSecondGenerationHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type SearchFormDataSecondGenerationRequest struct {
-	AppType             *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	CreateFromTimeGMT   *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
-	CreateToTimeGMT     *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
-	FormUuid            *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// 2021-05-01
+	CreateFromTimeGMT *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// example:
+	//
+	// 2021-05-01
+	CreateToTimeGMT *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// 2021-05-01
 	ModifiedFromTimeGMT *string `json:"modifiedFromTimeGMT,omitempty" xml:"modifiedFromTimeGMT,omitempty"`
-	ModifiedToTimeGMT   *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
-	OrderConfigJson     *string `json:"orderConfigJson,omitempty" xml:"orderConfigJson,omitempty"`
-	OriginatorId        *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
-	PageNumber          *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize            *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchCondition     *string `json:"searchCondition,omitempty" xml:"searchCondition,omitempty"`
-	SystemToken         *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId              *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 2021-09-10
+	ModifiedToTimeGMT *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
+	// example:
+	//
+	// 例如按照创建时间升序按照文本组件值升序排序则填{\"gmt_create\":\"+\",\"textField_1234\":\"+\"}。详情参考 https://www.yuque.com/yida/support/agb8im#CQro8
+	OrderConfigJson *string `json:"orderConfigJson,omitempty" xml:"orderConfigJson,omitempty"`
+	// example:
+	//
+	// manager123
+	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// [{"key":"currentNodeName","value":"当前审批节点名称","type":"TEXT","operator":"like","componentName":"TextField"}]。详情参考 https://www.yuque.com/yida/support/agb8im#F4S8e
+	SearchCondition *string `json:"searchCondition,omitempty" xml:"searchCondition,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SearchFormDataSecondGenerationRequest) String() string {
@@ -14725,9 +18297,15 @@ func (s *SearchFormDataSecondGenerationRequest) SetUserId(v string) *SearchFormD
 }
 
 type SearchFormDataSecondGenerationResponseBody struct {
-	Data       []*SearchFormDataSecondGenerationResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	PageNumber *int64                                            `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	TotalCount *int64                                            `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data []*SearchFormDataSecondGenerationResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s SearchFormDataSecondGenerationResponseBody) String() string {
@@ -14754,21 +18332,60 @@ func (s *SearchFormDataSecondGenerationResponseBody) SetTotalCount(v int64) *Sea
 }
 
 type SearchFormDataSecondGenerationResponseBodyData struct {
-	CreateTimeGMT   *string                                                   `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
-	CreatorUserId   *string                                                   `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	FormData        map[string]interface{}                                    `json:"formData,omitempty" xml:"formData,omitempty"`
-	FormInstanceId  *string                                                   `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
-	FormUuid        *string                                                   `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	Id              *int64                                                    `json:"id,omitempty" xml:"id,omitempty"`
-	InstanceValue   *string                                                   `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
-	ModifiedTimeGMT *string                                                   `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
-	Modifier        *string                                                   `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	ModifyUser      *SearchFormDataSecondGenerationResponseBodyDataModifyUser `json:"modifyUser,omitempty" xml:"modifyUser,omitempty" type:"Struct"`
-	Originator      *SearchFormDataSecondGenerationResponseBodyDataOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
-	Sequence        *string                                                   `json:"sequence,omitempty" xml:"sequence,omitempty"`
-	SerialNumber    *string                                                   `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
-	Title           *string                                                   `json:"title,omitempty" xml:"title,omitempty"`
-	Version         *int64                                                    `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// 2021-05-01
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// example:
+	//
+	// ding12345
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// example:
+	//
+	// {"addressField_l0c1cwiy_id":"\"海南省/469027/国营红岗农场/111\"","associationFormField_l0c1hdz4_id":"\"[{\\\"formType\\\":\\\"receipt\\\",\\\"formUuid\\\":\\\"FORM-QQ866JB1QW8YM5XZZZ64VQB61OGM1MLWE1C0LG\\\",\\\"instanceId\\\":\\\"FINST-CC666Y6198RY0LAN39XGND212MSX3TFT95S0LN31\\\",\\\"subTitle\\\":\\\"{\\\\\\\"type\\\\\\\":\\\\\\\"div\\\\\\\",\\\\\\\"props\\\\\\\":{\\\\\\\"children\\\\\\\":{\\\\\\\"type\\\\\\\":\\\\\\\"a\\\\\\\",\\\\\\\"props\\\\\\\":{\\\\\\\"children\\\\\\\":\\\\\\\"查看签名\\\\\\\",\\\\\\\"className\\\\\\\":\\\\\\\"inst-cell-item-link\\\\\\\",\\\\\\\"style\\\\\\\":{\\\\\\\"cursor\\\\\\\":\\\\\\\"pointer\\\\\\\",\\\\\\\"color\\\\\\\":\\\\\\\"#0068ff\\\\\\\"}}},\\\\\\\"className\\\\\\\":\\\\\\\"inst-cell-item\\\\\\\"}}\\\",\\\"appType\\\":\\\"APP_K6IGJJ6PFAARLPDSWKXQ\\\",\\\"title\\\":\\\"1\\\"}]\"","countrySelectField_l0c1cwiu_id":["PG"],"imageField_l0c1cwit":"[{\"previewUrl\":\"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=open&process=image/resize,m_fill,w_200,h_200,limit_0/quality,q_80\",\"size\":2610734,\"name\":\"Bts2Z0e6oxA.jpg\",\"downloadUrl\":\"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=download\",\"url\":\"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=download\"}]","rateField_l0c1cwis_value":"3","editorField_l0c1cwiz":"<div><strong>你好，这是测试</strong></div>\r\n<div><span style=\"font-family: kaiti;background-color: #ff0000;color: #ffff00;\"><em><strong>测试</strong></em></span></div>\r\n<div>&nbsp;</div>","rateField_l0c1cwis":3,"countrySelectField_l0c1cwiu":[],"attachmentField_l0ghkwv3":"[{\"downloadUrl\":\"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=download\",\"name\":\"Bts2Z0e6oxA.jpg\",\"previewUrl\":\"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=open&process=image/resize,m_fill,w_200,h_200,limit_0/quality,q_80\",\"size\":2610734,\"url\":\"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=download\"}]","addressField_l0c1cwiy":"{\"address\":\"111\",\"regionIds\":[460000,469027,469023401],\"regionText\":[{\"en_US\":\"hai+nan+sheng\",\"zh_CN\":\"海南省\"},{\"en_US\":\"cheng+mai+xian\",\"zh_CN\":\"澄迈县\"},{\"en_US\":\"guo+ying+hong+gang+nong+chang\",\"zh_CN\":\"国营红岗农场\"}]}"}
+	FormData map[string]interface{} `json:"formData,omitempty" xml:"formData,omitempty"`
+	// example:
+	//
+	// FINST-J8766S91O2UYN87ZX3XOF1MY8MBA2912BSV0L24
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// 12345
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// [{"componentName":"CountrySelectField","dateType":null,"fieldData":{"value":[{"text":{"en_US":"Papua New Guinea","zh_CN":"巴布亚新几内亚","type":"i18n"},"value":"PG"}]},"fieldDataUpdated":false,"fieldId":"countrySelectField_l0c1cwiu","format":null,"formatControls":null,"listNum":null,"options":[{"label":{"$ref":"$[0].fieldData.value[0].text"},"value":"PG"}],"rowId":null},{"componentName":"AssociationFormField","dateType":null,"fieldData":{"value":[{"formType":"receipt","formUuid":"FORM-QQ866JB1QW8YM5XZZZ64VQB61OGM1MLWE1C0LG","instanceId":"FINST-CC666Y6198RY0LAN39XGND212MSX3TFT95S0LN31","subTitle":"{\"type\":\"div\",\"props\":{\"children\":{\"type\":\"a\",\"props\":{\"children\":\"查看签名\",\"className\":\"inst-cell-item-link\",\"style\":{\"cursor\":\"pointer\",\"color\":\"#0068ff\"}}},\"className\":\"inst-cell-item\"}}","appType":"APP_K6IGJJ6PFAARLPDSWKXQ","title":"1"}]},"fieldDataUpdated":false,"fieldId":"associationFormField_l0c1hdz4","format":null,"formatControls":null,"listNum":null,"options":[],"rowId":null},{"componentName":"ImageField","dateType":null,"fieldData":{"value":[{"previewUrl":"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=open&process=image/resize,m_fill,w_200,h_200,limit_0/quality,q_80","size":2610734,"name":"Bts2Z0e6oxA.jpg","downloadUrl":"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=download","url":"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=download"}]},"fieldDataUpdated":false,"fieldId":"imageField_l0c1cwit","format":null,"formatControls":null,"listNum":null,"options":[],"rowId":null},{"componentName":"AddressField","dateType":null,"fieldData":{"value":{"address":"111","regionIds":[460000,469027,469023401],"regionText":[{"en_US":"hai+nan+sheng","zh_CN":"海南省"},{"en_US":"cheng+mai+xian","zh_CN":"澄迈县"},{"en_US":"guo+ying+hong+gang+nong+chang","zh_CN":"国营红岗农场"}]}},"fieldDataUpdated":false,"fieldId":"addressField_l0c1cwiy","format":null,"formatControls":null,"listNum":null,"options":[{"label":{"pureEn_US":"hai+nan+sheng","en_US":"hai+nan+sheng","zh_CN":"海南省","type":"i18n","key":null},"value":460000},{"label":{"pureEn_US":"cheng+mai+xian","en_US":"cheng+mai+xian","zh_CN":"澄迈县","type":"i18n","key":null},"value":469027},{"label":{"pureEn_US":"guo+ying+hong+gang+nong+chang","en_US":"guo+ying+hong+gang+nong+chang","zh_CN":"国营红岗农场","type":"i18n","key":null},"value":469023401}],"rowId":null},{"componentName":"EditorField","dateType":null,"fieldData":{"value":"<div><strong>你好，这是测试</strong></div>\r\n<div><span style=\"font-family: kaiti;background-color: #ff0000;color: #ffff00;\"><em><strong>测试</strong></em></span></div>\r\n<div>&nbsp;</div>"},"fieldDataUpdated":false,"fieldId":"editorField_l0c1cwiz","format":null,"formatControls":null,"listNum":null,"options":[],"rowId":null},{"componentName":"RateField","dateType":null,"fieldData":{"value":"3"},"fieldDataUpdated":false,"fieldId":"rateField_l0c1cwis","format":null,"formatControls":null,"listNum":null,"options":[],"rowId":null},{"componentName":"AttachmentField","dateType":null,"fieldData":{"value":[{"previewUrl":"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=open&process=image/resize,m_fill,w_200,h_200,limit_0/quality,q_80","size":2610734,"name":"Bts2Z0e6oxA.jpg","downloadUrl":"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=download","url":"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=download"}]},"fieldDataUpdated":false,"fieldId":"attachmentField_l0ghkwv3","format":null,"formatControls":null,"listNum":null,"options":[],"rowId":null}]
+	InstanceValue *string `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
+	// example:
+	//
+	// 2021-05-01
+	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	// example:
+	//
+	// manager123
+	Modifier   *string                                                   `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	ModifyUser *SearchFormDataSecondGenerationResponseBodyDataModifyUser `json:"modifyUser,omitempty" xml:"modifyUser,omitempty" type:"Struct"`
+	Originator *SearchFormDataSecondGenerationResponseBodyDataOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
+	// example:
+	//
+	// IMPORT-388664B1BAUVB3AYZE1RIUE88TDM1QI9WIOWK2
+	Sequence *string `json:"sequence,omitempty" xml:"sequence,omitempty"`
+	// example:
+	//
+	// YIDA909202202250027
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	// example:
+	//
+	// 李四发起的请购单
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 1.0
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s SearchFormDataSecondGenerationResponseBodyData) String() string {
@@ -14855,8 +18472,11 @@ func (s *SearchFormDataSecondGenerationResponseBodyData) SetVersion(v int64) *Se
 }
 
 type SearchFormDataSecondGenerationResponseBodyDataModifyUser struct {
-	Name   *SearchFormDataSecondGenerationResponseBodyDataModifyUserName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
-	UserId *string                                                       `json:"userId,omitempty" xml:"userId,omitempty"`
+	Name *SearchFormDataSecondGenerationResponseBodyDataModifyUserName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SearchFormDataSecondGenerationResponseBodyDataModifyUser) String() string {
@@ -14878,7 +18498,13 @@ func (s *SearchFormDataSecondGenerationResponseBodyDataModifyUser) SetUserId(v s
 }
 
 type SearchFormDataSecondGenerationResponseBodyDataModifyUserName struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
 }
 
@@ -14901,8 +18527,11 @@ func (s *SearchFormDataSecondGenerationResponseBodyDataModifyUserName) SetNameIn
 }
 
 type SearchFormDataSecondGenerationResponseBodyDataOriginator struct {
-	Name   *SearchFormDataSecondGenerationResponseBodyDataOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
-	UserId *string                                                       `json:"userId,omitempty" xml:"userId,omitempty"`
+	Name *SearchFormDataSecondGenerationResponseBodyDataOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SearchFormDataSecondGenerationResponseBodyDataOriginator) String() string {
@@ -14924,7 +18553,13 @@ func (s *SearchFormDataSecondGenerationResponseBodyDataOriginator) SetUserId(v s
 }
 
 type SearchFormDataSecondGenerationResponseBodyDataOriginatorName struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
 }
 
@@ -14999,19 +18634,66 @@ func (s *SearchFormDataSecondGenerationNoTableFieldHeaders) SetXAcsDingtalkAcces
 }
 
 type SearchFormDataSecondGenerationNoTableFieldRequest struct {
-	AppType             *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	CreateFromTimeGMT   *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
-	CreateToTimeGMT     *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
-	FormUuid            *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// 2021-05-01
+	CreateFromTimeGMT *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// example:
+	//
+	// 2021-05-01
+	CreateToTimeGMT *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// 2021-05-01
 	ModifiedFromTimeGMT *string `json:"modifiedFromTimeGMT,omitempty" xml:"modifiedFromTimeGMT,omitempty"`
-	ModifiedToTimeGMT   *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
-	OrderConfigJson     *string `json:"orderConfigJson,omitempty" xml:"orderConfigJson,omitempty"`
-	OriginatorId        *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
-	PageNumber          *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize            *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchCondition     *string `json:"searchCondition,omitempty" xml:"searchCondition,omitempty"`
-	SystemToken         *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId              *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 2021-09-10
+	ModifiedToTimeGMT *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
+	// example:
+	//
+	// 例如按照创建时间升序再按照文本组件值升序排序则填{\"gmt_create\":\"+\",\"textField_1234\":\"+\"}。详情参考 https://www.yuque.com/yida/support/agb8im#CQro8
+	OrderConfigJson *string `json:"orderConfigJson,omitempty" xml:"orderConfigJson,omitempty"`
+	// example:
+	//
+	// manager123
+	OriginatorId *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// [{"key":"currentNodeName","value":"当前审批节点名称","type":"TEXT","operator":"like","componentName":"TextField"}]。详情参考 https://www.yuque.com/yida/support/agb8im#F4S8e
+	SearchCondition *string `json:"searchCondition,omitempty" xml:"searchCondition,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SearchFormDataSecondGenerationNoTableFieldRequest) String() string {
@@ -15088,9 +18770,15 @@ func (s *SearchFormDataSecondGenerationNoTableFieldRequest) SetUserId(v string) 
 }
 
 type SearchFormDataSecondGenerationNoTableFieldResponseBody struct {
-	Data       []*SearchFormDataSecondGenerationNoTableFieldResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	PageNumber *int64                                                        `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	TotalCount *int64                                                        `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Data []*SearchFormDataSecondGenerationNoTableFieldResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s SearchFormDataSecondGenerationNoTableFieldResponseBody) String() string {
@@ -15117,21 +18805,60 @@ func (s *SearchFormDataSecondGenerationNoTableFieldResponseBody) SetTotalCount(v
 }
 
 type SearchFormDataSecondGenerationNoTableFieldResponseBodyData struct {
-	CreateTimeGMT   *string                                                               `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
-	CreatorUserId   *string                                                               `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	FormData        map[string]interface{}                                                `json:"formData,omitempty" xml:"formData,omitempty"`
-	FormInstanceId  *string                                                               `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
-	FormUuid        *string                                                               `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	Id              *int64                                                                `json:"id,omitempty" xml:"id,omitempty"`
-	InstanceValue   *string                                                               `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
-	ModifiedTimeGMT *string                                                               `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
-	Modifier        *string                                                               `json:"modifier,omitempty" xml:"modifier,omitempty"`
-	ModifyUser      *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser `json:"modifyUser,omitempty" xml:"modifyUser,omitempty" type:"Struct"`
-	Originator      *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
-	Sequence        *string                                                               `json:"sequence,omitempty" xml:"sequence,omitempty"`
-	SerialNumber    *string                                                               `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
-	Title           *string                                                               `json:"title,omitempty" xml:"title,omitempty"`
-	Version         *int64                                                                `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// 2021-05-01
+	CreateTimeGMT *string `json:"createTimeGMT,omitempty" xml:"createTimeGMT,omitempty"`
+	// example:
+	//
+	// ding12345
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// example:
+	//
+	// {"addressField_l0c1cwiy_id":"\"海南省/469027/国营红岗农场/111\"","associationFormField_l0c1hdz4_id":"\"[{\\\"formType\\\":\\\"receipt\\\",\\\"formUuid\\\":\\\"FORM-QQ866JB1QW8YM5XZZZ64VQB61OGM1MLWE1C0LG\\\",\\\"instanceId\\\":\\\"FINST-CC666Y6198RY0LAN39XGND212MSX3TFT95S0LN31\\\",\\\"subTitle\\\":\\\"{\\\\\\\"type\\\\\\\":\\\\\\\"div\\\\\\\",\\\\\\\"props\\\\\\\":{\\\\\\\"children\\\\\\\":{\\\\\\\"type\\\\\\\":\\\\\\\"a\\\\\\\",\\\\\\\"props\\\\\\\":{\\\\\\\"children\\\\\\\":\\\\\\\"查看签名\\\\\\\",\\\\\\\"className\\\\\\\":\\\\\\\"inst-cell-item-link\\\\\\\",\\\\\\\"style\\\\\\\":{\\\\\\\"cursor\\\\\\\":\\\\\\\"pointer\\\\\\\",\\\\\\\"color\\\\\\\":\\\\\\\"#0068ff\\\\\\\"}}},\\\\\\\"className\\\\\\\":\\\\\\\"inst-cell-item\\\\\\\"}}\\\",\\\"appType\\\":\\\"APP_K6IGJJ6PFAARLPDSWKXQ\\\",\\\"title\\\":\\\"1\\\"}]\"","countrySelectField_l0c1cwiu_id":["PG"],"imageField_l0c1cwit":"[{\"previewUrl\":\"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=open&process=image/resize,m_fill,w_200,h_200,limit_0/quality,q_80\",\"size\":2610734,\"name\":\"Bts2Z0e6oxA.jpg\",\"downloadUrl\":\"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=download\",\"url\":\"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=download\"}]","rateField_l0c1cwis_value":"3","editorField_l0c1cwiz":"<div><strong>你好，这是测试</strong></div>\r\n<div><span style=\"font-family: kaiti;background-color: #ff0000;color: #ffff00;\"><em><strong>测试</strong></em></span></div>\r\n<div>&nbsp;</div>","rateField_l0c1cwis":3,"countrySelectField_l0c1cwiu":[],"attachmentField_l0ghkwv3":"[{\"downloadUrl\":\"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=download\",\"name\":\"Bts2Z0e6oxA.jpg\",\"previewUrl\":\"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=open&process=image/resize,m_fill,w_200,h_200,limit_0/quality,q_80\",\"size\":2610734,\"url\":\"/ossFileHandle?appType=APP_K6IGJJ6PFAARLPDSWKXQ&fileName=APP_K6IGJJ6PFAARLPDSWKXQ_MTczMjU1NjYyMzg3MzI0NF8wUDk2NlQ2MVIzR1lHV1RaMjMxQ1A5U1Y1NU1NM1lMWVY1QzBMMQ$$.jpg&instId=&type=download\"}]","addressField_l0c1cwiy":"{\"address\":\"111\",\"regionIds\":[460000,469027,469023401],\"regionText\":[{\"en_US\":\"hai+nan+sheng\",\"zh_CN\":\"海南省\"},{\"en_US\":\"cheng+mai+xian\",\"zh_CN\":\"澄迈县\"},{\"en_US\":\"guo+ying+hong+gang+nong+chang\",\"zh_CN\":\"国营红岗农场\"}]}"}
+	FormData map[string]interface{} `json:"formData,omitempty" xml:"formData,omitempty"`
+	// example:
+	//
+	// FINST-J8766S91O2UYN87ZX3XOF1MY8MBA2912BSV0L24
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// 12345
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// [{"componentName":"AddressField","dateType":null,"fieldData":{"value":{"address":"白帝城","regionIds":[340000,340800,340803,340803401],"regionText":[{"en_US":"an hui sheng","zh_CN":"安徽省"},{"en_US":"an qing shi","zh_CN":"安庆市"},{"en_US":"da guan qu","zh_CN":"大观区"},{"en_US":"an hui an qing hai kou jing ji kai fa qu","zh_CN":"安徽安庆海口经济开发区"}]}},"fieldDataUpdated":false,"fieldId":"addressField_kwod1oza","format":null,"formatControls":null,"listNum":null,"options":[{"label":{"pureEn_US":"an hui sheng","en_US":"an hui sheng","zh_CN":"安徽省","type":"i18n","key":null},"value":340000},{"label":{"pureEn_US":"an qing shi","en_US":"an qing shi","zh_CN":"安庆市","type":"i18n","key":null},"value":340800},{"label":{"pureEn_US":"da guan qu","en_US":"da guan qu","zh_CN":"大观区","type":"i18n","key":null},"value":340803},{"label":{"pureEn_US":"an hui an qing hai kou jing ji kai fa qu","en_US":"an hui an qing hai kou jing ji kai fa qu","zh_CN":"安徽安庆海口经济开发区","type":"i18n","key":null},"value":340803401}],"rowId":null}]
+	InstanceValue *string `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
+	// example:
+	//
+	// 2021-05-01
+	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	// example:
+	//
+	// manager123
+	Modifier   *string                                                               `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	ModifyUser *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser `json:"modifyUser,omitempty" xml:"modifyUser,omitempty" type:"Struct"`
+	Originator *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
+	// example:
+	//
+	// IMPORT-388664B1BAUVB3AYZE1RIUE88TDM1QI9WIOWK2
+	Sequence *string `json:"sequence,omitempty" xml:"sequence,omitempty"`
+	// example:
+	//
+	// YIDA909202202250027
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	// example:
+	//
+	// 李四发起的请购单
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 1.0
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s SearchFormDataSecondGenerationNoTableFieldResponseBodyData) String() string {
@@ -15218,8 +18945,11 @@ func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyData) SetVersion(
 }
 
 type SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser struct {
-	Name   *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
-	UserId *string                                                                   `json:"userId,omitempty" xml:"userId,omitempty"`
+	Name *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser) String() string {
@@ -15241,7 +18971,13 @@ func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUser) S
 }
 
 type SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserName struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
 }
 
@@ -15264,8 +19000,11 @@ func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataModifyUserNam
 }
 
 type SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator struct {
-	Name   *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
-	UserId *string                                                                   `json:"userId,omitempty" xml:"userId,omitempty"`
+	Name *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator) String() string {
@@ -15287,7 +19026,13 @@ func (s *SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginator) S
 }
 
 type SearchFormDataSecondGenerationNoTableFieldResponseBodyDataOriginatorName struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
 }
 
@@ -15362,20 +19107,68 @@ func (s *SearchFormDatasHeaders) SetXAcsDingtalkAccessToken(v string) *SearchFor
 }
 
 type SearchFormDatasRequest struct {
-	AppType             *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	CreateFromTimeGMT   *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
-	CreateToTimeGMT     *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
-	CurrentPage         *int32  `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
-	DynamicOrder        *string `json:"dynamicOrder,omitempty" xml:"dynamicOrder,omitempty"`
-	FormUuid            *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	Language            *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// 2018-01-01
+	CreateFromTimeGMT *string `json:"createFromTimeGMT,omitempty" xml:"createFromTimeGMT,omitempty"`
+	// example:
+	//
+	// 2018-02-01
+	CreateToTimeGMT *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// example:
+	//
+	// 1
+	CurrentPage *int32 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	// example:
+	//
+	// {"numberField_1ac":"+"}, 表示按照字段numberField_1ac升序排列
+	DynamicOrder *string `json:"dynamicOrder,omitempty" xml:"dynamicOrder,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-EF6Y4G8WO2FN0SUB43TDQ3CGC3FMFQ1G9400RCJ3
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language      *string `json:"language,omitempty" xml:"language,omitempty"`
+	LogicOperator *string `json:"logicOperator,omitempty" xml:"logicOperator,omitempty"`
+	// example:
+	//
+	// 2018-01-01
 	ModifiedFromTimeGMT *string `json:"modifiedFromTimeGMT,omitempty" xml:"modifiedFromTimeGMT,omitempty"`
-	ModifiedToTimeGMT   *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
-	OriginatorId        *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
-	PageSize            *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	SearchFieldJson     *string `json:"searchFieldJson,omitempty" xml:"searchFieldJson,omitempty"`
-	SystemToken         *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId              *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 2018-02-01
+	ModifiedToTimeGMT *string `json:"modifiedToTimeGMT,omitempty" xml:"modifiedToTimeGMT,omitempty"`
+	OriginatorId      *string `json:"originatorId,omitempty" xml:"originatorId,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// {"textField_jcr0069m":"danhang","textareaField_jcr0069n":"duohang","numberField_jcr0069o":["1","10"],"radioField_jcr0069p":"选项一","selectField_jcr0069q":"选项一","checkboxField_jcr0069r":["选项二"],"multiSelectField_jcr0069s":["选项二","选项三"],"dateField_jcr0069t":[1514736000000,1517414399000],"cascadeDate_jcr0069u":[[1514736000000,1517414399000],[1514736000000,1517414399000]],"employeeField_jcr0069x":["xxxxx"],"citySelectField_jcr0069y":["110000","110100","110101"],"departmentField_jcr0069z":1123456,"cascadeSelectField_jcr006a0":["part","part_b"],"tableField_jcr006a1":"明细数据"}
+	SearchFieldJson *string `json:"searchFieldJson,omitempty" xml:"searchFieldJson,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxx
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 173112212211
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SearchFormDatasRequest) String() string {
@@ -15421,6 +19214,11 @@ func (s *SearchFormDatasRequest) SetLanguage(v string) *SearchFormDatasRequest {
 	return s
 }
 
+func (s *SearchFormDatasRequest) SetLogicOperator(v string) *SearchFormDatasRequest {
+	s.LogicOperator = &v
+	return s
+}
+
 func (s *SearchFormDatasRequest) SetModifiedFromTimeGMT(v string) *SearchFormDatasRequest {
 	s.ModifiedFromTimeGMT = &v
 	return s
@@ -15457,9 +19255,15 @@ func (s *SearchFormDatasRequest) SetUserId(v string) *SearchFormDatasRequest {
 }
 
 type SearchFormDatasResponseBody struct {
+	// example:
+	//
+	// 1
 	CurrentPage *int64                             `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
 	Data        []*SearchFormDatasResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	TotalCount  *int64                             `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s SearchFormDatasResponseBody) String() string {
@@ -15486,22 +19290,61 @@ func (s *SearchFormDatasResponseBody) SetTotalCount(v int64) *SearchFormDatasRes
 }
 
 type SearchFormDatasResponseBodyData struct {
-	CreatedTimeGMT  *string                                    `json:"createdTimeGMT,omitempty" xml:"createdTimeGMT,omitempty"`
-	CreatorUserId   *string                                    `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	DataId          *int64                                     `json:"dataId,omitempty" xml:"dataId,omitempty"`
-	FormData        map[string]interface{}                     `json:"formData,omitempty" xml:"formData,omitempty"`
-	FormInstanceId  *string                                    `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
-	FormUuid        *string                                    `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	InstanceValue   *string                                    `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
-	ModelUuid       *string                                    `json:"modelUuid,omitempty" xml:"modelUuid,omitempty"`
-	ModifiedTimeGMT *string                                    `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
-	ModifierUserId  *string                                    `json:"modifierUserId,omitempty" xml:"modifierUserId,omitempty"`
-	ModifyUser      *SearchFormDatasResponseBodyDataModifyUser `json:"modifyUser,omitempty" xml:"modifyUser,omitempty" type:"Struct"`
-	Originator      *SearchFormDatasResponseBodyDataOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
-	Sequence        *string                                    `json:"sequence,omitempty" xml:"sequence,omitempty"`
-	SerialNo        *string                                    `json:"serialNo,omitempty" xml:"serialNo,omitempty"`
-	Title           *string                                    `json:"title,omitempty" xml:"title,omitempty"`
-	Version         *int64                                     `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// 2018-01-24 11:22:01
+	CreatedTimeGMT *string `json:"createdTimeGMT,omitempty" xml:"createdTimeGMT,omitempty"`
+	// example:
+	//
+	// 1731234567
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	// example:
+	//
+	// 1002
+	DataId *int64 `json:"dataId,omitempty" xml:"dataId,omitempty"`
+	// example:
+	//
+	// {"numberField_jcr0069o":1,"multiSelectField_jcr0069s":["选项三","选项二"],"textareaField_jcr0069n":"duohang","employeeField_jcr0069x":["xxxx"],"departmentField_jcr0069z":"xxxx","cascadeDate_jcr0069u":["1514736000000","1517328000000"],"cascadeSelectField_jcr006a0":["part","part_b"],"tableField_jcr006a1":[{"departmentField_jcr006ad":"xxxx","cascadeDate_jcr006aa":["1514736000000","1517328000000"],"selectField_jcr006a6":"选项三","citySelectField_jcr006ac":["天津","天津市","河东区"],"radioField_jcr006a5":"选项二","employeeField_jcr006ab":["xxxxxx","yyyyyy"],"dateField_jcr006a9":1517328000000,"textField_jcr006a2":"明细下单行","textareaField_jcr006a3":"明细下多行","cascadeSelectField_jcr006ae":["product","product_a"],"numberField_jcr006a4":2,"checkboxField_jcr006a7":["选项一","选项三","选项二"],"multiSelectField_jcr006a8":["选项一","选项三","选项二"]}],"selectField_jcr0069q":"选项一","citySelectField_jcr0069y":["北京","北京市","东城区"],"checkboxField_jcr0069r":["选项三","选项二"],"textField_jcr0069m":"danhang","radioField_jcr0069p":"选项一","dateField_jcr0069t":1516636800000}
+	FormData map[string]interface{} `json:"formData,omitempty" xml:"formData,omitempty"`
+	// example:
+	//
+	// FINST-BNKJDRF
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// example:
+	//
+	// FORM-EF6Y93URN24F1SCX15VA2P918LPEIJ2H3UFORCJ1
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// {"textField":"124"}
+	InstanceValue *string `json:"instanceValue,omitempty" xml:"instanceValue,omitempty"`
+	ModelUuid     *string `json:"modelUuid,omitempty" xml:"modelUuid,omitempty"`
+	// example:
+	//
+	// 2018-01-24 11:22:01
+	ModifiedTimeGMT *string `json:"modifiedTimeGMT,omitempty" xml:"modifiedTimeGMT,omitempty"`
+	// example:
+	//
+	// 1731234567
+	ModifierUserId *string                                    `json:"modifierUserId,omitempty" xml:"modifierUserId,omitempty"`
+	ModifyUser     *SearchFormDatasResponseBodyDataModifyUser `json:"modifyUser,omitempty" xml:"modifyUser,omitempty" type:"Struct"`
+	Originator     *SearchFormDatasResponseBodyDataOriginator `json:"originator,omitempty" xml:"originator,omitempty" type:"Struct"`
+	// example:
+	//
+	// Squence-XXX
+	Sequence *string `json:"sequence,omitempty" xml:"sequence,omitempty"`
+	// example:
+	//
+	// 1234
+	SerialNo *string `json:"serialNo,omitempty" xml:"serialNo,omitempty"`
+	// example:
+	//
+	// 张三发起的表单
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 3
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s SearchFormDatasResponseBodyData) String() string {
@@ -15616,9 +19459,18 @@ func (s *SearchFormDatasResponseBodyDataModifyUser) SetUserName(v *SearchFormDat
 }
 
 type SearchFormDatasResponseBodyDataModifyUserUserName struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
-	Type          *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// i18n
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s SearchFormDatasResponseBodyDataModifyUserUserName) String() string {
@@ -15668,9 +19520,18 @@ func (s *SearchFormDatasResponseBodyDataOriginator) SetUserName(v *SearchFormDat
 }
 
 type SearchFormDatasResponseBodyDataOriginatorUserName struct {
+	// example:
+	//
+	// 张三
 	NameInChinese *string `json:"nameInChinese,omitempty" xml:"nameInChinese,omitempty"`
+	// example:
+	//
+	// ZhangSan
 	NameInEnglish *string `json:"nameInEnglish,omitempty" xml:"nameInEnglish,omitempty"`
-	Type          *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// i18n
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s SearchFormDatasResponseBodyDataOriginatorUserName) String() string {
@@ -15749,15 +19610,52 @@ func (s *StartInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *StartInstan
 }
 
 type StartInstanceRequest struct {
-	AppType      *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// 18295
 	DepartmentId *string `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"textField_jcpm6agt": "单行","employeeField_jcos0sar": ["workno"]}
 	FormDataJson *string `json:"formDataJson,omitempty" xml:"formDataJson,omitempty"`
-	FormUuid     *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
-	Language     *string `json:"language,omitempty" xml:"language,omitempty"`
-	ProcessCode  *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	ProcessData  *string `json:"processData,omitempty" xml:"processData,omitempty"`
-	SystemToken  *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-NJYJZELV8YZRDEI2N5IQ7L6VEDMR1VE9GMPCJB
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// TPROC--EF6Y4G8WO2FN0SUB43TDQ3CGC3FMFQ1G9400RCJ4
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// example:
+	//
+	// [{ 	"key": "__optionalApproval_node_ocltdztr2b1", 	"value": ["5014533041684350"] }, { 	"key": "__optionalApproval_node_ocltdztr2b3", 	"value": ["5014533041684350", "01536610064226180419"] }, { 	"key": "__optionalApproval_node_oclte07cwn1", 	"value": ["01432910392321237660"] }]
+	ProcessData *string `json:"processData,omitempty" xml:"processData,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxx
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1731234567
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s StartInstanceRequest) String() string {
@@ -15814,6 +19712,9 @@ func (s *StartInstanceRequest) SetUserId(v string) *StartInstanceRequest {
 }
 
 type StartInstanceResponseBody struct {
+	// example:
+	//
+	// f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -15883,9 +19784,18 @@ func (s *TerminateCloudAuthorizationHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type TerminateCloudAuthorizationRequest struct {
-	AccessKey     *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// example:
+	//
+	// hexaaaa
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// example:
+	//
+	// 44234122
 	CallerUnionId *string `json:"callerUnionId,omitempty" xml:"callerUnionId,omitempty"`
-	InstanceId    *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// example:
+	//
+	// 12
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
 }
 
 func (s TerminateCloudAuthorizationRequest) String() string {
@@ -15981,11 +19891,34 @@ func (s *TerminateInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *Termina
 }
 
 type TerminateInstanceRequest struct {
-	AppType           *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	Language          *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// f30233fb-72e1-4af4-8cb8-c7e0ea9ee530
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	SystemToken       *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
-	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxxx
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s TerminateInstanceRequest) String() string {
@@ -16068,9 +20001,21 @@ func (s *UpdateCloudAccountInformationHeaders) SetXAcsDingtalkAccessToken(v stri
 }
 
 type UpdateCloudAccountInformationRequest struct {
-	AccessKey     *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// example:
+	//
+	// hexaaaa
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// example:
+	//
+	// 123
 	AccountNumber *string `json:"accountNumber,omitempty" xml:"accountNumber,omitempty"`
+	// example:
+	//
+	// 44234122
 	CallerUnionId *string `json:"callerUnionId,omitempty" xml:"callerUnionId,omitempty"`
+	// example:
+	//
+	// Business
 	CommodityType *string `json:"commodityType,omitempty" xml:"commodityType,omitempty"`
 }
 
@@ -16172,13 +20117,38 @@ func (s *UpdateFormDataHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateForm
 }
 
 type UpdateFormDataRequest struct {
-	AppType            *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	FormInstanceId     *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
-	Language           *string `json:"language,omitempty" xml:"language,omitempty"`
-	SystemToken        *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 33f6d221-17f8-42b7-836a-682b95a046c2
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hexxx
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"textField_jcr0069m":"danhang","textareaField_jcr0069n":"duohang","numberField_jcr0069o":1,"radioField_jcr0069p":"选项一","selectField_jcr0069q":"选项一","checkboxField_jcr0069r":["选项二","选项三"],"multiSelectField_jcr0069s":["选项二","选项三"],"dateField_jcr0069t":1516636800000,"cascadeDate_jcr0069u":["1514736000000","1517328000000"],"employeeField_jcr0069x":["xxxxx"],"citySelectField_jcr0069y":["110000","110100","110101"],"departmentField_jcr0069z":1123456,"cascadeSelectField_jcr006a0":["part","part_b"],{"attachmentField_jna1lvyb":[{"downloadUrl":"https://www.aliwork.com/fileHandle?appType=default_tianshu_app&fileName=edd07ca9-1d2e-44b5-98fe-c1e16202f90d.txt&instId=&type=download","name":"test.txt","previewUrl":"https://www.aliwork.com/inst/preview?appType=default_tianshu_app&fileName=test.txt&fileSize=4&downloadUrl=edd07ca9-1d2e-44b5-98fe-c1e16202f90d.txt","url":"https://www.aliwork.com/fileHandle?appType=default_tianshu_app&fileName=edd07ca9-1d2e-44b5-98fe-c1e16202f90d.txt&instId=&type=download","ext":"txt"}]},"tableField_jcr006a1":[{"cascadeDate_jcr006aa":["1514736000000","1517328000000"],"cascadeSelectField_jcr006ae":["product","product_a"],"checkboxField_jcr006a7":["选项一","选项二","选项三"],"citySelectField_jcr006ac":["120000","120100","120102"],"dateField_jcr006a9":1517328000000,"departmentField_jcr006ad":1123456,"employeeField_jcr006ab":["yyyyy","xxxxx"],"multiSelectField_jcr006a8":["选项一","选项二","选项三"],"numberField_jcr006a4":2,"radioField_jcr006a5":"选项二","selectField_jcr006a6":"选项三","textField_jcr006a2":"明细下单行","textareaField_jcr006a3":"明细下多行"}]}
 	UpdateFormDataJson *string `json:"updateFormDataJson,omitempty" xml:"updateFormDataJson,omitempty"`
-	UseLatestVersion   *bool   `json:"useLatestVersion,omitempty" xml:"useLatestVersion,omitempty"`
-	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// false
+	UseLatestVersion *bool `json:"useLatestVersion,omitempty" xml:"useLatestVersion,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateFormDataRequest) String() string {
@@ -16271,12 +20241,40 @@ func (s *UpdateInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateInst
 }
 
 type UpdateInstanceRequest struct {
-	AppType            *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	Language           *string `json:"language,omitempty" xml:"language,omitempty"`
-	ProcessInstanceId  *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
-	SystemToken        *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_PBKT0MFBEBTDO8T7SLVP
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hello1234
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
 	UpdateFormDataJson *string `json:"updateFormDataJson,omitempty" xml:"updateFormDataJson,omitempty"`
-	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 未知
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateInstanceRequest) String() string {
@@ -16463,9 +20461,21 @@ func (s *UpgradeTenantInformationHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type UpgradeTenantInformationRequest struct {
-	AccessKey     *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// example:
+	//
+	// hexaaaa
+	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
+	// example:
+	//
+	// 123
 	AccountNumber *string `json:"accountNumber,omitempty" xml:"accountNumber,omitempty"`
+	// example:
+	//
+	// 44234122
 	CallerUnionId *string `json:"callerUnionId,omitempty" xml:"callerUnionId,omitempty"`
+	// example:
+	//
+	// Business
 	CommodityType *string `json:"commodityType,omitempty" xml:"commodityType,omitempty"`
 }
 
@@ -16757,6 +20767,9 @@ func (s *ValidateApplicationServiceOrderUpgradeHeaders) SetXAcsDingtalkAccessTok
 }
 
 type ValidateApplicationServiceOrderUpgradeRequest struct {
+	// example:
+	//
+	// accessKey
 	AccessKey *string `json:"accessKey,omitempty" xml:"accessKey,omitempty"`
 }
 
@@ -17140,12 +21153,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -17154,6 +21167,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 生成登录态传递用的code
+//
+// @param request - AppLoginCodeGenRequest
+//
+// @param headers - AppLoginCodeGenHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AppLoginCodeGenResponse
 func (client *Client) AppLoginCodeGenWithOptions(request *AppLoginCodeGenRequest, headers *AppLoginCodeGenHeaders, runtime *util.RuntimeOptions) (_result *AppLoginCodeGenResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17215,6 +21239,13 @@ func (client *Client) AppLoginCodeGenWithOptions(request *AppLoginCodeGenRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 生成登录态传递用的code
+//
+// @param request - AppLoginCodeGenRequest
+//
+// @return AppLoginCodeGenResponse
 func (client *Client) AppLoginCodeGen(request *AppLoginCodeGenRequest) (_result *AppLoginCodeGenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AppLoginCodeGenHeaders{}
@@ -17227,6 +21258,17 @@ func (client *Client) AppLoginCodeGen(request *AppLoginCodeGenRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取指定表单实例ID列表对应的表单实例数据
+//
+// @param request - BatchGetFormDataByIdListRequest
+//
+// @param headers - BatchGetFormDataByIdListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchGetFormDataByIdListResponse
 func (client *Client) BatchGetFormDataByIdListWithOptions(request *BatchGetFormDataByIdListRequest, headers *BatchGetFormDataByIdListHeaders, runtime *util.RuntimeOptions) (_result *BatchGetFormDataByIdListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17290,6 +21332,13 @@ func (client *Client) BatchGetFormDataByIdListWithOptions(request *BatchGetFormD
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取指定表单实例ID列表对应的表单实例数据
+//
+// @param request - BatchGetFormDataByIdListRequest
+//
+// @return BatchGetFormDataByIdListResponse
 func (client *Client) BatchGetFormDataByIdList(request *BatchGetFormDataByIdListRequest) (_result *BatchGetFormDataByIdListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchGetFormDataByIdListHeaders{}
@@ -17302,6 +21351,17 @@ func (client *Client) BatchGetFormDataByIdList(request *BatchGetFormDataByIdList
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量删除指定的表单实例
+//
+// @param request - BatchRemovalByFormInstanceIdListRequest
+//
+// @param headers - BatchRemovalByFormInstanceIdListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchRemovalByFormInstanceIdListResponse
 func (client *Client) BatchRemovalByFormInstanceIdListWithOptions(request *BatchRemovalByFormInstanceIdListRequest, headers *BatchRemovalByFormInstanceIdListHeaders, runtime *util.RuntimeOptions) (_result *BatchRemovalByFormInstanceIdListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17369,6 +21429,13 @@ func (client *Client) BatchRemovalByFormInstanceIdListWithOptions(request *Batch
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量删除指定的表单实例
+//
+// @param request - BatchRemovalByFormInstanceIdListRequest
+//
+// @return BatchRemovalByFormInstanceIdListResponse
 func (client *Client) BatchRemovalByFormInstanceIdList(request *BatchRemovalByFormInstanceIdListRequest) (_result *BatchRemovalByFormInstanceIdListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchRemovalByFormInstanceIdListHeaders{}
@@ -17381,6 +21448,17 @@ func (client *Client) BatchRemovalByFormInstanceIdList(request *BatchRemovalByFo
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量保存表单实例数据
+//
+// @param request - BatchSaveFormDataRequest
+//
+// @param headers - BatchSaveFormDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchSaveFormDataResponse
 func (client *Client) BatchSaveFormDataWithOptions(request *BatchSaveFormDataRequest, headers *BatchSaveFormDataHeaders, runtime *util.RuntimeOptions) (_result *BatchSaveFormDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17452,6 +21530,13 @@ func (client *Client) BatchSaveFormDataWithOptions(request *BatchSaveFormDataReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量保存表单实例数据
+//
+// @param request - BatchSaveFormDataRequest
+//
+// @return BatchSaveFormDataResponse
 func (client *Client) BatchSaveFormData(request *BatchSaveFormDataRequest) (_result *BatchSaveFormDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchSaveFormDataHeaders{}
@@ -17464,6 +21549,17 @@ func (client *Client) BatchSaveFormData(request *BatchSaveFormDataRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 将多条表单实例的指定表单组件更新成指定值
+//
+// @param request - BatchUpdateFormDataByInstanceIdRequest
+//
+// @param headers - BatchUpdateFormDataByInstanceIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchUpdateFormDataByInstanceIdResponse
 func (client *Client) BatchUpdateFormDataByInstanceIdWithOptions(request *BatchUpdateFormDataByInstanceIdRequest, headers *BatchUpdateFormDataByInstanceIdHeaders, runtime *util.RuntimeOptions) (_result *BatchUpdateFormDataByInstanceIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17543,6 +21639,13 @@ func (client *Client) BatchUpdateFormDataByInstanceIdWithOptions(request *BatchU
 	return _result, _err
 }
 
+// Summary:
+//
+// 将多条表单实例的指定表单组件更新成指定值
+//
+// @param request - BatchUpdateFormDataByInstanceIdRequest
+//
+// @return BatchUpdateFormDataByInstanceIdResponse
 func (client *Client) BatchUpdateFormDataByInstanceId(request *BatchUpdateFormDataByInstanceIdRequest) (_result *BatchUpdateFormDataByInstanceIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchUpdateFormDataByInstanceIdHeaders{}
@@ -17555,6 +21658,17 @@ func (client *Client) BatchUpdateFormDataByInstanceId(request *BatchUpdateFormDa
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过表单实例数据批量更新表单实例
+//
+// @param request - BatchUpdateFormDataByInstanceMapRequest
+//
+// @param headers - BatchUpdateFormDataByInstanceMapHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchUpdateFormDataByInstanceMapResponse
 func (client *Client) BatchUpdateFormDataByInstanceMapWithOptions(request *BatchUpdateFormDataByInstanceMapRequest, headers *BatchUpdateFormDataByInstanceMapHeaders, runtime *util.RuntimeOptions) (_result *BatchUpdateFormDataByInstanceMapResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17630,6 +21744,13 @@ func (client *Client) BatchUpdateFormDataByInstanceMapWithOptions(request *Batch
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过表单实例数据批量更新表单实例
+//
+// @param request - BatchUpdateFormDataByInstanceMapRequest
+//
+// @return BatchUpdateFormDataByInstanceMapResponse
 func (client *Client) BatchUpdateFormDataByInstanceMap(request *BatchUpdateFormDataByInstanceMapRequest) (_result *BatchUpdateFormDataByInstanceMapResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchUpdateFormDataByInstanceMapHeaders{}
@@ -17642,6 +21763,17 @@ func (client *Client) BatchUpdateFormDataByInstanceMap(request *BatchUpdateFormD
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道新购(通过应用授权服务)
+//
+// @param request - BuyAuthorizationOrderRequest
+//
+// @param headers - BuyAuthorizationOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BuyAuthorizationOrderResponse
 func (client *Client) BuyAuthorizationOrderWithOptions(request *BuyAuthorizationOrderRequest, headers *BuyAuthorizationOrderHeaders, runtime *util.RuntimeOptions) (_result *BuyAuthorizationOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17725,6 +21857,13 @@ func (client *Client) BuyAuthorizationOrderWithOptions(request *BuyAuthorization
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道新购(通过应用授权服务)
+//
+// @param request - BuyAuthorizationOrderRequest
+//
+// @return BuyAuthorizationOrderResponse
 func (client *Client) BuyAuthorizationOrder(request *BuyAuthorizationOrderRequest) (_result *BuyAuthorizationOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BuyAuthorizationOrderHeaders{}
@@ -17737,6 +21876,17 @@ func (client *Client) BuyAuthorizationOrder(request *BuyAuthorizationOrderReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 新购宜搭产品
+//
+// @param request - BuyFreshOrderRequest
+//
+// @param headers - BuyFreshOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BuyFreshOrderResponse
 func (client *Client) BuyFreshOrderWithOptions(request *BuyFreshOrderRequest, headers *BuyFreshOrderHeaders, runtime *util.RuntimeOptions) (_result *BuyFreshOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17820,6 +21970,13 @@ func (client *Client) BuyFreshOrderWithOptions(request *BuyFreshOrderRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 新购宜搭产品
+//
+// @param request - BuyFreshOrderRequest
+//
+// @return BuyFreshOrderResponse
 func (client *Client) BuyFreshOrder(request *BuyFreshOrderRequest) (_result *BuyFreshOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BuyFreshOrderHeaders{}
@@ -17832,6 +21989,17 @@ func (client *Client) BuyFreshOrder(request *BuyFreshOrderRequest) (_result *Buy
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据阿里云账号验证激活结果
+//
+// @param request - CheckCloudAccountStatusRequest
+//
+// @param headers - CheckCloudAccountStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CheckCloudAccountStatusResponse
 func (client *Client) CheckCloudAccountStatusWithOptions(callerUid *string, request *CheckCloudAccountStatusRequest, headers *CheckCloudAccountStatusHeaders, runtime *util.RuntimeOptions) (_result *CheckCloudAccountStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17875,6 +22043,13 @@ func (client *Client) CheckCloudAccountStatusWithOptions(callerUid *string, requ
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据阿里云账号验证激活结果
+//
+// @param request - CheckCloudAccountStatusRequest
+//
+// @return CheckCloudAccountStatusResponse
 func (client *Client) CheckCloudAccountStatus(callerUid *string, request *CheckCloudAccountStatusRequest) (_result *CheckCloudAccountStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CheckCloudAccountStatusHeaders{}
@@ -17887,6 +22062,17 @@ func (client *Client) CheckCloudAccountStatus(callerUid *string, request *CheckC
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增或更新表单实例
+//
+// @param request - CreateOrUpdateFormDataRequest
+//
+// @param headers - CreateOrUpdateFormDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateOrUpdateFormDataResponse
 func (client *Client) CreateOrUpdateFormDataWithOptions(request *CreateOrUpdateFormDataRequest, headers *CreateOrUpdateFormDataHeaders, runtime *util.RuntimeOptions) (_result *CreateOrUpdateFormDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17954,6 +22140,13 @@ func (client *Client) CreateOrUpdateFormDataWithOptions(request *CreateOrUpdateF
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增或更新表单实例
+//
+// @param request - CreateOrUpdateFormDataRequest
+//
+// @return CreateOrUpdateFormDataResponse
 func (client *Client) CreateOrUpdateFormData(request *CreateOrUpdateFormDataRequest) (_result *CreateOrUpdateFormDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateOrUpdateFormDataHeaders{}
@@ -17966,6 +22159,17 @@ func (client *Client) CreateOrUpdateFormData(request *CreateOrUpdateFormDataRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除表单实例
+//
+// @param request - DeleteFormDataRequest
+//
+// @param headers - DeleteFormDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteFormDataResponse
 func (client *Client) DeleteFormDataWithOptions(request *DeleteFormDataRequest, headers *DeleteFormDataHeaders, runtime *util.RuntimeOptions) (_result *DeleteFormDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -18025,6 +22229,13 @@ func (client *Client) DeleteFormDataWithOptions(request *DeleteFormDataRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除表单实例
+//
+// @param request - DeleteFormDataRequest
+//
+// @return DeleteFormDataResponse
 func (client *Client) DeleteFormData(request *DeleteFormDataRequest) (_result *DeleteFormDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteFormDataHeaders{}
@@ -18037,6 +22248,17 @@ func (client *Client) DeleteFormData(request *DeleteFormDataRequest) (_result *D
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除流程实例
+//
+// @param request - DeleteInstanceRequest
+//
+// @param headers - DeleteInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteInstanceResponse
 func (client *Client) DeleteInstanceWithOptions(request *DeleteInstanceRequest, headers *DeleteInstanceHeaders, runtime *util.RuntimeOptions) (_result *DeleteInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -18096,6 +22318,13 @@ func (client *Client) DeleteInstanceWithOptions(request *DeleteInstanceRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除流程实例
+//
+// @param request - DeleteInstanceRequest
+//
+// @return DeleteInstanceResponse
 func (client *Client) DeleteInstance(request *DeleteInstanceRequest) (_result *DeleteInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteInstanceHeaders{}
@@ -18108,6 +22337,17 @@ func (client *Client) DeleteInstance(request *DeleteInstanceRequest) (_result *D
 	return _result, _err
 }
 
+// Summary:
+//
+// deleteSequence
+//
+// @param request - DeleteSequenceRequest
+//
+// @param headers - DeleteSequenceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteSequenceResponse
 func (client *Client) DeleteSequenceWithOptions(request *DeleteSequenceRequest, headers *DeleteSequenceHeaders, runtime *util.RuntimeOptions) (_result *DeleteSequenceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -18167,6 +22407,13 @@ func (client *Client) DeleteSequenceWithOptions(request *DeleteSequenceRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// deleteSequence
+//
+// @param request - DeleteSequenceRequest
+//
+// @return DeleteSequenceResponse
 func (client *Client) DeleteSequence(request *DeleteSequenceRequest) (_result *DeleteSequenceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteSequenceHeaders{}
@@ -18179,6 +22426,17 @@ func (client *Client) DeleteSequence(request *DeleteSequenceRequest) (_result *D
 	return _result, _err
 }
 
+// Summary:
+//
+// 云开发平台函数计算部署完成回调宜搭
+//
+// @param request - DeployFunctionCallbackRequest
+//
+// @param headers - DeployFunctionCallbackHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeployFunctionCallbackResponse
 func (client *Client) DeployFunctionCallbackWithOptions(request *DeployFunctionCallbackRequest, headers *DeployFunctionCallbackHeaders, runtime *util.RuntimeOptions) (_result *DeployFunctionCallbackResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -18242,6 +22500,13 @@ func (client *Client) DeployFunctionCallbackWithOptions(request *DeployFunctionC
 	return _result, _err
 }
 
+// Summary:
+//
+// 云开发平台函数计算部署完成回调宜搭
+//
+// @param request - DeployFunctionCallbackRequest
+//
+// @return DeployFunctionCallbackResponse
 func (client *Client) DeployFunctionCallback(request *DeployFunctionCallbackRequest) (_result *DeployFunctionCallbackResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeployFunctionCallbackHeaders{}
@@ -18254,6 +22519,17 @@ func (client *Client) DeployFunctionCallback(request *DeployFunctionCallbackRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量审批
+//
+// @param request - ExecuteBatchTaskRequest
+//
+// @param headers - ExecuteBatchTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExecuteBatchTaskResponse
 func (client *Client) ExecuteBatchTaskWithOptions(request *ExecuteBatchTaskRequest, headers *ExecuteBatchTaskHeaders, runtime *util.RuntimeOptions) (_result *ExecuteBatchTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -18317,6 +22593,13 @@ func (client *Client) ExecuteBatchTaskWithOptions(request *ExecuteBatchTaskReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量审批
+//
+// @param request - ExecuteBatchTaskRequest
+//
+// @return ExecuteBatchTaskResponse
 func (client *Client) ExecuteBatchTask(request *ExecuteBatchTaskRequest) (_result *ExecuteBatchTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ExecuteBatchTaskHeaders{}
@@ -18329,6 +22612,17 @@ func (client *Client) ExecuteBatchTask(request *ExecuteBatchTaskRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 执行用户自定义的API接口
+//
+// @param request - ExecuteCustomApiRequest
+//
+// @param headers - ExecuteCustomApiHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExecuteCustomApiResponse
 func (client *Client) ExecuteCustomApiWithOptions(request *ExecuteCustomApiRequest, headers *ExecuteCustomApiHeaders, runtime *util.RuntimeOptions) (_result *ExecuteCustomApiResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -18392,6 +22686,13 @@ func (client *Client) ExecuteCustomApiWithOptions(request *ExecuteCustomApiReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 执行用户自定义的API接口
+//
+// @param request - ExecuteCustomApiRequest
+//
+// @return ExecuteCustomApiResponse
 func (client *Client) ExecuteCustomApi(request *ExecuteCustomApiRequest) (_result *ExecuteCustomApiResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ExecuteCustomApiHeaders{}
@@ -18404,6 +22705,17 @@ func (client *Client) ExecuteCustomApi(request *ExecuteCustomApiRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 执行宜搭平台的审批任务
+//
+// @param request - ExecutePlatformTaskRequest
+//
+// @param headers - ExecutePlatformTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExecutePlatformTaskResponse
 func (client *Client) ExecutePlatformTaskWithOptions(request *ExecutePlatformTaskRequest, headers *ExecutePlatformTaskHeaders, runtime *util.RuntimeOptions) (_result *ExecutePlatformTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -18479,6 +22791,13 @@ func (client *Client) ExecutePlatformTaskWithOptions(request *ExecutePlatformTas
 	return _result, _err
 }
 
+// Summary:
+//
+// 执行宜搭平台的审批任务
+//
+// @param request - ExecutePlatformTaskRequest
+//
+// @return ExecutePlatformTaskResponse
 func (client *Client) ExecutePlatformTask(request *ExecutePlatformTaskRequest) (_result *ExecutePlatformTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ExecutePlatformTaskHeaders{}
@@ -18491,6 +22810,17 @@ func (client *Client) ExecutePlatformTask(request *ExecutePlatformTaskRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 执行审批任务
+//
+// @param request - ExecuteTaskRequest
+//
+// @param headers - ExecuteTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExecuteTaskResponse
 func (client *Client) ExecuteTaskWithOptions(request *ExecuteTaskRequest, headers *ExecuteTaskHeaders, runtime *util.RuntimeOptions) (_result *ExecuteTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -18574,6 +22904,13 @@ func (client *Client) ExecuteTaskWithOptions(request *ExecuteTaskRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 执行审批任务
+//
+// @param request - ExecuteTaskRequest
+//
+// @return ExecuteTaskResponse
 func (client *Client) ExecuteTask(request *ExecuteTaskRequest) (_result *ExecuteTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ExecuteTaskHeaders{}
@@ -18586,6 +22923,17 @@ func (client *Client) ExecuteTask(request *ExecuteTaskRequest) (_result *Execute
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道到期
+//
+// @param request - ExpireCommodityRequest
+//
+// @param headers - ExpireCommodityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExpireCommodityResponse
 func (client *Client) ExpireCommodityWithOptions(request *ExpireCommodityRequest, headers *ExpireCommodityHeaders, runtime *util.RuntimeOptions) (_result *ExpireCommodityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -18637,6 +22985,13 @@ func (client *Client) ExpireCommodityWithOptions(request *ExpireCommodityRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道到期
+//
+// @param request - ExpireCommodityRequest
+//
+// @return ExpireCommodityResponse
 func (client *Client) ExpireCommodity(request *ExpireCommodityRequest) (_result *ExpireCommodityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ExpireCommodityHeaders{}
@@ -18649,6 +23004,17 @@ func (client *Client) ExpireCommodity(request *ExpireCommodityRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据阿里云账号获取激活码
+//
+// @param request - GetActivationCodeByCallerUnionIdRequest
+//
+// @param headers - GetActivationCodeByCallerUnionIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetActivationCodeByCallerUnionIdResponse
 func (client *Client) GetActivationCodeByCallerUnionIdWithOptions(callerUid *string, request *GetActivationCodeByCallerUnionIdRequest, headers *GetActivationCodeByCallerUnionIdHeaders, runtime *util.RuntimeOptions) (_result *GetActivationCodeByCallerUnionIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -18692,6 +23058,13 @@ func (client *Client) GetActivationCodeByCallerUnionIdWithOptions(callerUid *str
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据阿里云账号获取激活码
+//
+// @param request - GetActivationCodeByCallerUnionIdRequest
+//
+// @return GetActivationCodeByCallerUnionIdResponse
 func (client *Client) GetActivationCodeByCallerUnionId(callerUid *string, request *GetActivationCodeByCallerUnionIdRequest) (_result *GetActivationCodeByCallerUnionIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetActivationCodeByCallerUnionIdHeaders{}
@@ -18704,6 +23077,17 @@ func (client *Client) GetActivationCodeByCallerUnionId(callerUid *string, reques
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取流程实例可操作功能列表
+//
+// @param request - GetActivityButtonListRequest
+//
+// @param headers - GetActivityButtonListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetActivityButtonListResponse
 func (client *Client) GetActivityButtonListWithOptions(appType *string, processCode *string, activityId *string, request *GetActivityButtonListRequest, headers *GetActivityButtonListHeaders, runtime *util.RuntimeOptions) (_result *GetActivityButtonListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -18755,6 +23139,13 @@ func (client *Client) GetActivityButtonListWithOptions(appType *string, processC
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取流程实例可操作功能列表
+//
+// @param request - GetActivityButtonListRequest
+//
+// @return GetActivityButtonListResponse
 func (client *Client) GetActivityButtonList(appType *string, processCode *string, activityId *string, request *GetActivityButtonListRequest) (_result *GetActivityButtonListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetActivityButtonListHeaders{}
@@ -18767,6 +23158,17 @@ func (client *Client) GetActivityButtonList(appType *string, processCode *string
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取流程设计的节点信息
+//
+// @param request - GetActivityListRequest
+//
+// @param headers - GetActivityListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetActivityListResponse
 func (client *Client) GetActivityListWithOptions(request *GetActivityListRequest, headers *GetActivityListHeaders, runtime *util.RuntimeOptions) (_result *GetActivityListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -18826,6 +23228,13 @@ func (client *Client) GetActivityListWithOptions(request *GetActivityListRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取流程设计的节点信息
+//
+// @param request - GetActivityListRequest
+//
+// @return GetActivityListResponse
 func (client *Client) GetActivityList(request *GetActivityListRequest) (_result *GetActivityListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetActivityListHeaders{}
@@ -18838,6 +23247,17 @@ func (client *Client) GetActivityList(request *GetActivityListRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询表单的接口，支持分页、表单名称模糊查询
+//
+// @param request - GetAllAuthCubesRequest
+//
+// @param headers - GetAllAuthCubesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAllAuthCubesResponse
 func (client *Client) GetAllAuthCubesWithOptions(request *GetAllAuthCubesRequest, headers *GetAllAuthCubesHeaders, runtime *util.RuntimeOptions) (_result *GetAllAuthCubesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -18905,6 +23325,13 @@ func (client *Client) GetAllAuthCubesWithOptions(request *GetAllAuthCubesRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询表单的接口，支持分页、表单名称模糊查询
+//
+// @param request - GetAllAuthCubesRequest
+//
+// @return GetAllAuthCubesResponse
 func (client *Client) GetAllAuthCubes(request *GetAllAuthCubesRequest) (_result *GetAllAuthCubesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAllAuthCubesHeaders{}
@@ -18917,6 +23344,17 @@ func (client *Client) GetAllAuthCubes(request *GetAllAuthCubesRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道平台概览接口
+//
+// @param request - GetApplicationAuthorizationServicePlatformResourceRequest
+//
+// @param headers - GetApplicationAuthorizationServicePlatformResourceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetApplicationAuthorizationServicePlatformResourceResponse
 func (client *Client) GetApplicationAuthorizationServicePlatformResourceWithOptions(request *GetApplicationAuthorizationServicePlatformResourceRequest, headers *GetApplicationAuthorizationServicePlatformResourceHeaders, runtime *util.RuntimeOptions) (_result *GetApplicationAuthorizationServicePlatformResourceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -18968,6 +23406,13 @@ func (client *Client) GetApplicationAuthorizationServicePlatformResourceWithOpti
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道平台概览接口
+//
+// @param request - GetApplicationAuthorizationServicePlatformResourceRequest
+//
+// @return GetApplicationAuthorizationServicePlatformResourceResponse
 func (client *Client) GetApplicationAuthorizationServicePlatformResource(request *GetApplicationAuthorizationServicePlatformResourceRequest) (_result *GetApplicationAuthorizationServicePlatformResourceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetApplicationAuthorizationServicePlatformResourceHeaders{}
@@ -18980,6 +23425,17 @@ func (client *Client) GetApplicationAuthorizationServicePlatformResource(request
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取自动化流日志详情
+//
+// @param request - GetAutoFlowLogDetailRequest
+//
+// @param headers - GetAutoFlowLogDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAutoFlowLogDetailResponse
 func (client *Client) GetAutoFlowLogDetailWithOptions(request *GetAutoFlowLogDetailRequest, headers *GetAutoFlowLogDetailHeaders, runtime *util.RuntimeOptions) (_result *GetAutoFlowLogDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -18988,6 +23444,10 @@ func (client *Client) GetAutoFlowLogDetailWithOptions(request *GetAutoFlowLogDet
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
 		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
@@ -19043,6 +23503,13 @@ func (client *Client) GetAutoFlowLogDetailWithOptions(request *GetAutoFlowLogDet
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取自动化流日志详情
+//
+// @param request - GetAutoFlowLogDetailRequest
+//
+// @return GetAutoFlowLogDetailResponse
 func (client *Client) GetAutoFlowLogDetail(request *GetAutoFlowLogDetailRequest) (_result *GetAutoFlowLogDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAutoFlowLogDetailHeaders{}
@@ -19055,6 +23522,17 @@ func (client *Client) GetAutoFlowLogDetail(request *GetAutoFlowLogDetailRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询已完成任务列表
+//
+// @param request - GetCorpAccomplishmentTasksRequest
+//
+// @param headers - GetCorpAccomplishmentTasksHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCorpAccomplishmentTasksResponse
 func (client *Client) GetCorpAccomplishmentTasksWithOptions(corpId *string, userId *string, request *GetCorpAccomplishmentTasksRequest, headers *GetCorpAccomplishmentTasksHeaders, runtime *util.RuntimeOptions) (_result *GetCorpAccomplishmentTasksResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -19071,6 +23549,10 @@ func (client *Client) GetCorpAccomplishmentTasksWithOptions(corpId *string, user
 
 	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
 		query["createToTimeGMT"] = request.CreateToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
@@ -19130,6 +23612,13 @@ func (client *Client) GetCorpAccomplishmentTasksWithOptions(corpId *string, user
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询已完成任务列表
+//
+// @param request - GetCorpAccomplishmentTasksRequest
+//
+// @return GetCorpAccomplishmentTasksResponse
 func (client *Client) GetCorpAccomplishmentTasks(corpId *string, userId *string, request *GetCorpAccomplishmentTasksRequest) (_result *GetCorpAccomplishmentTasksResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCorpAccomplishmentTasksHeaders{}
@@ -19142,6 +23631,17 @@ func (client *Client) GetCorpAccomplishmentTasks(corpId *string, userId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据accountId获取企业等级
+//
+// @param request - GetCorpLevelByAccountIdRequest
+//
+// @param headers - GetCorpLevelByAccountIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCorpLevelByAccountIdResponse
 func (client *Client) GetCorpLevelByAccountIdWithOptions(request *GetCorpLevelByAccountIdRequest, headers *GetCorpLevelByAccountIdHeaders, runtime *util.RuntimeOptions) (_result *GetCorpLevelByAccountIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -19185,6 +23685,13 @@ func (client *Client) GetCorpLevelByAccountIdWithOptions(request *GetCorpLevelBy
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据accountId获取企业等级
+//
+// @param request - GetCorpLevelByAccountIdRequest
+//
+// @return GetCorpLevelByAccountIdResponse
 func (client *Client) GetCorpLevelByAccountId(request *GetCorpLevelByAccountIdRequest) (_result *GetCorpLevelByAccountIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCorpLevelByAccountIdHeaders{}
@@ -19197,6 +23704,17 @@ func (client *Client) GetCorpLevelByAccountId(request *GetCorpLevelByAccountIdRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询待办任务列表
+//
+// @param request - GetCorpTasksRequest
+//
+// @param headers - GetCorpTasksHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCorpTasksResponse
 func (client *Client) GetCorpTasksWithOptions(request *GetCorpTasksRequest, headers *GetCorpTasksHeaders, runtime *util.RuntimeOptions) (_result *GetCorpTasksResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -19217,6 +23735,10 @@ func (client *Client) GetCorpTasksWithOptions(request *GetCorpTasksRequest, head
 
 	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
 		query["createToTimeGMT"] = request.CreateToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
@@ -19280,6 +23802,13 @@ func (client *Client) GetCorpTasksWithOptions(request *GetCorpTasksRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询待办任务列表
+//
+// @param request - GetCorpTasksRequest
+//
+// @return GetCorpTasksResponse
 func (client *Client) GetCorpTasks(request *GetCorpTasksRequest) (_result *GetCorpTasksResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetCorpTasksHeaders{}
@@ -19292,6 +23821,17 @@ func (client *Client) GetCorpTasks(request *GetCorpTasksRequest) (_result *GetCo
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取数据库连接串信息
+//
+// @param request - GetDbConfigRequest
+//
+// @param headers - GetDbConfigHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDbConfigResponse
 func (client *Client) GetDbConfigWithOptions(request *GetDbConfigRequest, headers *GetDbConfigHeaders, runtime *util.RuntimeOptions) (_result *GetDbConfigResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -19347,6 +23887,13 @@ func (client *Client) GetDbConfigWithOptions(request *GetDbConfigRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取数据库连接串信息
+//
+// @param request - GetDbConfigRequest
+//
+// @return GetDbConfigResponse
 func (client *Client) GetDbConfig(request *GetDbConfigRequest) (_result *GetDbConfigResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDbConfigHeaders{}
@@ -19359,6 +23906,17 @@ func (client *Client) GetDbConfig(request *GetDbConfigRequest) (_result *GetDbCo
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据表单ID获取字段信息
+//
+// @param request - GetFieldDefByUuidRequest
+//
+// @param headers - GetFieldDefByUuidHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFieldDefByUuidResponse
 func (client *Client) GetFieldDefByUuidWithOptions(request *GetFieldDefByUuidRequest, headers *GetFieldDefByUuidHeaders, runtime *util.RuntimeOptions) (_result *GetFieldDefByUuidResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -19414,6 +23972,13 @@ func (client *Client) GetFieldDefByUuidWithOptions(request *GetFieldDefByUuidReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据表单ID获取字段信息
+//
+// @param request - GetFieldDefByUuidRequest
+//
+// @return GetFieldDefByUuidResponse
 func (client *Client) GetFieldDefByUuid(request *GetFieldDefByUuidRequest) (_result *GetFieldDefByUuidResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetFieldDefByUuidHeaders{}
@@ -19426,6 +23991,17 @@ func (client *Client) GetFieldDefByUuid(request *GetFieldDefByUuidRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取表单定义
+//
+// @param request - GetFormComponentDefinitionListRequest
+//
+// @param headers - GetFormComponentDefinitionListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFormComponentDefinitionListResponse
 func (client *Client) GetFormComponentDefinitionListWithOptions(appType *string, formUuid *string, request *GetFormComponentDefinitionListRequest, headers *GetFormComponentDefinitionListHeaders, runtime *util.RuntimeOptions) (_result *GetFormComponentDefinitionListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -19481,6 +24057,13 @@ func (client *Client) GetFormComponentDefinitionListWithOptions(appType *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取表单定义
+//
+// @param request - GetFormComponentDefinitionListRequest
+//
+// @return GetFormComponentDefinitionListResponse
 func (client *Client) GetFormComponentDefinitionList(appType *string, formUuid *string, request *GetFormComponentDefinitionListRequest) (_result *GetFormComponentDefinitionListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetFormComponentDefinitionListHeaders{}
@@ -19493,6 +24076,17 @@ func (client *Client) GetFormComponentDefinitionList(appType *string, formUuid *
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据表单 ID 查询实例详情
+//
+// @param request - GetFormDataByIDRequest
+//
+// @param headers - GetFormDataByIDHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFormDataByIDResponse
 func (client *Client) GetFormDataByIDWithOptions(id *string, request *GetFormDataByIDRequest, headers *GetFormDataByIDHeaders, runtime *util.RuntimeOptions) (_result *GetFormDataByIDResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -19548,6 +24142,13 @@ func (client *Client) GetFormDataByIDWithOptions(id *string, request *GetFormDat
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据表单 ID 查询实例详情
+//
+// @param request - GetFormDataByIDRequest
+//
+// @return GetFormDataByIDResponse
 func (client *Client) GetFormDataByID(id *string, request *GetFormDataByIDRequest) (_result *GetFormDataByIDResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetFormDataByIDHeaders{}
@@ -19560,6 +24161,17 @@ func (client *Client) GetFormDataByID(id *string, request *GetFormDataByIDReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取应用内表单列表信息
+//
+// @param request - GetFormListInAppRequest
+//
+// @param headers - GetFormListInAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFormListInAppResponse
 func (client *Client) GetFormListInAppWithOptions(request *GetFormListInAppRequest, headers *GetFormListInAppHeaders, runtime *util.RuntimeOptions) (_result *GetFormListInAppResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -19623,6 +24235,13 @@ func (client *Client) GetFormListInAppWithOptions(request *GetFormListInAppReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取应用内表单列表信息
+//
+// @param request - GetFormListInAppRequest
+//
+// @return GetFormListInAppResponse
 func (client *Client) GetFormListInApp(request *GetFormListInAppRequest) (_result *GetFormListInAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetFormListInAppHeaders{}
@@ -19635,6 +24254,17 @@ func (client *Client) GetFormListInApp(request *GetFormListInAppRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据实例 ID 获取流程实例详情
+//
+// @param request - GetInstanceByIdRequest
+//
+// @param headers - GetInstanceByIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetInstanceByIdResponse
 func (client *Client) GetInstanceByIdWithOptions(id *string, request *GetInstanceByIdRequest, headers *GetInstanceByIdHeaders, runtime *util.RuntimeOptions) (_result *GetInstanceByIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -19690,6 +24320,13 @@ func (client *Client) GetInstanceByIdWithOptions(id *string, request *GetInstanc
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据实例 ID 获取流程实例详情
+//
+// @param request - GetInstanceByIdRequest
+//
+// @return GetInstanceByIdResponse
 func (client *Client) GetInstanceById(id *string, request *GetInstanceByIdRequest) (_result *GetInstanceByIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetInstanceByIdHeaders{}
@@ -19702,6 +24339,17 @@ func (client *Client) GetInstanceById(id *string, request *GetInstanceByIdReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据条件搜索流程实例 ID
+//
+// @param request - GetInstanceIdListRequest
+//
+// @param headers - GetInstanceIdListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetInstanceIdListResponse
 func (client *Client) GetInstanceIdListWithOptions(request *GetInstanceIdListRequest, headers *GetInstanceIdListHeaders, runtime *util.RuntimeOptions) (_result *GetInstanceIdListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -19807,6 +24455,13 @@ func (client *Client) GetInstanceIdListWithOptions(request *GetInstanceIdListReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据条件搜索流程实例 ID
+//
+// @param request - GetInstanceIdListRequest
+//
+// @return GetInstanceIdListResponse
 func (client *Client) GetInstanceIdList(request *GetInstanceIdListRequest) (_result *GetInstanceIdListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetInstanceIdListHeaders{}
@@ -19819,6 +24474,17 @@ func (client *Client) GetInstanceIdList(request *GetInstanceIdListRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据搜索条件获取流程表单实例详情
+//
+// @param request - GetInstancesRequest
+//
+// @param headers - GetInstancesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetInstancesResponse
 func (client *Client) GetInstancesWithOptions(request *GetInstancesRequest, headers *GetInstancesHeaders, runtime *util.RuntimeOptions) (_result *GetInstancesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -19928,6 +24594,13 @@ func (client *Client) GetInstancesWithOptions(request *GetInstancesRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据搜索条件获取流程表单实例详情
+//
+// @param request - GetInstancesRequest
+//
+// @return GetInstancesResponse
 func (client *Client) GetInstances(request *GetInstancesRequest) (_result *GetInstancesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetInstancesHeaders{}
@@ -19940,6 +24613,17 @@ func (client *Client) GetInstances(request *GetInstancesRequest) (_result *GetIn
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据实例 ID 列表批量获取流程实例详情
+//
+// @param request - GetInstancesByIdListRequest
+//
+// @param headers - GetInstancesByIdListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetInstancesByIdListResponse
 func (client *Client) GetInstancesByIdListWithOptions(request *GetInstancesByIdListRequest, headers *GetInstancesByIdListHeaders, runtime *util.RuntimeOptions) (_result *GetInstancesByIdListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -19999,6 +24683,13 @@ func (client *Client) GetInstancesByIdListWithOptions(request *GetInstancesByIdL
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据实例 ID 列表批量获取流程实例详情
+//
+// @param request - GetInstancesByIdListRequest
+//
+// @return GetInstancesByIdListResponse
 func (client *Client) GetInstancesByIdList(request *GetInstancesByIdListRequest) (_result *GetInstancesByIdListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetInstancesByIdListHeaders{}
@@ -20011,6 +24702,17 @@ func (client *Client) GetInstancesByIdList(request *GetInstancesByIdListRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询已提交任务列表
+//
+// @param request - GetMeCorpSubmissionRequest
+//
+// @param headers - GetMeCorpSubmissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetMeCorpSubmissionResponse
 func (client *Client) GetMeCorpSubmissionWithOptions(userId *string, request *GetMeCorpSubmissionRequest, headers *GetMeCorpSubmissionHeaders, runtime *util.RuntimeOptions) (_result *GetMeCorpSubmissionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -20031,6 +24733,10 @@ func (client *Client) GetMeCorpSubmissionWithOptions(userId *string, request *Ge
 
 	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
 		query["createToTimeGMT"] = request.CreateToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
@@ -20078,7 +24784,7 @@ func (client *Client) GetMeCorpSubmissionWithOptions(userId *string, request *Ge
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("formData"),
+		ReqBodyType: tea.String("none"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &GetMeCorpSubmissionResponse{}
@@ -20090,6 +24796,13 @@ func (client *Client) GetMeCorpSubmissionWithOptions(userId *string, request *Ge
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询已提交任务列表
+//
+// @param request - GetMeCorpSubmissionRequest
+//
+// @return GetMeCorpSubmissionResponse
 func (client *Client) GetMeCorpSubmission(userId *string, request *GetMeCorpSubmissionRequest) (_result *GetMeCorpSubmissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetMeCorpSubmissionHeaders{}
@@ -20102,6 +24815,17 @@ func (client *Client) GetMeCorpSubmission(userId *string, request *GetMeCorpSubm
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询抄送我的任务列表（企业维度）
+//
+// @param request - GetNotifyMeRequest
+//
+// @param headers - GetNotifyMeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetNotifyMeResponse
 func (client *Client) GetNotifyMeWithOptions(userId *string, request *GetNotifyMeRequest, headers *GetNotifyMeHeaders, runtime *util.RuntimeOptions) (_result *GetNotifyMeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -20122,6 +24846,10 @@ func (client *Client) GetNotifyMeWithOptions(userId *string, request *GetNotifyM
 
 	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
 		query["createToTimeGMT"] = request.CreateToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.InstanceCreateFromTimeGMT)) {
@@ -20189,6 +24917,13 @@ func (client *Client) GetNotifyMeWithOptions(userId *string, request *GetNotifyM
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询抄送我的任务列表（企业维度）
+//
+// @param request - GetNotifyMeRequest
+//
+// @return GetNotifyMeResponse
 func (client *Client) GetNotifyMe(userId *string, request *GetNotifyMeRequest) (_result *GetNotifyMeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetNotifyMeHeaders{}
@@ -20201,6 +24936,17 @@ func (client *Client) GetNotifyMe(userId *string, request *GetNotifyMeRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 附件地址转临时免登地址
+//
+// @param request - GetOpenUrlRequest
+//
+// @param headers - GetOpenUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetOpenUrlResponse
 func (client *Client) GetOpenUrlWithOptions(appType *string, request *GetOpenUrlRequest, headers *GetOpenUrlHeaders, runtime *util.RuntimeOptions) (_result *GetOpenUrlResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -20260,6 +25006,13 @@ func (client *Client) GetOpenUrlWithOptions(appType *string, request *GetOpenUrl
 	return _result, _err
 }
 
+// Summary:
+//
+// 附件地址转临时免登地址
+//
+// @param request - GetOpenUrlRequest
+//
+// @return GetOpenUrlResponse
 func (client *Client) GetOpenUrl(appType *string, request *GetOpenUrlRequest) (_result *GetOpenUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOpenUrlHeaders{}
@@ -20272,6 +25025,17 @@ func (client *Client) GetOpenUrl(appType *string, request *GetOpenUrlRequest) (_
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取审批记录
+//
+// @param request - GetOperationRecordsRequest
+//
+// @param headers - GetOperationRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetOperationRecordsResponse
 func (client *Client) GetOperationRecordsWithOptions(request *GetOperationRecordsRequest, headers *GetOperationRecordsHeaders, runtime *util.RuntimeOptions) (_result *GetOperationRecordsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -20331,6 +25095,13 @@ func (client *Client) GetOperationRecordsWithOptions(request *GetOperationRecord
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取审批记录
+//
+// @param request - GetOperationRecordsRequest
+//
+// @return GetOperationRecordsResponse
 func (client *Client) GetOperationRecords(request *GetOperationRecordsRequest) (_result *GetOperationRecordsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOperationRecordsHeaders{}
@@ -20343,6 +25114,17 @@ func (client *Client) GetOperationRecords(request *GetOperationRecordsRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道平台概览接口
+//
+// @param request - GetPlatformResourceRequest
+//
+// @param headers - GetPlatformResourceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPlatformResourceResponse
 func (client *Client) GetPlatformResourceWithOptions(request *GetPlatformResourceRequest, headers *GetPlatformResourceHeaders, runtime *util.RuntimeOptions) (_result *GetPlatformResourceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -20394,6 +25176,13 @@ func (client *Client) GetPlatformResourceWithOptions(request *GetPlatformResourc
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道平台概览接口
+//
+// @param request - GetPlatformResourceRequest
+//
+// @return GetPlatformResourceResponse
 func (client *Client) GetPlatformResource(request *GetPlatformResourceRequest) (_result *GetPlatformResourceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPlatformResourceHeaders{}
@@ -20406,6 +25195,17 @@ func (client *Client) GetPlatformResource(request *GetPlatformResourceRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户开通打印模板的应用信息
+//
+// @param request - GetPrintAppInfoRequest
+//
+// @param headers - GetPrintAppInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPrintAppInfoResponse
 func (client *Client) GetPrintAppInfoWithOptions(request *GetPrintAppInfoRequest, headers *GetPrintAppInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPrintAppInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -20453,6 +25253,13 @@ func (client *Client) GetPrintAppInfoWithOptions(request *GetPrintAppInfoRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户开通打印模板的应用信息
+//
+// @param request - GetPrintAppInfoRequest
+//
+// @return GetPrintAppInfoResponse
 func (client *Client) GetPrintAppInfo(request *GetPrintAppInfoRequest) (_result *GetPrintAppInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPrintAppInfoHeaders{}
@@ -20465,6 +25272,17 @@ func (client *Client) GetPrintAppInfo(request *GetPrintAppInfoRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取打印所需的表单与流程节点
+//
+// @param request - GetPrintDictionaryRequest
+//
+// @param headers - GetPrintDictionaryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPrintDictionaryResponse
 func (client *Client) GetPrintDictionaryWithOptions(request *GetPrintDictionaryRequest, headers *GetPrintDictionaryHeaders, runtime *util.RuntimeOptions) (_result *GetPrintDictionaryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -20520,6 +25338,13 @@ func (client *Client) GetPrintDictionaryWithOptions(request *GetPrintDictionaryR
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取打印所需的表单与流程节点
+//
+// @param request - GetPrintDictionaryRequest
+//
+// @return GetPrintDictionaryResponse
 func (client *Client) GetPrintDictionary(request *GetPrintDictionaryRequest) (_result *GetPrintDictionaryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPrintDictionaryHeaders{}
@@ -20532,6 +25357,17 @@ func (client *Client) GetPrintDictionary(request *GetPrintDictionaryRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取流程定义
+//
+// @param request - GetProcessDefinitionRequest
+//
+// @param headers - GetProcessDefinitionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetProcessDefinitionResponse
 func (client *Client) GetProcessDefinitionWithOptions(processInstanceId *string, request *GetProcessDefinitionRequest, headers *GetProcessDefinitionHeaders, runtime *util.RuntimeOptions) (_result *GetProcessDefinitionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -20607,6 +25443,13 @@ func (client *Client) GetProcessDefinitionWithOptions(processInstanceId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取流程定义
+//
+// @param request - GetProcessDefinitionRequest
+//
+// @return GetProcessDefinitionResponse
 func (client *Client) GetProcessDefinition(processInstanceId *string, request *GetProcessDefinitionRequest) (_result *GetProcessDefinitionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetProcessDefinitionHeaders{}
@@ -20619,6 +25462,187 @@ func (client *Client) GetProcessDefinition(processInstanceId *string, request *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据流程ID获取流程设计结构
+//
+// @param request - GetProcessDesignRequest
+//
+// @param headers - GetProcessDesignHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetProcessDesignResponse
+func (client *Client) GetProcessDesignWithOptions(processId *string, request *GetProcessDesignRequest, headers *GetProcessDesignHeaders, runtime *util.RuntimeOptions) (_result *GetProcessDesignResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetProcessDesign"),
+		Version:     tea.String("yida_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/yida/processes/" + tea.StringValue(processId) + "definitions/designs"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetProcessDesignResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据流程ID获取流程设计结构
+//
+// @param request - GetProcessDesignRequest
+//
+// @return GetProcessDesignResponse
+func (client *Client) GetProcessDesign(processId *string, request *GetProcessDesignRequest) (_result *GetProcessDesignResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetProcessDesignHeaders{}
+	_result = &GetProcessDesignResponse{}
+	_body, _err := client.GetProcessDesignWithOptions(processId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据流程ID获取流程设计结构
+//
+// @param request - GetProcessDesignByCodeRequest
+//
+// @param headers - GetProcessDesignByCodeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetProcessDesignByCodeResponse
+func (client *Client) GetProcessDesignByCodeWithOptions(request *GetProcessDesignByCodeRequest, headers *GetProcessDesignByCodeHeaders, runtime *util.RuntimeOptions) (_result *GetProcessDesignByCodeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		query["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessId)) {
+		query["processId"] = request.ProcessId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		query["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetProcessDesignByCode"),
+		Version:     tea.String("yida_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/yida/processes/designStructures"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetProcessDesignByCodeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据流程ID获取流程设计结构
+//
+// @param request - GetProcessDesignByCodeRequest
+//
+// @return GetProcessDesignByCodeResponse
+func (client *Client) GetProcessDesignByCode(request *GetProcessDesignByCodeRequest) (_result *GetProcessDesignByCodeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetProcessDesignByCodeHeaders{}
+	_result = &GetProcessDesignByCodeResponse{}
+	_body, _err := client.GetProcessDesignByCodeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过实例id批量获取待办任务
+//
+// @param request - GetRunningTaskListRequest
+//
+// @param headers - GetRunningTaskListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetRunningTaskListResponse
 func (client *Client) GetRunningTaskListWithOptions(request *GetRunningTaskListRequest, headers *GetRunningTaskListHeaders, runtime *util.RuntimeOptions) (_result *GetRunningTaskListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -20678,6 +25702,13 @@ func (client *Client) GetRunningTaskListWithOptions(request *GetRunningTaskListR
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过实例id批量获取待办任务
+//
+// @param request - GetRunningTaskListRequest
+//
+// @return GetRunningTaskListResponse
 func (client *Client) GetRunningTaskList(request *GetRunningTaskListRequest) (_result *GetRunningTaskListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetRunningTaskListHeaders{}
@@ -20690,6 +25721,17 @@ func (client *Client) GetRunningTaskList(request *GetRunningTaskListRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询流程运行任务（vpc）
+//
+// @param request - GetRunningTasksRequest
+//
+// @param headers - GetRunningTasksHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetRunningTasksResponse
 func (client *Client) GetRunningTasksWithOptions(request *GetRunningTasksRequest, headers *GetRunningTasksHeaders, runtime *util.RuntimeOptions) (_result *GetRunningTasksResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -20749,6 +25791,13 @@ func (client *Client) GetRunningTasksWithOptions(request *GetRunningTasksRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询流程运行任务（vpc）
+//
+// @param request - GetRunningTasksRequest
+//
+// @return GetRunningTasksResponse
 func (client *Client) GetRunningTasks(request *GetRunningTasksRequest) (_result *GetRunningTasksResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetRunningTasksHeaders{}
@@ -20761,6 +25810,17 @@ func (client *Client) GetRunningTasks(request *GetRunningTasksRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据用户employeeCode获取所在企业信息(包含售卖版本)
+//
+// @param request - GetSaleUserInfoByUserIdRequest
+//
+// @param headers - GetSaleUserInfoByUserIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSaleUserInfoByUserIdResponse
 func (client *Client) GetSaleUserInfoByUserIdWithOptions(request *GetSaleUserInfoByUserIdRequest, headers *GetSaleUserInfoByUserIdHeaders, runtime *util.RuntimeOptions) (_result *GetSaleUserInfoByUserIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -20812,6 +25872,13 @@ func (client *Client) GetSaleUserInfoByUserIdWithOptions(request *GetSaleUserInf
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据用户employeeCode获取所在企业信息(包含售卖版本)
+//
+// @param request - GetSaleUserInfoByUserIdRequest
+//
+// @return GetSaleUserInfoByUserIdResponse
 func (client *Client) GetSaleUserInfoByUserId(request *GetSaleUserInfoByUserIdRequest) (_result *GetSaleUserInfoByUserIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSaleUserInfoByUserIdHeaders{}
@@ -20824,6 +25891,17 @@ func (client *Client) GetSaleUserInfoByUserId(request *GetSaleUserInfoByUserIdRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 表单的元数据(字段)查询接口
+//
+// @param request - GetSimpleCubeModelListRequest
+//
+// @param headers - GetSimpleCubeModelListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSimpleCubeModelListResponse
 func (client *Client) GetSimpleCubeModelListWithOptions(request *GetSimpleCubeModelListRequest, headers *GetSimpleCubeModelListHeaders, runtime *util.RuntimeOptions) (_result *GetSimpleCubeModelListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -20887,6 +25965,13 @@ func (client *Client) GetSimpleCubeModelListWithOptions(request *GetSimpleCubeMo
 	return _result, _err
 }
 
+// Summary:
+//
+// 表单的元数据(字段)查询接口
+//
+// @param request - GetSimpleCubeModelListRequest
+//
+// @return GetSimpleCubeModelListResponse
 func (client *Client) GetSimpleCubeModelList(request *GetSimpleCubeModelListRequest) (_result *GetSimpleCubeModelListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSimpleCubeModelListHeaders{}
@@ -20899,6 +25984,17 @@ func (client *Client) GetSimpleCubeModelList(request *GetSimpleCubeModelListRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询抄送我的任务列表（应用维度）
+//
+// @param request - GetTaskCopiesRequest
+//
+// @param headers - GetTaskCopiesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTaskCopiesResponse
 func (client *Client) GetTaskCopiesWithOptions(request *GetTaskCopiesRequest, headers *GetTaskCopiesHeaders, runtime *util.RuntimeOptions) (_result *GetTaskCopiesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -20978,6 +26074,13 @@ func (client *Client) GetTaskCopiesWithOptions(request *GetTaskCopiesRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询抄送我的任务列表（应用维度）
+//
+// @param request - GetTaskCopiesRequest
+//
+// @return GetTaskCopiesResponse
 func (client *Client) GetTaskCopies(request *GetTaskCopiesRequest) (_result *GetTaskCopiesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTaskCopiesHeaders{}
@@ -20990,6 +26093,17 @@ func (client *Client) GetTaskCopies(request *GetTaskCopiesRequest) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取组织下的宜搭应用列表
+//
+// @param request - ListApplicationRequest
+//
+// @param headers - ListApplicationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListApplicationResponse
 func (client *Client) ListApplicationWithOptions(request *ListApplicationRequest, headers *ListApplicationHeaders, runtime *util.RuntimeOptions) (_result *ListApplicationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21006,6 +26120,10 @@ func (client *Client) ListApplicationWithOptions(request *ListApplicationRequest
 
 	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
 		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
@@ -21057,6 +26175,13 @@ func (client *Client) ListApplicationWithOptions(request *ListApplicationRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取组织下的宜搭应用列表
+//
+// @param request - ListApplicationRequest
+//
+// @return ListApplicationResponse
 func (client *Client) ListApplication(request *ListApplicationRequest) (_result *ListApplicationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListApplicationHeaders{}
@@ -21069,6 +26194,17 @@ func (client *Client) ListApplication(request *ListApplicationRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道应用概览
+//
+// @param request - ListApplicationAuthorizationServiceApplicationInformationRequest
+//
+// @param headers - ListApplicationAuthorizationServiceApplicationInformationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListApplicationAuthorizationServiceApplicationInformationResponse
 func (client *Client) ListApplicationAuthorizationServiceApplicationInformationWithOptions(instanceId *string, request *ListApplicationAuthorizationServiceApplicationInformationRequest, headers *ListApplicationAuthorizationServiceApplicationInformationHeaders, runtime *util.RuntimeOptions) (_result *ListApplicationAuthorizationServiceApplicationInformationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21124,6 +26260,13 @@ func (client *Client) ListApplicationAuthorizationServiceApplicationInformationW
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道应用概览
+//
+// @param request - ListApplicationAuthorizationServiceApplicationInformationRequest
+//
+// @return ListApplicationAuthorizationServiceApplicationInformationResponse
 func (client *Client) ListApplicationAuthorizationServiceApplicationInformation(instanceId *string, request *ListApplicationAuthorizationServiceApplicationInformationRequest) (_result *ListApplicationAuthorizationServiceApplicationInformationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListApplicationAuthorizationServiceApplicationInformationHeaders{}
@@ -21136,6 +26279,17 @@ func (client *Client) ListApplicationAuthorizationServiceApplicationInformation(
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道插件概览
+//
+// @param request - ListApplicationAuthorizationServiceConnectorInformationRequest
+//
+// @param headers - ListApplicationAuthorizationServiceConnectorInformationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListApplicationAuthorizationServiceConnectorInformationResponse
 func (client *Client) ListApplicationAuthorizationServiceConnectorInformationWithOptions(instanceId *string, request *ListApplicationAuthorizationServiceConnectorInformationRequest, headers *ListApplicationAuthorizationServiceConnectorInformationHeaders, runtime *util.RuntimeOptions) (_result *ListApplicationAuthorizationServiceConnectorInformationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21191,6 +26345,13 @@ func (client *Client) ListApplicationAuthorizationServiceConnectorInformationWit
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道插件概览
+//
+// @param request - ListApplicationAuthorizationServiceConnectorInformationRequest
+//
+// @return ListApplicationAuthorizationServiceConnectorInformationResponse
 func (client *Client) ListApplicationAuthorizationServiceConnectorInformation(instanceId *string, request *ListApplicationAuthorizationServiceConnectorInformationRequest) (_result *ListApplicationAuthorizationServiceConnectorInformationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListApplicationAuthorizationServiceConnectorInformationHeaders{}
@@ -21203,6 +26364,17 @@ func (client *Client) ListApplicationAuthorizationServiceConnectorInformation(in
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道应用概览
+//
+// @param request - ListApplicationInformationRequest
+//
+// @param headers - ListApplicationInformationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListApplicationInformationResponse
 func (client *Client) ListApplicationInformationWithOptions(instanceId *string, request *ListApplicationInformationRequest, headers *ListApplicationInformationHeaders, runtime *util.RuntimeOptions) (_result *ListApplicationInformationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21258,6 +26430,13 @@ func (client *Client) ListApplicationInformationWithOptions(instanceId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道应用概览
+//
+// @param request - ListApplicationInformationRequest
+//
+// @return ListApplicationInformationResponse
 func (client *Client) ListApplicationInformation(instanceId *string, request *ListApplicationInformationRequest) (_result *ListApplicationInformationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListApplicationInformationHeaders{}
@@ -21270,6 +26449,17 @@ func (client *Client) ListApplicationInformation(instanceId *string, request *Li
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道列出商品列表
+//
+// @param request - ListCommodityRequest
+//
+// @param headers - ListCommodityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListCommodityResponse
 func (client *Client) ListCommodityWithOptions(request *ListCommodityRequest, headers *ListCommodityHeaders, runtime *util.RuntimeOptions) (_result *ListCommodityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21325,6 +26515,13 @@ func (client *Client) ListCommodityWithOptions(request *ListCommodityRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道列出商品列表
+//
+// @param request - ListCommodityRequest
+//
+// @return ListCommodityResponse
 func (client *Client) ListCommodity(request *ListCommodityRequest) (_result *ListCommodityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListCommodityHeaders{}
@@ -21337,6 +26534,17 @@ func (client *Client) ListCommodity(request *ListCommodityRequest) (_result *Lis
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道插件概览
+//
+// @param request - ListConnectorInformationRequest
+//
+// @param headers - ListConnectorInformationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListConnectorInformationResponse
 func (client *Client) ListConnectorInformationWithOptions(instanceId *string, request *ListConnectorInformationRequest, headers *ListConnectorInformationHeaders, runtime *util.RuntimeOptions) (_result *ListConnectorInformationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21392,6 +26600,13 @@ func (client *Client) ListConnectorInformationWithOptions(instanceId *string, re
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道插件概览
+//
+// @param request - ListConnectorInformationRequest
+//
+// @return ListConnectorInformationResponse
 func (client *Client) ListConnectorInformation(instanceId *string, request *ListConnectorInformationRequest) (_result *ListConnectorInformationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListConnectorInformationHeaders{}
@@ -21404,6 +26619,17 @@ func (client *Client) ListConnectorInformation(instanceId *string, request *List
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询表单实例评论列表
+//
+// @param request - ListFormRemarksRequest
+//
+// @param headers - ListFormRemarksHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListFormRemarksResponse
 func (client *Client) ListFormRemarksWithOptions(request *ListFormRemarksRequest, headers *ListFormRemarksHeaders, runtime *util.RuntimeOptions) (_result *ListFormRemarksResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21463,6 +26689,13 @@ func (client *Client) ListFormRemarksWithOptions(request *ListFormRemarksRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询表单实例评论列表
+//
+// @param request - ListFormRemarksRequest
+//
+// @return ListFormRemarksResponse
 func (client *Client) ListFormRemarks(request *ListFormRemarksRequest) (_result *ListFormRemarksResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListFormRemarksHeaders{}
@@ -21475,6 +26708,17 @@ func (client *Client) ListFormRemarks(request *ListFormRemarksRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取应用下的页面列表
+//
+// @param request - ListNavigationByFormTypeRequest
+//
+// @param headers - ListNavigationByFormTypeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListNavigationByFormTypeResponse
 func (client *Client) ListNavigationByFormTypeWithOptions(request *ListNavigationByFormTypeRequest, headers *ListNavigationByFormTypeHeaders, runtime *util.RuntimeOptions) (_result *ListNavigationByFormTypeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21534,6 +26778,13 @@ func (client *Client) ListNavigationByFormTypeWithOptions(request *ListNavigatio
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取应用下的页面列表
+//
+// @param request - ListNavigationByFormTypeRequest
+//
+// @return ListNavigationByFormTypeResponse
 func (client *Client) ListNavigationByFormType(request *ListNavigationByFormTypeRequest) (_result *ListNavigationByFormTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListNavigationByFormTypeHeaders{}
@@ -21546,6 +26797,17 @@ func (client *Client) ListNavigationByFormType(request *ListNavigationByFormType
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询表单的变更记录
+//
+// @param request - ListOperationLogsRequest
+//
+// @param headers - ListOperationLogsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListOperationLogsResponse
 func (client *Client) ListOperationLogsWithOptions(request *ListOperationLogsRequest, headers *ListOperationLogsHeaders, runtime *util.RuntimeOptions) (_result *ListOperationLogsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21605,6 +26867,13 @@ func (client *Client) ListOperationLogsWithOptions(request *ListOperationLogsReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询表单的变更记录
+//
+// @param request - ListOperationLogsRequest
+//
+// @return ListOperationLogsResponse
 func (client *Client) ListOperationLogs(request *ListOperationLogsRequest) (_result *ListOperationLogsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListOperationLogsHeaders{}
@@ -21617,6 +26886,17 @@ func (client *Client) ListOperationLogs(request *ListOperationLogsRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取子表单数据
+//
+// @param request - ListTableDataByFormInstanceIdTableIdRequest
+//
+// @param headers - ListTableDataByFormInstanceIdTableIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListTableDataByFormInstanceIdTableIdResponse
 func (client *Client) ListTableDataByFormInstanceIdTableIdWithOptions(formInstanceId *string, request *ListTableDataByFormInstanceIdTableIdRequest, headers *ListTableDataByFormInstanceIdTableIdHeaders, runtime *util.RuntimeOptions) (_result *ListTableDataByFormInstanceIdTableIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21684,6 +26964,13 @@ func (client *Client) ListTableDataByFormInstanceIdTableIdWithOptions(formInstan
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取子表单数据
+//
+// @param request - ListTableDataByFormInstanceIdTableIdRequest
+//
+// @return ListTableDataByFormInstanceIdTableIdResponse
 func (client *Client) ListTableDataByFormInstanceIdTableId(formInstanceId *string, request *ListTableDataByFormInstanceIdTableIdRequest) (_result *ListTableDataByFormInstanceIdTableIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListTableDataByFormInstanceIdTableIdHeaders{}
@@ -21696,6 +26983,17 @@ func (client *Client) ListTableDataByFormInstanceIdTableId(formInstanceId *strin
 	return _result, _err
 }
 
+// Summary:
+//
+// 生成宜搭登录态穿透用的code
+//
+// @param request - LoginCodeGenRequest
+//
+// @param headers - LoginCodeGenHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return LoginCodeGenResponse
 func (client *Client) LoginCodeGenWithOptions(request *LoginCodeGenRequest, headers *LoginCodeGenHeaders, runtime *util.RuntimeOptions) (_result *LoginCodeGenResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21739,6 +27037,13 @@ func (client *Client) LoginCodeGenWithOptions(request *LoginCodeGenRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 生成宜搭登录态穿透用的code
+//
+// @param request - LoginCodeGenRequest
+//
+// @return LoginCodeGenResponse
 func (client *Client) LoginCodeGen(request *LoginCodeGenRequest) (_result *LoginCodeGenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &LoginCodeGenHeaders{}
@@ -21751,6 +27056,17 @@ func (client *Client) LoginCodeGen(request *LoginCodeGenRequest) (_result *Login
 	return _result, _err
 }
 
+// Summary:
+//
+// 通知宜搭授权(购买)结果
+//
+// @param request - NotifyAuthorizationResultRequest
+//
+// @param headers - NotifyAuthorizationResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return NotifyAuthorizationResultResponse
 func (client *Client) NotifyAuthorizationResultWithOptions(request *NotifyAuthorizationResultRequest, headers *NotifyAuthorizationResultHeaders, runtime *util.RuntimeOptions) (_result *NotifyAuthorizationResultResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21834,6 +27150,13 @@ func (client *Client) NotifyAuthorizationResultWithOptions(request *NotifyAuthor
 	return _result, _err
 }
 
+// Summary:
+//
+// 通知宜搭授权(购买)结果
+//
+// @param request - NotifyAuthorizationResultRequest
+//
+// @return NotifyAuthorizationResultResponse
 func (client *Client) NotifyAuthorizationResult(request *NotifyAuthorizationResultRequest) (_result *NotifyAuthorizationResultResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &NotifyAuthorizationResultHeaders{}
@@ -21846,6 +27169,17 @@ func (client *Client) NotifyAuthorizationResult(request *NotifyAuthorizationResu
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页查询宜搭流程自动化运行记录
+//
+// @param request - PageAutoFlowLogRequest
+//
+// @param headers - PageAutoFlowLogHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PageAutoFlowLogResponse
 func (client *Client) PageAutoFlowLogWithOptions(request *PageAutoFlowLogRequest, headers *PageAutoFlowLogHeaders, runtime *util.RuntimeOptions) (_result *PageAutoFlowLogResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -21862,6 +27196,10 @@ func (client *Client) PageAutoFlowLogWithOptions(request *PageAutoFlowLogRequest
 
 	if !tea.BoolValue(util.IsUnset(request.EndTimeGMT)) {
 		body["endTimeGMT"] = request.EndTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
@@ -21929,6 +27267,13 @@ func (client *Client) PageAutoFlowLogWithOptions(request *PageAutoFlowLogRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页查询宜搭流程自动化运行记录
+//
+// @param request - PageAutoFlowLogRequest
+//
+// @return PageAutoFlowLogResponse
 func (client *Client) PageAutoFlowLog(request *PageAutoFlowLogRequest) (_result *PageAutoFlowLogResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PageAutoFlowLogHeaders{}
@@ -21941,6 +27286,17 @@ func (client *Client) PageAutoFlowLog(request *PageAutoFlowLogRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取应用下表单列表
+//
+// @param request - PageFormBaseInfosRequest
+//
+// @param headers - PageFormBaseInfosHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PageFormBaseInfosResponse
 func (client *Client) PageFormBaseInfosWithOptions(request *PageFormBaseInfosRequest, headers *PageFormBaseInfosHeaders, runtime *util.RuntimeOptions) (_result *PageFormBaseInfosResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22008,6 +27364,13 @@ func (client *Client) PageFormBaseInfosWithOptions(request *PageFormBaseInfosReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页获取应用下表单列表
+//
+// @param request - PageFormBaseInfosRequest
+//
+// @return PageFormBaseInfosResponse
 func (client *Client) PageFormBaseInfos(request *PageFormBaseInfosRequest) (_result *PageFormBaseInfosResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PageFormBaseInfosHeaders{}
@@ -22020,6 +27383,17 @@ func (client *Client) PageFormBaseInfos(request *PageFormBaseInfosRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 预览审批流程
+//
+// @param request - PreviewPublishedProcessRequest
+//
+// @param headers - PreviewPublishedProcessHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PreviewPublishedProcessResponse
 func (client *Client) PreviewPublishedProcessWithOptions(request *PreviewPublishedProcessRequest, headers *PreviewPublishedProcessHeaders, runtime *util.RuntimeOptions) (_result *PreviewPublishedProcessResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22091,6 +27465,13 @@ func (client *Client) PreviewPublishedProcessWithOptions(request *PreviewPublish
 	return _result, _err
 }
 
+// Summary:
+//
+// 预览审批流程
+//
+// @param request - PreviewPublishedProcessRequest
+//
+// @return PreviewPublishedProcessResponse
 func (client *Client) PreviewPublishedProcess(request *PreviewPublishedProcessRequest) (_result *PreviewPublishedProcessResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PreviewPublishedProcessHeaders{}
@@ -22103,6 +27484,17 @@ func (client *Client) PreviewPublishedProcess(request *PreviewPublishedProcessRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询服务调用记录
+//
+// @param request - QueryServiceRecordRequest
+//
+// @param headers - QueryServiceRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryServiceRecordResponse
 func (client *Client) QueryServiceRecordWithOptions(request *QueryServiceRecordRequest, headers *QueryServiceRecordHeaders, runtime *util.RuntimeOptions) (_result *QueryServiceRecordResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22202,6 +27594,13 @@ func (client *Client) QueryServiceRecordWithOptions(request *QueryServiceRecordR
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询服务调用记录
+//
+// @param request - QueryServiceRecordRequest
+//
+// @return QueryServiceRecordResponse
 func (client *Client) QueryServiceRecord(request *QueryServiceRecordRequest) (_result *QueryServiceRecordResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryServiceRecordHeaders{}
@@ -22214,6 +27613,17 @@ func (client *Client) QueryServiceRecord(request *QueryServiceRecordRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 执行转交任务
+//
+// @param request - RedirectTaskRequest
+//
+// @param headers - RedirectTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RedirectTaskResponse
 func (client *Client) RedirectTaskWithOptions(request *RedirectTaskRequest, headers *RedirectTaskHeaders, runtime *util.RuntimeOptions) (_result *RedirectTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22289,6 +27699,13 @@ func (client *Client) RedirectTaskWithOptions(request *RedirectTaskRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 执行转交任务
+//
+// @param request - RedirectTaskRequest
+//
+// @return RedirectTaskResponse
 func (client *Client) RedirectTask(request *RedirectTaskRequest) (_result *RedirectTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RedirectTaskHeaders{}
@@ -22301,6 +27718,17 @@ func (client *Client) RedirectTask(request *RedirectTaskRequest) (_result *Redir
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道退款
+//
+// @param request - RefundCommodityRequest
+//
+// @param headers - RefundCommodityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RefundCommodityResponse
 func (client *Client) RefundCommodityWithOptions(request *RefundCommodityRequest, headers *RefundCommodityHeaders, runtime *util.RuntimeOptions) (_result *RefundCommodityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22352,6 +27780,13 @@ func (client *Client) RefundCommodityWithOptions(request *RefundCommodityRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道退款
+//
+// @param request - RefundCommodityRequest
+//
+// @return RefundCommodityResponse
 func (client *Client) RefundCommodity(request *RefundCommodityRequest) (_result *RefundCommodityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RefundCommodityHeaders{}
@@ -22364,6 +27799,17 @@ func (client *Client) RefundCommodity(request *RefundCommodityRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道注册
+//
+// @param request - RegisterAccountsRequest
+//
+// @param headers - RegisterAccountsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RegisterAccountsResponse
 func (client *Client) RegisterAccountsWithOptions(request *RegisterAccountsRequest, headers *RegisterAccountsHeaders, runtime *util.RuntimeOptions) (_result *RegisterAccountsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22415,6 +27861,13 @@ func (client *Client) RegisterAccountsWithOptions(request *RegisterAccountsReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道注册
+//
+// @param request - RegisterAccountsRequest
+//
+// @return RegisterAccountsResponse
 func (client *Client) RegisterAccounts(request *RegisterAccountsRequest) (_result *RegisterAccountsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RegisterAccountsHeaders{}
@@ -22427,6 +27880,17 @@ func (client *Client) RegisterAccounts(request *RegisterAccountsRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道释放
+//
+// @param request - ReleaseCommodityRequest
+//
+// @param headers - ReleaseCommodityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ReleaseCommodityResponse
 func (client *Client) ReleaseCommodityWithOptions(request *ReleaseCommodityRequest, headers *ReleaseCommodityHeaders, runtime *util.RuntimeOptions) (_result *ReleaseCommodityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22478,6 +27942,13 @@ func (client *Client) ReleaseCommodityWithOptions(request *ReleaseCommodityReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道释放
+//
+// @param request - ReleaseCommodityRequest
+//
+// @return ReleaseCommodityResponse
 func (client *Client) ReleaseCommodity(request *ReleaseCommodityRequest) (_result *ReleaseCommodityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ReleaseCommodityHeaders{}
@@ -22490,6 +27961,17 @@ func (client *Client) ReleaseCommodity(request *ReleaseCommodityRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 租户到期30天后, 删除租户关联的资源
+//
+// @param request - RemoveTenantResourceRequest
+//
+// @param headers - RemoveTenantResourceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RemoveTenantResourceResponse
 func (client *Client) RemoveTenantResourceWithOptions(callerUid *string, request *RemoveTenantResourceRequest, headers *RemoveTenantResourceHeaders, runtime *util.RuntimeOptions) (_result *RemoveTenantResourceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22533,6 +28015,13 @@ func (client *Client) RemoveTenantResourceWithOptions(callerUid *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 租户到期30天后, 删除租户关联的资源
+//
+// @param request - RemoveTenantResourceRequest
+//
+// @return RemoveTenantResourceResponse
 func (client *Client) RemoveTenantResource(callerUid *string, request *RemoveTenantResourceRequest) (_result *RemoveTenantResourceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RemoveTenantResourceHeaders{}
@@ -22545,6 +28034,17 @@ func (client *Client) RemoveTenantResource(callerUid *string, request *RemoveTen
 	return _result, _err
 }
 
+// Summary:
+//
+// 宜搭vpc批量打印回调
+//
+// @param request - RenderBatchCallbackRequest
+//
+// @param headers - RenderBatchCallbackHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RenderBatchCallbackResponse
 func (client *Client) RenderBatchCallbackWithOptions(request *RenderBatchCallbackRequest, headers *RenderBatchCallbackHeaders, runtime *util.RuntimeOptions) (_result *RenderBatchCallbackResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22632,6 +28132,13 @@ func (client *Client) RenderBatchCallbackWithOptions(request *RenderBatchCallbac
 	return _result, _err
 }
 
+// Summary:
+//
+// 宜搭vpc批量打印回调
+//
+// @param request - RenderBatchCallbackRequest
+//
+// @return RenderBatchCallbackResponse
 func (client *Client) RenderBatchCallback(request *RenderBatchCallbackRequest) (_result *RenderBatchCallbackResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RenderBatchCallbackHeaders{}
@@ -22644,6 +28151,17 @@ func (client *Client) RenderBatchCallback(request *RenderBatchCallbackRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道续费
+//
+// @param request - RenewApplicationAuthorizationServiceOrderRequest
+//
+// @param headers - RenewApplicationAuthorizationServiceOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RenewApplicationAuthorizationServiceOrderResponse
 func (client *Client) RenewApplicationAuthorizationServiceOrderWithOptions(request *RenewApplicationAuthorizationServiceOrderRequest, headers *RenewApplicationAuthorizationServiceOrderHeaders, runtime *util.RuntimeOptions) (_result *RenewApplicationAuthorizationServiceOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22699,6 +28217,13 @@ func (client *Client) RenewApplicationAuthorizationServiceOrderWithOptions(reque
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道续费
+//
+// @param request - RenewApplicationAuthorizationServiceOrderRequest
+//
+// @return RenewApplicationAuthorizationServiceOrderResponse
 func (client *Client) RenewApplicationAuthorizationServiceOrder(request *RenewApplicationAuthorizationServiceOrderRequest) (_result *RenewApplicationAuthorizationServiceOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RenewApplicationAuthorizationServiceOrderHeaders{}
@@ -22711,6 +28236,17 @@ func (client *Client) RenewApplicationAuthorizationServiceOrder(request *RenewAp
 	return _result, _err
 }
 
+// Summary:
+//
+// 续费租户
+//
+// @param request - RenewTenantOrderRequest
+//
+// @param headers - RenewTenantOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RenewTenantOrderResponse
 func (client *Client) RenewTenantOrderWithOptions(request *RenewTenantOrderRequest, headers *RenewTenantOrderHeaders, runtime *util.RuntimeOptions) (_result *RenewTenantOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22762,6 +28298,13 @@ func (client *Client) RenewTenantOrderWithOptions(request *RenewTenantOrderReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 续费租户
+//
+// @param request - RenewTenantOrderRequest
+//
+// @return RenewTenantOrderResponse
 func (client *Client) RenewTenantOrder(request *RenewTenantOrderRequest) (_result *RenewTenantOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RenewTenantOrderHeaders{}
@@ -22774,6 +28317,17 @@ func (client *Client) RenewTenantOrder(request *RenewTenantOrderRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增表单实例
+//
+// @param request - SaveFormDataRequest
+//
+// @param headers - SaveFormDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SaveFormDataResponse
 func (client *Client) SaveFormDataWithOptions(request *SaveFormDataRequest, headers *SaveFormDataHeaders, runtime *util.RuntimeOptions) (_result *SaveFormDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22837,6 +28391,13 @@ func (client *Client) SaveFormDataWithOptions(request *SaveFormDataRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增表单实例
+//
+// @param request - SaveFormDataRequest
+//
+// @return SaveFormDataResponse
 func (client *Client) SaveFormData(request *SaveFormDataRequest) (_result *SaveFormDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SaveFormDataHeaders{}
@@ -22849,6 +28410,17 @@ func (client *Client) SaveFormData(request *SaveFormDataRequest) (_result *SaveF
 	return _result, _err
 }
 
+// Summary:
+//
+// 提交表单/流程实例下的评论
+//
+// @param request - SaveFormRemarkRequest
+//
+// @param headers - SaveFormRemarkHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SaveFormRemarkResponse
 func (client *Client) SaveFormRemarkWithOptions(request *SaveFormRemarkRequest, headers *SaveFormRemarkHeaders, runtime *util.RuntimeOptions) (_result *SaveFormRemarkResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -22920,6 +28492,13 @@ func (client *Client) SaveFormRemarkWithOptions(request *SaveFormRemarkRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 提交表单/流程实例下的评论
+//
+// @param request - SaveFormRemarkRequest
+//
+// @return SaveFormRemarkResponse
 func (client *Client) SaveFormRemark(request *SaveFormRemarkRequest) (_result *SaveFormRemarkResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SaveFormRemarkHeaders{}
@@ -22932,6 +28511,17 @@ func (client *Client) SaveFormRemark(request *SaveFormRemarkRequest) (_result *S
 	return _result, _err
 }
 
+// Summary:
+//
+// 保存用户设计的模板结构
+//
+// @param request - SavePrintTplDetailInfoRequest
+//
+// @param headers - SavePrintTplDetailInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SavePrintTplDetailInfoResponse
 func (client *Client) SavePrintTplDetailInfoWithOptions(request *SavePrintTplDetailInfoRequest, headers *SavePrintTplDetailInfoHeaders, runtime *util.RuntimeOptions) (_result *SavePrintTplDetailInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23011,6 +28601,13 @@ func (client *Client) SavePrintTplDetailInfoWithOptions(request *SavePrintTplDet
 	return _result, _err
 }
 
+// Summary:
+//
+// 保存用户设计的模板结构
+//
+// @param request - SavePrintTplDetailInfoRequest
+//
+// @return SavePrintTplDetailInfoResponse
 func (client *Client) SavePrintTplDetailInfo(request *SavePrintTplDetailInfoRequest) (_result *SavePrintTplDetailInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SavePrintTplDetailInfoHeaders{}
@@ -23023,6 +28620,17 @@ func (client *Client) SavePrintTplDetailInfo(request *SavePrintTplDetailInfoRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取阿里云账号购买宜搭的账号信息
+//
+// @param request - SearchActivationCodeRequest
+//
+// @param headers - SearchActivationCodeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchActivationCodeResponse
 func (client *Client) SearchActivationCodeWithOptions(request *SearchActivationCodeRequest, headers *SearchActivationCodeHeaders, runtime *util.RuntimeOptions) (_result *SearchActivationCodeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23070,6 +28678,13 @@ func (client *Client) SearchActivationCodeWithOptions(request *SearchActivationC
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取阿里云账号购买宜搭的账号信息
+//
+// @param request - SearchActivationCodeRequest
+//
+// @return SearchActivationCodeResponse
 func (client *Client) SearchActivationCode(request *SearchActivationCodeRequest) (_result *SearchActivationCodeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchActivationCodeHeaders{}
@@ -23082,6 +28697,17 @@ func (client *Client) SearchActivationCode(request *SearchActivationCodeRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 搜索表单中指定人员组件的值
+//
+// @param request - SearchEmployeeFieldValuesRequest
+//
+// @param headers - SearchEmployeeFieldValuesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchEmployeeFieldValuesResponse
 func (client *Client) SearchEmployeeFieldValuesWithOptions(request *SearchEmployeeFieldValuesRequest, headers *SearchEmployeeFieldValuesHeaders, runtime *util.RuntimeOptions) (_result *SearchEmployeeFieldValuesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23169,6 +28795,13 @@ func (client *Client) SearchEmployeeFieldValuesWithOptions(request *SearchEmploy
 	return _result, _err
 }
 
+// Summary:
+//
+// 搜索表单中指定人员组件的值
+//
+// @param request - SearchEmployeeFieldValuesRequest
+//
+// @return SearchEmployeeFieldValuesResponse
 func (client *Client) SearchEmployeeFieldValues(request *SearchEmployeeFieldValuesRequest) (_result *SearchEmployeeFieldValuesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchEmployeeFieldValuesHeaders{}
@@ -23181,6 +28814,17 @@ func (client *Client) SearchEmployeeFieldValues(request *SearchEmployeeFieldValu
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据条件搜索表单实例 ID 列表
+//
+// @param request - SearchFormDataIdListRequest
+//
+// @param headers - SearchFormDataIdListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchFormDataIdListResponse
 func (client *Client) SearchFormDataIdListWithOptions(appType *string, formUuid *string, request *SearchFormDataIdListRequest, headers *SearchFormDataIdListHeaders, runtime *util.RuntimeOptions) (_result *SearchFormDataIdListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23266,6 +28910,13 @@ func (client *Client) SearchFormDataIdListWithOptions(appType *string, formUuid 
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据条件搜索表单实例 ID 列表
+//
+// @param request - SearchFormDataIdListRequest
+//
+// @return SearchFormDataIdListResponse
 func (client *Client) SearchFormDataIdList(appType *string, formUuid *string, request *SearchFormDataIdListRequest) (_result *SearchFormDataIdListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchFormDataIdListHeaders{}
@@ -23278,6 +28929,17 @@ func (client *Client) SearchFormDataIdList(appType *string, formUuid *string, re
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询表单实例数据(不返回表单的子表单组件数据)
+//
+// @param request - SearchFormDataRemovalTableDataRequest
+//
+// @param headers - SearchFormDataRemovalTableDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchFormDataRemovalTableDataResponse
 func (client *Client) SearchFormDataRemovalTableDataWithOptions(request *SearchFormDataRemovalTableDataRequest, headers *SearchFormDataRemovalTableDataHeaders, runtime *util.RuntimeOptions) (_result *SearchFormDataRemovalTableDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23369,6 +29031,13 @@ func (client *Client) SearchFormDataRemovalTableDataWithOptions(request *SearchF
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询表单实例数据(不返回表单的子表单组件数据)
+//
+// @param request - SearchFormDataRemovalTableDataRequest
+//
+// @return SearchFormDataRemovalTableDataResponse
 func (client *Client) SearchFormDataRemovalTableData(request *SearchFormDataRemovalTableDataRequest) (_result *SearchFormDataRemovalTableDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchFormDataRemovalTableDataHeaders{}
@@ -23381,6 +29050,17 @@ func (client *Client) SearchFormDataRemovalTableData(request *SearchFormDataRemo
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过高级检索条件查询表单实例
+//
+// @param request - SearchFormDataSecondGenerationRequest
+//
+// @param headers - SearchFormDataSecondGenerationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchFormDataSecondGenerationResponse
 func (client *Client) SearchFormDataSecondGenerationWithOptions(request *SearchFormDataSecondGenerationRequest, headers *SearchFormDataSecondGenerationHeaders, runtime *util.RuntimeOptions) (_result *SearchFormDataSecondGenerationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23472,6 +29152,13 @@ func (client *Client) SearchFormDataSecondGenerationWithOptions(request *SearchF
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过高级检索条件查询表单实例
+//
+// @param request - SearchFormDataSecondGenerationRequest
+//
+// @return SearchFormDataSecondGenerationResponse
 func (client *Client) SearchFormDataSecondGeneration(request *SearchFormDataSecondGenerationRequest) (_result *SearchFormDataSecondGenerationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchFormDataSecondGenerationHeaders{}
@@ -23484,6 +29171,17 @@ func (client *Client) SearchFormDataSecondGeneration(request *SearchFormDataSeco
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过高级查询条件查询表单实例数据(不返回子表单组件数据)
+//
+// @param request - SearchFormDataSecondGenerationNoTableFieldRequest
+//
+// @param headers - SearchFormDataSecondGenerationNoTableFieldHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchFormDataSecondGenerationNoTableFieldResponse
 func (client *Client) SearchFormDataSecondGenerationNoTableFieldWithOptions(request *SearchFormDataSecondGenerationNoTableFieldRequest, headers *SearchFormDataSecondGenerationNoTableFieldHeaders, runtime *util.RuntimeOptions) (_result *SearchFormDataSecondGenerationNoTableFieldResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23575,6 +29273,13 @@ func (client *Client) SearchFormDataSecondGenerationNoTableFieldWithOptions(requ
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过高级查询条件查询表单实例数据(不返回子表单组件数据)
+//
+// @param request - SearchFormDataSecondGenerationNoTableFieldRequest
+//
+// @return SearchFormDataSecondGenerationNoTableFieldResponse
 func (client *Client) SearchFormDataSecondGenerationNoTableField(request *SearchFormDataSecondGenerationNoTableFieldRequest) (_result *SearchFormDataSecondGenerationNoTableFieldResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchFormDataSecondGenerationNoTableFieldHeaders{}
@@ -23587,6 +29292,17 @@ func (client *Client) SearchFormDataSecondGenerationNoTableField(request *Search
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据条件搜索表单实例详情列表,对应原searchFormDatas
+//
+// @param request - SearchFormDatasRequest
+//
+// @param headers - SearchFormDatasHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchFormDatasResponse
 func (client *Client) SearchFormDatasWithOptions(request *SearchFormDatasRequest, headers *SearchFormDatasHeaders, runtime *util.RuntimeOptions) (_result *SearchFormDatasResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23619,6 +29335,10 @@ func (client *Client) SearchFormDatasWithOptions(request *SearchFormDatasRequest
 
 	if !tea.BoolValue(util.IsUnset(request.Language)) {
 		body["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LogicOperator)) {
+		body["logicOperator"] = request.LogicOperator
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ModifiedFromTimeGMT)) {
@@ -23682,6 +29402,13 @@ func (client *Client) SearchFormDatasWithOptions(request *SearchFormDatasRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据条件搜索表单实例详情列表,对应原searchFormDatas
+//
+// @param request - SearchFormDatasRequest
+//
+// @return SearchFormDatasResponse
 func (client *Client) SearchFormDatas(request *SearchFormDatasRequest) (_result *SearchFormDatasResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchFormDatasHeaders{}
@@ -23694,6 +29421,17 @@ func (client *Client) SearchFormDatas(request *SearchFormDatasRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 发起新的流程实例
+//
+// @param request - StartInstanceRequest
+//
+// @param headers - StartInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return StartInstanceResponse
 func (client *Client) StartInstanceWithOptions(request *StartInstanceRequest, headers *StartInstanceHeaders, runtime *util.RuntimeOptions) (_result *StartInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23769,6 +29507,13 @@ func (client *Client) StartInstanceWithOptions(request *StartInstanceRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 发起新的流程实例
+//
+// @param request - StartInstanceRequest
+//
+// @return StartInstanceResponse
 func (client *Client) StartInstance(request *StartInstanceRequest) (_result *StartInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &StartInstanceHeaders{}
@@ -23781,6 +29526,17 @@ func (client *Client) StartInstance(request *StartInstanceRequest) (_result *Sta
 	return _result, _err
 }
 
+// Summary:
+//
+// 阿里云合同到期终止
+//
+// @param request - TerminateCloudAuthorizationRequest
+//
+// @param headers - TerminateCloudAuthorizationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TerminateCloudAuthorizationResponse
 func (client *Client) TerminateCloudAuthorizationWithOptions(request *TerminateCloudAuthorizationRequest, headers *TerminateCloudAuthorizationHeaders, runtime *util.RuntimeOptions) (_result *TerminateCloudAuthorizationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23832,6 +29588,13 @@ func (client *Client) TerminateCloudAuthorizationWithOptions(request *TerminateC
 	return _result, _err
 }
 
+// Summary:
+//
+// 阿里云合同到期终止
+//
+// @param request - TerminateCloudAuthorizationRequest
+//
+// @return TerminateCloudAuthorizationResponse
 func (client *Client) TerminateCloudAuthorization(request *TerminateCloudAuthorizationRequest) (_result *TerminateCloudAuthorizationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &TerminateCloudAuthorizationHeaders{}
@@ -23844,6 +29607,17 @@ func (client *Client) TerminateCloudAuthorization(request *TerminateCloudAuthori
 	return _result, _err
 }
 
+// Summary:
+//
+// 终止流程实例
+//
+// @param request - TerminateInstanceRequest
+//
+// @param headers - TerminateInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TerminateInstanceResponse
 func (client *Client) TerminateInstanceWithOptions(request *TerminateInstanceRequest, headers *TerminateInstanceHeaders, runtime *util.RuntimeOptions) (_result *TerminateInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23903,6 +29677,13 @@ func (client *Client) TerminateInstanceWithOptions(request *TerminateInstanceReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 终止流程实例
+//
+// @param request - TerminateInstanceRequest
+//
+// @return TerminateInstanceResponse
 func (client *Client) TerminateInstance(request *TerminateInstanceRequest) (_result *TerminateInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &TerminateInstanceHeaders{}
@@ -23915,6 +29696,17 @@ func (client *Client) TerminateInstance(request *TerminateInstanceRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 变配阿里云账号对应的租户信息
+//
+// @param request - UpdateCloudAccountInformationRequest
+//
+// @param headers - UpdateCloudAccountInformationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateCloudAccountInformationResponse
 func (client *Client) UpdateCloudAccountInformationWithOptions(request *UpdateCloudAccountInformationRequest, headers *UpdateCloudAccountInformationHeaders, runtime *util.RuntimeOptions) (_result *UpdateCloudAccountInformationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -23970,6 +29762,13 @@ func (client *Client) UpdateCloudAccountInformationWithOptions(request *UpdateCl
 	return _result, _err
 }
 
+// Summary:
+//
+// 变配阿里云账号对应的租户信息
+//
+// @param request - UpdateCloudAccountInformationRequest
+//
+// @return UpdateCloudAccountInformationResponse
 func (client *Client) UpdateCloudAccountInformation(request *UpdateCloudAccountInformationRequest) (_result *UpdateCloudAccountInformationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateCloudAccountInformationHeaders{}
@@ -23982,6 +29781,17 @@ func (client *Client) UpdateCloudAccountInformation(request *UpdateCloudAccountI
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新表单实例
+//
+// @param request - UpdateFormDataRequest
+//
+// @param headers - UpdateFormDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateFormDataResponse
 func (client *Client) UpdateFormDataWithOptions(request *UpdateFormDataRequest, headers *UpdateFormDataHeaders, runtime *util.RuntimeOptions) (_result *UpdateFormDataResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24049,6 +29859,13 @@ func (client *Client) UpdateFormDataWithOptions(request *UpdateFormDataRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新表单实例
+//
+// @param request - UpdateFormDataRequest
+//
+// @return UpdateFormDataResponse
 func (client *Client) UpdateFormData(request *UpdateFormDataRequest) (_result *UpdateFormDataResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateFormDataHeaders{}
@@ -24061,6 +29878,17 @@ func (client *Client) UpdateFormData(request *UpdateFormDataRequest) (_result *U
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新流程实例
+//
+// @param request - UpdateInstanceRequest
+//
+// @param headers - UpdateInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateInstanceResponse
 func (client *Client) UpdateInstanceWithOptions(request *UpdateInstanceRequest, headers *UpdateInstanceHeaders, runtime *util.RuntimeOptions) (_result *UpdateInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24124,6 +29952,13 @@ func (client *Client) UpdateInstanceWithOptions(request *UpdateInstanceRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新流程实例
+//
+// @param request - UpdateInstanceRequest
+//
+// @return UpdateInstanceResponse
 func (client *Client) UpdateInstance(request *UpdateInstanceRequest) (_result *UpdateInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateInstanceHeaders{}
@@ -24136,6 +29971,17 @@ func (client *Client) UpdateInstance(request *UpdateInstanceRequest) (_result *U
 	return _result, _err
 }
 
+// Summary:
+//
+// 未知
+//
+// @param request - UpdateStatusRequest
+//
+// @param headers - UpdateStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateStatusResponse
 func (client *Client) UpdateStatusWithOptions(request *UpdateStatusRequest, headers *UpdateStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24203,6 +30049,13 @@ func (client *Client) UpdateStatusWithOptions(request *UpdateStatusRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 未知
+//
+// @param request - UpdateStatusRequest
+//
+// @return UpdateStatusResponse
 func (client *Client) UpdateStatus(request *UpdateStatusRequest) (_result *UpdateStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateStatusHeaders{}
@@ -24215,6 +30068,17 @@ func (client *Client) UpdateStatus(request *UpdateStatusRequest) (_result *Updat
 	return _result, _err
 }
 
+// Summary:
+//
+// 变配阿里云账号对应的租户信息
+//
+// @param request - UpgradeTenantInformationRequest
+//
+// @param headers - UpgradeTenantInformationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpgradeTenantInformationResponse
 func (client *Client) UpgradeTenantInformationWithOptions(request *UpgradeTenantInformationRequest, headers *UpgradeTenantInformationHeaders, runtime *util.RuntimeOptions) (_result *UpgradeTenantInformationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24270,6 +30134,13 @@ func (client *Client) UpgradeTenantInformationWithOptions(request *UpgradeTenant
 	return _result, _err
 }
 
+// Summary:
+//
+// 变配阿里云账号对应的租户信息
+//
+// @param request - UpgradeTenantInformationRequest
+//
+// @return UpgradeTenantInformationResponse
 func (client *Client) UpgradeTenantInformation(request *UpgradeTenantInformationRequest) (_result *UpgradeTenantInformationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpgradeTenantInformationHeaders{}
@@ -24282,6 +30153,17 @@ func (client *Client) UpgradeTenantInformation(request *UpgradeTenantInformation
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道续费前校验
+//
+// @param request - ValidateApplicationAuthorizationOrderRequest
+//
+// @param headers - ValidateApplicationAuthorizationOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ValidateApplicationAuthorizationOrderResponse
 func (client *Client) ValidateApplicationAuthorizationOrderWithOptions(instanceId *string, request *ValidateApplicationAuthorizationOrderRequest, headers *ValidateApplicationAuthorizationOrderHeaders, runtime *util.RuntimeOptions) (_result *ValidateApplicationAuthorizationOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24329,6 +30211,13 @@ func (client *Client) ValidateApplicationAuthorizationOrderWithOptions(instanceI
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道续费前校验
+//
+// @param request - ValidateApplicationAuthorizationOrderRequest
+//
+// @return ValidateApplicationAuthorizationOrderResponse
 func (client *Client) ValidateApplicationAuthorizationOrder(instanceId *string, request *ValidateApplicationAuthorizationOrderRequest) (_result *ValidateApplicationAuthorizationOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ValidateApplicationAuthorizationOrderHeaders{}
@@ -24341,6 +30230,17 @@ func (client *Client) ValidateApplicationAuthorizationOrder(instanceId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道新购校验
+//
+// @param request - ValidateApplicationAuthorizationServiceOrderRequest
+//
+// @param headers - ValidateApplicationAuthorizationServiceOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ValidateApplicationAuthorizationServiceOrderResponse
 func (client *Client) ValidateApplicationAuthorizationServiceOrderWithOptions(callerUid *string, request *ValidateApplicationAuthorizationServiceOrderRequest, headers *ValidateApplicationAuthorizationServiceOrderHeaders, runtime *util.RuntimeOptions) (_result *ValidateApplicationAuthorizationServiceOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24384,6 +30284,13 @@ func (client *Client) ValidateApplicationAuthorizationServiceOrderWithOptions(ca
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道新购校验
+//
+// @param request - ValidateApplicationAuthorizationServiceOrderRequest
+//
+// @return ValidateApplicationAuthorizationServiceOrderResponse
 func (client *Client) ValidateApplicationAuthorizationServiceOrder(callerUid *string, request *ValidateApplicationAuthorizationServiceOrderRequest) (_result *ValidateApplicationAuthorizationServiceOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ValidateApplicationAuthorizationServiceOrderHeaders{}
@@ -24396,6 +30303,17 @@ func (client *Client) ValidateApplicationAuthorizationServiceOrder(callerUid *st
 	return _result, _err
 }
 
+// Summary:
+//
+// 校验变配
+//
+// @param request - ValidateApplicationServiceOrderUpgradeRequest
+//
+// @param headers - ValidateApplicationServiceOrderUpgradeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ValidateApplicationServiceOrderUpgradeResponse
 func (client *Client) ValidateApplicationServiceOrderUpgradeWithOptions(callerUnionid *string, request *ValidateApplicationServiceOrderUpgradeRequest, headers *ValidateApplicationServiceOrderUpgradeHeaders, runtime *util.RuntimeOptions) (_result *ValidateApplicationServiceOrderUpgradeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24439,6 +30357,13 @@ func (client *Client) ValidateApplicationServiceOrderUpgradeWithOptions(callerUn
 	return _result, _err
 }
 
+// Summary:
+//
+// 校验变配
+//
+// @param request - ValidateApplicationServiceOrderUpgradeRequest
+//
+// @return ValidateApplicationServiceOrderUpgradeResponse
 func (client *Client) ValidateApplicationServiceOrderUpgrade(callerUnionid *string, request *ValidateApplicationServiceOrderUpgradeRequest) (_result *ValidateApplicationServiceOrderUpgradeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ValidateApplicationServiceOrderUpgradeHeaders{}
@@ -24451,6 +30376,17 @@ func (client *Client) ValidateApplicationServiceOrderUpgrade(callerUnionid *stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道新购校验
+//
+// @param request - ValidateOrderBuyRequest
+//
+// @param headers - ValidateOrderBuyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ValidateOrderBuyResponse
 func (client *Client) ValidateOrderBuyWithOptions(request *ValidateOrderBuyRequest, headers *ValidateOrderBuyHeaders, runtime *util.RuntimeOptions) (_result *ValidateOrderBuyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24498,6 +30434,13 @@ func (client *Client) ValidateOrderBuyWithOptions(request *ValidateOrderBuyReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道新购校验
+//
+// @param request - ValidateOrderBuyRequest
+//
+// @return ValidateOrderBuyResponse
 func (client *Client) ValidateOrderBuy(request *ValidateOrderBuyRequest) (_result *ValidateOrderBuyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ValidateOrderBuyHeaders{}
@@ -24510,6 +30453,17 @@ func (client *Client) ValidateOrderBuy(request *ValidateOrderBuyRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道续费前校验
+//
+// @param request - ValidateOrderUpdateRequest
+//
+// @param headers - ValidateOrderUpdateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ValidateOrderUpdateResponse
 func (client *Client) ValidateOrderUpdateWithOptions(instanceId *string, request *ValidateOrderUpdateRequest, headers *ValidateOrderUpdateHeaders, runtime *util.RuntimeOptions) (_result *ValidateOrderUpdateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24557,6 +30511,13 @@ func (client *Client) ValidateOrderUpdateWithOptions(instanceId *string, request
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道续费前校验
+//
+// @param request - ValidateOrderUpdateRequest
+//
+// @return ValidateOrderUpdateResponse
 func (client *Client) ValidateOrderUpdate(instanceId *string, request *ValidateOrderUpdateRequest) (_result *ValidateOrderUpdateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ValidateOrderUpdateHeaders{}
@@ -24569,6 +30530,17 @@ func (client *Client) ValidateOrderUpdate(instanceId *string, request *ValidateO
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道升配前校验
+//
+// @param request - ValidateOrderUpgradeRequest
+//
+// @param headers - ValidateOrderUpgradeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ValidateOrderUpgradeResponse
 func (client *Client) ValidateOrderUpgradeWithOptions(request *ValidateOrderUpgradeRequest, headers *ValidateOrderUpgradeHeaders, runtime *util.RuntimeOptions) (_result *ValidateOrderUpgradeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -24620,6 +30592,13 @@ func (client *Client) ValidateOrderUpgradeWithOptions(request *ValidateOrderUpgr
 	return _result, _err
 }
 
+// Summary:
+//
+// 多渠道升配前校验
+//
+// @param request - ValidateOrderUpgradeRequest
+//
+// @return ValidateOrderUpgradeResponse
 func (client *Client) ValidateOrderUpgrade(request *ValidateOrderUpgradeRequest) (_result *ValidateOrderUpgradeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ValidateOrderUpgradeHeaders{}

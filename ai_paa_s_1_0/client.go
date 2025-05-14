@@ -1,17 +1,267 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package ai_paa_s_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
+
+type ExclusiveModelCompleteServiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ExclusiveModelCompleteServiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusiveModelCompleteServiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusiveModelCompleteServiceHeaders) SetCommonHeaders(v map[string]*string) *ExclusiveModelCompleteServiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceHeaders) SetXAcsDingtalkAccessToken(v string) *ExclusiveModelCompleteServiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ExclusiveModelCompleteServiceRequest struct {
+	EnableSearch *bool  `json:"enable_search,omitempty" xml:"enable_search,omitempty"`
+	MaxTokens    *int32 `json:"max_tokens,omitempty" xml:"max_tokens,omitempty"`
+	// This parameter is required.
+	Messages []*ExclusiveModelCompleteServiceRequestMessages `json:"messages,omitempty" xml:"messages,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Model       *string  `json:"model,omitempty" xml:"model,omitempty"`
+	Stream      *bool    `json:"stream,omitempty" xml:"stream,omitempty"`
+	Temperature *float64 `json:"temperature,omitempty" xml:"temperature,omitempty"`
+	TopP        *float64 `json:"top_p,omitempty" xml:"top_p,omitempty"`
+}
+
+func (s ExclusiveModelCompleteServiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusiveModelCompleteServiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusiveModelCompleteServiceRequest) SetEnableSearch(v bool) *ExclusiveModelCompleteServiceRequest {
+	s.EnableSearch = &v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceRequest) SetMaxTokens(v int32) *ExclusiveModelCompleteServiceRequest {
+	s.MaxTokens = &v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceRequest) SetMessages(v []*ExclusiveModelCompleteServiceRequestMessages) *ExclusiveModelCompleteServiceRequest {
+	s.Messages = v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceRequest) SetModel(v string) *ExclusiveModelCompleteServiceRequest {
+	s.Model = &v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceRequest) SetStream(v bool) *ExclusiveModelCompleteServiceRequest {
+	s.Stream = &v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceRequest) SetTemperature(v float64) *ExclusiveModelCompleteServiceRequest {
+	s.Temperature = &v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceRequest) SetTopP(v float64) *ExclusiveModelCompleteServiceRequest {
+	s.TopP = &v
+	return s
+}
+
+type ExclusiveModelCompleteServiceRequestMessages struct {
+	// This parameter is required.
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
+}
+
+func (s ExclusiveModelCompleteServiceRequestMessages) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusiveModelCompleteServiceRequestMessages) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusiveModelCompleteServiceRequestMessages) SetContent(v string) *ExclusiveModelCompleteServiceRequestMessages {
+	s.Content = &v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceRequestMessages) SetRole(v string) *ExclusiveModelCompleteServiceRequestMessages {
+	s.Role = &v
+	return s
+}
+
+type ExclusiveModelCompleteServiceResponseBody struct {
+	Choices []*ExclusiveModelCompleteServiceResponseBodyChoices `json:"choices,omitempty" xml:"choices,omitempty" type:"Repeated"`
+	Created *int64                                              `json:"created,omitempty" xml:"created,omitempty"`
+	Id      *string                                             `json:"id,omitempty" xml:"id,omitempty"`
+	Model   *string                                             `json:"model,omitempty" xml:"model,omitempty"`
+	Usage   *ExclusiveModelCompleteServiceResponseBodyUsage     `json:"usage,omitempty" xml:"usage,omitempty" type:"Struct"`
+}
+
+func (s ExclusiveModelCompleteServiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusiveModelCompleteServiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusiveModelCompleteServiceResponseBody) SetChoices(v []*ExclusiveModelCompleteServiceResponseBodyChoices) *ExclusiveModelCompleteServiceResponseBody {
+	s.Choices = v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceResponseBody) SetCreated(v int64) *ExclusiveModelCompleteServiceResponseBody {
+	s.Created = &v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceResponseBody) SetId(v string) *ExclusiveModelCompleteServiceResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceResponseBody) SetModel(v string) *ExclusiveModelCompleteServiceResponseBody {
+	s.Model = &v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceResponseBody) SetUsage(v *ExclusiveModelCompleteServiceResponseBodyUsage) *ExclusiveModelCompleteServiceResponseBody {
+	s.Usage = v
+	return s
+}
+
+type ExclusiveModelCompleteServiceResponseBodyChoices struct {
+	FinishReason *string                                                  `json:"finishReason,omitempty" xml:"finishReason,omitempty"`
+	Message      *ExclusiveModelCompleteServiceResponseBodyChoicesMessage `json:"message,omitempty" xml:"message,omitempty" type:"Struct"`
+}
+
+func (s ExclusiveModelCompleteServiceResponseBodyChoices) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusiveModelCompleteServiceResponseBodyChoices) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusiveModelCompleteServiceResponseBodyChoices) SetFinishReason(v string) *ExclusiveModelCompleteServiceResponseBodyChoices {
+	s.FinishReason = &v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceResponseBodyChoices) SetMessage(v *ExclusiveModelCompleteServiceResponseBodyChoicesMessage) *ExclusiveModelCompleteServiceResponseBodyChoices {
+	s.Message = v
+	return s
+}
+
+type ExclusiveModelCompleteServiceResponseBodyChoicesMessage struct {
+	Content          *string `json:"content,omitempty" xml:"content,omitempty"`
+	ReasoningContent *string `json:"reasoning_content,omitempty" xml:"reasoning_content,omitempty"`
+	Role             *string `json:"role,omitempty" xml:"role,omitempty"`
+}
+
+func (s ExclusiveModelCompleteServiceResponseBodyChoicesMessage) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusiveModelCompleteServiceResponseBodyChoicesMessage) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusiveModelCompleteServiceResponseBodyChoicesMessage) SetContent(v string) *ExclusiveModelCompleteServiceResponseBodyChoicesMessage {
+	s.Content = &v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceResponseBodyChoicesMessage) SetReasoningContent(v string) *ExclusiveModelCompleteServiceResponseBodyChoicesMessage {
+	s.ReasoningContent = &v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceResponseBodyChoicesMessage) SetRole(v string) *ExclusiveModelCompleteServiceResponseBodyChoicesMessage {
+	s.Role = &v
+	return s
+}
+
+type ExclusiveModelCompleteServiceResponseBodyUsage struct {
+	CompletionTokens *int32 `json:"completion_tokens,omitempty" xml:"completion_tokens,omitempty"`
+	PromptTokens     *int32 `json:"prompt_tokens,omitempty" xml:"prompt_tokens,omitempty"`
+	TotalTokens      *int32 `json:"total_tokens,omitempty" xml:"total_tokens,omitempty"`
+}
+
+func (s ExclusiveModelCompleteServiceResponseBodyUsage) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusiveModelCompleteServiceResponseBodyUsage) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusiveModelCompleteServiceResponseBodyUsage) SetCompletionTokens(v int32) *ExclusiveModelCompleteServiceResponseBodyUsage {
+	s.CompletionTokens = &v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceResponseBodyUsage) SetPromptTokens(v int32) *ExclusiveModelCompleteServiceResponseBodyUsage {
+	s.PromptTokens = &v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceResponseBodyUsage) SetTotalTokens(v int32) *ExclusiveModelCompleteServiceResponseBodyUsage {
+	s.TotalTokens = &v
+	return s
+}
+
+type ExclusiveModelCompleteServiceResponse struct {
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ExclusiveModelCompleteServiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ExclusiveModelCompleteServiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusiveModelCompleteServiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusiveModelCompleteServiceResponse) SetHeaders(v map[string]*string) *ExclusiveModelCompleteServiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceResponse) SetStatusCode(v int32) *ExclusiveModelCompleteServiceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ExclusiveModelCompleteServiceResponse) SetBody(v *ExclusiveModelCompleteServiceResponseBody) *ExclusiveModelCompleteServiceResponse {
+	s.Body = v
+	return s
+}
 
 type ExecuteAgentHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
@@ -37,7 +287,9 @@ func (s *ExecuteAgentHeaders) SetXAcsDingtalkAccessToken(v string) *ExecuteAgent
 }
 
 type ExecuteAgentRequest struct {
-	AgentCode          *string                    `json:"agentCode,omitempty" xml:"agentCode,omitempty"`
+	// This parameter is required.
+	AgentCode *string `json:"agentCode,omitempty" xml:"agentCode,omitempty"`
+	// This parameter is required.
 	Inputs             *ExecuteAgentRequestInputs `json:"inputs,omitempty" xml:"inputs,omitempty" type:"Struct"`
 	ScenarioCode       *string                    `json:"scenarioCode,omitempty" xml:"scenarioCode,omitempty"`
 	ScenarioInstanceId *string                    `json:"scenarioInstanceId,omitempty" xml:"scenarioInstanceId,omitempty"`
@@ -199,8 +451,23 @@ func (s *LiandanTextImageGetHeaders) SetXAcsDingtalkAccessToken(v string) *Liand
 }
 
 type LiandanTextImageGetRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// IMAGE
 	Module *string `json:"module,omitempty" xml:"module,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
 	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -228,8 +495,11 @@ func (s *LiandanTextImageGetRequest) SetUserId(v string) *LiandanTextImageGetReq
 }
 
 type LiandanTextImageGetResponseBody struct {
-	Result  []map[string]interface{} `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	Success *bool                    `json:"success,omitempty" xml:"success,omitempty"`
+	Result []map[string]interface{} `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s LiandanTextImageGetResponseBody) String() string {
@@ -303,10 +573,30 @@ func (s *LiandanluExclusiveModelHeaders) SetXAcsDingtalkAccessToken(v string) *L
 }
 
 type LiandanluExclusiveModelRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// maas1234
 	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
-	Module  *string `json:"module,omitempty" xml:"module,omitempty"`
-	Prompt  *string `json:"prompt,omitempty" xml:"prompt,omitempty"`
-	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// GENERAL
+	Module *string `json:"module,omitempty" xml:"module,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// OKR是什么
+	Prompt *string `json:"prompt,omitempty" xml:"prompt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 使用该功能的用户id
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s LiandanluExclusiveModelRequest) String() string {
@@ -338,8 +628,14 @@ func (s *LiandanluExclusiveModelRequest) SetUserId(v string) *LiandanluExclusive
 }
 
 type LiandanluExclusiveModelResponseBody struct {
-	RequestId *string                `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	Result    map[string]interface{} `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// requestId_123
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// {        "content":"OKR 全称为 Objective and Key Results，即目标与关键结果法，是一套明确和跟踪目标及其完成情况的管理工具和方法。"   }
+	Result map[string]interface{} `json:"result,omitempty" xml:"result,omitempty"`
 }
 
 func (s LiandanluExclusiveModelResponseBody) String() string {
@@ -413,11 +709,29 @@ func (s *LiandanluTextToImageModelHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type LiandanluTextToImageModelRequest struct {
-	Module     *string            `json:"module,omitempty" xml:"module,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// IMAGE
+	Module *string `json:"module,omitempty" xml:"module,omitempty"`
+	// example:
+	//
+	// 1
 	Number     *int64             `json:"number,omitempty" xml:"number,omitempty"`
 	Parameters map[string]*string `json:"parameters,omitempty" xml:"parameters,omitempty"`
-	Prompt     *string            `json:"prompt,omitempty" xml:"prompt,omitempty"`
-	UserId     *string            `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 画一副风景画
+	Prompt *string `json:"prompt,omitempty" xml:"prompt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s LiandanluTextToImageModelRequest) String() string {
@@ -454,8 +768,14 @@ func (s *LiandanluTextToImageModelRequest) SetUserId(v string) *LiandanluTextToI
 }
 
 type LiandanluTextToImageModelResponseBody struct {
-	Result  *LiandanluTextToImageModelResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                                        `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	Result *LiandanluTextToImageModelResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s LiandanluTextToImageModelResponseBody) String() string {
@@ -477,8 +797,17 @@ func (s *LiandanluTextToImageModelResponseBody) SetSuccess(v bool) *LiandanluTex
 }
 
 type LiandanluTextToImageModelResponseBodyResult struct {
-	RequestId  *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
-	TaskId     *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// 0112_1222
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// example:
+	//
+	// 123
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// SUCCEEDED
 	TaskStatus *string `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
 }
 
@@ -534,6 +863,118 @@ func (s *LiandanluTextToImageModelResponse) SetBody(v *LiandanluTextToImageModel
 	return s
 }
 
+type NLToFrameServiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s NLToFrameServiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s NLToFrameServiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *NLToFrameServiceHeaders) SetCommonHeaders(v map[string]*string) *NLToFrameServiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *NLToFrameServiceHeaders) SetXAcsDingtalkAccessToken(v string) *NLToFrameServiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type NLToFrameServiceRequest struct {
+	ExtensionStr *string `json:"extensionStr,omitempty" xml:"extensionStr,omitempty"`
+	IsNewModel   *bool   `json:"isNewModel,omitempty" xml:"isNewModel,omitempty"`
+	// This parameter is required.
+	ModelId *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	// This parameter is required.
+	ModelName *string `json:"modelName,omitempty" xml:"modelName,omitempty"`
+	UserId    *int64  `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s NLToFrameServiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s NLToFrameServiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *NLToFrameServiceRequest) SetExtensionStr(v string) *NLToFrameServiceRequest {
+	s.ExtensionStr = &v
+	return s
+}
+
+func (s *NLToFrameServiceRequest) SetIsNewModel(v bool) *NLToFrameServiceRequest {
+	s.IsNewModel = &v
+	return s
+}
+
+func (s *NLToFrameServiceRequest) SetModelId(v string) *NLToFrameServiceRequest {
+	s.ModelId = &v
+	return s
+}
+
+func (s *NLToFrameServiceRequest) SetModelName(v string) *NLToFrameServiceRequest {
+	s.ModelName = &v
+	return s
+}
+
+func (s *NLToFrameServiceRequest) SetUserId(v int64) *NLToFrameServiceRequest {
+	s.UserId = &v
+	return s
+}
+
+type NLToFrameServiceResponseBody struct {
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s NLToFrameServiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s NLToFrameServiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *NLToFrameServiceResponseBody) SetResult(v string) *NLToFrameServiceResponseBody {
+	s.Result = &v
+	return s
+}
+
+type NLToFrameServiceResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *NLToFrameServiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s NLToFrameServiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s NLToFrameServiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *NLToFrameServiceResponse) SetHeaders(v map[string]*string) *NLToFrameServiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *NLToFrameServiceResponse) SetStatusCode(v int32) *NLToFrameServiceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *NLToFrameServiceResponse) SetBody(v *NLToFrameServiceResponseBody) *NLToFrameServiceResponse {
+	s.Body = v
+	return s
+}
+
 type QueryBaymaxSkillLogHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -558,8 +999,18 @@ func (s *QueryBaymaxSkillLogHeaders) SetXAcsDingtalkAccessToken(v string) *Query
 }
 
 type QueryBaymaxSkillLogRequest struct {
-	From           *int32  `json:"from,omitempty" xml:"from,omitempty"`
-	LogLevel       *string `json:"logLevel,omitempty" xml:"logLevel,omitempty"`
+	From *int32 `json:"from,omitempty" xml:"from,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 14da****2760
+	LogLevel *string `json:"logLevel,omitempty" xml:"logLevel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 14da****2760
 	SkillExecuteId *string `json:"skillExecuteId,omitempty" xml:"skillExecuteId,omitempty"`
 	To             *int32  `json:"to,omitempty" xml:"to,omitempty"`
 }
@@ -593,6 +1044,11 @@ func (s *QueryBaymaxSkillLogRequest) SetTo(v int32) *QueryBaymaxSkillLogRequest 
 }
 
 type QueryBaymaxSkillLogResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 14da****2760
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -936,7 +1392,9 @@ func (s *QueryMemoryLearningTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Q
 }
 
 type QueryMemoryLearningTaskRequest struct {
-	AgentCode    *string `json:"agentCode,omitempty" xml:"agentCode,omitempty"`
+	// This parameter is required.
+	AgentCode *string `json:"agentCode,omitempty" xml:"agentCode,omitempty"`
+	// This parameter is required.
 	LearningCode *string `json:"learningCode,omitempty" xml:"learningCode,omitempty"`
 }
 
@@ -1027,6 +1485,718 @@ func (s *QueryMemoryLearningTaskResponse) SetBody(v *QueryMemoryLearningTaskResp
 	return s
 }
 
+type SmartFormulaResultServiceRequest struct {
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s SmartFormulaResultServiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartFormulaResultServiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SmartFormulaResultServiceRequest) SetTaskId(v string) *SmartFormulaResultServiceRequest {
+	s.TaskId = &v
+	return s
+}
+
+type SmartFormulaResultServiceResponseBody struct {
+	Result  *SmartFormulaResultServiceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                        `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SmartFormulaResultServiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartFormulaResultServiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SmartFormulaResultServiceResponseBody) SetResult(v *SmartFormulaResultServiceResponseBodyResult) *SmartFormulaResultServiceResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SmartFormulaResultServiceResponseBody) SetSuccess(v bool) *SmartFormulaResultServiceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SmartFormulaResultServiceResponseBodyResult struct {
+	Response *string `json:"response,omitempty" xml:"response,omitempty"`
+	Status   *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s SmartFormulaResultServiceResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartFormulaResultServiceResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SmartFormulaResultServiceResponseBodyResult) SetResponse(v string) *SmartFormulaResultServiceResponseBodyResult {
+	s.Response = &v
+	return s
+}
+
+func (s *SmartFormulaResultServiceResponseBodyResult) SetStatus(v string) *SmartFormulaResultServiceResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+type SmartFormulaResultServiceResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SmartFormulaResultServiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SmartFormulaResultServiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartFormulaResultServiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SmartFormulaResultServiceResponse) SetHeaders(v map[string]*string) *SmartFormulaResultServiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SmartFormulaResultServiceResponse) SetStatusCode(v int32) *SmartFormulaResultServiceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SmartFormulaResultServiceResponse) SetBody(v *SmartFormulaResultServiceResponseBody) *SmartFormulaResultServiceResponse {
+	s.Body = v
+	return s
+}
+
+type SmartFormulaTriggerServiceRequest struct {
+	Request *string `json:"request,omitempty" xml:"request,omitempty"`
+}
+
+func (s SmartFormulaTriggerServiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartFormulaTriggerServiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SmartFormulaTriggerServiceRequest) SetRequest(v string) *SmartFormulaTriggerServiceRequest {
+	s.Request = &v
+	return s
+}
+
+type SmartFormulaTriggerServiceResponseBody struct {
+	Result  *SmartFormulaTriggerServiceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                         `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SmartFormulaTriggerServiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartFormulaTriggerServiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SmartFormulaTriggerServiceResponseBody) SetResult(v *SmartFormulaTriggerServiceResponseBodyResult) *SmartFormulaTriggerServiceResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SmartFormulaTriggerServiceResponseBody) SetSuccess(v bool) *SmartFormulaTriggerServiceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SmartFormulaTriggerServiceResponseBodyResult struct {
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s SmartFormulaTriggerServiceResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartFormulaTriggerServiceResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SmartFormulaTriggerServiceResponseBodyResult) SetTaskId(v string) *SmartFormulaTriggerServiceResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+type SmartFormulaTriggerServiceResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SmartFormulaTriggerServiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SmartFormulaTriggerServiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartFormulaTriggerServiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SmartFormulaTriggerServiceResponse) SetHeaders(v map[string]*string) *SmartFormulaTriggerServiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SmartFormulaTriggerServiceResponse) SetStatusCode(v int32) *SmartFormulaTriggerServiceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SmartFormulaTriggerServiceResponse) SetBody(v *SmartFormulaTriggerServiceResponseBody) *SmartFormulaTriggerServiceResponse {
+	s.Body = v
+	return s
+}
+
+type SmartQuoteBatchQueryResultServiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SmartQuoteBatchQueryResultServiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteBatchQueryResultServiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteBatchQueryResultServiceHeaders) SetCommonHeaders(v map[string]*string) *SmartQuoteBatchQueryResultServiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SmartQuoteBatchQueryResultServiceHeaders) SetXAcsDingtalkAccessToken(v string) *SmartQuoteBatchQueryResultServiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SmartQuoteBatchQueryResultServiceRequest struct {
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s SmartQuoteBatchQueryResultServiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteBatchQueryResultServiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteBatchQueryResultServiceRequest) SetTaskId(v string) *SmartQuoteBatchQueryResultServiceRequest {
+	s.TaskId = &v
+	return s
+}
+
+type SmartQuoteBatchQueryResultServiceResponseBody struct {
+	Result  *SmartQuoteBatchQueryResultServiceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                                `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SmartQuoteBatchQueryResultServiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteBatchQueryResultServiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteBatchQueryResultServiceResponseBody) SetResult(v *SmartQuoteBatchQueryResultServiceResponseBodyResult) *SmartQuoteBatchQueryResultServiceResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SmartQuoteBatchQueryResultServiceResponseBody) SetSuccess(v bool) *SmartQuoteBatchQueryResultServiceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SmartQuoteBatchQueryResultServiceResponseBodyResult struct {
+	Response *string `json:"response,omitempty" xml:"response,omitempty"`
+	Status   *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s SmartQuoteBatchQueryResultServiceResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteBatchQueryResultServiceResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteBatchQueryResultServiceResponseBodyResult) SetResponse(v string) *SmartQuoteBatchQueryResultServiceResponseBodyResult {
+	s.Response = &v
+	return s
+}
+
+func (s *SmartQuoteBatchQueryResultServiceResponseBodyResult) SetStatus(v string) *SmartQuoteBatchQueryResultServiceResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+type SmartQuoteBatchQueryResultServiceResponse struct {
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SmartQuoteBatchQueryResultServiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SmartQuoteBatchQueryResultServiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteBatchQueryResultServiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteBatchQueryResultServiceResponse) SetHeaders(v map[string]*string) *SmartQuoteBatchQueryResultServiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SmartQuoteBatchQueryResultServiceResponse) SetStatusCode(v int32) *SmartQuoteBatchQueryResultServiceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SmartQuoteBatchQueryResultServiceResponse) SetBody(v *SmartQuoteBatchQueryResultServiceResponseBody) *SmartQuoteBatchQueryResultServiceResponse {
+	s.Body = v
+	return s
+}
+
+type SmartQuoteBatchQueryServiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SmartQuoteBatchQueryServiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteBatchQueryServiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteBatchQueryServiceHeaders) SetCommonHeaders(v map[string]*string) *SmartQuoteBatchQueryServiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SmartQuoteBatchQueryServiceHeaders) SetXAcsDingtalkAccessToken(v string) *SmartQuoteBatchQueryServiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SmartQuoteBatchQueryServiceRequest struct {
+	Request *string `json:"request,omitempty" xml:"request,omitempty"`
+}
+
+func (s SmartQuoteBatchQueryServiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteBatchQueryServiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteBatchQueryServiceRequest) SetRequest(v string) *SmartQuoteBatchQueryServiceRequest {
+	s.Request = &v
+	return s
+}
+
+type SmartQuoteBatchQueryServiceResponseBody struct {
+	Result  *SmartQuoteBatchQueryServiceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                          `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SmartQuoteBatchQueryServiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteBatchQueryServiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteBatchQueryServiceResponseBody) SetResult(v *SmartQuoteBatchQueryServiceResponseBodyResult) *SmartQuoteBatchQueryServiceResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SmartQuoteBatchQueryServiceResponseBody) SetSuccess(v bool) *SmartQuoteBatchQueryServiceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SmartQuoteBatchQueryServiceResponseBodyResult struct {
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s SmartQuoteBatchQueryServiceResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteBatchQueryServiceResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteBatchQueryServiceResponseBodyResult) SetTaskId(v string) *SmartQuoteBatchQueryServiceResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+type SmartQuoteBatchQueryServiceResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SmartQuoteBatchQueryServiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SmartQuoteBatchQueryServiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteBatchQueryServiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteBatchQueryServiceResponse) SetHeaders(v map[string]*string) *SmartQuoteBatchQueryServiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SmartQuoteBatchQueryServiceResponse) SetStatusCode(v int32) *SmartQuoteBatchQueryServiceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SmartQuoteBatchQueryServiceResponse) SetBody(v *SmartQuoteBatchQueryServiceResponseBody) *SmartQuoteBatchQueryServiceResponse {
+	s.Body = v
+	return s
+}
+
+type SmartQuoteDataServiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SmartQuoteDataServiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteDataServiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteDataServiceHeaders) SetCommonHeaders(v map[string]*string) *SmartQuoteDataServiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SmartQuoteDataServiceHeaders) SetXAcsDingtalkAccessToken(v string) *SmartQuoteDataServiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SmartQuoteDataServiceRequest struct {
+	Request *string `json:"request,omitempty" xml:"request,omitempty"`
+}
+
+func (s SmartQuoteDataServiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteDataServiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteDataServiceRequest) SetRequest(v string) *SmartQuoteDataServiceRequest {
+	s.Request = &v
+	return s
+}
+
+type SmartQuoteDataServiceResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SmartQuoteDataServiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteDataServiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteDataServiceResponseBody) SetResult(v bool) *SmartQuoteDataServiceResponseBody {
+	s.Result = &v
+	return s
+}
+
+type SmartQuoteDataServiceResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SmartQuoteDataServiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SmartQuoteDataServiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteDataServiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteDataServiceResponse) SetHeaders(v map[string]*string) *SmartQuoteDataServiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SmartQuoteDataServiceResponse) SetStatusCode(v int32) *SmartQuoteDataServiceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SmartQuoteDataServiceResponse) SetBody(v *SmartQuoteDataServiceResponseBody) *SmartQuoteDataServiceResponse {
+	s.Body = v
+	return s
+}
+
+type SmartQuoteQueryResultServiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SmartQuoteQueryResultServiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteQueryResultServiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteQueryResultServiceHeaders) SetCommonHeaders(v map[string]*string) *SmartQuoteQueryResultServiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SmartQuoteQueryResultServiceHeaders) SetXAcsDingtalkAccessToken(v string) *SmartQuoteQueryResultServiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SmartQuoteQueryResultServiceRequest struct {
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s SmartQuoteQueryResultServiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteQueryResultServiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteQueryResultServiceRequest) SetTaskId(v string) *SmartQuoteQueryResultServiceRequest {
+	s.TaskId = &v
+	return s
+}
+
+type SmartQuoteQueryResultServiceResponseBody struct {
+	Result  *SmartQuoteQueryResultServiceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SmartQuoteQueryResultServiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteQueryResultServiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteQueryResultServiceResponseBody) SetResult(v *SmartQuoteQueryResultServiceResponseBodyResult) *SmartQuoteQueryResultServiceResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SmartQuoteQueryResultServiceResponseBody) SetSuccess(v bool) *SmartQuoteQueryResultServiceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SmartQuoteQueryResultServiceResponseBodyResult struct {
+	Response *string `json:"response,omitempty" xml:"response,omitempty"`
+	Status   *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s SmartQuoteQueryResultServiceResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteQueryResultServiceResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteQueryResultServiceResponseBodyResult) SetResponse(v string) *SmartQuoteQueryResultServiceResponseBodyResult {
+	s.Response = &v
+	return s
+}
+
+func (s *SmartQuoteQueryResultServiceResponseBodyResult) SetStatus(v string) *SmartQuoteQueryResultServiceResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+type SmartQuoteQueryResultServiceResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SmartQuoteQueryResultServiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SmartQuoteQueryResultServiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteQueryResultServiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteQueryResultServiceResponse) SetHeaders(v map[string]*string) *SmartQuoteQueryResultServiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SmartQuoteQueryResultServiceResponse) SetStatusCode(v int32) *SmartQuoteQueryResultServiceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SmartQuoteQueryResultServiceResponse) SetBody(v *SmartQuoteQueryResultServiceResponseBody) *SmartQuoteQueryResultServiceResponse {
+	s.Body = v
+	return s
+}
+
+type SmartQuoteQueryServiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SmartQuoteQueryServiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteQueryServiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteQueryServiceHeaders) SetCommonHeaders(v map[string]*string) *SmartQuoteQueryServiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SmartQuoteQueryServiceHeaders) SetXAcsDingtalkAccessToken(v string) *SmartQuoteQueryServiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SmartQuoteQueryServiceRequest struct {
+	Request *string `json:"request,omitempty" xml:"request,omitempty"`
+}
+
+func (s SmartQuoteQueryServiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteQueryServiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteQueryServiceRequest) SetRequest(v string) *SmartQuoteQueryServiceRequest {
+	s.Request = &v
+	return s
+}
+
+type SmartQuoteQueryServiceResponseBody struct {
+	Result  *SmartQuoteQueryServiceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                     `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SmartQuoteQueryServiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteQueryServiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteQueryServiceResponseBody) SetResult(v *SmartQuoteQueryServiceResponseBodyResult) *SmartQuoteQueryServiceResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SmartQuoteQueryServiceResponseBody) SetSuccess(v bool) *SmartQuoteQueryServiceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SmartQuoteQueryServiceResponseBodyResult struct {
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s SmartQuoteQueryServiceResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteQueryServiceResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteQueryServiceResponseBodyResult) SetTaskId(v string) *SmartQuoteQueryServiceResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+type SmartQuoteQueryServiceResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SmartQuoteQueryServiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SmartQuoteQueryServiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SmartQuoteQueryServiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SmartQuoteQueryServiceResponse) SetHeaders(v map[string]*string) *SmartQuoteQueryServiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SmartQuoteQueryServiceResponse) SetStatusCode(v int32) *SmartQuoteQueryServiceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SmartQuoteQueryServiceResponse) SetBody(v *SmartQuoteQueryServiceResponseBody) *SmartQuoteQueryServiceResponse {
+	s.Body = v
+	return s
+}
+
 type SubmitMemoryLearningTaskHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1051,10 +2221,14 @@ func (s *SubmitMemoryLearningTaskHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type SubmitMemoryLearningTaskRequest struct {
-	AgentCode    *string                                 `json:"agentCode,omitempty" xml:"agentCode,omitempty"`
-	Content      *SubmitMemoryLearningTaskRequestContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
-	LearningMode *string                                 `json:"learningMode,omitempty" xml:"learningMode,omitempty"`
-	MemoryKey    *string                                 `json:"memoryKey,omitempty" xml:"memoryKey,omitempty"`
+	// This parameter is required.
+	AgentCode *string `json:"agentCode,omitempty" xml:"agentCode,omitempty"`
+	// This parameter is required.
+	Content *SubmitMemoryLearningTaskRequestContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	// This parameter is required.
+	LearningMode *string `json:"learningMode,omitempty" xml:"learningMode,omitempty"`
+	// This parameter is required.
+	MemoryKey *string `json:"memoryKey,omitempty" xml:"memoryKey,omitempty"`
 }
 
 func (s SubmitMemoryLearningTaskRequest) String() string {
@@ -1109,10 +2283,14 @@ func (s *SubmitMemoryLearningTaskRequestContent) SetType(v string) *SubmitMemory
 }
 
 type SubmitMemoryLearningTaskShrinkRequest struct {
-	AgentCode     *string `json:"agentCode,omitempty" xml:"agentCode,omitempty"`
+	// This parameter is required.
+	AgentCode *string `json:"agentCode,omitempty" xml:"agentCode,omitempty"`
+	// This parameter is required.
 	ContentShrink *string `json:"content,omitempty" xml:"content,omitempty"`
-	LearningMode  *string `json:"learningMode,omitempty" xml:"learningMode,omitempty"`
-	MemoryKey     *string `json:"memoryKey,omitempty" xml:"memoryKey,omitempty"`
+	// This parameter is required.
+	LearningMode *string `json:"learningMode,omitempty" xml:"learningMode,omitempty"`
+	// This parameter is required.
+	MemoryKey *string `json:"memoryKey,omitempty" xml:"memoryKey,omitempty"`
 }
 
 func (s SubmitMemoryLearningTaskShrinkRequest) String() string {
@@ -1233,12 +2411,13 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
+	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -1247,6 +2426,114 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 炼丹炉专属模型推理服务
+//
+// @param request - ExclusiveModelCompleteServiceRequest
+//
+// @param headers - ExclusiveModelCompleteServiceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExclusiveModelCompleteServiceResponse
+func (client *Client) ExclusiveModelCompleteServiceWithOptions(request *ExclusiveModelCompleteServiceRequest, headers *ExclusiveModelCompleteServiceHeaders, runtime *util.RuntimeOptions) (_result *ExclusiveModelCompleteServiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EnableSearch)) {
+		body["enable_search"] = request.EnableSearch
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxTokens)) {
+		body["max_tokens"] = request.MaxTokens
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Messages)) {
+		body["messages"] = request.Messages
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Model)) {
+		body["model"] = request.Model
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Stream)) {
+		body["stream"] = request.Stream
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Temperature)) {
+		body["temperature"] = request.Temperature
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TopP)) {
+		body["top_p"] = request.TopP
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ExclusiveModelCompleteService"),
+		Version:     tea.String("aiPaaS_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiPaaS/ai/complete"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ExclusiveModelCompleteServiceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 炼丹炉专属模型推理服务
+//
+// @param request - ExclusiveModelCompleteServiceRequest
+//
+// @return ExclusiveModelCompleteServiceResponse
+func (client *Client) ExclusiveModelCompleteService(request *ExclusiveModelCompleteServiceRequest) (_result *ExclusiveModelCompleteServiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ExclusiveModelCompleteServiceHeaders{}
+	_result = &ExclusiveModelCompleteServiceResponse{}
+	_body, _err := client.ExclusiveModelCompleteServiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 执行AI技能
+//
+// @param request - ExecuteAgentRequest
+//
+// @param headers - ExecuteAgentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExecuteAgentResponse
 func (client *Client) ExecuteAgentWithOptions(request *ExecuteAgentRequest, headers *ExecuteAgentHeaders, runtime *util.RuntimeOptions) (_result *ExecuteAgentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1306,6 +2593,13 @@ func (client *Client) ExecuteAgentWithOptions(request *ExecuteAgentRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 执行AI技能
+//
+// @param request - ExecuteAgentRequest
+//
+// @return ExecuteAgentResponse
 func (client *Client) ExecuteAgent(request *ExecuteAgentRequest) (_result *ExecuteAgentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ExecuteAgentHeaders{}
@@ -1318,6 +2612,17 @@ func (client *Client) ExecuteAgent(request *ExecuteAgentRequest) (_result *Execu
 	return _result, _err
 }
 
+// Summary:
+//
+// 炼丹炉文生图任务结果获取
+//
+// @param request - LiandanTextImageGetRequest
+//
+// @param headers - LiandanTextImageGetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return LiandanTextImageGetResponse
 func (client *Client) LiandanTextImageGetWithOptions(request *LiandanTextImageGetRequest, headers *LiandanTextImageGetHeaders, runtime *util.RuntimeOptions) (_result *LiandanTextImageGetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1369,6 +2674,13 @@ func (client *Client) LiandanTextImageGetWithOptions(request *LiandanTextImageGe
 	return _result, _err
 }
 
+// Summary:
+//
+// 炼丹炉文生图任务结果获取
+//
+// @param request - LiandanTextImageGetRequest
+//
+// @return LiandanTextImageGetResponse
 func (client *Client) LiandanTextImageGet(request *LiandanTextImageGetRequest) (_result *LiandanTextImageGetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &LiandanTextImageGetHeaders{}
@@ -1381,6 +2693,17 @@ func (client *Client) LiandanTextImageGet(request *LiandanTextImageGetRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 炼丹炉专属模型接口
+//
+// @param request - LiandanluExclusiveModelRequest
+//
+// @param headers - LiandanluExclusiveModelHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return LiandanluExclusiveModelResponse
 func (client *Client) LiandanluExclusiveModelWithOptions(request *LiandanluExclusiveModelRequest, headers *LiandanluExclusiveModelHeaders, runtime *util.RuntimeOptions) (_result *LiandanluExclusiveModelResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1436,6 +2759,13 @@ func (client *Client) LiandanluExclusiveModelWithOptions(request *LiandanluExclu
 	return _result, _err
 }
 
+// Summary:
+//
+// 炼丹炉专属模型接口
+//
+// @param request - LiandanluExclusiveModelRequest
+//
+// @return LiandanluExclusiveModelResponse
 func (client *Client) LiandanluExclusiveModel(request *LiandanluExclusiveModelRequest) (_result *LiandanluExclusiveModelResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &LiandanluExclusiveModelHeaders{}
@@ -1448,6 +2778,17 @@ func (client *Client) LiandanluExclusiveModel(request *LiandanluExclusiveModelRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 炼丹炉通过提示词生成图片
+//
+// @param request - LiandanluTextToImageModelRequest
+//
+// @param headers - LiandanluTextToImageModelHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return LiandanluTextToImageModelResponse
 func (client *Client) LiandanluTextToImageModelWithOptions(request *LiandanluTextToImageModelRequest, headers *LiandanluTextToImageModelHeaders, runtime *util.RuntimeOptions) (_result *LiandanluTextToImageModelResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1507,6 +2848,13 @@ func (client *Client) LiandanluTextToImageModelWithOptions(request *LiandanluTex
 	return _result, _err
 }
 
+// Summary:
+//
+// 炼丹炉通过提示词生成图片
+//
+// @param request - LiandanluTextToImageModelRequest
+//
+// @return LiandanluTextToImageModelResponse
 func (client *Client) LiandanluTextToImageModel(request *LiandanluTextToImageModelRequest) (_result *LiandanluTextToImageModelResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &LiandanluTextToImageModelHeaders{}
@@ -1519,6 +2867,106 @@ func (client *Client) LiandanluTextToImageModel(request *LiandanluTextToImageMod
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过配置的指令，连接用户和系统，训练大模型
+//
+// @param request - NLToFrameServiceRequest
+//
+// @param headers - NLToFrameServiceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return NLToFrameServiceResponse
+func (client *Client) NLToFrameServiceWithOptions(request *NLToFrameServiceRequest, headers *NLToFrameServiceHeaders, runtime *util.RuntimeOptions) (_result *NLToFrameServiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ExtensionStr)) {
+		body["extensionStr"] = request.ExtensionStr
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsNewModel)) {
+		body["isNewModel"] = request.IsNewModel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModelId)) {
+		body["modelId"] = request.ModelId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModelName)) {
+		body["modelName"] = request.ModelName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("NLToFrameService"),
+		Version:     tea.String("aiPaaS_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiPaaS/ai/nl2frame"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &NLToFrameServiceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过配置的指令，连接用户和系统，训练大模型
+//
+// @param request - NLToFrameServiceRequest
+//
+// @return NLToFrameServiceResponse
+func (client *Client) NLToFrameService(request *NLToFrameServiceRequest) (_result *NLToFrameServiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &NLToFrameServiceHeaders{}
+	_result = &NLToFrameServiceResponse{}
+	_body, _err := client.NLToFrameServiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// # Baymax技能执行日志
+//
+// @param request - QueryBaymaxSkillLogRequest
+//
+// @param headers - QueryBaymaxSkillLogHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryBaymaxSkillLogResponse
 func (client *Client) QueryBaymaxSkillLogWithOptions(request *QueryBaymaxSkillLogRequest, headers *QueryBaymaxSkillLogHeaders, runtime *util.RuntimeOptions) (_result *QueryBaymaxSkillLogResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1574,6 +3022,13 @@ func (client *Client) QueryBaymaxSkillLogWithOptions(request *QueryBaymaxSkillLo
 	return _result, _err
 }
 
+// Summary:
+//
+// # Baymax技能执行日志
+//
+// @param request - QueryBaymaxSkillLogRequest
+//
+// @return QueryBaymaxSkillLogResponse
 func (client *Client) QueryBaymaxSkillLog(request *QueryBaymaxSkillLogRequest) (_result *QueryBaymaxSkillLogResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryBaymaxSkillLogHeaders{}
@@ -1586,6 +3041,17 @@ func (client *Client) QueryBaymaxSkillLog(request *QueryBaymaxSkillLogRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询会话消息并以大模型友好的协议返回
+//
+// @param tmpReq - QueryConversationMessageForAIRequest
+//
+// @param headers - QueryConversationMessageForAIHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryConversationMessageForAIResponse
 func (client *Client) QueryConversationMessageForAIWithOptions(cid *string, tmpReq *QueryConversationMessageForAIRequest, headers *QueryConversationMessageForAIHeaders, runtime *util.RuntimeOptions) (_result *QueryConversationMessageForAIResponse, _err error) {
 	_err = util.ValidateModel(tmpReq)
 	if _err != nil {
@@ -1647,6 +3113,13 @@ func (client *Client) QueryConversationMessageForAIWithOptions(cid *string, tmpR
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询会话消息并以大模型友好的协议返回
+//
+// @param request - QueryConversationMessageForAIRequest
+//
+// @return QueryConversationMessageForAIResponse
 func (client *Client) QueryConversationMessageForAI(cid *string, request *QueryConversationMessageForAIRequest) (_result *QueryConversationMessageForAIResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryConversationMessageForAIHeaders{}
@@ -1659,6 +3132,17 @@ func (client *Client) QueryConversationMessageForAI(cid *string, request *QueryC
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询记忆学习进度
+//
+// @param request - QueryMemoryLearningTaskRequest
+//
+// @param headers - QueryMemoryLearningTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMemoryLearningTaskResponse
 func (client *Client) QueryMemoryLearningTaskWithOptions(request *QueryMemoryLearningTaskRequest, headers *QueryMemoryLearningTaskHeaders, runtime *util.RuntimeOptions) (_result *QueryMemoryLearningTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1706,6 +3190,13 @@ func (client *Client) QueryMemoryLearningTaskWithOptions(request *QueryMemoryLea
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询记忆学习进度
+//
+// @param request - QueryMemoryLearningTaskRequest
+//
+// @return QueryMemoryLearningTaskResponse
 func (client *Client) QueryMemoryLearningTask(request *QueryMemoryLearningTaskRequest) (_result *QueryMemoryLearningTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryMemoryLearningTaskHeaders{}
@@ -1718,6 +3209,510 @@ func (client *Client) QueryMemoryLearningTask(request *QueryMemoryLearningTaskRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 中信金属智能配料任务结果
+//
+// @param request - SmartFormulaResultServiceRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SmartFormulaResultServiceResponse
+func (client *Client) SmartFormulaResultServiceWithOptions(request *SmartFormulaResultServiceRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SmartFormulaResultServiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SmartFormulaResultService"),
+		Version:     tea.String("aiPaaS_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiPaaS/nl2x/smartFormulas/results/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SmartFormulaResultServiceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 中信金属智能配料任务结果
+//
+// @param request - SmartFormulaResultServiceRequest
+//
+// @return SmartFormulaResultServiceResponse
+func (client *Client) SmartFormulaResultService(request *SmartFormulaResultServiceRequest) (_result *SmartFormulaResultServiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &SmartFormulaResultServiceResponse{}
+	_body, _err := client.SmartFormulaResultServiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 中信金属智能配料任务触发
+//
+// @param request - SmartFormulaTriggerServiceRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SmartFormulaTriggerServiceResponse
+func (client *Client) SmartFormulaTriggerServiceWithOptions(request *SmartFormulaTriggerServiceRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *SmartFormulaTriggerServiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Request)) {
+		body["request"] = request.Request
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SmartFormulaTriggerService"),
+		Version:     tea.String("aiPaaS_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiPaaS/nl2x/smartFormulas/trigger"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SmartFormulaTriggerServiceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 中信金属智能配料任务触发
+//
+// @param request - SmartFormulaTriggerServiceRequest
+//
+// @return SmartFormulaTriggerServiceResponse
+func (client *Client) SmartFormulaTriggerService(request *SmartFormulaTriggerServiceRequest) (_result *SmartFormulaTriggerServiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &SmartFormulaTriggerServiceResponse{}
+	_body, _err := client.SmartFormulaTriggerServiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量查询智能报价结果
+//
+// @param request - SmartQuoteBatchQueryResultServiceRequest
+//
+// @param headers - SmartQuoteBatchQueryResultServiceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SmartQuoteBatchQueryResultServiceResponse
+func (client *Client) SmartQuoteBatchQueryResultServiceWithOptions(request *SmartQuoteBatchQueryResultServiceRequest, headers *SmartQuoteBatchQueryResultServiceHeaders, runtime *util.RuntimeOptions) (_result *SmartQuoteBatchQueryResultServiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SmartQuoteBatchQueryResultService"),
+		Version:     tea.String("aiPaaS_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiPaaS/nl2x/smartQuotations/results/batchQuery"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SmartQuoteBatchQueryResultServiceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量查询智能报价结果
+//
+// @param request - SmartQuoteBatchQueryResultServiceRequest
+//
+// @return SmartQuoteBatchQueryResultServiceResponse
+func (client *Client) SmartQuoteBatchQueryResultService(request *SmartQuoteBatchQueryResultServiceRequest) (_result *SmartQuoteBatchQueryResultServiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SmartQuoteBatchQueryResultServiceHeaders{}
+	_result = &SmartQuoteBatchQueryResultServiceResponse{}
+	_body, _err := client.SmartQuoteBatchQueryResultServiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量查询智能报价
+//
+// @param request - SmartQuoteBatchQueryServiceRequest
+//
+// @param headers - SmartQuoteBatchQueryServiceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SmartQuoteBatchQueryServiceResponse
+func (client *Client) SmartQuoteBatchQueryServiceWithOptions(request *SmartQuoteBatchQueryServiceRequest, headers *SmartQuoteBatchQueryServiceHeaders, runtime *util.RuntimeOptions) (_result *SmartQuoteBatchQueryServiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Request)) {
+		body["request"] = request.Request
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SmartQuoteBatchQueryService"),
+		Version:     tea.String("aiPaaS_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiPaaS/nl2x/smartQuotations/batchQuery"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SmartQuoteBatchQueryServiceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量查询智能报价
+//
+// @param request - SmartQuoteBatchQueryServiceRequest
+//
+// @return SmartQuoteBatchQueryServiceResponse
+func (client *Client) SmartQuoteBatchQueryService(request *SmartQuoteBatchQueryServiceRequest) (_result *SmartQuoteBatchQueryServiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SmartQuoteBatchQueryServiceHeaders{}
+	_result = &SmartQuoteBatchQueryServiceResponse{}
+	_body, _err := client.SmartQuoteBatchQueryServiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 添加智能报价数据
+//
+// @param request - SmartQuoteDataServiceRequest
+//
+// @param headers - SmartQuoteDataServiceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SmartQuoteDataServiceResponse
+func (client *Client) SmartQuoteDataServiceWithOptions(request *SmartQuoteDataServiceRequest, headers *SmartQuoteDataServiceHeaders, runtime *util.RuntimeOptions) (_result *SmartQuoteDataServiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Request)) {
+		body["request"] = request.Request
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SmartQuoteDataService"),
+		Version:     tea.String("aiPaaS_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiPaaS/nl2x/smartQuotations/datas"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SmartQuoteDataServiceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 添加智能报价数据
+//
+// @param request - SmartQuoteDataServiceRequest
+//
+// @return SmartQuoteDataServiceResponse
+func (client *Client) SmartQuoteDataService(request *SmartQuoteDataServiceRequest) (_result *SmartQuoteDataServiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SmartQuoteDataServiceHeaders{}
+	_result = &SmartQuoteDataServiceResponse{}
+	_body, _err := client.SmartQuoteDataServiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询智能报价结果
+//
+// @param request - SmartQuoteQueryResultServiceRequest
+//
+// @param headers - SmartQuoteQueryResultServiceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SmartQuoteQueryResultServiceResponse
+func (client *Client) SmartQuoteQueryResultServiceWithOptions(request *SmartQuoteQueryResultServiceRequest, headers *SmartQuoteQueryResultServiceHeaders, runtime *util.RuntimeOptions) (_result *SmartQuoteQueryResultServiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SmartQuoteQueryResultService"),
+		Version:     tea.String("aiPaaS_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiPaaS/nl2x/smartQuotations/results/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SmartQuoteQueryResultServiceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询智能报价结果
+//
+// @param request - SmartQuoteQueryResultServiceRequest
+//
+// @return SmartQuoteQueryResultServiceResponse
+func (client *Client) SmartQuoteQueryResultService(request *SmartQuoteQueryResultServiceRequest) (_result *SmartQuoteQueryResultServiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SmartQuoteQueryResultServiceHeaders{}
+	_result = &SmartQuoteQueryResultServiceResponse{}
+	_body, _err := client.SmartQuoteQueryResultServiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询智能报价
+//
+// @param request - SmartQuoteQueryServiceRequest
+//
+// @param headers - SmartQuoteQueryServiceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SmartQuoteQueryServiceResponse
+func (client *Client) SmartQuoteQueryServiceWithOptions(request *SmartQuoteQueryServiceRequest, headers *SmartQuoteQueryServiceHeaders, runtime *util.RuntimeOptions) (_result *SmartQuoteQueryServiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Request)) {
+		body["request"] = request.Request
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SmartQuoteQueryService"),
+		Version:     tea.String("aiPaaS_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiPaaS/nl2x/smartQuotations/triggerQuery"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SmartQuoteQueryServiceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询智能报价
+//
+// @param request - SmartQuoteQueryServiceRequest
+//
+// @return SmartQuoteQueryServiceResponse
+func (client *Client) SmartQuoteQueryService(request *SmartQuoteQueryServiceRequest) (_result *SmartQuoteQueryServiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SmartQuoteQueryServiceHeaders{}
+	_result = &SmartQuoteQueryServiceResponse{}
+	_body, _err := client.SmartQuoteQueryServiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 提交记忆学习任务
+//
+// @param tmpReq - SubmitMemoryLearningTaskRequest
+//
+// @param headers - SubmitMemoryLearningTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SubmitMemoryLearningTaskResponse
 func (client *Client) SubmitMemoryLearningTaskWithOptions(tmpReq *SubmitMemoryLearningTaskRequest, headers *SubmitMemoryLearningTaskHeaders, runtime *util.RuntimeOptions) (_result *SubmitMemoryLearningTaskResponse, _err error) {
 	_err = util.ValidateModel(tmpReq)
 	if _err != nil {
@@ -1779,6 +3774,13 @@ func (client *Client) SubmitMemoryLearningTaskWithOptions(tmpReq *SubmitMemoryLe
 	return _result, _err
 }
 
+// Summary:
+//
+// 提交记忆学习任务
+//
+// @param request - SubmitMemoryLearningTaskRequest
+//
+// @return SubmitMemoryLearningTaskResponse
 func (client *Client) SubmitMemoryLearningTask(request *SubmitMemoryLearningTaskRequest) (_result *SubmitMemoryLearningTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SubmitMemoryLearningTaskHeaders{}

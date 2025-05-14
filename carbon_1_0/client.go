@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package carbon_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,8 +33,18 @@ func (s *GetPersonalCarbonInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Get
 }
 
 type GetPersonalCarbonInfoRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// salary
 	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	UnionId    *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 23121
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetPersonalCarbonInfoRequest) String() string {
@@ -60,7 +66,12 @@ func (s *GetPersonalCarbonInfoRequest) SetUnionId(v string) *GetPersonalCarbonIn
 }
 
 type GetPersonalCarbonInfoResponseBody struct {
-	Content              *string  `json:"content,omitempty" xml:"content,omitempty"`
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3.25
 	PersonalCarbonAmount *float64 `json:"personalCarbonAmount,omitempty" xml:"personalCarbonAmount,omitempty"`
 }
 
@@ -135,6 +146,7 @@ func (s *WriteAlibabaOrgCarbonHeaders) SetXAcsDingtalkAccessToken(v string) *Wri
 }
 
 type WriteAlibabaOrgCarbonRequest struct {
+	// This parameter is required.
 	OrgDetailsList []*WriteAlibabaOrgCarbonRequestOrgDetailsList `json:"orgDetailsList,omitempty" xml:"orgDetailsList,omitempty" type:"Repeated"`
 }
 
@@ -152,13 +164,48 @@ func (s *WriteAlibabaOrgCarbonRequest) SetOrgDetailsList(v []*WriteAlibabaOrgCar
 }
 
 type WriteAlibabaOrgCarbonRequestOrgDetailsList struct {
-	ActionId     *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
-	ActionTime   *string `json:"actionTime,omitempty" xml:"actionTime,omitempty"`
-	ActionType   *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12320211126
+	ActionId *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-11-26 10:09:37
+	ActionTime *string `json:"actionTime,omitempty" xml:"actionTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// VIDEO
+	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3.21
 	CarbonAmount *string `json:"carbonAmount,omitempty" xml:"carbonAmount,omitempty"`
-	CorpId       *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	DeptId       *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	Version      *int32  `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding12344
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Version *int32 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s WriteAlibabaOrgCarbonRequestOrgDetailsList) String() string {
@@ -205,8 +252,10 @@ func (s *WriteAlibabaOrgCarbonRequestOrgDetailsList) SetVersion(v int32) *WriteA
 }
 
 type WriteAlibabaOrgCarbonResponseBody struct {
-	Result  *int32 `json:"result,omitempty" xml:"result,omitempty"`
-	Success *bool  `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	Result *int32 `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s WriteAlibabaOrgCarbonResponseBody) String() string {
@@ -280,6 +329,7 @@ func (s *WriteAlibabaUserCarbonHeaders) SetXAcsDingtalkAccessToken(v string) *Wr
 }
 
 type WriteAlibabaUserCarbonRequest struct {
+	// This parameter is required.
 	UserDetailsList []*WriteAlibabaUserCarbonRequestUserDetailsList `json:"userDetailsList,omitempty" xml:"userDetailsList,omitempty" type:"Repeated"`
 }
 
@@ -297,15 +347,60 @@ func (s *WriteAlibabaUserCarbonRequest) SetUserDetailsList(v []*WriteAlibabaUser
 }
 
 type WriteAlibabaUserCarbonRequestUserDetailsList struct {
-	ActionEndTime   *string `json:"actionEndTime,omitempty" xml:"actionEndTime,omitempty"`
-	ActionId        *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-11-26 10:09:37
+	ActionEndTime *string `json:"actionEndTime,omitempty" xml:"actionEndTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12320211126
+	ActionId *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-11-26 10:09:37
 	ActionStartTime *string `json:"actionStartTime,omitempty" xml:"actionStartTime,omitempty"`
-	ActionType      *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	CarbonAmount    *string `json:"carbonAmount,omitempty" xml:"carbonAmount,omitempty"`
-	CorpId          *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	DeptId          *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	Version         *int32  `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// VIDEO
+	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3.21
+	CarbonAmount *string `json:"carbonAmount,omitempty" xml:"carbonAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding12344
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Version *int32 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s WriteAlibabaUserCarbonRequestUserDetailsList) String() string {
@@ -362,8 +457,10 @@ func (s *WriteAlibabaUserCarbonRequestUserDetailsList) SetVersion(v int32) *Writ
 }
 
 type WriteAlibabaUserCarbonResponseBody struct {
-	Result  *int32 `json:"result,omitempty" xml:"result,omitempty"`
-	Success *bool  `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	Result *int32 `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s WriteAlibabaUserCarbonResponseBody) String() string {
@@ -437,7 +534,17 @@ func (s *WriteIsvStateHeaders) SetXAcsDingtalkAccessToken(v string) *WriteIsvSta
 }
 
 type WriteIsvStateRequest struct {
-	IsvName  *string `json:"isvName,omitempty" xml:"isvName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ISV
+	IsvName *string `json:"isvName,omitempty" xml:"isvName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220328
 	StatDate *string `json:"statDate,omitempty" xml:"statDate,omitempty"`
 }
 
@@ -460,6 +567,9 @@ func (s *WriteIsvStateRequest) SetStatDate(v string) *WriteIsvStateRequest {
 }
 
 type WriteIsvStateResponseBody struct {
+	// example:
+	//
+	// 1
 	Result *int64 `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -529,6 +639,7 @@ func (s *WriteOrgCarbonHeaders) SetXAcsDingtalkAccessToken(v string) *WriteOrgCa
 }
 
 type WriteOrgCarbonRequest struct {
+	// This parameter is required.
 	OrgDetailsList []*WriteOrgCarbonRequestOrgDetailsList `json:"orgDetailsList,omitempty" xml:"orgDetailsList,omitempty" type:"Repeated"`
 }
 
@@ -546,13 +657,48 @@ func (s *WriteOrgCarbonRequest) SetOrgDetailsList(v []*WriteOrgCarbonRequestOrgD
 }
 
 type WriteOrgCarbonRequestOrgDetailsList struct {
-	ActionId     *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
-	ActionTime   *string `json:"actionTime,omitempty" xml:"actionTime,omitempty"`
-	ActionType   *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12320211126
+	ActionId *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-11-26 10:09:37
+	ActionTime *string `json:"actionTime,omitempty" xml:"actionTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// VIDEO
+	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3.21
 	CarbonAmount *string `json:"carbonAmount,omitempty" xml:"carbonAmount,omitempty"`
-	CorpId       *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	DeptId       *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	Version      *int32  `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding12344
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Version *int32 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s WriteOrgCarbonRequestOrgDetailsList) String() string {
@@ -599,8 +745,10 @@ func (s *WriteOrgCarbonRequestOrgDetailsList) SetVersion(v int32) *WriteOrgCarbo
 }
 
 type WriteOrgCarbonResponseBody struct {
-	Result  *int32 `json:"result,omitempty" xml:"result,omitempty"`
-	Success *bool  `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	Result *int32 `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s WriteOrgCarbonResponseBody) String() string {
@@ -674,6 +822,7 @@ func (s *WriteUserCarbonHeaders) SetXAcsDingtalkAccessToken(v string) *WriteUser
 }
 
 type WriteUserCarbonRequest struct {
+	// This parameter is required.
 	UserDetailsList []*WriteUserCarbonRequestUserDetailsList `json:"userDetailsList,omitempty" xml:"userDetailsList,omitempty" type:"Repeated"`
 }
 
@@ -691,15 +840,60 @@ func (s *WriteUserCarbonRequest) SetUserDetailsList(v []*WriteUserCarbonRequestU
 }
 
 type WriteUserCarbonRequestUserDetailsList struct {
-	ActionEndTime   *string `json:"actionEndTime,omitempty" xml:"actionEndTime,omitempty"`
-	ActionId        *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-11-26 10:09:37
+	ActionEndTime *string `json:"actionEndTime,omitempty" xml:"actionEndTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12320211126
+	ActionId *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-11-26 10:09:37
 	ActionStartTime *string `json:"actionStartTime,omitempty" xml:"actionStartTime,omitempty"`
-	ActionType      *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	CarbonAmount    *string `json:"carbonAmount,omitempty" xml:"carbonAmount,omitempty"`
-	CorpId          *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	DeptId          *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	Version         *int32  `json:"version,omitempty" xml:"version,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// VIDEO
+	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3.21
+	CarbonAmount *string `json:"carbonAmount,omitempty" xml:"carbonAmount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding12344
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Version *int32 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s WriteUserCarbonRequestUserDetailsList) String() string {
@@ -756,8 +950,10 @@ func (s *WriteUserCarbonRequestUserDetailsList) SetVersion(v int32) *WriteUserCa
 }
 
 type WriteUserCarbonResponseBody struct {
-	Result  *int32 `json:"result,omitempty" xml:"result,omitempty"`
-	Success *bool  `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	Result *int32 `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s WriteUserCarbonResponseBody) String() string {
@@ -848,15 +1044,42 @@ func (s *WriteUserCarbonEnergyRequest) SetUserDetailsList(v []*WriteUserCarbonEn
 }
 
 type WriteUserCarbonEnergyRequestUserDetailsList struct {
-	ActionEndTime   *string `json:"actionEndTime,omitempty" xml:"actionEndTime,omitempty"`
-	ActionId        *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
+	// example:
+	//
+	// 2021-11-26 10:09:37
+	ActionEndTime *string `json:"actionEndTime,omitempty" xml:"actionEndTime,omitempty"`
+	// example:
+	//
+	// 12320211126
+	ActionId *string `json:"actionId,omitempty" xml:"actionId,omitempty"`
+	// example:
+	//
+	// 2021-11-26 10:09:37
 	ActionStartTime *string `json:"actionStartTime,omitempty" xml:"actionStartTime,omitempty"`
-	ActionType      *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	CarbonAmount    *string `json:"carbonAmount,omitempty" xml:"carbonAmount,omitempty"`
-	CorpId          *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	DeptId          *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	Version         *int32  `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// VIDEO
+	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// example:
+	//
+	// 3.21
+	CarbonAmount *string `json:"carbonAmount,omitempty" xml:"carbonAmount,omitempty"`
+	// example:
+	//
+	// ding12344
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 111
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// 123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int32 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s WriteUserCarbonEnergyRequestUserDetailsList) String() string {
@@ -979,12 +1202,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -993,6 +1216,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 获取用户的减碳明细
+//
+// @param request - GetPersonalCarbonInfoRequest
+//
+// @param headers - GetPersonalCarbonInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPersonalCarbonInfoResponse
 func (client *Client) GetPersonalCarbonInfoWithOptions(request *GetPersonalCarbonInfoRequest, headers *GetPersonalCarbonInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPersonalCarbonInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1040,6 +1274,13 @@ func (client *Client) GetPersonalCarbonInfoWithOptions(request *GetPersonalCarbo
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户的减碳明细
+//
+// @param request - GetPersonalCarbonInfoRequest
+//
+// @return GetPersonalCarbonInfoResponse
 func (client *Client) GetPersonalCarbonInfo(request *GetPersonalCarbonInfoRequest) (_result *GetPersonalCarbonInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPersonalCarbonInfoHeaders{}
@@ -1052,6 +1293,17 @@ func (client *Client) GetPersonalCarbonInfo(request *GetPersonalCarbonInfoReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 写入阿里巴巴每日组织明细碳能量数据
+//
+// @param request - WriteAlibabaOrgCarbonRequest
+//
+// @param headers - WriteAlibabaOrgCarbonHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return WriteAlibabaOrgCarbonResponse
 func (client *Client) WriteAlibabaOrgCarbonWithOptions(request *WriteAlibabaOrgCarbonRequest, headers *WriteAlibabaOrgCarbonHeaders, runtime *util.RuntimeOptions) (_result *WriteAlibabaOrgCarbonResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1095,6 +1347,13 @@ func (client *Client) WriteAlibabaOrgCarbonWithOptions(request *WriteAlibabaOrgC
 	return _result, _err
 }
 
+// Summary:
+//
+// 写入阿里巴巴每日组织明细碳能量数据
+//
+// @param request - WriteAlibabaOrgCarbonRequest
+//
+// @return WriteAlibabaOrgCarbonResponse
 func (client *Client) WriteAlibabaOrgCarbon(request *WriteAlibabaOrgCarbonRequest) (_result *WriteAlibabaOrgCarbonResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &WriteAlibabaOrgCarbonHeaders{}
@@ -1107,6 +1366,17 @@ func (client *Client) WriteAlibabaOrgCarbon(request *WriteAlibabaOrgCarbonReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 写入阿里巴巴每日用户碳能量数据
+//
+// @param request - WriteAlibabaUserCarbonRequest
+//
+// @param headers - WriteAlibabaUserCarbonHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return WriteAlibabaUserCarbonResponse
 func (client *Client) WriteAlibabaUserCarbonWithOptions(request *WriteAlibabaUserCarbonRequest, headers *WriteAlibabaUserCarbonHeaders, runtime *util.RuntimeOptions) (_result *WriteAlibabaUserCarbonResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1150,6 +1420,13 @@ func (client *Client) WriteAlibabaUserCarbonWithOptions(request *WriteAlibabaUse
 	return _result, _err
 }
 
+// Summary:
+//
+// 写入阿里巴巴每日用户碳能量数据
+//
+// @param request - WriteAlibabaUserCarbonRequest
+//
+// @return WriteAlibabaUserCarbonResponse
 func (client *Client) WriteAlibabaUserCarbon(request *WriteAlibabaUserCarbonRequest) (_result *WriteAlibabaUserCarbonResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &WriteAlibabaUserCarbonHeaders{}
@@ -1162,6 +1439,17 @@ func (client *Client) WriteAlibabaUserCarbon(request *WriteAlibabaUserCarbonRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// # ISV记录数据传输当前状态
+//
+// @param request - WriteIsvStateRequest
+//
+// @param headers - WriteIsvStateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return WriteIsvStateResponse
 func (client *Client) WriteIsvStateWithOptions(request *WriteIsvStateRequest, headers *WriteIsvStateHeaders, runtime *util.RuntimeOptions) (_result *WriteIsvStateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1209,6 +1497,13 @@ func (client *Client) WriteIsvStateWithOptions(request *WriteIsvStateRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// # ISV记录数据传输当前状态
+//
+// @param request - WriteIsvStateRequest
+//
+// @return WriteIsvStateResponse
 func (client *Client) WriteIsvState(request *WriteIsvStateRequest) (_result *WriteIsvStateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &WriteIsvStateHeaders{}
@@ -1221,6 +1516,17 @@ func (client *Client) WriteIsvState(request *WriteIsvStateRequest) (_result *Wri
 	return _result, _err
 }
 
+// Summary:
+//
+// 写入isv每日组织明细碳能量数据
+//
+// @param request - WriteOrgCarbonRequest
+//
+// @param headers - WriteOrgCarbonHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return WriteOrgCarbonResponse
 func (client *Client) WriteOrgCarbonWithOptions(request *WriteOrgCarbonRequest, headers *WriteOrgCarbonHeaders, runtime *util.RuntimeOptions) (_result *WriteOrgCarbonResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1264,6 +1570,13 @@ func (client *Client) WriteOrgCarbonWithOptions(request *WriteOrgCarbonRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 写入isv每日组织明细碳能量数据
+//
+// @param request - WriteOrgCarbonRequest
+//
+// @return WriteOrgCarbonResponse
 func (client *Client) WriteOrgCarbon(request *WriteOrgCarbonRequest) (_result *WriteOrgCarbonResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &WriteOrgCarbonHeaders{}
@@ -1276,6 +1589,17 @@ func (client *Client) WriteOrgCarbon(request *WriteOrgCarbonRequest) (_result *W
 	return _result, _err
 }
 
+// Summary:
+//
+// 写入isv每日用户明细碳能量数据
+//
+// @param request - WriteUserCarbonRequest
+//
+// @param headers - WriteUserCarbonHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return WriteUserCarbonResponse
 func (client *Client) WriteUserCarbonWithOptions(request *WriteUserCarbonRequest, headers *WriteUserCarbonHeaders, runtime *util.RuntimeOptions) (_result *WriteUserCarbonResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1319,6 +1643,13 @@ func (client *Client) WriteUserCarbonWithOptions(request *WriteUserCarbonRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 写入isv每日用户明细碳能量数据
+//
+// @param request - WriteUserCarbonRequest
+//
+// @return WriteUserCarbonResponse
 func (client *Client) WriteUserCarbon(request *WriteUserCarbonRequest) (_result *WriteUserCarbonResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &WriteUserCarbonHeaders{}
@@ -1331,6 +1662,17 @@ func (client *Client) WriteUserCarbon(request *WriteUserCarbonRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 写入isv能耗每日用户明细碳能量数据
+//
+// @param request - WriteUserCarbonEnergyRequest
+//
+// @param headers - WriteUserCarbonEnergyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return WriteUserCarbonEnergyResponse
 func (client *Client) WriteUserCarbonEnergyWithOptions(request *WriteUserCarbonEnergyRequest, headers *WriteUserCarbonEnergyHeaders, runtime *util.RuntimeOptions) (_result *WriteUserCarbonEnergyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1374,6 +1716,13 @@ func (client *Client) WriteUserCarbonEnergyWithOptions(request *WriteUserCarbonE
 	return _result, _err
 }
 
+// Summary:
+//
+// 写入isv能耗每日用户明细碳能量数据
+//
+// @param request - WriteUserCarbonEnergyRequest
+//
+// @return WriteUserCarbonEnergyResponse
 func (client *Client) WriteUserCarbonEnergy(request *WriteUserCarbonEnergyRequest) (_result *WriteUserCarbonEnergyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &WriteUserCarbonEnergyHeaders{}

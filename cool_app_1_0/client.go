@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package cool_app_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,8 +33,14 @@ func (s *InstallCoolAppOrderToGroupHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type InstallCoolAppOrderToGroupRequest struct {
-	ConversationId       *string  `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	SortedPluginIdList   []*int64 `json:"sortedPluginIdList,omitempty" xml:"sortedPluginIdList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// cidxxx
+	ConversationId     *string  `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	SortedPluginIdList []*int64 `json:"sortedPluginIdList,omitempty" xml:"sortedPluginIdList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// template-id-xxx
 	TemplateId           *string  `json:"templateId,omitempty" xml:"templateId,omitempty"`
 	UnsortedPluginIdList []*int64 `json:"unsortedPluginIdList,omitempty" xml:"unsortedPluginIdList,omitempty" type:"Repeated"`
 }
@@ -147,10 +149,22 @@ func (s *InstallCoolAppToGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Ins
 }
 
 type InstallCoolAppToGroupRequest struct {
-	ConversationId     *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	// example:
+	//
+	// cidxxxx
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	// example:
+	//
+	// CoolApp-xxx
 	OperateCoolAppCode *string `json:"operateCoolAppCode,omitempty" xml:"operateCoolAppCode,omitempty"`
-	OperatorId         *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	TemplateId         *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// example:
+	//
+	// staffid12
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// example:
+	//
+	// template-id-xxx
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
 
 func (s InstallCoolAppToGroupRequest) String() string {
@@ -257,9 +271,18 @@ func (s *QueryCoolAppShortcutOrderHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type QueryCoolAppShortcutOrderRequest struct {
+	// example:
+	//
+	// cidxxx
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	OperatorId     *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	TemplateId     *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// example:
+	//
+	// staff1
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// example:
+	//
+	// templateId1
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
 
 func (s QueryCoolAppShortcutOrderRequest) String() string {
@@ -513,10 +536,22 @@ func (s *UninstallCoolAppFromGroupHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type UninstallCoolAppFromGroupRequest struct {
-	ConversationId     *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	// example:
+	//
+	// cidxxx
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	// example:
+	//
+	// CoolApp-xxx
 	OperateCoolAppCode *string `json:"operateCoolAppCode,omitempty" xml:"operateCoolAppCode,omitempty"`
-	OperatorId         *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	TemplateId         *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// example:
+	//
+	// staffid111
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// example:
+	//
+	// template-id-xxx
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
 
 func (s UninstallCoolAppFromGroupRequest) String() string {
@@ -614,12 +649,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -628,6 +663,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 群酷应用排序
+//
+// @param request - InstallCoolAppOrderToGroupRequest
+//
+// @param headers - InstallCoolAppOrderToGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InstallCoolAppOrderToGroupResponse
 func (client *Client) InstallCoolAppOrderToGroupWithOptions(request *InstallCoolAppOrderToGroupRequest, headers *InstallCoolAppOrderToGroupHeaders, runtime *util.RuntimeOptions) (_result *InstallCoolAppOrderToGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -683,6 +729,13 @@ func (client *Client) InstallCoolAppOrderToGroupWithOptions(request *InstallCool
 	return _result, _err
 }
 
+// Summary:
+//
+// 群酷应用排序
+//
+// @param request - InstallCoolAppOrderToGroupRequest
+//
+// @return InstallCoolAppOrderToGroupResponse
 func (client *Client) InstallCoolAppOrderToGroup(request *InstallCoolAppOrderToGroupRequest) (_result *InstallCoolAppOrderToGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InstallCoolAppOrderToGroupHeaders{}
@@ -695,6 +748,17 @@ func (client *Client) InstallCoolAppOrderToGroup(request *InstallCoolAppOrderToG
 	return _result, _err
 }
 
+// Summary:
+//
+// 安装酷应用到群
+//
+// @param request - InstallCoolAppToGroupRequest
+//
+// @param headers - InstallCoolAppToGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InstallCoolAppToGroupResponse
 func (client *Client) InstallCoolAppToGroupWithOptions(request *InstallCoolAppToGroupRequest, headers *InstallCoolAppToGroupHeaders, runtime *util.RuntimeOptions) (_result *InstallCoolAppToGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -750,6 +814,13 @@ func (client *Client) InstallCoolAppToGroupWithOptions(request *InstallCoolAppTo
 	return _result, _err
 }
 
+// Summary:
+//
+// 安装酷应用到群
+//
+// @param request - InstallCoolAppToGroupRequest
+//
+// @return InstallCoolAppToGroupResponse
 func (client *Client) InstallCoolAppToGroup(request *InstallCoolAppToGroupRequest) (_result *InstallCoolAppToGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &InstallCoolAppToGroupHeaders{}
@@ -762,6 +833,17 @@ func (client *Client) InstallCoolAppToGroup(request *InstallCoolAppToGroupReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询群插件栏
+//
+// @param request - QueryCoolAppShortcutOrderRequest
+//
+// @param headers - QueryCoolAppShortcutOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCoolAppShortcutOrderResponse
 func (client *Client) QueryCoolAppShortcutOrderWithOptions(request *QueryCoolAppShortcutOrderRequest, headers *QueryCoolAppShortcutOrderHeaders, runtime *util.RuntimeOptions) (_result *QueryCoolAppShortcutOrderResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -813,6 +895,13 @@ func (client *Client) QueryCoolAppShortcutOrderWithOptions(request *QueryCoolApp
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询群插件栏
+//
+// @param request - QueryCoolAppShortcutOrderRequest
+//
+// @return QueryCoolAppShortcutOrderResponse
 func (client *Client) QueryCoolAppShortcutOrder(request *QueryCoolAppShortcutOrderRequest) (_result *QueryCoolAppShortcutOrderResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryCoolAppShortcutOrderHeaders{}
@@ -825,6 +914,17 @@ func (client *Client) QueryCoolAppShortcutOrder(request *QueryCoolAppShortcutOrd
 	return _result, _err
 }
 
+// Summary:
+//
+// 从群内卸载酷应用
+//
+// @param request - UninstallCoolAppFromGroupRequest
+//
+// @param headers - UninstallCoolAppFromGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UninstallCoolAppFromGroupResponse
 func (client *Client) UninstallCoolAppFromGroupWithOptions(request *UninstallCoolAppFromGroupRequest, headers *UninstallCoolAppFromGroupHeaders, runtime *util.RuntimeOptions) (_result *UninstallCoolAppFromGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -880,6 +980,13 @@ func (client *Client) UninstallCoolAppFromGroupWithOptions(request *UninstallCoo
 	return _result, _err
 }
 
+// Summary:
+//
+// 从群内卸载酷应用
+//
+// @param request - UninstallCoolAppFromGroupRequest
+//
+// @return UninstallCoolAppFromGroupResponse
 func (client *Client) UninstallCoolAppFromGroup(request *UninstallCoolAppFromGroupRequest) (_result *UninstallCoolAppFromGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UninstallCoolAppFromGroupHeaders{}

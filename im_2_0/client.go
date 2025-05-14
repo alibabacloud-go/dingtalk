@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package im_2_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -71,14 +67,42 @@ func (s *CloseTopboxHeaders) SetXAcsDingtalkAccessToken(v string) *CloseTopboxHe
 }
 
 type CloseTopboxRequest struct {
-	ConversationType   *int32  `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
-	CoolAppCode        *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	GroupTemplateId    *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	ConversationType *int32 `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
+	// example:
+	//
+	// COOLAPP-x-xxx
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	// example:
+	//
+	// 6dx-xxx-xxx
+	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
+	// example:
+	//
+	// cidxxxxx==
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OutTrackId         *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	RobotCode          *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	UnoinId            *string `json:"unoinId,omitempty" xml:"unoinId,omitempty"`
-	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123xxx
+	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	// example:
+	//
+	// dingxxx
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// example:
+	//
+	// jHsR7xxx
+	UnoinId *string `json:"unoinId,omitempty" xml:"unoinId,omitempty"`
+	// example:
+	//
+	// 011xxx
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CloseTopboxRequest) String() string {
@@ -199,9 +223,17 @@ func (s *CreateCoupleGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateC
 }
 
 type CreateCoupleGroupRequest struct {
-	GroupTemplateId *string                          `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
-	OperatorId      *string                          `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	Users           []*CreateCoupleGroupRequestUsers `json:"users,omitempty" xml:"users,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 8d42****nkld
+	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
+	// example:
+	//
+	// 1745****8777
+	OperatorId *string                          `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	Users      []*CreateCoupleGroupRequestUsers `json:"users,omitempty" xml:"users,omitempty" type:"Repeated"`
 }
 
 func (s CreateCoupleGroupRequest) String() string {
@@ -228,9 +260,16 @@ func (s *CreateCoupleGroupRequest) SetUsers(v []*CreateCoupleGroupRequestUsers) 
 }
 
 type CreateCoupleGroupRequestUsers struct {
-	AppUserId  *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	GroupOwner *bool   `json:"groupOwner,omitempty" xml:"groupOwner,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 1107****2120
+	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
+	// This parameter is required.
+	GroupOwner *bool `json:"groupOwner,omitempty" xml:"groupOwner,omitempty"`
+	// example:
+	//
+	// 1745****8778
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateCoupleGroupRequestUsers) String() string {
@@ -257,8 +296,14 @@ func (s *CreateCoupleGroupRequestUsers) SetUserId(v string) *CreateCoupleGroupRe
 }
 
 type CreateCoupleGroupResponseBody struct {
-	AppUserIds         []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
-	ConversationId     *string   `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// cidX********xaw==
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	// example:
+	//
+	// 14da****2760
 	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	UserIds            []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
@@ -344,11 +389,28 @@ func (s *CreateGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGroupHe
 }
 
 type CreateGroupRequest struct {
-	GroupAvatar     *string                    `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
-	GroupName       *string                    `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	GroupTemplateId *string                    `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
-	OperatorId      *string                    `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	Users           []*CreateGroupRequestUsers `json:"users,omitempty" xml:"users,omitempty" type:"Repeated"`
+	// example:
+	//
+	// http://***.png
+	GroupAvatar *string `json:"groupAvatar,omitempty" xml:"groupAvatar,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 客户群
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 8d42****nkld
+	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
+	// example:
+	//
+	// 1745****8777
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	Users []*CreateGroupRequestUsers `json:"users,omitempty" xml:"users,omitempty" type:"Repeated"`
 }
 
 func (s CreateGroupRequest) String() string {
@@ -385,9 +447,16 @@ func (s *CreateGroupRequest) SetUsers(v []*CreateGroupRequestUsers) *CreateGroup
 }
 
 type CreateGroupRequestUsers struct {
-	AppUserId  *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
-	GroupOwner *bool   `json:"groupOwner,omitempty" xml:"groupOwner,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 1107****2120
+	AppUserId *string `json:"appUserId,omitempty" xml:"appUserId,omitempty"`
+	// This parameter is required.
+	GroupOwner *bool `json:"groupOwner,omitempty" xml:"groupOwner,omitempty"`
+	// example:
+	//
+	// 1745****8778
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateGroupRequestUsers) String() string {
@@ -414,8 +483,14 @@ func (s *CreateGroupRequestUsers) SetUserId(v string) *CreateGroupRequestUsers {
 }
 
 type CreateGroupResponseBody struct {
-	AppUserIds         []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
-	ConversationId     *string   `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	AppUserIds []*string `json:"appUserIds,omitempty" xml:"appUserIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// cidX********xaw==
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	// example:
+	//
+	// 14da****2760
 	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	UserIds            []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
@@ -501,24 +576,67 @@ func (s *CreateTopboxHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTopbox
 }
 
 type CreateTopboxRequest struct {
-	CallbackRouteKey      *string                                `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
-	CardData              *CreateTopboxRequestCardData           `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
-	CardSettings          *CreateTopboxRequestCardSettings       `json:"cardSettings,omitempty" xml:"cardSettings,omitempty" type:"Struct"`
-	CardTemplateId        *string                                `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
-	ConversationType      *int32                                 `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
-	CoolAppCode           *string                                `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
-	ExpiredTime           *int64                                 `json:"expiredTime,omitempty" xml:"expiredTime,omitempty"`
-	GroupTemplateId       *string                                `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
-	OpenConversationId    *string                                `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OutTrackId            *string                                `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
-	Platforms             *string                                `json:"platforms,omitempty" xml:"platforms,omitempty"`
-	ReceiverUnionIdList   []*string                              `json:"receiverUnionIdList,omitempty" xml:"receiverUnionIdList,omitempty" type:"Repeated"`
-	ReceiverUserIdList    []*string                              `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
-	RobotCode             *string                                `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// example:
+	//
+	// abcxxx
+	CallbackRouteKey *string `json:"callbackRouteKey,omitempty" xml:"callbackRouteKey,omitempty"`
+	// This parameter is required.
+	CardData     *CreateTopboxRequestCardData     `json:"cardData,omitempty" xml:"cardData,omitempty" type:"Struct"`
+	CardSettings *CreateTopboxRequestCardSettings `json:"cardSettings,omitempty" xml:"cardSettings,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 56xxx-xxx
+	CardTemplateId *string `json:"cardTemplateId,omitempty" xml:"cardTemplateId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	ConversationType *int32 `json:"conversationType,omitempty" xml:"conversationType,omitempty"`
+	// example:
+	//
+	// COOLAPP-x-xxx
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	// example:
+	//
+	// 1850042969000
+	ExpiredTime *int64 `json:"expiredTime,omitempty" xml:"expiredTime,omitempty"`
+	// example:
+	//
+	// xxx-xxx-xxx
+	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
+	// example:
+	//
+	// cidxxxxx==
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123xxx
+	OutTrackId *string `json:"outTrackId,omitempty" xml:"outTrackId,omitempty"`
+	// example:
+	//
+	// ios|win
+	Platforms           *string   `json:"platforms,omitempty" xml:"platforms,omitempty"`
+	ReceiverUnionIdList []*string `json:"receiverUnionIdList,omitempty" xml:"receiverUnionIdList,omitempty" type:"Repeated"`
+	ReceiverUserIdList  []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// dingxxx
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// example:
+	//
+	// jHsR7xxx
+	UnionId               *string                                `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	UnionIdPrivateDataMap map[string]*UnionIdPrivateDataMapValue `json:"unionIdPrivateDataMap,omitempty" xml:"unionIdPrivateDataMap,omitempty"`
-	UnoinId               *string                                `json:"unoinId,omitempty" xml:"unoinId,omitempty"`
-	UserId                *string                                `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserIdPrivateDataMap  map[string]*UserIdPrivateDataMapValue  `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
+	// example:
+	//
+	// 011xxx
+	UserId               *string                               `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserIdPrivateDataMap map[string]*UserIdPrivateDataMapValue `json:"userIdPrivateDataMap,omitempty" xml:"userIdPrivateDataMap,omitempty"`
 }
 
 func (s CreateTopboxRequest) String() string {
@@ -599,13 +717,13 @@ func (s *CreateTopboxRequest) SetRobotCode(v string) *CreateTopboxRequest {
 	return s
 }
 
-func (s *CreateTopboxRequest) SetUnionIdPrivateDataMap(v map[string]*UnionIdPrivateDataMapValue) *CreateTopboxRequest {
-	s.UnionIdPrivateDataMap = v
+func (s *CreateTopboxRequest) SetUnionId(v string) *CreateTopboxRequest {
+	s.UnionId = &v
 	return s
 }
 
-func (s *CreateTopboxRequest) SetUnoinId(v string) *CreateTopboxRequest {
-	s.UnoinId = &v
+func (s *CreateTopboxRequest) SetUnionIdPrivateDataMap(v map[string]*UnionIdPrivateDataMapValue) *CreateTopboxRequest {
+	s.UnionIdPrivateDataMap = v
 	return s
 }
 
@@ -760,12 +878,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
@@ -775,6 +893,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 关闭互动卡片吊顶
+//
+// @param request - CloseTopboxRequest
+//
+// @param headers - CloseTopboxHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CloseTopboxResponse
 func (client *Client) CloseTopboxWithOptions(request *CloseTopboxRequest, headers *CloseTopboxHeaders, runtime *util.RuntimeOptions) (_result *CloseTopboxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -846,6 +975,13 @@ func (client *Client) CloseTopboxWithOptions(request *CloseTopboxRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 关闭互动卡片吊顶
+//
+// @param request - CloseTopboxRequest
+//
+// @return CloseTopboxResponse
 func (client *Client) CloseTopbox(request *CloseTopboxRequest) (_result *CloseTopboxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CloseTopboxHeaders{}
@@ -858,6 +994,17 @@ func (client *Client) CloseTopbox(request *CloseTopboxRequest) (_result *CloseTo
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建两人群
+//
+// @param request - CreateCoupleGroupRequest
+//
+// @param headers - CreateCoupleGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateCoupleGroupResponse
 func (client *Client) CreateCoupleGroupWithOptions(request *CreateCoupleGroupRequest, headers *CreateCoupleGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateCoupleGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -909,6 +1056,13 @@ func (client *Client) CreateCoupleGroupWithOptions(request *CreateCoupleGroupReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建两人群
+//
+// @param request - CreateCoupleGroupRequest
+//
+// @return CreateCoupleGroupResponse
 func (client *Client) CreateCoupleGroup(request *CreateCoupleGroupRequest) (_result *CreateCoupleGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateCoupleGroupHeaders{}
@@ -921,6 +1075,17 @@ func (client *Client) CreateCoupleGroup(request *CreateCoupleGroupRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建普通群
+//
+// @param request - CreateGroupRequest
+//
+// @param headers - CreateGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateGroupResponse
 func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, headers *CreateGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -980,6 +1145,13 @@ func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建普通群
+//
+// @param request - CreateGroupRequest
+//
+// @return CreateGroupResponse
 func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateGroupHeaders{}
@@ -992,6 +1164,17 @@ func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateG
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建并开启互动卡片吊顶
+//
+// @param request - CreateTopboxRequest
+//
+// @param headers - CreateTopboxHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateTopboxResponse
 func (client *Client) CreateTopboxWithOptions(request *CreateTopboxRequest, headers *CreateTopboxHeaders, runtime *util.RuntimeOptions) (_result *CreateTopboxResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1054,12 +1237,12 @@ func (client *Client) CreateTopboxWithOptions(request *CreateTopboxRequest, head
 		body["robotCode"] = request.RobotCode
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.UnionIdPrivateDataMap)) {
-		body["unionIdPrivateDataMap"] = request.UnionIdPrivateDataMap
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.UnoinId)) {
-		body["unoinId"] = request.UnoinId
+	if !tea.BoolValue(util.IsUnset(request.UnionIdPrivateDataMap)) {
+		body["unionIdPrivateDataMap"] = request.UnionIdPrivateDataMap
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
@@ -1103,6 +1286,13 @@ func (client *Client) CreateTopboxWithOptions(request *CreateTopboxRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建并开启互动卡片吊顶
+//
+// @param request - CreateTopboxRequest
+//
+// @return CreateTopboxResponse
 func (client *Client) CreateTopbox(request *CreateTopboxRequest) (_result *CreateTopboxResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateTopboxHeaders{}
@@ -1115,6 +1305,15 @@ func (client *Client) CreateTopbox(request *CreateTopboxRequest) (_result *Creat
 	return _result, _err
 }
 
+// Summary:
+//
+// 群设备市场管理
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GroupManagerDeviceMarketResponse
 func (client *Client) GroupManagerDeviceMarketWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *GroupManagerDeviceMarketResponse, _err error) {
 	req := &openapi.OpenApiRequest{
 		Headers: headers,
@@ -1139,6 +1338,11 @@ func (client *Client) GroupManagerDeviceMarketWithOptions(headers map[string]*st
 	return _result, _err
 }
 
+// Summary:
+//
+// 群设备市场管理
+//
+// @return GroupManagerDeviceMarketResponse
 func (client *Client) GroupManagerDeviceMarket() (_result *GroupManagerDeviceMarketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)

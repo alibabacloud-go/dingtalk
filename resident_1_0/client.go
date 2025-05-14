@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package resident_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,13 +33,44 @@ func (s *AddPointHeaders) SetXAcsDingtalkAccessToken(v string) *AddPointHeaders 
 }
 
 type AddPointRequest struct {
-	ActionTime *int64  `json:"actionTime,omitempty" xml:"actionTime,omitempty"`
-	IsCircle   *bool   `json:"isCircle,omitempty" xml:"isCircle,omitempty"`
-	RuleCode   *string `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
-	RuleName   *string `json:"ruleName,omitempty" xml:"ruleName,omitempty"`
-	Score      *int32  `json:"score,omitempty" xml:"score,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	Uuid       *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// 1634630147
+	ActionTime *int64 `json:"actionTime,omitempty" xml:"actionTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// false
+	IsCircle *bool `json:"isCircle,omitempty" xml:"isCircle,omitempty"`
+	// example:
+	//
+	// rule_1
+	RuleCode *string `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 发动态
+	RuleName *string `json:"ruleName,omitempty" xml:"ruleName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3
+	Score *int32 `json:"score,omitempty" xml:"score,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 7645
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s AddPointRequest) String() string {
@@ -136,9 +163,22 @@ func (s *AddResidentDepartmentHeaders) SetXAcsDingtalkAccessToken(v string) *Add
 }
 
 type AddResidentDepartmentRequest struct {
-	DepartmentName     *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	IsResidenceGroup   *bool   `json:"isResidenceGroup,omitempty" xml:"isResidenceGroup,omitempty"`
-	ParentDepartmentId *int64  `json:"parentDepartmentId,omitempty" xml:"parentDepartmentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 第一网格组
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// example:
+	//
+	// true
+	IsResidenceGroup *bool `json:"isResidenceGroup,omitempty" xml:"isResidenceGroup,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12345
+	ParentDepartmentId *int64 `json:"parentDepartmentId,omitempty" xml:"parentDepartmentId,omitempty"`
 }
 
 func (s AddResidentDepartmentRequest) String() string {
@@ -165,6 +205,11 @@ func (s *AddResidentDepartmentRequest) SetParentDepartmentId(v int64) *AddReside
 }
 
 type AddResidentDepartmentResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
 	Result *int64 `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -234,6 +279,11 @@ func (s *AddResidentMemberHeaders) SetXAcsDingtalkAccessToken(v string) *AddResi
 }
 
 type AddResidentMemberRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// A栋
 	ResidentAddInfo *AddResidentMemberRequestResidentAddInfo `json:"residentAddInfo,omitempty" xml:"residentAddInfo,omitempty" type:"Struct"`
 }
 
@@ -251,12 +301,36 @@ func (s *AddResidentMemberRequest) SetResidentAddInfo(v *AddResidentMemberReques
 }
 
 type AddResidentMemberRequestResidentAddInfo struct {
-	DeptId              *int64                 `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	IsPropertyOwner     *bool                  `json:"isPropertyOwner,omitempty" xml:"isPropertyOwner,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11112
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// true
+	IsPropertyOwner *bool `json:"isPropertyOwner,omitempty" xml:"isPropertyOwner,omitempty"`
+	// example:
+	//
+	// {"startTime":1652358627106,"endTime":1652445027106}
 	MemberDeptExtension map[string]interface{} `json:"memberDeptExtension,omitempty" xml:"memberDeptExtension,omitempty"`
-	Mobile              *string                `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	Name                *string                `json:"name,omitempty" xml:"name,omitempty"`
-	RelateType          *string                `json:"relateType,omitempty" xml:"relateType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 148********
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1
+	RelateType *string `json:"relateType,omitempty" xml:"relateType,omitempty"`
 }
 
 func (s AddResidentMemberRequestResidentAddInfo) String() string {
@@ -298,7 +372,10 @@ func (s *AddResidentMemberRequestResidentAddInfo) SetRelateType(v string) *AddRe
 }
 
 type AddResidentMemberResponseBody struct {
-	Status  *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 10005
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -379,13 +456,38 @@ func (s *AddResidentUsersHeaders) SetXAcsDingtalkAccessToken(v string) *AddResid
 }
 
 type AddResidentUsersRequest struct {
-	Address       *string                            `json:"address,omitempty" xml:"address,omitempty"`
-	DepartmentId  *int64                             `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	ExtField      []*AddResidentUsersRequestExtField `json:"extField,omitempty" xml:"extField,omitempty" type:"Repeated"`
-	IsLeaseholder *bool                              `json:"isLeaseholder,omitempty" xml:"isLeaseholder,omitempty"`
-	Mobile        *string                            `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	RelateType    *string                            `json:"relateType,omitempty" xml:"relateType,omitempty"`
-	UserName      *string                            `json:"userName,omitempty" xml:"userName,omitempty"`
+	// example:
+	//
+	// 美好社区创景街道万通公寓
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12345
+	DepartmentId *int64                             `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	ExtField     []*AddResidentUsersRequestExtField `json:"extField,omitempty" xml:"extField,omitempty" type:"Repeated"`
+	// example:
+	//
+	// false
+	IsLeaseholder *bool `json:"isLeaseholder,omitempty" xml:"isLeaseholder,omitempty"`
+	// example:
+	//
+	// 15612345678
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// SELF
+	RelateType *string `json:"relateType,omitempty" xml:"relateType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 王建国
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
 func (s AddResidentUsersRequest) String() string {
@@ -432,7 +534,13 @@ func (s *AddResidentUsersRequest) SetUserName(v string) *AddResidentUsersRequest
 }
 
 type AddResidentUsersRequestExtField struct {
-	ItemName  *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
+	// example:
+	//
+	// 性别
+	ItemName *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
+	// example:
+	//
+	// 女
 	ItemValue *string `json:"itemValue,omitempty" xml:"itemValue,omitempty"`
 }
 
@@ -455,6 +563,11 @@ func (s *AddResidentUsersRequestExtField) SetItemValue(v string) *AddResidentUse
 }
 
 type AddResidentUsersResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -524,10 +637,12 @@ func (s *CreateResidentBlackBoardHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type CreateResidentBlackBoardRequest struct {
+	// This parameter is required.
 	Context  *string `json:"context,omitempty" xml:"context,omitempty"`
 	MediaId  *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
 	SendTime *string `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
-	Title    *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateResidentBlackBoardRequest) String() string {
@@ -632,10 +747,28 @@ type CreateSpaceRequest struct {
 	BuildingArea *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
 	Floor        *string  `json:"floor,omitempty" xml:"floor,omitempty"`
 	HouseState   *int64   `json:"houseState,omitempty" xml:"houseState,omitempty"`
-	Name         *string  `json:"name,omitempty" xml:"name,omitempty"`
-	ParentDeptId *string  `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
-	TagCode      *string  `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
-	Type         *string  `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// A栋
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// -7
+	ParentDeptId *string `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// House
+	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	// example:
+	//
+	// 2
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s CreateSpaceRequest) String() string {
@@ -687,6 +820,9 @@ func (s *CreateSpaceRequest) SetType(v string) *CreateSpaceRequest {
 }
 
 type CreateSpaceResponseBody struct {
+	// example:
+	//
+	// 10005
 	DeptId *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
@@ -756,6 +892,7 @@ func (s *DeleteResidentBlackBoardHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type DeleteResidentBlackBoardRequest struct {
+	// This parameter is required.
 	BlackboardId *string `json:"blackboardId,omitempty" xml:"blackboardId,omitempty"`
 }
 
@@ -842,6 +979,11 @@ func (s *DeleteResidentDepartmentHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type DeleteResidentDepartmentRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12345
 	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
 }
 
@@ -859,6 +1001,11 @@ func (s *DeleteResidentDepartmentRequest) SetDepartmentId(v int64) *DeleteReside
 }
 
 type DeleteResidentDepartmentResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -928,6 +1075,9 @@ func (s *DeleteSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteSpaceHe
 }
 
 type DeleteSpaceRequest struct {
+	// example:
+	//
+	// 忘川路1号
 	DeptIds []*int64 `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
 }
 
@@ -945,8 +1095,14 @@ func (s *DeleteSpaceRequest) SetDeptIds(v []*int64) *DeleteSpaceRequest {
 }
 
 type DeleteSpaceResponseBody struct {
-	DelFailedDept   []*DeleteSpaceResponseBodyDelFailedDept `json:"delFailedDept,omitempty" xml:"delFailedDept,omitempty" type:"Repeated"`
-	DelSuccessCount *bool                                   `json:"delSuccessCount,omitempty" xml:"delSuccessCount,omitempty"`
+	// This parameter is required.
+	DelFailedDept []*DeleteSpaceResponseBodyDelFailedDept `json:"delFailedDept,omitempty" xml:"delFailedDept,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	DelSuccessCount *bool `json:"delSuccessCount,omitempty" xml:"delSuccessCount,omitempty"`
 }
 
 func (s DeleteSpaceResponseBody) String() string {
@@ -968,6 +1124,11 @@ func (s *DeleteSpaceResponseBody) SetDelSuccessCount(v bool) *DeleteSpaceRespons
 }
 
 type DeleteSpaceResponseBodyDelFailedDept struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 122222
 	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
 }
 
@@ -1037,6 +1198,11 @@ func (s *GetConversationIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetConv
 }
 
 type GetConversationIdRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// chatd575783672bb40c005ba4e8b2*****ab
 	ChatId *string `json:"chatId,omitempty" xml:"chatId,omitempty"`
 }
 
@@ -1054,6 +1220,9 @@ func (s *GetConversationIdRequest) SetChatId(v string) *GetConversationIdRequest
 }
 
 type GetConversationIdResponseBody struct {
+	// example:
+	//
+	// cidAX+2NwjqR3Y81Sxic5jtag==
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -1123,6 +1292,11 @@ func (s *GetIndustryTypeHeaders) SetXAcsDingtalkAccessToken(v string) *GetIndust
 }
 
 type GetIndustryTypeResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// RESIDENCE
 	IndustryType *string `json:"industryType,omitempty" xml:"industryType,omitempty"`
 }
 
@@ -1319,27 +1493,31 @@ func (s *GetResidentInfoRequest) SetResidentCorpId(v string) *GetResidentInfoReq
 }
 
 type GetResidentInfoResponseBody struct {
-	Address                             *string                                    `json:"address,omitempty" xml:"address,omitempty"`
-	AllUserGroupOpenConversationId      *string                                    `json:"allUserGroupOpenConversationId,omitempty" xml:"allUserGroupOpenConversationId,omitempty"`
-	AllUserGroupOwnerUserId             *string                                    `json:"allUserGroupOwnerUserId,omitempty" xml:"allUserGroupOwnerUserId,omitempty"`
-	BuildingArea                        *float32                                   `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
-	CityId                              *int32                                     `json:"cityId,omitempty" xml:"cityId,omitempty"`
-	ContactMode                         *int32                                     `json:"contactMode,omitempty" xml:"contactMode,omitempty"`
-	CountyId                            *int32                                     `json:"countyId,omitempty" xml:"countyId,omitempty"`
-	DeliveryTime                        *int64                                     `json:"deliveryTime,omitempty" xml:"deliveryTime,omitempty"`
-	Location                            *string                                    `json:"location,omitempty" xml:"location,omitempty"`
-	Name                                *string                                    `json:"name,omitempty" xml:"name,omitempty"`
-	ProjectManager                      *GetResidentInfoResponseBodyProjectManager `json:"projectManager,omitempty" xml:"projectManager,omitempty" type:"Struct"`
-	PropertyDeptGroupOpenConversationId *string                                    `json:"propertyDeptGroupOpenConversationId,omitempty" xml:"propertyDeptGroupOpenConversationId,omitempty"`
-	PropertyDeptGroupOwnerUserId        *string                                    `json:"propertyDeptGroupOwnerUserId,omitempty" xml:"propertyDeptGroupOwnerUserId,omitempty"`
-	ProvId                              *int64                                     `json:"provId,omitempty" xml:"provId,omitempty"`
-	ScopeEast                           *string                                    `json:"scopeEast,omitempty" xml:"scopeEast,omitempty"`
-	ScopeNorth                          *string                                    `json:"scopeNorth,omitempty" xml:"scopeNorth,omitempty"`
-	ScopeSouth                          *string                                    `json:"scopeSouth,omitempty" xml:"scopeSouth,omitempty"`
-	ScopeWest                           *string                                    `json:"scopeWest,omitempty" xml:"scopeWest,omitempty"`
-	Telephone                           *string                                    `json:"telephone,omitempty" xml:"telephone,omitempty"`
-	TownId                              *int32                                     `json:"townId,omitempty" xml:"townId,omitempty"`
-	Type                                *int32                                     `json:"type,omitempty" xml:"type,omitempty"`
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// This parameter is required.
+	AllUserGroupOpenConversationId *string `json:"allUserGroupOpenConversationId,omitempty" xml:"allUserGroupOpenConversationId,omitempty"`
+	// This parameter is required.
+	AllUserGroupOwnerUserId *string                                    `json:"allUserGroupOwnerUserId,omitempty" xml:"allUserGroupOwnerUserId,omitempty"`
+	BuildingArea            *float32                                   `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
+	CityId                  *int32                                     `json:"cityId,omitempty" xml:"cityId,omitempty"`
+	ContactMode             *int32                                     `json:"contactMode,omitempty" xml:"contactMode,omitempty"`
+	CountyId                *int32                                     `json:"countyId,omitempty" xml:"countyId,omitempty"`
+	DeliveryTime            *int64                                     `json:"deliveryTime,omitempty" xml:"deliveryTime,omitempty"`
+	Location                *string                                    `json:"location,omitempty" xml:"location,omitempty"`
+	Name                    *string                                    `json:"name,omitempty" xml:"name,omitempty"`
+	ProjectManager          *GetResidentInfoResponseBodyProjectManager `json:"projectManager,omitempty" xml:"projectManager,omitempty" type:"Struct"`
+	// This parameter is required.
+	PropertyDeptGroupOpenConversationId *string `json:"propertyDeptGroupOpenConversationId,omitempty" xml:"propertyDeptGroupOpenConversationId,omitempty"`
+	// This parameter is required.
+	PropertyDeptGroupOwnerUserId *string `json:"propertyDeptGroupOwnerUserId,omitempty" xml:"propertyDeptGroupOwnerUserId,omitempty"`
+	ProvId                       *int64  `json:"provId,omitempty" xml:"provId,omitempty"`
+	ScopeEast                    *string `json:"scopeEast,omitempty" xml:"scopeEast,omitempty"`
+	ScopeNorth                   *string `json:"scopeNorth,omitempty" xml:"scopeNorth,omitempty"`
+	ScopeSouth                   *string `json:"scopeSouth,omitempty" xml:"scopeSouth,omitempty"`
+	ScopeWest                    *string `json:"scopeWest,omitempty" xml:"scopeWest,omitempty"`
+	Telephone                    *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
+	TownId                       *int32  `json:"townId,omitempty" xml:"townId,omitempty"`
+	Type                         *int32  `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s GetResidentInfoResponseBody) String() string {
@@ -1537,8 +1715,10 @@ func (s *GetResidentMembersInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetResidentMembersInfoRequest struct {
-	ResidentCropId *string   `json:"residentCropId,omitempty" xml:"residentCropId,omitempty"`
-	UserIdList     []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	ResidentCropId *string `json:"residentCropId,omitempty" xml:"residentCropId,omitempty"`
+	// This parameter is required.
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
 func (s GetResidentMembersInfoRequest) String() string {
@@ -1670,6 +1850,11 @@ func (s *GetSpaceIdByTypeHeaders) SetXAcsDingtalkAccessToken(v string) *GetSpace
 }
 
 type GetSpaceIdByTypeRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PROPERTY_STAFF_DEPT
 	DepartmentType *string `json:"departmentType,omitempty" xml:"departmentType,omitempty"`
 }
 
@@ -1687,6 +1872,11 @@ func (s *GetSpaceIdByTypeRequest) SetDepartmentType(v string) *GetSpaceIdByTypeR
 }
 
 type GetSpaceIdByTypeResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12343
 	ReferId *int64 `json:"referId,omitempty" xml:"referId,omitempty"`
 }
 
@@ -1756,8 +1946,10 @@ func (s *GetSpacesInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetSpacesIn
 }
 
 type GetSpacesInfoRequest struct {
-	ReferIds       []*int64 `json:"referIds,omitempty" xml:"referIds,omitempty" type:"Repeated"`
-	ResidentCorpId *string  `json:"residentCorpId,omitempty" xml:"residentCorpId,omitempty"`
+	// This parameter is required.
+	ReferIds []*int64 `json:"referIds,omitempty" xml:"referIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	ResidentCorpId *string `json:"residentCorpId,omitempty" xml:"residentCorpId,omitempty"`
 }
 
 func (s GetSpacesInfoRequest) String() string {
@@ -1919,6 +2111,11 @@ func (s *ListIndustryRoleUsersHeaders) SetXAcsDingtalkAccessToken(v string) *Lis
 }
 
 type ListIndustryRoleUsersRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SecurityManager
 	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
 }
 
@@ -2005,6 +2202,11 @@ func (s *ListPointRulesHeaders) SetXAcsDingtalkAccessToken(v string) *ListPointR
 }
 
 type ListPointRulesRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// false
 	IsCircle *bool `json:"isCircle,omitempty" xml:"isCircle,omitempty"`
 }
 
@@ -2022,6 +2224,11 @@ func (s *ListPointRulesRequest) SetIsCircle(v bool) *ListPointRulesRequest {
 }
 
 type ListPointRulesResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
 	PointRuleList []*ListPointRulesResponseBodyPointRuleList `json:"pointRuleList,omitempty" xml:"pointRuleList,omitempty" type:"Repeated"`
 }
 
@@ -2039,14 +2246,52 @@ func (s *ListPointRulesResponseBody) SetPointRuleList(v []*ListPointRulesRespons
 }
 
 type ListPointRulesResponseBodyPointRuleList struct {
-	DayLimitTimes *int32  `json:"dayLimitTimes,omitempty" xml:"dayLimitTimes,omitempty"`
-	Extension     *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	GroupId       *int32  `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	OrderId       *int32  `json:"orderId,omitempty" xml:"orderId,omitempty"`
-	RuleCode      *string `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
-	RuleName      *string `json:"ruleName,omitempty" xml:"ruleName,omitempty"`
-	Score         *int32  `json:"score,omitempty" xml:"score,omitempty"`
-	Status        *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 50
+	DayLimitTimes *int32 `json:"dayLimitTimes,omitempty" xml:"dayLimitTimes,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// text
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	GroupId *int32 `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 排序Id
+	OrderId *int32 `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	// example:
+	//
+	// rule_1
+	RuleCode *string `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 发动态
+	RuleName *string `json:"ruleName,omitempty" xml:"ruleName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3
+	Score *int32 `json:"score,omitempty" xml:"score,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s ListPointRulesResponseBodyPointRuleList) String() string {
@@ -2313,10 +2558,22 @@ func (s *ListUncheckUsersHeaders) SetXAcsDingtalkAccessToken(v string) *ListUnch
 }
 
 type ListUncheckUsersRequest struct {
+	// example:
+	//
+	// 10
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	StartTime  *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Status     *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 0
+	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 1652698991669
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 1
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s ListUncheckUsersRequest) String() string {
@@ -2348,7 +2605,17 @@ func (s *ListUncheckUsersRequest) SetStatus(v int32) *ListUncheckUsersRequest {
 }
 
 type ListUncheckUsersResponseBody struct {
-	HasMore   *bool                                 `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
 	NextToken *int64                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Values    []*ListUncheckUsersResponseBodyValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
 }
@@ -2377,14 +2644,38 @@ func (s *ListUncheckUsersResponseBody) SetValues(v []*ListUncheckUsersResponseBo
 }
 
 type ListUncheckUsersResponseBodyValues struct {
-	DeptId          *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	Extension       *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	GmtCreate       *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified     *int64  `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	IsPropertyOwner *bool   `json:"isPropertyOwner,omitempty" xml:"isPropertyOwner,omitempty"`
-	Name            *string `json:"name,omitempty" xml:"name,omitempty"`
-	Status          *int32  `json:"status,omitempty" xml:"status,omitempty"`
-	UnionId         *int64  `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 5345345
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// "{\"startTime\":\"1654746593623\",\"endTime\":\"1656042593623\"}"
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// 1652683318162
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 1652683318162
+	GmtModified *int64 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// example:
+	//
+	// true
+	IsPropertyOwner *bool `json:"isPropertyOwner,omitempty" xml:"isPropertyOwner,omitempty"`
+	// example:
+	//
+	// 张工
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 312423423
+	UnionId *int64 `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s ListUncheckUsersResponseBodyValues) String() string {
@@ -2488,6 +2779,11 @@ func (s *ListUserIndustryRolesHeaders) SetXAcsDingtalkAccessToken(v string) *Lis
 }
 
 type ListUserIndustryRolesRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12345
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -2522,9 +2818,18 @@ func (s *ListUserIndustryRolesResponseBody) SetRoleList(v []*ListUserIndustryRol
 }
 
 type ListUserIndustryRolesResponseBodyRoleList struct {
-	RoleId   *int64  `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// example:
+	//
+	// 312423423
+	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// example:
+	//
+	// 安保部经理
 	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
-	TagCode  *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	// example:
+	//
+	// SecurityManager
+	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
 }
 
 func (s ListUserIndustryRolesResponseBodyRoleList) String() string {
@@ -2603,12 +2908,39 @@ func (s *PagePointHistoryHeaders) SetXAcsDingtalkAccessToken(v string) *PagePoin
 }
 
 type PagePointHistoryRequest struct {
-	EndTime    *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	IsCircle   *bool   `json:"isCircle,omitempty" xml:"isCircle,omitempty"`
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	StartTime  *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 1631260866105
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// false
+	IsCircle *bool `json:"isCircle,omitempty" xml:"isCircle,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 15
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 1630345050858
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// 123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s PagePointHistoryRequest) String() string {
@@ -2650,10 +2982,30 @@ func (s *PagePointHistoryRequest) SetUserId(v string) *PagePointHistoryRequest {
 }
 
 type PagePointHistoryResponseBody struct {
-	HasMore         *bool                                          `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextToken       *int64                                         `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3276
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
 	PointRecordList []*PagePointHistoryResponseBodyPointRecordList `json:"pointRecordList,omitempty" xml:"pointRecordList,omitempty" type:"Repeated"`
-	TotalCount      *int64                                         `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// -1
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s PagePointHistoryResponseBody) String() string {
@@ -2685,12 +3037,40 @@ func (s *PagePointHistoryResponseBody) SetTotalCount(v int64) *PagePointHistoryR
 }
 
 type PagePointHistoryResponseBodyPointRecordList struct {
-	CreateAt *int64  `json:"createAt,omitempty" xml:"createAt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1634630147
+	CreateAt *int64 `json:"createAt,omitempty" xml:"createAt,omitempty"`
+	// example:
+	//
+	// rule_1
 	RuleCode *string `json:"ruleCode,omitempty" xml:"ruleCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 发动态
 	RuleName *string `json:"ruleName,omitempty" xml:"ruleName,omitempty"`
-	Score    *int32  `json:"score,omitempty" xml:"score,omitempty"`
-	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	Uuid     *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3
+	Score *int32 `json:"score,omitempty" xml:"score,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 7653
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s PagePointHistoryResponseBodyPointRecordList) String() string {
@@ -2784,9 +3164,18 @@ func (s *RemoveResidentMemberHeaders) SetXAcsDingtalkAccessToken(v string) *Remo
 }
 
 type RemoveResidentMemberRequest struct {
-	DeptId  *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// This parameter is required.
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 111112***
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s RemoveResidentMemberRequest) String() string {
@@ -2813,6 +3202,9 @@ func (s *RemoveResidentMemberRequest) SetUserId(v string) *RemoveResidentMemberR
 }
 
 type RemoveResidentMemberResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -2882,8 +3274,18 @@ func (s *RemoveResidentUserHeaders) SetXAcsDingtalkAccessToken(v string) *Remove
 }
 
 type RemoveResidentUserRequest struct {
-	DepartmentId *int64  `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12345
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12345
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s RemoveResidentUserRequest) String() string {
@@ -2905,6 +3307,11 @@ func (s *RemoveResidentUserRequest) SetUserId(v string) *RemoveResidentUserReque
 }
 
 type RemoveResidentUserResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -2974,8 +3381,10 @@ func (s *SearchResidentHeaders) SetXAcsDingtalkAccessToken(v string) *SearchResi
 }
 
 type SearchResidentRequest struct {
+	// This parameter is required.
 	ResidentCropId *string `json:"residentCropId,omitempty" xml:"residentCropId,omitempty"`
-	SearchWord     *string `json:"searchWord,omitempty" xml:"searchWord,omitempty"`
+	// This parameter is required.
+	SearchWord *string `json:"searchWord,omitempty" xml:"searchWord,omitempty"`
 }
 
 func (s SearchResidentRequest) String() string {
@@ -3107,9 +3516,22 @@ func (s *UpdateResideceGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Updat
 }
 
 type UpdateResideceGroupRequest struct {
-	DepartmentId   *int64  `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12345
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 第一网格组
 	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	ManagerUserId  *string `json:"managerUserId,omitempty" xml:"managerUserId,omitempty"`
+	// example:
+	//
+	// 1234
+	ManagerUserId *string `json:"managerUserId,omitempty" xml:"managerUserId,omitempty"`
 }
 
 func (s UpdateResideceGroupRequest) String() string {
@@ -3136,6 +3558,11 @@ func (s *UpdateResideceGroupRequest) SetManagerUserId(v string) *UpdateResideceG
 }
 
 type UpdateResideceGroupResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3205,13 +3632,40 @@ func (s *UpdateResidenceHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRes
 }
 
 type UpdateResidenceRequest struct {
-	DepartmentId       *int64  `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	DepartmentName     *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	Destitute          *bool   `json:"destitute,omitempty" xml:"destitute,omitempty"`
-	Grid               *string `json:"grid,omitempty" xml:"grid,omitempty"`
-	HomeTel            *string `json:"homeTel,omitempty" xml:"homeTel,omitempty"`
-	ManagerUserId      *string `json:"managerUserId,omitempty" xml:"managerUserId,omitempty"`
-	ParentDepartmentId *int64  `json:"parentDepartmentId,omitempty" xml:"parentDepartmentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12345
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 101户
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// example:
+	//
+	// false
+	Destitute *bool `json:"destitute,omitempty" xml:"destitute,omitempty"`
+	// example:
+	//
+	// 第1网格
+	Grid *string `json:"grid,omitempty" xml:"grid,omitempty"`
+	// example:
+	//
+	// 16612345678
+	HomeTel *string `json:"homeTel,omitempty" xml:"homeTel,omitempty"`
+	// example:
+	//
+	// 1234
+	ManagerUserId *string `json:"managerUserId,omitempty" xml:"managerUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12345
+	ParentDepartmentId *int64 `json:"parentDepartmentId,omitempty" xml:"parentDepartmentId,omitempty"`
 }
 
 func (s UpdateResidenceRequest) String() string {
@@ -3258,6 +3712,11 @@ func (s *UpdateResidenceRequest) SetParentDepartmentId(v int64) *UpdateResidence
 }
 
 type UpdateResidenceResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3328,9 +3787,11 @@ func (s *UpdateResidentBlackBoardHeaders) SetXAcsDingtalkAccessToken(v string) *
 
 type UpdateResidentBlackBoardRequest struct {
 	BlackboardId *string `json:"blackboardId,omitempty" xml:"blackboardId,omitempty"`
-	Context      *string `json:"context,omitempty" xml:"context,omitempty"`
-	MediaId      *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	Context *string `json:"context,omitempty" xml:"context,omitempty"`
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// This parameter is required.
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s UpdateResidentBlackBoardRequest) String() string {
@@ -3362,6 +3823,7 @@ func (s *UpdateResidentBlackBoardRequest) SetTitle(v string) *UpdateResidentBlac
 }
 
 type UpdateResidentBlackBoardResponseBody struct {
+	// This parameter is required.
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -3437,10 +3899,20 @@ type UpdateResidentInfoRequest struct {
 	CommunityType *int64   `json:"communityType,omitempty" xml:"communityType,omitempty"`
 	CountyName    *string  `json:"countyName,omitempty" xml:"countyName,omitempty"`
 	Location      *string  `json:"location,omitempty" xml:"location,omitempty"`
-	Name          *string  `json:"name,omitempty" xml:"name,omitempty"`
-	ProvName      *string  `json:"provName,omitempty" xml:"provName,omitempty"`
-	State         *int64   `json:"state,omitempty" xml:"state,omitempty"`
-	Telephone     *string  `json:"telephone,omitempty" xml:"telephone,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试小区1
+	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	ProvName *string `json:"provName,omitempty" xml:"provName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	State     *int64  `json:"state,omitempty" xml:"state,omitempty"`
+	Telephone *string `json:"telephone,omitempty" xml:"telephone,omitempty"`
 }
 
 func (s UpdateResidentInfoRequest) String() string {
@@ -3502,6 +3974,9 @@ func (s *UpdateResidentInfoRequest) SetTelephone(v string) *UpdateResidentInfoRe
 }
 
 type UpdateResidentInfoResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -3571,8 +4046,18 @@ func (s *UpdateResidentMemberHeaders) SetXAcsDingtalkAccessToken(v string) *Upda
 }
 
 type UpdateResidentMemberRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试小区1
 	ResidentUpdateInfo *UpdateResidentMemberRequestResidentUpdateInfo `json:"residentUpdateInfo,omitempty" xml:"residentUpdateInfo,omitempty" type:"Struct"`
-	UnionId            *string                                        `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1212
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s UpdateResidentMemberRequest) String() string {
@@ -3594,13 +4079,40 @@ func (s *UpdateResidentMemberRequest) SetUnionId(v string) *UpdateResidentMember
 }
 
 type UpdateResidentMemberRequestResidentUpdateInfo struct {
-	DeptId              *int64             `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	IsPropertyOwner     *bool              `json:"isPropertyOwner,omitempty" xml:"isPropertyOwner,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11112
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// true
+	IsPropertyOwner *bool `json:"isPropertyOwner,omitempty" xml:"isPropertyOwner,omitempty"`
+	// example:
+	//
+	// {"startTime":1652358627106,"endTime":1652445027106}
 	MemberDeptExtension map[string]*string `json:"memberDeptExtension,omitempty" xml:"memberDeptExtension,omitempty"`
-	Name                *string            `json:"name,omitempty" xml:"name,omitempty"`
-	OldDeptId           *int64             `json:"oldDeptId,omitempty" xml:"oldDeptId,omitempty"`
-	RelateType          *string            `json:"relateType,omitempty" xml:"relateType,omitempty"`
-	UserId              *string            `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11123
+	OldDeptId *int64 `json:"oldDeptId,omitempty" xml:"oldDeptId,omitempty"`
+	// example:
+	//
+	// 1
+	RelateType *string `json:"relateType,omitempty" xml:"relateType,omitempty"`
+	// example:
+	//
+	// 11123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s UpdateResidentMemberRequestResidentUpdateInfo) String() string {
@@ -3647,6 +4159,9 @@ func (s *UpdateResidentMemberRequestResidentUpdateInfo) SetUserId(v string) *Upd
 }
 
 type UpdateResidentMemberResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -3716,15 +4231,50 @@ func (s *UpdateResidentUserHeaders) SetXAcsDingtalkAccessToken(v string) *Update
 }
 
 type UpdateResidentUserRequest struct {
-	Address         *string                              `json:"address,omitempty" xml:"address,omitempty"`
-	DepartmentId    *int64                               `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	ExtField        []*UpdateResidentUserRequestExtField `json:"extField,omitempty" xml:"extField,omitempty" type:"Repeated"`
-	IsRetainOldDept *bool                                `json:"isRetainOldDept,omitempty" xml:"isRetainOldDept,omitempty"`
-	Mobile          *string                              `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	OldDepartmentId *int64                               `json:"oldDepartmentId,omitempty" xml:"oldDepartmentId,omitempty"`
-	RelateType      *string                              `json:"relateType,omitempty" xml:"relateType,omitempty"`
-	UserId          *string                              `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserName        *string                              `json:"userName,omitempty" xml:"userName,omitempty"`
+	// example:
+	//
+	// 美好社区创景街道万通公寓
+	Address *string `json:"address,omitempty" xml:"address,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12345
+	DepartmentId *int64                               `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	ExtField     []*UpdateResidentUserRequestExtField `json:"extField,omitempty" xml:"extField,omitempty" type:"Repeated"`
+	// example:
+	//
+	// false
+	IsRetainOldDept *bool `json:"isRetainOldDept,omitempty" xml:"isRetainOldDept,omitempty"`
+	// example:
+	//
+	// 15612345678
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12345
+	OldDepartmentId *int64 `json:"oldDepartmentId,omitempty" xml:"oldDepartmentId,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// SELF
+	RelateType *string `json:"relateType,omitempty" xml:"relateType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12345
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 王建国
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
 func (s UpdateResidentUserRequest) String() string {
@@ -3781,7 +4331,13 @@ func (s *UpdateResidentUserRequest) SetUserName(v string) *UpdateResidentUserReq
 }
 
 type UpdateResidentUserRequestExtField struct {
-	ItemName  *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
+	// example:
+	//
+	// 性别
+	ItemName *string `json:"itemName,omitempty" xml:"itemName,omitempty"`
+	// example:
+	//
+	// 女
 	ItemValue *string `json:"itemValue,omitempty" xml:"itemValue,omitempty"`
 }
 
@@ -3804,6 +4360,11 @@ func (s *UpdateResidentUserRequestExtField) SetItemValue(v string) *UpdateReside
 }
 
 type UpdateResidentUserResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -3873,6 +4434,11 @@ func (s *UpdateSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateSpaceHe
 }
 
 type UpdateSpaceRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// A栋
 	SpaceInfoVOList []*UpdateSpaceRequestSpaceInfoVOList `json:"spaceInfoVOList,omitempty" xml:"spaceInfoVOList,omitempty" type:"Repeated"`
 }
 
@@ -3890,16 +4456,47 @@ func (s *UpdateSpaceRequest) SetSpaceInfoVOList(v []*UpdateSpaceRequestSpaceInfo
 }
 
 type UpdateSpaceRequestSpaceInfoVOList struct {
-	BillingArea  *float32 `json:"billingArea,omitempty" xml:"billingArea,omitempty"`
+	// example:
+	//
+	// 123.4
+	BillingArea *float32 `json:"billingArea,omitempty" xml:"billingArea,omitempty"`
+	// example:
+	//
+	// 123.4
 	BuildingArea *float32 `json:"buildingArea,omitempty" xml:"buildingArea,omitempty"`
-	BuildingType *int64   `json:"buildingType,omitempty" xml:"buildingType,omitempty"`
-	DeptId       *int64   `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	Floor        *string  `json:"floor,omitempty" xml:"floor,omitempty"`
-	HouseState   *int64   `json:"houseState,omitempty" xml:"houseState,omitempty"`
-	HouseType    *int64   `json:"houseType,omitempty" xml:"houseType,omitempty"`
-	Name         *string  `json:"name,omitempty" xml:"name,omitempty"`
-	ParentDeptId *int64   `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
-	TagCode      *string  `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	// example:
+	//
+	// 当tagcode为Building的时候必填
+	BuildingType *int64 `json:"buildingType,omitempty" xml:"buildingType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10005
+	DeptId *int64 `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// 12
+	Floor *string `json:"floor,omitempty" xml:"floor,omitempty"`
+	// example:
+	//
+	// 1
+	HouseState *int64 `json:"houseState,omitempty" xml:"houseState,omitempty"`
+	// example:
+	//
+	// 1
+	HouseType *int64 `json:"houseType,omitempty" xml:"houseType,omitempty"`
+	// example:
+	//
+	// 二单元
+	Name         *string `json:"name,omitempty" xml:"name,omitempty"`
+	ParentDeptId *int64  `json:"parentDeptId,omitempty" xml:"parentDeptId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 空间类型标签code，House/Unit/Building/Partition
+	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
 }
 
 func (s UpdateSpaceRequestSpaceInfoVOList) String() string {
@@ -3961,6 +4558,9 @@ func (s *UpdateSpaceRequestSpaceInfoVOList) SetTagCode(v string) *UpdateSpaceReq
 }
 
 type UpdateSpaceResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -4021,12 +4621,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -4035,6 +4635,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 增加积分
+//
+// @param request - AddPointRequest
+//
+// @param headers - AddPointHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddPointResponse
 func (client *Client) AddPointWithOptions(request *AddPointRequest, headers *AddPointHeaders, runtime *util.RuntimeOptions) (_result *AddPointResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4102,6 +4713,13 @@ func (client *Client) AddPointWithOptions(request *AddPointRequest, headers *Add
 	return _result, _err
 }
 
+// Summary:
+//
+// 增加积分
+//
+// @param request - AddPointRequest
+//
+// @return AddPointResponse
 func (client *Client) AddPoint(request *AddPointRequest) (_result *AddPointResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddPointHeaders{}
@@ -4114,6 +4732,17 @@ func (client *Client) AddPoint(request *AddPointRequest) (_result *AddPointRespo
 	return _result, _err
 }
 
+// Summary:
+//
+// 增加组户
+//
+// @param request - AddResidentDepartmentRequest
+//
+// @param headers - AddResidentDepartmentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddResidentDepartmentResponse
 func (client *Client) AddResidentDepartmentWithOptions(request *AddResidentDepartmentRequest, headers *AddResidentDepartmentHeaders, runtime *util.RuntimeOptions) (_result *AddResidentDepartmentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4165,6 +4794,13 @@ func (client *Client) AddResidentDepartmentWithOptions(request *AddResidentDepar
 	return _result, _err
 }
 
+// Summary:
+//
+// 增加组户
+//
+// @param request - AddResidentDepartmentRequest
+//
+// @return AddResidentDepartmentResponse
 func (client *Client) AddResidentDepartment(request *AddResidentDepartmentRequest) (_result *AddResidentDepartmentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddResidentDepartmentHeaders{}
@@ -4177,6 +4813,17 @@ func (client *Client) AddResidentDepartment(request *AddResidentDepartmentReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加小区成员
+//
+// @param request - AddResidentMemberRequest
+//
+// @param headers - AddResidentMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddResidentMemberResponse
 func (client *Client) AddResidentMemberWithOptions(request *AddResidentMemberRequest, headers *AddResidentMemberHeaders, runtime *util.RuntimeOptions) (_result *AddResidentMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4220,6 +4867,13 @@ func (client *Client) AddResidentMemberWithOptions(request *AddResidentMemberReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加小区成员
+//
+// @param request - AddResidentMemberRequest
+//
+// @return AddResidentMemberResponse
 func (client *Client) AddResidentMember(request *AddResidentMemberRequest) (_result *AddResidentMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddResidentMemberHeaders{}
@@ -4232,6 +4886,17 @@ func (client *Client) AddResidentMember(request *AddResidentMemberRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增居民
+//
+// @param request - AddResidentUsersRequest
+//
+// @param headers - AddResidentUsersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddResidentUsersResponse
 func (client *Client) AddResidentUsersWithOptions(request *AddResidentUsersRequest, headers *AddResidentUsersHeaders, runtime *util.RuntimeOptions) (_result *AddResidentUsersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4299,6 +4964,13 @@ func (client *Client) AddResidentUsersWithOptions(request *AddResidentUsersReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 新增居民
+//
+// @param request - AddResidentUsersRequest
+//
+// @return AddResidentUsersResponse
 func (client *Client) AddResidentUsers(request *AddResidentUsersRequest) (_result *AddResidentUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddResidentUsersHeaders{}
@@ -4311,6 +4983,17 @@ func (client *Client) AddResidentUsers(request *AddResidentUsersRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建小区公告
+//
+// @param request - CreateResidentBlackBoardRequest
+//
+// @param headers - CreateResidentBlackBoardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateResidentBlackBoardResponse
 func (client *Client) CreateResidentBlackBoardWithOptions(request *CreateResidentBlackBoardRequest, headers *CreateResidentBlackBoardHeaders, runtime *util.RuntimeOptions) (_result *CreateResidentBlackBoardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4366,6 +5049,13 @@ func (client *Client) CreateResidentBlackBoardWithOptions(request *CreateResiden
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建小区公告
+//
+// @param request - CreateResidentBlackBoardRequest
+//
+// @return CreateResidentBlackBoardResponse
 func (client *Client) CreateResidentBlackBoard(request *CreateResidentBlackBoardRequest) (_result *CreateResidentBlackBoardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateResidentBlackBoardHeaders{}
@@ -4378,6 +5068,17 @@ func (client *Client) CreateResidentBlackBoard(request *CreateResidentBlackBoard
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建小区空间，含分区，楼栋，单元，房屋等
+//
+// @param request - CreateSpaceRequest
+//
+// @param headers - CreateSpaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateSpaceResponse
 func (client *Client) CreateSpaceWithOptions(request *CreateSpaceRequest, headers *CreateSpaceHeaders, runtime *util.RuntimeOptions) (_result *CreateSpaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4449,6 +5150,13 @@ func (client *Client) CreateSpaceWithOptions(request *CreateSpaceRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建小区空间，含分区，楼栋，单元，房屋等
+//
+// @param request - CreateSpaceRequest
+//
+// @return CreateSpaceResponse
 func (client *Client) CreateSpace(request *CreateSpaceRequest) (_result *CreateSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateSpaceHeaders{}
@@ -4461,6 +5169,17 @@ func (client *Client) CreateSpace(request *CreateSpaceRequest) (_result *CreateS
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除小区公告
+//
+// @param request - DeleteResidentBlackBoardRequest
+//
+// @param headers - DeleteResidentBlackBoardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteResidentBlackBoardResponse
 func (client *Client) DeleteResidentBlackBoardWithOptions(request *DeleteResidentBlackBoardRequest, headers *DeleteResidentBlackBoardHeaders, runtime *util.RuntimeOptions) (_result *DeleteResidentBlackBoardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4504,6 +5223,13 @@ func (client *Client) DeleteResidentBlackBoardWithOptions(request *DeleteResiden
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除小区公告
+//
+// @param request - DeleteResidentBlackBoardRequest
+//
+// @return DeleteResidentBlackBoardResponse
 func (client *Client) DeleteResidentBlackBoard(request *DeleteResidentBlackBoardRequest) (_result *DeleteResidentBlackBoardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteResidentBlackBoardHeaders{}
@@ -4516,6 +5242,17 @@ func (client *Client) DeleteResidentBlackBoard(request *DeleteResidentBlackBoard
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除组户信息
+//
+// @param request - DeleteResidentDepartmentRequest
+//
+// @param headers - DeleteResidentDepartmentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteResidentDepartmentResponse
 func (client *Client) DeleteResidentDepartmentWithOptions(request *DeleteResidentDepartmentRequest, headers *DeleteResidentDepartmentHeaders, runtime *util.RuntimeOptions) (_result *DeleteResidentDepartmentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4559,6 +5296,13 @@ func (client *Client) DeleteResidentDepartmentWithOptions(request *DeleteResiden
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除组户信息
+//
+// @param request - DeleteResidentDepartmentRequest
+//
+// @return DeleteResidentDepartmentResponse
 func (client *Client) DeleteResidentDepartment(request *DeleteResidentDepartmentRequest) (_result *DeleteResidentDepartmentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteResidentDepartmentHeaders{}
@@ -4571,6 +5315,17 @@ func (client *Client) DeleteResidentDepartment(request *DeleteResidentDepartment
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除小区空间，含分区，楼栋，单元，房屋
+//
+// @param request - DeleteSpaceRequest
+//
+// @param headers - DeleteSpaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteSpaceResponse
 func (client *Client) DeleteSpaceWithOptions(request *DeleteSpaceRequest, headers *DeleteSpaceHeaders, runtime *util.RuntimeOptions) (_result *DeleteSpaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4614,6 +5369,13 @@ func (client *Client) DeleteSpaceWithOptions(request *DeleteSpaceRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除小区空间，含分区，楼栋，单元，房屋
+//
+// @param request - DeleteSpaceRequest
+//
+// @return DeleteSpaceResponse
 func (client *Client) DeleteSpace(request *DeleteSpaceRequest) (_result *DeleteSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteSpaceHeaders{}
@@ -4626,6 +5388,17 @@ func (client *Client) DeleteSpace(request *DeleteSpaceRequest) (_result *DeleteS
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取指定群的openConversationId
+//
+// @param request - GetConversationIdRequest
+//
+// @param headers - GetConversationIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetConversationIdResponse
 func (client *Client) GetConversationIdWithOptions(request *GetConversationIdRequest, headers *GetConversationIdHeaders, runtime *util.RuntimeOptions) (_result *GetConversationIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4669,6 +5442,13 @@ func (client *Client) GetConversationIdWithOptions(request *GetConversationIdReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取指定群的openConversationId
+//
+// @param request - GetConversationIdRequest
+//
+// @return GetConversationIdResponse
 func (client *Client) GetConversationId(request *GetConversationIdRequest) (_result *GetConversationIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetConversationIdHeaders{}
@@ -4681,6 +5461,15 @@ func (client *Client) GetConversationId(request *GetConversationIdRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取组织的行业类型
+//
+// @param headers - GetIndustryTypeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetIndustryTypeResponse
 func (client *Client) GetIndustryTypeWithOptions(headers *GetIndustryTypeHeaders, runtime *util.RuntimeOptions) (_result *GetIndustryTypeResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -4714,6 +5503,11 @@ func (client *Client) GetIndustryTypeWithOptions(headers *GetIndustryTypeHeaders
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取组织的行业类型
+//
+// @return GetIndustryTypeResponse
 func (client *Client) GetIndustryType() (_result *GetIndustryTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetIndustryTypeHeaders{}
@@ -4726,6 +5520,17 @@ func (client *Client) GetIndustryType() (_result *GetIndustryTypeResponse, _err 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取物业公司信息
+//
+// @param request - GetPropertyInfoRequest
+//
+// @param headers - GetPropertyInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPropertyInfoResponse
 func (client *Client) GetPropertyInfoWithOptions(request *GetPropertyInfoRequest, headers *GetPropertyInfoHeaders, runtime *util.RuntimeOptions) (_result *GetPropertyInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4769,6 +5574,13 @@ func (client *Client) GetPropertyInfoWithOptions(request *GetPropertyInfoRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取物业公司信息
+//
+// @param request - GetPropertyInfoRequest
+//
+// @return GetPropertyInfoResponse
 func (client *Client) GetPropertyInfo(request *GetPropertyInfoRequest) (_result *GetPropertyInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetPropertyInfoHeaders{}
@@ -4781,6 +5593,17 @@ func (client *Client) GetPropertyInfo(request *GetPropertyInfoRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取小区信息
+//
+// @param request - GetResidentInfoRequest
+//
+// @param headers - GetResidentInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetResidentInfoResponse
 func (client *Client) GetResidentInfoWithOptions(request *GetResidentInfoRequest, headers *GetResidentInfoHeaders, runtime *util.RuntimeOptions) (_result *GetResidentInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4824,6 +5647,13 @@ func (client *Client) GetResidentInfoWithOptions(request *GetResidentInfoRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取小区信息
+//
+// @param request - GetResidentInfoRequest
+//
+// @return GetResidentInfoResponse
 func (client *Client) GetResidentInfo(request *GetResidentInfoRequest) (_result *GetResidentInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetResidentInfoHeaders{}
@@ -4836,6 +5666,17 @@ func (client *Client) GetResidentInfo(request *GetResidentInfoRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取小区人员信息，包括居民和物业人员
+//
+// @param request - GetResidentMembersInfoRequest
+//
+// @param headers - GetResidentMembersInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetResidentMembersInfoResponse
 func (client *Client) GetResidentMembersInfoWithOptions(request *GetResidentMembersInfoRequest, headers *GetResidentMembersInfoHeaders, runtime *util.RuntimeOptions) (_result *GetResidentMembersInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4883,6 +5724,13 @@ func (client *Client) GetResidentMembersInfoWithOptions(request *GetResidentMemb
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取小区人员信息，包括居民和物业人员
+//
+// @param request - GetResidentMembersInfoRequest
+//
+// @return GetResidentMembersInfoResponse
 func (client *Client) GetResidentMembersInfo(request *GetResidentMembersInfoRequest) (_result *GetResidentMembersInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetResidentMembersInfoHeaders{}
@@ -4895,6 +5743,17 @@ func (client *Client) GetResidentMembersInfo(request *GetResidentMembersInfoRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据类型获取部门id
+//
+// @param request - GetSpaceIdByTypeRequest
+//
+// @param headers - GetSpaceIdByTypeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSpaceIdByTypeResponse
 func (client *Client) GetSpaceIdByTypeWithOptions(request *GetSpaceIdByTypeRequest, headers *GetSpaceIdByTypeHeaders, runtime *util.RuntimeOptions) (_result *GetSpaceIdByTypeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4938,6 +5797,13 @@ func (client *Client) GetSpaceIdByTypeWithOptions(request *GetSpaceIdByTypeReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据类型获取部门id
+//
+// @param request - GetSpaceIdByTypeRequest
+//
+// @return GetSpaceIdByTypeResponse
 func (client *Client) GetSpaceIdByType(request *GetSpaceIdByTypeRequest) (_result *GetSpaceIdByTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSpaceIdByTypeHeaders{}
@@ -4950,6 +5816,17 @@ func (client *Client) GetSpaceIdByType(request *GetSpaceIdByTypeRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取空间信息
+//
+// @param request - GetSpacesInfoRequest
+//
+// @param headers - GetSpacesInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSpacesInfoResponse
 func (client *Client) GetSpacesInfoWithOptions(request *GetSpacesInfoRequest, headers *GetSpacesInfoHeaders, runtime *util.RuntimeOptions) (_result *GetSpacesInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4997,6 +5874,13 @@ func (client *Client) GetSpacesInfoWithOptions(request *GetSpacesInfoRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取空间信息
+//
+// @param request - GetSpacesInfoRequest
+//
+// @return GetSpacesInfoResponse
 func (client *Client) GetSpacesInfo(request *GetSpacesInfoRequest) (_result *GetSpacesInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSpacesInfoHeaders{}
@@ -5009,6 +5893,17 @@ func (client *Client) GetSpacesInfo(request *GetSpacesInfoRequest) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取行业角色下的用户列表
+//
+// @param request - ListIndustryRoleUsersRequest
+//
+// @param headers - ListIndustryRoleUsersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListIndustryRoleUsersResponse
 func (client *Client) ListIndustryRoleUsersWithOptions(request *ListIndustryRoleUsersRequest, headers *ListIndustryRoleUsersHeaders, runtime *util.RuntimeOptions) (_result *ListIndustryRoleUsersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5052,6 +5947,13 @@ func (client *Client) ListIndustryRoleUsersWithOptions(request *ListIndustryRole
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取行业角色下的用户列表
+//
+// @param request - ListIndustryRoleUsersRequest
+//
+// @return ListIndustryRoleUsersResponse
 func (client *Client) ListIndustryRoleUsers(request *ListIndustryRoleUsersRequest) (_result *ListIndustryRoleUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListIndustryRoleUsersHeaders{}
@@ -5064,6 +5966,17 @@ func (client *Client) ListIndustryRoleUsers(request *ListIndustryRoleUsersReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询组织维度配置的的积分规则
+//
+// @param request - ListPointRulesRequest
+//
+// @param headers - ListPointRulesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListPointRulesResponse
 func (client *Client) ListPointRulesWithOptions(request *ListPointRulesRequest, headers *ListPointRulesHeaders, runtime *util.RuntimeOptions) (_result *ListPointRulesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5107,6 +6020,13 @@ func (client *Client) ListPointRulesWithOptions(request *ListPointRulesRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询组织维度配置的的积分规则
+//
+// @param request - ListPointRulesRequest
+//
+// @return ListPointRulesResponse
 func (client *Client) ListPointRules(request *ListPointRulesRequest) (_result *ListPointRulesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListPointRulesHeaders{}
@@ -5119,6 +6039,17 @@ func (client *Client) ListPointRules(request *ListPointRulesRequest) (_result *L
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取子空间信息
+//
+// @param request - ListSubSpaceRequest
+//
+// @param headers - ListSubSpaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListSubSpaceResponse
 func (client *Client) ListSubSpaceWithOptions(request *ListSubSpaceRequest, headers *ListSubSpaceHeaders, runtime *util.RuntimeOptions) (_result *ListSubSpaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5166,6 +6097,13 @@ func (client *Client) ListSubSpaceWithOptions(request *ListSubSpaceRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取子空间信息
+//
+// @param request - ListSubSpaceRequest
+//
+// @return ListSubSpaceResponse
 func (client *Client) ListSubSpace(request *ListSubSpaceRequest) (_result *ListSubSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListSubSpaceHeaders{}
@@ -5178,6 +6116,17 @@ func (client *Client) ListSubSpace(request *ListSubSpaceRequest) (_result *ListS
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取未确认加入组织的用户
+//
+// @param request - ListUncheckUsersRequest
+//
+// @param headers - ListUncheckUsersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListUncheckUsersResponse
 func (client *Client) ListUncheckUsersWithOptions(request *ListUncheckUsersRequest, headers *ListUncheckUsersHeaders, runtime *util.RuntimeOptions) (_result *ListUncheckUsersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5233,6 +6182,13 @@ func (client *Client) ListUncheckUsersWithOptions(request *ListUncheckUsersReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取未确认加入组织的用户
+//
+// @param request - ListUncheckUsersRequest
+//
+// @return ListUncheckUsersResponse
 func (client *Client) ListUncheckUsers(request *ListUncheckUsersRequest) (_result *ListUncheckUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListUncheckUsersHeaders{}
@@ -5245,6 +6201,17 @@ func (client *Client) ListUncheckUsers(request *ListUncheckUsersRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户行业化角色
+//
+// @param request - ListUserIndustryRolesRequest
+//
+// @param headers - ListUserIndustryRolesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListUserIndustryRolesResponse
 func (client *Client) ListUserIndustryRolesWithOptions(request *ListUserIndustryRolesRequest, headers *ListUserIndustryRolesHeaders, runtime *util.RuntimeOptions) (_result *ListUserIndustryRolesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5288,6 +6255,13 @@ func (client *Client) ListUserIndustryRolesWithOptions(request *ListUserIndustry
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取用户行业化角色
+//
+// @param request - ListUserIndustryRolesRequest
+//
+// @return ListUserIndustryRolesResponse
 func (client *Client) ListUserIndustryRoles(request *ListUserIndustryRolesRequest) (_result *ListUserIndustryRolesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListUserIndustryRolesHeaders{}
@@ -5300,6 +6274,17 @@ func (client *Client) ListUserIndustryRoles(request *ListUserIndustryRolesReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询数字区县居民积分流水
+//
+// @param request - PagePointHistoryRequest
+//
+// @param headers - PagePointHistoryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PagePointHistoryResponse
 func (client *Client) PagePointHistoryWithOptions(request *PagePointHistoryRequest, headers *PagePointHistoryHeaders, runtime *util.RuntimeOptions) (_result *PagePointHistoryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5363,6 +6348,13 @@ func (client *Client) PagePointHistoryWithOptions(request *PagePointHistoryReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询数字区县居民积分流水
+//
+// @param request - PagePointHistoryRequest
+//
+// @return PagePointHistoryResponse
 func (client *Client) PagePointHistory(request *PagePointHistoryRequest) (_result *PagePointHistoryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PagePointHistoryHeaders{}
@@ -5375,6 +6367,17 @@ func (client *Client) PagePointHistory(request *PagePointHistoryRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 从空间中删除人员
+//
+// @param request - RemoveResidentMemberRequest
+//
+// @param headers - RemoveResidentMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RemoveResidentMemberResponse
 func (client *Client) RemoveResidentMemberWithOptions(request *RemoveResidentMemberRequest, headers *RemoveResidentMemberHeaders, runtime *util.RuntimeOptions) (_result *RemoveResidentMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5426,6 +6429,13 @@ func (client *Client) RemoveResidentMemberWithOptions(request *RemoveResidentMem
 	return _result, _err
 }
 
+// Summary:
+//
+// 从空间中删除人员
+//
+// @param request - RemoveResidentMemberRequest
+//
+// @return RemoveResidentMemberResponse
 func (client *Client) RemoveResidentMember(request *RemoveResidentMemberRequest) (_result *RemoveResidentMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RemoveResidentMemberHeaders{}
@@ -5438,6 +6448,17 @@ func (client *Client) RemoveResidentMember(request *RemoveResidentMemberRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 从户内移除居民
+//
+// @param request - RemoveResidentUserRequest
+//
+// @param headers - RemoveResidentUserHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RemoveResidentUserResponse
 func (client *Client) RemoveResidentUserWithOptions(request *RemoveResidentUserRequest, headers *RemoveResidentUserHeaders, runtime *util.RuntimeOptions) (_result *RemoveResidentUserResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5485,6 +6506,13 @@ func (client *Client) RemoveResidentUserWithOptions(request *RemoveResidentUserR
 	return _result, _err
 }
 
+// Summary:
+//
+// 从户内移除居民
+//
+// @param request - RemoveResidentUserRequest
+//
+// @return RemoveResidentUserResponse
 func (client *Client) RemoveResidentUser(request *RemoveResidentUserRequest) (_result *RemoveResidentUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RemoveResidentUserHeaders{}
@@ -5497,6 +6525,17 @@ func (client *Client) RemoveResidentUser(request *RemoveResidentUserRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 搜索指定人员
+//
+// @param request - SearchResidentRequest
+//
+// @param headers - SearchResidentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchResidentResponse
 func (client *Client) SearchResidentWithOptions(request *SearchResidentRequest, headers *SearchResidentHeaders, runtime *util.RuntimeOptions) (_result *SearchResidentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5544,6 +6583,13 @@ func (client *Client) SearchResidentWithOptions(request *SearchResidentRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 搜索指定人员
+//
+// @param request - SearchResidentRequest
+//
+// @return SearchResidentResponse
 func (client *Client) SearchResident(request *SearchResidentRequest) (_result *SearchResidentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchResidentHeaders{}
@@ -5556,6 +6602,17 @@ func (client *Client) SearchResident(request *SearchResidentRequest) (_result *S
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新组信息
+//
+// @param request - UpdateResideceGroupRequest
+//
+// @param headers - UpdateResideceGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateResideceGroupResponse
 func (client *Client) UpdateResideceGroupWithOptions(request *UpdateResideceGroupRequest, headers *UpdateResideceGroupHeaders, runtime *util.RuntimeOptions) (_result *UpdateResideceGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5607,6 +6664,13 @@ func (client *Client) UpdateResideceGroupWithOptions(request *UpdateResideceGrou
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新组信息
+//
+// @param request - UpdateResideceGroupRequest
+//
+// @return UpdateResideceGroupResponse
 func (client *Client) UpdateResideceGroup(request *UpdateResideceGroupRequest) (_result *UpdateResideceGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateResideceGroupHeaders{}
@@ -5619,6 +6683,17 @@ func (client *Client) UpdateResideceGroup(request *UpdateResideceGroupRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新户信息
+//
+// @param request - UpdateResidenceRequest
+//
+// @param headers - UpdateResidenceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateResidenceResponse
 func (client *Client) UpdateResidenceWithOptions(request *UpdateResidenceRequest, headers *UpdateResidenceHeaders, runtime *util.RuntimeOptions) (_result *UpdateResidenceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5686,6 +6761,13 @@ func (client *Client) UpdateResidenceWithOptions(request *UpdateResidenceRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新户信息
+//
+// @param request - UpdateResidenceRequest
+//
+// @return UpdateResidenceResponse
 func (client *Client) UpdateResidence(request *UpdateResidenceRequest) (_result *UpdateResidenceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateResidenceHeaders{}
@@ -5698,6 +6780,17 @@ func (client *Client) UpdateResidence(request *UpdateResidenceRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新小区公告
+//
+// @param request - UpdateResidentBlackBoardRequest
+//
+// @param headers - UpdateResidentBlackBoardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateResidentBlackBoardResponse
 func (client *Client) UpdateResidentBlackBoardWithOptions(request *UpdateResidentBlackBoardRequest, headers *UpdateResidentBlackBoardHeaders, runtime *util.RuntimeOptions) (_result *UpdateResidentBlackBoardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5753,6 +6846,13 @@ func (client *Client) UpdateResidentBlackBoardWithOptions(request *UpdateResiden
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新小区公告
+//
+// @param request - UpdateResidentBlackBoardRequest
+//
+// @return UpdateResidentBlackBoardResponse
 func (client *Client) UpdateResidentBlackBoard(request *UpdateResidentBlackBoardRequest) (_result *UpdateResidentBlackBoardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateResidentBlackBoardHeaders{}
@@ -5765,6 +6865,17 @@ func (client *Client) UpdateResidentBlackBoard(request *UpdateResidentBlackBoard
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新小区信息
+//
+// @param request - UpdateResidentInfoRequest
+//
+// @param headers - UpdateResidentInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateResidentInfoResponse
 func (client *Client) UpdateResidentInfoWithOptions(request *UpdateResidentInfoRequest, headers *UpdateResidentInfoHeaders, runtime *util.RuntimeOptions) (_result *UpdateResidentInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5844,6 +6955,13 @@ func (client *Client) UpdateResidentInfoWithOptions(request *UpdateResidentInfoR
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新小区信息
+//
+// @param request - UpdateResidentInfoRequest
+//
+// @return UpdateResidentInfoResponse
 func (client *Client) UpdateResidentInfo(request *UpdateResidentInfoRequest) (_result *UpdateResidentInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateResidentInfoHeaders{}
@@ -5856,6 +6974,17 @@ func (client *Client) UpdateResidentInfo(request *UpdateResidentInfoRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新小区成员
+//
+// @param request - UpdateResidentMemberRequest
+//
+// @param headers - UpdateResidentMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateResidentMemberResponse
 func (client *Client) UpdateResidentMemberWithOptions(request *UpdateResidentMemberRequest, headers *UpdateResidentMemberHeaders, runtime *util.RuntimeOptions) (_result *UpdateResidentMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5903,6 +7032,13 @@ func (client *Client) UpdateResidentMemberWithOptions(request *UpdateResidentMem
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新小区成员
+//
+// @param request - UpdateResidentMemberRequest
+//
+// @return UpdateResidentMemberResponse
 func (client *Client) UpdateResidentMember(request *UpdateResidentMemberRequest) (_result *UpdateResidentMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateResidentMemberHeaders{}
@@ -5915,6 +7051,17 @@ func (client *Client) UpdateResidentMember(request *UpdateResidentMemberRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新居民信息
+//
+// @param request - UpdateResidentUserRequest
+//
+// @param headers - UpdateResidentUserHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateResidentUserResponse
 func (client *Client) UpdateResidentUserWithOptions(request *UpdateResidentUserRequest, headers *UpdateResidentUserHeaders, runtime *util.RuntimeOptions) (_result *UpdateResidentUserResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5990,6 +7137,13 @@ func (client *Client) UpdateResidentUserWithOptions(request *UpdateResidentUserR
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新居民信息
+//
+// @param request - UpdateResidentUserRequest
+//
+// @return UpdateResidentUserResponse
 func (client *Client) UpdateResidentUser(request *UpdateResidentUserRequest) (_result *UpdateResidentUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateResidentUserHeaders{}
@@ -6002,6 +7156,17 @@ func (client *Client) UpdateResidentUser(request *UpdateResidentUserRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新小区空间，含分区，楼栋，单元，房屋等信息
+//
+// @param request - UpdateSpaceRequest
+//
+// @param headers - UpdateSpaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateSpaceResponse
 func (client *Client) UpdateSpaceWithOptions(request *UpdateSpaceRequest, headers *UpdateSpaceHeaders, runtime *util.RuntimeOptions) (_result *UpdateSpaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6045,6 +7210,13 @@ func (client *Client) UpdateSpaceWithOptions(request *UpdateSpaceRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新小区空间，含分区，楼栋，单元，房屋等信息
+//
+// @param request - UpdateSpaceRequest
+//
+// @return UpdateSpaceResponse
 func (client *Client) UpdateSpace(request *UpdateSpaceRequest) (_result *UpdateSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateSpaceHeaders{}

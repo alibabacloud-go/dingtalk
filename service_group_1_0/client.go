@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package service_group_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,11 +33,30 @@ func (s *AddContactMemberToGroupHeaders) SetXAcsDingtalkAccessToken(v string) *A
 }
 
 type AddContactMemberToGroupRequest struct {
-	FissionType        *string `json:"fissionType,omitempty" xml:"fissionType,omitempty"`
-	MemberUnionId      *string `json:"memberUnionId,omitempty" xml:"memberUnionId,omitempty"`
-	MemberUserId       *string `json:"memberUserId,omitempty" xml:"memberUserId,omitempty"`
+	// example:
+	//
+	// 不裂变：STANDARD；裂变：FISSION
+	FissionType *string `json:"fissionType,omitempty" xml:"fissionType,omitempty"`
+	// example:
+	//
+	// 888
+	MemberUnionId *string `json:"memberUnionId,omitempty" xml:"memberUnionId,omitempty"`
+	// example:
+	//
+	// 1
+	MemberUserId *string `json:"memberUserId,omitempty" xml:"memberUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cid***
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 888
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
 func (s AddContactMemberToGroupRequest) String() string {
@@ -147,21 +162,48 @@ func (s *AddKnowledgeHeaders) SetXAcsDingtalkAccessToken(v string) *AddKnowledge
 }
 
 type AddKnowledgeRequest struct {
-	AttachmentList   []*AddKnowledgeRequestAttachmentList `json:"attachmentList,omitempty" xml:"attachmentList,omitempty" type:"Repeated"`
-	Content          *string                              `json:"content,omitempty" xml:"content,omitempty"`
-	EffectTimeend    *int64                               `json:"effectTimeend,omitempty" xml:"effectTimeend,omitempty"`
-	EffectTimestart  *int64                               `json:"effectTimestart,omitempty" xml:"effectTimestart,omitempty"`
-	ExtTitle         *string                              `json:"extTitle,omitempty" xml:"extTitle,omitempty"`
-	Keyword          *string                              `json:"keyword,omitempty" xml:"keyword,omitempty"`
-	LibraryKey       *string                              `json:"libraryKey,omitempty" xml:"libraryKey,omitempty"`
-	LinkUrl          *string                              `json:"linkUrl,omitempty" xml:"linkUrl,omitempty"`
-	OpenTeamId       *string                              `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	QuestionIds      []*int64                             `json:"questionIds,omitempty" xml:"questionIds,omitempty" type:"Repeated"`
-	Source           *string                              `json:"source,omitempty" xml:"source,omitempty"`
-	SourcePrimaryKey *string                              `json:"sourcePrimaryKey,omitempty" xml:"sourcePrimaryKey,omitempty"`
-	Title            *string                              `json:"title,omitempty" xml:"title,omitempty"`
-	Type             *string                              `json:"type,omitempty" xml:"type,omitempty"`
-	Version          *string                              `json:"version,omitempty" xml:"version,omitempty"`
+	AttachmentList []*AddKnowledgeRequestAttachmentList `json:"attachmentList,omitempty" xml:"attachmentList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 测试内容
+	Content         *string `json:"content,omitempty" xml:"content,omitempty"`
+	EffectTimeend   *int64  `json:"effectTimeend,omitempty" xml:"effectTimeend,omitempty"`
+	EffectTimestart *int64  `json:"effectTimestart,omitempty" xml:"effectTimestart,omitempty"`
+	ExtTitle        *string `json:"extTitle,omitempty" xml:"extTitle,omitempty"`
+	Keyword         *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// example:
+	//
+	// xuvw1245
+	LibraryKey *string `json:"libraryKey,omitempty" xml:"libraryKey,omitempty"`
+	// example:
+	//
+	// http://www.test.com/xxxxx
+	LinkUrl *string `json:"linkUrl,omitempty" xml:"linkUrl,omitempty"`
+	// example:
+	//
+	// Jxi12wo3qxoa
+	OpenTeamId  *string  `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	QuestionIds []*int64 `json:"questionIds,omitempty" xml:"questionIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// CCM
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// example:
+	//
+	// CCM-123
+	SourcePrimaryKey *string `json:"sourcePrimaryKey,omitempty" xml:"sourcePrimaryKey,omitempty"`
+	// example:
+	//
+	// 测试
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// CONDITION
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// V0193859102
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s AddKnowledgeRequest) String() string {
@@ -248,11 +290,23 @@ func (s *AddKnowledgeRequest) SetVersion(v string) *AddKnowledgeRequest {
 }
 
 type AddKnowledgeRequestAttachmentList struct {
+	// example:
+	//
+	// doc
 	MimeType *string `json:"mime_type,omitempty" xml:"mime_type,omitempty"`
 	Path     *string `json:"path,omitempty" xml:"path,omitempty"`
-	Size     *int64  `json:"size,omitempty" xml:"size,omitempty"`
-	Suffix   *string `json:"suffix,omitempty" xml:"suffix,omitempty"`
-	Title    *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 655
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// pdf
+	Suffix *string `json:"suffix,omitempty" xml:"suffix,omitempty"`
+	// example:
+	//
+	// 测试附件
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s AddKnowledgeRequestAttachmentList) String() string {
@@ -289,6 +343,9 @@ func (s *AddKnowledgeRequestAttachmentList) SetTitle(v string) *AddKnowledgeRequ
 }
 
 type AddKnowledgeResponseBody struct {
+	// example:
+	//
+	// J23suw1irs
 	OpenKnowledgeId *string `json:"openKnowledgeId,omitempty" xml:"openKnowledgeId,omitempty"`
 }
 
@@ -358,13 +415,31 @@ func (s *AddLibraryHeaders) SetXAcsDingtalkAccessToken(v string) *AddLibraryHead
 }
 
 type AddLibraryRequest struct {
-	Description      *string   `json:"description,omitempty" xml:"description,omitempty"`
-	OpenTeamIds      []*string `json:"openTeamIds,omitempty" xml:"openTeamIds,omitempty" type:"Repeated"`
-	Source           *string   `json:"source,omitempty" xml:"source,omitempty"`
-	SourcePrimaryKey *string   `json:"sourcePrimaryKey,omitempty" xml:"sourcePrimaryKey,omitempty"`
-	Title            *string   `json:"title,omitempty" xml:"title,omitempty"`
-	Type             *string   `json:"type,omitempty" xml:"type,omitempty"`
-	UserId           *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 测试库描述
+	Description *string   `json:"description,omitempty" xml:"description,omitempty"`
+	OpenTeamIds []*string `json:"openTeamIds,omitempty" xml:"openTeamIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// CCM
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// example:
+	//
+	// CCM-123
+	SourcePrimaryKey *string `json:"sourcePrimaryKey,omitempty" xml:"sourcePrimaryKey,omitempty"`
+	// example:
+	//
+	// 测试库
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// EXTERNAL
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// manager123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AddLibraryRequest) String() string {
@@ -480,9 +555,20 @@ func (s *AddMemberToServiceGroupHeaders) SetXAcsDingtalkAccessToken(v string) *A
 }
 
 type AddMemberToServiceGroupRequest struct {
-	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenTeamId         *string   `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	UserIds            []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxxxxx==
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Jciwnfw
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s AddMemberToServiceGroupRequest) String() string {
@@ -578,12 +664,40 @@ func (s *AddOpenCategoryHeaders) SetXAcsDingtalkAccessToken(v string) *AddOpenCa
 }
 
 type AddOpenCategoryRequest struct {
-	LibraryId  *int64  `json:"libraryId,omitempty" xml:"libraryId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 5555
+	LibraryId *int64 `json:"libraryId,omitempty" xml:"libraryId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Jxi12wo3qxoa
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	ParentId   *int64  `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	Title      *string `json:"title,omitempty" xml:"title,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserName   *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// example:
+	//
+	// 0
+	ParentId *int64 `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试类目
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0159003451667222
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 钉三多
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
 func (s AddOpenCategoryRequest) String() string {
@@ -625,8 +739,14 @@ func (s *AddOpenCategoryRequest) SetUserName(v string) *AddOpenCategoryRequest {
 }
 
 type AddOpenCategoryResponseBody struct {
-	Result  *AddOpenCategoryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                              `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// 2
+	Result *AddOpenCategoryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s AddOpenCategoryResponseBody) String() string {
@@ -648,9 +768,18 @@ func (s *AddOpenCategoryResponseBody) SetSuccess(v bool) *AddOpenCategoryRespons
 }
 
 type AddOpenCategoryResponseBodyResult struct {
-	Id      *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 111
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// title不能为空
 	Message *string `json:"message,omitempty" xml:"message,omitempty"`
-	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s AddOpenCategoryResponseBodyResult) String() string {
@@ -729,21 +858,86 @@ func (s *AddOpenKnowledgeHeaders) SetXAcsDingtalkAccessToken(v string) *AddOpenK
 }
 
 type AddOpenKnowledgeRequest struct {
-	Attachments     []*AddOpenKnowledgeRequestAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	CategoryId      *int64                                `json:"categoryId,omitempty" xml:"categoryId,omitempty"`
-	Content         *string                               `json:"content,omitempty" xml:"content,omitempty"`
-	EffectTimeend   *string                               `json:"effectTimeend,omitempty" xml:"effectTimeend,omitempty"`
-	EffectTimestart *string                               `json:"effectTimestart,omitempty" xml:"effectTimestart,omitempty"`
-	ExtTitle        *string                               `json:"extTitle,omitempty" xml:"extTitle,omitempty"`
-	Keyword         *string                               `json:"keyword,omitempty" xml:"keyword,omitempty"`
-	LibraryId       *int64                                `json:"libraryId,omitempty" xml:"libraryId,omitempty"`
-	OpenTeamId      *string                               `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	Source          *string                               `json:"source,omitempty" xml:"source,omitempty"`
-	Tags            *string                               `json:"tags,omitempty" xml:"tags,omitempty"`
-	Title           *string                               `json:"title,omitempty" xml:"title,omitempty"`
-	Type            *string                               `json:"type,omitempty" xml:"type,omitempty"`
-	UserId          *string                               `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserName        *string                               `json:"userName,omitempty" xml:"userName,omitempty"`
+	// example:
+	//
+	// 1
+	Attachments []*AddOpenKnowledgeRequestAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 44555
+	CategoryId *int64 `json:"categoryId,omitempty" xml:"categoryId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 这是服务群的介绍
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// 2100-01-01 23:59:59
+	EffectTimeend *string `json:"effectTimeend,omitempty" xml:"effectTimeend,omitempty"`
+	// example:
+	//
+	// 1980-01-01 00:00:00
+	EffectTimestart *string `json:"effectTimestart,omitempty" xml:"effectTimestart,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 这是问法1,这是问法2
+	ExtTitle *string `json:"extTitle,omitempty" xml:"extTitle,omitempty"`
+	// example:
+	//
+	// 服务群,智能场景群
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	LibraryId *int64 `json:"libraryId,omitempty" xml:"libraryId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Jxi12wo3qxoa
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// XMD
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// example:
+	//
+	// 服务群,智能场景群
+	Tags *string `json:"tags,omitempty" xml:"tags,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 服务群是什么
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// EXTERNAL
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0159003451667222
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 钉三多
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
 func (s AddOpenKnowledgeRequest) String() string {
@@ -830,11 +1024,26 @@ func (s *AddOpenKnowledgeRequest) SetUserName(v string) *AddOpenKnowledgeRequest
 }
 
 type AddOpenKnowledgeRequestAttachments struct {
-	MimeType *string  `json:"mimeType,omitempty" xml:"mimeType,omitempty"`
-	Path     *string  `json:"path,omitempty" xml:"path,omitempty"`
-	Size     *float64 `json:"size,omitempty" xml:"size,omitempty"`
-	Suffix   *string  `json:"suffix,omitempty" xml:"suffix,omitempty"`
-	Title    *string  `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// PDF
+	MimeType *string `json:"mimeType,omitempty" xml:"mimeType,omitempty"`
+	// example:
+	//
+	// https://dtapp-pub.dingtalk.com/dingtalkdesktop/test.pdf
+	Path *string `json:"path,omitempty" xml:"path,omitempty"`
+	// example:
+	//
+	// 444556
+	Size *float64 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// pdf
+	Suffix *string `json:"suffix,omitempty" xml:"suffix,omitempty"`
+	// example:
+	//
+	// 这是一个附件文档
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s AddOpenKnowledgeRequestAttachments) String() string {
@@ -871,8 +1080,18 @@ func (s *AddOpenKnowledgeRequestAttachments) SetTitle(v string) *AddOpenKnowledg
 }
 
 type AddOpenKnowledgeResponseBody struct {
-	Result  *AddOpenKnowledgeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                               `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 22
+	Result *AddOpenKnowledgeResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s AddOpenKnowledgeResponseBody) String() string {
@@ -894,9 +1113,20 @@ func (s *AddOpenKnowledgeResponseBody) SetSuccess(v bool) *AddOpenKnowledgeRespo
 }
 
 type AddOpenKnowledgeResponseBodyResult struct {
-	Id      *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 111
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 知识标问不能为空
 	Message *string `json:"message,omitempty" xml:"message,omitempty"`
-	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s AddOpenKnowledgeResponseBodyResult) String() string {
@@ -975,13 +1205,52 @@ func (s *AddOpenLibraryHeaders) SetXAcsDingtalkAccessToken(v string) *AddOpenLib
 }
 
 type AddOpenLibraryRequest struct {
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// 这个是业务知识库
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	OpenTeamId  *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	Source      *string `json:"source,omitempty" xml:"source,omitempty"`
-	Title       *string `json:"title,omitempty" xml:"title,omitempty"`
-	Type        *string `json:"type,omitempty" xml:"type,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserName    *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// Jxi12wo3qxoa
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// XMD
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试库
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// EXTERNAL
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0159003451667222
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 钉三多
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
 func (s AddOpenLibraryRequest) String() string {
@@ -1028,8 +1297,14 @@ func (s *AddOpenLibraryRequest) SetUserName(v string) *AddOpenLibraryRequest {
 }
 
 type AddOpenLibraryResponseBody struct {
-	Result  *AddOpenLibraryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
-	Success *bool                             `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	Result *AddOpenLibraryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s AddOpenLibraryResponseBody) String() string {
@@ -1051,9 +1326,19 @@ func (s *AddOpenLibraryResponseBody) SetSuccess(v bool) *AddOpenLibraryResponseB
 }
 
 type AddOpenLibraryResponseBodyResult struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 22
 	Id      *int64  `json:"id,omitempty" xml:"id,omitempty"`
 	Message *string `json:"message,omitempty" xml:"message,omitempty"`
-	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s AddOpenLibraryResponseBodyResult) String() string {
@@ -1132,8 +1417,23 @@ func (s *AddTicketMemoHeaders) SetXAcsDingtalkAccessToken(v string) *AddTicketMe
 }
 
 type AddTicketMemoRequest struct {
-	OpenTeamId       *string                         `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	OpenTicketId     *string                         `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// eKWh3GBwsKEiE
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a8iS4X94TgtgiE
+	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Dq9hP8Sk2v6vQ6l05nCe5wiEiE
 	ProcessorUnionId *string                         `json:"processorUnionId,omitempty" xml:"processorUnionId,omitempty"`
 	TicketMemo       *AddTicketMemoRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
 }
@@ -1168,7 +1468,12 @@ func (s *AddTicketMemoRequest) SetTicketMemo(v *AddTicketMemoRequestTicketMemo) 
 
 type AddTicketMemoRequestTicketMemo struct {
 	Attachments []*AddTicketMemoRequestTicketMemoAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	Memo        *string                                      `json:"memo,omitempty" xml:"memo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 备注
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
 }
 
 func (s AddTicketMemoRequestTicketMemo) String() string {
@@ -1190,8 +1495,14 @@ func (s *AddTicketMemoRequestTicketMemo) SetMemo(v string) *AddTicketMemoRequest
 }
 
 type AddTicketMemoRequestTicketMemoAttachments struct {
+	// example:
+	//
+	// ticket/image/44708069/43003/e27204b382c04832aec4243e940a1367_1625831640499.txt
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	Key      *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// wahaha.txt
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
 }
 
 func (s AddTicketMemoRequestTicketMemoAttachments) String() string {
@@ -1259,10 +1570,22 @@ func (s *AssignTicketHeaders) SetXAcsDingtalkAccessToken(v string) *AssignTicket
 }
 
 type AssignTicketRequest struct {
-	Notify            *AssignTicketRequestNotify     `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
-	OpenTeamId        *string                        `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	OpenTicketId      *string                        `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
-	OperatorUnionId   *string                        `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
+	Notify *AssignTicketRequestNotify `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// eKWh3GBwsKEiE
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hNiPO2OVktNMiE
+	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
+	// This parameter is required.
+	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
+	// This parameter is required.
 	ProcessorUnionIds []*string                      `json:"processorUnionIds,omitempty" xml:"processorUnionIds,omitempty" type:"Repeated"`
 	TicketMemo        *AssignTicketRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
 }
@@ -1307,8 +1630,11 @@ func (s *AssignTicketRequest) SetTicketMemo(v *AssignTicketRequestTicketMemo) *A
 
 type AssignTicketRequestNotify struct {
 	GroupNoticeReceiverUnionIds []*string `json:"groupNoticeReceiverUnionIds,omitempty" xml:"groupNoticeReceiverUnionIds,omitempty" type:"Repeated"`
-	NoticeAllGroupMember        *bool     `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
-	WorkNoticeReceiverUnionIds  []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	NoticeAllGroupMember       *bool     `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
+	WorkNoticeReceiverUnionIds []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
 }
 
 func (s AssignTicketRequestNotify) String() string {
@@ -1336,7 +1662,12 @@ func (s *AssignTicketRequestNotify) SetWorkNoticeReceiverUnionIds(v []*string) *
 
 type AssignTicketRequestTicketMemo struct {
 	Attachments []*AssignTicketRequestTicketMemoAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	Memo        *string                                     `json:"memo,omitempty" xml:"memo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 备注
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
 }
 
 func (s AssignTicketRequestTicketMemo) String() string {
@@ -1358,8 +1689,14 @@ func (s *AssignTicketRequestTicketMemo) SetMemo(v string) *AssignTicketRequestTi
 }
 
 type AssignTicketRequestTicketMemoAttachments struct {
+	// example:
+	//
+	// ticket/image/44708069/43003/e27204b382c04832aec4243e940a1367_1625831640499.txt
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	Key      *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// wahaha.txt
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
 }
 
 func (s AssignTicketRequestTicketMemoAttachments) String() string {
@@ -1427,8 +1764,14 @@ func (s *BatchBindingGroupBizIdsHeaders) SetXAcsDingtalkAccessToken(v string) *B
 }
 
 type BatchBindingGroupBizIdsRequest struct {
+	// This parameter is required.
 	BindingGroupBizIds []*BatchBindingGroupBizIdsRequestBindingGroupBizIds `json:"bindingGroupBizIds,omitempty" xml:"bindingGroupBizIds,omitempty" type:"Repeated"`
-	OpenTeamId         *string                                             `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Jciwnfw
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
 func (s BatchBindingGroupBizIdsRequest) String() string {
@@ -1450,7 +1793,17 @@ func (s *BatchBindingGroupBizIdsRequest) SetOpenTeamId(v string) *BatchBindingGr
 }
 
 type BatchBindingGroupBizIdsRequestBindingGroupBizIds struct {
-	BizId              *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hghhghghhg
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cid123
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -1473,6 +1826,9 @@ func (s *BatchBindingGroupBizIdsRequestBindingGroupBizIds) SetOpenConversationId
 }
 
 type BatchBindingGroupBizIdsResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1542,9 +1898,12 @@ func (s *BatchGetGroupSetConfigHeaders) SetXAcsDingtalkAccessToken(v string) *Ba
 }
 
 type BatchGetGroupSetConfigRequest struct {
-	ConfigKeys     []*string `json:"configKeys,omitempty" xml:"configKeys,omitempty" type:"Repeated"`
-	OpenGroupSetId *string   `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	OpenTeamId     *string   `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	ConfigKeys []*string `json:"configKeys,omitempty" xml:"configKeys,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// This parameter is required.
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
 func (s BatchGetGroupSetConfigRequest) String() string {
@@ -1588,7 +1947,17 @@ func (s *BatchGetGroupSetConfigResponseBody) SetGroupSetConfigs(v []*BatchGetGro
 }
 
 type BatchGetGroupSetConfigResponseBodyGroupSetConfigs struct {
-	ConfigKey   *string `json:"configKey,omitempty" xml:"configKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ROBOT_SWITCH
+	ConfigKey *string `json:"configKey,omitempty" xml:"configKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	ConfigValue *string `json:"configValue,omitempty" xml:"configValue,omitempty"`
 }
 
@@ -1663,14 +2032,35 @@ func (s *BatchQueryCustomerSendTaskHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type BatchQueryCustomerSendTaskRequest struct {
-	GmtCreateEnd       *string   `json:"gmtCreateEnd,omitempty" xml:"gmtCreateEnd,omitempty"`
-	GmtCreateStart     *string   `json:"gmtCreateStart,omitempty" xml:"gmtCreateStart,omitempty"`
-	MaxResults         *int64    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NeedRichStatistics *bool     `json:"needRichStatistics,omitempty" xml:"needRichStatistics,omitempty"`
-	NextToken          *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	OpenBatchTaskIds   []*string `json:"openBatchTaskIds,omitempty" xml:"openBatchTaskIds,omitempty" type:"Repeated"`
-	OpenTeamId         *string   `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	TaskName           *string   `json:"taskName,omitempty" xml:"taskName,omitempty"`
+	// example:
+	//
+	// 2023-06-02 00:00:00
+	GmtCreateEnd *string `json:"gmtCreateEnd,omitempty" xml:"gmtCreateEnd,omitempty"`
+	// example:
+	//
+	// 2023-06-01 00:00:00
+	GmtCreateStart *string `json:"gmtCreateStart,omitempty" xml:"gmtCreateStart,omitempty"`
+	// example:
+	//
+	// 20
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	NeedRichStatistics *bool `json:"needRichStatistics,omitempty" xml:"needRichStatistics,omitempty"`
+	// example:
+	//
+	// 1
+	NextToken        *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OpenBatchTaskIds []*string `json:"openBatchTaskIds,omitempty" xml:"openBatchTaskIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// example:
+	//
+	// 哈哈哈
+	TaskName *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
 }
 
 func (s BatchQueryCustomerSendTaskRequest) String() string {
@@ -1722,10 +2112,25 @@ func (s *BatchQueryCustomerSendTaskRequest) SetTaskName(v string) *BatchQueryCus
 }
 
 type BatchQueryCustomerSendTaskResponseBody struct {
-	MaxResults *int64                                           `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string                                          `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Records    []*BatchQueryCustomerSendTaskResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
-	TotalCount *int64                                           `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 8888
+	NextToken *string                                          `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Records   []*BatchQueryCustomerSendTaskResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s BatchQueryCustomerSendTaskResponseBody) String() string {
@@ -1757,17 +2162,50 @@ func (s *BatchQueryCustomerSendTaskResponseBody) SetTotalCount(v int64) *BatchQu
 }
 
 type BatchQueryCustomerSendTaskResponseBodyRecords struct {
-	CreateName        *string `json:"createName,omitempty" xml:"createName,omitempty"`
-	CreateTimeStr     *string `json:"createTimeStr,omitempty" xml:"createTimeStr,omitempty"`
-	CreateUnionId     *string `json:"createUnionId,omitempty" xml:"createUnionId,omitempty"`
-	OpenBatchTaskId   *string `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
-	ReadCustomerInc   *int64  `json:"readCustomerInc,omitempty" xml:"readCustomerInc,omitempty"`
-	ReadUserInc       *int64  `json:"readUserInc,omitempty" xml:"readUserInc,omitempty"`
-	SendCustomerInc   *int64  `json:"sendCustomerInc,omitempty" xml:"sendCustomerInc,omitempty"`
+	// example:
+	//
+	// 张三
+	CreateName *string `json:"createName,omitempty" xml:"createName,omitempty"`
+	// example:
+	//
+	// 2023-07-14 10:00:00
+	CreateTimeStr *string `json:"createTimeStr,omitempty" xml:"createTimeStr,omitempty"`
+	// example:
+	//
+	// 88888
+	CreateUnionId *string `json:"createUnionId,omitempty" xml:"createUnionId,omitempty"`
+	// example:
+	//
+	// 88888
+	OpenBatchTaskId *string `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
+	// example:
+	//
+	// 90
+	ReadCustomerInc *int64 `json:"readCustomerInc,omitempty" xml:"readCustomerInc,omitempty"`
+	// example:
+	//
+	// 100
+	ReadUserInc *int64 `json:"readUserInc,omitempty" xml:"readUserInc,omitempty"`
+	// example:
+	//
+	// 100
+	SendCustomerInc *int64 `json:"sendCustomerInc,omitempty" xml:"sendCustomerInc,omitempty"`
+	// example:
+	//
+	// UNFINISH 未完成 FINISHED 已发送 CANCELED 已取消 CREATE_TASK_FAILED 创建任务失败  SENDING 发送中
 	SendMessageStatus *string `json:"sendMessageStatus,omitempty" xml:"sendMessageStatus,omitempty"`
-	SendTaskTimeStr   *string `json:"sendTaskTimeStr,omitempty" xml:"sendTaskTimeStr,omitempty"`
-	SendUserInc       *int64  `json:"sendUserInc,omitempty" xml:"sendUserInc,omitempty"`
-	TaskName          *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
+	// example:
+	//
+	// 2023-07-14 11:00:00
+	SendTaskTimeStr *string `json:"sendTaskTimeStr,omitempty" xml:"sendTaskTimeStr,omitempty"`
+	// example:
+	//
+	// 200
+	SendUserInc *int64 `json:"sendUserInc,omitempty" xml:"sendUserInc,omitempty"`
+	// example:
+	//
+	// 任务名称
+	TaskName *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
 }
 
 func (s BatchQueryCustomerSendTaskResponseBodyRecords) String() string {
@@ -1886,10 +2324,26 @@ func (s *BatchQueryGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *Bat
 }
 
 type BatchQueryGroupMemberRequest struct {
-	MaxResults         *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken          *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// ***
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// cid***
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 888
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
 func (s BatchQueryGroupMemberRequest) String() string {
@@ -2049,14 +2503,40 @@ func (s *BatchQuerySendMessageTaskHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type BatchQuerySendMessageTaskRequest struct {
-	GetReadCount   *bool   `json:"getReadCount,omitempty" xml:"getReadCount,omitempty"`
-	GmtCreateEnd   *string `json:"gmtCreateEnd,omitempty" xml:"gmtCreateEnd,omitempty"`
+	// example:
+	//
+	// false
+	GetReadCount *bool `json:"getReadCount,omitempty" xml:"getReadCount,omitempty"`
+	// example:
+	//
+	// 2022-04-02 00:00:00
+	GmtCreateEnd *string `json:"gmtCreateEnd,omitempty" xml:"gmtCreateEnd,omitempty"`
+	// example:
+	//
+	// 2022-04-01 00:00:00
 	GmtCreateStart *string `json:"gmtCreateStart,omitempty" xml:"gmtCreateStart,omitempty"`
-	MaxResults     *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken      *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 首页传递空
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// fwPuycdHiiI
 	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	OpenTeamId     *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	TaskName       *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Jciwnfw
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// example:
+	//
+	// 群发任务双11
+	TaskName *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
 }
 
 func (s BatchQuerySendMessageTaskRequest) String() string {
@@ -2150,8 +2630,9 @@ type BatchQuerySendMessageTaskResponseBodyRecords struct {
 	ReadGroupInc      *int64  `json:"readGroupInc,omitempty" xml:"readGroupInc,omitempty"`
 	SendGroupInc      *int64  `json:"sendGroupInc,omitempty" xml:"sendGroupInc,omitempty"`
 	SendMessageStatus *string `json:"sendMessageStatus,omitempty" xml:"sendMessageStatus,omitempty"`
-	SendTaskTimeStr   *string `json:"sendTaskTimeStr,omitempty" xml:"sendTaskTimeStr,omitempty"`
-	TaskName          *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
+	// This parameter is required.
+	SendTaskTimeStr *string `json:"sendTaskTimeStr,omitempty" xml:"sendTaskTimeStr,omitempty"`
+	TaskName        *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
 }
 
 func (s BatchQuerySendMessageTaskResponseBodyRecords) String() string {
@@ -2260,11 +2741,28 @@ func (s *BoundTemplateToTeamHeaders) SetXAcsDingtalkAccessToken(v string) *Bound
 }
 
 type BoundTemplateToTeamRequest struct {
-	OpenTeamId   *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// btkoYsadwyQiE
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// [{"robotCode":"123ITJovyMHtmi216233798228941001","robotName":"服务小钉"}]
 	RobotConfig  *string `json:"robotConfig,omitempty" xml:"robotConfig,omitempty"`
 	TemplateDesc *string `json:"templateDesc,omitempty" xml:"templateDesc,omitempty"`
-	TemplateId   *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// This parameter is required.
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// This parameter is required.
 	TemplateName *string `json:"templateName,omitempty" xml:"templateName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0普通群模板，1内部群模板
 	TemplateType *string `json:"templateType,omitempty" xml:"templateType,omitempty"`
 }
 
@@ -2376,9 +2874,22 @@ func (s *CancelTicketHeaders) SetXAcsDingtalkAccessToken(v string) *CancelTicket
 }
 
 type CancelTicketRequest struct {
-	Notify          *CancelTicketRequestNotify     `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
-	OpenTeamId      *string                        `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	OpenTicketId    *string                        `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
+	Notify *CancelTicketRequestNotify `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// eKWh3GBwsKEiE
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a8iS4X94TgtgiE
+	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
+	// example:
+	//
+	// Dq9hP8Sk2v6vQ6l05nCe5wiEiE
 	OperatorUnionId *string                        `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
 	TicketMemo      *CancelTicketRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
 }
@@ -2418,8 +2929,11 @@ func (s *CancelTicketRequest) SetTicketMemo(v *CancelTicketRequestTicketMemo) *C
 
 type CancelTicketRequestNotify struct {
 	GroupNoticeReceiverUnionIds []*string `json:"groupNoticeReceiverUnionIds,omitempty" xml:"groupNoticeReceiverUnionIds,omitempty" type:"Repeated"`
-	NoticeAllGroupMember        *bool     `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
-	WorkNoticeReceiverUnionIds  []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	NoticeAllGroupMember       *bool     `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
+	WorkNoticeReceiverUnionIds []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
 }
 
 func (s CancelTicketRequestNotify) String() string {
@@ -2447,7 +2961,10 @@ func (s *CancelTicketRequestNotify) SetWorkNoticeReceiverUnionIds(v []*string) *
 
 type CancelTicketRequestTicketMemo struct {
 	Attachments []*CancelTicketRequestTicketMemoAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	Memo        *string                                     `json:"memo,omitempty" xml:"memo,omitempty"`
+	// example:
+	//
+	// 备注
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
 }
 
 func (s CancelTicketRequestTicketMemo) String() string {
@@ -2469,8 +2986,14 @@ func (s *CancelTicketRequestTicketMemo) SetMemo(v string) *CancelTicketRequestTi
 }
 
 type CancelTicketRequestTicketMemoAttachments struct {
+	// example:
+	//
+	// wahaha.txt
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	Key      *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// ticket/image/44708069/43003/e27204b382c04832aec4243e940a1367_1625831640499.txt
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
 }
 
 func (s CancelTicketRequestTicketMemoAttachments) String() string {
@@ -2538,8 +3061,23 @@ func (s *CategoryStatisticsHeaders) SetXAcsDingtalkAccessToken(v string) *Catego
 }
 
 type CategoryStatisticsRequest struct {
-	MaxDt      *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
-	MinDt      *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	MaxDt *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	MinDt *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// KxisoOk
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
@@ -2567,8 +3105,10 @@ func (s *CategoryStatisticsRequest) SetOpenTeamId(v string) *CategoryStatisticsR
 }
 
 type CategoryStatisticsResponseBody struct {
+	// This parameter is required.
 	CategoryStatisticsRecords []*CategoryStatisticsResponseBodyCategoryStatisticsRecords `json:"categoryStatisticsRecords,omitempty" xml:"categoryStatisticsRecords,omitempty" type:"Repeated"`
-	CategoryTrend             []*CategoryStatisticsResponseBodyCategoryTrend             `json:"categoryTrend,omitempty" xml:"categoryTrend,omitempty" type:"Repeated"`
+	// This parameter is required.
+	CategoryTrend []*CategoryStatisticsResponseBodyCategoryTrend `json:"categoryTrend,omitempty" xml:"categoryTrend,omitempty" type:"Repeated"`
 }
 
 func (s CategoryStatisticsResponseBody) String() string {
@@ -2590,9 +3130,24 @@ func (s *CategoryStatisticsResponseBody) SetCategoryTrend(v []*CategoryStatistic
 }
 
 type CategoryStatisticsResponseBodyCategoryStatisticsRecords struct {
-	Count     *int64  `json:"count,omitempty" xml:"count,omitempty"`
-	LastCount *int64  `json:"lastCount,omitempty" xml:"lastCount,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 9
+	LastCount *int64 `json:"lastCount,omitempty" xml:"lastCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 工单类
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CategoryStatisticsResponseBodyCategoryStatisticsRecords) String() string {
@@ -2619,9 +3174,24 @@ func (s *CategoryStatisticsResponseBodyCategoryStatisticsRecords) SetName(v stri
 }
 
 type CategoryStatisticsResponseBodyCategoryTrend struct {
-	Count *int64  `json:"count,omitempty" xml:"count,omitempty"`
-	Dt    *string `json:"dt,omitempty" xml:"dt,omitempty"`
-	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	Dt *string `json:"dt,omitempty" xml:"dt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 工单类
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s CategoryStatisticsResponseBodyCategoryTrend) String() string {
@@ -2834,8 +3404,10 @@ func (s *CloseHumanSessionHeaders) SetXAcsDingtalkAccessToken(v string) *CloseHu
 }
 
 type CloseHumanSessionRequest struct {
+	// This parameter is required.
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
 func (s CloseHumanSessionRequest) String() string {
@@ -2857,6 +3429,7 @@ func (s *CloseHumanSessionRequest) SetOpenTeamId(v string) *CloseHumanSessionReq
 }
 
 type CloseHumanSessionResponseBody struct {
+	// This parameter is required.
 	SessionId *int64 `json:"sessionId,omitempty" xml:"sessionId,omitempty"`
 }
 
@@ -2926,12 +3499,18 @@ func (s *ConversationCreatedNotifyHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type ConversationCreatedNotifyRequest struct {
-	AlipayUserId      *string `json:"alipayUserId,omitempty" xml:"alipayUserId,omitempty"`
-	ConversationId    *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	NickName          *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
-	OpenTeamId        *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	ServerName        *string `json:"serverName,omitempty" xml:"serverName,omitempty"`
-	ServerTips        *string `json:"serverTips,omitempty" xml:"serverTips,omitempty"`
+	AlipayUserId   *string `json:"alipayUserId,omitempty" xml:"alipayUserId,omitempty"`
+	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
+	NickName       *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// example:
+	//
+	// eWaJSqDcLsoiE
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	ServerName *string `json:"serverName,omitempty" xml:"serverName,omitempty"`
+	ServerTips *string `json:"serverTips,omitempty" xml:"serverTips,omitempty"`
+	// example:
+	//
+	// 对应外部渠道的会话ID
 	ServiceToken      *string `json:"serviceToken,omitempty" xml:"serviceToken,omitempty"`
 	TimeoutRemindTips *string `json:"timeoutRemindTips,omitempty" xml:"timeoutRemindTips,omitempty"`
 	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
@@ -2999,8 +3578,14 @@ func (s *ConversationCreatedNotifyRequest) SetVisitorToken(v string) *Conversati
 type ConversationCreatedNotifyResponseBody struct {
 	DingOpenErrcode *int32  `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
 	ErrorMsg        *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	Result          *bool   `json:"result,omitempty" xml:"result,omitempty"`
-	Success         *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s ConversationCreatedNotifyResponseBody) String() string {
@@ -3358,13 +3943,36 @@ func (s *CreateGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGroupHe
 }
 
 type CreateGroupRequest struct {
-	GroupBizId     *string   `json:"groupBizId,omitempty" xml:"groupBizId,omitempty"`
+	// example:
+	//
+	// PID123cjj2
+	GroupBizId *string `json:"groupBizId,omitempty" xml:"groupBizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试服务群
 	GroupName      *string   `json:"groupName,omitempty" xml:"groupName,omitempty"`
 	GroupTagNames  []*string `json:"groupTagNames,omitempty" xml:"groupTagNames,omitempty" type:"Repeated"`
 	MemberStaffIds []*string `json:"memberStaffIds,omitempty" xml:"memberStaffIds,omitempty" type:"Repeated"`
-	OpenGroupSetId *string   `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	OpenTeamId     *string   `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	OwnerStaffId   *string   `json:"ownerStaffId,omitempty" xml:"ownerStaffId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Jciwnfw
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Jciwnfw
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager123
+	OwnerStaffId *string `json:"ownerStaffId,omitempty" xml:"ownerStaffId,omitempty"`
 }
 
 func (s CreateGroupRequest) String() string {
@@ -3411,7 +4019,17 @@ func (s *CreateGroupRequest) SetOwnerStaffId(v string) *CreateGroupRequest {
 }
 
 type CreateGroupResponseBody struct {
-	GroupUrl           *string `json:"groupUrl,omitempty" xml:"groupUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// http://qr.dingtalk.com/xxxxx
+	GroupUrl *string `json:"groupUrl,omitempty" xml:"groupUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxxxxx==
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -3486,15 +4104,33 @@ func (s *CreateGroupConversationHeaders) SetXAcsDingtalkAccessToken(v string) *C
 }
 
 type CreateGroupConversationRequest struct {
-	CorpId             *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// dingadc88253b4d581bd35c2f4657eb6378f
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// fsfsfadfasfdasdfsaf
 	DingGroupId        *string `json:"dingGroupId,omitempty" xml:"dingGroupId,omitempty"`
 	DingSuiteKey       *string `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
 	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
-	DingUserId         *string `json:"dingUserId,omitempty" xml:"dingUserId,omitempty"`
-	DingUserName       *string `json:"dingUserName,omitempty" xml:"dingUserName,omitempty"`
-	ExtValues          *string `json:"extValues,omitempty" xml:"extValues,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	ServerGroupId      *string `json:"serverGroupId,omitempty" xml:"serverGroupId,omitempty"`
+	// example:
+	//
+	// 57675657
+	DingUserId *string `json:"dingUserId,omitempty" xml:"dingUserId,omitempty"`
+	// example:
+	//
+	// 张三
+	DingUserName *string `json:"dingUserName,omitempty" xml:"dingUserName,omitempty"`
+	// example:
+	//
+	// {"isServerInitiative":"true"}
+	ExtValues  *string `json:"extValues,omitempty" xml:"extValues,omitempty"`
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// example:
+	//
+	// 3434
+	ServerGroupId *string `json:"serverGroupId,omitempty" xml:"serverGroupId,omitempty"`
 }
 
 func (s CreateGroupConversationRequest) String() string {
@@ -3551,10 +4187,22 @@ func (s *CreateGroupConversationRequest) SetServerGroupId(v string) *CreateGroup
 }
 
 type CreateGroupConversationResponseBody struct {
-	DingOpenErrcode *int32  `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
-	ErrorMsg        *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	Result          *string `json:"result,omitempty" xml:"result,omitempty"`
-	Success         *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// 500
+	DingOpenErrcode *int32 `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	// example:
+	//
+	// SYSTEM_ERROR
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// true
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s CreateGroupConversationResponseBody) String() string {
@@ -3638,9 +4286,12 @@ func (s *CreateGroupSetHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGrou
 }
 
 type CreateGroupSetRequest struct {
-	GroupSetName    *string `json:"groupSetName,omitempty" xml:"groupSetName,omitempty"`
+	// This parameter is required.
+	GroupSetName *string `json:"groupSetName,omitempty" xml:"groupSetName,omitempty"`
+	// This parameter is required.
 	GroupTemplateId *string `json:"groupTemplateId,omitempty" xml:"groupTemplateId,omitempty"`
-	OpenTeamId      *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
 func (s CreateGroupSetRequest) String() string {
@@ -3736,13 +4387,40 @@ func (s *CreateInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *CreateInst
 }
 
 type CreateInstanceRequest struct {
-	Channel         *string `json:"channel,omitempty" xml:"channel,omitempty"`
-	ExternalBizId   *string `json:"externalBizId,omitempty" xml:"externalBizId,omitempty"`
-	FormCode        *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	FormDataList    *string `json:"formDataList,omitempty" xml:"formDataList,omitempty"`
-	OpenTeamId      *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// example:
+	//
+	// DOU_YIN
+	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
+	// example:
+	//
+	// 888888
+	ExternalBizId *string `json:"externalBizId,omitempty" xml:"externalBizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DING_CUSTOMER
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"node_1111":"hahha"}
+	FormDataList *string `json:"formDataList,omitempty" xml:"formDataList,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 88444***
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// example:
+	//
+	// 88855
 	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
-	OwnerUnionId    *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
+	// example:
+	//
+	// 88855
+	OwnerUnionId *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
 }
 
 func (s CreateInstanceRequest) String() string {
@@ -3789,6 +4467,9 @@ func (s *CreateInstanceRequest) SetOwnerUnionId(v string) *CreateInstanceRequest
 }
 
 type CreateInstanceResponseBody struct {
+	// example:
+	//
+	// 8888***
 	OpenDataInstanceId *string `json:"openDataInstanceId,omitempty" xml:"openDataInstanceId,omitempty"`
 }
 
@@ -3858,8 +4539,10 @@ func (s *CreateTeamHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTeamHead
 }
 
 type CreateTeamRequest struct {
+	// This parameter is required.
 	CreatorDingUnionId *string `json:"creatorDingUnionId,omitempty" xml:"creatorDingUnionId,omitempty"`
-	TeamName           *string `json:"teamName,omitempty" xml:"teamName,omitempty"`
+	// This parameter is required.
+	TeamName *string `json:"teamName,omitempty" xml:"teamName,omitempty"`
 }
 
 func (s CreateTeamRequest) String() string {
@@ -3950,15 +4633,44 @@ func (s *CreateTicketHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTicket
 }
 
 type CreateTicketRequest struct {
-	CreatorUnionId    *string                          `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
-	CustomFields      *string                          `json:"customFields,omitempty" xml:"customFields,omitempty"`
-	Notify            *CreateTicketRequestNotify       `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
-	OpenTeamId        *string                          `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	OpenTemplateBizId *string                          `json:"openTemplateBizId,omitempty" xml:"openTemplateBizId,omitempty"`
-	ProcessorUnionIds []*string                        `json:"processorUnionIds,omitempty" xml:"processorUnionIds,omitempty" type:"Repeated"`
-	Scene             *string                          `json:"scene,omitempty" xml:"scene,omitempty"`
-	SceneContext      *CreateTicketRequestSceneContext `json:"sceneContext,omitempty" xml:"sceneContext,omitempty" type:"Struct"`
-	Title             *string                          `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Dq9hP8Sk2v6vQ6l05nCe5wiEiE
+	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	// example:
+	//
+	// [{\"identifier\":\"input1\",\"value\":\"123\"}]
+	CustomFields *string                    `json:"customFields,omitempty" xml:"customFields,omitempty"`
+	Notify       *CreateTicketRequestNotify `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// eKWh3GBwsKEiE
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// bLkvfXKiSngQiE
+	OpenTemplateBizId *string `json:"openTemplateBizId,omitempty" xml:"openTemplateBizId,omitempty"`
+	// This parameter is required.
+	ProcessorUnionIds []*string `json:"processorUnionIds,omitempty" xml:"processorUnionIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SG
+	Scene        *string                          `json:"scene,omitempty" xml:"scene,omitempty"`
+	SceneContext *CreateTicketRequestSceneContext `json:"sceneContext,omitempty" xml:"sceneContext,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 工单标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateTicketRequest) String() string {
@@ -4016,8 +4728,11 @@ func (s *CreateTicketRequest) SetTitle(v string) *CreateTicketRequest {
 
 type CreateTicketRequestNotify struct {
 	GroupNoticeReceiverUnionIds []*string `json:"groupNoticeReceiverUnionIds,omitempty" xml:"groupNoticeReceiverUnionIds,omitempty" type:"Repeated"`
-	NoticeAllGroupMember        *bool     `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
-	WorkNoticeReceiverUnionIds  []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	NoticeAllGroupMember       *bool     `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
+	WorkNoticeReceiverUnionIds []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
 }
 
 func (s CreateTicketRequestNotify) String() string {
@@ -4044,10 +4759,16 @@ func (s *CreateTicketRequestNotify) SetWorkNoticeReceiverUnionIds(v []*string) *
 }
 
 type CreateTicketRequestSceneContext struct {
-	GroupMsgs          []*CreateTicketRequestSceneContextGroupMsgs `json:"groupMsgs,omitempty" xml:"groupMsgs,omitempty" type:"Repeated"`
-	OpenConversationId *string                                     `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	RelevantorUnionIds []*string                                   `json:"relevantorUnionIds,omitempty" xml:"relevantorUnionIds,omitempty" type:"Repeated"`
-	TopicId            *string                                     `json:"topicId,omitempty" xml:"topicId,omitempty"`
+	GroupMsgs []*CreateTicketRequestSceneContextGroupMsgs `json:"groupMsgs,omitempty" xml:"groupMsgs,omitempty" type:"Repeated"`
+	// example:
+	//
+	// cidZBSNlUi/Jq9x76PAXUCrAA==
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	RelevantorUnionIds []*string `json:"relevantorUnionIds,omitempty" xml:"relevantorUnionIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// a0ba57d5d29a48b51d0eca48da6b1d09
+	TopicId *string `json:"topicId,omitempty" xml:"topicId,omitempty"`
 }
 
 func (s CreateTicketRequestSceneContext) String() string {
@@ -4079,7 +4800,13 @@ func (s *CreateTicketRequestSceneContext) SetTopicId(v string) *CreateTicketRequ
 }
 
 type CreateTicketRequestSceneContextGroupMsgs struct {
-	Anchor    *bool   `json:"anchor,omitempty" xml:"anchor,omitempty"`
+	// example:
+	//
+	// true
+	Anchor *bool `json:"anchor,omitempty" xml:"anchor,omitempty"`
+	// example:
+	//
+	// msgsbY4BzTCNX0/ClUwoTTs7w==
 	OpenMsgId *string `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
 }
 
@@ -4171,11 +4898,22 @@ func (s *CustomerSendMsgTaskHeaders) SetXAcsDingtalkAccessToken(v string) *Custo
 }
 
 type CustomerSendMsgTaskRequest struct {
+	// This parameter is required.
 	MessageContent *CustomerSendMsgTaskRequestMessageContent `json:"messageContent,omitempty" xml:"messageContent,omitempty" type:"Struct"`
-	OpenTeamId     *string                                   `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	QueryCustomer  *CustomerSendMsgTaskRequestQueryCustomer  `json:"queryCustomer,omitempty" xml:"queryCustomer,omitempty" type:"Struct"`
-	SendConfig     *CustomerSendMsgTaskRequestSendConfig     `json:"sendConfig,omitempty" xml:"sendConfig,omitempty" type:"Struct"`
-	TaskName       *string                                   `json:"taskName,omitempty" xml:"taskName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 8888
+	OpenTeamId    *string                                  `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	QueryCustomer *CustomerSendMsgTaskRequestQueryCustomer `json:"queryCustomer,omitempty" xml:"queryCustomer,omitempty" type:"Struct"`
+	SendConfig    *CustomerSendMsgTaskRequestSendConfig    `json:"sendConfig,omitempty" xml:"sendConfig,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 任务名称
+	TaskName *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
 }
 
 func (s CustomerSendMsgTaskRequest) String() string {
@@ -4212,10 +4950,25 @@ func (s *CustomerSendMsgTaskRequest) SetTaskName(v string) *CustomerSendMsgTaskR
 }
 
 type CustomerSendMsgTaskRequestMessageContent struct {
-	Btns        []*CustomerSendMsgTaskRequestMessageContentBtns `json:"btns,omitempty" xml:"btns,omitempty" type:"Repeated"`
-	Content     *string                                         `json:"content,omitempty" xml:"content,omitempty"`
-	MessageType *string                                         `json:"messageType,omitempty" xml:"messageType,omitempty"`
-	Title       *string                                         `json:"title,omitempty" xml:"title,omitempty"`
+	Btns []*CustomerSendMsgTaskRequestMessageContentBtns `json:"btns,omitempty" xml:"btns,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ACTIONCAR：卡片消息
+	MessageType *string `json:"messageType,omitempty" xml:"messageType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CustomerSendMsgTaskRequestMessageContent) String() string {
@@ -4247,8 +5000,14 @@ func (s *CustomerSendMsgTaskRequestMessageContent) SetTitle(v string) *CustomerS
 }
 
 type CustomerSendMsgTaskRequestMessageContentBtns struct {
+	// example:
+	//
+	// http://www.baidu.com
 	ActionURL *string `json:"actionURL,omitempty" xml:"actionURL,omitempty"`
-	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 百度
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CustomerSendMsgTaskRequestMessageContentBtns) String() string {
@@ -4270,10 +5029,19 @@ func (s *CustomerSendMsgTaskRequestMessageContentBtns) SetTitle(v string) *Custo
 }
 
 type CustomerSendMsgTaskRequestQueryCustomer struct {
-	OpenContactIds           []*string `json:"openContactIds,omitempty" xml:"openContactIds,omitempty" type:"Repeated"`
-	QueryType                *string   `json:"queryType,omitempty" xml:"queryType,omitempty"`
-	SearchContactConditions  *string   `json:"searchContactConditions,omitempty" xml:"searchContactConditions,omitempty"`
-	SearchCustomerConditions *string   `json:"searchCustomerConditions,omitempty" xml:"searchCustomerConditions,omitempty"`
+	OpenContactIds []*string `json:"openContactIds,omitempty" xml:"openContactIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// AIMED
+	QueryType *string `json:"queryType,omitempty" xml:"queryType,omitempty"`
+	// example:
+	//
+	// {}
+	SearchContactConditions *string `json:"searchContactConditions,omitempty" xml:"searchContactConditions,omitempty"`
+	// example:
+	//
+	// {}
+	SearchCustomerConditions *string `json:"searchCustomerConditions,omitempty" xml:"searchCustomerConditions,omitempty"`
 }
 
 func (s CustomerSendMsgTaskRequestQueryCustomer) String() string {
@@ -4305,8 +5073,21 @@ func (s *CustomerSendMsgTaskRequestQueryCustomer) SetSearchCustomerConditions(v 
 }
 
 type CustomerSendMsgTaskRequestSendConfig struct {
-	NeedUrlTrack   *bool                                                 `json:"needUrlTrack,omitempty" xml:"needUrlTrack,omitempty"`
-	SendTime       *string                                               `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	NeedUrlTrack *bool `json:"needUrlTrack,omitempty" xml:"needUrlTrack,omitempty"`
+	// example:
+	//
+	// 2023-06-01 00:00:00
+	SendTime *string `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// INSTANT
 	SendType       *string                                               `json:"sendType,omitempty" xml:"sendType,omitempty"`
 	UrlTrackConfig []*CustomerSendMsgTaskRequestSendConfigUrlTrackConfig `json:"urlTrackConfig,omitempty" xml:"urlTrackConfig,omitempty" type:"Repeated"`
 }
@@ -4340,8 +5121,17 @@ func (s *CustomerSendMsgTaskRequestSendConfig) SetUrlTrackConfig(v []*CustomerSe
 }
 
 type CustomerSendMsgTaskRequestSendConfigUrlTrackConfig struct {
-	Title    *string `json:"title,omitempty" xml:"title,omitempty"`
-	TrackId  *string `json:"trackId,omitempty" xml:"trackId,omitempty"`
+	// example:
+	//
+	// 百度
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 88888
+	TrackId *string `json:"trackId,omitempty" xml:"trackId,omitempty"`
+	// example:
+	//
+	// http://www.baidu.com
 	TrackUrl *string `json:"trackUrl,omitempty" xml:"trackUrl,omitempty"`
 }
 
@@ -4369,6 +5159,9 @@ func (s *CustomerSendMsgTaskRequestSendConfigUrlTrackConfig) SetTrackUrl(v strin
 }
 
 type CustomerSendMsgTaskResponseBody struct {
+	// example:
+	//
+	// 88888
 	OpenBatchTaskId *string `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
 }
 
@@ -4438,11 +5231,32 @@ func (s *DeleteGroupMembersFromGroupHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type DeleteGroupMembersFromGroupRequest struct {
-	DeleteGroupType    *string `json:"deleteGroupType,omitempty" xml:"deleteGroupType,omitempty"`
-	MemberUnionId      *string `json:"memberUnionId,omitempty" xml:"memberUnionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// GROUP：从群中删除；GROUP_SET：从群组中删除
+	DeleteGroupType *string `json:"deleteGroupType,omitempty" xml:"deleteGroupType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 8888
+	MemberUnionId *string `json:"memberUnionId,omitempty" xml:"memberUnionId,omitempty"`
+	// example:
+	//
+	// cid**
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenGroupSetId     *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// example:
+	//
+	// 8888
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 8888
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
 func (s DeleteGroupMembersFromGroupRequest) String() string {
@@ -4548,10 +5362,28 @@ func (s *DeleteInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteInst
 }
 
 type DeleteInstanceRequest struct {
-	FormCode           *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DING_CUSTOMER
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 888***
 	OpenDataInstanceId *string `json:"openDataInstanceId,omitempty" xml:"openDataInstanceId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	OperatorUnionId    *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 888**
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// example:
+	//
+	// 8889999
+	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
 }
 
 func (s DeleteInstanceRequest) String() string {
@@ -4652,9 +5484,21 @@ func (s *DeleteKnowledgeHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteKno
 }
 
 type DeleteKnowledgeRequest struct {
-	LibraryKey       *string `json:"libraryKey,omitempty" xml:"libraryKey,omitempty"`
-	OpenTeamId       *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	Source           *string `json:"source,omitempty" xml:"source,omitempty"`
+	// example:
+	//
+	// xuvw1245
+	LibraryKey *string `json:"libraryKey,omitempty" xml:"libraryKey,omitempty"`
+	// example:
+	//
+	// Js1i0w3k
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// example:
+	//
+	// CCM
+	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	// example:
+	//
+	// CCM-123
 	SourcePrimaryKey *string `json:"sourcePrimaryKey,omitempty" xml:"sourcePrimaryKey,omitempty"`
 }
 
@@ -4756,13 +5600,40 @@ func (s *EmotionStatisticsHeaders) SetXAcsDingtalkAccessToken(v string) *Emotion
 }
 
 type EmotionStatisticsRequest struct {
-	MaxDt               *string  `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
-	MaxEmotion          *float64 `json:"maxEmotion,omitempty" xml:"maxEmotion,omitempty"`
-	MinDt               *string  `json:"minDt,omitempty" xml:"minDt,omitempty"`
-	MinEmotion          *float64 `json:"minEmotion,omitempty" xml:"minEmotion,omitempty"`
-	OpenConversationIds *string  `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty"`
-	OpenGroupSetId      *string  `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	OpenTeamId          *string  `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	MaxDt *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
+	// example:
+	//
+	// 0.8
+	MaxEmotion *float64 `json:"maxEmotion,omitempty" xml:"maxEmotion,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	MinDt *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// example:
+	//
+	// 0
+	MinEmotion *float64 `json:"minEmotion,omitempty" xml:"minEmotion,omitempty"`
+	// example:
+	//
+	// cidXX,cidYY
+	OpenConversationIds *string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty"`
+	// example:
+	//
+	// ksdfosd
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// KxisoOk
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
 func (s EmotionStatisticsRequest) String() string {
@@ -4809,6 +5680,7 @@ func (s *EmotionStatisticsRequest) SetOpenTeamId(v string) *EmotionStatisticsReq
 }
 
 type EmotionStatisticsResponseBody struct {
+	// This parameter is required.
 	EmotionStatisticsRecords []*EmotionStatisticsResponseBodyEmotionStatisticsRecords `json:"emotionStatisticsRecords,omitempty" xml:"emotionStatisticsRecords,omitempty" type:"Repeated"`
 }
 
@@ -4826,8 +5698,23 @@ func (s *EmotionStatisticsResponseBody) SetEmotionStatisticsRecords(v []*Emotion
 }
 
 type EmotionStatisticsResponseBodyEmotionStatisticsRecords struct {
-	Count        *int64   `json:"count,omitempty" xml:"count,omitempty"`
-	Dt           *string  `json:"dt,omitempty" xml:"dt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	Dt *string `json:"dt,omitempty" xml:"dt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.3
 	EmotionScore *float64 `json:"emotionScore,omitempty" xml:"emotionScore,omitempty"`
 }
 
@@ -4907,11 +5794,27 @@ func (s *FinishTicketHeaders) SetXAcsDingtalkAccessToken(v string) *FinishTicket
 }
 
 type FinishTicketRequest struct {
-	Notify           *FinishTicketRequestNotify     `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
-	OpenTeamId       *string                        `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	OpenTicketId     *string                        `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
-	ProcessorUnionId *string                        `json:"processorUnionId,omitempty" xml:"processorUnionId,omitempty"`
-	TicketMemo       *FinishTicketRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
+	Notify *FinishTicketRequestNotify `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// eKWh3GBwsKEiE
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a8iS4X94TgtgiE
+	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Dq9hP8Sk2v6vQ6l05nCe5wiEiE
+	ProcessorUnionId *string `json:"processorUnionId,omitempty" xml:"processorUnionId,omitempty"`
+	// This parameter is required.
+	TicketMemo *FinishTicketRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
 }
 
 func (s FinishTicketRequest) String() string {
@@ -4949,8 +5852,11 @@ func (s *FinishTicketRequest) SetTicketMemo(v *FinishTicketRequestTicketMemo) *F
 
 type FinishTicketRequestNotify struct {
 	GroupNoticeReceiverUnionIds []*string `json:"groupNoticeReceiverUnionIds,omitempty" xml:"groupNoticeReceiverUnionIds,omitempty" type:"Repeated"`
-	NoticeAllGroupMember        *bool     `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
-	WorkNoticeReceiverUnionIds  []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	NoticeAllGroupMember       *bool     `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
+	WorkNoticeReceiverUnionIds []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
 }
 
 func (s FinishTicketRequestNotify) String() string {
@@ -4978,7 +5884,12 @@ func (s *FinishTicketRequestNotify) SetWorkNoticeReceiverUnionIds(v []*string) *
 
 type FinishTicketRequestTicketMemo struct {
 	Attachments []*FinishTicketRequestTicketMemoAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	Memo        *string                                     `json:"memo,omitempty" xml:"memo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 备注
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
 }
 
 func (s FinishTicketRequestTicketMemo) String() string {
@@ -5000,8 +5911,14 @@ func (s *FinishTicketRequestTicketMemo) SetMemo(v string) *FinishTicketRequestTi
 }
 
 type FinishTicketRequestTicketMemoAttachments struct {
+	// example:
+	//
+	// wahaha.txt
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	Key      *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// ticket/image/44708069/43003/e27204b382c04832aec4243e940a1367_1625831640499.txt
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
 }
 
 func (s FinishTicketRequestTicketMemoAttachments) String() string {
@@ -5238,9 +6155,20 @@ func (s *GetInstancesByIdsHeaders) SetXAcsDingtalkAccessToken(v string) *GetInst
 }
 
 type GetInstancesByIdsRequest struct {
-	FormCode               *string   `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DING_CUSTOMER
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
 	OpenDataInstanceIdList []*string `json:"openDataInstanceIdList,omitempty" xml:"openDataInstanceIdList,omitempty" type:"Repeated"`
-	OpenTeamId             *string   `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 888***
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
 func (s GetInstancesByIdsRequest) String() string {
@@ -5284,15 +6212,19 @@ func (s *GetInstancesByIdsResponseBody) SetCustomFormInstanceResponseList(v []*G
 }
 
 type GetInstancesByIdsResponseBodyCustomFormInstanceResponseList struct {
-	CreatorUnionId     *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
-	Fields             *string `json:"fields,omitempty" xml:"fields,omitempty"`
-	FormCode           *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	GmtCreate          *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	Fields         *string `json:"fields,omitempty" xml:"fields,omitempty"`
+	// This parameter is required.
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
 	GmtModified        *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
 	ModifiedUnionId    *string `json:"modifiedUnionId,omitempty" xml:"modifiedUnionId,omitempty"`
 	OpenDataInstanceId *string `json:"openDataInstanceId,omitempty" xml:"openDataInstanceId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	OwnerUnionId       *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
+	// This parameter is required.
+	OpenTeamId   *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	OwnerUnionId *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
 }
 
 func (s GetInstancesByIdsResponseBodyCustomFormInstanceResponseList) String() string {
@@ -5401,6 +6333,11 @@ func (s *GetNegativeWordCloudHeaders) SetXAcsDingtalkAccessToken(v string) *GetN
 }
 
 type GetNegativeWordCloudRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// KxisoOk
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
@@ -5418,6 +6355,7 @@ func (s *GetNegativeWordCloudRequest) SetOpenTeamId(v string) *GetNegativeWordCl
 }
 
 type GetNegativeWordCloudResponseBody struct {
+	// This parameter is required.
 	Words []*GetNegativeWordCloudResponseBodyWords `json:"words,omitempty" xml:"words,omitempty" type:"Repeated"`
 }
 
@@ -5435,8 +6373,18 @@ func (s *GetNegativeWordCloudResponseBody) SetWords(v []*GetNegativeWordCloudRes
 }
 
 type GetNegativeWordCloudResponseBodyWords struct {
-	Count *int64  `json:"count,omitempty" xml:"count,omitempty"`
-	Word  *string `json:"word,omitempty" xml:"word,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 销售
+	Word *string `json:"word,omitempty" xml:"word,omitempty"`
 }
 
 func (s GetNegativeWordCloudResponseBodyWords) String() string {
@@ -5510,9 +6458,13 @@ func (s *GetOssTempUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetOssTempU
 }
 
 type GetOssTempUrlRequest struct {
-	FetchMode  *string `json:"fetchMode,omitempty" xml:"fetchMode,omitempty"`
-	FileName   *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	Key        *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
+	FetchMode *string `json:"fetchMode,omitempty" xml:"fetchMode,omitempty"`
+	// This parameter is required.
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// This parameter is required.
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// This parameter is required.
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
@@ -5614,9 +6566,25 @@ func (s *GetStoragePolicyHeaders) SetXAcsDingtalkAccessToken(v string) *GetStora
 }
 
 type GetStoragePolicyRequest struct {
-	BizType    *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	FileName   *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FileSize   *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// TICKET_IMAGE
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// wahah.txt
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10000
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// This parameter is required.
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
@@ -5742,7 +6710,9 @@ func (s *GetTicketHeaders) SetXAcsDingtalkAccessToken(v string) *GetTicketHeader
 }
 
 type GetTicketRequest struct {
-	OpenTeamId   *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
 	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
 }
 
@@ -6004,6 +6974,11 @@ func (s *GetWordCloudHeaders) SetXAcsDingtalkAccessToken(v string) *GetWordCloud
 }
 
 type GetWordCloudRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// KxisoOk
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
@@ -6021,6 +6996,7 @@ func (s *GetWordCloudRequest) SetOpenTeamId(v string) *GetWordCloudRequest {
 }
 
 type GetWordCloudResponseBody struct {
+	// This parameter is required.
 	Words []*GetWordCloudResponseBodyWords `json:"words,omitempty" xml:"words,omitempty" type:"Repeated"`
 }
 
@@ -6038,8 +7014,18 @@ func (s *GetWordCloudResponseBody) SetWords(v []*GetWordCloudResponseBodyWords) 
 }
 
 type GetWordCloudResponseBodyWords struct {
-	Count *int64  `json:"count,omitempty" xml:"count,omitempty"`
-	Word  *string `json:"word,omitempty" xml:"word,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 销售
+	Word *string `json:"word,omitempty" xml:"word,omitempty"`
 }
 
 func (s GetWordCloudResponseBodyWords) String() string {
@@ -6113,8 +7099,23 @@ func (s *GroupStatisticsHeaders) SetXAcsDingtalkAccessToken(v string) *GroupStat
 }
 
 type GroupStatisticsRequest struct {
-	MaxDt      *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
-	MinDt      *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	MaxDt *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	MinDt *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// KxisoOk
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
@@ -6142,10 +7143,26 @@ func (s *GroupStatisticsRequest) SetOpenTeamId(v string) *GroupStatisticsRequest
 }
 
 type GroupStatisticsResponseBody struct {
-	GroupCount         *int64                                   `json:"groupCount,omitempty" xml:"groupCount,omitempty"`
-	GroupTrend         []*GroupStatisticsResponseBodyGroupTrend `json:"groupTrend,omitempty" xml:"groupTrend,omitempty" type:"Repeated"`
-	IncreaseGroupCount *int64                                   `json:"increaseGroupCount,omitempty" xml:"increaseGroupCount,omitempty"`
-	IncreaseRate       *string                                  `json:"increaseRate,omitempty" xml:"increaseRate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	GroupCount *int64 `json:"groupCount,omitempty" xml:"groupCount,omitempty"`
+	// This parameter is required.
+	GroupTrend []*GroupStatisticsResponseBodyGroupTrend `json:"groupTrend,omitempty" xml:"groupTrend,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	IncreaseGroupCount *int64 `json:"increaseGroupCount,omitempty" xml:"increaseGroupCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0.1
+	IncreaseRate *string `json:"increaseRate,omitempty" xml:"increaseRate,omitempty"`
 }
 
 func (s GroupStatisticsResponseBody) String() string {
@@ -6177,8 +7194,18 @@ func (s *GroupStatisticsResponseBody) SetIncreaseRate(v string) *GroupStatistics
 }
 
 type GroupStatisticsResponseBodyGroupTrend struct {
-	Count *int64  `json:"count,omitempty" xml:"count,omitempty"`
-	Dt    *string `json:"dt,omitempty" xml:"dt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	Dt *string `json:"dt,omitempty" xml:"dt,omitempty"`
 }
 
 func (s GroupStatisticsResponseBodyGroupTrend) String() string {
@@ -6252,8 +7279,23 @@ func (s *IntentionCategoryStatisticsHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type IntentionCategoryStatisticsRequest struct {
-	MaxDt      *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
-	MinDt      *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	MaxDt *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	MinDt *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// KxisoOk
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
@@ -6281,6 +7323,7 @@ func (s *IntentionCategoryStatisticsRequest) SetOpenTeamId(v string) *IntentionC
 }
 
 type IntentionCategoryStatisticsResponseBody struct {
+	// This parameter is required.
 	IntentionCategoryRecords []*IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords `json:"intentionCategoryRecords,omitempty" xml:"intentionCategoryRecords,omitempty" type:"Repeated"`
 }
 
@@ -6298,12 +7341,42 @@ func (s *IntentionCategoryStatisticsResponseBody) SetIntentionCategoryRecords(v 
 }
 
 type IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords struct {
-	AskCount          *int64  `json:"askCount,omitempty" xml:"askCount,omitempty"`
-	CategoryName      *string `json:"categoryName,omitempty" xml:"categoryName,omitempty"`
-	DissatisfiedCount *int64  `json:"dissatisfiedCount,omitempty" xml:"dissatisfiedCount,omitempty"`
-	ErrorCount        *int64  `json:"errorCount,omitempty" xml:"errorCount,omitempty"`
-	PraiseCount       *int64  `json:"praiseCount,omitempty" xml:"praiseCount,omitempty"`
-	SuggestCount      *int64  `json:"suggestCount,omitempty" xml:"suggestCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	AskCount *int64 `json:"askCount,omitempty" xml:"askCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 工单类
+	CategoryName *string `json:"categoryName,omitempty" xml:"categoryName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	DissatisfiedCount *int64 `json:"dissatisfiedCount,omitempty" xml:"dissatisfiedCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	ErrorCount *int64 `json:"errorCount,omitempty" xml:"errorCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	PraiseCount *int64 `json:"praiseCount,omitempty" xml:"praiseCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	SuggestCount *int64 `json:"suggestCount,omitempty" xml:"suggestCount,omitempty"`
 }
 
 func (s IntentionCategoryStatisticsResponseBodyIntentionCategoryRecords) String() string {
@@ -6397,8 +7470,23 @@ func (s *IntentionStatisticsHeaders) SetXAcsDingtalkAccessToken(v string) *Inten
 }
 
 type IntentionStatisticsRequest struct {
-	MaxDt      *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
-	MinDt      *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	MaxDt *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	MinDt *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// KxisoOk
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
@@ -6426,8 +7514,10 @@ func (s *IntentionStatisticsRequest) SetOpenTeamId(v string) *IntentionStatistic
 }
 
 type IntentionStatisticsResponseBody struct {
+	// This parameter is required.
 	IntentionStatisticsRecords []*IntentionStatisticsResponseBodyIntentionStatisticsRecords `json:"intentionStatisticsRecords,omitempty" xml:"intentionStatisticsRecords,omitempty" type:"Repeated"`
-	IntentionTrend             []*IntentionStatisticsResponseBodyIntentionTrend             `json:"intentionTrend,omitempty" xml:"intentionTrend,omitempty" type:"Repeated"`
+	// This parameter is required.
+	IntentionTrend []*IntentionStatisticsResponseBodyIntentionTrend `json:"intentionTrend,omitempty" xml:"intentionTrend,omitempty" type:"Repeated"`
 }
 
 func (s IntentionStatisticsResponseBody) String() string {
@@ -6449,9 +7539,24 @@ func (s *IntentionStatisticsResponseBody) SetIntentionTrend(v []*IntentionStatis
 }
 
 type IntentionStatisticsResponseBodyIntentionStatisticsRecords struct {
-	Count     *int64  `json:"count,omitempty" xml:"count,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 产品异常类
 	Intention *string `json:"intention,omitempty" xml:"intention,omitempty"`
-	LastCount *int64  `json:"lastCount,omitempty" xml:"lastCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 9
+	LastCount *int64 `json:"lastCount,omitempty" xml:"lastCount,omitempty"`
 }
 
 func (s IntentionStatisticsResponseBodyIntentionStatisticsRecords) String() string {
@@ -6478,8 +7583,23 @@ func (s *IntentionStatisticsResponseBodyIntentionStatisticsRecords) SetLastCount
 }
 
 type IntentionStatisticsResponseBodyIntentionTrend struct {
-	Count     *int64  `json:"count,omitempty" xml:"count,omitempty"`
-	Dt        *string `json:"dt,omitempty" xml:"dt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	Count *int64 `json:"count,omitempty" xml:"count,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	Dt *string `json:"dt,omitempty" xml:"dt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 产品异常类
 	Intention *string `json:"intention,omitempty" xml:"intention,omitempty"`
 }
 
@@ -6559,7 +7679,9 @@ func (s *ListTicketOperateRecordHeaders) SetXAcsDingtalkAccessToken(v string) *L
 }
 
 type ListTicketOperateRecordRequest struct {
-	OpenTeamId   *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
 	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
 }
 
@@ -6790,8 +7912,14 @@ func (s *ListUserTeamsResponseBody) SetTeams(v []*ListUserTeamsResponseBodyTeams
 }
 
 type ListUserTeamsResponseBodyTeams struct {
+	// example:
+	//
+	// Jxi12wo3qxoa
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	TeamName   *string `json:"teamName,omitempty" xml:"teamName,omitempty"`
+	// example:
+	//
+	// 测试团队
+	TeamName *string `json:"teamName,omitempty" xml:"teamName,omitempty"`
 }
 
 func (s ListUserTeamsResponseBodyTeams) String() string {
@@ -6865,9 +7993,23 @@ func (s *QueryActiveUsersHeaders) SetXAcsDingtalkAccessToken(v string) *QueryAct
 }
 
 type QueryActiveUsersRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxxxxx==
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	TopN               *int64  `json:"topN,omitempty" xml:"topN,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// KxisoOk
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// example:
+	//
+	// 5
+	TopN *int64 `json:"topN,omitempty" xml:"topN,omitempty"`
 }
 
 func (s QueryActiveUsersRequest) String() string {
@@ -6894,6 +8036,7 @@ func (s *QueryActiveUsersRequest) SetTopN(v int64) *QueryActiveUsersRequest {
 }
 
 type QueryActiveUsersResponseBody struct {
+	// This parameter is required.
 	ActiveUserInfos []*QueryActiveUsersResponseBodyActiveUserInfos `json:"activeUserInfos,omitempty" xml:"activeUserInfos,omitempty" type:"Repeated"`
 }
 
@@ -6911,13 +8054,20 @@ func (s *QueryActiveUsersResponseBody) SetActiveUserInfos(v []*QueryActiveUsersR
 }
 
 type QueryActiveUsersResponseBodyActiveUserInfos struct {
+	// This parameter is required.
 	ActionIndexL14d *float64 `json:"actionIndexL14d,omitempty" xml:"actionIndexL14d,omitempty"`
+	// This parameter is required.
 	ActionIndexL30d *float64 `json:"actionIndexL30d,omitempty" xml:"actionIndexL30d,omitempty"`
-	ActionIndexL7d  *float64 `json:"actionIndexL7d,omitempty" xml:"actionIndexL7d,omitempty"`
-	ActiveScore     *float64 `json:"activeScore,omitempty" xml:"activeScore,omitempty"`
-	NickName        *string  `json:"nickName,omitempty" xml:"nickName,omitempty"`
-	Ranking         *int64   `json:"ranking,omitempty" xml:"ranking,omitempty"`
-	UnionId         *string  `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	ActionIndexL7d *float64 `json:"actionIndexL7d,omitempty" xml:"actionIndexL7d,omitempty"`
+	// This parameter is required.
+	ActiveScore *float64 `json:"activeScore,omitempty" xml:"activeScore,omitempty"`
+	// This parameter is required.
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// This parameter is required.
+	Ranking *int64 `json:"ranking,omitempty" xml:"ranking,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s QueryActiveUsersResponseBodyActiveUserInfos) String() string {
@@ -7016,11 +8166,30 @@ func (s *QueryCrmGroupContactHeaders) SetXAcsDingtalkAccessToken(v string) *Quer
 }
 
 type QueryCrmGroupContactRequest struct {
-	MinResult          *int64  `json:"minResult,omitempty" xml:"minResult,omitempty"`
-	NextToken          *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	MinResult *int64 `json:"minResult,omitempty" xml:"minResult,omitempty"`
+	// example:
+	//
+	// 8888
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cid888
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	SearchFields       *string `json:"searchFields,omitempty" xml:"searchFields,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 888
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	SearchFields *string `json:"searchFields,omitempty" xml:"searchFields,omitempty"`
 }
 
 func (s QueryCrmGroupContactRequest) String() string {
@@ -7057,7 +8226,13 @@ func (s *QueryCrmGroupContactRequest) SetSearchFields(v string) *QueryCrmGroupCo
 }
 
 type QueryCrmGroupContactResponseBody struct {
-	NextToken          *string                                    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// token****
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// cid****
 	OpenConversationId *string                                    `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	Records            []*QueryCrmGroupContactResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
 }
@@ -7086,10 +8261,22 @@ func (s *QueryCrmGroupContactResponseBody) SetRecords(v []*QueryCrmGroupContactR
 }
 
 type QueryCrmGroupContactResponseBodyRecords struct {
-	ContactData   *string `json:"contactData,omitempty" xml:"contactData,omitempty"`
+	// example:
+	//
+	// {} ,具体字段取决于客户管理-字段管理-联系人字段设置
+	ContactData *string `json:"contactData,omitempty" xml:"contactData,omitempty"`
+	// example:
+	//
+	// ahghgg
 	MemberUnionId *string `json:"memberUnionId,omitempty" xml:"memberUnionId,omitempty"`
-	NickName      *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
-	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 张三
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// example:
+	//
+	// 88888
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryCrmGroupContactResponseBodyRecords) String() string {
@@ -7283,9 +8470,25 @@ func (s *QueryCustomerTaskUserDetailHeaders) SetXAcsDingtalkAccessToken(v string
 }
 
 type QueryCustomerTaskUserDetailRequest struct {
-	MaxResults       *int64    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken        *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	OpenBatchTaskId  *string   `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 8888
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 8888
+	OpenBatchTaskId *string `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 8888
 	OpenTeamId       *string   `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 	ReceiverUnionIds []*string `json:"receiverUnionIds,omitempty" xml:"receiverUnionIds,omitempty" type:"Repeated"`
 }
@@ -7324,7 +8527,9 @@ func (s *QueryCustomerTaskUserDetailRequest) SetReceiverUnionIds(v []*string) *Q
 }
 
 type QueryCustomerTaskUserDetailResponseBody struct {
-	MaxResults *int64                                            `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
 	NextToken  *string                                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Records    []*QueryCustomerTaskUserDetailResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
 	TotalCount *int64                                            `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
@@ -7359,17 +8564,47 @@ func (s *QueryCustomerTaskUserDetailResponseBody) SetTotalCount(v int64) *QueryC
 }
 
 type QueryCustomerTaskUserDetailResponseBodyRecords struct {
-	CustomerNames       *string                                                              `json:"customerNames,omitempty" xml:"customerNames,omitempty"`
-	ErrorCode           *string                                                              `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// 客户名称
+	CustomerNames *string `json:"customerNames,omitempty" xml:"customerNames,omitempty"`
+	// example:
+	//
+	// 11111
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	// example:
+	//
+	// 错误信息
 	ErrorDetail         *string                                                              `json:"errorDetail,omitempty" xml:"errorDetail,omitempty"`
 	EventTrackResponses []*QueryCustomerTaskUserDetailResponseBodyRecordsEventTrackResponses `json:"eventTrackResponses,omitempty" xml:"eventTrackResponses,omitempty" type:"Repeated"`
-	OpenBatchTaskId     *string                                                              `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
-	ReadStatus          *int64                                                               `json:"readStatus,omitempty" xml:"readStatus,omitempty"`
-	ReadTime            *string                                                              `json:"readTime,omitempty" xml:"readTime,omitempty"`
-	ReceiverName        *string                                                              `json:"receiverName,omitempty" xml:"receiverName,omitempty"`
-	ReceiverUnionId     *string                                                              `json:"receiverUnionId,omitempty" xml:"receiverUnionId,omitempty"`
-	SendTime            *string                                                              `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
-	Status              *string                                                              `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 8888
+	OpenBatchTaskId *string `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
+	// example:
+	//
+	// 1
+	ReadStatus *int64 `json:"readStatus,omitempty" xml:"readStatus,omitempty"`
+	// example:
+	//
+	// 2023-07-14 00:00:00
+	ReadTime *string `json:"readTime,omitempty" xml:"readTime,omitempty"`
+	// example:
+	//
+	// 接收人姓名
+	ReceiverName *string `json:"receiverName,omitempty" xml:"receiverName,omitempty"`
+	// example:
+	//
+	// 接收人ID
+	ReceiverUnionId *string `json:"receiverUnionId,omitempty" xml:"receiverUnionId,omitempty"`
+	// example:
+	//
+	// 2023-07-14 00:00:00
+	SendTime *string `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
+	// example:
+	//
+	// UNSEND未发；SEND_SUCCESS成功；SEND_FAILED失败；EXCEED_LIMIT被限流
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryCustomerTaskUserDetailResponseBodyRecords) String() string {
@@ -7436,10 +8671,22 @@ func (s *QueryCustomerTaskUserDetailResponseBodyRecords) SetStatus(v string) *Qu
 }
 
 type QueryCustomerTaskUserDetailResponseBodyRecordsEventTrackResponses struct {
-	ClickTime    *string `json:"clickTime,omitempty" xml:"clickTime,omitempty"`
+	// example:
+	//
+	// 2023-07-14 00:00:00
+	ClickTime *string `json:"clickTime,omitempty" xml:"clickTime,omitempty"`
+	// example:
+	//
+	// 88888
 	EventTrackId *string `json:"eventTrackId,omitempty" xml:"eventTrackId,omitempty"`
-	OnClick      *bool   `json:"onClick,omitempty" xml:"onClick,omitempty"`
-	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// true
+	OnClick *bool `json:"onClick,omitempty" xml:"onClick,omitempty"`
+	// example:
+	//
+	// 标题名称
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryCustomerTaskUserDetailResponseBodyRecordsEventTrackResponses) String() string {
@@ -7523,9 +8770,18 @@ func (s *QueryGroupHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGroupHead
 }
 
 type QueryGroupRequest struct {
-	BizId              *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// example:
+	//
+	// 101813123123
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// example:
+	//
+	// cidxxxxxx==
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// example:
+	//
+	// KxisoOk
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
 func (s QueryGroupRequest) String() string {
@@ -7552,14 +8808,54 @@ func (s *QueryGroupRequest) SetOpenTeamId(v string) *QueryGroupRequest {
 }
 
 type QueryGroupResponseBody struct {
-	BizId              *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	GroupName          *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	GroupUrl           *string `json:"groupUrl,omitempty" xml:"groupUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 234
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 钉钉专属服务群
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://qr.dingtalk.com/xxxxxxx
+	GroupUrl *string `json:"groupUrl,omitempty" xml:"groupUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxxxx==
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenGroupSetId     *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	RobotCode          *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
-	RobotName          *string `json:"robotName,omitempty" xml:"robotName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xjfjdsiw
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xkjhfker
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// jikwrjcowa
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 服务小钉
+	RobotName *string `json:"robotName,omitempty" xml:"robotName,omitempty"`
 }
 
 func (s QueryGroupResponseBody) String() string {
@@ -7663,9 +8959,16 @@ func (s *QueryGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGro
 }
 
 type QueryGroupMemberRequest struct {
+	// example:
+	//
+	// cidxxxxxx==
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	TargetCorpId       *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	// example:
+	//
+	// KxisoOk
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
 }
 
 func (s QueryGroupMemberRequest) String() string {
@@ -7837,6 +9140,7 @@ func (s *QueryGroupSetHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGroupS
 }
 
 type QueryGroupSetRequest struct {
+	// This parameter is required.
 	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
@@ -7854,6 +9158,7 @@ func (s *QueryGroupSetRequest) SetOpenTeamId(v string) *QueryGroupSetRequest {
 }
 
 type QueryGroupSetResponseBody struct {
+	// This parameter is required.
 	Records []*QueryGroupSetResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
 }
 
@@ -7871,11 +9176,16 @@ func (s *QueryGroupSetResponseBody) SetRecords(v []*QueryGroupSetResponseBodyRec
 }
 
 type QueryGroupSetResponseBodyRecords struct {
-	GmtCreate      *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified    *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	GroupSetName   *string `json:"groupSetName,omitempty" xml:"groupSetName,omitempty"`
+	// This parameter is required.
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// This parameter is required.
+	GroupSetName *string `json:"groupSetName,omitempty" xml:"groupSetName,omitempty"`
+	// This parameter is required.
 	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	TemplateId     *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// This parameter is required.
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
 
 func (s QueryGroupSetResponseBodyRecords) String() string {
@@ -7964,10 +9274,29 @@ func (s *QueryInstancesByMultiConditionsHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type QueryInstancesByMultiConditionsRequest struct {
-	FormCode     *string                                             `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	MaxResults   *int64                                              `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken    *string                                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	OpenTeamId   *string                                             `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DING_CUSTOMER
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 0
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 888**
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// example:
+	//
+	// [     {         "fieldCode":"contact_name",         "fieldOperatorType":"like",         "value":"测试api"     } ]
 	SearchFields *string                                             `json:"searchFields,omitempty" xml:"searchFields,omitempty"`
 	SortFields   []*QueryInstancesByMultiConditionsRequestSortFields `json:"sortFields,omitempty" xml:"sortFields,omitempty" type:"Repeated"`
 }
@@ -8011,8 +9340,14 @@ func (s *QueryInstancesByMultiConditionsRequest) SetSortFields(v []*QueryInstanc
 }
 
 type QueryInstancesByMultiConditionsRequestSortFields struct {
+	// example:
+	//
+	// gmt_create
 	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
-	SortBy    *string `json:"sortBy,omitempty" xml:"sortBy,omitempty"`
+	// example:
+	//
+	// asc升序；desc降序
+	SortBy *string `json:"sortBy,omitempty" xml:"sortBy,omitempty"`
 }
 
 func (s QueryInstancesByMultiConditionsRequestSortFields) String() string {
@@ -8034,10 +9369,12 @@ func (s *QueryInstancesByMultiConditionsRequestSortFields) SetSortBy(v string) *
 }
 
 type QueryInstancesByMultiConditionsResponseBody struct {
+	// This parameter is required.
 	MaxResults *int64                                                `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string                                               `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Records    []*QueryInstancesByMultiConditionsResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
-	TotalCount *int64                                                `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s QueryInstancesByMultiConditionsResponseBody) String() string {
@@ -8069,15 +9406,20 @@ func (s *QueryInstancesByMultiConditionsResponseBody) SetTotalCount(v int64) *Qu
 }
 
 type QueryInstancesByMultiConditionsResponseBodyRecords struct {
-	CreatorUnionId     *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
-	Fields             *string `json:"fields,omitempty" xml:"fields,omitempty"`
-	FormCode           *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	GmtCreate          *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified        *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	ModifiedUnionId    *string `json:"modifiedUnionId,omitempty" xml:"modifiedUnionId,omitempty"`
+	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	Fields         *string `json:"fields,omitempty" xml:"fields,omitempty"`
+	// This parameter is required.
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	GmtModified     *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	ModifiedUnionId *string `json:"modifiedUnionId,omitempty" xml:"modifiedUnionId,omitempty"`
+	// This parameter is required.
 	OpenDataInstanceId *string `json:"openDataInstanceId,omitempty" xml:"openDataInstanceId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	OwnerUnionId       *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
+	// This parameter is required.
+	OpenTeamId   *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	OwnerUnionId *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
 }
 
 func (s QueryInstancesByMultiConditionsResponseBodyRecords) String() string {
@@ -8186,10 +9528,26 @@ func (s *QuerySendMsgTaskStatisticsHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type QuerySendMsgTaskStatisticsRequest struct {
-	MaxResults      *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken       *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 1
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Jci333
 	OpenBatchTaskId *string `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
-	OpenTeamId      *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Jciwnfw
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
 func (s QuerySendMsgTaskStatisticsRequest) String() string {
@@ -8437,11 +9795,32 @@ func (s *QuerySendMsgTaskStatisticsDetailHeaders) SetXAcsDingtalkAccessToken(v s
 }
 
 type QuerySendMsgTaskStatisticsDetailRequest struct {
-	MaxResults         *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken          *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	OpenBatchTaskId    *string `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 1
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// J22222
+	OpenBatchTaskId *string `json:"openBatchTaskId,omitempty" xml:"openBatchTaskId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cid1111
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Jciwnfw
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
 func (s QuerySendMsgTaskStatisticsDetailRequest) String() string {
@@ -8612,11 +9991,32 @@ func (s *QueryServiceGroupMessageReadStatusHeaders) SetXAcsDingtalkAccessToken(v
 }
 
 type QueryServiceGroupMessageReadStatusRequest struct {
-	MaxResults         *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken          *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// CXiw
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxxxxx==
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenMsgTaskId      *string `json:"openMsgTaskId,omitempty" xml:"openMsgTaskId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// msgxxxxxx==
+	OpenMsgTaskId *string `json:"openMsgTaskId,omitempty" xml:"openMsgTaskId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// EifWwis
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
 func (s QueryServiceGroupMessageReadStatusRequest) String() string {
@@ -8653,7 +10053,8 @@ func (s *QueryServiceGroupMessageReadStatusRequest) SetOpenTeamId(v string) *Que
 }
 
 type QueryServiceGroupMessageReadStatusResponseBody struct {
-	MaxResults *int32                                                   `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
 	NextToken  *string                                                  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Records    []*QueryServiceGroupMessageReadStatusResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
 	TotalCount *int32                                                   `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
@@ -8688,13 +10089,34 @@ func (s *QueryServiceGroupMessageReadStatusResponseBody) SetTotalCount(v int32) 
 }
 
 type QueryServiceGroupMessageReadStatusResponseBodyRecords struct {
-	ReadStatus         *int32  `json:"readStatus,omitempty" xml:"readStatus,omitempty"`
-	ReadTimeStr        *string `json:"readTimeStr,omitempty" xml:"readTimeStr,omitempty"`
+	// example:
+	//
+	// 1
+	ReadStatus *int32 `json:"readStatus,omitempty" xml:"readStatus,omitempty"`
+	// example:
+	//
+	// 2021-09-01 00:00:00
+	ReadTimeStr *string `json:"readTimeStr,omitempty" xml:"readTimeStr,omitempty"`
+	// example:
+	//
+	// $:LWCP_v1:xxxx==
 	ReceiverDingTalkId *string `json:"receiverDingTalkId,omitempty" xml:"receiverDingTalkId,omitempty"`
-	ReceiverName       *string `json:"receiverName,omitempty" xml:"receiverName,omitempty"`
-	ReceiverUnionId    *string `json:"receiverUnionId,omitempty" xml:"receiverUnionId,omitempty"`
-	ReceiverUserId     *string `json:"receiverUserId,omitempty" xml:"receiverUserId,omitempty"`
-	SendTimeStr        *string `json:"sendTimeStr,omitempty" xml:"sendTimeStr,omitempty"`
+	// example:
+	//
+	// 张三
+	ReceiverName *string `json:"receiverName,omitempty" xml:"receiverName,omitempty"`
+	// example:
+	//
+	// Kxiwk2
+	ReceiverUnionId *string `json:"receiverUnionId,omitempty" xml:"receiverUnionId,omitempty"`
+	// example:
+	//
+	// manager123
+	ReceiverUserId *string `json:"receiverUserId,omitempty" xml:"receiverUserId,omitempty"`
+	// example:
+	//
+	// 2021-09-01 00:00:00
+	SendTimeStr *string `json:"sendTimeStr,omitempty" xml:"sendTimeStr,omitempty"`
 }
 
 func (s QueryServiceGroupMessageReadStatusResponseBodyRecords) String() string {
@@ -8793,13 +10215,34 @@ func (s *QueueNotifyHeaders) SetXAcsDingtalkAccessToken(v string) *QueueNotifyHe
 }
 
 type QueueNotifyRequest struct {
-	EstimateWaitMin *int64  `json:"estimateWaitMin,omitempty" xml:"estimateWaitMin,omitempty"`
-	OpenTeamId      *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	QueuePlace      *int64  `json:"queuePlace,omitempty" xml:"queuePlace,omitempty"`
-	ServiceToken    *string `json:"serviceToken,omitempty" xml:"serviceToken,omitempty"`
-	TargetChannel   *string `json:"targetChannel,omitempty" xml:"targetChannel,omitempty"`
-	Tips            *string `json:"tips,omitempty" xml:"tips,omitempty"`
-	VisitorToken    *string `json:"visitorToken,omitempty" xml:"visitorToken,omitempty"`
+	// example:
+	//
+	// 5
+	EstimateWaitMin *int64 `json:"estimateWaitMin,omitempty" xml:"estimateWaitMin,omitempty"`
+	// example:
+	//
+	// eWaJSqDcLsoiE
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// example:
+	//
+	// 11
+	QueuePlace *int64 `json:"queuePlace,omitempty" xml:"queuePlace,omitempty"`
+	// example:
+	//
+	// 3333333333
+	ServiceToken *string `json:"serviceToken,omitempty" xml:"serviceToken,omitempty"`
+	// example:
+	//
+	// SourceTypeEnum
+	TargetChannel *string `json:"targetChannel,omitempty" xml:"targetChannel,omitempty"`
+	// example:
+	//
+	// 你好，欢迎来到这里
+	Tips *string `json:"tips,omitempty" xml:"tips,omitempty"`
+	// example:
+	//
+	// eeeeeeeeerrrrr
+	VisitorToken *string `json:"visitorToken,omitempty" xml:"visitorToken,omitempty"`
 }
 
 func (s QueueNotifyRequest) String() string {
@@ -8848,8 +10291,14 @@ func (s *QueueNotifyRequest) SetVisitorToken(v string) *QueueNotifyRequest {
 type QueueNotifyResponseBody struct {
 	DingOpenErrcode *int32  `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
 	ErrorMsg        *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	Result          *bool   `json:"result,omitempty" xml:"result,omitempty"`
-	Success         *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s QueueNotifyResponseBody) String() string {
@@ -8933,8 +10382,18 @@ func (s *RemoveContactFromOrgHeaders) SetXAcsDingtalkAccessToken(v string) *Remo
 }
 
 type RemoveContactFromOrgRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 88888
 	ContactUnionId *string `json:"contactUnionId,omitempty" xml:"contactUnionId,omitempty"`
-	OpenTeamId     *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 8888
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
 func (s RemoveContactFromOrgRequest) String() string {
@@ -9025,14 +10484,50 @@ func (s *ReportCustomerDetailHeaders) SetXAcsDingtalkAccessToken(v string) *Repo
 }
 
 type ReportCustomerDetailRequest struct {
-	HasLogin           *bool   `json:"hasLogin,omitempty" xml:"hasLogin,omitempty"`
-	HasOpenConv        *bool   `json:"hasOpenConv,omitempty" xml:"hasOpenConv,omitempty"`
-	MaxDt              *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
-	MinDt              *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// example:
+	//
+	// true
+	HasLogin *bool `json:"hasLogin,omitempty" xml:"hasLogin,omitempty"`
+	// example:
+	//
+	// true
+	HasOpenConv *bool `json:"hasOpenConv,omitempty" xml:"hasOpenConv,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220102
+	MaxDt *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	MinDt *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidXXX
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	PageNumber         *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize           *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// iSoqrhLQDtK
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s ReportCustomerDetailRequest) String() string {
@@ -9084,10 +10579,26 @@ func (s *ReportCustomerDetailRequest) SetPageSize(v int64) *ReportCustomerDetail
 }
 
 type ReportCustomerDetailResponseBody struct {
-	CurrentPage *int64                                     `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
-	PageSize    *int64                                     `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	Records     []*ReportCustomerDetailResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
-	TotalCount  *int64                                     `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	CurrentPage *int64 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	Records []*ReportCustomerDetailResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s ReportCustomerDetailResponseBody) String() string {
@@ -9119,14 +10630,54 @@ func (s *ReportCustomerDetailResponseBody) SetTotalCount(v int64) *ReportCustome
 }
 
 type ReportCustomerDetailResponseBodyRecords struct {
-	AtRobotCnt   *int64  `json:"atRobotCnt,omitempty" xml:"atRobotCnt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	AtRobotCnt *int64 `json:"atRobotCnt,omitempty" xml:"atRobotCnt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 张三
 	CustomerName *string `json:"customerName,omitempty" xml:"customerName,omitempty"`
-	GroupName    *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	HasLogin     *bool   `json:"hasLogin,omitempty" xml:"hasLogin,omitempty"`
-	HasOpenConv  *bool   `json:"hasOpenConv,omitempty" xml:"hasOpenConv,omitempty"`
-	SendMsgCnt   *int64  `json:"sendMsgCnt,omitempty" xml:"sendMsgCnt,omitempty"`
-	UnionId      *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试群
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	HasLogin *bool `json:"hasLogin,omitempty" xml:"hasLogin,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	HasOpenConv *bool `json:"hasOpenConv,omitempty" xml:"hasOpenConv,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2
+	SendMsgCnt *int64 `json:"sendMsgCnt,omitempty" xml:"sendMsgCnt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xcjlsdf
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 56789
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ReportCustomerDetailResponseBodyRecords) String() string {
@@ -9230,15 +10781,49 @@ func (s *ReportCustomerStatisticsHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type ReportCustomerStatisticsRequest struct {
-	GroupOwnerUserIds   []*string `json:"groupOwnerUserIds,omitempty" xml:"groupOwnerUserIds,omitempty" type:"Repeated"`
-	GroupTags           []*string `json:"groupTags,omitempty" xml:"groupTags,omitempty" type:"Repeated"`
-	MaxDt               *string   `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
-	MinDt               *string   `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// if can be null:
+	// true
+	GroupOwnerUserIds []*string `json:"groupOwnerUserIds,omitempty" xml:"groupOwnerUserIds,omitempty" type:"Repeated"`
+	// if can be null:
+	// true
+	GroupTags []*string `json:"groupTags,omitempty" xml:"groupTags,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220102
+	MaxDt *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	MinDt *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// if can be null:
+	// true
 	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
-	OpenGroupSetId      *string   `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	OpenTeamId          *string   `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	PageNumber          *int64    `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize            *int64    `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// iFoqrhLQDtK
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// iSoqrhLQDtK
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s ReportCustomerStatisticsRequest) String() string {
@@ -9295,10 +10880,26 @@ func (s *ReportCustomerStatisticsRequest) SetPageSize(v int64) *ReportCustomerSt
 }
 
 type ReportCustomerStatisticsResponseBody struct {
-	CurrentPage *int64                                         `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
-	PageSize    *int64                                         `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	Records     []*ReportCustomerStatisticsResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
-	TotalCount  *int64                                         `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	CurrentPage *int64 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	Records []*ReportCustomerStatisticsResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s ReportCustomerStatisticsResponseBody) String() string {
@@ -9330,17 +10931,70 @@ func (s *ReportCustomerStatisticsResponseBody) SetTotalCount(v int64) *ReportCus
 }
 
 type ReportCustomerStatisticsResponseBodyRecords struct {
-	AtRobotCnt         *int64  `json:"atRobotCnt,omitempty" xml:"atRobotCnt,omitempty"`
-	BizId              *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	CustomerCnt        *int64  `json:"customerCnt,omitempty" xml:"customerCnt,omitempty"`
-	GroupName          *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	GroupSetName       *string `json:"groupSetName,omitempty" xml:"groupSetName,omitempty"`
-	LoginCnt           *int64  `json:"loginCnt,omitempty" xml:"loginCnt,omitempty"`
-	OpenConvCnt        *int64  `json:"openConvCnt,omitempty" xml:"openConvCnt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	AtRobotCnt *int64 `json:"atRobotCnt,omitempty" xml:"atRobotCnt,omitempty"`
+	// example:
+	//
+	// bizXX
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3
+	CustomerCnt *int64 `json:"customerCnt,omitempty" xml:"customerCnt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试群
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试群分组
+	GroupSetName *string `json:"groupSetName,omitempty" xml:"groupSetName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2
+	LoginCnt *int64 `json:"loginCnt,omitempty" xml:"loginCnt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	OpenConvCnt *int64 `json:"openConvCnt,omitempty" xml:"openConvCnt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidXXX
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenGroupSetId     *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	SendMsgCnt         *int64  `json:"sendMsgCnt,omitempty" xml:"sendMsgCnt,omitempty"`
-	SenderCnt          *int64  `json:"senderCnt,omitempty" xml:"senderCnt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// iSoqrhLQDtK
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2
+	SendMsgCnt *int64 `json:"sendMsgCnt,omitempty" xml:"sendMsgCnt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2
+	SenderCnt *int64 `json:"senderCnt,omitempty" xml:"senderCnt,omitempty"`
 }
 
 func (s ReportCustomerStatisticsResponseBodyRecords) String() string {
@@ -9459,17 +11113,51 @@ func (s *ResubmitTicketHeaders) SetXAcsDingtalkAccessToken(v string) *ResubmitTi
 }
 
 type ResubmitTicketRequest struct {
-	CreatorUnionId    *string                            `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
-	CustomFields      *string                            `json:"customFields,omitempty" xml:"customFields,omitempty"`
-	Notify            *ResubmitTicketRequestNotify       `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
-	OpenTeamId        *string                            `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	OpenTemplateBizId *string                            `json:"openTemplateBizId,omitempty" xml:"openTemplateBizId,omitempty"`
-	OpenTicketId      *string                            `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
-	ProcessorUnionIds []*string                          `json:"processorUnionIds,omitempty" xml:"processorUnionIds,omitempty" type:"Repeated"`
-	Scene             *string                            `json:"scene,omitempty" xml:"scene,omitempty"`
-	SceneContext      *ResubmitTicketRequestSceneContext `json:"sceneContext,omitempty" xml:"sceneContext,omitempty" type:"Struct"`
-	TicketMemo        *ResubmitTicketRequestTicketMemo   `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
-	Title             *string                            `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Dq9hP8Sk2v6vQ6l05nCe5wiEiE
+	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	// example:
+	//
+	// [{\"identifier\":\"input1\",\"value\":\"123\"}]
+	CustomFields *string                      `json:"customFields,omitempty" xml:"customFields,omitempty"`
+	Notify       *ResubmitTicketRequestNotify `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// eKWh3GBwsKEiE
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// bLkvfXKiSngQiE
+	OpenTemplateBizId *string `json:"openTemplateBizId,omitempty" xml:"openTemplateBizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// iPbrfXjdNjRoiE
+	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
+	// This parameter is required.
+	ProcessorUnionIds []*string `json:"processorUnionIds,omitempty" xml:"processorUnionIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SG
+	Scene        *string                            `json:"scene,omitempty" xml:"scene,omitempty"`
+	SceneContext *ResubmitTicketRequestSceneContext `json:"sceneContext,omitempty" xml:"sceneContext,omitempty" type:"Struct"`
+	TicketMemo   *ResubmitTicketRequestTicketMemo   `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 工单标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s ResubmitTicketRequest) String() string {
@@ -9537,8 +11225,11 @@ func (s *ResubmitTicketRequest) SetTitle(v string) *ResubmitTicketRequest {
 
 type ResubmitTicketRequestNotify struct {
 	GroupNoticeReceiverUnionIds []*string `json:"groupNoticeReceiverUnionIds,omitempty" xml:"groupNoticeReceiverUnionIds,omitempty" type:"Repeated"`
-	NoticeAllGroupMember        *bool     `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
-	WorkNoticeReceiverUnionIds  []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	NoticeAllGroupMember       *bool     `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
+	WorkNoticeReceiverUnionIds []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
 }
 
 func (s ResubmitTicketRequestNotify) String() string {
@@ -9565,9 +11256,12 @@ func (s *ResubmitTicketRequestNotify) SetWorkNoticeReceiverUnionIds(v []*string)
 }
 
 type ResubmitTicketRequestSceneContext struct {
-	GroupMsgs          []*ResubmitTicketRequestSceneContextGroupMsgs `json:"groupMsgs,omitempty" xml:"groupMsgs,omitempty" type:"Repeated"`
-	OpenConversationId *string                                       `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	RelevantorUnionIds []*string                                     `json:"relevantorUnionIds,omitempty" xml:"relevantorUnionIds,omitempty" type:"Repeated"`
+	GroupMsgs []*ResubmitTicketRequestSceneContextGroupMsgs `json:"groupMsgs,omitempty" xml:"groupMsgs,omitempty" type:"Repeated"`
+	// example:
+	//
+	// cidZBSNlUi/Jq9x76PAXUCrAA==
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	RelevantorUnionIds []*string `json:"relevantorUnionIds,omitempty" xml:"relevantorUnionIds,omitempty" type:"Repeated"`
 }
 
 func (s ResubmitTicketRequestSceneContext) String() string {
@@ -9594,7 +11288,10 @@ func (s *ResubmitTicketRequestSceneContext) SetRelevantorUnionIds(v []*string) *
 }
 
 type ResubmitTicketRequestSceneContextGroupMsgs struct {
-	Anchor    *bool   `json:"anchor,omitempty" xml:"anchor,omitempty"`
+	Anchor *bool `json:"anchor,omitempty" xml:"anchor,omitempty"`
+	// example:
+	//
+	// msgsbY4BzTCNX0/ClUwoTTs7w==
 	OpenMsgId *string `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
 	TopicId   *string `json:"topicId,omitempty" xml:"topicId,omitempty"`
 }
@@ -9624,7 +11321,10 @@ func (s *ResubmitTicketRequestSceneContextGroupMsgs) SetTopicId(v string) *Resub
 
 type ResubmitTicketRequestTicketMemo struct {
 	Attachments []*ResubmitTicketRequestTicketMemoAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	Memo        *string                                       `json:"memo,omitempty" xml:"memo,omitempty"`
+	// example:
+	//
+	// 备注
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
 }
 
 func (s ResubmitTicketRequestTicketMemo) String() string {
@@ -9646,8 +11346,14 @@ func (s *ResubmitTicketRequestTicketMemo) SetMemo(v string) *ResubmitTicketReque
 }
 
 type ResubmitTicketRequestTicketMemoAttachments struct {
+	// example:
+	//
+	// wahaha.txt
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	Key      *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// ticket/image/44708069/43003/e27204b382c04832aec4243e940a1367_1625831640499.txt
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
 }
 
 func (s ResubmitTicketRequestTicketMemoAttachments) String() string {
@@ -9715,8 +11421,18 @@ func (s *RetractTicketHeaders) SetXAcsDingtalkAccessToken(v string) *RetractTick
 }
 
 type RetractTicketRequest struct {
-	Notify          *RetractTicketRequestNotify     `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
-	OpenTeamId      *string                         `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	Notify *RetractTicketRequestNotify `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// eKWh3GBwsKEiE
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a8iS4X94TgtgiE
 	OpenTicketId    *string                         `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
 	OperatorUnionId *string                         `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
 	TicketMemo      *RetractTicketRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
@@ -9757,8 +11473,11 @@ func (s *RetractTicketRequest) SetTicketMemo(v *RetractTicketRequestTicketMemo) 
 
 type RetractTicketRequestNotify struct {
 	GroupNoticeReceiverUnionIds []*string `json:"groupNoticeReceiverUnionIds,omitempty" xml:"groupNoticeReceiverUnionIds,omitempty" type:"Repeated"`
-	NoticeAllGroupMember        *bool     `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
-	WorkNoticeReceiverUnionIds  []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	NoticeAllGroupMember       *bool     `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
+	WorkNoticeReceiverUnionIds []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
 }
 
 func (s RetractTicketRequestNotify) String() string {
@@ -9786,7 +11505,10 @@ func (s *RetractTicketRequestNotify) SetWorkNoticeReceiverUnionIds(v []*string) 
 
 type RetractTicketRequestTicketMemo struct {
 	Attachments []*RetractTicketRequestTicketMemoAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	Memo        *string                                      `json:"memo,omitempty" xml:"memo,omitempty"`
+	// example:
+	//
+	// 备注
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
 }
 
 func (s RetractTicketRequestTicketMemo) String() string {
@@ -9877,9 +11599,24 @@ func (s *RobotMessageRecallHeaders) SetXAcsDingtalkAccessToken(v string) *RobotM
 }
 
 type RobotMessageRecallRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidXXX
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenMsgId          *string `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// msgU87r5gnMP43JTDAZg/ETyQ==
+	OpenMsgId *string `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// iSoqrhLQDtK
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
 func (s RobotMessageRecallRequest) String() string {
@@ -9975,10 +11712,26 @@ func (s *SaveFormInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *SaveForm
 }
 
 type SaveFormInstanceRequest struct {
-	FormDataList    *string `json:"formDataList,omitempty" xml:"formDataList,omitempty"`
-	OpenTeamId      *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {}
+	FormDataList *string `json:"formDataList,omitempty" xml:"formDataList,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 8888
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// example:
+	//
+	// 88888
 	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
-	OwnerUnionId    *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
+	// example:
+	//
+	// 8888
+	OwnerUnionId *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
 }
 
 func (s SaveFormInstanceRequest) String() string {
@@ -10010,7 +11763,13 @@ func (s *SaveFormInstanceRequest) SetOwnerUnionId(v string) *SaveFormInstanceReq
 }
 
 type SaveFormInstanceResponseBody struct {
-	OpenContactId  *string `json:"openContactId,omitempty" xml:"openContactId,omitempty"`
+	// example:
+	//
+	// 99999
+	OpenContactId *string `json:"openContactId,omitempty" xml:"openContactId,omitempty"`
+	// example:
+	//
+	// 88888
 	OpenCustomerId *string `json:"openCustomerId,omitempty" xml:"openCustomerId,omitempty"`
 }
 
@@ -10085,13 +11844,34 @@ func (s *SearchGroupHeaders) SetXAcsDingtalkAccessToken(v string) *SearchGroupHe
 }
 
 type SearchGroupRequest struct {
-	GroupName          *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	MaxResults         *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken          *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 钉钉专属服务群
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// CXiw
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// cidxxxx==
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenGroupSetId     *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	SearchType         *string `json:"searchType,omitempty" xml:"searchType,omitempty"`
+	// example:
+	//
+	// sjfuwid
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// example:
+	//
+	// jfuwida
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// example:
+	//
+	// 目前支持PAGE 和 SCROLL，默认PAGE类型
+	SearchType *string `json:"searchType,omitempty" xml:"searchType,omitempty"`
 }
 
 func (s SearchGroupRequest) String() string {
@@ -10138,7 +11918,8 @@ func (s *SearchGroupRequest) SetSearchType(v string) *SearchGroupRequest {
 }
 
 type SearchGroupResponseBody struct {
-	MaxResults *int32                            `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
 	NextToken  *string                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Records    []*SearchGroupResponseBodyRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
 	TotalCount *int32                            `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
@@ -10173,11 +11954,36 @@ func (s *SearchGroupResponseBody) SetTotalCount(v int32) *SearchGroupResponseBod
 }
 
 type SearchGroupResponseBodyRecords struct {
-	GroupName          *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	GroupUrl           *string `json:"groupUrl,omitempty" xml:"groupUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 钉钉专属服务群
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingtalk:xxx
+	GroupUrl *string `json:"groupUrl,omitempty" xml:"groupUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxxxx==
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenGroupSetId     *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xjfjdsiw
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xkjhfker
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
 func (s SearchGroupResponseBodyRecords) String() string {
@@ -10266,11 +12072,16 @@ func (s *SendMsgByTaskHeaders) SetXAcsDingtalkAccessToken(v string) *SendMsgByTa
 }
 
 type SendMsgByTaskRequest struct {
+	// This parameter is required.
 	MessageContent *SendMsgByTaskRequestMessageContent `json:"messageContent,omitempty" xml:"messageContent,omitempty" type:"Struct"`
-	OpenTeamId     *string                             `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	QueryGroup     *SendMsgByTaskRequestQueryGroup     `json:"queryGroup,omitempty" xml:"queryGroup,omitempty" type:"Struct"`
-	SendConfig     *SendMsgByTaskRequestSendConfig     `json:"sendConfig,omitempty" xml:"sendConfig,omitempty" type:"Struct"`
-	TaskName       *string                             `json:"taskName,omitempty" xml:"taskName,omitempty"`
+	// This parameter is required.
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	QueryGroup *SendMsgByTaskRequestQueryGroup `json:"queryGroup,omitempty" xml:"queryGroup,omitempty" type:"Struct"`
+	// This parameter is required.
+	SendConfig *SendMsgByTaskRequestSendConfig `json:"sendConfig,omitempty" xml:"sendConfig,omitempty" type:"Struct"`
+	// This parameter is required.
+	TaskName *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
 }
 
 func (s SendMsgByTaskRequest) String() string {
@@ -10313,10 +12124,11 @@ type SendMsgByTaskRequestMessageContent struct {
 	Btns              []*SendMsgByTaskRequestMessageContentBtns `json:"btns,omitempty" xml:"btns,omitempty" type:"Repeated"`
 	Content           *string                                   `json:"content,omitempty" xml:"content,omitempty"`
 	Images            []*string                                 `json:"images,omitempty" xml:"images,omitempty" type:"Repeated"`
-	MessageType       *string                                   `json:"messageType,omitempty" xml:"messageType,omitempty"`
-	Remind            *bool                                     `json:"remind,omitempty" xml:"remind,omitempty"`
-	Title             *string                                   `json:"title,omitempty" xml:"title,omitempty"`
-	Top               *bool                                     `json:"top,omitempty" xml:"top,omitempty"`
+	// This parameter is required.
+	MessageType *string `json:"messageType,omitempty" xml:"messageType,omitempty"`
+	Remind      *bool   `json:"remind,omitempty" xml:"remind,omitempty"`
+	Title       *string `json:"title,omitempty" xml:"title,omitempty"`
+	Top         *bool   `json:"top,omitempty" xml:"top,omitempty"`
 }
 
 func (s SendMsgByTaskRequestMessageContent) String() string {
@@ -10407,7 +12219,8 @@ type SendMsgByTaskRequestQueryGroup struct {
 	LastActiveTimeStart      *string   `json:"lastActiveTimeStart,omitempty" xml:"lastActiveTimeStart,omitempty"`
 	OpenConversationIds      []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
 	OpenGroupSetId           *string   `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	QueryType                *string   `json:"queryType,omitempty" xml:"queryType,omitempty"`
+	// This parameter is required.
+	QueryType *string `json:"queryType,omitempty" xml:"queryType,omitempty"`
 }
 
 func (s SendMsgByTaskRequestQueryGroup) String() string {
@@ -10454,8 +12267,9 @@ func (s *SendMsgByTaskRequestQueryGroup) SetQueryType(v string) *SendMsgByTaskRe
 }
 
 type SendMsgByTaskRequestSendConfig struct {
-	NeedUrlTrack   *bool                                           `json:"needUrlTrack,omitempty" xml:"needUrlTrack,omitempty"`
-	SendTime       *string                                         `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
+	NeedUrlTrack *bool   `json:"needUrlTrack,omitempty" xml:"needUrlTrack,omitempty"`
+	SendTime     *string `json:"sendTime,omitempty" xml:"sendTime,omitempty"`
+	// This parameter is required.
 	SendType       *string                                         `json:"sendType,omitempty" xml:"sendType,omitempty"`
 	UrlTrackConfig []*SendMsgByTaskRequestSendConfigUrlTrackConfig `json:"urlTrackConfig,omitempty" xml:"urlTrackConfig,omitempty" type:"Repeated"`
 }
@@ -10587,12 +12401,34 @@ func (s *SendMsgByTaskSupportInviteJoinOrgHeaders) SetXAcsDingtalkAccessToken(v 
 }
 
 type SendMsgByTaskSupportInviteJoinOrgRequest struct {
+	// This parameter is required.
 	MessageContent *SendMsgByTaskSupportInviteJoinOrgRequestMessageContent `json:"messageContent,omitempty" xml:"messageContent,omitempty" type:"Struct"`
-	MobilePhones   []*string                                               `json:"mobilePhones,omitempty" xml:"mobilePhones,omitempty" type:"Repeated"`
-	NeedUrlTrack   *bool                                                   `json:"needUrlTrack,omitempty" xml:"needUrlTrack,omitempty"`
-	OpenTeamId     *string                                                 `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	SendChannel    *string                                                 `json:"sendChannel,omitempty" xml:"sendChannel,omitempty"`
-	TaskName       *string                                                 `json:"taskName,omitempty" xml:"taskName,omitempty"`
+	// This parameter is required.
+	MobilePhones []*string `json:"mobilePhones,omitempty" xml:"mobilePhones,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	NeedUrlTrack *bool `json:"needUrlTrack,omitempty" xml:"needUrlTrack,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 88888
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 发送渠道      	- 工作通知：WORK_NOTICE      	- 机器人：SINGLE_ROBOT
+	SendChannel *string `json:"sendChannel,omitempty" xml:"sendChannel,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 群发任务
+	TaskName *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
 }
 
 func (s SendMsgByTaskSupportInviteJoinOrgRequest) String() string {
@@ -10634,10 +12470,25 @@ func (s *SendMsgByTaskSupportInviteJoinOrgRequest) SetTaskName(v string) *SendMs
 }
 
 type SendMsgByTaskSupportInviteJoinOrgRequestMessageContent struct {
-	Btns        []*SendMsgByTaskSupportInviteJoinOrgRequestMessageContentBtns `json:"btns,omitempty" xml:"btns,omitempty" type:"Repeated"`
-	Content     *string                                                       `json:"content,omitempty" xml:"content,omitempty"`
-	MessageType *string                                                       `json:"messageType,omitempty" xml:"messageType,omitempty"`
-	Title       *string                                                       `json:"title,omitempty" xml:"title,omitempty"`
+	Btns []*SendMsgByTaskSupportInviteJoinOrgRequestMessageContentBtns `json:"btns,omitempty" xml:"btns,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 内容
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ACTIONCARD：卡片消息
+	MessageType *string `json:"messageType,omitempty" xml:"messageType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 标题内容
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s SendMsgByTaskSupportInviteJoinOrgRequestMessageContent) String() string {
@@ -10669,8 +12520,14 @@ func (s *SendMsgByTaskSupportInviteJoinOrgRequestMessageContent) SetTitle(v stri
 }
 
 type SendMsgByTaskSupportInviteJoinOrgRequestMessageContentBtns struct {
+	// example:
+	//
+	// http://www.baidu.com
 	ActionURL *string `json:"actionURL,omitempty" xml:"actionURL,omitempty"`
-	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 按钮标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s SendMsgByTaskSupportInviteJoinOrgRequestMessageContentBtns) String() string {
@@ -10761,20 +12618,49 @@ func (s *SendServiceGroupMessageHeaders) SetXAcsDingtalkAccessToken(v string) *S
 }
 
 type SendServiceGroupMessageRequest struct {
-	AtDingtalkIds            []*string                             `json:"atDingtalkIds,omitempty" xml:"atDingtalkIds,omitempty" type:"Repeated"`
-	AtMobiles                []*string                             `json:"atMobiles,omitempty" xml:"atMobiles,omitempty" type:"Repeated"`
-	AtUnionIds               []*string                             `json:"atUnionIds,omitempty" xml:"atUnionIds,omitempty" type:"Repeated"`
-	BtnOrientation           *string                               `json:"btnOrientation,omitempty" xml:"btnOrientation,omitempty"`
-	Btns                     []*SendServiceGroupMessageRequestBtns `json:"btns,omitempty" xml:"btns,omitempty" type:"Repeated"`
-	Content                  *string                               `json:"content,omitempty" xml:"content,omitempty"`
-	HasContentLinks          *bool                                 `json:"hasContentLinks,omitempty" xml:"hasContentLinks,omitempty"`
-	IsAtAll                  *bool                                 `json:"isAtAll,omitempty" xml:"isAtAll,omitempty"`
-	MessageType              *string                               `json:"messageType,omitempty" xml:"messageType,omitempty"`
-	ReceiverDingtalkIds      []*string                             `json:"receiverDingtalkIds,omitempty" xml:"receiverDingtalkIds,omitempty" type:"Repeated"`
-	ReceiverMobiles          []*string                             `json:"receiverMobiles,omitempty" xml:"receiverMobiles,omitempty" type:"Repeated"`
-	ReceiverUnionIds         []*string                             `json:"receiverUnionIds,omitempty" xml:"receiverUnionIds,omitempty" type:"Repeated"`
-	TargetOpenConversationId *string                               `json:"targetOpenConversationId,omitempty" xml:"targetOpenConversationId,omitempty"`
-	Title                    *string                               `json:"title,omitempty" xml:"title,omitempty"`
+	AtDingtalkIds []*string `json:"atDingtalkIds,omitempty" xml:"atDingtalkIds,omitempty" type:"Repeated"`
+	AtMobiles     []*string `json:"atMobiles,omitempty" xml:"atMobiles,omitempty" type:"Repeated"`
+	AtUnionIds    []*string `json:"atUnionIds,omitempty" xml:"atUnionIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 0
+	BtnOrientation *string                               `json:"btnOrientation,omitempty" xml:"btnOrientation,omitempty"`
+	Btns           []*SendServiceGroupMessageRequestBtns `json:"btns,omitempty" xml:"btns,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 你有新的任务待审批
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// false
+	HasContentLinks *bool `json:"hasContentLinks,omitempty" xml:"hasContentLinks,omitempty"`
+	// example:
+	//
+	// false
+	IsAtAll *bool `json:"isAtAll,omitempty" xml:"isAtAll,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// MARKDOWN
+	MessageType         *string   `json:"messageType,omitempty" xml:"messageType,omitempty"`
+	ReceiverDingtalkIds []*string `json:"receiverDingtalkIds,omitempty" xml:"receiverDingtalkIds,omitempty" type:"Repeated"`
+	ReceiverMobiles     []*string `json:"receiverMobiles,omitempty" xml:"receiverMobiles,omitempty" type:"Repeated"`
+	ReceiverUnionIds    []*string `json:"receiverUnionIds,omitempty" xml:"receiverUnionIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxxxx==
+	TargetOpenConversationId *string `json:"targetOpenConversationId,omitempty" xml:"targetOpenConversationId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 服务提醒
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s SendServiceGroupMessageRequest) String() string {
@@ -10856,8 +12742,14 @@ func (s *SendServiceGroupMessageRequest) SetTitle(v string) *SendServiceGroupMes
 }
 
 type SendServiceGroupMessageRequestBtns struct {
+	// example:
+	//
+	// http://www.dingtalk.com
 	ActionURL *string `json:"actionURL,omitempty" xml:"actionURL,omitempty"`
-	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 测试按钮
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s SendServiceGroupMessageRequestBtns) String() string {
@@ -10879,6 +12771,11 @@ func (s *SendServiceGroupMessageRequestBtns) SetTitle(v string) *SendServiceGrou
 }
 
 type SendServiceGroupMessageResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// msgxxxxxx==
 	OpenMsgTaskId *string `json:"openMsgTaskId,omitempty" xml:"openMsgTaskId,omitempty"`
 }
 
@@ -10954,7 +12851,10 @@ type SetRobotConfigRequest struct {
 	DingTokenGrantType *int64  `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
 	OpenGroupSetId     *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
 	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	Status             *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 0
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s SetRobotConfigRequest) String() string {
@@ -11093,8 +12993,23 @@ func (s *TakeTicketHeaders) SetXAcsDingtalkAccessToken(v string) *TakeTicketHead
 }
 
 type TakeTicketRequest struct {
-	OpenTeamId   *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// eKWh3GBwsKEiE
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a8iS4X94TgtgiE
 	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Dq9hP8Sk2v6vQ6l05nCe5wiEiE
 	TakerUnionId *string `json:"takerUnionId,omitempty" xml:"takerUnionId,omitempty"`
 }
 
@@ -11168,11 +13083,32 @@ func (s *TopicStatisticsHeaders) SetXAcsDingtalkAccessToken(v string) *TopicStat
 }
 
 type TopicStatisticsRequest struct {
-	MaxDt               *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
-	MinDt               *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	MaxDt *string `json:"maxDt,omitempty" xml:"maxDt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	MinDt *string `json:"minDt,omitempty" xml:"minDt,omitempty"`
+	// example:
+	//
+	// cidXX,cidYY
 	OpenConversationIds *string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty"`
-	OpenTeamId          *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	SearchContent       *string `json:"searchContent,omitempty" xml:"searchContent,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// KxisoOk
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// example:
+	//
+	// 工单
+	SearchContent *string `json:"searchContent,omitempty" xml:"searchContent,omitempty"`
 }
 
 func (s TopicStatisticsRequest) String() string {
@@ -11209,6 +13145,7 @@ func (s *TopicStatisticsRequest) SetSearchContent(v string) *TopicStatisticsRequ
 }
 
 type TopicStatisticsResponseBody struct {
+	// This parameter is required.
 	TopicStatisticsRecords []*TopicStatisticsResponseBodyTopicStatisticsRecords `json:"topicStatisticsRecords,omitempty" xml:"topicStatisticsRecords,omitempty" type:"Repeated"`
 }
 
@@ -11226,10 +13163,30 @@ func (s *TopicStatisticsResponseBody) SetTopicStatisticsRecords(v []*TopicStatis
 }
 
 type TopicStatisticsResponseBodyTopicStatisticsRecords struct {
-	Dt              *string `json:"dt,omitempty" xml:"dt,omitempty"`
-	MsgCount        *int64  `json:"msgCount,omitempty" xml:"msgCount,omitempty"`
-	ParticipantsNum *int64  `json:"participantsNum,omitempty" xml:"participantsNum,omitempty"`
-	TopicNum        *int64  `json:"topicNum,omitempty" xml:"topicNum,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20220101
+	Dt *string `json:"dt,omitempty" xml:"dt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	MsgCount *int64 `json:"msgCount,omitempty" xml:"msgCount,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3
+	ParticipantsNum *int64 `json:"participantsNum,omitempty" xml:"participantsNum,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	TopicNum *int64 `json:"topicNum,omitempty" xml:"topicNum,omitempty"`
 }
 
 func (s TopicStatisticsResponseBodyTopicStatisticsRecords) String() string {
@@ -11313,10 +13270,26 @@ func (s *TransferTicketHeaders) SetXAcsDingtalkAccessToken(v string) *TransferTi
 }
 
 type TransferTicketRequest struct {
-	Notify            *TransferTicketRequestNotify     `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
-	OpenTeamId        *string                          `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	OpenTicketId      *string                          `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
-	ProcessorUnionId  *string                          `json:"processorUnionId,omitempty" xml:"processorUnionId,omitempty"`
+	Notify *TransferTicketRequestNotify `json:"notify,omitempty" xml:"notify,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// eKWh3GBwsKEiE
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// iPFWCyMGWPiiIiE
+	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Dq9hP8Sk2v6vQ6l05nCe5wiEiE
+	ProcessorUnionId *string `json:"processorUnionId,omitempty" xml:"processorUnionId,omitempty"`
+	// This parameter is required.
 	ProcessorUnionIds []*string                        `json:"processorUnionIds,omitempty" xml:"processorUnionIds,omitempty" type:"Repeated"`
 	TicketMemo        *TransferTicketRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
 }
@@ -11361,8 +13334,11 @@ func (s *TransferTicketRequest) SetTicketMemo(v *TransferTicketRequestTicketMemo
 
 type TransferTicketRequestNotify struct {
 	GroupNoticeReceiverUnionIds []*string `json:"groupNoticeReceiverUnionIds,omitempty" xml:"groupNoticeReceiverUnionIds,omitempty" type:"Repeated"`
-	NoticeAllGroupMember        *bool     `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
-	WorkNoticeReceiverUnionIds  []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// true
+	NoticeAllGroupMember       *bool     `json:"noticeAllGroupMember,omitempty" xml:"noticeAllGroupMember,omitempty"`
+	WorkNoticeReceiverUnionIds []*string `json:"workNoticeReceiverUnionIds,omitempty" xml:"workNoticeReceiverUnionIds,omitempty" type:"Repeated"`
 }
 
 func (s TransferTicketRequestNotify) String() string {
@@ -11390,7 +13366,10 @@ func (s *TransferTicketRequestNotify) SetWorkNoticeReceiverUnionIds(v []*string)
 
 type TransferTicketRequestTicketMemo struct {
 	Attachments []*TransferTicketRequestTicketMemoAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	Memo        *string                                       `json:"memo,omitempty" xml:"memo,omitempty"`
+	// example:
+	//
+	// 备注
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
 }
 
 func (s TransferTicketRequestTicketMemo) String() string {
@@ -11412,8 +13391,14 @@ func (s *TransferTicketRequestTicketMemo) SetMemo(v string) *TransferTicketReque
 }
 
 type TransferTicketRequestTicketMemoAttachments struct {
+	// example:
+	//
+	// wahaha.txt
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	Key      *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// ticket/image/44708069/43003/e27204b382c04832aec4243e940a1367_1625831640499.txt
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
 }
 
 func (s TransferTicketRequestTicketMemoAttachments) String() string {
@@ -11481,9 +13466,18 @@ func (s *UpdateGroupSetHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateGrou
 }
 
 type UpdateGroupSetRequest struct {
+	// example:
+	//
+	// cidkeQXxEC9VaGQ2M6nTlhNWQ==
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenGroupSetId     *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// example:
+	//
+	// iPnLAZk8oV4AiE
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// example:
+	//
+	// u9iSGISL3bqIiE
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
 }
 
 func (s UpdateGroupSetRequest) String() string {
@@ -11579,9 +13573,11 @@ func (s *UpdateGroupTagHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateGrou
 }
 
 type UpdateGroupTagRequest struct {
+	// This parameter is required.
 	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
 	TagNames            []*string `json:"tagNames,omitempty" xml:"tagNames,omitempty" type:"Repeated"`
-	UpdateType          *string   `json:"updateType,omitempty" xml:"updateType,omitempty"`
+	// This parameter is required.
+	UpdateType *string `json:"updateType,omitempty" xml:"updateType,omitempty"`
 }
 
 func (s UpdateGroupTagRequest) String() string {
@@ -11654,13 +13650,42 @@ func (s *UpdateInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateInst
 }
 
 type UpdateInstanceRequest struct {
-	ExternalBizId      *string `json:"externalBizId,omitempty" xml:"externalBizId,omitempty"`
-	FormCode           *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
-	FormDataList       *string `json:"formDataList,omitempty" xml:"formDataList,omitempty"`
+	// example:
+	//
+	// hhdhg
+	ExternalBizId *string `json:"externalBizId,omitempty" xml:"externalBizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DING_CUSTOMER
+	FormCode *string `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"node_888":"hhhh"}
+	FormDataList *string `json:"formDataList,omitempty" xml:"formDataList,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 888555
 	OpenDataInstanceId *string `json:"openDataInstanceId,omitempty" xml:"openDataInstanceId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	OperatorUnionId    *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
-	OwnerUnionId       *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 888***
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// example:
+	//
+	// 8888
+	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
+	// example:
+	//
+	// 88888
+	OwnerUnionId *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
 }
 
 func (s UpdateInstanceRequest) String() string {
@@ -11776,11 +13801,30 @@ func (s *UpdateTicketHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTicket
 }
 
 type UpdateTicketRequest struct {
-	CustomFields     *string                        `json:"customFields,omitempty" xml:"customFields,omitempty"`
-	OpenTeamId       *string                        `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	OpenTicketId     *string                        `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
-	ProcessorUnionId *string                        `json:"processorUnionId,omitempty" xml:"processorUnionId,omitempty"`
-	TicketMemo       *UpdateTicketRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
+	// example:
+	//
+	// [{\"identifier\":\"input1\",\"value\":\"openAPI更新了值\"}]
+	CustomFields *string `json:"customFields,omitempty" xml:"customFields,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// eKWh3GBwsKEiE
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// iPFWCyMGWPiiIiE
+	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// p8VdSjm884SvQ6l05nCe5wiEiE
+	ProcessorUnionId *string `json:"processorUnionId,omitempty" xml:"processorUnionId,omitempty"`
+	// This parameter is required.
+	TicketMemo *UpdateTicketRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
 }
 
 func (s UpdateTicketRequest) String() string {
@@ -11818,7 +13862,12 @@ func (s *UpdateTicketRequest) SetTicketMemo(v *UpdateTicketRequestTicketMemo) *U
 
 type UpdateTicketRequestTicketMemo struct {
 	Attachments []*UpdateTicketRequestTicketMemoAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	Memo        *string                                     `json:"memo,omitempty" xml:"memo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 备注
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
 }
 
 func (s UpdateTicketRequestTicketMemo) String() string {
@@ -11840,8 +13889,14 @@ func (s *UpdateTicketRequestTicketMemo) SetMemo(v string) *UpdateTicketRequestTi
 }
 
 type UpdateTicketRequestTicketMemoAttachments struct {
+	// example:
+	//
+	// wahaha.txt
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	Key      *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// ticket/image/44708069/43003/e27204b382c04832aec4243e940a1367_1625831640499.txt
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
 }
 
 func (s UpdateTicketRequestTicketMemoAttachments) String() string {
@@ -11909,11 +13964,27 @@ func (s *UpgradeCloudGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Upgrade
 }
 
 type UpgradeCloudGroupRequest struct {
-	CcsInstanceId      *string `json:"ccsInstanceId,omitempty" xml:"ccsInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sdfdfser
+	CcsInstanceId *string `json:"ccsInstanceId,omitempty" xml:"ccsInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidrQnTVXH/X+ERaVqGaH+asw==
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	OpenGroupSetId     *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
-	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	TemplateId         *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// example:
+	//
+	// oPnDlfVYYIUia
+	OpenGroupSetId *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
+	// example:
+	//
+	// btkoYsadwyQiE
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
 
 func (s UpgradeCloudGroupRequest) String() string {
@@ -11996,6 +14067,7 @@ func (s *UpgradeNormalGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Upgrad
 }
 
 type UpgradeNormalGroupRequest struct {
+	// This parameter is required.
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	OpenGroupSetId     *string `json:"openGroupSetId,omitempty" xml:"openGroupSetId,omitempty"`
 	OpenTeamId         *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
@@ -12077,10 +14149,26 @@ func (s *UrgeTicketHeaders) SetXAcsDingtalkAccessToken(v string) *UrgeTicketHead
 }
 
 type UrgeTicketRequest struct {
-	OpenTeamId      *string                      `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
-	OpenTicketId    *string                      `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
-	OperatorUnionId *string                      `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
-	TicketMemo      *UrgeTicketRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// bLkvfXKiSngQiE
+	OpenTeamId *string `json:"openTeamId,omitempty" xml:"openTeamId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// iPbrfXjdNjRoiE
+	OpenTicketId *string `json:"openTicketId,omitempty" xml:"openTicketId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Dq9hP8Sk2v6vQ6l05nCe5wiEiE
+	OperatorUnionId *string `json:"operatorUnionId,omitempty" xml:"operatorUnionId,omitempty"`
+	// This parameter is required.
+	TicketMemo *UrgeTicketRequestTicketMemo `json:"ticketMemo,omitempty" xml:"ticketMemo,omitempty" type:"Struct"`
 }
 
 func (s UrgeTicketRequest) String() string {
@@ -12113,7 +14201,12 @@ func (s *UrgeTicketRequest) SetTicketMemo(v *UrgeTicketRequestTicketMemo) *UrgeT
 
 type UrgeTicketRequestTicketMemo struct {
 	Attachments []*UrgeTicketRequestTicketMemoAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	Memo        *string                                   `json:"memo,omitempty" xml:"memo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 备注
+	Memo *string `json:"memo,omitempty" xml:"memo,omitempty"`
 }
 
 func (s UrgeTicketRequestTicketMemo) String() string {
@@ -12135,8 +14228,14 @@ func (s *UrgeTicketRequestTicketMemo) SetMemo(v string) *UrgeTicketRequestTicket
 }
 
 type UrgeTicketRequestTicketMemoAttachments struct {
+	// example:
+	//
+	// wahaha.txt
 	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	Key      *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// ticket/image/44708069/43003/e27204b382c04832aec4243e940a1367_1625831640499.txt
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
 }
 
 func (s UrgeTicketRequestTicketMemoAttachments) String() string {
@@ -12195,12 +14294,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -12209,6 +14308,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 添加联系人到群里
+//
+// @param request - AddContactMemberToGroupRequest
+//
+// @param headers - AddContactMemberToGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddContactMemberToGroupResponse
 func (client *Client) AddContactMemberToGroupWithOptions(request *AddContactMemberToGroupRequest, headers *AddContactMemberToGroupHeaders, runtime *util.RuntimeOptions) (_result *AddContactMemberToGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12268,6 +14378,13 @@ func (client *Client) AddContactMemberToGroupWithOptions(request *AddContactMemb
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加联系人到群里
+//
+// @param request - AddContactMemberToGroupRequest
+//
+// @return AddContactMemberToGroupResponse
 func (client *Client) AddContactMemberToGroup(request *AddContactMemberToGroupRequest) (_result *AddContactMemberToGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddContactMemberToGroupHeaders{}
@@ -12280,6 +14397,17 @@ func (client *Client) AddContactMemberToGroup(request *AddContactMemberToGroupRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加知识点
+//
+// @param request - AddKnowledgeRequest
+//
+// @param headers - AddKnowledgeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddKnowledgeResponse
 func (client *Client) AddKnowledgeWithOptions(request *AddKnowledgeRequest, headers *AddKnowledgeHeaders, runtime *util.RuntimeOptions) (_result *AddKnowledgeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12379,6 +14507,13 @@ func (client *Client) AddKnowledgeWithOptions(request *AddKnowledgeRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加知识点
+//
+// @param request - AddKnowledgeRequest
+//
+// @return AddKnowledgeResponse
 func (client *Client) AddKnowledge(request *AddKnowledgeRequest) (_result *AddKnowledgeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddKnowledgeHeaders{}
@@ -12391,6 +14526,17 @@ func (client *Client) AddKnowledge(request *AddKnowledgeRequest) (_result *AddKn
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加服务群知识库
+//
+// @param request - AddLibraryRequest
+//
+// @param headers - AddLibraryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddLibraryResponse
 func (client *Client) AddLibraryWithOptions(request *AddLibraryRequest, headers *AddLibraryHeaders, runtime *util.RuntimeOptions) (_result *AddLibraryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12458,6 +14604,13 @@ func (client *Client) AddLibraryWithOptions(request *AddLibraryRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加服务群知识库
+//
+// @param request - AddLibraryRequest
+//
+// @return AddLibraryResponse
 func (client *Client) AddLibrary(request *AddLibraryRequest) (_result *AddLibraryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddLibraryHeaders{}
@@ -12470,6 +14623,17 @@ func (client *Client) AddLibrary(request *AddLibraryRequest) (_result *AddLibrar
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加服务群群成员
+//
+// @param request - AddMemberToServiceGroupRequest
+//
+// @param headers - AddMemberToServiceGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddMemberToServiceGroupResponse
 func (client *Client) AddMemberToServiceGroupWithOptions(request *AddMemberToServiceGroupRequest, headers *AddMemberToServiceGroupHeaders, runtime *util.RuntimeOptions) (_result *AddMemberToServiceGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12521,6 +14685,13 @@ func (client *Client) AddMemberToServiceGroupWithOptions(request *AddMemberToSer
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加服务群群成员
+//
+// @param request - AddMemberToServiceGroupRequest
+//
+// @return AddMemberToServiceGroupResponse
 func (client *Client) AddMemberToServiceGroup(request *AddMemberToServiceGroupRequest) (_result *AddMemberToServiceGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddMemberToServiceGroupHeaders{}
@@ -12533,6 +14704,17 @@ func (client *Client) AddMemberToServiceGroup(request *AddMemberToServiceGroupRe
 	return _result, _err
 }
 
+// Summary:
+//
+// # OpenApi添加知识点类目
+//
+// @param request - AddOpenCategoryRequest
+//
+// @param headers - AddOpenCategoryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddOpenCategoryResponse
 func (client *Client) AddOpenCategoryWithOptions(request *AddOpenCategoryRequest, headers *AddOpenCategoryHeaders, runtime *util.RuntimeOptions) (_result *AddOpenCategoryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12596,6 +14778,13 @@ func (client *Client) AddOpenCategoryWithOptions(request *AddOpenCategoryRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// # OpenApi添加知识点类目
+//
+// @param request - AddOpenCategoryRequest
+//
+// @return AddOpenCategoryResponse
 func (client *Client) AddOpenCategory(request *AddOpenCategoryRequest) (_result *AddOpenCategoryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddOpenCategoryHeaders{}
@@ -12608,6 +14797,17 @@ func (client *Client) AddOpenCategory(request *AddOpenCategoryRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// # OpenApi添加知识入库
+//
+// @param request - AddOpenKnowledgeRequest
+//
+// @param headers - AddOpenKnowledgeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddOpenKnowledgeResponse
 func (client *Client) AddOpenKnowledgeWithOptions(request *AddOpenKnowledgeRequest, headers *AddOpenKnowledgeHeaders, runtime *util.RuntimeOptions) (_result *AddOpenKnowledgeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12707,6 +14907,13 @@ func (client *Client) AddOpenKnowledgeWithOptions(request *AddOpenKnowledgeReque
 	return _result, _err
 }
 
+// Summary:
+//
+// # OpenApi添加知识入库
+//
+// @param request - AddOpenKnowledgeRequest
+//
+// @return AddOpenKnowledgeResponse
 func (client *Client) AddOpenKnowledge(request *AddOpenKnowledgeRequest) (_result *AddOpenKnowledgeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddOpenKnowledgeHeaders{}
@@ -12719,6 +14926,17 @@ func (client *Client) AddOpenKnowledge(request *AddOpenKnowledgeRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能服务群知识库创建
+//
+// @param request - AddOpenLibraryRequest
+//
+// @param headers - AddOpenLibraryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddOpenLibraryResponse
 func (client *Client) AddOpenLibraryWithOptions(request *AddOpenLibraryRequest, headers *AddOpenLibraryHeaders, runtime *util.RuntimeOptions) (_result *AddOpenLibraryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12786,6 +15004,13 @@ func (client *Client) AddOpenLibraryWithOptions(request *AddOpenLibraryRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能服务群知识库创建
+//
+// @param request - AddOpenLibraryRequest
+//
+// @return AddOpenLibraryResponse
 func (client *Client) AddOpenLibrary(request *AddOpenLibraryRequest) (_result *AddOpenLibraryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddOpenLibraryHeaders{}
@@ -12798,6 +15023,17 @@ func (client *Client) AddOpenLibrary(request *AddOpenLibraryRequest) (_result *A
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加工单备注
+//
+// @param request - AddTicketMemoRequest
+//
+// @param headers - AddTicketMemoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddTicketMemoResponse
 func (client *Client) AddTicketMemoWithOptions(request *AddTicketMemoRequest, headers *AddTicketMemoHeaders, runtime *util.RuntimeOptions) (_result *AddTicketMemoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12853,6 +15089,13 @@ func (client *Client) AddTicketMemoWithOptions(request *AddTicketMemoRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加工单备注
+//
+// @param request - AddTicketMemoRequest
+//
+// @return AddTicketMemoResponse
 func (client *Client) AddTicketMemo(request *AddTicketMemoRequest) (_result *AddTicketMemoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddTicketMemoHeaders{}
@@ -12865,6 +15108,17 @@ func (client *Client) AddTicketMemo(request *AddTicketMemoRequest) (_result *Add
 	return _result, _err
 }
 
+// Summary:
+//
+// 工单指派
+//
+// @param request - AssignTicketRequest
+//
+// @param headers - AssignTicketHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AssignTicketResponse
 func (client *Client) AssignTicketWithOptions(request *AssignTicketRequest, headers *AssignTicketHeaders, runtime *util.RuntimeOptions) (_result *AssignTicketResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12928,6 +15182,13 @@ func (client *Client) AssignTicketWithOptions(request *AssignTicketRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 工单指派
+//
+// @param request - AssignTicketRequest
+//
+// @return AssignTicketResponse
 func (client *Client) AssignTicket(request *AssignTicketRequest) (_result *AssignTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AssignTicketHeaders{}
@@ -12940,6 +15201,17 @@ func (client *Client) AssignTicket(request *AssignTicketRequest) (_result *Assig
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量绑定服务群业务ID
+//
+// @param request - BatchBindingGroupBizIdsRequest
+//
+// @param headers - BatchBindingGroupBizIdsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchBindingGroupBizIdsResponse
 func (client *Client) BatchBindingGroupBizIdsWithOptions(request *BatchBindingGroupBizIdsRequest, headers *BatchBindingGroupBizIdsHeaders, runtime *util.RuntimeOptions) (_result *BatchBindingGroupBizIdsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -12987,6 +15259,13 @@ func (client *Client) BatchBindingGroupBizIdsWithOptions(request *BatchBindingGr
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量绑定服务群业务ID
+//
+// @param request - BatchBindingGroupBizIdsRequest
+//
+// @return BatchBindingGroupBizIdsResponse
 func (client *Client) BatchBindingGroupBizIds(request *BatchBindingGroupBizIdsRequest) (_result *BatchBindingGroupBizIdsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchBindingGroupBizIdsHeaders{}
@@ -12999,6 +15278,17 @@ func (client *Client) BatchBindingGroupBizIds(request *BatchBindingGroupBizIdsRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询群组配置
+//
+// @param request - BatchGetGroupSetConfigRequest
+//
+// @param headers - BatchGetGroupSetConfigHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchGetGroupSetConfigResponse
 func (client *Client) BatchGetGroupSetConfigWithOptions(request *BatchGetGroupSetConfigRequest, headers *BatchGetGroupSetConfigHeaders, runtime *util.RuntimeOptions) (_result *BatchGetGroupSetConfigResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13050,6 +15340,13 @@ func (client *Client) BatchGetGroupSetConfigWithOptions(request *BatchGetGroupSe
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询群组配置
+//
+// @param request - BatchGetGroupSetConfigRequest
+//
+// @return BatchGetGroupSetConfigResponse
 func (client *Client) BatchGetGroupSetConfig(request *BatchGetGroupSetConfigRequest) (_result *BatchGetGroupSetConfigResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchGetGroupSetConfigHeaders{}
@@ -13062,6 +15359,17 @@ func (client *Client) BatchGetGroupSetConfig(request *BatchGetGroupSetConfigRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询客户群发任务
+//
+// @param request - BatchQueryCustomerSendTaskRequest
+//
+// @param headers - BatchQueryCustomerSendTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchQueryCustomerSendTaskResponse
 func (client *Client) BatchQueryCustomerSendTaskWithOptions(request *BatchQueryCustomerSendTaskRequest, headers *BatchQueryCustomerSendTaskHeaders, runtime *util.RuntimeOptions) (_result *BatchQueryCustomerSendTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13133,6 +15441,13 @@ func (client *Client) BatchQueryCustomerSendTaskWithOptions(request *BatchQueryC
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询客户群发任务
+//
+// @param request - BatchQueryCustomerSendTaskRequest
+//
+// @return BatchQueryCustomerSendTaskResponse
 func (client *Client) BatchQueryCustomerSendTask(request *BatchQueryCustomerSendTaskRequest) (_result *BatchQueryCustomerSendTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchQueryCustomerSendTaskHeaders{}
@@ -13145,6 +15460,17 @@ func (client *Client) BatchQueryCustomerSendTask(request *BatchQueryCustomerSend
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询群成员
+//
+// @param request - BatchQueryGroupMemberRequest
+//
+// @param headers - BatchQueryGroupMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchQueryGroupMemberResponse
 func (client *Client) BatchQueryGroupMemberWithOptions(request *BatchQueryGroupMemberRequest, headers *BatchQueryGroupMemberHeaders, runtime *util.RuntimeOptions) (_result *BatchQueryGroupMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13200,6 +15526,13 @@ func (client *Client) BatchQueryGroupMemberWithOptions(request *BatchQueryGroupM
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量查询群成员
+//
+// @param request - BatchQueryGroupMemberRequest
+//
+// @return BatchQueryGroupMemberResponse
 func (client *Client) BatchQueryGroupMember(request *BatchQueryGroupMemberRequest) (_result *BatchQueryGroupMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchQueryGroupMemberHeaders{}
@@ -13212,6 +15545,17 @@ func (client *Client) BatchQueryGroupMember(request *BatchQueryGroupMemberReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 群发任务批量查询
+//
+// @param request - BatchQuerySendMessageTaskRequest
+//
+// @param headers - BatchQuerySendMessageTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchQuerySendMessageTaskResponse
 func (client *Client) BatchQuerySendMessageTaskWithOptions(request *BatchQuerySendMessageTaskRequest, headers *BatchQuerySendMessageTaskHeaders, runtime *util.RuntimeOptions) (_result *BatchQuerySendMessageTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13283,6 +15627,13 @@ func (client *Client) BatchQuerySendMessageTaskWithOptions(request *BatchQuerySe
 	return _result, _err
 }
 
+// Summary:
+//
+// 群发任务批量查询
+//
+// @param request - BatchQuerySendMessageTaskRequest
+//
+// @return BatchQuerySendMessageTaskResponse
 func (client *Client) BatchQuerySendMessageTask(request *BatchQuerySendMessageTaskRequest) (_result *BatchQuerySendMessageTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchQuerySendMessageTaskHeaders{}
@@ -13295,6 +15646,17 @@ func (client *Client) BatchQuerySendMessageTask(request *BatchQuerySendMessageTa
 	return _result, _err
 }
 
+// Summary:
+//
+// 绑定服务群模板到团队
+//
+// @param request - BoundTemplateToTeamRequest
+//
+// @param headers - BoundTemplateToTeamHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BoundTemplateToTeamResponse
 func (client *Client) BoundTemplateToTeamWithOptions(request *BoundTemplateToTeamRequest, headers *BoundTemplateToTeamHeaders, runtime *util.RuntimeOptions) (_result *BoundTemplateToTeamResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13358,6 +15720,13 @@ func (client *Client) BoundTemplateToTeamWithOptions(request *BoundTemplateToTea
 	return _result, _err
 }
 
+// Summary:
+//
+// 绑定服务群模板到团队
+//
+// @param request - BoundTemplateToTeamRequest
+//
+// @return BoundTemplateToTeamResponse
 func (client *Client) BoundTemplateToTeam(request *BoundTemplateToTeamRequest) (_result *BoundTemplateToTeamResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BoundTemplateToTeamHeaders{}
@@ -13370,6 +15739,17 @@ func (client *Client) BoundTemplateToTeam(request *BoundTemplateToTeamRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 撤销工单
+//
+// @param request - CancelTicketRequest
+//
+// @param headers - CancelTicketHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CancelTicketResponse
 func (client *Client) CancelTicketWithOptions(request *CancelTicketRequest, headers *CancelTicketHeaders, runtime *util.RuntimeOptions) (_result *CancelTicketResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13429,6 +15809,13 @@ func (client *Client) CancelTicketWithOptions(request *CancelTicketRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 撤销工单
+//
+// @param request - CancelTicketRequest
+//
+// @return CancelTicketResponse
 func (client *Client) CancelTicket(request *CancelTicketRequest) (_result *CancelTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CancelTicketHeaders{}
@@ -13441,6 +15828,17 @@ func (client *Client) CancelTicket(request *CancelTicketRequest) (_result *Cance
 	return _result, _err
 }
 
+// Summary:
+//
+// 心声总览自定义分类统计
+//
+// @param request - CategoryStatisticsRequest
+//
+// @param headers - CategoryStatisticsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CategoryStatisticsResponse
 func (client *Client) CategoryStatisticsWithOptions(request *CategoryStatisticsRequest, headers *CategoryStatisticsHeaders, runtime *util.RuntimeOptions) (_result *CategoryStatisticsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13492,6 +15890,13 @@ func (client *Client) CategoryStatisticsWithOptions(request *CategoryStatisticsR
 	return _result, _err
 }
 
+// Summary:
+//
+// 心声总览自定义分类统计
+//
+// @param request - CategoryStatisticsRequest
+//
+// @return CategoryStatisticsResponse
 func (client *Client) CategoryStatistics(request *CategoryStatisticsRequest) (_result *CategoryStatisticsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CategoryStatisticsHeaders{}
@@ -13504,6 +15909,17 @@ func (client *Client) CategoryStatistics(request *CategoryStatisticsRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 关闭会话回调
+//
+// @param request - CloseConversationRequest
+//
+// @param headers - CloseConversationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CloseConversationResponse
 func (client *Client) CloseConversationWithOptions(request *CloseConversationRequest, headers *CloseConversationHeaders, runtime *util.RuntimeOptions) (_result *CloseConversationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13567,6 +15983,13 @@ func (client *Client) CloseConversationWithOptions(request *CloseConversationReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 关闭会话回调
+//
+// @param request - CloseConversationRequest
+//
+// @return CloseConversationResponse
 func (client *Client) CloseConversation(request *CloseConversationRequest) (_result *CloseConversationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CloseConversationHeaders{}
@@ -13579,6 +16002,17 @@ func (client *Client) CloseConversation(request *CloseConversationRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 关闭人工会话
+//
+// @param request - CloseHumanSessionRequest
+//
+// @param headers - CloseHumanSessionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CloseHumanSessionResponse
 func (client *Client) CloseHumanSessionWithOptions(request *CloseHumanSessionRequest, headers *CloseHumanSessionHeaders, runtime *util.RuntimeOptions) (_result *CloseHumanSessionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13626,6 +16060,13 @@ func (client *Client) CloseHumanSessionWithOptions(request *CloseHumanSessionReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 关闭人工会话
+//
+// @param request - CloseHumanSessionRequest
+//
+// @return CloseHumanSessionResponse
 func (client *Client) CloseHumanSession(request *CloseHumanSessionRequest) (_result *CloseHumanSessionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CloseHumanSessionHeaders{}
@@ -13638,6 +16079,17 @@ func (client *Client) CloseHumanSession(request *CloseHumanSessionRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 客服分配成功通知回调
+//
+// @param request - ConversationCreatedNotifyRequest
+//
+// @param headers - ConversationCreatedNotifyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ConversationCreatedNotifyResponse
 func (client *Client) ConversationCreatedNotifyWithOptions(request *ConversationCreatedNotifyRequest, headers *ConversationCreatedNotifyHeaders, runtime *util.RuntimeOptions) (_result *ConversationCreatedNotifyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13717,6 +16169,13 @@ func (client *Client) ConversationCreatedNotifyWithOptions(request *Conversation
 	return _result, _err
 }
 
+// Summary:
+//
+// 客服分配成功通知回调
+//
+// @param request - ConversationCreatedNotifyRequest
+//
+// @return ConversationCreatedNotifyResponse
 func (client *Client) ConversationCreatedNotify(request *ConversationCreatedNotifyRequest) (_result *ConversationCreatedNotifyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ConversationCreatedNotifyHeaders{}
@@ -13729,6 +16188,17 @@ func (client *Client) ConversationCreatedNotify(request *ConversationCreatedNoti
 	return _result, _err
 }
 
+// Summary:
+//
+// 会话转接开始通知回调
+//
+// @param request - ConversationTransferBeginNotifyRequest
+//
+// @param headers - ConversationTransferBeginNotifyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ConversationTransferBeginNotifyResponse
 func (client *Client) ConversationTransferBeginNotifyWithOptions(request *ConversationTransferBeginNotifyRequest, headers *ConversationTransferBeginNotifyHeaders, runtime *util.RuntimeOptions) (_result *ConversationTransferBeginNotifyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13792,6 +16262,13 @@ func (client *Client) ConversationTransferBeginNotifyWithOptions(request *Conver
 	return _result, _err
 }
 
+// Summary:
+//
+// 会话转接开始通知回调
+//
+// @param request - ConversationTransferBeginNotifyRequest
+//
+// @return ConversationTransferBeginNotifyResponse
 func (client *Client) ConversationTransferBeginNotify(request *ConversationTransferBeginNotifyRequest) (_result *ConversationTransferBeginNotifyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ConversationTransferBeginNotifyHeaders{}
@@ -13804,6 +16281,17 @@ func (client *Client) ConversationTransferBeginNotify(request *ConversationTrans
 	return _result, _err
 }
 
+// Summary:
+//
+// 会话转接完成通知回调
+//
+// @param request - ConversationTransferCompleteNotifyRequest
+//
+// @param headers - ConversationTransferCompleteNotifyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ConversationTransferCompleteNotifyResponse
 func (client *Client) ConversationTransferCompleteNotifyWithOptions(request *ConversationTransferCompleteNotifyRequest, headers *ConversationTransferCompleteNotifyHeaders, runtime *util.RuntimeOptions) (_result *ConversationTransferCompleteNotifyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13871,6 +16359,13 @@ func (client *Client) ConversationTransferCompleteNotifyWithOptions(request *Con
 	return _result, _err
 }
 
+// Summary:
+//
+// 会话转接完成通知回调
+//
+// @param request - ConversationTransferCompleteNotifyRequest
+//
+// @return ConversationTransferCompleteNotifyResponse
 func (client *Client) ConversationTransferCompleteNotify(request *ConversationTransferCompleteNotifyRequest) (_result *ConversationTransferCompleteNotifyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ConversationTransferCompleteNotifyHeaders{}
@@ -13883,6 +16378,17 @@ func (client *Client) ConversationTransferCompleteNotify(request *ConversationTr
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建服务群
+//
+// @param request - CreateGroupRequest
+//
+// @param headers - CreateGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateGroupResponse
 func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, headers *CreateGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -13950,6 +16456,13 @@ func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建服务群
+//
+// @param request - CreateGroupRequest
+//
+// @return CreateGroupResponse
 func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateGroupHeaders{}
@@ -13962,6 +16475,17 @@ func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateG
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建主动会话接口
+//
+// @param request - CreateGroupConversationRequest
+//
+// @param headers - CreateGroupConversationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateGroupConversationResponse
 func (client *Client) CreateGroupConversationWithOptions(request *CreateGroupConversationRequest, headers *CreateGroupConversationHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupConversationResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14037,6 +16561,13 @@ func (client *Client) CreateGroupConversationWithOptions(request *CreateGroupCon
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建主动会话接口
+//
+// @param request - CreateGroupConversationRequest
+//
+// @return CreateGroupConversationResponse
 func (client *Client) CreateGroupConversation(request *CreateGroupConversationRequest) (_result *CreateGroupConversationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateGroupConversationHeaders{}
@@ -14049,6 +16580,17 @@ func (client *Client) CreateGroupConversation(request *CreateGroupConversationRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建服务群群分组
+//
+// @param request - CreateGroupSetRequest
+//
+// @param headers - CreateGroupSetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateGroupSetResponse
 func (client *Client) CreateGroupSetWithOptions(request *CreateGroupSetRequest, headers *CreateGroupSetHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupSetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14100,6 +16642,13 @@ func (client *Client) CreateGroupSetWithOptions(request *CreateGroupSetRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建服务群群分组
+//
+// @param request - CreateGroupSetRequest
+//
+// @return CreateGroupSetResponse
 func (client *Client) CreateGroupSet(request *CreateGroupSetRequest) (_result *CreateGroupSetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateGroupSetHeaders{}
@@ -14112,6 +16661,17 @@ func (client *Client) CreateGroupSet(request *CreateGroupSetRequest) (_result *C
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群新增表单实例
+//
+// @param request - CreateInstanceRequest
+//
+// @param headers - CreateInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateInstanceResponse
 func (client *Client) CreateInstanceWithOptions(request *CreateInstanceRequest, headers *CreateInstanceHeaders, runtime *util.RuntimeOptions) (_result *CreateInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14179,6 +16739,13 @@ func (client *Client) CreateInstanceWithOptions(request *CreateInstanceRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群新增表单实例
+//
+// @param request - CreateInstanceRequest
+//
+// @return CreateInstanceResponse
 func (client *Client) CreateInstance(request *CreateInstanceRequest) (_result *CreateInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateInstanceHeaders{}
@@ -14191,6 +16758,17 @@ func (client *Client) CreateInstance(request *CreateInstanceRequest) (_result *C
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建服务群团队
+//
+// @param request - CreateTeamRequest
+//
+// @param headers - CreateTeamHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateTeamResponse
 func (client *Client) CreateTeamWithOptions(request *CreateTeamRequest, headers *CreateTeamHeaders, runtime *util.RuntimeOptions) (_result *CreateTeamResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14238,6 +16816,13 @@ func (client *Client) CreateTeamWithOptions(request *CreateTeamRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建服务群团队
+//
+// @param request - CreateTeamRequest
+//
+// @return CreateTeamResponse
 func (client *Client) CreateTeam(request *CreateTeamRequest) (_result *CreateTeamResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateTeamHeaders{}
@@ -14250,6 +16835,17 @@ func (client *Client) CreateTeam(request *CreateTeamRequest) (_result *CreateTea
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建工单
+//
+// @param request - CreateTicketRequest
+//
+// @param headers - CreateTicketHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateTicketResponse
 func (client *Client) CreateTicketWithOptions(request *CreateTicketRequest, headers *CreateTicketHeaders, runtime *util.RuntimeOptions) (_result *CreateTicketResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14325,6 +16921,13 @@ func (client *Client) CreateTicketWithOptions(request *CreateTicketRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建工单
+//
+// @param request - CreateTicketRequest
+//
+// @return CreateTicketResponse
 func (client *Client) CreateTicket(request *CreateTicketRequest) (_result *CreateTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateTicketHeaders{}
@@ -14337,6 +16940,17 @@ func (client *Client) CreateTicket(request *CreateTicketRequest) (_result *Creat
 	return _result, _err
 }
 
+// Summary:
+//
+// 客户群发任务
+//
+// @param request - CustomerSendMsgTaskRequest
+//
+// @param headers - CustomerSendMsgTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CustomerSendMsgTaskResponse
 func (client *Client) CustomerSendMsgTaskWithOptions(request *CustomerSendMsgTaskRequest, headers *CustomerSendMsgTaskHeaders, runtime *util.RuntimeOptions) (_result *CustomerSendMsgTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14396,6 +17010,13 @@ func (client *Client) CustomerSendMsgTaskWithOptions(request *CustomerSendMsgTas
 	return _result, _err
 }
 
+// Summary:
+//
+// 客户群发任务
+//
+// @param request - CustomerSendMsgTaskRequest
+//
+// @return CustomerSendMsgTaskResponse
 func (client *Client) CustomerSendMsgTask(request *CustomerSendMsgTaskRequest) (_result *CustomerSendMsgTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CustomerSendMsgTaskHeaders{}
@@ -14408,6 +17029,17 @@ func (client *Client) CustomerSendMsgTask(request *CustomerSendMsgTaskRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 从群或者群组剔除成员
+//
+// @param request - DeleteGroupMembersFromGroupRequest
+//
+// @param headers - DeleteGroupMembersFromGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteGroupMembersFromGroupResponse
 func (client *Client) DeleteGroupMembersFromGroupWithOptions(request *DeleteGroupMembersFromGroupRequest, headers *DeleteGroupMembersFromGroupHeaders, runtime *util.RuntimeOptions) (_result *DeleteGroupMembersFromGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14467,6 +17099,13 @@ func (client *Client) DeleteGroupMembersFromGroupWithOptions(request *DeleteGrou
 	return _result, _err
 }
 
+// Summary:
+//
+// 从群或者群组剔除成员
+//
+// @param request - DeleteGroupMembersFromGroupRequest
+//
+// @return DeleteGroupMembersFromGroupResponse
 func (client *Client) DeleteGroupMembersFromGroup(request *DeleteGroupMembersFromGroupRequest) (_result *DeleteGroupMembersFromGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteGroupMembersFromGroupHeaders{}
@@ -14479,6 +17118,17 @@ func (client *Client) DeleteGroupMembersFromGroup(request *DeleteGroupMembersFro
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群删除表单实例
+//
+// @param request - DeleteInstanceRequest
+//
+// @param headers - DeleteInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteInstanceResponse
 func (client *Client) DeleteInstanceWithOptions(request *DeleteInstanceRequest, headers *DeleteInstanceHeaders, runtime *util.RuntimeOptions) (_result *DeleteInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14534,6 +17184,13 @@ func (client *Client) DeleteInstanceWithOptions(request *DeleteInstanceRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群删除表单实例
+//
+// @param request - DeleteInstanceRequest
+//
+// @return DeleteInstanceResponse
 func (client *Client) DeleteInstance(request *DeleteInstanceRequest) (_result *DeleteInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteInstanceHeaders{}
@@ -14546,6 +17203,17 @@ func (client *Client) DeleteInstance(request *DeleteInstanceRequest) (_result *D
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群删除知识点
+//
+// @param request - DeleteKnowledgeRequest
+//
+// @param headers - DeleteKnowledgeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteKnowledgeResponse
 func (client *Client) DeleteKnowledgeWithOptions(request *DeleteKnowledgeRequest, headers *DeleteKnowledgeHeaders, runtime *util.RuntimeOptions) (_result *DeleteKnowledgeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14601,6 +17269,13 @@ func (client *Client) DeleteKnowledgeWithOptions(request *DeleteKnowledgeRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群删除知识点
+//
+// @param request - DeleteKnowledgeRequest
+//
+// @return DeleteKnowledgeResponse
 func (client *Client) DeleteKnowledge(request *DeleteKnowledgeRequest) (_result *DeleteKnowledgeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteKnowledgeHeaders{}
@@ -14613,6 +17288,17 @@ func (client *Client) DeleteKnowledge(request *DeleteKnowledgeRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 客户心声负面情绪统计
+//
+// @param request - EmotionStatisticsRequest
+//
+// @param headers - EmotionStatisticsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EmotionStatisticsResponse
 func (client *Client) EmotionStatisticsWithOptions(request *EmotionStatisticsRequest, headers *EmotionStatisticsHeaders, runtime *util.RuntimeOptions) (_result *EmotionStatisticsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14680,6 +17366,13 @@ func (client *Client) EmotionStatisticsWithOptions(request *EmotionStatisticsReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 客户心声负面情绪统计
+//
+// @param request - EmotionStatisticsRequest
+//
+// @return EmotionStatisticsResponse
 func (client *Client) EmotionStatistics(request *EmotionStatisticsRequest) (_result *EmotionStatisticsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EmotionStatisticsHeaders{}
@@ -14692,6 +17385,17 @@ func (client *Client) EmotionStatistics(request *EmotionStatisticsRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 结单
+//
+// @param request - FinishTicketRequest
+//
+// @param headers - FinishTicketHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return FinishTicketResponse
 func (client *Client) FinishTicketWithOptions(request *FinishTicketRequest, headers *FinishTicketHeaders, runtime *util.RuntimeOptions) (_result *FinishTicketResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14751,6 +17455,13 @@ func (client *Client) FinishTicketWithOptions(request *FinishTicketRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 结单
+//
+// @param request - FinishTicketRequest
+//
+// @return FinishTicketResponse
 func (client *Client) FinishTicket(request *FinishTicketRequest) (_result *FinishTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &FinishTicketHeaders{}
@@ -14763,6 +17474,17 @@ func (client *Client) FinishTicket(request *FinishTicketRequest) (_result *Finis
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取签权Token
+//
+// @param request - GetAuthTokenRequest
+//
+// @param headers - GetAuthTokenHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAuthTokenResponse
 func (client *Client) GetAuthTokenWithOptions(request *GetAuthTokenRequest, headers *GetAuthTokenHeaders, runtime *util.RuntimeOptions) (_result *GetAuthTokenResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14822,6 +17544,13 @@ func (client *Client) GetAuthTokenWithOptions(request *GetAuthTokenRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取签权Token
+//
+// @param request - GetAuthTokenRequest
+//
+// @return GetAuthTokenResponse
 func (client *Client) GetAuthToken(request *GetAuthTokenRequest) (_result *GetAuthTokenResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetAuthTokenHeaders{}
@@ -14834,6 +17563,17 @@ func (client *Client) GetAuthToken(request *GetAuthTokenRequest) (_result *GetAu
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群通过实例ID集合批量查询表单实例数据
+//
+// @param request - GetInstancesByIdsRequest
+//
+// @param headers - GetInstancesByIdsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetInstancesByIdsResponse
 func (client *Client) GetInstancesByIdsWithOptions(request *GetInstancesByIdsRequest, headers *GetInstancesByIdsHeaders, runtime *util.RuntimeOptions) (_result *GetInstancesByIdsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14885,6 +17625,13 @@ func (client *Client) GetInstancesByIdsWithOptions(request *GetInstancesByIdsReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群通过实例ID集合批量查询表单实例数据
+//
+// @param request - GetInstancesByIdsRequest
+//
+// @return GetInstancesByIdsResponse
 func (client *Client) GetInstancesByIds(request *GetInstancesByIdsRequest) (_result *GetInstancesByIdsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetInstancesByIdsHeaders{}
@@ -14897,6 +17644,17 @@ func (client *Client) GetInstancesByIds(request *GetInstancesByIdsRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取负面心声词云
+//
+// @param request - GetNegativeWordCloudRequest
+//
+// @param headers - GetNegativeWordCloudHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetNegativeWordCloudResponse
 func (client *Client) GetNegativeWordCloudWithOptions(request *GetNegativeWordCloudRequest, headers *GetNegativeWordCloudHeaders, runtime *util.RuntimeOptions) (_result *GetNegativeWordCloudResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -14940,6 +17698,13 @@ func (client *Client) GetNegativeWordCloudWithOptions(request *GetNegativeWordCl
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取负面心声词云
+//
+// @param request - GetNegativeWordCloudRequest
+//
+// @return GetNegativeWordCloudResponse
 func (client *Client) GetNegativeWordCloud(request *GetNegativeWordCloudRequest) (_result *GetNegativeWordCloudResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetNegativeWordCloudHeaders{}
@@ -14952,6 +17717,17 @@ func (client *Client) GetNegativeWordCloud(request *GetNegativeWordCloudRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取临时访问链接
+//
+// @param request - GetOssTempUrlRequest
+//
+// @param headers - GetOssTempUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetOssTempUrlResponse
 func (client *Client) GetOssTempUrlWithOptions(request *GetOssTempUrlRequest, headers *GetOssTempUrlHeaders, runtime *util.RuntimeOptions) (_result *GetOssTempUrlResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15007,6 +17783,13 @@ func (client *Client) GetOssTempUrlWithOptions(request *GetOssTempUrlRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取临时访问链接
+//
+// @param request - GetOssTempUrlRequest
+//
+// @return GetOssTempUrlResponse
 func (client *Client) GetOssTempUrl(request *GetOssTempUrlRequest) (_result *GetOssTempUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetOssTempUrlHeaders{}
@@ -15019,6 +17802,17 @@ func (client *Client) GetOssTempUrl(request *GetOssTempUrlRequest) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取表单上传凭证
+//
+// @param request - GetStoragePolicyRequest
+//
+// @param headers - GetStoragePolicyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetStoragePolicyResponse
 func (client *Client) GetStoragePolicyWithOptions(request *GetStoragePolicyRequest, headers *GetStoragePolicyHeaders, runtime *util.RuntimeOptions) (_result *GetStoragePolicyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15074,6 +17868,13 @@ func (client *Client) GetStoragePolicyWithOptions(request *GetStoragePolicyReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取表单上传凭证
+//
+// @param request - GetStoragePolicyRequest
+//
+// @return GetStoragePolicyResponse
 func (client *Client) GetStoragePolicy(request *GetStoragePolicyRequest) (_result *GetStoragePolicyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetStoragePolicyHeaders{}
@@ -15086,6 +17887,17 @@ func (client *Client) GetStoragePolicy(request *GetStoragePolicyRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询工单详情
+//
+// @param request - GetTicketRequest
+//
+// @param headers - GetTicketHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTicketResponse
 func (client *Client) GetTicketWithOptions(request *GetTicketRequest, headers *GetTicketHeaders, runtime *util.RuntimeOptions) (_result *GetTicketResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15133,6 +17945,13 @@ func (client *Client) GetTicketWithOptions(request *GetTicketRequest, headers *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询工单详情
+//
+// @param request - GetTicketRequest
+//
+// @return GetTicketResponse
 func (client *Client) GetTicket(request *GetTicketRequest) (_result *GetTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTicketHeaders{}
@@ -15145,6 +17964,17 @@ func (client *Client) GetTicket(request *GetTicketRequest) (_result *GetTicketRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取心声词云
+//
+// @param request - GetWordCloudRequest
+//
+// @param headers - GetWordCloudHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetWordCloudResponse
 func (client *Client) GetWordCloudWithOptions(request *GetWordCloudRequest, headers *GetWordCloudHeaders, runtime *util.RuntimeOptions) (_result *GetWordCloudResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15188,6 +18018,13 @@ func (client *Client) GetWordCloudWithOptions(request *GetWordCloudRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取心声词云
+//
+// @param request - GetWordCloudRequest
+//
+// @return GetWordCloudResponse
 func (client *Client) GetWordCloud(request *GetWordCloudRequest) (_result *GetWordCloudResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetWordCloudHeaders{}
@@ -15200,6 +18037,17 @@ func (client *Client) GetWordCloud(request *GetWordCloudRequest) (_result *GetWo
 	return _result, _err
 }
 
+// Summary:
+//
+// 心声总览群统计
+//
+// @param request - GroupStatisticsRequest
+//
+// @param headers - GroupStatisticsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GroupStatisticsResponse
 func (client *Client) GroupStatisticsWithOptions(request *GroupStatisticsRequest, headers *GroupStatisticsHeaders, runtime *util.RuntimeOptions) (_result *GroupStatisticsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15251,6 +18099,13 @@ func (client *Client) GroupStatisticsWithOptions(request *GroupStatisticsRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 心声总览群统计
+//
+// @param request - GroupStatisticsRequest
+//
+// @return GroupStatisticsResponse
 func (client *Client) GroupStatistics(request *GroupStatisticsRequest) (_result *GroupStatisticsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GroupStatisticsHeaders{}
@@ -15263,6 +18118,17 @@ func (client *Client) GroupStatistics(request *GroupStatisticsRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 心声总览意图&自定义分类统计
+//
+// @param request - IntentionCategoryStatisticsRequest
+//
+// @param headers - IntentionCategoryStatisticsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IntentionCategoryStatisticsResponse
 func (client *Client) IntentionCategoryStatisticsWithOptions(request *IntentionCategoryStatisticsRequest, headers *IntentionCategoryStatisticsHeaders, runtime *util.RuntimeOptions) (_result *IntentionCategoryStatisticsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15314,6 +18180,13 @@ func (client *Client) IntentionCategoryStatisticsWithOptions(request *IntentionC
 	return _result, _err
 }
 
+// Summary:
+//
+// 心声总览意图&自定义分类统计
+//
+// @param request - IntentionCategoryStatisticsRequest
+//
+// @return IntentionCategoryStatisticsResponse
 func (client *Client) IntentionCategoryStatistics(request *IntentionCategoryStatisticsRequest) (_result *IntentionCategoryStatisticsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IntentionCategoryStatisticsHeaders{}
@@ -15326,6 +18199,17 @@ func (client *Client) IntentionCategoryStatistics(request *IntentionCategoryStat
 	return _result, _err
 }
 
+// Summary:
+//
+// 心声总览意图统计
+//
+// @param request - IntentionStatisticsRequest
+//
+// @param headers - IntentionStatisticsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IntentionStatisticsResponse
 func (client *Client) IntentionStatisticsWithOptions(request *IntentionStatisticsRequest, headers *IntentionStatisticsHeaders, runtime *util.RuntimeOptions) (_result *IntentionStatisticsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15377,6 +18261,13 @@ func (client *Client) IntentionStatisticsWithOptions(request *IntentionStatistic
 	return _result, _err
 }
 
+// Summary:
+//
+// 心声总览意图统计
+//
+// @param request - IntentionStatisticsRequest
+//
+// @return IntentionStatisticsResponse
 func (client *Client) IntentionStatistics(request *IntentionStatisticsRequest) (_result *IntentionStatisticsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IntentionStatisticsHeaders{}
@@ -15389,6 +18280,17 @@ func (client *Client) IntentionStatistics(request *IntentionStatisticsRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询工单操作记录
+//
+// @param request - ListTicketOperateRecordRequest
+//
+// @param headers - ListTicketOperateRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListTicketOperateRecordResponse
 func (client *Client) ListTicketOperateRecordWithOptions(request *ListTicketOperateRecordRequest, headers *ListTicketOperateRecordHeaders, runtime *util.RuntimeOptions) (_result *ListTicketOperateRecordResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15436,6 +18338,13 @@ func (client *Client) ListTicketOperateRecordWithOptions(request *ListTicketOper
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询工单操作记录
+//
+// @param request - ListTicketOperateRecordRequest
+//
+// @return ListTicketOperateRecordResponse
 func (client *Client) ListTicketOperateRecord(request *ListTicketOperateRecordRequest) (_result *ListTicketOperateRecordResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListTicketOperateRecordHeaders{}
@@ -15448,6 +18357,15 @@ func (client *Client) ListTicketOperateRecord(request *ListTicketOperateRecordRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户所在团队
+//
+// @param headers - ListUserTeamsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListUserTeamsResponse
 func (client *Client) ListUserTeamsWithOptions(userId *string, headers *ListUserTeamsHeaders, runtime *util.RuntimeOptions) (_result *ListUserTeamsResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -15481,6 +18399,11 @@ func (client *Client) ListUserTeamsWithOptions(userId *string, headers *ListUser
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户所在团队
+//
+// @return ListUserTeamsResponse
 func (client *Client) ListUserTeams(userId *string) (_result *ListUserTeamsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListUserTeamsHeaders{}
@@ -15493,6 +18416,17 @@ func (client *Client) ListUserTeams(userId *string) (_result *ListUserTeamsRespo
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询服务群活跃成员
+//
+// @param request - QueryActiveUsersRequest
+//
+// @param headers - QueryActiveUsersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryActiveUsersResponse
 func (client *Client) QueryActiveUsersWithOptions(request *QueryActiveUsersRequest, headers *QueryActiveUsersHeaders, runtime *util.RuntimeOptions) (_result *QueryActiveUsersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15544,6 +18478,13 @@ func (client *Client) QueryActiveUsersWithOptions(request *QueryActiveUsersReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询服务群活跃成员
+//
+// @param request - QueryActiveUsersRequest
+//
+// @return QueryActiveUsersResponse
 func (client *Client) QueryActiveUsers(request *QueryActiveUsersRequest) (_result *QueryActiveUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryActiveUsersHeaders{}
@@ -15556,6 +18497,17 @@ func (client *Client) QueryActiveUsers(request *QueryActiveUsersRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 群联系人画像检索
+//
+// @param request - QueryCrmGroupContactRequest
+//
+// @param headers - QueryCrmGroupContactHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCrmGroupContactResponse
 func (client *Client) QueryCrmGroupContactWithOptions(request *QueryCrmGroupContactRequest, headers *QueryCrmGroupContactHeaders, runtime *util.RuntimeOptions) (_result *QueryCrmGroupContactResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15615,6 +18567,13 @@ func (client *Client) QueryCrmGroupContactWithOptions(request *QueryCrmGroupCont
 	return _result, _err
 }
 
+// Summary:
+//
+// 群联系人画像检索
+//
+// @param request - QueryCrmGroupContactRequest
+//
+// @return QueryCrmGroupContactResponse
 func (client *Client) QueryCrmGroupContact(request *QueryCrmGroupContactRequest) (_result *QueryCrmGroupContactResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryCrmGroupContactHeaders{}
@@ -15627,6 +18586,17 @@ func (client *Client) QueryCrmGroupContact(request *QueryCrmGroupContactRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询客户信息
+//
+// @param request - QueryCustomerCardRequest
+//
+// @param headers - QueryCustomerCardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCustomerCardResponse
 func (client *Client) QueryCustomerCardWithOptions(request *QueryCustomerCardRequest, headers *QueryCustomerCardHeaders, runtime *util.RuntimeOptions) (_result *QueryCustomerCardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15674,6 +18644,13 @@ func (client *Client) QueryCustomerCardWithOptions(request *QueryCustomerCardReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询客户信息
+//
+// @param request - QueryCustomerCardRequest
+//
+// @return QueryCustomerCardResponse
 func (client *Client) QueryCustomerCard(request *QueryCustomerCardRequest) (_result *QueryCustomerCardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryCustomerCardHeaders{}
@@ -15686,6 +18663,17 @@ func (client *Client) QueryCustomerCard(request *QueryCustomerCardRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询客户群发任务客户触达详情
+//
+// @param request - QueryCustomerTaskUserDetailRequest
+//
+// @param headers - QueryCustomerTaskUserDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCustomerTaskUserDetailResponse
 func (client *Client) QueryCustomerTaskUserDetailWithOptions(request *QueryCustomerTaskUserDetailRequest, headers *QueryCustomerTaskUserDetailHeaders, runtime *util.RuntimeOptions) (_result *QueryCustomerTaskUserDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15745,6 +18733,13 @@ func (client *Client) QueryCustomerTaskUserDetailWithOptions(request *QueryCusto
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询客户群发任务客户触达详情
+//
+// @param request - QueryCustomerTaskUserDetailRequest
+//
+// @return QueryCustomerTaskUserDetailResponse
 func (client *Client) QueryCustomerTaskUserDetail(request *QueryCustomerTaskUserDetailRequest) (_result *QueryCustomerTaskUserDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryCustomerTaskUserDetailHeaders{}
@@ -15757,6 +18752,17 @@ func (client *Client) QueryCustomerTaskUserDetail(request *QueryCustomerTaskUser
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询单个服务群信息
+//
+// @param request - QueryGroupRequest
+//
+// @param headers - QueryGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryGroupResponse
 func (client *Client) QueryGroupWithOptions(request *QueryGroupRequest, headers *QueryGroupHeaders, runtime *util.RuntimeOptions) (_result *QueryGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15808,6 +18814,13 @@ func (client *Client) QueryGroupWithOptions(request *QueryGroupRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询单个服务群信息
+//
+// @param request - QueryGroupRequest
+//
+// @return QueryGroupResponse
 func (client *Client) QueryGroup(request *QueryGroupRequest) (_result *QueryGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryGroupHeaders{}
@@ -15820,6 +18833,17 @@ func (client *Client) QueryGroup(request *QueryGroupRequest) (_result *QueryGrou
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询指定群成员
+//
+// @param request - QueryGroupMemberRequest
+//
+// @param headers - QueryGroupMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryGroupMemberResponse
 func (client *Client) QueryGroupMemberWithOptions(request *QueryGroupMemberRequest, headers *QueryGroupMemberHeaders, runtime *util.RuntimeOptions) (_result *QueryGroupMemberResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15871,6 +18895,13 @@ func (client *Client) QueryGroupMemberWithOptions(request *QueryGroupMemberReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询指定群成员
+//
+// @param request - QueryGroupMemberRequest
+//
+// @return QueryGroupMemberResponse
 func (client *Client) QueryGroupMember(request *QueryGroupMemberRequest) (_result *QueryGroupMemberResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryGroupMemberHeaders{}
@@ -15883,6 +18914,17 @@ func (client *Client) QueryGroupMember(request *QueryGroupMemberRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询服务群群组信息
+//
+// @param request - QueryGroupSetRequest
+//
+// @param headers - QueryGroupSetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryGroupSetResponse
 func (client *Client) QueryGroupSetWithOptions(request *QueryGroupSetRequest, headers *QueryGroupSetHeaders, runtime *util.RuntimeOptions) (_result *QueryGroupSetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -15926,6 +18968,13 @@ func (client *Client) QueryGroupSetWithOptions(request *QueryGroupSetRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询服务群群组信息
+//
+// @param request - QueryGroupSetRequest
+//
+// @return QueryGroupSetResponse
 func (client *Client) QueryGroupSet(request *QueryGroupSetRequest) (_result *QueryGroupSetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryGroupSetHeaders{}
@@ -15938,6 +18987,17 @@ func (client *Client) QueryGroupSet(request *QueryGroupSetRequest) (_result *Que
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群通过多添件进行组合检索表单数据实例集合
+//
+// @param request - QueryInstancesByMultiConditionsRequest
+//
+// @param headers - QueryInstancesByMultiConditionsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryInstancesByMultiConditionsResponse
 func (client *Client) QueryInstancesByMultiConditionsWithOptions(request *QueryInstancesByMultiConditionsRequest, headers *QueryInstancesByMultiConditionsHeaders, runtime *util.RuntimeOptions) (_result *QueryInstancesByMultiConditionsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16001,6 +19061,13 @@ func (client *Client) QueryInstancesByMultiConditionsWithOptions(request *QueryI
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群通过多添件进行组合检索表单数据实例集合
+//
+// @param request - QueryInstancesByMultiConditionsRequest
+//
+// @return QueryInstancesByMultiConditionsResponse
 func (client *Client) QueryInstancesByMultiConditions(request *QueryInstancesByMultiConditionsRequest) (_result *QueryInstancesByMultiConditionsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryInstancesByMultiConditionsHeaders{}
@@ -16013,6 +19080,17 @@ func (client *Client) QueryInstancesByMultiConditions(request *QueryInstancesByM
 	return _result, _err
 }
 
+// Summary:
+//
+// 群发任务统计查询
+//
+// @param request - QuerySendMsgTaskStatisticsRequest
+//
+// @param headers - QuerySendMsgTaskStatisticsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QuerySendMsgTaskStatisticsResponse
 func (client *Client) QuerySendMsgTaskStatisticsWithOptions(request *QuerySendMsgTaskStatisticsRequest, headers *QuerySendMsgTaskStatisticsHeaders, runtime *util.RuntimeOptions) (_result *QuerySendMsgTaskStatisticsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16068,6 +19146,13 @@ func (client *Client) QuerySendMsgTaskStatisticsWithOptions(request *QuerySendMs
 	return _result, _err
 }
 
+// Summary:
+//
+// 群发任务统计查询
+//
+// @param request - QuerySendMsgTaskStatisticsRequest
+//
+// @return QuerySendMsgTaskStatisticsResponse
 func (client *Client) QuerySendMsgTaskStatistics(request *QuerySendMsgTaskStatisticsRequest) (_result *QuerySendMsgTaskStatisticsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QuerySendMsgTaskStatisticsHeaders{}
@@ -16080,6 +19165,17 @@ func (client *Client) QuerySendMsgTaskStatistics(request *QuerySendMsgTaskStatis
 	return _result, _err
 }
 
+// Summary:
+//
+// 群发任务群维度的统计数据
+//
+// @param request - QuerySendMsgTaskStatisticsDetailRequest
+//
+// @param headers - QuerySendMsgTaskStatisticsDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QuerySendMsgTaskStatisticsDetailResponse
 func (client *Client) QuerySendMsgTaskStatisticsDetailWithOptions(request *QuerySendMsgTaskStatisticsDetailRequest, headers *QuerySendMsgTaskStatisticsDetailHeaders, runtime *util.RuntimeOptions) (_result *QuerySendMsgTaskStatisticsDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16139,6 +19235,13 @@ func (client *Client) QuerySendMsgTaskStatisticsDetailWithOptions(request *Query
 	return _result, _err
 }
 
+// Summary:
+//
+// 群发任务群维度的统计数据
+//
+// @param request - QuerySendMsgTaskStatisticsDetailRequest
+//
+// @return QuerySendMsgTaskStatisticsDetailResponse
 func (client *Client) QuerySendMsgTaskStatisticsDetail(request *QuerySendMsgTaskStatisticsDetailRequest) (_result *QuerySendMsgTaskStatisticsDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QuerySendMsgTaskStatisticsDetailHeaders{}
@@ -16151,6 +19254,17 @@ func (client *Client) QuerySendMsgTaskStatisticsDetail(request *QuerySendMsgTask
 	return _result, _err
 }
 
+// Summary:
+//
+// 查消息的已读/未读列表
+//
+// @param request - QueryServiceGroupMessageReadStatusRequest
+//
+// @param headers - QueryServiceGroupMessageReadStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryServiceGroupMessageReadStatusResponse
 func (client *Client) QueryServiceGroupMessageReadStatusWithOptions(request *QueryServiceGroupMessageReadStatusRequest, headers *QueryServiceGroupMessageReadStatusHeaders, runtime *util.RuntimeOptions) (_result *QueryServiceGroupMessageReadStatusResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16210,6 +19324,13 @@ func (client *Client) QueryServiceGroupMessageReadStatusWithOptions(request *Que
 	return _result, _err
 }
 
+// Summary:
+//
+// 查消息的已读/未读列表
+//
+// @param request - QueryServiceGroupMessageReadStatusRequest
+//
+// @return QueryServiceGroupMessageReadStatusResponse
 func (client *Client) QueryServiceGroupMessageReadStatus(request *QueryServiceGroupMessageReadStatusRequest) (_result *QueryServiceGroupMessageReadStatusResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryServiceGroupMessageReadStatusHeaders{}
@@ -16222,6 +19343,17 @@ func (client *Client) QueryServiceGroupMessageReadStatus(request *QueryServiceGr
 	return _result, _err
 }
 
+// Summary:
+//
+// 外部DT工作台排队通知回调
+//
+// @param request - QueueNotifyRequest
+//
+// @param headers - QueueNotifyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueueNotifyResponse
 func (client *Client) QueueNotifyWithOptions(request *QueueNotifyRequest, headers *QueueNotifyHeaders, runtime *util.RuntimeOptions) (_result *QueueNotifyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16289,6 +19421,13 @@ func (client *Client) QueueNotifyWithOptions(request *QueueNotifyRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 外部DT工作台排队通知回调
+//
+// @param request - QueueNotifyRequest
+//
+// @return QueueNotifyResponse
 func (client *Client) QueueNotify(request *QueueNotifyRequest) (_result *QueueNotifyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueueNotifyHeaders{}
@@ -16301,6 +19440,17 @@ func (client *Client) QueueNotify(request *QueueNotifyRequest) (_result *QueueNo
 	return _result, _err
 }
 
+// Summary:
+//
+// 组织剔除联系人
+//
+// @param request - RemoveContactFromOrgRequest
+//
+// @param headers - RemoveContactFromOrgHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RemoveContactFromOrgResponse
 func (client *Client) RemoveContactFromOrgWithOptions(request *RemoveContactFromOrgRequest, headers *RemoveContactFromOrgHeaders, runtime *util.RuntimeOptions) (_result *RemoveContactFromOrgResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16348,6 +19498,13 @@ func (client *Client) RemoveContactFromOrgWithOptions(request *RemoveContactFrom
 	return _result, _err
 }
 
+// Summary:
+//
+// 组织剔除联系人
+//
+// @param request - RemoveContactFromOrgRequest
+//
+// @return RemoveContactFromOrgResponse
 func (client *Client) RemoveContactFromOrg(request *RemoveContactFromOrgRequest) (_result *RemoveContactFromOrgResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RemoveContactFromOrgHeaders{}
@@ -16360,6 +19517,17 @@ func (client *Client) RemoveContactFromOrg(request *RemoveContactFromOrgRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 指定群的客户活跃明细查询
+//
+// @param request - ReportCustomerDetailRequest
+//
+// @param headers - ReportCustomerDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ReportCustomerDetailResponse
 func (client *Client) ReportCustomerDetailWithOptions(request *ReportCustomerDetailRequest, headers *ReportCustomerDetailHeaders, runtime *util.RuntimeOptions) (_result *ReportCustomerDetailResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16431,6 +19599,13 @@ func (client *Client) ReportCustomerDetailWithOptions(request *ReportCustomerDet
 	return _result, _err
 }
 
+// Summary:
+//
+// 指定群的客户活跃明细查询
+//
+// @param request - ReportCustomerDetailRequest
+//
+// @return ReportCustomerDetailResponse
 func (client *Client) ReportCustomerDetail(request *ReportCustomerDetailRequest) (_result *ReportCustomerDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ReportCustomerDetailHeaders{}
@@ -16443,6 +19618,17 @@ func (client *Client) ReportCustomerDetail(request *ReportCustomerDetailRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 客户活跃明细指标查询
+//
+// @param request - ReportCustomerStatisticsRequest
+//
+// @param headers - ReportCustomerStatisticsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ReportCustomerStatisticsResponse
 func (client *Client) ReportCustomerStatisticsWithOptions(request *ReportCustomerStatisticsRequest, headers *ReportCustomerStatisticsHeaders, runtime *util.RuntimeOptions) (_result *ReportCustomerStatisticsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16518,6 +19704,13 @@ func (client *Client) ReportCustomerStatisticsWithOptions(request *ReportCustome
 	return _result, _err
 }
 
+// Summary:
+//
+// 客户活跃明细指标查询
+//
+// @param request - ReportCustomerStatisticsRequest
+//
+// @return ReportCustomerStatisticsResponse
 func (client *Client) ReportCustomerStatistics(request *ReportCustomerStatisticsRequest) (_result *ReportCustomerStatisticsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ReportCustomerStatisticsHeaders{}
@@ -16530,6 +19723,17 @@ func (client *Client) ReportCustomerStatistics(request *ReportCustomerStatistics
 	return _result, _err
 }
 
+// Summary:
+//
+// 重新提交工单
+//
+// @param request - ResubmitTicketRequest
+//
+// @param headers - ResubmitTicketHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ResubmitTicketResponse
 func (client *Client) ResubmitTicketWithOptions(request *ResubmitTicketRequest, headers *ResubmitTicketHeaders, runtime *util.RuntimeOptions) (_result *ResubmitTicketResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16613,6 +19817,13 @@ func (client *Client) ResubmitTicketWithOptions(request *ResubmitTicketRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 重新提交工单
+//
+// @param request - ResubmitTicketRequest
+//
+// @return ResubmitTicketResponse
 func (client *Client) ResubmitTicket(request *ResubmitTicketRequest) (_result *ResubmitTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ResubmitTicketHeaders{}
@@ -16625,6 +19836,17 @@ func (client *Client) ResubmitTicket(request *ResubmitTicketRequest) (_result *R
 	return _result, _err
 }
 
+// Summary:
+//
+// 撤回工单
+//
+// @param request - RetractTicketRequest
+//
+// @param headers - RetractTicketHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RetractTicketResponse
 func (client *Client) RetractTicketWithOptions(request *RetractTicketRequest, headers *RetractTicketHeaders, runtime *util.RuntimeOptions) (_result *RetractTicketResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16684,6 +19906,13 @@ func (client *Client) RetractTicketWithOptions(request *RetractTicketRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 撤回工单
+//
+// @param request - RetractTicketRequest
+//
+// @return RetractTicketResponse
 func (client *Client) RetractTicket(request *RetractTicketRequest) (_result *RetractTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RetractTicketHeaders{}
@@ -16696,6 +19925,17 @@ func (client *Client) RetractTicket(request *RetractTicketRequest) (_result *Ret
 	return _result, _err
 }
 
+// Summary:
+//
+// 指定群的机器人消息撤回
+//
+// @param request - RobotMessageRecallRequest
+//
+// @param headers - RobotMessageRecallHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RobotMessageRecallResponse
 func (client *Client) RobotMessageRecallWithOptions(request *RobotMessageRecallRequest, headers *RobotMessageRecallHeaders, runtime *util.RuntimeOptions) (_result *RobotMessageRecallResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16747,6 +19987,13 @@ func (client *Client) RobotMessageRecallWithOptions(request *RobotMessageRecallR
 	return _result, _err
 }
 
+// Summary:
+//
+// 指定群的机器人消息撤回
+//
+// @param request - RobotMessageRecallRequest
+//
+// @return RobotMessageRecallResponse
 func (client *Client) RobotMessageRecall(request *RobotMessageRecallRequest) (_result *RobotMessageRecallResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RobotMessageRecallHeaders{}
@@ -16759,6 +20006,17 @@ func (client *Client) RobotMessageRecall(request *RobotMessageRecallRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群新增表单实例
+//
+// @param request - SaveFormInstanceRequest
+//
+// @param headers - SaveFormInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SaveFormInstanceResponse
 func (client *Client) SaveFormInstanceWithOptions(request *SaveFormInstanceRequest, headers *SaveFormInstanceHeaders, runtime *util.RuntimeOptions) (_result *SaveFormInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16814,6 +20072,13 @@ func (client *Client) SaveFormInstanceWithOptions(request *SaveFormInstanceReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群新增表单实例
+//
+// @param request - SaveFormInstanceRequest
+//
+// @return SaveFormInstanceResponse
 func (client *Client) SaveFormInstance(request *SaveFormInstanceRequest) (_result *SaveFormInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SaveFormInstanceHeaders{}
@@ -16826,6 +20091,17 @@ func (client *Client) SaveFormInstance(request *SaveFormInstanceRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 搜索服务群
+//
+// @param request - SearchGroupRequest
+//
+// @param headers - SearchGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchGroupResponse
 func (client *Client) SearchGroupWithOptions(request *SearchGroupRequest, headers *SearchGroupHeaders, runtime *util.RuntimeOptions) (_result *SearchGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16893,6 +20169,13 @@ func (client *Client) SearchGroupWithOptions(request *SearchGroupRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 搜索服务群
+//
+// @param request - SearchGroupRequest
+//
+// @return SearchGroupResponse
 func (client *Client) SearchGroup(request *SearchGroupRequest) (_result *SearchGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SearchGroupHeaders{}
@@ -16905,6 +20188,17 @@ func (client *Client) SearchGroup(request *SearchGroupRequest) (_result *SearchG
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群发任务
+//
+// @param request - SendMsgByTaskRequest
+//
+// @param headers - SendMsgByTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendMsgByTaskResponse
 func (client *Client) SendMsgByTaskWithOptions(request *SendMsgByTaskRequest, headers *SendMsgByTaskHeaders, runtime *util.RuntimeOptions) (_result *SendMsgByTaskResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -16964,6 +20258,13 @@ func (client *Client) SendMsgByTaskWithOptions(request *SendMsgByTaskRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群发任务
+//
+// @param request - SendMsgByTaskRequest
+//
+// @return SendMsgByTaskResponse
 func (client *Client) SendMsgByTask(request *SendMsgByTaskRequest) (_result *SendMsgByTaskResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendMsgByTaskHeaders{}
@@ -16976,6 +20277,17 @@ func (client *Client) SendMsgByTask(request *SendMsgByTaskRequest) (_result *Sen
 	return _result, _err
 }
 
+// Summary:
+//
+// 增强版客户群发
+//
+// @param request - SendMsgByTaskSupportInviteJoinOrgRequest
+//
+// @param headers - SendMsgByTaskSupportInviteJoinOrgHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendMsgByTaskSupportInviteJoinOrgResponse
 func (client *Client) SendMsgByTaskSupportInviteJoinOrgWithOptions(request *SendMsgByTaskSupportInviteJoinOrgRequest, headers *SendMsgByTaskSupportInviteJoinOrgHeaders, runtime *util.RuntimeOptions) (_result *SendMsgByTaskSupportInviteJoinOrgResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17039,6 +20351,13 @@ func (client *Client) SendMsgByTaskSupportInviteJoinOrgWithOptions(request *Send
 	return _result, _err
 }
 
+// Summary:
+//
+// 增强版客户群发
+//
+// @param request - SendMsgByTaskSupportInviteJoinOrgRequest
+//
+// @return SendMsgByTaskSupportInviteJoinOrgResponse
 func (client *Client) SendMsgByTaskSupportInviteJoinOrg(request *SendMsgByTaskSupportInviteJoinOrgRequest) (_result *SendMsgByTaskSupportInviteJoinOrgResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendMsgByTaskSupportInviteJoinOrgHeaders{}
@@ -17051,6 +20370,17 @@ func (client *Client) SendMsgByTaskSupportInviteJoinOrg(request *SendMsgByTaskSu
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群发消息
+//
+// @param request - SendServiceGroupMessageRequest
+//
+// @param headers - SendServiceGroupMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendServiceGroupMessageResponse
 func (client *Client) SendServiceGroupMessageWithOptions(request *SendServiceGroupMessageRequest, headers *SendServiceGroupMessageHeaders, runtime *util.RuntimeOptions) (_result *SendServiceGroupMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17146,6 +20476,13 @@ func (client *Client) SendServiceGroupMessageWithOptions(request *SendServiceGro
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群发消息
+//
+// @param request - SendServiceGroupMessageRequest
+//
+// @return SendServiceGroupMessageResponse
 func (client *Client) SendServiceGroupMessage(request *SendServiceGroupMessageRequest) (_result *SendServiceGroupMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendServiceGroupMessageHeaders{}
@@ -17158,6 +20495,17 @@ func (client *Client) SendServiceGroupMessage(request *SendServiceGroupMessageRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 执行阿里内部用户群组机器人服务开关
+//
+// @param request - SetRobotConfigRequest
+//
+// @param headers - SetRobotConfigHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetRobotConfigResponse
 func (client *Client) SetRobotConfigWithOptions(request *SetRobotConfigRequest, headers *SetRobotConfigHeaders, runtime *util.RuntimeOptions) (_result *SetRobotConfigResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17225,6 +20573,13 @@ func (client *Client) SetRobotConfigWithOptions(request *SetRobotConfigRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 执行阿里内部用户群组机器人服务开关
+//
+// @param request - SetRobotConfigRequest
+//
+// @return SetRobotConfigResponse
 func (client *Client) SetRobotConfig(request *SetRobotConfigRequest) (_result *SetRobotConfigResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SetRobotConfigHeaders{}
@@ -17237,6 +20592,17 @@ func (client *Client) SetRobotConfig(request *SetRobotConfigRequest) (_result *S
 	return _result, _err
 }
 
+// Summary:
+//
+// 申领工单
+//
+// @param request - TakeTicketRequest
+//
+// @param headers - TakeTicketHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TakeTicketResponse
 func (client *Client) TakeTicketWithOptions(request *TakeTicketRequest, headers *TakeTicketHeaders, runtime *util.RuntimeOptions) (_result *TakeTicketResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17288,6 +20654,13 @@ func (client *Client) TakeTicketWithOptions(request *TakeTicketRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 申领工单
+//
+// @param request - TakeTicketRequest
+//
+// @return TakeTicketResponse
 func (client *Client) TakeTicket(request *TakeTicketRequest) (_result *TakeTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &TakeTicketHeaders{}
@@ -17300,6 +20673,17 @@ func (client *Client) TakeTicket(request *TakeTicketRequest) (_result *TakeTicke
 	return _result, _err
 }
 
+// Summary:
+//
+// 客户心声热门话题统计
+//
+// @param request - TopicStatisticsRequest
+//
+// @param headers - TopicStatisticsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TopicStatisticsResponse
 func (client *Client) TopicStatisticsWithOptions(request *TopicStatisticsRequest, headers *TopicStatisticsHeaders, runtime *util.RuntimeOptions) (_result *TopicStatisticsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17359,6 +20743,13 @@ func (client *Client) TopicStatisticsWithOptions(request *TopicStatisticsRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 客户心声热门话题统计
+//
+// @param request - TopicStatisticsRequest
+//
+// @return TopicStatisticsResponse
 func (client *Client) TopicStatistics(request *TopicStatisticsRequest) (_result *TopicStatisticsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &TopicStatisticsHeaders{}
@@ -17371,6 +20762,17 @@ func (client *Client) TopicStatistics(request *TopicStatisticsRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 转交工单
+//
+// @param request - TransferTicketRequest
+//
+// @param headers - TransferTicketHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TransferTicketResponse
 func (client *Client) TransferTicketWithOptions(request *TransferTicketRequest, headers *TransferTicketHeaders, runtime *util.RuntimeOptions) (_result *TransferTicketResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17434,6 +20836,13 @@ func (client *Client) TransferTicketWithOptions(request *TransferTicketRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 转交工单
+//
+// @param request - TransferTicketRequest
+//
+// @return TransferTicketResponse
 func (client *Client) TransferTicket(request *TransferTicketRequest) (_result *TransferTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &TransferTicketHeaders{}
@@ -17446,6 +20855,17 @@ func (client *Client) TransferTicket(request *TransferTicketRequest) (_result *T
 	return _result, _err
 }
 
+// Summary:
+//
+// 变更群的群组配置信息
+//
+// @param request - UpdateGroupSetRequest
+//
+// @param headers - UpdateGroupSetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateGroupSetResponse
 func (client *Client) UpdateGroupSetWithOptions(request *UpdateGroupSetRequest, headers *UpdateGroupSetHeaders, runtime *util.RuntimeOptions) (_result *UpdateGroupSetResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17497,6 +20917,13 @@ func (client *Client) UpdateGroupSetWithOptions(request *UpdateGroupSetRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 变更群的群组配置信息
+//
+// @param request - UpdateGroupSetRequest
+//
+// @return UpdateGroupSetResponse
 func (client *Client) UpdateGroupSet(request *UpdateGroupSetRequest) (_result *UpdateGroupSetResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateGroupSetHeaders{}
@@ -17509,6 +20936,17 @@ func (client *Client) UpdateGroupSet(request *UpdateGroupSetRequest) (_result *U
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新服务群标签
+//
+// @param request - UpdateGroupTagRequest
+//
+// @param headers - UpdateGroupTagHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateGroupTagResponse
 func (client *Client) UpdateGroupTagWithOptions(request *UpdateGroupTagRequest, headers *UpdateGroupTagHeaders, runtime *util.RuntimeOptions) (_result *UpdateGroupTagResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17560,6 +20998,13 @@ func (client *Client) UpdateGroupTagWithOptions(request *UpdateGroupTagRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新服务群标签
+//
+// @param request - UpdateGroupTagRequest
+//
+// @return UpdateGroupTagResponse
 func (client *Client) UpdateGroupTag(request *UpdateGroupTagRequest) (_result *UpdateGroupTagResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateGroupTagHeaders{}
@@ -17572,6 +21017,17 @@ func (client *Client) UpdateGroupTag(request *UpdateGroupTagRequest) (_result *U
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群更新表单实例
+//
+// @param request - UpdateInstanceRequest
+//
+// @param headers - UpdateInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateInstanceResponse
 func (client *Client) UpdateInstanceWithOptions(request *UpdateInstanceRequest, headers *UpdateInstanceHeaders, runtime *util.RuntimeOptions) (_result *UpdateInstanceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17639,6 +21095,13 @@ func (client *Client) UpdateInstanceWithOptions(request *UpdateInstanceRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 服务群更新表单实例
+//
+// @param request - UpdateInstanceRequest
+//
+// @return UpdateInstanceResponse
 func (client *Client) UpdateInstance(request *UpdateInstanceRequest) (_result *UpdateInstanceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateInstanceHeaders{}
@@ -17651,6 +21114,17 @@ func (client *Client) UpdateInstance(request *UpdateInstanceRequest) (_result *U
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新工单自定义字段
+//
+// @param request - UpdateTicketRequest
+//
+// @param headers - UpdateTicketHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateTicketResponse
 func (client *Client) UpdateTicketWithOptions(request *UpdateTicketRequest, headers *UpdateTicketHeaders, runtime *util.RuntimeOptions) (_result *UpdateTicketResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17710,6 +21184,13 @@ func (client *Client) UpdateTicketWithOptions(request *UpdateTicketRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新工单自定义字段
+//
+// @param request - UpdateTicketRequest
+//
+// @return UpdateTicketResponse
 func (client *Client) UpdateTicket(request *UpdateTicketRequest) (_result *UpdateTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateTicketHeaders{}
@@ -17722,6 +21203,17 @@ func (client *Client) UpdateTicket(request *UpdateTicketRequest) (_result *Updat
 	return _result, _err
 }
 
+// Summary:
+//
+// 将智能云客服下的旧版服务群升级为钉钉智能服务群
+//
+// @param request - UpgradeCloudGroupRequest
+//
+// @param headers - UpgradeCloudGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpgradeCloudGroupResponse
 func (client *Client) UpgradeCloudGroupWithOptions(request *UpgradeCloudGroupRequest, headers *UpgradeCloudGroupHeaders, runtime *util.RuntimeOptions) (_result *UpgradeCloudGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17781,6 +21273,13 @@ func (client *Client) UpgradeCloudGroupWithOptions(request *UpgradeCloudGroupReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 将智能云客服下的旧版服务群升级为钉钉智能服务群
+//
+// @param request - UpgradeCloudGroupRequest
+//
+// @return UpgradeCloudGroupResponse
 func (client *Client) UpgradeCloudGroup(request *UpgradeCloudGroupRequest) (_result *UpgradeCloudGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpgradeCloudGroupHeaders{}
@@ -17793,6 +21292,17 @@ func (client *Client) UpgradeCloudGroup(request *UpgradeCloudGroupRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 将常规钉群升级为钉钉智能服务群
+//
+// @param request - UpgradeNormalGroupRequest
+//
+// @param headers - UpgradeNormalGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpgradeNormalGroupResponse
 func (client *Client) UpgradeNormalGroupWithOptions(request *UpgradeNormalGroupRequest, headers *UpgradeNormalGroupHeaders, runtime *util.RuntimeOptions) (_result *UpgradeNormalGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17848,6 +21358,13 @@ func (client *Client) UpgradeNormalGroupWithOptions(request *UpgradeNormalGroupR
 	return _result, _err
 }
 
+// Summary:
+//
+// 将常规钉群升级为钉钉智能服务群
+//
+// @param request - UpgradeNormalGroupRequest
+//
+// @return UpgradeNormalGroupResponse
 func (client *Client) UpgradeNormalGroup(request *UpgradeNormalGroupRequest) (_result *UpgradeNormalGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpgradeNormalGroupHeaders{}
@@ -17860,6 +21377,17 @@ func (client *Client) UpgradeNormalGroup(request *UpgradeNormalGroupRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 工单催办
+//
+// @param request - UrgeTicketRequest
+//
+// @param headers - UrgeTicketHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UrgeTicketResponse
 func (client *Client) UrgeTicketWithOptions(request *UrgeTicketRequest, headers *UrgeTicketHeaders, runtime *util.RuntimeOptions) (_result *UrgeTicketResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -17915,6 +21443,13 @@ func (client *Client) UrgeTicketWithOptions(request *UrgeTicketRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 工单催办
+//
+// @param request - UrgeTicketRequest
+//
+// @return UrgeTicketResponse
 func (client *Client) UrgeTicket(request *UrgeTicketRequest) (_result *UrgeTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UrgeTicketHeaders{}

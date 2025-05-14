@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package diot_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -100,7 +96,11 @@ func (s *BatchDeleteDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *BatchDe
 }
 
 type BatchDeleteDeviceRequest struct {
-	CorpId    *string   `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// ding12345
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
 	DeviceIds []*string `json:"deviceIds,omitempty" xml:"deviceIds,omitempty" type:"Repeated"`
 }
 
@@ -192,7 +192,11 @@ func (s *BatchRegisterDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *Batch
 }
 
 type BatchRegisterDeviceRequest struct {
-	CorpId  *string                              `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// ding123
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
 	Devices []*BatchRegisterDeviceRequestDevices `json:"devices,omitempty" xml:"devices,omitempty" type:"Repeated"`
 }
 
@@ -215,16 +219,52 @@ func (s *BatchRegisterDeviceRequest) SetDevices(v []*BatchRegisterDeviceRequestD
 }
 
 type BatchRegisterDeviceRequestDevices struct {
-	DeviceId       *string                                    `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	DeviceName     *string                                    `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	DeviceStatus   *int32                                     `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
-	DeviceType     *string                                    `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 002
+	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 摄像头002
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	DeviceStatus *int32 `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Camera
+	DeviceType *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 摄像头
 	DeviceTypeName *string                                    `json:"deviceTypeName,omitempty" xml:"deviceTypeName,omitempty"`
 	ExtraData      map[string]interface{}                     `json:"extraData,omitempty" xml:"extraData,omitempty"`
 	LiveUrls       *BatchRegisterDeviceRequestDevicesLiveUrls `json:"liveUrls,omitempty" xml:"liveUrls,omitempty" type:"Struct"`
-	Location       *string                                    `json:"location,omitempty" xml:"location,omitempty"`
-	ParentId       *string                                    `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	ProductType    *string                                    `json:"productType,omitempty" xml:"productType,omitempty"`
+	// example:
+	//
+	// 社区南门
+	Location *string `json:"location,omitempty" xml:"location,omitempty"`
+	// example:
+	//
+	// 001
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// CAMERA
+	ProductType *string `json:"productType,omitempty" xml:"productType,omitempty"`
 }
 
 func (s BatchRegisterDeviceRequestDevices) String() string {
@@ -286,8 +326,17 @@ func (s *BatchRegisterDeviceRequestDevices) SetProductType(v string) *BatchRegis
 }
 
 type BatchRegisterDeviceRequestDevicesLiveUrls struct {
-	Flv  *string `json:"flv,omitempty" xml:"flv,omitempty"`
-	Hls  *string `json:"hls,omitempty" xml:"hls,omitempty"`
+	// example:
+	//
+	// https://abc.stream.flv
+	Flv *string `json:"flv,omitempty" xml:"flv,omitempty"`
+	// example:
+	//
+	// https://abc.stream.m3u8
+	Hls *string `json:"hls,omitempty" xml:"hls,omitempty"`
+	// example:
+	//
+	// rtmp://abc.stream
 	Rtmp *string `json:"rtmp,omitempty" xml:"rtmp,omitempty"`
 }
 
@@ -315,6 +364,7 @@ func (s *BatchRegisterDeviceRequestDevicesLiveUrls) SetRtmp(v string) *BatchRegi
 }
 
 type BatchRegisterDeviceResponseBody struct {
+	// This parameter is required.
 	DeviceIds []*string `json:"deviceIds,omitempty" xml:"deviceIds,omitempty" type:"Repeated"`
 }
 
@@ -384,7 +434,11 @@ func (s *BatchRegisterEventTypeHeaders) SetXAcsDingtalkAccessToken(v string) *Ba
 }
 
 type BatchRegisterEventTypeRequest struct {
-	CorpId     *string                                    `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// ding12345
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
 	EventTypes []*BatchRegisterEventTypeRequestEventTypes `json:"eventTypes,omitempty" xml:"eventTypes,omitempty" type:"Repeated"`
 }
 
@@ -407,7 +461,17 @@ func (s *BatchRegisterEventTypeRequest) SetEventTypes(v []*BatchRegisterEventTyp
 }
 
 type BatchRegisterEventTypeRequestEventTypes struct {
-	EventType     *string `json:"eventType,omitempty" xml:"eventType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// fireDetect
+	EventType *string `json:"eventType,omitempty" xml:"eventType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 火焰告警
 	EventTypeName *string `json:"eventTypeName,omitempty" xml:"eventTypeName,omitempty"`
 }
 
@@ -499,7 +563,11 @@ func (s *BatchUpdateDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *BatchUp
 }
 
 type BatchUpdateDeviceRequest struct {
-	CorpId  *string                            `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// ding123
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
 	Devices []*BatchUpdateDeviceRequestDevices `json:"devices,omitempty" xml:"devices,omitempty" type:"Repeated"`
 }
 
@@ -522,12 +590,26 @@ func (s *BatchUpdateDeviceRequest) SetDevices(v []*BatchUpdateDeviceRequestDevic
 }
 
 type BatchUpdateDeviceRequestDevices struct {
-	DeviceId     *string                                  `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	DeviceName   *string                                  `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 002
+	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// example:
+	//
+	// 摄像头002
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// example:
+	//
+	// 0
 	DeviceStatus *int32                                   `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
 	ExtraData    map[string]interface{}                   `json:"extraData,omitempty" xml:"extraData,omitempty"`
 	LiveUrls     *BatchUpdateDeviceRequestDevicesLiveUrls `json:"liveUrls,omitempty" xml:"liveUrls,omitempty" type:"Struct"`
-	Location     *string                                  `json:"location,omitempty" xml:"location,omitempty"`
+	// example:
+	//
+	// 社区南门
+	Location *string `json:"location,omitempty" xml:"location,omitempty"`
 }
 
 func (s BatchUpdateDeviceRequestDevices) String() string {
@@ -569,8 +651,17 @@ func (s *BatchUpdateDeviceRequestDevices) SetLocation(v string) *BatchUpdateDevi
 }
 
 type BatchUpdateDeviceRequestDevicesLiveUrls struct {
-	Flv  *string `json:"flv,omitempty" xml:"flv,omitempty"`
-	Hls  *string `json:"hls,omitempty" xml:"hls,omitempty"`
+	// example:
+	//
+	// https://abc.stream.flv
+	Flv *string `json:"flv,omitempty" xml:"flv,omitempty"`
+	// example:
+	//
+	// https://abc.stream.m3u8
+	Hls *string `json:"hls,omitempty" xml:"hls,omitempty"`
+	// example:
+	//
+	// rtmp://abc.stream
 	Rtmp *string `json:"rtmp,omitempty" xml:"rtmp,omitempty"`
 }
 
@@ -598,6 +689,7 @@ func (s *BatchUpdateDeviceRequestDevicesLiveUrls) SetRtmp(v string) *BatchUpdate
 }
 
 type BatchUpdateDeviceResponseBody struct {
+	// This parameter is required.
 	DeviceIds []*string `json:"deviceIds,omitempty" xml:"deviceIds,omitempty" type:"Repeated"`
 }
 
@@ -667,11 +759,29 @@ func (s *BindSystemHeaders) SetXAcsDingtalkAccessToken(v string) *BindSystemHead
 }
 
 type BindSystemRequest struct {
-	AuthCode   *string                `json:"authCode,omitempty" xml:"authCode,omitempty"`
-	ClientId   *string                `json:"clientId,omitempty" xml:"clientId,omitempty"`
-	ClientName *string                `json:"clientName,omitempty" xml:"clientName,omitempty"`
-	CorpId     *string                `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	ExtraData  map[string]interface{} `json:"extraData,omitempty" xml:"extraData,omitempty"`
+	// example:
+	//
+	// abcde12345
+	AuthCode *string `json:"authCode,omitempty" xml:"authCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// d12345
+	ClientId *string `json:"clientId,omitempty" xml:"clientId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xx社区。
+	ClientName *string `json:"clientName,omitempty" xml:"clientName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding12345
+	CorpId    *string                `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ExtraData map[string]interface{} `json:"extraData,omitempty" xml:"extraData,omitempty"`
 }
 
 func (s BindSystemRequest) String() string {
@@ -708,8 +818,18 @@ func (s *BindSystemRequest) SetExtraData(v map[string]interface{}) *BindSystemRe
 }
 
 type BindSystemResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// d12345
 	ClientId *string `json:"clientId,omitempty" xml:"clientId,omitempty"`
-	CorpId   *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding12345
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 }
 
 func (s BindSystemResponseBody) String() string {
@@ -783,10 +903,22 @@ func (s *DeviceConferenceHeaders) SetXAcsDingtalkAccessToken(v string) *DeviceCo
 }
 
 type DeviceConferenceRequest struct {
-	ConfTitle          *string   `json:"confTitle,omitempty" xml:"confTitle,omitempty"`
-	ConferenceId       *string   `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
-	ConferencePassword *string   `json:"conferencePassword,omitempty" xml:"conferencePassword,omitempty"`
-	DeviceIds          []*string `json:"deviceIds,omitempty" xml:"deviceIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 设备的应急会议
+	ConfTitle *string `json:"confTitle,omitempty" xml:"confTitle,omitempty"`
+	// example:
+	//
+	// 12345678
+	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
+	// example:
+	//
+	// 123456
+	ConferencePassword *string `json:"conferencePassword,omitempty" xml:"conferencePassword,omitempty"`
+	// This parameter is required.
+	DeviceIds []*string `json:"deviceIds,omitempty" xml:"deviceIds,omitempty" type:"Repeated"`
 }
 
 func (s DeviceConferenceRequest) String() string {
@@ -818,6 +950,9 @@ func (s *DeviceConferenceRequest) SetDeviceIds(v []*string) *DeviceConferenceReq
 }
 
 type DeviceConferenceResponseBody struct {
+	// example:
+	//
+	// 123456789
 	ConferenceId *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
 }
 
@@ -1071,16 +1206,48 @@ func (s *PushEventHeaders) SetXAcsDingtalkAccessToken(v string) *PushEventHeader
 }
 
 type PushEventRequest struct {
-	CorpId         *string                `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	DeviceId       *string                `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	EventId        *string                `json:"eventId,omitempty" xml:"eventId,omitempty"`
-	EventName      *string                `json:"eventName,omitempty" xml:"eventName,omitempty"`
-	EventType      *string                `json:"eventType,omitempty" xml:"eventType,omitempty"`
-	ExtraData      map[string]interface{} `json:"extraData,omitempty" xml:"extraData,omitempty"`
-	Location       *string                `json:"location,omitempty" xml:"location,omitempty"`
-	Msg            *string                `json:"msg,omitempty" xml:"msg,omitempty"`
-	OccurrenceTime *int64                 `json:"occurrenceTime,omitempty" xml:"occurrenceTime,omitempty"`
-	PicUrls        []*string              `json:"picUrls,omitempty" xml:"picUrls,omitempty" type:"Repeated"`
+	// example:
+	//
+	// ding123456
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 002
+	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sj123456
+	EventId *string `json:"eventId,omitempty" xml:"eventId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 火焰告警
+	EventName *string `json:"eventName,omitempty" xml:"eventName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// fireDetect
+	EventType *string                `json:"eventType,omitempty" xml:"eventType,omitempty"`
+	ExtraData map[string]interface{} `json:"extraData,omitempty" xml:"extraData,omitempty"`
+	// example:
+	//
+	// 社区南门
+	Location *string `json:"location,omitempty" xml:"location,omitempty"`
+	// example:
+	//
+	// 社区南门发生火焰告警
+	Msg *string `json:"msg,omitempty" xml:"msg,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1638250958570
+	OccurrenceTime *int64    `json:"occurrenceTime,omitempty" xml:"occurrenceTime,omitempty"`
+	PicUrls        []*string `json:"picUrls,omitempty" xml:"picUrls,omitempty" type:"Repeated"`
 }
 
 func (s PushEventRequest) String() string {
@@ -1211,9 +1378,18 @@ func (s *QueryDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryDeviceHe
 }
 
 type QueryDeviceRequest struct {
-	CorpId     *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	PageNumber *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// ding123
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s QueryDeviceRequest) String() string {
@@ -1240,10 +1416,20 @@ func (s *QueryDeviceRequest) SetPageSize(v int64) *QueryDeviceRequest {
 }
 
 type QueryDeviceResponseBody struct {
-	Data       []*QueryDeviceResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
-	PageNumber *int64                         `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int64                         `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	TotalCount *int64                         `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	Data []*QueryDeviceResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1
+	PageNumber *int64 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 40
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s QueryDeviceResponseBody) String() string {
@@ -1275,15 +1461,41 @@ func (s *QueryDeviceResponseBody) SetTotalCount(v int64) *QueryDeviceResponseBod
 }
 
 type QueryDeviceResponseBodyData struct {
-	DeviceId       *string                              `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
-	DeviceName     *string                              `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	DeviceStatus   *int64                               `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
-	DeviceType     *string                              `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	// example:
+	//
+	// XX摄像头
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// example:
+	//
+	// 0
+	DeviceStatus *int64 `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
+	// example:
+	//
+	// CAMERA
+	DeviceType *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	// example:
+	//
+	// 摄像头
 	DeviceTypeName *string                              `json:"deviceTypeName,omitempty" xml:"deviceTypeName,omitempty"`
 	LiveUrls       *QueryDeviceResponseBodyDataLiveUrls `json:"liveUrls,omitempty" xml:"liveUrls,omitempty" type:"Struct"`
-	Location       *string                              `json:"location,omitempty" xml:"location,omitempty"`
-	ParentId       *string                              `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	ProductType    *string                              `json:"productType,omitempty" xml:"productType,omitempty"`
+	// example:
+	//
+	// XX地址
+	Location *string `json:"location,omitempty" xml:"location,omitempty"`
+	// example:
+	//
+	// 123
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// CAMERA
+	ProductType *string `json:"productType,omitempty" xml:"productType,omitempty"`
 }
 
 func (s QueryDeviceResponseBodyData) String() string {
@@ -1340,8 +1552,17 @@ func (s *QueryDeviceResponseBodyData) SetProductType(v string) *QueryDeviceRespo
 }
 
 type QueryDeviceResponseBodyDataLiveUrls struct {
-	Flv  *string `json:"flv,omitempty" xml:"flv,omitempty"`
-	Hls  *string `json:"hls,omitempty" xml:"hls,omitempty"`
+	// example:
+	//
+	// https://abc.stream.flv
+	Flv *string `json:"flv,omitempty" xml:"flv,omitempty"`
+	// example:
+	//
+	// https://abc.stream.m3u8
+	Hls *string `json:"hls,omitempty" xml:"hls,omitempty"`
+	// example:
+	//
+	// rtmp://abc.stream
 	Rtmp *string `json:"rtmp,omitempty" xml:"rtmp,omitempty"`
 }
 
@@ -1712,17 +1933,59 @@ func (s *RegisterDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *RegisterDe
 }
 
 type RegisterDeviceRequest struct {
-	CorpId         *string                        `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	DeviceName     *string                        `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	DeviceStatus   *int32                         `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
-	DeviceType     *string                        `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
-	DeviceTypeName *string                        `json:"deviceTypeName,omitempty" xml:"deviceTypeName,omitempty"`
-	Id             *string                        `json:"id,omitempty" xml:"id,omitempty"`
-	LiveUrls       *RegisterDeviceRequestLiveUrls `json:"liveUrls,omitempty" xml:"liveUrls,omitempty" type:"Struct"`
-	Location       *string                        `json:"location,omitempty" xml:"location,omitempty"`
-	NickName       *string                        `json:"nickName,omitempty" xml:"nickName,omitempty"`
-	ParentId       *string                        `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	ProductType    *string                        `json:"productType,omitempty" xml:"productType,omitempty"`
+	// example:
+	//
+	// ding123
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 摄像头1
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	DeviceStatus *int32 `json:"deviceStatus,omitempty" xml:"deviceStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Camera
+	DeviceType *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 摄像头
+	DeviceTypeName *string `json:"deviceTypeName,omitempty" xml:"deviceTypeName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 002
+	Id       *string                        `json:"id,omitempty" xml:"id,omitempty"`
+	LiveUrls *RegisterDeviceRequestLiveUrls `json:"liveUrls,omitempty" xml:"liveUrls,omitempty" type:"Struct"`
+	// example:
+	//
+	// 东南门
+	Location *string `json:"location,omitempty" xml:"location,omitempty"`
+	// example:
+	//
+	// 摄像头1
+	NickName *string `json:"nickName,omitempty" xml:"nickName,omitempty"`
+	// example:
+	//
+	// 001
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// CAMERA
+	ProductType *string `json:"productType,omitempty" xml:"productType,omitempty"`
 }
 
 func (s RegisterDeviceRequest) String() string {
@@ -1789,8 +2052,17 @@ func (s *RegisterDeviceRequest) SetProductType(v string) *RegisterDeviceRequest 
 }
 
 type RegisterDeviceRequestLiveUrls struct {
-	Flv  *string `json:"flv,omitempty" xml:"flv,omitempty"`
-	Hls  *string `json:"hls,omitempty" xml:"hls,omitempty"`
+	// example:
+	//
+	// https://abc.stream.flv
+	Flv *string `json:"flv,omitempty" xml:"flv,omitempty"`
+	// example:
+	//
+	// https://abc.stream.m3u8
+	Hls *string `json:"hls,omitempty" xml:"hls,omitempty"`
+	// example:
+	//
+	// rtmp://abc.stream
 	Rtmp *string `json:"rtmp,omitempty" xml:"rtmp,omitempty"`
 }
 
@@ -1818,6 +2090,11 @@ func (s *RegisterDeviceRequestLiveUrls) SetRtmp(v string) *RegisterDeviceRequest
 }
 
 type RegisterDeviceResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
 	DeviceId *string `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
 }
 
@@ -1970,12 +2247,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
@@ -1985,6 +2262,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// openAPI录入上线前的测试2
+//
+// @param request - AyunOnlienTestRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AyunOnlienTestResponse
 func (client *Client) AyunOnlienTestWithOptions(request *AyunOnlienTestRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *AyunOnlienTestResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2019,6 +2307,13 @@ func (client *Client) AyunOnlienTestWithOptions(request *AyunOnlienTestRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// openAPI录入上线前的测试2
+//
+// @param request - AyunOnlienTestRequest
+//
+// @return AyunOnlienTestResponse
 func (client *Client) AyunOnlienTest(request *AyunOnlienTestRequest) (_result *AyunOnlienTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -2031,6 +2326,17 @@ func (client *Client) AyunOnlienTest(request *AyunOnlienTestRequest) (_result *A
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除设备
+//
+// @param request - BatchDeleteDeviceRequest
+//
+// @param headers - BatchDeleteDeviceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchDeleteDeviceResponse
 func (client *Client) BatchDeleteDeviceWithOptions(request *BatchDeleteDeviceRequest, headers *BatchDeleteDeviceHeaders, runtime *util.RuntimeOptions) (_result *BatchDeleteDeviceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2078,6 +2384,13 @@ func (client *Client) BatchDeleteDeviceWithOptions(request *BatchDeleteDeviceReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除设备
+//
+// @param request - BatchDeleteDeviceRequest
+//
+// @return BatchDeleteDeviceResponse
 func (client *Client) BatchDeleteDevice(request *BatchDeleteDeviceRequest) (_result *BatchDeleteDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchDeleteDeviceHeaders{}
@@ -2090,6 +2403,17 @@ func (client *Client) BatchDeleteDevice(request *BatchDeleteDeviceRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量注册设备
+//
+// @param request - BatchRegisterDeviceRequest
+//
+// @param headers - BatchRegisterDeviceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchRegisterDeviceResponse
 func (client *Client) BatchRegisterDeviceWithOptions(request *BatchRegisterDeviceRequest, headers *BatchRegisterDeviceHeaders, runtime *util.RuntimeOptions) (_result *BatchRegisterDeviceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2137,6 +2461,13 @@ func (client *Client) BatchRegisterDeviceWithOptions(request *BatchRegisterDevic
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量注册设备
+//
+// @param request - BatchRegisterDeviceRequest
+//
+// @return BatchRegisterDeviceResponse
 func (client *Client) BatchRegisterDevice(request *BatchRegisterDeviceRequest) (_result *BatchRegisterDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchRegisterDeviceHeaders{}
@@ -2149,6 +2480,17 @@ func (client *Client) BatchRegisterDevice(request *BatchRegisterDeviceRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量注册事件类型
+//
+// @param request - BatchRegisterEventTypeRequest
+//
+// @param headers - BatchRegisterEventTypeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchRegisterEventTypeResponse
 func (client *Client) BatchRegisterEventTypeWithOptions(request *BatchRegisterEventTypeRequest, headers *BatchRegisterEventTypeHeaders, runtime *util.RuntimeOptions) (_result *BatchRegisterEventTypeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2196,6 +2538,13 @@ func (client *Client) BatchRegisterEventTypeWithOptions(request *BatchRegisterEv
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量注册事件类型
+//
+// @param request - BatchRegisterEventTypeRequest
+//
+// @return BatchRegisterEventTypeResponse
 func (client *Client) BatchRegisterEventType(request *BatchRegisterEventTypeRequest) (_result *BatchRegisterEventTypeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchRegisterEventTypeHeaders{}
@@ -2208,6 +2557,17 @@ func (client *Client) BatchRegisterEventType(request *BatchRegisterEventTypeRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量修改设备
+//
+// @param request - BatchUpdateDeviceRequest
+//
+// @param headers - BatchUpdateDeviceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchUpdateDeviceResponse
 func (client *Client) BatchUpdateDeviceWithOptions(request *BatchUpdateDeviceRequest, headers *BatchUpdateDeviceHeaders, runtime *util.RuntimeOptions) (_result *BatchUpdateDeviceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2255,6 +2615,13 @@ func (client *Client) BatchUpdateDeviceWithOptions(request *BatchUpdateDeviceReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量修改设备
+//
+// @param request - BatchUpdateDeviceRequest
+//
+// @return BatchUpdateDeviceResponse
 func (client *Client) BatchUpdateDevice(request *BatchUpdateDeviceRequest) (_result *BatchUpdateDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchUpdateDeviceHeaders{}
@@ -2267,6 +2634,17 @@ func (client *Client) BatchUpdateDevice(request *BatchUpdateDeviceRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 系统绑定
+//
+// @param request - BindSystemRequest
+//
+// @param headers - BindSystemHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BindSystemResponse
 func (client *Client) BindSystemWithOptions(request *BindSystemRequest, headers *BindSystemHeaders, runtime *util.RuntimeOptions) (_result *BindSystemResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2326,6 +2704,13 @@ func (client *Client) BindSystemWithOptions(request *BindSystemRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 系统绑定
+//
+// @param request - BindSystemRequest
+//
+// @return BindSystemResponse
 func (client *Client) BindSystem(request *BindSystemRequest) (_result *BindSystemResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BindSystemHeaders{}
@@ -2338,6 +2723,17 @@ func (client *Client) BindSystem(request *BindSystemRequest) (_result *BindSyste
 	return _result, _err
 }
 
+// Summary:
+//
+// 发起设备会议
+//
+// @param request - DeviceConferenceRequest
+//
+// @param headers - DeviceConferenceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeviceConferenceResponse
 func (client *Client) DeviceConferenceWithOptions(request *DeviceConferenceRequest, headers *DeviceConferenceHeaders, runtime *util.RuntimeOptions) (_result *DeviceConferenceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2393,6 +2789,13 @@ func (client *Client) DeviceConferenceWithOptions(request *DeviceConferenceReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 发起设备会议
+//
+// @param request - DeviceConferenceRequest
+//
+// @return DeviceConferenceResponse
 func (client *Client) DeviceConference(request *DeviceConferenceRequest) (_result *DeviceConferenceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeviceConferenceHeaders{}
@@ -2405,6 +2808,15 @@ func (client *Client) DeviceConference(request *DeviceConferenceRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 钉钉物联Mama接口
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DiotMamaResponse
 func (client *Client) DiotMamaWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *DiotMamaResponse, _err error) {
 	req := &openapi.OpenApiRequest{
 		Headers: headers,
@@ -2429,6 +2841,11 @@ func (client *Client) DiotMamaWithOptions(headers map[string]*string, runtime *u
 	return _result, _err
 }
 
+// Summary:
+//
+// 钉钉物联Mama接口
+//
+// @return DiotMamaResponse
 func (client *Client) DiotMama() (_result *DiotMamaResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -2441,6 +2858,15 @@ func (client *Client) DiotMama() (_result *DiotMamaResponse, _err error) {
 	return _result, _err
 }
 
+// Summary:
+//
+// diot官方市场处理
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DiotMarketManagerTestResponse
 func (client *Client) DiotMarketManagerTestWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *DiotMarketManagerTestResponse, _err error) {
 	req := &openapi.OpenApiRequest{
 		Headers: headers,
@@ -2465,6 +2891,11 @@ func (client *Client) DiotMarketManagerTestWithOptions(headers map[string]*strin
 	return _result, _err
 }
 
+// Summary:
+//
+// diot官方市场处理
+//
+// @return DiotMarketManagerTestResponse
 func (client *Client) DiotMarketManagerTest() (_result *DiotMarketManagerTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -2477,6 +2908,15 @@ func (client *Client) DiotMarketManagerTest() (_result *DiotMarketManagerTestRes
 	return _result, _err
 }
 
+// Summary:
+//
+// 钉钉物联系统测试
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DiotSystemMarkTestResponse
 func (client *Client) DiotSystemMarkTestWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *DiotSystemMarkTestResponse, _err error) {
 	req := &openapi.OpenApiRequest{
 		Headers: headers,
@@ -2501,6 +2941,11 @@ func (client *Client) DiotSystemMarkTestWithOptions(headers map[string]*string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 钉钉物联系统测试
+//
+// @return DiotSystemMarkTestResponse
 func (client *Client) DiotSystemMarkTest() (_result *DiotSystemMarkTestResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -2513,6 +2958,15 @@ func (client *Client) DiotSystemMarkTest() (_result *DiotSystemMarkTestResponse,
 	return _result, _err
 }
 
+// Summary:
+//
+// 钉钉物联市场管理
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DiotMarketManagerResponse
 func (client *Client) Diot_Market_ManagerWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *DiotMarketManagerResponse, _err error) {
 	req := &openapi.OpenApiRequest{
 		Headers: headers,
@@ -2537,6 +2991,11 @@ func (client *Client) Diot_Market_ManagerWithOptions(headers map[string]*string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 钉钉物联市场管理
+//
+// @return DiotMarketManagerResponse
 func (client *Client) Diot_Market_Manager() (_result *DiotMarketManagerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -2549,6 +3008,17 @@ func (client *Client) Diot_Market_Manager() (_result *DiotMarketManagerResponse,
 	return _result, _err
 }
 
+// Summary:
+//
+// 推送事件
+//
+// @param request - PushEventRequest
+//
+// @param headers - PushEventHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PushEventResponse
 func (client *Client) PushEventWithOptions(request *PushEventRequest, headers *PushEventHeaders, runtime *util.RuntimeOptions) (_result *PushEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2628,6 +3098,13 @@ func (client *Client) PushEventWithOptions(request *PushEventRequest, headers *P
 	return _result, _err
 }
 
+// Summary:
+//
+// 推送事件
+//
+// @param request - PushEventRequest
+//
+// @return PushEventResponse
 func (client *Client) PushEvent(request *PushEventRequest) (_result *PushEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PushEventHeaders{}
@@ -2640,6 +3117,17 @@ func (client *Client) PushEvent(request *PushEventRequest) (_result *PushEventRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询设备
+//
+// @param request - QueryDeviceRequest
+//
+// @param headers - QueryDeviceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDeviceResponse
 func (client *Client) QueryDeviceWithOptions(request *QueryDeviceRequest, headers *QueryDeviceHeaders, runtime *util.RuntimeOptions) (_result *QueryDeviceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2691,6 +3179,13 @@ func (client *Client) QueryDeviceWithOptions(request *QueryDeviceRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询设备
+//
+// @param request - QueryDeviceRequest
+//
+// @return QueryDeviceResponse
 func (client *Client) QueryDevice(request *QueryDeviceRequest) (_result *QueryDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryDeviceHeaders{}
@@ -2703,6 +3198,17 @@ func (client *Client) QueryDevice(request *QueryDeviceRequest) (_result *QueryDe
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询硬件设备的PK值信息
+//
+// @param request - QueryDevicePkRequest
+//
+// @param headers - QueryDevicePkHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDevicePkResponse
 func (client *Client) QueryDevicePkWithOptions(request *QueryDevicePkRequest, headers *QueryDevicePkHeaders, runtime *util.RuntimeOptions) (_result *QueryDevicePkResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2746,6 +3252,13 @@ func (client *Client) QueryDevicePkWithOptions(request *QueryDevicePkRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询硬件设备的PK值信息
+//
+// @param request - QueryDevicePkRequest
+//
+// @return QueryDevicePkResponse
 func (client *Client) QueryDevicePk(request *QueryDevicePkRequest) (_result *QueryDevicePkResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryDevicePkHeaders{}
@@ -2758,6 +3271,17 @@ func (client *Client) QueryDevicePk(request *QueryDevicePkRequest) (_result *Que
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询事件
+//
+// @param request - QueryEventRequest
+//
+// @param headers - QueryEventHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryEventResponse
 func (client *Client) QueryEventWithOptions(request *QueryEventRequest, headers *QueryEventHeaders, runtime *util.RuntimeOptions) (_result *QueryEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2833,6 +3357,13 @@ func (client *Client) QueryEventWithOptions(request *QueryEventRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询事件
+//
+// @param request - QueryEventRequest
+//
+// @return QueryEventResponse
 func (client *Client) QueryEvent(request *QueryEventRequest) (_result *QueryEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryEventHeaders{}
@@ -2845,6 +3376,17 @@ func (client *Client) QueryEvent(request *QueryEventRequest) (_result *QueryEven
 	return _result, _err
 }
 
+// Summary:
+//
+// 注册设备
+//
+// @param request - RegisterDeviceRequest
+//
+// @param headers - RegisterDeviceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RegisterDeviceResponse
 func (client *Client) RegisterDeviceWithOptions(request *RegisterDeviceRequest, headers *RegisterDeviceHeaders, runtime *util.RuntimeOptions) (_result *RegisterDeviceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2928,6 +3470,13 @@ func (client *Client) RegisterDeviceWithOptions(request *RegisterDeviceRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 注册设备
+//
+// @param request - RegisterDeviceRequest
+//
+// @return RegisterDeviceResponse
 func (client *Client) RegisterDevice(request *RegisterDeviceRequest) (_result *RegisterDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RegisterDeviceHeaders{}
@@ -2940,6 +3489,15 @@ func (client *Client) RegisterDevice(request *RegisterDeviceRequest) (_result *R
 	return _result, _err
 }
 
+// Summary:
+//
+// 升级设备
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpgradeDeviceResponse
 func (client *Client) UpgradeDeviceWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *UpgradeDeviceResponse, _err error) {
 	req := &openapi.OpenApiRequest{
 		Headers: headers,
@@ -2964,6 +3522,11 @@ func (client *Client) UpgradeDeviceWithOptions(headers map[string]*string, runti
 	return _result, _err
 }
 
+// Summary:
+//
+// 升级设备
+//
+// @return UpgradeDeviceResponse
 func (client *Client) UpgradeDevice() (_result *UpgradeDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -2976,6 +3539,15 @@ func (client *Client) UpgradeDevice() (_result *UpgradeDeviceResponse, _err erro
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工作台流转物联信息
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return WorkbenchTransformInfoResponse
 func (client *Client) WorkbenchTransformInfoWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *WorkbenchTransformInfoResponse, _err error) {
 	req := &openapi.OpenApiRequest{
 		Headers: headers,
@@ -3000,6 +3572,11 @@ func (client *Client) WorkbenchTransformInfoWithOptions(headers map[string]*stri
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取工作台流转物联信息
+//
+// @return WorkbenchTransformInfoResponse
 func (client *Client) WorkbenchTransformInfo() (_result *WorkbenchTransformInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)

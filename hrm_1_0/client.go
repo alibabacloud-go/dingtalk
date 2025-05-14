@@ -1,17 +1,514 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package hrm_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
+
+type ResultValue struct {
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s ResultValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResultValue) GoString() string {
+	return s.String()
+}
+
+func (s *ResultValue) SetStatus(v string) *ResultValue {
+	s.Status = &v
+	return s
+}
+
+type AddHrmLegalEntityHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddHrmLegalEntityHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddHrmLegalEntityHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddHrmLegalEntityHeaders) SetCommonHeaders(v map[string]*string) *AddHrmLegalEntityHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddHrmLegalEntityHeaders) SetXAcsDingtalkAccessToken(v string) *AddHrmLegalEntityHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddHrmLegalEntityRequest struct {
+	// This parameter is required.
+	CorpId       *string                      `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CreateUserId *string                      `json:"createUserId,omitempty" xml:"createUserId,omitempty"`
+	Ext          *AddHrmLegalEntityRequestExt `json:"ext,omitempty" xml:"ext,omitempty" type:"Struct"`
+	// This parameter is required.
+	LegalEntityName      *string `json:"legalEntityName,omitempty" xml:"legalEntityName,omitempty"`
+	LegalEntityShortName *string `json:"legalEntityShortName,omitempty" xml:"legalEntityShortName,omitempty"`
+	// This parameter is required.
+	LegalEntityStatus *int32  `json:"legalEntityStatus,omitempty" xml:"legalEntityStatus,omitempty"`
+	LegalPersonName   *string `json:"legalPersonName,omitempty" xml:"legalPersonName,omitempty"`
+	DingTenantId      *int64  `json:"dingTenantId,omitempty" xml:"dingTenantId,omitempty"`
+}
+
+func (s AddHrmLegalEntityRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddHrmLegalEntityRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddHrmLegalEntityRequest) SetCorpId(v string) *AddHrmLegalEntityRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequest) SetCreateUserId(v string) *AddHrmLegalEntityRequest {
+	s.CreateUserId = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequest) SetExt(v *AddHrmLegalEntityRequestExt) *AddHrmLegalEntityRequest {
+	s.Ext = v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequest) SetLegalEntityName(v string) *AddHrmLegalEntityRequest {
+	s.LegalEntityName = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequest) SetLegalEntityShortName(v string) *AddHrmLegalEntityRequest {
+	s.LegalEntityShortName = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequest) SetLegalEntityStatus(v int32) *AddHrmLegalEntityRequest {
+	s.LegalEntityStatus = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequest) SetLegalPersonName(v string) *AddHrmLegalEntityRequest {
+	s.LegalPersonName = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequest) SetDingTenantId(v int64) *AddHrmLegalEntityRequest {
+	s.DingTenantId = &v
+	return s
+}
+
+type AddHrmLegalEntityRequestExt struct {
+	LegalEntityEnName       *string                                         `json:"legalEntityEnName,omitempty" xml:"legalEntityEnName,omitempty"`
+	LegalEntityEnShortName  *string                                         `json:"legalEntityEnShortName,omitempty" xml:"legalEntityEnShortName,omitempty"`
+	LegalEntityType         *string                                         `json:"legalEntityType,omitempty" xml:"legalEntityType,omitempty"`
+	ManageAddress           *AddHrmLegalEntityRequestExtManageAddress       `json:"manageAddress,omitempty" xml:"manageAddress,omitempty" type:"Struct"`
+	RegistrationAddress     *AddHrmLegalEntityRequestExtRegistrationAddress `json:"registrationAddress,omitempty" xml:"registrationAddress,omitempty" type:"Struct"`
+	RegistrationDate        *int64                                          `json:"registrationDate,omitempty" xml:"registrationDate,omitempty"`
+	UnifiedSocialCreditCode *string                                         `json:"unifiedSocialCreditCode,omitempty" xml:"unifiedSocialCreditCode,omitempty"`
+	// example:
+	//
+	// 515200
+	ZipCode *string `json:"zipCode,omitempty" xml:"zipCode,omitempty"`
+}
+
+func (s AddHrmLegalEntityRequestExt) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddHrmLegalEntityRequestExt) GoString() string {
+	return s.String()
+}
+
+func (s *AddHrmLegalEntityRequestExt) SetLegalEntityEnName(v string) *AddHrmLegalEntityRequestExt {
+	s.LegalEntityEnName = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExt) SetLegalEntityEnShortName(v string) *AddHrmLegalEntityRequestExt {
+	s.LegalEntityEnShortName = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExt) SetLegalEntityType(v string) *AddHrmLegalEntityRequestExt {
+	s.LegalEntityType = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExt) SetManageAddress(v *AddHrmLegalEntityRequestExtManageAddress) *AddHrmLegalEntityRequestExt {
+	s.ManageAddress = v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExt) SetRegistrationAddress(v *AddHrmLegalEntityRequestExtRegistrationAddress) *AddHrmLegalEntityRequestExt {
+	s.RegistrationAddress = v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExt) SetRegistrationDate(v int64) *AddHrmLegalEntityRequestExt {
+	s.RegistrationDate = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExt) SetUnifiedSocialCreditCode(v string) *AddHrmLegalEntityRequestExt {
+	s.UnifiedSocialCreditCode = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExt) SetZipCode(v string) *AddHrmLegalEntityRequestExt {
+	s.ZipCode = &v
+	return s
+}
+
+type AddHrmLegalEntityRequestExtManageAddress struct {
+	// example:
+	//
+	// 110101
+	AreaCode *string `json:"areaCode,omitempty" xml:"areaCode,omitempty"`
+	// example:
+	//
+	// 东城区
+	AreaName *string `json:"areaName,omitempty" xml:"areaName,omitempty"`
+	// example:
+	//
+	// 123
+	CityCode *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// example:
+	//
+	// 广州市
+	CityName *string `json:"cityName,omitempty" xml:"cityName,omitempty"`
+	// example:
+	//
+	// 123
+	CountryCode *string `json:"countryCode,omitempty" xml:"countryCode,omitempty"`
+	// example:
+	//
+	// China
+	CountryName *string `json:"countryName,omitempty" xml:"countryName,omitempty"`
+	// example:
+	//
+	// 北京市东城区xx街道xx小区xx楼
+	DetailAddress *string `json:"detailAddress,omitempty" xml:"detailAddress,omitempty"`
+	// example:
+	//
+	// 1
+	GlobalAreaType *string `json:"globalAreaType,omitempty" xml:"globalAreaType,omitempty"`
+	// example:
+	//
+	// 123
+	ProvinceCode *string `json:"provinceCode,omitempty" xml:"provinceCode,omitempty"`
+	// example:
+	//
+	// 广东省
+	ProvinceName *string `json:"provinceName,omitempty" xml:"provinceName,omitempty"`
+}
+
+func (s AddHrmLegalEntityRequestExtManageAddress) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddHrmLegalEntityRequestExtManageAddress) GoString() string {
+	return s.String()
+}
+
+func (s *AddHrmLegalEntityRequestExtManageAddress) SetAreaCode(v string) *AddHrmLegalEntityRequestExtManageAddress {
+	s.AreaCode = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtManageAddress) SetAreaName(v string) *AddHrmLegalEntityRequestExtManageAddress {
+	s.AreaName = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtManageAddress) SetCityCode(v string) *AddHrmLegalEntityRequestExtManageAddress {
+	s.CityCode = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtManageAddress) SetCityName(v string) *AddHrmLegalEntityRequestExtManageAddress {
+	s.CityName = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtManageAddress) SetCountryCode(v string) *AddHrmLegalEntityRequestExtManageAddress {
+	s.CountryCode = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtManageAddress) SetCountryName(v string) *AddHrmLegalEntityRequestExtManageAddress {
+	s.CountryName = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtManageAddress) SetDetailAddress(v string) *AddHrmLegalEntityRequestExtManageAddress {
+	s.DetailAddress = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtManageAddress) SetGlobalAreaType(v string) *AddHrmLegalEntityRequestExtManageAddress {
+	s.GlobalAreaType = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtManageAddress) SetProvinceCode(v string) *AddHrmLegalEntityRequestExtManageAddress {
+	s.ProvinceCode = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtManageAddress) SetProvinceName(v string) *AddHrmLegalEntityRequestExtManageAddress {
+	s.ProvinceName = &v
+	return s
+}
+
+type AddHrmLegalEntityRequestExtRegistrationAddress struct {
+	// example:
+	//
+	// 110101
+	AreaCode *string `json:"areaCode,omitempty" xml:"areaCode,omitempty"`
+	// example:
+	//
+	// 东城区
+	AreaName *string `json:"areaName,omitempty" xml:"areaName,omitempty"`
+	// example:
+	//
+	// 123
+	CityCode *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// example:
+	//
+	// 广州市
+	CityName *string `json:"cityName,omitempty" xml:"cityName,omitempty"`
+	// example:
+	//
+	// 123
+	CountryCode *string `json:"countryCode,omitempty" xml:"countryCode,omitempty"`
+	// example:
+	//
+	// China
+	CountryName *string `json:"countryName,omitempty" xml:"countryName,omitempty"`
+	// example:
+	//
+	// 北京市东城区xx街道xx小区xx楼
+	DetailAddress *string `json:"detailAddress,omitempty" xml:"detailAddress,omitempty"`
+	// example:
+	//
+	// 1
+	GlobalAreaType *string `json:"globalAreaType,omitempty" xml:"globalAreaType,omitempty"`
+	// example:
+	//
+	// 123
+	ProvinceCode *string `json:"provinceCode,omitempty" xml:"provinceCode,omitempty"`
+	// example:
+	//
+	// 广东省
+	ProvinceName *string `json:"provinceName,omitempty" xml:"provinceName,omitempty"`
+}
+
+func (s AddHrmLegalEntityRequestExtRegistrationAddress) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddHrmLegalEntityRequestExtRegistrationAddress) GoString() string {
+	return s.String()
+}
+
+func (s *AddHrmLegalEntityRequestExtRegistrationAddress) SetAreaCode(v string) *AddHrmLegalEntityRequestExtRegistrationAddress {
+	s.AreaCode = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtRegistrationAddress) SetAreaName(v string) *AddHrmLegalEntityRequestExtRegistrationAddress {
+	s.AreaName = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtRegistrationAddress) SetCityCode(v string) *AddHrmLegalEntityRequestExtRegistrationAddress {
+	s.CityCode = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtRegistrationAddress) SetCityName(v string) *AddHrmLegalEntityRequestExtRegistrationAddress {
+	s.CityName = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtRegistrationAddress) SetCountryCode(v string) *AddHrmLegalEntityRequestExtRegistrationAddress {
+	s.CountryCode = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtRegistrationAddress) SetCountryName(v string) *AddHrmLegalEntityRequestExtRegistrationAddress {
+	s.CountryName = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtRegistrationAddress) SetDetailAddress(v string) *AddHrmLegalEntityRequestExtRegistrationAddress {
+	s.DetailAddress = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtRegistrationAddress) SetGlobalAreaType(v string) *AddHrmLegalEntityRequestExtRegistrationAddress {
+	s.GlobalAreaType = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtRegistrationAddress) SetProvinceCode(v string) *AddHrmLegalEntityRequestExtRegistrationAddress {
+	s.ProvinceCode = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityRequestExtRegistrationAddress) SetProvinceName(v string) *AddHrmLegalEntityRequestExtRegistrationAddress {
+	s.ProvinceName = &v
+	return s
+}
+
+type AddHrmLegalEntityResponseBody struct {
+	Result  *AddHrmLegalEntityResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AddHrmLegalEntityResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddHrmLegalEntityResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddHrmLegalEntityResponseBody) SetResult(v *AddHrmLegalEntityResponseBodyResult) *AddHrmLegalEntityResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *AddHrmLegalEntityResponseBody) SetSuccess(v bool) *AddHrmLegalEntityResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AddHrmLegalEntityResponseBodyResult struct {
+	// example:
+	//
+	// ding123
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 2023-01-01
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 2023-01-01
+	GmtModified *int64 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// example:
+	//
+	// 1234567
+	LegalEntityId *string `json:"legalEntityId,omitempty" xml:"legalEntityId,omitempty"`
+	// example:
+	//
+	// 公司1
+	LegalEntityName *string `json:"legalEntityName,omitempty" xml:"legalEntityName,omitempty"`
+	// example:
+	//
+	// 公1
+	LegalEntityShortName *string `json:"legalEntityShortName,omitempty" xml:"legalEntityShortName,omitempty"`
+	// example:
+	//
+	// 1
+	LegalEntityStatus *int32 `json:"legalEntityStatus,omitempty" xml:"legalEntityStatus,omitempty"`
+	// example:
+	//
+	// 法人
+	LegalPersonName *string `json:"legalPersonName,omitempty" xml:"legalPersonName,omitempty"`
+}
+
+func (s AddHrmLegalEntityResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddHrmLegalEntityResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AddHrmLegalEntityResponseBodyResult) SetCorpId(v string) *AddHrmLegalEntityResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityResponseBodyResult) SetGmtCreate(v int64) *AddHrmLegalEntityResponseBodyResult {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityResponseBodyResult) SetGmtModified(v int64) *AddHrmLegalEntityResponseBodyResult {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityResponseBodyResult) SetLegalEntityId(v string) *AddHrmLegalEntityResponseBodyResult {
+	s.LegalEntityId = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityResponseBodyResult) SetLegalEntityName(v string) *AddHrmLegalEntityResponseBodyResult {
+	s.LegalEntityName = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityResponseBodyResult) SetLegalEntityShortName(v string) *AddHrmLegalEntityResponseBodyResult {
+	s.LegalEntityShortName = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityResponseBodyResult) SetLegalEntityStatus(v int32) *AddHrmLegalEntityResponseBodyResult {
+	s.LegalEntityStatus = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityResponseBodyResult) SetLegalPersonName(v string) *AddHrmLegalEntityResponseBodyResult {
+	s.LegalPersonName = &v
+	return s
+}
+
+type AddHrmLegalEntityResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddHrmLegalEntityResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AddHrmLegalEntityResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddHrmLegalEntityResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddHrmLegalEntityResponse) SetHeaders(v map[string]*string) *AddHrmLegalEntityResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddHrmLegalEntityResponse) SetStatusCode(v int32) *AddHrmLegalEntityResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddHrmLegalEntityResponse) SetBody(v *AddHrmLegalEntityResponseBody) *AddHrmLegalEntityResponse {
+	s.Body = v
+	return s
+}
 
 type AddHrmPreentryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
@@ -37,12 +534,14 @@ func (s *AddHrmPreentryHeaders) SetXAcsDingtalkAccessToken(v string) *AddHrmPree
 }
 
 type AddHrmPreentryRequest struct {
-	AgentId             *int64                         `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	Groups              []*AddHrmPreentryRequestGroups `json:"groups,omitempty" xml:"groups,omitempty" type:"Repeated"`
-	Mobile              *string                        `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	Name                *string                        `json:"name,omitempty" xml:"name,omitempty"`
-	NeedSendPreEntryMsg *bool                          `json:"needSendPreEntryMsg,omitempty" xml:"needSendPreEntryMsg,omitempty"`
-	PreEntryTime        *int64                         `json:"preEntryTime,omitempty" xml:"preEntryTime,omitempty"`
+	AgentId *int64                         `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	Groups  []*AddHrmPreentryRequestGroups `json:"groups,omitempty" xml:"groups,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Mobile *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	// This parameter is required.
+	Name                *string `json:"name,omitempty" xml:"name,omitempty"`
+	NeedSendPreEntryMsg *bool   `json:"needSendPreEntryMsg,omitempty" xml:"needSendPreEntryMsg,omitempty"`
+	PreEntryTime        *int64  `json:"preEntryTime,omitempty" xml:"preEntryTime,omitempty"`
 }
 
 func (s AddHrmPreentryRequest) String() string {
@@ -84,6 +583,9 @@ func (s *AddHrmPreentryRequest) SetPreEntryTime(v int64) *AddHrmPreentryRequest 
 }
 
 type AddHrmPreentryRequestGroups struct {
+	// example:
+	//
+	// sys01
 	GroupId  *string                                `json:"groupId,omitempty" xml:"groupId,omitempty"`
 	Sections []*AddHrmPreentryRequestGroupsSections `json:"sections,omitempty" xml:"sections,omitempty" type:"Repeated"`
 }
@@ -108,7 +610,10 @@ func (s *AddHrmPreentryRequestGroups) SetSections(v []*AddHrmPreentryRequestGrou
 
 type AddHrmPreentryRequestGroupsSections struct {
 	EmpFieldVOList []*AddHrmPreentryRequestGroupsSectionsEmpFieldVOList `json:"empFieldVOList,omitempty" xml:"empFieldVOList,omitempty" type:"Repeated"`
-	OldIndex       *int32                                               `json:"oldIndex,omitempty" xml:"oldIndex,omitempty"`
+	// example:
+	//
+	// 0
+	OldIndex *int32 `json:"oldIndex,omitempty" xml:"oldIndex,omitempty"`
 }
 
 func (s AddHrmPreentryRequestGroupsSections) String() string {
@@ -130,8 +635,14 @@ func (s *AddHrmPreentryRequestGroupsSections) SetOldIndex(v int32) *AddHrmPreent
 }
 
 type AddHrmPreentryRequestGroupsSectionsEmpFieldVOList struct {
+	// example:
+	//
+	// sys01-birthTime
 	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
-	Value     *string `json:"value,omitempty" xml:"value,omitempty"`
+	// example:
+	//
+	// 2020-10-10
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
 func (s AddHrmPreentryRequestGroupsSectionsEmpFieldVOList) String() string {
@@ -153,6 +664,9 @@ func (s *AddHrmPreentryRequestGroupsSectionsEmpFieldVOList) SetValue(v string) *
 }
 
 type AddHrmPreentryResponseBody struct {
+	// example:
+	//
+	// manager123
 	TmpUserId *string `json:"tmpUserId,omitempty" xml:"tmpUserId,omitempty"`
 }
 
@@ -194,6 +708,482 @@ func (s *AddHrmPreentryResponse) SetStatusCode(v int32) *AddHrmPreentryResponse 
 }
 
 func (s *AddHrmPreentryResponse) SetBody(v *AddHrmPreentryResponseBody) *AddHrmPreentryResponse {
+	s.Body = v
+	return s
+}
+
+type CreateRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRecordHeaders) SetCommonHeaders(v map[string]*string) *CreateRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateRecordHeaders) SetXAcsDingtalkAccessToken(v string) *CreateRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateRecordRequest struct {
+	AttachmentList []*CreateRecordRequestAttachmentList `json:"attachmentList,omitempty" xml:"attachmentList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 908608088
+	DeptId    *int64                          `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	FieldList []*CreateRecordRequestFieldList `json:"fieldList,omitempty" xml:"fieldList,omitempty" type:"Repeated"`
+	GroupList []*CreateRecordRequestGroupList `json:"groupList,omitempty" xml:"groupList,omitempty" type:"Repeated"`
+	OuterId   *string                         `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	// example:
+	//
+	// xxx员工劳动合同电子签署
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// xxx有限公司
+	SignLastLegalEntityName *string `json:"signLastLegalEntityName,omitempty" xml:"signLastLegalEntityName,omitempty"`
+	// example:
+	//
+	// xxx有限公司
+	SignLegalEntityName *string `json:"signLegalEntityName,omitempty" xml:"signLegalEntityName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// CONTRACT
+	SignSource *string `json:"signSource,omitempty" xml:"signSource,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 48510731071405348944
+	SignStartUserId *string `json:"signStartUserId,omitempty" xml:"signStartUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 660658
+	SignUserId *string `json:"signUserId,omitempty" xml:"signUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 9ad11eb3daa24a9692037079e0732f13
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+}
+
+func (s CreateRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRecordRequest) SetAttachmentList(v []*CreateRecordRequestAttachmentList) *CreateRecordRequest {
+	s.AttachmentList = v
+	return s
+}
+
+func (s *CreateRecordRequest) SetDeptId(v int64) *CreateRecordRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *CreateRecordRequest) SetFieldList(v []*CreateRecordRequestFieldList) *CreateRecordRequest {
+	s.FieldList = v
+	return s
+}
+
+func (s *CreateRecordRequest) SetGroupList(v []*CreateRecordRequestGroupList) *CreateRecordRequest {
+	s.GroupList = v
+	return s
+}
+
+func (s *CreateRecordRequest) SetOuterId(v string) *CreateRecordRequest {
+	s.OuterId = &v
+	return s
+}
+
+func (s *CreateRecordRequest) SetRemark(v string) *CreateRecordRequest {
+	s.Remark = &v
+	return s
+}
+
+func (s *CreateRecordRequest) SetSignLastLegalEntityName(v string) *CreateRecordRequest {
+	s.SignLastLegalEntityName = &v
+	return s
+}
+
+func (s *CreateRecordRequest) SetSignLegalEntityName(v string) *CreateRecordRequest {
+	s.SignLegalEntityName = &v
+	return s
+}
+
+func (s *CreateRecordRequest) SetSignSource(v string) *CreateRecordRequest {
+	s.SignSource = &v
+	return s
+}
+
+func (s *CreateRecordRequest) SetSignStartUserId(v string) *CreateRecordRequest {
+	s.SignStartUserId = &v
+	return s
+}
+
+func (s *CreateRecordRequest) SetSignUserId(v string) *CreateRecordRequest {
+	s.SignUserId = &v
+	return s
+}
+
+func (s *CreateRecordRequest) SetTemplateId(v string) *CreateRecordRequest {
+	s.TemplateId = &v
+	return s
+}
+
+type CreateRecordRequestAttachmentList struct {
+	// example:
+	//
+	// attachment_profile
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// example:
+	//
+	// 简历附件
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// example:
+	//
+	// DDAttachmentField
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	// example:
+	//
+	// https://dt-staging-moka-public.oss-cn-zhangjiakou.aliyuncs.com/form/attachment/b32509e4a809cb4e18a72fc4aa75e655.pdf
+	FieldValue *string `json:"fieldValue,omitempty" xml:"fieldValue,omitempty"`
+	// example:
+	//
+	// attachment
+	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+}
+
+func (s CreateRecordRequestAttachmentList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRecordRequestAttachmentList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRecordRequestAttachmentList) SetFieldCode(v string) *CreateRecordRequestAttachmentList {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *CreateRecordRequestAttachmentList) SetFieldName(v string) *CreateRecordRequestAttachmentList {
+	s.FieldName = &v
+	return s
+}
+
+func (s *CreateRecordRequestAttachmentList) SetFieldType(v string) *CreateRecordRequestAttachmentList {
+	s.FieldType = &v
+	return s
+}
+
+func (s *CreateRecordRequestAttachmentList) SetFieldValue(v string) *CreateRecordRequestAttachmentList {
+	s.FieldValue = &v
+	return s
+}
+
+func (s *CreateRecordRequestAttachmentList) SetGroupId(v string) *CreateRecordRequestAttachmentList {
+	s.GroupId = &v
+	return s
+}
+
+type CreateRecordRequestFieldList struct {
+	// example:
+	//
+	// contract.contract_type
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// example:
+	//
+	// 合同类型
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// example:
+	//
+	// DDSelectField
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	// example:
+	//
+	// 劳动合同
+	FieldValue *string `json:"fieldValue,omitempty" xml:"fieldValue,omitempty"`
+	// example:
+	//
+	// contract
+	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// example:
+	//
+	// 劳动合同
+	OptionId *string `json:"optionId,omitempty" xml:"optionId,omitempty"`
+	// example:
+	//
+	// [{\"label\":\"劳动合同\",\"value\":\"劳动合同\"},{\"label\":\"保密协议\",\"value\":\"保密协议\"}]
+	Options         *string `json:"options,omitempty" xml:"options,omitempty"`
+	SignRequired    *bool   `json:"signRequired,omitempty" xml:"signRequired,omitempty"`
+	UserCustomField *bool   `json:"userCustomField,omitempty" xml:"userCustomField,omitempty"`
+}
+
+func (s CreateRecordRequestFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRecordRequestFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRecordRequestFieldList) SetFieldCode(v string) *CreateRecordRequestFieldList {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *CreateRecordRequestFieldList) SetFieldName(v string) *CreateRecordRequestFieldList {
+	s.FieldName = &v
+	return s
+}
+
+func (s *CreateRecordRequestFieldList) SetFieldType(v string) *CreateRecordRequestFieldList {
+	s.FieldType = &v
+	return s
+}
+
+func (s *CreateRecordRequestFieldList) SetFieldValue(v string) *CreateRecordRequestFieldList {
+	s.FieldValue = &v
+	return s
+}
+
+func (s *CreateRecordRequestFieldList) SetGroupId(v string) *CreateRecordRequestFieldList {
+	s.GroupId = &v
+	return s
+}
+
+func (s *CreateRecordRequestFieldList) SetOptionId(v string) *CreateRecordRequestFieldList {
+	s.OptionId = &v
+	return s
+}
+
+func (s *CreateRecordRequestFieldList) SetOptions(v string) *CreateRecordRequestFieldList {
+	s.Options = &v
+	return s
+}
+
+func (s *CreateRecordRequestFieldList) SetSignRequired(v bool) *CreateRecordRequestFieldList {
+	s.SignRequired = &v
+	return s
+}
+
+func (s *CreateRecordRequestFieldList) SetUserCustomField(v bool) *CreateRecordRequestFieldList {
+	s.UserCustomField = &v
+	return s
+}
+
+type CreateRecordRequestGroupList struct {
+	DetailFlag *bool                                      `json:"detailFlag,omitempty" xml:"detailFlag,omitempty"`
+	FieldList  [][]*CreateRecordRequestGroupListFieldList `json:"fieldList,omitempty" xml:"fieldList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// family
+	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// example:
+	//
+	// 家庭成员
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+}
+
+func (s CreateRecordRequestGroupList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRecordRequestGroupList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRecordRequestGroupList) SetDetailFlag(v bool) *CreateRecordRequestGroupList {
+	s.DetailFlag = &v
+	return s
+}
+
+func (s *CreateRecordRequestGroupList) SetFieldList(v [][]*CreateRecordRequestGroupListFieldList) *CreateRecordRequestGroupList {
+	s.FieldList = v
+	return s
+}
+
+func (s *CreateRecordRequestGroupList) SetGroupId(v string) *CreateRecordRequestGroupList {
+	s.GroupId = &v
+	return s
+}
+
+func (s *CreateRecordRequestGroupList) SetGroupName(v string) *CreateRecordRequestGroupList {
+	s.GroupName = &v
+	return s
+}
+
+type CreateRecordRequestGroupListFieldList struct {
+	// example:
+	//
+	// contract.contract_type
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// example:
+	//
+	// 合同类型
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// example:
+	//
+	// DDSelectField
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	// example:
+	//
+	// 劳动合同
+	FieldValue *string `json:"fieldValue,omitempty" xml:"fieldValue,omitempty"`
+	// example:
+	//
+	// [{\"label\":\"劳动合同\",\"value\":\"劳动合同\"},{\"label\":\"培训协议\",\"value\":\"培训协议\"}]
+	Options *string `json:"options,omitempty" xml:"options,omitempty"`
+	// example:
+	//
+	// 劳动合同
+	OptionId *string `json:"optionId,omitempty" xml:"optionId,omitempty"`
+	// example:
+	//
+	// contract
+	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+}
+
+func (s CreateRecordRequestGroupListFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRecordRequestGroupListFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRecordRequestGroupListFieldList) SetFieldCode(v string) *CreateRecordRequestGroupListFieldList {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *CreateRecordRequestGroupListFieldList) SetFieldName(v string) *CreateRecordRequestGroupListFieldList {
+	s.FieldName = &v
+	return s
+}
+
+func (s *CreateRecordRequestGroupListFieldList) SetFieldType(v string) *CreateRecordRequestGroupListFieldList {
+	s.FieldType = &v
+	return s
+}
+
+func (s *CreateRecordRequestGroupListFieldList) SetFieldValue(v string) *CreateRecordRequestGroupListFieldList {
+	s.FieldValue = &v
+	return s
+}
+
+func (s *CreateRecordRequestGroupListFieldList) SetOptions(v string) *CreateRecordRequestGroupListFieldList {
+	s.Options = &v
+	return s
+}
+
+func (s *CreateRecordRequestGroupListFieldList) SetOptionId(v string) *CreateRecordRequestGroupListFieldList {
+	s.OptionId = &v
+	return s
+}
+
+func (s *CreateRecordRequestGroupListFieldList) SetGroupId(v string) *CreateRecordRequestGroupListFieldList {
+	s.GroupId = &v
+	return s
+}
+
+type CreateRecordResponseBody struct {
+	Result  *CreateRecordResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRecordResponseBody) SetResult(v *CreateRecordResponseBodyResult) *CreateRecordResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *CreateRecordResponseBody) SetSuccess(v bool) *CreateRecordResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateRecordResponseBodyResult struct {
+	Details *string `json:"details,omitempty" xml:"details,omitempty"`
+	ItemId  *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	Type    *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s CreateRecordResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRecordResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRecordResponseBodyResult) SetDetails(v string) *CreateRecordResponseBodyResult {
+	s.Details = &v
+	return s
+}
+
+func (s *CreateRecordResponseBodyResult) SetItemId(v string) *CreateRecordResponseBodyResult {
+	s.ItemId = &v
+	return s
+}
+
+func (s *CreateRecordResponseBodyResult) SetType(v string) *CreateRecordResponseBodyResult {
+	s.Type = &v
+	return s
+}
+
+type CreateRecordResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateRecordResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRecordResponse) SetHeaders(v map[string]*string) *CreateRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateRecordResponse) SetStatusCode(v int32) *CreateRecordResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateRecordResponse) SetBody(v *CreateRecordResponseBody) *CreateRecordResponse {
 	s.Body = v
 	return s
 }
@@ -314,6 +1304,12 @@ func (s *ECertQueryHeaders) SetXAcsDingtalkAccessToken(v string) *ECertQueryHead
 }
 
 type ECertQueryRequest struct {
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// manager231
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -331,18 +1327,59 @@ func (s *ECertQueryRequest) SetUserId(v string) *ECertQueryRequest {
 }
 
 type ECertQueryResponseBody struct {
-	CertNO                     *string   `json:"certNO,omitempty" xml:"certNO,omitempty"`
-	EmployJobId                *string   `json:"employJobId,omitempty" xml:"employJobId,omitempty"`
-	EmployJobIdLabel           *string   `json:"employJobIdLabel,omitempty" xml:"employJobIdLabel,omitempty"`
-	EmployPositionId           *string   `json:"employPositionId,omitempty" xml:"employPositionId,omitempty"`
-	EmployPositionIdLabel      *string   `json:"employPositionIdLabel,omitempty" xml:"employPositionIdLabel,omitempty"`
-	EmployPositionRankId       *string   `json:"employPositionRankId,omitempty" xml:"employPositionRankId,omitempty"`
-	EmployPositionRankIdLabel  *string   `json:"employPositionRankIdLabel,omitempty" xml:"employPositionRankIdLabel,omitempty"`
-	HiredDate                  *string   `json:"hiredDate,omitempty" xml:"hiredDate,omitempty"`
-	LastWorkDay                *string   `json:"lastWorkDay,omitempty" xml:"lastWorkDay,omitempty"`
-	MainDeptId                 *int64    `json:"mainDeptId,omitempty" xml:"mainDeptId,omitempty"`
-	MainDeptName               *string   `json:"mainDeptName,omitempty" xml:"mainDeptName,omitempty"`
-	Name                       *string   `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 3300111192912113
+	CertNO *string `json:"certNO,omitempty" xml:"certNO,omitempty"`
+	// example:
+	//
+	// 1123124124124
+	EmployJobId *string `json:"employJobId,omitempty" xml:"employJobId,omitempty"`
+	// example:
+	//
+	// 职务
+	EmployJobIdLabel *string `json:"employJobIdLabel,omitempty" xml:"employJobIdLabel,omitempty"`
+	// example:
+	//
+	// 1231231232313123
+	EmployPositionId *string `json:"employPositionId,omitempty" xml:"employPositionId,omitempty"`
+	// example:
+	//
+	// 职位
+	EmployPositionIdLabel *string `json:"employPositionIdLabel,omitempty" xml:"employPositionIdLabel,omitempty"`
+	// example:
+	//
+	// 498192313
+	EmployPositionRankId *string `json:"employPositionRankId,omitempty" xml:"employPositionRankId,omitempty"`
+	// example:
+	//
+	// 职级
+	EmployPositionRankIdLabel *string `json:"employPositionRankIdLabel,omitempty" xml:"employPositionRankIdLabel,omitempty"`
+	// example:
+	//
+	// 2020-03-14
+	HiredDate *string `json:"hiredDate,omitempty" xml:"hiredDate,omitempty"`
+	// example:
+	//
+	// 2021-03-14
+	LastWorkDay *string `json:"lastWorkDay,omitempty" xml:"lastWorkDay,omitempty"`
+	// example:
+	//
+	// -1
+	MainDeptId *int64 `json:"mainDeptId,omitempty" xml:"mainDeptId,omitempty"`
+	// example:
+	//
+	// 测试部门
+	MainDeptName *string `json:"mainDeptName,omitempty" xml:"mainDeptName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 李四
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 张三
 	RealName                   *string   `json:"realName,omitempty" xml:"realName,omitempty"`
 	TerminationReasonPassive   []*string `json:"terminationReasonPassive,omitempty" xml:"terminationReasonPassive,omitempty" type:"Repeated"`
 	TerminationReasonVoluntary []*string `json:"terminationReasonVoluntary,omitempty" xml:"terminationReasonVoluntary,omitempty" type:"Repeated"`
@@ -460,6 +1497,158 @@ func (s *ECertQueryResponse) SetBody(v *ECertQueryResponseBody) *ECertQueryRespo
 	return s
 }
 
+type EmpStartDismissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s EmpStartDismissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EmpStartDismissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *EmpStartDismissionHeaders) SetCommonHeaders(v map[string]*string) *EmpStartDismissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *EmpStartDismissionHeaders) SetXAcsDingtalkAccessToken(v string) *EmpStartDismissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type EmpStartDismissionRequest struct {
+	// This parameter is required.
+	LastWorkDate               *int64    `json:"lastWorkDate,omitempty" xml:"lastWorkDate,omitempty"`
+	Partner                    *bool     `json:"partner,omitempty" xml:"partner,omitempty"`
+	Remark                     *string   `json:"remark,omitempty" xml:"remark,omitempty"`
+	TerminationReasonPassive   []*string `json:"terminationReasonPassive,omitempty" xml:"terminationReasonPassive,omitempty" type:"Repeated"`
+	TerminationReasonVoluntary []*string `json:"terminationReasonVoluntary,omitempty" xml:"terminationReasonVoluntary,omitempty" type:"Repeated"`
+	ToHireBlackList            *bool     `json:"toHireBlackList,omitempty" xml:"toHireBlackList,omitempty"`
+	ToHireDismissionTalent     *bool     `json:"toHireDismissionTalent,omitempty" xml:"toHireDismissionTalent,omitempty"`
+	ToHrmBlackList             *bool     `json:"toHrmBlackList,omitempty" xml:"toHrmBlackList,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2163515669935611
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s EmpStartDismissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EmpStartDismissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *EmpStartDismissionRequest) SetLastWorkDate(v int64) *EmpStartDismissionRequest {
+	s.LastWorkDate = &v
+	return s
+}
+
+func (s *EmpStartDismissionRequest) SetPartner(v bool) *EmpStartDismissionRequest {
+	s.Partner = &v
+	return s
+}
+
+func (s *EmpStartDismissionRequest) SetRemark(v string) *EmpStartDismissionRequest {
+	s.Remark = &v
+	return s
+}
+
+func (s *EmpStartDismissionRequest) SetTerminationReasonPassive(v []*string) *EmpStartDismissionRequest {
+	s.TerminationReasonPassive = v
+	return s
+}
+
+func (s *EmpStartDismissionRequest) SetTerminationReasonVoluntary(v []*string) *EmpStartDismissionRequest {
+	s.TerminationReasonVoluntary = v
+	return s
+}
+
+func (s *EmpStartDismissionRequest) SetToHireBlackList(v bool) *EmpStartDismissionRequest {
+	s.ToHireBlackList = &v
+	return s
+}
+
+func (s *EmpStartDismissionRequest) SetToHireDismissionTalent(v bool) *EmpStartDismissionRequest {
+	s.ToHireDismissionTalent = &v
+	return s
+}
+
+func (s *EmpStartDismissionRequest) SetToHrmBlackList(v bool) *EmpStartDismissionRequest {
+	s.ToHrmBlackList = &v
+	return s
+}
+
+func (s *EmpStartDismissionRequest) SetUserId(v string) *EmpStartDismissionRequest {
+	s.UserId = &v
+	return s
+}
+
+type EmpStartDismissionResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s EmpStartDismissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EmpStartDismissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *EmpStartDismissionResponseBody) SetRequestId(v string) *EmpStartDismissionResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *EmpStartDismissionResponseBody) SetResult(v bool) *EmpStartDismissionResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *EmpStartDismissionResponseBody) SetSuccess(v bool) *EmpStartDismissionResponseBody {
+	s.Success = &v
+	return s
+}
+
+type EmpStartDismissionResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EmpStartDismissionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s EmpStartDismissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EmpStartDismissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *EmpStartDismissionResponse) SetHeaders(v map[string]*string) *EmpStartDismissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *EmpStartDismissionResponse) SetStatusCode(v int32) *EmpStartDismissionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *EmpStartDismissionResponse) SetBody(v *EmpStartDismissionResponseBody) *EmpStartDismissionResponse {
+	s.Body = v
+	return s
+}
+
 type EmployeeAttachmentUpdateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -484,11 +1673,26 @@ func (s *EmployeeAttachmentUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type EmployeeAttachmentUpdateRequest struct {
-	AppAgentId *int64  `json:"appAgentId,omitempty" xml:"appAgentId,omitempty"`
-	FieldCode  *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// This parameter is required.
+	AppAgentId *int64 `json:"appAgentId,omitempty" xml:"appAgentId,omitempty"`
+	// This parameter is required.
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// example:
+	//
+	// .png
 	FileSuffix *string `json:"fileSuffix,omitempty" xml:"fileSuffix,omitempty"`
-	MediaId    *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
-	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// "$iAEKAqNwbmcDBgTNAk"
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// admin123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s EmployeeAttachmentUpdateRequest) String() string {
@@ -600,6 +1804,7 @@ func (s *EsignRollbackHeaders) SetXAcsDingtalkAccessToken(v string) *EsignRollba
 }
 
 type EsignRollbackRequest struct {
+	// This parameter is required.
 	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
 }
 
@@ -617,6 +1822,7 @@ func (s *EsignRollbackRequest) SetOptUserId(v string) *EsignRollbackRequest {
 }
 
 type EsignRollbackResponseBody struct {
+	// This parameter is required.
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -662,6 +1868,2012 @@ func (s *EsignRollbackResponse) SetBody(v *EsignRollbackResponseBody) *EsignRoll
 	return s
 }
 
+type GetAllDismissionReasonsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAllDismissionReasonsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllDismissionReasonsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllDismissionReasonsHeaders) SetCommonHeaders(v map[string]*string) *GetAllDismissionReasonsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAllDismissionReasonsHeaders) SetXAcsDingtalkAccessToken(v string) *GetAllDismissionReasonsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAllDismissionReasonsResponseBody struct {
+	RequestId *string                                    `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *GetAllDismissionReasonsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success   *bool                                      `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetAllDismissionReasonsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllDismissionReasonsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllDismissionReasonsResponseBody) SetRequestId(v string) *GetAllDismissionReasonsResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *GetAllDismissionReasonsResponseBody) SetResult(v *GetAllDismissionReasonsResponseBodyResult) *GetAllDismissionReasonsResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetAllDismissionReasonsResponseBody) SetSuccess(v bool) *GetAllDismissionReasonsResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetAllDismissionReasonsResponseBodyResult struct {
+	PassiveList   []*GetAllDismissionReasonsResponseBodyResultPassiveList   `json:"passiveList,omitempty" xml:"passiveList,omitempty" type:"Repeated"`
+	VoluntaryList []*GetAllDismissionReasonsResponseBodyResultVoluntaryList `json:"voluntaryList,omitempty" xml:"voluntaryList,omitempty" type:"Repeated"`
+}
+
+func (s GetAllDismissionReasonsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllDismissionReasonsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllDismissionReasonsResponseBodyResult) SetPassiveList(v []*GetAllDismissionReasonsResponseBodyResultPassiveList) *GetAllDismissionReasonsResponseBodyResult {
+	s.PassiveList = v
+	return s
+}
+
+func (s *GetAllDismissionReasonsResponseBodyResult) SetVoluntaryList(v []*GetAllDismissionReasonsResponseBodyResultVoluntaryList) *GetAllDismissionReasonsResponseBodyResult {
+	s.VoluntaryList = v
+	return s
+}
+
+type GetAllDismissionReasonsResponseBodyResultPassiveList struct {
+	// example:
+	//
+	// 1
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 家庭原因
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetAllDismissionReasonsResponseBodyResultPassiveList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllDismissionReasonsResponseBodyResultPassiveList) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllDismissionReasonsResponseBodyResultPassiveList) SetId(v string) *GetAllDismissionReasonsResponseBodyResultPassiveList {
+	s.Id = &v
+	return s
+}
+
+func (s *GetAllDismissionReasonsResponseBodyResultPassiveList) SetName(v string) *GetAllDismissionReasonsResponseBodyResultPassiveList {
+	s.Name = &v
+	return s
+}
+
+type GetAllDismissionReasonsResponseBodyResultVoluntaryList struct {
+	// example:
+	//
+	// 1
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 家庭原因
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetAllDismissionReasonsResponseBodyResultVoluntaryList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllDismissionReasonsResponseBodyResultVoluntaryList) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllDismissionReasonsResponseBodyResultVoluntaryList) SetId(v string) *GetAllDismissionReasonsResponseBodyResultVoluntaryList {
+	s.Id = &v
+	return s
+}
+
+func (s *GetAllDismissionReasonsResponseBodyResultVoluntaryList) SetName(v string) *GetAllDismissionReasonsResponseBodyResultVoluntaryList {
+	s.Name = &v
+	return s
+}
+
+type GetAllDismissionReasonsResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetAllDismissionReasonsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetAllDismissionReasonsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAllDismissionReasonsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAllDismissionReasonsResponse) SetHeaders(v map[string]*string) *GetAllDismissionReasonsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAllDismissionReasonsResponse) SetStatusCode(v int32) *GetAllDismissionReasonsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetAllDismissionReasonsResponse) SetBody(v *GetAllDismissionReasonsResponseBody) *GetAllDismissionReasonsResponse {
+	s.Body = v
+	return s
+}
+
+type GetEmployeeRosterByFieldHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetEmployeeRosterByFieldHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEmployeeRosterByFieldHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetEmployeeRosterByFieldHeaders) SetCommonHeaders(v map[string]*string) *GetEmployeeRosterByFieldHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetEmployeeRosterByFieldHeaders) SetXAcsDingtalkAccessToken(v string) *GetEmployeeRosterByFieldHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetEmployeeRosterByFieldRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	AppAgentId         *int64    `json:"appAgentId,omitempty" xml:"appAgentId,omitempty"`
+	FieldFilterList    []*string `json:"fieldFilterList,omitempty" xml:"fieldFilterList,omitempty" type:"Repeated"`
+	Text2SelectConvert *bool     `json:"text2SelectConvert,omitempty" xml:"text2SelectConvert,omitempty"`
+	// This parameter is required.
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s GetEmployeeRosterByFieldRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEmployeeRosterByFieldRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetEmployeeRosterByFieldRequest) SetAppAgentId(v int64) *GetEmployeeRosterByFieldRequest {
+	s.AppAgentId = &v
+	return s
+}
+
+func (s *GetEmployeeRosterByFieldRequest) SetFieldFilterList(v []*string) *GetEmployeeRosterByFieldRequest {
+	s.FieldFilterList = v
+	return s
+}
+
+func (s *GetEmployeeRosterByFieldRequest) SetText2SelectConvert(v bool) *GetEmployeeRosterByFieldRequest {
+	s.Text2SelectConvert = &v
+	return s
+}
+
+func (s *GetEmployeeRosterByFieldRequest) SetUserIdList(v []*string) *GetEmployeeRosterByFieldRequest {
+	s.UserIdList = v
+	return s
+}
+
+type GetEmployeeRosterByFieldResponseBody struct {
+	Result []*GetEmployeeRosterByFieldResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s GetEmployeeRosterByFieldResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEmployeeRosterByFieldResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetEmployeeRosterByFieldResponseBody) SetResult(v []*GetEmployeeRosterByFieldResponseBodyResult) *GetEmployeeRosterByFieldResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetEmployeeRosterByFieldResponseBodyResult struct {
+	// example:
+	//
+	// ding20a11xxx
+	CorpId        *string                                                    `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	FieldDataList []*GetEmployeeRosterByFieldResponseBodyResultFieldDataList `json:"fieldDataList,omitempty" xml:"fieldDataList,omitempty" type:"Repeated"`
+	UnionId       *string                                                    `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// 042519
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetEmployeeRosterByFieldResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEmployeeRosterByFieldResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetEmployeeRosterByFieldResponseBodyResult) SetCorpId(v string) *GetEmployeeRosterByFieldResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetEmployeeRosterByFieldResponseBodyResult) SetFieldDataList(v []*GetEmployeeRosterByFieldResponseBodyResultFieldDataList) *GetEmployeeRosterByFieldResponseBodyResult {
+	s.FieldDataList = v
+	return s
+}
+
+func (s *GetEmployeeRosterByFieldResponseBodyResult) SetUnionId(v string) *GetEmployeeRosterByFieldResponseBodyResult {
+	s.UnionId = &v
+	return s
+}
+
+func (s *GetEmployeeRosterByFieldResponseBodyResult) SetUserId(v string) *GetEmployeeRosterByFieldResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+type GetEmployeeRosterByFieldResponseBodyResultFieldDataList struct {
+	// example:
+	//
+	// sys01-employeeStatus
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// example:
+	//
+	// 员工状态
+	FieldName      *string                                                                  `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	FieldValueList []*GetEmployeeRosterByFieldResponseBodyResultFieldDataListFieldValueList `json:"fieldValueList,omitempty" xml:"fieldValueList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// sys01
+	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+}
+
+func (s GetEmployeeRosterByFieldResponseBodyResultFieldDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEmployeeRosterByFieldResponseBodyResultFieldDataList) GoString() string {
+	return s.String()
+}
+
+func (s *GetEmployeeRosterByFieldResponseBodyResultFieldDataList) SetFieldCode(v string) *GetEmployeeRosterByFieldResponseBodyResultFieldDataList {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *GetEmployeeRosterByFieldResponseBodyResultFieldDataList) SetFieldName(v string) *GetEmployeeRosterByFieldResponseBodyResultFieldDataList {
+	s.FieldName = &v
+	return s
+}
+
+func (s *GetEmployeeRosterByFieldResponseBodyResultFieldDataList) SetFieldValueList(v []*GetEmployeeRosterByFieldResponseBodyResultFieldDataListFieldValueList) *GetEmployeeRosterByFieldResponseBodyResultFieldDataList {
+	s.FieldValueList = v
+	return s
+}
+
+func (s *GetEmployeeRosterByFieldResponseBodyResultFieldDataList) SetGroupId(v string) *GetEmployeeRosterByFieldResponseBodyResultFieldDataList {
+	s.GroupId = &v
+	return s
+}
+
+type GetEmployeeRosterByFieldResponseBodyResultFieldDataListFieldValueList struct {
+	// example:
+	//
+	// 0
+	ItemIndex *int32 `json:"itemIndex,omitempty" xml:"itemIndex,omitempty"`
+	// example:
+	//
+	// 正式
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	// example:
+	//
+	// 3
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetEmployeeRosterByFieldResponseBodyResultFieldDataListFieldValueList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEmployeeRosterByFieldResponseBodyResultFieldDataListFieldValueList) GoString() string {
+	return s.String()
+}
+
+func (s *GetEmployeeRosterByFieldResponseBodyResultFieldDataListFieldValueList) SetItemIndex(v int32) *GetEmployeeRosterByFieldResponseBodyResultFieldDataListFieldValueList {
+	s.ItemIndex = &v
+	return s
+}
+
+func (s *GetEmployeeRosterByFieldResponseBodyResultFieldDataListFieldValueList) SetLabel(v string) *GetEmployeeRosterByFieldResponseBodyResultFieldDataListFieldValueList {
+	s.Label = &v
+	return s
+}
+
+func (s *GetEmployeeRosterByFieldResponseBodyResultFieldDataListFieldValueList) SetValue(v string) *GetEmployeeRosterByFieldResponseBodyResultFieldDataListFieldValueList {
+	s.Value = &v
+	return s
+}
+
+type GetEmployeeRosterByFieldResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetEmployeeRosterByFieldResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetEmployeeRosterByFieldResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetEmployeeRosterByFieldResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetEmployeeRosterByFieldResponse) SetHeaders(v map[string]*string) *GetEmployeeRosterByFieldResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetEmployeeRosterByFieldResponse) SetStatusCode(v int32) *GetEmployeeRosterByFieldResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetEmployeeRosterByFieldResponse) SetBody(v *GetEmployeeRosterByFieldResponseBody) *GetEmployeeRosterByFieldResponse {
+	s.Body = v
+	return s
+}
+
+type GetFileTemplateListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFileTemplateListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileTemplateListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileTemplateListHeaders) SetCommonHeaders(v map[string]*string) *GetFileTemplateListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFileTemplateListHeaders) SetXAcsDingtalkAccessToken(v string) *GetFileTemplateListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFileTemplateListRequest struct {
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 0
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// CONTRACT
+	SignSource *string `json:"signSource,omitempty" xml:"signSource,omitempty"`
+	// example:
+	//
+	// 1
+	TemplateStatus   *int32    `json:"templateStatus,omitempty" xml:"templateStatus,omitempty"`
+	TemplateTypeList []*string `json:"templateTypeList,omitempty" xml:"templateTypeList,omitempty" type:"Repeated"`
+}
+
+func (s GetFileTemplateListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileTemplateListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileTemplateListRequest) SetMaxResults(v int32) *GetFileTemplateListRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetFileTemplateListRequest) SetNextToken(v int64) *GetFileTemplateListRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetFileTemplateListRequest) SetSignSource(v string) *GetFileTemplateListRequest {
+	s.SignSource = &v
+	return s
+}
+
+func (s *GetFileTemplateListRequest) SetTemplateStatus(v int32) *GetFileTemplateListRequest {
+	s.TemplateStatus = &v
+	return s
+}
+
+func (s *GetFileTemplateListRequest) SetTemplateTypeList(v []*string) *GetFileTemplateListRequest {
+	s.TemplateTypeList = v
+	return s
+}
+
+type GetFileTemplateListResponseBody struct {
+	Result  *GetFileTemplateListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                  `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetFileTemplateListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileTemplateListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileTemplateListResponseBody) SetResult(v *GetFileTemplateListResponseBodyResult) *GetFileTemplateListResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBody) SetSuccess(v bool) *GetFileTemplateListResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetFileTemplateListResponseBodyResult struct {
+	Data []*GetFileTemplateListResponseBodyResultData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	// This parameter is required.
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// 10
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s GetFileTemplateListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileTemplateListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileTemplateListResponseBodyResult) SetData(v []*GetFileTemplateListResponseBodyResultData) *GetFileTemplateListResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResult) SetHasMore(v bool) *GetFileTemplateListResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResult) SetNextToken(v int64) *GetFileTemplateListResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
+type GetFileTemplateListResponseBodyResultData struct {
+	AttachmentList []*GetFileTemplateListResponseBodyResultDataAttachmentList `json:"attachmentList,omitempty" xml:"attachmentList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// ding57935b18bfd13e9735c2f4657eb6378f
+	CorpId    *string                                               `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	FieldList []*GetFileTemplateListResponseBodyResultDataFieldList `json:"fieldList,omitempty" xml:"fieldList,omitempty" type:"Repeated"`
+	GroupList []*GetFileTemplateListResponseBodyResultDataGroupList `json:"groupList,omitempty" xml:"groupList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// f3ed5402e3024febaed773b3ac19feb3
+	TemplateId       *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	TemplateInstName *string `json:"templateInstName,omitempty" xml:"templateInstName,omitempty"`
+	// example:
+	//
+	// 劳动合同模板
+	TemplateName *string `json:"templateName,omitempty" xml:"templateName,omitempty"`
+	// example:
+	//
+	// 1
+	TemplateSignStatus *int32 `json:"templateSignStatus,omitempty" xml:"templateSignStatus,omitempty"`
+	// example:
+	//
+	// 1
+	TemplateStatus *int32 `json:"templateStatus,omitempty" xml:"templateStatus,omitempty"`
+	// example:
+	//
+	// CONTRACT
+	TemplateType *string `json:"templateType,omitempty" xml:"templateType,omitempty"`
+	// example:
+	//
+	// 合同模板
+	TemplateTypeName *string `json:"templateTypeName,omitempty" xml:"templateTypeName,omitempty"`
+	// example:
+	//
+	// 24
+	TenantId *int64 `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+}
+
+func (s GetFileTemplateListResponseBodyResultData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileTemplateListResponseBodyResultData) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileTemplateListResponseBodyResultData) SetAttachmentList(v []*GetFileTemplateListResponseBodyResultDataAttachmentList) *GetFileTemplateListResponseBodyResultData {
+	s.AttachmentList = v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultData) SetCorpId(v string) *GetFileTemplateListResponseBodyResultData {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultData) SetFieldList(v []*GetFileTemplateListResponseBodyResultDataFieldList) *GetFileTemplateListResponseBodyResultData {
+	s.FieldList = v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultData) SetGroupList(v []*GetFileTemplateListResponseBodyResultDataGroupList) *GetFileTemplateListResponseBodyResultData {
+	s.GroupList = v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultData) SetTemplateId(v string) *GetFileTemplateListResponseBodyResultData {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultData) SetTemplateInstName(v string) *GetFileTemplateListResponseBodyResultData {
+	s.TemplateInstName = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultData) SetTemplateName(v string) *GetFileTemplateListResponseBodyResultData {
+	s.TemplateName = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultData) SetTemplateSignStatus(v int32) *GetFileTemplateListResponseBodyResultData {
+	s.TemplateSignStatus = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultData) SetTemplateStatus(v int32) *GetFileTemplateListResponseBodyResultData {
+	s.TemplateStatus = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultData) SetTemplateType(v string) *GetFileTemplateListResponseBodyResultData {
+	s.TemplateType = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultData) SetTemplateTypeName(v string) *GetFileTemplateListResponseBodyResultData {
+	s.TemplateTypeName = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultData) SetTenantId(v int64) *GetFileTemplateListResponseBodyResultData {
+	s.TenantId = &v
+	return s
+}
+
+type GetFileTemplateListResponseBodyResultDataAttachmentList struct {
+	// example:
+	//
+	// 简历附件
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// example:
+	//
+	// attachment_profile
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// example:
+	//
+	// 简历附件
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// example:
+	//
+	// DDAttachmentField
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	// example:
+	//
+	// attachment
+	GroupId         *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	SignRequired    *bool   `json:"signRequired,omitempty" xml:"signRequired,omitempty"`
+	UserCustomField *bool   `json:"userCustomField,omitempty" xml:"userCustomField,omitempty"`
+}
+
+func (s GetFileTemplateListResponseBodyResultDataAttachmentList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileTemplateListResponseBodyResultDataAttachmentList) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataAttachmentList) SetDesc(v string) *GetFileTemplateListResponseBodyResultDataAttachmentList {
+	s.Desc = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataAttachmentList) SetFieldCode(v string) *GetFileTemplateListResponseBodyResultDataAttachmentList {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataAttachmentList) SetFieldName(v string) *GetFileTemplateListResponseBodyResultDataAttachmentList {
+	s.FieldName = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataAttachmentList) SetFieldType(v string) *GetFileTemplateListResponseBodyResultDataAttachmentList {
+	s.FieldType = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataAttachmentList) SetGroupId(v string) *GetFileTemplateListResponseBodyResultDataAttachmentList {
+	s.GroupId = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataAttachmentList) SetSignRequired(v bool) *GetFileTemplateListResponseBodyResultDataAttachmentList {
+	s.SignRequired = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataAttachmentList) SetUserCustomField(v bool) *GetFileTemplateListResponseBodyResultDataAttachmentList {
+	s.UserCustomField = &v
+	return s
+}
+
+type GetFileTemplateListResponseBodyResultDataFieldList struct {
+	// example:
+	//
+	// 真实姓名字段
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// example:
+	//
+	// esign_name
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// example:
+	//
+	// 真实姓名
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// example:
+	//
+	// TextField
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	// example:
+	//
+	// baseInfo
+	GroupId         *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	SignRequired    *bool   `json:"signRequired,omitempty" xml:"signRequired,omitempty"`
+	UserCustomField *bool   `json:"userCustomField,omitempty" xml:"userCustomField,omitempty"`
+}
+
+func (s GetFileTemplateListResponseBodyResultDataFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileTemplateListResponseBodyResultDataFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataFieldList) SetDesc(v string) *GetFileTemplateListResponseBodyResultDataFieldList {
+	s.Desc = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataFieldList) SetFieldCode(v string) *GetFileTemplateListResponseBodyResultDataFieldList {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataFieldList) SetFieldName(v string) *GetFileTemplateListResponseBodyResultDataFieldList {
+	s.FieldName = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataFieldList) SetFieldType(v string) *GetFileTemplateListResponseBodyResultDataFieldList {
+	s.FieldType = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataFieldList) SetGroupId(v string) *GetFileTemplateListResponseBodyResultDataFieldList {
+	s.GroupId = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataFieldList) SetSignRequired(v bool) *GetFileTemplateListResponseBodyResultDataFieldList {
+	s.SignRequired = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataFieldList) SetUserCustomField(v bool) *GetFileTemplateListResponseBodyResultDataFieldList {
+	s.UserCustomField = &v
+	return s
+}
+
+type GetFileTemplateListResponseBodyResultDataGroupList struct {
+	DetailFlag *bool                                                          `json:"detailFlag,omitempty" xml:"detailFlag,omitempty"`
+	FieldList  []*GetFileTemplateListResponseBodyResultDataGroupListFieldList `json:"fieldList,omitempty" xml:"fieldList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// family
+	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// example:
+	//
+	// 家庭成员
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+}
+
+func (s GetFileTemplateListResponseBodyResultDataGroupList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileTemplateListResponseBodyResultDataGroupList) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataGroupList) SetDetailFlag(v bool) *GetFileTemplateListResponseBodyResultDataGroupList {
+	s.DetailFlag = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataGroupList) SetFieldList(v []*GetFileTemplateListResponseBodyResultDataGroupListFieldList) *GetFileTemplateListResponseBodyResultDataGroupList {
+	s.FieldList = v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataGroupList) SetGroupId(v string) *GetFileTemplateListResponseBodyResultDataGroupList {
+	s.GroupId = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataGroupList) SetGroupName(v string) *GetFileTemplateListResponseBodyResultDataGroupList {
+	s.GroupName = &v
+	return s
+}
+
+type GetFileTemplateListResponseBodyResultDataGroupListFieldList struct {
+	// example:
+	//
+	// 家庭成员明细分组
+	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	// example:
+	//
+	// family.member_name
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// example:
+	//
+	// 成员姓名
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// example:
+	//
+	// TextField
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	// example:
+	//
+	// family
+	GroupId         *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	SignRequired    *bool   `json:"signRequired,omitempty" xml:"signRequired,omitempty"`
+	UserCustomField *bool   `json:"userCustomField,omitempty" xml:"userCustomField,omitempty"`
+}
+
+func (s GetFileTemplateListResponseBodyResultDataGroupListFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileTemplateListResponseBodyResultDataGroupListFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataGroupListFieldList) SetDesc(v string) *GetFileTemplateListResponseBodyResultDataGroupListFieldList {
+	s.Desc = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataGroupListFieldList) SetFieldCode(v string) *GetFileTemplateListResponseBodyResultDataGroupListFieldList {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataGroupListFieldList) SetFieldName(v string) *GetFileTemplateListResponseBodyResultDataGroupListFieldList {
+	s.FieldName = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataGroupListFieldList) SetFieldType(v string) *GetFileTemplateListResponseBodyResultDataGroupListFieldList {
+	s.FieldType = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataGroupListFieldList) SetGroupId(v string) *GetFileTemplateListResponseBodyResultDataGroupListFieldList {
+	s.GroupId = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataGroupListFieldList) SetSignRequired(v bool) *GetFileTemplateListResponseBodyResultDataGroupListFieldList {
+	s.SignRequired = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponseBodyResultDataGroupListFieldList) SetUserCustomField(v bool) *GetFileTemplateListResponseBodyResultDataGroupListFieldList {
+	s.UserCustomField = &v
+	return s
+}
+
+type GetFileTemplateListResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetFileTemplateListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetFileTemplateListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileTemplateListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileTemplateListResponse) SetHeaders(v map[string]*string) *GetFileTemplateListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFileTemplateListResponse) SetStatusCode(v int32) *GetFileTemplateListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetFileTemplateListResponse) SetBody(v *GetFileTemplateListResponseBody) *GetFileTemplateListResponse {
+	s.Body = v
+	return s
+}
+
+type GetSignRecordByIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSignRecordByIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignRecordByIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignRecordByIdHeaders) SetCommonHeaders(v map[string]*string) *GetSignRecordByIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSignRecordByIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetSignRecordByIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSignRecordByIdRequest struct {
+	// This parameter is required.
+	Body []*string `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+}
+
+func (s GetSignRecordByIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignRecordByIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignRecordByIdRequest) SetBody(v []*string) *GetSignRecordByIdRequest {
+	s.Body = v
+	return s
+}
+
+type GetSignRecordByIdResponseBody struct {
+	Result []*GetSignRecordByIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetSignRecordByIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignRecordByIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignRecordByIdResponseBody) SetResult(v []*GetSignRecordByIdResponseBodyResult) *GetSignRecordByIdResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetSignRecordByIdResponseBody) SetSuccess(v bool) *GetSignRecordByIdResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetSignRecordByIdResponseBodyResult struct {
+	// example:
+	//
+	// ding12345678
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 员工签署中
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// 1723534265000
+	SignExpireTime *int64 `json:"signExpireTime,omitempty" xml:"signExpireTime,omitempty"`
+	// example:
+	//
+	// xxxx-合同文件.pdf
+	SignFileName *string `json:"signFileName,omitempty" xml:"signFileName,omitempty"`
+	// example:
+	//
+	// 1723534265000
+	SignFinishTime *int64 `json:"signFinishTime,omitempty" xml:"signFinishTime,omitempty"`
+	// example:
+	//
+	// xxxx有限公司
+	SignLegalEntityName *string `json:"signLegalEntityName,omitempty" xml:"signLegalEntityName,omitempty"`
+	// example:
+	//
+	// 6fe06f57ab5a45078f3219be8fd829c6
+	SignRecordId *string `json:"signRecordId,omitempty" xml:"signRecordId,omitempty"`
+	// example:
+	//
+	// 1723534265000
+	SignStartTime *int64 `json:"signStartTime,omitempty" xml:"signStartTime,omitempty"`
+	// example:
+	//
+	// SIGNING
+	SignStatus *string `json:"signStatus,omitempty" xml:"signStatus,omitempty"`
+	// example:
+	//
+	// 签署中
+	SignStatusRemarks *string `json:"signStatusRemarks,omitempty" xml:"signStatusRemarks,omitempty"`
+	// example:
+	//
+	// CONTRACT
+	SignTemplateType *string `json:"signTemplateType,omitempty" xml:"signTemplateType,omitempty"`
+	// example:
+	//
+	// 400873120394
+	SignUserId *string `json:"signUserId,omitempty" xml:"signUserId,omitempty"`
+	// example:
+	//
+	// xiaoming
+	SignUserName *string `json:"signUserName,omitempty" xml:"signUserName,omitempty"`
+	// example:
+	//
+	// ON_LINE
+	SignWay *string `json:"signWay,omitempty" xml:"signWay,omitempty"`
+}
+
+func (s GetSignRecordByIdResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignRecordByIdResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignRecordByIdResponseBodyResult) SetCorpId(v string) *GetSignRecordByIdResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetSignRecordByIdResponseBodyResult) SetRemark(v string) *GetSignRecordByIdResponseBodyResult {
+	s.Remark = &v
+	return s
+}
+
+func (s *GetSignRecordByIdResponseBodyResult) SetSignExpireTime(v int64) *GetSignRecordByIdResponseBodyResult {
+	s.SignExpireTime = &v
+	return s
+}
+
+func (s *GetSignRecordByIdResponseBodyResult) SetSignFileName(v string) *GetSignRecordByIdResponseBodyResult {
+	s.SignFileName = &v
+	return s
+}
+
+func (s *GetSignRecordByIdResponseBodyResult) SetSignFinishTime(v int64) *GetSignRecordByIdResponseBodyResult {
+	s.SignFinishTime = &v
+	return s
+}
+
+func (s *GetSignRecordByIdResponseBodyResult) SetSignLegalEntityName(v string) *GetSignRecordByIdResponseBodyResult {
+	s.SignLegalEntityName = &v
+	return s
+}
+
+func (s *GetSignRecordByIdResponseBodyResult) SetSignRecordId(v string) *GetSignRecordByIdResponseBodyResult {
+	s.SignRecordId = &v
+	return s
+}
+
+func (s *GetSignRecordByIdResponseBodyResult) SetSignStartTime(v int64) *GetSignRecordByIdResponseBodyResult {
+	s.SignStartTime = &v
+	return s
+}
+
+func (s *GetSignRecordByIdResponseBodyResult) SetSignStatus(v string) *GetSignRecordByIdResponseBodyResult {
+	s.SignStatus = &v
+	return s
+}
+
+func (s *GetSignRecordByIdResponseBodyResult) SetSignStatusRemarks(v string) *GetSignRecordByIdResponseBodyResult {
+	s.SignStatusRemarks = &v
+	return s
+}
+
+func (s *GetSignRecordByIdResponseBodyResult) SetSignTemplateType(v string) *GetSignRecordByIdResponseBodyResult {
+	s.SignTemplateType = &v
+	return s
+}
+
+func (s *GetSignRecordByIdResponseBodyResult) SetSignUserId(v string) *GetSignRecordByIdResponseBodyResult {
+	s.SignUserId = &v
+	return s
+}
+
+func (s *GetSignRecordByIdResponseBodyResult) SetSignUserName(v string) *GetSignRecordByIdResponseBodyResult {
+	s.SignUserName = &v
+	return s
+}
+
+func (s *GetSignRecordByIdResponseBodyResult) SetSignWay(v string) *GetSignRecordByIdResponseBodyResult {
+	s.SignWay = &v
+	return s
+}
+
+type GetSignRecordByIdResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSignRecordByIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetSignRecordByIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignRecordByIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignRecordByIdResponse) SetHeaders(v map[string]*string) *GetSignRecordByIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSignRecordByIdResponse) SetStatusCode(v int32) *GetSignRecordByIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetSignRecordByIdResponse) SetBody(v *GetSignRecordByIdResponseBody) *GetSignRecordByIdResponse {
+	s.Body = v
+	return s
+}
+
+type GetSignRecordByUserIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSignRecordByUserIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignRecordByUserIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignRecordByUserIdHeaders) SetCommonHeaders(v map[string]*string) *GetSignRecordByUserIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSignRecordByUserIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetSignRecordByUserIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSignRecordByUserIdRequest struct {
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 0
+	NextToken  *int64    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	SignStatus []*string `json:"signStatus,omitempty" xml:"signStatus,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 660658
+	SignUserId *string `json:"signUserId,omitempty" xml:"signUserId,omitempty"`
+}
+
+func (s GetSignRecordByUserIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignRecordByUserIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignRecordByUserIdRequest) SetMaxResults(v int32) *GetSignRecordByUserIdRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdRequest) SetNextToken(v int64) *GetSignRecordByUserIdRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdRequest) SetSignStatus(v []*string) *GetSignRecordByUserIdRequest {
+	s.SignStatus = v
+	return s
+}
+
+func (s *GetSignRecordByUserIdRequest) SetSignUserId(v string) *GetSignRecordByUserIdRequest {
+	s.SignUserId = &v
+	return s
+}
+
+type GetSignRecordByUserIdResponseBody struct {
+	Result  *GetSignRecordByUserIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                    `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetSignRecordByUserIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignRecordByUserIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignRecordByUserIdResponseBody) SetResult(v *GetSignRecordByUserIdResponseBodyResult) *GetSignRecordByUserIdResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBody) SetSuccess(v bool) *GetSignRecordByUserIdResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetSignRecordByUserIdResponseBodyResult struct {
+	Data      []*GetSignRecordByUserIdResponseBodyResultData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	HasMore   *bool                                          `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *int64                                         `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s GetSignRecordByUserIdResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignRecordByUserIdResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResult) SetData(v []*GetSignRecordByUserIdResponseBodyResultData) *GetSignRecordByUserIdResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResult) SetHasMore(v bool) *GetSignRecordByUserIdResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResult) SetNextToken(v int64) *GetSignRecordByUserIdResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
+type GetSignRecordByUserIdResponseBodyResultData struct {
+	// example:
+	//
+	// ding57935b18bfd13e9735c2f4657eb6378f
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// CONTRACT_123456
+	OuterId *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	// example:
+	//
+	// 劳动合同电子签签署备注
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// 1720775436000
+	SignExpireTime *int64 `json:"signExpireTime,omitempty" xml:"signExpireTime,omitempty"`
+	// example:
+	//
+	// 小明-劳动合同-20240808.pdf
+	SignFileName *string `json:"signFileName,omitempty" xml:"signFileName,omitempty"`
+	// example:
+	//
+	// https://n.dingtalk.com/xxx
+	SignFileUrl *string `json:"signFileUrl,omitempty" xml:"signFileUrl,omitempty"`
+	// example:
+	//
+	// 1720775436000
+	SignFinishTime *int64 `json:"signFinishTime,omitempty" xml:"signFinishTime,omitempty"`
+	// example:
+	//
+	// xxx有限公司
+	SignLegalEntityName *string `json:"signLegalEntityName,omitempty" xml:"signLegalEntityName,omitempty"`
+	// example:
+	//
+	// 38bc7b69bb6a46b8a69b9001d5c0bdf3
+	SignRecordId *string `json:"signRecordId,omitempty" xml:"signRecordId,omitempty"`
+	// example:
+	//
+	// 1720775436000
+	SignStartTime *int64 `json:"signStartTime,omitempty" xml:"signStartTime,omitempty"`
+	// example:
+	//
+	// FINISHED
+	SignStatus *string `json:"signStatus,omitempty" xml:"signStatus,omitempty"`
+	// example:
+	//
+	// 法人公司未开通
+	SignStatusRemarks *string `json:"signStatusRemarks,omitempty" xml:"signStatusRemarks,omitempty"`
+	// example:
+	//
+	// CONTRACT
+	SignTemplateType *string `json:"signTemplateType,omitempty" xml:"signTemplateType,omitempty"`
+	// example:
+	//
+	// 660658
+	SignUserId *string `json:"signUserId,omitempty" xml:"signUserId,omitempty"`
+	// example:
+	//
+	// 小明
+	SignUserName *string `json:"signUserName,omitempty" xml:"signUserName,omitempty"`
+	// example:
+	//
+	// ON_LINE
+	SignWay *string `json:"signWay,omitempty" xml:"signWay,omitempty"`
+}
+
+func (s GetSignRecordByUserIdResponseBodyResultData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignRecordByUserIdResponseBodyResultData) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResultData) SetCorpId(v string) *GetSignRecordByUserIdResponseBodyResultData {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResultData) SetOuterId(v string) *GetSignRecordByUserIdResponseBodyResultData {
+	s.OuterId = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResultData) SetRemark(v string) *GetSignRecordByUserIdResponseBodyResultData {
+	s.Remark = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResultData) SetSignExpireTime(v int64) *GetSignRecordByUserIdResponseBodyResultData {
+	s.SignExpireTime = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResultData) SetSignFileName(v string) *GetSignRecordByUserIdResponseBodyResultData {
+	s.SignFileName = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResultData) SetSignFileUrl(v string) *GetSignRecordByUserIdResponseBodyResultData {
+	s.SignFileUrl = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResultData) SetSignFinishTime(v int64) *GetSignRecordByUserIdResponseBodyResultData {
+	s.SignFinishTime = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResultData) SetSignLegalEntityName(v string) *GetSignRecordByUserIdResponseBodyResultData {
+	s.SignLegalEntityName = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResultData) SetSignRecordId(v string) *GetSignRecordByUserIdResponseBodyResultData {
+	s.SignRecordId = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResultData) SetSignStartTime(v int64) *GetSignRecordByUserIdResponseBodyResultData {
+	s.SignStartTime = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResultData) SetSignStatus(v string) *GetSignRecordByUserIdResponseBodyResultData {
+	s.SignStatus = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResultData) SetSignStatusRemarks(v string) *GetSignRecordByUserIdResponseBodyResultData {
+	s.SignStatusRemarks = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResultData) SetSignTemplateType(v string) *GetSignRecordByUserIdResponseBodyResultData {
+	s.SignTemplateType = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResultData) SetSignUserId(v string) *GetSignRecordByUserIdResponseBodyResultData {
+	s.SignUserId = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResultData) SetSignUserName(v string) *GetSignRecordByUserIdResponseBodyResultData {
+	s.SignUserName = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponseBodyResultData) SetSignWay(v string) *GetSignRecordByUserIdResponseBodyResultData {
+	s.SignWay = &v
+	return s
+}
+
+type GetSignRecordByUserIdResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSignRecordByUserIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetSignRecordByUserIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSignRecordByUserIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSignRecordByUserIdResponse) SetHeaders(v map[string]*string) *GetSignRecordByUserIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponse) SetStatusCode(v int32) *GetSignRecordByUserIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetSignRecordByUserIdResponse) SetBody(v *GetSignRecordByUserIdResponseBody) *GetSignRecordByUserIdResponse {
+	s.Body = v
+	return s
+}
+
+type GetUserSignedRecordsByOuterIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetUserSignedRecordsByOuterIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserSignedRecordsByOuterIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserSignedRecordsByOuterIdHeaders) SetCommonHeaders(v map[string]*string) *GetUserSignedRecordsByOuterIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserSignedRecordsByOuterIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetUserSignedRecordsByOuterIdRequest struct {
+	Body []*string `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+}
+
+func (s GetUserSignedRecordsByOuterIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserSignedRecordsByOuterIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserSignedRecordsByOuterIdRequest) SetBody(v []*string) *GetUserSignedRecordsByOuterIdRequest {
+	s.Body = v
+	return s
+}
+
+type GetUserSignedRecordsByOuterIdResponseBody struct {
+	Result  []*GetUserSignedRecordsByOuterIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success *bool                                              `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetUserSignedRecordsByOuterIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserSignedRecordsByOuterIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBody) SetResult(v []*GetUserSignedRecordsByOuterIdResponseBodyResult) *GetUserSignedRecordsByOuterIdResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBody) SetSuccess(v bool) *GetUserSignedRecordsByOuterIdResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetUserSignedRecordsByOuterIdResponseBodyResult struct {
+	// example:
+	//
+	// ding33a9d1a6e9647854a39a90f97fcb1e09
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// CONTRACT_123456
+	OuterId *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	// example:
+	//
+	// 测试
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// 1720775436000
+	SignExpireTime *string `json:"signExpireTime,omitempty" xml:"signExpireTime,omitempty"`
+	// example:
+	//
+	// 小明-劳动合同-20240808.pdf
+	SignFileName *string `json:"signFileName,omitempty" xml:"signFileName,omitempty"`
+	// example:
+	//
+	// https://n.dingtalk.com/xxx
+	SignFileUrl *string `json:"signFileUrl,omitempty" xml:"signFileUrl,omitempty"`
+	// example:
+	//
+	// 1720775436000
+	SignFinishTime *string `json:"signFinishTime,omitempty" xml:"signFinishTime,omitempty"`
+	// example:
+	//
+	// xx公司
+	SignLegalEntityName *string `json:"signLegalEntityName,omitempty" xml:"signLegalEntityName,omitempty"`
+	// example:
+	//
+	// fb1a9c4adaba4f52b7cab7941008b9dd
+	SignRecordId *string `json:"signRecordId,omitempty" xml:"signRecordId,omitempty"`
+	// example:
+	//
+	// 1720775436000
+	SignStartTime *string `json:"signStartTime,omitempty" xml:"signStartTime,omitempty"`
+	// example:
+	//
+	// FINISHED
+	SignStatus *string `json:"signStatus,omitempty" xml:"signStatus,omitempty"`
+	// example:
+	//
+	// 法人公司未开通
+	SignStatusRemarks *string `json:"signStatusRemarks,omitempty" xml:"signStatusRemarks,omitempty"`
+	// example:
+	//
+	// CONTRACT
+	SignTemplateType *string `json:"signTemplateType,omitempty" xml:"signTemplateType,omitempty"`
+	// example:
+	//
+	// userId123
+	SignUserId *string `json:"signUserId,omitempty" xml:"signUserId,omitempty"`
+	// example:
+	//
+	// userName
+	SignUserName *string `json:"signUserName,omitempty" xml:"signUserName,omitempty"`
+	// example:
+	//
+	// ON_LINE
+	SignWay *string `json:"signWay,omitempty" xml:"signWay,omitempty"`
+}
+
+func (s GetUserSignedRecordsByOuterIdResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserSignedRecordsByOuterIdResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBodyResult) SetCorpId(v string) *GetUserSignedRecordsByOuterIdResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBodyResult) SetOuterId(v string) *GetUserSignedRecordsByOuterIdResponseBodyResult {
+	s.OuterId = &v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBodyResult) SetRemark(v string) *GetUserSignedRecordsByOuterIdResponseBodyResult {
+	s.Remark = &v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBodyResult) SetSignExpireTime(v string) *GetUserSignedRecordsByOuterIdResponseBodyResult {
+	s.SignExpireTime = &v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBodyResult) SetSignFileName(v string) *GetUserSignedRecordsByOuterIdResponseBodyResult {
+	s.SignFileName = &v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBodyResult) SetSignFileUrl(v string) *GetUserSignedRecordsByOuterIdResponseBodyResult {
+	s.SignFileUrl = &v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBodyResult) SetSignFinishTime(v string) *GetUserSignedRecordsByOuterIdResponseBodyResult {
+	s.SignFinishTime = &v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBodyResult) SetSignLegalEntityName(v string) *GetUserSignedRecordsByOuterIdResponseBodyResult {
+	s.SignLegalEntityName = &v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBodyResult) SetSignRecordId(v string) *GetUserSignedRecordsByOuterIdResponseBodyResult {
+	s.SignRecordId = &v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBodyResult) SetSignStartTime(v string) *GetUserSignedRecordsByOuterIdResponseBodyResult {
+	s.SignStartTime = &v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBodyResult) SetSignStatus(v string) *GetUserSignedRecordsByOuterIdResponseBodyResult {
+	s.SignStatus = &v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBodyResult) SetSignStatusRemarks(v string) *GetUserSignedRecordsByOuterIdResponseBodyResult {
+	s.SignStatusRemarks = &v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBodyResult) SetSignTemplateType(v string) *GetUserSignedRecordsByOuterIdResponseBodyResult {
+	s.SignTemplateType = &v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBodyResult) SetSignUserId(v string) *GetUserSignedRecordsByOuterIdResponseBodyResult {
+	s.SignUserId = &v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBodyResult) SetSignUserName(v string) *GetUserSignedRecordsByOuterIdResponseBodyResult {
+	s.SignUserName = &v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponseBodyResult) SetSignWay(v string) *GetUserSignedRecordsByOuterIdResponseBodyResult {
+	s.SignWay = &v
+	return s
+}
+
+type GetUserSignedRecordsByOuterIdResponse struct {
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetUserSignedRecordsByOuterIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetUserSignedRecordsByOuterIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserSignedRecordsByOuterIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponse) SetHeaders(v map[string]*string) *GetUserSignedRecordsByOuterIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponse) SetStatusCode(v int32) *GetUserSignedRecordsByOuterIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetUserSignedRecordsByOuterIdResponse) SetBody(v *GetUserSignedRecordsByOuterIdResponseBody) *GetUserSignedRecordsByOuterIdResponse {
+	s.Body = v
+	return s
+}
+
+type HrmAuthResourcesQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrmAuthResourcesQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmAuthResourcesQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrmAuthResourcesQueryHeaders) SetCommonHeaders(v map[string]*string) *HrmAuthResourcesQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrmAuthResourcesQueryHeaders) SetXAcsDingtalkAccessToken(v string) *HrmAuthResourcesQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrmAuthResourcesQueryRequest struct {
+	// This parameter is required.
+	AuthResourceIds []*string `json:"authResourceIds,omitempty" xml:"authResourceIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1231
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s HrmAuthResourcesQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmAuthResourcesQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrmAuthResourcesQueryRequest) SetAuthResourceIds(v []*string) *HrmAuthResourcesQueryRequest {
+	s.AuthResourceIds = v
+	return s
+}
+
+func (s *HrmAuthResourcesQueryRequest) SetUserId(v string) *HrmAuthResourcesQueryRequest {
+	s.UserId = &v
+	return s
+}
+
+type HrmAuthResourcesQueryResponseBody struct {
+	Result []*HrmAuthResourcesQueryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s HrmAuthResourcesQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmAuthResourcesQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrmAuthResourcesQueryResponseBody) SetResult(v []*HrmAuthResourcesQueryResponseBodyResult) *HrmAuthResourcesQueryResponseBody {
+	s.Result = v
+	return s
+}
+
+type HrmAuthResourcesQueryResponseBodyResult struct {
+	Authorized *bool `json:"authorized,omitempty" xml:"authorized,omitempty"`
+	// example:
+	//
+	// /signSetting/manage/*
+	ResourceId *string `json:"resourceId,omitempty" xml:"resourceId,omitempty"`
+}
+
+func (s HrmAuthResourcesQueryResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmAuthResourcesQueryResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *HrmAuthResourcesQueryResponseBodyResult) SetAuthorized(v bool) *HrmAuthResourcesQueryResponseBodyResult {
+	s.Authorized = &v
+	return s
+}
+
+func (s *HrmAuthResourcesQueryResponseBodyResult) SetResourceId(v string) *HrmAuthResourcesQueryResponseBodyResult {
+	s.ResourceId = &v
+	return s
+}
+
+type HrmAuthResourcesQueryResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrmAuthResourcesQueryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrmAuthResourcesQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmAuthResourcesQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrmAuthResourcesQueryResponse) SetHeaders(v map[string]*string) *HrmAuthResourcesQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrmAuthResourcesQueryResponse) SetStatusCode(v int32) *HrmAuthResourcesQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrmAuthResourcesQueryResponse) SetBody(v *HrmAuthResourcesQueryResponseBody) *HrmAuthResourcesQueryResponse {
+	s.Body = v
+	return s
+}
+
+type HrmBenefitQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrmBenefitQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmBenefitQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrmBenefitQueryHeaders) SetCommonHeaders(v map[string]*string) *HrmBenefitQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrmBenefitQueryHeaders) SetXAcsDingtalkAccessToken(v string) *HrmBenefitQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrmBenefitQueryRequest struct {
+	// This parameter is required.
+	BenefitCodes []*string `json:"benefitCodes,omitempty" xml:"benefitCodes,omitempty" type:"Repeated"`
+}
+
+func (s HrmBenefitQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmBenefitQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrmBenefitQueryRequest) SetBenefitCodes(v []*string) *HrmBenefitQueryRequest {
+	s.BenefitCodes = v
+	return s
+}
+
+type HrmBenefitQueryResponseBody struct {
+	Result interface{} `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s HrmBenefitQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmBenefitQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrmBenefitQueryResponseBody) SetResult(v interface{}) *HrmBenefitQueryResponseBody {
+	s.Result = v
+	return s
+}
+
+type HrmBenefitQueryResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrmBenefitQueryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrmBenefitQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmBenefitQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrmBenefitQueryResponse) SetHeaders(v map[string]*string) *HrmBenefitQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrmBenefitQueryResponse) SetStatusCode(v int32) *HrmBenefitQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrmBenefitQueryResponse) SetBody(v *HrmBenefitQueryResponseBody) *HrmBenefitQueryResponse {
+	s.Body = v
+	return s
+}
+
+type HrmCorpConfigQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrmCorpConfigQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmCorpConfigQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrmCorpConfigQueryHeaders) SetCommonHeaders(v map[string]*string) *HrmCorpConfigQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrmCorpConfigQueryHeaders) SetXAcsDingtalkAccessToken(v string) *HrmCorpConfigQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrmCorpConfigQueryRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// policy
+	SubType *string `json:"subType,omitempty" xml:"subType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hrm_ai
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s HrmCorpConfigQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmCorpConfigQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrmCorpConfigQueryRequest) SetSubType(v string) *HrmCorpConfigQueryRequest {
+	s.SubType = &v
+	return s
+}
+
+func (s *HrmCorpConfigQueryRequest) SetType(v string) *HrmCorpConfigQueryRequest {
+	s.Type = &v
+	return s
+}
+
+type HrmCorpConfigQueryResponseBody struct {
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s HrmCorpConfigQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmCorpConfigQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrmCorpConfigQueryResponseBody) SetResult(v string) *HrmCorpConfigQueryResponseBody {
+	s.Result = &v
+	return s
+}
+
+type HrmCorpConfigQueryResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrmCorpConfigQueryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrmCorpConfigQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmCorpConfigQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrmCorpConfigQueryResponse) SetHeaders(v map[string]*string) *HrmCorpConfigQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrmCorpConfigQueryResponse) SetStatusCode(v int32) *HrmCorpConfigQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrmCorpConfigQueryResponse) SetBody(v *HrmCorpConfigQueryResponseBody) *HrmCorpConfigQueryResponse {
+	s.Body = v
+	return s
+}
+
 type HrmMailSendHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -686,7 +3898,9 @@ func (s *HrmMailSendHeaders) SetXAcsDingtalkAccessToken(v string) *HrmMailSendHe
 }
 
 type HrmMailSendRequest struct {
-	Mail     *HrmMailSendRequestMail     `json:"mail,omitempty" xml:"mail,omitempty" type:"Struct"`
+	// This parameter is required.
+	Mail *HrmMailSendRequestMail `json:"mail,omitempty" xml:"mail,omitempty" type:"Struct"`
+	// This parameter is required.
 	Operator *HrmMailSendRequestOperator `json:"operator,omitempty" xml:"operator,omitempty" type:"Struct"`
 }
 
@@ -709,14 +3923,40 @@ func (s *HrmMailSendRequest) SetOperator(v *HrmMailSendRequestOperator) *HrmMail
 }
 
 type HrmMailSendRequestMail struct {
-	Attachments     []*HrmMailSendRequestMailAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
-	BccAddress      *string                              `json:"bccAddress,omitempty" xml:"bccAddress,omitempty"`
-	CcAddress       *string                              `json:"ccAddress,omitempty" xml:"ccAddress,omitempty"`
-	Content         *string                              `json:"content,omitempty" xml:"content,omitempty"`
-	Meeting         *HrmMailSendRequestMailMeeting       `json:"meeting,omitempty" xml:"meeting,omitempty" type:"Struct"`
-	ReceiverAddress *string                              `json:"receiverAddress,omitempty" xml:"receiverAddress,omitempty"`
-	SenderAlias     *string                              `json:"senderAlias,omitempty" xml:"senderAlias,omitempty"`
-	Subject         *string                              `json:"subject,omitempty" xml:"subject,omitempty"`
+	Attachments []*HrmMailSendRequestMailAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+	// example:
+	//
+	// abd@aaa.com,bcd@aaa.com,
+	BccAddress *string `json:"bccAddress,omitempty" xml:"bccAddress,omitempty"`
+	// example:
+	//
+	// abd@aaa.com,bcd@aaa.com,
+	CcAddress *string `json:"ccAddress,omitempty" xml:"ccAddress,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 请及时填写请填写入职登记表
+	Content *string                        `json:"content,omitempty" xml:"content,omitempty"`
+	Meeting *HrmMailSendRequestMailMeeting `json:"meeting,omitempty" xml:"meeting,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abd@aaa.com,bcd@aaa.com,
+	ReceiverAddress *string `json:"receiverAddress,omitempty" xml:"receiverAddress,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 智能人事入职
+	SenderAlias *string `json:"senderAlias,omitempty" xml:"senderAlias,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 请填写入职登记表
+	Subject *string `json:"subject,omitempty" xml:"subject,omitempty"`
 }
 
 func (s HrmMailSendRequestMail) String() string {
@@ -768,8 +4008,23 @@ func (s *HrmMailSendRequestMail) SetSubject(v string) *HrmMailSendRequestMail {
 }
 
 type HrmMailSendRequestMailAttachments struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试.pdf
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// @asdc12312
 	Path *string `json:"path,omitempty" xml:"path,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// media
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
@@ -797,17 +4052,51 @@ func (s *HrmMailSendRequestMailAttachments) SetType(v string) *HrmMailSendReques
 }
 
 type HrmMailSendRequestMailMeeting struct {
-	Alarm       *HrmMailSendRequestMailMeetingAlarm       `json:"alarm,omitempty" xml:"alarm,omitempty" type:"Struct"`
-	Attendees   []*HrmMailSendRequestMailMeetingAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
-	Description *string                                   `json:"description,omitempty" xml:"description,omitempty"`
-	EndTime     *int64                                    `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	Location    *string                                   `json:"location,omitempty" xml:"location,omitempty"`
-	Method      *string                                   `json:"method,omitempty" xml:"method,omitempty"`
-	Organizer   *HrmMailSendRequestMailMeetingOrganizer   `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
-	Sequence    *int32                                    `json:"sequence,omitempty" xml:"sequence,omitempty"`
-	StartTime   *int64                                    `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Summary     *string                                   `json:"summary,omitempty" xml:"summary,omitempty"`
-	Uuid        *string                                   `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	Alarm     *HrmMailSendRequestMailMeetingAlarm       `json:"alarm,omitempty" xml:"alarm,omitempty" type:"Struct"`
+	Attendees []*HrmMailSendRequestMailMeetingAttendees `json:"attendees,omitempty" xml:"attendees,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 会议描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1701692590881
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 会议室
+	Location *string `json:"location,omitempty" xml:"location,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// REQUEST
+	Method    *string                                 `json:"method,omitempty" xml:"method,omitempty"`
+	Organizer *HrmMailSendRequestMailMeetingOrganizer `json:"organizer,omitempty" xml:"organizer,omitempty" type:"Struct"`
+	// example:
+	//
+	// 1
+	Sequence *int32 `json:"sequence,omitempty" xml:"sequence,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1701692590881
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 测试会议
+	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// uuidssssss
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s HrmMailSendRequestMailMeeting) String() string {
@@ -874,8 +4163,19 @@ func (s *HrmMailSendRequestMailMeeting) SetUuid(v string) *HrmMailSendRequestMai
 }
 
 type HrmMailSendRequestMailMeetingAlarm struct {
-	AlarmDesc    *string `json:"alarmDesc,omitempty" xml:"alarmDesc,omitempty"`
-	AlarmMinutes *int32  `json:"alarmMinutes,omitempty" xml:"alarmMinutes,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 还有10分钟开始
+	AlarmDesc *string `json:"alarmDesc,omitempty" xml:"alarmDesc,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	AlarmMinutes *int32 `json:"alarmMinutes,omitempty" xml:"alarmMinutes,omitempty"`
+	// This parameter is required.
 	AlarmSummary *string `json:"alarmSummary,omitempty" xml:"alarmSummary,omitempty"`
 }
 
@@ -903,8 +4203,18 @@ func (s *HrmMailSendRequestMailMeetingAlarm) SetAlarmSummary(v string) *HrmMailS
 }
 
 type HrmMailSendRequestMailMeetingAttendees struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc@aaa.com
 	Address *string `json:"address,omitempty" xml:"address,omitempty"`
-	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 参会人1
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s HrmMailSendRequestMailMeetingAttendees) String() string {
@@ -926,8 +4236,18 @@ func (s *HrmMailSendRequestMailMeetingAttendees) SetName(v string) *HrmMailSendR
 }
 
 type HrmMailSendRequestMailMeetingOrganizer struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abc@aaa.com
 	Address *string `json:"address,omitempty" xml:"address,omitempty"`
-	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 系统
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s HrmMailSendRequestMailMeetingOrganizer) String() string {
@@ -949,9 +4269,24 @@ func (s *HrmMailSendRequestMailMeetingOrganizer) SetName(v string) *HrmMailSendR
 }
 
 type HrmMailSendRequestOperator struct {
-	BizId           *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// biz222ddd
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// hrm
 	MailAccountType *string `json:"mailAccountType,omitempty" xml:"mailAccountType,omitempty"`
-	Token           *string `json:"token,omitempty" xml:"token,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// tokenabcd
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
 }
 
 func (s HrmMailSendRequestOperator) String() string {
@@ -1047,7 +4382,17 @@ func (s *HrmMokaEventHeaders) SetXAcsDingtalkAccessToken(v string) *HrmMokaEvent
 }
 
 type HrmMokaEventRequest struct {
-	BizId   *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// /user/role/get
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"a":"b"}
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 }
 
@@ -1139,6 +4484,11 @@ func (s *HrmMokaOapiHeaders) SetXAcsDingtalkAccessToken(v string) *HrmMokaOapiHe
 }
 
 type HrmMokaOapiRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// /user/role/get
 	ApiCode *string     `json:"apiCode,omitempty" xml:"apiCode,omitempty"`
 	Params  interface{} `json:"params,omitempty" xml:"params,omitempty"`
 }
@@ -1249,10 +4599,28 @@ func (s *HrmProcessRegularHeaders) SetXAcsDingtalkAccessToken(v string) *HrmProc
 }
 
 type HrmProcessRegularRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 16690147049882572
 	OperationId *string `json:"operationId,omitempty" xml:"operationId,omitempty"`
-	RegularDate *int64  `json:"regularDate,omitempty" xml:"regularDate,omitempty"`
-	Remark      *string `json:"remark,omitempty" xml:"remark,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1672542359000
+	RegularDate *int64 `json:"regularDate,omitempty" xml:"regularDate,omitempty"`
+	// example:
+	//
+	// 同意转正
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 16690147049882572
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s HrmProcessRegularRequest) String() string {
@@ -1284,6 +4652,7 @@ func (s *HrmProcessRegularRequest) SetUserId(v string) *HrmProcessRegularRequest
 }
 
 type HrmProcessRegularResponseBody struct {
+	// This parameter is required.
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1329,6 +4698,199 @@ func (s *HrmProcessRegularResponse) SetBody(v *HrmProcessRegularResponseBody) *H
 	return s
 }
 
+type HrmProcessTerminationAndHandoverHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrmProcessTerminationAndHandoverHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmProcessTerminationAndHandoverHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrmProcessTerminationAndHandoverHeaders) SetCommonHeaders(v map[string]*string) *HrmProcessTerminationAndHandoverHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrmProcessTerminationAndHandoverHeaders) SetXAcsDingtalkAccessToken(v string) *HrmProcessTerminationAndHandoverHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrmProcessTerminationAndHandoverRequest struct {
+	// example:
+	//
+	// user123
+	AflowHandOverUserId *string `json:"aflowHandOverUserId,omitempty" xml:"aflowHandOverUserId,omitempty"`
+	// example:
+	//
+	// user123
+	DingPanHandoverUserId *string `json:"dingPanHandoverUserId,omitempty" xml:"dingPanHandoverUserId,omitempty"`
+	// example:
+	//
+	// user123
+	DirectSubordinatesHandoverUserId *string `json:"directSubordinatesHandoverUserId,omitempty" xml:"directSubordinatesHandoverUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// aefadfadaewedad
+	DismissionMemo *string `json:"dismissionMemo,omitempty" xml:"dismissionMemo,omitempty"`
+	// example:
+	//
+	// 1
+	DismissionReason *int32 `json:"dismissionReason,omitempty" xml:"dismissionReason,omitempty"`
+	// example:
+	//
+	// user123
+	DocNoteHandoverUserId *string `json:"docNoteHandoverUserId,omitempty" xml:"docNoteHandoverUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1704074400000
+	LastWorkDate *int64 `json:"lastWorkDate,omitempty" xml:"lastWorkDate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 经理
+	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+	// example:
+	//
+	// user123
+	PermissionHandoverUserId   *string   `json:"permissionHandoverUserId,omitempty" xml:"permissionHandoverUserId,omitempty"`
+	TerminationReasonPassive   []*string `json:"terminationReasonPassive,omitempty" xml:"terminationReasonPassive,omitempty" type:"Repeated"`
+	TerminationReasonVoluntary []*string `json:"terminationReasonVoluntary,omitempty" xml:"terminationReasonVoluntary,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2332
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s HrmProcessTerminationAndHandoverRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmProcessTerminationAndHandoverRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrmProcessTerminationAndHandoverRequest) SetAflowHandOverUserId(v string) *HrmProcessTerminationAndHandoverRequest {
+	s.AflowHandOverUserId = &v
+	return s
+}
+
+func (s *HrmProcessTerminationAndHandoverRequest) SetDingPanHandoverUserId(v string) *HrmProcessTerminationAndHandoverRequest {
+	s.DingPanHandoverUserId = &v
+	return s
+}
+
+func (s *HrmProcessTerminationAndHandoverRequest) SetDirectSubordinatesHandoverUserId(v string) *HrmProcessTerminationAndHandoverRequest {
+	s.DirectSubordinatesHandoverUserId = &v
+	return s
+}
+
+func (s *HrmProcessTerminationAndHandoverRequest) SetDismissionMemo(v string) *HrmProcessTerminationAndHandoverRequest {
+	s.DismissionMemo = &v
+	return s
+}
+
+func (s *HrmProcessTerminationAndHandoverRequest) SetDismissionReason(v int32) *HrmProcessTerminationAndHandoverRequest {
+	s.DismissionReason = &v
+	return s
+}
+
+func (s *HrmProcessTerminationAndHandoverRequest) SetDocNoteHandoverUserId(v string) *HrmProcessTerminationAndHandoverRequest {
+	s.DocNoteHandoverUserId = &v
+	return s
+}
+
+func (s *HrmProcessTerminationAndHandoverRequest) SetLastWorkDate(v int64) *HrmProcessTerminationAndHandoverRequest {
+	s.LastWorkDate = &v
+	return s
+}
+
+func (s *HrmProcessTerminationAndHandoverRequest) SetOptUserId(v string) *HrmProcessTerminationAndHandoverRequest {
+	s.OptUserId = &v
+	return s
+}
+
+func (s *HrmProcessTerminationAndHandoverRequest) SetPermissionHandoverUserId(v string) *HrmProcessTerminationAndHandoverRequest {
+	s.PermissionHandoverUserId = &v
+	return s
+}
+
+func (s *HrmProcessTerminationAndHandoverRequest) SetTerminationReasonPassive(v []*string) *HrmProcessTerminationAndHandoverRequest {
+	s.TerminationReasonPassive = v
+	return s
+}
+
+func (s *HrmProcessTerminationAndHandoverRequest) SetTerminationReasonVoluntary(v []*string) *HrmProcessTerminationAndHandoverRequest {
+	s.TerminationReasonVoluntary = v
+	return s
+}
+
+func (s *HrmProcessTerminationAndHandoverRequest) SetUserId(v string) *HrmProcessTerminationAndHandoverRequest {
+	s.UserId = &v
+	return s
+}
+
+type HrmProcessTerminationAndHandoverResponseBody struct {
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s HrmProcessTerminationAndHandoverResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmProcessTerminationAndHandoverResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrmProcessTerminationAndHandoverResponseBody) SetResult(v bool) *HrmProcessTerminationAndHandoverResponseBody {
+	s.Result = &v
+	return s
+}
+
+type HrmProcessTerminationAndHandoverResponse struct {
+	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrmProcessTerminationAndHandoverResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrmProcessTerminationAndHandoverResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrmProcessTerminationAndHandoverResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrmProcessTerminationAndHandoverResponse) SetHeaders(v map[string]*string) *HrmProcessTerminationAndHandoverResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrmProcessTerminationAndHandoverResponse) SetStatusCode(v int32) *HrmProcessTerminationAndHandoverResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrmProcessTerminationAndHandoverResponse) SetBody(v *HrmProcessTerminationAndHandoverResponseBody) *HrmProcessTerminationAndHandoverResponse {
+	s.Body = v
+	return s
+}
+
 type HrmProcessTransferHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1353,15 +4915,41 @@ func (s *HrmProcessTransferHeaders) SetXAcsDingtalkAccessToken(v string) *HrmPro
 }
 
 type HrmProcessTransferRequest struct {
-	DeptIdsAfterTransfer       []*int64 `json:"deptIdsAfterTransfer,omitempty" xml:"deptIdsAfterTransfer,omitempty" type:"Repeated"`
-	JobIdAfterTransfer         *string  `json:"jobIdAfterTransfer,omitempty" xml:"jobIdAfterTransfer,omitempty"`
-	MainDeptIdAfterTransfer    *int64   `json:"mainDeptIdAfterTransfer,omitempty" xml:"mainDeptIdAfterTransfer,omitempty"`
-	OperateUserId              *string  `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
-	PositionIdAfterTransfer    *string  `json:"positionIdAfterTransfer,omitempty" xml:"positionIdAfterTransfer,omitempty"`
-	PositionLevelAfterTransfer *string  `json:"positionLevelAfterTransfer,omitempty" xml:"positionLevelAfterTransfer,omitempty"`
-	PositionNameAfterTransfer  *string  `json:"positionNameAfterTransfer,omitempty" xml:"positionNameAfterTransfer,omitempty"`
-	RankIdAfterTransfer        *string  `json:"rankIdAfterTransfer,omitempty" xml:"rankIdAfterTransfer,omitempty"`
-	UserId                     *string  `json:"userId,omitempty" xml:"userId,omitempty"`
+	DeptIdsAfterTransfer []*int64 `json:"deptIdsAfterTransfer,omitempty" xml:"deptIdsAfterTransfer,omitempty" type:"Repeated"`
+	// example:
+	//
+	// aefadfadaewedad
+	JobIdAfterTransfer *string `json:"jobIdAfterTransfer,omitempty" xml:"jobIdAfterTransfer,omitempty"`
+	// example:
+	//
+	// 123L
+	MainDeptIdAfterTransfer *int64 `json:"mainDeptIdAfterTransfer,omitempty" xml:"mainDeptIdAfterTransfer,omitempty"`
+	// example:
+	//
+	// 232312312
+	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
+	// example:
+	//
+	// fasdfaddsadfa
+	PositionIdAfterTransfer *string `json:"positionIdAfterTransfer,omitempty" xml:"positionIdAfterTransfer,omitempty"`
+	// example:
+	//
+	// L1
+	PositionLevelAfterTransfer *string `json:"positionLevelAfterTransfer,omitempty" xml:"positionLevelAfterTransfer,omitempty"`
+	// example:
+	//
+	// 经理
+	PositionNameAfterTransfer *string `json:"positionNameAfterTransfer,omitempty" xml:"positionNameAfterTransfer,omitempty"`
+	// example:
+	//
+	// fasdfaddsadfa
+	RankIdAfterTransfer *string `json:"rankIdAfterTransfer,omitempty" xml:"rankIdAfterTransfer,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2332
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s HrmProcessTransferRequest) String() string {
@@ -1418,6 +5006,9 @@ func (s *HrmProcessTransferRequest) SetUserId(v string) *HrmProcessTransferReque
 }
 
 type HrmProcessTransferResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1487,9 +5078,24 @@ func (s *HrmProcessUpdateTerminationInfoHeaders) SetXAcsDingtalkAccessToken(v st
 }
 
 type HrmProcessUpdateTerminationInfoRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 因个人原因离职
 	DismissionMemo *string `json:"dismissionMemo,omitempty" xml:"dismissionMemo,omitempty"`
-	LastWorkDate   *int64  `json:"lastWorkDate,omitempty" xml:"lastWorkDate,omitempty"`
-	UserId         *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1672502400000
+	LastWorkDate *int64 `json:"lastWorkDate,omitempty" xml:"lastWorkDate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// admin123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s HrmProcessUpdateTerminationInfoRequest) String() string {
@@ -1516,6 +5122,7 @@ func (s *HrmProcessUpdateTerminationInfoRequest) SetUserId(v string) *HrmProcess
 }
 
 type HrmProcessUpdateTerminationInfoResponseBody struct {
+	// This parameter is required.
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -1585,11 +5192,29 @@ func (s *HrmPtsServiceHeaders) SetXAcsDingtalkAccessToken(v string) *HrmPtsServi
 }
 
 type HrmPtsServiceRequest struct {
-	Env     *string     `json:"env,omitempty" xml:"env,omitempty"`
-	Method  *string     `json:"method,omitempty" xml:"method,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dev  or online
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
+	// example:
+	//
+	// GET/POST
+	Method *string `json:"method,omitempty" xml:"method,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abd123213
 	OuterId *string     `json:"outerId,omitempty" xml:"outerId,omitempty"`
 	Params  interface{} `json:"params,omitempty" xml:"params,omitempty"`
-	Path    *string     `json:"path,omitempty" xml:"path,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// /user/role/get
+	Path *string `json:"path,omitempty" xml:"path,omitempty"`
 }
 
 func (s HrmPtsServiceRequest) String() string {
@@ -1689,6 +5314,194 @@ func (s *HrmPtsServiceResponse) SetBody(v *HrmPtsServiceResponseBody) *HrmPtsSer
 	return s
 }
 
+type InvalidSignRecordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s InvalidSignRecordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InvalidSignRecordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *InvalidSignRecordsHeaders) SetCommonHeaders(v map[string]*string) *InvalidSignRecordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *InvalidSignRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *InvalidSignRecordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type InvalidSignRecordsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	InvalidUserId *string `json:"invalidUserId,omitempty" xml:"invalidUserId,omitempty"`
+	// This parameter is required.
+	SignRecordIds []*string `json:"signRecordIds,omitempty" xml:"signRecordIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 作废测试
+	StatusRemark *string `json:"statusRemark,omitempty" xml:"statusRemark,omitempty"`
+}
+
+func (s InvalidSignRecordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InvalidSignRecordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *InvalidSignRecordsRequest) SetInvalidUserId(v string) *InvalidSignRecordsRequest {
+	s.InvalidUserId = &v
+	return s
+}
+
+func (s *InvalidSignRecordsRequest) SetSignRecordIds(v []*string) *InvalidSignRecordsRequest {
+	s.SignRecordIds = v
+	return s
+}
+
+func (s *InvalidSignRecordsRequest) SetStatusRemark(v string) *InvalidSignRecordsRequest {
+	s.StatusRemark = &v
+	return s
+}
+
+type InvalidSignRecordsResponseBody struct {
+	Result *InvalidSignRecordsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s InvalidSignRecordsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InvalidSignRecordsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *InvalidSignRecordsResponseBody) SetResult(v *InvalidSignRecordsResponseBodyResult) *InvalidSignRecordsResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *InvalidSignRecordsResponseBody) SetSuccess(v bool) *InvalidSignRecordsResponseBody {
+	s.Success = &v
+	return s
+}
+
+type InvalidSignRecordsResponseBodyResult struct {
+	FailItems    []*InvalidSignRecordsResponseBodyResultFailItems    `json:"failItems,omitempty" xml:"failItems,omitempty" type:"Repeated"`
+	SuccessItems []*InvalidSignRecordsResponseBodyResultSuccessItems `json:"successItems,omitempty" xml:"successItems,omitempty" type:"Repeated"`
+}
+
+func (s InvalidSignRecordsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InvalidSignRecordsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *InvalidSignRecordsResponseBodyResult) SetFailItems(v []*InvalidSignRecordsResponseBodyResultFailItems) *InvalidSignRecordsResponseBodyResult {
+	s.FailItems = v
+	return s
+}
+
+func (s *InvalidSignRecordsResponseBodyResult) SetSuccessItems(v []*InvalidSignRecordsResponseBodyResultSuccessItems) *InvalidSignRecordsResponseBodyResult {
+	s.SuccessItems = v
+	return s
+}
+
+type InvalidSignRecordsResponseBodyResultFailItems struct {
+	// example:
+	//
+	// 1234566789
+	ItemId *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	// example:
+	//
+	// 电子签状态变更不合法
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s InvalidSignRecordsResponseBodyResultFailItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InvalidSignRecordsResponseBodyResultFailItems) GoString() string {
+	return s.String()
+}
+
+func (s *InvalidSignRecordsResponseBodyResultFailItems) SetItemId(v string) *InvalidSignRecordsResponseBodyResultFailItems {
+	s.ItemId = &v
+	return s
+}
+
+func (s *InvalidSignRecordsResponseBodyResultFailItems) SetType(v string) *InvalidSignRecordsResponseBodyResultFailItems {
+	s.Type = &v
+	return s
+}
+
+type InvalidSignRecordsResponseBodyResultSuccessItems struct {
+	// example:
+	//
+	// 123456789
+	ItemId *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+}
+
+func (s InvalidSignRecordsResponseBodyResultSuccessItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InvalidSignRecordsResponseBodyResultSuccessItems) GoString() string {
+	return s.String()
+}
+
+func (s *InvalidSignRecordsResponseBodyResultSuccessItems) SetItemId(v string) *InvalidSignRecordsResponseBodyResultSuccessItems {
+	s.ItemId = &v
+	return s
+}
+
+type InvalidSignRecordsResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *InvalidSignRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s InvalidSignRecordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InvalidSignRecordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *InvalidSignRecordsResponse) SetHeaders(v map[string]*string) *InvalidSignRecordsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *InvalidSignRecordsResponse) SetStatusCode(v int32) *InvalidSignRecordsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *InvalidSignRecordsResponse) SetBody(v *InvalidSignRecordsResponseBody) *InvalidSignRecordsResponse {
+	s.Body = v
+	return s
+}
+
 type MasterDataDeleteHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1713,8 +5526,14 @@ func (s *MasterDataDeleteHeaders) SetXAcsDingtalkAccessToken(v string) *MasterDa
 }
 
 type MasterDataDeleteRequest struct {
-	Body     []*MasterDataDeleteRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	TenantId *int64                         `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+	// This parameter is required.
+	Body []*MasterDataDeleteRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	TenantId *int64 `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
 }
 
 func (s MasterDataDeleteRequest) String() string {
@@ -1736,11 +5555,25 @@ func (s *MasterDataDeleteRequest) SetTenantId(v int64) *MasterDataDeleteRequest 
 }
 
 type MasterDataDeleteRequestBody struct {
-	BizTime    *int64                                  `json:"bizTime,omitempty" xml:"bizTime,omitempty"`
-	BizUk      *string                                 `json:"bizUk,omitempty" xml:"bizUk,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12312
+	BizTime *int64 `json:"bizTime,omitempty" xml:"bizTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// uk123
+	BizUk *string `json:"bizUk,omitempty" xml:"bizUk,omitempty"`
+	// example:
+	//
+	// base
 	EntityCode *string                                 `json:"entityCode,omitempty" xml:"entityCode,omitempty"`
 	FieldList  []*MasterDataDeleteRequestBodyFieldList `json:"fieldList,omitempty" xml:"fieldList,omitempty" type:"Repeated"`
-	Scope      *MasterDataDeleteRequestBodyScope       `json:"scope,omitempty" xml:"scope,omitempty" type:"Struct"`
+	// This parameter is required.
+	Scope *MasterDataDeleteRequestBodyScope `json:"scope,omitempty" xml:"scope,omitempty" type:"Struct"`
 }
 
 func (s MasterDataDeleteRequestBody) String() string {
@@ -1777,7 +5610,13 @@ func (s *MasterDataDeleteRequestBody) SetScope(v *MasterDataDeleteRequestBodySco
 }
 
 type MasterDataDeleteRequestBodyFieldList struct {
-	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 123
 	ValueStr *string `json:"valueStr,omitempty" xml:"valueStr,omitempty"`
 }
 
@@ -1800,8 +5639,16 @@ func (s *MasterDataDeleteRequestBodyFieldList) SetValueStr(v string) *MasterData
 }
 
 type MasterDataDeleteRequestBodyScope struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// performance
 	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
-	Version   *int32  `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int32 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s MasterDataDeleteRequestBodyScope) String() string {
@@ -1823,6 +5670,7 @@ func (s *MasterDataDeleteRequestBodyScope) SetVersion(v int32) *MasterDataDelete
 }
 
 type MasterDataDeleteResponseBody struct {
+	// This parameter is required.
 	AllSuccess *bool                                     `json:"allSuccess,omitempty" xml:"allSuccess,omitempty"`
 	FailResult []*MasterDataDeleteResponseBodyFailResult `json:"failResult,omitempty" xml:"failResult,omitempty" type:"Repeated"`
 }
@@ -1846,10 +5694,19 @@ func (s *MasterDataDeleteResponseBody) SetFailResult(v []*MasterDataDeleteRespon
 }
 
 type MasterDataDeleteResponseBodyFailResult struct {
-	BizUK     *string `json:"bizUK,omitempty" xml:"bizUK,omitempty"`
+	// example:
+	//
+	// uk123
+	BizUK *string `json:"bizUK,omitempty" xml:"bizUK,omitempty"`
+	// example:
+	//
+	// S0005
 	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// 主键冲突
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Success  *bool   `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s MasterDataDeleteResponseBodyFailResult) String() string {
@@ -1933,15 +5790,47 @@ func (s *MasterDataQueryHeaders) SetXAcsDingtalkAccessToken(v string) *MasterDat
 }
 
 type MasterDataQueryRequest struct {
-	BizUK          *string                              `json:"bizUK,omitempty" xml:"bizUK,omitempty"`
-	MaxResults     *int32                               `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken      *int32                               `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	OptUserId      *string                              `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
-	QueryParams    []*MasterDataQueryRequestQueryParams `json:"queryParams,omitempty" xml:"queryParams,omitempty" type:"Repeated"`
-	RelationIds    []*string                            `json:"relationIds,omitempty" xml:"relationIds,omitempty" type:"Repeated"`
-	ScopeCode      *string                              `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
-	TenantId       *int64                               `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
-	ViewEntityCode *string                              `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
+	// example:
+	//
+	// uk_12123
+	BizUK *string `json:"bizUK,omitempty" xml:"bizUK,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// admin1234
+	OptUserId   *string                              `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+	QueryParams []*MasterDataQueryRequestQueryParams `json:"queryParams,omitempty" xml:"queryParams,omitempty" type:"Repeated"`
+	// This parameter is required.
+	RelationIds []*string `json:"relationIds,omitempty" xml:"relationIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PERFORMANCE
+	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3
+	TenantId *int64 `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// base
+	ViewEntityCode *string `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
 }
 
 func (s MasterDataQueryRequest) String() string {
@@ -1999,8 +5888,14 @@ func (s *MasterDataQueryRequest) SetViewEntityCode(v string) *MasterDataQueryReq
 
 type MasterDataQueryRequestQueryParams struct {
 	ConditionList []*MasterDataQueryRequestQueryParamsConditionList `json:"conditionList,omitempty" xml:"conditionList,omitempty" type:"Repeated"`
-	FieldCode     *string                                           `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
-	JoinType      *string                                           `json:"joinType,omitempty" xml:"joinType,omitempty"`
+	// example:
+	//
+	// performance_code
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// example:
+	//
+	// AND
+	JoinType *string `json:"joinType,omitempty" xml:"joinType,omitempty"`
 }
 
 func (s MasterDataQueryRequestQueryParams) String() string {
@@ -2027,6 +5922,9 @@ func (s *MasterDataQueryRequestQueryParams) SetJoinType(v string) *MasterDataQue
 }
 
 type MasterDataQueryRequestQueryParamsConditionList struct {
+	// example:
+	//
+	// EQUAL
 	Operate *string `json:"operate,omitempty" xml:"operate,omitempty"`
 	Value   *string `json:"value,omitempty" xml:"value,omitempty"`
 }
@@ -2050,11 +5948,26 @@ func (s *MasterDataQueryRequestQueryParamsConditionList) SetValue(v string) *Mas
 }
 
 type MasterDataQueryResponseBody struct {
-	HasMore   *bool                                `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextToken *int64                               `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Result    []*MasterDataQueryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	Success   *bool                                `json:"success,omitempty" xml:"success,omitempty"`
-	Total     *int64                               `json:"total,omitempty" xml:"total,omitempty"`
+	// example:
+	//
+	// true
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// 0
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	Result []*MasterDataQueryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// 100
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
 }
 
 func (s MasterDataQueryResponseBody) String() string {
@@ -2091,9 +6004,27 @@ func (s *MasterDataQueryResponseBody) SetTotal(v int64) *MasterDataQueryResponse
 }
 
 type MasterDataQueryResponseBodyResult struct {
-	OuterId               *string                                                   `json:"outerId,omitempty" xml:"outerId,omitempty"`
-	RelationId            *string                                                   `json:"relationId,omitempty" xml:"relationId,omitempty"`
-	ScopeCode             *string                                                   `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	// example:
+	//
+	// uk123123
+	OuterId *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// admind123
+	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PERFORMANCE
+	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// base
 	ViewEntityCode        *string                                                   `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
 	ViewEntityFieldVOList []*MasterDataQueryResponseBodyResultViewEntityFieldVOList `json:"viewEntityFieldVOList,omitempty" xml:"viewEntityFieldVOList,omitempty" type:"Repeated"`
 }
@@ -2132,10 +6063,19 @@ func (s *MasterDataQueryResponseBodyResult) SetViewEntityFieldVOList(v []*Master
 }
 
 type MasterDataQueryResponseBodyResultViewEntityFieldVOList struct {
+	// example:
+	//
+	// performanceValue
 	FieldCode   *string                                                            `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
 	FieldDataVO *MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO `json:"fieldDataVO,omitempty" xml:"fieldDataVO,omitempty" type:"Struct"`
-	FieldName   *string                                                            `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
-	FieldType   *string                                                            `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	// example:
+	//
+	// 绩效等级
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// example:
+	//
+	// 1
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
 }
 
 func (s MasterDataQueryResponseBodyResultViewEntityFieldVOList) String() string {
@@ -2167,7 +6107,13 @@ func (s *MasterDataQueryResponseBodyResultViewEntityFieldVOList) SetFieldType(v 
 }
 
 type MasterDataQueryResponseBodyResultViewEntityFieldVOListFieldDataVO struct {
-	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// 100
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// 100
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -2242,8 +6188,14 @@ func (s *MasterDataSaveHeaders) SetXAcsDingtalkAccessToken(v string) *MasterData
 }
 
 type MasterDataSaveRequest struct {
-	Body     []*MasterDataSaveRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
-	TenantId *int64                       `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+	// This parameter is required.
+	Body []*MasterDataSaveRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	TenantId *int64 `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
 }
 
 func (s MasterDataSaveRequest) String() string {
@@ -2265,12 +6217,32 @@ func (s *MasterDataSaveRequest) SetTenantId(v int64) *MasterDataSaveRequest {
 }
 
 type MasterDataSaveRequestBody struct {
-	BizTime    *int64                                `json:"bizTime,omitempty" xml:"bizTime,omitempty"`
-	BizUk      *string                               `json:"bizUk,omitempty" xml:"bizUk,omitempty"`
-	EntityCode *string                               `json:"entityCode,omitempty" xml:"entityCode,omitempty"`
-	FieldList  []*MasterDataSaveRequestBodyFieldList `json:"fieldList,omitempty" xml:"fieldList,omitempty" type:"Repeated"`
-	Scope      *MasterDataSaveRequestBodyScope       `json:"scope,omitempty" xml:"scope,omitempty" type:"Struct"`
-	UserId     *string                               `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12312
+	BizTime *int64 `json:"bizTime,omitempty" xml:"bizTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// uk123
+	BizUk *string `json:"bizUk,omitempty" xml:"bizUk,omitempty"`
+	// example:
+	//
+	// base
+	EntityCode *string `json:"entityCode,omitempty" xml:"entityCode,omitempty"`
+	// This parameter is required.
+	FieldList []*MasterDataSaveRequestBodyFieldList `json:"fieldList,omitempty" xml:"fieldList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Scope *MasterDataSaveRequestBodyScope `json:"scope,omitempty" xml:"scope,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s MasterDataSaveRequestBody) String() string {
@@ -2312,7 +6284,17 @@ func (s *MasterDataSaveRequestBody) SetUserId(v string) *MasterDataSaveRequestBo
 }
 
 type MasterDataSaveRequestBodyFieldList struct {
-	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
 	ValueStr *string `json:"valueStr,omitempty" xml:"valueStr,omitempty"`
 }
 
@@ -2335,8 +6317,16 @@ func (s *MasterDataSaveRequestBodyFieldList) SetValueStr(v string) *MasterDataSa
 }
 
 type MasterDataSaveRequestBodyScope struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// performance
 	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
-	Version   *int32  `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int32 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s MasterDataSaveRequestBodyScope) String() string {
@@ -2358,6 +6348,11 @@ func (s *MasterDataSaveRequestBodyScope) SetVersion(v int32) *MasterDataSaveRequ
 }
 
 type MasterDataSaveResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
 	AllSuccess *bool                                   `json:"allSuccess,omitempty" xml:"allSuccess,omitempty"`
 	FailResult []*MasterDataSaveResponseBodyFailResult `json:"failResult,omitempty" xml:"failResult,omitempty" type:"Repeated"`
 }
@@ -2381,10 +6376,22 @@ func (s *MasterDataSaveResponseBody) SetFailResult(v []*MasterDataSaveResponseBo
 }
 
 type MasterDataSaveResponseBodyFailResult struct {
-	BizUk     *string `json:"bizUk,omitempty" xml:"bizUk,omitempty"`
+	// example:
+	//
+	// uk123
+	BizUk *string `json:"bizUk,omitempty" xml:"bizUk,omitempty"`
+	// example:
+	//
+	// S0005
 	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
-	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// 主键冲突
+	ErrorMsg *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s MasterDataSaveResponseBodyFailResult) String() string {
@@ -2468,8 +6475,10 @@ func (s *MasterDataTenantQueyHeaders) SetXAcsDingtalkAccessToken(v string) *Mast
 }
 
 type MasterDataTenantQueyRequest struct {
+	// This parameter is required.
 	EntityCode *string `json:"entityCode,omitempty" xml:"entityCode,omitempty"`
-	ScopeCode  *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	// This parameter is required.
+	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
 }
 
 func (s MasterDataTenantQueyRequest) String() string {
@@ -2491,6 +6500,7 @@ func (s *MasterDataTenantQueyRequest) SetScopeCode(v string) *MasterDataTenantQu
 }
 
 type MasterDataTenantQueyResponseBody struct {
+	// This parameter is required.
 	Result []*MasterDataTenantQueyResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -2508,12 +6518,36 @@ func (s *MasterDataTenantQueyResponseBody) SetResult(v []*MasterDataTenantQueyRe
 }
 
 type MasterDataTenantQueyResponseBodyResult struct {
-	HasData           *bool   `json:"hasData,omitempty" xml:"hasData,omitempty"`
-	IntegrateDataAuth *bool   `json:"integrateDataAuth,omitempty" xml:"integrateDataAuth,omitempty"`
-	Name              *string `json:"name,omitempty" xml:"name,omitempty"`
-	ReadAuth          *bool   `json:"readAuth,omitempty" xml:"readAuth,omitempty"`
-	TenantId          *int64  `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
-	Type              *int32  `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// true
+	HasData *bool `json:"hasData,omitempty" xml:"hasData,omitempty"`
+	// example:
+	//
+	// true
+	IntegrateDataAuth *bool `json:"integrateDataAuth,omitempty" xml:"integrateDataAuth,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// "智能绩效"
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// true
+	ReadAuth *bool `json:"readAuth,omitempty" xml:"readAuth,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 4
+	TenantId *int64 `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Type *int32 `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s MasterDataTenantQueyResponseBodyResult) String() string {
@@ -2583,6 +6617,258 @@ func (s *MasterDataTenantQueyResponse) SetBody(v *MasterDataTenantQueyResponseBo
 	return s
 }
 
+type MasterDatasGetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s MasterDatasGetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDatasGetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDatasGetHeaders) SetCommonHeaders(v map[string]*string) *MasterDatasGetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *MasterDatasGetHeaders) SetXAcsDingtalkAccessToken(v string) *MasterDatasGetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type MasterDatasGetRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// uk1231
+	ObjId *string `json:"objId,omitempty" xml:"objId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PERFORMANCE
+	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3
+	TenantId *int64 `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// base
+	ViewEntityCode *string `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
+}
+
+func (s MasterDatasGetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDatasGetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDatasGetRequest) SetObjId(v string) *MasterDatasGetRequest {
+	s.ObjId = &v
+	return s
+}
+
+func (s *MasterDatasGetRequest) SetScopeCode(v string) *MasterDatasGetRequest {
+	s.ScopeCode = &v
+	return s
+}
+
+func (s *MasterDatasGetRequest) SetTenantId(v int64) *MasterDatasGetRequest {
+	s.TenantId = &v
+	return s
+}
+
+func (s *MasterDatasGetRequest) SetViewEntityCode(v string) *MasterDatasGetRequest {
+	s.ViewEntityCode = &v
+	return s
+}
+
+type MasterDatasGetResponseBody struct {
+	Result *MasterDatasGetResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s MasterDatasGetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDatasGetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDatasGetResponseBody) SetResult(v *MasterDatasGetResponseBodyResult) *MasterDatasGetResponseBody {
+	s.Result = v
+	return s
+}
+
+type MasterDatasGetResponseBodyResult struct {
+	// example:
+	//
+	// uk123123
+	ObjId *string `json:"objId,omitempty" xml:"objId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// admind123
+	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
+	// example:
+	//
+	// PERFORMANCE
+	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	// example:
+	//
+	// base
+	ViewEntityCode        *string                                                  `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
+	ViewEntityFieldVOList []*MasterDatasGetResponseBodyResultViewEntityFieldVOList `json:"viewEntityFieldVOList,omitempty" xml:"viewEntityFieldVOList,omitempty" type:"Repeated"`
+}
+
+func (s MasterDatasGetResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDatasGetResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDatasGetResponseBodyResult) SetObjId(v string) *MasterDatasGetResponseBodyResult {
+	s.ObjId = &v
+	return s
+}
+
+func (s *MasterDatasGetResponseBodyResult) SetRelationId(v string) *MasterDatasGetResponseBodyResult {
+	s.RelationId = &v
+	return s
+}
+
+func (s *MasterDatasGetResponseBodyResult) SetScopeCode(v string) *MasterDatasGetResponseBodyResult {
+	s.ScopeCode = &v
+	return s
+}
+
+func (s *MasterDatasGetResponseBodyResult) SetViewEntityCode(v string) *MasterDatasGetResponseBodyResult {
+	s.ViewEntityCode = &v
+	return s
+}
+
+func (s *MasterDatasGetResponseBodyResult) SetViewEntityFieldVOList(v []*MasterDatasGetResponseBodyResultViewEntityFieldVOList) *MasterDatasGetResponseBodyResult {
+	s.ViewEntityFieldVOList = v
+	return s
+}
+
+type MasterDatasGetResponseBodyResultViewEntityFieldVOList struct {
+	// example:
+	//
+	// performanceValue
+	FieldCode   *string                                                           `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	FieldDataVO *MasterDatasGetResponseBodyResultViewEntityFieldVOListFieldDataVO `json:"fieldDataVO,omitempty" xml:"fieldDataVO,omitempty" type:"Struct"`
+	// example:
+	//
+	// 绩效等级
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// example:
+	//
+	// 1
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+}
+
+func (s MasterDatasGetResponseBodyResultViewEntityFieldVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDatasGetResponseBodyResultViewEntityFieldVOList) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDatasGetResponseBodyResultViewEntityFieldVOList) SetFieldCode(v string) *MasterDatasGetResponseBodyResultViewEntityFieldVOList {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *MasterDatasGetResponseBodyResultViewEntityFieldVOList) SetFieldDataVO(v *MasterDatasGetResponseBodyResultViewEntityFieldVOListFieldDataVO) *MasterDatasGetResponseBodyResultViewEntityFieldVOList {
+	s.FieldDataVO = v
+	return s
+}
+
+func (s *MasterDatasGetResponseBodyResultViewEntityFieldVOList) SetFieldName(v string) *MasterDatasGetResponseBodyResultViewEntityFieldVOList {
+	s.FieldName = &v
+	return s
+}
+
+func (s *MasterDatasGetResponseBodyResultViewEntityFieldVOList) SetFieldType(v string) *MasterDatasGetResponseBodyResultViewEntityFieldVOList {
+	s.FieldType = &v
+	return s
+}
+
+type MasterDatasGetResponseBodyResultViewEntityFieldVOListFieldDataVO struct {
+	// example:
+	//
+	// 100
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// 100
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s MasterDatasGetResponseBodyResultViewEntityFieldVOListFieldDataVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDatasGetResponseBodyResultViewEntityFieldVOListFieldDataVO) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDatasGetResponseBodyResultViewEntityFieldVOListFieldDataVO) SetKey(v string) *MasterDatasGetResponseBodyResultViewEntityFieldVOListFieldDataVO {
+	s.Key = &v
+	return s
+}
+
+func (s *MasterDatasGetResponseBodyResultViewEntityFieldVOListFieldDataVO) SetValue(v string) *MasterDatasGetResponseBodyResultViewEntityFieldVOListFieldDataVO {
+	s.Value = &v
+	return s
+}
+
+type MasterDatasGetResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *MasterDatasGetResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s MasterDatasGetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MasterDatasGetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *MasterDatasGetResponse) SetHeaders(v map[string]*string) *MasterDatasGetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *MasterDatasGetResponse) SetStatusCode(v int32) *MasterDatasGetResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *MasterDatasGetResponse) SetBody(v *MasterDatasGetResponseBody) *MasterDatasGetResponse {
+	s.Body = v
+	return s
+}
+
 type MasterDatasQueryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2607,14 +6893,43 @@ func (s *MasterDatasQueryHeaders) SetXAcsDingtalkAccessToken(v string) *MasterDa
 }
 
 type MasterDatasQueryRequest struct {
-	BizUK          *string                               `json:"bizUK,omitempty" xml:"bizUK,omitempty"`
-	MaxResults     *int32                                `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken      *int32                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	QueryParams    []*MasterDatasQueryRequestQueryParams `json:"queryParams,omitempty" xml:"queryParams,omitempty" type:"Repeated"`
-	RelationIds    []*string                             `json:"relationIds,omitempty" xml:"relationIds,omitempty" type:"Repeated"`
-	ScopeCode      *string                               `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
-	TenantId       *int64                                `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
-	ViewEntityCode *string                               `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
+	// example:
+	//
+	// uk_12123
+	BizUK *string `json:"bizUK,omitempty" xml:"bizUK,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	NextToken   *int32                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	QueryParams []*MasterDatasQueryRequestQueryParams `json:"queryParams,omitempty" xml:"queryParams,omitempty" type:"Repeated"`
+	// This parameter is required.
+	RelationIds []*string `json:"relationIds,omitempty" xml:"relationIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PERFORMANCE
+	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3
+	TenantId *int64 `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// base
+	ViewEntityCode *string `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
 }
 
 func (s MasterDatasQueryRequest) String() string {
@@ -2667,8 +6982,14 @@ func (s *MasterDatasQueryRequest) SetViewEntityCode(v string) *MasterDatasQueryR
 
 type MasterDatasQueryRequestQueryParams struct {
 	ConditionList []*MasterDatasQueryRequestQueryParamsConditionList `json:"conditionList,omitempty" xml:"conditionList,omitempty" type:"Repeated"`
-	FieldCode     *string                                            `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
-	JoinType      *string                                            `json:"joinType,omitempty" xml:"joinType,omitempty"`
+	// example:
+	//
+	// performance_code
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// example:
+	//
+	// AND
+	JoinType *string `json:"joinType,omitempty" xml:"joinType,omitempty"`
 }
 
 func (s MasterDatasQueryRequestQueryParams) String() string {
@@ -2695,6 +7016,9 @@ func (s *MasterDatasQueryRequestQueryParams) SetJoinType(v string) *MasterDatasQ
 }
 
 type MasterDatasQueryRequestQueryParamsConditionList struct {
+	// example:
+	//
+	// EQUAL
 	Operate *string `json:"operate,omitempty" xml:"operate,omitempty"`
 	Value   *string `json:"value,omitempty" xml:"value,omitempty"`
 }
@@ -2718,11 +7042,18 @@ func (s *MasterDatasQueryRequestQueryParamsConditionList) SetValue(v string) *Ma
 }
 
 type MasterDatasQueryResponseBody struct {
-	HasMore   *bool                                 `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// example:
+	//
+	// 0
 	NextToken *int64                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Result    []*MasterDatasQueryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	Success   *bool                                 `json:"success,omitempty" xml:"success,omitempty"`
-	Total     *int64                                `json:"total,omitempty" xml:"total,omitempty"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// 100
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
 }
 
 func (s MasterDatasQueryResponseBody) String() string {
@@ -2759,9 +7090,23 @@ func (s *MasterDatasQueryResponseBody) SetTotal(v int64) *MasterDatasQueryRespon
 }
 
 type MasterDatasQueryResponseBodyResult struct {
-	ObjId                 *string                                                    `json:"objId,omitempty" xml:"objId,omitempty"`
-	RelationId            *string                                                    `json:"relationId,omitempty" xml:"relationId,omitempty"`
-	ScopeCode             *string                                                    `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	// example:
+	//
+	// uk123123
+	ObjId *string `json:"objId,omitempty" xml:"objId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// admind123
+	RelationId *string `json:"relationId,omitempty" xml:"relationId,omitempty"`
+	// example:
+	//
+	// PERFORMANCE
+	ScopeCode *string `json:"scopeCode,omitempty" xml:"scopeCode,omitempty"`
+	// example:
+	//
+	// base
 	ViewEntityCode        *string                                                    `json:"viewEntityCode,omitempty" xml:"viewEntityCode,omitempty"`
 	ViewEntityFieldVOList []*MasterDatasQueryResponseBodyResultViewEntityFieldVOList `json:"viewEntityFieldVOList,omitempty" xml:"viewEntityFieldVOList,omitempty" type:"Repeated"`
 }
@@ -2800,10 +7145,19 @@ func (s *MasterDatasQueryResponseBodyResult) SetViewEntityFieldVOList(v []*Maste
 }
 
 type MasterDatasQueryResponseBodyResultViewEntityFieldVOList struct {
+	// example:
+	//
+	// performanceValue
 	FieldCode   *string                                                             `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
 	FieldDataVO *MasterDatasQueryResponseBodyResultViewEntityFieldVOListFieldDataVO `json:"fieldDataVO,omitempty" xml:"fieldDataVO,omitempty" type:"Struct"`
-	FieldName   *string                                                             `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
-	FieldType   *string                                                             `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	// example:
+	//
+	// 绩效等级
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// example:
+	//
+	// 1
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
 }
 
 func (s MasterDatasQueryResponseBodyResultViewEntityFieldVOList) String() string {
@@ -2835,7 +7189,13 @@ func (s *MasterDatasQueryResponseBodyResultViewEntityFieldVOList) SetFieldType(v
 }
 
 type MasterDatasQueryResponseBodyResultViewEntityFieldVOListFieldDataVO struct {
-	Key   *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// 100
+	Key *string `json:"key,omitempty" xml:"key,omitempty"`
+	// example:
+	//
+	// 100
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -2886,6 +7246,101 @@ func (s *MasterDatasQueryResponse) SetBody(v *MasterDatasQueryResponseBody) *Mas
 	return s
 }
 
+type OpenOemMicroAppHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s OpenOemMicroAppHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenOemMicroAppHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *OpenOemMicroAppHeaders) SetCommonHeaders(v map[string]*string) *OpenOemMicroAppHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *OpenOemMicroAppHeaders) SetXAcsDingtalkAccessToken(v string) *OpenOemMicroAppHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type OpenOemMicroAppRequest struct {
+	// example:
+	//
+	// 12
+	TenantId *int64 `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+}
+
+func (s OpenOemMicroAppRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenOemMicroAppRequest) GoString() string {
+	return s.String()
+}
+
+func (s *OpenOemMicroAppRequest) SetTenantId(v int64) *OpenOemMicroAppRequest {
+	s.TenantId = &v
+	return s
+}
+
+type OpenOemMicroAppResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s OpenOemMicroAppResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenOemMicroAppResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *OpenOemMicroAppResponseBody) SetRequestId(v string) *OpenOemMicroAppResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *OpenOemMicroAppResponseBody) SetSuccess(v bool) *OpenOemMicroAppResponseBody {
+	s.Success = &v
+	return s
+}
+
+type OpenOemMicroAppResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *OpenOemMicroAppResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s OpenOemMicroAppResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenOemMicroAppResponse) GoString() string {
+	return s.String()
+}
+
+func (s *OpenOemMicroAppResponse) SetHeaders(v map[string]*string) *OpenOemMicroAppResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *OpenOemMicroAppResponse) SetStatusCode(v int32) *OpenOemMicroAppResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *OpenOemMicroAppResponse) SetBody(v *OpenOemMicroAppResponseBody) *OpenOemMicroAppResponse {
+	s.Body = v
+	return s
+}
+
 type QueryCustomEntryProcessesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2910,7 +7365,13 @@ func (s *QueryCustomEntryProcessesHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type QueryCustomEntryProcessesRequest struct {
-	MaxResults    *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 20，最大为100，不填默认为100
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 默认为0
 	NextToken     *int32  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
 }
@@ -3055,8 +7516,14 @@ func (s *QueryDismissionStaffIdListHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type QueryDismissionStaffIdListRequest struct {
+	// example:
+	//
+	// 30
 	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 0
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryDismissionStaffIdListRequest) String() string {
@@ -3159,6 +7626,7 @@ func (s *QueryHrmEmployeeDismissionInfoHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type QueryHrmEmployeeDismissionInfoRequest struct {
+	// This parameter is required.
 	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
@@ -3176,6 +7644,7 @@ func (s *QueryHrmEmployeeDismissionInfoRequest) SetUserIdList(v []*string) *Quer
 }
 
 type QueryHrmEmployeeDismissionInfoShrinkRequest struct {
+	// This parameter is required.
 	UserIdListShrink *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
 }
 
@@ -3368,7 +7837,9 @@ func (s *QueryJobRanksHeaders) SetXAcsDingtalkAccessToken(v string) *QueryJobRan
 }
 
 type QueryJobRanksRequest struct {
-	MaxResults     *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
 	NextToken      *int32  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	RankCategoryId *string `json:"rankCategoryId,omitempty" xml:"rankCategoryId,omitempty"`
 	RankCode       *string `json:"rankCode,omitempty" xml:"rankCode,omitempty"`
@@ -3438,7 +7909,13 @@ func (s *QueryJobRanksResponseBody) SetNextToken(v int64) *QueryJobRanksResponse
 }
 
 type QueryJobRanksResponseBodyList struct {
-	MaxJobGrade     *int32  `json:"maxJobGrade,omitempty" xml:"maxJobGrade,omitempty"`
+	// example:
+	//
+	// 30
+	MaxJobGrade *int32 `json:"maxJobGrade,omitempty" xml:"maxJobGrade,omitempty"`
+	// example:
+	//
+	// 1
 	MinJobGrade     *int32  `json:"minJobGrade,omitempty" xml:"minJobGrade,omitempty"`
 	RankCategoryId  *string `json:"rankCategoryId,omitempty" xml:"rankCategoryId,omitempty"`
 	RankCode        *string `json:"rankCode,omitempty" xml:"rankCode,omitempty"`
@@ -3543,9 +8020,22 @@ func (s *QueryJobsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryJobsHeader
 }
 
 type QueryJobsRequest struct {
-	JobName    *string `json:"jobName,omitempty" xml:"jobName,omitempty"`
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *int32  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 工程师
+	JobName *string `json:"jobName,omitempty" xml:"jobName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20，最大为100
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryJobsRequest) String() string {
@@ -3601,9 +8091,18 @@ func (s *QueryJobsResponseBody) SetNextToken(v int64) *QueryJobsResponseBody {
 }
 
 type QueryJobsResponseBodyList struct {
+	// example:
+	//
+	// 职务描述
 	JobDescription *string `json:"jobDescription,omitempty" xml:"jobDescription,omitempty"`
-	JobId          *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
-	JobName        *string `json:"jobName,omitempty" xml:"jobName,omitempty"`
+	// example:
+	//
+	// ac67286db74c48e28d787173ccc1a111
+	JobId *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
+	// example:
+	//
+	// 总裁
+	JobName *string `json:"jobName,omitempty" xml:"jobName,omitempty"`
 }
 
 func (s QueryJobsResponseBodyList) String() string {
@@ -3658,6 +8157,280 @@ func (s *QueryJobsResponse) SetBody(v *QueryJobsResponseBody) *QueryJobsResponse
 	return s
 }
 
+type QueryMicroAppStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryMicroAppStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMicroAppStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMicroAppStatusHeaders) SetCommonHeaders(v map[string]*string) *QueryMicroAppStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryMicroAppStatusHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMicroAppStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryMicroAppStatusRequest struct {
+	TenantIdList []*int64 `json:"tenantIdList,omitempty" xml:"tenantIdList,omitempty" type:"Repeated"`
+}
+
+func (s QueryMicroAppStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMicroAppStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMicroAppStatusRequest) SetTenantIdList(v []*int64) *QueryMicroAppStatusRequest {
+	s.TenantIdList = v
+	return s
+}
+
+type QueryMicroAppStatusResponseBody struct {
+	RequestId *string                 `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    map[string]*ResultValue `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool                   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryMicroAppStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMicroAppStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMicroAppStatusResponseBody) SetRequestId(v string) *QueryMicroAppStatusResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *QueryMicroAppStatusResponseBody) SetResult(v map[string]*ResultValue) *QueryMicroAppStatusResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryMicroAppStatusResponseBody) SetSuccess(v bool) *QueryMicroAppStatusResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryMicroAppStatusResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryMicroAppStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryMicroAppStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMicroAppStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMicroAppStatusResponse) SetHeaders(v map[string]*string) *QueryMicroAppStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryMicroAppStatusResponse) SetStatusCode(v int32) *QueryMicroAppStatusResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryMicroAppStatusResponse) SetBody(v *QueryMicroAppStatusResponseBody) *QueryMicroAppStatusResponse {
+	s.Body = v
+	return s
+}
+
+type QueryMicroAppViewHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryMicroAppViewHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMicroAppViewHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMicroAppViewHeaders) SetCommonHeaders(v map[string]*string) *QueryMicroAppViewHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryMicroAppViewHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMicroAppViewHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryMicroAppViewRequest struct {
+	TenantIdList []*int64 `json:"tenantIdList,omitempty" xml:"tenantIdList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 2163515669935611
+	ViewUserId *string `json:"viewUserId,omitempty" xml:"viewUserId,omitempty"`
+}
+
+func (s QueryMicroAppViewRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMicroAppViewRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMicroAppViewRequest) SetTenantIdList(v []*int64) *QueryMicroAppViewRequest {
+	s.TenantIdList = v
+	return s
+}
+
+func (s *QueryMicroAppViewRequest) SetViewUserId(v string) *QueryMicroAppViewRequest {
+	s.ViewUserId = &v
+	return s
+}
+
+type QueryMicroAppViewResponseBody struct {
+	RequestId *string          `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    map[string]*bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool            `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryMicroAppViewResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMicroAppViewResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMicroAppViewResponseBody) SetRequestId(v string) *QueryMicroAppViewResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *QueryMicroAppViewResponseBody) SetResult(v map[string]*bool) *QueryMicroAppViewResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryMicroAppViewResponseBody) SetSuccess(v bool) *QueryMicroAppViewResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryMicroAppViewResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryMicroAppViewResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryMicroAppViewResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMicroAppViewResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMicroAppViewResponse) SetHeaders(v map[string]*string) *QueryMicroAppViewResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryMicroAppViewResponse) SetStatusCode(v int32) *QueryMicroAppViewResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryMicroAppViewResponse) SetBody(v *QueryMicroAppViewResponseBody) *QueryMicroAppViewResponse {
+	s.Body = v
+	return s
+}
+
+type QueryPositionVersionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryPositionVersionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPositionVersionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPositionVersionHeaders) SetCommonHeaders(v map[string]*string) *QueryPositionVersionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryPositionVersionHeaders) SetXAcsDingtalkAccessToken(v string) *QueryPositionVersionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryPositionVersionResponseBody struct {
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s QueryPositionVersionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPositionVersionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPositionVersionResponseBody) SetResult(v string) *QueryPositionVersionResponseBody {
+	s.Result = &v
+	return s
+}
+
+type QueryPositionVersionResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryPositionVersionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryPositionVersionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPositionVersionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPositionVersionResponse) SetHeaders(v map[string]*string) *QueryPositionVersionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryPositionVersionResponse) SetStatusCode(v int32) *QueryPositionVersionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryPositionVersionResponse) SetBody(v *QueryPositionVersionResponseBody) *QueryPositionVersionResponse {
+	s.Body = v
+	return s
+}
+
 type QueryPositionsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3682,12 +8455,20 @@ func (s *QueryPositionsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryPosit
 }
 
 type QueryPositionsRequest struct {
+	// example:
+	//
+	// 部门id
 	DeptId        *int64    `json:"deptId,omitempty" xml:"deptId,omitempty"`
 	InCategoryIds []*string `json:"inCategoryIds,omitempty" xml:"inCategoryIds,omitempty" type:"Repeated"`
 	InPositionIds []*string `json:"inPositionIds,omitempty" xml:"inPositionIds,omitempty" type:"Repeated"`
-	PositionName  *string   `json:"positionName,omitempty" xml:"positionName,omitempty"`
-	MaxResults    *int32    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken     *int32    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 职位名称
+	PositionName *string `json:"positionName,omitempty" xml:"positionName,omitempty"`
+	// This parameter is required.
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	NextToken *int32 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryPositionsRequest) String() string {
@@ -3758,13 +8539,16 @@ func (s *QueryPositionsResponseBody) SetNextToken(v int64) *QueryPositionsRespon
 }
 
 type QueryPositionsResponseBodyList struct {
-	JobId              *string   `json:"jobId,omitempty" xml:"jobId,omitempty"`
-	PositionCategoryId *string   `json:"positionCategoryId,omitempty" xml:"positionCategoryId,omitempty"`
-	PositionDes        *string   `json:"positionDes,omitempty" xml:"positionDes,omitempty"`
-	PositionId         *string   `json:"positionId,omitempty" xml:"positionId,omitempty"`
-	PositionName       *string   `json:"positionName,omitempty" xml:"positionName,omitempty"`
-	RankIdList         []*string `json:"rankIdList,omitempty" xml:"rankIdList,omitempty" type:"Repeated"`
-	Status             *int32    `json:"status,omitempty" xml:"status,omitempty"`
+	JobId              *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
+	PositionCategoryId *string `json:"positionCategoryId,omitempty" xml:"positionCategoryId,omitempty"`
+	PositionDes        *string `json:"positionDes,omitempty" xml:"positionDes,omitempty"`
+	// example:
+	//
+	// ac67286db74c48e28d787173ccc1a111
+	PositionId   *string   `json:"positionId,omitempty" xml:"positionId,omitempty"`
+	PositionName *string   `json:"positionName,omitempty" xml:"positionName,omitempty"`
+	RankIdList   []*string `json:"rankIdList,omitempty" xml:"rankIdList,omitempty" type:"Repeated"`
+	Status       *int32    `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryPositionsResponseBodyList) String() string {
@@ -3839,6 +8623,295 @@ func (s *QueryPositionsResponse) SetBody(v *QueryPositionsResponseBody) *QueryPo
 	return s
 }
 
+type RevokeSignRecordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RevokeSignRecordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RevokeSignRecordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RevokeSignRecordsHeaders) SetCommonHeaders(v map[string]*string) *RevokeSignRecordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RevokeSignRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *RevokeSignRecordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RevokeSignRecordsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12345
+	RevokeUserId *string `json:"revokeUserId,omitempty" xml:"revokeUserId,omitempty"`
+	// This parameter is required.
+	SignRecordIds []*string `json:"signRecordIds,omitempty" xml:"signRecordIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 撤销签署
+	StatusRemark *string `json:"statusRemark,omitempty" xml:"statusRemark,omitempty"`
+}
+
+func (s RevokeSignRecordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RevokeSignRecordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RevokeSignRecordsRequest) SetRevokeUserId(v string) *RevokeSignRecordsRequest {
+	s.RevokeUserId = &v
+	return s
+}
+
+func (s *RevokeSignRecordsRequest) SetSignRecordIds(v []*string) *RevokeSignRecordsRequest {
+	s.SignRecordIds = v
+	return s
+}
+
+func (s *RevokeSignRecordsRequest) SetStatusRemark(v string) *RevokeSignRecordsRequest {
+	s.StatusRemark = &v
+	return s
+}
+
+type RevokeSignRecordsResponseBody struct {
+	Result *RevokeSignRecordsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s RevokeSignRecordsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RevokeSignRecordsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RevokeSignRecordsResponseBody) SetResult(v *RevokeSignRecordsResponseBodyResult) *RevokeSignRecordsResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *RevokeSignRecordsResponseBody) SetSuccess(v bool) *RevokeSignRecordsResponseBody {
+	s.Success = &v
+	return s
+}
+
+type RevokeSignRecordsResponseBodyResult struct {
+	FailItems    []*RevokeSignRecordsResponseBodyResultFailItems    `json:"failItems,omitempty" xml:"failItems,omitempty" type:"Repeated"`
+	SuccessItems []*RevokeSignRecordsResponseBodyResultSuccessItems `json:"successItems,omitempty" xml:"successItems,omitempty" type:"Repeated"`
+}
+
+func (s RevokeSignRecordsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RevokeSignRecordsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *RevokeSignRecordsResponseBodyResult) SetFailItems(v []*RevokeSignRecordsResponseBodyResultFailItems) *RevokeSignRecordsResponseBodyResult {
+	s.FailItems = v
+	return s
+}
+
+func (s *RevokeSignRecordsResponseBodyResult) SetSuccessItems(v []*RevokeSignRecordsResponseBodyResultSuccessItems) *RevokeSignRecordsResponseBodyResult {
+	s.SuccessItems = v
+	return s
+}
+
+type RevokeSignRecordsResponseBodyResultFailItems struct {
+	// example:
+	//
+	// 6fe06f57ab5a45078f3219be8fd829c6
+	ItemId *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+	// example:
+	//
+	// 电子签状态变更不合法
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s RevokeSignRecordsResponseBodyResultFailItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RevokeSignRecordsResponseBodyResultFailItems) GoString() string {
+	return s.String()
+}
+
+func (s *RevokeSignRecordsResponseBodyResultFailItems) SetItemId(v string) *RevokeSignRecordsResponseBodyResultFailItems {
+	s.ItemId = &v
+	return s
+}
+
+func (s *RevokeSignRecordsResponseBodyResultFailItems) SetType(v string) *RevokeSignRecordsResponseBodyResultFailItems {
+	s.Type = &v
+	return s
+}
+
+type RevokeSignRecordsResponseBodyResultSuccessItems struct {
+	// example:
+	//
+	// 6fe06f57ab5a45078f3219be8fd829c6
+	ItemId *string `json:"itemId,omitempty" xml:"itemId,omitempty"`
+}
+
+func (s RevokeSignRecordsResponseBodyResultSuccessItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RevokeSignRecordsResponseBodyResultSuccessItems) GoString() string {
+	return s.String()
+}
+
+func (s *RevokeSignRecordsResponseBodyResultSuccessItems) SetItemId(v string) *RevokeSignRecordsResponseBodyResultSuccessItems {
+	s.ItemId = &v
+	return s
+}
+
+type RevokeSignRecordsResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RevokeSignRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s RevokeSignRecordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RevokeSignRecordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RevokeSignRecordsResponse) SetHeaders(v map[string]*string) *RevokeSignRecordsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RevokeSignRecordsResponse) SetStatusCode(v int32) *RevokeSignRecordsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RevokeSignRecordsResponse) SetBody(v *RevokeSignRecordsResponseBody) *RevokeSignRecordsResponse {
+	s.Body = v
+	return s
+}
+
+type RevokeTerminationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RevokeTerminationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RevokeTerminationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RevokeTerminationHeaders) SetCommonHeaders(v map[string]*string) *RevokeTerminationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RevokeTerminationHeaders) SetXAcsDingtalkAccessToken(v string) *RevokeTerminationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RevokeTerminationRequest struct {
+	// example:
+	//
+	// 2163515669935611
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s RevokeTerminationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RevokeTerminationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RevokeTerminationRequest) SetUserId(v string) *RevokeTerminationRequest {
+	s.UserId = &v
+	return s
+}
+
+type RevokeTerminationResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s RevokeTerminationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RevokeTerminationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RevokeTerminationResponseBody) SetRequestId(v string) *RevokeTerminationResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *RevokeTerminationResponseBody) SetResult(v bool) *RevokeTerminationResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *RevokeTerminationResponseBody) SetSuccess(v bool) *RevokeTerminationResponseBody {
+	s.Success = &v
+	return s
+}
+
+type RevokeTerminationResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RevokeTerminationResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s RevokeTerminationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RevokeTerminationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RevokeTerminationResponse) SetHeaders(v map[string]*string) *RevokeTerminationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RevokeTerminationResponse) SetStatusCode(v int32) *RevokeTerminationResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RevokeTerminationResponse) SetBody(v *RevokeTerminationResponseBody) *RevokeTerminationResponse {
+	s.Body = v
+	return s
+}
+
 type RosterMetaAvailableFieldListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3863,6 +8936,11 @@ func (s *RosterMetaAvailableFieldListHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type RosterMetaAvailableFieldListRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1231
 	AppAgentId *int64 `json:"appAgentId,omitempty" xml:"appAgentId,omitempty"`
 }
 
@@ -3897,9 +8975,21 @@ func (s *RosterMetaAvailableFieldListResponseBody) SetResult(v []*RosterMetaAvai
 }
 
 type RosterMetaAvailableFieldListResponseBodyResult struct {
-	FieldCode  *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
-	FieldName  *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
-	FieldType  *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	// example:
+	//
+	// sys01-employeeType
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// example:
+	//
+	// 员工类型
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// example:
+	//
+	// DDSelectField
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	// example:
+	//
+	// [{"value":"1","label":"男"},{"value":"2","label":"女"}]
 	OptionText *string `json:"optionText,omitempty" xml:"optionText,omitempty"`
 }
 
@@ -3984,11 +9074,27 @@ func (s *RosterMetaFieldOptionsUpdateHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type RosterMetaFieldOptionsUpdateRequest struct {
-	AppAgentId *int64    `json:"appAgentId,omitempty" xml:"appAgentId,omitempty"`
-	FieldCode  *string   `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
-	GroupId    *string   `json:"groupId,omitempty" xml:"groupId,omitempty"`
-	Labels     []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
-	ModifyType *string   `json:"modifyType,omitempty" xml:"modifyType,omitempty"`
+	AppAgentId *int64 `json:"appAgentId,omitempty" xml:"appAgentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sys05-contractType
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// sys05
+	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// This parameter is required.
+	Labels []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// OPTIONS_ADD
+	ModifyType *string `json:"modifyType,omitempty" xml:"modifyType,omitempty"`
 }
 
 func (s RosterMetaFieldOptionsUpdateRequest) String() string {
@@ -4094,14 +9200,33 @@ func (s *SendIsvCardMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendIs
 }
 
 type SendIsvCardMessageRequest struct {
-	AgentId         *int64             `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	BizId           *string            `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	MessageType     *string            `json:"messageType,omitempty" xml:"messageType,omitempty"`
-	ReceiverUserIds []*string          `json:"receiverUserIds,omitempty" xml:"receiverUserIds,omitempty" type:"Repeated"`
-	SceneType       *string            `json:"sceneType,omitempty" xml:"sceneType,omitempty"`
-	Scope           *string            `json:"scope,omitempty" xml:"scope,omitempty"`
-	SenderUserId    *string            `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
-	ValueMap        map[string]*string `json:"valueMap,omitempty" xml:"valueMap,omitempty"`
+	// This parameter is required.
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// This parameter is required.
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	MessageType *string `json:"messageType,omitempty" xml:"messageType,omitempty"`
+	// This parameter is required.
+	ReceiverUserIds []*string `json:"receiverUserIds,omitempty" xml:"receiverUserIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 16690147049882572
+	SceneType *string `json:"sceneType,omitempty" xml:"sceneType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 同意转正
+	Scope *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 16690147049882572
+	SenderUserId *string            `json:"senderUserId,omitempty" xml:"senderUserId,omitempty"`
+	ValueMap     map[string]*string `json:"valueMap,omitempty" xml:"valueMap,omitempty"`
 }
 
 func (s SendIsvCardMessageRequest) String() string {
@@ -4275,14 +9400,53 @@ func (s *SolutionTaskInitHeaders) SetXAcsDingtalkAccessToken(v string) *Solution
 }
 
 type SolutionTaskInitRequest struct {
-	Category     *string `json:"category,omitempty" xml:"category,omitempty"`
-	ClaimTime    *int64  `json:"claimTime,omitempty" xml:"claimTime,omitempty"`
-	Description  *string `json:"description,omitempty" xml:"description,omitempty"`
-	FinishTime   *int64  `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
-	OuterId      *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
-	Status       *string `json:"status,omitempty" xml:"status,omitempty"`
-	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
-	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// training
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// example:
+	//
+	// 时间戳
+	ClaimTime *int64 `json:"claimTime,omitempty" xml:"claimTime,omitempty"`
+	// example:
+	//
+	// 这是一个新人培训任务
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// example:
+	//
+	// 时间戳
+	FinishTime *int64 `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// fdagshfjhajl
+	OuterId *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// running
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 新人学习任务
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// onboarding
 	SolutionType *string `json:"solutionType,omitempty" xml:"solutionType,omitempty"`
 }
 
@@ -4340,6 +9504,9 @@ func (s *SolutionTaskInitRequest) SetSolutionType(v string) *SolutionTaskInitReq
 }
 
 type SolutionTaskInitResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -4409,18 +9576,65 @@ func (s *SolutionTaskSaveHeaders) SetXAcsDingtalkAccessToken(v string) *Solution
 }
 
 type SolutionTaskSaveRequest struct {
-	ClaimTime          *int64  `json:"claimTime,omitempty" xml:"claimTime,omitempty"`
-	Description        *string `json:"description,omitempty" xml:"description,omitempty"`
-	FinishTime         *int64  `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
-	OuterId            *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	// example:
+	//
+	// 时间戳
+	ClaimTime *int64 `json:"claimTime,omitempty" xml:"claimTime,omitempty"`
+	// example:
+	//
+	// 这是一个新人培训任务
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// example:
+	//
+	// 时间戳
+	FinishTime *int64 `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// fdagshfjhajl
+	OuterId *string `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// qweqweqwe
 	SolutionInstanceId *string `json:"solutionInstanceId,omitempty" xml:"solutionInstanceId,omitempty"`
 	StartTime          *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	Status             *string `json:"status,omitempty" xml:"status,omitempty"`
-	TaskType           *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
-	TemplateOuterId    *string `json:"templateOuterId,omitempty" xml:"templateOuterId,omitempty"`
-	Title              *string `json:"title,omitempty" xml:"title,omitempty"`
-	UserId             *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	SolutionType       *string `json:"solutionType,omitempty" xml:"solutionType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// running
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PERFORMANCE_TASK、TRAIN_TASK
+	TaskType *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	// example:
+	//
+	// sdfasd2323sdaf
+	TemplateOuterId *string `json:"templateOuterId,omitempty" xml:"templateOuterId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 新人学习任务
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// onboarding
+	SolutionType *string `json:"solutionType,omitempty" xml:"solutionType,omitempty"`
 }
 
 func (s SolutionTaskSaveRequest) String() string {
@@ -4492,6 +9706,9 @@ func (s *SolutionTaskSaveRequest) SetSolutionType(v string) *SolutionTaskSaveReq
 }
 
 type SolutionTaskSaveResponseBody struct {
+	// example:
+	//
+	// true
 	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -4537,6 +9754,140 @@ func (s *SolutionTaskSaveResponse) SetBody(v *SolutionTaskSaveResponseBody) *Sol
 	return s
 }
 
+type SyncSolutionStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncSolutionStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncSolutionStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncSolutionStatusHeaders) SetCommonHeaders(v map[string]*string) *SyncSolutionStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncSolutionStatusHeaders) SetXAcsDingtalkAccessToken(v string) *SyncSolutionStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncSolutionStatusRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// start
+	SolutionStatus *string `json:"solutionStatus,omitempty" xml:"solutionStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// onboarding_v2
+	SolutionType *string `json:"solutionType,omitempty" xml:"solutionType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 12
+	TenantId *int64 `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s SyncSolutionStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncSolutionStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncSolutionStatusRequest) SetBizId(v string) *SyncSolutionStatusRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *SyncSolutionStatusRequest) SetSolutionStatus(v string) *SyncSolutionStatusRequest {
+	s.SolutionStatus = &v
+	return s
+}
+
+func (s *SyncSolutionStatusRequest) SetSolutionType(v string) *SyncSolutionStatusRequest {
+	s.SolutionType = &v
+	return s
+}
+
+func (s *SyncSolutionStatusRequest) SetTenantId(v int64) *SyncSolutionStatusRequest {
+	s.TenantId = &v
+	return s
+}
+
+func (s *SyncSolutionStatusRequest) SetUserIds(v []*string) *SyncSolutionStatusRequest {
+	s.UserIds = v
+	return s
+}
+
+type SyncSolutionStatusResponseBody struct {
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SyncSolutionStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncSolutionStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncSolutionStatusResponseBody) SetResult(v bool) *SyncSolutionStatusResponseBody {
+	s.Result = &v
+	return s
+}
+
+type SyncSolutionStatusResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncSolutionStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SyncSolutionStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncSolutionStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncSolutionStatusResponse) SetHeaders(v map[string]*string) *SyncSolutionStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncSolutionStatusResponse) SetStatusCode(v int32) *SyncSolutionStatusResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SyncSolutionStatusResponse) SetBody(v *SyncSolutionStatusResponseBody) *SyncSolutionStatusResponse {
+	s.Body = v
+	return s
+}
+
 type SyncTaskTemplateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4561,15 +9912,48 @@ func (s *SyncTaskTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *SyncTask
 }
 
 type SyncTaskTemplateRequest struct {
-	Delete       *bool                               `json:"delete,omitempty" xml:"delete,omitempty"`
-	Des          *string                             `json:"des,omitempty" xml:"des,omitempty"`
-	Ext          *string                             `json:"ext,omitempty" xml:"ext,omitempty"`
-	Name         *string                             `json:"name,omitempty" xml:"name,omitempty"`
-	OptUserId    *string                             `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
-	OuterId      *string                             `json:"outerId,omitempty" xml:"outerId,omitempty"`
-	TaskScopeVO  *SyncTaskTemplateRequestTaskScopeVO `json:"taskScopeVO,omitempty" xml:"taskScopeVO,omitempty" type:"Struct"`
-	TaskType     *string                             `json:"taskType,omitempty" xml:"taskType,omitempty"`
-	SolutionType *string                             `json:"solutionType,omitempty" xml:"solutionType,omitempty"`
+	// if can be null:
+	// false
+	Delete *bool `json:"delete,omitempty" xml:"delete,omitempty"`
+	// example:
+	//
+	// 培训、薪酬任务模版
+	Des *string `json:"des,omitempty" xml:"des,omitempty"`
+	// example:
+	//
+	// {\"key\":value}
+	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 培训模版
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 23234
+	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 232332
+	OuterId     *string                             `json:"outerId,omitempty" xml:"outerId,omitempty"`
+	TaskScopeVO *SyncTaskTemplateRequestTaskScopeVO `json:"taskScopeVO,omitempty" xml:"taskScopeVO,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PERFORMANCE_TASK、TRAIN_TASK
+	TaskType *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// onboarding
+	SolutionType *string `json:"solutionType,omitempty" xml:"solutionType,omitempty"`
 }
 
 func (s SyncTaskTemplateRequest) String() string {
@@ -4706,6 +10090,969 @@ func (s *SyncTaskTemplateResponse) SetBody(v *SyncTaskTemplateResponseBody) *Syn
 	return s
 }
 
+type UpdateEmpDismissionInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateEmpDismissionInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateEmpDismissionInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateEmpDismissionInfoHeaders) SetCommonHeaders(v map[string]*string) *UpdateEmpDismissionInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateEmpDismissionInfoHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateEmpDismissionInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateEmpDismissionInfoRequest struct {
+	DismissionMemo *string `json:"dismissionMemo,omitempty" xml:"dismissionMemo,omitempty"`
+	// This parameter is required.
+	LastWorkDate               *int64    `json:"lastWorkDate,omitempty" xml:"lastWorkDate,omitempty"`
+	Partner                    *bool     `json:"partner,omitempty" xml:"partner,omitempty"`
+	TerminationReasonPassive   []*string `json:"terminationReasonPassive,omitempty" xml:"terminationReasonPassive,omitempty" type:"Repeated"`
+	TerminationReasonVoluntary []*string `json:"terminationReasonVoluntary,omitempty" xml:"terminationReasonVoluntary,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2163515669935611
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateEmpDismissionInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateEmpDismissionInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateEmpDismissionInfoRequest) SetDismissionMemo(v string) *UpdateEmpDismissionInfoRequest {
+	s.DismissionMemo = &v
+	return s
+}
+
+func (s *UpdateEmpDismissionInfoRequest) SetLastWorkDate(v int64) *UpdateEmpDismissionInfoRequest {
+	s.LastWorkDate = &v
+	return s
+}
+
+func (s *UpdateEmpDismissionInfoRequest) SetPartner(v bool) *UpdateEmpDismissionInfoRequest {
+	s.Partner = &v
+	return s
+}
+
+func (s *UpdateEmpDismissionInfoRequest) SetTerminationReasonPassive(v []*string) *UpdateEmpDismissionInfoRequest {
+	s.TerminationReasonPassive = v
+	return s
+}
+
+func (s *UpdateEmpDismissionInfoRequest) SetTerminationReasonVoluntary(v []*string) *UpdateEmpDismissionInfoRequest {
+	s.TerminationReasonVoluntary = v
+	return s
+}
+
+func (s *UpdateEmpDismissionInfoRequest) SetUserId(v string) *UpdateEmpDismissionInfoRequest {
+	s.UserId = &v
+	return s
+}
+
+type UpdateEmpDismissionInfoResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateEmpDismissionInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateEmpDismissionInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateEmpDismissionInfoResponseBody) SetRequestId(v string) *UpdateEmpDismissionInfoResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *UpdateEmpDismissionInfoResponseBody) SetResult(v bool) *UpdateEmpDismissionInfoResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *UpdateEmpDismissionInfoResponseBody) SetSuccess(v bool) *UpdateEmpDismissionInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateEmpDismissionInfoResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateEmpDismissionInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateEmpDismissionInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateEmpDismissionInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateEmpDismissionInfoResponse) SetHeaders(v map[string]*string) *UpdateEmpDismissionInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateEmpDismissionInfoResponse) SetStatusCode(v int32) *UpdateEmpDismissionInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateEmpDismissionInfoResponse) SetBody(v *UpdateEmpDismissionInfoResponseBody) *UpdateEmpDismissionInfoResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateHrmLegalEntityNameHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateHrmLegalEntityNameHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateHrmLegalEntityNameHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateHrmLegalEntityNameHeaders) SetCommonHeaders(v map[string]*string) *UpdateHrmLegalEntityNameHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityNameHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateHrmLegalEntityNameHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateHrmLegalEntityNameRequest struct {
+	// example:
+	//
+	// 57
+	DingTenantId *int64 `json:"dingTenantId,omitempty" xml:"dingTenantId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 公司2
+	LegalEntityName *string `json:"legalEntityName,omitempty" xml:"legalEntityName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 公司1
+	OriginLegalEntityName *string `json:"originLegalEntityName,omitempty" xml:"originLegalEntityName,omitempty"`
+}
+
+func (s UpdateHrmLegalEntityNameRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateHrmLegalEntityNameRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateHrmLegalEntityNameRequest) SetDingTenantId(v int64) *UpdateHrmLegalEntityNameRequest {
+	s.DingTenantId = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityNameRequest) SetLegalEntityName(v string) *UpdateHrmLegalEntityNameRequest {
+	s.LegalEntityName = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityNameRequest) SetOriginLegalEntityName(v string) *UpdateHrmLegalEntityNameRequest {
+	s.OriginLegalEntityName = &v
+	return s
+}
+
+type UpdateHrmLegalEntityNameResponseBody struct {
+	Result  *UpdateHrmLegalEntityNameResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                       `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateHrmLegalEntityNameResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateHrmLegalEntityNameResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateHrmLegalEntityNameResponseBody) SetResult(v *UpdateHrmLegalEntityNameResponseBodyResult) *UpdateHrmLegalEntityNameResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityNameResponseBody) SetSuccess(v bool) *UpdateHrmLegalEntityNameResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateHrmLegalEntityNameResponseBodyResult struct {
+	// example:
+	//
+	// ding123
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 2023-08-08
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 2023-08-08
+	GmtModified *int64 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// example:
+	//
+	// 111233
+	LegalEntityId *string `json:"legalEntityId,omitempty" xml:"legalEntityId,omitempty"`
+	// example:
+	//
+	// 公司2
+	LegalEntityName *string `json:"legalEntityName,omitempty" xml:"legalEntityName,omitempty"`
+	// example:
+	//
+	// 公2
+	LegalEntityShortName *string `json:"legalEntityShortName,omitempty" xml:"legalEntityShortName,omitempty"`
+	// example:
+	//
+	// 1
+	LegalEntityStatus *int32 `json:"legalEntityStatus,omitempty" xml:"legalEntityStatus,omitempty"`
+	// example:
+	//
+	// 法人1
+	LegalPersonName *string `json:"legalPersonName,omitempty" xml:"legalPersonName,omitempty"`
+}
+
+func (s UpdateHrmLegalEntityNameResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateHrmLegalEntityNameResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateHrmLegalEntityNameResponseBodyResult) SetCorpId(v string) *UpdateHrmLegalEntityNameResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityNameResponseBodyResult) SetGmtCreate(v int64) *UpdateHrmLegalEntityNameResponseBodyResult {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityNameResponseBodyResult) SetGmtModified(v int64) *UpdateHrmLegalEntityNameResponseBodyResult {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityNameResponseBodyResult) SetLegalEntityId(v string) *UpdateHrmLegalEntityNameResponseBodyResult {
+	s.LegalEntityId = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityNameResponseBodyResult) SetLegalEntityName(v string) *UpdateHrmLegalEntityNameResponseBodyResult {
+	s.LegalEntityName = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityNameResponseBodyResult) SetLegalEntityShortName(v string) *UpdateHrmLegalEntityNameResponseBodyResult {
+	s.LegalEntityShortName = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityNameResponseBodyResult) SetLegalEntityStatus(v int32) *UpdateHrmLegalEntityNameResponseBodyResult {
+	s.LegalEntityStatus = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityNameResponseBodyResult) SetLegalPersonName(v string) *UpdateHrmLegalEntityNameResponseBodyResult {
+	s.LegalPersonName = &v
+	return s
+}
+
+type UpdateHrmLegalEntityNameResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateHrmLegalEntityNameResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateHrmLegalEntityNameResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateHrmLegalEntityNameResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateHrmLegalEntityNameResponse) SetHeaders(v map[string]*string) *UpdateHrmLegalEntityNameResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityNameResponse) SetStatusCode(v int32) *UpdateHrmLegalEntityNameResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityNameResponse) SetBody(v *UpdateHrmLegalEntityNameResponseBody) *UpdateHrmLegalEntityNameResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateHrmLegalEntityWithoutNameHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateHrmLegalEntityWithoutNameHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateHrmLegalEntityWithoutNameHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameHeaders) SetCommonHeaders(v map[string]*string) *UpdateHrmLegalEntityWithoutNameHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateHrmLegalEntityWithoutNameHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateHrmLegalEntityWithoutNameRequest struct {
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 123
+	CreateUserId *string                                    `json:"createUserId,omitempty" xml:"createUserId,omitempty"`
+	Ext          *UpdateHrmLegalEntityWithoutNameRequestExt `json:"ext,omitempty" xml:"ext,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 公司1
+	LegalEntityName *string `json:"legalEntityName,omitempty" xml:"legalEntityName,omitempty"`
+	// example:
+	//
+	// 公1
+	LegalEntityShortName *string `json:"legalEntityShortName,omitempty" xml:"legalEntityShortName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	LegalEntityStatus *int32 `json:"legalEntityStatus,omitempty" xml:"legalEntityStatus,omitempty"`
+	// example:
+	//
+	// 法人
+	LegalPersonName *string `json:"legalPersonName,omitempty" xml:"legalPersonName,omitempty"`
+	// example:
+	//
+	// 57
+	DingTenantId *int64 `json:"dingTenantId,omitempty" xml:"dingTenantId,omitempty"`
+}
+
+func (s UpdateHrmLegalEntityWithoutNameRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateHrmLegalEntityWithoutNameRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequest) SetCorpId(v string) *UpdateHrmLegalEntityWithoutNameRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequest) SetCreateUserId(v string) *UpdateHrmLegalEntityWithoutNameRequest {
+	s.CreateUserId = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequest) SetExt(v *UpdateHrmLegalEntityWithoutNameRequestExt) *UpdateHrmLegalEntityWithoutNameRequest {
+	s.Ext = v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequest) SetLegalEntityName(v string) *UpdateHrmLegalEntityWithoutNameRequest {
+	s.LegalEntityName = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequest) SetLegalEntityShortName(v string) *UpdateHrmLegalEntityWithoutNameRequest {
+	s.LegalEntityShortName = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequest) SetLegalEntityStatus(v int32) *UpdateHrmLegalEntityWithoutNameRequest {
+	s.LegalEntityStatus = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequest) SetLegalPersonName(v string) *UpdateHrmLegalEntityWithoutNameRequest {
+	s.LegalPersonName = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequest) SetDingTenantId(v int64) *UpdateHrmLegalEntityWithoutNameRequest {
+	s.DingTenantId = &v
+	return s
+}
+
+type UpdateHrmLegalEntityWithoutNameRequestExt struct {
+	// example:
+	//
+	// company
+	LegalEntityEnName *string `json:"legalEntityEnName,omitempty" xml:"legalEntityEnName,omitempty"`
+	// example:
+	//
+	// com
+	LegalEntityEnShortName *string `json:"legalEntityEnShortName,omitempty" xml:"legalEntityEnShortName,omitempty"`
+	// example:
+	//
+	// whollyOwned
+	LegalEntityType     *string                                                       `json:"legalEntityType,omitempty" xml:"legalEntityType,omitempty"`
+	ManageAddress       *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress       `json:"manageAddress,omitempty" xml:"manageAddress,omitempty" type:"Struct"`
+	RegistrationAddress *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress `json:"registrationAddress,omitempty" xml:"registrationAddress,omitempty" type:"Struct"`
+	// example:
+	//
+	// 2023-01-01
+	RegistrationDate *int64 `json:"registrationDate,omitempty" xml:"registrationDate,omitempty"`
+	// example:
+	//
+	// 123456
+	UnifiedSocialCreditCode *string `json:"unifiedSocialCreditCode,omitempty" xml:"unifiedSocialCreditCode,omitempty"`
+	// example:
+	//
+	// 515200
+	ZipCode *string `json:"zipCode,omitempty" xml:"zipCode,omitempty"`
+}
+
+func (s UpdateHrmLegalEntityWithoutNameRequestExt) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateHrmLegalEntityWithoutNameRequestExt) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExt) SetLegalEntityEnName(v string) *UpdateHrmLegalEntityWithoutNameRequestExt {
+	s.LegalEntityEnName = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExt) SetLegalEntityEnShortName(v string) *UpdateHrmLegalEntityWithoutNameRequestExt {
+	s.LegalEntityEnShortName = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExt) SetLegalEntityType(v string) *UpdateHrmLegalEntityWithoutNameRequestExt {
+	s.LegalEntityType = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExt) SetManageAddress(v *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress) *UpdateHrmLegalEntityWithoutNameRequestExt {
+	s.ManageAddress = v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExt) SetRegistrationAddress(v *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress) *UpdateHrmLegalEntityWithoutNameRequestExt {
+	s.RegistrationAddress = v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExt) SetRegistrationDate(v int64) *UpdateHrmLegalEntityWithoutNameRequestExt {
+	s.RegistrationDate = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExt) SetUnifiedSocialCreditCode(v string) *UpdateHrmLegalEntityWithoutNameRequestExt {
+	s.UnifiedSocialCreditCode = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExt) SetZipCode(v string) *UpdateHrmLegalEntityWithoutNameRequestExt {
+	s.ZipCode = &v
+	return s
+}
+
+type UpdateHrmLegalEntityWithoutNameRequestExtManageAddress struct {
+	// example:
+	//
+	// 110101
+	AreaCode *string `json:"areaCode,omitempty" xml:"areaCode,omitempty"`
+	// example:
+	//
+	// 东城区
+	AreaName *string `json:"areaName,omitempty" xml:"areaName,omitempty"`
+	// example:
+	//
+	// 1234
+	CityCode *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// example:
+	//
+	// 广州
+	CityName *string `json:"cityName,omitempty" xml:"cityName,omitempty"`
+	// example:
+	//
+	// 123
+	CountryCode *string `json:"countryCode,omitempty" xml:"countryCode,omitempty"`
+	// example:
+	//
+	// China
+	CountryName *string `json:"countryName,omitempty" xml:"countryName,omitempty"`
+	// example:
+	//
+	// 北京市东城区xx街道xx小区xx楼
+	DetailAddress *string `json:"detailAddress,omitempty" xml:"detailAddress,omitempty"`
+	// example:
+	//
+	// 1
+	GlobalAreaType *string `json:"globalAreaType,omitempty" xml:"globalAreaType,omitempty"`
+	// example:
+	//
+	// 123
+	ProvinceCode *string `json:"provinceCode,omitempty" xml:"provinceCode,omitempty"`
+	// example:
+	//
+	// 广东
+	ProvinceName *string `json:"provinceName,omitempty" xml:"provinceName,omitempty"`
+}
+
+func (s UpdateHrmLegalEntityWithoutNameRequestExtManageAddress) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateHrmLegalEntityWithoutNameRequestExtManageAddress) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress) SetAreaCode(v string) *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress {
+	s.AreaCode = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress) SetAreaName(v string) *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress {
+	s.AreaName = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress) SetCityCode(v string) *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress {
+	s.CityCode = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress) SetCityName(v string) *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress {
+	s.CityName = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress) SetCountryCode(v string) *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress {
+	s.CountryCode = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress) SetCountryName(v string) *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress {
+	s.CountryName = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress) SetDetailAddress(v string) *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress {
+	s.DetailAddress = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress) SetGlobalAreaType(v string) *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress {
+	s.GlobalAreaType = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress) SetProvinceCode(v string) *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress {
+	s.ProvinceCode = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress) SetProvinceName(v string) *UpdateHrmLegalEntityWithoutNameRequestExtManageAddress {
+	s.ProvinceName = &v
+	return s
+}
+
+type UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress struct {
+	// example:
+	//
+	// 110101
+	AreaCode *string `json:"areaCode,omitempty" xml:"areaCode,omitempty"`
+	// example:
+	//
+	// 东城区
+	AreaName *string `json:"areaName,omitempty" xml:"areaName,omitempty"`
+	// example:
+	//
+	// 1234
+	CityCode *string `json:"cityCode,omitempty" xml:"cityCode,omitempty"`
+	// example:
+	//
+	// 广州
+	CityName *string `json:"cityName,omitempty" xml:"cityName,omitempty"`
+	// example:
+	//
+	// 123
+	CountryCode *string `json:"countryCode,omitempty" xml:"countryCode,omitempty"`
+	// example:
+	//
+	// China
+	CountryName *string `json:"countryName,omitempty" xml:"countryName,omitempty"`
+	// example:
+	//
+	// 北京市东城区xx街道xx小区xx楼
+	DetailAddress *string `json:"detailAddress,omitempty" xml:"detailAddress,omitempty"`
+	// example:
+	//
+	// 1
+	GlobalAreaType *string `json:"globalAreaType,omitempty" xml:"globalAreaType,omitempty"`
+	// example:
+	//
+	// 123
+	ProvinceCode *string `json:"provinceCode,omitempty" xml:"provinceCode,omitempty"`
+	// example:
+	//
+	// 广东
+	ProvinceName *string `json:"provinceName,omitempty" xml:"provinceName,omitempty"`
+}
+
+func (s UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress) SetAreaCode(v string) *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress {
+	s.AreaCode = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress) SetAreaName(v string) *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress {
+	s.AreaName = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress) SetCityCode(v string) *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress {
+	s.CityCode = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress) SetCityName(v string) *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress {
+	s.CityName = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress) SetCountryCode(v string) *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress {
+	s.CountryCode = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress) SetCountryName(v string) *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress {
+	s.CountryName = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress) SetDetailAddress(v string) *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress {
+	s.DetailAddress = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress) SetGlobalAreaType(v string) *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress {
+	s.GlobalAreaType = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress) SetProvinceCode(v string) *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress {
+	s.ProvinceCode = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress) SetProvinceName(v string) *UpdateHrmLegalEntityWithoutNameRequestExtRegistrationAddress {
+	s.ProvinceName = &v
+	return s
+}
+
+type UpdateHrmLegalEntityWithoutNameResponseBody struct {
+	Result  *UpdateHrmLegalEntityWithoutNameResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                              `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateHrmLegalEntityWithoutNameResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateHrmLegalEntityWithoutNameResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameResponseBody) SetResult(v *UpdateHrmLegalEntityWithoutNameResponseBodyResult) *UpdateHrmLegalEntityWithoutNameResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameResponseBody) SetSuccess(v bool) *UpdateHrmLegalEntityWithoutNameResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateHrmLegalEntityWithoutNameResponseBodyResult struct {
+	// example:
+	//
+	// ding123
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 2023-01-01
+	GmtCreate *int64 `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 2023-01-01
+	GmtModified *int64 `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// example:
+	//
+	// 123456
+	LegalEntityId *string `json:"legalEntityId,omitempty" xml:"legalEntityId,omitempty"`
+	// example:
+	//
+	// 公司1
+	LegalEntityName *string `json:"legalEntityName,omitempty" xml:"legalEntityName,omitempty"`
+	// example:
+	//
+	// 公1
+	LegalEntityShortName *string `json:"legalEntityShortName,omitempty" xml:"legalEntityShortName,omitempty"`
+	// example:
+	//
+	// 1
+	LegalEntityStatus *int32 `json:"legalEntityStatus,omitempty" xml:"legalEntityStatus,omitempty"`
+	// example:
+	//
+	// 法人
+	LegalPersonName *string `json:"legalPersonName,omitempty" xml:"legalPersonName,omitempty"`
+}
+
+func (s UpdateHrmLegalEntityWithoutNameResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateHrmLegalEntityWithoutNameResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameResponseBodyResult) SetCorpId(v string) *UpdateHrmLegalEntityWithoutNameResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameResponseBodyResult) SetGmtCreate(v int64) *UpdateHrmLegalEntityWithoutNameResponseBodyResult {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameResponseBodyResult) SetGmtModified(v int64) *UpdateHrmLegalEntityWithoutNameResponseBodyResult {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameResponseBodyResult) SetLegalEntityId(v string) *UpdateHrmLegalEntityWithoutNameResponseBodyResult {
+	s.LegalEntityId = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameResponseBodyResult) SetLegalEntityName(v string) *UpdateHrmLegalEntityWithoutNameResponseBodyResult {
+	s.LegalEntityName = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameResponseBodyResult) SetLegalEntityShortName(v string) *UpdateHrmLegalEntityWithoutNameResponseBodyResult {
+	s.LegalEntityShortName = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameResponseBodyResult) SetLegalEntityStatus(v int32) *UpdateHrmLegalEntityWithoutNameResponseBodyResult {
+	s.LegalEntityStatus = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameResponseBodyResult) SetLegalPersonName(v string) *UpdateHrmLegalEntityWithoutNameResponseBodyResult {
+	s.LegalPersonName = &v
+	return s
+}
+
+type UpdateHrmLegalEntityWithoutNameResponse struct {
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateHrmLegalEntityWithoutNameResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateHrmLegalEntityWithoutNameResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateHrmLegalEntityWithoutNameResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameResponse) SetHeaders(v map[string]*string) *UpdateHrmLegalEntityWithoutNameResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameResponse) SetStatusCode(v int32) *UpdateHrmLegalEntityWithoutNameResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateHrmLegalEntityWithoutNameResponse) SetBody(v *UpdateHrmLegalEntityWithoutNameResponseBody) *UpdateHrmLegalEntityWithoutNameResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateHrmVersionRollBackStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateHrmVersionRollBackStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateHrmVersionRollBackStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateHrmVersionRollBackStatusHeaders) SetCommonHeaders(v map[string]*string) *UpdateHrmVersionRollBackStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateHrmVersionRollBackStatusHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateHrmVersionRollBackStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateHrmVersionRollBackStatusRequest struct {
+	// example:
+	//
+	// show
+	ConfigValue *string `json:"configValue,omitempty" xml:"configValue,omitempty"`
+	// example:
+	//
+	// 1231231232
+	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+}
+
+func (s UpdateHrmVersionRollBackStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateHrmVersionRollBackStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateHrmVersionRollBackStatusRequest) SetConfigValue(v string) *UpdateHrmVersionRollBackStatusRequest {
+	s.ConfigValue = &v
+	return s
+}
+
+func (s *UpdateHrmVersionRollBackStatusRequest) SetOptUserId(v string) *UpdateHrmVersionRollBackStatusRequest {
+	s.OptUserId = &v
+	return s
+}
+
+type UpdateHrmVersionRollBackStatusResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateHrmVersionRollBackStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateHrmVersionRollBackStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateHrmVersionRollBackStatusResponseBody) SetRequestId(v string) *UpdateHrmVersionRollBackStatusResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *UpdateHrmVersionRollBackStatusResponseBody) SetResult(v bool) *UpdateHrmVersionRollBackStatusResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *UpdateHrmVersionRollBackStatusResponseBody) SetSuccess(v bool) *UpdateHrmVersionRollBackStatusResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateHrmVersionRollBackStatusResponse struct {
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateHrmVersionRollBackStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateHrmVersionRollBackStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateHrmVersionRollBackStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateHrmVersionRollBackStatusResponse) SetHeaders(v map[string]*string) *UpdateHrmVersionRollBackStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateHrmVersionRollBackStatusResponse) SetStatusCode(v int32) *UpdateHrmVersionRollBackStatusResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateHrmVersionRollBackStatusResponse) SetBody(v *UpdateHrmVersionRollBackStatusResponseBody) *UpdateHrmVersionRollBackStatusResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateIsvCardMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4730,12 +11077,25 @@ func (s *UpdateIsvCardMessageHeaders) SetXAcsDingtalkAccessToken(v string) *Upda
 }
 
 type UpdateIsvCardMessageRequest struct {
-	AgentId     *int64             `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	BizId       *string            `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	MessageType *string            `json:"messageType,omitempty" xml:"messageType,omitempty"`
-	SceneType   *string            `json:"sceneType,omitempty" xml:"sceneType,omitempty"`
-	Scope       *string            `json:"scope,omitempty" xml:"scope,omitempty"`
-	ValueMap    map[string]*string `json:"valueMap,omitempty" xml:"valueMap,omitempty"`
+	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	// This parameter is required.
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	MessageType *string `json:"messageType,omitempty" xml:"messageType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 16690147049882572
+	SceneType *string `json:"sceneType,omitempty" xml:"sceneType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 同意转正
+	Scope *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	// This parameter is required.
+	ValueMap map[string]*string `json:"valueMap,omitempty" xml:"valueMap,omitempty"`
 }
 
 func (s UpdateIsvCardMessageRequest) String() string {
@@ -4840,6 +11200,110 @@ func (s *UpdateIsvCardMessageResponse) SetBody(v *UpdateIsvCardMessageResponseBo
 	return s
 }
 
+type UploadAttachmentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UploadAttachmentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadAttachmentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UploadAttachmentHeaders) SetCommonHeaders(v map[string]*string) *UploadAttachmentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UploadAttachmentHeaders) SetXAcsDingtalkAccessToken(v string) *UploadAttachmentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UploadAttachmentRequest struct {
+	// example:
+	//
+	// @dsa8d87y7c8d8c
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// example:
+	//
+	// 16768800278994283
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UploadAttachmentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadAttachmentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UploadAttachmentRequest) SetMediaId(v string) *UploadAttachmentRequest {
+	s.MediaId = &v
+	return s
+}
+
+func (s *UploadAttachmentRequest) SetUserId(v string) *UploadAttachmentRequest {
+	s.UserId = &v
+	return s
+}
+
+type UploadAttachmentResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UploadAttachmentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadAttachmentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UploadAttachmentResponseBody) SetResult(v string) *UploadAttachmentResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *UploadAttachmentResponseBody) SetSuccess(v bool) *UploadAttachmentResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UploadAttachmentResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UploadAttachmentResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UploadAttachmentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UploadAttachmentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UploadAttachmentResponse) SetHeaders(v map[string]*string) *UploadAttachmentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UploadAttachmentResponse) SetStatusCode(v int32) *UploadAttachmentResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UploadAttachmentResponse) SetBody(v *UploadAttachmentResponseBody) *UploadAttachmentResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -4855,12 +11319,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
@@ -4870,6 +11334,120 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 新增法人公司
+//
+// @param request - AddHrmLegalEntityRequest
+//
+// @param headers - AddHrmLegalEntityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddHrmLegalEntityResponse
+func (client *Client) AddHrmLegalEntityWithOptions(request *AddHrmLegalEntityRequest, headers *AddHrmLegalEntityHeaders, runtime *util.RuntimeOptions) (_result *AddHrmLegalEntityResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingTenantId)) {
+		query["dingTenantId"] = request.DingTenantId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateUserId)) {
+		body["createUserId"] = request.CreateUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Ext)) {
+		body["ext"] = request.Ext
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LegalEntityName)) {
+		body["legalEntityName"] = request.LegalEntityName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LegalEntityShortName)) {
+		body["legalEntityShortName"] = request.LegalEntityShortName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LegalEntityStatus)) {
+		body["legalEntityStatus"] = request.LegalEntityStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LegalPersonName)) {
+		body["legalPersonName"] = request.LegalPersonName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddHrmLegalEntity"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/masters/legalEntities/companies"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddHrmLegalEntityResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 新增法人公司
+//
+// @param request - AddHrmLegalEntityRequest
+//
+// @return AddHrmLegalEntityResponse
+func (client *Client) AddHrmLegalEntity(request *AddHrmLegalEntityRequest) (_result *AddHrmLegalEntityResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddHrmLegalEntityHeaders{}
+	_result = &AddHrmLegalEntityResponse{}
+	_body, _err := client.AddHrmLegalEntityWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事添加待入职员工信息(支持花名册数据和分组明细更新)
+//
+// @param request - AddHrmPreentryRequest
+//
+// @param headers - AddHrmPreentryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddHrmPreentryResponse
 func (client *Client) AddHrmPreentryWithOptions(request *AddHrmPreentryRequest, headers *AddHrmPreentryHeaders, runtime *util.RuntimeOptions) (_result *AddHrmPreentryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4933,6 +11511,13 @@ func (client *Client) AddHrmPreentryWithOptions(request *AddHrmPreentryRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事添加待入职员工信息(支持花名册数据和分组明细更新)
+//
+// @param request - AddHrmPreentryRequest
+//
+// @return AddHrmPreentryResponse
 func (client *Client) AddHrmPreentry(request *AddHrmPreentryRequest) (_result *AddHrmPreentryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddHrmPreentryHeaders{}
@@ -4945,6 +11530,132 @@ func (client *Client) AddHrmPreentry(request *AddHrmPreentryRequest) (_result *A
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建电子签签署记录
+//
+// @param request - CreateRecordRequest
+//
+// @param headers - CreateRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateRecordResponse
+func (client *Client) CreateRecordWithOptions(request *CreateRecordRequest, headers *CreateRecordHeaders, runtime *util.RuntimeOptions) (_result *CreateRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AttachmentList)) {
+		body["attachmentList"] = request.AttachmentList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FieldList)) {
+		body["fieldList"] = request.FieldList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupList)) {
+		body["groupList"] = request.GroupList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OuterId)) {
+		body["outerId"] = request.OuterId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignLastLegalEntityName)) {
+		body["signLastLegalEntityName"] = request.SignLastLegalEntityName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignLegalEntityName)) {
+		body["signLegalEntityName"] = request.SignLegalEntityName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignSource)) {
+		body["signSource"] = request.SignSource
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignStartUserId)) {
+		body["signStartUserId"] = request.SignStartUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignUserId)) {
+		body["signUserId"] = request.SignUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateRecord"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/masters/signCenters/records"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateRecordResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建电子签签署记录
+//
+// @param request - CreateRecordRequest
+//
+// @return CreateRecordResponse
+func (client *Client) CreateRecord(request *CreateRecordRequest) (_result *CreateRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateRecordHeaders{}
+	_result = &CreateRecordResponse{}
+	_body, _err := client.CreateRecordWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事设备市场管理
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeviceMarketManagerResponse
 func (client *Client) DeviceMarketManagerWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *DeviceMarketManagerResponse, _err error) {
 	req := &openapi.OpenApiRequest{
 		Headers: headers,
@@ -4969,6 +11680,11 @@ func (client *Client) DeviceMarketManagerWithOptions(headers map[string]*string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事设备市场管理
+//
+// @return DeviceMarketManagerResponse
 func (client *Client) DeviceMarketManager() (_result *DeviceMarketManagerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -4981,6 +11697,15 @@ func (client *Client) DeviceMarketManager() (_result *DeviceMarketManagerRespons
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事设备定向管理接口
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeviceMarketOrderManagerResponse
 func (client *Client) DeviceMarketOrderManagerWithOptions(headers map[string]*string, runtime *util.RuntimeOptions) (_result *DeviceMarketOrderManagerResponse, _err error) {
 	req := &openapi.OpenApiRequest{
 		Headers: headers,
@@ -5005,6 +11730,11 @@ func (client *Client) DeviceMarketOrderManagerWithOptions(headers map[string]*st
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事设备定向管理接口
+//
+// @return DeviceMarketOrderManagerResponse
 func (client *Client) DeviceMarketOrderManager() (_result *DeviceMarketOrderManagerResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -5017,6 +11747,17 @@ func (client *Client) DeviceMarketOrderManager() (_result *DeviceMarketOrderMana
 	return _result, _err
 }
 
+// Summary:
+//
+// e签宝专有查询证件接口
+//
+// @param request - ECertQueryRequest
+//
+// @param headers - ECertQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ECertQueryResponse
 func (client *Client) ECertQueryWithOptions(request *ECertQueryRequest, headers *ECertQueryHeaders, runtime *util.RuntimeOptions) (_result *ECertQueryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5060,6 +11801,13 @@ func (client *Client) ECertQueryWithOptions(request *ECertQueryRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// e签宝专有查询证件接口
+//
+// @param request - ECertQueryRequest
+//
+// @return ECertQueryResponse
 func (client *Client) ECertQuery(request *ECertQueryRequest) (_result *ECertQueryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ECertQueryHeaders{}
@@ -5072,6 +11820,122 @@ func (client *Client) ECertQuery(request *ECertQueryRequest) (_result *ECertQuer
 	return _result, _err
 }
 
+// Summary:
+//
+// 加入待离职
+//
+// @param request - EmpStartDismissionRequest
+//
+// @param headers - EmpStartDismissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EmpStartDismissionResponse
+func (client *Client) EmpStartDismissionWithOptions(request *EmpStartDismissionRequest, headers *EmpStartDismissionHeaders, runtime *util.RuntimeOptions) (_result *EmpStartDismissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LastWorkDate)) {
+		body["lastWorkDate"] = request.LastWorkDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Partner)) {
+		body["partner"] = request.Partner
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TerminationReasonPassive)) {
+		body["terminationReasonPassive"] = request.TerminationReasonPassive
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TerminationReasonVoluntary)) {
+		body["terminationReasonVoluntary"] = request.TerminationReasonVoluntary
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToHireBlackList)) {
+		body["toHireBlackList"] = request.ToHireBlackList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToHireDismissionTalent)) {
+		body["toHireDismissionTalent"] = request.ToHireDismissionTalent
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToHrmBlackList)) {
+		body["toHrmBlackList"] = request.ToHrmBlackList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("EmpStartDismission"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/pendingDismission/start"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &EmpStartDismissionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 加入待离职
+//
+// @param request - EmpStartDismissionRequest
+//
+// @return EmpStartDismissionResponse
+func (client *Client) EmpStartDismission(request *EmpStartDismissionRequest) (_result *EmpStartDismissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &EmpStartDismissionHeaders{}
+	_result = &EmpStartDismissionResponse{}
+	_body, _err := client.EmpStartDismissionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事员工档案附件更新
+//
+// @param request - EmployeeAttachmentUpdateRequest
+//
+// @param headers - EmployeeAttachmentUpdateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EmployeeAttachmentUpdateResponse
 func (client *Client) EmployeeAttachmentUpdateWithOptions(request *EmployeeAttachmentUpdateRequest, headers *EmployeeAttachmentUpdateHeaders, runtime *util.RuntimeOptions) (_result *EmployeeAttachmentUpdateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5133,6 +11997,13 @@ func (client *Client) EmployeeAttachmentUpdateWithOptions(request *EmployeeAttac
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事员工档案附件更新
+//
+// @param request - EmployeeAttachmentUpdateRequest
+//
+// @return EmployeeAttachmentUpdateResponse
 func (client *Client) EmployeeAttachmentUpdate(request *EmployeeAttachmentUpdateRequest) (_result *EmployeeAttachmentUpdateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EmployeeAttachmentUpdateHeaders{}
@@ -5145,6 +12016,17 @@ func (client *Client) EmployeeAttachmentUpdate(request *EmployeeAttachmentUpdate
 	return _result, _err
 }
 
+// Summary:
+//
+// 人事高级合同管理回退
+//
+// @param request - EsignRollbackRequest
+//
+// @param headers - EsignRollbackHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EsignRollbackResponse
 func (client *Client) EsignRollbackWithOptions(request *EsignRollbackRequest, headers *EsignRollbackHeaders, runtime *util.RuntimeOptions) (_result *EsignRollbackResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5188,6 +12070,13 @@ func (client *Client) EsignRollbackWithOptions(request *EsignRollbackRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 人事高级合同管理回退
+//
+// @param request - EsignRollbackRequest
+//
+// @return EsignRollbackResponse
 func (client *Client) EsignRollback(request *EsignRollbackRequest) (_result *EsignRollbackResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EsignRollbackHeaders{}
@@ -5200,6 +12089,698 @@ func (client *Client) EsignRollback(request *EsignRollbackRequest) (_result *Esi
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取所有离职原因
+//
+// @param headers - GetAllDismissionReasonsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAllDismissionReasonsResponse
+func (client *Client) GetAllDismissionReasonsWithOptions(headers *GetAllDismissionReasonsHeaders, runtime *util.RuntimeOptions) (_result *GetAllDismissionReasonsResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetAllDismissionReasons"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/dismission/reasons"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetAllDismissionReasonsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取所有离职原因
+//
+// @return GetAllDismissionReasonsResponse
+func (client *Client) GetAllDismissionReasons() (_result *GetAllDismissionReasonsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAllDismissionReasonsHeaders{}
+	_result = &GetAllDismissionReasonsResponse{}
+	_body, _err := client.GetAllDismissionReasonsWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取员工花名册指定字段的信息，支持明细分组字段
+//
+// @param request - GetEmployeeRosterByFieldRequest
+//
+// @param headers - GetEmployeeRosterByFieldHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetEmployeeRosterByFieldResponse
+func (client *Client) GetEmployeeRosterByFieldWithOptions(request *GetEmployeeRosterByFieldRequest, headers *GetEmployeeRosterByFieldHeaders, runtime *util.RuntimeOptions) (_result *GetEmployeeRosterByFieldResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppAgentId)) {
+		body["appAgentId"] = request.AppAgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FieldFilterList)) {
+		body["fieldFilterList"] = request.FieldFilterList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Text2SelectConvert)) {
+		body["text2SelectConvert"] = request.Text2SelectConvert
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdList)) {
+		body["userIdList"] = request.UserIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetEmployeeRosterByField"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/rosters/lists/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetEmployeeRosterByFieldResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取员工花名册指定字段的信息，支持明细分组字段
+//
+// @param request - GetEmployeeRosterByFieldRequest
+//
+// @return GetEmployeeRosterByFieldResponse
+func (client *Client) GetEmployeeRosterByField(request *GetEmployeeRosterByFieldRequest) (_result *GetEmployeeRosterByFieldResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetEmployeeRosterByFieldHeaders{}
+	_result = &GetEmployeeRosterByFieldResponse{}
+	_body, _err := client.GetEmployeeRosterByFieldWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询文件模板列表及文件模板内花名册字段
+//
+// @param request - GetFileTemplateListRequest
+//
+// @param headers - GetFileTemplateListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFileTemplateListResponse
+func (client *Client) GetFileTemplateListWithOptions(request *GetFileTemplateListRequest, headers *GetFileTemplateListHeaders, runtime *util.RuntimeOptions) (_result *GetFileTemplateListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignSource)) {
+		body["signSource"] = request.SignSource
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateStatus)) {
+		body["templateStatus"] = request.TemplateStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateTypeList)) {
+		body["templateTypeList"] = request.TemplateTypeList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFileTemplateList"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/masters/fileTemplates/lists/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetFileTemplateListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询文件模板列表及文件模板内花名册字段
+//
+// @param request - GetFileTemplateListRequest
+//
+// @return GetFileTemplateListResponse
+func (client *Client) GetFileTemplateList(request *GetFileTemplateListRequest) (_result *GetFileTemplateListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFileTemplateListHeaders{}
+	_result = &GetFileTemplateListResponse{}
+	_body, _err := client.GetFileTemplateListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过签署记录id查询指定的电子签署记录
+//
+// @param request - GetSignRecordByIdRequest
+//
+// @param headers - GetSignRecordByIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSignRecordByIdResponse
+func (client *Client) GetSignRecordByIdWithOptions(request *GetSignRecordByIdRequest, headers *GetSignRecordByIdHeaders, runtime *util.RuntimeOptions) (_result *GetSignRecordByIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    request.Body,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSignRecordById"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/masters/signCenters/records/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetSignRecordByIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过签署记录id查询指定的电子签署记录
+//
+// @param request - GetSignRecordByIdRequest
+//
+// @return GetSignRecordByIdResponse
+func (client *Client) GetSignRecordById(request *GetSignRecordByIdRequest) (_result *GetSignRecordByIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSignRecordByIdHeaders{}
+	_result = &GetSignRecordByIdResponse{}
+	_body, _err := client.GetSignRecordByIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询指定用户的电子签署记录，并返回签署记录的基本数据及已签署完成的文件预览地址
+//
+// @param request - GetSignRecordByUserIdRequest
+//
+// @param headers - GetSignRecordByUserIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSignRecordByUserIdResponse
+func (client *Client) GetSignRecordByUserIdWithOptions(request *GetSignRecordByUserIdRequest, headers *GetSignRecordByUserIdHeaders, runtime *util.RuntimeOptions) (_result *GetSignRecordByUserIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignStatus)) {
+		body["signStatus"] = request.SignStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignUserId)) {
+		body["signUserId"] = request.SignUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSignRecordByUserId"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/masters/signCenters/users/records/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetSignRecordByUserIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询指定用户的电子签署记录，并返回签署记录的基本数据及已签署完成的文件预览地址
+//
+// @param request - GetSignRecordByUserIdRequest
+//
+// @return GetSignRecordByUserIdResponse
+func (client *Client) GetSignRecordByUserId(request *GetSignRecordByUserIdRequest) (_result *GetSignRecordByUserIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSignRecordByUserIdHeaders{}
+	_result = &GetSignRecordByUserIdResponse{}
+	_body, _err := client.GetSignRecordByUserIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询指定outerId的电子签署记录详情
+//
+// @param request - GetUserSignedRecordsByOuterIdRequest
+//
+// @param headers - GetUserSignedRecordsByOuterIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserSignedRecordsByOuterIdResponse
+func (client *Client) GetUserSignedRecordsByOuterIdWithOptions(request *GetUserSignedRecordsByOuterIdRequest, headers *GetUserSignedRecordsByOuterIdHeaders, runtime *util.RuntimeOptions) (_result *GetUserSignedRecordsByOuterIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    request.Body,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUserSignedRecordsByOuterId"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/masters/signCenters/outerIds/records/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetUserSignedRecordsByOuterIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询指定outerId的电子签署记录详情
+//
+// @param request - GetUserSignedRecordsByOuterIdRequest
+//
+// @return GetUserSignedRecordsByOuterIdResponse
+func (client *Client) GetUserSignedRecordsByOuterId(request *GetUserSignedRecordsByOuterIdRequest) (_result *GetUserSignedRecordsByOuterIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetUserSignedRecordsByOuterIdHeaders{}
+	_result = &GetUserSignedRecordsByOuterIdResponse{}
+	_body, _err := client.GetUserSignedRecordsByOuterIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事权限查询
+//
+// @param request - HrmAuthResourcesQueryRequest
+//
+// @param headers - HrmAuthResourcesQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrmAuthResourcesQueryResponse
+func (client *Client) HrmAuthResourcesQueryWithOptions(request *HrmAuthResourcesQueryRequest, headers *HrmAuthResourcesQueryHeaders, runtime *util.RuntimeOptions) (_result *HrmAuthResourcesQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AuthResourceIds)) {
+		body["authResourceIds"] = request.AuthResourceIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrmAuthResourcesQuery"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/authResources/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrmAuthResourcesQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事权限查询
+//
+// @param request - HrmAuthResourcesQueryRequest
+//
+// @return HrmAuthResourcesQueryResponse
+func (client *Client) HrmAuthResourcesQuery(request *HrmAuthResourcesQueryRequest) (_result *HrmAuthResourcesQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrmAuthResourcesQueryHeaders{}
+	_result = &HrmAuthResourcesQueryResponse{}
+	_body, _err := client.HrmAuthResourcesQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事权益查询
+//
+// @param request - HrmBenefitQueryRequest
+//
+// @param headers - HrmBenefitQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrmBenefitQueryResponse
+func (client *Client) HrmBenefitQueryWithOptions(request *HrmBenefitQueryRequest, headers *HrmBenefitQueryHeaders, runtime *util.RuntimeOptions) (_result *HrmBenefitQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BenefitCodes)) {
+		body["benefitCodes"] = request.BenefitCodes
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrmBenefitQuery"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/benefits/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrmBenefitQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事权益查询
+//
+// @param request - HrmBenefitQueryRequest
+//
+// @return HrmBenefitQueryResponse
+func (client *Client) HrmBenefitQuery(request *HrmBenefitQueryRequest) (_result *HrmBenefitQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrmBenefitQueryHeaders{}
+	_result = &HrmBenefitQueryResponse{}
+	_body, _err := client.HrmBenefitQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业配置信息
+//
+// @param request - HrmCorpConfigQueryRequest
+//
+// @param headers - HrmCorpConfigQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrmCorpConfigQueryResponse
+func (client *Client) HrmCorpConfigQueryWithOptions(request *HrmCorpConfigQueryRequest, headers *HrmCorpConfigQueryHeaders, runtime *util.RuntimeOptions) (_result *HrmCorpConfigQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SubType)) {
+		body["subType"] = request.SubType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrmCorpConfigQuery"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/corp/configs/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrmCorpConfigQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业配置信息
+//
+// @param request - HrmCorpConfigQueryRequest
+//
+// @return HrmCorpConfigQueryResponse
+func (client *Client) HrmCorpConfigQuery(request *HrmCorpConfigQueryRequest) (_result *HrmCorpConfigQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrmCorpConfigQueryHeaders{}
+	_result = &HrmCorpConfigQueryResponse{}
+	_body, _err := client.HrmCorpConfigQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事邮件发送
+//
+// @param request - HrmMailSendRequest
+//
+// @param headers - HrmMailSendHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrmMailSendResponse
 func (client *Client) HrmMailSendWithOptions(request *HrmMailSendRequest, headers *HrmMailSendHeaders, runtime *util.RuntimeOptions) (_result *HrmMailSendResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5247,6 +12828,13 @@ func (client *Client) HrmMailSendWithOptions(request *HrmMailSendRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事邮件发送
+//
+// @param request - HrmMailSendRequest
+//
+// @return HrmMailSendResponse
 func (client *Client) HrmMailSend(request *HrmMailSendRequest) (_result *HrmMailSendResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrmMailSendHeaders{}
@@ -5259,6 +12847,17 @@ func (client *Client) HrmMailSend(request *HrmMailSendRequest) (_result *HrmMail
 	return _result, _err
 }
 
+// Summary:
+//
+// 人事2.0支持Moka事件转发
+//
+// @param request - HrmMokaEventRequest
+//
+// @param headers - HrmMokaEventHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrmMokaEventResponse
 func (client *Client) HrmMokaEventWithOptions(request *HrmMokaEventRequest, headers *HrmMokaEventHeaders, runtime *util.RuntimeOptions) (_result *HrmMokaEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5306,6 +12905,13 @@ func (client *Client) HrmMokaEventWithOptions(request *HrmMokaEventRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 人事2.0支持Moka事件转发
+//
+// @param request - HrmMokaEventRequest
+//
+// @return HrmMokaEventResponse
 func (client *Client) HrmMokaEvent(request *HrmMokaEventRequest) (_result *HrmMokaEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrmMokaEventHeaders{}
@@ -5318,6 +12924,17 @@ func (client *Client) HrmMokaEvent(request *HrmMokaEventRequest) (_result *HrmMo
 	return _result, _err
 }
 
+// Summary:
+//
+// 人事2.0支持Moka接口转发
+//
+// @param request - HrmMokaOapiRequest
+//
+// @param headers - HrmMokaOapiHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrmMokaOapiResponse
 func (client *Client) HrmMokaOapiWithOptions(request *HrmMokaOapiRequest, headers *HrmMokaOapiHeaders, runtime *util.RuntimeOptions) (_result *HrmMokaOapiResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5365,6 +12982,13 @@ func (client *Client) HrmMokaOapiWithOptions(request *HrmMokaOapiRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 人事2.0支持Moka接口转发
+//
+// @param request - HrmMokaOapiRequest
+//
+// @return HrmMokaOapiResponse
 func (client *Client) HrmMokaOapi(request *HrmMokaOapiRequest) (_result *HrmMokaOapiResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrmMokaOapiHeaders{}
@@ -5377,6 +13001,17 @@ func (client *Client) HrmMokaOapi(request *HrmMokaOapiRequest) (_result *HrmMoka
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事转正接口
+//
+// @param request - HrmProcessRegularRequest
+//
+// @param headers - HrmProcessRegularHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrmProcessRegularResponse
 func (client *Client) HrmProcessRegularWithOptions(request *HrmProcessRegularRequest, headers *HrmProcessRegularHeaders, runtime *util.RuntimeOptions) (_result *HrmProcessRegularResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5432,6 +13067,13 @@ func (client *Client) HrmProcessRegularWithOptions(request *HrmProcessRegularReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事转正接口
+//
+// @param request - HrmProcessRegularRequest
+//
+// @return HrmProcessRegularResponse
 func (client *Client) HrmProcessRegular(request *HrmProcessRegularRequest) (_result *HrmProcessRegularResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrmProcessRegularHeaders{}
@@ -5444,6 +13086,134 @@ func (client *Client) HrmProcessRegular(request *HrmProcessRegularRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事离职和交接接口
+//
+// @param request - HrmProcessTerminationAndHandoverRequest
+//
+// @param headers - HrmProcessTerminationAndHandoverHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrmProcessTerminationAndHandoverResponse
+func (client *Client) HrmProcessTerminationAndHandoverWithOptions(request *HrmProcessTerminationAndHandoverRequest, headers *HrmProcessTerminationAndHandoverHeaders, runtime *util.RuntimeOptions) (_result *HrmProcessTerminationAndHandoverResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AflowHandOverUserId)) {
+		body["aflowHandOverUserId"] = request.AflowHandOverUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingPanHandoverUserId)) {
+		body["dingPanHandoverUserId"] = request.DingPanHandoverUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DirectSubordinatesHandoverUserId)) {
+		body["directSubordinatesHandoverUserId"] = request.DirectSubordinatesHandoverUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DismissionMemo)) {
+		body["dismissionMemo"] = request.DismissionMemo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DismissionReason)) {
+		body["dismissionReason"] = request.DismissionReason
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DocNoteHandoverUserId)) {
+		body["docNoteHandoverUserId"] = request.DocNoteHandoverUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LastWorkDate)) {
+		body["lastWorkDate"] = request.LastWorkDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OptUserId)) {
+		body["optUserId"] = request.OptUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PermissionHandoverUserId)) {
+		body["permissionHandoverUserId"] = request.PermissionHandoverUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TerminationReasonPassive)) {
+		body["terminationReasonPassive"] = request.TerminationReasonPassive
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TerminationReasonVoluntary)) {
+		body["terminationReasonVoluntary"] = request.TerminationReasonVoluntary
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrmProcessTerminationAndHandover"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/processes/terminateAndHandOver"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrmProcessTerminationAndHandoverResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事离职和交接接口
+//
+// @param request - HrmProcessTerminationAndHandoverRequest
+//
+// @return HrmProcessTerminationAndHandoverResponse
+func (client *Client) HrmProcessTerminationAndHandover(request *HrmProcessTerminationAndHandoverRequest) (_result *HrmProcessTerminationAndHandoverResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrmProcessTerminationAndHandoverHeaders{}
+	_result = &HrmProcessTerminationAndHandoverResponse{}
+	_body, _err := client.HrmProcessTerminationAndHandoverWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事调岗接口
+//
+// @param request - HrmProcessTransferRequest
+//
+// @param headers - HrmProcessTransferHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrmProcessTransferResponse
 func (client *Client) HrmProcessTransferWithOptions(request *HrmProcessTransferRequest, headers *HrmProcessTransferHeaders, runtime *util.RuntimeOptions) (_result *HrmProcessTransferResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5519,6 +13289,13 @@ func (client *Client) HrmProcessTransferWithOptions(request *HrmProcessTransferR
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事调岗接口
+//
+// @param request - HrmProcessTransferRequest
+//
+// @return HrmProcessTransferResponse
 func (client *Client) HrmProcessTransfer(request *HrmProcessTransferRequest) (_result *HrmProcessTransferResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrmProcessTransferHeaders{}
@@ -5531,6 +13308,17 @@ func (client *Client) HrmProcessTransfer(request *HrmProcessTransferRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改员工最后一次离职信息
+//
+// @param request - HrmProcessUpdateTerminationInfoRequest
+//
+// @param headers - HrmProcessUpdateTerminationInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrmProcessUpdateTerminationInfoResponse
 func (client *Client) HrmProcessUpdateTerminationInfoWithOptions(request *HrmProcessUpdateTerminationInfoRequest, headers *HrmProcessUpdateTerminationInfoHeaders, runtime *util.RuntimeOptions) (_result *HrmProcessUpdateTerminationInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5582,6 +13370,13 @@ func (client *Client) HrmProcessUpdateTerminationInfoWithOptions(request *HrmPro
 	return _result, _err
 }
 
+// Summary:
+//
+// 修改员工最后一次离职信息
+//
+// @param request - HrmProcessUpdateTerminationInfoRequest
+//
+// @return HrmProcessUpdateTerminationInfoResponse
 func (client *Client) HrmProcessUpdateTerminationInfo(request *HrmProcessUpdateTerminationInfoRequest) (_result *HrmProcessUpdateTerminationInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrmProcessUpdateTerminationInfoHeaders{}
@@ -5594,6 +13389,17 @@ func (client *Client) HrmProcessUpdateTerminationInfo(request *HrmProcessUpdateT
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事pts能力调用
+//
+// @param request - HrmPtsServiceRequest
+//
+// @param headers - HrmPtsServiceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrmPtsServiceResponse
 func (client *Client) HrmPtsServiceWithOptions(request *HrmPtsServiceRequest, headers *HrmPtsServiceHeaders, runtime *util.RuntimeOptions) (_result *HrmPtsServiceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5653,6 +13459,13 @@ func (client *Client) HrmPtsServiceWithOptions(request *HrmPtsServiceRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事pts能力调用
+//
+// @param request - HrmPtsServiceRequest
+//
+// @return HrmPtsServiceResponse
 func (client *Client) HrmPtsService(request *HrmPtsServiceRequest) (_result *HrmPtsServiceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HrmPtsServiceHeaders{}
@@ -5665,6 +13478,98 @@ func (client *Client) HrmPtsService(request *HrmPtsServiceRequest) (_result *Hrm
 	return _result, _err
 }
 
+// Summary:
+//
+// 作废签署记录
+//
+// @param request - InvalidSignRecordsRequest
+//
+// @param headers - InvalidSignRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InvalidSignRecordsResponse
+func (client *Client) InvalidSignRecordsWithOptions(request *InvalidSignRecordsRequest, headers *InvalidSignRecordsHeaders, runtime *util.RuntimeOptions) (_result *InvalidSignRecordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InvalidUserId)) {
+		body["invalidUserId"] = request.InvalidUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignRecordIds)) {
+		body["signRecordIds"] = request.SignRecordIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StatusRemark)) {
+		body["statusRemark"] = request.StatusRemark
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("InvalidSignRecords"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/masters/signCenters/records/invalid"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &InvalidSignRecordsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 作废签署记录
+//
+// @param request - InvalidSignRecordsRequest
+//
+// @return InvalidSignRecordsResponse
+func (client *Client) InvalidSignRecords(request *InvalidSignRecordsRequest) (_result *InvalidSignRecordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &InvalidSignRecordsHeaders{}
+	_result = &InvalidSignRecordsResponse{}
+	_body, _err := client.InvalidSignRecordsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事主数据删除服务
+//
+// @param request - MasterDataDeleteRequest
+//
+// @param headers - MasterDataDeleteHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MasterDataDeleteResponse
 func (client *Client) MasterDataDeleteWithOptions(request *MasterDataDeleteRequest, headers *MasterDataDeleteHeaders, runtime *util.RuntimeOptions) (_result *MasterDataDeleteResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5709,6 +13614,13 @@ func (client *Client) MasterDataDeleteWithOptions(request *MasterDataDeleteReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事主数据删除服务
+//
+// @param request - MasterDataDeleteRequest
+//
+// @return MasterDataDeleteResponse
 func (client *Client) MasterDataDelete(request *MasterDataDeleteRequest) (_result *MasterDataDeleteResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &MasterDataDeleteHeaders{}
@@ -5721,6 +13633,17 @@ func (client *Client) MasterDataDelete(request *MasterDataDeleteRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事主数据查询服务
+//
+// @param request - MasterDataQueryRequest
+//
+// @param headers - MasterDataQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MasterDataQueryResponse
 func (client *Client) MasterDataQueryWithOptions(request *MasterDataQueryRequest, headers *MasterDataQueryHeaders, runtime *util.RuntimeOptions) (_result *MasterDataQueryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5796,6 +13719,13 @@ func (client *Client) MasterDataQueryWithOptions(request *MasterDataQueryRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事主数据查询服务
+//
+// @param request - MasterDataQueryRequest
+//
+// @return MasterDataQueryResponse
 func (client *Client) MasterDataQuery(request *MasterDataQueryRequest) (_result *MasterDataQueryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &MasterDataQueryHeaders{}
@@ -5808,6 +13738,17 @@ func (client *Client) MasterDataQuery(request *MasterDataQueryRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事主数据保存服务
+//
+// @param request - MasterDataSaveRequest
+//
+// @param headers - MasterDataSaveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MasterDataSaveResponse
 func (client *Client) MasterDataSaveWithOptions(request *MasterDataSaveRequest, headers *MasterDataSaveHeaders, runtime *util.RuntimeOptions) (_result *MasterDataSaveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5852,6 +13793,13 @@ func (client *Client) MasterDataSaveWithOptions(request *MasterDataSaveRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事主数据保存服务
+//
+// @param request - MasterDataSaveRequest
+//
+// @return MasterDataSaveResponse
 func (client *Client) MasterDataSave(request *MasterDataSaveRequest) (_result *MasterDataSaveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &MasterDataSaveHeaders{}
@@ -5864,6 +13812,17 @@ func (client *Client) MasterDataSave(request *MasterDataSaveRequest) (_result *M
 	return _result, _err
 }
 
+// Summary:
+//
+// 主数据中拥有某个领域数据的租户信息查询
+//
+// @param request - MasterDataTenantQueyRequest
+//
+// @param headers - MasterDataTenantQueyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MasterDataTenantQueyResponse
 func (client *Client) MasterDataTenantQueyWithOptions(request *MasterDataTenantQueyRequest, headers *MasterDataTenantQueyHeaders, runtime *util.RuntimeOptions) (_result *MasterDataTenantQueyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5911,6 +13870,13 @@ func (client *Client) MasterDataTenantQueyWithOptions(request *MasterDataTenantQ
 	return _result, _err
 }
 
+// Summary:
+//
+// 主数据中拥有某个领域数据的租户信息查询
+//
+// @param request - MasterDataTenantQueyRequest
+//
+// @return MasterDataTenantQueyResponse
 func (client *Client) MasterDataTenantQuey(request *MasterDataTenantQueyRequest) (_result *MasterDataTenantQueyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &MasterDataTenantQueyHeaders{}
@@ -5923,6 +13889,102 @@ func (client *Client) MasterDataTenantQuey(request *MasterDataTenantQueyRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事主数据根据ID获取
+//
+// @param request - MasterDatasGetRequest
+//
+// @param headers - MasterDatasGetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MasterDatasGetResponse
+func (client *Client) MasterDatasGetWithOptions(request *MasterDatasGetRequest, headers *MasterDatasGetHeaders, runtime *util.RuntimeOptions) (_result *MasterDatasGetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ObjId)) {
+		body["objId"] = request.ObjId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScopeCode)) {
+		body["scopeCode"] = request.ScopeCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TenantId)) {
+		body["tenantId"] = request.TenantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ViewEntityCode)) {
+		body["viewEntityCode"] = request.ViewEntityCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("MasterDatasGet"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/masterDatas/objects/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &MasterDatasGetResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事主数据根据ID获取
+//
+// @param request - MasterDatasGetRequest
+//
+// @return MasterDatasGetResponse
+func (client *Client) MasterDatasGet(request *MasterDatasGetRequest) (_result *MasterDatasGetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &MasterDatasGetHeaders{}
+	_result = &MasterDatasGetResponse{}
+	_body, _err := client.MasterDatasGetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事主数据查询服务
+//
+// @param request - MasterDatasQueryRequest
+//
+// @param headers - MasterDatasQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MasterDatasQueryResponse
 func (client *Client) MasterDatasQueryWithOptions(request *MasterDatasQueryRequest, headers *MasterDatasQueryHeaders, runtime *util.RuntimeOptions) (_result *MasterDatasQueryResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5994,6 +14056,13 @@ func (client *Client) MasterDatasQueryWithOptions(request *MasterDatasQueryReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事主数据查询服务
+//
+// @param request - MasterDatasQueryRequest
+//
+// @return MasterDatasQueryResponse
 func (client *Client) MasterDatasQuery(request *MasterDatasQueryRequest) (_result *MasterDatasQueryResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &MasterDatasQueryHeaders{}
@@ -6006,6 +14075,90 @@ func (client *Client) MasterDatasQuery(request *MasterDatasQueryRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// oem 老用户数据迁移时，开通oem 应用
+//
+// @param request - OpenOemMicroAppRequest
+//
+// @param headers - OpenOemMicroAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return OpenOemMicroAppResponse
+func (client *Client) OpenOemMicroAppWithOptions(request *OpenOemMicroAppRequest, headers *OpenOemMicroAppHeaders, runtime *util.RuntimeOptions) (_result *OpenOemMicroAppResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TenantId)) {
+		query["tenantId"] = request.TenantId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("OpenOemMicroApp"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/oem/microApps/open"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &OpenOemMicroAppResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// oem 老用户数据迁移时，开通oem 应用
+//
+// @param request - OpenOemMicroAppRequest
+//
+// @return OpenOemMicroAppResponse
+func (client *Client) OpenOemMicroApp(request *OpenOemMicroAppRequest) (_result *OpenOemMicroAppResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &OpenOemMicroAppHeaders{}
+	_result = &OpenOemMicroAppResponse{}
+	_body, _err := client.OpenOemMicroAppWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 自定义入职流程数据查询
+//
+// @param request - QueryCustomEntryProcessesRequest
+//
+// @param headers - QueryCustomEntryProcessesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCustomEntryProcessesResponse
 func (client *Client) QueryCustomEntryProcessesWithOptions(request *QueryCustomEntryProcessesRequest, headers *QueryCustomEntryProcessesHeaders, runtime *util.RuntimeOptions) (_result *QueryCustomEntryProcessesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6057,6 +14210,13 @@ func (client *Client) QueryCustomEntryProcessesWithOptions(request *QueryCustomE
 	return _result, _err
 }
 
+// Summary:
+//
+// 自定义入职流程数据查询
+//
+// @param request - QueryCustomEntryProcessesRequest
+//
+// @return QueryCustomEntryProcessesResponse
 func (client *Client) QueryCustomEntryProcesses(request *QueryCustomEntryProcessesRequest) (_result *QueryCustomEntryProcessesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryCustomEntryProcessesHeaders{}
@@ -6069,6 +14229,17 @@ func (client *Client) QueryCustomEntryProcesses(request *QueryCustomEntryProcess
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询企业已离职员工列表
+//
+// @param request - QueryDismissionStaffIdListRequest
+//
+// @param headers - QueryDismissionStaffIdListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDismissionStaffIdListResponse
 func (client *Client) QueryDismissionStaffIdListWithOptions(request *QueryDismissionStaffIdListRequest, headers *QueryDismissionStaffIdListHeaders, runtime *util.RuntimeOptions) (_result *QueryDismissionStaffIdListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6116,6 +14287,13 @@ func (client *Client) QueryDismissionStaffIdListWithOptions(request *QueryDismis
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询企业已离职员工列表
+//
+// @param request - QueryDismissionStaffIdListRequest
+//
+// @return QueryDismissionStaffIdListResponse
 func (client *Client) QueryDismissionStaffIdList(request *QueryDismissionStaffIdListRequest) (_result *QueryDismissionStaffIdListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryDismissionStaffIdListHeaders{}
@@ -6128,6 +14306,17 @@ func (client *Client) QueryDismissionStaffIdList(request *QueryDismissionStaffId
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据传入的staffId列表，批量查询员工的离职信息
+//
+// @param tmpReq - QueryHrmEmployeeDismissionInfoRequest
+//
+// @param headers - QueryHrmEmployeeDismissionInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryHrmEmployeeDismissionInfoResponse
 func (client *Client) QueryHrmEmployeeDismissionInfoWithOptions(tmpReq *QueryHrmEmployeeDismissionInfoRequest, headers *QueryHrmEmployeeDismissionInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryHrmEmployeeDismissionInfoResponse, _err error) {
 	_err = util.ValidateModel(tmpReq)
 	if _err != nil {
@@ -6177,6 +14366,13 @@ func (client *Client) QueryHrmEmployeeDismissionInfoWithOptions(tmpReq *QueryHrm
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据传入的staffId列表，批量查询员工的离职信息
+//
+// @param request - QueryHrmEmployeeDismissionInfoRequest
+//
+// @return QueryHrmEmployeeDismissionInfoResponse
 func (client *Client) QueryHrmEmployeeDismissionInfo(request *QueryHrmEmployeeDismissionInfoRequest) (_result *QueryHrmEmployeeDismissionInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryHrmEmployeeDismissionInfoHeaders{}
@@ -6189,6 +14385,17 @@ func (client *Client) QueryHrmEmployeeDismissionInfo(request *QueryHrmEmployeeDi
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页查询企业的职级信息
+//
+// @param request - QueryJobRanksRequest
+//
+// @param headers - QueryJobRanksHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryJobRanksResponse
 func (client *Client) QueryJobRanksWithOptions(request *QueryJobRanksRequest, headers *QueryJobRanksHeaders, runtime *util.RuntimeOptions) (_result *QueryJobRanksResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6248,6 +14455,13 @@ func (client *Client) QueryJobRanksWithOptions(request *QueryJobRanksRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页查询企业的职级信息
+//
+// @param request - QueryJobRanksRequest
+//
+// @return QueryJobRanksResponse
 func (client *Client) QueryJobRanks(request *QueryJobRanksRequest) (_result *QueryJobRanksResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryJobRanksHeaders{}
@@ -6260,6 +14474,17 @@ func (client *Client) QueryJobRanks(request *QueryJobRanksRequest) (_result *Que
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页查询企业职务信息
+//
+// @param request - QueryJobsRequest
+//
+// @param headers - QueryJobsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryJobsResponse
 func (client *Client) QueryJobsWithOptions(request *QueryJobsRequest, headers *QueryJobsHeaders, runtime *util.RuntimeOptions) (_result *QueryJobsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6311,6 +14536,13 @@ func (client *Client) QueryJobsWithOptions(request *QueryJobsRequest, headers *Q
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页查询企业职务信息
+//
+// @param request - QueryJobsRequest
+//
+// @return QueryJobsResponse
 func (client *Client) QueryJobs(request *QueryJobsRequest) (_result *QueryJobsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryJobsHeaders{}
@@ -6323,6 +14555,226 @@ func (client *Client) QueryJobs(request *QueryJobsRequest) (_result *QueryJobsRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事查询微应用状态
+//
+// @param request - QueryMicroAppStatusRequest
+//
+// @param headers - QueryMicroAppStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMicroAppStatusResponse
+func (client *Client) QueryMicroAppStatusWithOptions(request *QueryMicroAppStatusRequest, headers *QueryMicroAppStatusHeaders, runtime *util.RuntimeOptions) (_result *QueryMicroAppStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TenantIdList)) {
+		body["tenantIdList"] = request.TenantIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMicroAppStatus"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/microApps/statuses/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryMicroAppStatusResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事查询微应用状态
+//
+// @param request - QueryMicroAppStatusRequest
+//
+// @return QueryMicroAppStatusResponse
+func (client *Client) QueryMicroAppStatus(request *QueryMicroAppStatusRequest) (_result *QueryMicroAppStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryMicroAppStatusHeaders{}
+	_result = &QueryMicroAppStatusResponse{}
+	_body, _err := client.QueryMicroAppStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事查询微应用可见性
+//
+// @param request - QueryMicroAppViewRequest
+//
+// @param headers - QueryMicroAppViewHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMicroAppViewResponse
+func (client *Client) QueryMicroAppViewWithOptions(request *QueryMicroAppViewRequest, headers *QueryMicroAppViewHeaders, runtime *util.RuntimeOptions) (_result *QueryMicroAppViewResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TenantIdList)) {
+		body["tenantIdList"] = request.TenantIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ViewUserId)) {
+		body["viewUserId"] = request.ViewUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMicroAppView"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/microApps/visibilities/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryMicroAppViewResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事查询微应用可见性
+//
+// @param request - QueryMicroAppViewRequest
+//
+// @return QueryMicroAppViewResponse
+func (client *Client) QueryMicroAppView(request *QueryMicroAppViewRequest) (_result *QueryMicroAppViewResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryMicroAppViewHeaders{}
+	_result = &QueryMicroAppViewResponse{}
+	_body, _err := client.QueryMicroAppViewWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业职位版本
+//
+// @param headers - QueryPositionVersionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryPositionVersionResponse
+func (client *Client) QueryPositionVersionWithOptions(headers *QueryPositionVersionHeaders, runtime *util.RuntimeOptions) (_result *QueryPositionVersionResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryPositionVersion"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/positions/versions/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryPositionVersionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业职位版本
+//
+// @return QueryPositionVersionResponse
+func (client *Client) QueryPositionVersion() (_result *QueryPositionVersionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryPositionVersionHeaders{}
+	_result = &QueryPositionVersionResponse{}
+	_body, _err := client.QueryPositionVersionWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询企业职位信息
+//
+// @param request - QueryPositionsRequest
+//
+// @param headers - QueryPositionsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryPositionsResponse
 func (client *Client) QueryPositionsWithOptions(request *QueryPositionsRequest, headers *QueryPositionsHeaders, runtime *util.RuntimeOptions) (_result *QueryPositionsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6388,6 +14840,13 @@ func (client *Client) QueryPositionsWithOptions(request *QueryPositionsRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页查询企业职位信息
+//
+// @param request - QueryPositionsRequest
+//
+// @return QueryPositionsResponse
 func (client *Client) QueryPositions(request *QueryPositionsRequest) (_result *QueryPositionsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryPositionsHeaders{}
@@ -6400,6 +14859,171 @@ func (client *Client) QueryPositions(request *QueryPositionsRequest) (_result *Q
 	return _result, _err
 }
 
+// Summary:
+//
+// 撤回电子签署中的签署记录
+//
+// @param request - RevokeSignRecordsRequest
+//
+// @param headers - RevokeSignRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RevokeSignRecordsResponse
+func (client *Client) RevokeSignRecordsWithOptions(request *RevokeSignRecordsRequest, headers *RevokeSignRecordsHeaders, runtime *util.RuntimeOptions) (_result *RevokeSignRecordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RevokeUserId)) {
+		body["revokeUserId"] = request.RevokeUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignRecordIds)) {
+		body["signRecordIds"] = request.SignRecordIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StatusRemark)) {
+		body["statusRemark"] = request.StatusRemark
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RevokeSignRecords"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/masters/signCenters/records/revoke"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RevokeSignRecordsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 撤回电子签署中的签署记录
+//
+// @param request - RevokeSignRecordsRequest
+//
+// @return RevokeSignRecordsResponse
+func (client *Client) RevokeSignRecords(request *RevokeSignRecordsRequest) (_result *RevokeSignRecordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RevokeSignRecordsHeaders{}
+	_result = &RevokeSignRecordsResponse{}
+	_body, _err := client.RevokeSignRecordsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 撤销待离职
+//
+// @param request - RevokeTerminationRequest
+//
+// @param headers - RevokeTerminationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RevokeTerminationResponse
+func (client *Client) RevokeTerminationWithOptions(request *RevokeTerminationRequest, headers *RevokeTerminationHeaders, runtime *util.RuntimeOptions) (_result *RevokeTerminationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RevokeTermination"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/pendingDismission/revoke"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RevokeTerminationResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 撤销待离职
+//
+// @param request - RevokeTerminationRequest
+//
+// @return RevokeTerminationResponse
+func (client *Client) RevokeTermination(request *RevokeTerminationRequest) (_result *RevokeTerminationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RevokeTerminationHeaders{}
+	_result = &RevokeTerminationResponse{}
+	_body, _err := client.RevokeTerminationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询花名册中有权限的字段列表
+//
+// @param request - RosterMetaAvailableFieldListRequest
+//
+// @param headers - RosterMetaAvailableFieldListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RosterMetaAvailableFieldListResponse
 func (client *Client) RosterMetaAvailableFieldListWithOptions(request *RosterMetaAvailableFieldListRequest, headers *RosterMetaAvailableFieldListHeaders, runtime *util.RuntimeOptions) (_result *RosterMetaAvailableFieldListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6443,6 +15067,13 @@ func (client *Client) RosterMetaAvailableFieldListWithOptions(request *RosterMet
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询花名册中有权限的字段列表
+//
+// @param request - RosterMetaAvailableFieldListRequest
+//
+// @return RosterMetaAvailableFieldListResponse
 func (client *Client) RosterMetaAvailableFieldList(request *RosterMetaAvailableFieldListRequest) (_result *RosterMetaAvailableFieldListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RosterMetaAvailableFieldListHeaders{}
@@ -6455,6 +15086,17 @@ func (client *Client) RosterMetaAvailableFieldList(request *RosterMetaAvailableF
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事花名册字段选项修改
+//
+// @param request - RosterMetaFieldOptionsUpdateRequest
+//
+// @param headers - RosterMetaFieldOptionsUpdateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RosterMetaFieldOptionsUpdateResponse
 func (client *Client) RosterMetaFieldOptionsUpdateWithOptions(request *RosterMetaFieldOptionsUpdateRequest, headers *RosterMetaFieldOptionsUpdateHeaders, runtime *util.RuntimeOptions) (_result *RosterMetaFieldOptionsUpdateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6516,6 +15158,13 @@ func (client *Client) RosterMetaFieldOptionsUpdateWithOptions(request *RosterMet
 	return _result, _err
 }
 
+// Summary:
+//
+// 智能人事花名册字段选项修改
+//
+// @param request - RosterMetaFieldOptionsUpdateRequest
+//
+// @return RosterMetaFieldOptionsUpdateResponse
 func (client *Client) RosterMetaFieldOptionsUpdate(request *RosterMetaFieldOptionsUpdateRequest) (_result *RosterMetaFieldOptionsUpdateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RosterMetaFieldOptionsUpdateHeaders{}
@@ -6528,6 +15177,17 @@ func (client *Client) RosterMetaFieldOptionsUpdate(request *RosterMetaFieldOptio
 	return _result, _err
 }
 
+// Summary:
+//
+// # ISV发送卡片消息
+//
+// @param request - SendIsvCardMessageRequest
+//
+// @param headers - SendIsvCardMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendIsvCardMessageResponse
 func (client *Client) SendIsvCardMessageWithOptions(request *SendIsvCardMessageRequest, headers *SendIsvCardMessageHeaders, runtime *util.RuntimeOptions) (_result *SendIsvCardMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6601,6 +15261,13 @@ func (client *Client) SendIsvCardMessageWithOptions(request *SendIsvCardMessageR
 	return _result, _err
 }
 
+// Summary:
+//
+// # ISV发送卡片消息
+//
+// @param request - SendIsvCardMessageRequest
+//
+// @return SendIsvCardMessageResponse
 func (client *Client) SendIsvCardMessage(request *SendIsvCardMessageRequest) (_result *SendIsvCardMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendIsvCardMessageHeaders{}
@@ -6613,6 +15280,17 @@ func (client *Client) SendIsvCardMessage(request *SendIsvCardMessageRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 初始化解决方案任务
+//
+// @param request - SolutionTaskInitRequest
+//
+// @param headers - SolutionTaskInitHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SolutionTaskInitResponse
 func (client *Client) SolutionTaskInitWithOptions(request *SolutionTaskInitRequest, headers *SolutionTaskInitHeaders, runtime *util.RuntimeOptions) (_result *SolutionTaskInitResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6690,6 +15368,13 @@ func (client *Client) SolutionTaskInitWithOptions(request *SolutionTaskInitReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 初始化解决方案任务
+//
+// @param request - SolutionTaskInitRequest
+//
+// @return SolutionTaskInitResponse
 func (client *Client) SolutionTaskInit(request *SolutionTaskInitRequest) (_result *SolutionTaskInitResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SolutionTaskInitHeaders{}
@@ -6702,6 +15387,17 @@ func (client *Client) SolutionTaskInit(request *SolutionTaskInitRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 保存解决方案任务
+//
+// @param request - SolutionTaskSaveRequest
+//
+// @param headers - SolutionTaskSaveHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SolutionTaskSaveResponse
 func (client *Client) SolutionTaskSaveWithOptions(request *SolutionTaskSaveRequest, headers *SolutionTaskSaveHeaders, runtime *util.RuntimeOptions) (_result *SolutionTaskSaveResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6791,6 +15487,13 @@ func (client *Client) SolutionTaskSaveWithOptions(request *SolutionTaskSaveReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 保存解决方案任务
+//
+// @param request - SolutionTaskSaveRequest
+//
+// @return SolutionTaskSaveResponse
 func (client *Client) SolutionTaskSave(request *SolutionTaskSaveRequest) (_result *SolutionTaskSaveResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SolutionTaskSaveHeaders{}
@@ -6803,6 +15506,106 @@ func (client *Client) SolutionTaskSave(request *SolutionTaskSaveRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 同步解决方案状态
+//
+// @param request - SyncSolutionStatusRequest
+//
+// @param headers - SyncSolutionStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncSolutionStatusResponse
+func (client *Client) SyncSolutionStatusWithOptions(request *SyncSolutionStatusRequest, headers *SyncSolutionStatusHeaders, runtime *util.RuntimeOptions) (_result *SyncSolutionStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SolutionStatus)) {
+		body["solutionStatus"] = request.SolutionStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SolutionType)) {
+		body["solutionType"] = request.SolutionType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TenantId)) {
+		body["tenantId"] = request.TenantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncSolutionStatus"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/solutions/statuses/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SyncSolutionStatusResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 同步解决方案状态
+//
+// @param request - SyncSolutionStatusRequest
+//
+// @return SyncSolutionStatusResponse
+func (client *Client) SyncSolutionStatus(request *SyncSolutionStatusRequest) (_result *SyncSolutionStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncSolutionStatusHeaders{}
+	_result = &SyncSolutionStatusResponse{}
+	_body, _err := client.SyncSolutionStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 同步解决方案任务模版
+//
+// @param request - SyncTaskTemplateRequest
+//
+// @param headers - SyncTaskTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncTaskTemplateResponse
 func (client *Client) SyncTaskTemplateWithOptions(request *SyncTaskTemplateRequest, headers *SyncTaskTemplateHeaders, runtime *util.RuntimeOptions) (_result *SyncTaskTemplateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6880,6 +15683,13 @@ func (client *Client) SyncTaskTemplateWithOptions(request *SyncTaskTemplateReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 同步解决方案任务模版
+//
+// @param request - SyncTaskTemplateRequest
+//
+// @return SyncTaskTemplateResponse
 func (client *Client) SyncTaskTemplate(request *SyncTaskTemplateRequest) (_result *SyncTaskTemplateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SyncTaskTemplateHeaders{}
@@ -6892,6 +15702,371 @@ func (client *Client) SyncTaskTemplate(request *SyncTaskTemplateRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新待离职信息
+//
+// @param request - UpdateEmpDismissionInfoRequest
+//
+// @param headers - UpdateEmpDismissionInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateEmpDismissionInfoResponse
+func (client *Client) UpdateEmpDismissionInfoWithOptions(request *UpdateEmpDismissionInfoRequest, headers *UpdateEmpDismissionInfoHeaders, runtime *util.RuntimeOptions) (_result *UpdateEmpDismissionInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DismissionMemo)) {
+		body["dismissionMemo"] = request.DismissionMemo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LastWorkDate)) {
+		body["lastWorkDate"] = request.LastWorkDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Partner)) {
+		body["partner"] = request.Partner
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TerminationReasonPassive)) {
+		body["terminationReasonPassive"] = request.TerminationReasonPassive
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TerminationReasonVoluntary)) {
+		body["terminationReasonVoluntary"] = request.TerminationReasonVoluntary
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateEmpDismissionInfo"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/pendingDismission/infos"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateEmpDismissionInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新待离职信息
+//
+// @param request - UpdateEmpDismissionInfoRequest
+//
+// @return UpdateEmpDismissionInfoResponse
+func (client *Client) UpdateEmpDismissionInfo(request *UpdateEmpDismissionInfoRequest) (_result *UpdateEmpDismissionInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateEmpDismissionInfoHeaders{}
+	_result = &UpdateEmpDismissionInfoResponse{}
+	_body, _err := client.UpdateEmpDismissionInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新法人公司名称
+//
+// @param request - UpdateHrmLegalEntityNameRequest
+//
+// @param headers - UpdateHrmLegalEntityNameHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateHrmLegalEntityNameResponse
+func (client *Client) UpdateHrmLegalEntityNameWithOptions(request *UpdateHrmLegalEntityNameRequest, headers *UpdateHrmLegalEntityNameHeaders, runtime *util.RuntimeOptions) (_result *UpdateHrmLegalEntityNameResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingTenantId)) {
+		query["dingTenantId"] = request.DingTenantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LegalEntityName)) {
+		query["legalEntityName"] = request.LegalEntityName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OriginLegalEntityName)) {
+		query["originLegalEntityName"] = request.OriginLegalEntityName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateHrmLegalEntityName"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/masters/legalEntities/companyNames"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateHrmLegalEntityNameResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新法人公司名称
+//
+// @param request - UpdateHrmLegalEntityNameRequest
+//
+// @return UpdateHrmLegalEntityNameResponse
+func (client *Client) UpdateHrmLegalEntityName(request *UpdateHrmLegalEntityNameRequest) (_result *UpdateHrmLegalEntityNameResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateHrmLegalEntityNameHeaders{}
+	_result = &UpdateHrmLegalEntityNameResponse{}
+	_body, _err := client.UpdateHrmLegalEntityNameWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新法人公司
+//
+// @param request - UpdateHrmLegalEntityWithoutNameRequest
+//
+// @param headers - UpdateHrmLegalEntityWithoutNameHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateHrmLegalEntityWithoutNameResponse
+func (client *Client) UpdateHrmLegalEntityWithoutNameWithOptions(request *UpdateHrmLegalEntityWithoutNameRequest, headers *UpdateHrmLegalEntityWithoutNameHeaders, runtime *util.RuntimeOptions) (_result *UpdateHrmLegalEntityWithoutNameResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingTenantId)) {
+		query["dingTenantId"] = request.DingTenantId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateUserId)) {
+		body["createUserId"] = request.CreateUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Ext)) {
+		body["ext"] = request.Ext
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LegalEntityName)) {
+		body["legalEntityName"] = request.LegalEntityName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LegalEntityShortName)) {
+		body["legalEntityShortName"] = request.LegalEntityShortName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LegalEntityStatus)) {
+		body["legalEntityStatus"] = request.LegalEntityStatus
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LegalPersonName)) {
+		body["legalPersonName"] = request.LegalPersonName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateHrmLegalEntityWithoutName"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/masters/legalEntities/companies"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateHrmLegalEntityWithoutNameResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新法人公司
+//
+// @param request - UpdateHrmLegalEntityWithoutNameRequest
+//
+// @return UpdateHrmLegalEntityWithoutNameResponse
+func (client *Client) UpdateHrmLegalEntityWithoutName(request *UpdateHrmLegalEntityWithoutNameRequest) (_result *UpdateHrmLegalEntityWithoutNameResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateHrmLegalEntityWithoutNameHeaders{}
+	_result = &UpdateHrmLegalEntityWithoutNameResponse{}
+	_body, _err := client.UpdateHrmLegalEntityWithoutNameWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事更新版本回退按钮状态
+//
+// @param request - UpdateHrmVersionRollBackStatusRequest
+//
+// @param headers - UpdateHrmVersionRollBackStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateHrmVersionRollBackStatusResponse
+func (client *Client) UpdateHrmVersionRollBackStatusWithOptions(request *UpdateHrmVersionRollBackStatusRequest, headers *UpdateHrmVersionRollBackStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdateHrmVersionRollBackStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ConfigValue)) {
+		body["configValue"] = request.ConfigValue
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OptUserId)) {
+		body["optUserId"] = request.OptUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateHrmVersionRollBackStatus"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/versions/rollbackButtons/statuses"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateHrmVersionRollBackStatusResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能人事更新版本回退按钮状态
+//
+// @param request - UpdateHrmVersionRollBackStatusRequest
+//
+// @return UpdateHrmVersionRollBackStatusResponse
+func (client *Client) UpdateHrmVersionRollBackStatus(request *UpdateHrmVersionRollBackStatusRequest) (_result *UpdateHrmVersionRollBackStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateHrmVersionRollBackStatusHeaders{}
+	_result = &UpdateHrmVersionRollBackStatusResponse{}
+	_body, _err := client.UpdateHrmVersionRollBackStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// # ISV更新卡片消息
+//
+// @param request - UpdateIsvCardMessageRequest
+//
+// @param headers - UpdateIsvCardMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateIsvCardMessageResponse
 func (client *Client) UpdateIsvCardMessageWithOptions(request *UpdateIsvCardMessageRequest, headers *UpdateIsvCardMessageHeaders, runtime *util.RuntimeOptions) (_result *UpdateIsvCardMessageResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -6957,11 +16132,95 @@ func (client *Client) UpdateIsvCardMessageWithOptions(request *UpdateIsvCardMess
 	return _result, _err
 }
 
+// Summary:
+//
+// # ISV更新卡片消息
+//
+// @param request - UpdateIsvCardMessageRequest
+//
+// @return UpdateIsvCardMessageResponse
 func (client *Client) UpdateIsvCardMessage(request *UpdateIsvCardMessageRequest) (_result *UpdateIsvCardMessageResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateIsvCardMessageHeaders{}
 	_result = &UpdateIsvCardMessageResponse{}
 	_body, _err := client.UpdateIsvCardMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 上传附件材料
+//
+// @param request - UploadAttachmentRequest
+//
+// @param headers - UploadAttachmentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UploadAttachmentResponse
+func (client *Client) UploadAttachmentWithOptions(request *UploadAttachmentRequest, headers *UploadAttachmentHeaders, runtime *util.RuntimeOptions) (_result *UploadAttachmentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
+		body["mediaId"] = request.MediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UploadAttachment"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/attachments/upload"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UploadAttachmentResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 上传附件材料
+//
+// @param request - UploadAttachmentRequest
+//
+// @return UploadAttachmentResponse
+func (client *Client) UploadAttachment(request *UploadAttachmentRequest) (_result *UploadAttachmentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UploadAttachmentHeaders{}
+	_result = &UploadAttachmentResponse{}
+	_body, _err := client.UploadAttachmentWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -1,23 +1,33 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package gateway_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
 type OpenConnectionRequest struct {
-	ClientId      *string                               `json:"clientId,omitempty" xml:"clientId,omitempty"`
-	ClientSecret  *string                               `json:"clientSecret,omitempty" xml:"clientSecret,omitempty"`
-	Extras        map[string]interface{}                `json:"extras,omitempty" xml:"extras,omitempty"`
-	LocalIp       *string                               `json:"localIp,omitempty" xml:"localIp,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// suiteudabcd123
+	ClientId *string `json:"clientId,omitempty" xml:"clientId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 9W1berqrwfs
+	ClientSecret *string                `json:"clientSecret,omitempty" xml:"clientSecret,omitempty"`
+	Extras       map[string]interface{} `json:"extras,omitempty" xml:"extras,omitempty"`
+	// example:
+	//
+	// 32.78.48.10
+	LocalIp *string `json:"localIp,omitempty" xml:"localIp,omitempty"`
+	// This parameter is required.
 	Subscriptions []*OpenConnectionRequestSubscriptions `json:"subscriptions,omitempty" xml:"subscriptions,omitempty" type:"Repeated"`
 }
 
@@ -55,8 +65,18 @@ func (s *OpenConnectionRequest) SetSubscriptions(v []*OpenConnectionRequestSubsc
 }
 
 type OpenConnectionRequestSubscriptions struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// /v1.0/im/bot/messages/get
 	Topic *string `json:"topic,omitempty" xml:"topic,omitempty"`
-	Type  *string `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// EVENT
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s OpenConnectionRequestSubscriptions) String() string {
@@ -78,8 +98,14 @@ func (s *OpenConnectionRequestSubscriptions) SetType(v string) *OpenConnectionRe
 }
 
 type OpenConnectionResponseBody struct {
+	// example:
+	//
+	// wss://open-connection.dingtalk.com/connect
 	Endpoint *string `json:"endpoint,omitempty" xml:"endpoint,omitempty"`
-	Ticket   *string `json:"ticket,omitempty" xml:"ticket,omitempty"`
+	// example:
+	//
+	// 67e5aeb3-de99-11ed-897e-e251245ed5d2
+	Ticket *string `json:"ticket,omitempty" xml:"ticket,omitempty"`
 }
 
 func (s OpenConnectionResponseBody) String() string {
@@ -144,12 +170,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
@@ -159,6 +185,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 云上网关注册长连接
+//
+// @param request - OpenConnectionRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return OpenConnectionResponse
 func (client *Client) OpenConnectionWithOptions(request *OpenConnectionRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *OpenConnectionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -209,6 +246,13 @@ func (client *Client) OpenConnectionWithOptions(request *OpenConnectionRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 云上网关注册长连接
+//
+// @param request - OpenConnectionRequest
+//
+// @return OpenConnectionResponse
 func (client *Client) OpenConnection(request *OpenConnectionRequest) (_result *OpenConnectionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)

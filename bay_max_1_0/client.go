@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package bay_max_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,7 +33,12 @@ func (s *QueryBaymaxSkillLogHeaders) SetXAcsDingtalkAccessToken(v string) *Query
 }
 
 type QueryBaymaxSkillLogRequest struct {
-	From           *int32  `json:"from,omitempty" xml:"from,omitempty"`
+	From *int32 `json:"from,omitempty" xml:"from,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 14da****2760
 	SkillExecuteId *string `json:"skillExecuteId,omitempty" xml:"skillExecuteId,omitempty"`
 	To             *int32  `json:"to,omitempty" xml:"to,omitempty"`
 }
@@ -66,6 +67,11 @@ func (s *QueryBaymaxSkillLogRequest) SetTo(v int32) *QueryBaymaxSkillLogRequest 
 }
 
 type QueryBaymaxSkillLogResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 14da****2760
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -126,12 +132,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -140,6 +146,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// # Baymax技能执行日志
+//
+// @param request - QueryBaymaxSkillLogRequest
+//
+// @param headers - QueryBaymaxSkillLogHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryBaymaxSkillLogResponse
 func (client *Client) QueryBaymaxSkillLogWithOptions(request *QueryBaymaxSkillLogRequest, headers *QueryBaymaxSkillLogHeaders, runtime *util.RuntimeOptions) (_result *QueryBaymaxSkillLogResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -191,6 +208,13 @@ func (client *Client) QueryBaymaxSkillLogWithOptions(request *QueryBaymaxSkillLo
 	return _result, _err
 }
 
+// Summary:
+//
+// # Baymax技能执行日志
+//
+// @param request - QueryBaymaxSkillLogRequest
+//
+// @return QueryBaymaxSkillLogResponse
 func (client *Client) QueryBaymaxSkillLog(request *QueryBaymaxSkillLogRequest) (_result *QueryBaymaxSkillLogResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryBaymaxSkillLogHeaders{}

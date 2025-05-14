@@ -1,24 +1,36 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package manufacturing_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
 type IndustrializeManufactureJobBookRequest struct {
-	CorpId               *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Extend               *string `json:"extend,omitempty" xml:"extend,omitempty"`
-	InstNo               *string `json:"instNo,omitempty" xml:"instNo,omitempty"`
-	IsBatchJob           *string `json:"isBatchJob,omitempty" xml:"isBatchJob,omitempty"`
-	ManufactureDate      *string `json:"manufactureDate,omitempty" xml:"manufactureDate,omitempty"`
+	// example:
+	//
+	// ding2fff8349a3ae0105d
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// [     { 		"code": "equipmentName"， 		"name": "设备名称", 		"value": "8000", 		"valueType": "类型：字符串，数字等" 	}, { 		"code": "唯一标识"， 		"name": "自定义字段1", 		"value": "值", 		"valueType": "类型：字符串，数字等" 	}, { 		"code": "唯一标识"， 		"name": "自定义字段2", 		"value": "值", 		"valueType": "类型：字符串，数字等" 	}  ]
+	Extend *string `json:"extend,omitempty" xml:"extend,omitempty"`
+	// This parameter is required.
+	InstNo *string `json:"instNo,omitempty" xml:"instNo,omitempty"`
+	// example:
+	//
+	// n
+	IsBatchJob *string `json:"isBatchJob,omitempty" xml:"isBatchJob,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2021-07-05 08:00:21
+	ManufactureDate *string `json:"manufactureDate,omitempty" xml:"manufactureDate,omitempty"`
+	// This parameter is required.
 	MesAppKey            *string `json:"mesAppKey,omitempty" xml:"mesAppKey,omitempty"`
 	ProcessEnName        *string `json:"processEnName,omitempty" xml:"processEnName,omitempty"`
 	ProcessName          *string `json:"processName,omitempty" xml:"processName,omitempty"`
@@ -26,14 +38,25 @@ type IndustrializeManufactureJobBookRequest struct {
 	ProductEnName        *string `json:"productEnName,omitempty" xml:"productEnName,omitempty"`
 	ProductName          *string `json:"productName,omitempty" xml:"productName,omitempty"`
 	ProductSpecification *string `json:"productSpecification,omitempty" xml:"productSpecification,omitempty"`
-	QualifiedQuantity    *string `json:"qualifiedQuantity,omitempty" xml:"qualifiedQuantity,omitempty"`
-	ReworkableQuantity   *string `json:"reworkableQuantity,omitempty" xml:"reworkableQuantity,omitempty"`
-	ScrappedQuantity     *string `json:"scrappedQuantity,omitempty" xml:"scrappedQuantity,omitempty"`
-	UnitPrice            *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
-	UserIdList           *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
-	UserName             *string `json:"userName,omitempty" xml:"userName,omitempty"`
-	UserNameList         *string `json:"userNameList,omitempty" xml:"userNameList,omitempty"`
-	Uuid                 *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// This parameter is required.
+	QualifiedQuantity  *string `json:"qualifiedQuantity,omitempty" xml:"qualifiedQuantity,omitempty"`
+	ReworkableQuantity *string `json:"reworkableQuantity,omitempty" xml:"reworkableQuantity,omitempty"`
+	ScrappedQuantity   *string `json:"scrappedQuantity,omitempty" xml:"scrappedQuantity,omitempty"`
+	// example:
+	//
+	// 1.02
+	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+	// example:
+	//
+	// 1919442747879777, 1919442747879774
+	UserIdList *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
+	UserName   *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// example:
+	//
+	// 张三,李四
+	UserNameList *string `json:"userNameList,omitempty" xml:"userNameList,omitempty"`
+	// This parameter is required.
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s IndustrializeManufactureJobBookRequest) String() string {
@@ -150,8 +173,9 @@ type IndustrializeManufactureJobBookResponseBody struct {
 	ErrorLevel *int32                                              `json:"errorLevel,omitempty" xml:"errorLevel,omitempty"`
 	ErrorMsg   *string                                             `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
 	HttpCode   *string                                             `json:"httpCode,omitempty" xml:"httpCode,omitempty"`
-	Success    *bool                                               `json:"success,omitempty" xml:"success,omitempty"`
-	Uuid       *string                                             `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// This parameter is required.
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	Uuid    *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s IndustrializeManufactureJobBookResponseBody) String() string {
@@ -198,6 +222,9 @@ func (s *IndustrializeManufactureJobBookResponseBody) SetUuid(v string) *Industr
 }
 
 type IndustrializeManufactureJobBookResponseBodyContent struct {
+	// example:
+	//
+	// 1
 	Count *int32 `json:"count,omitempty" xml:"count,omitempty"`
 	Id    *int64 `json:"id,omitempty" xml:"id,omitempty"`
 }
@@ -273,21 +300,63 @@ func (s *IndustrializeManufactureQueryJobsHeaders) SetXAcsDingtalkAccessToken(v 
 }
 
 type IndustrializeManufactureQueryJobsRequest struct {
-	CurrentPage          *int32  `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
-	InstNo               *string `json:"instNo,omitempty" xml:"instNo,omitempty"`
-	ManufactureDay       *string `json:"manufactureDay,omitempty" xml:"manufactureDay,omitempty"`
-	MesAppKey            *string `json:"mesAppKey,omitempty" xml:"mesAppKey,omitempty"`
-	PageSize             *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	ProcessName          *string `json:"processName,omitempty" xml:"processName,omitempty"`
-	ProductCode          *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
-	ProductName          *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	// example:
+	//
+	// 1
+	CurrentPage *int32 `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	// example:
+	//
+	// d41d8cd98f00b204e9800998ecf8427e
+	InstNo *string `json:"instNo,omitempty" xml:"instNo,omitempty"`
+	// example:
+	//
+	// 2021-07-05
+	ManufactureDay *string `json:"manufactureDay,omitempty" xml:"manufactureDay,omitempty"`
+	// example:
+	//
+	// mes41d8cd98f00b204e9800998ecf8427e
+	MesAppKey *string `json:"mesAppKey,omitempty" xml:"mesAppKey,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize    *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	ProcessName *string `json:"processName,omitempty" xml:"processName,omitempty"`
+	// example:
+	//
+	// A001
+	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	// example:
+	//
+	// 双头螺柱001
+	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	// example:
+	//
+	// M56*3*10501
 	ProductSpecification *string `json:"productSpecification,omitempty" xml:"productSpecification,omitempty"`
-	QualifiedQuantity    *string `json:"qualifiedQuantity,omitempty" xml:"qualifiedQuantity,omitempty"`
-	UnitPrice            *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
-	UserId               *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserIdList           *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
-	UserName             *string `json:"userName,omitempty" xml:"userName,omitempty"`
-	Uuid                 *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// 100
+	QualifiedQuantity *string `json:"qualifiedQuantity,omitempty" xml:"qualifiedQuantity,omitempty"`
+	// example:
+	//
+	// 1.2
+	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+	// example:
+	//
+	// 1919442747879773
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// example:
+	//
+	// 111,222
+	UserIdList *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
+	// example:
+	//
+	// 张三
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+	// example:
+	//
+	// d41d8cd98f00b204e9800998ecf8427e
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s IndustrializeManufactureQueryJobsRequest) String() string {
@@ -374,8 +443,11 @@ func (s *IndustrializeManufactureQueryJobsRequest) SetUuid(v string) *Industrial
 }
 
 type IndustrializeManufactureQueryJobsResponseBody struct {
-	Content  *IndustrializeManufactureQueryJobsResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
-	HttpCode *string                                               `json:"httpCode,omitempty" xml:"httpCode,omitempty"`
+	Content *IndustrializeManufactureQueryJobsResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	// example:
+	//
+	// 200
+	HttpCode *string `json:"httpCode,omitempty" xml:"httpCode,omitempty"`
 }
 
 func (s IndustrializeManufactureQueryJobsResponseBody) String() string {
@@ -397,23 +469,44 @@ func (s *IndustrializeManufactureQueryJobsResponseBody) SetHttpCode(v string) *I
 }
 
 type IndustrializeManufactureQueryJobsResponseBodyContent struct {
-	CorpId            *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	GmtCreate         *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	GmtModified       *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
-	Id                *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	InstNo            *string `json:"instNo,omitempty" xml:"instNo,omitempty"`
-	IsBatchJob        *string `json:"isBatchJob,omitempty" xml:"isBatchJob,omitempty"`
-	ManufactureDate   *string `json:"manufactureDate,omitempty" xml:"manufactureDate,omitempty"`
-	ManufactureDay    *string `json:"manufactureDay,omitempty" xml:"manufactureDay,omitempty"`
-	MesAppKey         *string `json:"mesAppKey,omitempty" xml:"mesAppKey,omitempty"`
-	ProcessName       *string `json:"processName,omitempty" xml:"processName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingdb6elngd253073ad370d8dc3ec89bb366ab
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// This parameter is required.
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// This parameter is required.
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	InstNo *string `json:"instNo,omitempty" xml:"instNo,omitempty"`
+	// This parameter is required.
+	IsBatchJob *string `json:"isBatchJob,omitempty" xml:"isBatchJob,omitempty"`
+	// This parameter is required.
+	ManufactureDate *string `json:"manufactureDate,omitempty" xml:"manufactureDate,omitempty"`
+	// This parameter is required.
+	ManufactureDay *string `json:"manufactureDay,omitempty" xml:"manufactureDay,omitempty"`
+	// This parameter is required.
+	MesAppKey *string `json:"mesAppKey,omitempty" xml:"mesAppKey,omitempty"`
+	// This parameter is required.
+	ProcessName *string `json:"processName,omitempty" xml:"processName,omitempty"`
+	// This parameter is required.
 	QualifiedQuantity *string `json:"qualifiedQuantity,omitempty" xml:"qualifiedQuantity,omitempty"`
-	ScrappedQuantity  *string `json:"scrappedQuantity,omitempty" xml:"scrappedQuantity,omitempty"`
-	UnitPrice         *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
-	UserId            *string `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserIdList        *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
-	UserNameList      *string `json:"userNameList,omitempty" xml:"userNameList,omitempty"`
-	Uuid              *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// This parameter is required.
+	ScrappedQuantity *string `json:"scrappedQuantity,omitempty" xml:"scrappedQuantity,omitempty"`
+	// This parameter is required.
+	UnitPrice *string `json:"unitPrice,omitempty" xml:"unitPrice,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	UserIdList *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
+	// This parameter is required.
+	UserNameList *string `json:"userNameList,omitempty" xml:"userNameList,omitempty"`
+	// This parameter is required.
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s IndustrializeManufactureQueryJobsResponseBodyContent) String() string {
@@ -553,12 +646,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
@@ -568,6 +661,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 日清月结-计件报工接口
+//
+// @param request - IndustrializeManufactureJobBookRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IndustrializeManufactureJobBookResponse
 func (client *Client) IndustrializeManufactureJobBookWithOptions(userId *string, request *IndustrializeManufactureJobBookRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *IndustrializeManufactureJobBookResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -678,6 +782,13 @@ func (client *Client) IndustrializeManufactureJobBookWithOptions(userId *string,
 	return _result, _err
 }
 
+// Summary:
+//
+// 日清月结-计件报工接口
+//
+// @param request - IndustrializeManufactureJobBookRequest
+//
+// @return IndustrializeManufactureJobBookResponse
 func (client *Client) IndustrializeManufactureJobBook(userId *string, request *IndustrializeManufactureJobBookRequest) (_result *IndustrializeManufactureJobBookResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := make(map[string]*string)
@@ -690,6 +801,17 @@ func (client *Client) IndustrializeManufactureJobBook(userId *string, request *I
 	return _result, _err
 }
 
+// Summary:
+//
+// 日清月结-计件报工查询接口
+//
+// @param request - IndustrializeManufactureQueryJobsRequest
+//
+// @param headers - IndustrializeManufactureQueryJobsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IndustrializeManufactureQueryJobsResponse
 func (client *Client) IndustrializeManufactureQueryJobsWithOptions(request *IndustrializeManufactureQueryJobsRequest, headers *IndustrializeManufactureQueryJobsHeaders, runtime *util.RuntimeOptions) (_result *IndustrializeManufactureQueryJobsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -789,6 +911,13 @@ func (client *Client) IndustrializeManufactureQueryJobsWithOptions(request *Indu
 	return _result, _err
 }
 
+// Summary:
+//
+// 日清月结-计件报工查询接口
+//
+// @param request - IndustrializeManufactureQueryJobsRequest
+//
+// @return IndustrializeManufactureQueryJobsResponse
 func (client *Client) IndustrializeManufactureQueryJobs(request *IndustrializeManufactureQueryJobsRequest) (_result *IndustrializeManufactureQueryJobsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &IndustrializeManufactureQueryJobsHeaders{}

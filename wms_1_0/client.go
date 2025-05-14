@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package wms_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,9 +33,21 @@ func (s *QueryGoodsListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryGoods
 }
 
 type QueryGoodsListRequest struct {
-	EndTimeInMills   *int64 `json:"endTimeInMills,omitempty" xml:"endTimeInMills,omitempty"`
-	MaxResults       *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken        *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 1631289600000
+	EndTimeInMills *int64 `json:"endTimeInMills,omitempty" xml:"endTimeInMills,omitempty"`
+	// example:
+	//
+	// 10
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 1
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 1631289600000
 	StartTimeInMills *int64 `json:"startTimeInMills,omitempty" xml:"startTimeInMills,omitempty"`
 }
 
@@ -95,10 +103,25 @@ func (s *QueryGoodsListResponseBody) SetSuccess(v bool) *QueryGoodsListResponseB
 }
 
 type QueryGoodsListResponseBodyResult struct {
-	HasMore    *bool                                   `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	List       []*QueryGoodsListResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	MaxResults *int64                                  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string                                 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	HasMore *bool                                   `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*QueryGoodsListResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s QueryGoodsListResponseBodyResult) String() string {
@@ -130,11 +153,36 @@ func (s *QueryGoodsListResponseBodyResult) SetNextToken(v string) *QueryGoodsLis
 }
 
 type QueryGoodsListResponseBodyResultList struct {
-	GoodsName    *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
-	GoodsNo      *string `json:"goodsNo,omitempty" xml:"goodsNo,omitempty"`
-	InstanceId   *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 衣服
+	GoodsName *string `json:"goodsName,omitempty" xml:"goodsName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0001
+	GoodsNo *string `json:"goodsNo,omitempty" xml:"goodsNo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abcdse-dse-example
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// XXL
 	ProductSpecs *string `json:"productSpecs,omitempty" xml:"productSpecs,omitempty"`
-	Unit         *string `json:"unit,omitempty" xml:"unit,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 件
+	Unit *string `json:"unit,omitempty" xml:"unit,omitempty"`
 }
 
 func (s QueryGoodsListResponseBodyResultList) String() string {
@@ -214,12 +262,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -228,6 +276,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 获取物料列表
+//
+// @param request - QueryGoodsListRequest
+//
+// @param headers - QueryGoodsListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryGoodsListResponse
 func (client *Client) QueryGoodsListWithOptions(request *QueryGoodsListRequest, headers *QueryGoodsListHeaders, runtime *util.RuntimeOptions) (_result *QueryGoodsListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -283,6 +342,13 @@ func (client *Client) QueryGoodsListWithOptions(request *QueryGoodsListRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取物料列表
+//
+// @param request - QueryGoodsListRequest
+//
+// @return QueryGoodsListResponse
 func (client *Client) QueryGoodsList(request *QueryGoodsListRequest) (_result *QueryGoodsListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryGoodsListHeaders{}

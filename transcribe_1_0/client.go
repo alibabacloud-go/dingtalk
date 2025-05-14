@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package transcribe_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -135,7 +131,9 @@ func (s *RemovePermissionHeaders) SetXAcsDingtalkAccessToken(v string) *RemovePe
 }
 
 type RemovePermissionRequest struct {
-	BizType     *int32                            `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	BizType *int32 `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
 	Members     []*RemovePermissionRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
 	TaskCreator *int64                            `json:"taskCreator,omitempty" xml:"taskCreator,omitempty"`
 	TaskId      *int64                            `json:"taskId,omitempty" xml:"taskId,omitempty"`
@@ -170,8 +168,19 @@ func (s *RemovePermissionRequest) SetTaskId(v int64) *RemovePermissionRequest {
 }
 
 type RemovePermissionRequestMembers struct {
-	MemberId   *int64  `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 533xxxxxx
+	MemberId *int64 `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// EDITOR
 	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// This parameter is required.
 	PolicyType *string `json:"policyType,omitempty" xml:"policyType,omitempty"`
 }
 
@@ -297,10 +306,21 @@ func (s *UpdatePermissionForUsersHeaders) SetXAcsDingtalkAccessToken(v string) *
 }
 
 type UpdatePermissionForUsersRequest struct {
-	BizType     *int32                                    `json:"bizType,omitempty" xml:"bizType,omitempty"`
-	Members     []*UpdatePermissionForUsersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
-	TaskCreator *int64                                    `json:"taskCreator,omitempty" xml:"taskCreator,omitempty"`
-	OperatorUid *int64                                    `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	BizType *int32 `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	Members []*UpdatePermissionForUsersRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 533xxxxxx
+	TaskCreator *int64 `json:"taskCreator,omitempty" xml:"taskCreator,omitempty"`
+	OperatorUid *int64 `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
 }
 
 func (s UpdatePermissionForUsersRequest) String() string {
@@ -332,8 +352,15 @@ func (s *UpdatePermissionForUsersRequest) SetOperatorUid(v int64) *UpdatePermiss
 }
 
 type UpdatePermissionForUsersRequestMembers struct {
-	MemberId   *int64  `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
+	MemberId *int64 `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
 	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// EDITOR
 	PolicyType *string `json:"policyType,omitempty" xml:"policyType,omitempty"`
 }
 
@@ -421,12 +448,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -435,6 +462,15 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 获取闪记任务的概要信息
+//
+// @param headers - GetTranscribeBriefHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTranscribeBriefResponse
 func (client *Client) GetTranscribeBriefWithOptions(taskUuid *string, headers *GetTranscribeBriefHeaders, runtime *util.RuntimeOptions) (_result *GetTranscribeBriefResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -468,6 +504,11 @@ func (client *Client) GetTranscribeBriefWithOptions(taskUuid *string, headers *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取闪记任务的概要信息
+//
+// @return GetTranscribeBriefResponse
 func (client *Client) GetTranscribeBrief(taskUuid *string) (_result *GetTranscribeBriefResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTranscribeBriefHeaders{}
@@ -480,6 +521,17 @@ func (client *Client) GetTranscribeBrief(taskUuid *string) (_result *GetTranscri
 	return _result, _err
 }
 
+// Summary:
+//
+// 移除指定用户对闪记任务的权限
+//
+// @param request - RemovePermissionRequest
+//
+// @param headers - RemovePermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RemovePermissionResponse
 func (client *Client) RemovePermissionWithOptions(taskUuid *string, request *RemovePermissionRequest, headers *RemovePermissionHeaders, runtime *util.RuntimeOptions) (_result *RemovePermissionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -535,6 +587,13 @@ func (client *Client) RemovePermissionWithOptions(taskUuid *string, request *Rem
 	return _result, _err
 }
 
+// Summary:
+//
+// 移除指定用户对闪记任务的权限
+//
+// @param request - RemovePermissionRequest
+//
+// @return RemovePermissionResponse
 func (client *Client) RemovePermission(taskUuid *string, request *RemovePermissionRequest) (_result *RemovePermissionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RemovePermissionHeaders{}
@@ -547,6 +606,17 @@ func (client *Client) RemovePermission(taskUuid *string, request *RemovePermissi
 	return _result, _err
 }
 
+// Summary:
+//
+// 针对指定的闪记，修改或者授予指定用户权限
+//
+// @param request - UpdatePermissionForUsersRequest
+//
+// @param headers - UpdatePermissionForUsersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdatePermissionForUsersResponse
 func (client *Client) UpdatePermissionForUsersWithOptions(taskUuid *string, request *UpdatePermissionForUsersRequest, headers *UpdatePermissionForUsersHeaders, runtime *util.RuntimeOptions) (_result *UpdatePermissionForUsersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -604,6 +674,13 @@ func (client *Client) UpdatePermissionForUsersWithOptions(taskUuid *string, requ
 	return _result, _err
 }
 
+// Summary:
+//
+// 针对指定的闪记，修改或者授予指定用户权限
+//
+// @param request - UpdatePermissionForUsersRequest
+//
+// @return UpdatePermissionForUsersResponse
 func (client *Client) UpdatePermissionForUsers(taskUuid *string, request *UpdatePermissionForUsersRequest) (_result *UpdatePermissionForUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdatePermissionForUsersHeaders{}

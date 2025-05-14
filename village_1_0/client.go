@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package village_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,7 +33,11 @@ func (s *GetDeptHeaders) SetXAcsDingtalkAccessToken(v string) *GetDeptHeaders {
 }
 
 type GetDeptRequest struct {
-	Language  *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 }
 
@@ -60,11 +60,16 @@ func (s *GetDeptRequest) SetSubCorpId(v string) *GetDeptRequest {
 }
 
 type GetDeptResponseBody struct {
-	DepartmentId       *int64  `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	DepartmentName     *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	FromUnionOrg       *bool   `json:"fromUnionOrg,omitempty" xml:"fromUnionOrg,omitempty"`
-	Order              *int64  `json:"order,omitempty" xml:"order,omitempty"`
-	ParentDepartmentId *int64  `json:"parentDepartmentId,omitempty" xml:"parentDepartmentId,omitempty"`
+	// This parameter is required.
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// This parameter is required.
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// This parameter is required.
+	FromUnionOrg *bool `json:"fromUnionOrg,omitempty" xml:"fromUnionOrg,omitempty"`
+	// This parameter is required.
+	Order *int64 `json:"order,omitempty" xml:"order,omitempty"`
+	// This parameter is required.
+	ParentDepartmentId *int64 `json:"parentDepartmentId,omitempty" xml:"parentDepartmentId,omitempty"`
 }
 
 func (s GetDeptResponseBody) String() string {
@@ -153,6 +158,7 @@ func (s *GetResidentDeptHeaders) SetXAcsDingtalkAccessToken(v string) *GetReside
 }
 
 type GetResidentDeptRequest struct {
+	// This parameter is required.
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 }
 
@@ -170,11 +176,16 @@ func (s *GetResidentDeptRequest) SetSubCorpId(v string) *GetResidentDeptRequest 
 }
 
 type GetResidentDeptResponseBody struct {
-	ContactType    *string `json:"contactType,omitempty" xml:"contactType,omitempty"`
-	DepartmentId   *int64  `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// This parameter is required.
+	ContactType *string `json:"contactType,omitempty" xml:"contactType,omitempty"`
+	// This parameter is required.
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// This parameter is required.
 	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	DeptType       *string `json:"deptType,omitempty" xml:"deptType,omitempty"`
-	Feature        *string `json:"feature,omitempty" xml:"feature,omitempty"`
+	// This parameter is required.
+	DeptType *string `json:"deptType,omitempty" xml:"deptType,omitempty"`
+	// This parameter is required.
+	Feature *string `json:"feature,omitempty" xml:"feature,omitempty"`
 }
 
 func (s GetResidentDeptResponseBody) String() string {
@@ -263,6 +274,7 @@ func (s *GetResidentUserInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetRe
 }
 
 type GetResidentUserInfoRequest struct {
+	// This parameter is required.
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 }
 
@@ -280,11 +292,16 @@ func (s *GetResidentUserInfoRequest) SetSubCorpId(v string) *GetResidentUserInfo
 }
 
 type GetResidentUserInfoResponseBody struct {
-	Feature *string                                 `json:"feature,omitempty" xml:"feature,omitempty"`
-	Name    *string                                 `json:"name,omitempty" xml:"name,omitempty"`
-	Roles   []*GetResidentUserInfoResponseBodyRoles `json:"roles,omitempty" xml:"roles,omitempty" type:"Repeated"`
-	UnionId *string                                 `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	Userid  *string                                 `json:"userid,omitempty" xml:"userid,omitempty"`
+	// This parameter is required.
+	Feature *string `json:"feature,omitempty" xml:"feature,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Roles []*GetResidentUserInfoResponseBodyRoles `json:"roles,omitempty" xml:"roles,omitempty" type:"Repeated"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	Userid *string `json:"userid,omitempty" xml:"userid,omitempty"`
 }
 
 func (s GetResidentUserInfoResponseBody) String() string {
@@ -321,9 +338,12 @@ func (s *GetResidentUserInfoResponseBody) SetUserid(v string) *GetResidentUserIn
 }
 
 type GetResidentUserInfoResponseBodyRoles struct {
-	RoleId   *int64  `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// This parameter is required.
+	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// This parameter is required.
 	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
-	TagCode  *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	// This parameter is required.
+	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
 }
 
 func (s GetResidentUserInfoResponseBodyRoles) String() string {
@@ -402,7 +422,11 @@ func (s *GetUserHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserHeaders {
 }
 
 type GetUserRequest struct {
-	Language  *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 }
 
@@ -747,9 +771,14 @@ func (s *GetUserByUnionIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserB
 }
 
 type GetUserByUnionIdRequest struct {
-	Language  *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
-	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetUserByUnionIdRequest) String() string {
@@ -776,8 +805,10 @@ func (s *GetUserByUnionIdRequest) SetUnionId(v string) *GetUserByUnionIdRequest 
 }
 
 type GetUserByUnionIdResponseBody struct {
-	ContactType *int32  `json:"contactType,omitempty" xml:"contactType,omitempty"`
-	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	ContactType *int32 `json:"contactType,omitempty" xml:"contactType,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetUserByUnionIdResponseBody) String() string {
@@ -851,9 +882,16 @@ func (s *GetVillageOrgInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetVill
 }
 
 type GetVillageOrgInfoResponseBody struct {
-	RegionId       *string `json:"regionId,omitempty" xml:"regionId,omitempty"`
+	// This parameter is required.
+	RegionId *string `json:"regionId,omitempty" xml:"regionId,omitempty"`
+	// This parameter is required.
 	RegionLocation *string `json:"regionLocation,omitempty" xml:"regionLocation,omitempty"`
-	RegionType     *string `json:"regionType,omitempty" xml:"regionType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 省份：PROVINCE;城市：CITY;县区：COUNTRY;乡镇：TOWN;村：VILLAGE
+	RegionType *string `json:"regionType,omitempty" xml:"regionType,omitempty"`
 }
 
 func (s GetVillageOrgInfoResponseBody) String() string {
@@ -979,10 +1017,14 @@ func (s *ListDeptSimpleUsersRequest) SetSubCorpId(v string) *ListDeptSimpleUsers
 }
 
 type ListDeptSimpleUsersResponseBody struct {
-	HasMore    *bool                                      `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextCursor *int64                                     `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	TotalCount *int64                                     `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
-	UserList   []*ListDeptSimpleUsersResponseBodyUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	// This parameter is required.
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	// This parameter is required.
+	UserList []*ListDeptSimpleUsersResponseBodyUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
 }
 
 func (s ListDeptSimpleUsersResponseBody) String() string {
@@ -1014,7 +1056,9 @@ func (s *ListDeptSimpleUsersResponseBody) SetUserList(v []*ListDeptSimpleUsersRe
 }
 
 type ListDeptSimpleUsersResponseBodyUserList struct {
-	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -1106,6 +1150,7 @@ func (s *ListDeptUserIdsRequest) SetSubCorpId(v string) *ListDeptUserIdsRequest 
 }
 
 type ListDeptUserIdsResponseBody struct {
+	// This parameter is required.
 	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
 
@@ -1222,9 +1267,12 @@ func (s *ListDeptUsersRequest) SetSubCorpId(v string) *ListDeptUsersRequest {
 }
 
 type ListDeptUsersResponseBody struct {
-	HasMore    *bool                                `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextCursor *int64                               `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	UserList   []*ListDeptUsersResponseBodyUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	// This parameter is required.
+	UserList []*ListDeptUsersResponseBodyUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
 }
 
 func (s ListDeptUsersResponseBody) String() string {
@@ -1251,12 +1299,18 @@ func (s *ListDeptUsersResponseBody) SetUserList(v []*ListDeptUsersResponseBodyUs
 }
 
 type ListDeptUsersResponseBodyUserList struct {
-	Active         *bool    `json:"active,omitempty" xml:"active,omitempty"`
+	// This parameter is required.
+	Active *bool `json:"active,omitempty" xml:"active,omitempty"`
+	// This parameter is required.
 	DepartmentList []*int64 `json:"departmentList,omitempty" xml:"departmentList,omitempty" type:"Repeated"`
-	JobNumber      *string  `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
-	Name           *string  `json:"name,omitempty" xml:"name,omitempty"`
-	UnionId        *string  `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId         *string  `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	JobNumber *string `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ListDeptUsersResponseBodyUserList) String() string {
@@ -1350,8 +1404,10 @@ func (s *ListParentByDeptHeaders) SetXAcsDingtalkAccessToken(v string) *ListPare
 }
 
 type ListParentByDeptRequest struct {
-	DepartmentId *int64  `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	SubCorpId    *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
+	// This parameter is required.
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// This parameter is required.
+	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 }
 
 func (s ListParentByDeptRequest) String() string {
@@ -1373,6 +1429,7 @@ func (s *ListParentByDeptRequest) SetSubCorpId(v string) *ListParentByDeptReques
 }
 
 type ListParentByDeptResponseBody struct {
+	// This parameter is required.
 	DepartmentIdList []*int64 `json:"departmentIdList,omitempty" xml:"departmentIdList,omitempty" type:"Repeated"`
 }
 
@@ -1442,8 +1499,10 @@ func (s *ListParentByUserHeaders) SetXAcsDingtalkAccessToken(v string) *ListPare
 }
 
 type ListParentByUserRequest struct {
+	// This parameter is required.
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ListParentByUserRequest) String() string {
@@ -1465,6 +1524,7 @@ func (s *ListParentByUserRequest) SetUserId(v string) *ListParentByUserRequest {
 }
 
 type ListParentByUserResponseBody struct {
+	// This parameter is required.
 	DepartmentIdList []*int64 `json:"departmentIdList,omitempty" xml:"departmentIdList,omitempty" type:"Repeated"`
 }
 
@@ -1534,9 +1594,14 @@ func (s *ListResidentDeptUsersHeaders) SetXAcsDingtalkAccessToken(v string) *Lis
 }
 
 type ListResidentDeptUsersRequest struct {
-	Cursor    *int64  `json:"cursor,omitempty" xml:"cursor,omitempty"`
-	Role      *string `json:"role,omitempty" xml:"role,omitempty"`
-	Size      *int32  `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// 1
+	Cursor *int64  `json:"cursor,omitempty" xml:"cursor,omitempty"`
+	Role   *string `json:"role,omitempty" xml:"role,omitempty"`
+	// This parameter is required.
+	Size *int32 `json:"size,omitempty" xml:"size,omitempty"`
+	// This parameter is required.
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 }
 
@@ -1569,9 +1634,12 @@ func (s *ListResidentDeptUsersRequest) SetSubCorpId(v string) *ListResidentDeptU
 }
 
 type ListResidentDeptUsersResponseBody struct {
-	HasMore    *bool                                        `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextCursor *int64                                       `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	UserList   []*ListResidentDeptUsersResponseBodyUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	// This parameter is required.
+	UserList []*ListResidentDeptUsersResponseBodyUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
 }
 
 func (s ListResidentDeptUsersResponseBody) String() string {
@@ -1598,11 +1666,16 @@ func (s *ListResidentDeptUsersResponseBody) SetUserList(v []*ListResidentDeptUse
 }
 
 type ListResidentDeptUsersResponseBodyUserList struct {
-	Feature *string                                           `json:"feature,omitempty" xml:"feature,omitempty"`
-	Name    *string                                           `json:"name,omitempty" xml:"name,omitempty"`
-	Roles   []*ListResidentDeptUsersResponseBodyUserListRoles `json:"roles,omitempty" xml:"roles,omitempty" type:"Repeated"`
-	UnionId *string                                           `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId  *string                                           `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	Feature *string `json:"feature,omitempty" xml:"feature,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Roles []*ListResidentDeptUsersResponseBodyUserListRoles `json:"roles,omitempty" xml:"roles,omitempty" type:"Repeated"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ListResidentDeptUsersResponseBodyUserList) String() string {
@@ -1639,8 +1712,11 @@ func (s *ListResidentDeptUsersResponseBodyUserList) SetUserId(v string) *ListRes
 }
 
 type ListResidentDeptUsersResponseBodyUserListRoles struct {
+	// This parameter is required.
 	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
-	TagId   *int64  `json:"tagId,omitempty" xml:"tagId,omitempty"`
+	// This parameter is required.
+	TagId *int64 `json:"tagId,omitempty" xml:"tagId,omitempty"`
+	// This parameter is required.
 	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
 }
 
@@ -1720,8 +1796,13 @@ func (s *ListResidentSubDeptsHeaders) SetXAcsDingtalkAccessToken(v string) *List
 }
 
 type ListResidentSubDeptsRequest struct {
-	Cursor    *int64  `json:"cursor,omitempty" xml:"cursor,omitempty"`
-	Size      *int32  `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// 1
+	Cursor *int64 `json:"cursor,omitempty" xml:"cursor,omitempty"`
+	// This parameter is required.
+	Size *int32 `json:"size,omitempty" xml:"size,omitempty"`
+	// This parameter is required.
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 }
 
@@ -1749,10 +1830,14 @@ func (s *ListResidentSubDeptsRequest) SetSubCorpId(v string) *ListResidentSubDep
 }
 
 type ListResidentSubDeptsResponseBody struct {
+	// This parameter is required.
 	DepartmentList []*ListResidentSubDeptsResponseBodyDepartmentList `json:"departmentList,omitempty" xml:"departmentList,omitempty" type:"Repeated"`
-	HasMore        *bool                                             `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextCursor     *int64                                            `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	Total          *int64                                            `json:"total,omitempty" xml:"total,omitempty"`
+	// This parameter is required.
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	// This parameter is required.
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
 }
 
 func (s ListResidentSubDeptsResponseBody) String() string {
@@ -1784,9 +1869,12 @@ func (s *ListResidentSubDeptsResponseBody) SetTotal(v int64) *ListResidentSubDep
 }
 
 type ListResidentSubDeptsResponseBodyDepartmentList struct {
-	DepartmentId      *int64  `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	DepartmentName    *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
-	SuperDepartmentId *int64  `json:"superDepartmentId,omitempty" xml:"superDepartmentId,omitempty"`
+	// This parameter is required.
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// This parameter is required.
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// This parameter is required.
+	SuperDepartmentId *int64 `json:"superDepartmentId,omitempty" xml:"superDepartmentId,omitempty"`
 }
 
 func (s ListResidentSubDeptsResponseBodyDepartmentList) String() string {
@@ -1865,8 +1953,10 @@ func (s *ListResidentUserInfosHeaders) SetXAcsDingtalkAccessToken(v string) *Lis
 }
 
 type ListResidentUserInfosRequest struct {
-	SubCorpId *string   `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
-	UserIds   []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s ListResidentUserInfosRequest) String() string {
@@ -1888,7 +1978,9 @@ func (s *ListResidentUserInfosRequest) SetUserIds(v []*string) *ListResidentUser
 }
 
 type ListResidentUserInfosShrinkRequest struct {
-	SubCorpId     *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
+	// This parameter is required.
+	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
+	// This parameter is required.
 	UserIdsShrink *string `json:"userIds,omitempty" xml:"userIds,omitempty"`
 }
 
@@ -1911,6 +2003,7 @@ func (s *ListResidentUserInfosShrinkRequest) SetUserIdsShrink(v string) *ListRes
 }
 
 type ListResidentUserInfosResponseBody struct {
+	// This parameter is required.
 	UserList []*ListResidentUserInfosResponseBodyUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
 }
 
@@ -1928,11 +2021,16 @@ func (s *ListResidentUserInfosResponseBody) SetUserList(v []*ListResidentUserInf
 }
 
 type ListResidentUserInfosResponseBodyUserList struct {
-	Feature  *string                                           `json:"feature,omitempty" xml:"feature,omitempty"`
-	Roles    []*ListResidentUserInfosResponseBodyUserListRoles `json:"roles,omitempty" xml:"roles,omitempty" type:"Repeated"`
-	UnionId  *string                                           `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId   *string                                           `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserName *string                                           `json:"userName,omitempty" xml:"userName,omitempty"`
+	// This parameter is required.
+	Feature *string `json:"feature,omitempty" xml:"feature,omitempty"`
+	// This parameter is required.
+	Roles []*ListResidentUserInfosResponseBodyUserListRoles `json:"roles,omitempty" xml:"roles,omitempty" type:"Repeated"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
 func (s ListResidentUserInfosResponseBodyUserList) String() string {
@@ -1969,8 +2067,11 @@ func (s *ListResidentUserInfosResponseBodyUserList) SetUserName(v string) *ListR
 }
 
 type ListResidentUserInfosResponseBodyUserListRoles struct {
+	// This parameter is required.
 	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
-	TagId   *int64  `json:"tagId,omitempty" xml:"tagId,omitempty"`
+	// This parameter is required.
+	TagId *int64 `json:"tagId,omitempty" xml:"tagId,omitempty"`
+	// This parameter is required.
 	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
 }
 
@@ -2085,9 +2186,12 @@ func (s *ListSimpleUsersByRoleRequest) SetSubCorpId(v string) *ListSimpleUsersBy
 }
 
 type ListSimpleUsersByRoleResponseBody struct {
-	HasMore    *bool                                        `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	NextCursor *int64                                       `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	UserList   []*ListSimpleUsersByRoleResponseBodyUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	HasMore *bool `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	// This parameter is required.
+	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	// This parameter is required.
+	UserList []*ListSimpleUsersByRoleResponseBodyUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
 }
 
 func (s ListSimpleUsersByRoleResponseBody) String() string {
@@ -2114,10 +2218,14 @@ func (s *ListSimpleUsersByRoleResponseBody) SetUserList(v []*ListSimpleUsersByRo
 }
 
 type ListSimpleUsersByRoleResponseBodyUserList struct {
+	// This parameter is required.
 	JobNumber *string `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
-	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s ListSimpleUsersByRoleResponseBodyUserList) String() string {
@@ -2201,9 +2309,14 @@ func (s *ListSubCorpsHeaders) SetXAcsDingtalkAccessToken(v string) *ListSubCorps
 }
 
 type ListSubCorpsRequest struct {
-	IsOnlyDirect *bool   `json:"isOnlyDirect,omitempty" xml:"isOnlyDirect,omitempty"`
-	SubCorpId    *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
-	Types        *string `json:"types,omitempty" xml:"types,omitempty"`
+	// This parameter is required.
+	IsOnlyDirect *bool `json:"isOnlyDirect,omitempty" xml:"isOnlyDirect,omitempty"`
+	// This parameter is required.
+	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
+	// example:
+	//
+	// county|community
+	Types *string `json:"types,omitempty" xml:"types,omitempty"`
 }
 
 func (s ListSubCorpsRequest) String() string {
@@ -2247,13 +2360,25 @@ func (s *ListSubCorpsResponseBody) SetCorpList(v []*ListSubCorpsResponseBodyCorp
 }
 
 type ListSubCorpsResponseBodyCorpList struct {
-	CorpId         *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CorpName       *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
-	Industry       *string `json:"industry,omitempty" xml:"industry,omitempty"`
-	IndustryCode   *int32  `json:"industryCode,omitempty" xml:"industryCode,omitempty"`
-	RegionId       *string `json:"regionId,omitempty" xml:"regionId,omitempty"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	CorpName *string `json:"corpName,omitempty" xml:"corpName,omitempty"`
+	// This parameter is required.
+	Industry *string `json:"industry,omitempty" xml:"industry,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 149 区县，148 乡镇街道，145 村， 150 社区， 151 小区
+	IndustryCode *int32  `json:"industryCode,omitempty" xml:"industryCode,omitempty"`
+	RegionId     *string `json:"regionId,omitempty" xml:"regionId,omitempty"`
+	// example:
+	//
+	// 浙江省_杭州市_余杭区_仓前街道
 	RegionLocation *string `json:"regionLocation,omitempty" xml:"regionLocation,omitempty"`
-	RegionType     *string `json:"regionType,omitempty" xml:"regionType,omitempty"`
+	// This parameter is required.
+	RegionType *string `json:"regionType,omitempty" xml:"regionType,omitempty"`
 }
 
 func (s ListSubCorpsResponseBodyCorpList) String() string {
@@ -2352,7 +2477,11 @@ func (s *ListSubDeptHeaders) SetXAcsDingtalkAccessToken(v string) *ListSubDeptHe
 }
 
 type ListSubDeptRequest struct {
-	Language  *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// zh_CN
+	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 }
 
@@ -2375,6 +2504,7 @@ func (s *ListSubDeptRequest) SetSubCorpId(v string) *ListSubDeptRequest {
 }
 
 type ListSubDeptResponseBody struct {
+	// This parameter is required.
 	Result []*ListSubDeptResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 }
 
@@ -2392,8 +2522,10 @@ func (s *ListSubDeptResponseBody) SetResult(v []*ListSubDeptResponseBodyResult) 
 }
 
 type ListSubDeptResponseBodyResult struct {
-	DepartmentId *int64  `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	Name         *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 }
 
 func (s ListSubDeptResponseBodyResult) String() string {
@@ -2467,6 +2599,7 @@ func (s *ListSubDeptIdsHeaders) SetXAcsDingtalkAccessToken(v string) *ListSubDep
 }
 
 type ListSubDeptIdsRequest struct {
+	// This parameter is required.
 	SubCorpId *string `json:"subCorpId,omitempty" xml:"subCorpId,omitempty"`
 }
 
@@ -2484,6 +2617,7 @@ func (s *ListSubDeptIdsRequest) SetSubCorpId(v string) *ListSubDeptIdsRequest {
 }
 
 type ListSubDeptIdsResponseBody struct {
+	// This parameter is required.
 	DepartmentIdList []*int64 `json:"departmentIdList,omitempty" xml:"departmentIdList,omitempty" type:"Repeated"`
 }
 
@@ -2544,12 +2678,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -2558,6 +2692,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 获取部门详情
+//
+// @param request - GetDeptRequest
+//
+// @param headers - GetDeptHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDeptResponse
 func (client *Client) GetDeptWithOptions(departmentId *string, request *GetDeptRequest, headers *GetDeptHeaders, runtime *util.RuntimeOptions) (_result *GetDeptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2605,6 +2750,13 @@ func (client *Client) GetDeptWithOptions(departmentId *string, request *GetDeptR
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取部门详情
+//
+// @param request - GetDeptRequest
+//
+// @return GetDeptResponse
 func (client *Client) GetDept(departmentId *string, request *GetDeptRequest) (_result *GetDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDeptHeaders{}
@@ -2617,6 +2769,17 @@ func (client *Client) GetDept(departmentId *string, request *GetDeptRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 居民通讯录获取部门信息
+//
+// @param request - GetResidentDeptRequest
+//
+// @param headers - GetResidentDeptHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetResidentDeptResponse
 func (client *Client) GetResidentDeptWithOptions(departmentId *string, request *GetResidentDeptRequest, headers *GetResidentDeptHeaders, runtime *util.RuntimeOptions) (_result *GetResidentDeptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2660,6 +2823,13 @@ func (client *Client) GetResidentDeptWithOptions(departmentId *string, request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 居民通讯录获取部门信息
+//
+// @param request - GetResidentDeptRequest
+//
+// @return GetResidentDeptResponse
 func (client *Client) GetResidentDept(departmentId *string, request *GetResidentDeptRequest) (_result *GetResidentDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetResidentDeptHeaders{}
@@ -2672,6 +2842,17 @@ func (client *Client) GetResidentDept(departmentId *string, request *GetResident
 	return _result, _err
 }
 
+// Summary:
+//
+// 居民通讯录获取部门下某个人的详细信息
+//
+// @param request - GetResidentUserInfoRequest
+//
+// @param headers - GetResidentUserInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetResidentUserInfoResponse
 func (client *Client) GetResidentUserInfoWithOptions(departmentId *string, userId *string, request *GetResidentUserInfoRequest, headers *GetResidentUserInfoHeaders, runtime *util.RuntimeOptions) (_result *GetResidentUserInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2715,6 +2896,13 @@ func (client *Client) GetResidentUserInfoWithOptions(departmentId *string, userI
 	return _result, _err
 }
 
+// Summary:
+//
+// 居民通讯录获取部门下某个人的详细信息
+//
+// @param request - GetResidentUserInfoRequest
+//
+// @return GetResidentUserInfoResponse
 func (client *Client) GetResidentUserInfo(departmentId *string, userId *string, request *GetResidentUserInfoRequest) (_result *GetResidentUserInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetResidentUserInfoHeaders{}
@@ -2727,6 +2915,17 @@ func (client *Client) GetResidentUserInfo(departmentId *string, userId *string, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户详情
+//
+// @param request - GetUserRequest
+//
+// @param headers - GetUserHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserResponse
 func (client *Client) GetUserWithOptions(userId *string, request *GetUserRequest, headers *GetUserHeaders, runtime *util.RuntimeOptions) (_result *GetUserResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2774,6 +2973,13 @@ func (client *Client) GetUserWithOptions(userId *string, request *GetUserRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户详情
+//
+// @param request - GetUserRequest
+//
+// @return GetUserResponse
 func (client *Client) GetUser(userId *string, request *GetUserRequest) (_result *GetUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUserHeaders{}
@@ -2786,6 +2992,17 @@ func (client *Client) GetUser(userId *string, request *GetUserRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据unionId查询用户详情
+//
+// @param request - GetUserByUnionIdRequest
+//
+// @param headers - GetUserByUnionIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserByUnionIdResponse
 func (client *Client) GetUserByUnionIdWithOptions(request *GetUserByUnionIdRequest, headers *GetUserByUnionIdHeaders, runtime *util.RuntimeOptions) (_result *GetUserByUnionIdResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2837,6 +3054,13 @@ func (client *Client) GetUserByUnionIdWithOptions(request *GetUserByUnionIdReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据unionId查询用户详情
+//
+// @param request - GetUserByUnionIdRequest
+//
+// @return GetUserByUnionIdResponse
 func (client *Client) GetUserByUnionId(request *GetUserByUnionIdRequest) (_result *GetUserByUnionIdResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUserByUnionIdHeaders{}
@@ -2849,6 +3073,15 @@ func (client *Client) GetUserByUnionId(request *GetUserByUnionIdRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取对外开放的企业信息
+//
+// @param headers - GetVillageOrgInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetVillageOrgInfoResponse
 func (client *Client) GetVillageOrgInfoWithOptions(subCorpId *string, headers *GetVillageOrgInfoHeaders, runtime *util.RuntimeOptions) (_result *GetVillageOrgInfoResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -2882,6 +3115,11 @@ func (client *Client) GetVillageOrgInfoWithOptions(subCorpId *string, headers *G
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取对外开放的企业信息
+//
+// @return GetVillageOrgInfoResponse
 func (client *Client) GetVillageOrgInfo(subCorpId *string) (_result *GetVillageOrgInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetVillageOrgInfoHeaders{}
@@ -2894,6 +3132,17 @@ func (client *Client) GetVillageOrgInfo(subCorpId *string) (_result *GetVillageO
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询部门下简略用户列表
+//
+// @param request - ListDeptSimpleUsersRequest
+//
+// @param headers - ListDeptSimpleUsersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListDeptSimpleUsersResponse
 func (client *Client) ListDeptSimpleUsersWithOptions(departmentId *string, request *ListDeptSimpleUsersRequest, headers *ListDeptSimpleUsersHeaders, runtime *util.RuntimeOptions) (_result *ListDeptSimpleUsersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -2957,6 +3206,13 @@ func (client *Client) ListDeptSimpleUsersWithOptions(departmentId *string, reque
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询部门下简略用户列表
+//
+// @param request - ListDeptSimpleUsersRequest
+//
+// @return ListDeptSimpleUsersResponse
 func (client *Client) ListDeptSimpleUsers(departmentId *string, request *ListDeptSimpleUsersRequest) (_result *ListDeptSimpleUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListDeptSimpleUsersHeaders{}
@@ -2969,6 +3225,17 @@ func (client *Client) ListDeptSimpleUsers(departmentId *string, request *ListDep
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询部门下userid列表
+//
+// @param request - ListDeptUserIdsRequest
+//
+// @param headers - ListDeptUserIdsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListDeptUserIdsResponse
 func (client *Client) ListDeptUserIdsWithOptions(departmentId *string, request *ListDeptUserIdsRequest, headers *ListDeptUserIdsHeaders, runtime *util.RuntimeOptions) (_result *ListDeptUserIdsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3012,6 +3279,13 @@ func (client *Client) ListDeptUserIdsWithOptions(departmentId *string, request *
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询部门下userid列表
+//
+// @param request - ListDeptUserIdsRequest
+//
+// @return ListDeptUserIdsResponse
 func (client *Client) ListDeptUserIds(departmentId *string, request *ListDeptUserIdsRequest) (_result *ListDeptUserIdsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListDeptUserIdsHeaders{}
@@ -3024,6 +3298,17 @@ func (client *Client) ListDeptUserIds(departmentId *string, request *ListDeptUse
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询部门下user完整信息
+//
+// @param request - ListDeptUsersRequest
+//
+// @param headers - ListDeptUsersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListDeptUsersResponse
 func (client *Client) ListDeptUsersWithOptions(departmentId *string, request *ListDeptUsersRequest, headers *ListDeptUsersHeaders, runtime *util.RuntimeOptions) (_result *ListDeptUsersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3087,6 +3372,13 @@ func (client *Client) ListDeptUsersWithOptions(departmentId *string, request *Li
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询部门下user完整信息
+//
+// @param request - ListDeptUsersRequest
+//
+// @return ListDeptUsersResponse
 func (client *Client) ListDeptUsers(departmentId *string, request *ListDeptUsersRequest) (_result *ListDeptUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListDeptUsersHeaders{}
@@ -3099,6 +3391,17 @@ func (client *Client) ListDeptUsers(departmentId *string, request *ListDeptUsers
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询部门所有父部门列表
+//
+// @param request - ListParentByDeptRequest
+//
+// @param headers - ListParentByDeptHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListParentByDeptResponse
 func (client *Client) ListParentByDeptWithOptions(request *ListParentByDeptRequest, headers *ListParentByDeptHeaders, runtime *util.RuntimeOptions) (_result *ListParentByDeptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3146,6 +3449,13 @@ func (client *Client) ListParentByDeptWithOptions(request *ListParentByDeptReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询部门所有父部门列表
+//
+// @param request - ListParentByDeptRequest
+//
+// @return ListParentByDeptResponse
 func (client *Client) ListParentByDept(request *ListParentByDeptRequest) (_result *ListParentByDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListParentByDeptHeaders{}
@@ -3158,6 +3468,17 @@ func (client *Client) ListParentByDept(request *ListParentByDeptRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户所有父部门列表
+//
+// @param request - ListParentByUserRequest
+//
+// @param headers - ListParentByUserHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListParentByUserResponse
 func (client *Client) ListParentByUserWithOptions(request *ListParentByUserRequest, headers *ListParentByUserHeaders, runtime *util.RuntimeOptions) (_result *ListParentByUserResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3205,6 +3526,13 @@ func (client *Client) ListParentByUserWithOptions(request *ListParentByUserReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询用户所有父部门列表
+//
+// @param request - ListParentByUserRequest
+//
+// @return ListParentByUserResponse
 func (client *Client) ListParentByUser(request *ListParentByUserRequest) (_result *ListParentByUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListParentByUserHeaders{}
@@ -3217,6 +3545,17 @@ func (client *Client) ListParentByUser(request *ListParentByUserRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 居民通讯录获取部门下人员信息
+//
+// @param request - ListResidentDeptUsersRequest
+//
+// @param headers - ListResidentDeptUsersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListResidentDeptUsersResponse
 func (client *Client) ListResidentDeptUsersWithOptions(departmentId *string, request *ListResidentDeptUsersRequest, headers *ListResidentDeptUsersHeaders, runtime *util.RuntimeOptions) (_result *ListResidentDeptUsersResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3272,6 +3611,13 @@ func (client *Client) ListResidentDeptUsersWithOptions(departmentId *string, req
 	return _result, _err
 }
 
+// Summary:
+//
+// 居民通讯录获取部门下人员信息
+//
+// @param request - ListResidentDeptUsersRequest
+//
+// @return ListResidentDeptUsersResponse
 func (client *Client) ListResidentDeptUsers(departmentId *string, request *ListResidentDeptUsersRequest) (_result *ListResidentDeptUsersResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListResidentDeptUsersHeaders{}
@@ -3284,6 +3630,17 @@ func (client *Client) ListResidentDeptUsers(departmentId *string, request *ListR
 	return _result, _err
 }
 
+// Summary:
+//
+// 居民通讯录获取子部门列表
+//
+// @param request - ListResidentSubDeptsRequest
+//
+// @param headers - ListResidentSubDeptsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListResidentSubDeptsResponse
 func (client *Client) ListResidentSubDeptsWithOptions(departmentId *string, request *ListResidentSubDeptsRequest, headers *ListResidentSubDeptsHeaders, runtime *util.RuntimeOptions) (_result *ListResidentSubDeptsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3335,6 +3692,13 @@ func (client *Client) ListResidentSubDeptsWithOptions(departmentId *string, requ
 	return _result, _err
 }
 
+// Summary:
+//
+// 居民通讯录获取子部门列表
+//
+// @param request - ListResidentSubDeptsRequest
+//
+// @return ListResidentSubDeptsResponse
 func (client *Client) ListResidentSubDepts(departmentId *string, request *ListResidentSubDeptsRequest) (_result *ListResidentSubDeptsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListResidentSubDeptsHeaders{}
@@ -3347,6 +3711,17 @@ func (client *Client) ListResidentSubDepts(departmentId *string, request *ListRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 居民通讯录批量获取用户详细信息
+//
+// @param tmpReq - ListResidentUserInfosRequest
+//
+// @param headers - ListResidentUserInfosHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListResidentUserInfosResponse
 func (client *Client) ListResidentUserInfosWithOptions(tmpReq *ListResidentUserInfosRequest, headers *ListResidentUserInfosHeaders, runtime *util.RuntimeOptions) (_result *ListResidentUserInfosResponse, _err error) {
 	_err = util.ValidateModel(tmpReq)
 	if _err != nil {
@@ -3400,6 +3775,13 @@ func (client *Client) ListResidentUserInfosWithOptions(tmpReq *ListResidentUserI
 	return _result, _err
 }
 
+// Summary:
+//
+// 居民通讯录批量获取用户详细信息
+//
+// @param request - ListResidentUserInfosRequest
+//
+// @return ListResidentUserInfosResponse
 func (client *Client) ListResidentUserInfos(request *ListResidentUserInfosRequest) (_result *ListResidentUserInfosResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListResidentUserInfosHeaders{}
@@ -3412,6 +3794,17 @@ func (client *Client) ListResidentUserInfos(request *ListResidentUserInfosReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据角色获取用户列表
+//
+// @param request - ListSimpleUsersByRoleRequest
+//
+// @param headers - ListSimpleUsersByRoleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListSimpleUsersByRoleResponse
 func (client *Client) ListSimpleUsersByRoleWithOptions(request *ListSimpleUsersByRoleRequest, headers *ListSimpleUsersByRoleHeaders, runtime *util.RuntimeOptions) (_result *ListSimpleUsersByRoleResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3467,6 +3860,13 @@ func (client *Client) ListSimpleUsersByRoleWithOptions(request *ListSimpleUsersB
 	return _result, _err
 }
 
+// Summary:
+//
+// 根据角色获取用户列表
+//
+// @param request - ListSimpleUsersByRoleRequest
+//
+// @return ListSimpleUsersByRoleResponse
 func (client *Client) ListSimpleUsersByRole(request *ListSimpleUsersByRoleRequest) (_result *ListSimpleUsersByRoleResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListSimpleUsersByRoleHeaders{}
@@ -3479,6 +3879,17 @@ func (client *Client) ListSimpleUsersByRole(request *ListSimpleUsersByRoleReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取下级指定区域层级组织
+//
+// @param request - ListSubCorpsRequest
+//
+// @param headers - ListSubCorpsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListSubCorpsResponse
 func (client *Client) ListSubCorpsWithOptions(request *ListSubCorpsRequest, headers *ListSubCorpsHeaders, runtime *util.RuntimeOptions) (_result *ListSubCorpsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3530,6 +3941,13 @@ func (client *Client) ListSubCorpsWithOptions(request *ListSubCorpsRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取下级指定区域层级组织
+//
+// @param request - ListSubCorpsRequest
+//
+// @return ListSubCorpsResponse
 func (client *Client) ListSubCorps(request *ListSubCorpsRequest) (_result *ListSubCorpsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListSubCorpsHeaders{}
@@ -3542,6 +3960,17 @@ func (client *Client) ListSubCorps(request *ListSubCorpsRequest) (_result *ListS
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询子部门列表
+//
+// @param request - ListSubDeptRequest
+//
+// @param headers - ListSubDeptHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListSubDeptResponse
 func (client *Client) ListSubDeptWithOptions(departmentId *string, request *ListSubDeptRequest, headers *ListSubDeptHeaders, runtime *util.RuntimeOptions) (_result *ListSubDeptResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3589,6 +4018,13 @@ func (client *Client) ListSubDeptWithOptions(departmentId *string, request *List
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询子部门列表
+//
+// @param request - ListSubDeptRequest
+//
+// @return ListSubDeptResponse
 func (client *Client) ListSubDept(departmentId *string, request *ListSubDeptRequest) (_result *ListSubDeptResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListSubDeptHeaders{}
@@ -3601,6 +4037,17 @@ func (client *Client) ListSubDept(departmentId *string, request *ListSubDeptRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询部门下的子部门ID列表，不会递归查询，只包含ID
+//
+// @param request - ListSubDeptIdsRequest
+//
+// @param headers - ListSubDeptIdsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListSubDeptIdsResponse
 func (client *Client) ListSubDeptIdsWithOptions(departmentId *string, request *ListSubDeptIdsRequest, headers *ListSubDeptIdsHeaders, runtime *util.RuntimeOptions) (_result *ListSubDeptIdsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3644,6 +4091,13 @@ func (client *Client) ListSubDeptIdsWithOptions(departmentId *string, request *L
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询部门下的子部门ID列表，不会递归查询，只包含ID
+//
+// @param request - ListSubDeptIdsRequest
+//
+// @return ListSubDeptIdsResponse
 func (client *Client) ListSubDeptIds(departmentId *string, request *ListSubDeptIdsRequest) (_result *ListSubDeptIdsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListSubDeptIdsHeaders{}

@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package rcs_call_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,10 +33,30 @@ func (s *RunCallUserHeaders) SetXAcsDingtalkAccessToken(v string) *RunCallUserHe
 }
 
 type RunCallUserRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// corpidxxxxx
 	AuthorizeCorpId *string `json:"authorizeCorpId,omitempty" xml:"authorizeCorpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxxx
 	AuthorizeUserId *string `json:"authorizeUserId,omitempty" xml:"authorizeUserId,omitempty"`
-	OrderId         *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
-	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
+	OrderId *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s RunCallUserRequest) String() string {
@@ -72,6 +88,9 @@ func (s *RunCallUserRequest) SetUserId(v string) *RunCallUserRequest {
 }
 
 type RunCallUserResponseBody struct {
+	// example:
+	//
+	// true、false
 	Success *string `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -132,12 +151,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -146,6 +165,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 主叫方发起免费电话给授权企业人员，关联订单id
+//
+// @param request - RunCallUserRequest
+//
+// @param headers - RunCallUserHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RunCallUserResponse
 func (client *Client) RunCallUserWithOptions(request *RunCallUserRequest, headers *RunCallUserHeaders, runtime *util.RuntimeOptions) (_result *RunCallUserResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -201,6 +231,13 @@ func (client *Client) RunCallUserWithOptions(request *RunCallUserRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 主叫方发起免费电话给授权企业人员，关联订单id
+//
+// @param request - RunCallUserRequest
+//
+// @return RunCallUserResponse
 func (client *Client) RunCallUser(request *RunCallUserRequest) (_result *RunCallUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RunCallUserHeaders{}

@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package wiki_2_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,9 +33,19 @@ func (s *AddTeamHeaders) SetXAcsDingtalkAccessToken(v string) *AddTeamHeaders {
 }
 
 type AddTeamRequest struct {
-	Name       *string               `json:"name,omitempty" xml:"name,omitempty"`
-	Option     *AddTeamRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	OperatorId *string               `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// team_name
+	Name   *string               `json:"name,omitempty" xml:"name,omitempty"`
+	Option *AddTeamRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s AddTeamRequest) String() string {
@@ -66,7 +72,13 @@ func (s *AddTeamRequest) SetOperatorId(v string) *AddTeamRequest {
 }
 
 type AddTeamRequestOption struct {
-	Cover       *string                   `json:"cover,omitempty" xml:"cover,omitempty"`
+	// example:
+	//
+	// team_cover
+	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
+	// example:
+	//
+	// team_description
 	Description *string                   `json:"description,omitempty" xml:"description,omitempty"`
 	Icon        *AddTeamRequestOptionIcon `json:"icon,omitempty" xml:"icon,omitempty" type:"Struct"`
 }
@@ -95,7 +107,13 @@ func (s *AddTeamRequestOption) SetIcon(v *AddTeamRequestOptionIcon) *AddTeamRequ
 }
 
 type AddTeamRequestOptionIcon struct {
-	Type  *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// URL
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// icon_url
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -135,16 +153,43 @@ func (s *AddTeamResponseBody) SetTeam(v *AddTeamResponseBodyTeam) *AddTeamRespon
 }
 
 type AddTeamResponseBodyTeam struct {
-	CorpId       *string                      `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Cover        *string                      `json:"cover,omitempty" xml:"cover,omitempty"`
-	CreateTime   *string                      `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId    *string                      `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Description  *string                      `json:"description,omitempty" xml:"description,omitempty"`
-	Icon         *AddTeamResponseBodyTeamIcon `json:"icon,omitempty" xml:"icon,omitempty" type:"Struct"`
-	ModifiedTime *string                      `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId   *string                      `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name         *string                      `json:"name,omitempty" xml:"name,omitempty"`
-	TeamId       *string                      `json:"teamId,omitempty" xml:"teamId,omitempty"`
+	// example:
+	//
+	// corp_id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// team_cover
+	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
+	// example:
+	//
+	// team_create_time
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// team_creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// team_description
+	Description *string                      `json:"description,omitempty" xml:"description,omitempty"`
+	Icon        *AddTeamResponseBodyTeamIcon `json:"icon,omitempty" xml:"icon,omitempty" type:"Struct"`
+	// example:
+	//
+	// team_modified_time
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// team_modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// team_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// team_id
+	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
 }
 
 func (s AddTeamResponseBodyTeam) String() string {
@@ -206,7 +251,13 @@ func (s *AddTeamResponseBodyTeam) SetTeamId(v string) *AddTeamResponseBodyTeam {
 }
 
 type AddTeamResponseBodyTeamIcon struct {
-	Type  *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// URL
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// icon_url
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -281,9 +332,19 @@ func (s *AddWorkspaceHeaders) SetXAcsDingtalkAccessToken(v string) *AddWorkspace
 }
 
 type AddWorkspaceRequest struct {
-	Name       *string                    `json:"name,omitempty" xml:"name,omitempty"`
-	Option     *AddWorkspaceRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	OperatorId *string                    `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// workspace_name
+	Name   *string                    `json:"name,omitempty" xml:"name,omitempty"`
+	Option *AddWorkspaceRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s AddWorkspaceRequest) String() string {
@@ -310,8 +371,14 @@ func (s *AddWorkspaceRequest) SetOperatorId(v string) *AddWorkspaceRequest {
 }
 
 type AddWorkspaceRequestOption struct {
+	// example:
+	//
+	// workspace_description
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
-	TeamId      *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
+	// example:
+	//
+	// team_id
+	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
 }
 
 func (s AddWorkspaceRequestOption) String() string {
@@ -350,21 +417,63 @@ func (s *AddWorkspaceResponseBody) SetWorkspace(v *AddWorkspaceResponseBodyWorks
 }
 
 type AddWorkspaceResponseBodyWorkspace struct {
-	CorpId         *string                                `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Cover          *string                                `json:"cover,omitempty" xml:"cover,omitempty"`
-	CreateTime     *string                                `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId      *string                                `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Description    *string                                `json:"description,omitempty" xml:"description,omitempty"`
-	Icon           *AddWorkspaceResponseBodyWorkspaceIcon `json:"icon,omitempty" xml:"icon,omitempty" type:"Struct"`
-	ModifiedTime   *string                                `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId     *string                                `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name           *string                                `json:"name,omitempty" xml:"name,omitempty"`
-	PermissionRole *string                                `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
-	RootNodeId     *string                                `json:"rootNodeId,omitempty" xml:"rootNodeId,omitempty"`
-	TeamId         *string                                `json:"teamId,omitempty" xml:"teamId,omitempty"`
-	Type           *string                                `json:"type,omitempty" xml:"type,omitempty"`
-	Url            *string                                `json:"url,omitempty" xml:"url,omitempty"`
-	WorkspaceId    *string                                `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	// example:
+	//
+	// corp_id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// workspace_cover
+	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
+	// example:
+	//
+	// workspace_create_time
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// workspace_creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// workspace_description
+	Description *string                                `json:"description,omitempty" xml:"description,omitempty"`
+	Icon        *AddWorkspaceResponseBodyWorkspaceIcon `json:"icon,omitempty" xml:"icon,omitempty" type:"Struct"`
+	// example:
+	//
+	// workspace_modified_time
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// workspace_modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// workspace_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// READER
+	PermissionRole *string `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
+	// example:
+	//
+	// root_node_uuid
+	RootNodeId *string `json:"rootNodeId,omitempty" xml:"rootNodeId,omitempty"`
+	// example:
+	//
+	// team_id
+	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
+	// example:
+	//
+	// TEAM
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// workspace_url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// workspace_id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
 func (s AddWorkspaceResponseBodyWorkspace) String() string {
@@ -451,7 +560,13 @@ func (s *AddWorkspaceResponseBodyWorkspace) SetWorkspaceId(v string) *AddWorkspa
 }
 
 type AddWorkspaceResponseBodyWorkspaceIcon struct {
-	Type  *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// URL
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// icon_url
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -502,6 +617,122 @@ func (s *AddWorkspaceResponse) SetBody(v *AddWorkspaceResponseBody) *AddWorkspac
 	return s
 }
 
+type AddWorkspacesManagerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddWorkspacesManagerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddWorkspacesManagerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddWorkspacesManagerHeaders) SetCommonHeaders(v map[string]*string) *AddWorkspacesManagerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddWorkspacesManagerHeaders) SetXAcsDingtalkAccessToken(v string) *AddWorkspacesManagerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddWorkspacesManagerRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// [1]
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// workspace_id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+}
+
+func (s AddWorkspacesManagerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddWorkspacesManagerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddWorkspacesManagerRequest) SetUserIds(v []*string) *AddWorkspacesManagerRequest {
+	s.UserIds = v
+	return s
+}
+
+func (s *AddWorkspacesManagerRequest) SetOperatorId(v string) *AddWorkspacesManagerRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *AddWorkspacesManagerRequest) SetWorkspaceId(v string) *AddWorkspacesManagerRequest {
+	s.WorkspaceId = &v
+	return s
+}
+
+type AddWorkspacesManagerResponseBody struct {
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AddWorkspacesManagerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddWorkspacesManagerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddWorkspacesManagerResponseBody) SetSuccess(v bool) *AddWorkspacesManagerResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AddWorkspacesManagerResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddWorkspacesManagerResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AddWorkspacesManagerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddWorkspacesManagerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddWorkspacesManagerResponse) SetHeaders(v map[string]*string) *AddWorkspacesManagerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddWorkspacesManagerResponse) SetStatusCode(v int32) *AddWorkspacesManagerResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddWorkspacesManagerResponse) SetBody(v *AddWorkspacesManagerResponseBody) *AddWorkspacesManagerResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteTeamHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -526,6 +757,11 @@ func (s *DeleteTeamHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteTeamHead
 }
 
 type DeleteTeamRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -543,6 +779,9 @@ func (s *DeleteTeamRequest) SetOperatorId(v string) *DeleteTeamRequest {
 }
 
 type DeleteTeamResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -612,6 +851,11 @@ func (s *GetDefaultHandOverUserHeaders) SetXAcsDingtalkAccessToken(v string) *Ge
 }
 
 type GetDefaultHandOverUserRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -629,6 +873,9 @@ func (s *GetDefaultHandOverUserRequest) SetOperatorId(v string) *GetDefaultHandO
 }
 
 type GetDefaultHandOverUserResponseBody struct {
+	// example:
+	//
+	// staff_id
 	DefaultHandoverUserId *string `json:"defaultHandoverUserId,omitempty" xml:"defaultHandoverUserId,omitempty"`
 }
 
@@ -698,6 +945,11 @@ func (s *GetMineWorkspaceHeaders) SetXAcsDingtalkAccessToken(v string) *GetMineW
 }
 
 type GetMineWorkspaceRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -732,21 +984,63 @@ func (s *GetMineWorkspaceResponseBody) SetWorkspace(v *GetMineWorkspaceResponseB
 }
 
 type GetMineWorkspaceResponseBodyWorkspace struct {
-	CorpId         *string                                    `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Cover          *string                                    `json:"cover,omitempty" xml:"cover,omitempty"`
-	CreateTime     *string                                    `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId      *string                                    `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Description    *string                                    `json:"description,omitempty" xml:"description,omitempty"`
-	Icon           *GetMineWorkspaceResponseBodyWorkspaceIcon `json:"icon,omitempty" xml:"icon,omitempty" type:"Struct"`
-	ModifiedTime   *string                                    `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId     *string                                    `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name           *string                                    `json:"name,omitempty" xml:"name,omitempty"`
-	PermissionRole *string                                    `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
-	RootNodeId     *string                                    `json:"rootNodeId,omitempty" xml:"rootNodeId,omitempty"`
-	TeamId         *string                                    `json:"teamId,omitempty" xml:"teamId,omitempty"`
-	Type           *string                                    `json:"type,omitempty" xml:"type,omitempty"`
-	Url            *string                                    `json:"url,omitempty" xml:"url,omitempty"`
-	WorkspaceId    *string                                    `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	// example:
+	//
+	// corp_id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// workspace_cover
+	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
+	// example:
+	//
+	// workspace_create_time
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// workspace_creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// workspace_description
+	Description *string                                    `json:"description,omitempty" xml:"description,omitempty"`
+	Icon        *GetMineWorkspaceResponseBodyWorkspaceIcon `json:"icon,omitempty" xml:"icon,omitempty" type:"Struct"`
+	// example:
+	//
+	// workspace_modified_time
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// workspace_modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// workspace_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// READER
+	PermissionRole *string `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
+	// example:
+	//
+	// root_node_uuid
+	RootNodeId *string `json:"rootNodeId,omitempty" xml:"rootNodeId,omitempty"`
+	// example:
+	//
+	// team_id
+	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
+	// example:
+	//
+	// TEAM
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// workspace_url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// workspace_id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
 func (s GetMineWorkspaceResponseBodyWorkspace) String() string {
@@ -833,7 +1127,13 @@ func (s *GetMineWorkspaceResponseBodyWorkspace) SetWorkspaceId(v string) *GetMin
 }
 
 type GetMineWorkspaceResponseBodyWorkspaceIcon struct {
-	Type  *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// URL
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// icon_url
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -908,9 +1208,20 @@ func (s *GetNodeHeaders) SetXAcsDingtalkAccessToken(v string) *GetNodeHeaders {
 }
 
 type GetNodeRequest struct {
-	OperatorId          *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	WithPermissionRole  *bool   `json:"withPermissionRole,omitempty" xml:"withPermissionRole,omitempty"`
-	WithStatisticalInfo *bool   `json:"withStatisticalInfo,omitempty" xml:"withStatisticalInfo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// example:
+	//
+	// false
+	WithPermissionRole *bool `json:"withPermissionRole,omitempty" xml:"withPermissionRole,omitempty"`
+	// example:
+	//
+	// false
+	WithStatisticalInfo *bool `json:"withStatisticalInfo,omitempty" xml:"withStatisticalInfo,omitempty"`
 }
 
 func (s GetNodeRequest) String() string {
@@ -954,21 +1265,63 @@ func (s *GetNodeResponseBody) SetNode(v *GetNodeResponseBodyNode) *GetNodeRespon
 }
 
 type GetNodeResponseBodyNode struct {
-	Category        *string                                 `json:"category,omitempty" xml:"category,omitempty"`
-	CreateTime      *string                                 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId       *string                                 `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Extension       *string                                 `json:"extension,omitempty" xml:"extension,omitempty"`
-	HasChildren     *bool                                   `json:"hasChildren,omitempty" xml:"hasChildren,omitempty"`
-	ModifiedTime    *string                                 `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId      *string                                 `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name            *string                                 `json:"name,omitempty" xml:"name,omitempty"`
-	NodeId          *string                                 `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
-	PermissionRole  *string                                 `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
+	// example:
+	//
+	// ALIDOC
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// example:
+	//
+	// node_create_time
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// node_creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// adoc
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// false
+	HasChildren *bool `json:"hasChildren,omitempty" xml:"hasChildren,omitempty"`
+	// example:
+	//
+	// node_modified_time
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// node_modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// node_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// node_id
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// example:
+	//
+	// READER
+	PermissionRole *string `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
+	// example:
+	//
+	// 512
 	Size            *int64                                  `json:"size,omitempty" xml:"size,omitempty"`
 	StatisticalInfo *GetNodeResponseBodyNodeStatisticalInfo `json:"statisticalInfo,omitempty" xml:"statisticalInfo,omitempty" type:"Struct"`
-	Type            *string                                 `json:"type,omitempty" xml:"type,omitempty"`
-	Url             *string                                 `json:"url,omitempty" xml:"url,omitempty"`
-	WorkspaceId     *string                                 `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	// example:
+	//
+	// FILE
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// node_url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// workspace_id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
 func (s GetNodeResponseBodyNode) String() string {
@@ -1055,6 +1408,9 @@ func (s *GetNodeResponseBodyNode) SetWorkspaceId(v string) *GetNodeResponseBodyN
 }
 
 type GetNodeResponseBodyNodeStatisticalInfo struct {
+	// example:
+	//
+	// 123
 	WordCount *int64 `json:"wordCount,omitempty" xml:"wordCount,omitempty"`
 }
 
@@ -1124,9 +1480,19 @@ func (s *GetNodeByUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetNodeByUrl
 }
 
 type GetNodeByUrlRequest struct {
-	Option     *GetNodeByUrlRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	Url        *string                    `json:"url,omitempty" xml:"url,omitempty"`
-	OperatorId *string                    `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	Option *GetNodeByUrlRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// node_url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s GetNodeByUrlRequest) String() string {
@@ -1153,7 +1519,13 @@ func (s *GetNodeByUrlRequest) SetOperatorId(v string) *GetNodeByUrlRequest {
 }
 
 type GetNodeByUrlRequestOption struct {
-	WithPermissionRole  *bool `json:"withPermissionRole,omitempty" xml:"withPermissionRole,omitempty"`
+	// example:
+	//
+	// false
+	WithPermissionRole *bool `json:"withPermissionRole,omitempty" xml:"withPermissionRole,omitempty"`
+	// example:
+	//
+	// false
 	WithStatisticalInfo *bool `json:"withStatisticalInfo,omitempty" xml:"withStatisticalInfo,omitempty"`
 }
 
@@ -1193,21 +1565,63 @@ func (s *GetNodeByUrlResponseBody) SetNode(v *GetNodeByUrlResponseBodyNode) *Get
 }
 
 type GetNodeByUrlResponseBodyNode struct {
-	Category        *string                                      `json:"category,omitempty" xml:"category,omitempty"`
-	CreateTime      *string                                      `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId       *string                                      `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Extension       *string                                      `json:"extension,omitempty" xml:"extension,omitempty"`
-	HasChildren     *bool                                        `json:"hasChildren,omitempty" xml:"hasChildren,omitempty"`
-	ModifiedTime    *string                                      `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId      *string                                      `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name            *string                                      `json:"name,omitempty" xml:"name,omitempty"`
-	NodeId          *string                                      `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
-	PermissionRole  *string                                      `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
+	// example:
+	//
+	// ALIDOC
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// example:
+	//
+	// node_create_time
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// node_creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// adoc
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// false
+	HasChildren *bool `json:"hasChildren,omitempty" xml:"hasChildren,omitempty"`
+	// example:
+	//
+	// node_modified_time
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// node_modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// node_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// node_id
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// example:
+	//
+	// READER
+	PermissionRole *string `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
+	// example:
+	//
+	// 512
 	Size            *int64                                       `json:"size,omitempty" xml:"size,omitempty"`
 	StatisticalInfo *GetNodeByUrlResponseBodyNodeStatisticalInfo `json:"statisticalInfo,omitempty" xml:"statisticalInfo,omitempty" type:"Struct"`
-	Type            *string                                      `json:"type,omitempty" xml:"type,omitempty"`
-	Url             *string                                      `json:"url,omitempty" xml:"url,omitempty"`
-	WorkspaceId     *string                                      `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	// example:
+	//
+	// FILE
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// node_url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// workspace_id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
 func (s GetNodeByUrlResponseBodyNode) String() string {
@@ -1294,6 +1708,9 @@ func (s *GetNodeByUrlResponseBodyNode) SetWorkspaceId(v string) *GetNodeByUrlRes
 }
 
 type GetNodeByUrlResponseBodyNodeStatisticalInfo struct {
+	// example:
+	//
+	// 123
 	WordCount *int64 `json:"wordCount,omitempty" xml:"wordCount,omitempty"`
 }
 
@@ -1363,9 +1780,15 @@ func (s *GetNodesHeaders) SetXAcsDingtalkAccessToken(v string) *GetNodesHeaders 
 }
 
 type GetNodesRequest struct {
-	NodeIds    []*string              `json:"nodeIds,omitempty" xml:"nodeIds,omitempty" type:"Repeated"`
-	Option     *GetNodesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	OperatorId *string                `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	NodeIds []*string              `json:"nodeIds,omitempty" xml:"nodeIds,omitempty" type:"Repeated"`
+	Option  *GetNodesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s GetNodesRequest) String() string {
@@ -1392,7 +1815,13 @@ func (s *GetNodesRequest) SetOperatorId(v string) *GetNodesRequest {
 }
 
 type GetNodesRequestOption struct {
-	WithPermissionRole  *bool `json:"withPermissionRole,omitempty" xml:"withPermissionRole,omitempty"`
+	// example:
+	//
+	// false
+	WithPermissionRole *bool `json:"withPermissionRole,omitempty" xml:"withPermissionRole,omitempty"`
+	// example:
+	//
+	// false
 	WithStatisticalInfo *bool `json:"withStatisticalInfo,omitempty" xml:"withStatisticalInfo,omitempty"`
 }
 
@@ -1432,21 +1861,63 @@ func (s *GetNodesResponseBody) SetNodes(v []*GetNodesResponseBodyNodes) *GetNode
 }
 
 type GetNodesResponseBodyNodes struct {
-	Category        *string                                   `json:"category,omitempty" xml:"category,omitempty"`
-	CreateTime      *string                                   `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId       *string                                   `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Extension       *string                                   `json:"extension,omitempty" xml:"extension,omitempty"`
-	HasChildren     *bool                                     `json:"hasChildren,omitempty" xml:"hasChildren,omitempty"`
-	ModifiedTime    *string                                   `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId      *string                                   `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name            *string                                   `json:"name,omitempty" xml:"name,omitempty"`
-	NodeId          *string                                   `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
-	PermissionRole  *string                                   `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
+	// example:
+	//
+	// ALIDOC
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// example:
+	//
+	// node_create_time
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// node_creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// adoc
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// false
+	HasChildren *bool `json:"hasChildren,omitempty" xml:"hasChildren,omitempty"`
+	// example:
+	//
+	// node_modified_time
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// node_modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// node_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// node_id
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// example:
+	//
+	// READER
+	PermissionRole *string `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
+	// example:
+	//
+	// 512
 	Size            *int64                                    `json:"size,omitempty" xml:"size,omitempty"`
 	StatisticalInfo *GetNodesResponseBodyNodesStatisticalInfo `json:"statisticalInfo,omitempty" xml:"statisticalInfo,omitempty" type:"Struct"`
-	Type            *string                                   `json:"type,omitempty" xml:"type,omitempty"`
-	Url             *string                                   `json:"url,omitempty" xml:"url,omitempty"`
-	WorkspaceId     *string                                   `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	// example:
+	//
+	// FILE
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// node_url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// workspace_id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
 func (s GetNodesResponseBodyNodes) String() string {
@@ -1533,6 +2004,9 @@ func (s *GetNodesResponseBodyNodes) SetWorkspaceId(v string) *GetNodesResponseBo
 }
 
 type GetNodesResponseBodyNodesStatisticalInfo struct {
+	// example:
+	//
+	// 123
 	WordCount *int64 `json:"wordCount,omitempty" xml:"wordCount,omitempty"`
 }
 
@@ -1602,6 +2076,11 @@ func (s *GetTeamHeaders) SetXAcsDingtalkAccessToken(v string) *GetTeamHeaders {
 }
 
 type GetTeamRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -1636,16 +2115,43 @@ func (s *GetTeamResponseBody) SetTeam(v *GetTeamResponseBodyTeam) *GetTeamRespon
 }
 
 type GetTeamResponseBodyTeam struct {
-	CorpId       *string                      `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Cover        *string                      `json:"cover,omitempty" xml:"cover,omitempty"`
-	CreateTime   *string                      `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId    *string                      `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Description  *string                      `json:"description,omitempty" xml:"description,omitempty"`
-	Icon         *GetTeamResponseBodyTeamIcon `json:"icon,omitempty" xml:"icon,omitempty" type:"Struct"`
-	ModifiedTime *string                      `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId   *string                      `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name         *string                      `json:"name,omitempty" xml:"name,omitempty"`
-	TeamId       *string                      `json:"teamId,omitempty" xml:"teamId,omitempty"`
+	// example:
+	//
+	// corp_id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// team_cover
+	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
+	// example:
+	//
+	// team_create_time
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// team_creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// team_description
+	Description *string                      `json:"description,omitempty" xml:"description,omitempty"`
+	Icon        *GetTeamResponseBodyTeamIcon `json:"icon,omitempty" xml:"icon,omitempty" type:"Struct"`
+	// example:
+	//
+	// team_modified_time
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// team_modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// team_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// team_id
+	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
 }
 
 func (s GetTeamResponseBodyTeam) String() string {
@@ -1707,7 +2213,13 @@ func (s *GetTeamResponseBodyTeam) SetTeamId(v string) *GetTeamResponseBodyTeam {
 }
 
 type GetTeamResponseBodyTeamIcon struct {
-	Type  *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// URL
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// icon_url
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -1782,8 +2294,16 @@ func (s *GetWorkspaceHeaders) SetXAcsDingtalkAccessToken(v string) *GetWorkspace
 }
 
 type GetWorkspaceRequest struct {
-	OperatorId         *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	WithPermissionRole *bool   `json:"withPermissionRole,omitempty" xml:"withPermissionRole,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// example:
+	//
+	// false
+	WithPermissionRole *bool `json:"withPermissionRole,omitempty" xml:"withPermissionRole,omitempty"`
 }
 
 func (s GetWorkspaceRequest) String() string {
@@ -1822,21 +2342,63 @@ func (s *GetWorkspaceResponseBody) SetWorkspace(v *GetWorkspaceResponseBodyWorks
 }
 
 type GetWorkspaceResponseBodyWorkspace struct {
-	CorpId         *string                                `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Cover          *string                                `json:"cover,omitempty" xml:"cover,omitempty"`
-	CreateTime     *string                                `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId      *string                                `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Description    *string                                `json:"description,omitempty" xml:"description,omitempty"`
-	Icon           *GetWorkspaceResponseBodyWorkspaceIcon `json:"icon,omitempty" xml:"icon,omitempty" type:"Struct"`
-	ModifiedTime   *string                                `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId     *string                                `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name           *string                                `json:"name,omitempty" xml:"name,omitempty"`
-	PermissionRole *string                                `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
-	RootNodeId     *string                                `json:"rootNodeId,omitempty" xml:"rootNodeId,omitempty"`
-	TeamId         *string                                `json:"teamId,omitempty" xml:"teamId,omitempty"`
-	Type           *string                                `json:"type,omitempty" xml:"type,omitempty"`
-	Url            *string                                `json:"url,omitempty" xml:"url,omitempty"`
-	WorkspaceId    *string                                `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	// example:
+	//
+	// corp_id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// workspace_cover
+	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
+	// example:
+	//
+	// workspace_create_time
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// workspace_creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// workspace_description
+	Description *string                                `json:"description,omitempty" xml:"description,omitempty"`
+	Icon        *GetWorkspaceResponseBodyWorkspaceIcon `json:"icon,omitempty" xml:"icon,omitempty" type:"Struct"`
+	// example:
+	//
+	// workspace_modified_time
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// workspace_modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// workspace_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// READER
+	PermissionRole *string `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
+	// example:
+	//
+	// root_node_uuid
+	RootNodeId *string `json:"rootNodeId,omitempty" xml:"rootNodeId,omitempty"`
+	// example:
+	//
+	// team_id
+	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
+	// example:
+	//
+	// TEAM
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// workspace_url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// workspace_id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
 func (s GetWorkspaceResponseBodyWorkspace) String() string {
@@ -1923,7 +2485,13 @@ func (s *GetWorkspaceResponseBodyWorkspace) SetWorkspaceId(v string) *GetWorkspa
 }
 
 type GetWorkspaceResponseBodyWorkspaceIcon struct {
-	Type  *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// URL
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// icon_url
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -1998,9 +2566,15 @@ func (s *GetWorkspacesHeaders) SetXAcsDingtalkAccessToken(v string) *GetWorkspac
 }
 
 type GetWorkspacesRequest struct {
-	Option       *GetWorkspacesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
-	WorkspaceIds []*string                   `json:"workspaceIds,omitempty" xml:"workspaceIds,omitempty" type:"Repeated"`
-	OperatorId   *string                     `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	Option *GetWorkspacesRequestOption `json:"option,omitempty" xml:"option,omitempty" type:"Struct"`
+	// This parameter is required.
+	WorkspaceIds []*string `json:"workspaceIds,omitempty" xml:"workspaceIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s GetWorkspacesRequest) String() string {
@@ -2027,6 +2601,9 @@ func (s *GetWorkspacesRequest) SetOperatorId(v string) *GetWorkspacesRequest {
 }
 
 type GetWorkspacesRequestOption struct {
+	// example:
+	//
+	// false
 	WithPermissionRole *bool `json:"withPermissionRole,omitempty" xml:"withPermissionRole,omitempty"`
 }
 
@@ -2061,21 +2638,63 @@ func (s *GetWorkspacesResponseBody) SetWorkspaces(v []*GetWorkspacesResponseBody
 }
 
 type GetWorkspacesResponseBodyWorkspaces struct {
-	CorpId         *string                                  `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Cover          *string                                  `json:"cover,omitempty" xml:"cover,omitempty"`
-	CreateTime     *string                                  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId      *string                                  `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Description    *string                                  `json:"description,omitempty" xml:"description,omitempty"`
-	Icon           *GetWorkspacesResponseBodyWorkspacesIcon `json:"icon,omitempty" xml:"icon,omitempty" type:"Struct"`
-	ModifiedTime   *string                                  `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId     *string                                  `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name           *string                                  `json:"name,omitempty" xml:"name,omitempty"`
-	PermissionRole *string                                  `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
-	RootNodeId     *string                                  `json:"rootNodeId,omitempty" xml:"rootNodeId,omitempty"`
-	TeamId         *string                                  `json:"teamId,omitempty" xml:"teamId,omitempty"`
-	Type           *string                                  `json:"type,omitempty" xml:"type,omitempty"`
-	Url            *string                                  `json:"url,omitempty" xml:"url,omitempty"`
-	WorkspaceId    *string                                  `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	// example:
+	//
+	// corp_id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// workspace_cover
+	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
+	// example:
+	//
+	// workspace_create_time
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// workspace_creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// workspace_description
+	Description *string                                  `json:"description,omitempty" xml:"description,omitempty"`
+	Icon        *GetWorkspacesResponseBodyWorkspacesIcon `json:"icon,omitempty" xml:"icon,omitempty" type:"Struct"`
+	// example:
+	//
+	// workspace_modified_time
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// workspace_modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// workspace_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// READER
+	PermissionRole *string `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
+	// example:
+	//
+	// root_node_uuid
+	RootNodeId *string `json:"rootNodeId,omitempty" xml:"rootNodeId,omitempty"`
+	// example:
+	//
+	// team_id
+	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
+	// example:
+	//
+	// TEAM
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// workspace_url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// workspace_id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
 func (s GetWorkspacesResponseBodyWorkspaces) String() string {
@@ -2162,7 +2781,13 @@ func (s *GetWorkspacesResponseBodyWorkspaces) SetWorkspaceId(v string) *GetWorks
 }
 
 type GetWorkspacesResponseBodyWorkspacesIcon struct {
-	Type  *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// URL
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// icon_url
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -2237,10 +2862,30 @@ func (s *HandOverWorkspaceHeaders) SetXAcsDingtalkAccessToken(v string) *HandOve
 }
 
 type HandOverWorkspaceRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// source_owner_id
 	SourceOwnerId *string `json:"sourceOwnerId,omitempty" xml:"sourceOwnerId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// source_owner_id
 	TargetOwnerId *string `json:"targetOwnerId,omitempty" xml:"targetOwnerId,omitempty"`
-	WorkspaceId   *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
-	OperatorId    *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// workspace_id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s HandOverWorkspaceRequest) String() string {
@@ -2272,6 +2917,9 @@ func (s *HandOverWorkspaceRequest) SetOperatorId(v string) *HandOverWorkspaceReq
 }
 
 type HandOverWorkspaceResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -2341,11 +2989,30 @@ func (s *ListNodesHeaders) SetXAcsDingtalkAccessToken(v string) *ListNodesHeader
 }
 
 type ListNodesRequest struct {
-	MaxResults         *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken          *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	OperatorId         *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	ParentNodeId       *string `json:"parentNodeId,omitempty" xml:"parentNodeId,omitempty"`
-	WithPermissionRole *bool   `json:"withPermissionRole,omitempty" xml:"withPermissionRole,omitempty"`
+	// example:
+	//
+	// 30
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// next_token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// parent_node_id
+	ParentNodeId *string `json:"parentNodeId,omitempty" xml:"parentNodeId,omitempty"`
+	// example:
+	//
+	// false
+	WithPermissionRole *bool `json:"withPermissionRole,omitempty" xml:"withPermissionRole,omitempty"`
 }
 
 func (s ListNodesRequest) String() string {
@@ -2382,6 +3049,9 @@ func (s *ListNodesRequest) SetWithPermissionRole(v bool) *ListNodesRequest {
 }
 
 type ListNodesResponseBody struct {
+	// example:
+	//
+	// next_token
 	NextToken *string                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Nodes     []*ListNodesResponseBodyNodes `json:"nodes,omitempty" xml:"nodes,omitempty" type:"Repeated"`
 }
@@ -2405,21 +3075,63 @@ func (s *ListNodesResponseBody) SetNodes(v []*ListNodesResponseBodyNodes) *ListN
 }
 
 type ListNodesResponseBodyNodes struct {
-	Category        *string                                    `json:"category,omitempty" xml:"category,omitempty"`
-	CreateTime      *string                                    `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId       *string                                    `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Extension       *string                                    `json:"extension,omitempty" xml:"extension,omitempty"`
-	HasChildren     *bool                                      `json:"hasChildren,omitempty" xml:"hasChildren,omitempty"`
-	ModifiedTime    *string                                    `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId      *string                                    `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name            *string                                    `json:"name,omitempty" xml:"name,omitempty"`
-	NodeId          *string                                    `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
-	PermissionRole  *string                                    `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
+	// example:
+	//
+	// ALIDOC
+	Category *string `json:"category,omitempty" xml:"category,omitempty"`
+	// example:
+	//
+	// node_create_time
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// node_creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// adoc
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// false
+	HasChildren *bool `json:"hasChildren,omitempty" xml:"hasChildren,omitempty"`
+	// example:
+	//
+	// node_modified_time
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// node_modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// node_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// node_id
+	NodeId *string `json:"nodeId,omitempty" xml:"nodeId,omitempty"`
+	// example:
+	//
+	// READER
+	PermissionRole *string `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
+	// example:
+	//
+	// 512
 	Size            *int64                                     `json:"size,omitempty" xml:"size,omitempty"`
 	StatisticalInfo *ListNodesResponseBodyNodesStatisticalInfo `json:"statisticalInfo,omitempty" xml:"statisticalInfo,omitempty" type:"Struct"`
-	Type            *string                                    `json:"type,omitempty" xml:"type,omitempty"`
-	Url             *string                                    `json:"url,omitempty" xml:"url,omitempty"`
-	WorkspaceId     *string                                    `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	// example:
+	//
+	// FILE
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// node_url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// workspace_id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
 func (s ListNodesResponseBodyNodes) String() string {
@@ -2506,6 +3218,9 @@ func (s *ListNodesResponseBodyNodes) SetWorkspaceId(v string) *ListNodesResponse
 }
 
 type ListNodesResponseBodyNodesStatisticalInfo struct {
+	// example:
+	//
+	// 123
 	WordCount *int64 `json:"wordCount,omitempty" xml:"wordCount,omitempty"`
 }
 
@@ -2551,6 +3266,201 @@ func (s *ListNodesResponse) SetBody(v *ListNodesResponseBody) *ListNodesResponse
 	return s
 }
 
+type ListOrgWorkspacesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListOrgWorkspacesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrgWorkspacesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrgWorkspacesHeaders) SetCommonHeaders(v map[string]*string) *ListOrgWorkspacesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListOrgWorkspacesHeaders) SetXAcsDingtalkAccessToken(v string) *ListOrgWorkspacesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListOrgWorkspacesRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s ListOrgWorkspacesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrgWorkspacesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrgWorkspacesRequest) SetOperatorId(v string) *ListOrgWorkspacesRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *ListOrgWorkspacesRequest) SetPageNumber(v int32) *ListOrgWorkspacesRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ListOrgWorkspacesRequest) SetPageSize(v int32) *ListOrgWorkspacesRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ListOrgWorkspacesRequest) SetStatus(v int32) *ListOrgWorkspacesRequest {
+	s.Status = &v
+	return s
+}
+
+type ListOrgWorkspacesResponseBody struct {
+	PageNumber *int32                                     `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32                                     `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	Workspaces []*ListOrgWorkspacesResponseBodyWorkspaces `json:"workspaces,omitempty" xml:"workspaces,omitempty" type:"Repeated"`
+}
+
+func (s ListOrgWorkspacesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrgWorkspacesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrgWorkspacesResponseBody) SetPageNumber(v int32) *ListOrgWorkspacesResponseBody {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *ListOrgWorkspacesResponseBody) SetPageSize(v int32) *ListOrgWorkspacesResponseBody {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ListOrgWorkspacesResponseBody) SetWorkspaces(v []*ListOrgWorkspacesResponseBodyWorkspaces) *ListOrgWorkspacesResponseBody {
+	s.Workspaces = v
+	return s
+}
+
+type ListOrgWorkspacesResponseBodyWorkspaces struct {
+	// example:
+	//
+	// 0
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// workspace_id
+	RootDentryUuid *string `json:"rootDentryUuid,omitempty" xml:"rootDentryUuid,omitempty"`
+	// example:
+	//
+	// 0
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// workspace_id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	// example:
+	//
+	// workspace_name
+	WorkspaceName *string `json:"workspaceName,omitempty" xml:"workspaceName,omitempty"`
+}
+
+func (s ListOrgWorkspacesResponseBodyWorkspaces) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrgWorkspacesResponseBodyWorkspaces) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrgWorkspacesResponseBodyWorkspaces) SetCreateTime(v string) *ListOrgWorkspacesResponseBodyWorkspaces {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *ListOrgWorkspacesResponseBodyWorkspaces) SetRootDentryUuid(v string) *ListOrgWorkspacesResponseBodyWorkspaces {
+	s.RootDentryUuid = &v
+	return s
+}
+
+func (s *ListOrgWorkspacesResponseBodyWorkspaces) SetStatus(v int32) *ListOrgWorkspacesResponseBodyWorkspaces {
+	s.Status = &v
+	return s
+}
+
+func (s *ListOrgWorkspacesResponseBodyWorkspaces) SetUrl(v string) *ListOrgWorkspacesResponseBodyWorkspaces {
+	s.Url = &v
+	return s
+}
+
+func (s *ListOrgWorkspacesResponseBodyWorkspaces) SetWorkspaceId(v string) *ListOrgWorkspacesResponseBodyWorkspaces {
+	s.WorkspaceId = &v
+	return s
+}
+
+func (s *ListOrgWorkspacesResponseBodyWorkspaces) SetWorkspaceName(v string) *ListOrgWorkspacesResponseBodyWorkspaces {
+	s.WorkspaceName = &v
+	return s
+}
+
+type ListOrgWorkspacesResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListOrgWorkspacesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListOrgWorkspacesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrgWorkspacesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrgWorkspacesResponse) SetHeaders(v map[string]*string) *ListOrgWorkspacesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListOrgWorkspacesResponse) SetStatusCode(v int32) *ListOrgWorkspacesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListOrgWorkspacesResponse) SetBody(v *ListOrgWorkspacesResponseBody) *ListOrgWorkspacesResponse {
+	s.Body = v
+	return s
+}
+
 type ListTeamsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2575,8 +3485,19 @@ func (s *ListTeamsHeaders) SetXAcsDingtalkAccessToken(v string) *ListTeamsHeader
 }
 
 type ListTeamsRequest struct {
-	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 30
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// next_token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
 	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
@@ -2604,6 +3525,9 @@ func (s *ListTeamsRequest) SetOperatorId(v string) *ListTeamsRequest {
 }
 
 type ListTeamsResponseBody struct {
+	// example:
+	//
+	// next_token
 	NextToken *string                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Teams     []*ListTeamsResponseBodyTeams `json:"teams,omitempty" xml:"teams,omitempty" type:"Repeated"`
 }
@@ -2627,16 +3551,43 @@ func (s *ListTeamsResponseBody) SetTeams(v []*ListTeamsResponseBodyTeams) *ListT
 }
 
 type ListTeamsResponseBodyTeams struct {
-	CorpId       *string                         `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Cover        *string                         `json:"cover,omitempty" xml:"cover,omitempty"`
-	CreateTime   *string                         `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId    *string                         `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Description  *string                         `json:"description,omitempty" xml:"description,omitempty"`
-	Icon         *ListTeamsResponseBodyTeamsIcon `json:"icon,omitempty" xml:"icon,omitempty" type:"Struct"`
-	ModifiedTime *string                         `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId   *string                         `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name         *string                         `json:"name,omitempty" xml:"name,omitempty"`
-	TeamId       *string                         `json:"teamId,omitempty" xml:"teamId,omitempty"`
+	// example:
+	//
+	// corp_id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// team_cover
+	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
+	// example:
+	//
+	// team_create_time
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// team_creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// team_description
+	Description *string                         `json:"description,omitempty" xml:"description,omitempty"`
+	Icon        *ListTeamsResponseBodyTeamsIcon `json:"icon,omitempty" xml:"icon,omitempty" type:"Struct"`
+	// example:
+	//
+	// team_modified_time
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// team_modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// team_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// team_id
+	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
 }
 
 func (s ListTeamsResponseBodyTeams) String() string {
@@ -2698,7 +3649,13 @@ func (s *ListTeamsResponseBodyTeams) SetTeamId(v string) *ListTeamsResponseBodyT
 }
 
 type ListTeamsResponseBodyTeamsIcon struct {
-	Type  *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// URL
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// icon_url
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -2773,12 +3730,32 @@ func (s *ListWorkspacesHeaders) SetXAcsDingtalkAccessToken(v string) *ListWorksp
 }
 
 type ListWorkspacesRequest struct {
-	MaxResults         *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken          *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	OperatorId         *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
-	OrderBy            *string `json:"orderBy,omitempty" xml:"orderBy,omitempty"`
-	TeamId             *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
-	WithPermissionRole *bool   `json:"withPermissionRole,omitempty" xml:"withPermissionRole,omitempty"`
+	// example:
+	//
+	// 30
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// next_token
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// example:
+	//
+	// VIEW_TIME_DESC
+	OrderBy *string `json:"orderBy,omitempty" xml:"orderBy,omitempty"`
+	// example:
+	//
+	// team_id
+	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
+	// example:
+	//
+	// false
+	WithPermissionRole *bool `json:"withPermissionRole,omitempty" xml:"withPermissionRole,omitempty"`
 }
 
 func (s ListWorkspacesRequest) String() string {
@@ -2820,6 +3797,9 @@ func (s *ListWorkspacesRequest) SetWithPermissionRole(v bool) *ListWorkspacesReq
 }
 
 type ListWorkspacesResponseBody struct {
+	// example:
+	//
+	// next_token
 	NextToken  *string                                 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Workspaces []*ListWorkspacesResponseBodyWorkspaces `json:"workspaces,omitempty" xml:"workspaces,omitempty" type:"Repeated"`
 }
@@ -2843,21 +3823,63 @@ func (s *ListWorkspacesResponseBody) SetWorkspaces(v []*ListWorkspacesResponseBo
 }
 
 type ListWorkspacesResponseBodyWorkspaces struct {
-	CorpId         *string                                   `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	Cover          *string                                   `json:"cover,omitempty" xml:"cover,omitempty"`
-	CreateTime     *string                                   `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId      *string                                   `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Description    *string                                   `json:"description,omitempty" xml:"description,omitempty"`
-	Icon           *ListWorkspacesResponseBodyWorkspacesIcon `json:"icon,omitempty" xml:"icon,omitempty" type:"Struct"`
-	ModifiedTime   *string                                   `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId     *string                                   `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name           *string                                   `json:"name,omitempty" xml:"name,omitempty"`
-	PermissionRole *string                                   `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
-	RootNodeId     *string                                   `json:"rootNodeId,omitempty" xml:"rootNodeId,omitempty"`
-	TeamId         *string                                   `json:"teamId,omitempty" xml:"teamId,omitempty"`
-	Type           *string                                   `json:"type,omitempty" xml:"type,omitempty"`
-	Url            *string                                   `json:"url,omitempty" xml:"url,omitempty"`
-	WorkspaceId    *string                                   `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
+	// example:
+	//
+	// corp_id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// workspace_cover
+	Cover *string `json:"cover,omitempty" xml:"cover,omitempty"`
+	// example:
+	//
+	// workspace_create_time
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// workspace_creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// workspace_description
+	Description *string                                   `json:"description,omitempty" xml:"description,omitempty"`
+	Icon        *ListWorkspacesResponseBodyWorkspacesIcon `json:"icon,omitempty" xml:"icon,omitempty" type:"Struct"`
+	// example:
+	//
+	// workspace_modified_time
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// workspace_modifier_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// workspace_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// READER
+	PermissionRole *string `json:"permissionRole,omitempty" xml:"permissionRole,omitempty"`
+	// example:
+	//
+	// root_node_uuid
+	RootNodeId *string `json:"rootNodeId,omitempty" xml:"rootNodeId,omitempty"`
+	// example:
+	//
+	// team_id
+	TeamId *string `json:"teamId,omitempty" xml:"teamId,omitempty"`
+	// example:
+	//
+	// TEAM
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// workspace_url
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+	// example:
+	//
+	// workspace_id
+	WorkspaceId *string `json:"workspaceId,omitempty" xml:"workspaceId,omitempty"`
 }
 
 func (s ListWorkspacesResponseBodyWorkspaces) String() string {
@@ -2944,7 +3966,13 @@ func (s *ListWorkspacesResponseBodyWorkspaces) SetWorkspaceId(v string) *ListWor
 }
 
 type ListWorkspacesResponseBodyWorkspacesIcon struct {
-	Type  *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// URL
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// icon_url
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -3019,8 +4047,16 @@ func (s *SetDefaultHandOverUserHeaders) SetXAcsDingtalkAccessToken(v string) *Se
 }
 
 type SetDefaultHandOverUserRequest struct {
+	// example:
+	//
+	// staff_id
 	DefaultHandoverUserId *string `json:"defaultHandoverUserId,omitempty" xml:"defaultHandoverUserId,omitempty"`
-	OperatorId            *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s SetDefaultHandOverUserRequest) String() string {
@@ -3042,6 +4078,9 @@ func (s *SetDefaultHandOverUserRequest) SetOperatorId(v string) *SetDefaultHandO
 }
 
 type SetDefaultHandOverUserResponseBody struct {
+	// example:
+	//
+	// true
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -3102,12 +4141,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -3116,6 +4155,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 新建知识小组
+//
+// @param request - AddTeamRequest
+//
+// @param headers - AddTeamHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddTeamResponse
 func (client *Client) AddTeamWithOptions(request *AddTeamRequest, headers *AddTeamHeaders, runtime *util.RuntimeOptions) (_result *AddTeamResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3169,6 +4219,13 @@ func (client *Client) AddTeamWithOptions(request *AddTeamRequest, headers *AddTe
 	return _result, _err
 }
 
+// Summary:
+//
+// 新建知识小组
+//
+// @param request - AddTeamRequest
+//
+// @return AddTeamResponse
 func (client *Client) AddTeam(request *AddTeamRequest) (_result *AddTeamResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddTeamHeaders{}
@@ -3181,6 +4238,17 @@ func (client *Client) AddTeam(request *AddTeamRequest) (_result *AddTeamResponse
 	return _result, _err
 }
 
+// Summary:
+//
+// 新建知识库
+//
+// @param request - AddWorkspaceRequest
+//
+// @param headers - AddWorkspaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddWorkspaceResponse
 func (client *Client) AddWorkspaceWithOptions(request *AddWorkspaceRequest, headers *AddWorkspaceHeaders, runtime *util.RuntimeOptions) (_result *AddWorkspaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3234,6 +4302,13 @@ func (client *Client) AddWorkspaceWithOptions(request *AddWorkspaceRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 新建知识库
+//
+// @param request - AddWorkspaceRequest
+//
+// @return AddWorkspaceResponse
 func (client *Client) AddWorkspace(request *AddWorkspaceRequest) (_result *AddWorkspaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AddWorkspaceHeaders{}
@@ -3246,6 +4321,100 @@ func (client *Client) AddWorkspace(request *AddWorkspaceRequest) (_result *AddWo
 	return _result, _err
 }
 
+// Summary:
+//
+// 添加知识库管理员
+//
+// @param request - AddWorkspacesManagerRequest
+//
+// @param headers - AddWorkspacesManagerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddWorkspacesManagerResponse
+func (client *Client) AddWorkspacesManagerWithOptions(request *AddWorkspacesManagerRequest, headers *AddWorkspacesManagerHeaders, runtime *util.RuntimeOptions) (_result *AddWorkspacesManagerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WorkspaceId)) {
+		query["workspaceId"] = request.WorkspaceId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddWorkspacesManager"),
+		Version:     tea.String("wiki_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/wiki/workspaces/managers"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddWorkspacesManagerResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 添加知识库管理员
+//
+// @param request - AddWorkspacesManagerRequest
+//
+// @return AddWorkspacesManagerResponse
+func (client *Client) AddWorkspacesManager(request *AddWorkspacesManagerRequest) (_result *AddWorkspacesManagerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddWorkspacesManagerHeaders{}
+	_result = &AddWorkspacesManagerResponse{}
+	_body, _err := client.AddWorkspacesManagerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除知识小组
+//
+// @param request - DeleteTeamRequest
+//
+// @param headers - DeleteTeamHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteTeamResponse
 func (client *Client) DeleteTeamWithOptions(teamId *string, request *DeleteTeamRequest, headers *DeleteTeamHeaders, runtime *util.RuntimeOptions) (_result *DeleteTeamResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3289,6 +4458,13 @@ func (client *Client) DeleteTeamWithOptions(teamId *string, request *DeleteTeamR
 	return _result, _err
 }
 
+// Summary:
+//
+// 删除知识小组
+//
+// @param request - DeleteTeamRequest
+//
+// @return DeleteTeamResponse
 func (client *Client) DeleteTeam(teamId *string, request *DeleteTeamRequest) (_result *DeleteTeamResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeleteTeamHeaders{}
@@ -3301,6 +4477,17 @@ func (client *Client) DeleteTeam(teamId *string, request *DeleteTeamRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询员工离职时知识库默认转交人
+//
+// @param request - GetDefaultHandOverUserRequest
+//
+// @param headers - GetDefaultHandOverUserHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDefaultHandOverUserResponse
 func (client *Client) GetDefaultHandOverUserWithOptions(request *GetDefaultHandOverUserRequest, headers *GetDefaultHandOverUserHeaders, runtime *util.RuntimeOptions) (_result *GetDefaultHandOverUserResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3344,6 +4531,13 @@ func (client *Client) GetDefaultHandOverUserWithOptions(request *GetDefaultHandO
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询员工离职时知识库默认转交人
+//
+// @param request - GetDefaultHandOverUserRequest
+//
+// @return GetDefaultHandOverUserResponse
 func (client *Client) GetDefaultHandOverUser(request *GetDefaultHandOverUserRequest) (_result *GetDefaultHandOverUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDefaultHandOverUserHeaders{}
@@ -3356,6 +4550,17 @@ func (client *Client) GetDefaultHandOverUser(request *GetDefaultHandOverUserRequ
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取我的文档
+//
+// @param request - GetMineWorkspaceRequest
+//
+// @param headers - GetMineWorkspaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetMineWorkspaceResponse
 func (client *Client) GetMineWorkspaceWithOptions(request *GetMineWorkspaceRequest, headers *GetMineWorkspaceHeaders, runtime *util.RuntimeOptions) (_result *GetMineWorkspaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3399,6 +4604,13 @@ func (client *Client) GetMineWorkspaceWithOptions(request *GetMineWorkspaceReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取我的文档
+//
+// @param request - GetMineWorkspaceRequest
+//
+// @return GetMineWorkspaceResponse
 func (client *Client) GetMineWorkspace(request *GetMineWorkspaceRequest) (_result *GetMineWorkspaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetMineWorkspaceHeaders{}
@@ -3411,6 +4623,17 @@ func (client *Client) GetMineWorkspace(request *GetMineWorkspaceRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取节点
+//
+// @param request - GetNodeRequest
+//
+// @param headers - GetNodeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetNodeResponse
 func (client *Client) GetNodeWithOptions(nodeId *string, request *GetNodeRequest, headers *GetNodeHeaders, runtime *util.RuntimeOptions) (_result *GetNodeResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3462,6 +4685,13 @@ func (client *Client) GetNodeWithOptions(nodeId *string, request *GetNodeRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取节点
+//
+// @param request - GetNodeRequest
+//
+// @return GetNodeResponse
 func (client *Client) GetNode(nodeId *string, request *GetNodeRequest) (_result *GetNodeResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetNodeHeaders{}
@@ -3474,6 +4704,17 @@ func (client *Client) GetNode(nodeId *string, request *GetNodeRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过链接获取节点
+//
+// @param request - GetNodeByUrlRequest
+//
+// @param headers - GetNodeByUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetNodeByUrlResponse
 func (client *Client) GetNodeByUrlWithOptions(request *GetNodeByUrlRequest, headers *GetNodeByUrlHeaders, runtime *util.RuntimeOptions) (_result *GetNodeByUrlResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3527,6 +4768,13 @@ func (client *Client) GetNodeByUrlWithOptions(request *GetNodeByUrlRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 通过链接获取节点
+//
+// @param request - GetNodeByUrlRequest
+//
+// @return GetNodeByUrlResponse
 func (client *Client) GetNodeByUrl(request *GetNodeByUrlRequest) (_result *GetNodeByUrlResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetNodeByUrlHeaders{}
@@ -3539,6 +4787,17 @@ func (client *Client) GetNodeByUrl(request *GetNodeByUrlRequest) (_result *GetNo
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取节点
+//
+// @param request - GetNodesRequest
+//
+// @param headers - GetNodesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetNodesResponse
 func (client *Client) GetNodesWithOptions(request *GetNodesRequest, headers *GetNodesHeaders, runtime *util.RuntimeOptions) (_result *GetNodesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3592,6 +4851,13 @@ func (client *Client) GetNodesWithOptions(request *GetNodesRequest, headers *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取节点
+//
+// @param request - GetNodesRequest
+//
+// @return GetNodesResponse
 func (client *Client) GetNodes(request *GetNodesRequest) (_result *GetNodesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetNodesHeaders{}
@@ -3604,6 +4870,17 @@ func (client *Client) GetNodes(request *GetNodesRequest) (_result *GetNodesRespo
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识小组
+//
+// @param request - GetTeamRequest
+//
+// @param headers - GetTeamHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTeamResponse
 func (client *Client) GetTeamWithOptions(teamId *string, request *GetTeamRequest, headers *GetTeamHeaders, runtime *util.RuntimeOptions) (_result *GetTeamResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3647,6 +4924,13 @@ func (client *Client) GetTeamWithOptions(teamId *string, request *GetTeamRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识小组
+//
+// @param request - GetTeamRequest
+//
+// @return GetTeamResponse
 func (client *Client) GetTeam(teamId *string, request *GetTeamRequest) (_result *GetTeamResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetTeamHeaders{}
@@ -3659,6 +4943,17 @@ func (client *Client) GetTeam(teamId *string, request *GetTeamRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识库
+//
+// @param request - GetWorkspaceRequest
+//
+// @param headers - GetWorkspaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetWorkspaceResponse
 func (client *Client) GetWorkspaceWithOptions(workspaceId *string, request *GetWorkspaceRequest, headers *GetWorkspaceHeaders, runtime *util.RuntimeOptions) (_result *GetWorkspaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3706,6 +5001,13 @@ func (client *Client) GetWorkspaceWithOptions(workspaceId *string, request *GetW
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识库
+//
+// @param request - GetWorkspaceRequest
+//
+// @return GetWorkspaceResponse
 func (client *Client) GetWorkspace(workspaceId *string, request *GetWorkspaceRequest) (_result *GetWorkspaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetWorkspaceHeaders{}
@@ -3718,6 +5020,17 @@ func (client *Client) GetWorkspace(workspaceId *string, request *GetWorkspaceReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取知识库
+//
+// @param request - GetWorkspacesRequest
+//
+// @param headers - GetWorkspacesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetWorkspacesResponse
 func (client *Client) GetWorkspacesWithOptions(request *GetWorkspacesRequest, headers *GetWorkspacesHeaders, runtime *util.RuntimeOptions) (_result *GetWorkspacesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3771,6 +5084,13 @@ func (client *Client) GetWorkspacesWithOptions(request *GetWorkspacesRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量获取知识库
+//
+// @param request - GetWorkspacesRequest
+//
+// @return GetWorkspacesResponse
 func (client *Client) GetWorkspaces(request *GetWorkspacesRequest) (_result *GetWorkspacesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetWorkspacesHeaders{}
@@ -3783,6 +5103,17 @@ func (client *Client) GetWorkspaces(request *GetWorkspacesRequest) (_result *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 转交知识库
+//
+// @param request - HandOverWorkspaceRequest
+//
+// @param headers - HandOverWorkspaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HandOverWorkspaceResponse
 func (client *Client) HandOverWorkspaceWithOptions(request *HandOverWorkspaceRequest, headers *HandOverWorkspaceHeaders, runtime *util.RuntimeOptions) (_result *HandOverWorkspaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3840,6 +5171,13 @@ func (client *Client) HandOverWorkspaceWithOptions(request *HandOverWorkspaceReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 转交知识库
+//
+// @param request - HandOverWorkspaceRequest
+//
+// @return HandOverWorkspaceResponse
 func (client *Client) HandOverWorkspace(request *HandOverWorkspaceRequest) (_result *HandOverWorkspaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &HandOverWorkspaceHeaders{}
@@ -3852,6 +5190,17 @@ func (client *Client) HandOverWorkspace(request *HandOverWorkspaceRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取节点列表
+//
+// @param request - ListNodesRequest
+//
+// @param headers - ListNodesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListNodesResponse
 func (client *Client) ListNodesWithOptions(request *ListNodesRequest, headers *ListNodesHeaders, runtime *util.RuntimeOptions) (_result *ListNodesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3911,6 +5260,13 @@ func (client *Client) ListNodesWithOptions(request *ListNodesRequest, headers *L
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取节点列表
+//
+// @param request - ListNodesRequest
+//
+// @return ListNodesResponse
 func (client *Client) ListNodes(request *ListNodesRequest) (_result *ListNodesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListNodesHeaders{}
@@ -3923,6 +5279,102 @@ func (client *Client) ListNodes(request *ListNodesRequest) (_result *ListNodesRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取组织所有知识库列表
+//
+// @param request - ListOrgWorkspacesRequest
+//
+// @param headers - ListOrgWorkspacesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListOrgWorkspacesResponse
+func (client *Client) ListOrgWorkspacesWithOptions(request *ListOrgWorkspacesRequest, headers *ListOrgWorkspacesHeaders, runtime *util.RuntimeOptions) (_result *ListOrgWorkspacesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		query["status"] = request.Status
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListOrgWorkspaces"),
+		Version:     tea.String("wiki_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/wiki/org/workspaces"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListOrgWorkspacesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取组织所有知识库列表
+//
+// @param request - ListOrgWorkspacesRequest
+//
+// @return ListOrgWorkspacesResponse
+func (client *Client) ListOrgWorkspaces(request *ListOrgWorkspacesRequest) (_result *ListOrgWorkspacesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListOrgWorkspacesHeaders{}
+	_result = &ListOrgWorkspacesResponse{}
+	_body, _err := client.ListOrgWorkspacesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取知识小组列表
+//
+// @param request - ListTeamsRequest
+//
+// @param headers - ListTeamsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListTeamsResponse
 func (client *Client) ListTeamsWithOptions(request *ListTeamsRequest, headers *ListTeamsHeaders, runtime *util.RuntimeOptions) (_result *ListTeamsResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3974,6 +5426,13 @@ func (client *Client) ListTeamsWithOptions(request *ListTeamsRequest, headers *L
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识小组列表
+//
+// @param request - ListTeamsRequest
+//
+// @return ListTeamsResponse
 func (client *Client) ListTeams(request *ListTeamsRequest) (_result *ListTeamsResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListTeamsHeaders{}
@@ -3986,6 +5445,17 @@ func (client *Client) ListTeams(request *ListTeamsRequest) (_result *ListTeamsRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识库列表
+//
+// @param request - ListWorkspacesRequest
+//
+// @param headers - ListWorkspacesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListWorkspacesResponse
 func (client *Client) ListWorkspacesWithOptions(request *ListWorkspacesRequest, headers *ListWorkspacesHeaders, runtime *util.RuntimeOptions) (_result *ListWorkspacesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4049,6 +5519,13 @@ func (client *Client) ListWorkspacesWithOptions(request *ListWorkspacesRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取知识库列表
+//
+// @param request - ListWorkspacesRequest
+//
+// @return ListWorkspacesResponse
 func (client *Client) ListWorkspaces(request *ListWorkspacesRequest) (_result *ListWorkspacesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListWorkspacesHeaders{}
@@ -4061,6 +5538,17 @@ func (client *Client) ListWorkspaces(request *ListWorkspacesRequest) (_result *L
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置员工离职时知识库默认转交人
+//
+// @param request - SetDefaultHandOverUserRequest
+//
+// @param headers - SetDefaultHandOverUserHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetDefaultHandOverUserResponse
 func (client *Client) SetDefaultHandOverUserWithOptions(request *SetDefaultHandOverUserRequest, headers *SetDefaultHandOverUserHeaders, runtime *util.RuntimeOptions) (_result *SetDefaultHandOverUserResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4110,6 +5598,13 @@ func (client *Client) SetDefaultHandOverUserWithOptions(request *SetDefaultHandO
 	return _result, _err
 }
 
+// Summary:
+//
+// 设置员工离职时知识库默认转交人
+//
+// @param request - SetDefaultHandOverUserRequest
+//
+// @return SetDefaultHandOverUserResponse
 func (client *Client) SetDefaultHandOverUser(request *SetDefaultHandOverUserRequest) (_result *SetDefaultHandOverUserResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SetDefaultHandOverUserHeaders{}

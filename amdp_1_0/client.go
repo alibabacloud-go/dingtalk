@@ -1,17 +1,152 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package amdp_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
+
+type AmdpEmpRoleDataPushHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AmdpEmpRoleDataPushHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AmdpEmpRoleDataPushHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AmdpEmpRoleDataPushHeaders) SetCommonHeaders(v map[string]*string) *AmdpEmpRoleDataPushHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AmdpEmpRoleDataPushHeaders) SetXAcsDingtalkAccessToken(v string) *AmdpEmpRoleDataPushHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AmdpEmpRoleDataPushRequest struct {
+	Param []*AmdpEmpRoleDataPushRequestParam `json:"param,omitempty" xml:"param,omitempty" type:"Repeated"`
+}
+
+func (s AmdpEmpRoleDataPushRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AmdpEmpRoleDataPushRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AmdpEmpRoleDataPushRequest) SetParam(v []*AmdpEmpRoleDataPushRequestParam) *AmdpEmpRoleDataPushRequest {
+	s.Param = v
+	return s
+}
+
+type AmdpEmpRoleDataPushRequestParam struct {
+	DeptId   *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	IsDelete *string `json:"isDelete,omitempty" xml:"isDelete,omitempty"`
+	RoleCode *string `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s AmdpEmpRoleDataPushRequestParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AmdpEmpRoleDataPushRequestParam) GoString() string {
+	return s.String()
+}
+
+func (s *AmdpEmpRoleDataPushRequestParam) SetDeptId(v string) *AmdpEmpRoleDataPushRequestParam {
+	s.DeptId = &v
+	return s
+}
+
+func (s *AmdpEmpRoleDataPushRequestParam) SetIsDelete(v string) *AmdpEmpRoleDataPushRequestParam {
+	s.IsDelete = &v
+	return s
+}
+
+func (s *AmdpEmpRoleDataPushRequestParam) SetRoleCode(v string) *AmdpEmpRoleDataPushRequestParam {
+	s.RoleCode = &v
+	return s
+}
+
+func (s *AmdpEmpRoleDataPushRequestParam) SetUserId(v string) *AmdpEmpRoleDataPushRequestParam {
+	s.UserId = &v
+	return s
+}
+
+type AmdpEmpRoleDataPushResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Status    *string `json:"status,omitempty" xml:"status,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AmdpEmpRoleDataPushResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AmdpEmpRoleDataPushResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AmdpEmpRoleDataPushResponseBody) SetRequestId(v string) *AmdpEmpRoleDataPushResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *AmdpEmpRoleDataPushResponseBody) SetResult(v bool) *AmdpEmpRoleDataPushResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *AmdpEmpRoleDataPushResponseBody) SetStatus(v string) *AmdpEmpRoleDataPushResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *AmdpEmpRoleDataPushResponseBody) SetSuccess(v bool) *AmdpEmpRoleDataPushResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AmdpEmpRoleDataPushResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AmdpEmpRoleDataPushResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AmdpEmpRoleDataPushResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AmdpEmpRoleDataPushResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AmdpEmpRoleDataPushResponse) SetHeaders(v map[string]*string) *AmdpEmpRoleDataPushResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AmdpEmpRoleDataPushResponse) SetStatusCode(v int32) *AmdpEmpRoleDataPushResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AmdpEmpRoleDataPushResponse) SetBody(v *AmdpEmpRoleDataPushResponseBody) *AmdpEmpRoleDataPushResponse {
+	s.Body = v
+	return s
+}
 
 type AmdpEmployeeDataPushHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
@@ -487,12 +622,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -501,6 +636,90 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 人员角色数据推送
+//
+// @param request - AmdpEmpRoleDataPushRequest
+//
+// @param headers - AmdpEmpRoleDataPushHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AmdpEmpRoleDataPushResponse
+func (client *Client) AmdpEmpRoleDataPushWithOptions(request *AmdpEmpRoleDataPushRequest, headers *AmdpEmpRoleDataPushHeaders, runtime *util.RuntimeOptions) (_result *AmdpEmpRoleDataPushResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		body["param"] = request.Param
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AmdpEmpRoleDataPush"),
+		Version:     tea.String("amdp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/amdp/employeeRoles/datas/push"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AmdpEmpRoleDataPushResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 人员角色数据推送
+//
+// @param request - AmdpEmpRoleDataPushRequest
+//
+// @return AmdpEmpRoleDataPushResponse
+func (client *Client) AmdpEmpRoleDataPush(request *AmdpEmpRoleDataPushRequest) (_result *AmdpEmpRoleDataPushResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AmdpEmpRoleDataPushHeaders{}
+	_result = &AmdpEmpRoleDataPushResponse{}
+	_body, _err := client.AmdpEmpRoleDataPushWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 人员数据推送
+//
+// @param request - AmdpEmployeeDataPushRequest
+//
+// @param headers - AmdpEmployeeDataPushHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AmdpEmployeeDataPushResponse
 func (client *Client) AmdpEmployeeDataPushWithOptions(request *AmdpEmployeeDataPushRequest, headers *AmdpEmployeeDataPushHeaders, runtime *util.RuntimeOptions) (_result *AmdpEmployeeDataPushResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -544,6 +763,13 @@ func (client *Client) AmdpEmployeeDataPushWithOptions(request *AmdpEmployeeDataP
 	return _result, _err
 }
 
+// Summary:
+//
+// 人员数据推送
+//
+// @param request - AmdpEmployeeDataPushRequest
+//
+// @return AmdpEmployeeDataPushResponse
 func (client *Client) AmdpEmployeeDataPush(request *AmdpEmployeeDataPushRequest) (_result *AmdpEmployeeDataPushResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AmdpEmployeeDataPushHeaders{}
@@ -556,6 +782,17 @@ func (client *Client) AmdpEmployeeDataPush(request *AmdpEmployeeDataPushRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 任职数据推送
+//
+// @param request - AmdpJobPositionDataPushRequest
+//
+// @param headers - AmdpJobPositionDataPushHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AmdpJobPositionDataPushResponse
 func (client *Client) AmdpJobPositionDataPushWithOptions(request *AmdpJobPositionDataPushRequest, headers *AmdpJobPositionDataPushHeaders, runtime *util.RuntimeOptions) (_result *AmdpJobPositionDataPushResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -599,6 +836,13 @@ func (client *Client) AmdpJobPositionDataPushWithOptions(request *AmdpJobPositio
 	return _result, _err
 }
 
+// Summary:
+//
+// 任职数据推送
+//
+// @param request - AmdpJobPositionDataPushRequest
+//
+// @return AmdpJobPositionDataPushResponse
 func (client *Client) AmdpJobPositionDataPush(request *AmdpJobPositionDataPushRequest) (_result *AmdpJobPositionDataPushResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AmdpJobPositionDataPushHeaders{}
@@ -611,6 +855,17 @@ func (client *Client) AmdpJobPositionDataPush(request *AmdpJobPositionDataPushRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 组织部门数据推送
+//
+// @param request - AmdpOrganizationDataPushRequest
+//
+// @param headers - AmdpOrganizationDataPushHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AmdpOrganizationDataPushResponse
 func (client *Client) AmdpOrganizationDataPushWithOptions(request *AmdpOrganizationDataPushRequest, headers *AmdpOrganizationDataPushHeaders, runtime *util.RuntimeOptions) (_result *AmdpOrganizationDataPushResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -654,6 +909,13 @@ func (client *Client) AmdpOrganizationDataPushWithOptions(request *AmdpOrganizat
 	return _result, _err
 }
 
+// Summary:
+//
+// 组织部门数据推送
+//
+// @param request - AmdpOrganizationDataPushRequest
+//
+// @return AmdpOrganizationDataPushResponse
 func (client *Client) AmdpOrganizationDataPush(request *AmdpOrganizationDataPushRequest) (_result *AmdpOrganizationDataPushResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &AmdpOrganizationDataPushHeaders{}

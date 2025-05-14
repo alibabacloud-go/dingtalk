@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package conv_file_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,8 +33,18 @@ func (s *GetSpaceHeaders) SetXAcsDingtalkAccessToken(v string) *GetSpaceHeaders 
 }
 
 type GetSpaceRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// open_conversation_id
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	UnionId            *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s GetSpaceRequest) String() string {
@@ -77,8 +83,17 @@ func (s *GetSpaceResponseBody) SetSpace(v *GetSpaceResponseBodySpace) *GetSpaceR
 }
 
 type GetSpaceResponseBodySpace struct {
-	CorpId       *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	CreateTime   *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// corp_id
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
 	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
 	SpaceId      *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 }
@@ -164,10 +179,30 @@ func (s *SendHeaders) SetXAcsDingtalkAccessToken(v string) *SendHeaders {
 }
 
 type SendRequest struct {
-	DentryId           *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// file_id
+	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// open_conversation_id
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	SpaceId            *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	UnionId            *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s SendRequest) String() string {
@@ -216,22 +251,70 @@ func (s *SendResponseBody) SetFile(v *SendResponseBodyFile) *SendResponseBody {
 }
 
 type SendResponseBodyFile struct {
+	// example:
+	//
+	// open_conversation_id
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId      *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Extension      *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	Id             *string `json:"id,omitempty" xml:"id,omitempty"`
-	ModifiedTime   *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId     *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
-	ParentId       *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	Path           *string `json:"path,omitempty" xml:"path,omitempty"`
-	Size           *int64  `json:"size,omitempty" xml:"size,omitempty"`
-	SpaceId        *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
-	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
-	Uuid           *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	Version        *int64  `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// txt
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// file_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// modified_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// file_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// parent_id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// file_path
+	Path *string `json:"path,omitempty" xml:"path,omitempty"`
+	// example:
+	//
+	// 256
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// file
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// uuid
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s SendResponseBodyFile) String() string {
@@ -375,9 +458,24 @@ func (s *SendByAppHeaders) SetXAcsDingtalkAccessToken(v string) *SendByAppHeader
 }
 
 type SendByAppRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// file_id
 	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
-	SpaceId  *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	UnionId  *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s SendByAppRequest) String() string {
@@ -421,22 +519,70 @@ func (s *SendByAppResponseBody) SetFile(v *SendByAppResponseBodyFile) *SendByApp
 }
 
 type SendByAppResponseBodyFile struct {
+	// example:
+	//
+	// open_conversation_id
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId      *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Extension      *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	Id             *string `json:"id,omitempty" xml:"id,omitempty"`
-	ModifiedTime   *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId     *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
-	ParentId       *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	Path           *string `json:"path,omitempty" xml:"path,omitempty"`
-	Size           *int64  `json:"size,omitempty" xml:"size,omitempty"`
-	SpaceId        *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
-	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
-	Uuid           *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	Version        *int64  `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// txt
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// file_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// modified_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// file_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// parent_id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// file_path
+	Path *string `json:"path,omitempty" xml:"path,omitempty"`
+	// example:
+	//
+	// 256
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// file
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// uuid
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s SendByAppResponseBodyFile) String() string {
@@ -580,10 +726,30 @@ func (s *SendLinkHeaders) SetXAcsDingtalkAccessToken(v string) *SendLinkHeaders 
 }
 
 type SendLinkRequest struct {
-	DentryId           *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// file_id
+	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// open_conversation_id
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	SpaceId            *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	UnionId            *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s SendLinkRequest) String() string {
@@ -632,22 +798,70 @@ func (s *SendLinkResponseBody) SetFile(v *SendLinkResponseBodyFile) *SendLinkRes
 }
 
 type SendLinkResponseBodyFile struct {
+	// example:
+	//
+	// open_conversation_id
 	ConversationId *string `json:"conversationId,omitempty" xml:"conversationId,omitempty"`
-	CreateTime     *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorId      *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Extension      *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	Id             *string `json:"id,omitempty" xml:"id,omitempty"`
-	ModifiedTime   *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
-	ModifierId     *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
-	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
-	ParentId       *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
-	Path           *string `json:"path,omitempty" xml:"path,omitempty"`
-	Size           *int64  `json:"size,omitempty" xml:"size,omitempty"`
-	SpaceId        *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
-	Type           *string `json:"type,omitempty" xml:"type,omitempty"`
-	Uuid           *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
-	Version        *int64  `json:"version,omitempty" xml:"version,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// example:
+	//
+	// creator_id
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// example:
+	//
+	// txt
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// file_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 2022-01-01T10:00:00Z
+	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// modified_id
+	ModifierId *string `json:"modifierId,omitempty" xml:"modifierId,omitempty"`
+	// example:
+	//
+	// file_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// parent_id
+	ParentId *string `json:"parentId,omitempty" xml:"parentId,omitempty"`
+	// example:
+	//
+	// file_path
+	Path *string `json:"path,omitempty" xml:"path,omitempty"`
+	// example:
+	//
+	// 256
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// example:
+	//
+	// space_id
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// example:
+	//
+	// NORMAL
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// file
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// uuid
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// 1
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s SendLinkResponseBodyFile) String() string {
@@ -782,12 +996,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -796,6 +1010,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 获取IM会话存储空间信息
+//
+// @param request - GetSpaceRequest
+//
+// @param headers - GetSpaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSpaceResponse
 func (client *Client) GetSpaceWithOptions(request *GetSpaceRequest, headers *GetSpaceHeaders, runtime *util.RuntimeOptions) (_result *GetSpaceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -845,6 +1070,13 @@ func (client *Client) GetSpaceWithOptions(request *GetSpaceRequest, headers *Get
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取IM会话存储空间信息
+//
+// @param request - GetSpaceRequest
+//
+// @return GetSpaceResponse
 func (client *Client) GetSpace(request *GetSpaceRequest) (_result *GetSpaceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetSpaceHeaders{}
@@ -857,6 +1089,17 @@ func (client *Client) GetSpace(request *GetSpaceRequest) (_result *GetSpaceRespo
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送文件到指定会话
+//
+// @param request - SendRequest
+//
+// @param headers - SendHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendResponse
 func (client *Client) SendWithOptions(request *SendRequest, headers *SendHeaders, runtime *util.RuntimeOptions) (_result *SendResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -914,6 +1157,13 @@ func (client *Client) SendWithOptions(request *SendRequest, headers *SendHeaders
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送文件到指定会话
+//
+// @param request - SendRequest
+//
+// @return SendResponse
 func (client *Client) Send(request *SendRequest) (_result *SendResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendHeaders{}
@@ -926,6 +1176,17 @@ func (client *Client) Send(request *SendRequest) (_result *SendResponse, _err er
 	return _result, _err
 }
 
+// Summary:
+//
+// 以应用身份发送文件给自己
+//
+// @param request - SendByAppRequest
+//
+// @param headers - SendByAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendByAppResponse
 func (client *Client) SendByAppWithOptions(request *SendByAppRequest, headers *SendByAppHeaders, runtime *util.RuntimeOptions) (_result *SendByAppResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -979,6 +1240,13 @@ func (client *Client) SendByAppWithOptions(request *SendByAppRequest, headers *S
 	return _result, _err
 }
 
+// Summary:
+//
+// 以应用身份发送文件给自己
+//
+// @param request - SendByAppRequest
+//
+// @return SendByAppResponse
 func (client *Client) SendByApp(request *SendByAppRequest) (_result *SendByAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendByAppHeaders{}
@@ -991,6 +1259,17 @@ func (client *Client) SendByApp(request *SendByAppRequest) (_result *SendByAppRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送文件链接到指定会话
+//
+// @param request - SendLinkRequest
+//
+// @param headers - SendLinkHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendLinkResponse
 func (client *Client) SendLinkWithOptions(request *SendLinkRequest, headers *SendLinkHeaders, runtime *util.RuntimeOptions) (_result *SendLinkResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1048,6 +1327,13 @@ func (client *Client) SendLinkWithOptions(request *SendLinkRequest, headers *Sen
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送文件链接到指定会话
+//
+// @param request - SendLinkRequest
+//
+// @return SendLinkResponse
 func (client *Client) SendLink(request *SendLinkRequest) (_result *SendLinkResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendLinkHeaders{}

@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package ai_interaction_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,6 +33,7 @@ func (s *FinishHeaders) SetXAcsDingtalkAccessToken(v string) *FinishHeaders {
 }
 
 type FinishRequest struct {
+	// This parameter is required.
 	ConversationToken *string `json:"conversationToken,omitempty" xml:"conversationToken,omitempty"`
 }
 
@@ -140,7 +137,8 @@ func (s *PrepareHeaders) SetXAcsDingtalkAccessToken(v string) *PrepareHeaders {
 }
 
 type PrepareRequest struct {
-	Content            *string `json:"content,omitempty" xml:"content,omitempty"`
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
 	ContentType        *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	UnionId            *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
@@ -261,8 +259,10 @@ func (s *ReplyHeaders) SetXAcsDingtalkAccessToken(v string) *ReplyHeaders {
 }
 
 type ReplyRequest struct {
-	Content           *string `json:"content,omitempty" xml:"content,omitempty"`
-	ContentType       *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	// This parameter is required.
 	ConversationToken *string `json:"conversationToken,omitempty" xml:"conversationToken,omitempty"`
 }
 
@@ -376,7 +376,8 @@ func (s *SendHeaders) SetXAcsDingtalkAccessToken(v string) *SendHeaders {
 }
 
 type SendRequest struct {
-	Content            *string `json:"content,omitempty" xml:"content,omitempty"`
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
 	ContentType        *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	UnionId            *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
@@ -411,7 +412,8 @@ func (s *SendRequest) SetUnionId(v string) *SendRequest {
 }
 
 type SendResponseBody struct {
-	Result *SendResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
 func (s SendResponseBody) String() string {
@@ -422,24 +424,7 @@ func (s SendResponseBody) GoString() string {
 	return s.String()
 }
 
-func (s *SendResponseBody) SetResult(v *SendResponseBodyResult) *SendResponseBody {
-	s.Result = v
-	return s
-}
-
-type SendResponseBodyResult struct {
-	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
-}
-
-func (s SendResponseBodyResult) String() string {
-	return tea.Prettify(s)
-}
-
-func (s SendResponseBodyResult) GoString() string {
-	return s.String()
-}
-
-func (s *SendResponseBodyResult) SetSuccess(v bool) *SendResponseBodyResult {
+func (s *SendResponseBody) SetSuccess(v bool) *SendResponseBody {
 	s.Success = &v
 	return s
 }
@@ -497,8 +482,11 @@ func (s *UpdateHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateHeaders {
 }
 
 type UpdateRequest struct {
-	Content           *string `json:"content,omitempty" xml:"content,omitempty"`
-	ContentType       *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	// This parameter is required.
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	// This parameter is required.
 	ConversationToken *string `json:"conversationToken,omitempty" xml:"conversationToken,omitempty"`
 }
 
@@ -603,12 +591,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -617,6 +605,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 在主动模式下完结会话框
+//
+// @param request - FinishRequest
+//
+// @param headers - FinishHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return FinishResponse
 func (client *Client) FinishWithOptions(request *FinishRequest, headers *FinishHeaders, runtime *util.RuntimeOptions) (_result *FinishResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -660,6 +659,13 @@ func (client *Client) FinishWithOptions(request *FinishRequest, headers *FinishH
 	return _result, _err
 }
 
+// Summary:
+//
+// 在主动模式下完结会话框
+//
+// @param request - FinishRequest
+//
+// @return FinishResponse
 func (client *Client) Finish(request *FinishRequest) (_result *FinishResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &FinishHeaders{}
@@ -672,6 +678,17 @@ func (client *Client) Finish(request *FinishRequest) (_result *FinishResponse, _
 	return _result, _err
 }
 
+// Summary:
+//
+// 在主动模式下准备会话框
+//
+// @param request - PrepareRequest
+//
+// @param headers - PrepareHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PrepareResponse
 func (client *Client) PrepareWithOptions(request *PrepareRequest, headers *PrepareHeaders, runtime *util.RuntimeOptions) (_result *PrepareResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -727,6 +744,13 @@ func (client *Client) PrepareWithOptions(request *PrepareRequest, headers *Prepa
 	return _result, _err
 }
 
+// Summary:
+//
+// 在主动模式下准备会话框
+//
+// @param request - PrepareRequest
+//
+// @return PrepareResponse
 func (client *Client) Prepare(request *PrepareRequest) (_result *PrepareResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PrepareHeaders{}
@@ -739,6 +763,17 @@ func (client *Client) Prepare(request *PrepareRequest) (_result *PrepareResponse
 	return _result, _err
 }
 
+// Summary:
+//
+// 在回复模式下更新会话框
+//
+// @param request - ReplyRequest
+//
+// @param headers - ReplyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ReplyResponse
 func (client *Client) ReplyWithOptions(request *ReplyRequest, headers *ReplyHeaders, runtime *util.RuntimeOptions) (_result *ReplyResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -790,6 +825,13 @@ func (client *Client) ReplyWithOptions(request *ReplyRequest, headers *ReplyHead
 	return _result, _err
 }
 
+// Summary:
+//
+// 在回复模式下更新会话框
+//
+// @param request - ReplyRequest
+//
+// @return ReplyResponse
 func (client *Client) Reply(request *ReplyRequest) (_result *ReplyResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ReplyHeaders{}
@@ -802,6 +844,17 @@ func (client *Client) Reply(request *ReplyRequest) (_result *ReplyResponse, _err
 	return _result, _err
 }
 
+// Summary:
+//
+// 直接发送消息
+//
+// @param request - SendRequest
+//
+// @param headers - SendHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendResponse
 func (client *Client) SendWithOptions(request *SendRequest, headers *SendHeaders, runtime *util.RuntimeOptions) (_result *SendResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -857,6 +910,13 @@ func (client *Client) SendWithOptions(request *SendRequest, headers *SendHeaders
 	return _result, _err
 }
 
+// Summary:
+//
+// 直接发送消息
+//
+// @param request - SendRequest
+//
+// @return SendResponse
 func (client *Client) Send(request *SendRequest) (_result *SendResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendHeaders{}
@@ -869,6 +929,17 @@ func (client *Client) Send(request *SendRequest) (_result *SendResponse, _err er
 	return _result, _err
 }
 
+// Summary:
+//
+// 在主动模式下更新会话框
+//
+// @param request - UpdateRequest
+//
+// @param headers - UpdateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateResponse
 func (client *Client) UpdateWithOptions(request *UpdateRequest, headers *UpdateHeaders, runtime *util.RuntimeOptions) (_result *UpdateResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -920,6 +991,13 @@ func (client *Client) UpdateWithOptions(request *UpdateRequest, headers *UpdateH
 	return _result, _err
 }
 
+// Summary:
+//
+// 在主动模式下更新会话框
+//
+// @param request - UpdateRequest
+//
+// @return UpdateResponse
 func (client *Client) Update(request *UpdateRequest) (_result *UpdateResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateHeaders{}

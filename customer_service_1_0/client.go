@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package customer_service_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,14 +33,22 @@ func (s *CreateTicketHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTicket
 }
 
 type CreateTicketRequest struct {
-	ForeignId      *string                          `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
-	ForeignName    *string                          `json:"foreignName,omitempty" xml:"foreignName,omitempty"`
-	OpenInstanceId *string                          `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
+	// This parameter is required.
+	ForeignId *string `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
+	// This parameter is required.
+	ForeignName    *string `json:"foreignName,omitempty" xml:"foreignName,omitempty"`
+	OpenInstanceId *string `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
+	// example:
+	//
+	// 1
 	ProductionType *int32                           `json:"productionType,omitempty" xml:"productionType,omitempty"`
 	Properties     []*CreateTicketRequestProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Repeated"`
-	SourceId       *string                          `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
-	TemplateId     *string                          `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	Title          *string                          `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	SourceId *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	// This parameter is required.
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// This parameter is required.
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateTicketRequest) String() string {
@@ -96,7 +100,13 @@ func (s *CreateTicketRequest) SetTitle(v string) *CreateTicketRequest {
 }
 
 type CreateTicketRequestProperties struct {
-	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 字段名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 字段取值
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -188,13 +198,27 @@ func (s *ExecuteActivityHeaders) SetXAcsDingtalkAccessToken(v string) *ExecuteAc
 }
 
 type ExecuteActivityRequest struct {
-	ActivityCode   *string                             `json:"activityCode,omitempty" xml:"activityCode,omitempty"`
-	ForeignId      *string                             `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
-	ForeignName    *string                             `json:"foreignName,omitempty" xml:"foreignName,omitempty"`
-	OpenInstanceId *string                             `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
+	// This parameter is required.
+	ActivityCode *string `json:"activityCode,omitempty" xml:"activityCode,omitempty"`
+	// This parameter is required.
+	ForeignId *string `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
+	// This parameter is required.
+	ForeignName *string `json:"foreignName,omitempty" xml:"foreignName,omitempty"`
+	// example:
+	//
+	// default
+	OpenInstanceId *string `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
+	// example:
+	//
+	// 1
 	ProductionType *int32                              `json:"productionType,omitempty" xml:"productionType,omitempty"`
 	Properties     []*ExecuteActivityRequestProperties `json:"properties,omitempty" xml:"properties,omitempty" type:"Repeated"`
-	SourceId       *string                             `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dcd6cb6b-b537-493c-8953-3507700e9c4b
+	SourceId *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
 }
 
 func (s ExecuteActivityRequest) String() string {
@@ -496,10 +520,26 @@ func (s *PageListActionHeaders) SetXAcsDingtalkAccessToken(v string) *PageListAc
 }
 
 type PageListActionRequest struct {
-	MaxResults     *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken      *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	MaxResults *int64 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// default
 	OpenInstanceId *string `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
-	ProductionType *int64  `json:"productionType,omitempty" xml:"productionType,omitempty"`
+	// example:
+	//
+	// 1
+	ProductionType *int64 `json:"productionType,omitempty" xml:"productionType,omitempty"`
 }
 
 func (s PageListActionRequest) String() string {
@@ -694,11 +734,28 @@ func (s *PageListRobotHeaders) SetXAcsDingtalkAccessToken(v string) *PageListRob
 }
 
 type PageListRobotRequest struct {
-	CorpId         *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
-	MaxResults     *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken      *int64  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 50
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// default
 	OpenInstanceId *string `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
-	ProductionType *int32  `json:"productionType,omitempty" xml:"productionType,omitempty"`
+	// example:
+	//
+	// 1
+	ProductionType *int32 `json:"productionType,omitempty" xml:"productionType,omitempty"`
 }
 
 func (s PageListRobotRequest) String() string {
@@ -735,10 +792,19 @@ func (s *PageListRobotRequest) SetProductionType(v int32) *PageListRobotRequest 
 }
 
 type PageListRobotResponseBody struct {
-	HasMore    *bool                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	List       []*PageListRobotResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
-	NextCursor *int64                           `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
-	Total      *int64                           `json:"total,omitempty" xml:"total,omitempty"`
+	// example:
+	//
+	// true
+	HasMore *bool                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List    []*PageListRobotResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 50
+	NextCursor *int64 `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	// example:
+	//
+	// 90
+	Total *int64 `json:"total,omitempty" xml:"total,omitempty"`
 }
 
 func (s PageListRobotResponseBody) String() string {
@@ -770,11 +836,26 @@ func (s *PageListRobotResponseBody) SetTotal(v int64) *PageListRobotResponseBody
 }
 
 type PageListRobotResponseBodyList struct {
-	AccountId *int64  `json:"accountId,omitempty" xml:"accountId,omitempty"`
-	AppKey    *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
-	Id        *int64  `json:"id,omitempty" xml:"id,omitempty"`
-	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
-	Status    *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 32001
+	AccountId *int64 `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	// example:
+	//
+	// U1xup2nKKQ9zwXynjpAHVDOD
+	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	// example:
+	//
+	// 62703378
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 测试的机器人
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s PageListRobotResponseBodyList) String() string {
@@ -863,17 +944,38 @@ func (s *PageListTicketHeaders) SetXAcsDingtalkAccessToken(v string) *PageListTi
 }
 
 type PageListTicketRequest struct {
-	EndTime        *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	ForeignId      *string `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
-	MaxResults     *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken      *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	EndTime   *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	ForeignId *string `json:"foreignId,omitempty" xml:"foreignId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// default
 	OpenInstanceId *string `json:"openInstanceId,omitempty" xml:"openInstanceId,omitempty"`
+	// example:
+	//
+	// 1
 	ProductionType *int32  `json:"productionType,omitempty" xml:"productionType,omitempty"`
 	SourceId       *string `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
 	StartTime      *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
-	TemplateId     *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	TicketId       *string `json:"ticketId,omitempty" xml:"ticketId,omitempty"`
-	TicketStatus   *string `json:"ticketStatus,omitempty" xml:"ticketStatus,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 42
+	TemplateId   *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	TicketId     *string `json:"ticketId,omitempty" xml:"ticketId,omitempty"`
+	TicketStatus *string `json:"ticketStatus,omitempty" xml:"ticketStatus,omitempty"`
 }
 
 func (s PageListTicketRequest) String() string {
@@ -1095,12 +1197,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -1109,6 +1211,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 创建工单
+//
+// @param request - CreateTicketRequest
+//
+// @param headers - CreateTicketHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateTicketResponse
 func (client *Client) CreateTicketWithOptions(request *CreateTicketRequest, headers *CreateTicketHeaders, runtime *util.RuntimeOptions) (_result *CreateTicketResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1180,6 +1293,13 @@ func (client *Client) CreateTicketWithOptions(request *CreateTicketRequest, head
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建工单
+//
+// @param request - CreateTicketRequest
+//
+// @return CreateTicketResponse
 func (client *Client) CreateTicket(request *CreateTicketRequest) (_result *CreateTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateTicketHeaders{}
@@ -1192,6 +1312,17 @@ func (client *Client) CreateTicket(request *CreateTicketRequest) (_result *Creat
 	return _result, _err
 }
 
+// Summary:
+//
+// 执行工单活动
+//
+// @param request - ExecuteActivityRequest
+//
+// @param headers - ExecuteActivityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExecuteActivityResponse
 func (client *Client) ExecuteActivityWithOptions(ticketId *string, request *ExecuteActivityRequest, headers *ExecuteActivityHeaders, runtime *util.RuntimeOptions) (_result *ExecuteActivityResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1259,6 +1390,13 @@ func (client *Client) ExecuteActivityWithOptions(ticketId *string, request *Exec
 	return _result, _err
 }
 
+// Summary:
+//
+// 执行工单活动
+//
+// @param request - ExecuteActivityRequest
+//
+// @return ExecuteActivityResponse
 func (client *Client) ExecuteActivity(ticketId *string, request *ExecuteActivityRequest) (_result *ExecuteActivityResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ExecuteActivityHeaders{}
@@ -1271,6 +1409,17 @@ func (client *Client) ExecuteActivity(ticketId *string, request *ExecuteActivity
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取source列表
+//
+// @param request - GetUserSourceListRequest
+//
+// @param headers - GetUserSourceListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserSourceListResponse
 func (client *Client) GetUserSourceListWithOptions(request *GetUserSourceListRequest, headers *GetUserSourceListHeaders, runtime *util.RuntimeOptions) (_result *GetUserSourceListResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1334,6 +1483,13 @@ func (client *Client) GetUserSourceListWithOptions(request *GetUserSourceListReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取source列表
+//
+// @param request - GetUserSourceListRequest
+//
+// @return GetUserSourceListResponse
 func (client *Client) GetUserSourceList(request *GetUserSourceListRequest) (_result *GetUserSourceListResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetUserSourceListHeaders{}
@@ -1346,6 +1502,17 @@ func (client *Client) GetUserSourceList(request *GetUserSourceListRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询动作记录
+//
+// @param request - PageListActionRequest
+//
+// @param headers - PageListActionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PageListActionResponse
 func (client *Client) PageListActionWithOptions(ticketId *string, request *PageListActionRequest, headers *PageListActionHeaders, runtime *util.RuntimeOptions) (_result *PageListActionResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1401,6 +1568,13 @@ func (client *Client) PageListActionWithOptions(ticketId *string, request *PageL
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询动作记录
+//
+// @param request - PageListActionRequest
+//
+// @return PageListActionResponse
 func (client *Client) PageListAction(ticketId *string, request *PageListActionRequest) (_result *PageListActionResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PageListActionHeaders{}
@@ -1413,6 +1587,17 @@ func (client *Client) PageListAction(ticketId *string, request *PageListActionRe
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页查询机器人信息
+//
+// @param request - PageListRobotRequest
+//
+// @param headers - PageListRobotHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PageListRobotResponse
 func (client *Client) PageListRobotWithOptions(request *PageListRobotRequest, headers *PageListRobotHeaders, runtime *util.RuntimeOptions) (_result *PageListRobotResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1472,6 +1657,13 @@ func (client *Client) PageListRobotWithOptions(request *PageListRobotRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页查询机器人信息
+//
+// @param request - PageListRobotRequest
+//
+// @return PageListRobotResponse
 func (client *Client) PageListRobot(request *PageListRobotRequest) (_result *PageListRobotResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PageListRobotHeaders{}
@@ -1484,6 +1676,17 @@ func (client *Client) PageListRobot(request *PageListRobotRequest) (_result *Pag
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页查询工单
+//
+// @param request - PageListTicketRequest
+//
+// @param headers - PageListTicketHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PageListTicketResponse
 func (client *Client) PageListTicketWithOptions(request *PageListTicketRequest, headers *PageListTicketHeaders, runtime *util.RuntimeOptions) (_result *PageListTicketResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -1567,6 +1770,13 @@ func (client *Client) PageListTicketWithOptions(request *PageListTicketRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 分页查询工单
+//
+// @param request - PageListTicketRequest
+//
+// @return PageListTicketResponse
 func (client *Client) PageListTicket(request *PageListTicketRequest) (_result *PageListTicketResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PageListTicketHeaders{}

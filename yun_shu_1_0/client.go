@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package yun_shu_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,10 +33,30 @@ func (s *SaveOpenExternalLogHeaders) SetXAcsDingtalkAccessToken(v string) *SaveO
 }
 
 type SaveOpenExternalLogRequest struct {
-	CorpId    *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingf8d907412a586
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// yunshu
 	LogSource *string `json:"logSource,omitempty" xml:"logSource,omitempty"`
-	LogType   *string `json:"logType,omitempty" xml:"logType,omitempty"`
-	OpenExt   *string `json:"openExt,omitempty" xml:"openExt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// terminalInfo
+	LogType *string `json:"logType,omitempty" xml:"logType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// [{"date":"2023-05-10","macAddress":"34-2E-B7-AF-EA-JF","devSn":"68D1F0-B76A-5CC9-BCFC-BD7548BA","staffId":"05166141678164"}]
+	OpenExt *string `json:"openExt,omitempty" xml:"openExt,omitempty"`
 }
 
 func (s SaveOpenExternalLogRequest) String() string {
@@ -132,12 +148,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -146,6 +162,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 生态日志数据互通
+//
+// @param request - SaveOpenExternalLogRequest
+//
+// @param headers - SaveOpenExternalLogHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SaveOpenExternalLogResponse
 func (client *Client) SaveOpenExternalLogWithOptions(request *SaveOpenExternalLogRequest, headers *SaveOpenExternalLogHeaders, runtime *util.RuntimeOptions) (_result *SaveOpenExternalLogResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -201,6 +228,13 @@ func (client *Client) SaveOpenExternalLogWithOptions(request *SaveOpenExternalLo
 	return _result, _err
 }
 
+// Summary:
+//
+// 生态日志数据互通
+//
+// @param request - SaveOpenExternalLogRequest
+//
+// @return SaveOpenExternalLogResponse
 func (client *Client) SaveOpenExternalLog(request *SaveOpenExternalLogRequest) (_result *SaveOpenExternalLogResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SaveOpenExternalLogHeaders{}

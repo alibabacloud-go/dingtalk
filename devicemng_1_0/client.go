@@ -1,15 +1,11 @@
 // This file is auto-generated, don't edit it. Thanks.
-/**
- *
- */
 package devicemng_1_0
 
 import (
-	util "github.com/alibabacloud-go/tea-utils/v2/service"
-
 	openapi "github.com/alibabacloud-go/darabonba-openapi/v2/client"
 	gatewayclient "github.com/alibabacloud-go/gateway-dingtalk/client"
 	openapiutil "github.com/alibabacloud-go/openapi-util/service"
+	util "github.com/alibabacloud-go/tea-utils/v2/service"
 	"github.com/alibabacloud-go/tea/tea"
 )
 
@@ -37,8 +33,14 @@ func (s *BatchRegisterDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *Batch
 }
 
 type BatchRegisterDeviceRequest struct {
+	// This parameter is required.
 	DeviceList []*BatchRegisterDeviceRequestDeviceList `json:"deviceList,omitempty" xml:"deviceList,omitempty" type:"Repeated"`
-	UserId     *string                                 `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager10
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s BatchRegisterDeviceRequest) String() string {
@@ -60,12 +62,42 @@ func (s *BatchRegisterDeviceRequest) SetUserId(v string) *BatchRegisterDeviceReq
 }
 
 type BatchRegisterDeviceRequestDeviceList struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager1,1000,10001
 	Collaborators *string `json:"collaborators,omitempty" xml:"collaborators,omitempty"`
-	DepartmentId  *int64  `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	Description   *string `json:"description,omitempty" xml:"description,omitempty"`
-	DeviceKey     *string `json:"deviceKey,omitempty" xml:"deviceKey,omitempty"`
-	DeviceName    *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	Managers      *string `json:"managers,omitempty" xml:"managers,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 生产组1号设备负责生产第一批产品
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// key_xxxxxxx
+	DeviceKey *string `json:"deviceKey,omitempty" xml:"deviceKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 生产1组1号机
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager1,1000,10001
+	Managers *string `json:"managers,omitempty" xml:"managers,omitempty"`
 }
 
 func (s BatchRegisterDeviceRequestDeviceList) String() string {
@@ -176,9 +208,18 @@ func (s *ConnectorEventPushHeaders) SetXAcsDingtalkAccessToken(v string) *Connec
 }
 
 type ConnectorEventPushRequest struct {
+	// example:
+	//
+	// DeviceType-xxxxxx
 	DeviceTypeUuid *string `json:"deviceTypeUuid,omitempty" xml:"deviceTypeUuid,omitempty"`
-	EventName      *string `json:"eventName,omitempty" xml:"eventName,omitempty"`
-	Input          *string `json:"input,omitempty" xml:"input,omitempty"`
+	// example:
+	//
+	// 设备关机
+	EventName *string `json:"eventName,omitempty" xml:"eventName,omitempty"`
+	// example:
+	//
+	// {"var1":"value"}
+	Input *string `json:"input,omitempty" xml:"input,omitempty"`
 }
 
 func (s ConnectorEventPushRequest) String() string {
@@ -274,11 +315,13 @@ func (s *CreateChatRoomHeaders) SetXAcsDingtalkAccessToken(v string) *CreateChat
 }
 
 type CreateChatRoomRequest struct {
-	ChatGroupName *string   `json:"chatGroupName,omitempty" xml:"chatGroupName,omitempty"`
-	DeviceCodes   []*string `json:"deviceCodes,omitempty" xml:"deviceCodes,omitempty" type:"Repeated"`
-	DeviceTypeId  *string   `json:"deviceTypeId,omitempty" xml:"deviceTypeId,omitempty"`
-	OwnerUserId   *string   `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
-	RoleList      []*string `json:"roleList,omitempty" xml:"roleList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	ChatGroupName *string `json:"chatGroupName,omitempty" xml:"chatGroupName,omitempty"`
+	// This parameter is required.
+	DeviceCodes  []*string `json:"deviceCodes,omitempty" xml:"deviceCodes,omitempty" type:"Repeated"`
+	DeviceTypeId *string   `json:"deviceTypeId,omitempty" xml:"deviceTypeId,omitempty"`
+	OwnerUserId  *string   `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	RoleList     []*string `json:"roleList,omitempty" xml:"roleList,omitempty" type:"Repeated"`
 }
 
 func (s CreateChatRoomRequest) String() string {
@@ -390,14 +433,54 @@ func (s *CreateDepartmentHeaders) SetXAcsDingtalkAccessToken(v string) *CreateDe
 }
 
 type CreateDepartmentRequest struct {
-	AuthInfo       *string `json:"authInfo,omitempty" xml:"authInfo,omitempty"`
-	AuthType       *string `json:"authType,omitempty" xml:"authType,omitempty"`
-	BizExt         *string `json:"bizExt,omitempty" xml:"bizExt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// zhangsan/password
+	AuthInfo *string `json:"authInfo,omitempty" xml:"authInfo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Acount
+	AuthType *string `json:"authType,omitempty" xml:"authType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"workdate":"workday"}
+	BizExt *string `json:"bizExt,omitempty" xml:"bizExt,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 生产1组
 	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Primary
 	DepartmentType *string `json:"departmentType,omitempty" xml:"departmentType,omitempty"`
-	Description    *string `json:"description,omitempty" xml:"description,omitempty"`
-	SystemUrl      *string `json:"systemUrl,omitempty" xml:"systemUrl,omitempty"`
-	UserId         *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 生产1组负责中控机的组装
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://xxx.xxx.com/manage
+	SystemUrl *string `json:"systemUrl,omitempty" xml:"systemUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager10
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateDepartmentRequest) String() string {
@@ -518,12 +601,24 @@ func (s *CreateDeviceChatRoomHeaders) SetXAcsDingtalkAccessToken(v string) *Crea
 }
 
 type CreateDeviceChatRoomRequest struct {
+	// example:
+	//
+	// REPAIR_GROUP
 	ChatType    *string   `json:"chatType,omitempty" xml:"chatType,omitempty"`
 	DeviceCodes []*string `json:"deviceCodes,omitempty" xml:"deviceCodes,omitempty" type:"Repeated"`
 	DeviceUuids []*string `json:"deviceUuids,omitempty" xml:"deviceUuids,omitempty" type:"Repeated"`
-	OwnerUserId *string   `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
-	Title       *string   `json:"title,omitempty" xml:"title,omitempty"`
-	UserIds     []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxxxxx
+	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	// example:
+	//
+	// 设备维修群
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s CreateDeviceChatRoomRequest) String() string {
@@ -669,8 +764,17 @@ func (s *DeviceDingHeaders) SetXAcsDingtalkAccessToken(v string) *DeviceDingHead
 }
 
 type DeviceDingRequest struct {
-	DeviceKey          *string   `json:"deviceKey,omitempty" xml:"deviceKey,omitempty"`
-	ParamsJson         *string   `json:"paramsJson,omitempty" xml:"paramsJson,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
+	DeviceKey *string `json:"deviceKey,omitempty" xml:"deviceKey,omitempty"`
+	// example:
+	//
+	// json字符串
+	ParamsJson *string `json:"paramsJson,omitempty" xml:"paramsJson,omitempty"`
+	// This parameter is required.
 	ReceiverUserIdList []*string `json:"receiverUserIdList,omitempty" xml:"receiverUserIdList,omitempty" type:"Repeated"`
 }
 
@@ -698,6 +802,7 @@ func (s *DeviceDingRequest) SetReceiverUserIdList(v []*string) *DeviceDingReques
 }
 
 type DeviceDingResponseBody struct {
+	// This parameter is required.
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -767,6 +872,11 @@ func (s *DissolveGroupHeaders) SetXAcsDingtalkAccessToken(v string) *DissolveGro
 }
 
 type DissolveGroupRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxxxxxx
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -859,10 +969,20 @@ func (s *EditDeviceAdminHeaders) SetXAcsDingtalkAccessToken(v string) *EditDevic
 }
 
 type EditDeviceAdminRequest struct {
-	DeviceCode *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
-	RoleUuid   *string   `json:"roleUuid,omitempty" xml:"roleUuid,omitempty"`
-	UserIds    []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
-	Uuid       *string   `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// xxxxxx
+	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	// example:
+	//
+	// xxxxx
+	RoleUuid *string `json:"roleUuid,omitempty" xml:"roleUuid,omitempty"`
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// xxxxxx
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s EditDeviceAdminRequest) String() string {
@@ -969,6 +1089,11 @@ func (s *GetDeviceGroupInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetDev
 }
 
 type GetDeviceGroupInfoRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 }
 
@@ -1418,9 +1543,18 @@ func (s *ListInspectInfoHeaders) SetXAcsDingtalkAccessToken(v string) *ListInspe
 
 type ListInspectInfoRequest struct {
 	DeviceUuid []*string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty" type:"Repeated"`
-	PageNumber *int32    `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32    `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	Type       *string   `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// inspect
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s ListInspectInfoRequest) String() string {
@@ -1452,9 +1586,12 @@ func (s *ListInspectInfoRequest) SetType(v string) *ListInspectInfoRequest {
 }
 
 type ListInspectInfoResponseBody struct {
-	Result     []*ListInspectInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	Success    *bool                                `json:"success,omitempty" xml:"success,omitempty"`
-	TotalCount *int64                               `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Result  []*ListInspectInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success *bool                                `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// 111
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s ListInspectInfoResponseBody) String() string {
@@ -1481,16 +1618,40 @@ func (s *ListInspectInfoResponseBody) SetTotalCount(v int64) *ListInspectInfoRes
 }
 
 type ListInspectInfoResponseBodyResult struct {
-	DeviceCode       *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
-	DeviceName       *string   `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	GmtCreate        *string   `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// testDeviceCode
+	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	// example:
+	//
+	// 测试设备名称
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// example:
+	//
+	// 2022-09-10 12:00
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 2022-09-10 12:00
 	HandleTime       *string   `json:"handleTime,omitempty" xml:"handleTime,omitempty"`
 	MaintenanceStaff []*string `json:"maintenanceStaff,omitempty" xml:"maintenanceStaff,omitempty" type:"Repeated"`
-	Name             *string   `json:"name,omitempty" xml:"name,omitempty"`
-	Remark           *string   `json:"remark,omitempty" xml:"remark,omitempty"`
-	RepairStatus     *int32    `json:"repairStatus,omitempty" xml:"repairStatus,omitempty"`
-	Status           *int32    `json:"status,omitempty" xml:"status,omitempty"`
-	Type             *string   `json:"type,omitempty" xml:"type,omitempty"`
+	// example:
+	//
+	// 巡检表F
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 巡检项1：高度（正常)
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// 1
+	RepairStatus *int32 `json:"repairStatus,omitempty" xml:"repairStatus,omitempty"`
+	Status       *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// inspect
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
 
 func (s ListInspectInfoResponseBodyResult) String() string {
@@ -1605,8 +1766,14 @@ func (s *ListMaintainInfoHeaders) SetXAcsDingtalkAccessToken(v string) *ListMain
 
 type ListMaintainInfoRequest struct {
 	DeviceUuid []*string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty" type:"Repeated"`
-	PageNumber *int32    `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
-	PageSize   *int32    `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
 }
 
 func (s ListMaintainInfoRequest) String() string {
@@ -1633,9 +1800,12 @@ func (s *ListMaintainInfoRequest) SetPageSize(v int32) *ListMaintainInfoRequest 
 }
 
 type ListMaintainInfoResponseBody struct {
-	Result     []*ListMaintainInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
-	Success    *bool                                 `json:"success,omitempty" xml:"success,omitempty"`
-	TotalCount *int64                                `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Result  []*ListMaintainInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success *bool                                 `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// 123
+	TotalCount *int64 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
 
 func (s ListMaintainInfoResponseBody) String() string {
@@ -1662,13 +1832,31 @@ func (s *ListMaintainInfoResponseBody) SetTotalCount(v int64) *ListMaintainInfoR
 }
 
 type ListMaintainInfoResponseBodyResult struct {
-	DeviceCode       *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
-	DeviceName       *string   `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	GmtCreate        *string   `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// testDeviceCode
+	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	// example:
+	//
+	// 测试设备名称
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// example:
+	//
+	// 2022-7-14 13:00
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// example:
+	//
+	// 2022=12-25 15:00
 	HandleTime       *string   `json:"handleTime,omitempty" xml:"handleTime,omitempty"`
 	MaintenanceStaff []*string `json:"maintenanceStaff,omitempty" xml:"maintenanceStaff,omitempty" type:"Repeated"`
-	ProcessState     *int32    `json:"processState,omitempty" xml:"processState,omitempty"`
-	Remark           *string   `json:"remark,omitempty" xml:"remark,omitempty"`
+	// example:
+	//
+	// 0
+	ProcessState *int32 `json:"processState,omitempty" xml:"processState,omitempty"`
+	// example:
+	//
+	// 温度过高导致异常
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
 }
 
 func (s ListMaintainInfoResponseBodyResult) String() string {
@@ -1767,10 +1955,18 @@ func (s *PullDeviceToGroupHeaders) SetXAcsDingtalkAccessToken(v string) *PullDev
 }
 
 type PullDeviceToGroupRequest struct {
-	DeviceCodes        []*string `json:"deviceCodes,omitempty" xml:"deviceCodes,omitempty" type:"Repeated"`
-	DeviceUuids        []*string `json:"deviceUuids,omitempty" xml:"deviceUuids,omitempty" type:"Repeated"`
-	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	Operator           *string   `json:"operator,omitempty" xml:"operator,omitempty"`
+	DeviceCodes []*string `json:"deviceCodes,omitempty" xml:"deviceCodes,omitempty" type:"Repeated"`
+	DeviceUuids []*string `json:"deviceUuids,omitempty" xml:"deviceUuids,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cide+m5TmAcxA3OU6Un59xxxx==
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// example:
+	//
+	// manager1111
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
 }
 
 func (s PullDeviceToGroupRequest) String() string {
@@ -1877,6 +2073,11 @@ func (s *PullUserToGroupHeaders) SetXAcsDingtalkAccessToken(v string) *PullUserT
 }
 
 type PullUserToGroupRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
 	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	UserIds            []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
@@ -1975,15 +2176,17 @@ func (s *RegisterAndActivateDeviceHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type RegisterAndActivateDeviceRequest struct {
-	DeviceCallbackUrl *string   `json:"deviceCallbackUrl,omitempty" xml:"deviceCallbackUrl,omitempty"`
-	DeviceCategory    *int32    `json:"deviceCategory,omitempty" xml:"deviceCategory,omitempty"`
-	DeviceCode        *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
-	DeviceDetailUrl   *string   `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
-	DeviceName        *string   `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	Introduction      *string   `json:"introduction,omitempty" xml:"introduction,omitempty"`
-	RoleUuid          *string   `json:"roleUuid,omitempty" xml:"roleUuid,omitempty"`
-	TypeUuid          *string   `json:"typeUuid,omitempty" xml:"typeUuid,omitempty"`
-	UserIds           []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	DeviceCallbackUrl *string `json:"deviceCallbackUrl,omitempty" xml:"deviceCallbackUrl,omitempty"`
+	DeviceCategory    *int32  `json:"deviceCategory,omitempty" xml:"deviceCategory,omitempty"`
+	// This parameter is required.
+	DeviceCode      *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	DeviceDetailUrl *string `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
+	// This parameter is required.
+	DeviceName   *string   `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	Introduction *string   `json:"introduction,omitempty" xml:"introduction,omitempty"`
+	RoleUuid     *string   `json:"roleUuid,omitempty" xml:"roleUuid,omitempty"`
+	TypeUuid     *string   `json:"typeUuid,omitempty" xml:"typeUuid,omitempty"`
+	UserIds      []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s RegisterAndActivateDeviceRequest) String() string {
@@ -2040,6 +2243,7 @@ func (s *RegisterAndActivateDeviceRequest) SetUserIds(v []*string) *RegisterAndA
 }
 
 type RegisterAndActivateDeviceResponseBody struct {
+	// This parameter is required.
 	Result  *RegisterAndActivateDeviceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 	Success *bool                                        `json:"success,omitempty" xml:"success,omitempty"`
 }
@@ -2063,15 +2267,23 @@ func (s *RegisterAndActivateDeviceResponseBody) SetSuccess(v bool) *RegisterAndA
 }
 
 type RegisterAndActivateDeviceResponseBodyResult struct {
-	DeviceCategory  *int32    `json:"deviceCategory,omitempty" xml:"deviceCategory,omitempty"`
-	DeviceCode      *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
-	DeviceDetailUrl *string   `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
-	DeviceName      *string   `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	DeviceUuid      *string   `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
-	Introduction    *string   `json:"introduction,omitempty" xml:"introduction,omitempty"`
-	RoleUuid        *string   `json:"roleUuid,omitempty" xml:"roleUuid,omitempty"`
-	TypeUuid        *string   `json:"typeUuid,omitempty" xml:"typeUuid,omitempty"`
-	UserIds         []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	DeviceCategory *int32 `json:"deviceCategory,omitempty" xml:"deviceCategory,omitempty"`
+	// This parameter is required.
+	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	// This parameter is required.
+	DeviceDetailUrl *string `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
+	// This parameter is required.
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// This parameter is required.
+	DeviceUuid *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	// This parameter is required.
+	Introduction *string `json:"introduction,omitempty" xml:"introduction,omitempty"`
+	// This parameter is required.
+	RoleUuid *string `json:"roleUuid,omitempty" xml:"roleUuid,omitempty"`
+	// This parameter is required.
+	TypeUuid *string `json:"typeUuid,omitempty" xml:"typeUuid,omitempty"`
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s RegisterAndActivateDeviceResponseBodyResult) String() string {
@@ -2197,16 +2409,18 @@ func (s *RegisterAndActivateDeviceBatchRequest) SetRegisterAndActivateVOS(v []*R
 }
 
 type RegisterAndActivateDeviceBatchRequestRegisterAndActivateVOS struct {
-	DeviceCallbackUrl *string   `json:"deviceCallbackUrl,omitempty" xml:"deviceCallbackUrl,omitempty"`
-	DeviceCategory    *int32    `json:"deviceCategory,omitempty" xml:"deviceCategory,omitempty"`
-	DeviceCode        *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
-	DeviceDetailUrl   *string   `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
-	DeviceName        *string   `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	GroupUuid         *string   `json:"groupUuid,omitempty" xml:"groupUuid,omitempty"`
-	Introduction      *string   `json:"introduction,omitempty" xml:"introduction,omitempty"`
-	RoleUuid          *string   `json:"roleUuid,omitempty" xml:"roleUuid,omitempty"`
-	TypeUuid          *string   `json:"typeUuid,omitempty" xml:"typeUuid,omitempty"`
-	UserIds           []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	DeviceCallbackUrl *string `json:"deviceCallbackUrl,omitempty" xml:"deviceCallbackUrl,omitempty"`
+	DeviceCategory    *int32  `json:"deviceCategory,omitempty" xml:"deviceCategory,omitempty"`
+	// This parameter is required.
+	DeviceCode      *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	DeviceDetailUrl *string `json:"deviceDetailUrl,omitempty" xml:"deviceDetailUrl,omitempty"`
+	// This parameter is required.
+	DeviceName   *string   `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	GroupUuid    *string   `json:"groupUuid,omitempty" xml:"groupUuid,omitempty"`
+	Introduction *string   `json:"introduction,omitempty" xml:"introduction,omitempty"`
+	RoleUuid     *string   `json:"roleUuid,omitempty" xml:"roleUuid,omitempty"`
+	TypeUuid     *string   `json:"typeUuid,omitempty" xml:"typeUuid,omitempty"`
+	UserIds      []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s RegisterAndActivateDeviceBatchRequestRegisterAndActivateVOS) String() string {
@@ -2597,13 +2811,42 @@ func (s *RegisterDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *RegisterDe
 }
 
 type RegisterDeviceRequest struct {
+	// example:
+	//
+	// manager1,1000,10001
 	Collaborators *string `json:"collaborators,omitempty" xml:"collaborators,omitempty"`
-	DepartmentId  *int64  `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
-	Description   *string `json:"description,omitempty" xml:"description,omitempty"`
-	DeviceKey     *string `json:"deviceKey,omitempty" xml:"deviceKey,omitempty"`
-	DeviceName    *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
-	Managers      *string `json:"managers,omitempty" xml:"managers,omitempty"`
-	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	DepartmentId *int64 `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// example:
+	//
+	// 生产组1号设备负责生产第一批产品
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// key_xxxxxxx
+	DeviceKey *string `json:"deviceKey,omitempty" xml:"deviceKey,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 生产1组1号机
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// example:
+	//
+	// manager1,manager2
+	Managers *string `json:"managers,omitempty" xml:"managers,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager10
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s RegisterDeviceRequest) String() string {
@@ -2650,6 +2893,7 @@ func (s *RegisterDeviceRequest) SetUserId(v string) *RegisterDeviceRequest {
 }
 
 type RegisterDeviceResponseBody struct {
+	// This parameter is required.
 	Result *string `json:"result,omitempty" xml:"result,omitempty"`
 }
 
@@ -2719,10 +2963,20 @@ func (s *RemoveDeviceFromGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Rem
 }
 
 type RemoveDeviceFromGroupRequest struct {
-	DeviceCodes        []*string `json:"deviceCodes,omitempty" xml:"deviceCodes,omitempty" type:"Repeated"`
-	DeviceUuids        []*string `json:"deviceUuids,omitempty" xml:"deviceUuids,omitempty" type:"Repeated"`
-	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
-	Operator           *string   `json:"operator,omitempty" xml:"operator,omitempty"`
+	DeviceCodes []*string `json:"deviceCodes,omitempty" xml:"deviceCodes,omitempty" type:"Repeated"`
+	DeviceUuids []*string `json:"deviceUuids,omitempty" xml:"deviceUuids,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
 }
 
 func (s RemoveDeviceFromGroupRequest) String() string {
@@ -2829,6 +3083,11 @@ func (s *RemoveUserFromGroupHeaders) SetXAcsDingtalkAccessToken(v string) *Remov
 }
 
 type RemoveUserFromGroupRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxxx
 	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	UserIds            []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
@@ -2927,16 +3186,41 @@ func (s *SendCardHeaders) SetXAcsDingtalkAccessToken(v string) *SendCardHeaders 
 }
 
 type SendCardRequest struct {
-	BizId              *string   `json:"bizId,omitempty" xml:"bizId,omitempty"`
-	CardData           *string   `json:"cardData,omitempty" xml:"cardData,omitempty"`
-	DeviceCode         *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
-	DeviceUuid         *string   `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	// example:
+	//
+	// biz-xxxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"var1":"xxx","var2":"xxx"}
+	CardData *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	// example:
+	//
+	// xxxxceshi_1
+	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	// example:
+	//
+	// Device-3bb10262-31f9-494f-9fde-0a910b8exxxx
+	DeviceUuid *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	// example:
+	//
+	// cide+m5TmAcxA3OU6Un59xxxx==
 	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	PartVisible        *bool     `json:"partVisible,omitempty" xml:"partVisible,omitempty"`
 	Receivers          []*string `json:"receivers,omitempty" xml:"receivers,omitempty" type:"Repeated"`
-	TemplateId         *string   `json:"templateId,omitempty" xml:"templateId,omitempty"`
-	Topbox             *bool     `json:"topbox,omitempty" xml:"topbox,omitempty"`
-	UserId             *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// abcxxxxxxxx
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Topbox     *bool   `json:"topbox,omitempty" xml:"topbox,omitempty"`
+	// example:
+	//
+	// 0123459456
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s SendCardRequest) String() string {
@@ -3073,9 +3357,18 @@ func (s *SendMsgHeaders) SetXAcsDingtalkAccessToken(v string) *SendMsgHeaders {
 }
 
 type SendMsgRequest struct {
-	Content            *string   `json:"content,omitempty" xml:"content,omitempty"`
-	DeviceCode         *string   `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
-	DeviceUuid         *string   `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	// example:
+	//
+	// text
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// xxxx
+	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
+	DeviceUuid *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	// example:
+	//
+	// cidxxxxxxx==
 	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
 	UserList           []*string `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
 }
@@ -3189,8 +3482,14 @@ func (s *UninstallDeviceRobotHeaders) SetXAcsDingtalkAccessToken(v string) *Unin
 }
 
 type UninstallDeviceRobotRequest struct {
+	// example:
+	//
+	// xxxxx
 	DeviceCode *string `json:"deviceCode,omitempty" xml:"deviceCode,omitempty"`
-	Uuid       *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// example:
+	//
+	// xxxxx
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s UninstallDeviceRobotRequest) String() string {
@@ -3287,7 +3586,17 @@ func (s *UpdateCardHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateCardHead
 }
 
 type UpdateCardRequest struct {
-	BizId    *string                `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// biz-xxxxxx
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"var1":"xxx","var2":"xxx"}
 	CardData *string                `json:"cardData,omitempty" xml:"cardData,omitempty"`
 	Tips     *UpdateCardRequestTips `json:"tips,omitempty" xml:"tips,omitempty" type:"Struct"`
 }
@@ -3345,7 +3654,8 @@ func (s *UpdateCardRequestTips) SetSender(v string) *UpdateCardRequestTips {
 }
 
 type UpdateCardResponseBody struct {
-	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
 	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
 }
 
@@ -3539,12 +3849,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	if _err != nil {
 		return _err
 	}
-	interfaceSPI, _err := gatewayclient.NewClient()
+	gatewayClient, _err := gatewayclient.NewClient()
 	if _err != nil {
 		return _err
 	}
 
-	client.Spi = interfaceSPI
+	client.Spi = gatewayClient
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -3553,6 +3863,17 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	return nil
 }
 
+// Summary:
+//
+// 批量注册设备
+//
+// @param request - BatchRegisterDeviceRequest
+//
+// @param headers - BatchRegisterDeviceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchRegisterDeviceResponse
 func (client *Client) BatchRegisterDeviceWithOptions(request *BatchRegisterDeviceRequest, headers *BatchRegisterDeviceHeaders, runtime *util.RuntimeOptions) (_result *BatchRegisterDeviceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3600,6 +3921,13 @@ func (client *Client) BatchRegisterDeviceWithOptions(request *BatchRegisterDevic
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量注册设备
+//
+// @param request - BatchRegisterDeviceRequest
+//
+// @return BatchRegisterDeviceResponse
 func (client *Client) BatchRegisterDevice(request *BatchRegisterDeviceRequest) (_result *BatchRegisterDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &BatchRegisterDeviceHeaders{}
@@ -3612,6 +3940,17 @@ func (client *Client) BatchRegisterDevice(request *BatchRegisterDeviceRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 想设备上钉连接器推送设备事件
+//
+// @param request - ConnectorEventPushRequest
+//
+// @param headers - ConnectorEventPushHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ConnectorEventPushResponse
 func (client *Client) ConnectorEventPushWithOptions(request *ConnectorEventPushRequest, headers *ConnectorEventPushHeaders, runtime *util.RuntimeOptions) (_result *ConnectorEventPushResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3663,6 +4002,13 @@ func (client *Client) ConnectorEventPushWithOptions(request *ConnectorEventPushR
 	return _result, _err
 }
 
+// Summary:
+//
+// 想设备上钉连接器推送设备事件
+//
+// @param request - ConnectorEventPushRequest
+//
+// @return ConnectorEventPushResponse
 func (client *Client) ConnectorEventPush(request *ConnectorEventPushRequest) (_result *ConnectorEventPushResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ConnectorEventPushHeaders{}
@@ -3675,6 +4021,17 @@ func (client *Client) ConnectorEventPush(request *ConnectorEventPushRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建设备群
+//
+// @param request - CreateChatRoomRequest
+//
+// @param headers - CreateChatRoomHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateChatRoomResponse
 func (client *Client) CreateChatRoomWithOptions(request *CreateChatRoomRequest, headers *CreateChatRoomHeaders, runtime *util.RuntimeOptions) (_result *CreateChatRoomResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3734,6 +4091,13 @@ func (client *Client) CreateChatRoomWithOptions(request *CreateChatRoomRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建设备群
+//
+// @param request - CreateChatRoomRequest
+//
+// @return CreateChatRoomResponse
 func (client *Client) CreateChatRoom(request *CreateChatRoomRequest) (_result *CreateChatRoomResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateChatRoomHeaders{}
@@ -3746,6 +4110,17 @@ func (client *Client) CreateChatRoom(request *CreateChatRoomRequest) (_result *C
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建部门
+//
+// @param request - CreateDepartmentRequest
+//
+// @param headers - CreateDepartmentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateDepartmentResponse
 func (client *Client) CreateDepartmentWithOptions(request *CreateDepartmentRequest, headers *CreateDepartmentHeaders, runtime *util.RuntimeOptions) (_result *CreateDepartmentResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3817,6 +4192,13 @@ func (client *Client) CreateDepartmentWithOptions(request *CreateDepartmentReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建部门
+//
+// @param request - CreateDepartmentRequest
+//
+// @return CreateDepartmentResponse
 func (client *Client) CreateDepartment(request *CreateDepartmentRequest) (_result *CreateDepartmentResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateDepartmentHeaders{}
@@ -3829,6 +4211,17 @@ func (client *Client) CreateDepartment(request *CreateDepartmentRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建设备场景群
+//
+// @param request - CreateDeviceChatRoomRequest
+//
+// @param headers - CreateDeviceChatRoomHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateDeviceChatRoomResponse
 func (client *Client) CreateDeviceChatRoomWithOptions(request *CreateDeviceChatRoomRequest, headers *CreateDeviceChatRoomHeaders, runtime *util.RuntimeOptions) (_result *CreateDeviceChatRoomResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3892,6 +4285,13 @@ func (client *Client) CreateDeviceChatRoomWithOptions(request *CreateDeviceChatR
 	return _result, _err
 }
 
+// Summary:
+//
+// 创建设备场景群
+//
+// @param request - CreateDeviceChatRoomRequest
+//
+// @return CreateDeviceChatRoomResponse
 func (client *Client) CreateDeviceChatRoom(request *CreateDeviceChatRoomRequest) (_result *CreateDeviceChatRoomResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &CreateDeviceChatRoomHeaders{}
@@ -3904,6 +4304,17 @@ func (client *Client) CreateDeviceChatRoom(request *CreateDeviceChatRoomRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 设备账号向目标用户发送ding消息
+//
+// @param request - DeviceDingRequest
+//
+// @param headers - DeviceDingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeviceDingResponse
 func (client *Client) DeviceDingWithOptions(request *DeviceDingRequest, headers *DeviceDingHeaders, runtime *util.RuntimeOptions) (_result *DeviceDingResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -3955,6 +4366,13 @@ func (client *Client) DeviceDingWithOptions(request *DeviceDingRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 设备账号向目标用户发送ding消息
+//
+// @param request - DeviceDingRequest
+//
+// @return DeviceDingResponse
 func (client *Client) DeviceDing(request *DeviceDingRequest) (_result *DeviceDingResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DeviceDingHeaders{}
@@ -3967,6 +4385,17 @@ func (client *Client) DeviceDing(request *DeviceDingRequest) (_result *DeviceDin
 	return _result, _err
 }
 
+// Summary:
+//
+// 解散设备群
+//
+// @param request - DissolveGroupRequest
+//
+// @param headers - DissolveGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DissolveGroupResponse
 func (client *Client) DissolveGroupWithOptions(request *DissolveGroupRequest, headers *DissolveGroupHeaders, runtime *util.RuntimeOptions) (_result *DissolveGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4010,6 +4439,13 @@ func (client *Client) DissolveGroupWithOptions(request *DissolveGroupRequest, he
 	return _result, _err
 }
 
+// Summary:
+//
+// 解散设备群
+//
+// @param request - DissolveGroupRequest
+//
+// @return DissolveGroupResponse
 func (client *Client) DissolveGroup(request *DissolveGroupRequest) (_result *DissolveGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &DissolveGroupHeaders{}
@@ -4022,6 +4458,17 @@ func (client *Client) DissolveGroup(request *DissolveGroupRequest) (_result *Dis
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑设备管理员
+//
+// @param request - EditDeviceAdminRequest
+//
+// @param headers - EditDeviceAdminHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EditDeviceAdminResponse
 func (client *Client) EditDeviceAdminWithOptions(request *EditDeviceAdminRequest, headers *EditDeviceAdminHeaders, runtime *util.RuntimeOptions) (_result *EditDeviceAdminResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4077,6 +4524,13 @@ func (client *Client) EditDeviceAdminWithOptions(request *EditDeviceAdminRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 编辑设备管理员
+//
+// @param request - EditDeviceAdminRequest
+//
+// @return EditDeviceAdminResponse
 func (client *Client) EditDeviceAdmin(request *EditDeviceAdminRequest) (_result *EditDeviceAdminResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &EditDeviceAdminHeaders{}
@@ -4089,6 +4543,17 @@ func (client *Client) EditDeviceAdmin(request *EditDeviceAdminRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取设备群信息
+//
+// @param request - GetDeviceGroupInfoRequest
+//
+// @param headers - GetDeviceGroupInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDeviceGroupInfoResponse
 func (client *Client) GetDeviceGroupInfoWithOptions(request *GetDeviceGroupInfoRequest, headers *GetDeviceGroupInfoHeaders, runtime *util.RuntimeOptions) (_result *GetDeviceGroupInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4132,6 +4597,13 @@ func (client *Client) GetDeviceGroupInfoWithOptions(request *GetDeviceGroupInfoR
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取设备群信息
+//
+// @param request - GetDeviceGroupInfoRequest
+//
+// @return GetDeviceGroupInfoResponse
 func (client *Client) GetDeviceGroupInfo(request *GetDeviceGroupInfoRequest) (_result *GetDeviceGroupInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDeviceGroupInfoHeaders{}
@@ -4144,6 +4616,15 @@ func (client *Client) GetDeviceGroupInfo(request *GetDeviceGroupInfoRequest) (_r
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取设备全员群标识
+//
+// @param headers - GetWholeDeviceGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetWholeDeviceGroupResponse
 func (client *Client) GetWholeDeviceGroupWithOptions(headers *GetWholeDeviceGroupHeaders, runtime *util.RuntimeOptions) (_result *GetWholeDeviceGroupResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
@@ -4177,6 +4658,11 @@ func (client *Client) GetWholeDeviceGroupWithOptions(headers *GetWholeDeviceGrou
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取设备全员群标识
+//
+// @return GetWholeDeviceGroupResponse
 func (client *Client) GetWholeDeviceGroup() (_result *GetWholeDeviceGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetWholeDeviceGroupHeaders{}
@@ -4189,6 +4675,17 @@ func (client *Client) GetWholeDeviceGroup() (_result *GetWholeDeviceGroupRespons
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询激活的设备信息
+//
+// @param request - ListActivateDevicesRequest
+//
+// @param headers - ListActivateDevicesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListActivateDevicesResponse
 func (client *Client) ListActivateDevicesWithOptions(request *ListActivateDevicesRequest, headers *ListActivateDevicesHeaders, runtime *util.RuntimeOptions) (_result *ListActivateDevicesResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4252,6 +4749,13 @@ func (client *Client) ListActivateDevicesWithOptions(request *ListActivateDevice
 	return _result, _err
 }
 
+// Summary:
+//
+// 查询激活的设备信息
+//
+// @param request - ListActivateDevicesRequest
+//
+// @return ListActivateDevicesResponse
 func (client *Client) ListActivateDevices(request *ListActivateDevicesRequest) (_result *ListActivateDevicesResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListActivateDevicesHeaders{}
@@ -4264,6 +4768,17 @@ func (client *Client) ListActivateDevices(request *ListActivateDevicesRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取巡检、保养记录
+//
+// @param request - ListInspectInfoRequest
+//
+// @param headers - ListInspectInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListInspectInfoResponse
 func (client *Client) ListInspectInfoWithOptions(request *ListInspectInfoRequest, headers *ListInspectInfoHeaders, runtime *util.RuntimeOptions) (_result *ListInspectInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4319,6 +4834,13 @@ func (client *Client) ListInspectInfoWithOptions(request *ListInspectInfoRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取巡检、保养记录
+//
+// @param request - ListInspectInfoRequest
+//
+// @return ListInspectInfoResponse
 func (client *Client) ListInspectInfo(request *ListInspectInfoRequest) (_result *ListInspectInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListInspectInfoHeaders{}
@@ -4331,6 +4853,17 @@ func (client *Client) ListInspectInfo(request *ListInspectInfoRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取报修信息
+//
+// @param request - ListMaintainInfoRequest
+//
+// @param headers - ListMaintainInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListMaintainInfoResponse
 func (client *Client) ListMaintainInfoWithOptions(request *ListMaintainInfoRequest, headers *ListMaintainInfoHeaders, runtime *util.RuntimeOptions) (_result *ListMaintainInfoResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4382,6 +4915,13 @@ func (client *Client) ListMaintainInfoWithOptions(request *ListMaintainInfoReque
 	return _result, _err
 }
 
+// Summary:
+//
+// 获取报修信息
+//
+// @param request - ListMaintainInfoRequest
+//
+// @return ListMaintainInfoResponse
 func (client *Client) ListMaintainInfo(request *ListMaintainInfoRequest) (_result *ListMaintainInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &ListMaintainInfoHeaders{}
@@ -4394,6 +4934,17 @@ func (client *Client) ListMaintainInfo(request *ListMaintainInfoRequest) (_resul
 	return _result, _err
 }
 
+// Summary:
+//
+// 拉设备进群
+//
+// @param request - PullDeviceToGroupRequest
+//
+// @param headers - PullDeviceToGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PullDeviceToGroupResponse
 func (client *Client) PullDeviceToGroupWithOptions(request *PullDeviceToGroupRequest, headers *PullDeviceToGroupHeaders, runtime *util.RuntimeOptions) (_result *PullDeviceToGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4449,6 +5000,13 @@ func (client *Client) PullDeviceToGroupWithOptions(request *PullDeviceToGroupReq
 	return _result, _err
 }
 
+// Summary:
+//
+// 拉设备进群
+//
+// @param request - PullDeviceToGroupRequest
+//
+// @return PullDeviceToGroupResponse
 func (client *Client) PullDeviceToGroup(request *PullDeviceToGroupRequest) (_result *PullDeviceToGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PullDeviceToGroupHeaders{}
@@ -4461,6 +5019,17 @@ func (client *Client) PullDeviceToGroup(request *PullDeviceToGroupRequest) (_res
 	return _result, _err
 }
 
+// Summary:
+//
+// 拉设用户进群
+//
+// @param request - PullUserToGroupRequest
+//
+// @param headers - PullUserToGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PullUserToGroupResponse
 func (client *Client) PullUserToGroupWithOptions(request *PullUserToGroupRequest, headers *PullUserToGroupHeaders, runtime *util.RuntimeOptions) (_result *PullUserToGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4508,6 +5077,13 @@ func (client *Client) PullUserToGroupWithOptions(request *PullUserToGroupRequest
 	return _result, _err
 }
 
+// Summary:
+//
+// 拉设用户进群
+//
+// @param request - PullUserToGroupRequest
+//
+// @return PullUserToGroupResponse
 func (client *Client) PullUserToGroup(request *PullUserToGroupRequest) (_result *PullUserToGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &PullUserToGroupHeaders{}
@@ -4520,6 +5096,17 @@ func (client *Client) PullUserToGroup(request *PullUserToGroupRequest) (_result 
 	return _result, _err
 }
 
+// Summary:
+//
+// 注册与激活设备
+//
+// @param request - RegisterAndActivateDeviceRequest
+//
+// @param headers - RegisterAndActivateDeviceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RegisterAndActivateDeviceResponse
 func (client *Client) RegisterAndActivateDeviceWithOptions(request *RegisterAndActivateDeviceRequest, headers *RegisterAndActivateDeviceHeaders, runtime *util.RuntimeOptions) (_result *RegisterAndActivateDeviceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4595,6 +5182,13 @@ func (client *Client) RegisterAndActivateDeviceWithOptions(request *RegisterAndA
 	return _result, _err
 }
 
+// Summary:
+//
+// 注册与激活设备
+//
+// @param request - RegisterAndActivateDeviceRequest
+//
+// @return RegisterAndActivateDeviceResponse
 func (client *Client) RegisterAndActivateDevice(request *RegisterAndActivateDeviceRequest) (_result *RegisterAndActivateDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RegisterAndActivateDeviceHeaders{}
@@ -4607,6 +5201,17 @@ func (client *Client) RegisterAndActivateDevice(request *RegisterAndActivateDevi
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量注册与激活设备
+//
+// @param request - RegisterAndActivateDeviceBatchRequest
+//
+// @param headers - RegisterAndActivateDeviceBatchHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RegisterAndActivateDeviceBatchResponse
 func (client *Client) RegisterAndActivateDeviceBatchWithOptions(request *RegisterAndActivateDeviceBatchRequest, headers *RegisterAndActivateDeviceBatchHeaders, runtime *util.RuntimeOptions) (_result *RegisterAndActivateDeviceBatchResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4650,6 +5255,13 @@ func (client *Client) RegisterAndActivateDeviceBatchWithOptions(request *Registe
 	return _result, _err
 }
 
+// Summary:
+//
+// 批量注册与激活设备
+//
+// @param request - RegisterAndActivateDeviceBatchRequest
+//
+// @return RegisterAndActivateDeviceBatchResponse
 func (client *Client) RegisterAndActivateDeviceBatch(request *RegisterAndActivateDeviceBatchRequest) (_result *RegisterAndActivateDeviceBatchResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RegisterAndActivateDeviceBatchHeaders{}
@@ -4662,6 +5274,17 @@ func (client *Client) RegisterAndActivateDeviceBatch(request *RegisterAndActivat
 	return _result, _err
 }
 
+// Summary:
+//
+// 注册设备并为其创建机器人
+//
+// @param request - RegisterDeviceRequest
+//
+// @param headers - RegisterDeviceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RegisterDeviceResponse
 func (client *Client) RegisterDeviceWithOptions(request *RegisterDeviceRequest, headers *RegisterDeviceHeaders, runtime *util.RuntimeOptions) (_result *RegisterDeviceResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4729,6 +5352,13 @@ func (client *Client) RegisterDeviceWithOptions(request *RegisterDeviceRequest, 
 	return _result, _err
 }
 
+// Summary:
+//
+// 注册设备并为其创建机器人
+//
+// @param request - RegisterDeviceRequest
+//
+// @return RegisterDeviceResponse
 func (client *Client) RegisterDevice(request *RegisterDeviceRequest) (_result *RegisterDeviceResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RegisterDeviceHeaders{}
@@ -4741,6 +5371,17 @@ func (client *Client) RegisterDevice(request *RegisterDeviceRequest) (_result *R
 	return _result, _err
 }
 
+// Summary:
+//
+// 移设备出群
+//
+// @param request - RemoveDeviceFromGroupRequest
+//
+// @param headers - RemoveDeviceFromGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RemoveDeviceFromGroupResponse
 func (client *Client) RemoveDeviceFromGroupWithOptions(request *RemoveDeviceFromGroupRequest, headers *RemoveDeviceFromGroupHeaders, runtime *util.RuntimeOptions) (_result *RemoveDeviceFromGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4796,6 +5437,13 @@ func (client *Client) RemoveDeviceFromGroupWithOptions(request *RemoveDeviceFrom
 	return _result, _err
 }
 
+// Summary:
+//
+// 移设备出群
+//
+// @param request - RemoveDeviceFromGroupRequest
+//
+// @return RemoveDeviceFromGroupResponse
 func (client *Client) RemoveDeviceFromGroup(request *RemoveDeviceFromGroupRequest) (_result *RemoveDeviceFromGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RemoveDeviceFromGroupHeaders{}
@@ -4808,6 +5456,17 @@ func (client *Client) RemoveDeviceFromGroup(request *RemoveDeviceFromGroupReques
 	return _result, _err
 }
 
+// Summary:
+//
+// 移用户出设备群
+//
+// @param request - RemoveUserFromGroupRequest
+//
+// @param headers - RemoveUserFromGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RemoveUserFromGroupResponse
 func (client *Client) RemoveUserFromGroupWithOptions(request *RemoveUserFromGroupRequest, headers *RemoveUserFromGroupHeaders, runtime *util.RuntimeOptions) (_result *RemoveUserFromGroupResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4855,6 +5514,13 @@ func (client *Client) RemoveUserFromGroupWithOptions(request *RemoveUserFromGrou
 	return _result, _err
 }
 
+// Summary:
+//
+// 移用户出设备群
+//
+// @param request - RemoveUserFromGroupRequest
+//
+// @return RemoveUserFromGroupResponse
 func (client *Client) RemoveUserFromGroup(request *RemoveUserFromGroupRequest) (_result *RemoveUserFromGroupResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &RemoveUserFromGroupHeaders{}
@@ -4867,6 +5533,17 @@ func (client *Client) RemoveUserFromGroup(request *RemoveUserFromGroupRequest) (
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送卡片
+//
+// @param request - SendCardRequest
+//
+// @param headers - SendCardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendCardResponse
 func (client *Client) SendCardWithOptions(request *SendCardRequest, headers *SendCardHeaders, runtime *util.RuntimeOptions) (_result *SendCardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -4946,6 +5623,13 @@ func (client *Client) SendCardWithOptions(request *SendCardRequest, headers *Sen
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送卡片
+//
+// @param request - SendCardRequest
+//
+// @return SendCardResponse
 func (client *Client) SendCard(request *SendCardRequest) (_result *SendCardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendCardHeaders{}
@@ -4958,6 +5642,17 @@ func (client *Client) SendCard(request *SendCardRequest) (_result *SendCardRespo
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送普通消息
+//
+// @param request - SendMsgRequest
+//
+// @param headers - SendMsgHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendMsgResponse
 func (client *Client) SendMsgWithOptions(request *SendMsgRequest, headers *SendMsgHeaders, runtime *util.RuntimeOptions) (_result *SendMsgResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5017,6 +5712,13 @@ func (client *Client) SendMsgWithOptions(request *SendMsgRequest, headers *SendM
 	return _result, _err
 }
 
+// Summary:
+//
+// 发送普通消息
+//
+// @param request - SendMsgRequest
+//
+// @return SendMsgResponse
 func (client *Client) SendMsg(request *SendMsgRequest) (_result *SendMsgResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &SendMsgHeaders{}
@@ -5029,6 +5731,17 @@ func (client *Client) SendMsg(request *SendMsgRequest) (_result *SendMsgResponse
 	return _result, _err
 }
 
+// Summary:
+//
+// 卸载设备
+//
+// @param request - UninstallDeviceRobotRequest
+//
+// @param headers - UninstallDeviceRobotHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UninstallDeviceRobotResponse
 func (client *Client) UninstallDeviceRobotWithOptions(request *UninstallDeviceRobotRequest, headers *UninstallDeviceRobotHeaders, runtime *util.RuntimeOptions) (_result *UninstallDeviceRobotResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5076,6 +5789,13 @@ func (client *Client) UninstallDeviceRobotWithOptions(request *UninstallDeviceRo
 	return _result, _err
 }
 
+// Summary:
+//
+// 卸载设备
+//
+// @param request - UninstallDeviceRobotRequest
+//
+// @return UninstallDeviceRobotResponse
 func (client *Client) UninstallDeviceRobot(request *UninstallDeviceRobotRequest) (_result *UninstallDeviceRobotResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UninstallDeviceRobotHeaders{}
@@ -5088,6 +5808,17 @@ func (client *Client) UninstallDeviceRobot(request *UninstallDeviceRobotRequest)
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新卡片
+//
+// @param request - UpdateCardRequest
+//
+// @param headers - UpdateCardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateCardResponse
 func (client *Client) UpdateCardWithOptions(request *UpdateCardRequest, headers *UpdateCardHeaders, runtime *util.RuntimeOptions) (_result *UpdateCardResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5139,6 +5870,13 @@ func (client *Client) UpdateCardWithOptions(request *UpdateCardRequest, headers 
 	return _result, _err
 }
 
+// Summary:
+//
+// 更新卡片
+//
+// @param request - UpdateCardRequest
+//
+// @return UpdateCardResponse
 func (client *Client) UpdateCard(request *UpdateCardRequest) (_result *UpdateCardResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UpdateCardHeaders{}
@@ -5151,6 +5889,17 @@ func (client *Client) UpdateCard(request *UpdateCardRequest) (_result *UpdateCar
 	return _result, _err
 }
 
+// Summary:
+//
+// 设备事件上报
+//
+// @param request - UploadEventRequest
+//
+// @param headers - UploadEventHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UploadEventResponse
 func (client *Client) UploadEventWithOptions(request *UploadEventRequest, headers *UploadEventHeaders, runtime *util.RuntimeOptions) (_result *UploadEventResponse, _err error) {
 	_err = util.ValidateModel(request)
 	if _err != nil {
@@ -5218,6 +5967,13 @@ func (client *Client) UploadEventWithOptions(request *UploadEventRequest, header
 	return _result, _err
 }
 
+// Summary:
+//
+// 设备事件上报
+//
+// @param request - UploadEventRequest
+//
+// @return UploadEventResponse
 func (client *Client) UploadEvent(request *UploadEventRequest) (_result *UploadEventResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &UploadEventHeaders{}
