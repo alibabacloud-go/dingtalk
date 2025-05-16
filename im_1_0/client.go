@@ -9,6 +9,47 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type UserListValue struct {
+	JoinTime   *int64 `json:"joinTime,omitempty" xml:"joinTime,omitempty"`
+	ModifyTime *int64 `json:"modifyTime,omitempty" xml:"modifyTime,omitempty"`
+	Mute       *bool  `json:"mute,omitempty" xml:"mute,omitempty"`
+	TopRank    *bool  `json:"topRank,omitempty" xml:"topRank,omitempty"`
+	Visible    *bool  `json:"visible,omitempty" xml:"visible,omitempty"`
+}
+
+func (s UserListValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserListValue) GoString() string {
+	return s.String()
+}
+
+func (s *UserListValue) SetJoinTime(v int64) *UserListValue {
+	s.JoinTime = &v
+	return s
+}
+
+func (s *UserListValue) SetModifyTime(v int64) *UserListValue {
+	s.ModifyTime = &v
+	return s
+}
+
+func (s *UserListValue) SetMute(v bool) *UserListValue {
+	s.Mute = &v
+	return s
+}
+
+func (s *UserListValue) SetTopRank(v bool) *UserListValue {
+	s.TopRank = &v
+	return s
+}
+
+func (s *UserListValue) SetVisible(v bool) *UserListValue {
+	s.Visible = &v
+	return s
+}
+
 type PrivateDataValue struct {
 	CardParamMap        map[string]*string `json:"cardParamMap,omitempty" xml:"cardParamMap,omitempty"`
 	CardMediaIdParamMap map[string]*string `json:"cardMediaIdParamMap,omitempty" xml:"cardMediaIdParamMap,omitempty"`
@@ -4481,6 +4522,131 @@ func (s *GetSceneGroupTemplateMessageOpenStatusResponse) SetBody(v *GetSceneGrou
 	return s
 }
 
+type GetSingleChatOpenConversationIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSingleChatOpenConversationIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSingleChatOpenConversationIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSingleChatOpenConversationIdHeaders) SetCommonHeaders(v map[string]*string) *GetSingleChatOpenConversationIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSingleChatOpenConversationIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetSingleChatOpenConversationIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSingleChatOpenConversationIdRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 022*****2134
+	UserId1 *string `json:"userId1,omitempty" xml:"userId1,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 072*****1243
+	UserId2 *string `json:"userId2,omitempty" xml:"userId2,omitempty"`
+}
+
+func (s GetSingleChatOpenConversationIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSingleChatOpenConversationIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSingleChatOpenConversationIdRequest) SetUserId1(v string) *GetSingleChatOpenConversationIdRequest {
+	s.UserId1 = &v
+	return s
+}
+
+func (s *GetSingleChatOpenConversationIdRequest) SetUserId2(v string) *GetSingleChatOpenConversationIdRequest {
+	s.UserId2 = &v
+	return s
+}
+
+type GetSingleChatOpenConversationIdResponseBody struct {
+	Result  *GetSingleChatOpenConversationIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *string                                            `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetSingleChatOpenConversationIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSingleChatOpenConversationIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSingleChatOpenConversationIdResponseBody) SetResult(v *GetSingleChatOpenConversationIdResponseBodyResult) *GetSingleChatOpenConversationIdResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetSingleChatOpenConversationIdResponseBody) SetSuccess(v string) *GetSingleChatOpenConversationIdResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetSingleChatOpenConversationIdResponseBodyResult struct {
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s GetSingleChatOpenConversationIdResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSingleChatOpenConversationIdResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetSingleChatOpenConversationIdResponseBodyResult) SetOpenConversationId(v string) *GetSingleChatOpenConversationIdResponseBodyResult {
+	s.OpenConversationId = &v
+	return s
+}
+
+type GetSingleChatOpenConversationIdResponse struct {
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSingleChatOpenConversationIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetSingleChatOpenConversationIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSingleChatOpenConversationIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSingleChatOpenConversationIdResponse) SetHeaders(v map[string]*string) *GetSingleChatOpenConversationIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSingleChatOpenConversationIdResponse) SetStatusCode(v int32) *GetSingleChatOpenConversationIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetSingleChatOpenConversationIdResponse) SetBody(v *GetSingleChatOpenConversationIdResponseBody) *GetSingleChatOpenConversationIdResponse {
+	s.Body = v
+	return s
+}
+
 type GetSuperAdminOpenSceneGroupInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5725,6 +5891,356 @@ func (s *GroupManageReduceResponse) SetHeaders(v map[string]*string) *GroupManag
 
 func (s *GroupManageReduceResponse) SetStatusCode(v int32) *GroupManageReduceResponse {
 	s.StatusCode = &v
+	return s
+}
+
+type ImportGroupChatHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ImportGroupChatHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportGroupChatHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ImportGroupChatHeaders) SetCommonHeaders(v map[string]*string) *ImportGroupChatHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ImportGroupChatHeaders) SetXAcsDingtalkAccessToken(v string) *ImportGroupChatHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ImportGroupChatRequest struct {
+	AdminIds []*string `json:"adminIds,omitempty" xml:"adminIds,omitempty" type:"Repeated"`
+	CreateAt *int64    `json:"createAt,omitempty" xml:"createAt,omitempty"`
+	// example:
+	//
+	// @lADOADma*****QKA
+	Icon *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// axcf*-*****-*****-23da*
+	ImportUuid *string `json:"importUuid,omitempty" xml:"importUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1107****2120
+	Owner *string `json:"owner,omitempty" xml:"owner,omitempty"`
+	// example:
+	//
+	// c354***-***-***-b4ea-6f1ab***65
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 示例群名称
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	UserList map[string]*UserListValue `json:"userList,omitempty" xml:"userList,omitempty"`
+}
+
+func (s ImportGroupChatRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportGroupChatRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ImportGroupChatRequest) SetAdminIds(v []*string) *ImportGroupChatRequest {
+	s.AdminIds = v
+	return s
+}
+
+func (s *ImportGroupChatRequest) SetCreateAt(v int64) *ImportGroupChatRequest {
+	s.CreateAt = &v
+	return s
+}
+
+func (s *ImportGroupChatRequest) SetIcon(v string) *ImportGroupChatRequest {
+	s.Icon = &v
+	return s
+}
+
+func (s *ImportGroupChatRequest) SetImportUuid(v string) *ImportGroupChatRequest {
+	s.ImportUuid = &v
+	return s
+}
+
+func (s *ImportGroupChatRequest) SetOwner(v string) *ImportGroupChatRequest {
+	s.Owner = &v
+	return s
+}
+
+func (s *ImportGroupChatRequest) SetTemplateId(v string) *ImportGroupChatRequest {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *ImportGroupChatRequest) SetTitle(v string) *ImportGroupChatRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *ImportGroupChatRequest) SetUserList(v map[string]*UserListValue) *ImportGroupChatRequest {
+	s.UserList = v
+	return s
+}
+
+type ImportGroupChatResponseBody struct {
+	Result  *ImportGroupChatResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *string                            `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ImportGroupChatResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportGroupChatResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ImportGroupChatResponseBody) SetResult(v *ImportGroupChatResponseBodyResult) *ImportGroupChatResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *ImportGroupChatResponseBody) SetSuccess(v string) *ImportGroupChatResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ImportGroupChatResponseBodyResult struct {
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s ImportGroupChatResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportGroupChatResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ImportGroupChatResponseBodyResult) SetOpenConversationId(v string) *ImportGroupChatResponseBodyResult {
+	s.OpenConversationId = &v
+	return s
+}
+
+type ImportGroupChatResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ImportGroupChatResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ImportGroupChatResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportGroupChatResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ImportGroupChatResponse) SetHeaders(v map[string]*string) *ImportGroupChatResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ImportGroupChatResponse) SetStatusCode(v int32) *ImportGroupChatResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ImportGroupChatResponse) SetBody(v *ImportGroupChatResponseBody) *ImportGroupChatResponse {
+	s.Body = v
+	return s
+}
+
+type ImportMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ImportMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ImportMessageHeaders) SetCommonHeaders(v map[string]*string) *ImportMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ImportMessageHeaders) SetXAcsDingtalkAccessToken(v string) *ImportMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ImportMessageRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"content":"月会通知<@all> ","at":{"atUserIds":[],"isAtAll":true}}
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// axcf*-*****-*****-23da*
+	ImportUuid           *string `json:"importUuid,omitempty" xml:"importUuid,omitempty"`
+	MsgReadStatusSetting *bool   `json:"msgReadStatusSetting,omitempty" xml:"msgReadStatusSetting,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// text
+	MsgType *string `json:"msgType,omitempty" xml:"msgType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidt*****Xa4K10w==
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	Receivers          []*string `json:"receivers,omitempty" xml:"receivers,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 013*****21312
+	SenderId *string `json:"senderId,omitempty" xml:"senderId,omitempty"`
+}
+
+func (s ImportMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ImportMessageRequest) SetContent(v string) *ImportMessageRequest {
+	s.Content = &v
+	return s
+}
+
+func (s *ImportMessageRequest) SetCreateTime(v int64) *ImportMessageRequest {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *ImportMessageRequest) SetImportUuid(v string) *ImportMessageRequest {
+	s.ImportUuid = &v
+	return s
+}
+
+func (s *ImportMessageRequest) SetMsgReadStatusSetting(v bool) *ImportMessageRequest {
+	s.MsgReadStatusSetting = &v
+	return s
+}
+
+func (s *ImportMessageRequest) SetMsgType(v string) *ImportMessageRequest {
+	s.MsgType = &v
+	return s
+}
+
+func (s *ImportMessageRequest) SetOpenConversationId(v string) *ImportMessageRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *ImportMessageRequest) SetReceivers(v []*string) *ImportMessageRequest {
+	s.Receivers = v
+	return s
+}
+
+func (s *ImportMessageRequest) SetSenderId(v string) *ImportMessageRequest {
+	s.SenderId = &v
+	return s
+}
+
+type ImportMessageResponseBody struct {
+	Result  *ImportMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *string                          `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ImportMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ImportMessageResponseBody) SetResult(v *ImportMessageResponseBodyResult) *ImportMessageResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *ImportMessageResponseBody) SetSuccess(v string) *ImportMessageResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ImportMessageResponseBodyResult struct {
+	OpenTaskId *string `json:"openTaskId,omitempty" xml:"openTaskId,omitempty"`
+}
+
+func (s ImportMessageResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportMessageResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ImportMessageResponseBodyResult) SetOpenTaskId(v string) *ImportMessageResponseBodyResult {
+	s.OpenTaskId = &v
+	return s
+}
+
+type ImportMessageResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ImportMessageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ImportMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ImportMessageResponse) SetHeaders(v map[string]*string) *ImportMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ImportMessageResponse) SetStatusCode(v int32) *ImportMessageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ImportMessageResponse) SetBody(v *ImportMessageResponseBody) *ImportMessageResponse {
+	s.Body = v
 	return s
 }
 
@@ -17818,6 +18334,83 @@ func (client *Client) GetSceneGroupTemplateMessageOpenStatus(templateId *string)
 
 // Summary:
 //
+// 获取单聊会话的OpenConversationId
+//
+// @param request - GetSingleChatOpenConversationIdRequest
+//
+// @param headers - GetSingleChatOpenConversationIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSingleChatOpenConversationIdResponse
+func (client *Client) GetSingleChatOpenConversationIdWithOptions(request *GetSingleChatOpenConversationIdRequest, headers *GetSingleChatOpenConversationIdHeaders, runtime *util.RuntimeOptions) (_result *GetSingleChatOpenConversationIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId1)) {
+		body["userId1"] = request.UserId1
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId2)) {
+		body["userId2"] = request.UserId2
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSingleChatOpenConversationId"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/privateChats/openConversationId/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetSingleChatOpenConversationIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取单聊会话的OpenConversationId
+//
+// @param request - GetSingleChatOpenConversationIdRequest
+//
+// @return GetSingleChatOpenConversationIdResponse
+func (client *Client) GetSingleChatOpenConversationId(request *GetSingleChatOpenConversationIdRequest) (_result *GetSingleChatOpenConversationIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSingleChatOpenConversationIdHeaders{}
+	_result = &GetSingleChatOpenConversationIdResponse{}
+	_body, _err := client.GetSingleChatOpenConversationIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 查询群信息（超管接口）
 //
 // @param request - GetSuperAdminOpenSceneGroupInfoRequest
@@ -18432,6 +19025,208 @@ func (client *Client) GroupManageReduce(request *GroupManageReduceRequest) (_res
 	headers := &GroupManageReduceHeaders{}
 	_result = &GroupManageReduceResponse{}
 	_body, _err := client.GroupManageReduceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 导入群聊会话
+//
+// @param request - ImportGroupChatRequest
+//
+// @param headers - ImportGroupChatHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ImportGroupChatResponse
+func (client *Client) ImportGroupChatWithOptions(request *ImportGroupChatRequest, headers *ImportGroupChatHeaders, runtime *util.RuntimeOptions) (_result *ImportGroupChatResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AdminIds)) {
+		body["adminIds"] = request.AdminIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateAt)) {
+		body["createAt"] = request.CreateAt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Icon)) {
+		body["icon"] = request.Icon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImportUuid)) {
+		body["importUuid"] = request.ImportUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Owner)) {
+		body["owner"] = request.Owner
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserList)) {
+		body["userList"] = request.UserList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ImportGroupChat"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/groupChats/import"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ImportGroupChatResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 导入群聊会话
+//
+// @param request - ImportGroupChatRequest
+//
+// @return ImportGroupChatResponse
+func (client *Client) ImportGroupChat(request *ImportGroupChatRequest) (_result *ImportGroupChatResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ImportGroupChatHeaders{}
+	_result = &ImportGroupChatResponse{}
+	_body, _err := client.ImportGroupChatWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 导入消息
+//
+// @param request - ImportMessageRequest
+//
+// @param headers - ImportMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ImportMessageResponse
+func (client *Client) ImportMessageWithOptions(request *ImportMessageRequest, headers *ImportMessageHeaders, runtime *util.RuntimeOptions) (_result *ImportMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateTime)) {
+		body["createTime"] = request.CreateTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImportUuid)) {
+		body["importUuid"] = request.ImportUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgReadStatusSetting)) {
+		body["msgReadStatusSetting"] = request.MsgReadStatusSetting
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgType)) {
+		body["msgType"] = request.MsgType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Receivers)) {
+		body["receivers"] = request.Receivers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SenderId)) {
+		body["senderId"] = request.SenderId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ImportMessage"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/messages/import"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ImportMessageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 导入消息
+//
+// @param request - ImportMessageRequest
+//
+// @return ImportMessageResponse
+func (client *Client) ImportMessage(request *ImportMessageRequest) (_result *ImportMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ImportMessageHeaders{}
+	_result = &ImportMessageResponse{}
+	_body, _err := client.ImportMessageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
