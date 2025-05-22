@@ -3694,6 +3694,8 @@ func (s *QueryAccountTradeByPageRequestFilter) SetTradeType(v string) *QueryAcco
 }
 
 type QueryAccountTradeByPageResponseBody struct {
+	HasMore    *bool                                        `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken  *int64                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	Result     []*QueryAccountTradeByPageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
 	TotalCount *int64                                       `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
 }
@@ -3704,6 +3706,16 @@ func (s QueryAccountTradeByPageResponseBody) String() string {
 
 func (s QueryAccountTradeByPageResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *QueryAccountTradeByPageResponseBody) SetHasMore(v bool) *QueryAccountTradeByPageResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryAccountTradeByPageResponseBody) SetNextToken(v int64) *QueryAccountTradeByPageResponseBody {
+	s.NextToken = &v
+	return s
 }
 
 func (s *QueryAccountTradeByPageResponseBody) SetResult(v []*QueryAccountTradeByPageResponseBodyResult) *QueryAccountTradeByPageResponseBody {
@@ -5330,6 +5342,7 @@ type QueryPaymentBenefitResponseBody struct {
 	BenefitMap map[string]*BenefitMapValue `json:"benefitMap,omitempty" xml:"benefitMap,omitempty"`
 	CorpId     *string                     `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	RequestId  *string                     `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Status     *string                     `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s QueryPaymentBenefitResponseBody) String() string {
@@ -5352,6 +5365,11 @@ func (s *QueryPaymentBenefitResponseBody) SetCorpId(v string) *QueryPaymentBenef
 
 func (s *QueryPaymentBenefitResponseBody) SetRequestId(v string) *QueryPaymentBenefitResponseBody {
 	s.RequestId = &v
+	return s
+}
+
+func (s *QueryPaymentBenefitResponseBody) SetStatus(v string) *QueryPaymentBenefitResponseBody {
+	s.Status = &v
 	return s
 }
 

@@ -680,6 +680,128 @@ func (s *BanOrOpenGroupWordsResponse) SetBody(v *BanOrOpenGroupWordsResponseBody
 	return s
 }
 
+type BusinessEventUpdateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BusinessEventUpdateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BusinessEventUpdateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BusinessEventUpdateHeaders) SetCommonHeaders(v map[string]*string) *BusinessEventUpdateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BusinessEventUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *BusinessEventUpdateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BusinessEventUpdateRequest struct {
+	// This parameter is required.
+	BusinessData map[string]interface{} `json:"businessData,omitempty" xml:"businessData,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	EventType *int32 `json:"eventType,omitempty" xml:"eventType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxx
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// This parameter is required.
+	UpdateByKey *bool `json:"updateByKey,omitempty" xml:"updateByKey,omitempty"`
+}
+
+func (s BusinessEventUpdateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BusinessEventUpdateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BusinessEventUpdateRequest) SetBusinessData(v map[string]interface{}) *BusinessEventUpdateRequest {
+	s.BusinessData = v
+	return s
+}
+
+func (s *BusinessEventUpdateRequest) SetEventType(v int32) *BusinessEventUpdateRequest {
+	s.EventType = &v
+	return s
+}
+
+func (s *BusinessEventUpdateRequest) SetOpenConversationId(v string) *BusinessEventUpdateRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *BusinessEventUpdateRequest) SetUpdateByKey(v bool) *BusinessEventUpdateRequest {
+	s.UpdateByKey = &v
+	return s
+}
+
+type BusinessEventUpdateResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BusinessEventUpdateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BusinessEventUpdateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BusinessEventUpdateResponseBody) SetResult(v bool) *BusinessEventUpdateResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *BusinessEventUpdateResponseBody) SetSuccess(v bool) *BusinessEventUpdateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type BusinessEventUpdateResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BusinessEventUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s BusinessEventUpdateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BusinessEventUpdateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BusinessEventUpdateResponse) SetHeaders(v map[string]*string) *BusinessEventUpdateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BusinessEventUpdateResponse) SetStatusCode(v int32) *BusinessEventUpdateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BusinessEventUpdateResponse) SetBody(v *BusinessEventUpdateResponseBody) *BusinessEventUpdateResponse {
+	s.Body = v
+	return s
+}
+
 type CheckControlHitStatusHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -21464,6 +21586,91 @@ func (client *Client) BanOrOpenGroupWords(request *BanOrOpenGroupWordsRequest) (
 	headers := &BanOrOpenGroupWordsHeaders{}
 	_result = &BanOrOpenGroupWordsResponse{}
 	_body, _err := client.BanOrOpenGroupWordsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 业务融合群业务事件变更
+//
+// @param request - BusinessEventUpdateRequest
+//
+// @param headers - BusinessEventUpdateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BusinessEventUpdateResponse
+func (client *Client) BusinessEventUpdateWithOptions(request *BusinessEventUpdateRequest, headers *BusinessEventUpdateHeaders, runtime *util.RuntimeOptions) (_result *BusinessEventUpdateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BusinessData)) {
+		body["businessData"] = request.BusinessData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EventType)) {
+		body["eventType"] = request.EventType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UpdateByKey)) {
+		body["updateByKey"] = request.UpdateByKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BusinessEventUpdate"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/businessGroups/events"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BusinessEventUpdateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 业务融合群业务事件变更
+//
+// @param request - BusinessEventUpdateRequest
+//
+// @return BusinessEventUpdateResponse
+func (client *Client) BusinessEventUpdate(request *BusinessEventUpdateRequest) (_result *BusinessEventUpdateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BusinessEventUpdateHeaders{}
+	_result = &BusinessEventUpdateResponse{}
+	_body, _err := client.BusinessEventUpdateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

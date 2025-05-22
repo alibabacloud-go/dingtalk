@@ -3540,6 +3540,104 @@ func (s *DocContentResponse) SetBody(v *DocContentResponseBody) *DocContentRespo
 	return s
 }
 
+type DocExportByDelegatedPermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DocExportByDelegatedPermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocExportByDelegatedPermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DocExportByDelegatedPermissionHeaders) SetCommonHeaders(v map[string]*string) *DocExportByDelegatedPermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DocExportByDelegatedPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *DocExportByDelegatedPermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DocExportByDelegatedPermissionRequest struct {
+	// example:
+	//
+	// false
+	GenerateCp *bool `json:"generateCp,omitempty" xml:"generateCp,omitempty"`
+	// example:
+	//
+	// markdown
+	TargetFormat *string `json:"targetFormat,omitempty" xml:"targetFormat,omitempty"`
+}
+
+func (s DocExportByDelegatedPermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocExportByDelegatedPermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DocExportByDelegatedPermissionRequest) SetGenerateCp(v bool) *DocExportByDelegatedPermissionRequest {
+	s.GenerateCp = &v
+	return s
+}
+
+func (s *DocExportByDelegatedPermissionRequest) SetTargetFormat(v string) *DocExportByDelegatedPermissionRequest {
+	s.TargetFormat = &v
+	return s
+}
+
+type DocExportByDelegatedPermissionResponseBody struct {
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s DocExportByDelegatedPermissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocExportByDelegatedPermissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DocExportByDelegatedPermissionResponseBody) SetTaskId(v int64) *DocExportByDelegatedPermissionResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+type DocExportByDelegatedPermissionResponse struct {
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DocExportByDelegatedPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DocExportByDelegatedPermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocExportByDelegatedPermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DocExportByDelegatedPermissionResponse) SetHeaders(v map[string]*string) *DocExportByDelegatedPermissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DocExportByDelegatedPermissionResponse) SetStatusCode(v int32) *DocExportByDelegatedPermissionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DocExportByDelegatedPermissionResponse) SetBody(v *DocExportByDelegatedPermissionResponseBody) *DocExportByDelegatedPermissionResponse {
+	s.Body = v
+	return s
+}
+
 type ExportDocHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -12293,6 +12391,83 @@ func (client *Client) DocContent(dentryUuid *string, request *DocContentRequest)
 	headers := &DocContentHeaders{}
 	_result = &DocContentResponse{}
 	_body, _err := client.DocContentWithOptions(dentryUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过委托权限方式导出文档内容
+//
+// @param request - DocExportByDelegatedPermissionRequest
+//
+// @param headers - DocExportByDelegatedPermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DocExportByDelegatedPermissionResponse
+func (client *Client) DocExportByDelegatedPermissionWithOptions(dentryUuid *string, request *DocExportByDelegatedPermissionRequest, headers *DocExportByDelegatedPermissionHeaders, runtime *util.RuntimeOptions) (_result *DocExportByDelegatedPermissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GenerateCp)) {
+		query["generateCp"] = request.GenerateCp
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetFormat)) {
+		query["targetFormat"] = request.TargetFormat
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DocExportByDelegatedPermission"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/me/dentries/" + tea.StringValue(dentryUuid) + "/export"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DocExportByDelegatedPermissionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过委托权限方式导出文档内容
+//
+// @param request - DocExportByDelegatedPermissionRequest
+//
+// @return DocExportByDelegatedPermissionResponse
+func (client *Client) DocExportByDelegatedPermission(dentryUuid *string, request *DocExportByDelegatedPermissionRequest) (_result *DocExportByDelegatedPermissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DocExportByDelegatedPermissionHeaders{}
+	_result = &DocExportByDelegatedPermissionResponse{}
+	_body, _err := client.DocExportByDelegatedPermissionWithOptions(dentryUuid, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

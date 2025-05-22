@@ -10,7 +10,7 @@ import (
 )
 
 type Entity struct {
-	Children []*Entity `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+	Children []*EntityChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
 	// example:
 	//
 	// {"title": "123"}
@@ -46,7 +46,7 @@ func (s Entity) GoString() string {
 	return s.String()
 }
 
-func (s *Entity) SetChildren(v []*Entity) *Entity {
+func (s *Entity) SetChildren(v []*EntityChildren) *Entity {
 	s.Children = v
 	return s
 }
@@ -82,6 +82,77 @@ func (s *Entity) SetMetas(v []*Meta) *Entity {
 }
 
 func (s *Entity) SetType(v string) *Entity {
+	s.Type = &v
+	return s
+}
+
+type EntityChildren struct {
+	// example:
+	//
+	// {"title": "123"}
+	Data map[string]interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	// example:
+	//
+	// 123
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// y/n
+	IsDeleted *string `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	// example:
+	//
+	// 67dbb24f7aac3f62d8b98fb5
+	LinkSourceId *string `json:"linkSourceId,omitempty" xml:"linkSourceId,omitempty"`
+	// example:
+	//
+	// EXTERNAL_PERF_TASK
+	LinkSourceType *string `json:"linkSourceType,omitempty" xml:"linkSourceType,omitempty"`
+	Metas          []*Meta `json:"metas,omitempty" xml:"metas,omitempty" type:"Repeated"`
+	// example:
+	//
+	// DIMENSION
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s EntityChildren) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EntityChildren) GoString() string {
+	return s.String()
+}
+
+func (s *EntityChildren) SetData(v map[string]interface{}) *EntityChildren {
+	s.Data = v
+	return s
+}
+
+func (s *EntityChildren) SetId(v string) *EntityChildren {
+	s.Id = &v
+	return s
+}
+
+func (s *EntityChildren) SetIsDeleted(v string) *EntityChildren {
+	s.IsDeleted = &v
+	return s
+}
+
+func (s *EntityChildren) SetLinkSourceId(v string) *EntityChildren {
+	s.LinkSourceId = &v
+	return s
+}
+
+func (s *EntityChildren) SetLinkSourceType(v string) *EntityChildren {
+	s.LinkSourceType = &v
+	return s
+}
+
+func (s *EntityChildren) SetMetas(v []*Meta) *EntityChildren {
+	s.Metas = v
+	return s
+}
+
+func (s *EntityChildren) SetType(v string) *EntityChildren {
 	s.Type = &v
 	return s
 }
