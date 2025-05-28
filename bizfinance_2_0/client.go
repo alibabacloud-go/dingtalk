@@ -2486,14 +2486,14 @@ func (s *GetReceiptHeaders) SetXAcsDingtalkAccessToken(v string) *GetReceiptHead
 }
 
 type GetReceiptRequest struct {
-	// This parameter is required.
+	// example:
 	//
+	// 20251231541312
+	BusinessId *string `json:"businessId,omitempty" xml:"businessId,omitempty"`
 	// example:
 	//
 	// 19b98a1c-5a31-4d78-9da7-0e347593820a
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	// This parameter is required.
-	//
 	// example:
 	//
 	// EM-1017F28E03350B1738B3000X
@@ -2506,6 +2506,11 @@ func (s GetReceiptRequest) String() string {
 
 func (s GetReceiptRequest) GoString() string {
 	return s.String()
+}
+
+func (s *GetReceiptRequest) SetBusinessId(v string) *GetReceiptRequest {
+	s.BusinessId = &v
+	return s
 }
 
 func (s *GetReceiptRequest) SetCode(v string) *GetReceiptRequest {
@@ -10195,6 +10200,10 @@ func (client *Client) GetReceiptWithOptions(request *GetReceiptRequest, headers 
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BusinessId)) {
+		query["businessId"] = request.BusinessId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Code)) {
 		query["code"] = request.Code
 	}

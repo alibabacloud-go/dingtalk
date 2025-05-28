@@ -293,19 +293,21 @@ func (s *CreateTodoTaskHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTodo
 }
 
 type CreateTodoTaskRequest struct {
-	ActionList         []*CreateTodoTaskRequestActionList       `json:"actionList,omitempty" xml:"actionList,omitempty" type:"Repeated"`
-	BizCategoryId      *string                                  `json:"bizCategoryId,omitempty" xml:"bizCategoryId,omitempty"`
-	ContentFieldList   []*CreateTodoTaskRequestContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
-	CreatorId          *string                                  `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
-	Description        *string                                  `json:"description,omitempty" xml:"description,omitempty"`
-	DetailUrl          *CreateTodoTaskRequestDetailUrl          `json:"detailUrl,omitempty" xml:"detailUrl,omitempty" type:"Struct"`
-	DueTime            *int64                                   `json:"dueTime,omitempty" xml:"dueTime,omitempty"`
-	ExecutorIds        []*string                                `json:"executorIds,omitempty" xml:"executorIds,omitempty" type:"Repeated"`
-	IsOnlyShowExecutor *bool                                    `json:"isOnlyShowExecutor,omitempty" xml:"isOnlyShowExecutor,omitempty"`
-	NotifyConfigs      *CreateTodoTaskRequestNotifyConfigs      `json:"notifyConfigs,omitempty" xml:"notifyConfigs,omitempty" type:"Struct"`
-	ParticipantIds     []*string                                `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
-	Priority           *int32                                   `json:"priority,omitempty" xml:"priority,omitempty"`
-	SourceId           *string                                  `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
+	ActionList          []*CreateTodoTaskRequestActionList        `json:"actionList,omitempty" xml:"actionList,omitempty" type:"Repeated"`
+	BizCategoryId       *string                                   `json:"bizCategoryId,omitempty" xml:"bizCategoryId,omitempty"`
+	ContentFieldList    []*CreateTodoTaskRequestContentFieldList  `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
+	CreatorId           *string                                   `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	Description         *string                                   `json:"description,omitempty" xml:"description,omitempty"`
+	DetailUrl           *CreateTodoTaskRequestDetailUrl           `json:"detailUrl,omitempty" xml:"detailUrl,omitempty" type:"Struct"`
+	DueTime             *int64                                    `json:"dueTime,omitempty" xml:"dueTime,omitempty"`
+	ExecutorIds         []*string                                 `json:"executorIds,omitempty" xml:"executorIds,omitempty" type:"Repeated"`
+	IsOnlyShowExecutor  *bool                                     `json:"isOnlyShowExecutor,omitempty" xml:"isOnlyShowExecutor,omitempty"`
+	NotifyConfigs       *CreateTodoTaskRequestNotifyConfigs       `json:"notifyConfigs,omitempty" xml:"notifyConfigs,omitempty" type:"Struct"`
+	ParticipantIds      []*string                                 `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
+	Priority            *int32                                    `json:"priority,omitempty" xml:"priority,omitempty"`
+	RemindNotifyConfigs *CreateTodoTaskRequestRemindNotifyConfigs `json:"remindNotifyConfigs,omitempty" xml:"remindNotifyConfigs,omitempty" type:"Struct"`
+	ReminderTimeStamp   *int64                                    `json:"reminderTimeStamp,omitempty" xml:"reminderTimeStamp,omitempty"`
+	SourceId            *string                                   `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
 	// This parameter is required.
 	Subject *string `json:"subject,omitempty" xml:"subject,omitempty"`
 	// example:
@@ -380,6 +382,16 @@ func (s *CreateTodoTaskRequest) SetParticipantIds(v []*string) *CreateTodoTaskRe
 
 func (s *CreateTodoTaskRequest) SetPriority(v int32) *CreateTodoTaskRequest {
 	s.Priority = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequest) SetRemindNotifyConfigs(v *CreateTodoTaskRequestRemindNotifyConfigs) *CreateTodoTaskRequest {
+	s.RemindNotifyConfigs = v
+	return s
+}
+
+func (s *CreateTodoTaskRequest) SetReminderTimeStamp(v int64) *CreateTodoTaskRequest {
+	s.ReminderTimeStamp = &v
 	return s
 }
 
@@ -526,7 +538,9 @@ func (s *CreateTodoTaskRequestDetailUrl) SetPcUrl(v string) *CreateTodoTaskReque
 }
 
 type CreateTodoTaskRequestNotifyConfigs struct {
-	DingNotify *string `json:"dingNotify,omitempty" xml:"dingNotify,omitempty"`
+	DingNotify        *string `json:"dingNotify,omitempty" xml:"dingNotify,omitempty"`
+	SendAssistantChat *string `json:"sendAssistantChat,omitempty" xml:"sendAssistantChat,omitempty"`
+	SendTodoApn       *string `json:"sendTodoApn,omitempty" xml:"sendTodoApn,omitempty"`
 }
 
 func (s CreateTodoTaskRequestNotifyConfigs) String() string {
@@ -539,6 +553,39 @@ func (s CreateTodoTaskRequestNotifyConfigs) GoString() string {
 
 func (s *CreateTodoTaskRequestNotifyConfigs) SetDingNotify(v string) *CreateTodoTaskRequestNotifyConfigs {
 	s.DingNotify = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequestNotifyConfigs) SetSendAssistantChat(v string) *CreateTodoTaskRequestNotifyConfigs {
+	s.SendAssistantChat = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequestNotifyConfigs) SetSendTodoApn(v string) *CreateTodoTaskRequestNotifyConfigs {
+	s.SendTodoApn = &v
+	return s
+}
+
+type CreateTodoTaskRequestRemindNotifyConfigs struct {
+	DingNotify  *string `json:"dingNotify,omitempty" xml:"dingNotify,omitempty"`
+	SendTodoApn *string `json:"sendTodoApn,omitempty" xml:"sendTodoApn,omitempty"`
+}
+
+func (s CreateTodoTaskRequestRemindNotifyConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTodoTaskRequestRemindNotifyConfigs) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTodoTaskRequestRemindNotifyConfigs) SetDingNotify(v string) *CreateTodoTaskRequestRemindNotifyConfigs {
+	s.DingNotify = &v
+	return s
+}
+
+func (s *CreateTodoTaskRequestRemindNotifyConfigs) SetSendTodoApn(v string) *CreateTodoTaskRequestRemindNotifyConfigs {
+	s.SendTodoApn = &v
 	return s
 }
 
@@ -4374,6 +4421,14 @@ func (client *Client) CreateTodoTaskWithOptions(unionId *string, request *Create
 
 	if !tea.BoolValue(util.IsUnset(request.Priority)) {
 		body["priority"] = request.Priority
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RemindNotifyConfigs)) {
+		body["remindNotifyConfigs"] = request.RemindNotifyConfigs
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReminderTimeStamp)) {
+		body["reminderTimeStamp"] = request.ReminderTimeStamp
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.SourceId)) {

@@ -4685,6 +4685,190 @@ func (s *GetCidsByBotCodeResponse) SetBody(v *GetCidsByBotCodeResponseBody) *Get
 	return s
 }
 
+type GetClassTagHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetClassTagHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClassTagHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetClassTagHeaders) SetCommonHeaders(v map[string]*string) *GetClassTagHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetClassTagHeaders) SetXAcsDingtalkAccessToken(v string) *GetClassTagHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetClassTagRequest struct {
+	// This parameter is required.
+	EntityId *string `json:"entityId,omitempty" xml:"entityId,omitempty"`
+	// This parameter is required.
+	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+}
+
+func (s GetClassTagRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClassTagRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetClassTagRequest) SetEntityId(v string) *GetClassTagRequest {
+	s.EntityId = &v
+	return s
+}
+
+func (s *GetClassTagRequest) SetTagCode(v string) *GetClassTagRequest {
+	s.TagCode = &v
+	return s
+}
+
+type GetClassTagResponseBody struct {
+	CreatorName *string `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
+	// example:
+	//
+	// 1
+	DataType *int32 `json:"dataType,omitempty" xml:"dataType,omitempty"`
+	// example:
+	//
+	// 描述信息
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// example:
+	//
+	// 1
+	InnerDownload *string `json:"innerDownload,omitempty" xml:"innerDownload,omitempty"`
+	// example:
+	//
+	// 1
+	InnerTransfer *string `json:"innerTransfer,omitempty" xml:"innerTransfer,omitempty"`
+	// example:
+	//
+	// 张三
+	ModifierName *string `json:"modifierName,omitempty" xml:"modifierName,omitempty"`
+	// example:
+	//
+	// 标签名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 1
+	OutOp *string `json:"outOp,omitempty" xml:"outOp,omitempty"`
+	// example:
+	//
+	// 1
+	Rank *int32 `json:"rank,omitempty" xml:"rank,omitempty"`
+	// example:
+	//
+	// 1
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 1735023822867
+	UpdateTime *int64 `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+}
+
+func (s GetClassTagResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClassTagResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetClassTagResponseBody) SetCreatorName(v string) *GetClassTagResponseBody {
+	s.CreatorName = &v
+	return s
+}
+
+func (s *GetClassTagResponseBody) SetDataType(v int32) *GetClassTagResponseBody {
+	s.DataType = &v
+	return s
+}
+
+func (s *GetClassTagResponseBody) SetDescription(v string) *GetClassTagResponseBody {
+	s.Description = &v
+	return s
+}
+
+func (s *GetClassTagResponseBody) SetInnerDownload(v string) *GetClassTagResponseBody {
+	s.InnerDownload = &v
+	return s
+}
+
+func (s *GetClassTagResponseBody) SetInnerTransfer(v string) *GetClassTagResponseBody {
+	s.InnerTransfer = &v
+	return s
+}
+
+func (s *GetClassTagResponseBody) SetModifierName(v string) *GetClassTagResponseBody {
+	s.ModifierName = &v
+	return s
+}
+
+func (s *GetClassTagResponseBody) SetName(v string) *GetClassTagResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *GetClassTagResponseBody) SetOutOp(v string) *GetClassTagResponseBody {
+	s.OutOp = &v
+	return s
+}
+
+func (s *GetClassTagResponseBody) SetRank(v int32) *GetClassTagResponseBody {
+	s.Rank = &v
+	return s
+}
+
+func (s *GetClassTagResponseBody) SetStatus(v int32) *GetClassTagResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *GetClassTagResponseBody) SetUpdateTime(v int64) *GetClassTagResponseBody {
+	s.UpdateTime = &v
+	return s
+}
+
+type GetClassTagResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetClassTagResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetClassTagResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetClassTagResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetClassTagResponse) SetHeaders(v map[string]*string) *GetClassTagResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetClassTagResponse) SetStatusCode(v int32) *GetClassTagResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetClassTagResponse) SetBody(v *GetClassTagResponseBody) *GetClassTagResponse {
+	s.Body = v
+	return s
+}
+
 type GetCommentListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -21069,6 +21253,98 @@ func (s *UpdateStorageModeResponse) SetBody(v *UpdateStorageModeResponseBody) *U
 	return s
 }
 
+type UpdateTrustedDeviceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateTrustedDeviceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTrustedDeviceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTrustedDeviceHeaders) SetCommonHeaders(v map[string]*string) *UpdateTrustedDeviceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateTrustedDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTrustedDeviceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateTrustedDeviceRequest struct {
+	Status *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	Title  *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s UpdateTrustedDeviceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTrustedDeviceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTrustedDeviceRequest) SetStatus(v int32) *UpdateTrustedDeviceRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *UpdateTrustedDeviceRequest) SetTitle(v string) *UpdateTrustedDeviceRequest {
+	s.Title = &v
+	return s
+}
+
+type UpdateTrustedDeviceResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateTrustedDeviceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTrustedDeviceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTrustedDeviceResponseBody) SetSuccess(v bool) *UpdateTrustedDeviceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateTrustedDeviceResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateTrustedDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateTrustedDeviceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTrustedDeviceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTrustedDeviceResponse) SetHeaders(v map[string]*string) *UpdateTrustedDeviceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateTrustedDeviceResponse) SetStatusCode(v int32) *UpdateTrustedDeviceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateTrustedDeviceResponse) SetBody(v *UpdateTrustedDeviceResponseBody) *UpdateTrustedDeviceResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateVoiceMsgCtrlStatusHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -23922,6 +24198,83 @@ func (client *Client) GetCidsByBotCode(request *GetCidsByBotCodeRequest) (_resul
 	headers := &GetCidsByBotCodeHeaders{}
 	_result = &GetCidsByBotCodeResponse{}
 	_body, _err := client.GetCidsByBotCodeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取密级标签
+//
+// @param request - GetClassTagRequest
+//
+// @param headers - GetClassTagHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetClassTagResponse
+func (client *Client) GetClassTagWithOptions(request *GetClassTagRequest, headers *GetClassTagHeaders, runtime *util.RuntimeOptions) (_result *GetClassTagResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EntityId)) {
+		query["entityId"] = request.EntityId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TagCode)) {
+		query["tagCode"] = request.TagCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetClassTag"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/classes/entities/tags"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetClassTagResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取密级标签
+//
+// @param request - GetClassTagRequest
+//
+// @return GetClassTagResponse
+func (client *Client) GetClassTag(request *GetClassTagRequest) (_result *GetClassTagResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetClassTagHeaders{}
+	_result = &GetClassTagResponse{}
+	_body, _err := client.GetClassTagWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -31904,6 +32257,83 @@ func (client *Client) UpdateStorageMode(request *UpdateStorageModeRequest) (_res
 	headers := &UpdateStorageModeHeaders{}
 	_result = &UpdateStorageModeResponse{}
 	_body, _err := client.UpdateStorageModeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过设备编号修改设备信息。
+//
+// @param request - UpdateTrustedDeviceRequest
+//
+// @param headers - UpdateTrustedDeviceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateTrustedDeviceResponse
+func (client *Client) UpdateTrustedDeviceWithOptions(deviceId *string, request *UpdateTrustedDeviceRequest, headers *UpdateTrustedDeviceHeaders, runtime *util.RuntimeOptions) (_result *UpdateTrustedDeviceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateTrustedDevice"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/trustedDevices/" + tea.StringValue(deviceId)),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateTrustedDeviceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过设备编号修改设备信息。
+//
+// @param request - UpdateTrustedDeviceRequest
+//
+// @return UpdateTrustedDeviceResponse
+func (client *Client) UpdateTrustedDevice(deviceId *string, request *UpdateTrustedDeviceRequest) (_result *UpdateTrustedDeviceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTrustedDeviceHeaders{}
+	_result = &UpdateTrustedDeviceResponse{}
+	_body, _err := client.UpdateTrustedDeviceWithOptions(deviceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -2375,6 +2375,395 @@ func (s *HrbrainDeletetLabelBaseResponse) SetBody(v *HrbrainDeletetLabelBaseResp
 	return s
 }
 
+type HrbrainEmpPoolQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainEmpPoolQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainEmpPoolQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainEmpPoolQueryHeaders) SetCommonHeaders(v map[string]*string) *HrbrainEmpPoolQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainEmpPoolQueryHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainEmpPoolQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainEmpPoolQueryRequest struct {
+	Keyword    *string   `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	Labels     []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
+	MaxResults *int32    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *int32    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s HrbrainEmpPoolQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainEmpPoolQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainEmpPoolQueryRequest) SetKeyword(v string) *HrbrainEmpPoolQueryRequest {
+	s.Keyword = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolQueryRequest) SetLabels(v []*string) *HrbrainEmpPoolQueryRequest {
+	s.Labels = v
+	return s
+}
+
+func (s *HrbrainEmpPoolQueryRequest) SetMaxResults(v int32) *HrbrainEmpPoolQueryRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolQueryRequest) SetNextToken(v int32) *HrbrainEmpPoolQueryRequest {
+	s.NextToken = &v
+	return s
+}
+
+type HrbrainEmpPoolQueryResponseBody struct {
+	Content   *HrbrainEmpPoolQueryResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                                 `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool                                   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool                                   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainEmpPoolQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainEmpPoolQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainEmpPoolQueryResponseBody) SetContent(v *HrbrainEmpPoolQueryResponseBodyContent) *HrbrainEmpPoolQueryResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *HrbrainEmpPoolQueryResponseBody) SetRequestId(v string) *HrbrainEmpPoolQueryResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolQueryResponseBody) SetResult(v bool) *HrbrainEmpPoolQueryResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolQueryResponseBody) SetSuccess(v bool) *HrbrainEmpPoolQueryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainEmpPoolQueryResponseBodyContent struct {
+	MaxResults *int32                                             `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *int32                                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	PoolInfos  []*HrbrainEmpPoolQueryResponseBodyContentPoolInfos `json:"poolInfos,omitempty" xml:"poolInfos,omitempty" type:"Repeated"`
+	TotalCount *int32                                             `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s HrbrainEmpPoolQueryResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainEmpPoolQueryResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainEmpPoolQueryResponseBodyContent) SetMaxResults(v int32) *HrbrainEmpPoolQueryResponseBodyContent {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolQueryResponseBodyContent) SetNextToken(v int32) *HrbrainEmpPoolQueryResponseBodyContent {
+	s.NextToken = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolQueryResponseBodyContent) SetPoolInfos(v []*HrbrainEmpPoolQueryResponseBodyContentPoolInfos) *HrbrainEmpPoolQueryResponseBodyContent {
+	s.PoolInfos = v
+	return s
+}
+
+func (s *HrbrainEmpPoolQueryResponseBodyContent) SetTotalCount(v int32) *HrbrainEmpPoolQueryResponseBodyContent {
+	s.TotalCount = &v
+	return s
+}
+
+type HrbrainEmpPoolQueryResponseBodyContentPoolInfos struct {
+	PoolCode *string                                                    `json:"poolCode,omitempty" xml:"poolCode,omitempty"`
+	PoolDesc *string                                                    `json:"poolDesc,omitempty" xml:"poolDesc,omitempty"`
+	PoolName *string                                                    `json:"poolName,omitempty" xml:"poolName,omitempty"`
+	PoolTags []*HrbrainEmpPoolQueryResponseBodyContentPoolInfosPoolTags `json:"poolTags,omitempty" xml:"poolTags,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainEmpPoolQueryResponseBodyContentPoolInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainEmpPoolQueryResponseBodyContentPoolInfos) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainEmpPoolQueryResponseBodyContentPoolInfos) SetPoolCode(v string) *HrbrainEmpPoolQueryResponseBodyContentPoolInfos {
+	s.PoolCode = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolQueryResponseBodyContentPoolInfos) SetPoolDesc(v string) *HrbrainEmpPoolQueryResponseBodyContentPoolInfos {
+	s.PoolDesc = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolQueryResponseBodyContentPoolInfos) SetPoolName(v string) *HrbrainEmpPoolQueryResponseBodyContentPoolInfos {
+	s.PoolName = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolQueryResponseBodyContentPoolInfos) SetPoolTags(v []*HrbrainEmpPoolQueryResponseBodyContentPoolInfosPoolTags) *HrbrainEmpPoolQueryResponseBodyContentPoolInfos {
+	s.PoolTags = v
+	return s
+}
+
+type HrbrainEmpPoolQueryResponseBodyContentPoolInfosPoolTags struct {
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s HrbrainEmpPoolQueryResponseBodyContentPoolInfosPoolTags) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainEmpPoolQueryResponseBodyContentPoolInfosPoolTags) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainEmpPoolQueryResponseBodyContentPoolInfosPoolTags) SetLabel(v string) *HrbrainEmpPoolQueryResponseBodyContentPoolInfosPoolTags {
+	s.Label = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolQueryResponseBodyContentPoolInfosPoolTags) SetValue(v string) *HrbrainEmpPoolQueryResponseBodyContentPoolInfosPoolTags {
+	s.Value = &v
+	return s
+}
+
+type HrbrainEmpPoolQueryResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainEmpPoolQueryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainEmpPoolQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainEmpPoolQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainEmpPoolQueryResponse) SetHeaders(v map[string]*string) *HrbrainEmpPoolQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainEmpPoolQueryResponse) SetStatusCode(v int32) *HrbrainEmpPoolQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolQueryResponse) SetBody(v *HrbrainEmpPoolQueryResponseBody) *HrbrainEmpPoolQueryResponse {
+	s.Body = v
+	return s
+}
+
+type HrbrainEmpPoolUserHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainEmpPoolUserHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainEmpPoolUserHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainEmpPoolUserHeaders) SetCommonHeaders(v map[string]*string) *HrbrainEmpPoolUserHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainEmpPoolUserHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainEmpPoolUserHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainEmpPoolUserRequest struct {
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *int32  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	PoolCode   *string `json:"poolCode,omitempty" xml:"poolCode,omitempty"`
+}
+
+func (s HrbrainEmpPoolUserRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainEmpPoolUserRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainEmpPoolUserRequest) SetMaxResults(v int32) *HrbrainEmpPoolUserRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolUserRequest) SetNextToken(v int32) *HrbrainEmpPoolUserRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolUserRequest) SetPoolCode(v string) *HrbrainEmpPoolUserRequest {
+	s.PoolCode = &v
+	return s
+}
+
+type HrbrainEmpPoolUserResponseBody struct {
+	Content   *HrbrainEmpPoolUserResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                                `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool                                  `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool                                  `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainEmpPoolUserResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainEmpPoolUserResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainEmpPoolUserResponseBody) SetContent(v *HrbrainEmpPoolUserResponseBodyContent) *HrbrainEmpPoolUserResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *HrbrainEmpPoolUserResponseBody) SetRequestId(v string) *HrbrainEmpPoolUserResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolUserResponseBody) SetResult(v bool) *HrbrainEmpPoolUserResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolUserResponseBody) SetSuccess(v bool) *HrbrainEmpPoolUserResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainEmpPoolUserResponseBodyContent struct {
+	EmpVos     []*HrbrainEmpPoolUserResponseBodyContentEmpVos `json:"empVos,omitempty" xml:"empVos,omitempty" type:"Repeated"`
+	MaxResults *int32                                         `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *int32                                         `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	TotalCount *int32                                         `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s HrbrainEmpPoolUserResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainEmpPoolUserResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainEmpPoolUserResponseBodyContent) SetEmpVos(v []*HrbrainEmpPoolUserResponseBodyContentEmpVos) *HrbrainEmpPoolUserResponseBodyContent {
+	s.EmpVos = v
+	return s
+}
+
+func (s *HrbrainEmpPoolUserResponseBodyContent) SetMaxResults(v int32) *HrbrainEmpPoolUserResponseBodyContent {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolUserResponseBodyContent) SetNextToken(v int32) *HrbrainEmpPoolUserResponseBodyContent {
+	s.NextToken = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolUserResponseBodyContent) SetTotalCount(v int32) *HrbrainEmpPoolUserResponseBodyContent {
+	s.TotalCount = &v
+	return s
+}
+
+type HrbrainEmpPoolUserResponseBodyContentEmpVos struct {
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s HrbrainEmpPoolUserResponseBodyContentEmpVos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainEmpPoolUserResponseBodyContentEmpVos) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainEmpPoolUserResponseBodyContentEmpVos) SetName(v string) *HrbrainEmpPoolUserResponseBodyContentEmpVos {
+	s.Name = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolUserResponseBodyContentEmpVos) SetUserId(v string) *HrbrainEmpPoolUserResponseBodyContentEmpVos {
+	s.UserId = &v
+	return s
+}
+
+type HrbrainEmpPoolUserResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainEmpPoolUserResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainEmpPoolUserResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainEmpPoolUserResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainEmpPoolUserResponse) SetHeaders(v map[string]*string) *HrbrainEmpPoolUserResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainEmpPoolUserResponse) SetStatusCode(v int32) *HrbrainEmpPoolUserResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolUserResponse) SetBody(v *HrbrainEmpPoolUserResponseBody) *HrbrainEmpPoolUserResponse {
+	s.Body = v
+	return s
+}
+
 type HrbrainImportAwardDetailHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7942,6 +8331,172 @@ func (client *Client) HrbrainDeletetLabelBase(request *HrbrainDeletetLabelBaseRe
 	headers := &HrbrainDeletetLabelBaseHeaders{}
 	_result = &HrbrainDeletetLabelBaseResponse{}
 	_body, _err := client.HrbrainDeletetLabelBaseWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才池信息查询
+//
+// @param request - HrbrainEmpPoolQueryRequest
+//
+// @param headers - HrbrainEmpPoolQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainEmpPoolQueryResponse
+func (client *Client) HrbrainEmpPoolQueryWithOptions(request *HrbrainEmpPoolQueryRequest, headers *HrbrainEmpPoolQueryHeaders, runtime *util.RuntimeOptions) (_result *HrbrainEmpPoolQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
+		body["keyword"] = request.Keyword
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Labels)) {
+		body["labels"] = request.Labels
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainEmpPoolQuery"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/empPools/infos/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainEmpPoolQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才池信息查询
+//
+// @param request - HrbrainEmpPoolQueryRequest
+//
+// @return HrbrainEmpPoolQueryResponse
+func (client *Client) HrbrainEmpPoolQuery(request *HrbrainEmpPoolQueryRequest) (_result *HrbrainEmpPoolQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainEmpPoolQueryHeaders{}
+	_result = &HrbrainEmpPoolQueryResponse{}
+	_body, _err := client.HrbrainEmpPoolQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才池人员查询
+//
+// @param request - HrbrainEmpPoolUserRequest
+//
+// @param headers - HrbrainEmpPoolUserHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainEmpPoolUserResponse
+func (client *Client) HrbrainEmpPoolUserWithOptions(request *HrbrainEmpPoolUserRequest, headers *HrbrainEmpPoolUserHeaders, runtime *util.RuntimeOptions) (_result *HrbrainEmpPoolUserResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PoolCode)) {
+		body["poolCode"] = request.PoolCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainEmpPoolUser"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/datas/empPools/users/lists/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainEmpPoolUserResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才池人员查询
+//
+// @param request - HrbrainEmpPoolUserRequest
+//
+// @return HrbrainEmpPoolUserResponse
+func (client *Client) HrbrainEmpPoolUser(request *HrbrainEmpPoolUserRequest) (_result *HrbrainEmpPoolUserResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainEmpPoolUserHeaders{}
+	_result = &HrbrainEmpPoolUserResponse{}
+	_body, _err := client.HrbrainEmpPoolUserWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
