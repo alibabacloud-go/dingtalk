@@ -24652,6 +24652,7 @@ type SubmitTaskRequest struct {
 	// MEETING
 	BizCode *string                  `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
 	Data    []*SubmitTaskRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	UnionId *string                  `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
 func (s SubmitTaskRequest) String() string {
@@ -24674,6 +24675,11 @@ func (s *SubmitTaskRequest) SetBizCode(v string) *SubmitTaskRequest {
 
 func (s *SubmitTaskRequest) SetData(v []*SubmitTaskRequestData) *SubmitTaskRequest {
 	s.Data = v
+	return s
+}
+
+func (s *SubmitTaskRequest) SetUnionId(v string) *SubmitTaskRequest {
+	s.UnionId = &v
 	return s
 }
 
@@ -40361,6 +40367,10 @@ func (client *Client) SubmitTaskWithOptions(request *SubmitTaskRequest, headers 
 
 	if !tea.BoolValue(util.IsUnset(request.Data)) {
 		body["data"] = request.Data
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
 	}
 
 	realHeaders := make(map[string]*string)

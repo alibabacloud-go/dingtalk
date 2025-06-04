@@ -1188,6 +1188,262 @@ func (s *CreateContractAppsReviewTaskResponse) SetBody(v *CreateContractAppsRevi
 	return s
 }
 
+type CreateContractAppsTermsExtractEaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateContractAppsTermsExtractEaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateContractAppsTermsExtractEaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateContractAppsTermsExtractEaskHeaders) SetCommonHeaders(v map[string]*string) *CreateContractAppsTermsExtractEaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateContractAppsTermsExtractEaskHeaders) SetXAcsDingtalkAccessToken(v string) *CreateContractAppsTermsExtractEaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateContractAppsTermsExtractEaskRequest struct {
+	ContractFile            *CreateContractAppsTermsExtractEaskRequestContractFile   `json:"contractFile,omitempty" xml:"contractFile,omitempty" type:"Struct"`
+	ContractFileDownloadUrl *string                                                  `json:"contractFileDownloadUrl,omitempty" xml:"contractFileDownloadUrl,omitempty"`
+	ContractFileName        *string                                                  `json:"contractFileName,omitempty" xml:"contractFileName,omitempty"`
+	ExtractRules            []*CreateContractAppsTermsExtractEaskRequestExtractRules `json:"extractRules,omitempty" xml:"extractRules,omitempty" type:"Repeated"`
+	FileSource              *string                                                  `json:"fileSource,omitempty" xml:"fileSource,omitempty"`
+	RequestId               *string                                                  `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s CreateContractAppsTermsExtractEaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateContractAppsTermsExtractEaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateContractAppsTermsExtractEaskRequest) SetContractFile(v *CreateContractAppsTermsExtractEaskRequestContractFile) *CreateContractAppsTermsExtractEaskRequest {
+	s.ContractFile = v
+	return s
+}
+
+func (s *CreateContractAppsTermsExtractEaskRequest) SetContractFileDownloadUrl(v string) *CreateContractAppsTermsExtractEaskRequest {
+	s.ContractFileDownloadUrl = &v
+	return s
+}
+
+func (s *CreateContractAppsTermsExtractEaskRequest) SetContractFileName(v string) *CreateContractAppsTermsExtractEaskRequest {
+	s.ContractFileName = &v
+	return s
+}
+
+func (s *CreateContractAppsTermsExtractEaskRequest) SetExtractRules(v []*CreateContractAppsTermsExtractEaskRequestExtractRules) *CreateContractAppsTermsExtractEaskRequest {
+	s.ExtractRules = v
+	return s
+}
+
+func (s *CreateContractAppsTermsExtractEaskRequest) SetFileSource(v string) *CreateContractAppsTermsExtractEaskRequest {
+	s.FileSource = &v
+	return s
+}
+
+func (s *CreateContractAppsTermsExtractEaskRequest) SetRequestId(v string) *CreateContractAppsTermsExtractEaskRequest {
+	s.RequestId = &v
+	return s
+}
+
+func (s *CreateContractAppsTermsExtractEaskRequest) SetUnionId(v string) *CreateContractAppsTermsExtractEaskRequest {
+	s.UnionId = &v
+	return s
+}
+
+type CreateContractAppsTermsExtractEaskRequestContractFile struct {
+	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	SpaceId  *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s CreateContractAppsTermsExtractEaskRequestContractFile) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateContractAppsTermsExtractEaskRequestContractFile) GoString() string {
+	return s.String()
+}
+
+func (s *CreateContractAppsTermsExtractEaskRequestContractFile) SetFileId(v string) *CreateContractAppsTermsExtractEaskRequestContractFile {
+	s.FileId = &v
+	return s
+}
+
+func (s *CreateContractAppsTermsExtractEaskRequestContractFile) SetFileName(v string) *CreateContractAppsTermsExtractEaskRequestContractFile {
+	s.FileName = &v
+	return s
+}
+
+func (s *CreateContractAppsTermsExtractEaskRequestContractFile) SetFileSize(v int64) *CreateContractAppsTermsExtractEaskRequestContractFile {
+	s.FileSize = &v
+	return s
+}
+
+func (s *CreateContractAppsTermsExtractEaskRequestContractFile) SetFileType(v string) *CreateContractAppsTermsExtractEaskRequestContractFile {
+	s.FileType = &v
+	return s
+}
+
+func (s *CreateContractAppsTermsExtractEaskRequestContractFile) SetSpaceId(v string) *CreateContractAppsTermsExtractEaskRequestContractFile {
+	s.SpaceId = &v
+	return s
+}
+
+type CreateContractAppsTermsExtractEaskRequestExtractRules struct {
+	RuleCategory *string                                                           `json:"ruleCategory,omitempty" xml:"ruleCategory,omitempty"`
+	TermRules    []*CreateContractAppsTermsExtractEaskRequestExtractRulesTermRules `json:"termRules,omitempty" xml:"termRules,omitempty" type:"Repeated"`
+}
+
+func (s CreateContractAppsTermsExtractEaskRequestExtractRules) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateContractAppsTermsExtractEaskRequestExtractRules) GoString() string {
+	return s.String()
+}
+
+func (s *CreateContractAppsTermsExtractEaskRequestExtractRules) SetRuleCategory(v string) *CreateContractAppsTermsExtractEaskRequestExtractRules {
+	s.RuleCategory = &v
+	return s
+}
+
+func (s *CreateContractAppsTermsExtractEaskRequestExtractRules) SetTermRules(v []*CreateContractAppsTermsExtractEaskRequestExtractRulesTermRules) *CreateContractAppsTermsExtractEaskRequestExtractRules {
+	s.TermRules = v
+	return s
+}
+
+type CreateContractAppsTermsExtractEaskRequestExtractRulesTermRules struct {
+	Description  *string `json:"description,omitempty" xml:"description,omitempty"`
+	TermCategory *string `json:"termCategory,omitempty" xml:"termCategory,omitempty"`
+}
+
+func (s CreateContractAppsTermsExtractEaskRequestExtractRulesTermRules) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateContractAppsTermsExtractEaskRequestExtractRulesTermRules) GoString() string {
+	return s.String()
+}
+
+func (s *CreateContractAppsTermsExtractEaskRequestExtractRulesTermRules) SetDescription(v string) *CreateContractAppsTermsExtractEaskRequestExtractRulesTermRules {
+	s.Description = &v
+	return s
+}
+
+func (s *CreateContractAppsTermsExtractEaskRequestExtractRulesTermRules) SetTermCategory(v string) *CreateContractAppsTermsExtractEaskRequestExtractRulesTermRules {
+	s.TermCategory = &v
+	return s
+}
+
+type CreateContractAppsTermsExtractEaskResponseBody struct {
+	Result  *CreateContractAppsTermsExtractEaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                                 `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateContractAppsTermsExtractEaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateContractAppsTermsExtractEaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateContractAppsTermsExtractEaskResponseBody) SetResult(v *CreateContractAppsTermsExtractEaskResponseBodyResult) *CreateContractAppsTermsExtractEaskResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *CreateContractAppsTermsExtractEaskResponseBody) SetSuccess(v bool) *CreateContractAppsTermsExtractEaskResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateContractAppsTermsExtractEaskResponseBodyResult struct {
+	Data      *CreateContractAppsTermsExtractEaskResponseBodyResultData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	RequestId *string                                                   `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s CreateContractAppsTermsExtractEaskResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateContractAppsTermsExtractEaskResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateContractAppsTermsExtractEaskResponseBodyResult) SetData(v *CreateContractAppsTermsExtractEaskResponseBodyResultData) *CreateContractAppsTermsExtractEaskResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+func (s *CreateContractAppsTermsExtractEaskResponseBodyResult) SetRequestId(v string) *CreateContractAppsTermsExtractEaskResponseBodyResult {
+	s.RequestId = &v
+	return s
+}
+
+type CreateContractAppsTermsExtractEaskResponseBodyResultData struct {
+	ExtractTaskId *string `json:"extractTaskId,omitempty" xml:"extractTaskId,omitempty"`
+}
+
+func (s CreateContractAppsTermsExtractEaskResponseBodyResultData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateContractAppsTermsExtractEaskResponseBodyResultData) GoString() string {
+	return s.String()
+}
+
+func (s *CreateContractAppsTermsExtractEaskResponseBodyResultData) SetExtractTaskId(v string) *CreateContractAppsTermsExtractEaskResponseBodyResultData {
+	s.ExtractTaskId = &v
+	return s
+}
+
+type CreateContractAppsTermsExtractEaskResponse struct {
+	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateContractAppsTermsExtractEaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateContractAppsTermsExtractEaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateContractAppsTermsExtractEaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateContractAppsTermsExtractEaskResponse) SetHeaders(v map[string]*string) *CreateContractAppsTermsExtractEaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateContractAppsTermsExtractEaskResponse) SetStatusCode(v int32) *CreateContractAppsTermsExtractEaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateContractAppsTermsExtractEaskResponse) SetBody(v *CreateContractAppsTermsExtractEaskResponseBody) *CreateContractAppsTermsExtractEaskResponse {
+	s.Body = v
+	return s
+}
+
 type CreateContractCompareTaskHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3726,6 +3982,217 @@ func (s *QueryContractAppsReviewResultResponse) SetBody(v *QueryContractAppsRevi
 	return s
 }
 
+type QueryContractAppsTermsExtractResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryContractAppsTermsExtractResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractAppsTermsExtractResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractAppsTermsExtractResultHeaders) SetCommonHeaders(v map[string]*string) *QueryContractAppsTermsExtractResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryContractAppsTermsExtractResultHeaders) SetXAcsDingtalkAccessToken(v string) *QueryContractAppsTermsExtractResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryContractAppsTermsExtractResultRequest struct {
+	// This parameter is required.
+	ExtractTaskId *string `json:"extractTaskId,omitempty" xml:"extractTaskId,omitempty"`
+	// This parameter is required.
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryContractAppsTermsExtractResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractAppsTermsExtractResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractAppsTermsExtractResultRequest) SetExtractTaskId(v string) *QueryContractAppsTermsExtractResultRequest {
+	s.ExtractTaskId = &v
+	return s
+}
+
+func (s *QueryContractAppsTermsExtractResultRequest) SetRequestId(v string) *QueryContractAppsTermsExtractResultRequest {
+	s.RequestId = &v
+	return s
+}
+
+func (s *QueryContractAppsTermsExtractResultRequest) SetUnionId(v string) *QueryContractAppsTermsExtractResultRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryContractAppsTermsExtractResultResponseBody struct {
+	Result  *QueryContractAppsTermsExtractResultResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                                  `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryContractAppsTermsExtractResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractAppsTermsExtractResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractAppsTermsExtractResultResponseBody) SetResult(v *QueryContractAppsTermsExtractResultResponseBodyResult) *QueryContractAppsTermsExtractResultResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryContractAppsTermsExtractResultResponseBody) SetSuccess(v bool) *QueryContractAppsTermsExtractResultResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryContractAppsTermsExtractResultResponseBodyResult struct {
+	Data      *QueryContractAppsTermsExtractResultResponseBodyResultData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	RequestId *string                                                    `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s QueryContractAppsTermsExtractResultResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractAppsTermsExtractResultResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractAppsTermsExtractResultResponseBodyResult) SetData(v *QueryContractAppsTermsExtractResultResponseBodyResultData) *QueryContractAppsTermsExtractResultResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+func (s *QueryContractAppsTermsExtractResultResponseBodyResult) SetRequestId(v string) *QueryContractAppsTermsExtractResultResponseBodyResult {
+	s.RequestId = &v
+	return s
+}
+
+type QueryContractAppsTermsExtractResultResponseBodyResultData struct {
+	ExtractedContents []*QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContents `json:"extractedContents,omitempty" xml:"extractedContents,omitempty" type:"Repeated"`
+	Status            *string                                                                       `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QueryContractAppsTermsExtractResultResponseBodyResultData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractAppsTermsExtractResultResponseBodyResultData) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractAppsTermsExtractResultResponseBodyResultData) SetExtractedContents(v []*QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContents) *QueryContractAppsTermsExtractResultResponseBodyResultData {
+	s.ExtractedContents = v
+	return s
+}
+
+func (s *QueryContractAppsTermsExtractResultResponseBodyResultData) SetStatus(v string) *QueryContractAppsTermsExtractResultResponseBodyResultData {
+	s.Status = &v
+	return s
+}
+
+type QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContents struct {
+	RuleCategory *string                                                                                   `json:"ruleCategory,omitempty" xml:"ruleCategory,omitempty"`
+	TermContents []*QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContentsTermContents `json:"termContents,omitempty" xml:"termContents,omitempty" type:"Repeated"`
+}
+
+func (s QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContents) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContents) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContents) SetRuleCategory(v string) *QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContents {
+	s.RuleCategory = &v
+	return s
+}
+
+func (s *QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContents) SetTermContents(v []*QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContentsTermContents) *QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContents {
+	s.TermContents = v
+	return s
+}
+
+type QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContentsTermContents struct {
+	DetailTerm   *string `json:"detailTerm,omitempty" xml:"detailTerm,omitempty"`
+	Exist        *string `json:"exist,omitempty" xml:"exist,omitempty"`
+	ShortTerm    *string `json:"shortTerm,omitempty" xml:"shortTerm,omitempty"`
+	TermCategory *string `json:"termCategory,omitempty" xml:"termCategory,omitempty"`
+}
+
+func (s QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContentsTermContents) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContentsTermContents) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContentsTermContents) SetDetailTerm(v string) *QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContentsTermContents {
+	s.DetailTerm = &v
+	return s
+}
+
+func (s *QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContentsTermContents) SetExist(v string) *QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContentsTermContents {
+	s.Exist = &v
+	return s
+}
+
+func (s *QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContentsTermContents) SetShortTerm(v string) *QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContentsTermContents {
+	s.ShortTerm = &v
+	return s
+}
+
+func (s *QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContentsTermContents) SetTermCategory(v string) *QueryContractAppsTermsExtractResultResponseBodyResultDataExtractedContentsTermContents {
+	s.TermCategory = &v
+	return s
+}
+
+type QueryContractAppsTermsExtractResultResponse struct {
+	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryContractAppsTermsExtractResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryContractAppsTermsExtractResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractAppsTermsExtractResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractAppsTermsExtractResultResponse) SetHeaders(v map[string]*string) *QueryContractAppsTermsExtractResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryContractAppsTermsExtractResultResponse) SetStatusCode(v int32) *QueryContractAppsTermsExtractResultResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryContractAppsTermsExtractResultResponse) SetBody(v *QueryContractAppsTermsExtractResultResponseBody) *QueryContractAppsTermsExtractResultResponse {
+	s.Body = v
+	return s
+}
+
 type QueryContractCompareResultHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5340,6 +5807,103 @@ func (client *Client) CreateContractAppsReviewTask(request *CreateContractAppsRe
 
 // Summary:
 //
+// 创建合同条款抽取任务
+//
+// @param request - CreateContractAppsTermsExtractEaskRequest
+//
+// @param headers - CreateContractAppsTermsExtractEaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateContractAppsTermsExtractEaskResponse
+func (client *Client) CreateContractAppsTermsExtractEaskWithOptions(request *CreateContractAppsTermsExtractEaskRequest, headers *CreateContractAppsTermsExtractEaskHeaders, runtime *util.RuntimeOptions) (_result *CreateContractAppsTermsExtractEaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ContractFile)) {
+		body["contractFile"] = request.ContractFile
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContractFileDownloadUrl)) {
+		body["contractFileDownloadUrl"] = request.ContractFileDownloadUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContractFileName)) {
+		body["contractFileName"] = request.ContractFileName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtractRules)) {
+		body["extractRules"] = request.ExtractRules
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileSource)) {
+		body["fileSource"] = request.FileSource
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		body["requestId"] = request.RequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateContractAppsTermsExtractEask"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/apps/termsExtractTasks"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateContractAppsTermsExtractEaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建合同条款抽取任务
+//
+// @param request - CreateContractAppsTermsExtractEaskRequest
+//
+// @return CreateContractAppsTermsExtractEaskResponse
+func (client *Client) CreateContractAppsTermsExtractEask(request *CreateContractAppsTermsExtractEaskRequest) (_result *CreateContractAppsTermsExtractEaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateContractAppsTermsExtractEaskHeaders{}
+	_result = &CreateContractAppsTermsExtractEaskResponse{}
+	_body, _err := client.CreateContractAppsTermsExtractEaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 创建合同比对任务
 //
 // @param request - CreateContractCompareTaskRequest
@@ -6436,6 +7000,87 @@ func (client *Client) QueryContractAppsReviewResult(request *QueryContractAppsRe
 	headers := &QueryContractAppsReviewResultHeaders{}
 	_result = &QueryContractAppsReviewResultResponse{}
 	_body, _err := client.QueryContractAppsReviewResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询合同条款抽取结果
+//
+// @param request - QueryContractAppsTermsExtractResultRequest
+//
+// @param headers - QueryContractAppsTermsExtractResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryContractAppsTermsExtractResultResponse
+func (client *Client) QueryContractAppsTermsExtractResultWithOptions(request *QueryContractAppsTermsExtractResultRequest, headers *QueryContractAppsTermsExtractResultHeaders, runtime *util.RuntimeOptions) (_result *QueryContractAppsTermsExtractResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ExtractTaskId)) {
+		body["extractTaskId"] = request.ExtractTaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		body["requestId"] = request.RequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryContractAppsTermsExtractResult"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/apps/termsExtractResults/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryContractAppsTermsExtractResultResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询合同条款抽取结果
+//
+// @param request - QueryContractAppsTermsExtractResultRequest
+//
+// @return QueryContractAppsTermsExtractResultResponse
+func (client *Client) QueryContractAppsTermsExtractResult(request *QueryContractAppsTermsExtractResultRequest) (_result *QueryContractAppsTermsExtractResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryContractAppsTermsExtractResultHeaders{}
+	_result = &QueryContractAppsTermsExtractResultResponse{}
+	_body, _err := client.QueryContractAppsTermsExtractResultWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

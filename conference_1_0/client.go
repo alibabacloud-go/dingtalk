@@ -1029,7 +1029,7 @@ type CreateScheduleConferenceRequestScheduleConfSettingModel struct {
 	MoziConfVirtualExtraSetting *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting `json:"moziConfVirtualExtraSetting,omitempty" xml:"moziConfVirtualExtraSetting,omitempty" type:"Struct"`
 	// example:
 	//
-	// -1：未开启 1：开启 6：超过6人自动开启静音
+	// -1：开启 0：未开启 6：超过6人自动开启静音
 	MuteOnJoin *int32 `json:"muteOnJoin,omitempty" xml:"muteOnJoin,omitempty"`
 	// example:
 	//
@@ -7564,7 +7564,7 @@ type UpdateScheduleConfSettingsRequestScheduleConfSettingModel struct {
 	MoziConfVirtualExtraSetting *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting `json:"moziConfVirtualExtraSetting,omitempty" xml:"moziConfVirtualExtraSetting,omitempty" type:"Struct"`
 	// example:
 	//
-	// -1：未开启 1：开启 6：超过6人自动开启静音
+	// -1：开启 0：未开启 6：超过6人自动开启静音
 	MuteOnJoin *int32 `json:"muteOnJoin,omitempty" xml:"muteOnJoin,omitempty"`
 	// example:
 	//

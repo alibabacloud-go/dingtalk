@@ -7522,7 +7522,8 @@ type GroupUpdateRequest struct {
 	// example:
 	//
 	// true
-	EnableOutsideApply *bool `json:"enableOutsideApply,omitempty" xml:"enableOutsideApply,omitempty"`
+	EnableOutsideApply       *bool `json:"enableOutsideApply,omitempty" xml:"enableOutsideApply,omitempty"`
+	EnableOutsideCameraCheck *bool `json:"enableOutsideCameraCheck,omitempty" xml:"enableOutsideCameraCheck,omitempty"`
 	// example:
 	//
 	// true
@@ -7646,6 +7647,11 @@ func (s *GroupUpdateRequest) SetEnableOutSideUpdateNormalCheck(v bool) *GroupUpd
 
 func (s *GroupUpdateRequest) SetEnableOutsideApply(v bool) *GroupUpdateRequest {
 	s.EnableOutsideApply = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetEnableOutsideCameraCheck(v bool) *GroupUpdateRequest {
+	s.EnableOutsideCameraCheck = &v
 	return s
 }
 
@@ -13857,6 +13863,10 @@ func (client *Client) GroupUpdateWithOptions(request *GroupUpdateRequest, header
 
 	if !tea.BoolValue(util.IsUnset(request.EnableOutsideApply)) {
 		body["enableOutsideApply"] = request.EnableOutsideApply
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableOutsideCameraCheck)) {
+		body["enableOutsideCameraCheck"] = request.EnableOutsideCameraCheck
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.EnableOutsideCheck)) {
