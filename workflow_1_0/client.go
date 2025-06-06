@@ -7783,6 +7783,163 @@ func (s *PremiumAddApproveDentryAuthResponse) SetBody(v *PremiumAddApproveDentry
 	return s
 }
 
+type PremiumAppendTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumAppendTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumAppendTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumAppendTaskHeaders) SetCommonHeaders(v map[string]*string) *PremiumAppendTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumAppendTaskHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumAppendTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumAppendTaskRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALL
+	ActivateType *string `json:"activateType,omitempty" xml:"activateType,omitempty"`
+	AgreeAll     *bool   `json:"agreeAll,omitempty" xml:"agreeAll,omitempty"`
+	// This parameter is required.
+	AppenderUserIds []*string `json:"appenderUserIds,omitempty" xml:"appenderUserIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager001
+	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// processInstanceId123
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// example:
+	//
+	// 请XX帮忙审批一下
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234567
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// after
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s PremiumAppendTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumAppendTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumAppendTaskRequest) SetActivateType(v string) *PremiumAppendTaskRequest {
+	s.ActivateType = &v
+	return s
+}
+
+func (s *PremiumAppendTaskRequest) SetAgreeAll(v bool) *PremiumAppendTaskRequest {
+	s.AgreeAll = &v
+	return s
+}
+
+func (s *PremiumAppendTaskRequest) SetAppenderUserIds(v []*string) *PremiumAppendTaskRequest {
+	s.AppenderUserIds = v
+	return s
+}
+
+func (s *PremiumAppendTaskRequest) SetOperateUserId(v string) *PremiumAppendTaskRequest {
+	s.OperateUserId = &v
+	return s
+}
+
+func (s *PremiumAppendTaskRequest) SetProcessInstanceId(v string) *PremiumAppendTaskRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *PremiumAppendTaskRequest) SetRemark(v string) *PremiumAppendTaskRequest {
+	s.Remark = &v
+	return s
+}
+
+func (s *PremiumAppendTaskRequest) SetTaskId(v int64) *PremiumAppendTaskRequest {
+	s.TaskId = &v
+	return s
+}
+
+func (s *PremiumAppendTaskRequest) SetType(v string) *PremiumAppendTaskRequest {
+	s.Type = &v
+	return s
+}
+
+type PremiumAppendTaskResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s PremiumAppendTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumAppendTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumAppendTaskResponseBody) SetResult(v bool) *PremiumAppendTaskResponseBody {
+	s.Result = &v
+	return s
+}
+
+type PremiumAppendTaskResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumAppendTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumAppendTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumAppendTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumAppendTaskResponse) SetHeaders(v map[string]*string) *PremiumAppendTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumAppendTaskResponse) SetStatusCode(v int32) *PremiumAppendTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumAppendTaskResponse) SetBody(v *PremiumAppendTaskResponseBody) *PremiumAppendTaskResponse {
+	s.Body = v
+	return s
+}
+
 type PremiumBatchExecuteProcessInstancesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -23296,6 +23453,107 @@ func (client *Client) PremiumAddApproveDentryAuth(request *PremiumAddApproveDent
 	headers := &PremiumAddApproveDentryAuthHeaders{}
 	_result = &PremiumAddApproveDentryAuthResponse{}
 	_body, _err := client.PremiumAddApproveDentryAuthWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 加签OA审批任务(OA高级版专享)
+//
+// @param request - PremiumAppendTaskRequest
+//
+// @param headers - PremiumAppendTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumAppendTaskResponse
+func (client *Client) PremiumAppendTaskWithOptions(request *PremiumAppendTaskRequest, headers *PremiumAppendTaskHeaders, runtime *util.RuntimeOptions) (_result *PremiumAppendTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActivateType)) {
+		body["activateType"] = request.ActivateType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AgreeAll)) {
+		body["agreeAll"] = request.AgreeAll
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppenderUserIds)) {
+		body["appenderUserIds"] = request.AppenderUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperateUserId)) {
+		body["operateUserId"] = request.OperateUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumAppendTask"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/tasks/append"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumAppendTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 加签OA审批任务(OA高级版专享)
+//
+// @param request - PremiumAppendTaskRequest
+//
+// @return PremiumAppendTaskResponse
+func (client *Client) PremiumAppendTask(request *PremiumAppendTaskRequest) (_result *PremiumAppendTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumAppendTaskHeaders{}
+	_result = &PremiumAppendTaskResponse{}
+	_body, _err := client.PremiumAppendTaskWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
