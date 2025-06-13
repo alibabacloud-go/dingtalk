@@ -2077,6 +2077,107 @@ func (s *GetUserAppDevAccessResponse) SetBody(v *GetUserAppDevAccessResponseBody
 	return s
 }
 
+type IsOrgMicroAppVisibleByUserIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s IsOrgMicroAppVisibleByUserIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsOrgMicroAppVisibleByUserIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *IsOrgMicroAppVisibleByUserIdHeaders) SetCommonHeaders(v map[string]*string) *IsOrgMicroAppVisibleByUserIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *IsOrgMicroAppVisibleByUserIdHeaders) SetXAcsDingtalkAccessToken(v string) *IsOrgMicroAppVisibleByUserIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type IsOrgMicroAppVisibleByUserIdRequest struct {
+	// This parameter is required.
+	AppId *int64 `json:"appId,omitempty" xml:"appId,omitempty"`
+	// This parameter is required.
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s IsOrgMicroAppVisibleByUserIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsOrgMicroAppVisibleByUserIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *IsOrgMicroAppVisibleByUserIdRequest) SetAppId(v int64) *IsOrgMicroAppVisibleByUserIdRequest {
+	s.AppId = &v
+	return s
+}
+
+func (s *IsOrgMicroAppVisibleByUserIdRequest) SetId(v string) *IsOrgMicroAppVisibleByUserIdRequest {
+	s.Id = &v
+	return s
+}
+
+func (s *IsOrgMicroAppVisibleByUserIdRequest) SetType(v string) *IsOrgMicroAppVisibleByUserIdRequest {
+	s.Type = &v
+	return s
+}
+
+type IsOrgMicroAppVisibleByUserIdResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s IsOrgMicroAppVisibleByUserIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsOrgMicroAppVisibleByUserIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *IsOrgMicroAppVisibleByUserIdResponseBody) SetResult(v bool) *IsOrgMicroAppVisibleByUserIdResponseBody {
+	s.Result = &v
+	return s
+}
+
+type IsOrgMicroAppVisibleByUserIdResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *IsOrgMicroAppVisibleByUserIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s IsOrgMicroAppVisibleByUserIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s IsOrgMicroAppVisibleByUserIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *IsOrgMicroAppVisibleByUserIdResponse) SetHeaders(v map[string]*string) *IsOrgMicroAppVisibleByUserIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *IsOrgMicroAppVisibleByUserIdResponse) SetStatusCode(v int32) *IsOrgMicroAppVisibleByUserIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *IsOrgMicroAppVisibleByUserIdResponse) SetBody(v *IsOrgMicroAppVisibleByUserIdResponseBody) *IsOrgMicroAppVisibleByUserIdResponse {
+	s.Body = v
+	return s
+}
+
 type ListAllAppHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6041,6 +6142,87 @@ func (client *Client) GetUserAppDevAccess(userId *string) (_result *GetUserAppDe
 	headers := &GetUserAppDevAccessHeaders{}
 	_result = &GetUserAppDevAccessResponse{}
 	_body, _err := client.GetUserAppDevAccessWithOptions(userId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 判断人员是否在应用的可见范围内
+//
+// @param request - IsOrgMicroAppVisibleByUserIdRequest
+//
+// @param headers - IsOrgMicroAppVisibleByUserIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return IsOrgMicroAppVisibleByUserIdResponse
+func (client *Client) IsOrgMicroAppVisibleByUserIdWithOptions(request *IsOrgMicroAppVisibleByUserIdRequest, headers *IsOrgMicroAppVisibleByUserIdHeaders, runtime *util.RuntimeOptions) (_result *IsOrgMicroAppVisibleByUserIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppId)) {
+		body["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Id)) {
+		body["id"] = request.Id
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("IsOrgMicroAppVisibleByUserId"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/visibleScopes/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &IsOrgMicroAppVisibleByUserIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 判断人员是否在应用的可见范围内
+//
+// @param request - IsOrgMicroAppVisibleByUserIdRequest
+//
+// @return IsOrgMicroAppVisibleByUserIdResponse
+func (client *Client) IsOrgMicroAppVisibleByUserId(request *IsOrgMicroAppVisibleByUserIdRequest) (_result *IsOrgMicroAppVisibleByUserIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &IsOrgMicroAppVisibleByUserIdHeaders{}
+	_result = &IsOrgMicroAppVisibleByUserIdResponse{}
+	_body, _err := client.IsOrgMicroAppVisibleByUserIdWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

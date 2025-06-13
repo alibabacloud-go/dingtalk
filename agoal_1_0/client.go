@@ -757,6 +757,12 @@ type OpenAgoalObjectiveDimensionDTO struct {
 	//
 	// 这是维度标题
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	Weight *float64 `json:"weight,omitempty" xml:"weight,omitempty"`
 }
 
 func (s OpenAgoalObjectiveDimensionDTO) String() string {
@@ -789,6 +795,11 @@ func (s *OpenAgoalObjectiveDimensionDTO) SetFieldValueMap(v map[string]interface
 
 func (s *OpenAgoalObjectiveDimensionDTO) SetTitle(v string) *OpenAgoalObjectiveDimensionDTO {
 	s.Title = &v
+	return s
+}
+
+func (s *OpenAgoalObjectiveDimensionDTO) SetWeight(v float64) *OpenAgoalObjectiveDimensionDTO {
+	s.Weight = &v
 	return s
 }
 

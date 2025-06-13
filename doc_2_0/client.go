@@ -12617,7 +12617,7 @@ func (client *Client) DocUpdateContentWithDelegatedPermissionWithOptions(docKey 
 		Action:      tea.String("DocUpdateContentWithDelegatedPermission"),
 		Version:     tea.String("doc_2.0"),
 		Protocol:    tea.String("HTTP"),
-		Pathname:    tea.String("/v2.0/me/doc/suites/documents/" + tea.StringValue(docKey) + "/overwriteContent"),
+		Pathname:    tea.String("/v2.0/doc/me/suites/documents/" + tea.StringValue(docKey) + "/overwriteContent"),
 		Method:      tea.String("POST"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),

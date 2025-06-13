@@ -8140,7 +8140,8 @@ type QueryReceiptDetailForInvoiceResponseBodyResult struct {
 	// example:
 	//
 	// approval
-	Source *string `json:"source,omitempty" xml:"source,omitempty"`
+	Source               *string                                                             `json:"source,omitempty" xml:"source,omitempty"`
+	SpecificBusinessInfo *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfo `json:"specificBusinessInfo,omitempty" xml:"specificBusinessInfo,omitempty" type:"Struct"`
 	// example:
 	//
 	// agree
@@ -8296,6 +8297,11 @@ func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetShowSellerContactInR
 
 func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetSource(v string) *QueryReceiptDetailForInvoiceResponseBodyResult {
 	s.Source = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResult) SetSpecificBusinessInfo(v *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfo) *QueryReceiptDetailForInvoiceResponseBodyResult {
+	s.SpecificBusinessInfo = v
 	return s
 }
 
@@ -8489,6 +8495,121 @@ func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetUnitP
 
 func (s *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList) SetWithTax(v bool) *QueryReceiptDetailForInvoiceResponseBodyResultProductInfoList {
 	s.WithTax = &v
+	return s
+}
+
+type QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfo struct {
+	// example:
+	//
+	// lease
+	SpecialBizCode           *string                                                                                       `json:"specialBizCode,omitempty" xml:"specialBizCode,omitempty"`
+	SpecificBusinessInfoList []*QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList `json:"specificBusinessInfoList,omitempty" xml:"specificBusinessInfoList,omitempty" type:"Repeated"`
+}
+
+func (s QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfo) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfo) SetSpecialBizCode(v string) *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfo {
+	s.SpecialBizCode = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfo) SetSpecificBusinessInfoList(v []*QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList) *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfo {
+	s.SpecificBusinessInfoList = v
+	return s
+}
+
+type QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList struct {
+	AreaUnit                  *string `json:"areaUnit,omitempty" xml:"areaUnit,omitempty"`
+	CarNo                     *string `json:"carNo,omitempty" xml:"carNo,omitempty"`
+	City                      *string `json:"city,omitempty" xml:"city,omitempty"`
+	CrossCityFlg              *string `json:"crossCityFlg,omitempty" xml:"crossCityFlg,omitempty"`
+	District                  *string `json:"district,omitempty" xml:"district,omitempty"`
+	LeaseEnd                  *int64  `json:"leaseEnd,omitempty" xml:"leaseEnd,omitempty"`
+	LeaseStart                *int64  `json:"leaseStart,omitempty" xml:"leaseStart,omitempty"`
+	Project                   *string `json:"project,omitempty" xml:"project,omitempty"`
+	ProjectNo                 *string `json:"projectNo,omitempty" xml:"projectNo,omitempty"`
+	PropertyCertificateNumber *string `json:"propertyCertificateNumber,omitempty" xml:"propertyCertificateNumber,omitempty"`
+	Province                  *string `json:"province,omitempty" xml:"province,omitempty"`
+	RealEstateDetailedAddress *string `json:"realEstateDetailedAddress,omitempty" xml:"realEstateDetailedAddress,omitempty"`
+	SpanRegionManageNo        *string `json:"spanRegionManageNo,omitempty" xml:"spanRegionManageNo,omitempty"`
+}
+
+func (s QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList) SetAreaUnit(v string) *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList {
+	s.AreaUnit = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList) SetCarNo(v string) *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList {
+	s.CarNo = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList) SetCity(v string) *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList {
+	s.City = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList) SetCrossCityFlg(v string) *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList {
+	s.CrossCityFlg = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList) SetDistrict(v string) *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList {
+	s.District = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList) SetLeaseEnd(v int64) *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList {
+	s.LeaseEnd = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList) SetLeaseStart(v int64) *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList {
+	s.LeaseStart = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList) SetProject(v string) *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList {
+	s.Project = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList) SetProjectNo(v string) *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList {
+	s.ProjectNo = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList) SetPropertyCertificateNumber(v string) *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList {
+	s.PropertyCertificateNumber = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList) SetProvince(v string) *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList {
+	s.Province = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList) SetRealEstateDetailedAddress(v string) *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList {
+	s.RealEstateDetailedAddress = &v
+	return s
+}
+
+func (s *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList) SetSpanRegionManageNo(v string) *QueryReceiptDetailForInvoiceResponseBodyResultSpecificBusinessInfoSpecificBusinessInfoList {
+	s.SpanRegionManageNo = &v
 	return s
 }
 

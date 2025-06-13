@@ -791,15 +791,17 @@ func (s *GetTaskFromShanhuiDocResponseBodyResult) SetTotal(v int64) *GetTaskFrom
 }
 
 type GetTaskFromShanhuiDocResponseBodyResultItems struct {
-	CreateTime *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	Deadline   *int64  `json:"deadline,omitempty" xml:"deadline,omitempty"`
-	Deleted    *bool   `json:"deleted,omitempty" xml:"deleted,omitempty"`
-	Priority   *int64  `json:"priority,omitempty" xml:"priority,omitempty"`
-	TaskKey    *string `json:"taskKey,omitempty" xml:"taskKey,omitempty"`
-	TaskStatus *string `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
-	TaskType   *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
-	Title      *string `json:"title,omitempty" xml:"title,omitempty"`
-	UpdateTime *int64  `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	CreateTime   *int64                                                      `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	CreatorId    *string                                                     `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	Deadline     *int64                                                      `json:"deadline,omitempty" xml:"deadline,omitempty"`
+	Deleted      *bool                                                       `json:"deleted,omitempty" xml:"deleted,omitempty"`
+	ExecutorList []*GetTaskFromShanhuiDocResponseBodyResultItemsExecutorList `json:"executorList,omitempty" xml:"executorList,omitempty" type:"Repeated"`
+	Priority     *int64                                                      `json:"priority,omitempty" xml:"priority,omitempty"`
+	TaskKey      *string                                                     `json:"taskKey,omitempty" xml:"taskKey,omitempty"`
+	TaskStatus   *string                                                     `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
+	TaskType     *string                                                     `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	Title        *string                                                     `json:"title,omitempty" xml:"title,omitempty"`
+	UpdateTime   *int64                                                      `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
 }
 
 func (s GetTaskFromShanhuiDocResponseBodyResultItems) String() string {
@@ -815,6 +817,11 @@ func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetCreateTime(v int64) *G
 	return s
 }
 
+func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetCreatorId(v string) *GetTaskFromShanhuiDocResponseBodyResultItems {
+	s.CreatorId = &v
+	return s
+}
+
 func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetDeadline(v int64) *GetTaskFromShanhuiDocResponseBodyResultItems {
 	s.Deadline = &v
 	return s
@@ -822,6 +829,11 @@ func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetDeadline(v int64) *Get
 
 func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetDeleted(v bool) *GetTaskFromShanhuiDocResponseBodyResultItems {
 	s.Deleted = &v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetExecutorList(v []*GetTaskFromShanhuiDocResponseBodyResultItemsExecutorList) *GetTaskFromShanhuiDocResponseBodyResultItems {
+	s.ExecutorList = v
 	return s
 }
 
@@ -852,6 +864,35 @@ func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetTitle(v string) *GetTa
 
 func (s *GetTaskFromShanhuiDocResponseBodyResultItems) SetUpdateTime(v int64) *GetTaskFromShanhuiDocResponseBodyResultItems {
 	s.UpdateTime = &v
+	return s
+}
+
+type GetTaskFromShanhuiDocResponseBodyResultItemsExecutorList struct {
+	ExecutorId  *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	StatusStage *int32  `json:"statusStage,omitempty" xml:"statusStage,omitempty"`
+	SubTaskKey  *string `json:"subTaskKey,omitempty" xml:"subTaskKey,omitempty"`
+}
+
+func (s GetTaskFromShanhuiDocResponseBodyResultItemsExecutorList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskFromShanhuiDocResponseBodyResultItemsExecutorList) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskFromShanhuiDocResponseBodyResultItemsExecutorList) SetExecutorId(v string) *GetTaskFromShanhuiDocResponseBodyResultItemsExecutorList {
+	s.ExecutorId = &v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocResponseBodyResultItemsExecutorList) SetStatusStage(v int32) *GetTaskFromShanhuiDocResponseBodyResultItemsExecutorList {
+	s.StatusStage = &v
+	return s
+}
+
+func (s *GetTaskFromShanhuiDocResponseBodyResultItemsExecutorList) SetSubTaskKey(v string) *GetTaskFromShanhuiDocResponseBodyResultItemsExecutorList {
+	s.SubTaskKey = &v
 	return s
 }
 

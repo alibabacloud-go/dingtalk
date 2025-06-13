@@ -268,6 +268,206 @@ func (s *CheckEsignFileResponse) SetBody(v *CheckEsignFileResponseBody) *CheckEs
 	return s
 }
 
+type ContractAiReviewResultNotifyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ContractAiReviewResultNotifyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ContractAiReviewResultNotifyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ContractAiReviewResultNotifyHeaders) SetCommonHeaders(v map[string]*string) *ContractAiReviewResultNotifyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ContractAiReviewResultNotifyHeaders) SetXAcsDingtalkAccessToken(v string) *ContractAiReviewResultNotifyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ContractAiReviewResultNotifyRequest struct {
+	Annotations []*ContractAiReviewResultNotifyRequestAnnotations `json:"annotations,omitempty" xml:"annotations,omitempty" type:"Repeated"`
+	// This parameter is required.
+	ContractAiReviewCorpId *string `json:"contractAiReviewCorpId,omitempty" xml:"contractAiReviewCorpId,omitempty"`
+	ContractAiReviewId     *int64  `json:"contractAiReviewId,omitempty" xml:"contractAiReviewId,omitempty"`
+	ErrorCode              *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg               *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Extension              *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ContractAiReviewResultNotifyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ContractAiReviewResultNotifyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ContractAiReviewResultNotifyRequest) SetAnnotations(v []*ContractAiReviewResultNotifyRequestAnnotations) *ContractAiReviewResultNotifyRequest {
+	s.Annotations = v
+	return s
+}
+
+func (s *ContractAiReviewResultNotifyRequest) SetContractAiReviewCorpId(v string) *ContractAiReviewResultNotifyRequest {
+	s.ContractAiReviewCorpId = &v
+	return s
+}
+
+func (s *ContractAiReviewResultNotifyRequest) SetContractAiReviewId(v int64) *ContractAiReviewResultNotifyRequest {
+	s.ContractAiReviewId = &v
+	return s
+}
+
+func (s *ContractAiReviewResultNotifyRequest) SetErrorCode(v string) *ContractAiReviewResultNotifyRequest {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *ContractAiReviewResultNotifyRequest) SetErrorMsg(v string) *ContractAiReviewResultNotifyRequest {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *ContractAiReviewResultNotifyRequest) SetExtension(v string) *ContractAiReviewResultNotifyRequest {
+	s.Extension = &v
+	return s
+}
+
+func (s *ContractAiReviewResultNotifyRequest) SetSuccess(v bool) *ContractAiReviewResultNotifyRequest {
+	s.Success = &v
+	return s
+}
+
+type ContractAiReviewResultNotifyRequestAnnotations struct {
+	CommentTexts []*ContractAiReviewResultNotifyRequestAnnotationsCommentTexts `json:"commentTexts,omitempty" xml:"commentTexts,omitempty" type:"Repeated"`
+	Id           *int32                                                        `json:"id,omitempty" xml:"id,omitempty"`
+	OriginalText *string                                                       `json:"originalText,omitempty" xml:"originalText,omitempty"`
+	Paragraph    *string                                                       `json:"paragraph,omitempty" xml:"paragraph,omitempty"`
+	RiskLevel    *string                                                       `json:"riskLevel,omitempty" xml:"riskLevel,omitempty"`
+}
+
+func (s ContractAiReviewResultNotifyRequestAnnotations) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ContractAiReviewResultNotifyRequestAnnotations) GoString() string {
+	return s.String()
+}
+
+func (s *ContractAiReviewResultNotifyRequestAnnotations) SetCommentTexts(v []*ContractAiReviewResultNotifyRequestAnnotationsCommentTexts) *ContractAiReviewResultNotifyRequestAnnotations {
+	s.CommentTexts = v
+	return s
+}
+
+func (s *ContractAiReviewResultNotifyRequestAnnotations) SetId(v int32) *ContractAiReviewResultNotifyRequestAnnotations {
+	s.Id = &v
+	return s
+}
+
+func (s *ContractAiReviewResultNotifyRequestAnnotations) SetOriginalText(v string) *ContractAiReviewResultNotifyRequestAnnotations {
+	s.OriginalText = &v
+	return s
+}
+
+func (s *ContractAiReviewResultNotifyRequestAnnotations) SetParagraph(v string) *ContractAiReviewResultNotifyRequestAnnotations {
+	s.Paragraph = &v
+	return s
+}
+
+func (s *ContractAiReviewResultNotifyRequestAnnotations) SetRiskLevel(v string) *ContractAiReviewResultNotifyRequestAnnotations {
+	s.RiskLevel = &v
+	return s
+}
+
+type ContractAiReviewResultNotifyRequestAnnotationsCommentTexts struct {
+	Remark    *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	RiskLevel *string `json:"riskLevel,omitempty" xml:"riskLevel,omitempty"`
+	Text      *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s ContractAiReviewResultNotifyRequestAnnotationsCommentTexts) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ContractAiReviewResultNotifyRequestAnnotationsCommentTexts) GoString() string {
+	return s.String()
+}
+
+func (s *ContractAiReviewResultNotifyRequestAnnotationsCommentTexts) SetRemark(v string) *ContractAiReviewResultNotifyRequestAnnotationsCommentTexts {
+	s.Remark = &v
+	return s
+}
+
+func (s *ContractAiReviewResultNotifyRequestAnnotationsCommentTexts) SetRiskLevel(v string) *ContractAiReviewResultNotifyRequestAnnotationsCommentTexts {
+	s.RiskLevel = &v
+	return s
+}
+
+func (s *ContractAiReviewResultNotifyRequestAnnotationsCommentTexts) SetText(v string) *ContractAiReviewResultNotifyRequestAnnotationsCommentTexts {
+	s.Text = &v
+	return s
+}
+
+type ContractAiReviewResultNotifyResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ContractAiReviewResultNotifyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ContractAiReviewResultNotifyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ContractAiReviewResultNotifyResponseBody) SetResult(v string) *ContractAiReviewResultNotifyResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *ContractAiReviewResultNotifyResponseBody) SetSuccess(v bool) *ContractAiReviewResultNotifyResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ContractAiReviewResultNotifyResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ContractAiReviewResultNotifyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ContractAiReviewResultNotifyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ContractAiReviewResultNotifyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ContractAiReviewResultNotifyResponse) SetHeaders(v map[string]*string) *ContractAiReviewResultNotifyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ContractAiReviewResultNotifyResponse) SetStatusCode(v int32) *ContractAiReviewResultNotifyResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ContractAiReviewResultNotifyResponse) SetBody(v *ContractAiReviewResultNotifyResponseBody) *ContractAiReviewResultNotifyResponse {
+	s.Body = v
+	return s
+}
+
 type ContractBenefitConsumeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5394,6 +5594,103 @@ func (client *Client) CheckEsignFile(request *CheckEsignFileRequest) (_result *C
 	headers := &CheckEsignFileHeaders{}
 	_result = &CheckEsignFileResponse{}
 	_body, _err := client.CheckEsignFileWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// ai合同审查结果回调
+//
+// @param request - ContractAiReviewResultNotifyRequest
+//
+// @param headers - ContractAiReviewResultNotifyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ContractAiReviewResultNotifyResponse
+func (client *Client) ContractAiReviewResultNotifyWithOptions(request *ContractAiReviewResultNotifyRequest, headers *ContractAiReviewResultNotifyHeaders, runtime *util.RuntimeOptions) (_result *ContractAiReviewResultNotifyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Annotations)) {
+		body["annotations"] = request.Annotations
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContractAiReviewCorpId)) {
+		body["contractAiReviewCorpId"] = request.ContractAiReviewCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContractAiReviewId)) {
+		body["contractAiReviewId"] = request.ContractAiReviewId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ErrorCode)) {
+		body["errorCode"] = request.ErrorCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ErrorMsg)) {
+		body["errorMsg"] = request.ErrorMsg
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extension)) {
+		body["extension"] = request.Extension
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Success)) {
+		body["success"] = request.Success
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ContractAiReviewResultNotify"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/aiReviews/results/notify"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ContractAiReviewResultNotifyResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// ai合同审查结果回调
+//
+// @param request - ContractAiReviewResultNotifyRequest
+//
+// @return ContractAiReviewResultNotifyResponse
+func (client *Client) ContractAiReviewResultNotify(request *ContractAiReviewResultNotifyRequest) (_result *ContractAiReviewResultNotifyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ContractAiReviewResultNotifyHeaders{}
+	_result = &ContractAiReviewResultNotifyResponse{}
+	_body, _err := client.ContractAiReviewResultNotifyWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
