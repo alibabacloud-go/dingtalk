@@ -8623,6 +8623,7 @@ type GetPrivateStoreFileInfosByPageResponseBodyFileInfos struct {
 	DentryId       *int64  `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
 	FileCreateTime *int64  `json:"fileCreateTime,omitempty" xml:"fileCreateTime,omitempty"`
 	FileName       *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FilePath       *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
 	FileSize       *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
 	SpaceId        *int64  `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
 	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
@@ -8648,6 +8649,11 @@ func (s *GetPrivateStoreFileInfosByPageResponseBodyFileInfos) SetFileCreateTime(
 
 func (s *GetPrivateStoreFileInfosByPageResponseBodyFileInfos) SetFileName(v string) *GetPrivateStoreFileInfosByPageResponseBodyFileInfos {
 	s.FileName = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileInfosByPageResponseBodyFileInfos) SetFilePath(v string) *GetPrivateStoreFileInfosByPageResponseBodyFileInfos {
+	s.FilePath = &v
 	return s
 }
 
