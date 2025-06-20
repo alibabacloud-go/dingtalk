@@ -13009,6 +13009,150 @@ func (s *PremiumRedirectTasksByManagerResponse) SetBody(v *PremiumRedirectTasksB
 	return s
 }
 
+type PremiumRevertTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PremiumRevertTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumRevertTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumRevertTaskHeaders) SetCommonHeaders(v map[string]*string) *PremiumRevertTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PremiumRevertTaskHeaders) SetXAcsDingtalkAccessToken(v string) *PremiumRevertTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PremiumRevertTaskRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// manager001
+	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// processInstanceId123
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// example:
+	//
+	// 退回到审批人（上一步）
+	Remark *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// REVERT_FOR_APPROVAL
+	RevertAction *string `json:"revertAction,omitempty" xml:"revertAction,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// d3aa_1974
+	TargetActivityId *string `json:"targetActivityId,omitempty" xml:"targetActivityId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234567
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s PremiumRevertTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumRevertTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumRevertTaskRequest) SetOperateUserId(v string) *PremiumRevertTaskRequest {
+	s.OperateUserId = &v
+	return s
+}
+
+func (s *PremiumRevertTaskRequest) SetProcessInstanceId(v string) *PremiumRevertTaskRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *PremiumRevertTaskRequest) SetRemark(v string) *PremiumRevertTaskRequest {
+	s.Remark = &v
+	return s
+}
+
+func (s *PremiumRevertTaskRequest) SetRevertAction(v string) *PremiumRevertTaskRequest {
+	s.RevertAction = &v
+	return s
+}
+
+func (s *PremiumRevertTaskRequest) SetTargetActivityId(v string) *PremiumRevertTaskRequest {
+	s.TargetActivityId = &v
+	return s
+}
+
+func (s *PremiumRevertTaskRequest) SetTaskId(v int64) *PremiumRevertTaskRequest {
+	s.TaskId = &v
+	return s
+}
+
+type PremiumRevertTaskResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s PremiumRevertTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumRevertTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumRevertTaskResponseBody) SetResult(v bool) *PremiumRevertTaskResponseBody {
+	s.Result = &v
+	return s
+}
+
+type PremiumRevertTaskResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PremiumRevertTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PremiumRevertTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PremiumRevertTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PremiumRevertTaskResponse) SetHeaders(v map[string]*string) *PremiumRevertTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PremiumRevertTaskResponse) SetStatusCode(v int32) *PremiumRevertTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PremiumRevertTaskResponse) SetBody(v *PremiumRevertTaskResponseBody) *PremiumRevertTaskResponse {
+	s.Body = v
+	return s
+}
+
 type PremiumSaveFormHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -25198,6 +25342,99 @@ func (client *Client) PremiumRedirectTasksByManager(request *PremiumRedirectTask
 	headers := &PremiumRedirectTasksByManagerHeaders{}
 	_result = &PremiumRedirectTasksByManagerResponse{}
 	_body, _err := client.PremiumRedirectTasksByManagerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 退回OA审批任务(OA高级版专享)
+//
+// @param request - PremiumRevertTaskRequest
+//
+// @param headers - PremiumRevertTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PremiumRevertTaskResponse
+func (client *Client) PremiumRevertTaskWithOptions(request *PremiumRevertTaskRequest, headers *PremiumRevertTaskHeaders, runtime *util.RuntimeOptions) (_result *PremiumRevertTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperateUserId)) {
+		body["operateUserId"] = request.OperateUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RevertAction)) {
+		body["revertAction"] = request.RevertAction
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetActivityId)) {
+		body["targetActivityId"] = request.TargetActivityId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PremiumRevertTask"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/premium/tasks/revert"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PremiumRevertTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 退回OA审批任务(OA高级版专享)
+//
+// @param request - PremiumRevertTaskRequest
+//
+// @return PremiumRevertTaskResponse
+func (client *Client) PremiumRevertTask(request *PremiumRevertTaskRequest) (_result *PremiumRevertTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PremiumRevertTaskHeaders{}
+	_result = &PremiumRevertTaskResponse{}
+	_body, _err := client.PremiumRevertTaskWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

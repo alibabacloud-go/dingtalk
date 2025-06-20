@@ -6077,8 +6077,9 @@ func (s *GetResourceUploadInfoResponseBody) SetSuccess(v bool) *GetResourceUploa
 }
 
 type GetResourceUploadInfoResponseBodyResult struct {
-	ResourceId *string `json:"resourceId,omitempty" xml:"resourceId,omitempty"`
-	UploadUrl  *string `json:"uploadUrl,omitempty" xml:"uploadUrl,omitempty"`
+	ResourceId  *string `json:"resourceId,omitempty" xml:"resourceId,omitempty"`
+	ResourceUrl *string `json:"resourceUrl,omitempty" xml:"resourceUrl,omitempty"`
+	UploadUrl   *string `json:"uploadUrl,omitempty" xml:"uploadUrl,omitempty"`
 }
 
 func (s GetResourceUploadInfoResponseBodyResult) String() string {
@@ -6091,6 +6092,11 @@ func (s GetResourceUploadInfoResponseBodyResult) GoString() string {
 
 func (s *GetResourceUploadInfoResponseBodyResult) SetResourceId(v string) *GetResourceUploadInfoResponseBodyResult {
 	s.ResourceId = &v
+	return s
+}
+
+func (s *GetResourceUploadInfoResponseBodyResult) SetResourceUrl(v string) *GetResourceUploadInfoResponseBodyResult {
+	s.ResourceUrl = &v
 	return s
 }
 

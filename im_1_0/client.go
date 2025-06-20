@@ -13355,6 +13355,132 @@ func (s *TopboxOpenResponse) SetStatusCode(v int32) *TopboxOpenResponse {
 	return s
 }
 
+type UpdateClientServiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateClientServiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateClientServiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateClientServiceHeaders) SetCommonHeaders(v map[string]*string) *UpdateClientServiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateClientServiceHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateClientServiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateClientServiceRequest struct {
+	// example:
+	//
+	// https://***.png
+	AvatarUrl *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	// example:
+	//
+	// false
+	ResetAvatar *bool `json:"resetAvatar,omitempty" xml:"resetAvatar,omitempty"`
+	// example:
+	//
+	// false
+	ResetUserName *bool `json:"resetUserName,omitempty" xml:"resetUserName,omitempty"`
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// test
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+}
+
+func (s UpdateClientServiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateClientServiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateClientServiceRequest) SetAvatarUrl(v string) *UpdateClientServiceRequest {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *UpdateClientServiceRequest) SetResetAvatar(v bool) *UpdateClientServiceRequest {
+	s.ResetAvatar = &v
+	return s
+}
+
+func (s *UpdateClientServiceRequest) SetResetUserName(v bool) *UpdateClientServiceRequest {
+	s.ResetUserName = &v
+	return s
+}
+
+func (s *UpdateClientServiceRequest) SetUserIds(v []*string) *UpdateClientServiceRequest {
+	s.UserIds = v
+	return s
+}
+
+func (s *UpdateClientServiceRequest) SetUserName(v string) *UpdateClientServiceRequest {
+	s.UserName = &v
+	return s
+}
+
+type UpdateClientServiceResponseBody struct {
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateClientServiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateClientServiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateClientServiceResponseBody) SetResult(v bool) *UpdateClientServiceResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateClientServiceResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateClientServiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateClientServiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateClientServiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateClientServiceResponse) SetHeaders(v map[string]*string) *UpdateClientServiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateClientServiceResponse) SetStatusCode(v int32) *UpdateClientServiceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateClientServiceResponse) SetBody(v *UpdateClientServiceResponseBody) *UpdateClientServiceResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateGroupAvatarHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -23334,6 +23460,95 @@ func (client *Client) TopboxOpen(request *TopboxOpenRequest) (_result *TopboxOpe
 	headers := &TopboxOpenHeaders{}
 	_result = &TopboxOpenResponse{}
 	_body, _err := client.TopboxOpenWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新钉内用户C端展示的头像和名称（互通群、钉内两人群）
+//
+// @param request - UpdateClientServiceRequest
+//
+// @param headers - UpdateClientServiceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateClientServiceResponse
+func (client *Client) UpdateClientServiceWithOptions(request *UpdateClientServiceRequest, headers *UpdateClientServiceHeaders, runtime *util.RuntimeOptions) (_result *UpdateClientServiceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AvatarUrl)) {
+		body["avatarUrl"] = request.AvatarUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ResetAvatar)) {
+		body["resetAvatar"] = request.ResetAvatar
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ResetUserName)) {
+		body["resetUserName"] = request.ResetUserName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserName)) {
+		body["userName"] = request.UserName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateClientService"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/interconnections/clientServices/avatarAndName"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateClientServiceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新钉内用户C端展示的头像和名称（互通群、钉内两人群）
+//
+// @param request - UpdateClientServiceRequest
+//
+// @return UpdateClientServiceResponse
+func (client *Client) UpdateClientService(request *UpdateClientServiceRequest) (_result *UpdateClientServiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateClientServiceHeaders{}
+	_result = &UpdateClientServiceResponse{}
+	_body, _err := client.UpdateClientServiceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -2410,7 +2410,8 @@ type ListAllInnerAppsResponseBodyAppList struct {
 	// example:
 	//
 	// 1
-	AppStatus *int32 `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
+	AppStatus   *int32                                            `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
+	CoolAppInfo []*ListAllInnerAppsResponseBodyAppListCoolAppInfo `json:"coolAppInfo,omitempty" xml:"coolAppInfo,omitempty" type:"Repeated"`
 	// example:
 	//
 	// desc
@@ -2440,7 +2441,8 @@ type ListAllInnerAppsResponseBodyAppList struct {
 	// example:
 	//
 	// https://www.dingtalk.com
-	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
+	PcHomepageLink *string                                       `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
+	RobotInfo      *ListAllInnerAppsResponseBodyAppListRobotInfo `json:"robotInfo,omitempty" xml:"robotInfo,omitempty" type:"Struct"`
 }
 
 func (s ListAllInnerAppsResponseBodyAppList) String() string {
@@ -2463,6 +2465,11 @@ func (s *ListAllInnerAppsResponseBodyAppList) SetAppId(v int64) *ListAllInnerApp
 
 func (s *ListAllInnerAppsResponseBodyAppList) SetAppStatus(v int32) *ListAllInnerAppsResponseBodyAppList {
 	s.AppStatus = &v
+	return s
+}
+
+func (s *ListAllInnerAppsResponseBodyAppList) SetCoolAppInfo(v []*ListAllInnerAppsResponseBodyAppListCoolAppInfo) *ListAllInnerAppsResponseBodyAppList {
+	s.CoolAppInfo = v
 	return s
 }
 
@@ -2498,6 +2505,57 @@ func (s *ListAllInnerAppsResponseBodyAppList) SetOmpLink(v string) *ListAllInner
 
 func (s *ListAllInnerAppsResponseBodyAppList) SetPcHomepageLink(v string) *ListAllInnerAppsResponseBodyAppList {
 	s.PcHomepageLink = &v
+	return s
+}
+
+func (s *ListAllInnerAppsResponseBodyAppList) SetRobotInfo(v *ListAllInnerAppsResponseBodyAppListRobotInfo) *ListAllInnerAppsResponseBodyAppList {
+	s.RobotInfo = v
+	return s
+}
+
+type ListAllInnerAppsResponseBodyAppListCoolAppInfo struct {
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s ListAllInnerAppsResponseBodyAppListCoolAppInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllInnerAppsResponseBodyAppListCoolAppInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllInnerAppsResponseBodyAppListCoolAppInfo) SetCoolAppCode(v string) *ListAllInnerAppsResponseBodyAppListCoolAppInfo {
+	s.CoolAppCode = &v
+	return s
+}
+
+func (s *ListAllInnerAppsResponseBodyAppListCoolAppInfo) SetName(v string) *ListAllInnerAppsResponseBodyAppListCoolAppInfo {
+	s.Name = &v
+	return s
+}
+
+type ListAllInnerAppsResponseBodyAppListRobotInfo struct {
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s ListAllInnerAppsResponseBodyAppListRobotInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAllInnerAppsResponseBodyAppListRobotInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ListAllInnerAppsResponseBodyAppListRobotInfo) SetName(v string) *ListAllInnerAppsResponseBodyAppListRobotInfo {
+	s.Name = &v
+	return s
+}
+
+func (s *ListAllInnerAppsResponseBodyAppListRobotInfo) SetRobotCode(v string) *ListAllInnerAppsResponseBodyAppListRobotInfo {
+	s.RobotCode = &v
 	return s
 }
 
