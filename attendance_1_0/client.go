@@ -6853,8 +6853,9 @@ type GroupAddRequest struct {
 	// example:
 	//
 	// true
-	ForbidHideOutSideAddress *bool                            `json:"forbidHideOutSideAddress,omitempty" xml:"forbidHideOutSideAddress,omitempty"`
-	FreeCheckSetting         *GroupAddRequestFreeCheckSetting `json:"freeCheckSetting,omitempty" xml:"freeCheckSetting,omitempty" type:"Struct"`
+	ForbidHideOutSideAddress   *bool                            `json:"forbidHideOutSideAddress,omitempty" xml:"forbidHideOutSideAddress,omitempty"`
+	FreeCheckDemandWorkMinutes *int32                           `json:"freeCheckDemandWorkMinutes,omitempty" xml:"freeCheckDemandWorkMinutes,omitempty"`
+	FreeCheckSetting           *GroupAddRequestFreeCheckSetting `json:"freeCheckSetting,omitempty" xml:"freeCheckSetting,omitempty" type:"Struct"`
 	// example:
 	//
 	// 0
@@ -7034,6 +7035,11 @@ func (s *GroupAddRequest) SetEnableTrimDistance(v bool) *GroupAddRequest {
 
 func (s *GroupAddRequest) SetForbidHideOutSideAddress(v bool) *GroupAddRequest {
 	s.ForbidHideOutSideAddress = &v
+	return s
+}
+
+func (s *GroupAddRequest) SetFreeCheckDemandWorkMinutes(v int32) *GroupAddRequest {
+	s.FreeCheckDemandWorkMinutes = &v
 	return s
 }
 
@@ -7491,6 +7497,7 @@ type GroupUpdateRequest struct {
 	//
 	// 123L
 	AdjustmentSettingId *int64 `json:"adjustmentSettingId,omitempty" xml:"adjustmentSettingId,omitempty"`
+	DefaultClassId      *int64 `json:"defaultClassId,omitempty" xml:"defaultClassId,omitempty"`
 	// example:
 	//
 	// true
@@ -7607,6 +7614,11 @@ func (s GroupUpdateRequest) GoString() string {
 
 func (s *GroupUpdateRequest) SetAdjustmentSettingId(v int64) *GroupUpdateRequest {
 	s.AdjustmentSettingId = &v
+	return s
+}
+
+func (s *GroupUpdateRequest) SetDefaultClassId(v int64) *GroupUpdateRequest {
+	s.DefaultClassId = &v
 	return s
 }
 
@@ -13654,6 +13666,10 @@ func (client *Client) GroupAddWithOptions(request *GroupAddRequest, headers *Gro
 		body["forbidHideOutSideAddress"] = request.ForbidHideOutSideAddress
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.FreeCheckDemandWorkMinutes)) {
+		body["freeCheckDemandWorkMinutes"] = request.FreeCheckDemandWorkMinutes
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.FreeCheckSetting)) {
 		body["freeCheckSetting"] = request.FreeCheckSetting
 	}
@@ -13831,6 +13847,10 @@ func (client *Client) GroupUpdateWithOptions(request *GroupUpdateRequest, header
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AdjustmentSettingId)) {
 		body["adjustmentSettingId"] = request.AdjustmentSettingId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DefaultClassId)) {
+		body["defaultClassId"] = request.DefaultClassId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.DisableCheckWhenRest)) {

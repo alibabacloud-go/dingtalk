@@ -20306,6 +20306,95 @@ func (s *ServiceWindowMessageBatchPushResponse) SetBody(v *ServiceWindowMessageB
 	return s
 }
 
+type SetUserVersionToFreeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetUserVersionToFreeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetUserVersionToFreeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetUserVersionToFreeHeaders) SetCommonHeaders(v map[string]*string) *SetUserVersionToFreeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetUserVersionToFreeHeaders) SetXAcsDingtalkAccessToken(v string) *SetUserVersionToFreeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetUserVersionToFreeRequest struct {
+	// example:
+	//
+	// 012829186736-1115677667
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+}
+
+func (s SetUserVersionToFreeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetUserVersionToFreeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetUserVersionToFreeRequest) SetOperatorUserId(v string) *SetUserVersionToFreeRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+type SetUserVersionToFreeResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SetUserVersionToFreeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetUserVersionToFreeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetUserVersionToFreeResponseBody) SetResult(v bool) *SetUserVersionToFreeResponseBody {
+	s.Result = &v
+	return s
+}
+
+type SetUserVersionToFreeResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SetUserVersionToFreeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SetUserVersionToFreeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetUserVersionToFreeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetUserVersionToFreeResponse) SetHeaders(v map[string]*string) *SetUserVersionToFreeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SetUserVersionToFreeResponse) SetStatusCode(v int32) *SetUserVersionToFreeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SetUserVersionToFreeResponse) SetBody(v *SetUserVersionToFreeResponseBody) *SetUserVersionToFreeResponse {
+	s.Body = v
+	return s
+}
+
 type TwoPhaseCommitInventoryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -27486,6 +27575,79 @@ func (client *Client) ServiceWindowMessageBatchPush(request *ServiceWindowMessag
 	headers := &ServiceWindowMessageBatchPushHeaders{}
 	_result = &ServiceWindowMessageBatchPushResponse{}
 	_body, _err := client.ServiceWindowMessageBatchPushWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 设置用户版本为免费版
+//
+// @param request - SetUserVersionToFreeRequest
+//
+// @param headers - SetUserVersionToFreeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetUserVersionToFreeResponse
+func (client *Client) SetUserVersionToFreeWithOptions(request *SetUserVersionToFreeRequest, headers *SetUserVersionToFreeHeaders, runtime *util.RuntimeOptions) (_result *SetUserVersionToFreeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SetUserVersionToFree"),
+		Version:     tea.String("crm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/crm/versions/set"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SetUserVersionToFreeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 设置用户版本为免费版
+//
+// @param request - SetUserVersionToFreeRequest
+//
+// @return SetUserVersionToFreeResponse
+func (client *Client) SetUserVersionToFree(request *SetUserVersionToFreeRequest) (_result *SetUserVersionToFreeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetUserVersionToFreeHeaders{}
+	_result = &SetUserVersionToFreeResponse{}
+	_body, _err := client.SetUserVersionToFreeWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
