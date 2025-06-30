@@ -261,6 +261,189 @@ func (s *DeleteMinutesResponse) SetBody(v *DeleteMinutesResponseBody) *DeleteMin
 	return s
 }
 
+type QueryCreateMinutesListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCreateMinutesListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCreateMinutesListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCreateMinutesListHeaders) SetCommonHeaders(v map[string]*string) *QueryCreateMinutesListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCreateMinutesListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCreateMinutesListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCreateMinutesListRequest struct {
+	// This parameter is required.
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryCreateMinutesListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCreateMinutesListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCreateMinutesListRequest) SetMaxResults(v int32) *QueryCreateMinutesListRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryCreateMinutesListRequest) SetNextToken(v string) *QueryCreateMinutesListRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryCreateMinutesListRequest) SetUnionId(v string) *QueryCreateMinutesListRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryCreateMinutesListResponseBody struct {
+	HasNext        *bool                                               `json:"hasNext,omitempty" xml:"hasNext,omitempty"`
+	MinutesDetails []*QueryCreateMinutesListResponseBodyMinutesDetails `json:"minutesDetails,omitempty" xml:"minutesDetails,omitempty" type:"Repeated"`
+	NextToken      *string                                             `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s QueryCreateMinutesListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCreateMinutesListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCreateMinutesListResponseBody) SetHasNext(v bool) *QueryCreateMinutesListResponseBody {
+	s.HasNext = &v
+	return s
+}
+
+func (s *QueryCreateMinutesListResponseBody) SetMinutesDetails(v []*QueryCreateMinutesListResponseBodyMinutesDetails) *QueryCreateMinutesListResponseBody {
+	s.MinutesDetails = v
+	return s
+}
+
+func (s *QueryCreateMinutesListResponseBody) SetNextToken(v string) *QueryCreateMinutesListResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type QueryCreateMinutesListResponseBodyMinutesDetails struct {
+	BizType        *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	CreatorNick    *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	DurationMicros *int64  `json:"durationMicros,omitempty" xml:"durationMicros,omitempty"`
+	IsDeleted      *int32  `json:"isDeleted,omitempty" xml:"isDeleted,omitempty"`
+	Size           *int64  `json:"size,omitempty" xml:"size,omitempty"`
+	StartTime      *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Status         *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	TaskUuid       *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
+	Title          *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QueryCreateMinutesListResponseBodyMinutesDetails) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCreateMinutesListResponseBodyMinutesDetails) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCreateMinutesListResponseBodyMinutesDetails) SetBizType(v int32) *QueryCreateMinutesListResponseBodyMinutesDetails {
+	s.BizType = &v
+	return s
+}
+
+func (s *QueryCreateMinutesListResponseBodyMinutesDetails) SetCreatorNick(v string) *QueryCreateMinutesListResponseBodyMinutesDetails {
+	s.CreatorNick = &v
+	return s
+}
+
+func (s *QueryCreateMinutesListResponseBodyMinutesDetails) SetCreatorUnionId(v string) *QueryCreateMinutesListResponseBodyMinutesDetails {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *QueryCreateMinutesListResponseBodyMinutesDetails) SetDurationMicros(v int64) *QueryCreateMinutesListResponseBodyMinutesDetails {
+	s.DurationMicros = &v
+	return s
+}
+
+func (s *QueryCreateMinutesListResponseBodyMinutesDetails) SetIsDeleted(v int32) *QueryCreateMinutesListResponseBodyMinutesDetails {
+	s.IsDeleted = &v
+	return s
+}
+
+func (s *QueryCreateMinutesListResponseBodyMinutesDetails) SetSize(v int64) *QueryCreateMinutesListResponseBodyMinutesDetails {
+	s.Size = &v
+	return s
+}
+
+func (s *QueryCreateMinutesListResponseBodyMinutesDetails) SetStartTime(v int64) *QueryCreateMinutesListResponseBodyMinutesDetails {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryCreateMinutesListResponseBodyMinutesDetails) SetStatus(v int32) *QueryCreateMinutesListResponseBodyMinutesDetails {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryCreateMinutesListResponseBodyMinutesDetails) SetTaskUuid(v string) *QueryCreateMinutesListResponseBodyMinutesDetails {
+	s.TaskUuid = &v
+	return s
+}
+
+func (s *QueryCreateMinutesListResponseBodyMinutesDetails) SetTitle(v string) *QueryCreateMinutesListResponseBodyMinutesDetails {
+	s.Title = &v
+	return s
+}
+
+type QueryCreateMinutesListResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCreateMinutesListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryCreateMinutesListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCreateMinutesListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCreateMinutesListResponse) SetHeaders(v map[string]*string) *QueryCreateMinutesListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCreateMinutesListResponse) SetStatusCode(v int32) *QueryCreateMinutesListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryCreateMinutesListResponse) SetBody(v *QueryCreateMinutesListResponseBody) *QueryCreateMinutesListResponse {
+	s.Body = v
+	return s
+}
+
 type QueryMinutesPlayInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1313,6 +1496,87 @@ func (client *Client) DeleteMinutes(taskUuid *string, request *DeleteMinutesRequ
 	headers := &DeleteMinutesHeaders{}
 	_result = &DeleteMinutesResponse{}
 	_body, _err := client.DeleteMinutesWithOptions(taskUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询自己创建的闪记列表
+//
+// @param request - QueryCreateMinutesListRequest
+//
+// @param headers - QueryCreateMinutesListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCreateMinutesListResponse
+func (client *Client) QueryCreateMinutesListWithOptions(request *QueryCreateMinutesListRequest, headers *QueryCreateMinutesListHeaders, runtime *util.RuntimeOptions) (_result *QueryCreateMinutesListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryCreateMinutesList"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/flashMinutes/createLists"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryCreateMinutesListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询自己创建的闪记列表
+//
+// @param request - QueryCreateMinutesListRequest
+//
+// @return QueryCreateMinutesListResponse
+func (client *Client) QueryCreateMinutesList(request *QueryCreateMinutesListRequest) (_result *QueryCreateMinutesListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCreateMinutesListHeaders{}
+	_result = &QueryCreateMinutesListResponse{}
+	_body, _err := client.QueryCreateMinutesListWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

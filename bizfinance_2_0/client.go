@@ -3898,6 +3898,115 @@ func (s *QueryAccountTradeByPageResponse) SetBody(v *QueryAccountTradeByPageResp
 	return s
 }
 
+type QueryAlipayUserIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryAlipayUserIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAlipayUserIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAlipayUserIdHeaders) SetCommonHeaders(v map[string]*string) *QueryAlipayUserIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryAlipayUserIdHeaders) SetXAcsDingtalkAccessToken(v string) *QueryAlipayUserIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryAlipayUserIdRequest struct {
+	DingUserIds []*string `json:"dingUserIds,omitempty" xml:"dingUserIds,omitempty" type:"Repeated"`
+}
+
+func (s QueryAlipayUserIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAlipayUserIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAlipayUserIdRequest) SetDingUserIds(v []*string) *QueryAlipayUserIdRequest {
+	s.DingUserIds = v
+	return s
+}
+
+type QueryAlipayUserIdResponseBody struct {
+	AlipayBizUserList []*QueryAlipayUserIdResponseBodyAlipayBizUserList `json:"alipayBizUserList,omitempty" xml:"alipayBizUserList,omitempty" type:"Repeated"`
+}
+
+func (s QueryAlipayUserIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAlipayUserIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAlipayUserIdResponseBody) SetAlipayBizUserList(v []*QueryAlipayUserIdResponseBodyAlipayBizUserList) *QueryAlipayUserIdResponseBody {
+	s.AlipayBizUserList = v
+	return s
+}
+
+type QueryAlipayUserIdResponseBodyAlipayBizUserList struct {
+	AlipayUserId *string `json:"alipayUserId,omitempty" xml:"alipayUserId,omitempty"`
+	DingUserId   *string `json:"dingUserId,omitempty" xml:"dingUserId,omitempty"`
+}
+
+func (s QueryAlipayUserIdResponseBodyAlipayBizUserList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAlipayUserIdResponseBodyAlipayBizUserList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAlipayUserIdResponseBodyAlipayBizUserList) SetAlipayUserId(v string) *QueryAlipayUserIdResponseBodyAlipayBizUserList {
+	s.AlipayUserId = &v
+	return s
+}
+
+func (s *QueryAlipayUserIdResponseBodyAlipayBizUserList) SetDingUserId(v string) *QueryAlipayUserIdResponseBodyAlipayBizUserList {
+	s.DingUserId = &v
+	return s
+}
+
+type QueryAlipayUserIdResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryAlipayUserIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryAlipayUserIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryAlipayUserIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryAlipayUserIdResponse) SetHeaders(v map[string]*string) *QueryAlipayUserIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryAlipayUserIdResponse) SetStatusCode(v int32) *QueryAlipayUserIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryAlipayUserIdResponse) SetBody(v *QueryAlipayUserIdResponseBody) *QueryAlipayUserIdResponse {
+	s.Body = v
+	return s
+}
+
 type QueryCategoryByPageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6304,6 +6413,75 @@ func (s *QueryPaymentStatusResponse) SetStatusCode(v int32) *QueryPaymentStatusR
 }
 
 func (s *QueryPaymentStatusResponse) SetBody(v *QueryPaymentStatusResponseBody) *QueryPaymentStatusResponse {
+	s.Body = v
+	return s
+}
+
+type QueryPermissionUserIdsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryPermissionUserIdsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPermissionUserIdsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPermissionUserIdsHeaders) SetCommonHeaders(v map[string]*string) *QueryPermissionUserIdsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryPermissionUserIdsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryPermissionUserIdsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryPermissionUserIdsResponseBody struct {
+	DingUserIds []*string `json:"dingUserIds,omitempty" xml:"dingUserIds,omitempty" type:"Repeated"`
+}
+
+func (s QueryPermissionUserIdsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPermissionUserIdsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPermissionUserIdsResponseBody) SetDingUserIds(v []*string) *QueryPermissionUserIdsResponseBody {
+	s.DingUserIds = v
+	return s
+}
+
+type QueryPermissionUserIdsResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryPermissionUserIdsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryPermissionUserIdsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPermissionUserIdsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPermissionUserIdsResponse) SetHeaders(v map[string]*string) *QueryPermissionUserIdsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryPermissionUserIdsResponse) SetStatusCode(v int32) *QueryPermissionUserIdsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryPermissionUserIdsResponse) SetBody(v *QueryPermissionUserIdsResponseBody) *QueryPermissionUserIdsResponse {
 	s.Body = v
 	return s
 }
@@ -10759,6 +10937,79 @@ func (client *Client) QueryAccountTradeByPage(request *QueryAccountTradeByPageRe
 
 // Summary:
 //
+// 根据staffId批量查询返回支付宝userId
+//
+// @param request - QueryAlipayUserIdRequest
+//
+// @param headers - QueryAlipayUserIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryAlipayUserIdResponse
+func (client *Client) QueryAlipayUserIdWithOptions(request *QueryAlipayUserIdRequest, headers *QueryAlipayUserIdHeaders, runtime *util.RuntimeOptions) (_result *QueryAlipayUserIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingUserIds)) {
+		body["dingUserIds"] = request.DingUserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryAlipayUserId"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/consumption/aliPay/getUserId"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryAlipayUserIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据staffId批量查询返回支付宝userId
+//
+// @param request - QueryAlipayUserIdRequest
+//
+// @return QueryAlipayUserIdResponse
+func (client *Client) QueryAlipayUserId(request *QueryAlipayUserIdRequest) (_result *QueryAlipayUserIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryAlipayUserIdHeaders{}
+	_result = &QueryAlipayUserIdResponse{}
+	_body, _err := client.QueryAlipayUserIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 批量获取费用类别
 //
 // @param request - QueryCategoryByPageRequest
@@ -11670,6 +11921,65 @@ func (client *Client) QueryPaymentStatus(request *QueryPaymentStatusRequest) (_r
 	headers := &QueryPaymentStatusHeaders{}
 	_result = &QueryPaymentStatusResponse{}
 	_body, _err := client.QueryPaymentStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询对应权限点的人员staffId
+//
+// @param headers - QueryPermissionUserIdsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryPermissionUserIdsResponse
+func (client *Client) QueryPermissionUserIdsWithOptions(headers *QueryPermissionUserIdsHeaders, runtime *util.RuntimeOptions) (_result *QueryPermissionUserIdsResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryPermissionUserIds"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/consumption/permission/getUserIds"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryPermissionUserIdsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询对应权限点的人员staffId
+//
+// @return QueryPermissionUserIdsResponse
+func (client *Client) QueryPermissionUserIds() (_result *QueryPermissionUserIdsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryPermissionUserIdsHeaders{}
+	_result = &QueryPermissionUserIdsResponse{}
+	_body, _err := client.QueryPermissionUserIdsWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

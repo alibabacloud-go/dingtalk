@@ -9,6 +9,35 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type RoleMapValue struct {
+	// example:
+	//
+	// MANAGER
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// MANAGER
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s RoleMapValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RoleMapValue) GoString() string {
+	return s.String()
+}
+
+func (s *RoleMapValue) SetId(v string) *RoleMapValue {
+	s.Id = &v
+	return s
+}
+
+func (s *RoleMapValue) SetName(v string) *RoleMapValue {
+	s.Name = &v
+	return s
+}
+
 type DentryAppPropertiesValue struct {
 	// example:
 	//
@@ -223,6 +252,104 @@ func (s *AddPermissionResponse) SetStatusCode(v int32) *AddPermissionResponse {
 }
 
 func (s *AddPermissionResponse) SetBody(v *AddPermissionResponseBody) *AddPermissionResponse {
+	s.Body = v
+	return s
+}
+
+type BatchQueryRolesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchQueryRolesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryRolesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryRolesHeaders) SetCommonHeaders(v map[string]*string) *BatchQueryRolesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchQueryRolesHeaders) SetXAcsDingtalkAccessToken(v string) *BatchQueryRolesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchQueryRolesRequest struct {
+	// This parameter is required.
+	DentryUuidList []*string `json:"dentryUuidList,omitempty" xml:"dentryUuidList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s BatchQueryRolesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryRolesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryRolesRequest) SetDentryUuidList(v []*string) *BatchQueryRolesRequest {
+	s.DentryUuidList = v
+	return s
+}
+
+func (s *BatchQueryRolesRequest) SetUnionId(v string) *BatchQueryRolesRequest {
+	s.UnionId = &v
+	return s
+}
+
+type BatchQueryRolesResponseBody struct {
+	RoleMap map[string][]*RoleMapValue `json:"roleMap,omitempty" xml:"roleMap,omitempty"`
+}
+
+func (s BatchQueryRolesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryRolesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryRolesResponseBody) SetRoleMap(v map[string][]*RoleMapValue) *BatchQueryRolesResponseBody {
+	s.RoleMap = v
+	return s
+}
+
+type BatchQueryRolesResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchQueryRolesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s BatchQueryRolesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryRolesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryRolesResponse) SetHeaders(v map[string]*string) *BatchQueryRolesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchQueryRolesResponse) SetStatusCode(v int32) *BatchQueryRolesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchQueryRolesResponse) SetBody(v *BatchQueryRolesResponseBody) *BatchQueryRolesResponse {
 	s.Body = v
 	return s
 }
@@ -3313,6 +3440,85 @@ func (client *Client) AddPermission(dentryUuid *string, request *AddPermissionRe
 	headers := &AddPermissionHeaders{}
 	_result = &AddPermissionResponse{}
 	_body, _err := client.AddPermissionWithOptions(dentryUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取权限列表
+//
+// @param request - BatchQueryRolesRequest
+//
+// @param headers - BatchQueryRolesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchQueryRolesResponse
+func (client *Client) BatchQueryRolesWithOptions(request *BatchQueryRolesRequest, headers *BatchQueryRolesHeaders, runtime *util.RuntimeOptions) (_result *BatchQueryRolesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DentryUuidList)) {
+		body["dentryUuidList"] = request.DentryUuidList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchQueryRoles"),
+		Version:     tea.String("storage_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/storage/spaces/dentries/permissions/roles/batchQuery"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchQueryRolesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取权限列表
+//
+// @param request - BatchQueryRolesRequest
+//
+// @return BatchQueryRolesResponse
+func (client *Client) BatchQueryRoles(request *BatchQueryRolesRequest) (_result *BatchQueryRolesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchQueryRolesHeaders{}
+	_result = &BatchQueryRolesResponse{}
+	_body, _err := client.BatchQueryRolesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

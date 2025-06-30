@@ -9,6 +9,288 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type BatchAddOrUpdateRoleMembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchAddOrUpdateRoleMembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddOrUpdateRoleMembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddOrUpdateRoleMembersHeaders) SetCommonHeaders(v map[string]*string) *BatchAddOrUpdateRoleMembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchAddOrUpdateRoleMembersHeaders) SetXAcsDingtalkAccessToken(v string) *BatchAddOrUpdateRoleMembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchAddOrUpdateRoleMembersRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// [{"memberId":"5014533041684xx","manageScopes":"8360866xx,430181xx,429821xx"},{"memberId":"014329103xx","manageScopes":"all"}]
+	MembersInfo *string `json:"membersInfo,omitempty" xml:"membersInfo,omitempty"`
+	PageNumber  *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize    *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ROLE-71dc7859-17df-490d-a93d-eb5506e31f42
+	RoleUuid *string `json:"roleUuid,omitempty" xml:"roleUuid,omitempty"`
+	// This parameter is required.
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 501453
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s BatchAddOrUpdateRoleMembersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddOrUpdateRoleMembersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddOrUpdateRoleMembersRequest) SetCorpId(v string) *BatchAddOrUpdateRoleMembersRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *BatchAddOrUpdateRoleMembersRequest) SetMembersInfo(v string) *BatchAddOrUpdateRoleMembersRequest {
+	s.MembersInfo = &v
+	return s
+}
+
+func (s *BatchAddOrUpdateRoleMembersRequest) SetPageNumber(v int32) *BatchAddOrUpdateRoleMembersRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *BatchAddOrUpdateRoleMembersRequest) SetPageSize(v int32) *BatchAddOrUpdateRoleMembersRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *BatchAddOrUpdateRoleMembersRequest) SetRoleUuid(v string) *BatchAddOrUpdateRoleMembersRequest {
+	s.RoleUuid = &v
+	return s
+}
+
+func (s *BatchAddOrUpdateRoleMembersRequest) SetToken(v string) *BatchAddOrUpdateRoleMembersRequest {
+	s.Token = &v
+	return s
+}
+
+func (s *BatchAddOrUpdateRoleMembersRequest) SetUserId(v string) *BatchAddOrUpdateRoleMembersRequest {
+	s.UserId = &v
+	return s
+}
+
+type BatchAddOrUpdateRoleMembersResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchAddOrUpdateRoleMembersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddOrUpdateRoleMembersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddOrUpdateRoleMembersResponseBody) SetSuccess(v bool) *BatchAddOrUpdateRoleMembersResponseBody {
+	s.Success = &v
+	return s
+}
+
+type BatchAddOrUpdateRoleMembersResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchAddOrUpdateRoleMembersResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s BatchAddOrUpdateRoleMembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchAddOrUpdateRoleMembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchAddOrUpdateRoleMembersResponse) SetHeaders(v map[string]*string) *BatchAddOrUpdateRoleMembersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchAddOrUpdateRoleMembersResponse) SetStatusCode(v int32) *BatchAddOrUpdateRoleMembersResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchAddOrUpdateRoleMembersResponse) SetBody(v *BatchAddOrUpdateRoleMembersResponseBody) *BatchAddOrUpdateRoleMembersResponse {
+	s.Body = v
+	return s
+}
+
+type BatchDeleteRoleMembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchDeleteRoleMembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchDeleteRoleMembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchDeleteRoleMembersHeaders) SetCommonHeaders(v map[string]*string) *BatchDeleteRoleMembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchDeleteRoleMembersHeaders) SetXAcsDingtalkAccessToken(v string) *BatchDeleteRoleMembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchDeleteRoleMembersRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	MemberIds  *string `json:"memberIds,omitempty" xml:"memberIds,omitempty"`
+	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ROLE-71dc7859-17df-490d-a93d-eb5506e31f42
+	RoleUuid *string `json:"roleUuid,omitempty" xml:"roleUuid,omitempty"`
+	// This parameter is required.
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 501453
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s BatchDeleteRoleMembersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchDeleteRoleMembersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchDeleteRoleMembersRequest) SetCorpId(v string) *BatchDeleteRoleMembersRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *BatchDeleteRoleMembersRequest) SetMemberIds(v string) *BatchDeleteRoleMembersRequest {
+	s.MemberIds = &v
+	return s
+}
+
+func (s *BatchDeleteRoleMembersRequest) SetPageNumber(v int32) *BatchDeleteRoleMembersRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *BatchDeleteRoleMembersRequest) SetPageSize(v int32) *BatchDeleteRoleMembersRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *BatchDeleteRoleMembersRequest) SetRoleUuid(v string) *BatchDeleteRoleMembersRequest {
+	s.RoleUuid = &v
+	return s
+}
+
+func (s *BatchDeleteRoleMembersRequest) SetToken(v string) *BatchDeleteRoleMembersRequest {
+	s.Token = &v
+	return s
+}
+
+func (s *BatchDeleteRoleMembersRequest) SetUserId(v string) *BatchDeleteRoleMembersRequest {
+	s.UserId = &v
+	return s
+}
+
+type BatchDeleteRoleMembersResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BatchDeleteRoleMembersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchDeleteRoleMembersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchDeleteRoleMembersResponseBody) SetSuccess(v bool) *BatchDeleteRoleMembersResponseBody {
+	s.Success = &v
+	return s
+}
+
+type BatchDeleteRoleMembersResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchDeleteRoleMembersResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s BatchDeleteRoleMembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchDeleteRoleMembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchDeleteRoleMembersResponse) SetHeaders(v map[string]*string) *BatchDeleteRoleMembersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchDeleteRoleMembersResponse) SetStatusCode(v int32) *BatchDeleteRoleMembersResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchDeleteRoleMembersResponse) SetBody(v *BatchDeleteRoleMembersResponseBody) *BatchDeleteRoleMembersResponse {
+	s.Body = v
+	return s
+}
+
 type CreateOrUpdateFormDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -169,6 +451,133 @@ func (s *CreateOrUpdateFormDataResponse) SetStatusCode(v int32) *CreateOrUpdateF
 }
 
 func (s *CreateOrUpdateFormDataResponse) SetBody(v *CreateOrUpdateFormDataResponseBody) *CreateOrUpdateFormDataResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteMatrixDataByRowIdsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteMatrixDataByRowIdsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteMatrixDataByRowIdsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteMatrixDataByRowIdsHeaders) SetCommonHeaders(v map[string]*string) *DeleteMatrixDataByRowIdsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteMatrixDataByRowIdsHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteMatrixDataByRowIdsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteMatrixDataByRowIdsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// MATRIX-C8I4J40EM81XLWZH61ZK
+	MatrixId *string `json:"matrixId,omitempty" xml:"matrixId,omitempty"`
+	// This parameter is required.
+	RowIds *string `json:"rowIds,omitempty" xml:"rowIds,omitempty"`
+	// This parameter is required.
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 501453
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DeleteMatrixDataByRowIdsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteMatrixDataByRowIdsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteMatrixDataByRowIdsRequest) SetCorpId(v string) *DeleteMatrixDataByRowIdsRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *DeleteMatrixDataByRowIdsRequest) SetMatrixId(v string) *DeleteMatrixDataByRowIdsRequest {
+	s.MatrixId = &v
+	return s
+}
+
+func (s *DeleteMatrixDataByRowIdsRequest) SetRowIds(v string) *DeleteMatrixDataByRowIdsRequest {
+	s.RowIds = &v
+	return s
+}
+
+func (s *DeleteMatrixDataByRowIdsRequest) SetToken(v string) *DeleteMatrixDataByRowIdsRequest {
+	s.Token = &v
+	return s
+}
+
+func (s *DeleteMatrixDataByRowIdsRequest) SetUserId(v string) *DeleteMatrixDataByRowIdsRequest {
+	s.UserId = &v
+	return s
+}
+
+type DeleteMatrixDataByRowIdsResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteMatrixDataByRowIdsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteMatrixDataByRowIdsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteMatrixDataByRowIdsResponseBody) SetSuccess(v bool) *DeleteMatrixDataByRowIdsResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteMatrixDataByRowIdsResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteMatrixDataByRowIdsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteMatrixDataByRowIdsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteMatrixDataByRowIdsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteMatrixDataByRowIdsResponse) SetHeaders(v map[string]*string) *DeleteMatrixDataByRowIdsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteMatrixDataByRowIdsResponse) SetStatusCode(v int32) *DeleteMatrixDataByRowIdsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteMatrixDataByRowIdsResponse) SetBody(v *DeleteMatrixDataByRowIdsResponseBody) *DeleteMatrixDataByRowIdsResponse {
 	s.Body = v
 	return s
 }
@@ -1632,6 +2041,722 @@ func (s *GetInstancesResponse) SetStatusCode(v int32) *GetInstancesResponse {
 }
 
 func (s *GetInstancesResponse) SetBody(v *GetInstancesResponseBody) *GetInstancesResponse {
+	s.Body = v
+	return s
+}
+
+type GetMatrixDetailByIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetMatrixDetailByIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMatrixDetailByIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetMatrixDetailByIdHeaders) SetCommonHeaders(v map[string]*string) *GetMatrixDetailByIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetMatrixDetailByIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetMatrixDetailByIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetMatrixDetailByIdRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// MATRIX-C8I4J40EM81XLWZH61ZK
+	MatrixId *string `json:"matrixId,omitempty" xml:"matrixId,omitempty"`
+	// example:
+	//
+	// 100
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 1
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 501453
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetMatrixDetailByIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMatrixDetailByIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetMatrixDetailByIdRequest) SetCorpId(v string) *GetMatrixDetailByIdRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetMatrixDetailByIdRequest) SetMatrixId(v string) *GetMatrixDetailByIdRequest {
+	s.MatrixId = &v
+	return s
+}
+
+func (s *GetMatrixDetailByIdRequest) SetPageNumber(v int32) *GetMatrixDetailByIdRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetMatrixDetailByIdRequest) SetPageSize(v int32) *GetMatrixDetailByIdRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetMatrixDetailByIdRequest) SetToken(v string) *GetMatrixDetailByIdRequest {
+	s.Token = &v
+	return s
+}
+
+func (s *GetMatrixDetailByIdRequest) SetUserId(v string) *GetMatrixDetailByIdRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetMatrixDetailByIdResponseBody struct {
+	Result  *GetMatrixDetailByIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                  `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetMatrixDetailByIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMatrixDetailByIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetMatrixDetailByIdResponseBody) SetResult(v *GetMatrixDetailByIdResponseBodyResult) *GetMatrixDetailByIdResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponseBody) SetSuccess(v bool) *GetMatrixDetailByIdResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetMatrixDetailByIdResponseBodyResult struct {
+	Description   *GetMatrixDetailByIdResponseBodyResultDescription `json:"description,omitempty" xml:"description,omitempty" type:"Struct"`
+	MatrixData    *GetMatrixDetailByIdResponseBodyResultMatrixData  `json:"matrixData,omitempty" xml:"matrixData,omitempty" type:"Struct"`
+	MatrixId      *string                                           `json:"matrixId,omitempty" xml:"matrixId,omitempty"`
+	MatrixTable   *GetMatrixDetailByIdResponseBodyResultMatrixTable `json:"matrixTable,omitempty" xml:"matrixTable,omitempty" type:"Struct"`
+	Name          *GetMatrixDetailByIdResponseBodyResultName        `json:"name,omitempty" xml:"name,omitempty" type:"Struct"`
+	RowTotalCount *int32                                            `json:"rowTotalCount,omitempty" xml:"rowTotalCount,omitempty"`
+}
+
+func (s GetMatrixDetailByIdResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMatrixDetailByIdResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResult) SetDescription(v *GetMatrixDetailByIdResponseBodyResultDescription) *GetMatrixDetailByIdResponseBodyResult {
+	s.Description = v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResult) SetMatrixData(v *GetMatrixDetailByIdResponseBodyResultMatrixData) *GetMatrixDetailByIdResponseBodyResult {
+	s.MatrixData = v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResult) SetMatrixId(v string) *GetMatrixDetailByIdResponseBodyResult {
+	s.MatrixId = &v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResult) SetMatrixTable(v *GetMatrixDetailByIdResponseBodyResultMatrixTable) *GetMatrixDetailByIdResponseBodyResult {
+	s.MatrixTable = v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResult) SetName(v *GetMatrixDetailByIdResponseBodyResultName) *GetMatrixDetailByIdResponseBodyResult {
+	s.Name = v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResult) SetRowTotalCount(v int32) *GetMatrixDetailByIdResponseBodyResult {
+	s.RowTotalCount = &v
+	return s
+}
+
+type GetMatrixDetailByIdResponseBodyResultDescription struct {
+	EnUS *string `json:"en_US,omitempty" xml:"en_US,omitempty"`
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	ZhCN *string `json:"zh_CN,omitempty" xml:"zh_CN,omitempty"`
+}
+
+func (s GetMatrixDetailByIdResponseBodyResultDescription) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMatrixDetailByIdResponseBodyResultDescription) GoString() string {
+	return s.String()
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResultDescription) SetEnUS(v string) *GetMatrixDetailByIdResponseBodyResultDescription {
+	s.EnUS = &v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResultDescription) SetType(v string) *GetMatrixDetailByIdResponseBodyResultDescription {
+	s.Type = &v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResultDescription) SetZhCN(v string) *GetMatrixDetailByIdResponseBodyResultDescription {
+	s.ZhCN = &v
+	return s
+}
+
+type GetMatrixDetailByIdResponseBodyResultMatrixData struct {
+	CurrentPage *int32      `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	Data        interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	TotalCount  *int32      `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s GetMatrixDetailByIdResponseBodyResultMatrixData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMatrixDetailByIdResponseBodyResultMatrixData) GoString() string {
+	return s.String()
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResultMatrixData) SetCurrentPage(v int32) *GetMatrixDetailByIdResponseBodyResultMatrixData {
+	s.CurrentPage = &v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResultMatrixData) SetData(v interface{}) *GetMatrixDetailByIdResponseBodyResultMatrixData {
+	s.Data = v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResultMatrixData) SetTotalCount(v int32) *GetMatrixDetailByIdResponseBodyResultMatrixData {
+	s.TotalCount = &v
+	return s
+}
+
+type GetMatrixDetailByIdResponseBodyResultMatrixTable struct {
+	ConditionColumn []*GetMatrixDetailByIdResponseBodyResultMatrixTableConditionColumn `json:"conditionColumn,omitempty" xml:"conditionColumn,omitempty" type:"Repeated"`
+	ResultColumn    []*GetMatrixDetailByIdResponseBodyResultMatrixTableResultColumn    `json:"resultColumn,omitempty" xml:"resultColumn,omitempty" type:"Repeated"`
+}
+
+func (s GetMatrixDetailByIdResponseBodyResultMatrixTable) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMatrixDetailByIdResponseBodyResultMatrixTable) GoString() string {
+	return s.String()
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResultMatrixTable) SetConditionColumn(v []*GetMatrixDetailByIdResponseBodyResultMatrixTableConditionColumn) *GetMatrixDetailByIdResponseBodyResultMatrixTable {
+	s.ConditionColumn = v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResultMatrixTable) SetResultColumn(v []*GetMatrixDetailByIdResponseBodyResultMatrixTableResultColumn) *GetMatrixDetailByIdResponseBodyResultMatrixTable {
+	s.ResultColumn = v
+	return s
+}
+
+type GetMatrixDetailByIdResponseBodyResultMatrixTableConditionColumn struct {
+	ColumnId      *string `json:"columnId,omitempty" xml:"columnId,omitempty"`
+	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetMatrixDetailByIdResponseBodyResultMatrixTableConditionColumn) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMatrixDetailByIdResponseBodyResultMatrixTableConditionColumn) GoString() string {
+	return s.String()
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResultMatrixTableConditionColumn) SetColumnId(v string) *GetMatrixDetailByIdResponseBodyResultMatrixTableConditionColumn {
+	s.ColumnId = &v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResultMatrixTableConditionColumn) SetComponentType(v string) *GetMatrixDetailByIdResponseBodyResultMatrixTableConditionColumn {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResultMatrixTableConditionColumn) SetName(v string) *GetMatrixDetailByIdResponseBodyResultMatrixTableConditionColumn {
+	s.Name = &v
+	return s
+}
+
+type GetMatrixDetailByIdResponseBodyResultMatrixTableResultColumn struct {
+	ColumnId      *string `json:"columnId,omitempty" xml:"columnId,omitempty"`
+	ComponentType *string `json:"componentType,omitempty" xml:"componentType,omitempty"`
+	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetMatrixDetailByIdResponseBodyResultMatrixTableResultColumn) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMatrixDetailByIdResponseBodyResultMatrixTableResultColumn) GoString() string {
+	return s.String()
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResultMatrixTableResultColumn) SetColumnId(v string) *GetMatrixDetailByIdResponseBodyResultMatrixTableResultColumn {
+	s.ColumnId = &v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResultMatrixTableResultColumn) SetComponentType(v string) *GetMatrixDetailByIdResponseBodyResultMatrixTableResultColumn {
+	s.ComponentType = &v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResultMatrixTableResultColumn) SetName(v string) *GetMatrixDetailByIdResponseBodyResultMatrixTableResultColumn {
+	s.Name = &v
+	return s
+}
+
+type GetMatrixDetailByIdResponseBodyResultName struct {
+	EnUS *string `json:"en_US,omitempty" xml:"en_US,omitempty"`
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+	ZhCN *string `json:"zh_CN,omitempty" xml:"zh_CN,omitempty"`
+}
+
+func (s GetMatrixDetailByIdResponseBodyResultName) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMatrixDetailByIdResponseBodyResultName) GoString() string {
+	return s.String()
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResultName) SetEnUS(v string) *GetMatrixDetailByIdResponseBodyResultName {
+	s.EnUS = &v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResultName) SetType(v string) *GetMatrixDetailByIdResponseBodyResultName {
+	s.Type = &v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponseBodyResultName) SetZhCN(v string) *GetMatrixDetailByIdResponseBodyResultName {
+	s.ZhCN = &v
+	return s
+}
+
+type GetMatrixDetailByIdResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetMatrixDetailByIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetMatrixDetailByIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMatrixDetailByIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetMatrixDetailByIdResponse) SetHeaders(v map[string]*string) *GetMatrixDetailByIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponse) SetStatusCode(v int32) *GetMatrixDetailByIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetMatrixDetailByIdResponse) SetBody(v *GetMatrixDetailByIdResponseBody) *GetMatrixDetailByIdResponse {
+	s.Body = v
+	return s
+}
+
+type GetRoleDetailByIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetRoleDetailByIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRoleDetailByIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetRoleDetailByIdHeaders) SetCommonHeaders(v map[string]*string) *GetRoleDetailByIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetRoleDetailByIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetRoleDetailByIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetRoleDetailByIdRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 100
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 1
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ROLE-71dc7859-17df-490d-a93d-eb5506e31f42
+	RoleUuid *string `json:"roleUuid,omitempty" xml:"roleUuid,omitempty"`
+	// This parameter is required.
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 501453
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetRoleDetailByIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRoleDetailByIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetRoleDetailByIdRequest) SetCorpId(v string) *GetRoleDetailByIdRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetRoleDetailByIdRequest) SetPageNumber(v int32) *GetRoleDetailByIdRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetRoleDetailByIdRequest) SetPageSize(v int32) *GetRoleDetailByIdRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetRoleDetailByIdRequest) SetRoleUuid(v string) *GetRoleDetailByIdRequest {
+	s.RoleUuid = &v
+	return s
+}
+
+func (s *GetRoleDetailByIdRequest) SetToken(v string) *GetRoleDetailByIdRequest {
+	s.Token = &v
+	return s
+}
+
+func (s *GetRoleDetailByIdRequest) SetUserId(v string) *GetRoleDetailByIdRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetRoleDetailByIdResponseBody struct {
+	Result  *GetRoleDetailByIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetRoleDetailByIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRoleDetailByIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetRoleDetailByIdResponseBody) SetResult(v *GetRoleDetailByIdResponseBodyResult) *GetRoleDetailByIdResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetRoleDetailByIdResponseBody) SetSuccess(v bool) *GetRoleDetailByIdResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetRoleDetailByIdResponseBodyResult struct {
+	CanModifyOwners  interface{}                                 `json:"canModifyOwners,omitempty" xml:"canModifyOwners,omitempty"`
+	Description      *string                                     `json:"description,omitempty" xml:"description,omitempty"`
+	MemberTotalCount *int32                                      `json:"memberTotalCount,omitempty" xml:"memberTotalCount,omitempty"`
+	Members          *GetRoleDetailByIdResponseBodyResultMembers `json:"members,omitempty" xml:"members,omitempty" type:"Struct"`
+	Name             *string                                     `json:"name,omitempty" xml:"name,omitempty"`
+	ParentUuid       *string                                     `json:"parentUuid,omitempty" xml:"parentUuid,omitempty"`
+	RoleUuid         *string                                     `json:"roleUuid,omitempty" xml:"roleUuid,omitempty"`
+}
+
+func (s GetRoleDetailByIdResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRoleDetailByIdResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetRoleDetailByIdResponseBodyResult) SetCanModifyOwners(v interface{}) *GetRoleDetailByIdResponseBodyResult {
+	s.CanModifyOwners = v
+	return s
+}
+
+func (s *GetRoleDetailByIdResponseBodyResult) SetDescription(v string) *GetRoleDetailByIdResponseBodyResult {
+	s.Description = &v
+	return s
+}
+
+func (s *GetRoleDetailByIdResponseBodyResult) SetMemberTotalCount(v int32) *GetRoleDetailByIdResponseBodyResult {
+	s.MemberTotalCount = &v
+	return s
+}
+
+func (s *GetRoleDetailByIdResponseBodyResult) SetMembers(v *GetRoleDetailByIdResponseBodyResultMembers) *GetRoleDetailByIdResponseBodyResult {
+	s.Members = v
+	return s
+}
+
+func (s *GetRoleDetailByIdResponseBodyResult) SetName(v string) *GetRoleDetailByIdResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *GetRoleDetailByIdResponseBodyResult) SetParentUuid(v string) *GetRoleDetailByIdResponseBodyResult {
+	s.ParentUuid = &v
+	return s
+}
+
+func (s *GetRoleDetailByIdResponseBodyResult) SetRoleUuid(v string) *GetRoleDetailByIdResponseBodyResult {
+	s.RoleUuid = &v
+	return s
+}
+
+type GetRoleDetailByIdResponseBodyResultMembers struct {
+	CurrentPage *int32      `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	Data        interface{} `json:"data,omitempty" xml:"data,omitempty"`
+	TotalCount  *int32      `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s GetRoleDetailByIdResponseBodyResultMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRoleDetailByIdResponseBodyResultMembers) GoString() string {
+	return s.String()
+}
+
+func (s *GetRoleDetailByIdResponseBodyResultMembers) SetCurrentPage(v int32) *GetRoleDetailByIdResponseBodyResultMembers {
+	s.CurrentPage = &v
+	return s
+}
+
+func (s *GetRoleDetailByIdResponseBodyResultMembers) SetData(v interface{}) *GetRoleDetailByIdResponseBodyResultMembers {
+	s.Data = v
+	return s
+}
+
+func (s *GetRoleDetailByIdResponseBodyResultMembers) SetTotalCount(v int32) *GetRoleDetailByIdResponseBodyResultMembers {
+	s.TotalCount = &v
+	return s
+}
+
+type GetRoleDetailByIdResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetRoleDetailByIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetRoleDetailByIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRoleDetailByIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetRoleDetailByIdResponse) SetHeaders(v map[string]*string) *GetRoleDetailByIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetRoleDetailByIdResponse) SetStatusCode(v int32) *GetRoleDetailByIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetRoleDetailByIdResponse) SetBody(v *GetRoleDetailByIdResponseBody) *GetRoleDetailByIdResponse {
+	s.Body = v
+	return s
+}
+
+type SaveAndUpdateMatrixDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SaveAndUpdateMatrixDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveAndUpdateMatrixDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SaveAndUpdateMatrixDataHeaders) SetCommonHeaders(v map[string]*string) *SaveAndUpdateMatrixDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SaveAndUpdateMatrixDataHeaders) SetXAcsDingtalkAccessToken(v string) *SaveAndUpdateMatrixDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SaveAndUpdateMatrixDataRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// [{ 	"column_xx": "deptId", 	"column_yy": ["userId"], 	"column_zz": "项目一", 	"rowId": "row_1748398062718" }, { 	"column_xx": "deptId", 	"column_yy": ["userId", "userId"], 	"column_zz": "项目二" }]
+	DataJson *string `json:"dataJson,omitempty" xml:"dataJson,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// MATRIX-C8I4J40EM81XLWZH61ZK
+	MatrixId *string `json:"matrixId,omitempty" xml:"matrixId,omitempty"`
+	// This parameter is required.
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 501453
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SaveAndUpdateMatrixDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveAndUpdateMatrixDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SaveAndUpdateMatrixDataRequest) SetCorpId(v string) *SaveAndUpdateMatrixDataRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *SaveAndUpdateMatrixDataRequest) SetDataJson(v string) *SaveAndUpdateMatrixDataRequest {
+	s.DataJson = &v
+	return s
+}
+
+func (s *SaveAndUpdateMatrixDataRequest) SetMatrixId(v string) *SaveAndUpdateMatrixDataRequest {
+	s.MatrixId = &v
+	return s
+}
+
+func (s *SaveAndUpdateMatrixDataRequest) SetToken(v string) *SaveAndUpdateMatrixDataRequest {
+	s.Token = &v
+	return s
+}
+
+func (s *SaveAndUpdateMatrixDataRequest) SetUserId(v string) *SaveAndUpdateMatrixDataRequest {
+	s.UserId = &v
+	return s
+}
+
+type SaveAndUpdateMatrixDataResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SaveAndUpdateMatrixDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveAndUpdateMatrixDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SaveAndUpdateMatrixDataResponseBody) SetSuccess(v bool) *SaveAndUpdateMatrixDataResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SaveAndUpdateMatrixDataResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SaveAndUpdateMatrixDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SaveAndUpdateMatrixDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveAndUpdateMatrixDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SaveAndUpdateMatrixDataResponse) SetHeaders(v map[string]*string) *SaveAndUpdateMatrixDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SaveAndUpdateMatrixDataResponse) SetStatusCode(v int32) *SaveAndUpdateMatrixDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SaveAndUpdateMatrixDataResponse) SetBody(v *SaveAndUpdateMatrixDataResponseBody) *SaveAndUpdateMatrixDataResponse {
 	s.Body = v
 	return s
 }
@@ -3333,6 +4458,200 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 
 // Summary:
 //
+// 批量新增/更新角色成员
+//
+// @param request - BatchAddOrUpdateRoleMembersRequest
+//
+// @param headers - BatchAddOrUpdateRoleMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchAddOrUpdateRoleMembersResponse
+func (client *Client) BatchAddOrUpdateRoleMembersWithOptions(request *BatchAddOrUpdateRoleMembersRequest, headers *BatchAddOrUpdateRoleMembersHeaders, runtime *util.RuntimeOptions) (_result *BatchAddOrUpdateRoleMembersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MembersInfo)) {
+		body["membersInfo"] = request.MembersInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleUuid)) {
+		body["roleUuid"] = request.RoleUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		body["token"] = request.Token
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchAddOrUpdateRoleMembers"),
+		Version:     tea.String("yida_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/yida/forms/resources/roles/upsert"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchAddOrUpdateRoleMembersResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量新增/更新角色成员
+//
+// @param request - BatchAddOrUpdateRoleMembersRequest
+//
+// @return BatchAddOrUpdateRoleMembersResponse
+func (client *Client) BatchAddOrUpdateRoleMembers(request *BatchAddOrUpdateRoleMembersRequest) (_result *BatchAddOrUpdateRoleMembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchAddOrUpdateRoleMembersHeaders{}
+	_result = &BatchAddOrUpdateRoleMembersResponse{}
+	_body, _err := client.BatchAddOrUpdateRoleMembersWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量删除角色成员
+//
+// @param request - BatchDeleteRoleMembersRequest
+//
+// @param headers - BatchDeleteRoleMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchDeleteRoleMembersResponse
+func (client *Client) BatchDeleteRoleMembersWithOptions(request *BatchDeleteRoleMembersRequest, headers *BatchDeleteRoleMembersHeaders, runtime *util.RuntimeOptions) (_result *BatchDeleteRoleMembersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MemberIds)) {
+		body["memberIds"] = request.MemberIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleUuid)) {
+		body["roleUuid"] = request.RoleUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		body["token"] = request.Token
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchDeleteRoleMembers"),
+		Version:     tea.String("yida_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/yida/forms/resources/roles/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchDeleteRoleMembersResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量删除角色成员
+//
+// @param request - BatchDeleteRoleMembersRequest
+//
+// @return BatchDeleteRoleMembersResponse
+func (client *Client) BatchDeleteRoleMembers(request *BatchDeleteRoleMembersRequest) (_result *BatchDeleteRoleMembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchDeleteRoleMembersHeaders{}
+	_result = &BatchDeleteRoleMembersResponse{}
+	_body, _err := client.BatchDeleteRoleMembersWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 新增或更新表单实例
 //
 // @param request - CreateOrUpdateFormDataRequest
@@ -3425,6 +4744,95 @@ func (client *Client) CreateOrUpdateFormData(request *CreateOrUpdateFormDataRequ
 	headers := &CreateOrUpdateFormDataHeaders{}
 	_result = &CreateOrUpdateFormDataResponse{}
 	_body, _err := client.CreateOrUpdateFormDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量删除矩阵明细数据
+//
+// @param request - DeleteMatrixDataByRowIdsRequest
+//
+// @param headers - DeleteMatrixDataByRowIdsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteMatrixDataByRowIdsResponse
+func (client *Client) DeleteMatrixDataByRowIdsWithOptions(request *DeleteMatrixDataByRowIdsRequest, headers *DeleteMatrixDataByRowIdsHeaders, runtime *util.RuntimeOptions) (_result *DeleteMatrixDataByRowIdsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MatrixId)) {
+		body["matrixId"] = request.MatrixId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RowIds)) {
+		body["rowIds"] = request.RowIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		body["token"] = request.Token
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteMatrixDataByRowIds"),
+		Version:     tea.String("yida_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/yida/forms/resources/matrices/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteMatrixDataByRowIdsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量删除矩阵明细数据
+//
+// @param request - DeleteMatrixDataByRowIdsRequest
+//
+// @return DeleteMatrixDataByRowIdsResponse
+func (client *Client) DeleteMatrixDataByRowIds(request *DeleteMatrixDataByRowIdsRequest) (_result *DeleteMatrixDataByRowIdsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteMatrixDataByRowIdsHeaders{}
+	_result = &DeleteMatrixDataByRowIdsResponse{}
+	_body, _err := client.DeleteMatrixDataByRowIdsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3978,6 +5386,281 @@ func (client *Client) GetInstances(request *GetInstancesRequest) (_result *GetIn
 	headers := &GetInstancesHeaders{}
 	_result = &GetInstancesResponse{}
 	_body, _err := client.GetInstancesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取权限矩阵数据详情
+//
+// @param request - GetMatrixDetailByIdRequest
+//
+// @param headers - GetMatrixDetailByIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetMatrixDetailByIdResponse
+func (client *Client) GetMatrixDetailByIdWithOptions(request *GetMatrixDetailByIdRequest, headers *GetMatrixDetailByIdHeaders, runtime *util.RuntimeOptions) (_result *GetMatrixDetailByIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MatrixId)) {
+		query["matrixId"] = request.MatrixId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		query["token"] = request.Token
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetMatrixDetailById"),
+		Version:     tea.String("yida_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/yida/forms/resources/matrices"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetMatrixDetailByIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取权限矩阵数据详情
+//
+// @param request - GetMatrixDetailByIdRequest
+//
+// @return GetMatrixDetailByIdResponse
+func (client *Client) GetMatrixDetailById(request *GetMatrixDetailByIdRequest) (_result *GetMatrixDetailByIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetMatrixDetailByIdHeaders{}
+	_result = &GetMatrixDetailByIdResponse{}
+	_body, _err := client.GetMatrixDetailByIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取角色详情和成员列表
+//
+// @param request - GetRoleDetailByIdRequest
+//
+// @param headers - GetRoleDetailByIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetRoleDetailByIdResponse
+func (client *Client) GetRoleDetailByIdWithOptions(request *GetRoleDetailByIdRequest, headers *GetRoleDetailByIdHeaders, runtime *util.RuntimeOptions) (_result *GetRoleDetailByIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleUuid)) {
+		query["roleUuid"] = request.RoleUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		query["token"] = request.Token
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetRoleDetailById"),
+		Version:     tea.String("yida_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/yida/forms/resources/roles"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetRoleDetailByIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取角色详情和成员列表
+//
+// @param request - GetRoleDetailByIdRequest
+//
+// @return GetRoleDetailByIdResponse
+func (client *Client) GetRoleDetailById(request *GetRoleDetailByIdRequest) (_result *GetRoleDetailByIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetRoleDetailByIdHeaders{}
+	_result = &GetRoleDetailByIdResponse{}
+	_body, _err := client.GetRoleDetailByIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 修改/新增矩阵明细数据
+//
+// @param request - SaveAndUpdateMatrixDataRequest
+//
+// @param headers - SaveAndUpdateMatrixDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SaveAndUpdateMatrixDataResponse
+func (client *Client) SaveAndUpdateMatrixDataWithOptions(request *SaveAndUpdateMatrixDataRequest, headers *SaveAndUpdateMatrixDataHeaders, runtime *util.RuntimeOptions) (_result *SaveAndUpdateMatrixDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DataJson)) {
+		body["dataJson"] = request.DataJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MatrixId)) {
+		body["matrixId"] = request.MatrixId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		body["token"] = request.Token
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SaveAndUpdateMatrixData"),
+		Version:     tea.String("yida_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/yida/forms/resources/matrices/upsert"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SaveAndUpdateMatrixDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 修改/新增矩阵明细数据
+//
+// @param request - SaveAndUpdateMatrixDataRequest
+//
+// @return SaveAndUpdateMatrixDataResponse
+func (client *Client) SaveAndUpdateMatrixData(request *SaveAndUpdateMatrixDataRequest) (_result *SaveAndUpdateMatrixDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SaveAndUpdateMatrixDataHeaders{}
+	_result = &SaveAndUpdateMatrixDataResponse{}
+	_body, _err := client.SaveAndUpdateMatrixDataWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

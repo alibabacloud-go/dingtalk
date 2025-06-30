@@ -3816,7 +3816,8 @@ type QueryLiveWatchUserListResponseBodyResultOrgUsesList struct {
 	// example:
 	//
 	// xxx.设计部
-	DeptName *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	DeptName       *string `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	FirstWatchTime *int64  `json:"firstWatchTime,omitempty" xml:"firstWatchTime,omitempty"`
 	// example:
 	//
 	// 李四
@@ -3856,6 +3857,11 @@ func (s *QueryLiveWatchUserListResponseBodyResultOrgUsesList) SetDeptName(v stri
 	return s
 }
 
+func (s *QueryLiveWatchUserListResponseBodyResultOrgUsesList) SetFirstWatchTime(v int64) *QueryLiveWatchUserListResponseBodyResultOrgUsesList {
+	s.FirstWatchTime = &v
+	return s
+}
+
 func (s *QueryLiveWatchUserListResponseBodyResultOrgUsesList) SetName(v string) *QueryLiveWatchUserListResponseBodyResultOrgUsesList {
 	s.Name = &v
 	return s
@@ -3887,6 +3893,7 @@ func (s *QueryLiveWatchUserListResponseBodyResultOrgUsesList) SetWatchProgressMs
 }
 
 type QueryLiveWatchUserListResponseBodyResultOutOrgUserList struct {
+	FirstWatchTime *int64 `json:"firstWatchTime,omitempty" xml:"firstWatchTime,omitempty"`
 	// example:
 	//
 	// 张三
@@ -3911,6 +3918,11 @@ func (s QueryLiveWatchUserListResponseBodyResultOutOrgUserList) String() string 
 
 func (s QueryLiveWatchUserListResponseBodyResultOutOrgUserList) GoString() string {
 	return s.String()
+}
+
+func (s *QueryLiveWatchUserListResponseBodyResultOutOrgUserList) SetFirstWatchTime(v int64) *QueryLiveWatchUserListResponseBodyResultOutOrgUserList {
+	s.FirstWatchTime = &v
+	return s
 }
 
 func (s *QueryLiveWatchUserListResponseBodyResultOutOrgUserList) SetName(v string) *QueryLiveWatchUserListResponseBodyResultOutOrgUserList {

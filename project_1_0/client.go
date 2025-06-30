@@ -1341,18 +1341,38 @@ func (s *CreateProjectByTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *C
 }
 
 type CreateProjectByTemplateRequest struct {
+	// example:
+	//
+	// 这是项目描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
 	// This parameter is required.
 	//
 	// example:
 	//
 	// 项目1
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 578cae9dbf83e5xxxx
+	ProgramId *string `json:"programId,omitempty" xml:"programId,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
 	// This parameter is required.
 	//
 	// example:
 	//
 	// 578cae9dbf83e5xxxx
 	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// example:
+	//
+	// project
+	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
 func (s CreateProjectByTemplateRequest) String() string {
@@ -1363,13 +1383,38 @@ func (s CreateProjectByTemplateRequest) GoString() string {
 	return s.String()
 }
 
+func (s *CreateProjectByTemplateRequest) SetDescription(v string) *CreateProjectByTemplateRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *CreateProjectByTemplateRequest) SetEndDate(v string) *CreateProjectByTemplateRequest {
+	s.EndDate = &v
+	return s
+}
+
 func (s *CreateProjectByTemplateRequest) SetName(v string) *CreateProjectByTemplateRequest {
 	s.Name = &v
 	return s
 }
 
+func (s *CreateProjectByTemplateRequest) SetProgramId(v string) *CreateProjectByTemplateRequest {
+	s.ProgramId = &v
+	return s
+}
+
+func (s *CreateProjectByTemplateRequest) SetStartDate(v string) *CreateProjectByTemplateRequest {
+	s.StartDate = &v
+	return s
+}
+
 func (s *CreateProjectByTemplateRequest) SetTemplateId(v string) *CreateProjectByTemplateRequest {
 	s.TemplateId = &v
+	return s
+}
+
+func (s *CreateProjectByTemplateRequest) SetVisibility(v string) *CreateProjectByTemplateRequest {
+	s.Visibility = &v
 	return s
 }
 
@@ -1397,6 +1442,14 @@ type CreateProjectByTemplateResponseBodyResult struct {
 	Created *string `json:"created,omitempty" xml:"created,omitempty"`
 	// example:
 	//
+	// 这是项目描述
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// example:
+	//
 	// 62e7a1e721d20b5aexxx
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 	// example:
@@ -1407,6 +1460,18 @@ type CreateProjectByTemplateResponseBodyResult struct {
 	//
 	// 项目1
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// 578cae9dbf83e5xxxx
+	ProgramId *string `json:"programId,omitempty" xml:"programId,omitempty"`
+	// example:
+	//
+	// 2021-08-13T07:36:50.318Z
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// example:
+	//
+	// project
+	Visibility *string `json:"visibility,omitempty" xml:"visibility,omitempty"`
 }
 
 func (s CreateProjectByTemplateResponseBodyResult) String() string {
@@ -1422,6 +1487,16 @@ func (s *CreateProjectByTemplateResponseBodyResult) SetCreated(v string) *Create
 	return s
 }
 
+func (s *CreateProjectByTemplateResponseBodyResult) SetDescription(v string) *CreateProjectByTemplateResponseBodyResult {
+	s.Description = &v
+	return s
+}
+
+func (s *CreateProjectByTemplateResponseBodyResult) SetEndDate(v string) *CreateProjectByTemplateResponseBodyResult {
+	s.EndDate = &v
+	return s
+}
+
 func (s *CreateProjectByTemplateResponseBodyResult) SetId(v string) *CreateProjectByTemplateResponseBodyResult {
 	s.Id = &v
 	return s
@@ -1434,6 +1509,21 @@ func (s *CreateProjectByTemplateResponseBodyResult) SetLogo(v string) *CreatePro
 
 func (s *CreateProjectByTemplateResponseBodyResult) SetName(v string) *CreateProjectByTemplateResponseBodyResult {
 	s.Name = &v
+	return s
+}
+
+func (s *CreateProjectByTemplateResponseBodyResult) SetProgramId(v string) *CreateProjectByTemplateResponseBodyResult {
+	s.ProgramId = &v
+	return s
+}
+
+func (s *CreateProjectByTemplateResponseBodyResult) SetStartDate(v string) *CreateProjectByTemplateResponseBodyResult {
+	s.StartDate = &v
+	return s
+}
+
+func (s *CreateProjectByTemplateResponseBodyResult) SetVisibility(v string) *CreateProjectByTemplateResponseBodyResult {
+	s.Visibility = &v
 	return s
 }
 
@@ -1753,7 +1843,8 @@ type CreateTaskRequest struct {
 	// example:
 	//
 	// 173xxxx
-	ExecutorId *string `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	ExecutorId     *string   `json:"executorId,omitempty" xml:"executorId,omitempty"`
+	InvolveMembers []*string `json:"involveMembers,omitempty" xml:"involveMembers,omitempty" type:"Repeated"`
 	// example:
 	//
 	// 我是一条任务备注
@@ -1779,11 +1870,24 @@ type CreateTaskRequest struct {
 	// example:
 	//
 	// 62c25e3b376exxxxxx
+	SprintId *string `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
+	// example:
+	//
+	// 62c25e3b376exxxxxx
 	StageId *string `json:"stageId,omitempty" xml:"stageId,omitempty"`
 	// example:
 	//
 	// 2022-06-13T07:36:50.318Z
 	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	// example:
+	//
+	// 1
+	StoryPoint *string   `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
+	TagIds     []*string `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 62c25e3b376exxxxxx
+	TasklistId *string `json:"tasklistId,omitempty" xml:"tasklistId,omitempty"`
 	// example:
 	//
 	// members
@@ -1818,6 +1922,11 @@ func (s *CreateTaskRequest) SetExecutorId(v string) *CreateTaskRequest {
 	return s
 }
 
+func (s *CreateTaskRequest) SetInvolveMembers(v []*string) *CreateTaskRequest {
+	s.InvolveMembers = v
+	return s
+}
+
 func (s *CreateTaskRequest) SetNote(v string) *CreateTaskRequest {
 	s.Note = &v
 	return s
@@ -1843,6 +1952,11 @@ func (s *CreateTaskRequest) SetScenariofieldconfigId(v string) *CreateTaskReques
 	return s
 }
 
+func (s *CreateTaskRequest) SetSprintId(v string) *CreateTaskRequest {
+	s.SprintId = &v
+	return s
+}
+
 func (s *CreateTaskRequest) SetStageId(v string) *CreateTaskRequest {
 	s.StageId = &v
 	return s
@@ -1850,6 +1964,21 @@ func (s *CreateTaskRequest) SetStageId(v string) *CreateTaskRequest {
 
 func (s *CreateTaskRequest) SetStartDate(v string) *CreateTaskRequest {
 	s.StartDate = &v
+	return s
+}
+
+func (s *CreateTaskRequest) SetStoryPoint(v string) *CreateTaskRequest {
+	s.StoryPoint = &v
+	return s
+}
+
+func (s *CreateTaskRequest) SetTagIds(v []*string) *CreateTaskRequest {
+	s.TagIds = v
+	return s
+}
+
+func (s *CreateTaskRequest) SetTasklistId(v string) *CreateTaskRequest {
+	s.TasklistId = &v
 	return s
 }
 
@@ -1979,8 +2108,21 @@ type CreateTaskResponseBodyResult struct {
 	ProjectId *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
 	// example:
 	//
+	// 62c25e3b376exxxxxx
+	SprintId *string `json:"sprintId,omitempty" xml:"sprintId,omitempty"`
+	// example:
+	//
+	// 1
+	StoryPoint *string   `json:"storyPoint,omitempty" xml:"storyPoint,omitempty"`
+	TagIds     []*string `json:"tagIds,omitempty" xml:"tagIds,omitempty" type:"Repeated"`
+	// example:
+	//
 	// 62a697c053c2ef5xxxxxx
 	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// 62c25e3b376exxxxxx
+	TasklistId *string `json:"tasklistId,omitempty" xml:"tasklistId,omitempty"`
 	// example:
 	//
 	// 2021-08-13T07:36:50.318Z
@@ -2045,8 +2187,28 @@ func (s *CreateTaskResponseBodyResult) SetProjectId(v string) *CreateTaskRespons
 	return s
 }
 
+func (s *CreateTaskResponseBodyResult) SetSprintId(v string) *CreateTaskResponseBodyResult {
+	s.SprintId = &v
+	return s
+}
+
+func (s *CreateTaskResponseBodyResult) SetStoryPoint(v string) *CreateTaskResponseBodyResult {
+	s.StoryPoint = &v
+	return s
+}
+
+func (s *CreateTaskResponseBodyResult) SetTagIds(v []*string) *CreateTaskResponseBodyResult {
+	s.TagIds = v
+	return s
+}
+
 func (s *CreateTaskResponseBodyResult) SetTaskId(v string) *CreateTaskResponseBodyResult {
 	s.TaskId = &v
+	return s
+}
+
+func (s *CreateTaskResponseBodyResult) SetTasklistId(v string) *CreateTaskResponseBodyResult {
+	s.TasklistId = &v
 	return s
 }
 
@@ -11735,12 +11897,32 @@ func (client *Client) CreateProjectByTemplateWithOptions(userId *string, request
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndDate)) {
+		body["endDate"] = request.EndDate
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
 		body["name"] = request.Name
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.ProgramId)) {
+		body["programId"] = request.ProgramId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartDate)) {
+		body["startDate"] = request.StartDate
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
 		body["templateId"] = request.TemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Visibility)) {
+		body["visibility"] = request.Visibility
 	}
 
 	realHeaders := make(map[string]*string)
@@ -11913,6 +12095,10 @@ func (client *Client) CreateTaskWithOptions(userId *string, request *CreateTaskR
 		body["executorId"] = request.ExecutorId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.InvolveMembers)) {
+		body["involveMembers"] = request.InvolveMembers
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Note)) {
 		body["note"] = request.Note
 	}
@@ -11933,12 +12119,28 @@ func (client *Client) CreateTaskWithOptions(userId *string, request *CreateTaskR
 		body["scenariofieldconfigId"] = request.ScenariofieldconfigId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.SprintId)) {
+		body["sprintId"] = request.SprintId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.StageId)) {
 		body["stageId"] = request.StageId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.StartDate)) {
 		body["startDate"] = request.StartDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StoryPoint)) {
+		body["storyPoint"] = request.StoryPoint
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TagIds)) {
+		body["tagIds"] = request.TagIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TasklistId)) {
+		body["tasklistId"] = request.TasklistId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Visible)) {
