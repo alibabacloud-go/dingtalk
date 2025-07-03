@@ -579,15 +579,12 @@ type AddCollegeContactExclusiveRequest struct {
 	// example:
 	//
 	// 1597573616828
-	HiredDate *int64 `json:"hiredDate,omitempty" xml:"hiredDate,omitempty"`
-	// This parameter is required.
+	HiredDate    *int64  `json:"hiredDate,omitempty" xml:"hiredDate,omitempty"`
 	InitPassword *string `json:"initPassword,omitempty" xml:"initPassword,omitempty"`
 	// example:
 	//
 	// 666666
 	JobNumber *string `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
-	// This parameter is required.
-	//
 	// example:
 	//
 	// studentNo

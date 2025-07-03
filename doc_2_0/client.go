@@ -9415,6 +9415,9 @@ func (s *SearchRequest) SetSpaceRequest(v *SearchRequestSpaceRequest) *SearchReq
 }
 
 type SearchRequestDentryRequest struct {
+	CreateTimeRange *SearchRequestDentryRequestCreateTimeRange `json:"createTimeRange,omitempty" xml:"createTimeRange,omitempty" type:"Struct"`
+	CreateUsers     []*string                                  `json:"createUsers,omitempty" xml:"createUsers,omitempty" type:"Repeated"`
+	Editors         []*string                                  `json:"editors,omitempty" xml:"editors,omitempty" type:"Repeated"`
 	// This parameter is required.
 	MaxResults     *int32    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken      *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
@@ -9435,6 +9438,21 @@ func (s SearchRequestDentryRequest) String() string {
 
 func (s SearchRequestDentryRequest) GoString() string {
 	return s.String()
+}
+
+func (s *SearchRequestDentryRequest) SetCreateTimeRange(v *SearchRequestDentryRequestCreateTimeRange) *SearchRequestDentryRequest {
+	s.CreateTimeRange = v
+	return s
+}
+
+func (s *SearchRequestDentryRequest) SetCreateUsers(v []*string) *SearchRequestDentryRequest {
+	s.CreateUsers = v
+	return s
+}
+
+func (s *SearchRequestDentryRequest) SetEditors(v []*string) *SearchRequestDentryRequest {
+	s.Editors = v
+	return s
 }
 
 func (s *SearchRequestDentryRequest) SetMaxResults(v int32) *SearchRequestDentryRequest {
@@ -9474,6 +9492,29 @@ func (s *SearchRequestDentryRequest) SetSummaryLength(v int32) *SearchRequestDen
 
 func (s *SearchRequestDentryRequest) SetVisitTimeRange(v *SearchRequestDentryRequestVisitTimeRange) *SearchRequestDentryRequest {
 	s.VisitTimeRange = v
+	return s
+}
+
+type SearchRequestDentryRequestCreateTimeRange struct {
+	End   *int64 `json:"end,omitempty" xml:"end,omitempty"`
+	Start *int64 `json:"start,omitempty" xml:"start,omitempty"`
+}
+
+func (s SearchRequestDentryRequestCreateTimeRange) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchRequestDentryRequestCreateTimeRange) GoString() string {
+	return s.String()
+}
+
+func (s *SearchRequestDentryRequestCreateTimeRange) SetEnd(v int64) *SearchRequestDentryRequestCreateTimeRange {
+	s.End = &v
+	return s
+}
+
+func (s *SearchRequestDentryRequestCreateTimeRange) SetStart(v int64) *SearchRequestDentryRequestCreateTimeRange {
+	s.Start = &v
 	return s
 }
 
