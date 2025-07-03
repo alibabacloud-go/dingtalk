@@ -6840,6 +6840,93 @@ func (s *QueryUserOnGoingConferenceResponse) SetBody(v *QueryUserOnGoingConferen
 	return s
 }
 
+type SetSubtitleEventHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetSubtitleEventHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetSubtitleEventHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetSubtitleEventHeaders) SetCommonHeaders(v map[string]*string) *SetSubtitleEventHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetSubtitleEventHeaders) SetXAcsDingtalkAccessToken(v string) *SetSubtitleEventHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetSubtitleEventRequest struct {
+	// This parameter is required.
+	Enable *bool `json:"enable,omitempty" xml:"enable,omitempty"`
+}
+
+func (s SetSubtitleEventRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetSubtitleEventRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetSubtitleEventRequest) SetEnable(v bool) *SetSubtitleEventRequest {
+	s.Enable = &v
+	return s
+}
+
+type SetSubtitleEventResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SetSubtitleEventResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetSubtitleEventResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetSubtitleEventResponseBody) SetSuccess(v bool) *SetSubtitleEventResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SetSubtitleEventResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SetSubtitleEventResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SetSubtitleEventResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetSubtitleEventResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetSubtitleEventResponse) SetHeaders(v map[string]*string) *SetSubtitleEventResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SetSubtitleEventResponse) SetStatusCode(v int32) *SetSubtitleEventResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SetSubtitleEventResponse) SetBody(v *SetSubtitleEventResponseBody) *SetSubtitleEventResponse {
+	s.Body = v
+	return s
+}
+
 type StartCloudRecordHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11030,6 +11117,79 @@ func (client *Client) QueryUserOnGoingConference(request *QueryUserOnGoingConfer
 	headers := &QueryUserOnGoingConferenceHeaders{}
 	_result = &QueryUserOnGoingConferenceResponse{}
 	_body, _err := client.QueryUserOnGoingConferenceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 设置会议字幕事件订阅
+//
+// @param request - SetSubtitleEventRequest
+//
+// @param headers - SetSubtitleEventHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetSubtitleEventResponse
+func (client *Client) SetSubtitleEventWithOptions(conferenceId *string, request *SetSubtitleEventRequest, headers *SetSubtitleEventHeaders, runtime *util.RuntimeOptions) (_result *SetSubtitleEventResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Enable)) {
+		body["enable"] = request.Enable
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SetSubtitleEvent"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/" + tea.StringValue(conferenceId) + "/subtitleEvents"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SetSubtitleEventResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 设置会议字幕事件订阅
+//
+// @param request - SetSubtitleEventRequest
+//
+// @return SetSubtitleEventResponse
+func (client *Client) SetSubtitleEvent(conferenceId *string, request *SetSubtitleEventRequest) (_result *SetSubtitleEventResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetSubtitleEventHeaders{}
+	_result = &SetSubtitleEventResponse{}
+	_body, _err := client.SetSubtitleEventWithOptions(conferenceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
