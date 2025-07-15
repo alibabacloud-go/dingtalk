@@ -261,6 +261,100 @@ func (s *DeleteMinutesResponse) SetBody(v *DeleteMinutesResponseBody) *DeleteMin
 	return s
 }
 
+type OpenQueryMinutesSummaryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s OpenQueryMinutesSummaryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenQueryMinutesSummaryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *OpenQueryMinutesSummaryHeaders) SetCommonHeaders(v map[string]*string) *OpenQueryMinutesSummaryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *OpenQueryMinutesSummaryHeaders) SetXAcsDingtalkAccessToken(v string) *OpenQueryMinutesSummaryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type OpenQueryMinutesSummaryRequest struct {
+	// This parameter is required.
+	TaskUuid *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s OpenQueryMinutesSummaryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenQueryMinutesSummaryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *OpenQueryMinutesSummaryRequest) SetTaskUuid(v string) *OpenQueryMinutesSummaryRequest {
+	s.TaskUuid = &v
+	return s
+}
+
+func (s *OpenQueryMinutesSummaryRequest) SetUnionId(v string) *OpenQueryMinutesSummaryRequest {
+	s.UnionId = &v
+	return s
+}
+
+type OpenQueryMinutesSummaryResponseBody struct {
+	FullSummary *string `json:"fullSummary,omitempty" xml:"fullSummary,omitempty"`
+}
+
+func (s OpenQueryMinutesSummaryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenQueryMinutesSummaryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *OpenQueryMinutesSummaryResponseBody) SetFullSummary(v string) *OpenQueryMinutesSummaryResponseBody {
+	s.FullSummary = &v
+	return s
+}
+
+type OpenQueryMinutesSummaryResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *OpenQueryMinutesSummaryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s OpenQueryMinutesSummaryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenQueryMinutesSummaryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *OpenQueryMinutesSummaryResponse) SetHeaders(v map[string]*string) *OpenQueryMinutesSummaryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *OpenQueryMinutesSummaryResponse) SetStatusCode(v int32) *OpenQueryMinutesSummaryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *OpenQueryMinutesSummaryResponse) SetBody(v *OpenQueryMinutesSummaryResponseBody) *OpenQueryMinutesSummaryResponse {
+	s.Body = v
+	return s
+}
+
 type QueryCreateMinutesListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1496,6 +1590,83 @@ func (client *Client) DeleteMinutes(taskUuid *string, request *DeleteMinutesRequ
 	headers := &DeleteMinutesHeaders{}
 	_result = &DeleteMinutesResponse{}
 	_body, _err := client.DeleteMinutesWithOptions(taskUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询闪记摘要
+//
+// @param request - OpenQueryMinutesSummaryRequest
+//
+// @param headers - OpenQueryMinutesSummaryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return OpenQueryMinutesSummaryResponse
+func (client *Client) OpenQueryMinutesSummaryWithOptions(request *OpenQueryMinutesSummaryRequest, headers *OpenQueryMinutesSummaryHeaders, runtime *util.RuntimeOptions) (_result *OpenQueryMinutesSummaryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskUuid)) {
+		query["taskUuid"] = request.TaskUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("OpenQueryMinutesSummary"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/flashMinutes/queryMinutes"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &OpenQueryMinutesSummaryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询闪记摘要
+//
+// @param request - OpenQueryMinutesSummaryRequest
+//
+// @return OpenQueryMinutesSummaryResponse
+func (client *Client) OpenQueryMinutesSummary(request *OpenQueryMinutesSummaryRequest) (_result *OpenQueryMinutesSummaryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &OpenQueryMinutesSummaryHeaders{}
+	_result = &OpenQueryMinutesSummaryResponse{}
+	_body, _err := client.OpenQueryMinutesSummaryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

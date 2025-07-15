@@ -2479,6 +2479,250 @@ func (s *CopyDentryResponse) SetBody(v *DentryVO) *CopyDentryResponse {
 	return s
 }
 
+type CopyDocHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CopyDocHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyDocHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CopyDocHeaders) SetCommonHeaders(v map[string]*string) *CopyDocHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CopyDocHeaders) SetXAcsDingtalkAccessToken(v string) *CopyDocHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CopyDocRequest struct {
+	// This parameter is required.
+	Param *CopyDocRequestParam `json:"param,omitempty" xml:"param,omitempty" type:"Struct"`
+}
+
+func (s CopyDocRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyDocRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CopyDocRequest) SetParam(v *CopyDocRequestParam) *CopyDocRequest {
+	s.Param = v
+	return s
+}
+
+type CopyDocRequestParam struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dentryUuid
+	SourceDentryUuid *string `json:"sourceDentryUuid,omitempty" xml:"sourceDentryUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dentryUuid
+	TargetParentDentryUuid *string `json:"targetParentDentryUuid,omitempty" xml:"targetParentDentryUuid,omitempty"`
+	// example:
+	//
+	// dentryUuid
+	TargetPreDentryUuid *string `json:"targetPreDentryUuid,omitempty" xml:"targetPreDentryUuid,omitempty"`
+}
+
+func (s CopyDocRequestParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyDocRequestParam) GoString() string {
+	return s.String()
+}
+
+func (s *CopyDocRequestParam) SetSourceDentryUuid(v string) *CopyDocRequestParam {
+	s.SourceDentryUuid = &v
+	return s
+}
+
+func (s *CopyDocRequestParam) SetTargetParentDentryUuid(v string) *CopyDocRequestParam {
+	s.TargetParentDentryUuid = &v
+	return s
+}
+
+func (s *CopyDocRequestParam) SetTargetPreDentryUuid(v string) *CopyDocRequestParam {
+	s.TargetPreDentryUuid = &v
+	return s
+}
+
+type CopyDocResponseBody struct {
+	// example:
+	//
+	// true
+	IsAsync *bool `json:"isAsync,omitempty" xml:"isAsync,omitempty"`
+	// example:
+	//
+	// true
+	SyncCopyResult *CopyDocResponseBodySyncCopyResult `json:"syncCopyResult,omitempty" xml:"syncCopyResult,omitempty" type:"Struct"`
+	// example:
+	//
+	// true
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s CopyDocResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyDocResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CopyDocResponseBody) SetIsAsync(v bool) *CopyDocResponseBody {
+	s.IsAsync = &v
+	return s
+}
+
+func (s *CopyDocResponseBody) SetSyncCopyResult(v *CopyDocResponseBodySyncCopyResult) *CopyDocResponseBody {
+	s.SyncCopyResult = v
+	return s
+}
+
+func (s *CopyDocResponseBody) SetTaskId(v string) *CopyDocResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+type CopyDocResponseBodySyncCopyResult struct {
+	// example:
+	//
+	// dentryUuid
+	DentryUuid *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	// example:
+	//
+	// driveDentryId
+	DriveDentryId *string `json:"driveDentryId,omitempty" xml:"driveDentryId,omitempty"`
+	// example:
+	//
+	// driveSpaceId
+	DriveSpaceId *string `json:"driveSpaceId,omitempty" xml:"driveSpaceId,omitempty"`
+	// example:
+	//
+	// docx
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// spaceInfo
+	SpaceInfo *CopyDocResponseBodySyncCopyResultSpaceInfo `json:"spaceInfo,omitempty" xml:"spaceInfo,omitempty" type:"Struct"`
+	// example:
+	//
+	// https://example.com
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s CopyDocResponseBodySyncCopyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyDocResponseBodySyncCopyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CopyDocResponseBodySyncCopyResult) SetDentryUuid(v string) *CopyDocResponseBodySyncCopyResult {
+	s.DentryUuid = &v
+	return s
+}
+
+func (s *CopyDocResponseBodySyncCopyResult) SetDriveDentryId(v string) *CopyDocResponseBodySyncCopyResult {
+	s.DriveDentryId = &v
+	return s
+}
+
+func (s *CopyDocResponseBodySyncCopyResult) SetDriveSpaceId(v string) *CopyDocResponseBodySyncCopyResult {
+	s.DriveSpaceId = &v
+	return s
+}
+
+func (s *CopyDocResponseBodySyncCopyResult) SetExtension(v string) *CopyDocResponseBodySyncCopyResult {
+	s.Extension = &v
+	return s
+}
+
+func (s *CopyDocResponseBodySyncCopyResult) SetName(v string) *CopyDocResponseBodySyncCopyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *CopyDocResponseBodySyncCopyResult) SetSpaceInfo(v *CopyDocResponseBodySyncCopyResultSpaceInfo) *CopyDocResponseBodySyncCopyResult {
+	s.SpaceInfo = v
+	return s
+}
+
+func (s *CopyDocResponseBodySyncCopyResult) SetUrl(v string) *CopyDocResponseBodySyncCopyResult {
+	s.Url = &v
+	return s
+}
+
+type CopyDocResponseBodySyncCopyResultSpaceInfo struct {
+	// example:
+	//
+	// im
+	SceneType *string `json:"sceneType,omitempty" xml:"sceneType,omitempty"`
+}
+
+func (s CopyDocResponseBodySyncCopyResultSpaceInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyDocResponseBodySyncCopyResultSpaceInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CopyDocResponseBodySyncCopyResultSpaceInfo) SetSceneType(v string) *CopyDocResponseBodySyncCopyResultSpaceInfo {
+	s.SceneType = &v
+	return s
+}
+
+type CopyDocResponse struct {
+	Headers    map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CopyDocResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CopyDocResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyDocResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CopyDocResponse) SetHeaders(v map[string]*string) *CopyDocResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CopyDocResponse) SetStatusCode(v int32) *CopyDocResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CopyDocResponse) SetBody(v *CopyDocResponseBody) *CopyDocResponse {
+	s.Body = v
+	return s
+}
+
 type CopyWorkspaceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2809,6 +3053,254 @@ func (s *CreateDentryResponse) SetStatusCode(v int32) *CreateDentryResponse {
 }
 
 func (s *CreateDentryResponse) SetBody(v *DentryVO) *CreateDentryResponse {
+	s.Body = v
+	return s
+}
+
+type CreateShortcutHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateShortcutHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateShortcutHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateShortcutHeaders) SetCommonHeaders(v map[string]*string) *CreateShortcutHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateShortcutHeaders) SetXAcsDingtalkAccessToken(v string) *CreateShortcutHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateShortcutRequest struct {
+	// This parameter is required.
+	Param *CreateShortcutRequestParam `json:"param,omitempty" xml:"param,omitempty" type:"Struct"`
+}
+
+func (s CreateShortcutRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateShortcutRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateShortcutRequest) SetParam(v *CreateShortcutRequestParam) *CreateShortcutRequest {
+	s.Param = v
+	return s
+}
+
+type CreateShortcutRequestParam struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dentryUuid
+	SourceResourceId *string `json:"sourceResourceId,omitempty" xml:"sourceResourceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DENTRY
+	SourceResourceType *string `json:"sourceResourceType,omitempty" xml:"sourceResourceType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dentryUuid
+	TargetResourceId *string `json:"targetResourceId,omitempty" xml:"targetResourceId,omitempty"`
+	// example:
+	//
+	// 123test
+	TargetResourceName *string `json:"targetResourceName,omitempty" xml:"targetResourceName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DENTRY
+	TargetResourceType *string `json:"targetResourceType,omitempty" xml:"targetResourceType,omitempty"`
+}
+
+func (s CreateShortcutRequestParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateShortcutRequestParam) GoString() string {
+	return s.String()
+}
+
+func (s *CreateShortcutRequestParam) SetSourceResourceId(v string) *CreateShortcutRequestParam {
+	s.SourceResourceId = &v
+	return s
+}
+
+func (s *CreateShortcutRequestParam) SetSourceResourceType(v string) *CreateShortcutRequestParam {
+	s.SourceResourceType = &v
+	return s
+}
+
+func (s *CreateShortcutRequestParam) SetTargetResourceId(v string) *CreateShortcutRequestParam {
+	s.TargetResourceId = &v
+	return s
+}
+
+func (s *CreateShortcutRequestParam) SetTargetResourceName(v string) *CreateShortcutRequestParam {
+	s.TargetResourceName = &v
+	return s
+}
+
+func (s *CreateShortcutRequestParam) SetTargetResourceType(v string) *CreateShortcutRequestParam {
+	s.TargetResourceType = &v
+	return s
+}
+
+type CreateShortcutResponseBody struct {
+	// example:
+	//
+	// dentry
+	OpenDentryInfo *CreateShortcutResponseBodyOpenDentryInfo `json:"openDentryInfo,omitempty" xml:"openDentryInfo,omitempty" type:"Struct"`
+}
+
+func (s CreateShortcutResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateShortcutResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateShortcutResponseBody) SetOpenDentryInfo(v *CreateShortcutResponseBodyOpenDentryInfo) *CreateShortcutResponseBody {
+	s.OpenDentryInfo = v
+	return s
+}
+
+type CreateShortcutResponseBodyOpenDentryInfo struct {
+	// example:
+	//
+	// dentryUuid
+	DentryUuid *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	// example:
+	//
+	// driveDentryId
+	DriveDentryId *string `json:"driveDentryId,omitempty" xml:"driveDentryId,omitempty"`
+	// example:
+	//
+	// driveSpaceId
+	DriveSpaceId *string `json:"driveSpaceId,omitempty" xml:"driveSpaceId,omitempty"`
+	// example:
+	//
+	// docx
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	// example:
+	//
+	// name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// spaceInfo
+	SpaceInfo *CreateShortcutResponseBodyOpenDentryInfoSpaceInfo `json:"spaceInfo,omitempty" xml:"spaceInfo,omitempty" type:"Struct"`
+	// example:
+	//
+	// https://example.com
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s CreateShortcutResponseBodyOpenDentryInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateShortcutResponseBodyOpenDentryInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CreateShortcutResponseBodyOpenDentryInfo) SetDentryUuid(v string) *CreateShortcutResponseBodyOpenDentryInfo {
+	s.DentryUuid = &v
+	return s
+}
+
+func (s *CreateShortcutResponseBodyOpenDentryInfo) SetDriveDentryId(v string) *CreateShortcutResponseBodyOpenDentryInfo {
+	s.DriveDentryId = &v
+	return s
+}
+
+func (s *CreateShortcutResponseBodyOpenDentryInfo) SetDriveSpaceId(v string) *CreateShortcutResponseBodyOpenDentryInfo {
+	s.DriveSpaceId = &v
+	return s
+}
+
+func (s *CreateShortcutResponseBodyOpenDentryInfo) SetExtension(v string) *CreateShortcutResponseBodyOpenDentryInfo {
+	s.Extension = &v
+	return s
+}
+
+func (s *CreateShortcutResponseBodyOpenDentryInfo) SetName(v string) *CreateShortcutResponseBodyOpenDentryInfo {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateShortcutResponseBodyOpenDentryInfo) SetSpaceInfo(v *CreateShortcutResponseBodyOpenDentryInfoSpaceInfo) *CreateShortcutResponseBodyOpenDentryInfo {
+	s.SpaceInfo = v
+	return s
+}
+
+func (s *CreateShortcutResponseBodyOpenDentryInfo) SetUrl(v string) *CreateShortcutResponseBodyOpenDentryInfo {
+	s.Url = &v
+	return s
+}
+
+type CreateShortcutResponseBodyOpenDentryInfoSpaceInfo struct {
+	// example:
+	//
+	// im
+	SceneType *string `json:"sceneType,omitempty" xml:"sceneType,omitempty"`
+}
+
+func (s CreateShortcutResponseBodyOpenDentryInfoSpaceInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateShortcutResponseBodyOpenDentryInfoSpaceInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CreateShortcutResponseBodyOpenDentryInfoSpaceInfo) SetSceneType(v string) *CreateShortcutResponseBodyOpenDentryInfoSpaceInfo {
+	s.SceneType = &v
+	return s
+}
+
+type CreateShortcutResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateShortcutResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateShortcutResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateShortcutResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateShortcutResponse) SetHeaders(v map[string]*string) *CreateShortcutResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateShortcutResponse) SetStatusCode(v int32) *CreateShortcutResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateShortcutResponse) SetBody(v *CreateShortcutResponseBody) *CreateShortcutResponse {
 	s.Body = v
 	return s
 }
@@ -4725,6 +5217,114 @@ func (s *GetStarInfoResponse) SetBody(v *GetStarInfoResponseBody) *GetStarInfoRe
 	return s
 }
 
+type GetTaskInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTaskInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskInfoHeaders) SetCommonHeaders(v map[string]*string) *GetTaskInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTaskInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetTaskInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTaskInfoResponseBody struct {
+	// example:
+	//
+	// 0
+	FailCount *int32 `json:"failCount,omitempty" xml:"failCount,omitempty"`
+	// example:
+	//
+	// 2
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 1
+	SuccCount *int32 `json:"succCount,omitempty" xml:"succCount,omitempty"`
+	// example:
+	//
+	// abcd
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// 1
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s GetTaskInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskInfoResponseBody) SetFailCount(v int32) *GetTaskInfoResponseBody {
+	s.FailCount = &v
+	return s
+}
+
+func (s *GetTaskInfoResponseBody) SetStatus(v int32) *GetTaskInfoResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *GetTaskInfoResponseBody) SetSuccCount(v int32) *GetTaskInfoResponseBody {
+	s.SuccCount = &v
+	return s
+}
+
+func (s *GetTaskInfoResponseBody) SetTaskId(v string) *GetTaskInfoResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetTaskInfoResponseBody) SetTotalCount(v int32) *GetTaskInfoResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type GetTaskInfoResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetTaskInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetTaskInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskInfoResponse) SetHeaders(v map[string]*string) *GetTaskInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTaskInfoResponse) SetStatusCode(v int32) *GetTaskInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetTaskInfoResponse) SetBody(v *GetTaskInfoResponseBody) *GetTaskInfoResponse {
+	s.Body = v
+	return s
+}
+
 type GetTeamHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5207,6 +5807,122 @@ func (s *GetUuidByDentryIdResponse) SetBody(v *GetUuidByDentryIdResponseBody) *G
 	return s
 }
 
+type GetWorkspacePermissionScopesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetWorkspacePermissionScopesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWorkspacePermissionScopesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetWorkspacePermissionScopesHeaders) SetCommonHeaders(v map[string]*string) *GetWorkspacePermissionScopesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetWorkspacePermissionScopesHeaders) SetXAcsDingtalkAccessToken(v string) *GetWorkspacePermissionScopesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetWorkspacePermissionScopesRequest struct {
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetWorkspacePermissionScopesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWorkspacePermissionScopesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetWorkspacePermissionScopesRequest) SetOperatorId(v string) *GetWorkspacePermissionScopesRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetWorkspacePermissionScopesResponseBody struct {
+	Members []*GetWorkspacePermissionScopesResponseBodyMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+}
+
+func (s GetWorkspacePermissionScopesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWorkspacePermissionScopesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetWorkspacePermissionScopesResponseBody) SetMembers(v []*GetWorkspacePermissionScopesResponseBodyMembers) *GetWorkspacePermissionScopesResponseBody {
+	s.Members = v
+	return s
+}
+
+type GetWorkspacePermissionScopesResponseBodyMembers struct {
+	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	MemberRole *string `json:"memberRole,omitempty" xml:"memberRole,omitempty"`
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+}
+
+func (s GetWorkspacePermissionScopesResponseBodyMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWorkspacePermissionScopesResponseBodyMembers) GoString() string {
+	return s.String()
+}
+
+func (s *GetWorkspacePermissionScopesResponseBodyMembers) SetMemberId(v string) *GetWorkspacePermissionScopesResponseBodyMembers {
+	s.MemberId = &v
+	return s
+}
+
+func (s *GetWorkspacePermissionScopesResponseBodyMembers) SetMemberRole(v string) *GetWorkspacePermissionScopesResponseBodyMembers {
+	s.MemberRole = &v
+	return s
+}
+
+func (s *GetWorkspacePermissionScopesResponseBodyMembers) SetMemberType(v string) *GetWorkspacePermissionScopesResponseBodyMembers {
+	s.MemberType = &v
+	return s
+}
+
+type GetWorkspacePermissionScopesResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetWorkspacePermissionScopesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetWorkspacePermissionScopesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetWorkspacePermissionScopesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetWorkspacePermissionScopesResponse) SetHeaders(v map[string]*string) *GetWorkspacePermissionScopesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetWorkspacePermissionScopesResponse) SetStatusCode(v int32) *GetWorkspacePermissionScopesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetWorkspacePermissionScopesResponse) SetBody(v *GetWorkspacePermissionScopesResponseBody) *GetWorkspacePermissionScopesResponse {
+	s.Body = v
+	return s
+}
+
 type HandoverTeamWithoutAuthHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5330,6 +6046,138 @@ func (s *HandoverTeamWithoutAuthResponse) SetStatusCode(v int32) *HandoverTeamWi
 }
 
 func (s *HandoverTeamWithoutAuthResponse) SetBody(v *HandoverTeamWithoutAuthResponseBody) *HandoverTeamWithoutAuthResponse {
+	s.Body = v
+	return s
+}
+
+type HandoveryWorkspaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HandoveryWorkspaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HandoveryWorkspaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HandoveryWorkspaceHeaders) SetCommonHeaders(v map[string]*string) *HandoveryWorkspaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HandoveryWorkspaceHeaders) SetXAcsDingtalkAccessToken(v string) *HandoveryWorkspaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HandoveryWorkspaceRequest struct {
+	// This parameter is required.
+	Param *HandoveryWorkspaceRequestParam `json:"param,omitempty" xml:"param,omitempty" type:"Struct"`
+}
+
+func (s HandoveryWorkspaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HandoveryWorkspaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HandoveryWorkspaceRequest) SetParam(v *HandoveryWorkspaceRequestParam) *HandoveryWorkspaceRequest {
+	s.Param = v
+	return s
+}
+
+type HandoveryWorkspaceRequestParam struct {
+	// example:
+	//
+	// unionId
+	Leave *bool `json:"leave,omitempty" xml:"leave,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// unionId
+	ReceiverUnionId *string `json:"receiverUnionId,omitempty" xml:"receiverUnionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// root_node_uuid
+	ResourceId *string `json:"resourceId,omitempty" xml:"resourceId,omitempty"`
+}
+
+func (s HandoveryWorkspaceRequestParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HandoveryWorkspaceRequestParam) GoString() string {
+	return s.String()
+}
+
+func (s *HandoveryWorkspaceRequestParam) SetLeave(v bool) *HandoveryWorkspaceRequestParam {
+	s.Leave = &v
+	return s
+}
+
+func (s *HandoveryWorkspaceRequestParam) SetReceiverUnionId(v string) *HandoveryWorkspaceRequestParam {
+	s.ReceiverUnionId = &v
+	return s
+}
+
+func (s *HandoveryWorkspaceRequestParam) SetResourceId(v string) *HandoveryWorkspaceRequestParam {
+	s.ResourceId = &v
+	return s
+}
+
+type HandoveryWorkspaceResponseBody struct {
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s HandoveryWorkspaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HandoveryWorkspaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HandoveryWorkspaceResponseBody) SetResult(v bool) *HandoveryWorkspaceResponseBody {
+	s.Result = &v
+	return s
+}
+
+type HandoveryWorkspaceResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HandoveryWorkspaceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HandoveryWorkspaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HandoveryWorkspaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HandoveryWorkspaceResponse) SetHeaders(v map[string]*string) *HandoveryWorkspaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HandoveryWorkspaceResponse) SetStatusCode(v int32) *HandoveryWorkspaceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HandoveryWorkspaceResponse) SetBody(v *HandoveryWorkspaceResponseBody) *HandoveryWorkspaceResponse {
 	s.Body = v
 	return s
 }
@@ -11877,6 +12725,79 @@ func (client *Client) CopyDentry(spaceId *string, dentryId *string, request *Cop
 
 // Summary:
 //
+// 复制文档
+//
+// @param request - CopyDocRequest
+//
+// @param headers - CopyDocHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CopyDocResponse
+func (client *Client) CopyDocWithOptions(request *CopyDocRequest, headers *CopyDocHeaders, runtime *util.RuntimeOptions) (_result *CopyDocResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		body["param"] = request.Param
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CopyDoc"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/dentries/copy"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CopyDocResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 复制文档
+//
+// @param request - CopyDocRequest
+//
+// @return CopyDocResponse
+func (client *Client) CopyDoc(request *CopyDocRequest) (_result *CopyDocResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CopyDocHeaders{}
+	_result = &CopyDocResponse{}
+	_body, _err := client.CopyDocWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 拷贝知识库
 //
 // @param request - CopyWorkspaceRequest
@@ -12103,6 +13024,79 @@ func (client *Client) CreateDentry(spaceId *string, request *CreateDentryRequest
 	headers := &CreateDentryHeaders{}
 	_result = &CreateDentryResponse{}
 	_body, _err := client.CreateDentryWithOptions(spaceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建快捷方式
+//
+// @param request - CreateShortcutRequest
+//
+// @param headers - CreateShortcutHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateShortcutResponse
+func (client *Client) CreateShortcutWithOptions(request *CreateShortcutRequest, headers *CreateShortcutHeaders, runtime *util.RuntimeOptions) (_result *CreateShortcutResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		body["param"] = request.Param
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateShortcut"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/resource/shortcut/create"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateShortcutResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建快捷方式
+//
+// @param request - CreateShortcutRequest
+//
+// @return CreateShortcutResponse
+func (client *Client) CreateShortcut(request *CreateShortcutRequest) (_result *CreateShortcutResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateShortcutHeaders{}
+	_result = &CreateShortcutResponse{}
+	_body, _err := client.CreateShortcutWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -13376,6 +14370,65 @@ func (client *Client) GetStarInfo(dentryUuid *string, request *GetStarInfoReques
 
 // Summary:
 //
+// 获取任务信息
+//
+// @param headers - GetTaskInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTaskInfoResponse
+func (client *Client) GetTaskInfoWithOptions(taskId *string, headers *GetTaskInfoHeaders, runtime *util.RuntimeOptions) (_result *GetTaskInfoResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTaskInfo"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/task/info/" + tea.StringValue(taskId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetTaskInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取任务信息
+//
+// @return GetTaskInfoResponse
+func (client *Client) GetTaskInfo(taskId *string) (_result *GetTaskInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTaskInfoHeaders{}
+	_result = &GetTaskInfoResponse{}
+	_body, _err := client.GetTaskInfoWithOptions(taskId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 查询小组详情
 //
 // @param request - GetTeamRequest
@@ -13757,6 +14810,79 @@ func (client *Client) GetUuidByDentryId(dentryId *string, request *GetUuidByDent
 
 // Summary:
 //
+// 获取知识库权限范围
+//
+// @param request - GetWorkspacePermissionScopesRequest
+//
+// @param headers - GetWorkspacePermissionScopesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetWorkspacePermissionScopesResponse
+func (client *Client) GetWorkspacePermissionScopesWithOptions(workspaceId *string, request *GetWorkspacePermissionScopesRequest, headers *GetWorkspacePermissionScopesHeaders, runtime *util.RuntimeOptions) (_result *GetWorkspacePermissionScopesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetWorkspacePermissionScopes"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/workspaces/" + tea.StringValue(workspaceId) + "/members"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetWorkspacePermissionScopesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取知识库权限范围
+//
+// @param request - GetWorkspacePermissionScopesRequest
+//
+// @return GetWorkspacePermissionScopesResponse
+func (client *Client) GetWorkspacePermissionScopes(workspaceId *string, request *GetWorkspacePermissionScopesRequest) (_result *GetWorkspacePermissionScopesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetWorkspacePermissionScopesHeaders{}
+	_result = &GetWorkspacePermissionScopesResponse{}
+	_body, _err := client.GetWorkspacePermissionScopesWithOptions(workspaceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 以超级管理员身份转交小组
 //
 // @param request - HandoverTeamWithoutAuthRequest
@@ -13821,6 +14947,79 @@ func (client *Client) HandoverTeamWithoutAuth(request *HandoverTeamWithoutAuthRe
 	headers := &HandoverTeamWithoutAuthHeaders{}
 	_result = &HandoverTeamWithoutAuthResponse{}
 	_body, _err := client.HandoverTeamWithoutAuthWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 知识库转交所有者
+//
+// @param request - HandoveryWorkspaceRequest
+//
+// @param headers - HandoveryWorkspaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HandoveryWorkspaceResponse
+func (client *Client) HandoveryWorkspaceWithOptions(request *HandoveryWorkspaceRequest, headers *HandoveryWorkspaceHeaders, runtime *util.RuntimeOptions) (_result *HandoveryWorkspaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		body["param"] = request.Param
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HandoveryWorkspace"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/dentries/workspace/handover"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HandoveryWorkspaceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 知识库转交所有者
+//
+// @param request - HandoveryWorkspaceRequest
+//
+// @return HandoveryWorkspaceResponse
+func (client *Client) HandoveryWorkspace(request *HandoveryWorkspaceRequest) (_result *HandoveryWorkspaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HandoveryWorkspaceHeaders{}
+	_result = &HandoveryWorkspaceResponse{}
+	_body, _err := client.HandoveryWorkspaceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

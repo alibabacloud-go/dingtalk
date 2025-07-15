@@ -232,6 +232,98 @@ func (s *AddFinanceEnterpriseAccountResponse) SetBody(v *AddFinanceEnterpriseAcc
 	return s
 }
 
+type AddRetentionRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddRetentionRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRetentionRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddRetentionRecordHeaders) SetCommonHeaders(v map[string]*string) *AddRetentionRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddRetentionRecordHeaders) SetXAcsDingtalkAccessToken(v string) *AddRetentionRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddRetentionRecordRequest struct {
+	Mobile    *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	StateCode *string `json:"stateCode,omitempty" xml:"stateCode,omitempty"`
+}
+
+func (s AddRetentionRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRetentionRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddRetentionRecordRequest) SetMobile(v string) *AddRetentionRecordRequest {
+	s.Mobile = &v
+	return s
+}
+
+func (s *AddRetentionRecordRequest) SetStateCode(v string) *AddRetentionRecordRequest {
+	s.StateCode = &v
+	return s
+}
+
+type AddRetentionRecordResponseBody struct {
+	IsSuccess *bool `json:"isSuccess,omitempty" xml:"isSuccess,omitempty"`
+}
+
+func (s AddRetentionRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRetentionRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddRetentionRecordResponseBody) SetIsSuccess(v bool) *AddRetentionRecordResponseBody {
+	s.IsSuccess = &v
+	return s
+}
+
+type AddRetentionRecordResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddRetentionRecordResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AddRetentionRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRetentionRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddRetentionRecordResponse) SetHeaders(v map[string]*string) *AddRetentionRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddRetentionRecordResponse) SetStatusCode(v int32) *AddRetentionRecordResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddRetentionRecordResponse) SetBody(v *AddRetentionRecordResponseBody) *AddRetentionRecordResponse {
+	s.Body = v
+	return s
+}
+
 type BankGatewayInvokeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9205,6 +9297,83 @@ func (client *Client) AddFinanceEnterpriseAccount(request *AddFinanceEnterpriseA
 	headers := &AddFinanceEnterpriseAccountHeaders{}
 	_result = &AddFinanceEnterpriseAccountResponse{}
 	_body, _err := client.AddFinanceEnterpriseAccountWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 留资上报
+//
+// @param request - AddRetentionRecordRequest
+//
+// @param headers - AddRetentionRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddRetentionRecordResponse
+func (client *Client) AddRetentionRecordWithOptions(request *AddRetentionRecordRequest, headers *AddRetentionRecordHeaders, runtime *util.RuntimeOptions) (_result *AddRetentionRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Mobile)) {
+		query["mobile"] = request.Mobile
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StateCode)) {
+		query["stateCode"] = request.StateCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddRetentionRecord"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/retentionRecord"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddRetentionRecordResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 留资上报
+//
+// @param request - AddRetentionRecordRequest
+//
+// @return AddRetentionRecordResponse
+func (client *Client) AddRetentionRecord(request *AddRetentionRecordRequest) (_result *AddRetentionRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddRetentionRecordHeaders{}
+	_result = &AddRetentionRecordResponse{}
+	_body, _err := client.AddRetentionRecordWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

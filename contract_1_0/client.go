@@ -3292,6 +3292,131 @@ func (s *FinishReviewOrderResponse) SetBody(v *FinishReviewOrderResponseBody) *F
 	return s
 }
 
+type OpenEsignFreeTrailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s OpenEsignFreeTrailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenEsignFreeTrailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *OpenEsignFreeTrailHeaders) SetCommonHeaders(v map[string]*string) *OpenEsignFreeTrailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *OpenEsignFreeTrailHeaders) SetXAcsDingtalkAccessToken(v string) *OpenEsignFreeTrailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type OpenEsignFreeTrailRequest struct {
+	// This parameter is required.
+	CorpId    *string            `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Extension map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
+}
+
+func (s OpenEsignFreeTrailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenEsignFreeTrailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *OpenEsignFreeTrailRequest) SetCorpId(v string) *OpenEsignFreeTrailRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *OpenEsignFreeTrailRequest) SetExtension(v map[string]*string) *OpenEsignFreeTrailRequest {
+	s.Extension = v
+	return s
+}
+
+type OpenEsignFreeTrailResponseBody struct {
+	// This parameter is required.
+	Result *OpenEsignFreeTrailResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s OpenEsignFreeTrailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenEsignFreeTrailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *OpenEsignFreeTrailResponseBody) SetResult(v *OpenEsignFreeTrailResponseBodyResult) *OpenEsignFreeTrailResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *OpenEsignFreeTrailResponseBody) SetSuccess(v bool) *OpenEsignFreeTrailResponseBody {
+	s.Success = &v
+	return s
+}
+
+type OpenEsignFreeTrailResponseBodyResult struct {
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// This parameter is required.
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s OpenEsignFreeTrailResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenEsignFreeTrailResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *OpenEsignFreeTrailResponseBodyResult) SetMessage(v string) *OpenEsignFreeTrailResponseBodyResult {
+	s.Message = &v
+	return s
+}
+
+func (s *OpenEsignFreeTrailResponseBodyResult) SetSuccess(v bool) *OpenEsignFreeTrailResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type OpenEsignFreeTrailResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *OpenEsignFreeTrailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s OpenEsignFreeTrailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenEsignFreeTrailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *OpenEsignFreeTrailResponse) SetHeaders(v map[string]*string) *OpenEsignFreeTrailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *OpenEsignFreeTrailResponse) SetStatusCode(v int32) *OpenEsignFreeTrailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *OpenEsignFreeTrailResponse) SetBody(v *OpenEsignFreeTrailResponseBody) *OpenEsignFreeTrailResponse {
+	s.Body = v
+	return s
+}
+
 type QueryAdvancedContractVersionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6977,6 +7102,83 @@ func (client *Client) FinishReviewOrder(request *FinishReviewOrderRequest) (_res
 	headers := &FinishReviewOrderHeaders{}
 	_result = &FinishReviewOrderResponse{}
 	_body, _err := client.FinishReviewOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 开通电子签免费试用
+//
+// @param request - OpenEsignFreeTrailRequest
+//
+// @param headers - OpenEsignFreeTrailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return OpenEsignFreeTrailResponse
+func (client *Client) OpenEsignFreeTrailWithOptions(request *OpenEsignFreeTrailRequest, headers *OpenEsignFreeTrailHeaders, runtime *util.RuntimeOptions) (_result *OpenEsignFreeTrailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extension)) {
+		body["extension"] = request.Extension
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("OpenEsignFreeTrail"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/openEsignFreeTrail"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &OpenEsignFreeTrailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 开通电子签免费试用
+//
+// @param request - OpenEsignFreeTrailRequest
+//
+// @return OpenEsignFreeTrailResponse
+func (client *Client) OpenEsignFreeTrail(request *OpenEsignFreeTrailRequest) (_result *OpenEsignFreeTrailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &OpenEsignFreeTrailHeaders{}
+	_result = &OpenEsignFreeTrailResponse{}
+	_body, _err := client.OpenEsignFreeTrailWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -18497,7 +18497,8 @@ func (s *QueryGlobalInfoResponseBody) SetResult(v *QueryGlobalInfoResponseBodyRe
 }
 
 type QueryGlobalInfoResponseBodyResult struct {
-	OemEnable *bool `json:"oemEnable,omitempty" xml:"oemEnable,omitempty"`
+	OemEnable   *bool `json:"oemEnable,omitempty" xml:"oemEnable,omitempty"`
+	T2t3Coexist *bool `json:"t2t3Coexist,omitempty" xml:"t2t3Coexist,omitempty"`
 }
 
 func (s QueryGlobalInfoResponseBodyResult) String() string {
@@ -18510,6 +18511,11 @@ func (s QueryGlobalInfoResponseBodyResult) GoString() string {
 
 func (s *QueryGlobalInfoResponseBodyResult) SetOemEnable(v bool) *QueryGlobalInfoResponseBodyResult {
 	s.OemEnable = &v
+	return s
+}
+
+func (s *QueryGlobalInfoResponseBodyResult) SetT2t3Coexist(v bool) *QueryGlobalInfoResponseBodyResult {
+	s.T2t3Coexist = &v
 	return s
 }
 
@@ -20334,6 +20340,10 @@ type SetUserVersionToFreeRequest struct {
 	//
 	// 012829186736-1115677667
 	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// example:
+	//
+	// other
+	Version *string `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s SetUserVersionToFreeRequest) String() string {
@@ -20346,6 +20356,11 @@ func (s SetUserVersionToFreeRequest) GoString() string {
 
 func (s *SetUserVersionToFreeRequest) SetOperatorUserId(v string) *SetUserVersionToFreeRequest {
 	s.OperatorUserId = &v
+	return s
+}
+
+func (s *SetUserVersionToFreeRequest) SetVersion(v string) *SetUserVersionToFreeRequest {
+	s.Version = &v
 	return s
 }
 
@@ -27601,6 +27616,10 @@ func (client *Client) SetUserVersionToFreeWithOptions(request *SetUserVersionToF
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
 		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Version)) {
+		body["version"] = request.Version
 	}
 
 	realHeaders := make(map[string]*string)

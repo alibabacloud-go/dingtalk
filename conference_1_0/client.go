@@ -5265,6 +5265,99 @@ func (s *QueryMinutesAudioResponse) SetBody(v *QueryMinutesAudioResponseBody) *Q
 	return s
 }
 
+type QueryMinutesMeetingResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryMinutesMeetingResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesMeetingResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesMeetingResultHeaders) SetCommonHeaders(v map[string]*string) *QueryMinutesMeetingResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryMinutesMeetingResultHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMinutesMeetingResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryMinutesMeetingResultRequest struct {
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryMinutesMeetingResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesMeetingResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesMeetingResultRequest) SetUnionId(v string) *QueryMinutesMeetingResultRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryMinutesMeetingResultResponseBody struct {
+	Action      []*string `json:"action,omitempty" xml:"action,omitempty" type:"Repeated"`
+	FullSummary *string   `json:"fullSummary,omitempty" xml:"fullSummary,omitempty"`
+}
+
+func (s QueryMinutesMeetingResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesMeetingResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesMeetingResultResponseBody) SetAction(v []*string) *QueryMinutesMeetingResultResponseBody {
+	s.Action = v
+	return s
+}
+
+func (s *QueryMinutesMeetingResultResponseBody) SetFullSummary(v string) *QueryMinutesMeetingResultResponseBody {
+	s.FullSummary = &v
+	return s
+}
+
+type QueryMinutesMeetingResultResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryMinutesMeetingResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryMinutesMeetingResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesMeetingResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesMeetingResultResponse) SetHeaders(v map[string]*string) *QueryMinutesMeetingResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryMinutesMeetingResultResponse) SetStatusCode(v int32) *QueryMinutesMeetingResultResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryMinutesMeetingResultResponse) SetBody(v *QueryMinutesMeetingResultResponseBody) *QueryMinutesMeetingResultResponse {
+	s.Body = v
+	return s
+}
+
 type QueryMinutesSummaryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10505,6 +10598,79 @@ func (client *Client) QueryMinutesAudio(conferenceId *string, request *QueryMinu
 	headers := &QueryMinutesAudioHeaders{}
 	_result = &QueryMinutesAudioResponse{}
 	_body, _err := client.QueryMinutesAudioWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询闪记会后结果
+//
+// @param request - QueryMinutesMeetingResultRequest
+//
+// @param headers - QueryMinutesMeetingResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMinutesMeetingResultResponse
+func (client *Client) QueryMinutesMeetingResultWithOptions(conferenceId *string, request *QueryMinutesMeetingResultRequest, headers *QueryMinutesMeetingResultHeaders, runtime *util.RuntimeOptions) (_result *QueryMinutesMeetingResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMinutesMeetingResult"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/" + tea.StringValue(conferenceId) + "/minutes/meetingResult"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryMinutesMeetingResultResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询闪记会后结果
+//
+// @param request - QueryMinutesMeetingResultRequest
+//
+// @return QueryMinutesMeetingResultResponse
+func (client *Client) QueryMinutesMeetingResult(conferenceId *string, request *QueryMinutesMeetingResultRequest) (_result *QueryMinutesMeetingResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryMinutesMeetingResultHeaders{}
+	_result = &QueryMinutesMeetingResultResponse{}
+	_body, _err := client.QueryMinutesMeetingResultWithOptions(conferenceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

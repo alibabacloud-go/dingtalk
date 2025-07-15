@@ -1419,6 +1419,136 @@ func (s *ChangeMainAdminResponse) SetStatusCode(v int32) *ChangeMainAdminRespons
 	return s
 }
 
+type CourseFinishCourseHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CourseFinishCourseHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CourseFinishCourseHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CourseFinishCourseHeaders) SetCommonHeaders(v map[string]*string) *CourseFinishCourseHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CourseFinishCourseHeaders) SetXAcsDingtalkAccessToken(v string) *CourseFinishCourseHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CourseFinishCourseRequest struct {
+	// example:
+	//
+	// isv_code_cert_id_001
+	CertId *string `json:"certId,omitempty" xml:"certId,omitempty"`
+	// example:
+	//
+	// data:image\/(?:png|jpeg|gif|bmp|webp);base64
+	CertMediaBase64 *string `json:"certMediaBase64,omitempty" xml:"certMediaBase64,omitempty"`
+	// example:
+	//
+	// isv_code_course_01
+	CourseId *string `json:"courseId,omitempty" xml:"courseId,omitempty"`
+	// example:
+	//
+	// pass
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// xxxxx001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CourseFinishCourseRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CourseFinishCourseRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CourseFinishCourseRequest) SetCertId(v string) *CourseFinishCourseRequest {
+	s.CertId = &v
+	return s
+}
+
+func (s *CourseFinishCourseRequest) SetCertMediaBase64(v string) *CourseFinishCourseRequest {
+	s.CertMediaBase64 = &v
+	return s
+}
+
+func (s *CourseFinishCourseRequest) SetCourseId(v string) *CourseFinishCourseRequest {
+	s.CourseId = &v
+	return s
+}
+
+func (s *CourseFinishCourseRequest) SetStatus(v string) *CourseFinishCourseRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *CourseFinishCourseRequest) SetUserId(v string) *CourseFinishCourseRequest {
+	s.UserId = &v
+	return s
+}
+
+type CourseFinishCourseResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CourseFinishCourseResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CourseFinishCourseResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CourseFinishCourseResponseBody) SetResult(v bool) *CourseFinishCourseResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CourseFinishCourseResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CourseFinishCourseResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CourseFinishCourseResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CourseFinishCourseResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CourseFinishCourseResponse) SetHeaders(v map[string]*string) *CourseFinishCourseResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CourseFinishCourseResponse) SetStatusCode(v int32) *CourseFinishCourseResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CourseFinishCourseResponse) SetBody(v *CourseFinishCourseResponseBody) *CourseFinishCourseResponse {
+	s.Body = v
+	return s
+}
+
 type CreateCooperateOrgHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -12138,6 +12268,95 @@ func (client *Client) ChangeMainAdmin(request *ChangeMainAdminRequest) (_result 
 	headers := &ChangeMainAdminHeaders{}
 	_result = &ChangeMainAdminResponse{}
 	_body, _err := client.ChangeMainAdminWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 考证上钉-isv-证书颁发接口
+//
+// @param request - CourseFinishCourseRequest
+//
+// @param headers - CourseFinishCourseHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CourseFinishCourseResponse
+func (client *Client) CourseFinishCourseWithOptions(request *CourseFinishCourseRequest, headers *CourseFinishCourseHeaders, runtime *util.RuntimeOptions) (_result *CourseFinishCourseResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CertId)) {
+		body["certId"] = request.CertId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CertMediaBase64)) {
+		body["certMediaBase64"] = request.CertMediaBase64
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CourseId)) {
+		body["courseId"] = request.CourseId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CourseFinishCourse"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/course/finishCourse"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CourseFinishCourseResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 考证上钉-isv-证书颁发接口
+//
+// @param request - CourseFinishCourseRequest
+//
+// @return CourseFinishCourseResponse
+func (client *Client) CourseFinishCourse(request *CourseFinishCourseRequest) (_result *CourseFinishCourseResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CourseFinishCourseHeaders{}
+	_result = &CourseFinishCourseResponse{}
+	_body, _err := client.CourseFinishCourseWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

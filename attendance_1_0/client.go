@@ -6874,10 +6874,9 @@ type GroupAddRequest struct {
 	// example:
 	//
 	// 白班考勤
-	GroupName   *string   `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	ManagerList []*string `json:"managerList,omitempty" xml:"managerList,omitempty" type:"Repeated"`
-	// This parameter is required.
-	Members []*GroupAddRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	GroupName   *string                   `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	ManagerList []*string                 `json:"managerList,omitempty" xml:"managerList,omitempty" type:"Repeated"`
+	Members     []*GroupAddRequestMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
 	// example:
 	//
 	// true
@@ -7246,20 +7245,14 @@ func (s *GroupAddRequestFreeCheckSettingFreeCheckGap) SetOnOffCheckGapMinutes(v 
 }
 
 type GroupAddRequestMembers struct {
-	// This parameter is required.
-	//
 	// example:
 	//
 	// Attendance
 	Role *string `json:"role,omitempty" xml:"role,omitempty"`
-	// This parameter is required.
-	//
 	// example:
 	//
 	// StaffMember
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
-	// This parameter is required.
-	//
 	// example:
 	//
 	// 1212jfkd

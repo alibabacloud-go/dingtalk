@@ -1249,6 +1249,56 @@ func (s *OpenOrgObjectiveRuleDTO) SetObjectiveRuleName(v string) *OpenOrgObjecti
 	return s
 }
 
+type OpenScoreCardDimensionDTO struct {
+	// This parameter is required.
+	DimensionList []*OpenScoreCardDimensionDTODimensionList `json:"dimensionList,omitempty" xml:"dimensionList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	ScoreCardId *string `json:"scoreCardId,omitempty" xml:"scoreCardId,omitempty"`
+}
+
+func (s OpenScoreCardDimensionDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenScoreCardDimensionDTO) GoString() string {
+	return s.String()
+}
+
+func (s *OpenScoreCardDimensionDTO) SetDimensionList(v []*OpenScoreCardDimensionDTODimensionList) *OpenScoreCardDimensionDTO {
+	s.DimensionList = v
+	return s
+}
+
+func (s *OpenScoreCardDimensionDTO) SetScoreCardId(v string) *OpenScoreCardDimensionDTO {
+	s.ScoreCardId = &v
+	return s
+}
+
+type OpenScoreCardDimensionDTODimensionList struct {
+	// This parameter is required.
+	DimensionId *string `json:"dimensionId,omitempty" xml:"dimensionId,omitempty"`
+	// This parameter is required.
+	IndicatorIdList []*string `json:"indicatorIdList,omitempty" xml:"indicatorIdList,omitempty" type:"Repeated"`
+}
+
+func (s OpenScoreCardDimensionDTODimensionList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenScoreCardDimensionDTODimensionList) GoString() string {
+	return s.String()
+}
+
+func (s *OpenScoreCardDimensionDTODimensionList) SetDimensionId(v string) *OpenScoreCardDimensionDTODimensionList {
+	s.DimensionId = &v
+	return s
+}
+
+func (s *OpenScoreCardDimensionDTODimensionList) SetIndicatorIdList(v []*string) *OpenScoreCardDimensionDTODimensionList {
+	s.IndicatorIdList = v
+	return s
+}
+
 type OpenUserAdminDTO struct {
 	// This parameter is required.
 	//
@@ -3272,6 +3322,208 @@ func (s *AgoalUserSubAdminListResponse) SetBody(v *AgoalUserSubAdminListResponse
 	return s
 }
 
+type GetDeptScoreCardIndicatorHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetDeptScoreCardIndicatorHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDeptScoreCardIndicatorHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetDeptScoreCardIndicatorHeaders) SetCommonHeaders(v map[string]*string) *GetDeptScoreCardIndicatorHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetDeptScoreCardIndicatorHeaders) SetXAcsDingtalkAccessToken(v string) *GetDeptScoreCardIndicatorHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetDeptScoreCardIndicatorRequest struct {
+	DingTeamId *string `json:"dingTeamId,omitempty" xml:"dingTeamId,omitempty"`
+}
+
+func (s GetDeptScoreCardIndicatorRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDeptScoreCardIndicatorRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetDeptScoreCardIndicatorRequest) SetDingTeamId(v string) *GetDeptScoreCardIndicatorRequest {
+	s.DingTeamId = &v
+	return s
+}
+
+type GetDeptScoreCardIndicatorResponseBody struct {
+	Content   *OpenScoreCardDimensionDTO `json:"content,omitempty" xml:"content,omitempty"`
+	RequestId *string                    `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool                      `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetDeptScoreCardIndicatorResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDeptScoreCardIndicatorResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetDeptScoreCardIndicatorResponseBody) SetContent(v *OpenScoreCardDimensionDTO) *GetDeptScoreCardIndicatorResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *GetDeptScoreCardIndicatorResponseBody) SetRequestId(v string) *GetDeptScoreCardIndicatorResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *GetDeptScoreCardIndicatorResponseBody) SetSuccess(v bool) *GetDeptScoreCardIndicatorResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetDeptScoreCardIndicatorResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetDeptScoreCardIndicatorResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetDeptScoreCardIndicatorResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDeptScoreCardIndicatorResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetDeptScoreCardIndicatorResponse) SetHeaders(v map[string]*string) *GetDeptScoreCardIndicatorResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetDeptScoreCardIndicatorResponse) SetStatusCode(v int32) *GetDeptScoreCardIndicatorResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetDeptScoreCardIndicatorResponse) SetBody(v *GetDeptScoreCardIndicatorResponseBody) *GetDeptScoreCardIndicatorResponse {
+	s.Body = v
+	return s
+}
+
+type GetIndicatorDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetIndicatorDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetIndicatorDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetIndicatorDetailHeaders) SetCommonHeaders(v map[string]*string) *GetIndicatorDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetIndicatorDetailHeaders) SetXAcsDingtalkAccessToken(v string) *GetIndicatorDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetIndicatorDetailRequest struct {
+	IndicatorId *string `json:"indicatorId,omitempty" xml:"indicatorId,omitempty"`
+	MonthNum    *int64  `json:"monthNum,omitempty" xml:"monthNum,omitempty"`
+}
+
+func (s GetIndicatorDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetIndicatorDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetIndicatorDetailRequest) SetIndicatorId(v string) *GetIndicatorDetailRequest {
+	s.IndicatorId = &v
+	return s
+}
+
+func (s *GetIndicatorDetailRequest) SetMonthNum(v int64) *GetIndicatorDetailRequest {
+	s.MonthNum = &v
+	return s
+}
+
+type GetIndicatorDetailResponseBody struct {
+	Content   []*string `json:"content,omitempty" xml:"content,omitempty" type:"Repeated"`
+	RequestId *string   `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool     `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetIndicatorDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetIndicatorDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetIndicatorDetailResponseBody) SetContent(v []*string) *GetIndicatorDetailResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *GetIndicatorDetailResponseBody) SetRequestId(v string) *GetIndicatorDetailResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *GetIndicatorDetailResponseBody) SetSuccess(v bool) *GetIndicatorDetailResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetIndicatorDetailResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetIndicatorDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetIndicatorDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetIndicatorDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetIndicatorDetailResponse) SetHeaders(v map[string]*string) *GetIndicatorDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetIndicatorDetailResponse) SetStatusCode(v int32) *GetIndicatorDetailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetIndicatorDetailResponse) SetBody(v *GetIndicatorDetailResponseBody) *GetIndicatorDetailResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -4494,6 +4746,156 @@ func (client *Client) AgoalUserSubAdminList(request *AgoalUserSubAdminListReques
 	headers := &AgoalUserSubAdminListHeaders{}
 	_result = &AgoalUserSubAdminListResponse{}
 	_body, _err := client.AgoalUserSubAdminListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取部门下的维度和指标id
+//
+// @param request - GetDeptScoreCardIndicatorRequest
+//
+// @param headers - GetDeptScoreCardIndicatorHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDeptScoreCardIndicatorResponse
+func (client *Client) GetDeptScoreCardIndicatorWithOptions(request *GetDeptScoreCardIndicatorRequest, headers *GetDeptScoreCardIndicatorHeaders, runtime *util.RuntimeOptions) (_result *GetDeptScoreCardIndicatorResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingTeamId)) {
+		query["dingTeamId"] = request.DingTeamId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetDeptScoreCardIndicator"),
+		Version:     tea.String("agoal_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/agoal/scorecards/departments/indicators"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetDeptScoreCardIndicatorResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取部门下的维度和指标id
+//
+// @param request - GetDeptScoreCardIndicatorRequest
+//
+// @return GetDeptScoreCardIndicatorResponse
+func (client *Client) GetDeptScoreCardIndicator(request *GetDeptScoreCardIndicatorRequest) (_result *GetDeptScoreCardIndicatorResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetDeptScoreCardIndicatorHeaders{}
+	_result = &GetDeptScoreCardIndicatorResponse{}
+	_body, _err := client.GetDeptScoreCardIndicatorWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取指标详情
+//
+// @param request - GetIndicatorDetailRequest
+//
+// @param headers - GetIndicatorDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetIndicatorDetailResponse
+func (client *Client) GetIndicatorDetailWithOptions(request *GetIndicatorDetailRequest, headers *GetIndicatorDetailHeaders, runtime *util.RuntimeOptions) (_result *GetIndicatorDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IndicatorId)) {
+		query["indicatorId"] = request.IndicatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MonthNum)) {
+		query["monthNum"] = request.MonthNum
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetIndicatorDetail"),
+		Version:     tea.String("agoal_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/agoal/scorecards/indicators/details"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetIndicatorDetailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取指标详情
+//
+// @param request - GetIndicatorDetailRequest
+//
+// @return GetIndicatorDetailResponse
+func (client *Client) GetIndicatorDetail(request *GetIndicatorDetailRequest) (_result *GetIndicatorDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetIndicatorDetailHeaders{}
+	_result = &GetIndicatorDetailResponse{}
+	_body, _err := client.GetIndicatorDetailWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
