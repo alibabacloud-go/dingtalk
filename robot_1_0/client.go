@@ -1913,6 +1913,154 @@ func (s *QueryBotInstanceInGroupInfoResponse) SetBody(v *QueryBotInstanceInGroup
 	return s
 }
 
+type QueryRobotDingReadStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryRobotDingReadStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRobotDingReadStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRobotDingReadStatusHeaders) SetCommonHeaders(v map[string]*string) *QueryRobotDingReadStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryRobotDingReadStatusHeaders) SetXAcsDingtalkAccessToken(v string) *QueryRobotDingReadStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryRobotDingReadStatusRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// openDingId
+	OpenDingId *string `json:"openDingId,omitempty" xml:"openDingId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// robotCode
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s QueryRobotDingReadStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRobotDingReadStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRobotDingReadStatusRequest) SetOpenDingId(v string) *QueryRobotDingReadStatusRequest {
+	s.OpenDingId = &v
+	return s
+}
+
+func (s *QueryRobotDingReadStatusRequest) SetRobotCode(v string) *QueryRobotDingReadStatusRequest {
+	s.RobotCode = &v
+	return s
+}
+
+type QueryRobotDingReadStatusResponseBody struct {
+	Result  *QueryRobotDingReadStatusResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                       `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryRobotDingReadStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRobotDingReadStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRobotDingReadStatusResponseBody) SetResult(v *QueryRobotDingReadStatusResponseBodyResult) *QueryRobotDingReadStatusResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryRobotDingReadStatusResponseBody) SetSuccess(v bool) *QueryRobotDingReadStatusResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryRobotDingReadStatusResponseBodyResult struct {
+	RobotDingReadInfoList []*QueryRobotDingReadStatusResponseBodyResultRobotDingReadInfoList `json:"robotDingReadInfoList,omitempty" xml:"robotDingReadInfoList,omitempty" type:"Repeated"`
+}
+
+func (s QueryRobotDingReadStatusResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRobotDingReadStatusResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRobotDingReadStatusResponseBodyResult) SetRobotDingReadInfoList(v []*QueryRobotDingReadStatusResponseBodyResultRobotDingReadInfoList) *QueryRobotDingReadStatusResponseBodyResult {
+	s.RobotDingReadInfoList = v
+	return s
+}
+
+type QueryRobotDingReadStatusResponseBodyResultRobotDingReadInfoList struct {
+	ReadStatus *string `json:"readStatus,omitempty" xml:"readStatus,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryRobotDingReadStatusResponseBodyResultRobotDingReadInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRobotDingReadStatusResponseBodyResultRobotDingReadInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRobotDingReadStatusResponseBodyResultRobotDingReadInfoList) SetReadStatus(v string) *QueryRobotDingReadStatusResponseBodyResultRobotDingReadInfoList {
+	s.ReadStatus = &v
+	return s
+}
+
+func (s *QueryRobotDingReadStatusResponseBodyResultRobotDingReadInfoList) SetUserId(v string) *QueryRobotDingReadStatusResponseBodyResultRobotDingReadInfoList {
+	s.UserId = &v
+	return s
+}
+
+type QueryRobotDingReadStatusResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryRobotDingReadStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryRobotDingReadStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRobotDingReadStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRobotDingReadStatusResponse) SetHeaders(v map[string]*string) *QueryRobotDingReadStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryRobotDingReadStatusResponse) SetStatusCode(v int32) *QueryRobotDingReadStatusResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryRobotDingReadStatusResponse) SetBody(v *QueryRobotDingReadStatusResponseBody) *QueryRobotDingReadStatusResponse {
+	s.Body = v
+	return s
+}
+
 type QueryRobotPluginHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4037,6 +4185,83 @@ func (client *Client) QueryBotInstanceInGroupInfo(request *QueryBotInstanceInGro
 	headers := &QueryBotInstanceInGroupInfoHeaders{}
 	_result = &QueryBotInstanceInGroupInfoResponse{}
 	_body, _err := client.QueryBotInstanceInGroupInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询机器人DING已读未读状态
+//
+// @param request - QueryRobotDingReadStatusRequest
+//
+// @param headers - QueryRobotDingReadStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryRobotDingReadStatusResponse
+func (client *Client) QueryRobotDingReadStatusWithOptions(request *QueryRobotDingReadStatusRequest, headers *QueryRobotDingReadStatusHeaders, runtime *util.RuntimeOptions) (_result *QueryRobotDingReadStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenDingId)) {
+		body["openDingId"] = request.OpenDingId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryRobotDingReadStatus"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/ding/readStatuses/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryRobotDingReadStatusResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询机器人DING已读未读状态
+//
+// @param request - QueryRobotDingReadStatusRequest
+//
+// @return QueryRobotDingReadStatusResponse
+func (client *Client) QueryRobotDingReadStatus(request *QueryRobotDingReadStatusRequest) (_result *QueryRobotDingReadStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryRobotDingReadStatusHeaders{}
+	_result = &QueryRobotDingReadStatusResponse{}
+	_body, _err := client.QueryRobotDingReadStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
