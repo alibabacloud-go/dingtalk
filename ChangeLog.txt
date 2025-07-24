@@ -1,3 +1,6 @@
+2025-07-24 Version: v1.6.87
+- Generated golang robot_1.0 for dingtalk.
+
 2025-07-23 Version: v1.6.86
 - Generated golang robot_1.0 for dingtalk.
 
