@@ -12562,6 +12562,101 @@ func (s *DigitalStoreNodeInfoResponse) SetBody(v *DigitalStoreNodeInfoResponseBo
 	return s
 }
 
+type DigitalStoreQueryConversationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DigitalStoreQueryConversationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreQueryConversationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreQueryConversationHeaders) SetCommonHeaders(v map[string]*string) *DigitalStoreQueryConversationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DigitalStoreQueryConversationHeaders) SetXAcsDingtalkAccessToken(v string) *DigitalStoreQueryConversationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DigitalStoreQueryConversationRequest struct {
+	// example:
+	//
+	// F1342222
+	StoreCode *string `json:"storeCode,omitempty" xml:"storeCode,omitempty"`
+}
+
+func (s DigitalStoreQueryConversationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreQueryConversationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreQueryConversationRequest) SetStoreCode(v string) *DigitalStoreQueryConversationRequest {
+	s.StoreCode = &v
+	return s
+}
+
+type DigitalStoreQueryConversationResponseBody struct {
+	ConversationTitle  *string `json:"conversationTitle,omitempty" xml:"conversationTitle,omitempty"`
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s DigitalStoreQueryConversationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreQueryConversationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreQueryConversationResponseBody) SetConversationTitle(v string) *DigitalStoreQueryConversationResponseBody {
+	s.ConversationTitle = &v
+	return s
+}
+
+func (s *DigitalStoreQueryConversationResponseBody) SetOpenConversationId(v string) *DigitalStoreQueryConversationResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+type DigitalStoreQueryConversationResponse struct {
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DigitalStoreQueryConversationResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DigitalStoreQueryConversationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DigitalStoreQueryConversationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DigitalStoreQueryConversationResponse) SetHeaders(v map[string]*string) *DigitalStoreQueryConversationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DigitalStoreQueryConversationResponse) SetStatusCode(v int32) *DigitalStoreQueryConversationResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DigitalStoreQueryConversationResponse) SetBody(v *DigitalStoreQueryConversationResponseBody) *DigitalStoreQueryConversationResponse {
+	s.Body = v
+	return s
+}
+
 type DigitalStoreRightsInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -35505,6 +35600,79 @@ func (client *Client) DigitalStoreNodeInfo(request *DigitalStoreNodeInfoRequest)
 	headers := &DigitalStoreNodeInfoHeaders{}
 	_result = &DigitalStoreNodeInfoResponse{}
 	_body, _err := client.DigitalStoreNodeInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过门店Code获取门店群信息
+//
+// @param request - DigitalStoreQueryConversationRequest
+//
+// @param headers - DigitalStoreQueryConversationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DigitalStoreQueryConversationResponse
+func (client *Client) DigitalStoreQueryConversationWithOptions(request *DigitalStoreQueryConversationRequest, headers *DigitalStoreQueryConversationHeaders, runtime *util.RuntimeOptions) (_result *DigitalStoreQueryConversationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StoreCode)) {
+		query["storeCode"] = request.StoreCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DigitalStoreQueryConversation"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/digitalStores/conversation/queryByStoreCode"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DigitalStoreQueryConversationResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过门店Code获取门店群信息
+//
+// @param request - DigitalStoreQueryConversationRequest
+//
+// @return DigitalStoreQueryConversationResponse
+func (client *Client) DigitalStoreQueryConversation(request *DigitalStoreQueryConversationRequest) (_result *DigitalStoreQueryConversationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DigitalStoreQueryConversationHeaders{}
+	_result = &DigitalStoreQueryConversationResponse{}
+	_body, _err := client.DigitalStoreQueryConversationWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

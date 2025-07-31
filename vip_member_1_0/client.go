@@ -277,6 +277,140 @@ func (s *InvalidRedeemVipMemberByBizRequestIdResponse) SetBody(v *InvalidRedeemV
 	return s
 }
 
+type PreCheckRedeemVipMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PreCheckRedeemVipMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreCheckRedeemVipMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PreCheckRedeemVipMemberHeaders) SetCommonHeaders(v map[string]*string) *PreCheckRedeemVipMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PreCheckRedeemVipMemberHeaders) SetXAcsDingtalkAccessToken(v string) *PreCheckRedeemVipMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PreCheckRedeemVipMemberRequest struct {
+	BizRequestId *string `json:"bizRequestId,omitempty" xml:"bizRequestId,omitempty"`
+	Channel      *string `json:"channel,omitempty" xml:"channel,omitempty"`
+	DingtalkId   *string `json:"dingtalkId,omitempty" xml:"dingtalkId,omitempty"`
+	Duration     *int64  `json:"duration,omitempty" xml:"duration,omitempty"`
+	Mobile       *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	Uuid         *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s PreCheckRedeemVipMemberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreCheckRedeemVipMemberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PreCheckRedeemVipMemberRequest) SetBizRequestId(v string) *PreCheckRedeemVipMemberRequest {
+	s.BizRequestId = &v
+	return s
+}
+
+func (s *PreCheckRedeemVipMemberRequest) SetChannel(v string) *PreCheckRedeemVipMemberRequest {
+	s.Channel = &v
+	return s
+}
+
+func (s *PreCheckRedeemVipMemberRequest) SetDingtalkId(v string) *PreCheckRedeemVipMemberRequest {
+	s.DingtalkId = &v
+	return s
+}
+
+func (s *PreCheckRedeemVipMemberRequest) SetDuration(v int64) *PreCheckRedeemVipMemberRequest {
+	s.Duration = &v
+	return s
+}
+
+func (s *PreCheckRedeemVipMemberRequest) SetMobile(v string) *PreCheckRedeemVipMemberRequest {
+	s.Mobile = &v
+	return s
+}
+
+func (s *PreCheckRedeemVipMemberRequest) SetUuid(v string) *PreCheckRedeemVipMemberRequest {
+	s.Uuid = &v
+	return s
+}
+
+type PreCheckRedeemVipMemberResponseBody struct {
+	BizRequestId *string `json:"bizRequestId,omitempty" xml:"bizRequestId,omitempty"`
+	ErrorCode    *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg     *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result       *bool   `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s PreCheckRedeemVipMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreCheckRedeemVipMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PreCheckRedeemVipMemberResponseBody) SetBizRequestId(v string) *PreCheckRedeemVipMemberResponseBody {
+	s.BizRequestId = &v
+	return s
+}
+
+func (s *PreCheckRedeemVipMemberResponseBody) SetErrorCode(v string) *PreCheckRedeemVipMemberResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *PreCheckRedeemVipMemberResponseBody) SetErrorMsg(v string) *PreCheckRedeemVipMemberResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *PreCheckRedeemVipMemberResponseBody) SetResult(v bool) *PreCheckRedeemVipMemberResponseBody {
+	s.Result = &v
+	return s
+}
+
+type PreCheckRedeemVipMemberResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PreCheckRedeemVipMemberResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PreCheckRedeemVipMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PreCheckRedeemVipMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PreCheckRedeemVipMemberResponse) SetHeaders(v map[string]*string) *PreCheckRedeemVipMemberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PreCheckRedeemVipMemberResponse) SetStatusCode(v int32) *PreCheckRedeemVipMemberResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PreCheckRedeemVipMemberResponse) SetBody(v *PreCheckRedeemVipMemberResponseBody) *PreCheckRedeemVipMemberResponse {
+	s.Body = v
+	return s
+}
+
 type QueryRedeemVipMemberHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -752,6 +886,99 @@ func (client *Client) InvalidRedeemVipMemberByBizRequestId(request *InvalidRedee
 	headers := &InvalidRedeemVipMemberByBizRequestIdHeaders{}
 	_result = &InvalidRedeemVipMemberByBizRequestIdResponse{}
 	_body, _err := client.InvalidRedeemVipMemberByBizRequestIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 直充会员预校验是否满足条件
+//
+// @param request - PreCheckRedeemVipMemberRequest
+//
+// @param headers - PreCheckRedeemVipMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PreCheckRedeemVipMemberResponse
+func (client *Client) PreCheckRedeemVipMemberWithOptions(request *PreCheckRedeemVipMemberRequest, headers *PreCheckRedeemVipMemberHeaders, runtime *util.RuntimeOptions) (_result *PreCheckRedeemVipMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizRequestId)) {
+		body["bizRequestId"] = request.BizRequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Channel)) {
+		body["channel"] = request.Channel
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingtalkId)) {
+		body["dingtalkId"] = request.DingtalkId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Duration)) {
+		body["duration"] = request.Duration
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Mobile)) {
+		body["mobile"] = request.Mobile
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		body["uuid"] = request.Uuid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PreCheckRedeemVipMember"),
+		Version:     tea.String("vipMember_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/vipMember/users/preCheckRedeemVip"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PreCheckRedeemVipMemberResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 直充会员预校验是否满足条件
+//
+// @param request - PreCheckRedeemVipMemberRequest
+//
+// @return PreCheckRedeemVipMemberResponse
+func (client *Client) PreCheckRedeemVipMember(request *PreCheckRedeemVipMemberRequest) (_result *PreCheckRedeemVipMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PreCheckRedeemVipMemberHeaders{}
+	_result = &PreCheckRedeemVipMemberResponse{}
+	_body, _err := client.PreCheckRedeemVipMemberWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

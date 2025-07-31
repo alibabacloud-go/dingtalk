@@ -1976,6 +1976,304 @@ func (s *DeleteKnowledgeResponse) SetBody(v *DeleteKnowledgeResponseBody) *Delet
 	return s
 }
 
+type DeployAssistantHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeployAssistantHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeployAssistantHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeployAssistantHeaders) SetCommonHeaders(v map[string]*string) *DeployAssistantHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeployAssistantHeaders) SetXAcsDingtalkAccessToken(v string) *DeployAssistantHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeployAssistantRequest struct {
+	Action           *DeployAssistantRequestAction    `json:"action,omitempty" xml:"action,omitempty" type:"Struct"`
+	AiAssistantId    *string                          `json:"aiAssistantId,omitempty" xml:"aiAssistantId,omitempty"`
+	AppScopes        *DeployAssistantRequestAppScopes `json:"appScopes,omitempty" xml:"appScopes,omitempty" type:"Struct"`
+	Description      *string                          `json:"description,omitempty" xml:"description,omitempty"`
+	Fallback         *DeployAssistantRequestFallback  `json:"fallback,omitempty" xml:"fallback,omitempty" type:"Struct"`
+	Icon             *string                          `json:"icon,omitempty" xml:"icon,omitempty"`
+	Instructions     *string                          `json:"instructions,omitempty" xml:"instructions,omitempty"`
+	IsPublic         *int32                           `json:"isPublic,omitempty" xml:"isPublic,omitempty"`
+	Name             *string                          `json:"name,omitempty" xml:"name,omitempty"`
+	OperateUserId    *string                          `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
+	RecommendPrompts []*string                        `json:"recommendPrompts,omitempty" xml:"recommendPrompts,omitempty" type:"Repeated"`
+	ShareRecipient   *string                          `json:"shareRecipient,omitempty" xml:"shareRecipient,omitempty"`
+	ToneStyle        *string                          `json:"toneStyle,omitempty" xml:"toneStyle,omitempty"`
+	Uuid             *string                          `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	WelcomeContent   *string                          `json:"welcomeContent,omitempty" xml:"welcomeContent,omitempty"`
+	WelcomeTitle     *string                          `json:"welcomeTitle,omitempty" xml:"welcomeTitle,omitempty"`
+}
+
+func (s DeployAssistantRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeployAssistantRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeployAssistantRequest) SetAction(v *DeployAssistantRequestAction) *DeployAssistantRequest {
+	s.Action = v
+	return s
+}
+
+func (s *DeployAssistantRequest) SetAiAssistantId(v string) *DeployAssistantRequest {
+	s.AiAssistantId = &v
+	return s
+}
+
+func (s *DeployAssistantRequest) SetAppScopes(v *DeployAssistantRequestAppScopes) *DeployAssistantRequest {
+	s.AppScopes = v
+	return s
+}
+
+func (s *DeployAssistantRequest) SetDescription(v string) *DeployAssistantRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *DeployAssistantRequest) SetFallback(v *DeployAssistantRequestFallback) *DeployAssistantRequest {
+	s.Fallback = v
+	return s
+}
+
+func (s *DeployAssistantRequest) SetIcon(v string) *DeployAssistantRequest {
+	s.Icon = &v
+	return s
+}
+
+func (s *DeployAssistantRequest) SetInstructions(v string) *DeployAssistantRequest {
+	s.Instructions = &v
+	return s
+}
+
+func (s *DeployAssistantRequest) SetIsPublic(v int32) *DeployAssistantRequest {
+	s.IsPublic = &v
+	return s
+}
+
+func (s *DeployAssistantRequest) SetName(v string) *DeployAssistantRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *DeployAssistantRequest) SetOperateUserId(v string) *DeployAssistantRequest {
+	s.OperateUserId = &v
+	return s
+}
+
+func (s *DeployAssistantRequest) SetRecommendPrompts(v []*string) *DeployAssistantRequest {
+	s.RecommendPrompts = v
+	return s
+}
+
+func (s *DeployAssistantRequest) SetShareRecipient(v string) *DeployAssistantRequest {
+	s.ShareRecipient = &v
+	return s
+}
+
+func (s *DeployAssistantRequest) SetToneStyle(v string) *DeployAssistantRequest {
+	s.ToneStyle = &v
+	return s
+}
+
+func (s *DeployAssistantRequest) SetUuid(v string) *DeployAssistantRequest {
+	s.Uuid = &v
+	return s
+}
+
+func (s *DeployAssistantRequest) SetWelcomeContent(v string) *DeployAssistantRequest {
+	s.WelcomeContent = &v
+	return s
+}
+
+func (s *DeployAssistantRequest) SetWelcomeTitle(v string) *DeployAssistantRequest {
+	s.WelcomeTitle = &v
+	return s
+}
+
+type DeployAssistantRequestAction struct {
+	ActionAuthInfo *DeployAssistantRequestActionActionAuthInfo `json:"actionAuthInfo,omitempty" xml:"actionAuthInfo,omitempty" type:"Struct"`
+	ActionName     *string                                     `json:"actionName,omitempty" xml:"actionName,omitempty"`
+	Description    *string                                     `json:"description,omitempty" xml:"description,omitempty"`
+	Schema         *string                                     `json:"schema,omitempty" xml:"schema,omitempty"`
+}
+
+func (s DeployAssistantRequestAction) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeployAssistantRequestAction) GoString() string {
+	return s.String()
+}
+
+func (s *DeployAssistantRequestAction) SetActionAuthInfo(v *DeployAssistantRequestActionActionAuthInfo) *DeployAssistantRequestAction {
+	s.ActionAuthInfo = v
+	return s
+}
+
+func (s *DeployAssistantRequestAction) SetActionName(v string) *DeployAssistantRequestAction {
+	s.ActionName = &v
+	return s
+}
+
+func (s *DeployAssistantRequestAction) SetDescription(v string) *DeployAssistantRequestAction {
+	s.Description = &v
+	return s
+}
+
+func (s *DeployAssistantRequestAction) SetSchema(v string) *DeployAssistantRequestAction {
+	s.Schema = &v
+	return s
+}
+
+type DeployAssistantRequestActionActionAuthInfo struct {
+	AuthConfig         *string `json:"authConfig,omitempty" xml:"authConfig,omitempty"`
+	AuthenticationType *string `json:"authenticationType,omitempty" xml:"authenticationType,omitempty"`
+}
+
+func (s DeployAssistantRequestActionActionAuthInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeployAssistantRequestActionActionAuthInfo) GoString() string {
+	return s.String()
+}
+
+func (s *DeployAssistantRequestActionActionAuthInfo) SetAuthConfig(v string) *DeployAssistantRequestActionActionAuthInfo {
+	s.AuthConfig = &v
+	return s
+}
+
+func (s *DeployAssistantRequestActionActionAuthInfo) SetAuthenticationType(v string) *DeployAssistantRequestActionActionAuthInfo {
+	s.AuthenticationType = &v
+	return s
+}
+
+type DeployAssistantRequestAppScopes struct {
+	DeptVisibleScopes  *string `json:"deptVisibleScopes,omitempty" xml:"deptVisibleScopes,omitempty"`
+	DynamicGroupScopes *string `json:"dynamicGroupScopes,omitempty" xml:"dynamicGroupScopes,omitempty"`
+	IsHidden           *bool   `json:"isHidden,omitempty" xml:"isHidden,omitempty"`
+	RoleVisibleScopes  *string `json:"roleVisibleScopes,omitempty" xml:"roleVisibleScopes,omitempty"`
+	UserVisibleScopes  *string `json:"userVisibleScopes,omitempty" xml:"userVisibleScopes,omitempty"`
+}
+
+func (s DeployAssistantRequestAppScopes) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeployAssistantRequestAppScopes) GoString() string {
+	return s.String()
+}
+
+func (s *DeployAssistantRequestAppScopes) SetDeptVisibleScopes(v string) *DeployAssistantRequestAppScopes {
+	s.DeptVisibleScopes = &v
+	return s
+}
+
+func (s *DeployAssistantRequestAppScopes) SetDynamicGroupScopes(v string) *DeployAssistantRequestAppScopes {
+	s.DynamicGroupScopes = &v
+	return s
+}
+
+func (s *DeployAssistantRequestAppScopes) SetIsHidden(v bool) *DeployAssistantRequestAppScopes {
+	s.IsHidden = &v
+	return s
+}
+
+func (s *DeployAssistantRequestAppScopes) SetRoleVisibleScopes(v string) *DeployAssistantRequestAppScopes {
+	s.RoleVisibleScopes = &v
+	return s
+}
+
+func (s *DeployAssistantRequestAppScopes) SetUserVisibleScopes(v string) *DeployAssistantRequestAppScopes {
+	s.UserVisibleScopes = &v
+	return s
+}
+
+type DeployAssistantRequestFallback struct {
+	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	DefaultMsg *string `json:"defaultMsg,omitempty" xml:"defaultMsg,omitempty"`
+}
+
+func (s DeployAssistantRequestFallback) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeployAssistantRequestFallback) GoString() string {
+	return s.String()
+}
+
+func (s *DeployAssistantRequestFallback) SetActionType(v string) *DeployAssistantRequestFallback {
+	s.ActionType = &v
+	return s
+}
+
+func (s *DeployAssistantRequestFallback) SetDefaultMsg(v string) *DeployAssistantRequestFallback {
+	s.DefaultMsg = &v
+	return s
+}
+
+type DeployAssistantResponseBody struct {
+	AssistantId *string `json:"assistantId,omitempty" xml:"assistantId,omitempty"`
+}
+
+func (s DeployAssistantResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeployAssistantResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeployAssistantResponseBody) SetAssistantId(v string) *DeployAssistantResponseBody {
+	s.AssistantId = &v
+	return s
+}
+
+type DeployAssistantResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeployAssistantResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeployAssistantResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeployAssistantResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeployAssistantResponse) SetHeaders(v map[string]*string) *DeployAssistantResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeployAssistantResponse) SetStatusCode(v int32) *DeployAssistantResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeployAssistantResponse) SetBody(v *DeployAssistantResponseBody) *DeployAssistantResponse {
+	s.Body = v
+	return s
+}
+
 type GetAskDetailHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6240,6 +6538,139 @@ func (client *Client) DeleteKnowledge(request *DeleteKnowledgeRequest) (_result 
 	headers := &DeleteKnowledgeHeaders{}
 	_result = &DeleteKnowledgeResponse{}
 	_body, _err := client.DeleteKnowledgeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 一键部署AI助理
+//
+// @param request - DeployAssistantRequest
+//
+// @param headers - DeployAssistantHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeployAssistantResponse
+func (client *Client) DeployAssistantWithOptions(request *DeployAssistantRequest, headers *DeployAssistantHeaders, runtime *util.RuntimeOptions) (_result *DeployAssistantResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Action)) {
+		body["action"] = request.Action
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AiAssistantId)) {
+		body["aiAssistantId"] = request.AiAssistantId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AppScopes)) {
+		body["appScopes"] = request.AppScopes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Fallback)) {
+		body["fallback"] = request.Fallback
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Icon)) {
+		body["icon"] = request.Icon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Instructions)) {
+		body["instructions"] = request.Instructions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsPublic)) {
+		body["isPublic"] = request.IsPublic
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperateUserId)) {
+		body["operateUserId"] = request.OperateUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RecommendPrompts)) {
+		body["recommendPrompts"] = request.RecommendPrompts
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ShareRecipient)) {
+		body["shareRecipient"] = request.ShareRecipient
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToneStyle)) {
+		body["toneStyle"] = request.ToneStyle
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		body["uuid"] = request.Uuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WelcomeContent)) {
+		body["welcomeContent"] = request.WelcomeContent
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WelcomeTitle)) {
+		body["welcomeTitle"] = request.WelcomeTitle
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeployAssistant"),
+		Version:     tea.String("assistant_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/assistant/deploy"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeployAssistantResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 一键部署AI助理
+//
+// @param request - DeployAssistantRequest
+//
+// @return DeployAssistantResponse
+func (client *Client) DeployAssistant(request *DeployAssistantRequest) (_result *DeployAssistantResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeployAssistantHeaders{}
+	_result = &DeployAssistantResponse{}
+	_body, _err := client.DeployAssistantWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

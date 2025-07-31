@@ -309,7 +309,8 @@ type CreateTodoTaskRequest struct {
 	ReminderTimeStamp   *int64                                    `json:"reminderTimeStamp,omitempty" xml:"reminderTimeStamp,omitempty"`
 	SourceId            *string                                   `json:"sourceId,omitempty" xml:"sourceId,omitempty"`
 	// This parameter is required.
-	Subject *string `json:"subject,omitempty" xml:"subject,omitempty"`
+	Subject        *string                `json:"subject,omitempty" xml:"subject,omitempty"`
+	ThirdExtension map[string]interface{} `json:"thirdExtension,omitempty" xml:"thirdExtension,omitempty"`
 	// example:
 	//
 	// TODO
@@ -405,6 +406,11 @@ func (s *CreateTodoTaskRequest) SetSubject(v string) *CreateTodoTaskRequest {
 	return s
 }
 
+func (s *CreateTodoTaskRequest) SetThirdExtension(v map[string]interface{}) *CreateTodoTaskRequest {
+	s.ThirdExtension = v
+	return s
+}
+
 func (s *CreateTodoTaskRequest) SetTodoType(v string) *CreateTodoTaskRequest {
 	s.TodoType = &v
 	return s
@@ -416,13 +422,12 @@ func (s *CreateTodoTaskRequest) SetOperatorId(v string) *CreateTodoTaskRequest {
 }
 
 type CreateTodoTaskRequestActionList struct {
-	ActionKey       *string                               `json:"actionKey,omitempty" xml:"actionKey,omitempty"`
-	ActionType      *int32                                `json:"actionType,omitempty" xml:"actionType,omitempty"`
-	ButtonStyleType *int32                                `json:"buttonStyleType,omitempty" xml:"buttonStyleType,omitempty"`
-	Param           *CreateTodoTaskRequestActionListParam `json:"param,omitempty" xml:"param,omitempty" type:"Struct"`
-	PcUrl           *string                               `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
-	Title           *string                               `json:"title,omitempty" xml:"title,omitempty"`
-	Url             *string                               `json:"url,omitempty" xml:"url,omitempty"`
+	ActionKey  *string                               `json:"actionKey,omitempty" xml:"actionKey,omitempty"`
+	ActionType *int32                                `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	Param      *CreateTodoTaskRequestActionListParam `json:"param,omitempty" xml:"param,omitempty" type:"Struct"`
+	PcUrl      *string                               `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	Title      *string                               `json:"title,omitempty" xml:"title,omitempty"`
+	Url        *string                               `json:"url,omitempty" xml:"url,omitempty"`
 }
 
 func (s CreateTodoTaskRequestActionList) String() string {
@@ -440,11 +445,6 @@ func (s *CreateTodoTaskRequestActionList) SetActionKey(v string) *CreateTodoTask
 
 func (s *CreateTodoTaskRequestActionList) SetActionType(v int32) *CreateTodoTaskRequestActionList {
 	s.ActionType = &v
-	return s
-}
-
-func (s *CreateTodoTaskRequestActionList) SetButtonStyleType(v int32) *CreateTodoTaskRequestActionList {
-	s.ButtonStyleType = &v
 	return s
 }
 
@@ -4437,6 +4437,10 @@ func (client *Client) CreateTodoTaskWithOptions(unionId *string, request *Create
 
 	if !tea.BoolValue(util.IsUnset(request.Subject)) {
 		body["subject"] = request.Subject
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ThirdExtension)) {
+		body["thirdExtension"] = request.ThirdExtension
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.TodoType)) {
