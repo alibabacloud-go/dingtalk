@@ -1403,6 +1403,10 @@ type CreateTrustedDeviceRequest struct {
 	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
 	// example:
 	//
+	// 11-22-33-44-55
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	// example:
+	//
 	// 2
 	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
 	// example:
@@ -1437,6 +1441,11 @@ func (s *CreateTrustedDeviceRequest) SetMacAddress(v string) *CreateTrustedDevic
 
 func (s *CreateTrustedDeviceRequest) SetPlatform(v string) *CreateTrustedDeviceRequest {
 	s.Platform = &v
+	return s
+}
+
+func (s *CreateTrustedDeviceRequest) SetSerialNumber(v string) *CreateTrustedDeviceRequest {
+	s.SerialNumber = &v
 	return s
 }
 
@@ -1575,8 +1584,9 @@ func (s *CreateTrustedDeviceBatchRequest) SetUserId(v string) *CreateTrustedDevi
 }
 
 type CreateTrustedDeviceBatchRequestDetailList struct {
-	MacAddress *string `json:"macAddress,omitempty" xml:"macAddress,omitempty"`
-	Title      *string `json:"title,omitempty" xml:"title,omitempty"`
+	MacAddress   *string `json:"macAddress,omitempty" xml:"macAddress,omitempty"`
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s CreateTrustedDeviceBatchRequestDetailList) String() string {
@@ -1589,6 +1599,11 @@ func (s CreateTrustedDeviceBatchRequestDetailList) GoString() string {
 
 func (s *CreateTrustedDeviceBatchRequestDetailList) SetMacAddress(v string) *CreateTrustedDeviceBatchRequestDetailList {
 	s.MacAddress = &v
+	return s
+}
+
+func (s *CreateTrustedDeviceBatchRequestDetailList) SetSerialNumber(v string) *CreateTrustedDeviceBatchRequestDetailList {
+	s.SerialNumber = &v
 	return s
 }
 
@@ -8841,6 +8856,10 @@ type GetPublicDevicesRequest struct {
 	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
 	// example:
 	//
+	// 11-22-33-44
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	// example:
+	//
 	// 1671767361000
 	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
 	// example:
@@ -8879,6 +8898,11 @@ func (s *GetPublicDevicesRequest) SetPageSize(v int32) *GetPublicDevicesRequest 
 
 func (s *GetPublicDevicesRequest) SetPlatform(v string) *GetPublicDevicesRequest {
 	s.Platform = &v
+	return s
+}
+
+func (s *GetPublicDevicesRequest) SetSerialNumber(v string) *GetPublicDevicesRequest {
+	s.SerialNumber = &v
 	return s
 }
 
@@ -8950,7 +8974,8 @@ type GetPublicDevicesResponseBodyData struct {
 	// example:
 	//
 	// Mac
-	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	Platform     *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
 	// example:
 	//
 	// 这是标题
@@ -9002,6 +9027,11 @@ func (s *GetPublicDevicesResponseBodyData) SetMacAddress(v string) *GetPublicDev
 
 func (s *GetPublicDevicesResponseBodyData) SetPlatform(v string) *GetPublicDevicesResponseBodyData {
 	s.Platform = &v
+	return s
+}
+
+func (s *GetPublicDevicesResponseBodyData) SetSerialNumber(v string) *GetPublicDevicesResponseBodyData {
+	s.SerialNumber = &v
 	return s
 }
 
@@ -10368,9 +10398,10 @@ type GetTrustDeviceListRequest struct {
 	// example:
 	//
 	// Android
-	Platform *string   `json:"platform,omitempty" xml:"platform,omitempty"`
-	Status   *int32    `json:"status,omitempty" xml:"status,omitempty"`
-	UserIds  []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	Platform     *string   `json:"platform,omitempty" xml:"platform,omitempty"`
+	SerialNumber *string   `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	Status       *int32    `json:"status,omitempty" xml:"status,omitempty"`
+	UserIds      []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s GetTrustDeviceListRequest) String() string {
@@ -10418,6 +10449,11 @@ func (s *GetTrustDeviceListRequest) SetPageSize(v int64) *GetTrustDeviceListRequ
 
 func (s *GetTrustDeviceListRequest) SetPlatform(v string) *GetTrustDeviceListRequest {
 	s.Platform = &v
+	return s
+}
+
+func (s *GetTrustDeviceListRequest) SetSerialNumber(v string) *GetTrustDeviceListRequest {
+	s.SerialNumber = &v
 	return s
 }
 
@@ -10482,12 +10518,16 @@ type GetTrustDeviceListResponseBodyData struct {
 	// example:
 	//
 	// Mac
-	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	Platform     *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
 	// example:
 	//
 	// 2
-	Status *int32  `json:"status,omitempty" xml:"status,omitempty"`
-	Title  *string `json:"title,omitempty" xml:"title,omitempty"`
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 设备标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -10531,6 +10571,11 @@ func (s *GetTrustDeviceListResponseBodyData) SetModifiedTime(v int64) *GetTrustD
 
 func (s *GetTrustDeviceListResponseBodyData) SetPlatform(v string) *GetTrustDeviceListResponseBodyData {
 	s.Platform = &v
+	return s
+}
+
+func (s *GetTrustDeviceListResponseBodyData) SetSerialNumber(v string) *GetTrustDeviceListResponseBodyData {
+	s.SerialNumber = &v
 	return s
 }
 
@@ -22374,6 +22419,10 @@ func (client *Client) CreateTrustedDeviceWithOptions(request *CreateTrustedDevic
 		body["platform"] = request.Platform
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.SerialNumber)) {
+		body["serialNumber"] = request.SerialNumber
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Status)) {
 		body["status"] = request.Status
 	}
@@ -26287,6 +26336,10 @@ func (client *Client) GetPublicDevicesWithOptions(request *GetPublicDevicesReque
 		query["platform"] = request.Platform
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.SerialNumber)) {
+		query["serialNumber"] = request.SerialNumber
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
 		query["startTime"] = request.StartTime
 	}
@@ -26904,6 +26957,10 @@ func (client *Client) GetTrustDeviceListWithOptions(request *GetTrustDeviceListR
 
 	if !tea.BoolValue(util.IsUnset(request.Platform)) {
 		body["platform"] = request.Platform
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SerialNumber)) {
+		body["serialNumber"] = request.SerialNumber
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Status)) {

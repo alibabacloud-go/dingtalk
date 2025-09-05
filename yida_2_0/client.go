@@ -4427,6 +4427,155 @@ func (s *UpdateFormDataResponse) SetStatusCode(v int32) *UpdateFormDataResponse 
 	return s
 }
 
+type UpdateSubTableHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateSubTableHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSubTableHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSubTableHeaders) SetCommonHeaders(v map[string]*string) *UpdateSubTableHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateSubTableHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateSubTableHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateSubTableRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FINST-J8766S91O2UYN87ZX3XOF1MY8MBA2912BSV0L24
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	Language       *string `json:"language,omitempty" xml:"language,omitempty"`
+	// example:
+	//
+	// true
+	NoExecuteExpression *bool `json:"noExecuteExpression,omitempty" xml:"noExecuteExpression,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	TableFieldIds *string `json:"tableFieldIds,omitempty" xml:"tableFieldIds,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {"countrySelectField_l0c1cwiu":[{"value":"US"}],"addressField_l0c1cwiy":{"address":"111","regionIds":[460000,469027,469023401],"regionText":[{"en_US":"hai+nan+sheng","zh_CN":"海南省"},{"en_US":"cheng+mai+xian","zh_CN":"澄迈县"},{"en_US":"guo+ying+hong+gang+nong+chang","zh_CN":"国营红岗农场"}]}}
+	UpdateFormDataJson *string `json:"updateFormDataJson,omitempty" xml:"updateFormDataJson,omitempty"`
+	UseAlias           *bool   `json:"useAlias,omitempty" xml:"useAlias,omitempty"`
+	// example:
+	//
+	// false
+	UseLatestFormSchemaVersion *bool `json:"useLatestFormSchemaVersion,omitempty" xml:"useLatestFormSchemaVersion,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateSubTableRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSubTableRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSubTableRequest) SetAppType(v string) *UpdateSubTableRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *UpdateSubTableRequest) SetFormInstanceId(v string) *UpdateSubTableRequest {
+	s.FormInstanceId = &v
+	return s
+}
+
+func (s *UpdateSubTableRequest) SetLanguage(v string) *UpdateSubTableRequest {
+	s.Language = &v
+	return s
+}
+
+func (s *UpdateSubTableRequest) SetNoExecuteExpression(v bool) *UpdateSubTableRequest {
+	s.NoExecuteExpression = &v
+	return s
+}
+
+func (s *UpdateSubTableRequest) SetSystemToken(v string) *UpdateSubTableRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *UpdateSubTableRequest) SetTableFieldIds(v string) *UpdateSubTableRequest {
+	s.TableFieldIds = &v
+	return s
+}
+
+func (s *UpdateSubTableRequest) SetUpdateFormDataJson(v string) *UpdateSubTableRequest {
+	s.UpdateFormDataJson = &v
+	return s
+}
+
+func (s *UpdateSubTableRequest) SetUseAlias(v bool) *UpdateSubTableRequest {
+	s.UseAlias = &v
+	return s
+}
+
+func (s *UpdateSubTableRequest) SetUseLatestFormSchemaVersion(v bool) *UpdateSubTableRequest {
+	s.UseLatestFormSchemaVersion = &v
+	return s
+}
+
+func (s *UpdateSubTableRequest) SetUserId(v string) *UpdateSubTableRequest {
+	s.UserId = &v
+	return s
+}
+
+type UpdateSubTableResponse struct {
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+}
+
+func (s UpdateSubTableResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSubTableResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSubTableResponse) SetHeaders(v map[string]*string) *UpdateSubTableResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateSubTableResponse) SetStatusCode(v int32) *UpdateSubTableResponse {
+	s.StatusCode = &v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -6345,6 +6494,115 @@ func (client *Client) UpdateFormData(request *UpdateFormDataRequest) (_result *U
 	headers := &UpdateFormDataHeaders{}
 	_result = &UpdateFormDataResponse{}
 	_body, _err := client.UpdateFormDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新宜搭子表单
+//
+// @param request - UpdateSubTableRequest
+//
+// @param headers - UpdateSubTableHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateSubTableResponse
+func (client *Client) UpdateSubTableWithOptions(request *UpdateSubTableRequest, headers *UpdateSubTableHeaders, runtime *util.RuntimeOptions) (_result *UpdateSubTableResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormInstanceId)) {
+		body["formInstanceId"] = request.FormInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Language)) {
+		body["language"] = request.Language
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NoExecuteExpression)) {
+		body["noExecuteExpression"] = request.NoExecuteExpression
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TableFieldIds)) {
+		body["tableFieldIds"] = request.TableFieldIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UpdateFormDataJson)) {
+		body["updateFormDataJson"] = request.UpdateFormDataJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UseAlias)) {
+		body["useAlias"] = request.UseAlias
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UseLatestFormSchemaVersion)) {
+		body["useLatestFormSchemaVersion"] = request.UseLatestFormSchemaVersion
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateSubTable"),
+		Version:     tea.String("yida_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/yida/forms/updateSubTable"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("none"),
+	}
+	_result = &UpdateSubTableResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新宜搭子表单
+//
+// @param request - UpdateSubTableRequest
+//
+// @return UpdateSubTableResponse
+func (client *Client) UpdateSubTable(request *UpdateSubTableRequest) (_result *UpdateSubTableResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateSubTableHeaders{}
+	_result = &UpdateSubTableResponse{}
+	_body, _err := client.UpdateSubTableWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

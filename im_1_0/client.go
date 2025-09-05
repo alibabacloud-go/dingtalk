@@ -7064,9 +7064,7 @@ func (s *LoginForVisitorRequest) SetCustomAccessToken(v string) *LoginForVisitor
 }
 
 type LoginForVisitorResponseBody struct {
-	// This parameter is required.
-	AimInfo *LoginForVisitorResponseBodyAimInfo `json:"aimInfo,omitempty" xml:"aimInfo,omitempty" type:"Struct"`
-	// This parameter is required.
+	AimInfo  *LoginForVisitorResponseBodyAimInfo  `json:"aimInfo,omitempty" xml:"aimInfo,omitempty" type:"Struct"`
 	AimToken *LoginForVisitorResponseBodyAimToken `json:"aimToken,omitempty" xml:"aimToken,omitempty" type:"Struct"`
 	// This parameter is required.
 	//
@@ -7186,20 +7184,8 @@ func (s *LoginForVisitorResponseBody) SetVisitorOpenConversationId(v string) *Lo
 }
 
 type LoginForVisitorResponseBodyAimInfo struct {
-	// This parameter is required.
-	//
-	// example:
-	//
-	// app_123456
-	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
-	// This parameter is required.
-	AppKey map[string]*string `json:"appKey,omitempty" xml:"appKey,omitempty"`
-	// This parameter is required.
-	//
-	// example:
-	//
-	// dingtalk_app
-	AppName *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	AppKey  map[string]interface{} `json:"appKey,omitempty" xml:"appKey,omitempty"`
+	AppName *string                `json:"appName,omitempty" xml:"appName,omitempty"`
 }
 
 func (s LoginForVisitorResponseBodyAimInfo) String() string {
@@ -7210,12 +7196,7 @@ func (s LoginForVisitorResponseBodyAimInfo) GoString() string {
 	return s.String()
 }
 
-func (s *LoginForVisitorResponseBodyAimInfo) SetAppId(v string) *LoginForVisitorResponseBodyAimInfo {
-	s.AppId = &v
-	return s
-}
-
-func (s *LoginForVisitorResponseBodyAimInfo) SetAppKey(v map[string]*string) *LoginForVisitorResponseBodyAimInfo {
+func (s *LoginForVisitorResponseBodyAimInfo) SetAppKey(v map[string]interface{}) *LoginForVisitorResponseBodyAimInfo {
 	s.AppKey = v
 	return s
 }
@@ -7226,30 +7207,10 @@ func (s *LoginForVisitorResponseBodyAimInfo) SetAppName(v string) *LoginForVisit
 }
 
 type LoginForVisitorResponseBodyAimToken struct {
-	// This parameter is required.
-	//
-	// example:
-	//
-	// abc123xyz
-	AccessToken *string `json:"accessToken,omitempty" xml:"accessToken,omitempty"`
-	// This parameter is required.
-	//
-	// example:
-	//
-	// 86400
-	AccessTokenExpiredTime *int64 `json:"accessTokenExpiredTime,omitempty" xml:"accessTokenExpiredTime,omitempty"`
-	// This parameter is required.
-	//
-	// example:
-	//
-	// 1717027200000
-	BuildTime *int64 `json:"buildTime,omitempty" xml:"buildTime,omitempty"`
-	// This parameter is required.
-	//
-	// example:
-	//
-	// refreshtoken_789
-	RefreshToken *string `json:"refreshToken,omitempty" xml:"refreshToken,omitempty"`
+	AccessToken            *string `json:"accessToken,omitempty" xml:"accessToken,omitempty"`
+	AccessTokenExpiredTime *int64  `json:"accessTokenExpiredTime,omitempty" xml:"accessTokenExpiredTime,omitempty"`
+	BuildTime              *int64  `json:"buildTime,omitempty" xml:"buildTime,omitempty"`
+	RefreshToken           *string `json:"refreshToken,omitempty" xml:"refreshToken,omitempty"`
 }
 
 func (s LoginForVisitorResponseBodyAimToken) String() string {

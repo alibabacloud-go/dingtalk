@@ -8261,6 +8261,263 @@ func (s *ListTeamMembersResponse) SetBody(v *ListTeamMembersResponseBody) *ListT
 	return s
 }
 
+type LockDocHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s LockDocHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LockDocHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *LockDocHeaders) SetCommonHeaders(v map[string]*string) *LockDocHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *LockDocHeaders) SetXAcsDingtalkAccessToken(v string) *LockDocHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type LockDocRequest struct {
+	// This parameter is required.
+	Param *LockDocRequestParam `json:"param,omitempty" xml:"param,omitempty" type:"Struct"`
+}
+
+func (s LockDocRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LockDocRequest) GoString() string {
+	return s.String()
+}
+
+func (s *LockDocRequest) SetParam(v *LockDocRequestParam) *LockDocRequest {
+	s.Param = v
+	return s
+}
+
+type LockDocRequestParam struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dentryUuid
+	DentryUuid *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// operatorUid
+	OperatorUid *string `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
+}
+
+func (s LockDocRequestParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LockDocRequestParam) GoString() string {
+	return s.String()
+}
+
+func (s *LockDocRequestParam) SetDentryUuid(v string) *LockDocRequestParam {
+	s.DentryUuid = &v
+	return s
+}
+
+func (s *LockDocRequestParam) SetName(v string) *LockDocRequestParam {
+	s.Name = &v
+	return s
+}
+
+func (s *LockDocRequestParam) SetOperatorUid(v string) *LockDocRequestParam {
+	s.OperatorUid = &v
+	return s
+}
+
+type LockDocResponseBody struct {
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s LockDocResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LockDocResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *LockDocResponseBody) SetSuccess(v bool) *LockDocResponseBody {
+	s.Success = &v
+	return s
+}
+
+type LockDocResponse struct {
+	Headers    map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *LockDocResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s LockDocResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LockDocResponse) GoString() string {
+	return s.String()
+}
+
+func (s *LockDocResponse) SetHeaders(v map[string]*string) *LockDocResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *LockDocResponse) SetStatusCode(v int32) *LockDocResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *LockDocResponse) SetBody(v *LockDocResponseBody) *LockDocResponse {
+	s.Body = v
+	return s
+}
+
+type LockDocByDelegatedPermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s LockDocByDelegatedPermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LockDocByDelegatedPermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *LockDocByDelegatedPermissionHeaders) SetCommonHeaders(v map[string]*string) *LockDocByDelegatedPermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *LockDocByDelegatedPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *LockDocByDelegatedPermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type LockDocByDelegatedPermissionRequest struct {
+	// This parameter is required.
+	Param *LockDocByDelegatedPermissionRequestParam `json:"param,omitempty" xml:"param,omitempty" type:"Struct"`
+}
+
+func (s LockDocByDelegatedPermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LockDocByDelegatedPermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *LockDocByDelegatedPermissionRequest) SetParam(v *LockDocByDelegatedPermissionRequestParam) *LockDocByDelegatedPermissionRequest {
+	s.Param = v
+	return s
+}
+
+type LockDocByDelegatedPermissionRequestParam struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dentryUuid
+	DentryUuid *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s LockDocByDelegatedPermissionRequestParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LockDocByDelegatedPermissionRequestParam) GoString() string {
+	return s.String()
+}
+
+func (s *LockDocByDelegatedPermissionRequestParam) SetDentryUuid(v string) *LockDocByDelegatedPermissionRequestParam {
+	s.DentryUuid = &v
+	return s
+}
+
+func (s *LockDocByDelegatedPermissionRequestParam) SetName(v string) *LockDocByDelegatedPermissionRequestParam {
+	s.Name = &v
+	return s
+}
+
+type LockDocByDelegatedPermissionResponseBody struct {
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s LockDocByDelegatedPermissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LockDocByDelegatedPermissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *LockDocByDelegatedPermissionResponseBody) SetSuccess(v bool) *LockDocByDelegatedPermissionResponseBody {
+	s.Success = &v
+	return s
+}
+
+type LockDocByDelegatedPermissionResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *LockDocByDelegatedPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s LockDocByDelegatedPermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s LockDocByDelegatedPermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *LockDocByDelegatedPermissionResponse) SetHeaders(v map[string]*string) *LockDocByDelegatedPermissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *LockDocByDelegatedPermissionResponse) SetStatusCode(v int32) *LockDocByDelegatedPermissionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *LockDocByDelegatedPermissionResponse) SetBody(v *LockDocByDelegatedPermissionResponseBody) *LockDocByDelegatedPermissionResponse {
+	s.Body = v
+	return s
+}
+
 type MarkStarHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10223,13 +10480,10 @@ func (s *SearchHeaders) SetXAcsDingtalkAccessToken(v string) *SearchHeaders {
 
 type SearchRequest struct {
 	DentryRequest *SearchRequestDentryRequest `json:"dentryRequest,omitempty" xml:"dentryRequest,omitempty" type:"Struct"`
-	// This parameter is required.
-	//
 	// example:
 	//
 	// 测试搜索关键词
-	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
-	// This parameter is required.
+	Keyword      *string                    `json:"keyword,omitempty" xml:"keyword,omitempty"`
 	OperatorId   *string                    `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 	SpaceRequest *SearchRequestSpaceRequest `json:"spaceRequest,omitempty" xml:"spaceRequest,omitempty" type:"Struct"`
 }
@@ -11745,6 +11999,241 @@ func (s *TemplateCategoriesResponse) SetStatusCode(v int32) *TemplateCategoriesR
 }
 
 func (s *TemplateCategoriesResponse) SetBody(v *TemplateCategoriesResponseBody) *TemplateCategoriesResponse {
+	s.Body = v
+	return s
+}
+
+type UnlockDocHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UnlockDocHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnlockDocHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UnlockDocHeaders) SetCommonHeaders(v map[string]*string) *UnlockDocHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UnlockDocHeaders) SetXAcsDingtalkAccessToken(v string) *UnlockDocHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UnlockDocRequest struct {
+	// This parameter is required.
+	Param *UnlockDocRequestParam `json:"param,omitempty" xml:"param,omitempty" type:"Struct"`
+}
+
+func (s UnlockDocRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnlockDocRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UnlockDocRequest) SetParam(v *UnlockDocRequestParam) *UnlockDocRequest {
+	s.Param = v
+	return s
+}
+
+type UnlockDocRequestParam struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dentryUuid
+	DentryUuid *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// operatorUid
+	OperatorUid *string `json:"operatorUid,omitempty" xml:"operatorUid,omitempty"`
+}
+
+func (s UnlockDocRequestParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnlockDocRequestParam) GoString() string {
+	return s.String()
+}
+
+func (s *UnlockDocRequestParam) SetDentryUuid(v string) *UnlockDocRequestParam {
+	s.DentryUuid = &v
+	return s
+}
+
+func (s *UnlockDocRequestParam) SetOperatorUid(v string) *UnlockDocRequestParam {
+	s.OperatorUid = &v
+	return s
+}
+
+type UnlockDocResponseBody struct {
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UnlockDocResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnlockDocResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UnlockDocResponseBody) SetSuccess(v bool) *UnlockDocResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UnlockDocResponse struct {
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UnlockDocResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UnlockDocResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnlockDocResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UnlockDocResponse) SetHeaders(v map[string]*string) *UnlockDocResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UnlockDocResponse) SetStatusCode(v int32) *UnlockDocResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UnlockDocResponse) SetBody(v *UnlockDocResponseBody) *UnlockDocResponse {
+	s.Body = v
+	return s
+}
+
+type UnlockDocByDelegatedPermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UnlockDocByDelegatedPermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnlockDocByDelegatedPermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UnlockDocByDelegatedPermissionHeaders) SetCommonHeaders(v map[string]*string) *UnlockDocByDelegatedPermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UnlockDocByDelegatedPermissionHeaders) SetXAcsDingtalkAccessToken(v string) *UnlockDocByDelegatedPermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UnlockDocByDelegatedPermissionRequest struct {
+	// This parameter is required.
+	Param *UnlockDocByDelegatedPermissionRequestParam `json:"param,omitempty" xml:"param,omitempty" type:"Struct"`
+}
+
+func (s UnlockDocByDelegatedPermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnlockDocByDelegatedPermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UnlockDocByDelegatedPermissionRequest) SetParam(v *UnlockDocByDelegatedPermissionRequestParam) *UnlockDocByDelegatedPermissionRequest {
+	s.Param = v
+	return s
+}
+
+type UnlockDocByDelegatedPermissionRequestParam struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dentryUuid
+	DentryUuid *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+}
+
+func (s UnlockDocByDelegatedPermissionRequestParam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnlockDocByDelegatedPermissionRequestParam) GoString() string {
+	return s.String()
+}
+
+func (s *UnlockDocByDelegatedPermissionRequestParam) SetDentryUuid(v string) *UnlockDocByDelegatedPermissionRequestParam {
+	s.DentryUuid = &v
+	return s
+}
+
+type UnlockDocByDelegatedPermissionResponseBody struct {
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UnlockDocByDelegatedPermissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnlockDocByDelegatedPermissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UnlockDocByDelegatedPermissionResponseBody) SetSuccess(v bool) *UnlockDocByDelegatedPermissionResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UnlockDocByDelegatedPermissionResponse struct {
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UnlockDocByDelegatedPermissionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UnlockDocByDelegatedPermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnlockDocByDelegatedPermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UnlockDocByDelegatedPermissionResponse) SetHeaders(v map[string]*string) *UnlockDocByDelegatedPermissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UnlockDocByDelegatedPermissionResponse) SetStatusCode(v int32) *UnlockDocByDelegatedPermissionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UnlockDocByDelegatedPermissionResponse) SetBody(v *UnlockDocByDelegatedPermissionResponseBody) *UnlockDocByDelegatedPermissionResponse {
 	s.Body = v
 	return s
 }
@@ -15726,6 +16215,152 @@ func (client *Client) ListTeamMembers(teamId *string, request *ListTeamMembersRe
 
 // Summary:
 //
+// 文档定稿
+//
+// @param request - LockDocRequest
+//
+// @param headers - LockDocHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return LockDocResponse
+func (client *Client) LockDocWithOptions(request *LockDocRequest, headers *LockDocHeaders, runtime *util.RuntimeOptions) (_result *LockDocResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		body["param"] = request.Param
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("LockDoc"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/dentries/lock"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &LockDocResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 文档定稿
+//
+// @param request - LockDocRequest
+//
+// @return LockDocResponse
+func (client *Client) LockDoc(request *LockDocRequest) (_result *LockDocResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &LockDocHeaders{}
+	_result = &LockDocResponse{}
+	_body, _err := client.LockDocWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过委托授权文档定稿
+//
+// @param request - LockDocByDelegatedPermissionRequest
+//
+// @param headers - LockDocByDelegatedPermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return LockDocByDelegatedPermissionResponse
+func (client *Client) LockDocByDelegatedPermissionWithOptions(request *LockDocByDelegatedPermissionRequest, headers *LockDocByDelegatedPermissionHeaders, runtime *util.RuntimeOptions) (_result *LockDocByDelegatedPermissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		body["param"] = request.Param
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("LockDocByDelegatedPermission"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/me/dentries/lock"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &LockDocByDelegatedPermissionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过委托授权文档定稿
+//
+// @param request - LockDocByDelegatedPermissionRequest
+//
+// @return LockDocByDelegatedPermissionResponse
+func (client *Client) LockDocByDelegatedPermission(request *LockDocByDelegatedPermissionRequest) (_result *LockDocByDelegatedPermissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &LockDocByDelegatedPermissionHeaders{}
+	_result = &LockDocByDelegatedPermissionResponse{}
+	_body, _err := client.LockDocByDelegatedPermissionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 标记星标
 //
 // @param request - MarkStarRequest
@@ -17293,6 +17928,152 @@ func (client *Client) TemplateCategories(request *TemplateCategoriesRequest) (_r
 	headers := &TemplateCategoriesHeaders{}
 	_result = &TemplateCategoriesResponse{}
 	_body, _err := client.TemplateCategoriesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 取消文档定稿
+//
+// @param request - UnlockDocRequest
+//
+// @param headers - UnlockDocHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UnlockDocResponse
+func (client *Client) UnlockDocWithOptions(request *UnlockDocRequest, headers *UnlockDocHeaders, runtime *util.RuntimeOptions) (_result *UnlockDocResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		body["param"] = request.Param
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UnlockDoc"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/dentries/unlock"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UnlockDocResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 取消文档定稿
+//
+// @param request - UnlockDocRequest
+//
+// @return UnlockDocResponse
+func (client *Client) UnlockDoc(request *UnlockDocRequest) (_result *UnlockDocResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UnlockDocHeaders{}
+	_result = &UnlockDocResponse{}
+	_body, _err := client.UnlockDocWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过委托授权取消文档定稿
+//
+// @param request - UnlockDocByDelegatedPermissionRequest
+//
+// @param headers - UnlockDocByDelegatedPermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UnlockDocByDelegatedPermissionResponse
+func (client *Client) UnlockDocByDelegatedPermissionWithOptions(request *UnlockDocByDelegatedPermissionRequest, headers *UnlockDocByDelegatedPermissionHeaders, runtime *util.RuntimeOptions) (_result *UnlockDocByDelegatedPermissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Param)) {
+		body["param"] = request.Param
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UnlockDocByDelegatedPermission"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/me/dentries/unlock"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UnlockDocByDelegatedPermissionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过委托授权取消文档定稿
+//
+// @param request - UnlockDocByDelegatedPermissionRequest
+//
+// @return UnlockDocByDelegatedPermissionResponse
+func (client *Client) UnlockDocByDelegatedPermission(request *UnlockDocByDelegatedPermissionRequest) (_result *UnlockDocByDelegatedPermissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UnlockDocByDelegatedPermissionHeaders{}
+	_result = &UnlockDocByDelegatedPermissionResponse{}
+	_body, _err := client.UnlockDocByDelegatedPermissionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

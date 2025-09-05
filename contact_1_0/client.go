@@ -7456,6 +7456,132 @@ func (s *OrgAccountMobileVisiblePermissonResponse) SetBody(v *OrgAccountMobileVi
 	return s
 }
 
+type OrgInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s OrgInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *OrgInfoHeaders) SetCommonHeaders(v map[string]*string) *OrgInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *OrgInfoHeaders) SetXAcsDingtalkAccessToken(v string) *OrgInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type OrgInfoRequest struct {
+	OrgIds []*int64 `json:"orgIds,omitempty" xml:"orgIds,omitempty" type:"Repeated"`
+}
+
+func (s OrgInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *OrgInfoRequest) SetOrgIds(v []*int64) *OrgInfoRequest {
+	s.OrgIds = v
+	return s
+}
+
+type OrgInfoShrinkRequest struct {
+	OrgIdsShrink *string `json:"orgIds,omitempty" xml:"orgIds,omitempty"`
+}
+
+func (s OrgInfoShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgInfoShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *OrgInfoShrinkRequest) SetOrgIdsShrink(v string) *OrgInfoShrinkRequest {
+	s.OrgIdsShrink = &v
+	return s
+}
+
+type OrgInfoResponseBody struct {
+	Result []*OrgInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s OrgInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *OrgInfoResponseBody) SetResult(v []*OrgInfoResponseBodyResult) *OrgInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+type OrgInfoResponseBodyResult struct {
+	Id   *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s OrgInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *OrgInfoResponseBodyResult) SetId(v int64) *OrgInfoResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *OrgInfoResponseBodyResult) SetName(v string) *OrgInfoResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+type OrgInfoResponse struct {
+	Headers    map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *OrgInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s OrgInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *OrgInfoResponse) SetHeaders(v map[string]*string) *OrgInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *OrgInfoResponse) SetStatusCode(v int32) *OrgInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *OrgInfoResponse) SetBody(v *OrgInfoResponseBody) *OrgInfoResponse {
+	s.Body = v
+	return s
+}
+
 type PushVerifyEventHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11392,6 +11518,144 @@ func (s *UpdateUserOwnnessResponse) SetStatusCode(v int32) *UpdateUserOwnnessRes
 }
 
 func (s *UpdateUserOwnnessResponse) SetBody(v *UpdateUserOwnnessResponseBody) *UpdateUserOwnnessResponse {
+	s.Body = v
+	return s
+}
+
+type UserProfileHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UserProfileHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserProfileHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UserProfileHeaders) SetCommonHeaders(v map[string]*string) *UserProfileHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UserProfileHeaders) SetXAcsDingtalkAccessToken(v string) *UserProfileHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UserProfileRequest struct {
+	Uids []*int64 `json:"uids,omitempty" xml:"uids,omitempty" type:"Repeated"`
+}
+
+func (s UserProfileRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserProfileRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UserProfileRequest) SetUids(v []*int64) *UserProfileRequest {
+	s.Uids = v
+	return s
+}
+
+type UserProfileShrinkRequest struct {
+	UidsShrink *string `json:"uids,omitempty" xml:"uids,omitempty"`
+}
+
+func (s UserProfileShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserProfileShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UserProfileShrinkRequest) SetUidsShrink(v string) *UserProfileShrinkRequest {
+	s.UidsShrink = &v
+	return s
+}
+
+type UserProfileResponseBody struct {
+	Result []*UserProfileResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s UserProfileResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserProfileResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UserProfileResponseBody) SetResult(v []*UserProfileResponseBodyResult) *UserProfileResponseBody {
+	s.Result = v
+	return s
+}
+
+type UserProfileResponseBodyResult struct {
+	Mobile    *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	Nick      *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	OrgIds    *string `json:"orgIds,omitempty" xml:"orgIds,omitempty"`
+	StateCode *string `json:"stateCode,omitempty" xml:"stateCode,omitempty"`
+}
+
+func (s UserProfileResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserProfileResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UserProfileResponseBodyResult) SetMobile(v string) *UserProfileResponseBodyResult {
+	s.Mobile = &v
+	return s
+}
+
+func (s *UserProfileResponseBodyResult) SetNick(v string) *UserProfileResponseBodyResult {
+	s.Nick = &v
+	return s
+}
+
+func (s *UserProfileResponseBodyResult) SetOrgIds(v string) *UserProfileResponseBodyResult {
+	s.OrgIds = &v
+	return s
+}
+
+func (s *UserProfileResponseBodyResult) SetStateCode(v string) *UserProfileResponseBodyResult {
+	s.StateCode = &v
+	return s
+}
+
+type UserProfileResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UserProfileResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UserProfileResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserProfileResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UserProfileResponse) SetHeaders(v map[string]*string) *UserProfileResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UserProfileResponse) SetStatusCode(v int32) *UserProfileResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UserProfileResponse) SetBody(v *UserProfileResponseBody) *UserProfileResponse {
 	s.Body = v
 	return s
 }
@@ -15553,6 +15817,85 @@ func (client *Client) OrgAccountMobileVisiblePermisson(request *OrgAccountMobile
 
 // Summary:
 //
+// 根据orgId获取企业信息
+//
+// @param tmpReq - OrgInfoRequest
+//
+// @param headers - OrgInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return OrgInfoResponse
+func (client *Client) OrgInfoWithOptions(tmpReq *OrgInfoRequest, headers *OrgInfoHeaders, runtime *util.RuntimeOptions) (_result *OrgInfoResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &OrgInfoShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.OrgIds)) {
+		request.OrgIdsShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.OrgIds, tea.String("orgIds"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OrgIdsShrink)) {
+		query["orgIds"] = request.OrgIdsShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("OrgInfo"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/org/info"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &OrgInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据orgId获取企业信息
+//
+// @param request - OrgInfoRequest
+//
+// @return OrgInfoResponse
+func (client *Client) OrgInfo(request *OrgInfoRequest) (_result *OrgInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &OrgInfoHeaders{}
+	_result = &OrgInfoResponse{}
+	_body, _err := client.OrgInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 给员工推送事件唤起核身组件
 //
 // @param request - PushVerifyEventRequest
@@ -18104,6 +18447,85 @@ func (client *Client) UpdateUserOwnness(userId *string, request *UpdateUserOwnne
 	headers := &UpdateUserOwnnessHeaders{}
 	_result = &UpdateUserOwnnessResponse{}
 	_body, _err := client.UpdateUserOwnnessWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 用户个人信息接口
+//
+// @param tmpReq - UserProfileRequest
+//
+// @param headers - UserProfileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UserProfileResponse
+func (client *Client) UserProfileWithOptions(tmpReq *UserProfileRequest, headers *UserProfileHeaders, runtime *util.RuntimeOptions) (_result *UserProfileResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &UserProfileShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.Uids)) {
+		request.UidsShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.Uids, tea.String("uids"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UidsShrink)) {
+		query["uids"] = request.UidsShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UserProfile"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/user/profile"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UserProfileResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 用户个人信息接口
+//
+// @param request - UserProfileRequest
+//
+// @return UserProfileResponse
+func (client *Client) UserProfile(request *UserProfileRequest) (_result *UserProfileResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UserProfileHeaders{}
+	_result = &UserProfileResponse{}
+	_body, _err := client.UserProfileWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

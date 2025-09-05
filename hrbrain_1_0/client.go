@@ -1868,11 +1868,8 @@ func (s *HrbrainDeleteTrainingRequest) SetParams(v []*HrbrainDeleteTrainingReque
 }
 
 type HrbrainDeleteTrainingRequestParams struct {
-	// This parameter is required.
-	TrainEndDate *string `json:"trainEndDate,omitempty" xml:"trainEndDate,omitempty"`
-	// This parameter is required.
-	TrainName *string `json:"trainName,omitempty" xml:"trainName,omitempty"`
-	// This parameter is required.
+	TrainEndDate   *string `json:"trainEndDate,omitempty" xml:"trainEndDate,omitempty"`
+	TrainName      *string `json:"trainName,omitempty" xml:"trainName,omitempty"`
 	TrainStartDate *string `json:"trainStartDate,omitempty" xml:"trainStartDate,omitempty"`
 	// This parameter is required.
 	WorkNo *string `json:"workNo,omitempty" xml:"workNo,omitempty"`

@@ -579,8 +579,16 @@ type CreateLiveRequest struct {
 	CoverUrl *string `json:"coverUrl,omitempty" xml:"coverUrl,omitempty"`
 	// example:
 	//
+	// true
+	EnableLinkMic *bool `json:"enableLinkMic,omitempty" xml:"enableLinkMic,omitempty"`
+	// example:
+	//
 	// 测试直播简介
 	Introduction *string `json:"introduction,omitempty" xml:"introduction,omitempty"`
+	// example:
+	//
+	// true
+	IsLandscape *bool `json:"isLandscape,omitempty" xml:"isLandscape,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -624,8 +632,18 @@ func (s *CreateLiveRequest) SetCoverUrl(v string) *CreateLiveRequest {
 	return s
 }
 
+func (s *CreateLiveRequest) SetEnableLinkMic(v bool) *CreateLiveRequest {
+	s.EnableLinkMic = &v
+	return s
+}
+
 func (s *CreateLiveRequest) SetIntroduction(v string) *CreateLiveRequest {
 	s.Introduction = &v
+	return s
+}
+
+func (s *CreateLiveRequest) SetIsLandscape(v bool) *CreateLiveRequest {
+	s.IsLandscape = &v
 	return s
 }
 
@@ -5651,8 +5669,16 @@ func (client *Client) CreateLiveWithOptions(request *CreateLiveRequest, headers 
 		body["coverUrl"] = request.CoverUrl
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.EnableLinkMic)) {
+		body["enableLinkMic"] = request.EnableLinkMic
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Introduction)) {
 		body["introduction"] = request.Introduction
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsLandscape)) {
+		body["isLandscape"] = request.IsLandscape
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.PreEndTime)) {

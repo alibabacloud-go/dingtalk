@@ -4656,7 +4656,9 @@ func (s *GetMultiCompanyInfoByCodeHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type GetMultiCompanyInfoByCodeResponseBody struct {
-	AdvancedSettingList []*GetMultiCompanyInfoByCodeResponseBodyAdvancedSettingList `json:"advancedSettingList,omitempty" xml:"advancedSettingList,omitempty" type:"Repeated"`
+	AccountantEnableDate *string                                                     `json:"accountantEnableDate,omitempty" xml:"accountantEnableDate,omitempty"`
+	AccountingStandard   *string                                                     `json:"accountingStandard,omitempty" xml:"accountingStandard,omitempty"`
+	AdvancedSettingList  []*GetMultiCompanyInfoByCodeResponseBodyAdvancedSettingList `json:"advancedSettingList,omitempty" xml:"advancedSettingList,omitempty" type:"Repeated"`
 	// example:
 	//
 	// COM_DEFAULT
@@ -4689,6 +4691,16 @@ func (s GetMultiCompanyInfoByCodeResponseBody) String() string {
 
 func (s GetMultiCompanyInfoByCodeResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *GetMultiCompanyInfoByCodeResponseBody) SetAccountantEnableDate(v string) *GetMultiCompanyInfoByCodeResponseBody {
+	s.AccountantEnableDate = &v
+	return s
+}
+
+func (s *GetMultiCompanyInfoByCodeResponseBody) SetAccountingStandard(v string) *GetMultiCompanyInfoByCodeResponseBody {
+	s.AccountingStandard = &v
+	return s
 }
 
 func (s *GetMultiCompanyInfoByCodeResponseBody) SetAdvancedSettingList(v []*GetMultiCompanyInfoByCodeResponseBodyAdvancedSettingList) *GetMultiCompanyInfoByCodeResponseBody {
@@ -7203,8 +7215,10 @@ func (s *QueryMultiCompanyInfoResponseBody) SetList(v []*QueryMultiCompanyInfoRe
 }
 
 type QueryMultiCompanyInfoResponseBodyList struct {
-	AccountantBookId    *string                                                     `json:"accountantBookId,omitempty" xml:"accountantBookId,omitempty"`
-	AdvancedSettingList []*QueryMultiCompanyInfoResponseBodyListAdvancedSettingList `json:"advancedSettingList,omitempty" xml:"advancedSettingList,omitempty" type:"Repeated"`
+	AccountantBookId     *string                                                     `json:"accountantBookId,omitempty" xml:"accountantBookId,omitempty"`
+	AccountantEnableDate *string                                                     `json:"accountantEnableDate,omitempty" xml:"accountantEnableDate,omitempty"`
+	AccountingStandard   *string                                                     `json:"accountingStandard,omitempty" xml:"accountingStandard,omitempty"`
+	AdvancedSettingList  []*QueryMultiCompanyInfoResponseBodyListAdvancedSettingList `json:"advancedSettingList,omitempty" xml:"advancedSettingList,omitempty" type:"Repeated"`
 	// example:
 	//
 	// COM_DEFAULT
@@ -7245,6 +7259,16 @@ func (s QueryMultiCompanyInfoResponseBodyList) GoString() string {
 
 func (s *QueryMultiCompanyInfoResponseBodyList) SetAccountantBookId(v string) *QueryMultiCompanyInfoResponseBodyList {
 	s.AccountantBookId = &v
+	return s
+}
+
+func (s *QueryMultiCompanyInfoResponseBodyList) SetAccountantEnableDate(v string) *QueryMultiCompanyInfoResponseBodyList {
+	s.AccountantEnableDate = &v
+	return s
+}
+
+func (s *QueryMultiCompanyInfoResponseBodyList) SetAccountingStandard(v string) *QueryMultiCompanyInfoResponseBodyList {
+	s.AccountingStandard = &v
 	return s
 }
 

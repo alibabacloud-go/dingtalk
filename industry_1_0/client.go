@@ -9,6 +9,666 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AiRetailProductAddHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AiRetailProductAddHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductAddHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductAddHeaders) SetCommonHeaders(v map[string]*string) *AiRetailProductAddHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AiRetailProductAddHeaders) SetXAcsDingtalkAccessToken(v string) *AiRetailProductAddHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AiRetailProductAddRequest struct {
+	Attribute    map[string]*string `json:"attribute,omitempty" xml:"attribute,omitempty"`
+	Barcodes     []*string          `json:"barcodes,omitempty" xml:"barcodes,omitempty" type:"Repeated"`
+	Brand        *string            `json:"brand,omitempty" xml:"brand,omitempty"`
+	Category     *string            `json:"category,omitempty" xml:"category,omitempty"`
+	ImageFileIds []*string          `json:"imageFileIds,omitempty" xml:"imageFileIds,omitempty" type:"Repeated"`
+	ItemNumbers  []*string          `json:"itemNumbers,omitempty" xml:"itemNumbers,omitempty" type:"Repeated"`
+	Price        *float32           `json:"price,omitempty" xml:"price,omitempty"`
+	// This parameter is required.
+	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	// example:
+	//
+	// 办公室的电话是：13222333232
+	ProductFab *string `json:"productFab,omitempty" xml:"productFab,omitempty"`
+	// example:
+	//
+	// https://xxxxxxx.com/xxxxxx
+	ProductInfo *string `json:"productInfo,omitempty" xml:"productInfo,omitempty"`
+	// example:
+	//
+	// 办公室的电话是多少
+	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+}
+
+func (s AiRetailProductAddRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductAddRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductAddRequest) SetAttribute(v map[string]*string) *AiRetailProductAddRequest {
+	s.Attribute = v
+	return s
+}
+
+func (s *AiRetailProductAddRequest) SetBarcodes(v []*string) *AiRetailProductAddRequest {
+	s.Barcodes = v
+	return s
+}
+
+func (s *AiRetailProductAddRequest) SetBrand(v string) *AiRetailProductAddRequest {
+	s.Brand = &v
+	return s
+}
+
+func (s *AiRetailProductAddRequest) SetCategory(v string) *AiRetailProductAddRequest {
+	s.Category = &v
+	return s
+}
+
+func (s *AiRetailProductAddRequest) SetImageFileIds(v []*string) *AiRetailProductAddRequest {
+	s.ImageFileIds = v
+	return s
+}
+
+func (s *AiRetailProductAddRequest) SetItemNumbers(v []*string) *AiRetailProductAddRequest {
+	s.ItemNumbers = v
+	return s
+}
+
+func (s *AiRetailProductAddRequest) SetPrice(v float32) *AiRetailProductAddRequest {
+	s.Price = &v
+	return s
+}
+
+func (s *AiRetailProductAddRequest) SetProductCode(v string) *AiRetailProductAddRequest {
+	s.ProductCode = &v
+	return s
+}
+
+func (s *AiRetailProductAddRequest) SetProductFab(v string) *AiRetailProductAddRequest {
+	s.ProductFab = &v
+	return s
+}
+
+func (s *AiRetailProductAddRequest) SetProductInfo(v string) *AiRetailProductAddRequest {
+	s.ProductInfo = &v
+	return s
+}
+
+func (s *AiRetailProductAddRequest) SetProductName(v string) *AiRetailProductAddRequest {
+	s.ProductName = &v
+	return s
+}
+
+type AiRetailProductAddResponseBody struct {
+	ProductId *int64 `json:"productId,omitempty" xml:"productId,omitempty"`
+}
+
+func (s AiRetailProductAddResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductAddResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductAddResponseBody) SetProductId(v int64) *AiRetailProductAddResponseBody {
+	s.ProductId = &v
+	return s
+}
+
+type AiRetailProductAddResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AiRetailProductAddResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AiRetailProductAddResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductAddResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductAddResponse) SetHeaders(v map[string]*string) *AiRetailProductAddResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AiRetailProductAddResponse) SetStatusCode(v int32) *AiRetailProductAddResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AiRetailProductAddResponse) SetBody(v *AiRetailProductAddResponseBody) *AiRetailProductAddResponse {
+	s.Body = v
+	return s
+}
+
+type AiRetailProductDeleteHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AiRetailProductDeleteHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductDeleteHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductDeleteHeaders) SetCommonHeaders(v map[string]*string) *AiRetailProductDeleteHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AiRetailProductDeleteHeaders) SetXAcsDingtalkAccessToken(v string) *AiRetailProductDeleteHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AiRetailProductDeleteRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 111111
+	ProductId *int64 `json:"productId,omitempty" xml:"productId,omitempty"`
+}
+
+func (s AiRetailProductDeleteRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductDeleteRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductDeleteRequest) SetProductId(v int64) *AiRetailProductDeleteRequest {
+	s.ProductId = &v
+	return s
+}
+
+type AiRetailProductDeleteResponse struct {
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *bool              `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AiRetailProductDeleteResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductDeleteResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductDeleteResponse) SetHeaders(v map[string]*string) *AiRetailProductDeleteResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AiRetailProductDeleteResponse) SetStatusCode(v int32) *AiRetailProductDeleteResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AiRetailProductDeleteResponse) SetBody(v bool) *AiRetailProductDeleteResponse {
+	s.Body = &v
+	return s
+}
+
+type AiRetailProductImgUploadHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AiRetailProductImgUploadHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductImgUploadHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductImgUploadHeaders) SetCommonHeaders(v map[string]*string) *AiRetailProductImgUploadHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AiRetailProductImgUploadHeaders) SetXAcsDingtalkAccessToken(v string) *AiRetailProductImgUploadHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AiRetailProductImgUploadRequest struct {
+	// This parameter is required.
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+}
+
+func (s AiRetailProductImgUploadRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductImgUploadRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductImgUploadRequest) SetBizCode(v string) *AiRetailProductImgUploadRequest {
+	s.BizCode = &v
+	return s
+}
+
+type AiRetailProductImgUploadResponseBody struct {
+	Result *AiRetailProductImgUploadResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s AiRetailProductImgUploadResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductImgUploadResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductImgUploadResponseBody) SetResult(v *AiRetailProductImgUploadResponseBodyResult) *AiRetailProductImgUploadResponseBody {
+	s.Result = v
+	return s
+}
+
+type AiRetailProductImgUploadResponseBodyResult struct {
+	OssFileId    *string `json:"ossFileId,omitempty" xml:"ossFileId,omitempty"`
+	OssUploadUrl *string `json:"ossUploadUrl,omitempty" xml:"ossUploadUrl,omitempty"`
+}
+
+func (s AiRetailProductImgUploadResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductImgUploadResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductImgUploadResponseBodyResult) SetOssFileId(v string) *AiRetailProductImgUploadResponseBodyResult {
+	s.OssFileId = &v
+	return s
+}
+
+func (s *AiRetailProductImgUploadResponseBodyResult) SetOssUploadUrl(v string) *AiRetailProductImgUploadResponseBodyResult {
+	s.OssUploadUrl = &v
+	return s
+}
+
+type AiRetailProductImgUploadResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AiRetailProductImgUploadResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AiRetailProductImgUploadResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductImgUploadResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductImgUploadResponse) SetHeaders(v map[string]*string) *AiRetailProductImgUploadResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AiRetailProductImgUploadResponse) SetStatusCode(v int32) *AiRetailProductImgUploadResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AiRetailProductImgUploadResponse) SetBody(v *AiRetailProductImgUploadResponseBody) *AiRetailProductImgUploadResponse {
+	s.Body = v
+	return s
+}
+
+type AiRetailProductQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AiRetailProductQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductQueryHeaders) SetCommonHeaders(v map[string]*string) *AiRetailProductQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AiRetailProductQueryHeaders) SetXAcsDingtalkAccessToken(v string) *AiRetailProductQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AiRetailProductQueryRequest struct {
+	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	ProductId   *int64  `json:"productId,omitempty" xml:"productId,omitempty"`
+}
+
+func (s AiRetailProductQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductQueryRequest) SetProductCode(v string) *AiRetailProductQueryRequest {
+	s.ProductCode = &v
+	return s
+}
+
+func (s *AiRetailProductQueryRequest) SetProductId(v int64) *AiRetailProductQueryRequest {
+	s.ProductId = &v
+	return s
+}
+
+type AiRetailProductQueryResponseBody struct {
+	Data []*AiRetailProductQueryResponseBodyData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s AiRetailProductQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductQueryResponseBody) SetData(v []*AiRetailProductQueryResponseBodyData) *AiRetailProductQueryResponseBody {
+	s.Data = v
+	return s
+}
+
+type AiRetailProductQueryResponseBodyData struct {
+	Attribute    *string  `json:"attribute,omitempty" xml:"attribute,omitempty"`
+	Barcodes     *string  `json:"barcodes,omitempty" xml:"barcodes,omitempty"`
+	Brand        *string  `json:"brand,omitempty" xml:"brand,omitempty"`
+	Category     *string  `json:"category,omitempty" xml:"category,omitempty"`
+	ImageFileIds *string  `json:"imageFileIds,omitempty" xml:"imageFileIds,omitempty"`
+	ItemNumbers  *string  `json:"itemNumbers,omitempty" xml:"itemNumbers,omitempty"`
+	Price        *float32 `json:"price,omitempty" xml:"price,omitempty"`
+	ProductCode  *string  `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	ProductFab   *string  `json:"productFab,omitempty" xml:"productFab,omitempty"`
+	ProductId    *int64   `json:"productId,omitempty" xml:"productId,omitempty"`
+	ProductInfo  *string  `json:"productInfo,omitempty" xml:"productInfo,omitempty"`
+	ProductName  *string  `json:"productName,omitempty" xml:"productName,omitempty"`
+}
+
+func (s AiRetailProductQueryResponseBodyData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductQueryResponseBodyData) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductQueryResponseBodyData) SetAttribute(v string) *AiRetailProductQueryResponseBodyData {
+	s.Attribute = &v
+	return s
+}
+
+func (s *AiRetailProductQueryResponseBodyData) SetBarcodes(v string) *AiRetailProductQueryResponseBodyData {
+	s.Barcodes = &v
+	return s
+}
+
+func (s *AiRetailProductQueryResponseBodyData) SetBrand(v string) *AiRetailProductQueryResponseBodyData {
+	s.Brand = &v
+	return s
+}
+
+func (s *AiRetailProductQueryResponseBodyData) SetCategory(v string) *AiRetailProductQueryResponseBodyData {
+	s.Category = &v
+	return s
+}
+
+func (s *AiRetailProductQueryResponseBodyData) SetImageFileIds(v string) *AiRetailProductQueryResponseBodyData {
+	s.ImageFileIds = &v
+	return s
+}
+
+func (s *AiRetailProductQueryResponseBodyData) SetItemNumbers(v string) *AiRetailProductQueryResponseBodyData {
+	s.ItemNumbers = &v
+	return s
+}
+
+func (s *AiRetailProductQueryResponseBodyData) SetPrice(v float32) *AiRetailProductQueryResponseBodyData {
+	s.Price = &v
+	return s
+}
+
+func (s *AiRetailProductQueryResponseBodyData) SetProductCode(v string) *AiRetailProductQueryResponseBodyData {
+	s.ProductCode = &v
+	return s
+}
+
+func (s *AiRetailProductQueryResponseBodyData) SetProductFab(v string) *AiRetailProductQueryResponseBodyData {
+	s.ProductFab = &v
+	return s
+}
+
+func (s *AiRetailProductQueryResponseBodyData) SetProductId(v int64) *AiRetailProductQueryResponseBodyData {
+	s.ProductId = &v
+	return s
+}
+
+func (s *AiRetailProductQueryResponseBodyData) SetProductInfo(v string) *AiRetailProductQueryResponseBodyData {
+	s.ProductInfo = &v
+	return s
+}
+
+func (s *AiRetailProductQueryResponseBodyData) SetProductName(v string) *AiRetailProductQueryResponseBodyData {
+	s.ProductName = &v
+	return s
+}
+
+type AiRetailProductQueryResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AiRetailProductQueryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AiRetailProductQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductQueryResponse) SetHeaders(v map[string]*string) *AiRetailProductQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AiRetailProductQueryResponse) SetStatusCode(v int32) *AiRetailProductQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AiRetailProductQueryResponse) SetBody(v *AiRetailProductQueryResponseBody) *AiRetailProductQueryResponse {
+	s.Body = v
+	return s
+}
+
+type AiRetailProductUpdateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AiRetailProductUpdateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductUpdateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductUpdateHeaders) SetCommonHeaders(v map[string]*string) *AiRetailProductUpdateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AiRetailProductUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *AiRetailProductUpdateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AiRetailProductUpdateRequest struct {
+	Attribute    map[string]*string `json:"attribute,omitempty" xml:"attribute,omitempty"`
+	Barcodes     []*string          `json:"barcodes,omitempty" xml:"barcodes,omitempty" type:"Repeated"`
+	Brand        *string            `json:"brand,omitempty" xml:"brand,omitempty"`
+	Category     *string            `json:"category,omitempty" xml:"category,omitempty"`
+	ImageFileIds []*string          `json:"imageFileIds,omitempty" xml:"imageFileIds,omitempty" type:"Repeated"`
+	ItemNumbers  []*string          `json:"itemNumbers,omitempty" xml:"itemNumbers,omitempty" type:"Repeated"`
+	Price        *float32           `json:"price,omitempty" xml:"price,omitempty"`
+	ProductCode  *string            `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	// example:
+	//
+	// 办公室的电话是：13222333232
+	ProductFab *string `json:"productFab,omitempty" xml:"productFab,omitempty"`
+	// This parameter is required.
+	ProductId *int64 `json:"productId,omitempty" xml:"productId,omitempty"`
+	// example:
+	//
+	// https://xxxxxxx.com/xxxxxx
+	ProductInfo *string `json:"productInfo,omitempty" xml:"productInfo,omitempty"`
+	// example:
+	//
+	// 办公室的电话是多少
+	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+}
+
+func (s AiRetailProductUpdateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductUpdateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductUpdateRequest) SetAttribute(v map[string]*string) *AiRetailProductUpdateRequest {
+	s.Attribute = v
+	return s
+}
+
+func (s *AiRetailProductUpdateRequest) SetBarcodes(v []*string) *AiRetailProductUpdateRequest {
+	s.Barcodes = v
+	return s
+}
+
+func (s *AiRetailProductUpdateRequest) SetBrand(v string) *AiRetailProductUpdateRequest {
+	s.Brand = &v
+	return s
+}
+
+func (s *AiRetailProductUpdateRequest) SetCategory(v string) *AiRetailProductUpdateRequest {
+	s.Category = &v
+	return s
+}
+
+func (s *AiRetailProductUpdateRequest) SetImageFileIds(v []*string) *AiRetailProductUpdateRequest {
+	s.ImageFileIds = v
+	return s
+}
+
+func (s *AiRetailProductUpdateRequest) SetItemNumbers(v []*string) *AiRetailProductUpdateRequest {
+	s.ItemNumbers = v
+	return s
+}
+
+func (s *AiRetailProductUpdateRequest) SetPrice(v float32) *AiRetailProductUpdateRequest {
+	s.Price = &v
+	return s
+}
+
+func (s *AiRetailProductUpdateRequest) SetProductCode(v string) *AiRetailProductUpdateRequest {
+	s.ProductCode = &v
+	return s
+}
+
+func (s *AiRetailProductUpdateRequest) SetProductFab(v string) *AiRetailProductUpdateRequest {
+	s.ProductFab = &v
+	return s
+}
+
+func (s *AiRetailProductUpdateRequest) SetProductId(v int64) *AiRetailProductUpdateRequest {
+	s.ProductId = &v
+	return s
+}
+
+func (s *AiRetailProductUpdateRequest) SetProductInfo(v string) *AiRetailProductUpdateRequest {
+	s.ProductInfo = &v
+	return s
+}
+
+func (s *AiRetailProductUpdateRequest) SetProductName(v string) *AiRetailProductUpdateRequest {
+	s.ProductName = &v
+	return s
+}
+
+type AiRetailProductUpdateResponse struct {
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *bool              `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AiRetailProductUpdateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiRetailProductUpdateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AiRetailProductUpdateResponse) SetHeaders(v map[string]*string) *AiRetailProductUpdateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AiRetailProductUpdateResponse) SetStatusCode(v int32) *AiRetailProductUpdateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AiRetailProductUpdateResponse) SetBody(v bool) *AiRetailProductUpdateResponse {
+	s.Body = &v
+	return s
+}
+
 type BatchGetTaskResultHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -14426,6 +15086,7 @@ func (s *GetTaskPackageResultResponseBody) SetTasks(v []*GetTaskPackageResultRes
 }
 
 type GetTaskPackageResultResponseBodyTasks struct {
+	ReportLink *string                                      `json:"reportLink,omitempty" xml:"reportLink,omitempty"`
 	Result     *GetTaskPackageResultResponseBodyTasksResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
 	Status     *string                                      `json:"status,omitempty" xml:"status,omitempty"`
 	StatusInfo *string                                      `json:"statusInfo,omitempty" xml:"statusInfo,omitempty"`
@@ -14438,6 +15099,11 @@ func (s GetTaskPackageResultResponseBodyTasks) String() string {
 
 func (s GetTaskPackageResultResponseBodyTasks) GoString() string {
 	return s.String()
+}
+
+func (s *GetTaskPackageResultResponseBodyTasks) SetReportLink(v string) *GetTaskPackageResultResponseBodyTasks {
+	s.ReportLink = &v
+	return s
 }
 
 func (s *GetTaskPackageResultResponseBodyTasks) SetResult(v *GetTaskPackageResultResponseBodyTasksResult) *GetTaskPackageResultResponseBodyTasks {
@@ -14469,6 +15135,7 @@ type GetTaskPackageResultResponseBodyTasksResult struct {
 	Id                 *int64                                              `json:"id,omitempty" xml:"id,omitempty"`
 	Items              []*GetTaskPackageResultResponseBodyTasksResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
 	Name               *string                                             `json:"name,omitempty" xml:"name,omitempty"`
+	ParseText          *string                                             `json:"parseText,omitempty" xml:"parseText,omitempty"`
 	RawData            *string                                             `json:"rawData,omitempty" xml:"rawData,omitempty"`
 	Summary            *string                                             `json:"summary,omitempty" xml:"summary,omitempty"`
 	Total              *int64                                              `json:"total,omitempty" xml:"total,omitempty"`
@@ -14519,6 +15186,11 @@ func (s *GetTaskPackageResultResponseBodyTasksResult) SetItems(v []*GetTaskPacka
 
 func (s *GetTaskPackageResultResponseBodyTasksResult) SetName(v string) *GetTaskPackageResultResponseBodyTasksResult {
 	s.Name = &v
+	return s
+}
+
+func (s *GetTaskPackageResultResponseBodyTasksResult) SetParseText(v string) *GetTaskPackageResultResponseBodyTasksResult {
+	s.ParseText = &v
 	return s
 }
 
@@ -28537,6 +29209,459 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+// Summary:
+//
+// 新增商品
+//
+// @param request - AiRetailProductAddRequest
+//
+// @param headers - AiRetailProductAddHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AiRetailProductAddResponse
+func (client *Client) AiRetailProductAddWithOptions(request *AiRetailProductAddRequest, headers *AiRetailProductAddHeaders, runtime *util.RuntimeOptions) (_result *AiRetailProductAddResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Attribute)) {
+		body["attribute"] = request.Attribute
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Barcodes)) {
+		body["barcodes"] = request.Barcodes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Brand)) {
+		body["brand"] = request.Brand
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Category)) {
+		body["category"] = request.Category
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImageFileIds)) {
+		body["imageFileIds"] = request.ImageFileIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ItemNumbers)) {
+		body["itemNumbers"] = request.ItemNumbers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Price)) {
+		body["price"] = request.Price
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductCode)) {
+		body["productCode"] = request.ProductCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductFab)) {
+		body["productFab"] = request.ProductFab
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductInfo)) {
+		body["productInfo"] = request.ProductInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductName)) {
+		body["productName"] = request.ProductName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AiRetailProductAdd"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/retail/product/add"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AiRetailProductAddResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 新增商品
+//
+// @param request - AiRetailProductAddRequest
+//
+// @return AiRetailProductAddResponse
+func (client *Client) AiRetailProductAdd(request *AiRetailProductAddRequest) (_result *AiRetailProductAddResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AiRetailProductAddHeaders{}
+	_result = &AiRetailProductAddResponse{}
+	_body, _err := client.AiRetailProductAddWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除商品
+//
+// @param request - AiRetailProductDeleteRequest
+//
+// @param headers - AiRetailProductDeleteHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AiRetailProductDeleteResponse
+func (client *Client) AiRetailProductDeleteWithOptions(request *AiRetailProductDeleteRequest, headers *AiRetailProductDeleteHeaders, runtime *util.RuntimeOptions) (_result *AiRetailProductDeleteResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProductId)) {
+		body["productId"] = request.ProductId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AiRetailProductDelete"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/retail/product/delete"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("boolean"),
+	}
+	_result = &AiRetailProductDeleteResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除商品
+//
+// @param request - AiRetailProductDeleteRequest
+//
+// @return AiRetailProductDeleteResponse
+func (client *Client) AiRetailProductDelete(request *AiRetailProductDeleteRequest) (_result *AiRetailProductDeleteResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AiRetailProductDeleteHeaders{}
+	_result = &AiRetailProductDeleteResponse{}
+	_body, _err := client.AiRetailProductDeleteWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 商品图片上传
+//
+// @param request - AiRetailProductImgUploadRequest
+//
+// @param headers - AiRetailProductImgUploadHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AiRetailProductImgUploadResponse
+func (client *Client) AiRetailProductImgUploadWithOptions(request *AiRetailProductImgUploadRequest, headers *AiRetailProductImgUploadHeaders, runtime *util.RuntimeOptions) (_result *AiRetailProductImgUploadResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		body["bizCode"] = request.BizCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AiRetailProductImgUpload"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/retail/product/image/upload"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AiRetailProductImgUploadResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 商品图片上传
+//
+// @param request - AiRetailProductImgUploadRequest
+//
+// @return AiRetailProductImgUploadResponse
+func (client *Client) AiRetailProductImgUpload(request *AiRetailProductImgUploadRequest) (_result *AiRetailProductImgUploadResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AiRetailProductImgUploadHeaders{}
+	_result = &AiRetailProductImgUploadResponse{}
+	_body, _err := client.AiRetailProductImgUploadWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询商品
+//
+// @param request - AiRetailProductQueryRequest
+//
+// @param headers - AiRetailProductQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AiRetailProductQueryResponse
+func (client *Client) AiRetailProductQueryWithOptions(request *AiRetailProductQueryRequest, headers *AiRetailProductQueryHeaders, runtime *util.RuntimeOptions) (_result *AiRetailProductQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ProductCode)) {
+		query["productCode"] = request.ProductCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductId)) {
+		query["productId"] = request.ProductId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AiRetailProductQuery"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/retail/product/query"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AiRetailProductQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询商品
+//
+// @param request - AiRetailProductQueryRequest
+//
+// @return AiRetailProductQueryResponse
+func (client *Client) AiRetailProductQuery(request *AiRetailProductQueryRequest) (_result *AiRetailProductQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AiRetailProductQueryHeaders{}
+	_result = &AiRetailProductQueryResponse{}
+	_body, _err := client.AiRetailProductQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新商品
+//
+// @param request - AiRetailProductUpdateRequest
+//
+// @param headers - AiRetailProductUpdateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AiRetailProductUpdateResponse
+func (client *Client) AiRetailProductUpdateWithOptions(request *AiRetailProductUpdateRequest, headers *AiRetailProductUpdateHeaders, runtime *util.RuntimeOptions) (_result *AiRetailProductUpdateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Attribute)) {
+		body["attribute"] = request.Attribute
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Barcodes)) {
+		body["barcodes"] = request.Barcodes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Brand)) {
+		body["brand"] = request.Brand
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Category)) {
+		body["category"] = request.Category
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImageFileIds)) {
+		body["imageFileIds"] = request.ImageFileIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ItemNumbers)) {
+		body["itemNumbers"] = request.ItemNumbers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Price)) {
+		body["price"] = request.Price
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductCode)) {
+		body["productCode"] = request.ProductCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductFab)) {
+		body["productFab"] = request.ProductFab
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductId)) {
+		body["productId"] = request.ProductId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductInfo)) {
+		body["productInfo"] = request.ProductInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductName)) {
+		body["productName"] = request.ProductName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AiRetailProductUpdate"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/retail/product/update"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("boolean"),
+	}
+	_result = &AiRetailProductUpdateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新商品
+//
+// @param request - AiRetailProductUpdateRequest
+//
+// @return AiRetailProductUpdateResponse
+func (client *Client) AiRetailProductUpdate(request *AiRetailProductUpdateRequest) (_result *AiRetailProductUpdateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AiRetailProductUpdateHeaders{}
+	_result = &AiRetailProductUpdateResponse{}
+	_body, _err := client.AiRetailProductUpdateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 // Summary:

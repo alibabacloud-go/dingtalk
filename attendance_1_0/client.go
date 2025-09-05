@@ -11151,6 +11151,251 @@ func (s *UpdateLeaveTypeResponse) SetBody(v *UpdateLeaveTypeResponseBody) *Updat
 	return s
 }
 
+type UpdateVacationQuotaHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateVacationQuotaHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateVacationQuotaHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateVacationQuotaHeaders) SetCommonHeaders(v map[string]*string) *UpdateVacationQuotaHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateVacationQuotaHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateVacationQuotaHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateVacationQuotaRequest struct {
+	Body []*UpdateVacationQuotaRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user01
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s UpdateVacationQuotaRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateVacationQuotaRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateVacationQuotaRequest) SetBody(v []*UpdateVacationQuotaRequestBody) *UpdateVacationQuotaRequest {
+	s.Body = v
+	return s
+}
+
+func (s *UpdateVacationQuotaRequest) SetOpUserId(v string) *UpdateVacationQuotaRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type UpdateVacationQuotaRequestBody struct {
+	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// example:
+	//
+	// 1753851001000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// f84a2829-d245-4312-9ff2-0653e5b3abb2
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// example:
+	//
+	// 2019
+	QuotaCycle      *string `json:"quotaCycle,omitempty" xml:"quotaCycle,omitempty"`
+	QuotaNumPerDay  *int32  `json:"quotaNumPerDay,omitempty" xml:"quotaNumPerDay,omitempty"`
+	QuotaNumPerHour *int32  `json:"quotaNumPerHour,omitempty" xml:"quotaNumPerHour,omitempty"`
+	Reason          *string `json:"reason,omitempty" xml:"reason,omitempty"`
+	// example:
+	//
+	// 1653851001000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user01
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateVacationQuotaRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateVacationQuotaRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateVacationQuotaRequestBody) SetActionType(v string) *UpdateVacationQuotaRequestBody {
+	s.ActionType = &v
+	return s
+}
+
+func (s *UpdateVacationQuotaRequestBody) SetEndTime(v int64) *UpdateVacationQuotaRequestBody {
+	s.EndTime = &v
+	return s
+}
+
+func (s *UpdateVacationQuotaRequestBody) SetLeaveCode(v string) *UpdateVacationQuotaRequestBody {
+	s.LeaveCode = &v
+	return s
+}
+
+func (s *UpdateVacationQuotaRequestBody) SetQuotaCycle(v string) *UpdateVacationQuotaRequestBody {
+	s.QuotaCycle = &v
+	return s
+}
+
+func (s *UpdateVacationQuotaRequestBody) SetQuotaNumPerDay(v int32) *UpdateVacationQuotaRequestBody {
+	s.QuotaNumPerDay = &v
+	return s
+}
+
+func (s *UpdateVacationQuotaRequestBody) SetQuotaNumPerHour(v int32) *UpdateVacationQuotaRequestBody {
+	s.QuotaNumPerHour = &v
+	return s
+}
+
+func (s *UpdateVacationQuotaRequestBody) SetReason(v string) *UpdateVacationQuotaRequestBody {
+	s.Reason = &v
+	return s
+}
+
+func (s *UpdateVacationQuotaRequestBody) SetStartTime(v int64) *UpdateVacationQuotaRequestBody {
+	s.StartTime = &v
+	return s
+}
+
+func (s *UpdateVacationQuotaRequestBody) SetUserId(v string) *UpdateVacationQuotaRequestBody {
+	s.UserId = &v
+	return s
+}
+
+type UpdateVacationQuotaResponseBody struct {
+	Result []*UpdateVacationQuotaResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s UpdateVacationQuotaResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateVacationQuotaResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateVacationQuotaResponseBody) SetResult(v []*UpdateVacationQuotaResponseBodyResult) *UpdateVacationQuotaResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateVacationQuotaResponseBodyResult struct {
+	Quota *UpdateVacationQuotaResponseBodyResultQuota `json:"quota,omitempty" xml:"quota,omitempty" type:"Struct"`
+	// example:
+	//
+	// 假期类型不存在
+	Reason *string `json:"reason,omitempty" xml:"reason,omitempty"`
+}
+
+func (s UpdateVacationQuotaResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateVacationQuotaResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateVacationQuotaResponseBodyResult) SetQuota(v *UpdateVacationQuotaResponseBodyResultQuota) *UpdateVacationQuotaResponseBodyResult {
+	s.Quota = v
+	return s
+}
+
+func (s *UpdateVacationQuotaResponseBodyResult) SetReason(v string) *UpdateVacationQuotaResponseBodyResult {
+	s.Reason = &v
+	return s
+}
+
+type UpdateVacationQuotaResponseBodyResultQuota struct {
+	// example:
+	//
+	// f84a2829-d245-4312-9ff2-0653e5b3abb2
+	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
+	// example:
+	//
+	// 2019
+	QuotaCycle *string `json:"quotaCycle,omitempty" xml:"quotaCycle,omitempty"`
+	// example:
+	//
+	// user01
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateVacationQuotaResponseBodyResultQuota) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateVacationQuotaResponseBodyResultQuota) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateVacationQuotaResponseBodyResultQuota) SetLeaveCode(v string) *UpdateVacationQuotaResponseBodyResultQuota {
+	s.LeaveCode = &v
+	return s
+}
+
+func (s *UpdateVacationQuotaResponseBodyResultQuota) SetQuotaCycle(v string) *UpdateVacationQuotaResponseBodyResultQuota {
+	s.QuotaCycle = &v
+	return s
+}
+
+func (s *UpdateVacationQuotaResponseBodyResultQuota) SetUserId(v string) *UpdateVacationQuotaResponseBodyResultQuota {
+	s.UserId = &v
+	return s
+}
+
+type UpdateVacationQuotaResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateVacationQuotaResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateVacationQuotaResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateVacationQuotaResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateVacationQuotaResponse) SetHeaders(v map[string]*string) *UpdateVacationQuotaResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateVacationQuotaResponse) SetStatusCode(v int32) *UpdateVacationQuotaResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateVacationQuotaResponse) SetBody(v *UpdateVacationQuotaResponseBody) *UpdateVacationQuotaResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -15217,6 +15462,80 @@ func (client *Client) UpdateLeaveType(request *UpdateLeaveTypeRequest) (_result 
 	headers := &UpdateLeaveTypeHeaders{}
 	_result = &UpdateLeaveTypeResponse{}
 	_body, _err := client.UpdateLeaveTypeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量更新余额
+//
+// @param request - UpdateVacationQuotaRequest
+//
+// @param headers - UpdateVacationQuotaHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateVacationQuotaResponse
+func (client *Client) UpdateVacationQuotaWithOptions(request *UpdateVacationQuotaRequest, headers *UpdateVacationQuotaHeaders, runtime *util.RuntimeOptions) (_result *UpdateVacationQuotaResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    util.ToArray(request.Body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateVacationQuota"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/leaves/quota"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateVacationQuotaResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量更新余额
+//
+// @param request - UpdateVacationQuotaRequest
+//
+// @return UpdateVacationQuotaResponse
+func (client *Client) UpdateVacationQuota(request *UpdateVacationQuotaRequest) (_result *UpdateVacationQuotaResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateVacationQuotaHeaders{}
+	_result = &UpdateVacationQuotaResponse{}
+	_body, _err := client.UpdateVacationQuotaWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

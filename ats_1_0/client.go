@@ -2704,6 +2704,117 @@ func (s *GetFileUploadInfoResponse) SetBody(v *GetFileUploadInfoResponseBody) *G
 	return s
 }
 
+type GetFlowByIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFlowByIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFlowByIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFlowByIdHeaders) SetCommonHeaders(v map[string]*string) *GetFlowByIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFlowByIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetFlowByIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFlowByIdResponseBody struct {
+	CandidateId   *string `json:"candidateId,omitempty" xml:"candidateId,omitempty"`
+	CandidateName *string `json:"candidateName,omitempty" xml:"candidateName,omitempty"`
+	CreateTime    *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	CurrentStatus *string `json:"currentStatus,omitempty" xml:"currentStatus,omitempty"`
+	FlowId        *string `json:"flowId,omitempty" xml:"flowId,omitempty"`
+	JobId         *string `json:"jobId,omitempty" xml:"jobId,omitempty"`
+	SourceName    *string `json:"sourceName,omitempty" xml:"sourceName,omitempty"`
+	StatId        *string `json:"statId,omitempty" xml:"statId,omitempty"`
+}
+
+func (s GetFlowByIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFlowByIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFlowByIdResponseBody) SetCandidateId(v string) *GetFlowByIdResponseBody {
+	s.CandidateId = &v
+	return s
+}
+
+func (s *GetFlowByIdResponseBody) SetCandidateName(v string) *GetFlowByIdResponseBody {
+	s.CandidateName = &v
+	return s
+}
+
+func (s *GetFlowByIdResponseBody) SetCreateTime(v int64) *GetFlowByIdResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetFlowByIdResponseBody) SetCurrentStatus(v string) *GetFlowByIdResponseBody {
+	s.CurrentStatus = &v
+	return s
+}
+
+func (s *GetFlowByIdResponseBody) SetFlowId(v string) *GetFlowByIdResponseBody {
+	s.FlowId = &v
+	return s
+}
+
+func (s *GetFlowByIdResponseBody) SetJobId(v string) *GetFlowByIdResponseBody {
+	s.JobId = &v
+	return s
+}
+
+func (s *GetFlowByIdResponseBody) SetSourceName(v string) *GetFlowByIdResponseBody {
+	s.SourceName = &v
+	return s
+}
+
+func (s *GetFlowByIdResponseBody) SetStatId(v string) *GetFlowByIdResponseBody {
+	s.StatId = &v
+	return s
+}
+
+type GetFlowByIdResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetFlowByIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetFlowByIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFlowByIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFlowByIdResponse) SetHeaders(v map[string]*string) *GetFlowByIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFlowByIdResponse) SetStatusCode(v int32) *GetFlowByIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetFlowByIdResponse) SetBody(v *GetFlowByIdResponseBody) *GetFlowByIdResponse {
+	s.Body = v
+	return s
+}
+
 type GetFlowIdByRelationEntityIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2931,6 +3042,134 @@ func (s *GetJobAuthResponse) SetStatusCode(v int32) *GetJobAuthResponse {
 }
 
 func (s *GetJobAuthResponse) SetBody(v *GetJobAuthResponseBody) *GetJobAuthResponse {
+	s.Body = v
+	return s
+}
+
+type GetJobInfoByJobIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetJobInfoByJobIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobInfoByJobIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobInfoByJobIdHeaders) SetCommonHeaders(v map[string]*string) *GetJobInfoByJobIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetJobInfoByJobIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetJobInfoByJobIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetJobInfoByJobIdResponseBody struct {
+	CreateTime   *int64                                    `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	HeadCount    *int64                                    `json:"headCount,omitempty" xml:"headCount,omitempty"`
+	JobId        *string                                   `json:"jobId,omitempty" xml:"jobId,omitempty"`
+	JobOwners    []*GetJobInfoByJobIdResponseBodyJobOwners `json:"jobOwners,omitempty" xml:"jobOwners,omitempty" type:"Repeated"`
+	MainDeptId   *int64                                    `json:"mainDeptId,omitempty" xml:"mainDeptId,omitempty"`
+	MainDeptName *string                                   `json:"mainDeptName,omitempty" xml:"mainDeptName,omitempty"`
+	Name         *string                                   `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetJobInfoByJobIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobInfoByJobIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobInfoByJobIdResponseBody) SetCreateTime(v int64) *GetJobInfoByJobIdResponseBody {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetJobInfoByJobIdResponseBody) SetHeadCount(v int64) *GetJobInfoByJobIdResponseBody {
+	s.HeadCount = &v
+	return s
+}
+
+func (s *GetJobInfoByJobIdResponseBody) SetJobId(v string) *GetJobInfoByJobIdResponseBody {
+	s.JobId = &v
+	return s
+}
+
+func (s *GetJobInfoByJobIdResponseBody) SetJobOwners(v []*GetJobInfoByJobIdResponseBodyJobOwners) *GetJobInfoByJobIdResponseBody {
+	s.JobOwners = v
+	return s
+}
+
+func (s *GetJobInfoByJobIdResponseBody) SetMainDeptId(v int64) *GetJobInfoByJobIdResponseBody {
+	s.MainDeptId = &v
+	return s
+}
+
+func (s *GetJobInfoByJobIdResponseBody) SetMainDeptName(v string) *GetJobInfoByJobIdResponseBody {
+	s.MainDeptName = &v
+	return s
+}
+
+func (s *GetJobInfoByJobIdResponseBody) SetName(v string) *GetJobInfoByJobIdResponseBody {
+	s.Name = &v
+	return s
+}
+
+type GetJobInfoByJobIdResponseBodyJobOwners struct {
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetJobInfoByJobIdResponseBodyJobOwners) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobInfoByJobIdResponseBodyJobOwners) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobInfoByJobIdResponseBodyJobOwners) SetName(v string) *GetJobInfoByJobIdResponseBodyJobOwners {
+	s.Name = &v
+	return s
+}
+
+func (s *GetJobInfoByJobIdResponseBodyJobOwners) SetUserId(v string) *GetJobInfoByJobIdResponseBodyJobOwners {
+	s.UserId = &v
+	return s
+}
+
+type GetJobInfoByJobIdResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetJobInfoByJobIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetJobInfoByJobIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetJobInfoByJobIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetJobInfoByJobIdResponse) SetHeaders(v map[string]*string) *GetJobInfoByJobIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetJobInfoByJobIdResponse) SetStatusCode(v int32) *GetJobInfoByJobIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetJobInfoByJobIdResponse) SetBody(v *GetJobInfoByJobIdResponseBody) *GetJobInfoByJobIdResponse {
 	s.Body = v
 	return s
 }
@@ -3779,6 +4018,306 @@ func (s *ReportMessageStatusResponse) SetStatusCode(v int32) *ReportMessageStatu
 }
 
 func (s *ReportMessageStatusResponse) SetBody(v *ReportMessageStatusResponseBody) *ReportMessageStatusResponse {
+	s.Body = v
+	return s
+}
+
+type ResumePostEventHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ResumePostEventHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResumePostEventHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ResumePostEventHeaders) SetCommonHeaders(v map[string]*string) *ResumePostEventHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ResumePostEventHeaders) SetXAcsDingtalkAccessToken(v string) *ResumePostEventHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ResumePostEventRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 王先生
+	CandidateName *string `json:"candidateName,omitempty" xml:"candidateName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 总裁助理
+	JobName *string `json:"jobName,omitempty" xml:"jobName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123123
+	JobOwnerUserId *string `json:"jobOwnerUserId,omitempty" xml:"jobOwnerUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// www.dingtalk.com
+	MobileResumeUrl *string `json:"mobileResumeUrl,omitempty" xml:"mobileResumeUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// www.dingtalk.com
+	PcResumeUrl *string `json:"pcResumeUrl,omitempty" xml:"pcResumeUrl,omitempty"`
+	// example:
+	//
+	// 3年 | 本科
+	ResumeDesc *string `json:"resumeDesc,omitempty" xml:"resumeDesc,omitempty"`
+	// This parameter is required.
+	ResumePostTime *int64 `json:"resumePostTime,omitempty" xml:"resumePostTime,omitempty"`
+}
+
+func (s ResumePostEventRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResumePostEventRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ResumePostEventRequest) SetCandidateName(v string) *ResumePostEventRequest {
+	s.CandidateName = &v
+	return s
+}
+
+func (s *ResumePostEventRequest) SetJobName(v string) *ResumePostEventRequest {
+	s.JobName = &v
+	return s
+}
+
+func (s *ResumePostEventRequest) SetJobOwnerUserId(v string) *ResumePostEventRequest {
+	s.JobOwnerUserId = &v
+	return s
+}
+
+func (s *ResumePostEventRequest) SetMobileResumeUrl(v string) *ResumePostEventRequest {
+	s.MobileResumeUrl = &v
+	return s
+}
+
+func (s *ResumePostEventRequest) SetPcResumeUrl(v string) *ResumePostEventRequest {
+	s.PcResumeUrl = &v
+	return s
+}
+
+func (s *ResumePostEventRequest) SetResumeDesc(v string) *ResumePostEventRequest {
+	s.ResumeDesc = &v
+	return s
+}
+
+func (s *ResumePostEventRequest) SetResumePostTime(v int64) *ResumePostEventRequest {
+	s.ResumePostTime = &v
+	return s
+}
+
+type ResumePostEventResponseBody struct {
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+}
+
+func (s ResumePostEventResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResumePostEventResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ResumePostEventResponseBody) SetBizId(v string) *ResumePostEventResponseBody {
+	s.BizId = &v
+	return s
+}
+
+type ResumePostEventResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ResumePostEventResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ResumePostEventResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResumePostEventResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ResumePostEventResponse) SetHeaders(v map[string]*string) *ResumePostEventResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ResumePostEventResponse) SetStatusCode(v int32) *ResumePostEventResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ResumePostEventResponse) SetBody(v *ResumePostEventResponseBody) *ResumePostEventResponse {
+	s.Body = v
+	return s
+}
+
+type SearchFlowHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchFlowHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFlowHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFlowHeaders) SetCommonHeaders(v map[string]*string) *SearchFlowHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchFlowHeaders) SetXAcsDingtalkAccessToken(v string) *SearchFlowHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchFlowRequest struct {
+	// example:
+	//
+	// 20
+	Cursor *string `json:"cursor,omitempty" xml:"cursor,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1626861600000
+	MaxModifyTimeMills *int64 `json:"maxModifyTimeMills,omitempty" xml:"maxModifyTimeMills,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1626861600000
+	MinModifyTimeMills *int64 `json:"minModifyTimeMills,omitempty" xml:"minModifyTimeMills,omitempty"`
+	// example:
+	//
+	// 20
+	Size *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s SearchFlowRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFlowRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFlowRequest) SetCursor(v string) *SearchFlowRequest {
+	s.Cursor = &v
+	return s
+}
+
+func (s *SearchFlowRequest) SetMaxModifyTimeMills(v int64) *SearchFlowRequest {
+	s.MaxModifyTimeMills = &v
+	return s
+}
+
+func (s *SearchFlowRequest) SetMinModifyTimeMills(v int64) *SearchFlowRequest {
+	s.MinModifyTimeMills = &v
+	return s
+}
+
+func (s *SearchFlowRequest) SetSize(v int64) *SearchFlowRequest {
+	s.Size = &v
+	return s
+}
+
+func (s *SearchFlowRequest) SetOpUserId(v string) *SearchFlowRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type SearchFlowResponseBody struct {
+	HasMore    *bool     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List       []*string `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextCursor *string   `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	TotalCount *int64    `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s SearchFlowResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFlowResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFlowResponseBody) SetHasMore(v bool) *SearchFlowResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *SearchFlowResponseBody) SetList(v []*string) *SearchFlowResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *SearchFlowResponseBody) SetNextCursor(v string) *SearchFlowResponseBody {
+	s.NextCursor = &v
+	return s
+}
+
+func (s *SearchFlowResponseBody) SetTotalCount(v int64) *SearchFlowResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type SearchFlowResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SearchFlowResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SearchFlowResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFlowResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFlowResponse) SetHeaders(v map[string]*string) *SearchFlowResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchFlowResponse) SetStatusCode(v int32) *SearchFlowResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SearchFlowResponse) SetBody(v *SearchFlowResponseBody) *SearchFlowResponse {
 	s.Body = v
 	return s
 }
@@ -5855,6 +6394,65 @@ func (client *Client) GetFileUploadInfo(request *GetFileUploadInfoRequest) (_res
 
 // Summary:
 //
+// 根据流程id获取流程详情
+//
+// @param headers - GetFlowByIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFlowByIdResponse
+func (client *Client) GetFlowByIdWithOptions(flowId *string, headers *GetFlowByIdHeaders, runtime *util.RuntimeOptions) (_result *GetFlowByIdResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFlowById"),
+		Version:     tea.String("ats_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/ats/flows/" + tea.StringValue(flowId) + "/info"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetFlowByIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据流程id获取流程详情
+//
+// @return GetFlowByIdResponse
+func (client *Client) GetFlowById(flowId *string) (_result *GetFlowByIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFlowByIdHeaders{}
+	_result = &GetFlowByIdResponse{}
+	_body, _err := client.GetFlowByIdWithOptions(flowId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 根据招聘流程关联的实体标识获取招聘流程标识
 //
 // @param request - GetFlowIdByRelationEntityIdRequest
@@ -6000,6 +6598,65 @@ func (client *Client) GetJobAuth(jobId *string, request *GetJobAuthRequest) (_re
 	headers := &GetJobAuthHeaders{}
 	_result = &GetJobAuthResponse{}
 	_body, _err := client.GetJobAuthWithOptions(jobId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据职位id获取职位信息
+//
+// @param headers - GetJobInfoByJobIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetJobInfoByJobIdResponse
+func (client *Client) GetJobInfoByJobIdWithOptions(jobId *string, headers *GetJobInfoByJobIdHeaders, runtime *util.RuntimeOptions) (_result *GetJobInfoByJobIdResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetJobInfoByJobId"),
+		Version:     tea.String("ats_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/ats/jobs/" + tea.StringValue(jobId) + "/info"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetJobInfoByJobIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据职位id获取职位信息
+//
+// @return GetJobInfoByJobIdResponse
+func (client *Client) GetJobInfoByJobId(jobId *string) (_result *GetJobInfoByJobIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetJobInfoByJobIdHeaders{}
+	_result = &GetJobInfoByJobIdResponse{}
+	_body, _err := client.GetJobInfoByJobIdWithOptions(jobId, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6349,6 +7006,194 @@ func (client *Client) ReportMessageStatus(request *ReportMessageStatusRequest) (
 	headers := &ReportMessageStatusHeaders{}
 	_result = &ReportMessageStatusResponse{}
 	_body, _err := client.ReportMessageStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// isv推送给钉钉求职者投递简历的事件
+//
+// @param request - ResumePostEventRequest
+//
+// @param headers - ResumePostEventHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ResumePostEventResponse
+func (client *Client) ResumePostEventWithOptions(request *ResumePostEventRequest, headers *ResumePostEventHeaders, runtime *util.RuntimeOptions) (_result *ResumePostEventResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CandidateName)) {
+		body["candidateName"] = request.CandidateName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.JobName)) {
+		body["jobName"] = request.JobName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.JobOwnerUserId)) {
+		body["jobOwnerUserId"] = request.JobOwnerUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MobileResumeUrl)) {
+		body["mobileResumeUrl"] = request.MobileResumeUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PcResumeUrl)) {
+		body["pcResumeUrl"] = request.PcResumeUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ResumeDesc)) {
+		body["resumeDesc"] = request.ResumeDesc
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ResumePostTime)) {
+		body["resumePostTime"] = request.ResumePostTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ResumePostEvent"),
+		Version:     tea.String("ats_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/ats/resumes/post/event"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ResumePostEventResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// isv推送给钉钉求职者投递简历的事件
+//
+// @param request - ResumePostEventRequest
+//
+// @return ResumePostEventResponse
+func (client *Client) ResumePostEvent(request *ResumePostEventRequest) (_result *ResumePostEventResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ResumePostEventHeaders{}
+	_result = &ResumePostEventResponse{}
+	_body, _err := client.ResumePostEventWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据搜索条件搜索流程
+//
+// @param request - SearchFlowRequest
+//
+// @param headers - SearchFlowHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchFlowResponse
+func (client *Client) SearchFlowWithOptions(request *SearchFlowRequest, headers *SearchFlowHeaders, runtime *util.RuntimeOptions) (_result *SearchFlowResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Cursor)) {
+		body["cursor"] = request.Cursor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxModifyTimeMills)) {
+		body["maxModifyTimeMills"] = request.MaxModifyTimeMills
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MinModifyTimeMills)) {
+		body["minModifyTimeMills"] = request.MinModifyTimeMills
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Size)) {
+		body["size"] = request.Size
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SearchFlow"),
+		Version:     tea.String("ats_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/ats/flows/search"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SearchFlowResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据搜索条件搜索流程
+//
+// @param request - SearchFlowRequest
+//
+// @return SearchFlowResponse
+func (client *Client) SearchFlow(request *SearchFlowRequest) (_result *SearchFlowResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchFlowHeaders{}
+	_result = &SearchFlowResponse{}
+	_body, _err := client.SearchFlowWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

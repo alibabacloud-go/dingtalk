@@ -521,6 +521,7 @@ type QueryRedeemVipMemberResponseBodyQueryResults struct {
 	ActionTime *string `json:"actionTime,omitempty" xml:"actionTime,omitempty"`
 	DingtalkId *string `json:"dingtalkId,omitempty" xml:"dingtalkId,omitempty"`
 	Duration   *int64  `json:"duration,omitempty" xml:"duration,omitempty"`
+	ExpireDate *string `json:"expireDate,omitempty" xml:"expireDate,omitempty"`
 	Nick       *string `json:"nick,omitempty" xml:"nick,omitempty"`
 }
 
@@ -549,6 +550,11 @@ func (s *QueryRedeemVipMemberResponseBodyQueryResults) SetDingtalkId(v string) *
 
 func (s *QueryRedeemVipMemberResponseBodyQueryResults) SetDuration(v int64) *QueryRedeemVipMemberResponseBodyQueryResults {
 	s.Duration = &v
+	return s
+}
+
+func (s *QueryRedeemVipMemberResponseBodyQueryResults) SetExpireDate(v string) *QueryRedeemVipMemberResponseBodyQueryResults {
+	s.ExpireDate = &v
 	return s
 }
 

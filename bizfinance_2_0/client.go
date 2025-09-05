@@ -5110,6 +5110,81 @@ func (s *QueryEnterpriseAccountSignUrlResponse) SetBody(v *QueryEnterpriseAccoun
 	return s
 }
 
+type QueryEnterpriseCodeOpenDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryEnterpriseCodeOpenDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEnterpriseCodeOpenDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEnterpriseCodeOpenDetailHeaders) SetCommonHeaders(v map[string]*string) *QueryEnterpriseCodeOpenDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryEnterpriseCodeOpenDetailHeaders) SetXAcsDingtalkAccessToken(v string) *QueryEnterpriseCodeOpenDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryEnterpriseCodeOpenDetailResponseBody struct {
+	EnterpriseId *string `json:"enterpriseId,omitempty" xml:"enterpriseId,omitempty"`
+	OpenedStatus *bool   `json:"openedStatus,omitempty" xml:"openedStatus,omitempty"`
+}
+
+func (s QueryEnterpriseCodeOpenDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEnterpriseCodeOpenDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEnterpriseCodeOpenDetailResponseBody) SetEnterpriseId(v string) *QueryEnterpriseCodeOpenDetailResponseBody {
+	s.EnterpriseId = &v
+	return s
+}
+
+func (s *QueryEnterpriseCodeOpenDetailResponseBody) SetOpenedStatus(v bool) *QueryEnterpriseCodeOpenDetailResponseBody {
+	s.OpenedStatus = &v
+	return s
+}
+
+type QueryEnterpriseCodeOpenDetailResponse struct {
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryEnterpriseCodeOpenDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryEnterpriseCodeOpenDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEnterpriseCodeOpenDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEnterpriseCodeOpenDetailResponse) SetHeaders(v map[string]*string) *QueryEnterpriseCodeOpenDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryEnterpriseCodeOpenDetailResponse) SetStatusCode(v int32) *QueryEnterpriseCodeOpenDetailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryEnterpriseCodeOpenDetailResponse) SetBody(v *QueryEnterpriseCodeOpenDetailResponseBody) *QueryEnterpriseCodeOpenDetailResponse {
+	s.Body = v
+	return s
+}
+
 type QueryInstancePaymentOrderDetailHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11628,6 +11703,65 @@ func (client *Client) QueryEnterpriseAccountSignUrl(request *QueryEnterpriseAcco
 	headers := &QueryEnterpriseAccountSignUrlHeaders{}
 	_result = &QueryEnterpriseAccountSignUrlResponse{}
 	_body, _err := client.QueryEnterpriseAccountSignUrlWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询组织的企业码开通情况
+//
+// @param headers - QueryEnterpriseCodeOpenDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryEnterpriseCodeOpenDetailResponse
+func (client *Client) QueryEnterpriseCodeOpenDetailWithOptions(headers *QueryEnterpriseCodeOpenDetailHeaders, runtime *util.RuntimeOptions) (_result *QueryEnterpriseCodeOpenDetailResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryEnterpriseCodeOpenDetail"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/enterprisecode/getOpenDetail"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryEnterpriseCodeOpenDetailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询组织的企业码开通情况
+//
+// @return QueryEnterpriseCodeOpenDetailResponse
+func (client *Client) QueryEnterpriseCodeOpenDetail() (_result *QueryEnterpriseCodeOpenDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryEnterpriseCodeOpenDetailHeaders{}
+	_result = &QueryEnterpriseCodeOpenDetailResponse{}
+	_body, _err := client.QueryEnterpriseCodeOpenDetailWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -2617,6 +2617,227 @@ func (s *SyncSecretKeyResponse) SetBody(v *SyncSecretKeyResponseBody) *SyncSecre
 	return s
 }
 
+type SyncTripInvoiceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncTripInvoiceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTripInvoiceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTripInvoiceHeaders) SetCommonHeaders(v map[string]*string) *SyncTripInvoiceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncTripInvoiceHeaders) SetXAcsDingtalkAccessToken(v string) *SyncTripInvoiceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncTripInvoiceRequest struct {
+	ChannelOrderNo    *string                                    `json:"channelOrderNo,omitempty" xml:"channelOrderNo,omitempty"`
+	ChannelType       *string                                    `json:"channelType,omitempty" xml:"channelType,omitempty"`
+	CustomerCorpId    *string                                    `json:"customerCorpId,omitempty" xml:"customerCorpId,omitempty"`
+	DingUserId        *string                                    `json:"dingUserId,omitempty" xml:"dingUserId,omitempty"`
+	InvoiceDetailList []*SyncTripInvoiceRequestInvoiceDetailList `json:"invoiceDetailList,omitempty" xml:"invoiceDetailList,omitempty" type:"Repeated"`
+}
+
+func (s SyncTripInvoiceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTripInvoiceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTripInvoiceRequest) SetChannelOrderNo(v string) *SyncTripInvoiceRequest {
+	s.ChannelOrderNo = &v
+	return s
+}
+
+func (s *SyncTripInvoiceRequest) SetChannelType(v string) *SyncTripInvoiceRequest {
+	s.ChannelType = &v
+	return s
+}
+
+func (s *SyncTripInvoiceRequest) SetCustomerCorpId(v string) *SyncTripInvoiceRequest {
+	s.CustomerCorpId = &v
+	return s
+}
+
+func (s *SyncTripInvoiceRequest) SetDingUserId(v string) *SyncTripInvoiceRequest {
+	s.DingUserId = &v
+	return s
+}
+
+func (s *SyncTripInvoiceRequest) SetInvoiceDetailList(v []*SyncTripInvoiceRequestInvoiceDetailList) *SyncTripInvoiceRequest {
+	s.InvoiceDetailList = v
+	return s
+}
+
+type SyncTripInvoiceRequestInvoiceDetailList struct {
+	FailCode                *string                                                           `json:"failCode,omitempty" xml:"failCode,omitempty"`
+	FailMessage             *string                                                           `json:"failMessage,omitempty" xml:"failMessage,omitempty"`
+	InvoiceResult           *bool                                                             `json:"invoiceResult,omitempty" xml:"invoiceResult,omitempty"`
+	OfdInvoiceUrl           *string                                                           `json:"ofdInvoiceUrl,omitempty" xml:"ofdInvoiceUrl,omitempty"`
+	PdfInvoiceUrl           *string                                                           `json:"pdfInvoiceUrl,omitempty" xml:"pdfInvoiceUrl,omitempty"`
+	TravelItineraryInfoList []*SyncTripInvoiceRequestInvoiceDetailListTravelItineraryInfoList `json:"travelItineraryInfoList,omitempty" xml:"travelItineraryInfoList,omitempty" type:"Repeated"`
+	XmlInvoiceUrl           *string                                                           `json:"xmlInvoiceUrl,omitempty" xml:"xmlInvoiceUrl,omitempty"`
+}
+
+func (s SyncTripInvoiceRequestInvoiceDetailList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTripInvoiceRequestInvoiceDetailList) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTripInvoiceRequestInvoiceDetailList) SetFailCode(v string) *SyncTripInvoiceRequestInvoiceDetailList {
+	s.FailCode = &v
+	return s
+}
+
+func (s *SyncTripInvoiceRequestInvoiceDetailList) SetFailMessage(v string) *SyncTripInvoiceRequestInvoiceDetailList {
+	s.FailMessage = &v
+	return s
+}
+
+func (s *SyncTripInvoiceRequestInvoiceDetailList) SetInvoiceResult(v bool) *SyncTripInvoiceRequestInvoiceDetailList {
+	s.InvoiceResult = &v
+	return s
+}
+
+func (s *SyncTripInvoiceRequestInvoiceDetailList) SetOfdInvoiceUrl(v string) *SyncTripInvoiceRequestInvoiceDetailList {
+	s.OfdInvoiceUrl = &v
+	return s
+}
+
+func (s *SyncTripInvoiceRequestInvoiceDetailList) SetPdfInvoiceUrl(v string) *SyncTripInvoiceRequestInvoiceDetailList {
+	s.PdfInvoiceUrl = &v
+	return s
+}
+
+func (s *SyncTripInvoiceRequestInvoiceDetailList) SetTravelItineraryInfoList(v []*SyncTripInvoiceRequestInvoiceDetailListTravelItineraryInfoList) *SyncTripInvoiceRequestInvoiceDetailList {
+	s.TravelItineraryInfoList = v
+	return s
+}
+
+func (s *SyncTripInvoiceRequestInvoiceDetailList) SetXmlInvoiceUrl(v string) *SyncTripInvoiceRequestInvoiceDetailList {
+	s.XmlInvoiceUrl = &v
+	return s
+}
+
+type SyncTripInvoiceRequestInvoiceDetailListTravelItineraryInfoList struct {
+	TravelItineraryUrl *string `json:"travelItineraryUrl,omitempty" xml:"travelItineraryUrl,omitempty"`
+}
+
+func (s SyncTripInvoiceRequestInvoiceDetailListTravelItineraryInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTripInvoiceRequestInvoiceDetailListTravelItineraryInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTripInvoiceRequestInvoiceDetailListTravelItineraryInfoList) SetTravelItineraryUrl(v string) *SyncTripInvoiceRequestInvoiceDetailListTravelItineraryInfoList {
+	s.TravelItineraryUrl = &v
+	return s
+}
+
+type SyncTripInvoiceShrinkRequest struct {
+	ChannelOrderNo          *string `json:"channelOrderNo,omitempty" xml:"channelOrderNo,omitempty"`
+	ChannelType             *string `json:"channelType,omitempty" xml:"channelType,omitempty"`
+	CustomerCorpId          *string `json:"customerCorpId,omitempty" xml:"customerCorpId,omitempty"`
+	DingUserId              *string `json:"dingUserId,omitempty" xml:"dingUserId,omitempty"`
+	InvoiceDetailListShrink *string `json:"invoiceDetailList,omitempty" xml:"invoiceDetailList,omitempty"`
+}
+
+func (s SyncTripInvoiceShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTripInvoiceShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTripInvoiceShrinkRequest) SetChannelOrderNo(v string) *SyncTripInvoiceShrinkRequest {
+	s.ChannelOrderNo = &v
+	return s
+}
+
+func (s *SyncTripInvoiceShrinkRequest) SetChannelType(v string) *SyncTripInvoiceShrinkRequest {
+	s.ChannelType = &v
+	return s
+}
+
+func (s *SyncTripInvoiceShrinkRequest) SetCustomerCorpId(v string) *SyncTripInvoiceShrinkRequest {
+	s.CustomerCorpId = &v
+	return s
+}
+
+func (s *SyncTripInvoiceShrinkRequest) SetDingUserId(v string) *SyncTripInvoiceShrinkRequest {
+	s.DingUserId = &v
+	return s
+}
+
+func (s *SyncTripInvoiceShrinkRequest) SetInvoiceDetailListShrink(v string) *SyncTripInvoiceShrinkRequest {
+	s.InvoiceDetailListShrink = &v
+	return s
+}
+
+type SyncTripInvoiceResponseBody struct {
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SyncTripInvoiceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTripInvoiceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTripInvoiceResponseBody) SetSuccess(v string) *SyncTripInvoiceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SyncTripInvoiceResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncTripInvoiceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SyncTripInvoiceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncTripInvoiceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncTripInvoiceResponse) SetHeaders(v map[string]*string) *SyncTripInvoiceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncTripInvoiceResponse) SetStatusCode(v int32) *SyncTripInvoiceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SyncTripInvoiceResponse) SetBody(v *SyncTripInvoiceResponseBody) *SyncTripInvoiceResponse {
+	s.Body = v
+	return s
+}
+
 type SyncTripOrderHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2680,19 +2901,35 @@ type SyncTripOrderRequest struct {
 	// example:
 	//
 	// 2022-05-15 10:10:10
-	GmtRefund       *string `json:"gmtRefund,omitempty" xml:"gmtRefund,omitempty"`
-	InvoiceApplyUrl *string `json:"invoiceApplyUrl,omitempty" xml:"invoiceApplyUrl,omitempty"`
+	GmtRefund  *string `json:"gmtRefund,omitempty" xml:"gmtRefund,omitempty"`
+	HasInvoice *bool   `json:"hasInvoice,omitempty" xml:"hasInvoice,omitempty"`
+	// example:
+	//
+	// 亚朵酒店
+	InvoiceApplyRole *string `json:"invoiceApplyRole,omitempty" xml:"invoiceApplyRole,omitempty"`
+	// example:
+	//
+	// PLAIN
+	InvoiceApplyType *string `json:"invoiceApplyType,omitempty" xml:"invoiceApplyType,omitempty"`
+	InvoiceApplyUrl  *string `json:"invoiceApplyUrl,omitempty" xml:"invoiceApplyUrl,omitempty"`
+	InvoiceParty     *int32  `json:"invoiceParty,omitempty" xml:"invoiceParty,omitempty"`
+	InvoiceType      *int32  `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
 	// example:
 	//
 	// 20220510170058192311
-	JourneyBizNo *string                             `json:"journeyBizNo,omitempty" xml:"journeyBizNo,omitempty"`
-	OrderDetails []*SyncTripOrderRequestOrderDetails `json:"orderDetails,omitempty" xml:"orderDetails,omitempty" type:"Repeated"`
+	JourneyBizNo *string `json:"journeyBizNo,omitempty" xml:"journeyBizNo,omitempty"`
+	// example:
+	//
+	// 0219514246531048123
+	JourneySubmitUserId *string                             `json:"journeySubmitUserId,omitempty" xml:"journeySubmitUserId,omitempty"`
+	OrderDetails        []*SyncTripOrderRequestOrderDetails `json:"orderDetails,omitempty" xml:"orderDetails,omitempty" type:"Repeated"`
 	// This parameter is required.
 	//
 	// example:
 	//
 	// 20881001829000
-	OrderNo *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	OrderNo          *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	OrderPaymentType *string `json:"orderPaymentType,omitempty" xml:"orderPaymentType,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -2790,13 +3027,43 @@ func (s *SyncTripOrderRequest) SetGmtRefund(v string) *SyncTripOrderRequest {
 	return s
 }
 
+func (s *SyncTripOrderRequest) SetHasInvoice(v bool) *SyncTripOrderRequest {
+	s.HasInvoice = &v
+	return s
+}
+
+func (s *SyncTripOrderRequest) SetInvoiceApplyRole(v string) *SyncTripOrderRequest {
+	s.InvoiceApplyRole = &v
+	return s
+}
+
+func (s *SyncTripOrderRequest) SetInvoiceApplyType(v string) *SyncTripOrderRequest {
+	s.InvoiceApplyType = &v
+	return s
+}
+
 func (s *SyncTripOrderRequest) SetInvoiceApplyUrl(v string) *SyncTripOrderRequest {
 	s.InvoiceApplyUrl = &v
 	return s
 }
 
+func (s *SyncTripOrderRequest) SetInvoiceParty(v int32) *SyncTripOrderRequest {
+	s.InvoiceParty = &v
+	return s
+}
+
+func (s *SyncTripOrderRequest) SetInvoiceType(v int32) *SyncTripOrderRequest {
+	s.InvoiceType = &v
+	return s
+}
+
 func (s *SyncTripOrderRequest) SetJourneyBizNo(v string) *SyncTripOrderRequest {
 	s.JourneyBizNo = &v
+	return s
+}
+
+func (s *SyncTripOrderRequest) SetJourneySubmitUserId(v string) *SyncTripOrderRequest {
+	s.JourneySubmitUserId = &v
 	return s
 }
 
@@ -2807,6 +3074,11 @@ func (s *SyncTripOrderRequest) SetOrderDetails(v []*SyncTripOrderRequestOrderDet
 
 func (s *SyncTripOrderRequest) SetOrderNo(v string) *SyncTripOrderRequest {
 	s.OrderNo = &v
+	return s
+}
+
+func (s *SyncTripOrderRequest) SetOrderPaymentType(v string) *SyncTripOrderRequest {
+	s.OrderPaymentType = &v
 	return s
 }
 
@@ -2906,6 +3178,10 @@ func (s *SyncTripOrderRequestEvent) SetGmtAction(v string) *SyncTripOrderRequest
 type SyncTripOrderRequestOrderDetails struct {
 	// example:
 	//
+	// 首都机场
+	Airport *string `json:"airport,omitempty" xml:"airport,omitempty"`
+	// example:
+	//
 	// 2022-05-20 12:20:00
 	ArrivalTime *string `json:"arrivalTime,omitempty" xml:"arrivalTime,omitempty"`
 	// example:
@@ -2935,7 +3211,9 @@ type SyncTripOrderRequestOrderDetails struct {
 	// example:
 	//
 	// 2022-05-20 10:00:00
-	DepartTime *string `json:"departTime,omitempty" xml:"departTime,omitempty"`
+	DepartTime             *string `json:"departTime,omitempty" xml:"departTime,omitempty"`
+	DestinationAirport     *string `json:"destinationAirport,omitempty" xml:"destinationAirport,omitempty"`
+	DestinationAirportCode *string `json:"destinationAirportCode,omitempty" xml:"destinationAirportCode,omitempty"`
 	// example:
 	//
 	// 杭州
@@ -2965,8 +3243,11 @@ type SyncTripOrderRequestOrderDetails struct {
 	// example:
 	//
 	// 亲橙客栈
-	HotelName        *string                                             `json:"hotelName,omitempty" xml:"hotelName,omitempty"`
-	OpenConsumerInfo []*SyncTripOrderRequestOrderDetailsOpenConsumerInfo `json:"openConsumerInfo,omitempty" xml:"openConsumerInfo,omitempty" type:"Repeated"`
+	HotelName         *string                                             `json:"hotelName,omitempty" xml:"hotelName,omitempty"`
+	OpenConsumerInfo  []*SyncTripOrderRequestOrderDetailsOpenConsumerInfo `json:"openConsumerInfo,omitempty" xml:"openConsumerInfo,omitempty" type:"Repeated"`
+	OrderDetailStatus *string                                             `json:"orderDetailStatus,omitempty" xml:"orderDetailStatus,omitempty"`
+	OriginAirport     *string                                             `json:"originAirport,omitempty" xml:"originAirport,omitempty"`
+	OriginAirportCode *string                                             `json:"originAirportCode,omitempty" xml:"originAirportCode,omitempty"`
 	// example:
 	//
 	// 北京
@@ -2984,6 +3265,7 @@ type SyncTripOrderRequestOrderDetails struct {
 	// T3
 	OriginTerminalBuilding *string `json:"originTerminalBuilding,omitempty" xml:"originTerminalBuilding,omitempty"`
 	RoomCount              *int32  `json:"roomCount,omitempty" xml:"roomCount,omitempty"`
+	RoundTripType          *string `json:"roundTripType,omitempty" xml:"roundTripType,omitempty"`
 	// example:
 	//
 	// 经济舱/7车12A
@@ -3026,6 +3308,11 @@ func (s SyncTripOrderRequestOrderDetails) GoString() string {
 	return s.String()
 }
 
+func (s *SyncTripOrderRequestOrderDetails) SetAirport(v string) *SyncTripOrderRequestOrderDetails {
+	s.Airport = &v
+	return s
+}
+
 func (s *SyncTripOrderRequestOrderDetails) SetArrivalTime(v string) *SyncTripOrderRequestOrderDetails {
 	s.ArrivalTime = &v
 	return s
@@ -3063,6 +3350,16 @@ func (s *SyncTripOrderRequestOrderDetails) SetCheckOutTime(v string) *SyncTripOr
 
 func (s *SyncTripOrderRequestOrderDetails) SetDepartTime(v string) *SyncTripOrderRequestOrderDetails {
 	s.DepartTime = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetails) SetDestinationAirport(v string) *SyncTripOrderRequestOrderDetails {
+	s.DestinationAirport = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetails) SetDestinationAirportCode(v string) *SyncTripOrderRequestOrderDetails {
+	s.DestinationAirportCode = &v
 	return s
 }
 
@@ -3116,6 +3413,21 @@ func (s *SyncTripOrderRequestOrderDetails) SetOpenConsumerInfo(v []*SyncTripOrde
 	return s
 }
 
+func (s *SyncTripOrderRequestOrderDetails) SetOrderDetailStatus(v string) *SyncTripOrderRequestOrderDetails {
+	s.OrderDetailStatus = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetails) SetOriginAirport(v string) *SyncTripOrderRequestOrderDetails {
+	s.OriginAirport = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetails) SetOriginAirportCode(v string) *SyncTripOrderRequestOrderDetails {
+	s.OriginAirportCode = &v
+	return s
+}
+
 func (s *SyncTripOrderRequestOrderDetails) SetOriginCity(v string) *SyncTripOrderRequestOrderDetails {
 	s.OriginCity = &v
 	return s
@@ -3138,6 +3450,11 @@ func (s *SyncTripOrderRequestOrderDetails) SetOriginTerminalBuilding(v string) *
 
 func (s *SyncTripOrderRequestOrderDetails) SetRoomCount(v int32) *SyncTripOrderRequestOrderDetails {
 	s.RoomCount = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetails) SetRoundTripType(v string) *SyncTripOrderRequestOrderDetails {
+	s.RoundTripType = &v
 	return s
 }
 
@@ -3229,7 +3546,15 @@ func (s *SyncTripOrderRequestOrderDetailsHotelLocation) SetUrl(v string) *SyncTr
 }
 
 type SyncTripOrderRequestOrderDetailsOpenConsumerInfo struct {
-	CorpId       *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 350622200101152876
+	IdentityNumber *string `json:"identityNumber,omitempty" xml:"identityNumber,omitempty"`
+	// example:
+	//
+	// CITIZEN_ID
+	IdentityType *string `json:"identityType,omitempty" xml:"identityType,omitempty"`
 	Name         *string `json:"name,omitempty" xml:"name,omitempty"`
 	StaffFlag    *bool   `json:"staffFlag,omitempty" xml:"staffFlag,omitempty"`
 	Status       *string `json:"status,omitempty" xml:"status,omitempty"`
@@ -3248,6 +3573,16 @@ func (s SyncTripOrderRequestOrderDetailsOpenConsumerInfo) GoString() string {
 
 func (s *SyncTripOrderRequestOrderDetailsOpenConsumerInfo) SetCorpId(v string) *SyncTripOrderRequestOrderDetailsOpenConsumerInfo {
 	s.CorpId = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetailsOpenConsumerInfo) SetIdentityNumber(v string) *SyncTripOrderRequestOrderDetailsOpenConsumerInfo {
+	s.IdentityNumber = &v
+	return s
+}
+
+func (s *SyncTripOrderRequestOrderDetailsOpenConsumerInfo) SetIdentityType(v string) *SyncTripOrderRequestOrderDetailsOpenConsumerInfo {
+	s.IdentityType = &v
 	return s
 }
 
@@ -4849,6 +5184,101 @@ func (client *Client) SyncSecretKey(request *SyncSecretKeyRequest) (_result *Syn
 
 // Summary:
 //
+// 新差旅-同步发票
+//
+// @param tmpReq - SyncTripInvoiceRequest
+//
+// @param headers - SyncTripInvoiceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncTripInvoiceResponse
+func (client *Client) SyncTripInvoiceWithOptions(tmpReq *SyncTripInvoiceRequest, headers *SyncTripInvoiceHeaders, runtime *util.RuntimeOptions) (_result *SyncTripInvoiceResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &SyncTripInvoiceShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.InvoiceDetailList)) {
+		request.InvoiceDetailListShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.InvoiceDetailList, tea.String("invoiceDetailList"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChannelOrderNo)) {
+		query["channelOrderNo"] = request.ChannelOrderNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ChannelType)) {
+		query["channelType"] = request.ChannelType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CustomerCorpId)) {
+		query["customerCorpId"] = request.CustomerCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DingUserId)) {
+		query["dingUserId"] = request.DingUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceDetailListShrink)) {
+		query["invoiceDetailList"] = request.InvoiceDetailListShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncTripInvoice"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/tripInvoices/sync"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SyncTripInvoiceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 新差旅-同步发票
+//
+// @param request - SyncTripInvoiceRequest
+//
+// @return SyncTripInvoiceResponse
+func (client *Client) SyncTripInvoice(request *SyncTripInvoiceRequest) (_result *SyncTripInvoiceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncTripInvoiceHeaders{}
+	_result = &SyncTripInvoiceResponse{}
+	_body, _err := client.SyncTripInvoiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 同步出行订单变更事件
 //
 // @param request - SyncTripOrderRequest
@@ -4904,12 +5334,36 @@ func (client *Client) SyncTripOrderWithOptions(request *SyncTripOrderRequest, he
 		body["gmtRefund"] = request.GmtRefund
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.HasInvoice)) {
+		body["hasInvoice"] = request.HasInvoice
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceApplyRole)) {
+		body["invoiceApplyRole"] = request.InvoiceApplyRole
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceApplyType)) {
+		body["invoiceApplyType"] = request.InvoiceApplyType
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.InvoiceApplyUrl)) {
 		body["invoiceApplyUrl"] = request.InvoiceApplyUrl
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.InvoiceParty)) {
+		body["invoiceParty"] = request.InvoiceParty
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InvoiceType)) {
+		body["invoiceType"] = request.InvoiceType
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.JourneyBizNo)) {
 		body["journeyBizNo"] = request.JourneyBizNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.JourneySubmitUserId)) {
+		body["journeySubmitUserId"] = request.JourneySubmitUserId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OrderDetails)) {
@@ -4918,6 +5372,10 @@ func (client *Client) SyncTripOrderWithOptions(request *SyncTripOrderRequest, he
 
 	if !tea.BoolValue(util.IsUnset(request.OrderNo)) {
 		body["orderNo"] = request.OrderNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderPaymentType)) {
+		body["orderPaymentType"] = request.OrderPaymentType
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.OrderUrl)) {

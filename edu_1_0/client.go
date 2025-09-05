@@ -16813,6 +16813,146 @@ func (s *EventTrackResponse) SetBody(v *EventTrackResponseBody) *EventTrackRespo
 	return s
 }
 
+type GenerateTaskIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GenerateTaskIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateTaskIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateTaskIdHeaders) SetCommonHeaders(v map[string]*string) *GenerateTaskIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GenerateTaskIdHeaders) SetXAcsDingtalkAccessToken(v string) *GenerateTaskIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GenerateTaskIdRequest struct {
+	MaxTokens *int32 `json:"maxTokens,omitempty" xml:"maxTokens,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// qwen-max
+	Model *string `json:"model,omitempty" xml:"model,omitempty"`
+	// This parameter is required.
+	Prompt *string `json:"prompt,omitempty" xml:"prompt,omitempty"`
+	// This parameter is required.
+	Scene       *string  `json:"scene,omitempty" xml:"scene,omitempty"`
+	Temperature *float64 `json:"temperature,omitempty" xml:"temperature,omitempty"`
+	TopP        *float64 `json:"top_p,omitempty" xml:"top_p,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GenerateTaskIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateTaskIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateTaskIdRequest) SetMaxTokens(v int32) *GenerateTaskIdRequest {
+	s.MaxTokens = &v
+	return s
+}
+
+func (s *GenerateTaskIdRequest) SetModel(v string) *GenerateTaskIdRequest {
+	s.Model = &v
+	return s
+}
+
+func (s *GenerateTaskIdRequest) SetPrompt(v string) *GenerateTaskIdRequest {
+	s.Prompt = &v
+	return s
+}
+
+func (s *GenerateTaskIdRequest) SetScene(v string) *GenerateTaskIdRequest {
+	s.Scene = &v
+	return s
+}
+
+func (s *GenerateTaskIdRequest) SetTemperature(v float64) *GenerateTaskIdRequest {
+	s.Temperature = &v
+	return s
+}
+
+func (s *GenerateTaskIdRequest) SetTopP(v float64) *GenerateTaskIdRequest {
+	s.TopP = &v
+	return s
+}
+
+func (s *GenerateTaskIdRequest) SetUserId(v string) *GenerateTaskIdRequest {
+	s.UserId = &v
+	return s
+}
+
+type GenerateTaskIdResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GenerateTaskIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateTaskIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateTaskIdResponseBody) SetResult(v string) *GenerateTaskIdResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *GenerateTaskIdResponseBody) SetSuccess(v bool) *GenerateTaskIdResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GenerateTaskIdResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GenerateTaskIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GenerateTaskIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateTaskIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateTaskIdResponse) SetHeaders(v map[string]*string) *GenerateTaskIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GenerateTaskIdResponse) SetStatusCode(v int32) *GenerateTaskIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GenerateTaskIdResponse) SetBody(v *GenerateTaskIdResponseBody) *GenerateTaskIdResponse {
+	s.Body = v
+	return s
+}
+
 type GetBindChildInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -28514,6 +28654,122 @@ func (s *QueryKitOpenRecordResponse) SetStatusCode(v int32) *QueryKitOpenRecordR
 }
 
 func (s *QueryKitOpenRecordResponse) SetBody(v *QueryKitOpenRecordResponseBody) *QueryKitOpenRecordResponse {
+	s.Body = v
+	return s
+}
+
+type QueryModelResultByTaskIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryModelResultByTaskIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryModelResultByTaskIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryModelResultByTaskIdHeaders) SetCommonHeaders(v map[string]*string) *QueryModelResultByTaskIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryModelResultByTaskIdHeaders) SetXAcsDingtalkAccessToken(v string) *QueryModelResultByTaskIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryModelResultByTaskIdRequest struct {
+	// This parameter is required.
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s QueryModelResultByTaskIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryModelResultByTaskIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryModelResultByTaskIdRequest) SetTaskId(v string) *QueryModelResultByTaskIdRequest {
+	s.TaskId = &v
+	return s
+}
+
+type QueryModelResultByTaskIdResponseBody struct {
+	Result  *QueryModelResultByTaskIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                       `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryModelResultByTaskIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryModelResultByTaskIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryModelResultByTaskIdResponseBody) SetResult(v *QueryModelResultByTaskIdResponseBodyResult) *QueryModelResultByTaskIdResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryModelResultByTaskIdResponseBody) SetSuccess(v bool) *QueryModelResultByTaskIdResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryModelResultByTaskIdResponseBodyResult struct {
+	RequestId *string                `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    map[string]interface{} `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s QueryModelResultByTaskIdResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryModelResultByTaskIdResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryModelResultByTaskIdResponseBodyResult) SetRequestId(v string) *QueryModelResultByTaskIdResponseBodyResult {
+	s.RequestId = &v
+	return s
+}
+
+func (s *QueryModelResultByTaskIdResponseBodyResult) SetResult(v map[string]interface{}) *QueryModelResultByTaskIdResponseBodyResult {
+	s.Result = v
+	return s
+}
+
+type QueryModelResultByTaskIdResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryModelResultByTaskIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryModelResultByTaskIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryModelResultByTaskIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryModelResultByTaskIdResponse) SetHeaders(v map[string]*string) *QueryModelResultByTaskIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryModelResultByTaskIdResponse) SetStatusCode(v int32) *QueryModelResultByTaskIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryModelResultByTaskIdResponse) SetBody(v *QueryModelResultByTaskIdResponseBody) *QueryModelResultByTaskIdResponse {
 	s.Body = v
 	return s
 }
@@ -48280,6 +48536,103 @@ func (client *Client) EventTrack(request *EventTrackRequest) (_result *EventTrac
 
 // Summary:
 //
+// 获取调用大模型的taskId
+//
+// @param request - GenerateTaskIdRequest
+//
+// @param headers - GenerateTaskIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GenerateTaskIdResponse
+func (client *Client) GenerateTaskIdWithOptions(request *GenerateTaskIdRequest, headers *GenerateTaskIdHeaders, runtime *util.RuntimeOptions) (_result *GenerateTaskIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxTokens)) {
+		body["maxTokens"] = request.MaxTokens
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Model)) {
+		body["model"] = request.Model
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Prompt)) {
+		body["prompt"] = request.Prompt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scene)) {
+		body["scene"] = request.Scene
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Temperature)) {
+		body["temperature"] = request.Temperature
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TopP)) {
+		body["top_p"] = request.TopP
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GenerateTaskId"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/ai/models/taskId/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GenerateTaskIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取调用大模型的taskId
+//
+// @param request - GenerateTaskIdRequest
+//
+// @return GenerateTaskIdResponse
+func (client *Client) GenerateTaskId(request *GenerateTaskIdRequest) (_result *GenerateTaskIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GenerateTaskIdHeaders{}
+	_result = &GenerateTaskIdResponse{}
+	_body, _err := client.GenerateTaskIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 获取绑定孩子信息
 //
 // @param request - GetBindChildInfoRequest
@@ -52937,6 +53290,79 @@ func (client *Client) QueryKitOpenRecord(request *QueryKitOpenRecordRequest) (_r
 	headers := &QueryKitOpenRecordHeaders{}
 	_result = &QueryKitOpenRecordResponse{}
 	_body, _err := client.QueryKitOpenRecordWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取大模型的返回值
+//
+// @param request - QueryModelResultByTaskIdRequest
+//
+// @param headers - QueryModelResultByTaskIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryModelResultByTaskIdResponse
+func (client *Client) QueryModelResultByTaskIdWithOptions(request *QueryModelResultByTaskIdRequest, headers *QueryModelResultByTaskIdHeaders, runtime *util.RuntimeOptions) (_result *QueryModelResultByTaskIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryModelResultByTaskId"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/ai/models/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryModelResultByTaskIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取大模型的返回值
+//
+// @param request - QueryModelResultByTaskIdRequest
+//
+// @return QueryModelResultByTaskIdResponse
+func (client *Client) QueryModelResultByTaskId(request *QueryModelResultByTaskIdRequest) (_result *QueryModelResultByTaskIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryModelResultByTaskIdHeaders{}
+	_result = &QueryModelResultByTaskIdResponse{}
+	_body, _err := client.QueryModelResultByTaskIdWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

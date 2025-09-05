@@ -2519,15 +2519,16 @@ func (s *QueryOrgTodoByUserHeaders) SetXAcsDingtalkAccessToken(v string) *QueryO
 }
 
 type QueryOrgTodoByUserRequest struct {
-	FromDueTime    *int64      `json:"fromDueTime,omitempty" xml:"fromDueTime,omitempty"`
-	IsDone         *bool       `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	MaxResults     *int32      `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken      *string     `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	OrderBy        *string     `json:"orderBy,omitempty" xml:"orderBy,omitempty"`
-	OrderDirection *string     `json:"orderDirection,omitempty" xml:"orderDirection,omitempty"`
-	RoleTypes      [][]*string `json:"roleTypes,omitempty" xml:"roleTypes,omitempty" type:"Repeated"`
-	Subject        *string     `json:"subject,omitempty" xml:"subject,omitempty"`
-	ToDueTime      *int64      `json:"toDueTime,omitempty" xml:"toDueTime,omitempty"`
+	FromDueTime      *int64      `json:"fromDueTime,omitempty" xml:"fromDueTime,omitempty"`
+	IsDone           *bool       `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	MaxResults       *int32      `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NeedPersonalTodo *bool       `json:"needPersonalTodo,omitempty" xml:"needPersonalTodo,omitempty"`
+	NextToken        *string     `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OrderBy          *string     `json:"orderBy,omitempty" xml:"orderBy,omitempty"`
+	OrderDirection   *string     `json:"orderDirection,omitempty" xml:"orderDirection,omitempty"`
+	RoleTypes        [][]*string `json:"roleTypes,omitempty" xml:"roleTypes,omitempty" type:"Repeated"`
+	Subject          *string     `json:"subject,omitempty" xml:"subject,omitempty"`
+	ToDueTime        *int64      `json:"toDueTime,omitempty" xml:"toDueTime,omitempty"`
 	// example:
 	//
 	// TODO
@@ -2554,6 +2555,11 @@ func (s *QueryOrgTodoByUserRequest) SetIsDone(v bool) *QueryOrgTodoByUserRequest
 
 func (s *QueryOrgTodoByUserRequest) SetMaxResults(v int32) *QueryOrgTodoByUserRequest {
 	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryOrgTodoByUserRequest) SetNeedPersonalTodo(v bool) *QueryOrgTodoByUserRequest {
+	s.NeedPersonalTodo = &v
 	return s
 }
 
@@ -5053,6 +5059,10 @@ func (client *Client) QueryOrgTodoByUserWithOptions(unionId *string, request *Qu
 
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NeedPersonalTodo)) {
+		body["needPersonalTodo"] = request.NeedPersonalTodo
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {

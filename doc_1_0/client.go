@@ -3187,6 +3187,335 @@ func (s *DeleteWorkspaceMembersResponse) SetStatusCode(v int32) *DeleteWorkspace
 	return s
 }
 
+type DeliverNoticeCardHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeliverNoticeCardHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverNoticeCardHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverNoticeCardHeaders) SetCommonHeaders(v map[string]*string) *DeliverNoticeCardHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeliverNoticeCardHeaders) SetXAcsDingtalkAccessToken(v string) *DeliverNoticeCardHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeliverNoticeCardRequest struct {
+	AtUnionIds []*string `json:"atUnionIds,omitempty" xml:"atUnionIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	BizId        *string            `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	BtnActionStr map[string]*string `json:"btnActionStr,omitempty" xml:"btnActionStr,omitempty"`
+	// This parameter is required.
+	Content         *string `json:"content,omitempty" xml:"content,omitempty"`
+	DetailMobileUrl *string `json:"detailMobileUrl,omitempty" xml:"detailMobileUrl,omitempty"`
+	DetailPcUrl     *string `json:"detailPcUrl,omitempty" xml:"detailPcUrl,omitempty"`
+	// This parameter is required.
+	LastMessageI18n map[string]*string `json:"lastMessageI18n,omitempty" xml:"lastMessageI18n,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// receiver_id
+	ReceiverId *string `json:"receiverId,omitempty" xml:"receiverId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user/chat
+	ReceiverType *string `json:"receiverType,omitempty" xml:"receiverType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DeliverNoticeCardRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverNoticeCardRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverNoticeCardRequest) SetAtUnionIds(v []*string) *DeliverNoticeCardRequest {
+	s.AtUnionIds = v
+	return s
+}
+
+func (s *DeliverNoticeCardRequest) SetBizId(v string) *DeliverNoticeCardRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *DeliverNoticeCardRequest) SetBtnActionStr(v map[string]*string) *DeliverNoticeCardRequest {
+	s.BtnActionStr = v
+	return s
+}
+
+func (s *DeliverNoticeCardRequest) SetContent(v string) *DeliverNoticeCardRequest {
+	s.Content = &v
+	return s
+}
+
+func (s *DeliverNoticeCardRequest) SetDetailMobileUrl(v string) *DeliverNoticeCardRequest {
+	s.DetailMobileUrl = &v
+	return s
+}
+
+func (s *DeliverNoticeCardRequest) SetDetailPcUrl(v string) *DeliverNoticeCardRequest {
+	s.DetailPcUrl = &v
+	return s
+}
+
+func (s *DeliverNoticeCardRequest) SetLastMessageI18n(v map[string]*string) *DeliverNoticeCardRequest {
+	s.LastMessageI18n = v
+	return s
+}
+
+func (s *DeliverNoticeCardRequest) SetReceiverId(v string) *DeliverNoticeCardRequest {
+	s.ReceiverId = &v
+	return s
+}
+
+func (s *DeliverNoticeCardRequest) SetReceiverType(v string) *DeliverNoticeCardRequest {
+	s.ReceiverType = &v
+	return s
+}
+
+func (s *DeliverNoticeCardRequest) SetOperatorId(v string) *DeliverNoticeCardRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DeliverNoticeCardResponseBody struct {
+	Result  map[string]interface{} `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool                  `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeliverNoticeCardResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverNoticeCardResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverNoticeCardResponseBody) SetResult(v map[string]interface{}) *DeliverNoticeCardResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *DeliverNoticeCardResponseBody) SetSuccess(v bool) *DeliverNoticeCardResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeliverNoticeCardResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeliverNoticeCardResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeliverNoticeCardResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverNoticeCardResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverNoticeCardResponse) SetHeaders(v map[string]*string) *DeliverNoticeCardResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeliverNoticeCardResponse) SetStatusCode(v int32) *DeliverNoticeCardResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeliverNoticeCardResponse) SetBody(v *DeliverNoticeCardResponseBody) *DeliverNoticeCardResponse {
+	s.Body = v
+	return s
+}
+
+type DeliverUnifyCardHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeliverUnifyCardHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverUnifyCardHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverUnifyCardHeaders) SetCommonHeaders(v map[string]*string) *DeliverUnifyCardHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeliverUnifyCardHeaders) SetXAcsDingtalkAccessToken(v string) *DeliverUnifyCardHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeliverUnifyCardRequest struct {
+	AtUnionIds []*string `json:"atUnionIds,omitempty" xml:"atUnionIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	CardData          *string `json:"cardData,omitempty" xml:"cardData,omitempty"`
+	DynamicDataConfig *string `json:"dynamicDataConfig,omitempty" xml:"dynamicDataConfig,omitempty"`
+	// This parameter is required.
+	LastMessageI18n map[string]*string `json:"lastMessageI18n,omitempty" xml:"lastMessageI18n,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// receiver_id
+	ReceiverId *string `json:"receiverId,omitempty" xml:"receiverId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user/chat
+	ReceiverType    *string `json:"receiverType,omitempty" xml:"receiverType,omitempty"`
+	UserPrivateData *string `json:"userPrivateData,omitempty" xml:"userPrivateData,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DeliverUnifyCardRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverUnifyCardRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverUnifyCardRequest) SetAtUnionIds(v []*string) *DeliverUnifyCardRequest {
+	s.AtUnionIds = v
+	return s
+}
+
+func (s *DeliverUnifyCardRequest) SetBizId(v string) *DeliverUnifyCardRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *DeliverUnifyCardRequest) SetBizType(v string) *DeliverUnifyCardRequest {
+	s.BizType = &v
+	return s
+}
+
+func (s *DeliverUnifyCardRequest) SetCardData(v string) *DeliverUnifyCardRequest {
+	s.CardData = &v
+	return s
+}
+
+func (s *DeliverUnifyCardRequest) SetDynamicDataConfig(v string) *DeliverUnifyCardRequest {
+	s.DynamicDataConfig = &v
+	return s
+}
+
+func (s *DeliverUnifyCardRequest) SetLastMessageI18n(v map[string]*string) *DeliverUnifyCardRequest {
+	s.LastMessageI18n = v
+	return s
+}
+
+func (s *DeliverUnifyCardRequest) SetReceiverId(v string) *DeliverUnifyCardRequest {
+	s.ReceiverId = &v
+	return s
+}
+
+func (s *DeliverUnifyCardRequest) SetReceiverType(v string) *DeliverUnifyCardRequest {
+	s.ReceiverType = &v
+	return s
+}
+
+func (s *DeliverUnifyCardRequest) SetUserPrivateData(v string) *DeliverUnifyCardRequest {
+	s.UserPrivateData = &v
+	return s
+}
+
+func (s *DeliverUnifyCardRequest) SetOperatorId(v string) *DeliverUnifyCardRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DeliverUnifyCardResponseBody struct {
+	Result  map[string]interface{} `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool                  `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeliverUnifyCardResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverUnifyCardResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverUnifyCardResponseBody) SetResult(v map[string]interface{}) *DeliverUnifyCardResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *DeliverUnifyCardResponseBody) SetSuccess(v bool) *DeliverUnifyCardResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeliverUnifyCardResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeliverUnifyCardResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeliverUnifyCardResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeliverUnifyCardResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeliverUnifyCardResponse) SetHeaders(v map[string]*string) *DeliverUnifyCardResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeliverUnifyCardResponse) SetStatusCode(v int32) *DeliverUnifyCardResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeliverUnifyCardResponse) SetBody(v *DeliverUnifyCardResponseBody) *DeliverUnifyCardResponse {
+	s.Body = v
+	return s
+}
+
 type DocAppendParagraphHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -12291,6 +12620,228 @@ func (client *Client) DeleteWorkspaceMembers(workspaceId *string, request *Delet
 	headers := &DeleteWorkspaceMembersHeaders{}
 	_result = &DeleteWorkspaceMembersResponse{}
 	_body, _err := client.DeleteWorkspaceMembersWithOptions(workspaceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 分享文档通知内容
+//
+// @param request - DeliverNoticeCardRequest
+//
+// @param headers - DeliverNoticeCardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeliverNoticeCardResponse
+func (client *Client) DeliverNoticeCardWithOptions(request *DeliverNoticeCardRequest, headers *DeliverNoticeCardHeaders, runtime *util.RuntimeOptions) (_result *DeliverNoticeCardResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AtUnionIds)) {
+		body["atUnionIds"] = request.AtUnionIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BtnActionStr)) {
+		body["btnActionStr"] = request.BtnActionStr
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DetailMobileUrl)) {
+		body["detailMobileUrl"] = request.DetailMobileUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DetailPcUrl)) {
+		body["detailPcUrl"] = request.DetailPcUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LastMessageI18n)) {
+		body["lastMessageI18n"] = request.LastMessageI18n
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverId)) {
+		body["receiverId"] = request.ReceiverId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverType)) {
+		body["receiverType"] = request.ReceiverType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeliverNoticeCard"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/notice_cards/deliver"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeliverNoticeCardResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 分享文档通知内容
+//
+// @param request - DeliverNoticeCardRequest
+//
+// @return DeliverNoticeCardResponse
+func (client *Client) DeliverNoticeCard(request *DeliverNoticeCardRequest) (_result *DeliverNoticeCardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeliverNoticeCardHeaders{}
+	_result = &DeliverNoticeCardResponse{}
+	_body, _err := client.DeliverNoticeCardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 分享文档通用内容
+//
+// @param request - DeliverUnifyCardRequest
+//
+// @param headers - DeliverUnifyCardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeliverUnifyCardResponse
+func (client *Client) DeliverUnifyCardWithOptions(request *DeliverUnifyCardRequest, headers *DeliverUnifyCardHeaders, runtime *util.RuntimeOptions) (_result *DeliverUnifyCardResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AtUnionIds)) {
+		body["atUnionIds"] = request.AtUnionIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizType)) {
+		body["bizType"] = request.BizType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardData)) {
+		body["cardData"] = request.CardData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DynamicDataConfig)) {
+		body["dynamicDataConfig"] = request.DynamicDataConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LastMessageI18n)) {
+		body["lastMessageI18n"] = request.LastMessageI18n
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverId)) {
+		body["receiverId"] = request.ReceiverId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReceiverType)) {
+		body["receiverType"] = request.ReceiverType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserPrivateData)) {
+		body["userPrivateData"] = request.UserPrivateData
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeliverUnifyCard"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/unify_cards/deliver"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeliverUnifyCardResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 分享文档通用内容
+//
+// @param request - DeliverUnifyCardRequest
+//
+// @return DeliverUnifyCardResponse
+func (client *Client) DeliverUnifyCard(request *DeliverUnifyCardRequest) (_result *DeliverUnifyCardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeliverUnifyCardHeaders{}
+	_result = &DeliverUnifyCardResponse{}
+	_body, _err := client.DeliverUnifyCardWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
