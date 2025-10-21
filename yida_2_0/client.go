@@ -4553,9 +4553,27 @@ func (s *UpdateSubTableRequest) SetUserId(v string) *UpdateSubTableRequest {
 	return s
 }
 
+type UpdateSubTableResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateSubTableResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSubTableResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSubTableResponseBody) SetResult(v bool) *UpdateSubTableResponseBody {
+	s.Result = &v
+	return s
+}
+
 type UpdateSubTableResponse struct {
-	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
-	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateSubTableResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateSubTableResponse) String() string {
@@ -4573,6 +4591,176 @@ func (s *UpdateSubTableResponse) SetHeaders(v map[string]*string) *UpdateSubTabl
 
 func (s *UpdateSubTableResponse) SetStatusCode(v int32) *UpdateSubTableResponse {
 	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateSubTableResponse) SetBody(v *UpdateSubTableResponseBody) *UpdateSubTableResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateSubTableByRowIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateSubTableByRowIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSubTableByRowIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSubTableByRowIdHeaders) SetCommonHeaders(v map[string]*string) *UpdateSubTableByRowIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateSubTableByRowIdHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateSubTableByRowIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateSubTableByRowIdRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FINST-J8766S91O2UYN87ZX3XOF1MY8MBA2912BSV0L24
+	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// if can be null:
+	// false
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	TableFieldId *string `json:"tableFieldId,omitempty" xml:"tableFieldId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// [{"textField_md2x1jow":"更新子表通过rowId","textareaField_md2x1jox":"更新子表通过rowId","rowId":"xxxxxxxxxxxxxxxx"},{"textField_md2x1jow":"更新子表通过rowId","textareaField_md2x1jox":"更新子表通过rowId","rowId":"xxxxxxxxxxxxxxxx"}]
+	UpdateSubTableDataJson *string `json:"updateSubTableDataJson,omitempty" xml:"updateSubTableDataJson,omitempty"`
+	UseAlias               *bool   `json:"useAlias,omitempty" xml:"useAlias,omitempty"`
+	// example:
+	//
+	// false
+	UseLatestFormSchemaVersion *bool `json:"useLatestFormSchemaVersion,omitempty" xml:"useLatestFormSchemaVersion,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateSubTableByRowIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSubTableByRowIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSubTableByRowIdRequest) SetAppType(v string) *UpdateSubTableByRowIdRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *UpdateSubTableByRowIdRequest) SetFormInstanceId(v string) *UpdateSubTableByRowIdRequest {
+	s.FormInstanceId = &v
+	return s
+}
+
+func (s *UpdateSubTableByRowIdRequest) SetFormUuid(v string) *UpdateSubTableByRowIdRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *UpdateSubTableByRowIdRequest) SetSystemToken(v string) *UpdateSubTableByRowIdRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *UpdateSubTableByRowIdRequest) SetTableFieldId(v string) *UpdateSubTableByRowIdRequest {
+	s.TableFieldId = &v
+	return s
+}
+
+func (s *UpdateSubTableByRowIdRequest) SetUpdateSubTableDataJson(v string) *UpdateSubTableByRowIdRequest {
+	s.UpdateSubTableDataJson = &v
+	return s
+}
+
+func (s *UpdateSubTableByRowIdRequest) SetUseAlias(v bool) *UpdateSubTableByRowIdRequest {
+	s.UseAlias = &v
+	return s
+}
+
+func (s *UpdateSubTableByRowIdRequest) SetUseLatestFormSchemaVersion(v bool) *UpdateSubTableByRowIdRequest {
+	s.UseLatestFormSchemaVersion = &v
+	return s
+}
+
+func (s *UpdateSubTableByRowIdRequest) SetUserId(v string) *UpdateSubTableByRowIdRequest {
+	s.UserId = &v
+	return s
+}
+
+type UpdateSubTableByRowIdResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateSubTableByRowIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSubTableByRowIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSubTableByRowIdResponseBody) SetResult(v bool) *UpdateSubTableByRowIdResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateSubTableByRowIdResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateSubTableByRowIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateSubTableByRowIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSubTableByRowIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSubTableByRowIdResponse) SetHeaders(v map[string]*string) *UpdateSubTableByRowIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateSubTableByRowIdResponse) SetStatusCode(v int32) *UpdateSubTableByRowIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateSubTableByRowIdResponse) SetBody(v *UpdateSubTableByRowIdResponseBody) *UpdateSubTableByRowIdResponse {
+	s.Body = v
 	return s
 }
 
@@ -6580,7 +6768,7 @@ func (client *Client) UpdateSubTableWithOptions(request *UpdateSubTableRequest, 
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
 		ReqBodyType: tea.String("none"),
-		BodyType:    tea.String("none"),
+		BodyType:    tea.String("json"),
 	}
 	_result = &UpdateSubTableResponse{}
 	_body, _err := client.Execute(params, req, runtime)
@@ -6603,6 +6791,111 @@ func (client *Client) UpdateSubTable(request *UpdateSubTableRequest) (_result *U
 	headers := &UpdateSubTableHeaders{}
 	_result = &UpdateSubTableResponse{}
 	_body, _err := client.UpdateSubTableWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过指定rowId更新宜搭子表单数据
+//
+// @param request - UpdateSubTableByRowIdRequest
+//
+// @param headers - UpdateSubTableByRowIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateSubTableByRowIdResponse
+func (client *Client) UpdateSubTableByRowIdWithOptions(request *UpdateSubTableByRowIdRequest, headers *UpdateSubTableByRowIdHeaders, runtime *util.RuntimeOptions) (_result *UpdateSubTableByRowIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormInstanceId)) {
+		body["formInstanceId"] = request.FormInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TableFieldId)) {
+		body["tableFieldId"] = request.TableFieldId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UpdateSubTableDataJson)) {
+		body["updateSubTableDataJson"] = request.UpdateSubTableDataJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UseAlias)) {
+		body["useAlias"] = request.UseAlias
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UseLatestFormSchemaVersion)) {
+		body["useLatestFormSchemaVersion"] = request.UseLatestFormSchemaVersion
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateSubTableByRowId"),
+		Version:     tea.String("yida_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/yida/forms/updateSubTableByRowId"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateSubTableByRowIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过指定rowId更新宜搭子表单数据
+//
+// @param request - UpdateSubTableByRowIdRequest
+//
+// @return UpdateSubTableByRowIdResponse
+func (client *Client) UpdateSubTableByRowId(request *UpdateSubTableByRowIdRequest) (_result *UpdateSubTableByRowIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateSubTableByRowIdHeaders{}
+	_result = &UpdateSubTableByRowIdResponse{}
+	_body, _err := client.UpdateSubTableByRowIdWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

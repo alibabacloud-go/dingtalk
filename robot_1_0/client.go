@@ -2420,6 +2420,10 @@ func (s *RobotSendDingHeaders) SetXAcsDingtalkAccessToken(v string) *RobotSendDi
 }
 
 type RobotSendDingRequest struct {
+	// example:
+	//
+	// Standard_Female_Voice
+	CallVoice *string `json:"callVoice,omitempty" xml:"callVoice,omitempty"`
 	// This parameter is required.
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
 	// This parameter is required.
@@ -2440,6 +2444,11 @@ func (s RobotSendDingRequest) String() string {
 
 func (s RobotSendDingRequest) GoString() string {
 	return s.String()
+}
+
+func (s *RobotSendDingRequest) SetCallVoice(v string) *RobotSendDingRequest {
+	s.CallVoice = &v
+	return s
 }
 
 func (s *RobotSendDingRequest) SetContent(v string) *RobotSendDingRequest {
@@ -4513,6 +4522,10 @@ func (client *Client) RobotSendDingWithOptions(request *RobotSendDingRequest, he
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CallVoice)) {
+		body["callVoice"] = request.CallVoice
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Content)) {
 		body["content"] = request.Content
 	}

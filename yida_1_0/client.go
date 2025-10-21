@@ -14177,6 +14177,9 @@ type ListTableDataByFormInstanceIdTableIdRequest struct {
 	//
 	// FORM-EF6Y4G8WO2FN0SUB43TDQ3CGC3FMFQ1G9400RCJ3
 	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// if can be null:
+	// false
+	NeedRowId *bool `json:"needRowId,omitempty" xml:"needRowId,omitempty"`
 	// example:
 	//
 	// 10
@@ -14220,6 +14223,11 @@ func (s *ListTableDataByFormInstanceIdTableIdRequest) SetAppType(v string) *List
 
 func (s *ListTableDataByFormInstanceIdTableIdRequest) SetFormUuid(v string) *ListTableDataByFormInstanceIdTableIdRequest {
 	s.FormUuid = &v
+	return s
+}
+
+func (s *ListTableDataByFormInstanceIdTableIdRequest) SetNeedRowId(v bool) *ListTableDataByFormInstanceIdTableIdRequest {
+	s.NeedRowId = &v
 	return s
 }
 
@@ -26909,6 +26917,10 @@ func (client *Client) ListTableDataByFormInstanceIdTableIdWithOptions(formInstan
 
 	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
 		query["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NeedRowId)) {
+		query["needRowId"] = request.NeedRowId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {

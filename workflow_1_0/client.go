@@ -2147,6 +2147,10 @@ type CreateIntegratedTaskRequestTasks struct {
 	CustomData *string `json:"customData,omitempty" xml:"customData,omitempty"`
 	// example:
 	//
+	// 1758643200000
+	DueTimestamp *int64 `json:"dueTimestamp,omitempty" xml:"dueTimestamp,omitempty"`
+	// example:
+	//
 	// https://www.dingtalk.com
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 	// example:
@@ -2165,6 +2169,11 @@ func (s CreateIntegratedTaskRequestTasks) GoString() string {
 
 func (s *CreateIntegratedTaskRequestTasks) SetCustomData(v string) *CreateIntegratedTaskRequestTasks {
 	s.CustomData = &v
+	return s
+}
+
+func (s *CreateIntegratedTaskRequestTasks) SetDueTimestamp(v int64) *CreateIntegratedTaskRequestTasks {
+	s.DueTimestamp = &v
 	return s
 }
 
@@ -14497,6 +14506,10 @@ type PremiumSaveIntegratedTaskRequestTasks struct {
 	CustomData *string `json:"customData,omitempty" xml:"customData,omitempty"`
 	// example:
 	//
+	// 1758643200000
+	DueTimestamp *int64 `json:"dueTimestamp,omitempty" xml:"dueTimestamp,omitempty"`
+	// example:
+	//
 	// https://www.dingtalk.com
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 	// example:
@@ -14515,6 +14528,11 @@ func (s PremiumSaveIntegratedTaskRequestTasks) GoString() string {
 
 func (s *PremiumSaveIntegratedTaskRequestTasks) SetCustomData(v string) *PremiumSaveIntegratedTaskRequestTasks {
 	s.CustomData = &v
+	return s
+}
+
+func (s *PremiumSaveIntegratedTaskRequestTasks) SetDueTimestamp(v int64) *PremiumSaveIntegratedTaskRequestTasks {
+	s.DueTimestamp = &v
 	return s
 }
 

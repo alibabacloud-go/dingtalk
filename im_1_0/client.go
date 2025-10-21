@@ -374,7 +374,8 @@ type AddUnfurlingRegisterRequest struct {
 	// example:
 	//
 	// 3102xxxxxxx
-	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppId        *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	CallbackType *int32  `json:"callbackType,omitempty" xml:"callbackType,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -428,6 +429,11 @@ func (s *AddUnfurlingRegisterRequest) SetApiSecret(v string) *AddUnfurlingRegist
 
 func (s *AddUnfurlingRegisterRequest) SetAppId(v string) *AddUnfurlingRegisterRequest {
 	s.AppId = &v
+	return s
+}
+
+func (s *AddUnfurlingRegisterRequest) SetCallbackType(v int32) *AddUnfurlingRegisterRequest {
+	s.CallbackType = &v
 	return s
 }
 
@@ -11669,6 +11675,131 @@ func (s *QueryUnfurlingRegisterInfoResponse) SetBody(v *QueryUnfurlingRegisterIn
 	return s
 }
 
+type QueryUserGroupAliasTitleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryUserGroupAliasTitleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserGroupAliasTitleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserGroupAliasTitleHeaders) SetCommonHeaders(v map[string]*string) *QueryUserGroupAliasTitleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryUserGroupAliasTitleHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUserGroupAliasTitleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryUserGroupAliasTitleRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxxx
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2131231xxx
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryUserGroupAliasTitleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserGroupAliasTitleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserGroupAliasTitleRequest) SetOpenConversationId(v string) *QueryUserGroupAliasTitleRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QueryUserGroupAliasTitleRequest) SetUserId(v string) *QueryUserGroupAliasTitleRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryUserGroupAliasTitleResponseBody struct {
+	Result  *QueryUserGroupAliasTitleResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                       `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryUserGroupAliasTitleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserGroupAliasTitleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserGroupAliasTitleResponseBody) SetResult(v *QueryUserGroupAliasTitleResponseBodyResult) *QueryUserGroupAliasTitleResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryUserGroupAliasTitleResponseBody) SetSuccess(v bool) *QueryUserGroupAliasTitleResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryUserGroupAliasTitleResponseBodyResult struct {
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QueryUserGroupAliasTitleResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserGroupAliasTitleResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserGroupAliasTitleResponseBodyResult) SetTitle(v string) *QueryUserGroupAliasTitleResponseBodyResult {
+	s.Title = &v
+	return s
+}
+
+type QueryUserGroupAliasTitleResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryUserGroupAliasTitleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryUserGroupAliasTitleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserGroupAliasTitleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserGroupAliasTitleResponse) SetHeaders(v map[string]*string) *QueryUserGroupAliasTitleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryUserGroupAliasTitleResponse) SetStatusCode(v int32) *QueryUserGroupAliasTitleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryUserGroupAliasTitleResponse) SetBody(v *QueryUserGroupAliasTitleResponseBody) *QueryUserGroupAliasTitleResponse {
+	s.Body = v
+	return s
+}
+
 type QueryUserViewGroupLastMessageTimeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -15558,7 +15689,8 @@ type UpdateUnfurlingRegisterRequest struct {
 	// example:
 	//
 	// 3102xxxxxxx
-	AppId *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppId        *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	CallbackType *int32  `json:"callbackType,omitempty" xml:"callbackType,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -15622,6 +15754,11 @@ func (s *UpdateUnfurlingRegisterRequest) SetApiSecret(v string) *UpdateUnfurling
 
 func (s *UpdateUnfurlingRegisterRequest) SetAppId(v string) *UpdateUnfurlingRegisterRequest {
 	s.AppId = &v
+	return s
+}
+
+func (s *UpdateUnfurlingRegisterRequest) SetCallbackType(v int32) *UpdateUnfurlingRegisterRequest {
+	s.CallbackType = &v
 	return s
 }
 
@@ -15829,6 +15966,119 @@ func (s *UpdateUnfurlingRegisterStatusResponse) SetStatusCode(v int32) *UpdateUn
 }
 
 func (s *UpdateUnfurlingRegisterStatusResponse) SetBody(v *UpdateUnfurlingRegisterStatusResponseBody) *UpdateUnfurlingRegisterStatusResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateUserGroupAliasTitleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateUserGroupAliasTitleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateUserGroupAliasTitleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateUserGroupAliasTitleHeaders) SetCommonHeaders(v map[string]*string) *UpdateUserGroupAliasTitleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateUserGroupAliasTitleHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateUserGroupAliasTitleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateUserGroupAliasTitleRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxxx
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 群备注
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2132144xxx
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateUserGroupAliasTitleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateUserGroupAliasTitleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateUserGroupAliasTitleRequest) SetOpenConversationId(v string) *UpdateUserGroupAliasTitleRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *UpdateUserGroupAliasTitleRequest) SetTitle(v string) *UpdateUserGroupAliasTitleRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *UpdateUserGroupAliasTitleRequest) SetUserId(v string) *UpdateUserGroupAliasTitleRequest {
+	s.UserId = &v
+	return s
+}
+
+type UpdateUserGroupAliasTitleResponseBody struct {
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateUserGroupAliasTitleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateUserGroupAliasTitleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateUserGroupAliasTitleResponseBody) SetSuccess(v string) *UpdateUserGroupAliasTitleResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateUserGroupAliasTitleResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateUserGroupAliasTitleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateUserGroupAliasTitleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateUserGroupAliasTitleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateUserGroupAliasTitleResponse) SetHeaders(v map[string]*string) *UpdateUserGroupAliasTitleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateUserGroupAliasTitleResponse) SetStatusCode(v int32) *UpdateUserGroupAliasTitleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateUserGroupAliasTitleResponse) SetBody(v *UpdateUserGroupAliasTitleResponseBody) *UpdateUserGroupAliasTitleResponse {
 	s.Body = v
 	return s
 }
@@ -16757,6 +17007,10 @@ func (client *Client) AddUnfurlingRegisterWithOptions(request *AddUnfurlingRegis
 
 	if !tea.BoolValue(util.IsUnset(request.AppId)) {
 		body["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CallbackType)) {
+		body["callbackType"] = request.CallbackType
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.CallbackUrl)) {
@@ -22997,6 +23251,83 @@ func (client *Client) QueryUnfurlingRegisterInfo(request *QueryUnfurlingRegister
 
 // Summary:
 //
+// 查询群备注
+//
+// @param request - QueryUserGroupAliasTitleRequest
+//
+// @param headers - QueryUserGroupAliasTitleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryUserGroupAliasTitleResponse
+func (client *Client) QueryUserGroupAliasTitleWithOptions(request *QueryUserGroupAliasTitleRequest, headers *QueryUserGroupAliasTitleHeaders, runtime *util.RuntimeOptions) (_result *QueryUserGroupAliasTitleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryUserGroupAliasTitle"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/groupAliasTitiles/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryUserGroupAliasTitleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询群备注
+//
+// @param request - QueryUserGroupAliasTitleRequest
+//
+// @return QueryUserGroupAliasTitleResponse
+func (client *Client) QueryUserGroupAliasTitle(request *QueryUserGroupAliasTitleRequest) (_result *QueryUserGroupAliasTitleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryUserGroupAliasTitleHeaders{}
+	_result = &QueryUserGroupAliasTitleResponse{}
+	_body, _err := client.QueryUserGroupAliasTitleWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 查询群主视角群LastMessage时间
 //
 // @param request - QueryUserViewGroupLastMessageTimeRequest
@@ -25585,6 +25916,10 @@ func (client *Client) UpdateUnfurlingRegisterWithOptions(request *UpdateUnfurlin
 		body["appId"] = request.AppId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.CallbackType)) {
+		body["callbackType"] = request.CallbackType
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.CallbackUrl)) {
 		body["callbackUrl"] = request.CallbackUrl
 	}
@@ -25747,6 +26082,87 @@ func (client *Client) UpdateUnfurlingRegisterStatus(request *UpdateUnfurlingRegi
 	headers := &UpdateUnfurlingRegisterStatusHeaders{}
 	_result = &UpdateUnfurlingRegisterStatusResponse{}
 	_body, _err := client.UpdateUnfurlingRegisterStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新群备注
+//
+// @param request - UpdateUserGroupAliasTitleRequest
+//
+// @param headers - UpdateUserGroupAliasTitleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateUserGroupAliasTitleResponse
+func (client *Client) UpdateUserGroupAliasTitleWithOptions(request *UpdateUserGroupAliasTitleRequest, headers *UpdateUserGroupAliasTitleHeaders, runtime *util.RuntimeOptions) (_result *UpdateUserGroupAliasTitleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateUserGroupAliasTitle"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/groupAliasTitiles/update"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateUserGroupAliasTitleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新群备注
+//
+// @param request - UpdateUserGroupAliasTitleRequest
+//
+// @return UpdateUserGroupAliasTitleResponse
+func (client *Client) UpdateUserGroupAliasTitle(request *UpdateUserGroupAliasTitleRequest) (_result *UpdateUserGroupAliasTitleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateUserGroupAliasTitleHeaders{}
+	_result = &UpdateUserGroupAliasTitleResponse{}
+	_body, _err := client.UpdateUserGroupAliasTitleWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

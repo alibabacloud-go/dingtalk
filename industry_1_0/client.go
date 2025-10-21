@@ -33,13 +33,18 @@ func (s *AiRetailProductAddHeaders) SetXAcsDingtalkAccessToken(v string) *AiReta
 }
 
 type AiRetailProductAddRequest struct {
-	Attribute    map[string]*string `json:"attribute,omitempty" xml:"attribute,omitempty"`
-	Barcodes     []*string          `json:"barcodes,omitempty" xml:"barcodes,omitempty" type:"Repeated"`
-	Brand        *string            `json:"brand,omitempty" xml:"brand,omitempty"`
-	Category     *string            `json:"category,omitempty" xml:"category,omitempty"`
-	ImageFileIds []*string          `json:"imageFileIds,omitempty" xml:"imageFileIds,omitempty" type:"Repeated"`
-	ItemNumbers  []*string          `json:"itemNumbers,omitempty" xml:"itemNumbers,omitempty" type:"Repeated"`
-	Price        *float32           `json:"price,omitempty" xml:"price,omitempty"`
+	Attribute map[string]*string `json:"attribute,omitempty" xml:"attribute,omitempty"`
+	Barcodes  []*string          `json:"barcodes,omitempty" xml:"barcodes,omitempty" type:"Repeated"`
+	Brand     *string            `json:"brand,omitempty" xml:"brand,omitempty"`
+	Category  *string            `json:"category,omitempty" xml:"category,omitempty"`
+	Currecy   *string            `json:"currecy,omitempty" xml:"currecy,omitempty"`
+	// example:
+	//
+	// 1
+	Enable       *int32    `json:"enable,omitempty" xml:"enable,omitempty"`
+	ImageFileIds []*string `json:"imageFileIds,omitempty" xml:"imageFileIds,omitempty" type:"Repeated"`
+	ItemNumbers  []*string `json:"itemNumbers,omitempty" xml:"itemNumbers,omitempty" type:"Repeated"`
+	Price        *float32  `json:"price,omitempty" xml:"price,omitempty"`
 	// This parameter is required.
 	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
 	// example:
@@ -50,6 +55,8 @@ type AiRetailProductAddRequest struct {
 	//
 	// https://xxxxxxx.com/xxxxxx
 	ProductInfo *string `json:"productInfo,omitempty" xml:"productInfo,omitempty"`
+	// This parameter is required.
+	//
 	// example:
 	//
 	// 办公室的电话是多少
@@ -81,6 +88,16 @@ func (s *AiRetailProductAddRequest) SetBrand(v string) *AiRetailProductAddReques
 
 func (s *AiRetailProductAddRequest) SetCategory(v string) *AiRetailProductAddRequest {
 	s.Category = &v
+	return s
+}
+
+func (s *AiRetailProductAddRequest) SetCurrecy(v string) *AiRetailProductAddRequest {
+	s.Currecy = &v
+	return s
+}
+
+func (s *AiRetailProductAddRequest) SetEnable(v int32) *AiRetailProductAddRequest {
+	s.Enable = &v
 	return s
 }
 
@@ -417,6 +434,8 @@ type AiRetailProductQueryResponseBodyData struct {
 	Barcodes     *string  `json:"barcodes,omitempty" xml:"barcodes,omitempty"`
 	Brand        *string  `json:"brand,omitempty" xml:"brand,omitempty"`
 	Category     *string  `json:"category,omitempty" xml:"category,omitempty"`
+	Currency     *string  `json:"currency,omitempty" xml:"currency,omitempty"`
+	Enable       *int32   `json:"enable,omitempty" xml:"enable,omitempty"`
 	ImageFileIds *string  `json:"imageFileIds,omitempty" xml:"imageFileIds,omitempty"`
 	ItemNumbers  *string  `json:"itemNumbers,omitempty" xml:"itemNumbers,omitempty"`
 	Price        *float32 `json:"price,omitempty" xml:"price,omitempty"`
@@ -452,6 +471,16 @@ func (s *AiRetailProductQueryResponseBodyData) SetBrand(v string) *AiRetailProdu
 
 func (s *AiRetailProductQueryResponseBodyData) SetCategory(v string) *AiRetailProductQueryResponseBodyData {
 	s.Category = &v
+	return s
+}
+
+func (s *AiRetailProductQueryResponseBodyData) SetCurrency(v string) *AiRetailProductQueryResponseBodyData {
+	s.Currency = &v
+	return s
+}
+
+func (s *AiRetailProductQueryResponseBodyData) SetEnable(v int32) *AiRetailProductQueryResponseBodyData {
+	s.Enable = &v
 	return s
 }
 
@@ -552,6 +581,8 @@ type AiRetailProductUpdateRequest struct {
 	Barcodes     []*string          `json:"barcodes,omitempty" xml:"barcodes,omitempty" type:"Repeated"`
 	Brand        *string            `json:"brand,omitempty" xml:"brand,omitempty"`
 	Category     *string            `json:"category,omitempty" xml:"category,omitempty"`
+	Currency     *string            `json:"currency,omitempty" xml:"currency,omitempty"`
+	Enable       *int32             `json:"enable,omitempty" xml:"enable,omitempty"`
 	ImageFileIds []*string          `json:"imageFileIds,omitempty" xml:"imageFileIds,omitempty" type:"Repeated"`
 	ItemNumbers  []*string          `json:"itemNumbers,omitempty" xml:"itemNumbers,omitempty" type:"Repeated"`
 	Price        *float32           `json:"price,omitempty" xml:"price,omitempty"`
@@ -597,6 +628,16 @@ func (s *AiRetailProductUpdateRequest) SetBrand(v string) *AiRetailProductUpdate
 
 func (s *AiRetailProductUpdateRequest) SetCategory(v string) *AiRetailProductUpdateRequest {
 	s.Category = &v
+	return s
+}
+
+func (s *AiRetailProductUpdateRequest) SetCurrency(v string) *AiRetailProductUpdateRequest {
+	s.Currency = &v
+	return s
+}
+
+func (s *AiRetailProductUpdateRequest) SetEnable(v int32) *AiRetailProductUpdateRequest {
+	s.Enable = &v
 	return s
 }
 
@@ -29244,6 +29285,14 @@ func (client *Client) AiRetailProductAddWithOptions(request *AiRetailProductAddR
 		body["category"] = request.Category
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Currecy)) {
+		body["currecy"] = request.Currecy
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Enable)) {
+		body["enable"] = request.Enable
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.ImageFileIds)) {
 		body["imageFileIds"] = request.ImageFileIds
 	}
@@ -29578,6 +29627,14 @@ func (client *Client) AiRetailProductUpdateWithOptions(request *AiRetailProductU
 
 	if !tea.BoolValue(util.IsUnset(request.Category)) {
 		body["category"] = request.Category
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Currency)) {
+		body["currency"] = request.Currency
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Enable)) {
+		body["enable"] = request.Enable
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ImageFileIds)) {

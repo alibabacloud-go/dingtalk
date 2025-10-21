@@ -1518,6 +1518,7 @@ func (s *ListRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *ListRecordsHe
 }
 
 type ListRecordsRequest struct {
+	CalcFields *bool                     `json:"calcFields,omitempty" xml:"calcFields,omitempty"`
 	Filter     *ListRecordsRequestFilter `json:"filter,omitempty" xml:"filter,omitempty" type:"Struct"`
 	MaxResults *int32                    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string                   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
@@ -1535,6 +1536,11 @@ func (s ListRecordsRequest) String() string {
 
 func (s ListRecordsRequest) GoString() string {
 	return s.String()
+}
+
+func (s *ListRecordsRequest) SetCalcFields(v bool) *ListRecordsRequest {
+	s.CalcFields = &v
+	return s
 }
 
 func (s *ListRecordsRequest) SetFilter(v *ListRecordsRequestFilter) *ListRecordsRequest {
@@ -3160,6 +3166,10 @@ func (client *Client) ListRecordsWithOptions(baseId *string, sheetIdOrName *stri
 	}
 
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CalcFields)) {
+		body["calcFields"] = request.CalcFields
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Filter)) {
 		body["filter"] = request.Filter
 	}

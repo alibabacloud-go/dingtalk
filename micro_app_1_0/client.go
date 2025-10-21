@@ -2077,6 +2077,99 @@ func (s *GetUserAppDevAccessResponse) SetBody(v *GetUserAppDevAccessResponseBody
 	return s
 }
 
+type GetVersionInfoRequest struct {
+	UnifiedAppId *string `json:"unifiedAppId,omitempty" xml:"unifiedAppId,omitempty"`
+	VersionId    *string `json:"versionId,omitempty" xml:"versionId,omitempty"`
+}
+
+func (s GetVersionInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetVersionInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetVersionInfoRequest) SetUnifiedAppId(v string) *GetVersionInfoRequest {
+	s.UnifiedAppId = &v
+	return s
+}
+
+func (s *GetVersionInfoRequest) SetVersionId(v string) *GetVersionInfoRequest {
+	s.VersionId = &v
+	return s
+}
+
+type GetVersionInfoResponseBody struct {
+	Arguments []*string `json:"arguments,omitempty" xml:"arguments,omitempty" type:"Repeated"`
+	ErrorCode *string   `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string   `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result    *string   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool     `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetVersionInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetVersionInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetVersionInfoResponseBody) SetArguments(v []*string) *GetVersionInfoResponseBody {
+	s.Arguments = v
+	return s
+}
+
+func (s *GetVersionInfoResponseBody) SetErrorCode(v string) *GetVersionInfoResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *GetVersionInfoResponseBody) SetErrorMsg(v string) *GetVersionInfoResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *GetVersionInfoResponseBody) SetResult(v string) *GetVersionInfoResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *GetVersionInfoResponseBody) SetSuccess(v bool) *GetVersionInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetVersionInfoResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetVersionInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetVersionInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetVersionInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetVersionInfoResponse) SetHeaders(v map[string]*string) *GetVersionInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetVersionInfoResponse) SetStatusCode(v int32) *GetVersionInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetVersionInfoResponse) SetBody(v *GetVersionInfoResponseBody) *GetVersionInfoResponse {
+	s.Body = v
+	return s
+}
+
 type IsOrgMicroAppVisibleByUserIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3264,7 +3357,8 @@ type ListUserVilebleAppResponseBodyAppList struct {
 	// example:
 	//
 	// https://www.dingtalk.com
-	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	HomepageLink *string                                      `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	I18n         []*ListUserVilebleAppResponseBodyAppListI18n `json:"i18n,omitempty" xml:"i18n,omitempty" type:"Repeated"`
 	// example:
 	//
 	// icon
@@ -3325,6 +3419,11 @@ func (s *ListUserVilebleAppResponseBodyAppList) SetHomepageLink(v string) *ListU
 	return s
 }
 
+func (s *ListUserVilebleAppResponseBodyAppList) SetI18n(v []*ListUserVilebleAppResponseBodyAppListI18n) *ListUserVilebleAppResponseBodyAppList {
+	s.I18n = v
+	return s
+}
+
 func (s *ListUserVilebleAppResponseBodyAppList) SetIcon(v string) *ListUserVilebleAppResponseBodyAppList {
 	s.Icon = &v
 	return s
@@ -3347,6 +3446,35 @@ func (s *ListUserVilebleAppResponseBodyAppList) SetPcHomepageLink(v string) *Lis
 
 func (s *ListUserVilebleAppResponseBodyAppList) SetUnifiedAppId(v string) *ListUserVilebleAppResponseBodyAppList {
 	s.UnifiedAppId = &v
+	return s
+}
+
+type ListUserVilebleAppResponseBodyAppListI18n struct {
+	Desc    *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	I18nKey *string `json:"i18n_key,omitempty" xml:"i18n_key,omitempty"`
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s ListUserVilebleAppResponseBodyAppListI18n) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserVilebleAppResponseBodyAppListI18n) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserVilebleAppResponseBodyAppListI18n) SetDesc(v string) *ListUserVilebleAppResponseBodyAppListI18n {
+	s.Desc = &v
+	return s
+}
+
+func (s *ListUserVilebleAppResponseBodyAppListI18n) SetI18nKey(v string) *ListUserVilebleAppResponseBodyAppListI18n {
+	s.I18nKey = &v
+	return s
+}
+
+func (s *ListUserVilebleAppResponseBodyAppListI18n) SetName(v string) *ListUserVilebleAppResponseBodyAppListI18n {
+	s.Name = &v
 	return s
 }
 
@@ -6200,6 +6328,74 @@ func (client *Client) GetUserAppDevAccess(userId *string) (_result *GetUserAppDe
 	headers := &GetUserAppDevAccessHeaders{}
 	_result = &GetUserAppDevAccessResponse{}
 	_body, _err := client.GetUserAppDevAccessWithOptions(userId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取版本-仅用于测试
+//
+// @param request - GetVersionInfoRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetVersionInfoResponse
+func (client *Client) GetVersionInfoWithOptions(request *GetVersionInfoRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *GetVersionInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnifiedAppId)) {
+		query["unifiedAppId"] = request.UnifiedAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VersionId)) {
+		query["versionId"] = request.VersionId
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetVersionInfo"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/getVersionInfo"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetVersionInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取版本-仅用于测试
+//
+// @param request - GetVersionInfoRequest
+//
+// @return GetVersionInfoResponse
+func (client *Client) GetVersionInfo(request *GetVersionInfoRequest) (_result *GetVersionInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &GetVersionInfoResponse{}
+	_body, _err := client.GetVersionInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

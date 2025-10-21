@@ -8834,6 +8834,7 @@ func (s *GetPublicDevicesHeaders) SetXAcsDingtalkAccessToken(v string) *GetPubli
 }
 
 type GetPublicDevicesRequest struct {
+	DeviceUuid *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
 	// example:
 	//
 	// 1671767361000
@@ -8874,6 +8875,11 @@ func (s GetPublicDevicesRequest) String() string {
 
 func (s GetPublicDevicesRequest) GoString() string {
 	return s.String()
+}
+
+func (s *GetPublicDevicesRequest) SetDeviceUuid(v string) *GetPublicDevicesRequest {
+	s.DeviceUuid = &v
+	return s
 }
 
 func (s *GetPublicDevicesRequest) SetEndTime(v int64) *GetPublicDevicesRequest {
@@ -8959,6 +8965,7 @@ type GetPublicDevicesResponseBodyData struct {
 	// 1
 	DeviceScopeType *int32                                          `json:"deviceScopeType,omitempty" xml:"deviceScopeType,omitempty"`
 	DeviceStaffs    []*GetPublicDevicesResponseBodyDataDeviceStaffs `json:"deviceStaffs,omitempty" xml:"deviceStaffs,omitempty" type:"Repeated"`
+	DeviceUuid      *string                                         `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
 	// example:
 	//
 	// 1671767361000
@@ -8974,8 +8981,13 @@ type GetPublicDevicesResponseBodyData struct {
 	// example:
 	//
 	// Mac
-	Platform     *string `json:"platform,omitempty" xml:"platform,omitempty"`
-	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	// example:
+	//
+	// 1
+	RetryPermission *string `json:"retryPermission,omitempty" xml:"retryPermission,omitempty"`
+	SerialNumber    *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	Status          *int32  `json:"status,omitempty" xml:"status,omitempty"`
 	// example:
 	//
 	// 这是标题
@@ -9010,6 +9022,11 @@ func (s *GetPublicDevicesResponseBodyData) SetDeviceStaffs(v []*GetPublicDevices
 	return s
 }
 
+func (s *GetPublicDevicesResponseBodyData) SetDeviceUuid(v string) *GetPublicDevicesResponseBodyData {
+	s.DeviceUuid = &v
+	return s
+}
+
 func (s *GetPublicDevicesResponseBodyData) SetGmtCreate(v int64) *GetPublicDevicesResponseBodyData {
 	s.GmtCreate = &v
 	return s
@@ -9030,8 +9047,18 @@ func (s *GetPublicDevicesResponseBodyData) SetPlatform(v string) *GetPublicDevic
 	return s
 }
 
+func (s *GetPublicDevicesResponseBodyData) SetRetryPermission(v string) *GetPublicDevicesResponseBodyData {
+	s.RetryPermission = &v
+	return s
+}
+
 func (s *GetPublicDevicesResponseBodyData) SetSerialNumber(v string) *GetPublicDevicesResponseBodyData {
 	s.SerialNumber = &v
+	return s
+}
+
+func (s *GetPublicDevicesResponseBodyData) SetStatus(v int32) *GetPublicDevicesResponseBodyData {
+	s.Status = &v
 	return s
 }
 
@@ -10367,6 +10394,7 @@ func (s *GetTrustDeviceListHeaders) SetXAcsDingtalkAccessToken(v string) *GetTru
 }
 
 type GetTrustDeviceListRequest struct {
+	DeviceUuid *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
 	// example:
 	//
 	// 1721718854814
@@ -10410,6 +10438,11 @@ func (s GetTrustDeviceListRequest) String() string {
 
 func (s GetTrustDeviceListRequest) GoString() string {
 	return s.String()
+}
+
+func (s *GetTrustDeviceListRequest) SetDeviceUuid(v string) *GetTrustDeviceListRequest {
+	s.DeviceUuid = &v
+	return s
 }
 
 func (s *GetTrustDeviceListRequest) SetGmtCreateEnd(v int64) *GetTrustDeviceListRequest {
@@ -10507,8 +10540,9 @@ type GetTrustDeviceListResponseBodyData struct {
 	// example:
 	//
 	// 1628650483
-	CreateTime *int64 `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	Id         *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	CreateTime *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	DeviceUuid *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	Id         *int64  `json:"id,omitempty" xml:"id,omitempty"`
 	// example:
 	//
 	// 88:92:5a:1f:e8:24
@@ -10546,6 +10580,11 @@ func (s GetTrustDeviceListResponseBodyData) GoString() string {
 
 func (s *GetTrustDeviceListResponseBodyData) SetCreateTime(v int64) *GetTrustDeviceListResponseBodyData {
 	s.CreateTime = &v
+	return s
+}
+
+func (s *GetTrustDeviceListResponseBodyData) SetDeviceUuid(v string) *GetTrustDeviceListResponseBodyData {
+	s.DeviceUuid = &v
 	return s
 }
 
@@ -17778,6 +17817,207 @@ func (s *SearchOrgInnerGroupInfoResponse) SetStatusCode(v int32) *SearchOrgInner
 }
 
 func (s *SearchOrgInnerGroupInfoResponse) SetBody(v *SearchOrgInnerGroupInfoResponseBody) *SearchOrgInnerGroupInfoResponse {
+	s.Body = v
+	return s
+}
+
+type SearchOrgInnerGroupInfoByCursorPageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchOrgInnerGroupInfoByCursorPageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchOrgInnerGroupInfoByCursorPageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageHeaders) SetCommonHeaders(v map[string]*string) *SearchOrgInnerGroupInfoByCursorPageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageHeaders) SetXAcsDingtalkAccessToken(v string) *SearchOrgInnerGroupInfoByCursorPageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchOrgInnerGroupInfoByCursorPageRequest struct {
+	// This parameter is required.
+	Count *int32 `json:"count,omitempty" xml:"count,omitempty"`
+	// This parameter is required.
+	Cursor  *int64 `json:"cursor,omitempty" xml:"cursor,omitempty"`
+	Forward *bool  `json:"forward,omitempty" xml:"forward,omitempty"`
+}
+
+func (s SearchOrgInnerGroupInfoByCursorPageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchOrgInnerGroupInfoByCursorPageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageRequest) SetCount(v int32) *SearchOrgInnerGroupInfoByCursorPageRequest {
+	s.Count = &v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageRequest) SetCursor(v int64) *SearchOrgInnerGroupInfoByCursorPageRequest {
+	s.Cursor = &v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageRequest) SetForward(v bool) *SearchOrgInnerGroupInfoByCursorPageRequest {
+	s.Forward = &v
+	return s
+}
+
+type SearchOrgInnerGroupInfoByCursorPageResponseBody struct {
+	HasNext    *bool                                                   `json:"hasNext,omitempty" xml:"hasNext,omitempty"`
+	Items      []*SearchOrgInnerGroupInfoByCursorPageResponseBodyItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	NextCursor *int64                                                  `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+}
+
+func (s SearchOrgInnerGroupInfoByCursorPageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchOrgInnerGroupInfoByCursorPageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageResponseBody) SetHasNext(v bool) *SearchOrgInnerGroupInfoByCursorPageResponseBody {
+	s.HasNext = &v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageResponseBody) SetItems(v []*SearchOrgInnerGroupInfoByCursorPageResponseBodyItems) *SearchOrgInnerGroupInfoByCursorPageResponseBody {
+	s.Items = v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageResponseBody) SetNextCursor(v int64) *SearchOrgInnerGroupInfoByCursorPageResponseBody {
+	s.NextCursor = &v
+	return s
+}
+
+type SearchOrgInnerGroupInfoByCursorPageResponseBodyItems struct {
+	// example:
+	//
+	// 1756656000000
+	GroupCreateTime *int64 `json:"groupCreateTime,omitempty" xml:"groupCreateTime,omitempty"`
+	// example:
+	//
+	// 10
+	GroupMembersCnt *int32 `json:"groupMembersCnt,omitempty" xml:"groupMembersCnt,omitempty"`
+	// example:
+	//
+	// 内部群
+	GroupName  *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	GroupOwner *string `json:"groupOwner,omitempty" xml:"groupOwner,omitempty"`
+	// example:
+	//
+	// user123
+	GroupOwnerUserId *string `json:"groupOwnerUserId,omitempty" xml:"groupOwnerUserId,omitempty"`
+	// example:
+	//
+	// cid123
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// example:
+	//
+	// 1
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// 1
+	SyncToDingpan *int32 `json:"syncToDingpan,omitempty" xml:"syncToDingpan,omitempty"`
+	// example:
+	//
+	// 1000
+	UsedQuota *int64 `json:"usedQuota,omitempty" xml:"usedQuota,omitempty"`
+}
+
+func (s SearchOrgInnerGroupInfoByCursorPageResponseBodyItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchOrgInnerGroupInfoByCursorPageResponseBodyItems) GoString() string {
+	return s.String()
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems) SetGroupCreateTime(v int64) *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems {
+	s.GroupCreateTime = &v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems) SetGroupMembersCnt(v int32) *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems {
+	s.GroupMembersCnt = &v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems) SetGroupName(v string) *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems {
+	s.GroupName = &v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems) SetGroupOwner(v string) *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems {
+	s.GroupOwner = &v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems) SetGroupOwnerUserId(v string) *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems {
+	s.GroupOwnerUserId = &v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems) SetOpenConversationId(v string) *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems) SetStatus(v int32) *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems {
+	s.Status = &v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems) SetSyncToDingpan(v int32) *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems {
+	s.SyncToDingpan = &v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems) SetUsedQuota(v int64) *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems {
+	s.UsedQuota = &v
+	return s
+}
+
+type SearchOrgInnerGroupInfoByCursorPageResponse struct {
+	Headers    map[string]*string                               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SearchOrgInnerGroupInfoByCursorPageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SearchOrgInnerGroupInfoByCursorPageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchOrgInnerGroupInfoByCursorPageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageResponse) SetHeaders(v map[string]*string) *SearchOrgInnerGroupInfoByCursorPageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageResponse) SetStatusCode(v int32) *SearchOrgInnerGroupInfoByCursorPageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageResponse) SetBody(v *SearchOrgInnerGroupInfoByCursorPageResponseBody) *SearchOrgInnerGroupInfoByCursorPageResponse {
 	s.Body = v
 	return s
 }
@@ -26316,6 +26556,10 @@ func (client *Client) GetPublicDevicesWithOptions(request *GetPublicDevicesReque
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceUuid)) {
+		query["deviceUuid"] = request.DeviceUuid
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
 		query["endTime"] = request.EndTime
 	}
@@ -26927,6 +27171,10 @@ func (client *Client) GetTrustDeviceListWithOptions(request *GetTrustDeviceListR
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceUuid)) {
+		body["deviceUuid"] = request.DeviceUuid
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.GmtCreateEnd)) {
 		body["gmtCreateEnd"] = request.GmtCreateEnd
 	}
@@ -30266,6 +30514,87 @@ func (client *Client) SearchOrgInnerGroupInfo(request *SearchOrgInnerGroupInfoRe
 	headers := &SearchOrgInnerGroupInfoHeaders{}
 	_result = &SearchOrgInnerGroupInfoResponse{}
 	_body, _err := client.SearchOrgInnerGroupInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业全量内部群信息
+//
+// @param request - SearchOrgInnerGroupInfoByCursorPageRequest
+//
+// @param headers - SearchOrgInnerGroupInfoByCursorPageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchOrgInnerGroupInfoByCursorPageResponse
+func (client *Client) SearchOrgInnerGroupInfoByCursorPageWithOptions(request *SearchOrgInnerGroupInfoByCursorPageRequest, headers *SearchOrgInnerGroupInfoByCursorPageHeaders, runtime *util.RuntimeOptions) (_result *SearchOrgInnerGroupInfoByCursorPageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Count)) {
+		query["count"] = request.Count
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Cursor)) {
+		query["cursor"] = request.Cursor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Forward)) {
+		query["forward"] = request.Forward
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SearchOrgInnerGroupInfoByCursorPage"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/securities/orgAllGroupInfos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SearchOrgInnerGroupInfoByCursorPageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业全量内部群信息
+//
+// @param request - SearchOrgInnerGroupInfoByCursorPageRequest
+//
+// @return SearchOrgInnerGroupInfoByCursorPageResponse
+func (client *Client) SearchOrgInnerGroupInfoByCursorPage(request *SearchOrgInnerGroupInfoByCursorPageRequest) (_result *SearchOrgInnerGroupInfoByCursorPageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchOrgInnerGroupInfoByCursorPageHeaders{}
+	_result = &SearchOrgInnerGroupInfoByCursorPageResponse{}
+	_body, _err := client.SearchOrgInnerGroupInfoByCursorPageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
