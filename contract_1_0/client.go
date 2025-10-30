@@ -5254,6 +5254,529 @@ func (s *QueryContractReviewResultResponse) SetBody(v *QueryContractReviewResult
 	return s
 }
 
+type QueryContractSignInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryContractSignInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractSignInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractSignInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryContractSignInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryContractSignInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryContractSignInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryContractSignInfoRequest struct {
+	ContractBizId *string `json:"contractBizId,omitempty" xml:"contractBizId,omitempty"`
+	CorpId        *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	StaffId       *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
+}
+
+func (s QueryContractSignInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractSignInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractSignInfoRequest) SetContractBizId(v string) *QueryContractSignInfoRequest {
+	s.ContractBizId = &v
+	return s
+}
+
+func (s *QueryContractSignInfoRequest) SetCorpId(v string) *QueryContractSignInfoRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryContractSignInfoRequest) SetStaffId(v string) *QueryContractSignInfoRequest {
+	s.StaffId = &v
+	return s
+}
+
+type QueryContractSignInfoResponseBody struct {
+	Result  *QueryContractSignInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                    `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryContractSignInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractSignInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractSignInfoResponseBody) SetResult(v *QueryContractSignInfoResponseBodyResult) *QueryContractSignInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBody) SetSuccess(v bool) *QueryContractSignInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryContractSignInfoResponseBodyResult struct {
+	ActualOriginator        *QueryContractSignInfoResponseBodyResultActualOriginator          `json:"actualOriginator,omitempty" xml:"actualOriginator,omitempty" type:"Struct"`
+	AmountType              *string                                                           `json:"amountType,omitempty" xml:"amountType,omitempty"`
+	ApplicantDate           *int64                                                            `json:"applicantDate,omitempty" xml:"applicantDate,omitempty"`
+	ApproveTime             *int64                                                            `json:"approveTime,omitempty" xml:"approveTime,omitempty"`
+	BizId                   *string                                                           `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	ContractAmount          *string                                                           `json:"contractAmount,omitempty" xml:"contractAmount,omitempty"`
+	ContractAmountMethod    *string                                                           `json:"contractAmountMethod,omitempty" xml:"contractAmountMethod,omitempty"`
+	ContractAttachmentFiles []*QueryContractSignInfoResponseBodyResultContractAttachmentFiles `json:"contractAttachmentFiles,omitempty" xml:"contractAttachmentFiles,omitempty" type:"Repeated"`
+	ContractContentFiles    []*QueryContractSignInfoResponseBodyResultContractContentFiles    `json:"contractContentFiles,omitempty" xml:"contractContentFiles,omitempty" type:"Repeated"`
+	ContractEndDate         *int64                                                            `json:"contractEndDate,omitempty" xml:"contractEndDate,omitempty"`
+	ContractId              *int32                                                            `json:"contractId,omitempty" xml:"contractId,omitempty"`
+	ContractName            *string                                                           `json:"contractName,omitempty" xml:"contractName,omitempty"`
+	ContractNo              *string                                                           `json:"contractNo,omitempty" xml:"contractNo,omitempty"`
+	ContractRemark          *string                                                           `json:"contractRemark,omitempty" xml:"contractRemark,omitempty"`
+	ContractStartDate       *int64                                                            `json:"contractStartDate,omitempty" xml:"contractStartDate,omitempty"`
+	ContractStatus          *string                                                           `json:"contractStatus,omitempty" xml:"contractStatus,omitempty"`
+	ContractTermType        *string                                                           `json:"contractTermType,omitempty" xml:"contractTermType,omitempty"`
+	CurrencyCode            *string                                                           `json:"currencyCode,omitempty" xml:"currencyCode,omitempty"`
+	DeptName                *string                                                           `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	DirectoryName           *string                                                           `json:"directoryName,omitempty" xml:"directoryName,omitempty"`
+	EffectiveStatus         *string                                                           `json:"effectiveStatus,omitempty" xml:"effectiveStatus,omitempty"`
+	GmtCreate               *int64                                                            `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified             *int64                                                            `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	OppositeParties         []*QueryContractSignInfoResponseBodyResultOppositeParties         `json:"oppositeParties,omitempty" xml:"oppositeParties,omitempty" type:"Repeated"`
+	OurParties              []*QueryContractSignInfoResponseBodyResultOurParties              `json:"ourParties,omitempty" xml:"ourParties,omitempty" type:"Repeated"`
+	OwnerName               *string                                                           `json:"ownerName,omitempty" xml:"ownerName,omitempty"`
+	OwnerStaffId            *string                                                           `json:"ownerStaffId,omitempty" xml:"ownerStaffId,omitempty"`
+	ProcessInstanceId       *string                                                           `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	Signers                 []*QueryContractSignInfoResponseBodyResultSigners                 `json:"signers,omitempty" xml:"signers,omitempty" type:"Repeated"`
+}
+
+func (s QueryContractSignInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractSignInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetActualOriginator(v *QueryContractSignInfoResponseBodyResultActualOriginator) *QueryContractSignInfoResponseBodyResult {
+	s.ActualOriginator = v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetAmountType(v string) *QueryContractSignInfoResponseBodyResult {
+	s.AmountType = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetApplicantDate(v int64) *QueryContractSignInfoResponseBodyResult {
+	s.ApplicantDate = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetApproveTime(v int64) *QueryContractSignInfoResponseBodyResult {
+	s.ApproveTime = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetBizId(v string) *QueryContractSignInfoResponseBodyResult {
+	s.BizId = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetContractAmount(v string) *QueryContractSignInfoResponseBodyResult {
+	s.ContractAmount = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetContractAmountMethod(v string) *QueryContractSignInfoResponseBodyResult {
+	s.ContractAmountMethod = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetContractAttachmentFiles(v []*QueryContractSignInfoResponseBodyResultContractAttachmentFiles) *QueryContractSignInfoResponseBodyResult {
+	s.ContractAttachmentFiles = v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetContractContentFiles(v []*QueryContractSignInfoResponseBodyResultContractContentFiles) *QueryContractSignInfoResponseBodyResult {
+	s.ContractContentFiles = v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetContractEndDate(v int64) *QueryContractSignInfoResponseBodyResult {
+	s.ContractEndDate = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetContractId(v int32) *QueryContractSignInfoResponseBodyResult {
+	s.ContractId = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetContractName(v string) *QueryContractSignInfoResponseBodyResult {
+	s.ContractName = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetContractNo(v string) *QueryContractSignInfoResponseBodyResult {
+	s.ContractNo = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetContractRemark(v string) *QueryContractSignInfoResponseBodyResult {
+	s.ContractRemark = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetContractStartDate(v int64) *QueryContractSignInfoResponseBodyResult {
+	s.ContractStartDate = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetContractStatus(v string) *QueryContractSignInfoResponseBodyResult {
+	s.ContractStatus = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetContractTermType(v string) *QueryContractSignInfoResponseBodyResult {
+	s.ContractTermType = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetCurrencyCode(v string) *QueryContractSignInfoResponseBodyResult {
+	s.CurrencyCode = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetDeptName(v string) *QueryContractSignInfoResponseBodyResult {
+	s.DeptName = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetDirectoryName(v string) *QueryContractSignInfoResponseBodyResult {
+	s.DirectoryName = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetEffectiveStatus(v string) *QueryContractSignInfoResponseBodyResult {
+	s.EffectiveStatus = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetGmtCreate(v int64) *QueryContractSignInfoResponseBodyResult {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetGmtModified(v int64) *QueryContractSignInfoResponseBodyResult {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetOppositeParties(v []*QueryContractSignInfoResponseBodyResultOppositeParties) *QueryContractSignInfoResponseBodyResult {
+	s.OppositeParties = v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetOurParties(v []*QueryContractSignInfoResponseBodyResultOurParties) *QueryContractSignInfoResponseBodyResult {
+	s.OurParties = v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetOwnerName(v string) *QueryContractSignInfoResponseBodyResult {
+	s.OwnerName = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetOwnerStaffId(v string) *QueryContractSignInfoResponseBodyResult {
+	s.OwnerStaffId = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetProcessInstanceId(v string) *QueryContractSignInfoResponseBodyResult {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResult) SetSigners(v []*QueryContractSignInfoResponseBodyResultSigners) *QueryContractSignInfoResponseBodyResult {
+	s.Signers = v
+	return s
+}
+
+type QueryContractSignInfoResponseBodyResultActualOriginator struct {
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
+}
+
+func (s QueryContractSignInfoResponseBodyResultActualOriginator) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractSignInfoResponseBodyResultActualOriginator) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractSignInfoResponseBodyResultActualOriginator) SetName(v string) *QueryContractSignInfoResponseBodyResultActualOriginator {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultActualOriginator) SetStaffId(v string) *QueryContractSignInfoResponseBodyResultActualOriginator {
+	s.StaffId = &v
+	return s
+}
+
+type QueryContractSignInfoResponseBodyResultContractAttachmentFiles struct {
+	FileDownloadUrl *string `json:"fileDownloadUrl,omitempty" xml:"fileDownloadUrl,omitempty"`
+	FileId          *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName        *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize        *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	FileType        *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	SpaceId         *int64  `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s QueryContractSignInfoResponseBodyResultContractAttachmentFiles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractSignInfoResponseBodyResultContractAttachmentFiles) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractSignInfoResponseBodyResultContractAttachmentFiles) SetFileDownloadUrl(v string) *QueryContractSignInfoResponseBodyResultContractAttachmentFiles {
+	s.FileDownloadUrl = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultContractAttachmentFiles) SetFileId(v string) *QueryContractSignInfoResponseBodyResultContractAttachmentFiles {
+	s.FileId = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultContractAttachmentFiles) SetFileName(v string) *QueryContractSignInfoResponseBodyResultContractAttachmentFiles {
+	s.FileName = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultContractAttachmentFiles) SetFileSize(v int64) *QueryContractSignInfoResponseBodyResultContractAttachmentFiles {
+	s.FileSize = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultContractAttachmentFiles) SetFileType(v string) *QueryContractSignInfoResponseBodyResultContractAttachmentFiles {
+	s.FileType = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultContractAttachmentFiles) SetSpaceId(v int64) *QueryContractSignInfoResponseBodyResultContractAttachmentFiles {
+	s.SpaceId = &v
+	return s
+}
+
+type QueryContractSignInfoResponseBodyResultContractContentFiles struct {
+	FileDownloadUrl *string `json:"fileDownloadUrl,omitempty" xml:"fileDownloadUrl,omitempty"`
+	FileId          *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName        *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize        *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	FileType        *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	SpaceId         *int64  `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s QueryContractSignInfoResponseBodyResultContractContentFiles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractSignInfoResponseBodyResultContractContentFiles) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractSignInfoResponseBodyResultContractContentFiles) SetFileDownloadUrl(v string) *QueryContractSignInfoResponseBodyResultContractContentFiles {
+	s.FileDownloadUrl = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultContractContentFiles) SetFileId(v string) *QueryContractSignInfoResponseBodyResultContractContentFiles {
+	s.FileId = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultContractContentFiles) SetFileName(v string) *QueryContractSignInfoResponseBodyResultContractContentFiles {
+	s.FileName = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultContractContentFiles) SetFileSize(v int64) *QueryContractSignInfoResponseBodyResultContractContentFiles {
+	s.FileSize = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultContractContentFiles) SetFileType(v string) *QueryContractSignInfoResponseBodyResultContractContentFiles {
+	s.FileType = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultContractContentFiles) SetSpaceId(v int64) *QueryContractSignInfoResponseBodyResultContractContentFiles {
+	s.SpaceId = &v
+	return s
+}
+
+type QueryContractSignInfoResponseBodyResultOppositeParties struct {
+	Code        *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	Owner       *string `json:"owner,omitempty" xml:"owner,omitempty"`
+	PhoneNumber *string `json:"phoneNumber,omitempty" xml:"phoneNumber,omitempty"`
+	Type        *string `json:"type,omitempty" xml:"type,omitempty"`
+	UniqueCode  *string `json:"uniqueCode,omitempty" xml:"uniqueCode,omitempty"`
+}
+
+func (s QueryContractSignInfoResponseBodyResultOppositeParties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractSignInfoResponseBodyResultOppositeParties) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractSignInfoResponseBodyResultOppositeParties) SetCode(v string) *QueryContractSignInfoResponseBodyResultOppositeParties {
+	s.Code = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultOppositeParties) SetName(v string) *QueryContractSignInfoResponseBodyResultOppositeParties {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultOppositeParties) SetOwner(v string) *QueryContractSignInfoResponseBodyResultOppositeParties {
+	s.Owner = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultOppositeParties) SetPhoneNumber(v string) *QueryContractSignInfoResponseBodyResultOppositeParties {
+	s.PhoneNumber = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultOppositeParties) SetType(v string) *QueryContractSignInfoResponseBodyResultOppositeParties {
+	s.Type = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultOppositeParties) SetUniqueCode(v string) *QueryContractSignInfoResponseBodyResultOppositeParties {
+	s.UniqueCode = &v
+	return s
+}
+
+type QueryContractSignInfoResponseBodyResultOurParties struct {
+	Code        *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	Owner       *string `json:"owner,omitempty" xml:"owner,omitempty"`
+	PhoneNumber *string `json:"phoneNumber,omitempty" xml:"phoneNumber,omitempty"`
+	Type        *string `json:"type,omitempty" xml:"type,omitempty"`
+	UniqueCode  *string `json:"uniqueCode,omitempty" xml:"uniqueCode,omitempty"`
+}
+
+func (s QueryContractSignInfoResponseBodyResultOurParties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractSignInfoResponseBodyResultOurParties) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractSignInfoResponseBodyResultOurParties) SetCode(v string) *QueryContractSignInfoResponseBodyResultOurParties {
+	s.Code = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultOurParties) SetName(v string) *QueryContractSignInfoResponseBodyResultOurParties {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultOurParties) SetOwner(v string) *QueryContractSignInfoResponseBodyResultOurParties {
+	s.Owner = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultOurParties) SetPhoneNumber(v string) *QueryContractSignInfoResponseBodyResultOurParties {
+	s.PhoneNumber = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultOurParties) SetType(v string) *QueryContractSignInfoResponseBodyResultOurParties {
+	s.Type = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultOurParties) SetUniqueCode(v string) *QueryContractSignInfoResponseBodyResultOurParties {
+	s.UniqueCode = &v
+	return s
+}
+
+type QueryContractSignInfoResponseBodyResultSigners struct {
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
+}
+
+func (s QueryContractSignInfoResponseBodyResultSigners) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractSignInfoResponseBodyResultSigners) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractSignInfoResponseBodyResultSigners) SetName(v string) *QueryContractSignInfoResponseBodyResultSigners {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponseBodyResultSigners) SetStaffId(v string) *QueryContractSignInfoResponseBodyResultSigners {
+	s.StaffId = &v
+	return s
+}
+
+type QueryContractSignInfoResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryContractSignInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryContractSignInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractSignInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractSignInfoResponse) SetHeaders(v map[string]*string) *QueryContractSignInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryContractSignInfoResponse) SetStatusCode(v int32) *QueryContractSignInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryContractSignInfoResponse) SetBody(v *QueryContractSignInfoResponseBody) *QueryContractSignInfoResponse {
+	s.Body = v
+	return s
+}
+
 type SendContractCardHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5527,6 +6050,251 @@ func (s *SendContractCardResponse) SetStatusCode(v int32) *SendContractCardRespo
 }
 
 func (s *SendContractCardResponse) SetBody(v *SendContractCardResponseBody) *SendContractCardResponse {
+	s.Body = v
+	return s
+}
+
+type SyncSignEventHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncSignEventHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncSignEventHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncSignEventHeaders) SetCommonHeaders(v map[string]*string) *SyncSignEventHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncSignEventHeaders) SetXAcsDingtalkAccessToken(v string) *SyncSignEventHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncSignEventRequest struct {
+	ContractBizId *string                             `json:"contractBizId,omitempty" xml:"contractBizId,omitempty"`
+	CorpId        *string                             `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ExtInfo       map[string]*string                  `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	SealType      []*string                           `json:"sealType,omitempty" xml:"sealType,omitempty" type:"Repeated"`
+	SignDate      *int64                              `json:"signDate,omitempty" xml:"signDate,omitempty"`
+	SignFileList  []*SyncSignEventRequestSignFileList `json:"signFileList,omitempty" xml:"signFileList,omitempty" type:"Repeated"`
+	StaffId       *string                             `json:"staffId,omitempty" xml:"staffId,omitempty"`
+}
+
+func (s SyncSignEventRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncSignEventRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncSignEventRequest) SetContractBizId(v string) *SyncSignEventRequest {
+	s.ContractBizId = &v
+	return s
+}
+
+func (s *SyncSignEventRequest) SetCorpId(v string) *SyncSignEventRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *SyncSignEventRequest) SetExtInfo(v map[string]*string) *SyncSignEventRequest {
+	s.ExtInfo = v
+	return s
+}
+
+func (s *SyncSignEventRequest) SetSealType(v []*string) *SyncSignEventRequest {
+	s.SealType = v
+	return s
+}
+
+func (s *SyncSignEventRequest) SetSignDate(v int64) *SyncSignEventRequest {
+	s.SignDate = &v
+	return s
+}
+
+func (s *SyncSignEventRequest) SetSignFileList(v []*SyncSignEventRequestSignFileList) *SyncSignEventRequest {
+	s.SignFileList = v
+	return s
+}
+
+func (s *SyncSignEventRequest) SetStaffId(v string) *SyncSignEventRequest {
+	s.StaffId = &v
+	return s
+}
+
+type SyncSignEventRequestSignFileList struct {
+	FileDownloadUrl *string `json:"fileDownloadUrl,omitempty" xml:"fileDownloadUrl,omitempty"`
+	FileId          *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName        *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize        *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	FileType        *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	SpaceId         *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s SyncSignEventRequestSignFileList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncSignEventRequestSignFileList) GoString() string {
+	return s.String()
+}
+
+func (s *SyncSignEventRequestSignFileList) SetFileDownloadUrl(v string) *SyncSignEventRequestSignFileList {
+	s.FileDownloadUrl = &v
+	return s
+}
+
+func (s *SyncSignEventRequestSignFileList) SetFileId(v string) *SyncSignEventRequestSignFileList {
+	s.FileId = &v
+	return s
+}
+
+func (s *SyncSignEventRequestSignFileList) SetFileName(v string) *SyncSignEventRequestSignFileList {
+	s.FileName = &v
+	return s
+}
+
+func (s *SyncSignEventRequestSignFileList) SetFileSize(v int64) *SyncSignEventRequestSignFileList {
+	s.FileSize = &v
+	return s
+}
+
+func (s *SyncSignEventRequestSignFileList) SetFileType(v string) *SyncSignEventRequestSignFileList {
+	s.FileType = &v
+	return s
+}
+
+func (s *SyncSignEventRequestSignFileList) SetSpaceId(v string) *SyncSignEventRequestSignFileList {
+	s.SpaceId = &v
+	return s
+}
+
+type SyncSignEventShrinkRequest struct {
+	ContractBizId      *string `json:"contractBizId,omitempty" xml:"contractBizId,omitempty"`
+	CorpId             *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	ExtInfoShrink      *string `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	SealTypeShrink     *string `json:"sealType,omitempty" xml:"sealType,omitempty"`
+	SignDate           *int64  `json:"signDate,omitempty" xml:"signDate,omitempty"`
+	SignFileListShrink *string `json:"signFileList,omitempty" xml:"signFileList,omitempty"`
+	StaffId            *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
+}
+
+func (s SyncSignEventShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncSignEventShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncSignEventShrinkRequest) SetContractBizId(v string) *SyncSignEventShrinkRequest {
+	s.ContractBizId = &v
+	return s
+}
+
+func (s *SyncSignEventShrinkRequest) SetCorpId(v string) *SyncSignEventShrinkRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *SyncSignEventShrinkRequest) SetExtInfoShrink(v string) *SyncSignEventShrinkRequest {
+	s.ExtInfoShrink = &v
+	return s
+}
+
+func (s *SyncSignEventShrinkRequest) SetSealTypeShrink(v string) *SyncSignEventShrinkRequest {
+	s.SealTypeShrink = &v
+	return s
+}
+
+func (s *SyncSignEventShrinkRequest) SetSignDate(v int64) *SyncSignEventShrinkRequest {
+	s.SignDate = &v
+	return s
+}
+
+func (s *SyncSignEventShrinkRequest) SetSignFileListShrink(v string) *SyncSignEventShrinkRequest {
+	s.SignFileListShrink = &v
+	return s
+}
+
+func (s *SyncSignEventShrinkRequest) SetStaffId(v string) *SyncSignEventShrinkRequest {
+	s.StaffId = &v
+	return s
+}
+
+type SyncSignEventResponseBody struct {
+	Result  *SyncSignEventResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                            `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SyncSignEventResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncSignEventResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncSignEventResponseBody) SetResult(v *SyncSignEventResponseBodyResult) *SyncSignEventResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SyncSignEventResponseBody) SetSuccess(v bool) *SyncSignEventResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SyncSignEventResponseBodyResult struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SyncSignEventResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncSignEventResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SyncSignEventResponseBodyResult) SetResult(v bool) *SyncSignEventResponseBodyResult {
+	s.Result = &v
+	return s
+}
+
+type SyncSignEventResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncSignEventResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SyncSignEventResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncSignEventResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncSignEventResponse) SetHeaders(v map[string]*string) *SyncSignEventResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncSignEventResponse) SetStatusCode(v int32) *SyncSignEventResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SyncSignEventResponse) SetBody(v *SyncSignEventResponseBody) *SyncSignEventResponse {
 	s.Body = v
 	return s
 }
@@ -7820,6 +8588,87 @@ func (client *Client) QueryContractReviewResult(request *QueryContractReviewResu
 
 // Summary:
 //
+// 查询合同电子签相关信息
+//
+// @param request - QueryContractSignInfoRequest
+//
+// @param headers - QueryContractSignInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryContractSignInfoResponse
+func (client *Client) QueryContractSignInfoWithOptions(request *QueryContractSignInfoRequest, headers *QueryContractSignInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryContractSignInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ContractBizId)) {
+		query["contractBizId"] = request.ContractBizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StaffId)) {
+		query["staffId"] = request.StaffId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryContractSignInfo"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/queryContractSignInfo"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryContractSignInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询合同电子签相关信息
+//
+// @param request - QueryContractSignInfoRequest
+//
+// @return QueryContractSignInfoResponse
+func (client *Client) QueryContractSignInfo(request *QueryContractSignInfoRequest) (_result *QueryContractSignInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryContractSignInfoHeaders{}
+	_result = &QueryContractSignInfoResponse{}
+	_body, _err := client.QueryContractSignInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 发送合同相关卡片
 //
 // @param request - SendContractCardRequest
@@ -7916,6 +8765,117 @@ func (client *Client) SendContractCard(request *SendContractCardRequest) (_resul
 	headers := &SendContractCardHeaders{}
 	_result = &SendContractCardResponse{}
 	_body, _err := client.SendContractCardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 同步签署事件
+//
+// @param tmpReq - SyncSignEventRequest
+//
+// @param headers - SyncSignEventHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncSignEventResponse
+func (client *Client) SyncSignEventWithOptions(tmpReq *SyncSignEventRequest, headers *SyncSignEventHeaders, runtime *util.RuntimeOptions) (_result *SyncSignEventResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &SyncSignEventShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.ExtInfo)) {
+		request.ExtInfoShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.ExtInfo, tea.String("extInfo"), tea.String("json"))
+	}
+
+	if !tea.BoolValue(util.IsUnset(tmpReq.SealType)) {
+		request.SealTypeShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.SealType, tea.String("sealType"), tea.String("json"))
+	}
+
+	if !tea.BoolValue(util.IsUnset(tmpReq.SignFileList)) {
+		request.SignFileListShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.SignFileList, tea.String("signFileList"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ContractBizId)) {
+		query["contractBizId"] = request.ContractBizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtInfoShrink)) {
+		query["extInfo"] = request.ExtInfoShrink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SealTypeShrink)) {
+		query["sealType"] = request.SealTypeShrink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignDate)) {
+		query["signDate"] = request.SignDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignFileListShrink)) {
+		query["signFileList"] = request.SignFileListShrink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StaffId)) {
+		query["staffId"] = request.StaffId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncSignEvent"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/syncSignEvent"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SyncSignEventResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 同步签署事件
+//
+// @param request - SyncSignEventRequest
+//
+// @return SyncSignEventResponse
+func (client *Client) SyncSignEvent(request *SyncSignEventRequest) (_result *SyncSignEventResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncSignEventHeaders{}
+	_result = &SyncSignEventResponse{}
+	_body, _err := client.SyncSignEventWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

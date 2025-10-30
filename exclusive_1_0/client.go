@@ -17908,7 +17908,8 @@ type SearchOrgInnerGroupInfoByCursorPageResponseBodyItems struct {
 	// example:
 	//
 	// 1756656000000
-	GroupCreateTime *int64 `json:"groupCreateTime,omitempty" xml:"groupCreateTime,omitempty"`
+	GroupCreateTime     *int64 `json:"groupCreateTime,omitempty" xml:"groupCreateTime,omitempty"`
+	GroupLastActiveTime *int64 `json:"groupLastActiveTime,omitempty" xml:"groupLastActiveTime,omitempty"`
 	// example:
 	//
 	// 10
@@ -17950,6 +17951,11 @@ func (s SearchOrgInnerGroupInfoByCursorPageResponseBodyItems) GoString() string 
 
 func (s *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems) SetGroupCreateTime(v int64) *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems {
 	s.GroupCreateTime = &v
+	return s
+}
+
+func (s *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems) SetGroupLastActiveTime(v int64) *SearchOrgInnerGroupInfoByCursorPageResponseBodyItems {
+	s.GroupLastActiveTime = &v
 	return s
 }
 
@@ -18206,6 +18212,402 @@ func (s *SendInvitationResponse) SetHeaders(v map[string]*string) *SendInvitatio
 
 func (s *SendInvitationResponse) SetStatusCode(v int32) *SendInvitationResponse {
 	s.StatusCode = &v
+	return s
+}
+
+type SendMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendMessageHeaders) SetCommonHeaders(v map[string]*string) *SendMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendMessageRequest struct {
+	AllowComment *bool    `json:"allow_comment,omitempty" xml:"allow_comment,omitempty"`
+	CommentType  *int32   `json:"comment_type,omitempty" xml:"comment_type,omitempty"`
+	DepIdList    []*int64 `json:"dep_id_list,omitempty" xml:"dep_id_list,omitempty" type:"Repeated"`
+	IsPreview    *bool    `json:"is_preview,omitempty" xml:"is_preview,omitempty"`
+	IsToAll      *bool    `json:"is_to_all,omitempty" xml:"is_to_all,omitempty"`
+	// example:
+	//
+	// P16mHftLYX8iE
+	MediaId *string                    `json:"media_id,omitempty" xml:"media_id,omitempty"`
+	MsgBody *SendMessageRequestMsgBody `json:"msg_body,omitempty" xml:"msg_body,omitempty" type:"Struct"`
+	// example:
+	//
+	// text
+	MsgType      *string  `json:"msg_type,omitempty" xml:"msg_type,omitempty"`
+	RoleIds      []*int64 `json:"roleIds,omitempty" xml:"roleIds,omitempty" type:"Repeated"`
+	ShowHomepage *int32   `json:"show_homepage,omitempty" xml:"show_homepage,omitempty"`
+	// example:
+	//
+	// hello
+	TextContent *string `json:"text_content,omitempty" xml:"text_content,omitempty"`
+	// example:
+	//
+	// jYdrJoCmTo0iE
+	Unionid    *string   `json:"unionid,omitempty" xml:"unionid,omitempty"`
+	UseridList []*string `json:"userid_list,omitempty" xml:"userid_list,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 48566508-3f35
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s SendMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendMessageRequest) SetAllowComment(v bool) *SendMessageRequest {
+	s.AllowComment = &v
+	return s
+}
+
+func (s *SendMessageRequest) SetCommentType(v int32) *SendMessageRequest {
+	s.CommentType = &v
+	return s
+}
+
+func (s *SendMessageRequest) SetDepIdList(v []*int64) *SendMessageRequest {
+	s.DepIdList = v
+	return s
+}
+
+func (s *SendMessageRequest) SetIsPreview(v bool) *SendMessageRequest {
+	s.IsPreview = &v
+	return s
+}
+
+func (s *SendMessageRequest) SetIsToAll(v bool) *SendMessageRequest {
+	s.IsToAll = &v
+	return s
+}
+
+func (s *SendMessageRequest) SetMediaId(v string) *SendMessageRequest {
+	s.MediaId = &v
+	return s
+}
+
+func (s *SendMessageRequest) SetMsgBody(v *SendMessageRequestMsgBody) *SendMessageRequest {
+	s.MsgBody = v
+	return s
+}
+
+func (s *SendMessageRequest) SetMsgType(v string) *SendMessageRequest {
+	s.MsgType = &v
+	return s
+}
+
+func (s *SendMessageRequest) SetRoleIds(v []*int64) *SendMessageRequest {
+	s.RoleIds = v
+	return s
+}
+
+func (s *SendMessageRequest) SetShowHomepage(v int32) *SendMessageRequest {
+	s.ShowHomepage = &v
+	return s
+}
+
+func (s *SendMessageRequest) SetTextContent(v string) *SendMessageRequest {
+	s.TextContent = &v
+	return s
+}
+
+func (s *SendMessageRequest) SetUnionid(v string) *SendMessageRequest {
+	s.Unionid = &v
+	return s
+}
+
+func (s *SendMessageRequest) SetUseridList(v []*string) *SendMessageRequest {
+	s.UseridList = v
+	return s
+}
+
+func (s *SendMessageRequest) SetUuid(v string) *SendMessageRequest {
+	s.Uuid = &v
+	return s
+}
+
+type SendMessageRequestMsgBody struct {
+	ActionCard *SendMessageRequestMsgBodyActionCard `json:"action_card,omitempty" xml:"action_card,omitempty" type:"Struct"`
+	Link       *SendMessageRequestMsgBodyLink       `json:"link,omitempty" xml:"link,omitempty" type:"Struct"`
+	Markdown   *SendMessageRequestMsgBodyMarkdown   `json:"markdown,omitempty" xml:"markdown,omitempty" type:"Struct"`
+}
+
+func (s SendMessageRequestMsgBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMessageRequestMsgBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendMessageRequestMsgBody) SetActionCard(v *SendMessageRequestMsgBodyActionCard) *SendMessageRequestMsgBody {
+	s.ActionCard = v
+	return s
+}
+
+func (s *SendMessageRequestMsgBody) SetLink(v *SendMessageRequestMsgBodyLink) *SendMessageRequestMsgBody {
+	s.Link = v
+	return s
+}
+
+func (s *SendMessageRequestMsgBody) SetMarkdown(v *SendMessageRequestMsgBodyMarkdown) *SendMessageRequestMsgBody {
+	s.Markdown = v
+	return s
+}
+
+type SendMessageRequestMsgBodyActionCard struct {
+	// example:
+	//
+	// 0
+	BtnOrientation *string                                          `json:"btn_orientation,omitempty" xml:"btn_orientation,omitempty"`
+	ButtonList     []*SendMessageRequestMsgBodyActionCardButtonList `json:"button_list,omitempty" xml:"button_list,omitempty" type:"Repeated"`
+	// example:
+	//
+	// markdown text
+	Markdown *string `json:"markdown,omitempty" xml:"markdown,omitempty"`
+	// example:
+	//
+	// single title
+	SingleTitle *string `json:"single_title,omitempty" xml:"single_title,omitempty"`
+	// example:
+	//
+	// https://dingtalk.com
+	SingleUrl *string `json:"single_url,omitempty" xml:"single_url,omitempty"`
+	// example:
+	//
+	// title
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s SendMessageRequestMsgBodyActionCard) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMessageRequestMsgBodyActionCard) GoString() string {
+	return s.String()
+}
+
+func (s *SendMessageRequestMsgBodyActionCard) SetBtnOrientation(v string) *SendMessageRequestMsgBodyActionCard {
+	s.BtnOrientation = &v
+	return s
+}
+
+func (s *SendMessageRequestMsgBodyActionCard) SetButtonList(v []*SendMessageRequestMsgBodyActionCardButtonList) *SendMessageRequestMsgBodyActionCard {
+	s.ButtonList = v
+	return s
+}
+
+func (s *SendMessageRequestMsgBodyActionCard) SetMarkdown(v string) *SendMessageRequestMsgBodyActionCard {
+	s.Markdown = &v
+	return s
+}
+
+func (s *SendMessageRequestMsgBodyActionCard) SetSingleTitle(v string) *SendMessageRequestMsgBodyActionCard {
+	s.SingleTitle = &v
+	return s
+}
+
+func (s *SendMessageRequestMsgBodyActionCard) SetSingleUrl(v string) *SendMessageRequestMsgBodyActionCard {
+	s.SingleUrl = &v
+	return s
+}
+
+func (s *SendMessageRequestMsgBodyActionCard) SetTitle(v string) *SendMessageRequestMsgBodyActionCard {
+	s.Title = &v
+	return s
+}
+
+type SendMessageRequestMsgBodyActionCardButtonList struct {
+	// example:
+	//
+	// btn_action_url1
+	ActionUrl *string `json:"action_url,omitempty" xml:"action_url,omitempty"`
+	// example:
+	//
+	// btn_title1
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s SendMessageRequestMsgBodyActionCardButtonList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMessageRequestMsgBodyActionCardButtonList) GoString() string {
+	return s.String()
+}
+
+func (s *SendMessageRequestMsgBodyActionCardButtonList) SetActionUrl(v string) *SendMessageRequestMsgBodyActionCardButtonList {
+	s.ActionUrl = &v
+	return s
+}
+
+func (s *SendMessageRequestMsgBodyActionCardButtonList) SetTitle(v string) *SendMessageRequestMsgBodyActionCardButtonList {
+	s.Title = &v
+	return s
+}
+
+type SendMessageRequestMsgBodyLink struct {
+	// example:
+	//
+	// P16mHftLYX8iE
+	CoverImageMediaId *string `json:"cover_image_media_id,omitempty" xml:"cover_image_media_id,omitempty"`
+	// example:
+	//
+	// https://dingtalk.com
+	LinkUrl  *string `json:"link_url,omitempty" xml:"link_url,omitempty"`
+	OpenType *int32  `json:"open_type,omitempty" xml:"open_type,omitempty"`
+	// example:
+	//
+	// 描述信息
+	Summary *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	// example:
+	//
+	// title
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s SendMessageRequestMsgBodyLink) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMessageRequestMsgBodyLink) GoString() string {
+	return s.String()
+}
+
+func (s *SendMessageRequestMsgBodyLink) SetCoverImageMediaId(v string) *SendMessageRequestMsgBodyLink {
+	s.CoverImageMediaId = &v
+	return s
+}
+
+func (s *SendMessageRequestMsgBodyLink) SetLinkUrl(v string) *SendMessageRequestMsgBodyLink {
+	s.LinkUrl = &v
+	return s
+}
+
+func (s *SendMessageRequestMsgBodyLink) SetOpenType(v int32) *SendMessageRequestMsgBodyLink {
+	s.OpenType = &v
+	return s
+}
+
+func (s *SendMessageRequestMsgBodyLink) SetSummary(v string) *SendMessageRequestMsgBodyLink {
+	s.Summary = &v
+	return s
+}
+
+func (s *SendMessageRequestMsgBodyLink) SetTitle(v string) *SendMessageRequestMsgBodyLink {
+	s.Title = &v
+	return s
+}
+
+type SendMessageRequestMsgBodyMarkdown struct {
+	// example:
+	//
+	// markdown text
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+	// example:
+	//
+	// title
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s SendMessageRequestMsgBodyMarkdown) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMessageRequestMsgBodyMarkdown) GoString() string {
+	return s.String()
+}
+
+func (s *SendMessageRequestMsgBodyMarkdown) SetText(v string) *SendMessageRequestMsgBodyMarkdown {
+	s.Text = &v
+	return s
+}
+
+func (s *SendMessageRequestMsgBodyMarkdown) SetTitle(v string) *SendMessageRequestMsgBodyMarkdown {
+	s.Title = &v
+	return s
+}
+
+type SendMessageResponseBody struct {
+	Errmsg *string `json:"errmsg,omitempty" xml:"errmsg,omitempty"`
+	// example:
+	//
+	// 0
+	Errorcode *string `json:"errorcode,omitempty" xml:"errorcode,omitempty"`
+	TaskId    *string `json:"task_id,omitempty" xml:"task_id,omitempty"`
+}
+
+func (s SendMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendMessageResponseBody) SetErrmsg(v string) *SendMessageResponseBody {
+	s.Errmsg = &v
+	return s
+}
+
+func (s *SendMessageResponseBody) SetErrorcode(v string) *SendMessageResponseBody {
+	s.Errorcode = &v
+	return s
+}
+
+func (s *SendMessageResponseBody) SetTaskId(v string) *SendMessageResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+type SendMessageResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SendMessageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SendMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendMessageResponse) SetHeaders(v map[string]*string) *SendMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendMessageResponse) SetStatusCode(v int32) *SendMessageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SendMessageResponse) SetBody(v *SendMessageResponseBody) *SendMessageResponse {
+	s.Body = v
 	return s
 }
 
@@ -30761,6 +31163,131 @@ func (client *Client) SendInvitation(request *SendInvitationRequest) (_result *S
 	headers := &SendInvitationHeaders{}
 	_result = &SendInvitationResponse{}
 	_body, _err := client.SendInvitationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 互动服务窗-群发消息
+//
+// @param request - SendMessageRequest
+//
+// @param headers - SendMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendMessageResponse
+func (client *Client) SendMessageWithOptions(request *SendMessageRequest, headers *SendMessageHeaders, runtime *util.RuntimeOptions) (_result *SendMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AllowComment)) {
+		body["allow_comment"] = request.AllowComment
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CommentType)) {
+		body["comment_type"] = request.CommentType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DepIdList)) {
+		body["dep_id_list"] = request.DepIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsPreview)) {
+		body["is_preview"] = request.IsPreview
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsToAll)) {
+		body["is_to_all"] = request.IsToAll
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MediaId)) {
+		body["media_id"] = request.MediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgBody)) {
+		body["msg_body"] = request.MsgBody
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgType)) {
+		body["msg_type"] = request.MsgType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleIds)) {
+		body["roleIds"] = request.RoleIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ShowHomepage)) {
+		body["show_homepage"] = request.ShowHomepage
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TextContent)) {
+		body["text_content"] = request.TextContent
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Unionid)) {
+		body["unionid"] = request.Unionid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UseridList)) {
+		body["userid_list"] = request.UseridList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		body["uuid"] = request.Uuid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SendMessage"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/follow/message/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SendMessageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 互动服务窗-群发消息
+//
+// @param request - SendMessageRequest
+//
+// @return SendMessageResponse
+func (client *Client) SendMessage(request *SendMessageRequest) (_result *SendMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendMessageHeaders{}
+	_result = &SendMessageResponse{}
+	_body, _err := client.SendMessageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

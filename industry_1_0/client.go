@@ -15338,6 +15338,140 @@ func (s *GetTaskPackageResultResponse) SetBody(v *GetTaskPackageResultResponseBo
 	return s
 }
 
+type GetTaskQueueHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTaskQueueHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskQueueHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskQueueHeaders) SetCommonHeaders(v map[string]*string) *GetTaskQueueHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTaskQueueHeaders) SetXAcsDingtalkAccessToken(v string) *GetTaskQueueHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTaskQueueRequest struct {
+	// This parameter is required.
+	BizCode *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+}
+
+func (s GetTaskQueueRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskQueueRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskQueueRequest) SetBizCode(v string) *GetTaskQueueRequest {
+	s.BizCode = &v
+	return s
+}
+
+type GetTaskQueueResponseBody struct {
+	ErrorCode *string                         `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string                         `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result    *GetTaskQueueResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success   *bool                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetTaskQueueResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskQueueResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskQueueResponseBody) SetErrorCode(v string) *GetTaskQueueResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *GetTaskQueueResponseBody) SetErrorMsg(v string) *GetTaskQueueResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *GetTaskQueueResponseBody) SetResult(v *GetTaskQueueResponseBodyResult) *GetTaskQueueResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetTaskQueueResponseBody) SetSuccess(v bool) *GetTaskQueueResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetTaskQueueResponseBodyResult struct {
+	PendingCount    *int32 `json:"pendingCount,omitempty" xml:"pendingCount,omitempty"`
+	ProcessingCount *int32 `json:"processingCount,omitempty" xml:"processingCount,omitempty"`
+	TotalCount      *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s GetTaskQueueResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskQueueResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskQueueResponseBodyResult) SetPendingCount(v int32) *GetTaskQueueResponseBodyResult {
+	s.PendingCount = &v
+	return s
+}
+
+func (s *GetTaskQueueResponseBodyResult) SetProcessingCount(v int32) *GetTaskQueueResponseBodyResult {
+	s.ProcessingCount = &v
+	return s
+}
+
+func (s *GetTaskQueueResponseBodyResult) SetTotalCount(v int32) *GetTaskQueueResponseBodyResult {
+	s.TotalCount = &v
+	return s
+}
+
+type GetTaskQueueResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetTaskQueueResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetTaskQueueResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTaskQueueResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTaskQueueResponse) SetHeaders(v map[string]*string) *GetTaskQueueResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTaskQueueResponse) SetStatusCode(v int32) *GetTaskQueueResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetTaskQueueResponse) SetBody(v *GetTaskQueueResponseBody) *GetTaskQueueResponse {
+	s.Body = v
+	return s
+}
+
 type HospitalDataCheckHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -37804,6 +37938,79 @@ func (client *Client) GetTaskPackageResult(request *GetTaskPackageResultRequest)
 	headers := &GetTaskPackageResultHeaders{}
 	_result = &GetTaskPackageResultResponse{}
 	_body, _err := client.GetTaskPackageResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询任务队列情况
+//
+// @param request - GetTaskQueueRequest
+//
+// @param headers - GetTaskQueueHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTaskQueueResponse
+func (client *Client) GetTaskQueueWithOptions(request *GetTaskQueueRequest, headers *GetTaskQueueHeaders, runtime *util.RuntimeOptions) (_result *GetTaskQueueResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		query["bizCode"] = request.BizCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTaskQueue"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/ai/taskQueue/query"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetTaskQueueResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询任务队列情况
+//
+// @param request - GetTaskQueueRequest
+//
+// @return GetTaskQueueResponse
+func (client *Client) GetTaskQueue(request *GetTaskQueueRequest) (_result *GetTaskQueueResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTaskQueueHeaders{}
+	_result = &GetTaskQueueResponse{}
+	_body, _err := client.GetTaskQueueWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

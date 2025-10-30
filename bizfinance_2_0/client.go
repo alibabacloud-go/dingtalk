@@ -4571,6 +4571,109 @@ func (s *QueryCollectionOrderResponse) SetBody(v *QueryCollectionOrderResponseBo
 	return s
 }
 
+type QueryCorpScaleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCorpScaleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCorpScaleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCorpScaleHeaders) SetCommonHeaders(v map[string]*string) *QueryCorpScaleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCorpScaleHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCorpScaleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCorpScaleRequest struct {
+	CorpNames []*string `json:"corpNames,omitempty" xml:"corpNames,omitempty" type:"Repeated"`
+}
+
+func (s QueryCorpScaleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCorpScaleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCorpScaleRequest) SetCorpNames(v []*string) *QueryCorpScaleRequest {
+	s.CorpNames = v
+	return s
+}
+
+type QueryCorpScaleShrinkRequest struct {
+	CorpNamesShrink *string `json:"corpNames,omitempty" xml:"corpNames,omitempty"`
+}
+
+func (s QueryCorpScaleShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCorpScaleShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCorpScaleShrinkRequest) SetCorpNamesShrink(v string) *QueryCorpScaleShrinkRequest {
+	s.CorpNamesShrink = &v
+	return s
+}
+
+type QueryCorpScaleResponseBody struct {
+	CorpScaleMap map[string]interface{} `json:"corpScaleMap,omitempty" xml:"corpScaleMap,omitempty"`
+}
+
+func (s QueryCorpScaleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCorpScaleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCorpScaleResponseBody) SetCorpScaleMap(v map[string]interface{}) *QueryCorpScaleResponseBody {
+	s.CorpScaleMap = v
+	return s
+}
+
+type QueryCorpScaleResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCorpScaleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryCorpScaleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCorpScaleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCorpScaleResponse) SetHeaders(v map[string]*string) *QueryCorpScaleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCorpScaleResponse) SetStatusCode(v int32) *QueryCorpScaleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryCorpScaleResponse) SetBody(v *QueryCorpScaleResponseBody) *QueryCorpScaleResponse {
+	s.Body = v
+	return s
+}
+
 type QueryCustomerByPageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11472,6 +11575,85 @@ func (client *Client) QueryCollectionOrder(request *QueryCollectionOrderRequest)
 	headers := &QueryCollectionOrderHeaders{}
 	_result = &QueryCollectionOrderResponse{}
 	_body, _err := client.QueryCollectionOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据企业名称列表，查询是否在钉钉有组织，及组织的认证状态与规模
+//
+// @param tmpReq - QueryCorpScaleRequest
+//
+// @param headers - QueryCorpScaleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCorpScaleResponse
+func (client *Client) QueryCorpScaleWithOptions(tmpReq *QueryCorpScaleRequest, headers *QueryCorpScaleHeaders, runtime *util.RuntimeOptions) (_result *QueryCorpScaleResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &QueryCorpScaleShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.CorpNames)) {
+		request.CorpNamesShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.CorpNames, tea.String("corpNames"), tea.String("simple"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpNamesShrink)) {
+		query["corpNames"] = request.CorpNamesShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryCorpScale"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/queryCorpScale"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryCorpScaleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据企业名称列表，查询是否在钉钉有组织，及组织的认证状态与规模
+//
+// @param request - QueryCorpScaleRequest
+//
+// @return QueryCorpScaleResponse
+func (client *Client) QueryCorpScale(request *QueryCorpScaleRequest) (_result *QueryCorpScaleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCorpScaleHeaders{}
+	_result = &QueryCorpScaleResponse{}
+	_body, _err := client.QueryCorpScaleWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

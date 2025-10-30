@@ -291,6 +291,357 @@ func (s *BatchDeleteRoleMembersResponse) SetBody(v *BatchDeleteRoleMembersRespon
 	return s
 }
 
+type CancelAgentTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CancelAgentTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelAgentTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CancelAgentTaskHeaders) SetCommonHeaders(v map[string]*string) *CancelAgentTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CancelAgentTaskHeaders) SetXAcsDingtalkAccessToken(v string) *CancelAgentTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CancelAgentTaskRequest struct {
+	AgentType *string `json:"agentType,omitempty" xml:"agentType,omitempty"`
+	// This parameter is required.
+	AgentUuid *string `json:"agentUuid,omitempty" xml:"agentUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 501453
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CancelAgentTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelAgentTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CancelAgentTaskRequest) SetAgentType(v string) *CancelAgentTaskRequest {
+	s.AgentType = &v
+	return s
+}
+
+func (s *CancelAgentTaskRequest) SetAgentUuid(v string) *CancelAgentTaskRequest {
+	s.AgentUuid = &v
+	return s
+}
+
+func (s *CancelAgentTaskRequest) SetCorpId(v string) *CancelAgentTaskRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *CancelAgentTaskRequest) SetToken(v string) *CancelAgentTaskRequest {
+	s.Token = &v
+	return s
+}
+
+func (s *CancelAgentTaskRequest) SetUserId(v string) *CancelAgentTaskRequest {
+	s.UserId = &v
+	return s
+}
+
+type CancelAgentTaskResponseBody struct {
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CancelAgentTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelAgentTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CancelAgentTaskResponseBody) SetErrorCode(v string) *CancelAgentTaskResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *CancelAgentTaskResponseBody) SetErrorMsg(v string) *CancelAgentTaskResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *CancelAgentTaskResponseBody) SetResult(v bool) *CancelAgentTaskResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *CancelAgentTaskResponseBody) SetSuccess(v bool) *CancelAgentTaskResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CancelAgentTaskResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CancelAgentTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CancelAgentTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelAgentTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CancelAgentTaskResponse) SetHeaders(v map[string]*string) *CancelAgentTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CancelAgentTaskResponse) SetStatusCode(v int32) *CancelAgentTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CancelAgentTaskResponse) SetBody(v *CancelAgentTaskResponseBody) *CancelAgentTaskResponse {
+	s.Body = v
+	return s
+}
+
+type CreateAgentTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateAgentTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAgentTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAgentTaskHeaders) SetCommonHeaders(v map[string]*string) *CreateAgentTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateAgentTaskHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAgentTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateAgentTaskRequest struct {
+	// example:
+	//
+	// EXECUTE
+	AgentCategory *string `json:"agentCategory,omitempty" xml:"agentCategory,omitempty"`
+	// example:
+	//
+	// ALL
+	AgentRangeType *string `json:"agentRangeType,omitempty" xml:"agentRangeType,omitempty"`
+	// example:
+	//
+	// [{\"appType\":\"APP_xxx\",\"formUuid\":\"FORM-xxx\"}]
+	AgentRangeValue *string `json:"agentRangeValue,omitempty" xml:"agentRangeValue,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ALL
+	AgentType *string `json:"agentType,omitempty" xml:"agentType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10001
+	AgentUserId *string `json:"agentUserId,omitempty" xml:"agentUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 1761204600404
+	EndTimestamp        *string `json:"endTimestamp,omitempty" xml:"endTimestamp,omitempty"`
+	NeedNoticePrincipal *string `json:"needNoticePrincipal,omitempty" xml:"needNoticePrincipal,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10002
+	PrincipalUserId *string `json:"principalUserId,omitempty" xml:"principalUserId,omitempty"`
+	// example:
+	//
+	// 1761204600404
+	StartTimestamp *string `json:"startTimestamp,omitempty" xml:"startTimestamp,omitempty"`
+	// This parameter is required.
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 501453
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateAgentTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAgentTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAgentTaskRequest) SetAgentCategory(v string) *CreateAgentTaskRequest {
+	s.AgentCategory = &v
+	return s
+}
+
+func (s *CreateAgentTaskRequest) SetAgentRangeType(v string) *CreateAgentTaskRequest {
+	s.AgentRangeType = &v
+	return s
+}
+
+func (s *CreateAgentTaskRequest) SetAgentRangeValue(v string) *CreateAgentTaskRequest {
+	s.AgentRangeValue = &v
+	return s
+}
+
+func (s *CreateAgentTaskRequest) SetAgentType(v string) *CreateAgentTaskRequest {
+	s.AgentType = &v
+	return s
+}
+
+func (s *CreateAgentTaskRequest) SetAgentUserId(v string) *CreateAgentTaskRequest {
+	s.AgentUserId = &v
+	return s
+}
+
+func (s *CreateAgentTaskRequest) SetCorpId(v string) *CreateAgentTaskRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *CreateAgentTaskRequest) SetEndTimestamp(v string) *CreateAgentTaskRequest {
+	s.EndTimestamp = &v
+	return s
+}
+
+func (s *CreateAgentTaskRequest) SetNeedNoticePrincipal(v string) *CreateAgentTaskRequest {
+	s.NeedNoticePrincipal = &v
+	return s
+}
+
+func (s *CreateAgentTaskRequest) SetPrincipalUserId(v string) *CreateAgentTaskRequest {
+	s.PrincipalUserId = &v
+	return s
+}
+
+func (s *CreateAgentTaskRequest) SetStartTimestamp(v string) *CreateAgentTaskRequest {
+	s.StartTimestamp = &v
+	return s
+}
+
+func (s *CreateAgentTaskRequest) SetToken(v string) *CreateAgentTaskRequest {
+	s.Token = &v
+	return s
+}
+
+func (s *CreateAgentTaskRequest) SetUserId(v string) *CreateAgentTaskRequest {
+	s.UserId = &v
+	return s
+}
+
+type CreateAgentTaskResponseBody struct {
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result    *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateAgentTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAgentTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAgentTaskResponseBody) SetErrorCode(v string) *CreateAgentTaskResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *CreateAgentTaskResponseBody) SetErrorMsg(v string) *CreateAgentTaskResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *CreateAgentTaskResponseBody) SetResult(v string) *CreateAgentTaskResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *CreateAgentTaskResponseBody) SetSuccess(v bool) *CreateAgentTaskResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateAgentTaskResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateAgentTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateAgentTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAgentTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAgentTaskResponse) SetHeaders(v map[string]*string) *CreateAgentTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateAgentTaskResponse) SetStatusCode(v int32) *CreateAgentTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateAgentTaskResponse) SetBody(v *CreateAgentTaskResponseBody) *CreateAgentTaskResponse {
+	s.Body = v
+	return s
+}
+
 type CreateOrUpdateFormDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -578,6 +929,297 @@ func (s *DeleteMatrixDataByRowIdsResponse) SetStatusCode(v int32) *DeleteMatrixD
 }
 
 func (s *DeleteMatrixDataByRowIdsResponse) SetBody(v *DeleteMatrixDataByRowIdsResponseBody) *DeleteMatrixDataByRowIdsResponse {
+	s.Body = v
+	return s
+}
+
+type GetAgentTasksHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAgentTasksHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAgentTasksHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAgentTasksHeaders) SetCommonHeaders(v map[string]*string) *GetAgentTasksHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAgentTasksHeaders) SetXAcsDingtalkAccessToken(v string) *GetAgentTasksHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAgentTasksRequest struct {
+	// example:
+	//
+	// Agent--XXXXX
+	AgentUuid *string `json:"agentUuid,omitempty" xml:"agentUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 10001
+	Keywords *string `json:"keywords,omitempty" xml:"keywords,omitempty"`
+	// example:
+	//
+	// 100
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 1
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// ALL
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 501453
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetAgentTasksRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAgentTasksRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAgentTasksRequest) SetAgentUuid(v string) *GetAgentTasksRequest {
+	s.AgentUuid = &v
+	return s
+}
+
+func (s *GetAgentTasksRequest) SetCorpId(v string) *GetAgentTasksRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetAgentTasksRequest) SetKeywords(v string) *GetAgentTasksRequest {
+	s.Keywords = &v
+	return s
+}
+
+func (s *GetAgentTasksRequest) SetPageNumber(v int32) *GetAgentTasksRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetAgentTasksRequest) SetPageSize(v int32) *GetAgentTasksRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetAgentTasksRequest) SetStatus(v string) *GetAgentTasksRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *GetAgentTasksRequest) SetToken(v string) *GetAgentTasksRequest {
+	s.Token = &v
+	return s
+}
+
+func (s *GetAgentTasksRequest) SetUserId(v string) *GetAgentTasksRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetAgentTasksResponseBody struct {
+	CurrentPage *int32                             `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	Limit       *int32                             `json:"limit,omitempty" xml:"limit,omitempty"`
+	Start       *int32                             `json:"start,omitempty" xml:"start,omitempty"`
+	TotalCount  *int32                             `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	Values      []*GetAgentTasksResponseBodyValues `json:"values,omitempty" xml:"values,omitempty" type:"Repeated"`
+}
+
+func (s GetAgentTasksResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAgentTasksResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAgentTasksResponseBody) SetCurrentPage(v int32) *GetAgentTasksResponseBody {
+	s.CurrentPage = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBody) SetLimit(v int32) *GetAgentTasksResponseBody {
+	s.Limit = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBody) SetStart(v int32) *GetAgentTasksResponseBody {
+	s.Start = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBody) SetTotalCount(v int32) *GetAgentTasksResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBody) SetValues(v []*GetAgentTasksResponseBodyValues) *GetAgentTasksResponseBody {
+	s.Values = v
+	return s
+}
+
+type GetAgentTasksResponseBodyValues struct {
+	AgentCategory       *string `json:"agentCategory,omitempty" xml:"agentCategory,omitempty"`
+	AgentCreateGMT      *string `json:"agentCreateGMT,omitempty" xml:"agentCreateGMT,omitempty"`
+	AgentEndGMT         *string `json:"agentEndGMT,omitempty" xml:"agentEndGMT,omitempty"`
+	AgentName           *string `json:"agentName,omitempty" xml:"agentName,omitempty"`
+	AgentRangeType      *string `json:"agentRangeType,omitempty" xml:"agentRangeType,omitempty"`
+	AgentRangeValue     *string `json:"agentRangeValue,omitempty" xml:"agentRangeValue,omitempty"`
+	AgentStartGMT       *string `json:"agentStartGMT,omitempty" xml:"agentStartGMT,omitempty"`
+	AgentType           *string `json:"agentType,omitempty" xml:"agentType,omitempty"`
+	AgentUserId         *string `json:"agentUserId,omitempty" xml:"agentUserId,omitempty"`
+	AgentUuid           *string `json:"agentUuid,omitempty" xml:"agentUuid,omitempty"`
+	Creator             *string `json:"creator,omitempty" xml:"creator,omitempty"`
+	CreatorName         *string `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
+	Modifier            *string `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	NeedNoticePrincipal *string `json:"needNoticePrincipal,omitempty" xml:"needNoticePrincipal,omitempty"`
+	PrincipalName       *string `json:"principalName,omitempty" xml:"principalName,omitempty"`
+	PrincipalUserId     *string `json:"principalUserId,omitempty" xml:"principalUserId,omitempty"`
+	Status              *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetAgentTasksResponseBodyValues) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAgentTasksResponseBodyValues) GoString() string {
+	return s.String()
+}
+
+func (s *GetAgentTasksResponseBodyValues) SetAgentCategory(v string) *GetAgentTasksResponseBodyValues {
+	s.AgentCategory = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBodyValues) SetAgentCreateGMT(v string) *GetAgentTasksResponseBodyValues {
+	s.AgentCreateGMT = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBodyValues) SetAgentEndGMT(v string) *GetAgentTasksResponseBodyValues {
+	s.AgentEndGMT = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBodyValues) SetAgentName(v string) *GetAgentTasksResponseBodyValues {
+	s.AgentName = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBodyValues) SetAgentRangeType(v string) *GetAgentTasksResponseBodyValues {
+	s.AgentRangeType = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBodyValues) SetAgentRangeValue(v string) *GetAgentTasksResponseBodyValues {
+	s.AgentRangeValue = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBodyValues) SetAgentStartGMT(v string) *GetAgentTasksResponseBodyValues {
+	s.AgentStartGMT = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBodyValues) SetAgentType(v string) *GetAgentTasksResponseBodyValues {
+	s.AgentType = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBodyValues) SetAgentUserId(v string) *GetAgentTasksResponseBodyValues {
+	s.AgentUserId = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBodyValues) SetAgentUuid(v string) *GetAgentTasksResponseBodyValues {
+	s.AgentUuid = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBodyValues) SetCreator(v string) *GetAgentTasksResponseBodyValues {
+	s.Creator = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBodyValues) SetCreatorName(v string) *GetAgentTasksResponseBodyValues {
+	s.CreatorName = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBodyValues) SetModifier(v string) *GetAgentTasksResponseBodyValues {
+	s.Modifier = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBodyValues) SetNeedNoticePrincipal(v string) *GetAgentTasksResponseBodyValues {
+	s.NeedNoticePrincipal = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBodyValues) SetPrincipalName(v string) *GetAgentTasksResponseBodyValues {
+	s.PrincipalName = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBodyValues) SetPrincipalUserId(v string) *GetAgentTasksResponseBodyValues {
+	s.PrincipalUserId = &v
+	return s
+}
+
+func (s *GetAgentTasksResponseBodyValues) SetStatus(v string) *GetAgentTasksResponseBodyValues {
+	s.Status = &v
+	return s
+}
+
+type GetAgentTasksResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetAgentTasksResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetAgentTasksResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAgentTasksResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAgentTasksResponse) SetHeaders(v map[string]*string) *GetAgentTasksResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAgentTasksResponse) SetStatusCode(v int32) *GetAgentTasksResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetAgentTasksResponse) SetBody(v *GetAgentTasksResponseBody) *GetAgentTasksResponse {
 	s.Body = v
 	return s
 }
@@ -4285,6 +4927,197 @@ func (s *StartInstanceResponse) SetBody(v *StartInstanceResponseBody) *StartInst
 	return s
 }
 
+type UpdateAgentTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateAgentTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateAgentTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateAgentTaskHeaders) SetCommonHeaders(v map[string]*string) *UpdateAgentTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateAgentTaskHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateAgentTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateAgentTaskRequest struct {
+	// example:
+	//
+	// ALL
+	AgentRangeType *string `json:"agentRangeType,omitempty" xml:"agentRangeType,omitempty"`
+	// example:
+	//
+	// [{\"appType\":\"APP_xxx\",\"formUuid\":\"FORM-xxx\"}]
+	AgentRangeValue *string `json:"agentRangeValue,omitempty" xml:"agentRangeValue,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10001
+	AgentUserId *string `json:"agentUserId,omitempty" xml:"agentUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// Agent--xxxxx
+	AgentUuid *string `json:"agentUuid,omitempty" xml:"agentUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 1761204600404
+	EndTimestamp        *string `json:"endTimestamp,omitempty" xml:"endTimestamp,omitempty"`
+	NeedNoticePrincipal *string `json:"needNoticePrincipal,omitempty" xml:"needNoticePrincipal,omitempty"`
+	// example:
+	//
+	// 1761204600404
+	StartTimestamp *string `json:"startTimestamp,omitempty" xml:"startTimestamp,omitempty"`
+	// This parameter is required.
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 501453
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateAgentTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateAgentTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateAgentTaskRequest) SetAgentRangeType(v string) *UpdateAgentTaskRequest {
+	s.AgentRangeType = &v
+	return s
+}
+
+func (s *UpdateAgentTaskRequest) SetAgentRangeValue(v string) *UpdateAgentTaskRequest {
+	s.AgentRangeValue = &v
+	return s
+}
+
+func (s *UpdateAgentTaskRequest) SetAgentUserId(v string) *UpdateAgentTaskRequest {
+	s.AgentUserId = &v
+	return s
+}
+
+func (s *UpdateAgentTaskRequest) SetAgentUuid(v string) *UpdateAgentTaskRequest {
+	s.AgentUuid = &v
+	return s
+}
+
+func (s *UpdateAgentTaskRequest) SetCorpId(v string) *UpdateAgentTaskRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *UpdateAgentTaskRequest) SetEndTimestamp(v string) *UpdateAgentTaskRequest {
+	s.EndTimestamp = &v
+	return s
+}
+
+func (s *UpdateAgentTaskRequest) SetNeedNoticePrincipal(v string) *UpdateAgentTaskRequest {
+	s.NeedNoticePrincipal = &v
+	return s
+}
+
+func (s *UpdateAgentTaskRequest) SetStartTimestamp(v string) *UpdateAgentTaskRequest {
+	s.StartTimestamp = &v
+	return s
+}
+
+func (s *UpdateAgentTaskRequest) SetToken(v string) *UpdateAgentTaskRequest {
+	s.Token = &v
+	return s
+}
+
+func (s *UpdateAgentTaskRequest) SetUserId(v string) *UpdateAgentTaskRequest {
+	s.UserId = &v
+	return s
+}
+
+type UpdateAgentTaskResponseBody struct {
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateAgentTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateAgentTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateAgentTaskResponseBody) SetErrorCode(v string) *UpdateAgentTaskResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *UpdateAgentTaskResponseBody) SetErrorMsg(v string) *UpdateAgentTaskResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *UpdateAgentTaskResponseBody) SetResult(v bool) *UpdateAgentTaskResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *UpdateAgentTaskResponseBody) SetSuccess(v bool) *UpdateAgentTaskResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateAgentTaskResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateAgentTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateAgentTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateAgentTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateAgentTaskResponse) SetHeaders(v map[string]*string) *UpdateAgentTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateAgentTaskResponse) SetStatusCode(v int32) *UpdateAgentTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateAgentTaskResponse) SetBody(v *UpdateAgentTaskResponseBody) *UpdateAgentTaskResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateFormDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4989,6 +5822,212 @@ func (client *Client) BatchDeleteRoleMembers(request *BatchDeleteRoleMembersRequ
 
 // Summary:
 //
+// 撤销代理关系
+//
+// @param request - CancelAgentTaskRequest
+//
+// @param headers - CancelAgentTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CancelAgentTaskResponse
+func (client *Client) CancelAgentTaskWithOptions(request *CancelAgentTaskRequest, headers *CancelAgentTaskHeaders, runtime *util.RuntimeOptions) (_result *CancelAgentTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentType)) {
+		query["agentType"] = request.AgentType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AgentUuid)) {
+		query["agentUuid"] = request.AgentUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		query["token"] = request.Token
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CancelAgentTask"),
+		Version:     tea.String("yida_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/yida/forms/resources/agents/cancel"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CancelAgentTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 撤销代理关系
+//
+// @param request - CancelAgentTaskRequest
+//
+// @return CancelAgentTaskResponse
+func (client *Client) CancelAgentTask(request *CancelAgentTaskRequest) (_result *CancelAgentTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CancelAgentTaskHeaders{}
+	_result = &CancelAgentTaskResponse{}
+	_body, _err := client.CancelAgentTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建代理关系
+//
+// @param request - CreateAgentTaskRequest
+//
+// @param headers - CreateAgentTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateAgentTaskResponse
+func (client *Client) CreateAgentTaskWithOptions(request *CreateAgentTaskRequest, headers *CreateAgentTaskHeaders, runtime *util.RuntimeOptions) (_result *CreateAgentTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentCategory)) {
+		query["agentCategory"] = request.AgentCategory
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AgentRangeType)) {
+		query["agentRangeType"] = request.AgentRangeType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AgentRangeValue)) {
+		query["agentRangeValue"] = request.AgentRangeValue
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AgentType)) {
+		query["agentType"] = request.AgentType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AgentUserId)) {
+		query["agentUserId"] = request.AgentUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTimestamp)) {
+		query["endTimestamp"] = request.EndTimestamp
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NeedNoticePrincipal)) {
+		query["needNoticePrincipal"] = request.NeedNoticePrincipal
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PrincipalUserId)) {
+		query["principalUserId"] = request.PrincipalUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTimestamp)) {
+		query["startTimestamp"] = request.StartTimestamp
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		query["token"] = request.Token
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateAgentTask"),
+		Version:     tea.String("yida_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/yida/forms/resources/agents/insert"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateAgentTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建代理关系
+//
+// @param request - CreateAgentTaskRequest
+//
+// @return CreateAgentTaskResponse
+func (client *Client) CreateAgentTask(request *CreateAgentTaskRequest) (_result *CreateAgentTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateAgentTaskHeaders{}
+	_result = &CreateAgentTaskResponse{}
+	_body, _err := client.CreateAgentTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 新增或更新表单实例
 //
 // @param request - CreateOrUpdateFormDataRequest
@@ -5170,6 +6209,107 @@ func (client *Client) DeleteMatrixDataByRowIds(request *DeleteMatrixDataByRowIds
 	headers := &DeleteMatrixDataByRowIdsHeaders{}
 	_result = &DeleteMatrixDataByRowIdsResponse{}
 	_body, _err := client.DeleteMatrixDataByRowIdsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取代理列表
+//
+// @param request - GetAgentTasksRequest
+//
+// @param headers - GetAgentTasksHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAgentTasksResponse
+func (client *Client) GetAgentTasksWithOptions(request *GetAgentTasksRequest, headers *GetAgentTasksHeaders, runtime *util.RuntimeOptions) (_result *GetAgentTasksResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentUuid)) {
+		query["agentUuid"] = request.AgentUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Keywords)) {
+		query["keywords"] = request.Keywords
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		query["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		query["token"] = request.Token
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetAgentTasks"),
+		Version:     tea.String("yida_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/yida/forms/resources/agents"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetAgentTasksResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取代理列表
+//
+// @param request - GetAgentTasksRequest
+//
+// @return GetAgentTasksResponse
+func (client *Client) GetAgentTasks(request *GetAgentTasksRequest) (_result *GetAgentTasksResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAgentTasksHeaders{}
+	_result = &GetAgentTasksResponse{}
+	_body, _err := client.GetAgentTasksWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6577,6 +7717,115 @@ func (client *Client) StartInstance(request *StartInstanceRequest) (_result *Sta
 	headers := &StartInstanceHeaders{}
 	_result = &StartInstanceResponse{}
 	_body, _err := client.StartInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 修改代理信息
+//
+// @param request - UpdateAgentTaskRequest
+//
+// @param headers - UpdateAgentTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateAgentTaskResponse
+func (client *Client) UpdateAgentTaskWithOptions(request *UpdateAgentTaskRequest, headers *UpdateAgentTaskHeaders, runtime *util.RuntimeOptions) (_result *UpdateAgentTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentRangeType)) {
+		query["agentRangeType"] = request.AgentRangeType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AgentRangeValue)) {
+		query["agentRangeValue"] = request.AgentRangeValue
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AgentUserId)) {
+		query["agentUserId"] = request.AgentUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AgentUuid)) {
+		query["agentUuid"] = request.AgentUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTimestamp)) {
+		query["endTimestamp"] = request.EndTimestamp
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NeedNoticePrincipal)) {
+		query["needNoticePrincipal"] = request.NeedNoticePrincipal
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTimestamp)) {
+		query["startTimestamp"] = request.StartTimestamp
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		query["token"] = request.Token
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateAgentTask"),
+		Version:     tea.String("yida_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/yida/forms/resources/agents/update"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateAgentTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 修改代理信息
+//
+// @param request - UpdateAgentTaskRequest
+//
+// @return UpdateAgentTaskResponse
+func (client *Client) UpdateAgentTask(request *UpdateAgentTaskRequest) (_result *UpdateAgentTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateAgentTaskHeaders{}
+	_result = &UpdateAgentTaskResponse{}
+	_body, _err := client.UpdateAgentTaskWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -2445,6 +2445,8 @@ func (s *QueryMeetingRoomResponseBodyResult) SetRoomUnionId(v string) *QueryMeet
 
 type QueryMeetingRoomResponseBodyResultExtensionConfig struct {
 	AdvanceReservation *QueryMeetingRoomResponseBodyResultExtensionConfigAdvanceReservation `json:"advanceReservation,omitempty" xml:"advanceReservation,omitempty" type:"Struct"`
+	ApprovalSwitch     *bool                                                                `json:"approvalSwitch,omitempty" xml:"approvalSwitch,omitempty"`
+	ApprovalType       *int32                                                               `json:"approvalType,omitempty" xml:"approvalType,omitempty"`
 	// example:
 	//
 	// 60
@@ -2467,6 +2469,16 @@ func (s QueryMeetingRoomResponseBodyResultExtensionConfig) GoString() string {
 
 func (s *QueryMeetingRoomResponseBodyResultExtensionConfig) SetAdvanceReservation(v *QueryMeetingRoomResponseBodyResultExtensionConfigAdvanceReservation) *QueryMeetingRoomResponseBodyResultExtensionConfig {
 	s.AdvanceReservation = v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResultExtensionConfig) SetApprovalSwitch(v bool) *QueryMeetingRoomResponseBodyResultExtensionConfig {
+	s.ApprovalSwitch = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResultExtensionConfig) SetApprovalType(v int32) *QueryMeetingRoomResponseBodyResultExtensionConfig {
+	s.ApprovalType = &v
 	return s
 }
 

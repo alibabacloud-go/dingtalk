@@ -649,6 +649,8 @@ type OpenAgoalObjectiveDTO struct {
 	// 0
 	Progress *int32 `json:"progress,omitempty" xml:"progress,omitempty"`
 	// This parameter is required.
+	RelatedUsers *OpenAgoalUserDTO `json:"relatedUsers,omitempty" xml:"relatedUsers,omitempty"`
+	// This parameter is required.
 	//
 	// example:
 	//
@@ -715,6 +717,11 @@ func (s *OpenAgoalObjectiveDTO) SetPeriod(v *OpenObjectiveRulePeriodDTO) *OpenAg
 
 func (s *OpenAgoalObjectiveDTO) SetProgress(v int32) *OpenAgoalObjectiveDTO {
 	s.Progress = &v
+	return s
+}
+
+func (s *OpenAgoalObjectiveDTO) SetRelatedUsers(v *OpenAgoalUserDTO) *OpenAgoalObjectiveDTO {
+	s.RelatedUsers = v
 	return s
 }
 

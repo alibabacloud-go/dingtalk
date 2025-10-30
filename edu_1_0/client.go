@@ -574,8 +574,9 @@ type AddCollegeContactExclusiveRequest struct {
 	// example:
 	//
 	// dingtalk
-	ExclusiveAccountType *string            `json:"exclusiveAccountType,omitempty" xml:"exclusiveAccountType,omitempty"`
-	Extension            map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
+	ExclusiveAccountType        *string            `json:"exclusiveAccountType,omitempty" xml:"exclusiveAccountType,omitempty"`
+	ExclusiveMobileVerifyStatus *string            `json:"exclusiveMobileVerifyStatus,omitempty" xml:"exclusiveMobileVerifyStatus,omitempty"`
+	Extension                   map[string]*string `json:"extension,omitempty" xml:"extension,omitempty"`
 	// example:
 	//
 	// 1597573616828
@@ -695,6 +696,11 @@ func (s *AddCollegeContactExclusiveRequest) SetExclusiveAccount(v bool) *AddColl
 
 func (s *AddCollegeContactExclusiveRequest) SetExclusiveAccountType(v string) *AddCollegeContactExclusiveRequest {
 	s.ExclusiveAccountType = &v
+	return s
+}
+
+func (s *AddCollegeContactExclusiveRequest) SetExclusiveMobileVerifyStatus(v string) *AddCollegeContactExclusiveRequest {
+	s.ExclusiveMobileVerifyStatus = &v
 	return s
 }
 
@@ -40114,6 +40120,10 @@ func (client *Client) AddCollegeContactExclusiveWithOptions(request *AddCollegeC
 
 	if !tea.BoolValue(util.IsUnset(request.ExclusiveAccountType)) {
 		body["exclusiveAccountType"] = request.ExclusiveAccountType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExclusiveMobileVerifyStatus)) {
+		body["exclusiveMobileVerifyStatus"] = request.ExclusiveMobileVerifyStatus
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Extension)) {

@@ -676,6 +676,127 @@ func (s *TiktokShopAuthCallbackResponse) SetBody(v *TiktokShopAuthCallbackRespon
 	return s
 }
 
+type TiktokWebhookProcessHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TiktokWebhookProcessHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TiktokWebhookProcessHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TiktokWebhookProcessHeaders) SetCommonHeaders(v map[string]*string) *TiktokWebhookProcessHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TiktokWebhookProcessHeaders) SetXAcsDingtalkAccessToken(v string) *TiktokWebhookProcessHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TiktokWebhookProcessRequest struct {
+	TiktokContentJsonString *string `json:"tiktokContentJsonString,omitempty" xml:"tiktokContentJsonString,omitempty"`
+}
+
+func (s TiktokWebhookProcessRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TiktokWebhookProcessRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TiktokWebhookProcessRequest) SetTiktokContentJsonString(v string) *TiktokWebhookProcessRequest {
+	s.TiktokContentJsonString = &v
+	return s
+}
+
+type TiktokWebhookProcessResponseBody struct {
+	ErrorCode                   *string                                                      `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg                    *string                                                      `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	OmniChannelTiktokWebhookRsp *TiktokWebhookProcessResponseBodyOmniChannelTiktokWebhookRsp `json:"omniChannelTiktokWebhookRsp,omitempty" xml:"omniChannelTiktokWebhookRsp,omitempty" type:"Struct"`
+	Success                     *string                                                      `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s TiktokWebhookProcessResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TiktokWebhookProcessResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TiktokWebhookProcessResponseBody) SetErrorCode(v string) *TiktokWebhookProcessResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *TiktokWebhookProcessResponseBody) SetErrorMsg(v string) *TiktokWebhookProcessResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *TiktokWebhookProcessResponseBody) SetOmniChannelTiktokWebhookRsp(v *TiktokWebhookProcessResponseBodyOmniChannelTiktokWebhookRsp) *TiktokWebhookProcessResponseBody {
+	s.OmniChannelTiktokWebhookRsp = v
+	return s
+}
+
+func (s *TiktokWebhookProcessResponseBody) SetSuccess(v string) *TiktokWebhookProcessResponseBody {
+	s.Success = &v
+	return s
+}
+
+type TiktokWebhookProcessResponseBodyOmniChannelTiktokWebhookRsp struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+}
+
+func (s TiktokWebhookProcessResponseBodyOmniChannelTiktokWebhookRsp) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TiktokWebhookProcessResponseBodyOmniChannelTiktokWebhookRsp) GoString() string {
+	return s.String()
+}
+
+func (s *TiktokWebhookProcessResponseBodyOmniChannelTiktokWebhookRsp) SetCode(v string) *TiktokWebhookProcessResponseBodyOmniChannelTiktokWebhookRsp {
+	s.Code = &v
+	return s
+}
+
+type TiktokWebhookProcessResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TiktokWebhookProcessResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TiktokWebhookProcessResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TiktokWebhookProcessResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TiktokWebhookProcessResponse) SetHeaders(v map[string]*string) *TiktokWebhookProcessResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TiktokWebhookProcessResponse) SetStatusCode(v int32) *TiktokWebhookProcessResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TiktokWebhookProcessResponse) SetBody(v *TiktokWebhookProcessResponseBody) *TiktokWebhookProcessResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -1133,6 +1254,79 @@ func (client *Client) TiktokShopAuthCallback(request *TiktokShopAuthCallbackRequ
 	headers := &TiktokShopAuthCallbackHeaders{}
 	_result = &TiktokShopAuthCallbackResponse{}
 	_body, _err := client.TiktokShopAuthCallbackWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 全渠道运营Tiktok的Webhook信息写入
+//
+// @param request - TiktokWebhookProcessRequest
+//
+// @param headers - TiktokWebhookProcessHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TiktokWebhookProcessResponse
+func (client *Client) TiktokWebhookProcessWithOptions(request *TiktokWebhookProcessRequest, headers *TiktokWebhookProcessHeaders, runtime *util.RuntimeOptions) (_result *TiktokWebhookProcessResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TiktokContentJsonString)) {
+		body["tiktokContentJsonString"] = request.TiktokContentJsonString
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TiktokWebhookProcess"),
+		Version:     tea.String("aiGlobalEC_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiGlobalEC/omniChannel/tiktok/webhook/process"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TiktokWebhookProcessResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 全渠道运营Tiktok的Webhook信息写入
+//
+// @param request - TiktokWebhookProcessRequest
+//
+// @return TiktokWebhookProcessResponse
+func (client *Client) TiktokWebhookProcess(request *TiktokWebhookProcessRequest) (_result *TiktokWebhookProcessResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TiktokWebhookProcessHeaders{}
+	_result = &TiktokWebhookProcessResponse{}
+	_body, _err := client.TiktokWebhookProcessWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -9,6 +9,359 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type GetBlackboardHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetBlackboardHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBlackboardHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetBlackboardHeaders) SetCommonHeaders(v map[string]*string) *GetBlackboardHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetBlackboardHeaders) SetXAcsDingtalkAccessToken(v string) *GetBlackboardHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetBlackboardRequest struct {
+	// example:
+	//
+	// ca80xxxx0a04
+	BlackboardId *string `json:"blackboardId,omitempty" xml:"blackboardId,omitempty"`
+	// example:
+	//
+	// manager01
+	OperationUserId *string `json:"operationUserId,omitempty" xml:"operationUserId,omitempty"`
+}
+
+func (s GetBlackboardRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBlackboardRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetBlackboardRequest) SetBlackboardId(v string) *GetBlackboardRequest {
+	s.BlackboardId = &v
+	return s
+}
+
+func (s *GetBlackboardRequest) SetOperationUserId(v string) *GetBlackboardRequest {
+	s.OperationUserId = &v
+	return s
+}
+
+type GetBlackboardResponseBody struct {
+	Attachments []*GetBlackboardResponseBodyAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+	// example:
+	//
+	// example_category_id
+	CategoryId *string `json:"categoryId,omitempty" xml:"categoryId,omitempty"`
+	// example:
+	//
+	// 分类示例
+	CategoryName *string `json:"categoryName,omitempty" xml:"categoryName,omitempty"`
+	// example:
+	//
+	// 公告内容示例
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// https://down.dingtalk.com/ddmedia/xxxx.png?ddFrom=blackboard.pic
+	CoverPicUrl *string                              `json:"coverPicUrl,omitempty" xml:"coverPicUrl,omitempty"`
+	DepNameList []*string                            `json:"depNameList,omitempty" xml:"depNameList,omitempty" type:"Repeated"`
+	DeptList    []*GetBlackboardResponseBodyDeptList `json:"deptList,omitempty" xml:"deptList,omitempty" type:"Repeated"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	// Use the UTC time format: yyyy-MM-ddTHH:mmZ
+	//
+	// example:
+	//
+	// 2025-01-01 00:00:00
+	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	// example:
+	//
+	// fbeaxxxxxxxxxxxxxxxxxxxxxxxxe292
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// 0
+	IsPushTop *int64 `json:"isPushTop,omitempty" xml:"isPushTop,omitempty"`
+	// example:
+	//
+	// 0
+	PrivateLevel *int64 `json:"privateLevel,omitempty" xml:"privateLevel,omitempty"`
+	// example:
+	//
+	// 1
+	ReadCount *int64 `json:"readCount,omitempty" xml:"readCount,omitempty"`
+	// example:
+	//
+	// manager01
+	SenderStaffId *string `json:"senderStaffId,omitempty" xml:"senderStaffId,omitempty"`
+	// example:
+	//
+	// 公告标题实例
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// example:
+	//
+	// 1
+	UnReadCount  *int64                               `json:"unReadCount,omitempty" xml:"unReadCount,omitempty"`
+	UserList     []*GetBlackboardResponseBodyUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+	UserNameList []*string                            `json:"userNameList,omitempty" xml:"userNameList,omitempty" type:"Repeated"`
+}
+
+func (s GetBlackboardResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBlackboardResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetBlackboardResponseBody) SetAttachments(v []*GetBlackboardResponseBodyAttachments) *GetBlackboardResponseBody {
+	s.Attachments = v
+	return s
+}
+
+func (s *GetBlackboardResponseBody) SetCategoryId(v string) *GetBlackboardResponseBody {
+	s.CategoryId = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBody) SetCategoryName(v string) *GetBlackboardResponseBody {
+	s.CategoryName = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBody) SetContent(v string) *GetBlackboardResponseBody {
+	s.Content = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBody) SetCoverPicUrl(v string) *GetBlackboardResponseBody {
+	s.CoverPicUrl = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBody) SetDepNameList(v []*string) *GetBlackboardResponseBody {
+	s.DepNameList = v
+	return s
+}
+
+func (s *GetBlackboardResponseBody) SetDeptList(v []*GetBlackboardResponseBodyDeptList) *GetBlackboardResponseBody {
+	s.DeptList = v
+	return s
+}
+
+func (s *GetBlackboardResponseBody) SetGmtCreate(v string) *GetBlackboardResponseBody {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBody) SetGmtModified(v string) *GetBlackboardResponseBody {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBody) SetId(v string) *GetBlackboardResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBody) SetIsPushTop(v int64) *GetBlackboardResponseBody {
+	s.IsPushTop = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBody) SetPrivateLevel(v int64) *GetBlackboardResponseBody {
+	s.PrivateLevel = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBody) SetReadCount(v int64) *GetBlackboardResponseBody {
+	s.ReadCount = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBody) SetSenderStaffId(v string) *GetBlackboardResponseBody {
+	s.SenderStaffId = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBody) SetTitle(v string) *GetBlackboardResponseBody {
+	s.Title = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBody) SetUnReadCount(v int64) *GetBlackboardResponseBody {
+	s.UnReadCount = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBody) SetUserList(v []*GetBlackboardResponseBodyUserList) *GetBlackboardResponseBody {
+	s.UserList = v
+	return s
+}
+
+func (s *GetBlackboardResponseBody) SetUserNameList(v []*string) *GetBlackboardResponseBody {
+	s.UserNameList = v
+	return s
+}
+
+type GetBlackboardResponseBodyAttachments struct {
+	// example:
+	//
+	// xxxx
+	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// example:
+	//
+	// 附件.pdf
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// example:
+	//
+	// pdf
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// example:
+	//
+	// xxxx
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s GetBlackboardResponseBodyAttachments) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBlackboardResponseBodyAttachments) GoString() string {
+	return s.String()
+}
+
+func (s *GetBlackboardResponseBodyAttachments) SetDentryId(v string) *GetBlackboardResponseBodyAttachments {
+	s.DentryId = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBodyAttachments) SetFileName(v string) *GetBlackboardResponseBodyAttachments {
+	s.FileName = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBodyAttachments) SetFileType(v string) *GetBlackboardResponseBodyAttachments {
+	s.FileType = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBodyAttachments) SetSpaceId(v string) *GetBlackboardResponseBodyAttachments {
+	s.SpaceId = &v
+	return s
+}
+
+type GetBlackboardResponseBodyDeptList struct {
+	// example:
+	//
+	// example_dept_id
+	DeptId *string `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	// example:
+	//
+	// xxxx部门
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetBlackboardResponseBodyDeptList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBlackboardResponseBodyDeptList) GoString() string {
+	return s.String()
+}
+
+func (s *GetBlackboardResponseBodyDeptList) SetDeptId(v string) *GetBlackboardResponseBodyDeptList {
+	s.DeptId = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBodyDeptList) SetName(v string) *GetBlackboardResponseBodyDeptList {
+	s.Name = &v
+	return s
+}
+
+type GetBlackboardResponseBodyUserList struct {
+	// example:
+	//
+	// dingxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// example:
+	//
+	// 示例员工名称
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
+	// manager01
+	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
+}
+
+func (s GetBlackboardResponseBodyUserList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBlackboardResponseBodyUserList) GoString() string {
+	return s.String()
+}
+
+func (s *GetBlackboardResponseBodyUserList) SetCorpId(v string) *GetBlackboardResponseBodyUserList {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBodyUserList) SetName(v string) *GetBlackboardResponseBodyUserList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetBlackboardResponseBodyUserList) SetStaffId(v string) *GetBlackboardResponseBodyUserList {
+	s.StaffId = &v
+	return s
+}
+
+type GetBlackboardResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetBlackboardResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetBlackboardResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetBlackboardResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetBlackboardResponse) SetHeaders(v map[string]*string) *GetBlackboardResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetBlackboardResponse) SetStatusCode(v int32) *GetBlackboardResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetBlackboardResponse) SetBody(v *GetBlackboardResponseBody) *GetBlackboardResponse {
+	s.Body = v
+	return s
+}
+
 type QueryBlackboardReadUnReadHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -290,6 +643,83 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+// Summary:
+//
+// 获取公告详情
+//
+// @param request - GetBlackboardRequest
+//
+// @param headers - GetBlackboardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetBlackboardResponse
+func (client *Client) GetBlackboardWithOptions(request *GetBlackboardRequest, headers *GetBlackboardHeaders, runtime *util.RuntimeOptions) (_result *GetBlackboardResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BlackboardId)) {
+		query["blackboardId"] = request.BlackboardId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperationUserId)) {
+		query["operationUserId"] = request.OperationUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetBlackboard"),
+		Version:     tea.String("blackboard_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/blackboard/get_blackboard"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetBlackboardResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取公告详情
+//
+// @param request - GetBlackboardRequest
+//
+// @return GetBlackboardResponse
+func (client *Client) GetBlackboard(request *GetBlackboardRequest) (_result *GetBlackboardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetBlackboardHeaders{}
+	_result = &GetBlackboardResponse{}
+	_body, _err := client.GetBlackboardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 // Summary:
