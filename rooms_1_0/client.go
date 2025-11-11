@@ -394,9 +394,13 @@ type CreateMeetingRoomRequest struct {
 	// example:
 	//
 	// 10
-	RoomCapacity *int32                                `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
-	RoomLabelIds []*int64                              `json:"roomLabelIds,omitempty" xml:"roomLabelIds,omitempty" type:"Repeated"`
-	RoomLocation *CreateMeetingRoomRequestRoomLocation `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
+	RoomCapacity *int32 `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
+	// example:
+	//
+	// 此处添加对会议室的描述信息
+	RoomDescription *string                               `json:"roomDescription,omitempty" xml:"roomDescription,omitempty"`
+	RoomLabelIds    []*int64                              `json:"roomLabelIds,omitempty" xml:"roomLabelIds,omitempty" type:"Repeated"`
+	RoomLocation    *CreateMeetingRoomRequestRoomLocation `json:"roomLocation,omitempty" xml:"roomLocation,omitempty" type:"Struct"`
 	// This parameter is required.
 	//
 	// example:
@@ -456,6 +460,11 @@ func (s *CreateMeetingRoomRequest) SetReservationAuthority(v *CreateMeetingRoomR
 
 func (s *CreateMeetingRoomRequest) SetRoomCapacity(v int32) *CreateMeetingRoomRequest {
 	s.RoomCapacity = &v
+	return s
+}
+
+func (s *CreateMeetingRoomRequest) SetRoomDescription(v string) *CreateMeetingRoomRequest {
+	s.RoomDescription = &v
 	return s
 }
 
@@ -2325,8 +2334,12 @@ type QueryMeetingRoomResponseBodyResult struct {
 	// example:
 	//
 	// 10
-	RoomCapacity *int32                                       `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
-	RoomGroup    *QueryMeetingRoomResponseBodyResultRoomGroup `json:"roomGroup,omitempty" xml:"roomGroup,omitempty" type:"Struct"`
+	RoomCapacity *int32 `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
+	// example:
+	//
+	// 此处添加对会议室的描述信息
+	RoomDescription *string                                      `json:"roomDescription,omitempty" xml:"roomDescription,omitempty"`
+	RoomGroup       *QueryMeetingRoomResponseBodyResultRoomGroup `json:"roomGroup,omitempty" xml:"roomGroup,omitempty" type:"Struct"`
 	// example:
 	//
 	// 0ffb71843fbb7fc362cb1a0de97fd20b808b09d6ca6282ed
@@ -2395,6 +2408,11 @@ func (s *QueryMeetingRoomResponseBodyResult) SetReservationAuthority(v *QueryMee
 
 func (s *QueryMeetingRoomResponseBodyResult) SetRoomCapacity(v int32) *QueryMeetingRoomResponseBodyResult {
 	s.RoomCapacity = &v
+	return s
+}
+
+func (s *QueryMeetingRoomResponseBodyResult) SetRoomDescription(v string) *QueryMeetingRoomResponseBodyResult {
+	s.RoomDescription = &v
 	return s
 }
 
@@ -4551,6 +4569,10 @@ type UpdateMeetingRoomRequest struct {
 	//
 	// 10
 	RoomCapacity *int32 `json:"roomCapacity,omitempty" xml:"roomCapacity,omitempty"`
+	// example:
+	//
+	// 此处添加对会议室的描述信息
+	RoomDescription *string `json:"roomDescription,omitempty" xml:"roomDescription,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -4614,6 +4636,11 @@ func (s *UpdateMeetingRoomRequest) SetReservationAuthority(v *UpdateMeetingRoomR
 
 func (s *UpdateMeetingRoomRequest) SetRoomCapacity(v int32) *UpdateMeetingRoomRequest {
 	s.RoomCapacity = &v
+	return s
+}
+
+func (s *UpdateMeetingRoomRequest) SetRoomDescription(v string) *UpdateMeetingRoomRequest {
+	s.RoomDescription = &v
 	return s
 }
 
@@ -5197,6 +5224,10 @@ func (client *Client) CreateMeetingRoomWithOptions(request *CreateMeetingRoomReq
 
 	if !tea.BoolValue(util.IsUnset(request.RoomCapacity)) {
 		body["roomCapacity"] = request.RoomCapacity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoomDescription)) {
+		body["roomDescription"] = request.RoomDescription
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.RoomLabelIds)) {
@@ -6908,6 +6939,10 @@ func (client *Client) UpdateMeetingRoomWithOptions(request *UpdateMeetingRoomReq
 
 	if !tea.BoolValue(util.IsUnset(request.RoomCapacity)) {
 		body["roomCapacity"] = request.RoomCapacity
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoomDescription)) {
+		body["roomDescription"] = request.RoomDescription
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.RoomId)) {

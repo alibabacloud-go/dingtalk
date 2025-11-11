@@ -710,6 +710,480 @@ func (s *AiRetailProductUpdateResponse) SetBody(v bool) *AiRetailProductUpdateRe
 	return s
 }
 
+type AiTrainingDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AiTrainingDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiTrainingDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AiTrainingDetailHeaders) SetCommonHeaders(v map[string]*string) *AiTrainingDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AiTrainingDetailHeaders) SetXAcsDingtalkAccessToken(v string) *AiTrainingDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AiTrainingDetailRequest struct {
+	RecordId *int64 `json:"recordId,omitempty" xml:"recordId,omitempty"`
+}
+
+func (s AiTrainingDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiTrainingDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AiTrainingDetailRequest) SetRecordId(v int64) *AiTrainingDetailRequest {
+	s.RecordId = &v
+	return s
+}
+
+type AiTrainingDetailResponseBody struct {
+	Result  *AiTrainingDetailResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                               `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AiTrainingDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiTrainingDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AiTrainingDetailResponseBody) SetResult(v *AiTrainingDetailResponseBodyResult) *AiTrainingDetailResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBody) SetSuccess(v bool) *AiTrainingDetailResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AiTrainingDetailResponseBodyResult struct {
+	AdminReview            *string                                              `json:"adminReview,omitempty" xml:"adminReview,omitempty"`
+	AiJobStatus            *string                                              `json:"aiJobStatus,omitempty" xml:"aiJobStatus,omitempty"`
+	Creator                *string                                              `json:"creator,omitempty" xml:"creator,omitempty"`
+	Feedback               *int64                                               `json:"feedback,omitempty" xml:"feedback,omitempty"`
+	FeedbackContent        *string                                              `json:"feedbackContent,omitempty" xml:"feedbackContent,omitempty"`
+	GmtCreate              *string                                              `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified            *string                                              `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	Id                     *int64                                               `json:"id,omitempty" xml:"id,omitempty"`
+	IsExcellent            *int64                                               `json:"isExcellent,omitempty" xml:"isExcellent,omitempty"`
+	ProductInfoList        []*AiTrainingDetailResponseBodyResultProductInfoList `json:"productInfoList,omitempty" xml:"productInfoList,omitempty" type:"Repeated"`
+	ProductName            *string                                              `json:"productName,omitempty" xml:"productName,omitempty"`
+	TaskInfo               *AiTrainingDetailResponseBodyResultTaskInfo          `json:"taskInfo,omitempty" xml:"taskInfo,omitempty" type:"Struct"`
+	TrainingRanking        *int64                                               `json:"trainingRanking,omitempty" xml:"trainingRanking,omitempty"`
+	TrainingRankingPercent *int64                                               `json:"trainingRankingPercent,omitempty" xml:"trainingRankingPercent,omitempty"`
+	TrainingScore          *int64                                               `json:"trainingScore,omitempty" xml:"trainingScore,omitempty"`
+	UserId                 *string                                              `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserName               *string                                              `json:"userName,omitempty" xml:"userName,omitempty"`
+	VideoDownloadUrl       *string                                              `json:"videoDownloadUrl,omitempty" xml:"videoDownloadUrl,omitempty"`
+}
+
+func (s AiTrainingDetailResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiTrainingDetailResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetAdminReview(v string) *AiTrainingDetailResponseBodyResult {
+	s.AdminReview = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetAiJobStatus(v string) *AiTrainingDetailResponseBodyResult {
+	s.AiJobStatus = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetCreator(v string) *AiTrainingDetailResponseBodyResult {
+	s.Creator = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetFeedback(v int64) *AiTrainingDetailResponseBodyResult {
+	s.Feedback = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetFeedbackContent(v string) *AiTrainingDetailResponseBodyResult {
+	s.FeedbackContent = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetGmtCreate(v string) *AiTrainingDetailResponseBodyResult {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetGmtModified(v string) *AiTrainingDetailResponseBodyResult {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetId(v int64) *AiTrainingDetailResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetIsExcellent(v int64) *AiTrainingDetailResponseBodyResult {
+	s.IsExcellent = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetProductInfoList(v []*AiTrainingDetailResponseBodyResultProductInfoList) *AiTrainingDetailResponseBodyResult {
+	s.ProductInfoList = v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetProductName(v string) *AiTrainingDetailResponseBodyResult {
+	s.ProductName = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetTaskInfo(v *AiTrainingDetailResponseBodyResultTaskInfo) *AiTrainingDetailResponseBodyResult {
+	s.TaskInfo = v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetTrainingRanking(v int64) *AiTrainingDetailResponseBodyResult {
+	s.TrainingRanking = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetTrainingRankingPercent(v int64) *AiTrainingDetailResponseBodyResult {
+	s.TrainingRankingPercent = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetTrainingScore(v int64) *AiTrainingDetailResponseBodyResult {
+	s.TrainingScore = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetUserId(v string) *AiTrainingDetailResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetUserName(v string) *AiTrainingDetailResponseBodyResult {
+	s.UserName = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetVideoDownloadUrl(v string) *AiTrainingDetailResponseBodyResult {
+	s.VideoDownloadUrl = &v
+	return s
+}
+
+type AiTrainingDetailResponseBodyResultProductInfoList struct {
+	Price       *int64  `json:"price,omitempty" xml:"price,omitempty"`
+	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	ProductId   *int64  `json:"productId,omitempty" xml:"productId,omitempty"`
+	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+}
+
+func (s AiTrainingDetailResponseBodyResultProductInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiTrainingDetailResponseBodyResultProductInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *AiTrainingDetailResponseBodyResultProductInfoList) SetPrice(v int64) *AiTrainingDetailResponseBodyResultProductInfoList {
+	s.Price = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResultProductInfoList) SetProductCode(v string) *AiTrainingDetailResponseBodyResultProductInfoList {
+	s.ProductCode = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResultProductInfoList) SetProductId(v int64) *AiTrainingDetailResponseBodyResultProductInfoList {
+	s.ProductId = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResultProductInfoList) SetProductName(v string) *AiTrainingDetailResponseBodyResultProductInfoList {
+	s.ProductName = &v
+	return s
+}
+
+type AiTrainingDetailResponseBodyResultTaskInfo struct {
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	TaskId      *int64  `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskName    *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
+}
+
+func (s AiTrainingDetailResponseBodyResultTaskInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiTrainingDetailResponseBodyResultTaskInfo) GoString() string {
+	return s.String()
+}
+
+func (s *AiTrainingDetailResponseBodyResultTaskInfo) SetDescription(v string) *AiTrainingDetailResponseBodyResultTaskInfo {
+	s.Description = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResultTaskInfo) SetTaskId(v int64) *AiTrainingDetailResponseBodyResultTaskInfo {
+	s.TaskId = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResultTaskInfo) SetTaskName(v string) *AiTrainingDetailResponseBodyResultTaskInfo {
+	s.TaskName = &v
+	return s
+}
+
+type AiTrainingDetailResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AiTrainingDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AiTrainingDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiTrainingDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AiTrainingDetailResponse) SetHeaders(v map[string]*string) *AiTrainingDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AiTrainingDetailResponse) SetStatusCode(v int32) *AiTrainingDetailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponse) SetBody(v *AiTrainingDetailResponseBody) *AiTrainingDetailResponse {
+	s.Body = v
+	return s
+}
+
+type AiTrainingRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AiTrainingRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiTrainingRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AiTrainingRecordHeaders) SetCommonHeaders(v map[string]*string) *AiTrainingRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AiTrainingRecordHeaders) SetXAcsDingtalkAccessToken(v string) *AiTrainingRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AiTrainingRecordRequest struct {
+	Direction *int64 `json:"direction,omitempty" xml:"direction,omitempty"`
+	EndTime   *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	LastId    *int64 `json:"lastId,omitempty" xml:"lastId,omitempty"`
+	Size      *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	TaskId    *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s AiTrainingRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiTrainingRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AiTrainingRecordRequest) SetDirection(v int64) *AiTrainingRecordRequest {
+	s.Direction = &v
+	return s
+}
+
+func (s *AiTrainingRecordRequest) SetEndTime(v int64) *AiTrainingRecordRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *AiTrainingRecordRequest) SetLastId(v int64) *AiTrainingRecordRequest {
+	s.LastId = &v
+	return s
+}
+
+func (s *AiTrainingRecordRequest) SetSize(v int64) *AiTrainingRecordRequest {
+	s.Size = &v
+	return s
+}
+
+func (s *AiTrainingRecordRequest) SetStartTime(v int64) *AiTrainingRecordRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *AiTrainingRecordRequest) SetTaskId(v int64) *AiTrainingRecordRequest {
+	s.TaskId = &v
+	return s
+}
+
+type AiTrainingRecordResponseBody struct {
+	Direction    *int32                                      `json:"direction,omitempty" xml:"direction,omitempty"`
+	HasMore      *bool                                       `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	LastId       *int64                                      `json:"lastId,omitempty" xml:"lastId,omitempty"`
+	TrainingList []*AiTrainingRecordResponseBodyTrainingList `json:"trainingList,omitempty" xml:"trainingList,omitempty" type:"Repeated"`
+}
+
+func (s AiTrainingRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiTrainingRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AiTrainingRecordResponseBody) SetDirection(v int32) *AiTrainingRecordResponseBody {
+	s.Direction = &v
+	return s
+}
+
+func (s *AiTrainingRecordResponseBody) SetHasMore(v bool) *AiTrainingRecordResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *AiTrainingRecordResponseBody) SetLastId(v int64) *AiTrainingRecordResponseBody {
+	s.LastId = &v
+	return s
+}
+
+func (s *AiTrainingRecordResponseBody) SetTrainingList(v []*AiTrainingRecordResponseBodyTrainingList) *AiTrainingRecordResponseBody {
+	s.TrainingList = v
+	return s
+}
+
+type AiTrainingRecordResponseBodyTrainingList struct {
+	AiJobStatus            *string `json:"aiJobStatus,omitempty" xml:"aiJobStatus,omitempty"`
+	GmtCreate              *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	Id                     *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	ProductName            *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	TrainingRanking        *int32  `json:"trainingRanking,omitempty" xml:"trainingRanking,omitempty"`
+	TrainingRankingPercent *int32  `json:"trainingRankingPercent,omitempty" xml:"trainingRankingPercent,omitempty"`
+	TrainingScore          *int32  `json:"trainingScore,omitempty" xml:"trainingScore,omitempty"`
+	UserId                 *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserName               *string `json:"userName,omitempty" xml:"userName,omitempty"`
+}
+
+func (s AiTrainingRecordResponseBodyTrainingList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiTrainingRecordResponseBodyTrainingList) GoString() string {
+	return s.String()
+}
+
+func (s *AiTrainingRecordResponseBodyTrainingList) SetAiJobStatus(v string) *AiTrainingRecordResponseBodyTrainingList {
+	s.AiJobStatus = &v
+	return s
+}
+
+func (s *AiTrainingRecordResponseBodyTrainingList) SetGmtCreate(v string) *AiTrainingRecordResponseBodyTrainingList {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *AiTrainingRecordResponseBodyTrainingList) SetId(v int64) *AiTrainingRecordResponseBodyTrainingList {
+	s.Id = &v
+	return s
+}
+
+func (s *AiTrainingRecordResponseBodyTrainingList) SetProductName(v string) *AiTrainingRecordResponseBodyTrainingList {
+	s.ProductName = &v
+	return s
+}
+
+func (s *AiTrainingRecordResponseBodyTrainingList) SetTrainingRanking(v int32) *AiTrainingRecordResponseBodyTrainingList {
+	s.TrainingRanking = &v
+	return s
+}
+
+func (s *AiTrainingRecordResponseBodyTrainingList) SetTrainingRankingPercent(v int32) *AiTrainingRecordResponseBodyTrainingList {
+	s.TrainingRankingPercent = &v
+	return s
+}
+
+func (s *AiTrainingRecordResponseBodyTrainingList) SetTrainingScore(v int32) *AiTrainingRecordResponseBodyTrainingList {
+	s.TrainingScore = &v
+	return s
+}
+
+func (s *AiTrainingRecordResponseBodyTrainingList) SetUserId(v string) *AiTrainingRecordResponseBodyTrainingList {
+	s.UserId = &v
+	return s
+}
+
+func (s *AiTrainingRecordResponseBodyTrainingList) SetUserName(v string) *AiTrainingRecordResponseBodyTrainingList {
+	s.UserName = &v
+	return s
+}
+
+type AiTrainingRecordResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AiTrainingRecordResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AiTrainingRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiTrainingRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AiTrainingRecordResponse) SetHeaders(v map[string]*string) *AiTrainingRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AiTrainingRecordResponse) SetStatusCode(v int32) *AiTrainingRecordResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AiTrainingRecordResponse) SetBody(v *AiTrainingRecordResponseBody) *AiTrainingRecordResponse {
+	s.Body = v
+	return s
+}
+
 type BatchGetTaskResultHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7325,6 +7799,443 @@ func (s *ChatMemoUpdateKnowledgeGraphRelationResponse) SetStatusCode(v int32) *C
 }
 
 func (s *ChatMemoUpdateKnowledgeGraphRelationResponse) SetBody(v *ChatMemoUpdateKnowledgeGraphRelationResponseBody) *ChatMemoUpdateKnowledgeGraphRelationResponse {
+	s.Body = v
+	return s
+}
+
+type CirclePostDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CirclePostDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CirclePostDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CirclePostDetailHeaders) SetCommonHeaders(v map[string]*string) *CirclePostDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CirclePostDetailHeaders) SetXAcsDingtalkAccessToken(v string) *CirclePostDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CirclePostDetailRequest struct {
+	PostId *int64 `json:"postId,omitempty" xml:"postId,omitempty"`
+}
+
+func (s CirclePostDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CirclePostDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CirclePostDetailRequest) SetPostId(v int64) *CirclePostDetailRequest {
+	s.PostId = &v
+	return s
+}
+
+type CirclePostDetailResponseBody struct {
+	Result *CirclePostDetailResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s CirclePostDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CirclePostDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CirclePostDetailResponseBody) SetResult(v *CirclePostDetailResponseBodyResult) *CirclePostDetailResponseBody {
+	s.Result = v
+	return s
+}
+
+type CirclePostDetailResponseBodyResult struct {
+	Content      *string                                       `json:"content,omitempty" xml:"content,omitempty"`
+	DeptId       *int64                                        `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	DeptName     *string                                       `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	DislikeCount *int64                                        `json:"dislikeCount,omitempty" xml:"dislikeCount,omitempty"`
+	GmtCreate    *string                                       `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	LikeCount    *int64                                        `json:"likeCount,omitempty" xml:"likeCount,omitempty"`
+	MediaUrlList []*string                                     `json:"mediaUrlList,omitempty" xml:"mediaUrlList,omitempty" type:"Repeated"`
+	PostId       *int64                                        `json:"postId,omitempty" xml:"postId,omitempty"`
+	PostType     *string                                       `json:"postType,omitempty" xml:"postType,omitempty"`
+	Products     []*CirclePostDetailResponseBodyResultProducts `json:"products,omitempty" xml:"products,omitempty" type:"Repeated"`
+	Status       *string                                       `json:"status,omitempty" xml:"status,omitempty"`
+	TagList      []*CirclePostDetailResponseBodyResultTagList  `json:"tagList,omitempty" xml:"tagList,omitempty" type:"Repeated"`
+	Title        *string                                       `json:"title,omitempty" xml:"title,omitempty"`
+	UserId       *string                                       `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserName     *string                                       `json:"userName,omitempty" xml:"userName,omitempty"`
+	ViewCount    *int64                                        `json:"viewCount,omitempty" xml:"viewCount,omitempty"`
+}
+
+func (s CirclePostDetailResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CirclePostDetailResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetContent(v string) *CirclePostDetailResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetDeptId(v int64) *CirclePostDetailResponseBodyResult {
+	s.DeptId = &v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetDeptName(v string) *CirclePostDetailResponseBodyResult {
+	s.DeptName = &v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetDislikeCount(v int64) *CirclePostDetailResponseBodyResult {
+	s.DislikeCount = &v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetGmtCreate(v string) *CirclePostDetailResponseBodyResult {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetLikeCount(v int64) *CirclePostDetailResponseBodyResult {
+	s.LikeCount = &v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetMediaUrlList(v []*string) *CirclePostDetailResponseBodyResult {
+	s.MediaUrlList = v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetPostId(v int64) *CirclePostDetailResponseBodyResult {
+	s.PostId = &v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetPostType(v string) *CirclePostDetailResponseBodyResult {
+	s.PostType = &v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetProducts(v []*CirclePostDetailResponseBodyResultProducts) *CirclePostDetailResponseBodyResult {
+	s.Products = v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetStatus(v string) *CirclePostDetailResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetTagList(v []*CirclePostDetailResponseBodyResultTagList) *CirclePostDetailResponseBodyResult {
+	s.TagList = v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetTitle(v string) *CirclePostDetailResponseBodyResult {
+	s.Title = &v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetUserId(v string) *CirclePostDetailResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetUserName(v string) *CirclePostDetailResponseBodyResult {
+	s.UserName = &v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetViewCount(v int64) *CirclePostDetailResponseBodyResult {
+	s.ViewCount = &v
+	return s
+}
+
+type CirclePostDetailResponseBodyResultProducts struct {
+	Id          *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	Price       *int64  `json:"price,omitempty" xml:"price,omitempty"`
+	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+}
+
+func (s CirclePostDetailResponseBodyResultProducts) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CirclePostDetailResponseBodyResultProducts) GoString() string {
+	return s.String()
+}
+
+func (s *CirclePostDetailResponseBodyResultProducts) SetId(v int64) *CirclePostDetailResponseBodyResultProducts {
+	s.Id = &v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResultProducts) SetPrice(v int64) *CirclePostDetailResponseBodyResultProducts {
+	s.Price = &v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResultProducts) SetProductCode(v string) *CirclePostDetailResponseBodyResultProducts {
+	s.ProductCode = &v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResultProducts) SetProductName(v string) *CirclePostDetailResponseBodyResultProducts {
+	s.ProductName = &v
+	return s
+}
+
+type CirclePostDetailResponseBodyResultTagList struct {
+	TagColor *string `json:"tagColor,omitempty" xml:"tagColor,omitempty"`
+	TagId    *int64  `json:"tagId,omitempty" xml:"tagId,omitempty"`
+	TagName  *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+}
+
+func (s CirclePostDetailResponseBodyResultTagList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CirclePostDetailResponseBodyResultTagList) GoString() string {
+	return s.String()
+}
+
+func (s *CirclePostDetailResponseBodyResultTagList) SetTagColor(v string) *CirclePostDetailResponseBodyResultTagList {
+	s.TagColor = &v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResultTagList) SetTagId(v int64) *CirclePostDetailResponseBodyResultTagList {
+	s.TagId = &v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResultTagList) SetTagName(v string) *CirclePostDetailResponseBodyResultTagList {
+	s.TagName = &v
+	return s
+}
+
+type CirclePostDetailResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CirclePostDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CirclePostDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CirclePostDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CirclePostDetailResponse) SetHeaders(v map[string]*string) *CirclePostDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CirclePostDetailResponse) SetStatusCode(v int32) *CirclePostDetailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CirclePostDetailResponse) SetBody(v *CirclePostDetailResponseBody) *CirclePostDetailResponse {
+	s.Body = v
+	return s
+}
+
+type CirclePostRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CirclePostRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CirclePostRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CirclePostRecordHeaders) SetCommonHeaders(v map[string]*string) *CirclePostRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CirclePostRecordHeaders) SetXAcsDingtalkAccessToken(v string) *CirclePostRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CirclePostRecordRequest struct {
+	Direction *int64 `json:"direction,omitempty" xml:"direction,omitempty"`
+	EndTime   *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	Size      *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s CirclePostRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CirclePostRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CirclePostRecordRequest) SetDirection(v int64) *CirclePostRecordRequest {
+	s.Direction = &v
+	return s
+}
+
+func (s *CirclePostRecordRequest) SetEndTime(v int64) *CirclePostRecordRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *CirclePostRecordRequest) SetSize(v int64) *CirclePostRecordRequest {
+	s.Size = &v
+	return s
+}
+
+func (s *CirclePostRecordRequest) SetStartTime(v int64) *CirclePostRecordRequest {
+	s.StartTime = &v
+	return s
+}
+
+type CirclePostRecordResponseBody struct {
+	Result *CirclePostRecordResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s CirclePostRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CirclePostRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CirclePostRecordResponseBody) SetResult(v *CirclePostRecordResponseBodyResult) *CirclePostRecordResponseBody {
+	s.Result = v
+	return s
+}
+
+type CirclePostRecordResponseBodyResult struct {
+	Direction  *int64                                         `json:"direction,omitempty" xml:"direction,omitempty"`
+	HasMore    *bool                                          `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	LastPostId *int64                                         `json:"lastPostId,omitempty" xml:"lastPostId,omitempty"`
+	PostsList  []*CirclePostRecordResponseBodyResultPostsList `json:"postsList,omitempty" xml:"postsList,omitempty" type:"Repeated"`
+}
+
+func (s CirclePostRecordResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CirclePostRecordResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CirclePostRecordResponseBodyResult) SetDirection(v int64) *CirclePostRecordResponseBodyResult {
+	s.Direction = &v
+	return s
+}
+
+func (s *CirclePostRecordResponseBodyResult) SetHasMore(v bool) *CirclePostRecordResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *CirclePostRecordResponseBodyResult) SetLastPostId(v int64) *CirclePostRecordResponseBodyResult {
+	s.LastPostId = &v
+	return s
+}
+
+func (s *CirclePostRecordResponseBodyResult) SetPostsList(v []*CirclePostRecordResponseBodyResultPostsList) *CirclePostRecordResponseBodyResult {
+	s.PostsList = v
+	return s
+}
+
+type CirclePostRecordResponseBodyResultPostsList struct {
+	Content   *string `json:"content,omitempty" xml:"content,omitempty"`
+	GmtCreate *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	PostId    *int64  `json:"postId,omitempty" xml:"postId,omitempty"`
+	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
+	UserName  *string `json:"userName,omitempty" xml:"userName,omitempty"`
+}
+
+func (s CirclePostRecordResponseBodyResultPostsList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CirclePostRecordResponseBodyResultPostsList) GoString() string {
+	return s.String()
+}
+
+func (s *CirclePostRecordResponseBodyResultPostsList) SetContent(v string) *CirclePostRecordResponseBodyResultPostsList {
+	s.Content = &v
+	return s
+}
+
+func (s *CirclePostRecordResponseBodyResultPostsList) SetGmtCreate(v string) *CirclePostRecordResponseBodyResultPostsList {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *CirclePostRecordResponseBodyResultPostsList) SetPostId(v int64) *CirclePostRecordResponseBodyResultPostsList {
+	s.PostId = &v
+	return s
+}
+
+func (s *CirclePostRecordResponseBodyResultPostsList) SetTitle(v string) *CirclePostRecordResponseBodyResultPostsList {
+	s.Title = &v
+	return s
+}
+
+func (s *CirclePostRecordResponseBodyResultPostsList) SetUserName(v string) *CirclePostRecordResponseBodyResultPostsList {
+	s.UserName = &v
+	return s
+}
+
+type CirclePostRecordResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CirclePostRecordResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CirclePostRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CirclePostRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CirclePostRecordResponse) SetHeaders(v map[string]*string) *CirclePostRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CirclePostRecordResponse) SetStatusCode(v int32) *CirclePostRecordResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CirclePostRecordResponse) SetBody(v *CirclePostRecordResponseBody) *CirclePostRecordResponse {
 	s.Body = v
 	return s
 }
@@ -29857,6 +30768,172 @@ func (client *Client) AiRetailProductUpdate(request *AiRetailProductUpdateReques
 
 // Summary:
 //
+// # AI练货记录详情
+//
+// @param request - AiTrainingDetailRequest
+//
+// @param headers - AiTrainingDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AiTrainingDetailResponse
+func (client *Client) AiTrainingDetailWithOptions(request *AiTrainingDetailRequest, headers *AiTrainingDetailHeaders, runtime *util.RuntimeOptions) (_result *AiTrainingDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RecordId)) {
+		body["recordId"] = request.RecordId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AiTrainingDetail"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/ai/trainingDetail"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AiTrainingDetailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// # AI练货记录详情
+//
+// @param request - AiTrainingDetailRequest
+//
+// @return AiTrainingDetailResponse
+func (client *Client) AiTrainingDetail(request *AiTrainingDetailRequest) (_result *AiTrainingDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AiTrainingDetailHeaders{}
+	_result = &AiTrainingDetailResponse{}
+	_body, _err := client.AiTrainingDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// # AI练货记录
+//
+// @param request - AiTrainingRecordRequest
+//
+// @param headers - AiTrainingRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AiTrainingRecordResponse
+func (client *Client) AiTrainingRecordWithOptions(request *AiTrainingRecordRequest, headers *AiTrainingRecordHeaders, runtime *util.RuntimeOptions) (_result *AiTrainingRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Direction)) {
+		body["direction"] = request.Direction
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LastId)) {
+		body["lastId"] = request.LastId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Size)) {
+		body["size"] = request.Size
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AiTrainingRecord"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/ai/retail/trainingRecord"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AiTrainingRecordResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// # AI练货记录
+//
+// @param request - AiTrainingRecordRequest
+//
+// @return AiTrainingRecordResponse
+func (client *Client) AiTrainingRecord(request *AiTrainingRecordRequest) (_result *AiTrainingRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AiTrainingRecordHeaders{}
+	_result = &AiTrainingRecordResponse{}
+	_body, _err := client.AiTrainingRecordWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 批量查询任务结果
 //
 // @param request - BatchGetTaskResultRequest
@@ -33517,6 +34594,164 @@ func (client *Client) ChatMemoUpdateKnowledgeGraphRelation(request *ChatMemoUpda
 	headers := &ChatMemoUpdateKnowledgeGraphRelationHeaders{}
 	_result = &ChatMemoUpdateKnowledgeGraphRelationResponse{}
 	_body, _err := client.ChatMemoUpdateKnowledgeGraphRelationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 美搭发帖记录详情
+//
+// @param request - CirclePostDetailRequest
+//
+// @param headers - CirclePostDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CirclePostDetailResponse
+func (client *Client) CirclePostDetailWithOptions(request *CirclePostDetailRequest, headers *CirclePostDetailHeaders, runtime *util.RuntimeOptions) (_result *CirclePostDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PostId)) {
+		body["postId"] = request.PostId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CirclePostDetail"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/circle/postsDetail"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CirclePostDetailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 美搭发帖记录详情
+//
+// @param request - CirclePostDetailRequest
+//
+// @return CirclePostDetailResponse
+func (client *Client) CirclePostDetail(request *CirclePostDetailRequest) (_result *CirclePostDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CirclePostDetailHeaders{}
+	_result = &CirclePostDetailResponse{}
+	_body, _err := client.CirclePostDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 美搭发帖记录
+//
+// @param request - CirclePostRecordRequest
+//
+// @param headers - CirclePostRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CirclePostRecordResponse
+func (client *Client) CirclePostRecordWithOptions(request *CirclePostRecordRequest, headers *CirclePostRecordHeaders, runtime *util.RuntimeOptions) (_result *CirclePostRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Direction)) {
+		body["direction"] = request.Direction
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Size)) {
+		body["size"] = request.Size
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CirclePostRecord"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/circle/postsRecord"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CirclePostRecordResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 美搭发帖记录
+//
+// @param request - CirclePostRecordRequest
+//
+// @return CirclePostRecordResponse
+func (client *Client) CirclePostRecord(request *CirclePostRecordRequest) (_result *CirclePostRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CirclePostRecordHeaders{}
+	_result = &CirclePostRecordResponse{}
+	_body, _err := client.CirclePostRecordWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

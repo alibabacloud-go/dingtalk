@@ -4157,6 +4157,159 @@ func (s *DocDeleteBlockResponse) SetBody(v *DocDeleteBlockResponseBody) *DocDele
 	return s
 }
 
+type DocElementsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DocElementsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocElementsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DocElementsHeaders) SetCommonHeaders(v map[string]*string) *DocElementsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DocElementsHeaders) SetXAcsDingtalkAccessToken(v string) *DocElementsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DocElementsRequest struct {
+	// example:
+	//
+	// cursor
+	Cursor *string `json:"cursor,omitempty" xml:"cursor,omitempty"`
+	// example:
+	//
+	// resource
+	ElementType *string `json:"elementType,omitempty" xml:"elementType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// example:
+	//
+	// 20
+	Size *int32 `json:"size,omitempty" xml:"size,omitempty"`
+}
+
+func (s DocElementsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocElementsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DocElementsRequest) SetCursor(v string) *DocElementsRequest {
+	s.Cursor = &v
+	return s
+}
+
+func (s *DocElementsRequest) SetElementType(v string) *DocElementsRequest {
+	s.ElementType = &v
+	return s
+}
+
+func (s *DocElementsRequest) SetOperatorId(v string) *DocElementsRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *DocElementsRequest) SetSize(v int32) *DocElementsRequest {
+	s.Size = &v
+	return s
+}
+
+type DocElementsResponseBody struct {
+	Result  *DocElementsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                          `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DocElementsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocElementsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DocElementsResponseBody) SetResult(v *DocElementsResponseBodyResult) *DocElementsResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *DocElementsResponseBody) SetSuccess(v bool) *DocElementsResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DocElementsResponseBodyResult struct {
+	Elements   []*string `json:"elements,omitempty" xml:"elements,omitempty" type:"Repeated"`
+	HasMore    *bool     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextCursor *string   `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+}
+
+func (s DocElementsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocElementsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DocElementsResponseBodyResult) SetElements(v []*string) *DocElementsResponseBodyResult {
+	s.Elements = v
+	return s
+}
+
+func (s *DocElementsResponseBodyResult) SetHasMore(v bool) *DocElementsResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *DocElementsResponseBodyResult) SetNextCursor(v string) *DocElementsResponseBodyResult {
+	s.NextCursor = &v
+	return s
+}
+
+type DocElementsResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DocElementsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DocElementsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DocElementsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DocElementsResponse) SetHeaders(v map[string]*string) *DocElementsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DocElementsResponse) SetStatusCode(v int32) *DocElementsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DocElementsResponse) SetBody(v *DocElementsResponseBody) *DocElementsResponse {
+	s.Body = v
+	return s
+}
+
 type DocExportHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -13241,6 +13394,91 @@ func (client *Client) DocDeleteBlock(docKey *string, blockId *string, request *D
 	headers := &DocDeleteBlockHeaders{}
 	_result = &DocDeleteBlockResponse{}
 	_body, _err := client.DocDeleteBlockWithOptions(docKey, blockId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 文档元素查询
+//
+// @param request - DocElementsRequest
+//
+// @param headers - DocElementsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DocElementsResponse
+func (client *Client) DocElementsWithOptions(dentryUuid *string, request *DocElementsRequest, headers *DocElementsHeaders, runtime *util.RuntimeOptions) (_result *DocElementsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Cursor)) {
+		query["cursor"] = request.Cursor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ElementType)) {
+		query["elementType"] = request.ElementType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Size)) {
+		query["size"] = request.Size
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DocElements"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/" + tea.StringValue(dentryUuid) + "/elements/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DocElementsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 文档元素查询
+//
+// @param request - DocElementsRequest
+//
+// @return DocElementsResponse
+func (client *Client) DocElements(dentryUuid *string, request *DocElementsRequest) (_result *DocElementsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DocElementsHeaders{}
+	_result = &DocElementsResponse{}
+	_body, _err := client.DocElementsWithOptions(dentryUuid, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

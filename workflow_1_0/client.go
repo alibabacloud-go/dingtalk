@@ -10970,8 +10970,20 @@ type PremiumGetProcessInstancesResponseBodyResultList struct {
 	//
 	// example:
 	//
+	// 1635165470201
+	CreateTimeInMills *int64 `json:"createTimeInMills,omitempty" xml:"createTimeInMills,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
 	// 1633795200000
 	FinishTime *int64 `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1633795200000
+	FinishTimeInMills *int64 `json:"finishTimeInMills,omitempty" xml:"finishTimeInMills,omitempty"`
 	// This parameter is required.
 	FormComponentValues []*PremiumGetProcessInstancesResponseBodyResultListFormComponentValues `json:"formComponentValues,omitempty" xml:"formComponentValues,omitempty" type:"Repeated"`
 	// This parameter is required.
@@ -11043,8 +11055,18 @@ func (s *PremiumGetProcessInstancesResponseBodyResultList) SetCreateTime(v int64
 	return s
 }
 
+func (s *PremiumGetProcessInstancesResponseBodyResultList) SetCreateTimeInMills(v int64) *PremiumGetProcessInstancesResponseBodyResultList {
+	s.CreateTimeInMills = &v
+	return s
+}
+
 func (s *PremiumGetProcessInstancesResponseBodyResultList) SetFinishTime(v int64) *PremiumGetProcessInstancesResponseBodyResultList {
 	s.FinishTime = &v
+	return s
+}
+
+func (s *PremiumGetProcessInstancesResponseBodyResultList) SetFinishTimeInMills(v int64) *PremiumGetProcessInstancesResponseBodyResultList {
+	s.FinishTimeInMills = &v
 	return s
 }
 

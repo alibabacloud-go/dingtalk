@@ -2886,6 +2886,10 @@ type SyncTripOrderRequest struct {
 	// 0
 	DiscountAmount *string `json:"discountAmount,omitempty" xml:"discountAmount,omitempty"`
 	EndorseFlag    *bool   `json:"endorseFlag,omitempty" xml:"endorseFlag,omitempty"`
+	// example:
+	//
+	// 100.00
+	EnterprisePayAmount *string `json:"enterprisePayAmount,omitempty" xml:"enterprisePayAmount,omitempty"`
 	// This parameter is required.
 	Event *SyncTripOrderRequestEvent `json:"event,omitempty" xml:"event,omitempty" type:"Struct"`
 	// This parameter is required.
@@ -2935,8 +2939,12 @@ type SyncTripOrderRequest struct {
 	// example:
 	//
 	// https:dingtalk.com/tripOrder/20220510170058192311
-	OrderUrl  *string `json:"orderUrl,omitempty" xml:"orderUrl,omitempty"`
-	ProcessId *string `json:"processId,omitempty" xml:"processId,omitempty"`
+	OrderUrl *string `json:"orderUrl,omitempty" xml:"orderUrl,omitempty"`
+	// example:
+	//
+	// 100.00
+	PersonalPayAmount *string `json:"personalPayAmount,omitempty" xml:"personalPayAmount,omitempty"`
+	ProcessId         *string `json:"processId,omitempty" xml:"processId,omitempty"`
 	// example:
 	//
 	// 100.00
@@ -3004,6 +3012,11 @@ func (s *SyncTripOrderRequest) SetDiscountAmount(v string) *SyncTripOrderRequest
 
 func (s *SyncTripOrderRequest) SetEndorseFlag(v bool) *SyncTripOrderRequest {
 	s.EndorseFlag = &v
+	return s
+}
+
+func (s *SyncTripOrderRequest) SetEnterprisePayAmount(v string) *SyncTripOrderRequest {
+	s.EnterprisePayAmount = &v
 	return s
 }
 
@@ -3084,6 +3097,11 @@ func (s *SyncTripOrderRequest) SetOrderPaymentType(v string) *SyncTripOrderReque
 
 func (s *SyncTripOrderRequest) SetOrderUrl(v string) *SyncTripOrderRequest {
 	s.OrderUrl = &v
+	return s
+}
+
+func (s *SyncTripOrderRequest) SetPersonalPayAmount(v string) *SyncTripOrderRequest {
+	s.PersonalPayAmount = &v
 	return s
 }
 
@@ -5318,6 +5336,10 @@ func (client *Client) SyncTripOrderWithOptions(request *SyncTripOrderRequest, he
 		body["endorseFlag"] = request.EndorseFlag
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.EnterprisePayAmount)) {
+		body["enterprisePayAmount"] = request.EnterprisePayAmount
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Event)) {
 		body["event"] = request.Event
 	}
@@ -5380,6 +5402,10 @@ func (client *Client) SyncTripOrderWithOptions(request *SyncTripOrderRequest, he
 
 	if !tea.BoolValue(util.IsUnset(request.OrderUrl)) {
 		body["orderUrl"] = request.OrderUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PersonalPayAmount)) {
+		body["personalPayAmount"] = request.PersonalPayAmount
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ProcessId)) {

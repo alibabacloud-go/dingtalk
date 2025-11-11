@@ -649,7 +649,7 @@ type OpenAgoalObjectiveDTO struct {
 	// 0
 	Progress *int32 `json:"progress,omitempty" xml:"progress,omitempty"`
 	// This parameter is required.
-	RelatedUsers *OpenAgoalUserDTO `json:"relatedUsers,omitempty" xml:"relatedUsers,omitempty"`
+	RelatedUsers []*OpenAgoalUserDTO `json:"relatedUsers,omitempty" xml:"relatedUsers,omitempty" type:"Repeated"`
 	// This parameter is required.
 	//
 	// example:
@@ -720,7 +720,7 @@ func (s *OpenAgoalObjectiveDTO) SetProgress(v int32) *OpenAgoalObjectiveDTO {
 	return s
 }
 
-func (s *OpenAgoalObjectiveDTO) SetRelatedUsers(v *OpenAgoalUserDTO) *OpenAgoalObjectiveDTO {
+func (s *OpenAgoalObjectiveDTO) SetRelatedUsers(v []*OpenAgoalUserDTO) *OpenAgoalObjectiveDTO {
 	s.RelatedUsers = v
 	return s
 }
@@ -1976,6 +1976,289 @@ func (s *AgoalFieldUpdateResponse) SetStatusCode(v int32) *AgoalFieldUpdateRespo
 }
 
 func (s *AgoalFieldUpdateResponse) SetBody(v *AgoalFieldUpdateResponseBody) *AgoalFieldUpdateResponse {
+	s.Body = v
+	return s
+}
+
+type AgoalIndicatorBatchQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AgoalIndicatorBatchQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalIndicatorBatchQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalIndicatorBatchQueryHeaders) SetCommonHeaders(v map[string]*string) *AgoalIndicatorBatchQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AgoalIndicatorBatchQueryHeaders) SetXAcsDingtalkAccessToken(v string) *AgoalIndicatorBatchQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AgoalIndicatorBatchQueryRequest struct {
+	CodeList []*string `json:"codeList,omitempty" xml:"codeList,omitempty" type:"Repeated"`
+}
+
+func (s AgoalIndicatorBatchQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalIndicatorBatchQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalIndicatorBatchQueryRequest) SetCodeList(v []*string) *AgoalIndicatorBatchQueryRequest {
+	s.CodeList = v
+	return s
+}
+
+type AgoalIndicatorBatchQueryShrinkRequest struct {
+	CodeListShrink *string `json:"codeList,omitempty" xml:"codeList,omitempty"`
+}
+
+func (s AgoalIndicatorBatchQueryShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalIndicatorBatchQueryShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalIndicatorBatchQueryShrinkRequest) SetCodeListShrink(v string) *AgoalIndicatorBatchQueryShrinkRequest {
+	s.CodeListShrink = &v
+	return s
+}
+
+type AgoalIndicatorBatchQueryResponseBody struct {
+	Result  []*AgoalIndicatorBatchQueryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success *bool                                         `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AgoalIndicatorBatchQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalIndicatorBatchQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalIndicatorBatchQueryResponseBody) SetResult(v []*AgoalIndicatorBatchQueryResponseBodyResult) *AgoalIndicatorBatchQueryResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *AgoalIndicatorBatchQueryResponseBody) SetSuccess(v bool) *AgoalIndicatorBatchQueryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AgoalIndicatorBatchQueryResponseBodyResult struct {
+	Code        *string `json:"code,omitempty" xml:"code,omitempty"`
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
+	Title       *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s AgoalIndicatorBatchQueryResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalIndicatorBatchQueryResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalIndicatorBatchQueryResponseBodyResult) SetCode(v string) *AgoalIndicatorBatchQueryResponseBodyResult {
+	s.Code = &v
+	return s
+}
+
+func (s *AgoalIndicatorBatchQueryResponseBodyResult) SetDescription(v string) *AgoalIndicatorBatchQueryResponseBodyResult {
+	s.Description = &v
+	return s
+}
+
+func (s *AgoalIndicatorBatchQueryResponseBodyResult) SetId(v string) *AgoalIndicatorBatchQueryResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *AgoalIndicatorBatchQueryResponseBodyResult) SetTitle(v string) *AgoalIndicatorBatchQueryResponseBodyResult {
+	s.Title = &v
+	return s
+}
+
+type AgoalIndicatorBatchQueryResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AgoalIndicatorBatchQueryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AgoalIndicatorBatchQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalIndicatorBatchQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalIndicatorBatchQueryResponse) SetHeaders(v map[string]*string) *AgoalIndicatorBatchQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AgoalIndicatorBatchQueryResponse) SetStatusCode(v int32) *AgoalIndicatorBatchQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AgoalIndicatorBatchQueryResponse) SetBody(v *AgoalIndicatorBatchQueryResponseBody) *AgoalIndicatorBatchQueryResponse {
+	s.Body = v
+	return s
+}
+
+type AgoalIndicatorDataPushHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AgoalIndicatorDataPushHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalIndicatorDataPushHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalIndicatorDataPushHeaders) SetCommonHeaders(v map[string]*string) *AgoalIndicatorDataPushHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AgoalIndicatorDataPushHeaders) SetXAcsDingtalkAccessToken(v string) *AgoalIndicatorDataPushHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AgoalIndicatorDataPushRequest struct {
+	// example:
+	//
+	// code_sik2834jdi383jd
+	Code *string                              `json:"code,omitempty" xml:"code,omitempty"`
+	Data []*AgoalIndicatorDataPushRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+}
+
+func (s AgoalIndicatorDataPushRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalIndicatorDataPushRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalIndicatorDataPushRequest) SetCode(v string) *AgoalIndicatorDataPushRequest {
+	s.Code = &v
+	return s
+}
+
+func (s *AgoalIndicatorDataPushRequest) SetData(v []*AgoalIndicatorDataPushRequestData) *AgoalIndicatorDataPushRequest {
+	s.Data = v
+	return s
+}
+
+type AgoalIndicatorDataPushRequestData struct {
+	// example:
+	//
+	// 111
+	Data *string `json:"data,omitempty" xml:"data,omitempty"`
+	// example:
+	//
+	// 2025-11-01 11:01:00
+	Period *string `json:"period,omitempty" xml:"period,omitempty"`
+	// example:
+	//
+	// YEAR、HALF_YEAR、QUARTER、DOUBLE_MONTH、MONTH、WEEK
+	PeriodType *string `json:"periodType,omitempty" xml:"periodType,omitempty"`
+}
+
+func (s AgoalIndicatorDataPushRequestData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalIndicatorDataPushRequestData) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalIndicatorDataPushRequestData) SetData(v string) *AgoalIndicatorDataPushRequestData {
+	s.Data = &v
+	return s
+}
+
+func (s *AgoalIndicatorDataPushRequestData) SetPeriod(v string) *AgoalIndicatorDataPushRequestData {
+	s.Period = &v
+	return s
+}
+
+func (s *AgoalIndicatorDataPushRequestData) SetPeriodType(v string) *AgoalIndicatorDataPushRequestData {
+	s.PeriodType = &v
+	return s
+}
+
+type AgoalIndicatorDataPushResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AgoalIndicatorDataPushResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalIndicatorDataPushResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalIndicatorDataPushResponseBody) SetResult(v bool) *AgoalIndicatorDataPushResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *AgoalIndicatorDataPushResponseBody) SetSuccess(v bool) *AgoalIndicatorDataPushResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AgoalIndicatorDataPushResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AgoalIndicatorDataPushResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AgoalIndicatorDataPushResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalIndicatorDataPushResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalIndicatorDataPushResponse) SetHeaders(v map[string]*string) *AgoalIndicatorDataPushResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AgoalIndicatorDataPushResponse) SetStatusCode(v int32) *AgoalIndicatorDataPushResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AgoalIndicatorDataPushResponse) SetBody(v *AgoalIndicatorDataPushResponseBody) *AgoalIndicatorDataPushResponse {
 	s.Body = v
 	return s
 }
@@ -3861,6 +4144,162 @@ func (client *Client) AgoalFieldUpdate(request *AgoalFieldUpdateRequest) (_resul
 	headers := &AgoalFieldUpdateHeaders{}
 	_result = &AgoalFieldUpdateResponse{}
 	_body, _err := client.AgoalFieldUpdateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过指标编码批量查询指标列表
+//
+// @param tmpReq - AgoalIndicatorBatchQueryRequest
+//
+// @param headers - AgoalIndicatorBatchQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AgoalIndicatorBatchQueryResponse
+func (client *Client) AgoalIndicatorBatchQueryWithOptions(tmpReq *AgoalIndicatorBatchQueryRequest, headers *AgoalIndicatorBatchQueryHeaders, runtime *util.RuntimeOptions) (_result *AgoalIndicatorBatchQueryResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &AgoalIndicatorBatchQueryShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.CodeList)) {
+		request.CodeListShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.CodeList, tea.String("codeList"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CodeListShrink)) {
+		query["codeList"] = request.CodeListShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AgoalIndicatorBatchQuery"),
+		Version:     tea.String("agoal_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/agoal/indicator/batch/query"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AgoalIndicatorBatchQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过指标编码批量查询指标列表
+//
+// @param request - AgoalIndicatorBatchQueryRequest
+//
+// @return AgoalIndicatorBatchQueryResponse
+func (client *Client) AgoalIndicatorBatchQuery(request *AgoalIndicatorBatchQueryRequest) (_result *AgoalIndicatorBatchQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AgoalIndicatorBatchQueryHeaders{}
+	_result = &AgoalIndicatorBatchQueryResponse{}
+	_body, _err := client.AgoalIndicatorBatchQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过指标编码推送指标时间维度数据
+//
+// @param request - AgoalIndicatorDataPushRequest
+//
+// @param headers - AgoalIndicatorDataPushHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AgoalIndicatorDataPushResponse
+func (client *Client) AgoalIndicatorDataPushWithOptions(request *AgoalIndicatorDataPushRequest, headers *AgoalIndicatorDataPushHeaders, runtime *util.RuntimeOptions) (_result *AgoalIndicatorDataPushResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Code)) {
+		body["code"] = request.Code
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Data)) {
+		body["data"] = request.Data
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AgoalIndicatorDataPush"),
+		Version:     tea.String("agoal_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/agoal/indicator/data/push"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AgoalIndicatorDataPushResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过指标编码推送指标时间维度数据
+//
+// @param request - AgoalIndicatorDataPushRequest
+//
+// @return AgoalIndicatorDataPushResponse
+func (client *Client) AgoalIndicatorDataPush(request *AgoalIndicatorDataPushRequest) (_result *AgoalIndicatorDataPushResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AgoalIndicatorDataPushHeaders{}
+	_result = &AgoalIndicatorDataPushResponse{}
+	_body, _err := client.AgoalIndicatorDataPushWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

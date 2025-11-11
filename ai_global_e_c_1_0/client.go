@@ -251,6 +251,116 @@ func (s *GetLoginUserResponse) SetBody(v *GetLoginUserResponseBody) *GetLoginUse
 	return s
 }
 
+type HhoCallBackHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HhoCallBackHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HhoCallBackHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HhoCallBackHeaders) SetCommonHeaders(v map[string]*string) *HhoCallBackHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HhoCallBackHeaders) SetXAcsDingtalkAccessToken(v string) *HhoCallBackHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HhoCallBackRequest struct {
+	Data             *string `json:"data,omitempty" xml:"data,omitempty"`
+	DtNotificationId *string `json:"dtNotificationId,omitempty" xml:"dtNotificationId,omitempty"`
+	ShopId           *string `json:"shopId,omitempty" xml:"shopId,omitempty"`
+	Timestamp        *string `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+	Type             *int32  `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s HhoCallBackRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HhoCallBackRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HhoCallBackRequest) SetData(v string) *HhoCallBackRequest {
+	s.Data = &v
+	return s
+}
+
+func (s *HhoCallBackRequest) SetDtNotificationId(v string) *HhoCallBackRequest {
+	s.DtNotificationId = &v
+	return s
+}
+
+func (s *HhoCallBackRequest) SetShopId(v string) *HhoCallBackRequest {
+	s.ShopId = &v
+	return s
+}
+
+func (s *HhoCallBackRequest) SetTimestamp(v string) *HhoCallBackRequest {
+	s.Timestamp = &v
+	return s
+}
+
+func (s *HhoCallBackRequest) SetType(v int32) *HhoCallBackRequest {
+	s.Type = &v
+	return s
+}
+
+type HhoCallBackResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HhoCallBackResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HhoCallBackResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HhoCallBackResponseBody) SetSuccess(v bool) *HhoCallBackResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HhoCallBackResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HhoCallBackResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HhoCallBackResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HhoCallBackResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HhoCallBackResponse) SetHeaders(v map[string]*string) *HhoCallBackResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HhoCallBackResponse) SetStatusCode(v int32) *HhoCallBackResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HhoCallBackResponse) SetBody(v *HhoCallBackResponseBody) *HhoCallBackResponse {
+	s.Body = v
+	return s
+}
+
 type LaunchHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -275,21 +385,14 @@ func (s *LaunchHeaders) SetXAcsDingtalkAccessToken(v string) *LaunchHeaders {
 }
 
 type LaunchRequest struct {
-	Description        *string                  `json:"description,omitempty" xml:"description,omitempty"`
-	ImageUrls          []*string                `json:"imageUrls,omitempty" xml:"imageUrls,omitempty" type:"Repeated"`
-	Platform           []*string                `json:"platform,omitempty" xml:"platform,omitempty" type:"Repeated"`
-	ProductName        *string                  `json:"productName,omitempty" xml:"productName,omitempty"`
-	SellingPoints      []*string                `json:"sellingPoints,omitempty" xml:"sellingPoints,omitempty" type:"Repeated"`
-	SourceData         *string                  `json:"sourceData,omitempty" xml:"sourceData,omitempty"`
-	Variants           []*LaunchRequestVariants `json:"variants,omitempty" xml:"variants,omitempty" type:"Repeated"`
-	VideoUrls          []*string                `json:"videoUrls,omitempty" xml:"videoUrls,omitempty" type:"Repeated"`
-	DingAgentId        *int64                   `json:"dingAgentId,omitempty" xml:"dingAgentId,omitempty"`
-	DingClientId       *string                  `json:"dingClientId,omitempty" xml:"dingClientId,omitempty"`
-	DingIsvOrgId       *int64                   `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
-	DingOrgId          *int64                   `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
-	DingSuiteKey       *string                  `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
-	DingTokenGrantType *int32                   `json:"dingTokenGrantType,omitempty" xml:"dingTokenGrantType,omitempty"`
-	DingUid            *int64                   `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
+	Description   *string                  `json:"description,omitempty" xml:"description,omitempty"`
+	ImageUrls     []*string                `json:"imageUrls,omitempty" xml:"imageUrls,omitempty" type:"Repeated"`
+	Platform      []*string                `json:"platform,omitempty" xml:"platform,omitempty" type:"Repeated"`
+	ProductName   *string                  `json:"productName,omitempty" xml:"productName,omitempty"`
+	SellingPoints []*string                `json:"sellingPoints,omitempty" xml:"sellingPoints,omitempty" type:"Repeated"`
+	SourceData    *string                  `json:"sourceData,omitempty" xml:"sourceData,omitempty"`
+	Variants      []*LaunchRequestVariants `json:"variants,omitempty" xml:"variants,omitempty" type:"Repeated"`
+	VideoUrls     []*string                `json:"videoUrls,omitempty" xml:"videoUrls,omitempty" type:"Repeated"`
 }
 
 func (s LaunchRequest) String() string {
@@ -337,41 +440,6 @@ func (s *LaunchRequest) SetVariants(v []*LaunchRequestVariants) *LaunchRequest {
 
 func (s *LaunchRequest) SetVideoUrls(v []*string) *LaunchRequest {
 	s.VideoUrls = v
-	return s
-}
-
-func (s *LaunchRequest) SetDingAgentId(v int64) *LaunchRequest {
-	s.DingAgentId = &v
-	return s
-}
-
-func (s *LaunchRequest) SetDingClientId(v string) *LaunchRequest {
-	s.DingClientId = &v
-	return s
-}
-
-func (s *LaunchRequest) SetDingIsvOrgId(v int64) *LaunchRequest {
-	s.DingIsvOrgId = &v
-	return s
-}
-
-func (s *LaunchRequest) SetDingOrgId(v int64) *LaunchRequest {
-	s.DingOrgId = &v
-	return s
-}
-
-func (s *LaunchRequest) SetDingSuiteKey(v string) *LaunchRequest {
-	s.DingSuiteKey = &v
-	return s
-}
-
-func (s *LaunchRequest) SetDingTokenGrantType(v int32) *LaunchRequest {
-	s.DingTokenGrantType = &v
-	return s
-}
-
-func (s *LaunchRequest) SetDingUid(v int64) *LaunchRequest {
-	s.DingUid = &v
 	return s
 }
 
@@ -717,6 +785,7 @@ func (s *TiktokWebhookProcessRequest) SetTiktokContentJsonString(v string) *Tikt
 }
 
 type TiktokWebhookProcessResponseBody struct {
+	Code                        *int32                                                       `json:"code,omitempty" xml:"code,omitempty"`
 	ErrorCode                   *string                                                      `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
 	ErrorMsg                    *string                                                      `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
 	OmniChannelTiktokWebhookRsp *TiktokWebhookProcessResponseBodyOmniChannelTiktokWebhookRsp `json:"omniChannelTiktokWebhookRsp,omitempty" xml:"omniChannelTiktokWebhookRsp,omitempty" type:"Struct"`
@@ -729,6 +798,11 @@ func (s TiktokWebhookProcessResponseBody) String() string {
 
 func (s TiktokWebhookProcessResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *TiktokWebhookProcessResponseBody) SetCode(v int32) *TiktokWebhookProcessResponseBody {
+	s.Code = &v
+	return s
 }
 
 func (s *TiktokWebhookProcessResponseBody) SetErrorCode(v string) *TiktokWebhookProcessResponseBody {
@@ -974,6 +1048,95 @@ func (client *Client) GetLoginUser(request *GetLoginUserRequest) (_result *GetLo
 
 // Summary:
 //
+// 提供给HHO的异步回调接口
+//
+// @param request - HhoCallBackRequest
+//
+// @param headers - HhoCallBackHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HhoCallBackResponse
+func (client *Client) HhoCallBackWithOptions(request *HhoCallBackRequest, headers *HhoCallBackHeaders, runtime *util.RuntimeOptions) (_result *HhoCallBackResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Data)) {
+		body["data"] = request.Data
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DtNotificationId)) {
+		body["dtNotificationId"] = request.DtNotificationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ShopId)) {
+		body["shopId"] = request.ShopId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Timestamp)) {
+		body["timestamp"] = request.Timestamp
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		body["type"] = request.Type
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HhoCallBack"),
+		Version:     tea.String("aiGlobalEC_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiGlobalEC/hho/callback"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HhoCallBackResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 提供给HHO的异步回调接口
+//
+// @param request - HhoCallBackRequest
+//
+// @return HhoCallBackResponse
+func (client *Client) HhoCallBack(request *HhoCallBackRequest) (_result *HhoCallBackResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HhoCallBackHeaders{}
+	_result = &HhoCallBackResponse{}
+	_body, _err := client.HhoCallBackWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 刊登的对外开放Api
 //
 // @param request - LaunchRequest
@@ -988,35 +1151,6 @@ func (client *Client) LaunchWithOptions(request *LaunchRequest, headers *LaunchH
 	if _err != nil {
 		return _result, _err
 	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.DingAgentId)) {
-		query["dingAgentId"] = request.DingAgentId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingClientId)) {
-		query["dingClientId"] = request.DingClientId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingIsvOrgId)) {
-		query["dingIsvOrgId"] = request.DingIsvOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingOrgId)) {
-		query["dingOrgId"] = request.DingOrgId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingSuiteKey)) {
-		query["dingSuiteKey"] = request.DingSuiteKey
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingTokenGrantType)) {
-		query["dingTokenGrantType"] = request.DingTokenGrantType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DingUid)) {
-		query["dingUid"] = request.DingUid
-	}
-
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.Description)) {
 		body["description"] = request.Description
@@ -1061,7 +1195,6 @@ func (client *Client) LaunchWithOptions(request *LaunchRequest, headers *LaunchH
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
 		Body:    openapiutil.ParseToMap(body),
 	}
 	params := &openapi.Params{

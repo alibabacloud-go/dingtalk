@@ -261,6 +261,157 @@ func (s *DeleteMinutesResponse) SetBody(v *DeleteMinutesResponseBody) *DeleteMin
 	return s
 }
 
+type ExportMinutesTaskResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ExportMinutesTaskResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExportMinutesTaskResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ExportMinutesTaskResultHeaders) SetCommonHeaders(v map[string]*string) *ExportMinutesTaskResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ExportMinutesTaskResultHeaders) SetXAcsDingtalkAccessToken(v string) *ExportMinutesTaskResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ExportMinutesTaskResultRequest struct {
+	ExpireTime           *int64                                              `json:"expireTime,omitempty" xml:"expireTime,omitempty"`
+	SummaryExportSetting *ExportMinutesTaskResultRequestSummaryExportSetting `json:"summaryExportSetting,omitempty" xml:"summaryExportSetting,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// text
+	TaskType *string `json:"taskType,omitempty" xml:"taskType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 763xxxxxx325f32
+	TaskUuid *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// D5xxxxxxxxxxxxxxEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s ExportMinutesTaskResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExportMinutesTaskResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExportMinutesTaskResultRequest) SetExpireTime(v int64) *ExportMinutesTaskResultRequest {
+	s.ExpireTime = &v
+	return s
+}
+
+func (s *ExportMinutesTaskResultRequest) SetSummaryExportSetting(v *ExportMinutesTaskResultRequestSummaryExportSetting) *ExportMinutesTaskResultRequest {
+	s.SummaryExportSetting = v
+	return s
+}
+
+func (s *ExportMinutesTaskResultRequest) SetTaskType(v string) *ExportMinutesTaskResultRequest {
+	s.TaskType = &v
+	return s
+}
+
+func (s *ExportMinutesTaskResultRequest) SetTaskUuid(v string) *ExportMinutesTaskResultRequest {
+	s.TaskUuid = &v
+	return s
+}
+
+func (s *ExportMinutesTaskResultRequest) SetUnionId(v string) *ExportMinutesTaskResultRequest {
+	s.UnionId = &v
+	return s
+}
+
+type ExportMinutesTaskResultRequestSummaryExportSetting struct {
+	EnableBilingual *bool `json:"enableBilingual,omitempty" xml:"enableBilingual,omitempty"`
+	// example:
+	//
+	// zh
+	TargetLang *string `json:"targetLang,omitempty" xml:"targetLang,omitempty"`
+}
+
+func (s ExportMinutesTaskResultRequestSummaryExportSetting) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExportMinutesTaskResultRequestSummaryExportSetting) GoString() string {
+	return s.String()
+}
+
+func (s *ExportMinutesTaskResultRequestSummaryExportSetting) SetEnableBilingual(v bool) *ExportMinutesTaskResultRequestSummaryExportSetting {
+	s.EnableBilingual = &v
+	return s
+}
+
+func (s *ExportMinutesTaskResultRequestSummaryExportSetting) SetTargetLang(v string) *ExportMinutesTaskResultRequestSummaryExportSetting {
+	s.TargetLang = &v
+	return s
+}
+
+type ExportMinutesTaskResultResponseBody struct {
+	MinutesDocUrl *string `json:"minutesDocUrl,omitempty" xml:"minutesDocUrl,omitempty"`
+}
+
+func (s ExportMinutesTaskResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExportMinutesTaskResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ExportMinutesTaskResultResponseBody) SetMinutesDocUrl(v string) *ExportMinutesTaskResultResponseBody {
+	s.MinutesDocUrl = &v
+	return s
+}
+
+type ExportMinutesTaskResultResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ExportMinutesTaskResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ExportMinutesTaskResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExportMinutesTaskResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExportMinutesTaskResultResponse) SetHeaders(v map[string]*string) *ExportMinutesTaskResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ExportMinutesTaskResultResponse) SetStatusCode(v int32) *ExportMinutesTaskResultResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ExportMinutesTaskResultResponse) SetBody(v *ExportMinutesTaskResultResponseBody) *ExportMinutesTaskResultResponse {
+	s.Body = v
+	return s
+}
+
 type OpenQueryMinutesSummaryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2057,6 +2208,97 @@ func (client *Client) DeleteMinutes(taskUuid *string, request *DeleteMinutesRequ
 	headers := &DeleteMinutesHeaders{}
 	_result = &DeleteMinutesResponse{}
 	_body, _err := client.DeleteMinutesWithOptions(taskUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 导出闪记任务结果
+//
+// @param request - ExportMinutesTaskResultRequest
+//
+// @param headers - ExportMinutesTaskResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExportMinutesTaskResultResponse
+func (client *Client) ExportMinutesTaskResultWithOptions(request *ExportMinutesTaskResultRequest, headers *ExportMinutesTaskResultHeaders, runtime *util.RuntimeOptions) (_result *ExportMinutesTaskResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ExpireTime)) {
+		body["expireTime"] = request.ExpireTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SummaryExportSetting)) {
+		body["summaryExportSetting"] = request.SummaryExportSetting
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskType)) {
+		body["taskType"] = request.TaskType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskUuid)) {
+		body["taskUuid"] = request.TaskUuid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ExportMinutesTaskResult"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/flashMinutes/minutesTask/export"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ExportMinutesTaskResultResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 导出闪记任务结果
+//
+// @param request - ExportMinutesTaskResultRequest
+//
+// @return ExportMinutesTaskResultResponse
+func (client *Client) ExportMinutesTaskResult(request *ExportMinutesTaskResultRequest) (_result *ExportMinutesTaskResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ExportMinutesTaskResultHeaders{}
+	_result = &ExportMinutesTaskResultResponse{}
+	_body, _err := client.ExportMinutesTaskResultWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

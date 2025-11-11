@@ -293,6 +293,8 @@ func (s *QueryAsrTaskHeaders) SetXAcsDingtalkAccessToken(v string) *QueryAsrTask
 }
 
 type QueryAsrTaskRequest struct {
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// This parameter is required.
 	TaskId  *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
@@ -304,6 +306,16 @@ func (s QueryAsrTaskRequest) String() string {
 
 func (s QueryAsrTaskRequest) GoString() string {
 	return s.String()
+}
+
+func (s *QueryAsrTaskRequest) SetMaxResults(v int32) *QueryAsrTaskRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryAsrTaskRequest) SetNextToken(v string) *QueryAsrTaskRequest {
+	s.NextToken = &v
+	return s
 }
 
 func (s *QueryAsrTaskRequest) SetTaskId(v string) *QueryAsrTaskRequest {
@@ -352,12 +364,11 @@ func (s *QueryAsrTaskResponseBody) SetSuccess(v bool) *QueryAsrTaskResponseBody 
 }
 
 type QueryAsrTaskResponseBodyResult struct {
-	BizKey       *string                                   `json:"bizKey,omitempty" xml:"bizKey,omitempty"`
-	ErrorCode    *string                                   `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
-	ErrorMessage *string                                   `json:"errorMessage,omitempty" xml:"errorMessage,omitempty"`
-	ResultInfo   *QueryAsrTaskResponseBodyResultResultInfo `json:"resultInfo,omitempty" xml:"resultInfo,omitempty" type:"Struct"`
-	TaskId       *string                                   `json:"taskId,omitempty" xml:"taskId,omitempty"`
-	TaskStatus   *string                                   `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
+	BizKey     *string                                   `json:"bizKey,omitempty" xml:"bizKey,omitempty"`
+	NextToken  *string                                   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	ResultInfo *QueryAsrTaskResponseBodyResultResultInfo `json:"resultInfo,omitempty" xml:"resultInfo,omitempty" type:"Struct"`
+	TaskId     *string                                   `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskStatus *string                                   `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
 }
 
 func (s QueryAsrTaskResponseBodyResult) String() string {
@@ -373,13 +384,8 @@ func (s *QueryAsrTaskResponseBodyResult) SetBizKey(v string) *QueryAsrTaskRespon
 	return s
 }
 
-func (s *QueryAsrTaskResponseBodyResult) SetErrorCode(v string) *QueryAsrTaskResponseBodyResult {
-	s.ErrorCode = &v
-	return s
-}
-
-func (s *QueryAsrTaskResponseBodyResult) SetErrorMessage(v string) *QueryAsrTaskResponseBodyResult {
-	s.ErrorMessage = &v
+func (s *QueryAsrTaskResponseBodyResult) SetNextToken(v string) *QueryAsrTaskResponseBodyResult {
+	s.NextToken = &v
 	return s
 }
 
@@ -1498,6 +1504,14 @@ func (client *Client) QueryAsrTaskWithOptions(request *QueryAsrTaskRequest, head
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
 		query["taskId"] = request.TaskId
 	}

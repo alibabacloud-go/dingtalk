@@ -2681,6 +2681,129 @@ func (s *ListAllInnerAppsResponse) SetBody(v *ListAllInnerAppsResponseBody) *Lis
 	return s
 }
 
+type ListAppByClientIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListAppByClientIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAppByClientIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListAppByClientIdHeaders) SetCommonHeaders(v map[string]*string) *ListAppByClientIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListAppByClientIdHeaders) SetXAcsDingtalkAccessToken(v string) *ListAppByClientIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListAppByClientIdResponseBody struct {
+	AgentId        *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	AppId          *int64  `json:"appId,omitempty" xml:"appId,omitempty"`
+	AppStatus      *int32  `json:"appStatus,omitempty" xml:"appStatus,omitempty"`
+	Desc           *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	DevelopType    *int32  `json:"developType,omitempty" xml:"developType,omitempty"`
+	HomepageLink   *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
+	Icon           *string `json:"icon,omitempty" xml:"icon,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
+	OmpLink        *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
+	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
+}
+
+func (s ListAppByClientIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAppByClientIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListAppByClientIdResponseBody) SetAgentId(v int64) *ListAppByClientIdResponseBody {
+	s.AgentId = &v
+	return s
+}
+
+func (s *ListAppByClientIdResponseBody) SetAppId(v int64) *ListAppByClientIdResponseBody {
+	s.AppId = &v
+	return s
+}
+
+func (s *ListAppByClientIdResponseBody) SetAppStatus(v int32) *ListAppByClientIdResponseBody {
+	s.AppStatus = &v
+	return s
+}
+
+func (s *ListAppByClientIdResponseBody) SetDesc(v string) *ListAppByClientIdResponseBody {
+	s.Desc = &v
+	return s
+}
+
+func (s *ListAppByClientIdResponseBody) SetDevelopType(v int32) *ListAppByClientIdResponseBody {
+	s.DevelopType = &v
+	return s
+}
+
+func (s *ListAppByClientIdResponseBody) SetHomepageLink(v string) *ListAppByClientIdResponseBody {
+	s.HomepageLink = &v
+	return s
+}
+
+func (s *ListAppByClientIdResponseBody) SetIcon(v string) *ListAppByClientIdResponseBody {
+	s.Icon = &v
+	return s
+}
+
+func (s *ListAppByClientIdResponseBody) SetName(v string) *ListAppByClientIdResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *ListAppByClientIdResponseBody) SetOmpLink(v string) *ListAppByClientIdResponseBody {
+	s.OmpLink = &v
+	return s
+}
+
+func (s *ListAppByClientIdResponseBody) SetPcHomepageLink(v string) *ListAppByClientIdResponseBody {
+	s.PcHomepageLink = &v
+	return s
+}
+
+type ListAppByClientIdResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListAppByClientIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListAppByClientIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAppByClientIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListAppByClientIdResponse) SetHeaders(v map[string]*string) *ListAppByClientIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListAppByClientIdResponse) SetStatusCode(v int32) *ListAppByClientIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListAppByClientIdResponse) SetBody(v *ListAppByClientIdResponseBody) *ListAppByClientIdResponse {
+	s.Body = v
+	return s
+}
+
 type ListAppRoleScopesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6595,6 +6718,65 @@ func (client *Client) ListAllInnerApps() (_result *ListAllInnerAppsResponse, _er
 	headers := &ListAllInnerAppsHeaders{}
 	_result = &ListAllInnerAppsResponse{}
 	_body, _err := client.ListAllInnerAppsWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取单个企业应用信息
+//
+// @param headers - ListAppByClientIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListAppByClientIdResponse
+func (client *Client) ListAppByClientIdWithOptions(headers *ListAppByClientIdHeaders, runtime *util.RuntimeOptions) (_result *ListAppByClientIdResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListAppByClientId"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/app/detail"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListAppByClientIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取单个企业应用信息
+//
+// @return ListAppByClientIdResponse
+func (client *Client) ListAppByClientId() (_result *ListAppByClientIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListAppByClientIdHeaders{}
+	_result = &ListAppByClientIdResponse{}
+	_body, _err := client.ListAppByClientIdWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

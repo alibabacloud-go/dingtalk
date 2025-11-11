@@ -340,7 +340,11 @@ type BatchAddInvoiceRequestGeneralInvoiceVOList struct {
 	// example:
 	//
 	// 120
-	AmountWithTax *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	AmountWithTax       *string `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	AviationTaxRate     *string `json:"aviationTaxRate,omitempty" xml:"aviationTaxRate,omitempty"`
+	CaacDevelopmentFund *string `json:"caacDevelopmentFund,omitempty" xml:"caacDevelopmentFund,omitempty"`
+	CertificationDate   *string `json:"certificationDate,omitempty" xml:"certificationDate,omitempty"`
+	CertificationPeriod *string `json:"certificationPeriod,omitempty" xml:"certificationPeriod,omitempty"`
 	// example:
 	//
 	// 1111
@@ -365,11 +369,13 @@ type BatchAddInvoiceRequestGeneralInvoiceVOList struct {
 	//
 	// abc
 	ElectronicUrl *string `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
+	Fare          *string `json:"fare,omitempty" xml:"fare,omitempty"`
 	FileId        *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
 	// example:
 	//
 	// INPUT_VAT
-	FinanceType *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	FinanceType   *string `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	FuelSurcharge *string `json:"fuelSurcharge,omitempty" xml:"fuelSurcharge,omitempty"`
 	// example:
 	//
 	// RED
@@ -520,6 +526,26 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetAmountWithTax(v string) 
 	return s
 }
 
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetAviationTaxRate(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.AviationTaxRate = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetCaacDevelopmentFund(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.CaacDevelopmentFund = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetCertificationDate(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.CertificationDate = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetCertificationPeriod(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.CertificationPeriod = &v
+	return s
+}
+
 func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetCheckCode(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
 	s.CheckCode = &v
 	return s
@@ -565,6 +591,11 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetElectronicUrl(v string) 
 	return s
 }
 
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetFare(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.Fare = &v
+	return s
+}
+
 func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetFileId(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
 	s.FileId = &v
 	return s
@@ -572,6 +603,11 @@ func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetFileId(v string) *BatchA
 
 func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetFinanceType(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
 	s.FinanceType = &v
+	return s
+}
+
+func (s *BatchAddInvoiceRequestGeneralInvoiceVOList) SetFuelSurcharge(v string) *BatchAddInvoiceRequestGeneralInvoiceVOList {
+	s.FuelSurcharge = &v
 	return s
 }
 
@@ -3429,9 +3465,10 @@ type GetFinanceAccountResponseBody struct {
 	// example:
 	//
 	// 50000.55
-	Amount   *string `json:"amount,omitempty" xml:"amount,omitempty"`
-	BankCode *string `json:"bankCode,omitempty" xml:"bankCode,omitempty"`
-	BankName *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	Amount      *string `json:"amount,omitempty" xml:"amount,omitempty"`
+	BankCode    *string `json:"bankCode,omitempty" xml:"bankCode,omitempty"`
+	BankName    *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	CompanyCode *string `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -3496,6 +3533,11 @@ func (s *GetFinanceAccountResponseBody) SetBankCode(v string) *GetFinanceAccount
 
 func (s *GetFinanceAccountResponseBody) SetBankName(v string) *GetFinanceAccountResponseBody {
 	s.BankName = &v
+	return s
+}
+
+func (s *GetFinanceAccountResponseBody) SetCompanyCode(v string) *GetFinanceAccountResponseBody {
+	s.CompanyCode = &v
 	return s
 }
 
