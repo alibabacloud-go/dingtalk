@@ -269,6 +269,1633 @@ func (s *GetAudioFileInfoResponse) SetBody(v *GetAudioFileInfoResponseBody) *Get
 	return s
 }
 
+type GetCustomerInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCustomerInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerInfoHeaders) SetCommonHeaders(v map[string]*string) *GetCustomerInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCustomerInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetCustomerInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCustomerInfoRequest struct {
+	// This parameter is required.
+	CustomerId *string `json:"customerId,omitempty" xml:"customerId,omitempty"`
+}
+
+func (s GetCustomerInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerInfoRequest) SetCustomerId(v string) *GetCustomerInfoRequest {
+	s.CustomerId = &v
+	return s
+}
+
+type GetCustomerInfoResponseBody struct {
+	Result *GetCustomerInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetCustomerInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerInfoResponseBody) SetResult(v *GetCustomerInfoResponseBodyResult) *GetCustomerInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetCustomerInfoResponseBodyResult struct {
+	CreateAt    *string `json:"createAt,omitempty" xml:"createAt,omitempty"`
+	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	TeamCode    *string `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
+}
+
+func (s GetCustomerInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerInfoResponseBodyResult) SetCreateAt(v string) *GetCustomerInfoResponseBodyResult {
+	s.CreateAt = &v
+	return s
+}
+
+func (s *GetCustomerInfoResponseBodyResult) SetId(v string) *GetCustomerInfoResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *GetCustomerInfoResponseBodyResult) SetName(v string) *GetCustomerInfoResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *GetCustomerInfoResponseBodyResult) SetOwnerUserId(v string) *GetCustomerInfoResponseBodyResult {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *GetCustomerInfoResponseBodyResult) SetTeamCode(v string) *GetCustomerInfoResponseBodyResult {
+	s.TeamCode = &v
+	return s
+}
+
+type GetCustomerInfoResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetCustomerInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetCustomerInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerInfoResponse) SetHeaders(v map[string]*string) *GetCustomerInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCustomerInfoResponse) SetStatusCode(v int32) *GetCustomerInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetCustomerInfoResponse) SetBody(v *GetCustomerInfoResponseBody) *GetCustomerInfoResponse {
+	s.Body = v
+	return s
+}
+
+type GetServiceChapterSummaryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetServiceChapterSummaryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceChapterSummaryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceChapterSummaryHeaders) SetCommonHeaders(v map[string]*string) *GetServiceChapterSummaryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetServiceChapterSummaryHeaders) SetXAcsDingtalkAccessToken(v string) *GetServiceChapterSummaryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetServiceChapterSummaryRequest struct {
+	// This parameter is required.
+	RecordId *string `json:"recordId,omitempty" xml:"recordId,omitempty"`
+}
+
+func (s GetServiceChapterSummaryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceChapterSummaryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceChapterSummaryRequest) SetRecordId(v string) *GetServiceChapterSummaryRequest {
+	s.RecordId = &v
+	return s
+}
+
+type GetServiceChapterSummaryResponseBody struct {
+	NextToken  *string                                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result     []*GetServiceChapterSummaryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *int32                                        `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s GetServiceChapterSummaryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceChapterSummaryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceChapterSummaryResponseBody) SetNextToken(v string) *GetServiceChapterSummaryResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetServiceChapterSummaryResponseBody) SetResult(v []*GetServiceChapterSummaryResponseBodyResult) *GetServiceChapterSummaryResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetServiceChapterSummaryResponseBody) SetTotalCount(v int32) *GetServiceChapterSummaryResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type GetServiceChapterSummaryResponseBodyResult struct {
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetServiceChapterSummaryResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceChapterSummaryResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceChapterSummaryResponseBodyResult) SetContent(v string) *GetServiceChapterSummaryResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+func (s *GetServiceChapterSummaryResponseBodyResult) SetName(v string) *GetServiceChapterSummaryResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+type GetServiceChapterSummaryResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetServiceChapterSummaryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetServiceChapterSummaryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceChapterSummaryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceChapterSummaryResponse) SetHeaders(v map[string]*string) *GetServiceChapterSummaryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetServiceChapterSummaryResponse) SetStatusCode(v int32) *GetServiceChapterSummaryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetServiceChapterSummaryResponse) SetBody(v *GetServiceChapterSummaryResponseBody) *GetServiceChapterSummaryResponse {
+	s.Body = v
+	return s
+}
+
+type GetServiceChatSummaryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetServiceChatSummaryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceChatSummaryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceChatSummaryHeaders) SetCommonHeaders(v map[string]*string) *GetServiceChatSummaryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetServiceChatSummaryHeaders) SetXAcsDingtalkAccessToken(v string) *GetServiceChatSummaryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetServiceChatSummaryRequest struct {
+	// This parameter is required.
+	RecordId *string `json:"recordId,omitempty" xml:"recordId,omitempty"`
+}
+
+func (s GetServiceChatSummaryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceChatSummaryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceChatSummaryRequest) SetRecordId(v string) *GetServiceChatSummaryRequest {
+	s.RecordId = &v
+	return s
+}
+
+type GetServiceChatSummaryResponseBody struct {
+	Result *GetServiceChatSummaryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetServiceChatSummaryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceChatSummaryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceChatSummaryResponseBody) SetResult(v *GetServiceChatSummaryResponseBodyResult) *GetServiceChatSummaryResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetServiceChatSummaryResponseBodyResult struct {
+	Basic   []*GetServiceChatSummaryResponseBodyResultBasic   `json:"basic,omitempty" xml:"basic,omitempty" type:"Repeated"`
+	Product []*GetServiceChatSummaryResponseBodyResultProduct `json:"product,omitempty" xml:"product,omitempty" type:"Repeated"`
+}
+
+func (s GetServiceChatSummaryResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceChatSummaryResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceChatSummaryResponseBodyResult) SetBasic(v []*GetServiceChatSummaryResponseBodyResultBasic) *GetServiceChatSummaryResponseBodyResult {
+	s.Basic = v
+	return s
+}
+
+func (s *GetServiceChatSummaryResponseBodyResult) SetProduct(v []*GetServiceChatSummaryResponseBodyResultProduct) *GetServiceChatSummaryResponseBodyResult {
+	s.Product = v
+	return s
+}
+
+type GetServiceChatSummaryResponseBodyResultBasic struct {
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetServiceChatSummaryResponseBodyResultBasic) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceChatSummaryResponseBodyResultBasic) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceChatSummaryResponseBodyResultBasic) SetContent(v string) *GetServiceChatSummaryResponseBodyResultBasic {
+	s.Content = &v
+	return s
+}
+
+func (s *GetServiceChatSummaryResponseBodyResultBasic) SetName(v string) *GetServiceChatSummaryResponseBodyResultBasic {
+	s.Name = &v
+	return s
+}
+
+type GetServiceChatSummaryResponseBodyResultProduct struct {
+	ItemList []*GetServiceChatSummaryResponseBodyResultProductItemList `json:"itemList,omitempty" xml:"itemList,omitempty" type:"Repeated"`
+	Product  *string                                                   `json:"product,omitempty" xml:"product,omitempty"`
+}
+
+func (s GetServiceChatSummaryResponseBodyResultProduct) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceChatSummaryResponseBodyResultProduct) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceChatSummaryResponseBodyResultProduct) SetItemList(v []*GetServiceChatSummaryResponseBodyResultProductItemList) *GetServiceChatSummaryResponseBodyResultProduct {
+	s.ItemList = v
+	return s
+}
+
+func (s *GetServiceChatSummaryResponseBodyResultProduct) SetProduct(v string) *GetServiceChatSummaryResponseBodyResultProduct {
+	s.Product = &v
+	return s
+}
+
+type GetServiceChatSummaryResponseBodyResultProductItemList struct {
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	Name    *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetServiceChatSummaryResponseBodyResultProductItemList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceChatSummaryResponseBodyResultProductItemList) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceChatSummaryResponseBodyResultProductItemList) SetContent(v string) *GetServiceChatSummaryResponseBodyResultProductItemList {
+	s.Content = &v
+	return s
+}
+
+func (s *GetServiceChatSummaryResponseBodyResultProductItemList) SetName(v string) *GetServiceChatSummaryResponseBodyResultProductItemList {
+	s.Name = &v
+	return s
+}
+
+type GetServiceChatSummaryResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetServiceChatSummaryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetServiceChatSummaryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceChatSummaryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceChatSummaryResponse) SetHeaders(v map[string]*string) *GetServiceChatSummaryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetServiceChatSummaryResponse) SetStatusCode(v int32) *GetServiceChatSummaryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetServiceChatSummaryResponse) SetBody(v *GetServiceChatSummaryResponseBody) *GetServiceChatSummaryResponse {
+	s.Body = v
+	return s
+}
+
+type GetServiceQualityInspectionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetServiceQualityInspectionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceQualityInspectionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceQualityInspectionHeaders) SetCommonHeaders(v map[string]*string) *GetServiceQualityInspectionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetServiceQualityInspectionHeaders) SetXAcsDingtalkAccessToken(v string) *GetServiceQualityInspectionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetServiceQualityInspectionRequest struct {
+	// This parameter is required.
+	RecordId *string `json:"recordId,omitempty" xml:"recordId,omitempty"`
+}
+
+func (s GetServiceQualityInspectionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceQualityInspectionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceQualityInspectionRequest) SetRecordId(v string) *GetServiceQualityInspectionRequest {
+	s.RecordId = &v
+	return s
+}
+
+type GetServiceQualityInspectionResponseBody struct {
+	Result *GetServiceQualityInspectionResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetServiceQualityInspectionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceQualityInspectionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceQualityInspectionResponseBody) SetResult(v *GetServiceQualityInspectionResponseBodyResult) *GetServiceQualityInspectionResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetServiceQualityInspectionResponseBodyResult struct {
+	GroupList []*GetServiceQualityInspectionResponseBodyResultGroupList `json:"groupList,omitempty" xml:"groupList,omitempty" type:"Repeated"`
+	Score     *int32                                                    `json:"score,omitempty" xml:"score,omitempty"`
+	Summary   *string                                                   `json:"summary,omitempty" xml:"summary,omitempty"`
+}
+
+func (s GetServiceQualityInspectionResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceQualityInspectionResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceQualityInspectionResponseBodyResult) SetGroupList(v []*GetServiceQualityInspectionResponseBodyResultGroupList) *GetServiceQualityInspectionResponseBodyResult {
+	s.GroupList = v
+	return s
+}
+
+func (s *GetServiceQualityInspectionResponseBodyResult) SetScore(v int32) *GetServiceQualityInspectionResponseBodyResult {
+	s.Score = &v
+	return s
+}
+
+func (s *GetServiceQualityInspectionResponseBodyResult) SetSummary(v string) *GetServiceQualityInspectionResponseBodyResult {
+	s.Summary = &v
+	return s
+}
+
+type GetServiceQualityInspectionResponseBodyResultGroupList struct {
+	ItemList []*GetServiceQualityInspectionResponseBodyResultGroupListItemList `json:"itemList,omitempty" xml:"itemList,omitempty" type:"Repeated"`
+	Name     *string                                                           `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetServiceQualityInspectionResponseBodyResultGroupList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceQualityInspectionResponseBodyResultGroupList) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceQualityInspectionResponseBodyResultGroupList) SetItemList(v []*GetServiceQualityInspectionResponseBodyResultGroupListItemList) *GetServiceQualityInspectionResponseBodyResultGroupList {
+	s.ItemList = v
+	return s
+}
+
+func (s *GetServiceQualityInspectionResponseBodyResultGroupList) SetName(v string) *GetServiceQualityInspectionResponseBodyResultGroupList {
+	s.Name = &v
+	return s
+}
+
+type GetServiceQualityInspectionResponseBodyResultGroupListItemList struct {
+	FlowName *string `json:"flowName,omitempty" xml:"flowName,omitempty"`
+	IsHit    *string `json:"isHit,omitempty" xml:"isHit,omitempty"`
+	Reason   *string `json:"reason,omitempty" xml:"reason,omitempty"`
+	Score    *int32  `json:"score,omitempty" xml:"score,omitempty"`
+	Script   *string `json:"script,omitempty" xml:"script,omitempty"`
+}
+
+func (s GetServiceQualityInspectionResponseBodyResultGroupListItemList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceQualityInspectionResponseBodyResultGroupListItemList) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceQualityInspectionResponseBodyResultGroupListItemList) SetFlowName(v string) *GetServiceQualityInspectionResponseBodyResultGroupListItemList {
+	s.FlowName = &v
+	return s
+}
+
+func (s *GetServiceQualityInspectionResponseBodyResultGroupListItemList) SetIsHit(v string) *GetServiceQualityInspectionResponseBodyResultGroupListItemList {
+	s.IsHit = &v
+	return s
+}
+
+func (s *GetServiceQualityInspectionResponseBodyResultGroupListItemList) SetReason(v string) *GetServiceQualityInspectionResponseBodyResultGroupListItemList {
+	s.Reason = &v
+	return s
+}
+
+func (s *GetServiceQualityInspectionResponseBodyResultGroupListItemList) SetScore(v int32) *GetServiceQualityInspectionResponseBodyResultGroupListItemList {
+	s.Score = &v
+	return s
+}
+
+func (s *GetServiceQualityInspectionResponseBodyResultGroupListItemList) SetScript(v string) *GetServiceQualityInspectionResponseBodyResultGroupListItemList {
+	s.Script = &v
+	return s
+}
+
+type GetServiceQualityInspectionResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetServiceQualityInspectionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetServiceQualityInspectionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceQualityInspectionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceQualityInspectionResponse) SetHeaders(v map[string]*string) *GetServiceQualityInspectionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetServiceQualityInspectionResponse) SetStatusCode(v int32) *GetServiceQualityInspectionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetServiceQualityInspectionResponse) SetBody(v *GetServiceQualityInspectionResponseBody) *GetServiceQualityInspectionResponse {
+	s.Body = v
+	return s
+}
+
+type GetServiceRecordTranscriptHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetServiceRecordTranscriptHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceRecordTranscriptHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceRecordTranscriptHeaders) SetCommonHeaders(v map[string]*string) *GetServiceRecordTranscriptHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetServiceRecordTranscriptHeaders) SetXAcsDingtalkAccessToken(v string) *GetServiceRecordTranscriptHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetServiceRecordTranscriptRequest struct {
+	// This parameter is required.
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s GetServiceRecordTranscriptRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceRecordTranscriptRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceRecordTranscriptRequest) SetId(v string) *GetServiceRecordTranscriptRequest {
+	s.Id = &v
+	return s
+}
+
+type GetServiceRecordTranscriptResponseBody struct {
+	Result *GetServiceRecordTranscriptResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetServiceRecordTranscriptResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceRecordTranscriptResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceRecordTranscriptResponseBody) SetResult(v *GetServiceRecordTranscriptResponseBodyResult) *GetServiceRecordTranscriptResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetServiceRecordTranscriptResponseBodyResult struct {
+	AudionText *GetServiceRecordTranscriptResponseBodyResultAudionText `json:"audionText,omitempty" xml:"audionText,omitempty" type:"Struct"`
+	Speaker    *GetServiceRecordTranscriptResponseBodyResultSpeaker    `json:"speaker,omitempty" xml:"speaker,omitempty" type:"Struct"`
+}
+
+func (s GetServiceRecordTranscriptResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceRecordTranscriptResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceRecordTranscriptResponseBodyResult) SetAudionText(v *GetServiceRecordTranscriptResponseBodyResultAudionText) *GetServiceRecordTranscriptResponseBodyResult {
+	s.AudionText = v
+	return s
+}
+
+func (s *GetServiceRecordTranscriptResponseBodyResult) SetSpeaker(v *GetServiceRecordTranscriptResponseBodyResultSpeaker) *GetServiceRecordTranscriptResponseBodyResult {
+	s.Speaker = v
+	return s
+}
+
+type GetServiceRecordTranscriptResponseBodyResultAudionText struct {
+	DataList []*GetServiceRecordTranscriptResponseBodyResultAudionTextDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	Status   *string                                                           `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetServiceRecordTranscriptResponseBodyResultAudionText) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceRecordTranscriptResponseBodyResultAudionText) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceRecordTranscriptResponseBodyResultAudionText) SetDataList(v []*GetServiceRecordTranscriptResponseBodyResultAudionTextDataList) *GetServiceRecordTranscriptResponseBodyResultAudionText {
+	s.DataList = v
+	return s
+}
+
+func (s *GetServiceRecordTranscriptResponseBodyResultAudionText) SetStatus(v string) *GetServiceRecordTranscriptResponseBodyResultAudionText {
+	s.Status = &v
+	return s
+}
+
+type GetServiceRecordTranscriptResponseBodyResultAudionTextDataList struct {
+	Channel   *string `json:"channel,omitempty" xml:"channel,omitempty"`
+	EndTime   *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Text      *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s GetServiceRecordTranscriptResponseBodyResultAudionTextDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceRecordTranscriptResponseBodyResultAudionTextDataList) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceRecordTranscriptResponseBodyResultAudionTextDataList) SetChannel(v string) *GetServiceRecordTranscriptResponseBodyResultAudionTextDataList {
+	s.Channel = &v
+	return s
+}
+
+func (s *GetServiceRecordTranscriptResponseBodyResultAudionTextDataList) SetEndTime(v string) *GetServiceRecordTranscriptResponseBodyResultAudionTextDataList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetServiceRecordTranscriptResponseBodyResultAudionTextDataList) SetStartTime(v string) *GetServiceRecordTranscriptResponseBodyResultAudionTextDataList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetServiceRecordTranscriptResponseBodyResultAudionTextDataList) SetText(v string) *GetServiceRecordTranscriptResponseBodyResultAudionTextDataList {
+	s.Text = &v
+	return s
+}
+
+type GetServiceRecordTranscriptResponseBodyResultSpeaker struct {
+	DataList []*GetServiceRecordTranscriptResponseBodyResultSpeakerDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	Status   *string                                                        `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetServiceRecordTranscriptResponseBodyResultSpeaker) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceRecordTranscriptResponseBodyResultSpeaker) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceRecordTranscriptResponseBodyResultSpeaker) SetDataList(v []*GetServiceRecordTranscriptResponseBodyResultSpeakerDataList) *GetServiceRecordTranscriptResponseBodyResultSpeaker {
+	s.DataList = v
+	return s
+}
+
+func (s *GetServiceRecordTranscriptResponseBodyResultSpeaker) SetStatus(v string) *GetServiceRecordTranscriptResponseBodyResultSpeaker {
+	s.Status = &v
+	return s
+}
+
+type GetServiceRecordTranscriptResponseBodyResultSpeakerDataList struct {
+	Channel *string `json:"channel,omitempty" xml:"channel,omitempty"`
+	Role    *string `json:"role,omitempty" xml:"role,omitempty"`
+}
+
+func (s GetServiceRecordTranscriptResponseBodyResultSpeakerDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceRecordTranscriptResponseBodyResultSpeakerDataList) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceRecordTranscriptResponseBodyResultSpeakerDataList) SetChannel(v string) *GetServiceRecordTranscriptResponseBodyResultSpeakerDataList {
+	s.Channel = &v
+	return s
+}
+
+func (s *GetServiceRecordTranscriptResponseBodyResultSpeakerDataList) SetRole(v string) *GetServiceRecordTranscriptResponseBodyResultSpeakerDataList {
+	s.Role = &v
+	return s
+}
+
+type GetServiceRecordTranscriptResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetServiceRecordTranscriptResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetServiceRecordTranscriptResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceRecordTranscriptResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceRecordTranscriptResponse) SetHeaders(v map[string]*string) *GetServiceRecordTranscriptResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetServiceRecordTranscriptResponse) SetStatusCode(v int32) *GetServiceRecordTranscriptResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetServiceRecordTranscriptResponse) SetBody(v *GetServiceRecordTranscriptResponseBody) *GetServiceRecordTranscriptResponse {
+	s.Body = v
+	return s
+}
+
+type GetTranscriptSummaryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTranscriptSummaryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTranscriptSummaryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTranscriptSummaryHeaders) SetCommonHeaders(v map[string]*string) *GetTranscriptSummaryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTranscriptSummaryHeaders) SetXAcsDingtalkAccessToken(v string) *GetTranscriptSummaryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTranscriptSummaryRequest struct {
+	// This parameter is required.
+	DeviceType *string `json:"deviceType,omitempty" xml:"deviceType,omitempty"`
+	// This parameter is required.
+	FileId *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+}
+
+func (s GetTranscriptSummaryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTranscriptSummaryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetTranscriptSummaryRequest) SetDeviceType(v string) *GetTranscriptSummaryRequest {
+	s.DeviceType = &v
+	return s
+}
+
+func (s *GetTranscriptSummaryRequest) SetFileId(v string) *GetTranscriptSummaryRequest {
+	s.FileId = &v
+	return s
+}
+
+type GetTranscriptSummaryResponseBody struct {
+	Result *GetTranscriptSummaryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetTranscriptSummaryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTranscriptSummaryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTranscriptSummaryResponseBody) SetResult(v *GetTranscriptSummaryResponseBodyResult) *GetTranscriptSummaryResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetTranscriptSummaryResponseBodyResult struct {
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s GetTranscriptSummaryResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTranscriptSummaryResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetTranscriptSummaryResponseBodyResult) SetContent(v string) *GetTranscriptSummaryResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+type GetTranscriptSummaryResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetTranscriptSummaryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetTranscriptSummaryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTranscriptSummaryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTranscriptSummaryResponse) SetHeaders(v map[string]*string) *GetTranscriptSummaryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTranscriptSummaryResponse) SetStatusCode(v int32) *GetTranscriptSummaryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetTranscriptSummaryResponse) SetBody(v *GetTranscriptSummaryResponseBody) *GetTranscriptSummaryResponse {
+	s.Body = v
+	return s
+}
+
+type ListCustomerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListCustomerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCustomerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListCustomerHeaders) SetCommonHeaders(v map[string]*string) *ListCustomerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListCustomerHeaders) SetXAcsDingtalkAccessToken(v string) *ListCustomerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListCustomerRequest struct {
+	EndTime     *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	MaxResults  *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken   *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	StartTime   *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	TeamCode *string `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
+}
+
+func (s ListCustomerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCustomerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListCustomerRequest) SetEndTime(v int64) *ListCustomerRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *ListCustomerRequest) SetMaxResults(v int32) *ListCustomerRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListCustomerRequest) SetNextToken(v string) *ListCustomerRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListCustomerRequest) SetOwnerUserId(v string) *ListCustomerRequest {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *ListCustomerRequest) SetStartTime(v int64) *ListCustomerRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *ListCustomerRequest) SetTeamCode(v string) *ListCustomerRequest {
+	s.TeamCode = &v
+	return s
+}
+
+type ListCustomerResponseBody struct {
+	NextToken  *string                           `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result     []*ListCustomerResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *int32                            `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s ListCustomerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCustomerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListCustomerResponseBody) SetNextToken(v string) *ListCustomerResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListCustomerResponseBody) SetResult(v []*ListCustomerResponseBodyResult) *ListCustomerResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *ListCustomerResponseBody) SetTotalCount(v int32) *ListCustomerResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type ListCustomerResponseBodyResult struct {
+	CreateAt    *string `json:"createAt,omitempty" xml:"createAt,omitempty"`
+	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	TeamCode    *string `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
+}
+
+func (s ListCustomerResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCustomerResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListCustomerResponseBodyResult) SetCreateAt(v string) *ListCustomerResponseBodyResult {
+	s.CreateAt = &v
+	return s
+}
+
+func (s *ListCustomerResponseBodyResult) SetId(v string) *ListCustomerResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *ListCustomerResponseBodyResult) SetName(v string) *ListCustomerResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *ListCustomerResponseBodyResult) SetOwnerUserId(v string) *ListCustomerResponseBodyResult {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *ListCustomerResponseBodyResult) SetTeamCode(v string) *ListCustomerResponseBodyResult {
+	s.TeamCode = &v
+	return s
+}
+
+type ListCustomerResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListCustomerResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListCustomerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListCustomerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListCustomerResponse) SetHeaders(v map[string]*string) *ListCustomerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListCustomerResponse) SetStatusCode(v int32) *ListCustomerResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListCustomerResponse) SetBody(v *ListCustomerResponseBody) *ListCustomerResponse {
+	s.Body = v
+	return s
+}
+
+type ListServiceRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListServiceRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListServiceRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListServiceRecordHeaders) SetCommonHeaders(v map[string]*string) *ListServiceRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListServiceRecordHeaders) SetXAcsDingtalkAccessToken(v string) *ListServiceRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListServiceRecordRequest struct {
+	EndTime    *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	StartTime  *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	TeamCode   *string `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListServiceRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListServiceRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListServiceRecordRequest) SetEndTime(v int64) *ListServiceRecordRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *ListServiceRecordRequest) SetMaxResults(v int32) *ListServiceRecordRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListServiceRecordRequest) SetNextToken(v string) *ListServiceRecordRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListServiceRecordRequest) SetStartTime(v int64) *ListServiceRecordRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *ListServiceRecordRequest) SetTeamCode(v string) *ListServiceRecordRequest {
+	s.TeamCode = &v
+	return s
+}
+
+func (s *ListServiceRecordRequest) SetUserId(v string) *ListServiceRecordRequest {
+	s.UserId = &v
+	return s
+}
+
+type ListServiceRecordResponseBody struct {
+	NextToken  *string                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result     []*ListServiceRecordResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *int32                                 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s ListServiceRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListServiceRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListServiceRecordResponseBody) SetNextToken(v string) *ListServiceRecordResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListServiceRecordResponseBody) SetResult(v []*ListServiceRecordResponseBodyResult) *ListServiceRecordResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *ListServiceRecordResponseBody) SetTotalCount(v int32) *ListServiceRecordResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type ListServiceRecordResponseBodyResult struct {
+	CustomerId     *string                                  `json:"customerId,omitempty" xml:"customerId,omitempty"`
+	DeviceSn       *string                                  `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
+	Duration       *string                                  `json:"duration,omitempty" xml:"duration,omitempty"`
+	EndTimestamp   *int64                                   `json:"endTimestamp,omitempty" xml:"endTimestamp,omitempty"`
+	RecordId       *string                                  `json:"recordId,omitempty" xml:"recordId,omitempty"`
+	StartTimestamp *int64                                   `json:"startTimestamp,omitempty" xml:"startTimestamp,omitempty"`
+	Team           *ListServiceRecordResponseBodyResultTeam `json:"team,omitempty" xml:"team,omitempty" type:"Struct"`
+	User           *ListServiceRecordResponseBodyResultUser `json:"user,omitempty" xml:"user,omitempty" type:"Struct"`
+}
+
+func (s ListServiceRecordResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListServiceRecordResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListServiceRecordResponseBodyResult) SetCustomerId(v string) *ListServiceRecordResponseBodyResult {
+	s.CustomerId = &v
+	return s
+}
+
+func (s *ListServiceRecordResponseBodyResult) SetDeviceSn(v string) *ListServiceRecordResponseBodyResult {
+	s.DeviceSn = &v
+	return s
+}
+
+func (s *ListServiceRecordResponseBodyResult) SetDuration(v string) *ListServiceRecordResponseBodyResult {
+	s.Duration = &v
+	return s
+}
+
+func (s *ListServiceRecordResponseBodyResult) SetEndTimestamp(v int64) *ListServiceRecordResponseBodyResult {
+	s.EndTimestamp = &v
+	return s
+}
+
+func (s *ListServiceRecordResponseBodyResult) SetRecordId(v string) *ListServiceRecordResponseBodyResult {
+	s.RecordId = &v
+	return s
+}
+
+func (s *ListServiceRecordResponseBodyResult) SetStartTimestamp(v int64) *ListServiceRecordResponseBodyResult {
+	s.StartTimestamp = &v
+	return s
+}
+
+func (s *ListServiceRecordResponseBodyResult) SetTeam(v *ListServiceRecordResponseBodyResultTeam) *ListServiceRecordResponseBodyResult {
+	s.Team = v
+	return s
+}
+
+func (s *ListServiceRecordResponseBodyResult) SetUser(v *ListServiceRecordResponseBodyResultUser) *ListServiceRecordResponseBodyResult {
+	s.User = v
+	return s
+}
+
+type ListServiceRecordResponseBodyResultTeam struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s ListServiceRecordResponseBodyResultTeam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListServiceRecordResponseBodyResultTeam) GoString() string {
+	return s.String()
+}
+
+func (s *ListServiceRecordResponseBodyResultTeam) SetCode(v string) *ListServiceRecordResponseBodyResultTeam {
+	s.Code = &v
+	return s
+}
+
+func (s *ListServiceRecordResponseBodyResultTeam) SetName(v string) *ListServiceRecordResponseBodyResultTeam {
+	s.Name = &v
+	return s
+}
+
+type ListServiceRecordResponseBodyResultUser struct {
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListServiceRecordResponseBodyResultUser) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListServiceRecordResponseBodyResultUser) GoString() string {
+	return s.String()
+}
+
+func (s *ListServiceRecordResponseBodyResultUser) SetName(v string) *ListServiceRecordResponseBodyResultUser {
+	s.Name = &v
+	return s
+}
+
+func (s *ListServiceRecordResponseBodyResultUser) SetUserId(v string) *ListServiceRecordResponseBodyResultUser {
+	s.UserId = &v
+	return s
+}
+
+type ListServiceRecordResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListServiceRecordResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListServiceRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListServiceRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListServiceRecordResponse) SetHeaders(v map[string]*string) *ListServiceRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListServiceRecordResponse) SetStatusCode(v int32) *ListServiceRecordResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListServiceRecordResponse) SetBody(v *ListServiceRecordResponseBody) *ListServiceRecordResponse {
+	s.Body = v
+	return s
+}
+
+type ListServiceTodoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListServiceTodoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListServiceTodoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListServiceTodoHeaders) SetCommonHeaders(v map[string]*string) *ListServiceTodoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListServiceTodoHeaders) SetXAcsDingtalkAccessToken(v string) *ListServiceTodoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListServiceTodoRequest struct {
+	// This parameter is required.
+	RecordId *string `json:"recordId,omitempty" xml:"recordId,omitempty"`
+}
+
+func (s ListServiceTodoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListServiceTodoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListServiceTodoRequest) SetRecordId(v string) *ListServiceTodoRequest {
+	s.RecordId = &v
+	return s
+}
+
+type ListServiceTodoResponseBody struct {
+	Result []*ListServiceTodoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s ListServiceTodoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListServiceTodoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListServiceTodoResponseBody) SetResult(v []*ListServiceTodoResponseBodyResult) *ListServiceTodoResponseBody {
+	s.Result = v
+	return s
+}
+
+type ListServiceTodoResponseBodyResult struct {
+	Creator        *string                                       `json:"creator,omitempty" xml:"creator,omitempty"`
+	DingTodoId     *string                                       `json:"dingTodoId,omitempty" xml:"dingTodoId,omitempty"`
+	Executors      []*ListServiceTodoResponseBodyResultExecutors `json:"executors,omitempty" xml:"executors,omitempty" type:"Repeated"`
+	Finished       *bool                                         `json:"finished,omitempty" xml:"finished,omitempty"`
+	PlanFinishDate *int64                                        `json:"planFinishDate,omitempty" xml:"planFinishDate,omitempty"`
+	TodoContent    *string                                       `json:"todoContent,omitempty" xml:"todoContent,omitempty"`
+	Uuid           *string                                       `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s ListServiceTodoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListServiceTodoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListServiceTodoResponseBodyResult) SetCreator(v string) *ListServiceTodoResponseBodyResult {
+	s.Creator = &v
+	return s
+}
+
+func (s *ListServiceTodoResponseBodyResult) SetDingTodoId(v string) *ListServiceTodoResponseBodyResult {
+	s.DingTodoId = &v
+	return s
+}
+
+func (s *ListServiceTodoResponseBodyResult) SetExecutors(v []*ListServiceTodoResponseBodyResultExecutors) *ListServiceTodoResponseBodyResult {
+	s.Executors = v
+	return s
+}
+
+func (s *ListServiceTodoResponseBodyResult) SetFinished(v bool) *ListServiceTodoResponseBodyResult {
+	s.Finished = &v
+	return s
+}
+
+func (s *ListServiceTodoResponseBodyResult) SetPlanFinishDate(v int64) *ListServiceTodoResponseBodyResult {
+	s.PlanFinishDate = &v
+	return s
+}
+
+func (s *ListServiceTodoResponseBodyResult) SetTodoContent(v string) *ListServiceTodoResponseBodyResult {
+	s.TodoContent = &v
+	return s
+}
+
+func (s *ListServiceTodoResponseBodyResult) SetUuid(v string) *ListServiceTodoResponseBodyResult {
+	s.Uuid = &v
+	return s
+}
+
+type ListServiceTodoResponseBodyResultExecutors struct {
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListServiceTodoResponseBodyResultExecutors) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListServiceTodoResponseBodyResultExecutors) GoString() string {
+	return s.String()
+}
+
+func (s *ListServiceTodoResponseBodyResultExecutors) SetName(v string) *ListServiceTodoResponseBodyResultExecutors {
+	s.Name = &v
+	return s
+}
+
+func (s *ListServiceTodoResponseBodyResultExecutors) SetUserId(v string) *ListServiceTodoResponseBodyResultExecutors {
+	s.UserId = &v
+	return s
+}
+
+type ListServiceTodoResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListServiceTodoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListServiceTodoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListServiceTodoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListServiceTodoResponse) SetHeaders(v map[string]*string) *ListServiceTodoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListServiceTodoResponse) SetStatusCode(v int32) *ListServiceTodoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListServiceTodoResponse) SetBody(v *ListServiceTodoResponseBody) *ListServiceTodoResponse {
+	s.Body = v
+	return s
+}
+
+type ListTeamHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListTeamHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTeamHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListTeamHeaders) SetCommonHeaders(v map[string]*string) *ListTeamHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListTeamHeaders) SetXAcsDingtalkAccessToken(v string) *ListTeamHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListTeamRequest struct {
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListTeamRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTeamRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListTeamRequest) SetMaxResults(v int32) *ListTeamRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListTeamRequest) SetNextToken(v string) *ListTeamRequest {
+	s.NextToken = &v
+	return s
+}
+
+type ListTeamResponseBody struct {
+	NextToken  *string                       `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result     []*ListTeamResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *int32                        `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s ListTeamResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTeamResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListTeamResponseBody) SetNextToken(v string) *ListTeamResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListTeamResponseBody) SetResult(v []*ListTeamResponseBodyResult) *ListTeamResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *ListTeamResponseBody) SetTotalCount(v int32) *ListTeamResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type ListTeamResponseBodyResult struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s ListTeamResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTeamResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListTeamResponseBodyResult) SetCode(v string) *ListTeamResponseBodyResult {
+	s.Code = &v
+	return s
+}
+
+func (s *ListTeamResponseBodyResult) SetName(v string) *ListTeamResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+type ListTeamResponse struct {
+	Headers    map[string]*string    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListTeamResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListTeamResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTeamResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListTeamResponse) SetHeaders(v map[string]*string) *ListTeamResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListTeamResponse) SetStatusCode(v int32) *ListTeamResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListTeamResponse) SetBody(v *ListTeamResponseBody) *ListTeamResponse {
+	s.Body = v
+	return s
+}
+
 type QueryAsrTaskHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1480,6 +3107,784 @@ func (client *Client) GetAudioFileInfo(request *GetAudioFileInfoRequest) (_resul
 	headers := &GetAudioFileInfoHeaders{}
 	_result = &GetAudioFileInfoResponse{}
 	_body, _err := client.GetAudioFileInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询客户数据
+//
+// @param request - GetCustomerInfoRequest
+//
+// @param headers - GetCustomerInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCustomerInfoResponse
+func (client *Client) GetCustomerInfoWithOptions(request *GetCustomerInfoRequest, headers *GetCustomerInfoHeaders, runtime *util.RuntimeOptions) (_result *GetCustomerInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CustomerId)) {
+		query["customerId"] = request.CustomerId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetCustomerInfo"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/customer"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetCustomerInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询客户数据
+//
+// @param request - GetCustomerInfoRequest
+//
+// @return GetCustomerInfoResponse
+func (client *Client) GetCustomerInfo(request *GetCustomerInfoRequest) (_result *GetCustomerInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCustomerInfoHeaders{}
+	_result = &GetCustomerInfoResponse{}
+	_body, _err := client.GetCustomerInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取服务章节摘要
+//
+// @param request - GetServiceChapterSummaryRequest
+//
+// @param headers - GetServiceChapterSummaryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetServiceChapterSummaryResponse
+func (client *Client) GetServiceChapterSummaryWithOptions(request *GetServiceChapterSummaryRequest, headers *GetServiceChapterSummaryHeaders, runtime *util.RuntimeOptions) (_result *GetServiceChapterSummaryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RecordId)) {
+		query["recordId"] = request.RecordId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetServiceChapterSummary"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/service/chapters/summary"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetServiceChapterSummaryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取服务章节摘要
+//
+// @param request - GetServiceChapterSummaryRequest
+//
+// @return GetServiceChapterSummaryResponse
+func (client *Client) GetServiceChapterSummary(request *GetServiceChapterSummaryRequest) (_result *GetServiceChapterSummaryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetServiceChapterSummaryHeaders{}
+	_result = &GetServiceChapterSummaryResponse{}
+	_body, _err := client.GetServiceChapterSummaryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取服务会话总结
+//
+// @param request - GetServiceChatSummaryRequest
+//
+// @param headers - GetServiceChatSummaryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetServiceChatSummaryResponse
+func (client *Client) GetServiceChatSummaryWithOptions(request *GetServiceChatSummaryRequest, headers *GetServiceChatSummaryHeaders, runtime *util.RuntimeOptions) (_result *GetServiceChatSummaryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RecordId)) {
+		query["recordId"] = request.RecordId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetServiceChatSummary"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/service/chats/summary"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetServiceChatSummaryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取服务会话总结
+//
+// @param request - GetServiceChatSummaryRequest
+//
+// @return GetServiceChatSummaryResponse
+func (client *Client) GetServiceChatSummary(request *GetServiceChatSummaryRequest) (_result *GetServiceChatSummaryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetServiceChatSummaryHeaders{}
+	_result = &GetServiceChatSummaryResponse{}
+	_body, _err := client.GetServiceChatSummaryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询服务质检信息
+//
+// @param request - GetServiceQualityInspectionRequest
+//
+// @param headers - GetServiceQualityInspectionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetServiceQualityInspectionResponse
+func (client *Client) GetServiceQualityInspectionWithOptions(request *GetServiceQualityInspectionRequest, headers *GetServiceQualityInspectionHeaders, runtime *util.RuntimeOptions) (_result *GetServiceQualityInspectionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RecordId)) {
+		query["recordId"] = request.RecordId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetServiceQualityInspection"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/service/quality-inspections"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetServiceQualityInspectionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询服务质检信息
+//
+// @param request - GetServiceQualityInspectionRequest
+//
+// @return GetServiceQualityInspectionResponse
+func (client *Client) GetServiceQualityInspection(request *GetServiceQualityInspectionRequest) (_result *GetServiceQualityInspectionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetServiceQualityInspectionHeaders{}
+	_result = &GetServiceQualityInspectionResponse{}
+	_body, _err := client.GetServiceQualityInspectionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取服务记录音频转写信息
+//
+// @param request - GetServiceRecordTranscriptRequest
+//
+// @param headers - GetServiceRecordTranscriptHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetServiceRecordTranscriptResponse
+func (client *Client) GetServiceRecordTranscriptWithOptions(request *GetServiceRecordTranscriptRequest, headers *GetServiceRecordTranscriptHeaders, runtime *util.RuntimeOptions) (_result *GetServiceRecordTranscriptResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Id)) {
+		query["id"] = request.Id
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetServiceRecordTranscript"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/service/transcript"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetServiceRecordTranscriptResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取服务记录音频转写信息
+//
+// @param request - GetServiceRecordTranscriptRequest
+//
+// @return GetServiceRecordTranscriptResponse
+func (client *Client) GetServiceRecordTranscript(request *GetServiceRecordTranscriptRequest) (_result *GetServiceRecordTranscriptResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetServiceRecordTranscriptHeaders{}
+	_result = &GetServiceRecordTranscriptResponse{}
+	_body, _err := client.GetServiceRecordTranscriptWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取文件转写的概要信息
+//
+// @param request - GetTranscriptSummaryRequest
+//
+// @param headers - GetTranscriptSummaryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTranscriptSummaryResponse
+func (client *Client) GetTranscriptSummaryWithOptions(request *GetTranscriptSummaryRequest, headers *GetTranscriptSummaryHeaders, runtime *util.RuntimeOptions) (_result *GetTranscriptSummaryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceType)) {
+		query["deviceType"] = request.DeviceType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileId)) {
+		query["fileId"] = request.FileId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTranscriptSummary"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/transcripts/summary"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetTranscriptSummaryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取文件转写的概要信息
+//
+// @param request - GetTranscriptSummaryRequest
+//
+// @return GetTranscriptSummaryResponse
+func (client *Client) GetTranscriptSummary(request *GetTranscriptSummaryRequest) (_result *GetTranscriptSummaryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTranscriptSummaryHeaders{}
+	_result = &GetTranscriptSummaryResponse{}
+	_body, _err := client.GetTranscriptSummaryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询客户列表
+//
+// @param request - ListCustomerRequest
+//
+// @param headers - ListCustomerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListCustomerResponse
+func (client *Client) ListCustomerWithOptions(request *ListCustomerRequest, headers *ListCustomerHeaders, runtime *util.RuntimeOptions) (_result *ListCustomerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnerUserId)) {
+		query["ownerUserId"] = request.OwnerUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TeamCode)) {
+		query["teamCode"] = request.TeamCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListCustomer"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/customers"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListCustomerResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询客户列表
+//
+// @param request - ListCustomerRequest
+//
+// @return ListCustomerResponse
+func (client *Client) ListCustomer(request *ListCustomerRequest) (_result *ListCustomerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListCustomerHeaders{}
+	_result = &ListCustomerResponse{}
+	_body, _err := client.ListCustomerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询服务记录
+//
+// @param request - ListServiceRecordRequest
+//
+// @param headers - ListServiceRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListServiceRecordResponse
+func (client *Client) ListServiceRecordWithOptions(request *ListServiceRecordRequest, headers *ListServiceRecordHeaders, runtime *util.RuntimeOptions) (_result *ListServiceRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TeamCode)) {
+		query["teamCode"] = request.TeamCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListServiceRecord"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/service-records"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListServiceRecordResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询服务记录
+//
+// @param request - ListServiceRecordRequest
+//
+// @return ListServiceRecordResponse
+func (client *Client) ListServiceRecord(request *ListServiceRecordRequest) (_result *ListServiceRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListServiceRecordHeaders{}
+	_result = &ListServiceRecordResponse{}
+	_body, _err := client.ListServiceRecordWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询服务记录待办列表
+//
+// @param request - ListServiceTodoRequest
+//
+// @param headers - ListServiceTodoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListServiceTodoResponse
+func (client *Client) ListServiceTodoWithOptions(request *ListServiceTodoRequest, headers *ListServiceTodoHeaders, runtime *util.RuntimeOptions) (_result *ListServiceTodoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RecordId)) {
+		query["recordId"] = request.RecordId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListServiceTodo"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/service-todos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListServiceTodoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询服务记录待办列表
+//
+// @param request - ListServiceTodoRequest
+//
+// @return ListServiceTodoResponse
+func (client *Client) ListServiceTodo(request *ListServiceTodoRequest) (_result *ListServiceTodoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListServiceTodoHeaders{}
+	_result = &ListServiceTodoResponse{}
+	_body, _err := client.ListServiceTodoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询团队列表
+//
+// @param request - ListTeamRequest
+//
+// @param headers - ListTeamHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListTeamResponse
+func (client *Client) ListTeamWithOptions(request *ListTeamRequest, headers *ListTeamHeaders, runtime *util.RuntimeOptions) (_result *ListTeamResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListTeam"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/teams"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListTeamResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询团队列表
+//
+// @param request - ListTeamRequest
+//
+// @return ListTeamResponse
+func (client *Client) ListTeam(request *ListTeamRequest) (_result *ListTeamResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListTeamHeaders{}
+	_result = &ListTeamResponse{}
+	_body, _err := client.ListTeamWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

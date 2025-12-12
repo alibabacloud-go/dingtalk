@@ -9,6 +9,126 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type CopyLinkToWorkspaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CopyLinkToWorkspaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyLinkToWorkspaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CopyLinkToWorkspaceHeaders) SetCommonHeaders(v map[string]*string) *CopyLinkToWorkspaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CopyLinkToWorkspaceHeaders) SetXAcsDingtalkAccessToken(v string) *CopyLinkToWorkspaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CopyLinkToWorkspaceRequest struct {
+	ParentNodeKey *string `json:"parentNodeKey,omitempty" xml:"parentNodeKey,omitempty"`
+	ShanhuiKey    *string `json:"shanhuiKey,omitempty" xml:"shanhuiKey,omitempty"`
+	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	WorkspaceKey  *string `json:"workspaceKey,omitempty" xml:"workspaceKey,omitempty"`
+}
+
+func (s CopyLinkToWorkspaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyLinkToWorkspaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CopyLinkToWorkspaceRequest) SetParentNodeKey(v string) *CopyLinkToWorkspaceRequest {
+	s.ParentNodeKey = &v
+	return s
+}
+
+func (s *CopyLinkToWorkspaceRequest) SetShanhuiKey(v string) *CopyLinkToWorkspaceRequest {
+	s.ShanhuiKey = &v
+	return s
+}
+
+func (s *CopyLinkToWorkspaceRequest) SetUserId(v string) *CopyLinkToWorkspaceRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *CopyLinkToWorkspaceRequest) SetWorkspaceKey(v string) *CopyLinkToWorkspaceRequest {
+	s.WorkspaceKey = &v
+	return s
+}
+
+type CopyLinkToWorkspaceResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 链接
+	Result *string `json:"result,omitempty" xml:"result,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CopyLinkToWorkspaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyLinkToWorkspaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CopyLinkToWorkspaceResponseBody) SetResult(v string) *CopyLinkToWorkspaceResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *CopyLinkToWorkspaceResponseBody) SetSuccess(v bool) *CopyLinkToWorkspaceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CopyLinkToWorkspaceResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CopyLinkToWorkspaceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CopyLinkToWorkspaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyLinkToWorkspaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CopyLinkToWorkspaceResponse) SetHeaders(v map[string]*string) *CopyLinkToWorkspaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CopyLinkToWorkspaceResponse) SetStatusCode(v int32) *CopyLinkToWorkspaceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CopyLinkToWorkspaceResponse) SetBody(v *CopyLinkToWorkspaceResponseBody) *CopyLinkToWorkspaceResponse {
+	s.Body = v
+	return s
+}
+
 type CreateFlashMeetingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -952,6 +1072,91 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+// Summary:
+//
+// 将闪会添加链接到知识库
+//
+// @param request - CopyLinkToWorkspaceRequest
+//
+// @param headers - CopyLinkToWorkspaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CopyLinkToWorkspaceResponse
+func (client *Client) CopyLinkToWorkspaceWithOptions(request *CopyLinkToWorkspaceRequest, headers *CopyLinkToWorkspaceHeaders, runtime *util.RuntimeOptions) (_result *CopyLinkToWorkspaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ParentNodeKey)) {
+		body["parentNodeKey"] = request.ParentNodeKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ShanhuiKey)) {
+		body["shanhuiKey"] = request.ShanhuiKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WorkspaceKey)) {
+		body["workspaceKey"] = request.WorkspaceKey
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CopyLinkToWorkspace"),
+		Version:     tea.String("flashmeeting_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/flashmeeting/meetings/copyLinkToWorkspace"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CopyLinkToWorkspaceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 将闪会添加链接到知识库
+//
+// @param request - CopyLinkToWorkspaceRequest
+//
+// @return CopyLinkToWorkspaceResponse
+func (client *Client) CopyLinkToWorkspace(request *CopyLinkToWorkspaceRequest) (_result *CopyLinkToWorkspaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CopyLinkToWorkspaceHeaders{}
+	_result = &CopyLinkToWorkspaceResponse{}
+	_body, _err := client.CopyLinkToWorkspaceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 // Summary:

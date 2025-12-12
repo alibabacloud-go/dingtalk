@@ -174,6 +174,157 @@ func (s *BatchGetMinutesDetailsResponse) SetBody(v *BatchGetMinutesDetailsRespon
 	return s
 }
 
+type CreateMinutesByUploadFileHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateMinutesByUploadFileHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateMinutesByUploadFileHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateMinutesByUploadFileHeaders) SetCommonHeaders(v map[string]*string) *CreateMinutesByUploadFileHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateMinutesByUploadFileHeaders) SetXAcsDingtalkAccessToken(v string) *CreateMinutesByUploadFileHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateMinutesByUploadFileRequest struct {
+	// This parameter is required.
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lJcRnm39OsU4jlFVmRGXXXXX
+	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://media.source/audiotominutes.ogg
+	MediaFileUrl *string `json:"mediaFileUrl,omitempty" xml:"mediaFileUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// audio
+	MediaType *string `json:"mediaType,omitempty" xml:"mediaType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 11-20 录音
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lJcRnm39OsU4jlFVmRGXXXXX
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s CreateMinutesByUploadFileRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateMinutesByUploadFileRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateMinutesByUploadFileRequest) SetBizId(v string) *CreateMinutesByUploadFileRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *CreateMinutesByUploadFileRequest) SetCreatorId(v string) *CreateMinutesByUploadFileRequest {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *CreateMinutesByUploadFileRequest) SetMediaFileUrl(v string) *CreateMinutesByUploadFileRequest {
+	s.MediaFileUrl = &v
+	return s
+}
+
+func (s *CreateMinutesByUploadFileRequest) SetMediaType(v string) *CreateMinutesByUploadFileRequest {
+	s.MediaType = &v
+	return s
+}
+
+func (s *CreateMinutesByUploadFileRequest) SetTitle(v string) *CreateMinutesByUploadFileRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *CreateMinutesByUploadFileRequest) SetUnionId(v string) *CreateMinutesByUploadFileRequest {
+	s.UnionId = &v
+	return s
+}
+
+type CreateMinutesByUploadFileResponseBody struct {
+	BizId *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	// example:
+	//
+	// 7632756964313430aaaaaaaaaaaaaaaaaaaaaaaaaa7363731333633305f35
+	TaskUuid *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
+}
+
+func (s CreateMinutesByUploadFileResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateMinutesByUploadFileResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateMinutesByUploadFileResponseBody) SetBizId(v string) *CreateMinutesByUploadFileResponseBody {
+	s.BizId = &v
+	return s
+}
+
+func (s *CreateMinutesByUploadFileResponseBody) SetTaskUuid(v string) *CreateMinutesByUploadFileResponseBody {
+	s.TaskUuid = &v
+	return s
+}
+
+type CreateMinutesByUploadFileResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateMinutesByUploadFileResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateMinutesByUploadFileResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateMinutesByUploadFileResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateMinutesByUploadFileResponse) SetHeaders(v map[string]*string) *CreateMinutesByUploadFileResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateMinutesByUploadFileResponse) SetStatusCode(v int32) *CreateMinutesByUploadFileResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateMinutesByUploadFileResponse) SetBody(v *CreateMinutesByUploadFileResponseBody) *CreateMinutesByUploadFileResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteMinutesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -991,6 +1142,97 @@ func (s *QueryMinutesBasicInfoResponse) SetBody(v *QueryMinutesBasicInfoResponse
 	return s
 }
 
+type QueryMinutesKeywordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryMinutesKeywordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesKeywordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesKeywordHeaders) SetCommonHeaders(v map[string]*string) *QueryMinutesKeywordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryMinutesKeywordHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMinutesKeywordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryMinutesKeywordRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// D5xxxxxxxxxgiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryMinutesKeywordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesKeywordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesKeywordRequest) SetUnionId(v string) *QueryMinutesKeywordRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryMinutesKeywordResponseBody struct {
+	Keywords []*string `json:"keywords,omitempty" xml:"keywords,omitempty" type:"Repeated"`
+}
+
+func (s QueryMinutesKeywordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesKeywordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesKeywordResponseBody) SetKeywords(v []*string) *QueryMinutesKeywordResponseBody {
+	s.Keywords = v
+	return s
+}
+
+type QueryMinutesKeywordResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryMinutesKeywordResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryMinutesKeywordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesKeywordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesKeywordResponse) SetHeaders(v map[string]*string) *QueryMinutesKeywordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryMinutesKeywordResponse) SetStatusCode(v int32) *QueryMinutesKeywordResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryMinutesKeywordResponse) SetBody(v *QueryMinutesKeywordResponseBody) *QueryMinutesKeywordResponse {
+	s.Body = v
+	return s
+}
+
 type QueryMinutesPlayInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1647,6 +1889,97 @@ func (s *QueryMinutesTextResponse) SetBody(v *QueryMinutesTextResponseBody) *Que
 	return s
 }
 
+type QueryMinutesTodoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryMinutesTodoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesTodoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesTodoHeaders) SetCommonHeaders(v map[string]*string) *QueryMinutesTodoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryMinutesTodoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMinutesTodoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryMinutesTodoRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// D5xxxxxxxxxgiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryMinutesTodoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesTodoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesTodoRequest) SetUnionId(v string) *QueryMinutesTodoRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryMinutesTodoResponseBody struct {
+	Actions []*string `json:"actions,omitempty" xml:"actions,omitempty" type:"Repeated"`
+}
+
+func (s QueryMinutesTodoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesTodoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesTodoResponseBody) SetActions(v []*string) *QueryMinutesTodoResponseBody {
+	s.Actions = v
+	return s
+}
+
+type QueryMinutesTodoResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryMinutesTodoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryMinutesTodoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMinutesTodoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMinutesTodoResponse) SetHeaders(v map[string]*string) *QueryMinutesTodoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryMinutesTodoResponse) SetStatusCode(v int32) *QueryMinutesTodoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryMinutesTodoResponse) SetBody(v *QueryMinutesTodoResponseBody) *QueryMinutesTodoResponse {
+	s.Body = v
+	return s
+}
+
 type QueryScheduleConfMinutesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2144,6 +2477,101 @@ func (client *Client) BatchGetMinutesDetails(request *BatchGetMinutesDetailsRequ
 
 // Summary:
 //
+// 从上传的媒体文件创建闪记
+//
+// @param request - CreateMinutesByUploadFileRequest
+//
+// @param headers - CreateMinutesByUploadFileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateMinutesByUploadFileResponse
+func (client *Client) CreateMinutesByUploadFileWithOptions(request *CreateMinutesByUploadFileRequest, headers *CreateMinutesByUploadFileHeaders, runtime *util.RuntimeOptions) (_result *CreateMinutesByUploadFileResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreatorId)) {
+		body["creatorId"] = request.CreatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MediaFileUrl)) {
+		body["mediaFileUrl"] = request.MediaFileUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MediaType)) {
+		body["mediaType"] = request.MediaType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateMinutesByUploadFile"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/flashMinutes/createMinutesByUploadFile"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateMinutesByUploadFileResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 从上传的媒体文件创建闪记
+//
+// @param request - CreateMinutesByUploadFileRequest
+//
+// @return CreateMinutesByUploadFileResponse
+func (client *Client) CreateMinutesByUploadFile(request *CreateMinutesByUploadFileRequest) (_result *CreateMinutesByUploadFileResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateMinutesByUploadFileHeaders{}
+	_result = &CreateMinutesByUploadFileResponse{}
+	_body, _err := client.CreateMinutesByUploadFileWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 删除闪记
 //
 // @param request - DeleteMinutesRequest
@@ -2624,6 +3052,79 @@ func (client *Client) QueryMinutesBasicInfo(request *QueryMinutesBasicInfoReques
 
 // Summary:
 //
+// 查询闪记关键字
+//
+// @param request - QueryMinutesKeywordRequest
+//
+// @param headers - QueryMinutesKeywordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMinutesKeywordResponse
+func (client *Client) QueryMinutesKeywordWithOptions(taskUuid *string, request *QueryMinutesKeywordRequest, headers *QueryMinutesKeywordHeaders, runtime *util.RuntimeOptions) (_result *QueryMinutesKeywordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMinutesKeyword"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/flashMinutes/" + tea.StringValue(taskUuid) + "/keywords"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryMinutesKeywordResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询闪记关键字
+//
+// @param request - QueryMinutesKeywordRequest
+//
+// @return QueryMinutesKeywordResponse
+func (client *Client) QueryMinutesKeyword(taskUuid *string, request *QueryMinutesKeywordRequest) (_result *QueryMinutesKeywordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryMinutesKeywordHeaders{}
+	_result = &QueryMinutesKeywordResponse{}
+	_body, _err := client.QueryMinutesKeywordWithOptions(taskUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 查询闪记媒体播放信息
 //
 // @param request - QueryMinutesPlayInfoRequest
@@ -2931,6 +3432,79 @@ func (client *Client) QueryMinutesText(taskUuid *string, request *QueryMinutesTe
 	headers := &QueryMinutesTextHeaders{}
 	_result = &QueryMinutesTextResponse{}
 	_body, _err := client.QueryMinutesTextWithOptions(taskUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询闪记待办
+//
+// @param request - QueryMinutesTodoRequest
+//
+// @param headers - QueryMinutesTodoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMinutesTodoResponse
+func (client *Client) QueryMinutesTodoWithOptions(taskUuid *string, request *QueryMinutesTodoRequest, headers *QueryMinutesTodoHeaders, runtime *util.RuntimeOptions) (_result *QueryMinutesTodoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMinutesTodo"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/flashMinutes/" + tea.StringValue(taskUuid) + "/todos"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryMinutesTodoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询闪记待办
+//
+// @param request - QueryMinutesTodoRequest
+//
+// @return QueryMinutesTodoResponse
+func (client *Client) QueryMinutesTodo(taskUuid *string, request *QueryMinutesTodoRequest) (_result *QueryMinutesTodoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryMinutesTodoHeaders{}
+	_result = &QueryMinutesTodoResponse{}
+	_body, _err := client.QueryMinutesTodoWithOptions(taskUuid, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

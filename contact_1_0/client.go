@@ -8656,6 +8656,78 @@ func (s *QueryVerifyResultResponse) SetBody(v *QueryVerifyResultResponseBody) *Q
 	return s
 }
 
+type RecallTeamInviteHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RecallTeamInviteHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RecallTeamInviteHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RecallTeamInviteHeaders) SetCommonHeaders(v map[string]*string) *RecallTeamInviteHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RecallTeamInviteHeaders) SetXAcsDingtalkAccessToken(v string) *RecallTeamInviteHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RecallTeamInviteRequest struct {
+	// example:
+	//
+	// 13336082715
+	Mobile    *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	OptUserId *string `json:"optUserId,omitempty" xml:"optUserId,omitempty"`
+}
+
+func (s RecallTeamInviteRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RecallTeamInviteRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RecallTeamInviteRequest) SetMobile(v string) *RecallTeamInviteRequest {
+	s.Mobile = &v
+	return s
+}
+
+func (s *RecallTeamInviteRequest) SetOptUserId(v string) *RecallTeamInviteRequest {
+	s.OptUserId = &v
+	return s
+}
+
+type RecallTeamInviteResponse struct {
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+}
+
+func (s RecallTeamInviteResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RecallTeamInviteResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RecallTeamInviteResponse) SetHeaders(v map[string]*string) *RecallTeamInviteResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RecallTeamInviteResponse) SetStatusCode(v int32) *RecallTeamInviteResponse {
+	s.StatusCode = &v
+	return s
+}
+
 type SearchDepartmentHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -16487,6 +16559,83 @@ func (client *Client) QueryVerifyResult(request *QueryVerifyResultRequest) (_res
 	headers := &QueryVerifyResultHeaders{}
 	_result = &QueryVerifyResultResponse{}
 	_body, _err := client.QueryVerifyResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 撤回已经发出的团队邀请
+//
+// @param request - RecallTeamInviteRequest
+//
+// @param headers - RecallTeamInviteHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RecallTeamInviteResponse
+func (client *Client) RecallTeamInviteWithOptions(request *RecallTeamInviteRequest, headers *RecallTeamInviteHeaders, runtime *util.RuntimeOptions) (_result *RecallTeamInviteResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Mobile)) {
+		query["mobile"] = request.Mobile
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OptUserId)) {
+		query["optUserId"] = request.OptUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RecallTeamInvite"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/invites/recall"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("none"),
+	}
+	_result = &RecallTeamInviteResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 撤回已经发出的团队邀请
+//
+// @param request - RecallTeamInviteRequest
+//
+// @return RecallTeamInviteResponse
+func (client *Client) RecallTeamInvite(request *RecallTeamInviteRequest) (_result *RecallTeamInviteResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RecallTeamInviteHeaders{}
+	_result = &RecallTeamInviteResponse{}
+	_body, _err := client.RecallTeamInviteWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

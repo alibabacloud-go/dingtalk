@@ -972,6 +972,808 @@ func (s *PreCheckTemplateResponse) SetBody(v *PreCheckTemplateResponseBody) *Pre
 	return s
 }
 
+type QueryTripFlightOrderByPageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryTripFlightOrderByPageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripFlightOrderByPageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripFlightOrderByPageHeaders) SetCommonHeaders(v map[string]*string) *QueryTripFlightOrderByPageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageHeaders) SetXAcsDingtalkAccessToken(v string) *QueryTripFlightOrderByPageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryTripFlightOrderByPageRequest struct {
+	// example:
+	//
+	// 2025-12-01
+	EndTime     *string   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	OrderStatus []*string `json:"orderStatus,omitempty" xml:"orderStatus,omitempty" type:"Repeated"`
+	PageIndex   *int32    `json:"pageIndex,omitempty" xml:"pageIndex,omitempty"`
+	PageSize    *int32    `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 2025-11-11
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s QueryTripFlightOrderByPageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripFlightOrderByPageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripFlightOrderByPageRequest) SetEndTime(v string) *QueryTripFlightOrderByPageRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageRequest) SetOrderStatus(v []*string) *QueryTripFlightOrderByPageRequest {
+	s.OrderStatus = v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageRequest) SetPageIndex(v int32) *QueryTripFlightOrderByPageRequest {
+	s.PageIndex = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageRequest) SetPageSize(v int32) *QueryTripFlightOrderByPageRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageRequest) SetStartTime(v string) *QueryTripFlightOrderByPageRequest {
+	s.StartTime = &v
+	return s
+}
+
+type QueryTripFlightOrderByPageShrinkRequest struct {
+	// example:
+	//
+	// 2025-12-01
+	EndTime           *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	OrderStatusShrink *string `json:"orderStatus,omitempty" xml:"orderStatus,omitempty"`
+	PageIndex         *int32  `json:"pageIndex,omitempty" xml:"pageIndex,omitempty"`
+	PageSize          *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 2025-11-11
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s QueryTripFlightOrderByPageShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripFlightOrderByPageShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripFlightOrderByPageShrinkRequest) SetEndTime(v string) *QueryTripFlightOrderByPageShrinkRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageShrinkRequest) SetOrderStatusShrink(v string) *QueryTripFlightOrderByPageShrinkRequest {
+	s.OrderStatusShrink = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageShrinkRequest) SetPageIndex(v int32) *QueryTripFlightOrderByPageShrinkRequest {
+	s.PageIndex = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageShrinkRequest) SetPageSize(v int32) *QueryTripFlightOrderByPageShrinkRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageShrinkRequest) SetStartTime(v string) *QueryTripFlightOrderByPageShrinkRequest {
+	s.StartTime = &v
+	return s
+}
+
+type QueryTripFlightOrderByPageResponseBody struct {
+	HasMore    *bool                                         `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List       []*QueryTripFlightOrderByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextCursor *int64                                        `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	TotalCount *int64                                        `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryTripFlightOrderByPageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripFlightOrderByPageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripFlightOrderByPageResponseBody) SetHasMore(v bool) *QueryTripFlightOrderByPageResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBody) SetList(v []*QueryTripFlightOrderByPageResponseBodyList) *QueryTripFlightOrderByPageResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBody) SetNextCursor(v int64) *QueryTripFlightOrderByPageResponseBody {
+	s.NextCursor = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBody) SetTotalCount(v int64) *QueryTripFlightOrderByPageResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryTripFlightOrderByPageResponseBodyList struct {
+	ArrivalTime           *string                                                    `json:"arrivalTime,omitempty" xml:"arrivalTime,omitempty"`
+	ConsumerInfos         []*QueryTripFlightOrderByPageResponseBodyListConsumerInfos `json:"consumerInfos,omitempty" xml:"consumerInfos,omitempty" type:"Repeated"`
+	ContactName           *string                                                    `json:"contactName,omitempty" xml:"contactName,omitempty"`
+	CostCenter            *string                                                    `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
+	CostCenterCode        *string                                                    `json:"costCenterCode,omitempty" xml:"costCenterCode,omitempty"`
+	CreateTime            *int64                                                     `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	DepartTime            *string                                                    `json:"departTime,omitempty" xml:"departTime,omitempty"`
+	DepartmentId          *string                                                    `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	DepartmentName        *string                                                    `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	DestinationCity       *string                                                    `json:"destinationCity,omitempty" xml:"destinationCity,omitempty"`
+	DestinationStation    *string                                                    `json:"destinationStation,omitempty" xml:"destinationStation,omitempty"`
+	FlightOrderStatus     *int32                                                     `json:"flightOrderStatus,omitempty" xml:"flightOrderStatus,omitempty"`
+	FlightOrderStatusDesc *string                                                    `json:"flightOrderStatusDesc,omitempty" xml:"flightOrderStatusDesc,omitempty"`
+	GmtOrder              *int64                                                     `json:"gmtOrder,omitempty" xml:"gmtOrder,omitempty"`
+	GmtPay                *int64                                                     `json:"gmtPay,omitempty" xml:"gmtPay,omitempty"`
+	InvoiceId             *string                                                    `json:"invoiceId,omitempty" xml:"invoiceId,omitempty"`
+	InvoiceTitle          *string                                                    `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
+	OrderDetails          *string                                                    `json:"orderDetails,omitempty" xml:"orderDetails,omitempty"`
+	OrderNo               *string                                                    `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	OriginCity            *string                                                    `json:"originCity,omitempty" xml:"originCity,omitempty"`
+	OriginStation         *string                                                    `json:"originStation,omitempty" xml:"originStation,omitempty"`
+	PassengerCount        *int32                                                     `json:"passengerCount,omitempty" xml:"passengerCount,omitempty"`
+	PassengerName         *string                                                    `json:"passengerName,omitempty" xml:"passengerName,omitempty"`
+	ProcessInstanceId     *string                                                    `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	SeatType              *string                                                    `json:"seatType,omitempty" xml:"seatType,omitempty"`
+	TotalAmount           *int64                                                     `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
+	TransportNumber       *string                                                    `json:"transportNumber,omitempty" xml:"transportNumber,omitempty"`
+	TripType              *string                                                    `json:"tripType,omitempty" xml:"tripType,omitempty"`
+	UpdateTime            *int64                                                     `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	UserId                *string                                                    `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserName              *string                                                    `json:"userName,omitempty" xml:"userName,omitempty"`
+}
+
+func (s QueryTripFlightOrderByPageResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripFlightOrderByPageResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetArrivalTime(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.ArrivalTime = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetConsumerInfos(v []*QueryTripFlightOrderByPageResponseBodyListConsumerInfos) *QueryTripFlightOrderByPageResponseBodyList {
+	s.ConsumerInfos = v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetContactName(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.ContactName = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetCostCenter(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.CostCenter = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetCostCenterCode(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.CostCenterCode = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetCreateTime(v int64) *QueryTripFlightOrderByPageResponseBodyList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetDepartTime(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.DepartTime = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetDepartmentId(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.DepartmentId = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetDepartmentName(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.DepartmentName = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetDestinationCity(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.DestinationCity = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetDestinationStation(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.DestinationStation = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetFlightOrderStatus(v int32) *QueryTripFlightOrderByPageResponseBodyList {
+	s.FlightOrderStatus = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetFlightOrderStatusDesc(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.FlightOrderStatusDesc = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetGmtOrder(v int64) *QueryTripFlightOrderByPageResponseBodyList {
+	s.GmtOrder = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetGmtPay(v int64) *QueryTripFlightOrderByPageResponseBodyList {
+	s.GmtPay = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetInvoiceId(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.InvoiceId = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetInvoiceTitle(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.InvoiceTitle = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetOrderDetails(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.OrderDetails = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetOrderNo(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetOriginCity(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.OriginCity = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetOriginStation(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.OriginStation = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetPassengerCount(v int32) *QueryTripFlightOrderByPageResponseBodyList {
+	s.PassengerCount = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetPassengerName(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.PassengerName = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetProcessInstanceId(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetSeatType(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.SeatType = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetTotalAmount(v int64) *QueryTripFlightOrderByPageResponseBodyList {
+	s.TotalAmount = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetTransportNumber(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.TransportNumber = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetTripType(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.TripType = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetUpdateTime(v int64) *QueryTripFlightOrderByPageResponseBodyList {
+	s.UpdateTime = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetUserId(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.UserId = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyList) SetUserName(v string) *QueryTripFlightOrderByPageResponseBodyList {
+	s.UserName = &v
+	return s
+}
+
+type QueryTripFlightOrderByPageResponseBodyListConsumerInfos struct {
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	StaffFlag *bool   `json:"staffFlag,omitempty" xml:"staffFlag,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryTripFlightOrderByPageResponseBodyListConsumerInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripFlightOrderByPageResponseBodyListConsumerInfos) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyListConsumerInfos) SetName(v string) *QueryTripFlightOrderByPageResponseBodyListConsumerInfos {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyListConsumerInfos) SetStaffFlag(v bool) *QueryTripFlightOrderByPageResponseBodyListConsumerInfos {
+	s.StaffFlag = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponseBodyListConsumerInfos) SetUserId(v string) *QueryTripFlightOrderByPageResponseBodyListConsumerInfos {
+	s.UserId = &v
+	return s
+}
+
+type QueryTripFlightOrderByPageResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryTripFlightOrderByPageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryTripFlightOrderByPageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripFlightOrderByPageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripFlightOrderByPageResponse) SetHeaders(v map[string]*string) *QueryTripFlightOrderByPageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponse) SetStatusCode(v int32) *QueryTripFlightOrderByPageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryTripFlightOrderByPageResponse) SetBody(v *QueryTripFlightOrderByPageResponseBody) *QueryTripFlightOrderByPageResponse {
+	s.Body = v
+	return s
+}
+
+type QueryTripHotelOrderByPageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryTripHotelOrderByPageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripHotelOrderByPageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripHotelOrderByPageHeaders) SetCommonHeaders(v map[string]*string) *QueryTripHotelOrderByPageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageHeaders) SetXAcsDingtalkAccessToken(v string) *QueryTripHotelOrderByPageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryTripHotelOrderByPageRequest struct {
+	// example:
+	//
+	// 2025-12-01
+	EndTime     *string   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	OrderStatus []*string `json:"orderStatus,omitempty" xml:"orderStatus,omitempty" type:"Repeated"`
+	PageIndex   *int32    `json:"pageIndex,omitempty" xml:"pageIndex,omitempty"`
+	PageSize    *int32    `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 2025-11-11
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s QueryTripHotelOrderByPageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripHotelOrderByPageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripHotelOrderByPageRequest) SetEndTime(v string) *QueryTripHotelOrderByPageRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageRequest) SetOrderStatus(v []*string) *QueryTripHotelOrderByPageRequest {
+	s.OrderStatus = v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageRequest) SetPageIndex(v int32) *QueryTripHotelOrderByPageRequest {
+	s.PageIndex = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageRequest) SetPageSize(v int32) *QueryTripHotelOrderByPageRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageRequest) SetStartTime(v string) *QueryTripHotelOrderByPageRequest {
+	s.StartTime = &v
+	return s
+}
+
+type QueryTripHotelOrderByPageShrinkRequest struct {
+	// example:
+	//
+	// 2025-12-01
+	EndTime           *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	OrderStatusShrink *string `json:"orderStatus,omitempty" xml:"orderStatus,omitempty"`
+	PageIndex         *int32  `json:"pageIndex,omitempty" xml:"pageIndex,omitempty"`
+	PageSize          *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 2025-11-11
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s QueryTripHotelOrderByPageShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripHotelOrderByPageShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripHotelOrderByPageShrinkRequest) SetEndTime(v string) *QueryTripHotelOrderByPageShrinkRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageShrinkRequest) SetOrderStatusShrink(v string) *QueryTripHotelOrderByPageShrinkRequest {
+	s.OrderStatusShrink = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageShrinkRequest) SetPageIndex(v int32) *QueryTripHotelOrderByPageShrinkRequest {
+	s.PageIndex = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageShrinkRequest) SetPageSize(v int32) *QueryTripHotelOrderByPageShrinkRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageShrinkRequest) SetStartTime(v string) *QueryTripHotelOrderByPageShrinkRequest {
+	s.StartTime = &v
+	return s
+}
+
+type QueryTripHotelOrderByPageResponseBody struct {
+	HasMore    *bool                                        `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List       []*QueryTripHotelOrderByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextCursor *int64                                       `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	TotalCount *int64                                       `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryTripHotelOrderByPageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripHotelOrderByPageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripHotelOrderByPageResponseBody) SetHasMore(v bool) *QueryTripHotelOrderByPageResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBody) SetList(v []*QueryTripHotelOrderByPageResponseBodyList) *QueryTripHotelOrderByPageResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBody) SetNextCursor(v int64) *QueryTripHotelOrderByPageResponseBody {
+	s.NextCursor = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBody) SetTotalCount(v int64) *QueryTripHotelOrderByPageResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryTripHotelOrderByPageResponseBodyList struct {
+	CheckInTime          *string                                                   `json:"checkInTime,omitempty" xml:"checkInTime,omitempty"`
+	CheckOutTime         *string                                                   `json:"checkOutTime,omitempty" xml:"checkOutTime,omitempty"`
+	City                 *string                                                   `json:"city,omitempty" xml:"city,omitempty"`
+	ConsumerInfos        []*QueryTripHotelOrderByPageResponseBodyListConsumerInfos `json:"consumerInfos,omitempty" xml:"consumerInfos,omitempty" type:"Repeated"`
+	ContactName          *string                                                   `json:"contactName,omitempty" xml:"contactName,omitempty"`
+	CostCenter           *string                                                   `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
+	CostCenterCode       *string                                                   `json:"costCenterCode,omitempty" xml:"costCenterCode,omitempty"`
+	CreateTime           *int64                                                    `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	DepartmentId         *string                                                   `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	DepartmentName       *string                                                   `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	GmtOrder             *int64                                                    `json:"gmtOrder,omitempty" xml:"gmtOrder,omitempty"`
+	GmtPay               *int64                                                    `json:"gmtPay,omitempty" xml:"gmtPay,omitempty"`
+	Guest                *string                                                   `json:"guest,omitempty" xml:"guest,omitempty"`
+	HotelName            *string                                                   `json:"hotelName,omitempty" xml:"hotelName,omitempty"`
+	HotelOrderStatus     *string                                                   `json:"hotelOrderStatus,omitempty" xml:"hotelOrderStatus,omitempty"`
+	HotelOrderStatusDesc *string                                                   `json:"hotelOrderStatusDesc,omitempty" xml:"hotelOrderStatusDesc,omitempty"`
+	InvoiceId            *string                                                   `json:"invoiceId,omitempty" xml:"invoiceId,omitempty"`
+	InvoiceTitle         *string                                                   `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
+	Night                *int32                                                    `json:"night,omitempty" xml:"night,omitempty"`
+	OrderDetails         *string                                                   `json:"orderDetails,omitempty" xml:"orderDetails,omitempty"`
+	OrderNo              *string                                                   `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	PayType              *string                                                   `json:"payType,omitempty" xml:"payType,omitempty"`
+	ProcessInstanceId    *string                                                   `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	RoomNum              *int32                                                    `json:"roomNum,omitempty" xml:"roomNum,omitempty"`
+	RoomType             *string                                                   `json:"roomType,omitempty" xml:"roomType,omitempty"`
+	TotalAmount          *int64                                                    `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
+	UpdateTime           *int64                                                    `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	UserId               *string                                                   `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserName             *string                                                   `json:"userName,omitempty" xml:"userName,omitempty"`
+}
+
+func (s QueryTripHotelOrderByPageResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripHotelOrderByPageResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetCheckInTime(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.CheckInTime = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetCheckOutTime(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.CheckOutTime = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetCity(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.City = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetConsumerInfos(v []*QueryTripHotelOrderByPageResponseBodyListConsumerInfos) *QueryTripHotelOrderByPageResponseBodyList {
+	s.ConsumerInfos = v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetContactName(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.ContactName = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetCostCenter(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.CostCenter = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetCostCenterCode(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.CostCenterCode = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetCreateTime(v int64) *QueryTripHotelOrderByPageResponseBodyList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetDepartmentId(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.DepartmentId = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetDepartmentName(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.DepartmentName = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetGmtOrder(v int64) *QueryTripHotelOrderByPageResponseBodyList {
+	s.GmtOrder = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetGmtPay(v int64) *QueryTripHotelOrderByPageResponseBodyList {
+	s.GmtPay = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetGuest(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.Guest = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetHotelName(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.HotelName = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetHotelOrderStatus(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.HotelOrderStatus = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetHotelOrderStatusDesc(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.HotelOrderStatusDesc = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetInvoiceId(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.InvoiceId = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetInvoiceTitle(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.InvoiceTitle = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetNight(v int32) *QueryTripHotelOrderByPageResponseBodyList {
+	s.Night = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetOrderDetails(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.OrderDetails = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetOrderNo(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetPayType(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.PayType = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetProcessInstanceId(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetRoomNum(v int32) *QueryTripHotelOrderByPageResponseBodyList {
+	s.RoomNum = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetRoomType(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.RoomType = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetTotalAmount(v int64) *QueryTripHotelOrderByPageResponseBodyList {
+	s.TotalAmount = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetUpdateTime(v int64) *QueryTripHotelOrderByPageResponseBodyList {
+	s.UpdateTime = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetUserId(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.UserId = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyList) SetUserName(v string) *QueryTripHotelOrderByPageResponseBodyList {
+	s.UserName = &v
+	return s
+}
+
+type QueryTripHotelOrderByPageResponseBodyListConsumerInfos struct {
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	StaffFlag *bool   `json:"staffFlag,omitempty" xml:"staffFlag,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryTripHotelOrderByPageResponseBodyListConsumerInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripHotelOrderByPageResponseBodyListConsumerInfos) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyListConsumerInfos) SetName(v string) *QueryTripHotelOrderByPageResponseBodyListConsumerInfos {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyListConsumerInfos) SetStaffFlag(v bool) *QueryTripHotelOrderByPageResponseBodyListConsumerInfos {
+	s.StaffFlag = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponseBodyListConsumerInfos) SetUserId(v string) *QueryTripHotelOrderByPageResponseBodyListConsumerInfos {
+	s.UserId = &v
+	return s
+}
+
+type QueryTripHotelOrderByPageResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryTripHotelOrderByPageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryTripHotelOrderByPageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripHotelOrderByPageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripHotelOrderByPageResponse) SetHeaders(v map[string]*string) *QueryTripHotelOrderByPageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponse) SetStatusCode(v int32) *QueryTripHotelOrderByPageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryTripHotelOrderByPageResponse) SetBody(v *QueryTripHotelOrderByPageResponseBody) *QueryTripHotelOrderByPageResponse {
+	s.Body = v
+	return s
+}
+
 type QueryTripProcessTemplatesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1111,6 +1913,413 @@ func (s *QueryTripProcessTemplatesResponse) SetStatusCode(v int32) *QueryTripPro
 }
 
 func (s *QueryTripProcessTemplatesResponse) SetBody(v *QueryTripProcessTemplatesResponseBody) *QueryTripProcessTemplatesResponse {
+	s.Body = v
+	return s
+}
+
+type QueryTripTrainOrderByPageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryTripTrainOrderByPageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripTrainOrderByPageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripTrainOrderByPageHeaders) SetCommonHeaders(v map[string]*string) *QueryTripTrainOrderByPageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageHeaders) SetXAcsDingtalkAccessToken(v string) *QueryTripTrainOrderByPageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryTripTrainOrderByPageRequest struct {
+	// example:
+	//
+	// 2025-12-01
+	EndTime     *string   `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	OrderStatus []*string `json:"orderStatus,omitempty" xml:"orderStatus,omitempty" type:"Repeated"`
+	PageIndex   *int32    `json:"pageIndex,omitempty" xml:"pageIndex,omitempty"`
+	PageSize    *int32    `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 2025-11-11
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s QueryTripTrainOrderByPageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripTrainOrderByPageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripTrainOrderByPageRequest) SetEndTime(v string) *QueryTripTrainOrderByPageRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageRequest) SetOrderStatus(v []*string) *QueryTripTrainOrderByPageRequest {
+	s.OrderStatus = v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageRequest) SetPageIndex(v int32) *QueryTripTrainOrderByPageRequest {
+	s.PageIndex = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageRequest) SetPageSize(v int32) *QueryTripTrainOrderByPageRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageRequest) SetStartTime(v string) *QueryTripTrainOrderByPageRequest {
+	s.StartTime = &v
+	return s
+}
+
+type QueryTripTrainOrderByPageShrinkRequest struct {
+	// example:
+	//
+	// 2025-12-01
+	EndTime           *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	OrderStatusShrink *string `json:"orderStatus,omitempty" xml:"orderStatus,omitempty"`
+	PageIndex         *int32  `json:"pageIndex,omitempty" xml:"pageIndex,omitempty"`
+	PageSize          *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 2025-11-11
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s QueryTripTrainOrderByPageShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripTrainOrderByPageShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripTrainOrderByPageShrinkRequest) SetEndTime(v string) *QueryTripTrainOrderByPageShrinkRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageShrinkRequest) SetOrderStatusShrink(v string) *QueryTripTrainOrderByPageShrinkRequest {
+	s.OrderStatusShrink = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageShrinkRequest) SetPageIndex(v int32) *QueryTripTrainOrderByPageShrinkRequest {
+	s.PageIndex = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageShrinkRequest) SetPageSize(v int32) *QueryTripTrainOrderByPageShrinkRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageShrinkRequest) SetStartTime(v string) *QueryTripTrainOrderByPageShrinkRequest {
+	s.StartTime = &v
+	return s
+}
+
+type QueryTripTrainOrderByPageResponseBody struct {
+	HasMore    *bool                                        `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List       []*QueryTripTrainOrderByPageResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextCursor *int64                                       `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	TotalCount *int64                                       `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryTripTrainOrderByPageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripTrainOrderByPageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripTrainOrderByPageResponseBody) SetHasMore(v bool) *QueryTripTrainOrderByPageResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBody) SetList(v []*QueryTripTrainOrderByPageResponseBodyList) *QueryTripTrainOrderByPageResponseBody {
+	s.List = v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBody) SetNextCursor(v int64) *QueryTripTrainOrderByPageResponseBody {
+	s.NextCursor = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBody) SetTotalCount(v int64) *QueryTripTrainOrderByPageResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryTripTrainOrderByPageResponseBodyList struct {
+	ArrivalCity          *string                                                   `json:"arrivalCity,omitempty" xml:"arrivalCity,omitempty"`
+	ArrivalStation       *string                                                   `json:"arrivalStation,omitempty" xml:"arrivalStation,omitempty"`
+	ArrivalTime          *string                                                   `json:"arrivalTime,omitempty" xml:"arrivalTime,omitempty"`
+	ConsumerInfos        []*QueryTripTrainOrderByPageResponseBodyListConsumerInfos `json:"consumerInfos,omitempty" xml:"consumerInfos,omitempty" type:"Repeated"`
+	ContactName          *string                                                   `json:"contactName,omitempty" xml:"contactName,omitempty"`
+	CostCenter           *string                                                   `json:"costCenter,omitempty" xml:"costCenter,omitempty"`
+	CostCenterCode       *string                                                   `json:"costCenterCode,omitempty" xml:"costCenterCode,omitempty"`
+	CreateTime           *int64                                                    `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	DepartmentId         *string                                                   `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	DepartmentName       *string                                                   `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	DepartureCity        *string                                                   `json:"departureCity,omitempty" xml:"departureCity,omitempty"`
+	DepartureStation     *string                                                   `json:"departureStation,omitempty" xml:"departureStation,omitempty"`
+	DepartureTime        *string                                                   `json:"departureTime,omitempty" xml:"departureTime,omitempty"`
+	GmtOrder             *int64                                                    `json:"gmtOrder,omitempty" xml:"gmtOrder,omitempty"`
+	GmtPay               *int64                                                    `json:"gmtPay,omitempty" xml:"gmtPay,omitempty"`
+	InvoiceId            *string                                                   `json:"invoiceId,omitempty" xml:"invoiceId,omitempty"`
+	InvoiceTitle         *string                                                   `json:"invoiceTitle,omitempty" xml:"invoiceTitle,omitempty"`
+	OrderDetails         *string                                                   `json:"orderDetails,omitempty" xml:"orderDetails,omitempty"`
+	OrderNo              *string                                                   `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	PayType              *string                                                   `json:"payType,omitempty" xml:"payType,omitempty"`
+	ProcessInstanceId    *string                                                   `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	RunTime              *string                                                   `json:"runTime,omitempty" xml:"runTime,omitempty"`
+	SeatType             *string                                                   `json:"seatType,omitempty" xml:"seatType,omitempty"`
+	TicketCount          *string                                                   `json:"ticketCount,omitempty" xml:"ticketCount,omitempty"`
+	TotalAmount          *int64                                                    `json:"totalAmount,omitempty" xml:"totalAmount,omitempty"`
+	TrainNumber          *string                                                   `json:"trainNumber,omitempty" xml:"trainNumber,omitempty"`
+	TrainOrderStatus     *string                                                   `json:"trainOrderStatus,omitempty" xml:"trainOrderStatus,omitempty"`
+	TrainOrderStatusDesc *string                                                   `json:"trainOrderStatusDesc,omitempty" xml:"trainOrderStatusDesc,omitempty"`
+	UpdateTime           *int64                                                    `json:"updateTime,omitempty" xml:"updateTime,omitempty"`
+	UserId               *string                                                   `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserName             *string                                                   `json:"userName,omitempty" xml:"userName,omitempty"`
+}
+
+func (s QueryTripTrainOrderByPageResponseBodyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripTrainOrderByPageResponseBodyList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetArrivalCity(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.ArrivalCity = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetArrivalStation(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.ArrivalStation = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetArrivalTime(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.ArrivalTime = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetConsumerInfos(v []*QueryTripTrainOrderByPageResponseBodyListConsumerInfos) *QueryTripTrainOrderByPageResponseBodyList {
+	s.ConsumerInfos = v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetContactName(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.ContactName = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetCostCenter(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.CostCenter = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetCostCenterCode(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.CostCenterCode = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetCreateTime(v int64) *QueryTripTrainOrderByPageResponseBodyList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetDepartmentId(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.DepartmentId = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetDepartmentName(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.DepartmentName = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetDepartureCity(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.DepartureCity = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetDepartureStation(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.DepartureStation = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetDepartureTime(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.DepartureTime = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetGmtOrder(v int64) *QueryTripTrainOrderByPageResponseBodyList {
+	s.GmtOrder = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetGmtPay(v int64) *QueryTripTrainOrderByPageResponseBodyList {
+	s.GmtPay = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetInvoiceId(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.InvoiceId = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetInvoiceTitle(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.InvoiceTitle = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetOrderDetails(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.OrderDetails = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetOrderNo(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetPayType(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.PayType = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetProcessInstanceId(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetRunTime(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.RunTime = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetSeatType(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.SeatType = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetTicketCount(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.TicketCount = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetTotalAmount(v int64) *QueryTripTrainOrderByPageResponseBodyList {
+	s.TotalAmount = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetTrainNumber(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.TrainNumber = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetTrainOrderStatus(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.TrainOrderStatus = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetTrainOrderStatusDesc(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.TrainOrderStatusDesc = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetUpdateTime(v int64) *QueryTripTrainOrderByPageResponseBodyList {
+	s.UpdateTime = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetUserId(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.UserId = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyList) SetUserName(v string) *QueryTripTrainOrderByPageResponseBodyList {
+	s.UserName = &v
+	return s
+}
+
+type QueryTripTrainOrderByPageResponseBodyListConsumerInfos struct {
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	StaffFlag *bool   `json:"staffFlag,omitempty" xml:"staffFlag,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryTripTrainOrderByPageResponseBodyListConsumerInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripTrainOrderByPageResponseBodyListConsumerInfos) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyListConsumerInfos) SetName(v string) *QueryTripTrainOrderByPageResponseBodyListConsumerInfos {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyListConsumerInfos) SetStaffFlag(v bool) *QueryTripTrainOrderByPageResponseBodyListConsumerInfos {
+	s.StaffFlag = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponseBodyListConsumerInfos) SetUserId(v string) *QueryTripTrainOrderByPageResponseBodyListConsumerInfos {
+	s.UserId = &v
+	return s
+}
+
+type QueryTripTrainOrderByPageResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryTripTrainOrderByPageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryTripTrainOrderByPageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryTripTrainOrderByPageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryTripTrainOrderByPageResponse) SetHeaders(v map[string]*string) *QueryTripTrainOrderByPageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponse) SetStatusCode(v int32) *QueryTripTrainOrderByPageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryTripTrainOrderByPageResponse) SetBody(v *QueryTripTrainOrderByPageResponseBody) *QueryTripTrainOrderByPageResponse {
 	s.Body = v
 	return s
 }
@@ -4293,6 +5502,196 @@ func (client *Client) PreCheckTemplate(request *PreCheckTemplateRequest) (_resul
 
 // Summary:
 //
+// 分页查询组织航班订单信息
+//
+// @param tmpReq - QueryTripFlightOrderByPageRequest
+//
+// @param headers - QueryTripFlightOrderByPageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryTripFlightOrderByPageResponse
+func (client *Client) QueryTripFlightOrderByPageWithOptions(tmpReq *QueryTripFlightOrderByPageRequest, headers *QueryTripFlightOrderByPageHeaders, runtime *util.RuntimeOptions) (_result *QueryTripFlightOrderByPageResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &QueryTripFlightOrderByPageShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.OrderStatus)) {
+		request.OrderStatusShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.OrderStatus, tea.String("orderStatus"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderStatusShrink)) {
+		query["orderStatus"] = request.OrderStatusShrink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageIndex)) {
+		query["pageIndex"] = request.PageIndex
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryTripFlightOrderByPage"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/flight/orders"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryTripFlightOrderByPageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询组织航班订单信息
+//
+// @param request - QueryTripFlightOrderByPageRequest
+//
+// @return QueryTripFlightOrderByPageResponse
+func (client *Client) QueryTripFlightOrderByPage(request *QueryTripFlightOrderByPageRequest) (_result *QueryTripFlightOrderByPageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryTripFlightOrderByPageHeaders{}
+	_result = &QueryTripFlightOrderByPageResponse{}
+	_body, _err := client.QueryTripFlightOrderByPageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询组织酒店订单信息
+//
+// @param tmpReq - QueryTripHotelOrderByPageRequest
+//
+// @param headers - QueryTripHotelOrderByPageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryTripHotelOrderByPageResponse
+func (client *Client) QueryTripHotelOrderByPageWithOptions(tmpReq *QueryTripHotelOrderByPageRequest, headers *QueryTripHotelOrderByPageHeaders, runtime *util.RuntimeOptions) (_result *QueryTripHotelOrderByPageResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &QueryTripHotelOrderByPageShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.OrderStatus)) {
+		request.OrderStatusShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.OrderStatus, tea.String("orderStatus"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderStatusShrink)) {
+		query["orderStatus"] = request.OrderStatusShrink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageIndex)) {
+		query["pageIndex"] = request.PageIndex
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryTripHotelOrderByPage"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/hotel/orders"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryTripHotelOrderByPageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询组织酒店订单信息
+//
+// @param request - QueryTripHotelOrderByPageRequest
+//
+// @return QueryTripHotelOrderByPageResponse
+func (client *Client) QueryTripHotelOrderByPage(request *QueryTripHotelOrderByPageRequest) (_result *QueryTripHotelOrderByPageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryTripHotelOrderByPageHeaders{}
+	_result = &QueryTripHotelOrderByPageResponse{}
+	_body, _err := client.QueryTripHotelOrderByPageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 查询审批套件详情
 //
 // @param request - QueryTripProcessTemplatesRequest
@@ -4357,6 +5756,101 @@ func (client *Client) QueryTripProcessTemplates(request *QueryTripProcessTemplat
 	headers := &QueryTripProcessTemplatesHeaders{}
 	_result = &QueryTripProcessTemplatesResponse{}
 	_body, _err := client.QueryTripProcessTemplatesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询组织火车订单信息
+//
+// @param tmpReq - QueryTripTrainOrderByPageRequest
+//
+// @param headers - QueryTripTrainOrderByPageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryTripTrainOrderByPageResponse
+func (client *Client) QueryTripTrainOrderByPageWithOptions(tmpReq *QueryTripTrainOrderByPageRequest, headers *QueryTripTrainOrderByPageHeaders, runtime *util.RuntimeOptions) (_result *QueryTripTrainOrderByPageResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &QueryTripTrainOrderByPageShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.OrderStatus)) {
+		request.OrderStatusShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.OrderStatus, tea.String("orderStatus"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderStatusShrink)) {
+		query["orderStatus"] = request.OrderStatusShrink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageIndex)) {
+		query["pageIndex"] = request.PageIndex
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryTripTrainOrderByPage"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/train/orders"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryTripTrainOrderByPageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询组织火车订单信息
+//
+// @param request - QueryTripTrainOrderByPageRequest
+//
+// @return QueryTripTrainOrderByPageResponse
+func (client *Client) QueryTripTrainOrderByPage(request *QueryTripTrainOrderByPageRequest) (_result *QueryTripTrainOrderByPageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryTripTrainOrderByPageHeaders{}
+	_result = &QueryTripTrainOrderByPageResponse{}
+	_body, _err := client.QueryTripTrainOrderByPageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -61,6 +61,9 @@ type AiRetailProductAddRequest struct {
 	//
 	// 办公室的电话是多少
 	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	Tag1        *string `json:"tag1,omitempty" xml:"tag1,omitempty"`
+	Tag2        *string `json:"tag2,omitempty" xml:"tag2,omitempty"`
+	Tag3        *string `json:"tag3,omitempty" xml:"tag3,omitempty"`
 }
 
 func (s AiRetailProductAddRequest) String() string {
@@ -133,6 +136,21 @@ func (s *AiRetailProductAddRequest) SetProductInfo(v string) *AiRetailProductAdd
 
 func (s *AiRetailProductAddRequest) SetProductName(v string) *AiRetailProductAddRequest {
 	s.ProductName = &v
+	return s
+}
+
+func (s *AiRetailProductAddRequest) SetTag1(v string) *AiRetailProductAddRequest {
+	s.Tag1 = &v
+	return s
+}
+
+func (s *AiRetailProductAddRequest) SetTag2(v string) *AiRetailProductAddRequest {
+	s.Tag2 = &v
+	return s
+}
+
+func (s *AiRetailProductAddRequest) SetTag3(v string) *AiRetailProductAddRequest {
+	s.Tag3 = &v
 	return s
 }
 
@@ -444,6 +462,18 @@ type AiRetailProductQueryResponseBodyData struct {
 	ProductId    *int64   `json:"productId,omitempty" xml:"productId,omitempty"`
 	ProductInfo  *string  `json:"productInfo,omitempty" xml:"productInfo,omitempty"`
 	ProductName  *string  `json:"productName,omitempty" xml:"productName,omitempty"`
+	// example:
+	//
+	// 热销
+	Tag1 *string `json:"tag1,omitempty" xml:"tag1,omitempty"`
+	// example:
+	//
+	// 新品
+	Tag2 *string `json:"tag2,omitempty" xml:"tag2,omitempty"`
+	// example:
+	//
+	// 尾款
+	Tag3 *string `json:"tag3,omitempty" xml:"tag3,omitempty"`
 }
 
 func (s AiRetailProductQueryResponseBodyData) String() string {
@@ -524,6 +554,21 @@ func (s *AiRetailProductQueryResponseBodyData) SetProductName(v string) *AiRetai
 	return s
 }
 
+func (s *AiRetailProductQueryResponseBodyData) SetTag1(v string) *AiRetailProductQueryResponseBodyData {
+	s.Tag1 = &v
+	return s
+}
+
+func (s *AiRetailProductQueryResponseBodyData) SetTag2(v string) *AiRetailProductQueryResponseBodyData {
+	s.Tag2 = &v
+	return s
+}
+
+func (s *AiRetailProductQueryResponseBodyData) SetTag3(v string) *AiRetailProductQueryResponseBodyData {
+	s.Tag3 = &v
+	return s
+}
+
 type AiRetailProductQueryResponse struct {
 	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
 	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
@@ -601,6 +646,9 @@ type AiRetailProductUpdateRequest struct {
 	//
 	// 办公室的电话是多少
 	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	Tag1        *string `json:"tag1,omitempty" xml:"tag1,omitempty"`
+	Tag2        *string `json:"tag2,omitempty" xml:"tag2,omitempty"`
+	Tag3        *string `json:"tag3,omitempty" xml:"tag3,omitempty"`
 }
 
 func (s AiRetailProductUpdateRequest) String() string {
@@ -678,6 +726,21 @@ func (s *AiRetailProductUpdateRequest) SetProductInfo(v string) *AiRetailProduct
 
 func (s *AiRetailProductUpdateRequest) SetProductName(v string) *AiRetailProductUpdateRequest {
 	s.ProductName = &v
+	return s
+}
+
+func (s *AiRetailProductUpdateRequest) SetTag1(v string) *AiRetailProductUpdateRequest {
+	s.Tag1 = &v
+	return s
+}
+
+func (s *AiRetailProductUpdateRequest) SetTag2(v string) *AiRetailProductUpdateRequest {
+	s.Tag2 = &v
+	return s
+}
+
+func (s *AiRetailProductUpdateRequest) SetTag3(v string) *AiRetailProductUpdateRequest {
+	s.Tag3 = &v
 	return s
 }
 
@@ -777,6 +840,7 @@ type AiTrainingDetailResponseBodyResult struct {
 	AdminReview            *string                                              `json:"adminReview,omitempty" xml:"adminReview,omitempty"`
 	AiJobStatus            *string                                              `json:"aiJobStatus,omitempty" xml:"aiJobStatus,omitempty"`
 	Creator                *string                                              `json:"creator,omitempty" xml:"creator,omitempty"`
+	Duration               *int64                                               `json:"duration,omitempty" xml:"duration,omitempty"`
 	Feedback               *int64                                               `json:"feedback,omitempty" xml:"feedback,omitempty"`
 	FeedbackContent        *string                                              `json:"feedbackContent,omitempty" xml:"feedbackContent,omitempty"`
 	GmtCreate              *string                                              `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
@@ -814,6 +878,11 @@ func (s *AiTrainingDetailResponseBodyResult) SetAiJobStatus(v string) *AiTrainin
 
 func (s *AiTrainingDetailResponseBodyResult) SetCreator(v string) *AiTrainingDetailResponseBodyResult {
 	s.Creator = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResult) SetDuration(v int64) *AiTrainingDetailResponseBodyResult {
+	s.Duration = &v
 	return s
 }
 
@@ -893,10 +962,18 @@ func (s *AiTrainingDetailResponseBodyResult) SetVideoDownloadUrl(v string) *AiTr
 }
 
 type AiTrainingDetailResponseBodyResultProductInfoList struct {
-	Price       *int64  `json:"price,omitempty" xml:"price,omitempty"`
-	ProductCode *string `json:"productCode,omitempty" xml:"productCode,omitempty"`
-	ProductId   *int64  `json:"productId,omitempty" xml:"productId,omitempty"`
-	ProductName *string `json:"productName,omitempty" xml:"productName,omitempty"`
+	Attribute   *string   `json:"attribute,omitempty" xml:"attribute,omitempty"`
+	Brand       *string   `json:"brand,omitempty" xml:"brand,omitempty"`
+	Category    *string   `json:"category,omitempty" xml:"category,omitempty"`
+	Currency    *string   `json:"currency,omitempty" xml:"currency,omitempty"`
+	ImageUrls   []*string `json:"imageUrls,omitempty" xml:"imageUrls,omitempty" type:"Repeated"`
+	Price       *int64    `json:"price,omitempty" xml:"price,omitempty"`
+	ProductCode *string   `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	ProductFab  *string   `json:"productFab,omitempty" xml:"productFab,omitempty"`
+	ProductId   *int64    `json:"productId,omitempty" xml:"productId,omitempty"`
+	ProductInfo *string   `json:"productInfo,omitempty" xml:"productInfo,omitempty"`
+	ProductName *string   `json:"productName,omitempty" xml:"productName,omitempty"`
+	RelatedType *string   `json:"relatedType,omitempty" xml:"relatedType,omitempty"`
 }
 
 func (s AiTrainingDetailResponseBodyResultProductInfoList) String() string {
@@ -905,6 +982,31 @@ func (s AiTrainingDetailResponseBodyResultProductInfoList) String() string {
 
 func (s AiTrainingDetailResponseBodyResultProductInfoList) GoString() string {
 	return s.String()
+}
+
+func (s *AiTrainingDetailResponseBodyResultProductInfoList) SetAttribute(v string) *AiTrainingDetailResponseBodyResultProductInfoList {
+	s.Attribute = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResultProductInfoList) SetBrand(v string) *AiTrainingDetailResponseBodyResultProductInfoList {
+	s.Brand = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResultProductInfoList) SetCategory(v string) *AiTrainingDetailResponseBodyResultProductInfoList {
+	s.Category = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResultProductInfoList) SetCurrency(v string) *AiTrainingDetailResponseBodyResultProductInfoList {
+	s.Currency = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResultProductInfoList) SetImageUrls(v []*string) *AiTrainingDetailResponseBodyResultProductInfoList {
+	s.ImageUrls = v
+	return s
 }
 
 func (s *AiTrainingDetailResponseBodyResultProductInfoList) SetPrice(v int64) *AiTrainingDetailResponseBodyResultProductInfoList {
@@ -917,13 +1019,28 @@ func (s *AiTrainingDetailResponseBodyResultProductInfoList) SetProductCode(v str
 	return s
 }
 
+func (s *AiTrainingDetailResponseBodyResultProductInfoList) SetProductFab(v string) *AiTrainingDetailResponseBodyResultProductInfoList {
+	s.ProductFab = &v
+	return s
+}
+
 func (s *AiTrainingDetailResponseBodyResultProductInfoList) SetProductId(v int64) *AiTrainingDetailResponseBodyResultProductInfoList {
 	s.ProductId = &v
 	return s
 }
 
+func (s *AiTrainingDetailResponseBodyResultProductInfoList) SetProductInfo(v string) *AiTrainingDetailResponseBodyResultProductInfoList {
+	s.ProductInfo = &v
+	return s
+}
+
 func (s *AiTrainingDetailResponseBodyResultProductInfoList) SetProductName(v string) *AiTrainingDetailResponseBodyResultProductInfoList {
 	s.ProductName = &v
+	return s
+}
+
+func (s *AiTrainingDetailResponseBodyResultProductInfoList) SetRelatedType(v string) *AiTrainingDetailResponseBodyResultProductInfoList {
+	s.RelatedType = &v
 	return s
 }
 
@@ -30366,6 +30483,18 @@ func (client *Client) AiRetailProductAddWithOptions(request *AiRetailProductAddR
 		body["productName"] = request.ProductName
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Tag1)) {
+		body["tag1"] = request.Tag1
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Tag2)) {
+		body["tag2"] = request.Tag2
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Tag3)) {
+		body["tag3"] = request.Tag3
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -30712,6 +30841,18 @@ func (client *Client) AiRetailProductUpdateWithOptions(request *AiRetailProductU
 
 	if !tea.BoolValue(util.IsUnset(request.ProductName)) {
 		body["productName"] = request.ProductName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Tag1)) {
+		body["tag1"] = request.Tag1
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Tag2)) {
+		body["tag2"] = request.Tag2
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Tag3)) {
+		body["tag3"] = request.Tag3
 	}
 
 	realHeaders := make(map[string]*string)

@@ -4174,6 +4174,113 @@ func (s *RemoveSuperUserMeetingRoomResponse) SetBody(v *RemoveSuperUserMeetingRo
 	return s
 }
 
+type SendCentralControlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendCentralControlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendCentralControlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendCentralControlHeaders) SetCommonHeaders(v map[string]*string) *SendCentralControlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendCentralControlHeaders) SetXAcsDingtalkAccessToken(v string) *SendCentralControlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendCentralControlRequest struct {
+	// example:
+	//
+	// {   "version": "1.0.0",    "request": {     "requestId": "xxxx",      "service": "DTRooms.Meeting",      "method": "subscribe"    } }
+	ControlBody *string `json:"controlBody,omitempty" xml:"controlBody,omitempty"`
+	// example:
+	//
+	// 0ffb7xxxxx
+	RoomId *string `json:"roomId,omitempty" xml:"roomId,omitempty"`
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s SendCentralControlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendCentralControlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendCentralControlRequest) SetControlBody(v string) *SendCentralControlRequest {
+	s.ControlBody = &v
+	return s
+}
+
+func (s *SendCentralControlRequest) SetRoomId(v string) *SendCentralControlRequest {
+	s.RoomId = &v
+	return s
+}
+
+func (s *SendCentralControlRequest) SetUnionId(v string) *SendCentralControlRequest {
+	s.UnionId = &v
+	return s
+}
+
+type SendCentralControlResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SendCentralControlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendCentralControlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendCentralControlResponseBody) SetResult(v bool) *SendCentralControlResponseBody {
+	s.Result = &v
+	return s
+}
+
+type SendCentralControlResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SendCentralControlResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SendCentralControlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendCentralControlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendCentralControlResponse) SetHeaders(v map[string]*string) *SendCentralControlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendCentralControlResponse) SetStatusCode(v int32) *SendCentralControlResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SendCentralControlResponse) SetBody(v *SendCentralControlResponseBody) *SendCentralControlResponse {
+	s.Body = v
+	return s
+}
+
 type SetSuperUserMeetingRoomHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6663,6 +6770,87 @@ func (client *Client) RemoveSuperUserMeetingRoom(request *RemoveSuperUserMeeting
 	headers := &RemoveSuperUserMeetingRoomHeaders{}
 	_result = &RemoveSuperUserMeetingRoomResponse{}
 	_body, _err := client.RemoveSuperUserMeetingRoomWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 发送Rooms中控API信令
+//
+// @param request - SendCentralControlRequest
+//
+// @param headers - SendCentralControlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendCentralControlResponse
+func (client *Client) SendCentralControlWithOptions(request *SendCentralControlRequest, headers *SendCentralControlHeaders, runtime *util.RuntimeOptions) (_result *SendCentralControlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ControlBody)) {
+		body["controlBody"] = request.ControlBody
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoomId)) {
+		body["roomId"] = request.RoomId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SendCentralControl"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/central/control"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SendCentralControlResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 发送Rooms中控API信令
+//
+// @param request - SendCentralControlRequest
+//
+// @return SendCentralControlResponse
+func (client *Client) SendCentralControl(request *SendCentralControlRequest) (_result *SendCentralControlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendCentralControlHeaders{}
+	_result = &SendCentralControlResponse{}
+	_body, _err := client.SendCentralControlWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

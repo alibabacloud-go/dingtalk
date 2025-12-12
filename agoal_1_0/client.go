@@ -625,6 +625,12 @@ func (s *OpenAgoalLatestProgressDTO) SetProgressId(v string) *OpenAgoalLatestPro
 
 type OpenAgoalObjectiveDTO struct {
 	// This parameter is required.
+	ApproveStatus *string `json:"approveStatus,omitempty" xml:"approveStatus,omitempty"`
+	// This parameter is required.
+	Created *int64 `json:"created,omitempty" xml:"created,omitempty"`
+	// This parameter is required.
+	DownAlignObjectIds []*string `json:"downAlignObjectIds,omitempty" xml:"downAlignObjectIds,omitempty" type:"Repeated"`
+	// This parameter is required.
 	Executor *OpenAgoalUserDTO `json:"executor,omitempty" xml:"executor,omitempty"`
 	// This parameter is required.
 	KeyActions []*OpenAgoalKeyActionDTO `json:"keyActions,omitempty" xml:"keyActions,omitempty" type:"Repeated"`
@@ -665,6 +671,10 @@ type OpenAgoalObjectiveDTO struct {
 	// 测试目标
 	Title *string `json:"title,omitempty" xml:"title,omitempty"`
 	// This parameter is required.
+	UpAlignObjectIds []*string `json:"upAlignObjectIds,omitempty" xml:"upAlignObjectIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Updated *int64 `json:"updated,omitempty" xml:"updated,omitempty"`
+	// This parameter is required.
 	//
 	// example:
 	//
@@ -678,6 +688,21 @@ func (s OpenAgoalObjectiveDTO) String() string {
 
 func (s OpenAgoalObjectiveDTO) GoString() string {
 	return s.String()
+}
+
+func (s *OpenAgoalObjectiveDTO) SetApproveStatus(v string) *OpenAgoalObjectiveDTO {
+	s.ApproveStatus = &v
+	return s
+}
+
+func (s *OpenAgoalObjectiveDTO) SetCreated(v int64) *OpenAgoalObjectiveDTO {
+	s.Created = &v
+	return s
+}
+
+func (s *OpenAgoalObjectiveDTO) SetDownAlignObjectIds(v []*string) *OpenAgoalObjectiveDTO {
+	s.DownAlignObjectIds = v
+	return s
 }
 
 func (s *OpenAgoalObjectiveDTO) SetExecutor(v *OpenAgoalUserDTO) *OpenAgoalObjectiveDTO {
@@ -740,6 +765,16 @@ func (s *OpenAgoalObjectiveDTO) SetTitle(v string) *OpenAgoalObjectiveDTO {
 	return s
 }
 
+func (s *OpenAgoalObjectiveDTO) SetUpAlignObjectIds(v []*string) *OpenAgoalObjectiveDTO {
+	s.UpAlignObjectIds = v
+	return s
+}
+
+func (s *OpenAgoalObjectiveDTO) SetUpdated(v int64) *OpenAgoalObjectiveDTO {
+	s.Updated = &v
+	return s
+}
+
 func (s *OpenAgoalObjectiveDTO) SetWeight(v float64) *OpenAgoalObjectiveDTO {
 	s.Weight = &v
 	return s
@@ -747,7 +782,7 @@ func (s *OpenAgoalObjectiveDTO) SetWeight(v float64) *OpenAgoalObjectiveDTO {
 
 type OpenAgoalObjectiveDimensionDTO struct {
 	// This parameter is required.
-	Children []*OpenAgoalObjectiveDimensionDTO `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
+	Children []*OpenAgoalObjectiveDimensionDTOChildren `json:"children,omitempty" xml:"children,omitempty" type:"Repeated"`
 	// This parameter is required.
 	//
 	// example:
@@ -780,7 +815,7 @@ func (s OpenAgoalObjectiveDimensionDTO) GoString() string {
 	return s.String()
 }
 
-func (s *OpenAgoalObjectiveDimensionDTO) SetChildren(v []*OpenAgoalObjectiveDimensionDTO) *OpenAgoalObjectiveDimensionDTO {
+func (s *OpenAgoalObjectiveDimensionDTO) SetChildren(v []*OpenAgoalObjectiveDimensionDTOChildren) *OpenAgoalObjectiveDimensionDTO {
 	s.Children = v
 	return s
 }
@@ -806,6 +841,50 @@ func (s *OpenAgoalObjectiveDimensionDTO) SetTitle(v string) *OpenAgoalObjectiveD
 }
 
 func (s *OpenAgoalObjectiveDimensionDTO) SetWeight(v float64) *OpenAgoalObjectiveDimensionDTO {
+	s.Weight = &v
+	return s
+}
+
+type OpenAgoalObjectiveDimensionDTOChildren struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 662e006fe4b0f57ccbcxxxxx
+	DimensionId *string `json:"dimensionId,omitempty" xml:"dimensionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 这是子维度标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 100
+	Weight *float64 `json:"weight,omitempty" xml:"weight,omitempty"`
+}
+
+func (s OpenAgoalObjectiveDimensionDTOChildren) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenAgoalObjectiveDimensionDTOChildren) GoString() string {
+	return s.String()
+}
+
+func (s *OpenAgoalObjectiveDimensionDTOChildren) SetDimensionId(v string) *OpenAgoalObjectiveDimensionDTOChildren {
+	s.DimensionId = &v
+	return s
+}
+
+func (s *OpenAgoalObjectiveDimensionDTOChildren) SetTitle(v string) *OpenAgoalObjectiveDimensionDTOChildren {
+	s.Title = &v
+	return s
+}
+
+func (s *OpenAgoalObjectiveDimensionDTOChildren) SetWeight(v float64) *OpenAgoalObjectiveDimensionDTOChildren {
 	s.Weight = &v
 	return s
 }
@@ -1013,7 +1092,11 @@ type OpenAgoalProgressDTO struct {
 	// This parameter is required.
 	HtmlContent *string `json:"htmlContent,omitempty" xml:"htmlContent,omitempty"`
 	// This parameter is required.
+	KeyResults []*OpenAgoalKeyResultDTO `json:"keyResults,omitempty" xml:"keyResults,omitempty" type:"Repeated"`
+	// This parameter is required.
 	Modifier *OpenAgoalUserDTO `json:"modifier,omitempty" xml:"modifier,omitempty"`
+	// This parameter is required.
+	Progress *int32 `json:"progress,omitempty" xml:"progress,omitempty"`
 	// This parameter is required.
 	ProgressId *string `json:"progressId,omitempty" xml:"progressId,omitempty"`
 	// This parameter is required.
@@ -1043,8 +1126,18 @@ func (s *OpenAgoalProgressDTO) SetHtmlContent(v string) *OpenAgoalProgressDTO {
 	return s
 }
 
+func (s *OpenAgoalProgressDTO) SetKeyResults(v []*OpenAgoalKeyResultDTO) *OpenAgoalProgressDTO {
+	s.KeyResults = v
+	return s
+}
+
 func (s *OpenAgoalProgressDTO) SetModifier(v *OpenAgoalUserDTO) *OpenAgoalProgressDTO {
 	s.Modifier = v
+	return s
+}
+
+func (s *OpenAgoalProgressDTO) SetProgress(v int32) *OpenAgoalProgressDTO {
+	s.Progress = &v
 	return s
 }
 
@@ -1146,6 +1239,93 @@ func (s *OpenAgoalUserDTO) SetUserId(v string) *OpenAgoalUserDTO {
 	return s
 }
 
+type OpenObjectiveRuleDTO struct {
+	// This parameter is required.
+	ExcludePopRuleView []*OpenObjectiveRuleScopeDTO `json:"excludePopRuleView,omitempty" xml:"excludePopRuleView,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// OKR / PBC
+	ObjectiveCategory *string `json:"objectiveCategory,omitempty" xml:"objectiveCategory,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 6444f5e9a4261c6e699dxxxx
+	ObjectiveRuleId *string `json:"objectiveRuleId,omitempty" xml:"objectiveRuleId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 规则
+	ObjectiveRuleName *string `json:"objectiveRuleName,omitempty" xml:"objectiveRuleName,omitempty"`
+	// This parameter is required.
+	Periods []*OpenObjectiveRulePeriodDTO `json:"periods,omitempty" xml:"periods,omitempty" type:"Repeated"`
+	// This parameter is required.
+	PopRuleView []*OpenObjectiveRuleScopeDTO `json:"popRuleView,omitempty" xml:"popRuleView,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	ProbationRule *bool `json:"probationRule,omitempty" xml:"probationRule,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ONLINE
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s OpenObjectiveRuleDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenObjectiveRuleDTO) GoString() string {
+	return s.String()
+}
+
+func (s *OpenObjectiveRuleDTO) SetExcludePopRuleView(v []*OpenObjectiveRuleScopeDTO) *OpenObjectiveRuleDTO {
+	s.ExcludePopRuleView = v
+	return s
+}
+
+func (s *OpenObjectiveRuleDTO) SetObjectiveCategory(v string) *OpenObjectiveRuleDTO {
+	s.ObjectiveCategory = &v
+	return s
+}
+
+func (s *OpenObjectiveRuleDTO) SetObjectiveRuleId(v string) *OpenObjectiveRuleDTO {
+	s.ObjectiveRuleId = &v
+	return s
+}
+
+func (s *OpenObjectiveRuleDTO) SetObjectiveRuleName(v string) *OpenObjectiveRuleDTO {
+	s.ObjectiveRuleName = &v
+	return s
+}
+
+func (s *OpenObjectiveRuleDTO) SetPeriods(v []*OpenObjectiveRulePeriodDTO) *OpenObjectiveRuleDTO {
+	s.Periods = v
+	return s
+}
+
+func (s *OpenObjectiveRuleDTO) SetPopRuleView(v []*OpenObjectiveRuleScopeDTO) *OpenObjectiveRuleDTO {
+	s.PopRuleView = v
+	return s
+}
+
+func (s *OpenObjectiveRuleDTO) SetProbationRule(v bool) *OpenObjectiveRuleDTO {
+	s.ProbationRule = &v
+	return s
+}
+
+func (s *OpenObjectiveRuleDTO) SetStatus(v string) *OpenObjectiveRuleDTO {
+	s.Status = &v
+	return s
+}
+
 type OpenObjectiveRulePeriodDTO struct {
 	// This parameter is required.
 	//
@@ -1212,6 +1392,39 @@ func (s *OpenObjectiveRulePeriodDTO) SetStartDate(v int64) *OpenObjectiveRulePer
 	return s
 }
 
+type OpenObjectiveRuleScopeDTO struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 82347xxx2382
+	ScopeId *string `json:"scopeId,omitempty" xml:"scopeId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// USER
+	ScopeType *string `json:"scopeType,omitempty" xml:"scopeType,omitempty"`
+}
+
+func (s OpenObjectiveRuleScopeDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenObjectiveRuleScopeDTO) GoString() string {
+	return s.String()
+}
+
+func (s *OpenObjectiveRuleScopeDTO) SetScopeId(v string) *OpenObjectiveRuleScopeDTO {
+	s.ScopeId = &v
+	return s
+}
+
+func (s *OpenObjectiveRuleScopeDTO) SetScopeType(v string) *OpenObjectiveRuleScopeDTO {
+	s.ScopeType = &v
+	return s
+}
+
 type OpenOrgObjectiveRuleDTO struct {
 	// This parameter is required.
 	//
@@ -1253,6 +1466,84 @@ func (s *OpenOrgObjectiveRuleDTO) SetObjectiveRuleId(v string) *OpenOrgObjective
 
 func (s *OpenOrgObjectiveRuleDTO) SetObjectiveRuleName(v string) *OpenOrgObjectiveRuleDTO {
 	s.ObjectiveRuleName = &v
+	return s
+}
+
+type OpenOrgPerfDocDTO struct {
+	// This parameter is required.
+	DocId *string `json:"docId,omitempty" xml:"docId,omitempty"`
+	// This parameter is required.
+	Executor *OpenAgoalUserDTO `json:"executor,omitempty" xml:"executor,omitempty"`
+	// This parameter is required.
+	Score *string `json:"score,omitempty" xml:"score,omitempty"`
+	// This parameter is required.
+	State *string `json:"state,omitempty" xml:"state,omitempty"`
+	// This parameter is required.
+	Team *OpenAgoalTeamDTO `json:"team,omitempty" xml:"team,omitempty"`
+}
+
+func (s OpenOrgPerfDocDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenOrgPerfDocDTO) GoString() string {
+	return s.String()
+}
+
+func (s *OpenOrgPerfDocDTO) SetDocId(v string) *OpenOrgPerfDocDTO {
+	s.DocId = &v
+	return s
+}
+
+func (s *OpenOrgPerfDocDTO) SetExecutor(v *OpenAgoalUserDTO) *OpenOrgPerfDocDTO {
+	s.Executor = v
+	return s
+}
+
+func (s *OpenOrgPerfDocDTO) SetScore(v string) *OpenOrgPerfDocDTO {
+	s.Score = &v
+	return s
+}
+
+func (s *OpenOrgPerfDocDTO) SetState(v string) *OpenOrgPerfDocDTO {
+	s.State = &v
+	return s
+}
+
+func (s *OpenOrgPerfDocDTO) SetTeam(v *OpenAgoalTeamDTO) *OpenOrgPerfDocDTO {
+	s.Team = v
+	return s
+}
+
+type OpenOrgPerfPlanDTO struct {
+	// This parameter is required.
+	PlanId *string `json:"planId,omitempty" xml:"planId,omitempty"`
+	// This parameter is required.
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s OpenOrgPerfPlanDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenOrgPerfPlanDTO) GoString() string {
+	return s.String()
+}
+
+func (s *OpenOrgPerfPlanDTO) SetPlanId(v string) *OpenOrgPerfPlanDTO {
+	s.PlanId = &v
+	return s
+}
+
+func (s *OpenOrgPerfPlanDTO) SetStatus(v string) *OpenOrgPerfPlanDTO {
+	s.Status = &v
+	return s
+}
+
+func (s *OpenOrgPerfPlanDTO) SetTitle(v string) *OpenOrgPerfPlanDTO {
+	s.Title = &v
 	return s
 }
 
@@ -2391,6 +2682,307 @@ func (s *AgoalObjectiveKeyActionListResponse) SetBody(v *AgoalObjectiveKeyAction
 	return s
 }
 
+type AgoalObjectiveProgressListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AgoalObjectiveProgressListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalObjectiveProgressListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalObjectiveProgressListHeaders) SetCommonHeaders(v map[string]*string) *AgoalObjectiveProgressListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AgoalObjectiveProgressListHeaders) SetXAcsDingtalkAccessToken(v string) *AgoalObjectiveProgressListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AgoalObjectiveProgressListRequest struct {
+	// This parameter is required.
+	ObjectiveId *string `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s AgoalObjectiveProgressListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalObjectiveProgressListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalObjectiveProgressListRequest) SetObjectiveId(v string) *AgoalObjectiveProgressListRequest {
+	s.ObjectiveId = &v
+	return s
+}
+
+func (s *AgoalObjectiveProgressListRequest) SetPageNumber(v int32) *AgoalObjectiveProgressListRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *AgoalObjectiveProgressListRequest) SetPageSize(v int32) *AgoalObjectiveProgressListRequest {
+	s.PageSize = &v
+	return s
+}
+
+type AgoalObjectiveProgressListResponseBody struct {
+	Content   *AgoalObjectiveProgressListResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                                        `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool                                          `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AgoalObjectiveProgressListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalObjectiveProgressListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalObjectiveProgressListResponseBody) SetContent(v *AgoalObjectiveProgressListResponseBodyContent) *AgoalObjectiveProgressListResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *AgoalObjectiveProgressListResponseBody) SetRequestId(v string) *AgoalObjectiveProgressListResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *AgoalObjectiveProgressListResponseBody) SetSuccess(v bool) *AgoalObjectiveProgressListResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AgoalObjectiveProgressListResponseBodyContent struct {
+	PageNumber *string                 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *string                 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	Result     []*OpenAgoalProgressDTO `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *string                 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s AgoalObjectiveProgressListResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalObjectiveProgressListResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalObjectiveProgressListResponseBodyContent) SetPageNumber(v string) *AgoalObjectiveProgressListResponseBodyContent {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *AgoalObjectiveProgressListResponseBodyContent) SetPageSize(v string) *AgoalObjectiveProgressListResponseBodyContent {
+	s.PageSize = &v
+	return s
+}
+
+func (s *AgoalObjectiveProgressListResponseBodyContent) SetResult(v []*OpenAgoalProgressDTO) *AgoalObjectiveProgressListResponseBodyContent {
+	s.Result = v
+	return s
+}
+
+func (s *AgoalObjectiveProgressListResponseBodyContent) SetTotalCount(v string) *AgoalObjectiveProgressListResponseBodyContent {
+	s.TotalCount = &v
+	return s
+}
+
+type AgoalObjectiveProgressListResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AgoalObjectiveProgressListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AgoalObjectiveProgressListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalObjectiveProgressListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalObjectiveProgressListResponse) SetHeaders(v map[string]*string) *AgoalObjectiveProgressListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AgoalObjectiveProgressListResponse) SetStatusCode(v int32) *AgoalObjectiveProgressListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AgoalObjectiveProgressListResponse) SetBody(v *AgoalObjectiveProgressListResponseBody) *AgoalObjectiveProgressListResponse {
+	s.Body = v
+	return s
+}
+
+type AgoalObjectiveRuleListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AgoalObjectiveRuleListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalObjectiveRuleListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalObjectiveRuleListHeaders) SetCommonHeaders(v map[string]*string) *AgoalObjectiveRuleListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AgoalObjectiveRuleListHeaders) SetXAcsDingtalkAccessToken(v string) *AgoalObjectiveRuleListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AgoalObjectiveRuleListRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s AgoalObjectiveRuleListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalObjectiveRuleListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalObjectiveRuleListRequest) SetPageNumber(v int32) *AgoalObjectiveRuleListRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *AgoalObjectiveRuleListRequest) SetPageSize(v int32) *AgoalObjectiveRuleListRequest {
+	s.PageSize = &v
+	return s
+}
+
+type AgoalObjectiveRuleListResponseBody struct {
+	Content   *AgoalObjectiveRuleListResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                                    `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool                                      `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AgoalObjectiveRuleListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalObjectiveRuleListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalObjectiveRuleListResponseBody) SetContent(v *AgoalObjectiveRuleListResponseBodyContent) *AgoalObjectiveRuleListResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *AgoalObjectiveRuleListResponseBody) SetRequestId(v string) *AgoalObjectiveRuleListResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *AgoalObjectiveRuleListResponseBody) SetSuccess(v bool) *AgoalObjectiveRuleListResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AgoalObjectiveRuleListResponseBodyContent struct {
+	PageNumber *int32                  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32                  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	Result     []*OpenObjectiveRuleDTO `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *int64                  `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s AgoalObjectiveRuleListResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalObjectiveRuleListResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalObjectiveRuleListResponseBodyContent) SetPageNumber(v int32) *AgoalObjectiveRuleListResponseBodyContent {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *AgoalObjectiveRuleListResponseBodyContent) SetPageSize(v int32) *AgoalObjectiveRuleListResponseBodyContent {
+	s.PageSize = &v
+	return s
+}
+
+func (s *AgoalObjectiveRuleListResponseBodyContent) SetResult(v []*OpenObjectiveRuleDTO) *AgoalObjectiveRuleListResponseBodyContent {
+	s.Result = v
+	return s
+}
+
+func (s *AgoalObjectiveRuleListResponseBodyContent) SetTotalCount(v int64) *AgoalObjectiveRuleListResponseBodyContent {
+	s.TotalCount = &v
+	return s
+}
+
+type AgoalObjectiveRuleListResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AgoalObjectiveRuleListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AgoalObjectiveRuleListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalObjectiveRuleListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalObjectiveRuleListResponse) SetHeaders(v map[string]*string) *AgoalObjectiveRuleListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AgoalObjectiveRuleListResponse) SetStatusCode(v int32) *AgoalObjectiveRuleListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AgoalObjectiveRuleListResponse) SetBody(v *AgoalObjectiveRuleListResponseBody) *AgoalObjectiveRuleListResponse {
+	s.Body = v
+	return s
+}
+
 type AgoalObjectiveRulePeriodListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2820,6 +3412,307 @@ func (s *AgoalOrgObjectiveRuleListResponse) SetStatusCode(v int32) *AgoalOrgObje
 }
 
 func (s *AgoalOrgObjectiveRuleListResponse) SetBody(v *AgoalOrgObjectiveRuleListResponseBody) *AgoalOrgObjectiveRuleListResponse {
+	s.Body = v
+	return s
+}
+
+type AgoalOrgPerfDocQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AgoalOrgPerfDocQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalOrgPerfDocQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalOrgPerfDocQueryHeaders) SetCommonHeaders(v map[string]*string) *AgoalOrgPerfDocQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AgoalOrgPerfDocQueryHeaders) SetXAcsDingtalkAccessToken(v string) *AgoalOrgPerfDocQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AgoalOrgPerfDocQueryRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	PlanId *string `json:"planId,omitempty" xml:"planId,omitempty"`
+}
+
+func (s AgoalOrgPerfDocQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalOrgPerfDocQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalOrgPerfDocQueryRequest) SetPageNumber(v int32) *AgoalOrgPerfDocQueryRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *AgoalOrgPerfDocQueryRequest) SetPageSize(v int32) *AgoalOrgPerfDocQueryRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *AgoalOrgPerfDocQueryRequest) SetPlanId(v string) *AgoalOrgPerfDocQueryRequest {
+	s.PlanId = &v
+	return s
+}
+
+type AgoalOrgPerfDocQueryResponseBody struct {
+	Content   *AgoalOrgPerfDocQueryResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                                  `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool                                    `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AgoalOrgPerfDocQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalOrgPerfDocQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalOrgPerfDocQueryResponseBody) SetContent(v *AgoalOrgPerfDocQueryResponseBodyContent) *AgoalOrgPerfDocQueryResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *AgoalOrgPerfDocQueryResponseBody) SetRequestId(v string) *AgoalOrgPerfDocQueryResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *AgoalOrgPerfDocQueryResponseBody) SetSuccess(v bool) *AgoalOrgPerfDocQueryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AgoalOrgPerfDocQueryResponseBodyContent struct {
+	PageNumber *int32               `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32               `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	Result     []*OpenOrgPerfDocDTO `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *int64               `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s AgoalOrgPerfDocQueryResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalOrgPerfDocQueryResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalOrgPerfDocQueryResponseBodyContent) SetPageNumber(v int32) *AgoalOrgPerfDocQueryResponseBodyContent {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *AgoalOrgPerfDocQueryResponseBodyContent) SetPageSize(v int32) *AgoalOrgPerfDocQueryResponseBodyContent {
+	s.PageSize = &v
+	return s
+}
+
+func (s *AgoalOrgPerfDocQueryResponseBodyContent) SetResult(v []*OpenOrgPerfDocDTO) *AgoalOrgPerfDocQueryResponseBodyContent {
+	s.Result = v
+	return s
+}
+
+func (s *AgoalOrgPerfDocQueryResponseBodyContent) SetTotalCount(v int64) *AgoalOrgPerfDocQueryResponseBodyContent {
+	s.TotalCount = &v
+	return s
+}
+
+type AgoalOrgPerfDocQueryResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AgoalOrgPerfDocQueryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AgoalOrgPerfDocQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalOrgPerfDocQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalOrgPerfDocQueryResponse) SetHeaders(v map[string]*string) *AgoalOrgPerfDocQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AgoalOrgPerfDocQueryResponse) SetStatusCode(v int32) *AgoalOrgPerfDocQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AgoalOrgPerfDocQueryResponse) SetBody(v *AgoalOrgPerfDocQueryResponseBody) *AgoalOrgPerfDocQueryResponse {
+	s.Body = v
+	return s
+}
+
+type AgoalOrgPerfPlanQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AgoalOrgPerfPlanQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalOrgPerfPlanQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalOrgPerfPlanQueryHeaders) SetCommonHeaders(v map[string]*string) *AgoalOrgPerfPlanQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AgoalOrgPerfPlanQueryHeaders) SetXAcsDingtalkAccessToken(v string) *AgoalOrgPerfPlanQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AgoalOrgPerfPlanQueryRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s AgoalOrgPerfPlanQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalOrgPerfPlanQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalOrgPerfPlanQueryRequest) SetPageNumber(v int32) *AgoalOrgPerfPlanQueryRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *AgoalOrgPerfPlanQueryRequest) SetPageSize(v int32) *AgoalOrgPerfPlanQueryRequest {
+	s.PageSize = &v
+	return s
+}
+
+type AgoalOrgPerfPlanQueryResponseBody struct {
+	Content   *AgoalOrgPerfPlanQueryResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                                   `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool                                     `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AgoalOrgPerfPlanQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalOrgPerfPlanQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalOrgPerfPlanQueryResponseBody) SetContent(v *AgoalOrgPerfPlanQueryResponseBodyContent) *AgoalOrgPerfPlanQueryResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *AgoalOrgPerfPlanQueryResponseBody) SetRequestId(v string) *AgoalOrgPerfPlanQueryResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *AgoalOrgPerfPlanQueryResponseBody) SetSuccess(v bool) *AgoalOrgPerfPlanQueryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AgoalOrgPerfPlanQueryResponseBodyContent struct {
+	PageNumber *int32                `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize   *int32                `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	Result     []*OpenOrgPerfPlanDTO `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *int64                `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s AgoalOrgPerfPlanQueryResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalOrgPerfPlanQueryResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalOrgPerfPlanQueryResponseBodyContent) SetPageNumber(v int32) *AgoalOrgPerfPlanQueryResponseBodyContent {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *AgoalOrgPerfPlanQueryResponseBodyContent) SetPageSize(v int32) *AgoalOrgPerfPlanQueryResponseBodyContent {
+	s.PageSize = &v
+	return s
+}
+
+func (s *AgoalOrgPerfPlanQueryResponseBodyContent) SetResult(v []*OpenOrgPerfPlanDTO) *AgoalOrgPerfPlanQueryResponseBodyContent {
+	s.Result = v
+	return s
+}
+
+func (s *AgoalOrgPerfPlanQueryResponseBodyContent) SetTotalCount(v int64) *AgoalOrgPerfPlanQueryResponseBodyContent {
+	s.TotalCount = &v
+	return s
+}
+
+type AgoalOrgPerfPlanQueryResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AgoalOrgPerfPlanQueryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AgoalOrgPerfPlanQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalOrgPerfPlanQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalOrgPerfPlanQueryResponse) SetHeaders(v map[string]*string) *AgoalOrgPerfPlanQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AgoalOrgPerfPlanQueryResponse) SetStatusCode(v int32) *AgoalOrgPerfPlanQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AgoalOrgPerfPlanQueryResponse) SetBody(v *AgoalOrgPerfPlanQueryResponseBody) *AgoalOrgPerfPlanQueryResponse {
 	s.Body = v
 	return s
 }
@@ -3814,6 +4707,204 @@ func (s *GetIndicatorDetailResponse) SetBody(v *GetIndicatorDetailResponseBody) 
 	return s
 }
 
+type GetObjectiveDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetObjectiveDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetObjectiveDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetObjectiveDetailHeaders) SetCommonHeaders(v map[string]*string) *GetObjectiveDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetObjectiveDetailHeaders) SetXAcsDingtalkAccessToken(v string) *GetObjectiveDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetObjectiveDetailRequest struct {
+	// This parameter is required.
+	ObjectiveId *string `json:"objectiveId,omitempty" xml:"objectiveId,omitempty"`
+}
+
+func (s GetObjectiveDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetObjectiveDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetObjectiveDetailRequest) SetObjectiveId(v string) *GetObjectiveDetailRequest {
+	s.ObjectiveId = &v
+	return s
+}
+
+type GetObjectiveDetailResponseBody struct {
+	Content   *OpenAgoalObjectiveDTO `json:"content,omitempty" xml:"content,omitempty"`
+	RequestId *string                `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool                  `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetObjectiveDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetObjectiveDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetObjectiveDetailResponseBody) SetContent(v *OpenAgoalObjectiveDTO) *GetObjectiveDetailResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *GetObjectiveDetailResponseBody) SetRequestId(v string) *GetObjectiveDetailResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *GetObjectiveDetailResponseBody) SetSuccess(v bool) *GetObjectiveDetailResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetObjectiveDetailResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetObjectiveDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetObjectiveDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetObjectiveDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetObjectiveDetailResponse) SetHeaders(v map[string]*string) *GetObjectiveDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetObjectiveDetailResponse) SetStatusCode(v int32) *GetObjectiveDetailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetObjectiveDetailResponse) SetBody(v *GetObjectiveDetailResponseBody) *GetObjectiveDetailResponse {
+	s.Body = v
+	return s
+}
+
+type GetObjectiveRuleDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetObjectiveRuleDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetObjectiveRuleDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetObjectiveRuleDetailHeaders) SetCommonHeaders(v map[string]*string) *GetObjectiveRuleDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetObjectiveRuleDetailHeaders) SetXAcsDingtalkAccessToken(v string) *GetObjectiveRuleDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetObjectiveRuleDetailRequest struct {
+	// This parameter is required.
+	ObjectiveRuleId *string `json:"objectiveRuleId,omitempty" xml:"objectiveRuleId,omitempty"`
+}
+
+func (s GetObjectiveRuleDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetObjectiveRuleDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetObjectiveRuleDetailRequest) SetObjectiveRuleId(v string) *GetObjectiveRuleDetailRequest {
+	s.ObjectiveRuleId = &v
+	return s
+}
+
+type GetObjectiveRuleDetailResponseBody struct {
+	Content   *OpenObjectiveRuleDTO `json:"content,omitempty" xml:"content,omitempty"`
+	RequestId *string               `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Success   *bool                 `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetObjectiveRuleDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetObjectiveRuleDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetObjectiveRuleDetailResponseBody) SetContent(v *OpenObjectiveRuleDTO) *GetObjectiveRuleDetailResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *GetObjectiveRuleDetailResponseBody) SetRequestId(v string) *GetObjectiveRuleDetailResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *GetObjectiveRuleDetailResponseBody) SetSuccess(v bool) *GetObjectiveRuleDetailResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetObjectiveRuleDetailResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetObjectiveRuleDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetObjectiveRuleDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetObjectiveRuleDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetObjectiveRuleDetailResponse) SetHeaders(v map[string]*string) *GetObjectiveRuleDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetObjectiveRuleDetailResponse) SetStatusCode(v int32) *GetObjectiveRuleDetailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetObjectiveRuleDetailResponse) SetBody(v *GetObjectiveRuleDetailResponseBody) *GetObjectiveRuleDetailResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -4390,6 +5481,164 @@ func (client *Client) AgoalObjectiveKeyActionList(request *AgoalObjectiveKeyActi
 
 // Summary:
 //
+// 查询企业下指定个人目标的所有进展
+//
+// @param request - AgoalObjectiveProgressListRequest
+//
+// @param headers - AgoalObjectiveProgressListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AgoalObjectiveProgressListResponse
+func (client *Client) AgoalObjectiveProgressListWithOptions(request *AgoalObjectiveProgressListRequest, headers *AgoalObjectiveProgressListHeaders, runtime *util.RuntimeOptions) (_result *AgoalObjectiveProgressListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ObjectiveId)) {
+		query["objectiveId"] = request.ObjectiveId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AgoalObjectiveProgressList"),
+		Version:     tea.String("agoal_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/agoal/objectives/progresses/lists"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AgoalObjectiveProgressListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业下指定个人目标的所有进展
+//
+// @param request - AgoalObjectiveProgressListRequest
+//
+// @return AgoalObjectiveProgressListResponse
+func (client *Client) AgoalObjectiveProgressList(request *AgoalObjectiveProgressListRequest) (_result *AgoalObjectiveProgressListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AgoalObjectiveProgressListHeaders{}
+	_result = &AgoalObjectiveProgressListResponse{}
+	_body, _err := client.AgoalObjectiveProgressListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业下目标规则列表
+//
+// @param request - AgoalObjectiveRuleListRequest
+//
+// @param headers - AgoalObjectiveRuleListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AgoalObjectiveRuleListResponse
+func (client *Client) AgoalObjectiveRuleListWithOptions(request *AgoalObjectiveRuleListRequest, headers *AgoalObjectiveRuleListHeaders, runtime *util.RuntimeOptions) (_result *AgoalObjectiveRuleListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AgoalObjectiveRuleList"),
+		Version:     tea.String("agoal_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/agoal/objectiveRuleLists/query"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AgoalObjectiveRuleListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业下目标规则列表
+//
+// @param request - AgoalObjectiveRuleListRequest
+//
+// @return AgoalObjectiveRuleListResponse
+func (client *Client) AgoalObjectiveRuleList(request *AgoalObjectiveRuleListRequest) (_result *AgoalObjectiveRuleListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AgoalObjectiveRuleListHeaders{}
+	_result = &AgoalObjectiveRuleListResponse{}
+	_body, _err := client.AgoalObjectiveRuleListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 获取Agoal目标规则下的周期列表
 //
 // @param request - AgoalObjectiveRulePeriodListRequest
@@ -4671,6 +5920,164 @@ func (client *Client) AgoalOrgObjectiveRuleList() (_result *AgoalOrgObjectiveRul
 	headers := &AgoalOrgObjectiveRuleListHeaders{}
 	_result = &AgoalOrgObjectiveRuleListResponse{}
 	_body, _err := client.AgoalOrgObjectiveRuleListWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询某个考核计划的部门得分
+//
+// @param request - AgoalOrgPerfDocQueryRequest
+//
+// @param headers - AgoalOrgPerfDocQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AgoalOrgPerfDocQueryResponse
+func (client *Client) AgoalOrgPerfDocQueryWithOptions(request *AgoalOrgPerfDocQueryRequest, headers *AgoalOrgPerfDocQueryHeaders, runtime *util.RuntimeOptions) (_result *AgoalOrgPerfDocQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PlanId)) {
+		query["planId"] = request.PlanId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AgoalOrgPerfDocQuery"),
+		Version:     tea.String("agoal_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/agoal/org_perf/documents/query"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AgoalOrgPerfDocQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询某个考核计划的部门得分
+//
+// @param request - AgoalOrgPerfDocQueryRequest
+//
+// @return AgoalOrgPerfDocQueryResponse
+func (client *Client) AgoalOrgPerfDocQuery(request *AgoalOrgPerfDocQueryRequest) (_result *AgoalOrgPerfDocQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AgoalOrgPerfDocQueryHeaders{}
+	_result = &AgoalOrgPerfDocQueryResponse{}
+	_body, _err := client.AgoalOrgPerfDocQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业下的所有考核计划
+//
+// @param request - AgoalOrgPerfPlanQueryRequest
+//
+// @param headers - AgoalOrgPerfPlanQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AgoalOrgPerfPlanQueryResponse
+func (client *Client) AgoalOrgPerfPlanQueryWithOptions(request *AgoalOrgPerfPlanQueryRequest, headers *AgoalOrgPerfPlanQueryHeaders, runtime *util.RuntimeOptions) (_result *AgoalOrgPerfPlanQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AgoalOrgPerfPlanQuery"),
+		Version:     tea.String("agoal_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/agoal/org_perf/plans/query"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AgoalOrgPerfPlanQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业下的所有考核计划
+//
+// @param request - AgoalOrgPerfPlanQueryRequest
+//
+// @return AgoalOrgPerfPlanQueryResponse
+func (client *Client) AgoalOrgPerfPlanQuery(request *AgoalOrgPerfPlanQueryRequest) (_result *AgoalOrgPerfPlanQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AgoalOrgPerfPlanQueryHeaders{}
+	_result = &AgoalOrgPerfPlanQueryResponse{}
+	_body, _err := client.AgoalOrgPerfPlanQueryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5342,6 +6749,152 @@ func (client *Client) GetIndicatorDetail(request *GetIndicatorDetailRequest) (_r
 	headers := &GetIndicatorDetailHeaders{}
 	_result = &GetIndicatorDetailResponse{}
 	_body, _err := client.GetIndicatorDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业下个人目标详情
+//
+// @param request - GetObjectiveDetailRequest
+//
+// @param headers - GetObjectiveDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetObjectiveDetailResponse
+func (client *Client) GetObjectiveDetailWithOptions(request *GetObjectiveDetailRequest, headers *GetObjectiveDetailHeaders, runtime *util.RuntimeOptions) (_result *GetObjectiveDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ObjectiveId)) {
+		query["objectiveId"] = request.ObjectiveId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetObjectiveDetail"),
+		Version:     tea.String("agoal_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/agoal/objectives/details"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetObjectiveDetailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业下个人目标详情
+//
+// @param request - GetObjectiveDetailRequest
+//
+// @return GetObjectiveDetailResponse
+func (client *Client) GetObjectiveDetail(request *GetObjectiveDetailRequest) (_result *GetObjectiveDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetObjectiveDetailHeaders{}
+	_result = &GetObjectiveDetailResponse{}
+	_body, _err := client.GetObjectiveDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业下单个目标规则详情
+//
+// @param request - GetObjectiveRuleDetailRequest
+//
+// @param headers - GetObjectiveRuleDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetObjectiveRuleDetailResponse
+func (client *Client) GetObjectiveRuleDetailWithOptions(request *GetObjectiveRuleDetailRequest, headers *GetObjectiveRuleDetailHeaders, runtime *util.RuntimeOptions) (_result *GetObjectiveRuleDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ObjectiveRuleId)) {
+		query["objectiveRuleId"] = request.ObjectiveRuleId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetObjectiveRuleDetail"),
+		Version:     tea.String("agoal_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/agoal/objectiveRules/details"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetObjectiveRuleDetailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业下单个目标规则详情
+//
+// @param request - GetObjectiveRuleDetailRequest
+//
+// @return GetObjectiveRuleDetailResponse
+func (client *Client) GetObjectiveRuleDetail(request *GetObjectiveRuleDetailRequest) (_result *GetObjectiveRuleDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetObjectiveRuleDetailHeaders{}
+	_result = &GetObjectiveRuleDetailResponse{}
+	_body, _err := client.GetObjectiveRuleDetailWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

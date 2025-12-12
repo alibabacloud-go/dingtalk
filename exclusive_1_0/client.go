@@ -2607,6 +2607,98 @@ func (s *ExclusiveCreateDingPortalResponse) SetBody(v *ExclusiveCreateDingPortal
 	return s
 }
 
+type FileEncryptCallbackHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s FileEncryptCallbackHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileEncryptCallbackHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *FileEncryptCallbackHeaders) SetCommonHeaders(v map[string]*string) *FileEncryptCallbackHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *FileEncryptCallbackHeaders) SetXAcsDingtalkAccessToken(v string) *FileEncryptCallbackHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type FileEncryptCallbackRequest struct {
+	BizId     *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	Timestamp *int64  `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+}
+
+func (s FileEncryptCallbackRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileEncryptCallbackRequest) GoString() string {
+	return s.String()
+}
+
+func (s *FileEncryptCallbackRequest) SetBizId(v string) *FileEncryptCallbackRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *FileEncryptCallbackRequest) SetTimestamp(v int64) *FileEncryptCallbackRequest {
+	s.Timestamp = &v
+	return s
+}
+
+type FileEncryptCallbackResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s FileEncryptCallbackResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileEncryptCallbackResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *FileEncryptCallbackResponseBody) SetSuccess(v bool) *FileEncryptCallbackResponseBody {
+	s.Success = &v
+	return s
+}
+
+type FileEncryptCallbackResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *FileEncryptCallbackResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s FileEncryptCallbackResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileEncryptCallbackResponse) GoString() string {
+	return s.String()
+}
+
+func (s *FileEncryptCallbackResponse) SetHeaders(v map[string]*string) *FileEncryptCallbackResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *FileEncryptCallbackResponse) SetStatusCode(v int32) *FileEncryptCallbackResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *FileEncryptCallbackResponse) SetBody(v *FileEncryptCallbackResponseBody) *FileEncryptCallbackResponse {
+	s.Body = v
+	return s
+}
+
 type FileStorageActiveStorageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8558,6 +8650,11 @@ func (s *GetPrivateStoreFileInfosByPageHeaders) SetXAcsDingtalkAccessToken(v str
 }
 
 type GetPrivateStoreFileInfosByPageRequest struct {
+	// example:
+	//
+	// 文档文件:document, 视频:video, 代码文件:text, 链接:link, 音频:audio, 图片:image, 压缩文件:archive, 安装包:app, 其他:other
+	ContentType *string  `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	DeptIds     []*int64 `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
 	// This parameter is required.
 	//
 	// example:
@@ -8566,11 +8663,17 @@ type GetPrivateStoreFileInfosByPageRequest struct {
 	FileCreateTime *int64  `json:"fileCreateTime,omitempty" xml:"fileCreateTime,omitempty"`
 	FileStatus     *string `json:"fileStatus,omitempty" xml:"fileStatus,omitempty"`
 	MaxResults     *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	Name           *string `json:"name,omitempty" xml:"name,omitempty"`
 	NextToken      *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// This parameter is required.
 	Order *string `json:"order,omitempty" xml:"order,omitempty"`
+	// example:
+	//
+	// IM:IM, 其他:OTHER, 个人空间:PERSON, 企业内共享:ORG
+	SceneType *string `json:"sceneType,omitempty" xml:"sceneType,omitempty"`
 	// This parameter is required.
-	TargetCorpId *string `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	TargetCorpId *string   `json:"targetCorpId,omitempty" xml:"targetCorpId,omitempty"`
+	UserIds      []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s GetPrivateStoreFileInfosByPageRequest) String() string {
@@ -8579,6 +8682,16 @@ func (s GetPrivateStoreFileInfosByPageRequest) String() string {
 
 func (s GetPrivateStoreFileInfosByPageRequest) GoString() string {
 	return s.String()
+}
+
+func (s *GetPrivateStoreFileInfosByPageRequest) SetContentType(v string) *GetPrivateStoreFileInfosByPageRequest {
+	s.ContentType = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileInfosByPageRequest) SetDeptIds(v []*int64) *GetPrivateStoreFileInfosByPageRequest {
+	s.DeptIds = v
+	return s
 }
 
 func (s *GetPrivateStoreFileInfosByPageRequest) SetFileCreateTime(v int64) *GetPrivateStoreFileInfosByPageRequest {
@@ -8596,6 +8709,11 @@ func (s *GetPrivateStoreFileInfosByPageRequest) SetMaxResults(v int32) *GetPriva
 	return s
 }
 
+func (s *GetPrivateStoreFileInfosByPageRequest) SetName(v string) *GetPrivateStoreFileInfosByPageRequest {
+	s.Name = &v
+	return s
+}
+
 func (s *GetPrivateStoreFileInfosByPageRequest) SetNextToken(v string) *GetPrivateStoreFileInfosByPageRequest {
 	s.NextToken = &v
 	return s
@@ -8606,8 +8724,18 @@ func (s *GetPrivateStoreFileInfosByPageRequest) SetOrder(v string) *GetPrivateSt
 	return s
 }
 
+func (s *GetPrivateStoreFileInfosByPageRequest) SetSceneType(v string) *GetPrivateStoreFileInfosByPageRequest {
+	s.SceneType = &v
+	return s
+}
+
 func (s *GetPrivateStoreFileInfosByPageRequest) SetTargetCorpId(v string) *GetPrivateStoreFileInfosByPageRequest {
 	s.TargetCorpId = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileInfosByPageRequest) SetUserIds(v []*string) *GetPrivateStoreFileInfosByPageRequest {
+	s.UserIds = v
 	return s
 }
 
@@ -8635,13 +8763,25 @@ func (s *GetPrivateStoreFileInfosByPageResponseBody) SetNextToken(v string) *Get
 }
 
 type GetPrivateStoreFileInfosByPageResponseBodyFileInfos struct {
+	// example:
+	//
+	// eg:图片、文档、文本、压缩包、视频、音频
+	ContentTypeMcms *string `json:"contentTypeMcms,omitempty" xml:"contentTypeMcms,omitempty"`
+	// example:
+	//
+	// staff123
+	CreatorStaffId *string `json:"creatorStaffId,omitempty" xml:"creatorStaffId,omitempty"`
 	DentryId       *int64  `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
 	FileCreateTime *int64  `json:"fileCreateTime,omitempty" xml:"fileCreateTime,omitempty"`
 	FileName       *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
 	FilePath       *string `json:"filePath,omitempty" xml:"filePath,omitempty"`
 	FileSize       *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
-	SpaceId        *int64  `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
-	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
+	// example:
+	//
+	// eg:IM, 其他, 个人空间, 企业内共享
+	SceneTypeMcms *string `json:"sceneTypeMcms,omitempty" xml:"sceneTypeMcms,omitempty"`
+	SpaceId       *int64  `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	Status        *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s GetPrivateStoreFileInfosByPageResponseBodyFileInfos) String() string {
@@ -8650,6 +8790,16 @@ func (s GetPrivateStoreFileInfosByPageResponseBodyFileInfos) String() string {
 
 func (s GetPrivateStoreFileInfosByPageResponseBodyFileInfos) GoString() string {
 	return s.String()
+}
+
+func (s *GetPrivateStoreFileInfosByPageResponseBodyFileInfos) SetContentTypeMcms(v string) *GetPrivateStoreFileInfosByPageResponseBodyFileInfos {
+	s.ContentTypeMcms = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileInfosByPageResponseBodyFileInfos) SetCreatorStaffId(v string) *GetPrivateStoreFileInfosByPageResponseBodyFileInfos {
+	s.CreatorStaffId = &v
+	return s
 }
 
 func (s *GetPrivateStoreFileInfosByPageResponseBodyFileInfos) SetDentryId(v int64) *GetPrivateStoreFileInfosByPageResponseBodyFileInfos {
@@ -8674,6 +8824,11 @@ func (s *GetPrivateStoreFileInfosByPageResponseBodyFileInfos) SetFilePath(v stri
 
 func (s *GetPrivateStoreFileInfosByPageResponseBodyFileInfos) SetFileSize(v int64) *GetPrivateStoreFileInfosByPageResponseBodyFileInfos {
 	s.FileSize = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileInfosByPageResponseBodyFileInfos) SetSceneTypeMcms(v string) *GetPrivateStoreFileInfosByPageResponseBodyFileInfos {
+	s.SceneTypeMcms = &v
 	return s
 }
 
@@ -8806,6 +8961,515 @@ func (s *GetPrivateStoreFilePathResponse) SetStatusCode(v int32) *GetPrivateStor
 }
 
 func (s *GetPrivateStoreFilePathResponse) SetBody(v *GetPrivateStoreFilePathResponseBody) *GetPrivateStoreFilePathResponse {
+	s.Body = v
+	return s
+}
+
+type GetPrivateStoreFileTaskInfosByPageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPrivateStoreFileTaskInfosByPageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrivateStoreFileTaskInfosByPageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageHeaders) SetCommonHeaders(v map[string]*string) *GetPrivateStoreFileTaskInfosByPageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageHeaders) SetXAcsDingtalkAccessToken(v string) *GetPrivateStoreFileTaskInfosByPageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPrivateStoreFileTaskInfosByPageRequest struct {
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 20
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// 初始化完毕 0 正在删除 1 删除完成 2 正在回滚 3 回滚完成 4 数据初始化中 5  任务状态异常 6  待删除 7
+	TaskStatus *int32 `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
+}
+
+func (s GetPrivateStoreFileTaskInfosByPageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrivateStoreFileTaskInfosByPageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageRequest) SetPageNumber(v int32) *GetPrivateStoreFileTaskInfosByPageRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageRequest) SetPageSize(v int32) *GetPrivateStoreFileTaskInfosByPageRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageRequest) SetTaskStatus(v int32) *GetPrivateStoreFileTaskInfosByPageRequest {
+	s.TaskStatus = &v
+	return s
+}
+
+type GetPrivateStoreFileTaskInfosByPageResponseBody struct {
+	// example:
+	//
+	// true
+	HasNext *int32 `json:"hasNext,omitempty" xml:"hasNext,omitempty"`
+	// example:
+	//
+	// 100
+	ItemCount *int32                                                 `json:"itemCount,omitempty" xml:"itemCount,omitempty"`
+	Items     []*GetPrivateStoreFileTaskInfosByPageResponseBodyItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 200
+	TotalCount *int32 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s GetPrivateStoreFileTaskInfosByPageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrivateStoreFileTaskInfosByPageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBody) SetHasNext(v int32) *GetPrivateStoreFileTaskInfosByPageResponseBody {
+	s.HasNext = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBody) SetItemCount(v int32) *GetPrivateStoreFileTaskInfosByPageResponseBody {
+	s.ItemCount = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBody) SetItems(v []*GetPrivateStoreFileTaskInfosByPageResponseBodyItems) *GetPrivateStoreFileTaskInfosByPageResponseBody {
+	s.Items = v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBody) SetTotalCount(v int32) *GetPrivateStoreFileTaskInfosByPageResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type GetPrivateStoreFileTaskInfosByPageResponseBodyItems struct {
+	// example:
+	//
+	// 123
+	ClassTagId *string `json:"classTagId,omitempty" xml:"classTagId,omitempty"`
+	// example:
+	//
+	// 大于 0 小于 1 等于 2
+	ClassTagOperator *string `json:"classTagOperator,omitempty" xml:"classTagOperator,omitempty"`
+	// example:
+	//
+	// 普通文件
+	ClassTagText *string `json:"classTagText,omitempty" xml:"classTagText,omitempty"`
+	// example:
+	//
+	// 1
+	CreatorLeaveStatus *int32    `json:"creatorLeaveStatus,omitempty" xml:"creatorLeaveStatus,omitempty"`
+	DealFileFormats    []*string `json:"dealFileFormats,omitempty" xml:"dealFileFormats,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 大于等于 0 小于等于 1
+	DealFileOperator *int32    `json:"dealFileOperator,omitempty" xml:"dealFileOperator,omitempty"`
+	DealFileScopes   []*string `json:"dealFileScopes,omitempty" xml:"dealFileScopes,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1234
+	DealFileSize *int64 `json:"dealFileSize,omitempty" xml:"dealFileSize,omitempty"`
+	// example:
+	//
+	// 12345
+	FileCreateTimeEnd *int64 `json:"fileCreateTimeEnd,omitempty" xml:"fileCreateTimeEnd,omitempty"`
+	// example:
+	//
+	// 12345
+	FileCreateTimeStart *int64 `json:"fileCreateTimeStart,omitempty" xml:"fileCreateTimeStart,omitempty"`
+	// example:
+	//
+	// 12345
+	FileModifiedTimeEnd *int64 `json:"fileModifiedTimeEnd,omitempty" xml:"fileModifiedTimeEnd,omitempty"`
+	// example:
+	//
+	// 12345
+	FileModifiedTimeStart *int64 `json:"fileModifiedTimeStart,omitempty" xml:"fileModifiedTimeStart,omitempty"`
+	// example:
+	//
+	// 12345
+	TaskCreateTime *int64 `json:"taskCreateTime,omitempty" xml:"taskCreateTime,omitempty"`
+	// example:
+	//
+	// 钉三多
+	TaskCreatorName *string `json:"taskCreatorName,omitempty" xml:"taskCreatorName,omitempty"`
+	// example:
+	//
+	// 钉三多
+	TaskDeleterName *string `json:"taskDeleterName,omitempty" xml:"taskDeleterName,omitempty"`
+	// example:
+	//
+	// 123
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// example:
+	//
+	// 初始化完毕 0 正在删除 1 删除完成 2 正在回滚 3 回滚完成 4 数据初始化中 5  任务状态异常 6  待删除 7
+	TaskStatus *int32 `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
+}
+
+func (s GetPrivateStoreFileTaskInfosByPageResponseBodyItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrivateStoreFileTaskInfosByPageResponseBodyItems) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBodyItems) SetClassTagId(v string) *GetPrivateStoreFileTaskInfosByPageResponseBodyItems {
+	s.ClassTagId = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBodyItems) SetClassTagOperator(v string) *GetPrivateStoreFileTaskInfosByPageResponseBodyItems {
+	s.ClassTagOperator = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBodyItems) SetClassTagText(v string) *GetPrivateStoreFileTaskInfosByPageResponseBodyItems {
+	s.ClassTagText = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBodyItems) SetCreatorLeaveStatus(v int32) *GetPrivateStoreFileTaskInfosByPageResponseBodyItems {
+	s.CreatorLeaveStatus = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBodyItems) SetDealFileFormats(v []*string) *GetPrivateStoreFileTaskInfosByPageResponseBodyItems {
+	s.DealFileFormats = v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBodyItems) SetDealFileOperator(v int32) *GetPrivateStoreFileTaskInfosByPageResponseBodyItems {
+	s.DealFileOperator = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBodyItems) SetDealFileScopes(v []*string) *GetPrivateStoreFileTaskInfosByPageResponseBodyItems {
+	s.DealFileScopes = v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBodyItems) SetDealFileSize(v int64) *GetPrivateStoreFileTaskInfosByPageResponseBodyItems {
+	s.DealFileSize = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBodyItems) SetFileCreateTimeEnd(v int64) *GetPrivateStoreFileTaskInfosByPageResponseBodyItems {
+	s.FileCreateTimeEnd = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBodyItems) SetFileCreateTimeStart(v int64) *GetPrivateStoreFileTaskInfosByPageResponseBodyItems {
+	s.FileCreateTimeStart = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBodyItems) SetFileModifiedTimeEnd(v int64) *GetPrivateStoreFileTaskInfosByPageResponseBodyItems {
+	s.FileModifiedTimeEnd = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBodyItems) SetFileModifiedTimeStart(v int64) *GetPrivateStoreFileTaskInfosByPageResponseBodyItems {
+	s.FileModifiedTimeStart = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBodyItems) SetTaskCreateTime(v int64) *GetPrivateStoreFileTaskInfosByPageResponseBodyItems {
+	s.TaskCreateTime = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBodyItems) SetTaskCreatorName(v string) *GetPrivateStoreFileTaskInfosByPageResponseBodyItems {
+	s.TaskCreatorName = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBodyItems) SetTaskDeleterName(v string) *GetPrivateStoreFileTaskInfosByPageResponseBodyItems {
+	s.TaskDeleterName = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBodyItems) SetTaskId(v int64) *GetPrivateStoreFileTaskInfosByPageResponseBodyItems {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponseBodyItems) SetTaskStatus(v int32) *GetPrivateStoreFileTaskInfosByPageResponseBodyItems {
+	s.TaskStatus = &v
+	return s
+}
+
+type GetPrivateStoreFileTaskInfosByPageResponse struct {
+	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetPrivateStoreFileTaskInfosByPageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetPrivateStoreFileTaskInfosByPageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrivateStoreFileTaskInfosByPageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponse) SetHeaders(v map[string]*string) *GetPrivateStoreFileTaskInfosByPageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponse) SetStatusCode(v int32) *GetPrivateStoreFileTaskInfosByPageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetPrivateStoreFileTaskInfosByPageResponse) SetBody(v *GetPrivateStoreFileTaskInfosByPageResponseBody) *GetPrivateStoreFileTaskInfosByPageResponse {
+	s.Body = v
+	return s
+}
+
+type GetPrivateStoreTaskFileInfosByPageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPrivateStoreTaskFileInfosByPageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrivateStoreTaskFileInfosByPageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageHeaders) SetCommonHeaders(v map[string]*string) *GetPrivateStoreTaskFileInfosByPageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageHeaders) SetXAcsDingtalkAccessToken(v string) *GetPrivateStoreTaskFileInfosByPageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPrivateStoreTaskFileInfosByPageRequest struct {
+	// example:
+	//
+	// 20
+	MaxResults *int32 `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	// example:
+	//
+	// 12dfewfg
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 12345
+	TaskId *int64 `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s GetPrivateStoreTaskFileInfosByPageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrivateStoreTaskFileInfosByPageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageRequest) SetMaxResults(v int32) *GetPrivateStoreTaskFileInfosByPageRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageRequest) SetNextToken(v string) *GetPrivateStoreTaskFileInfosByPageRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageRequest) SetTaskId(v int64) *GetPrivateStoreTaskFileInfosByPageRequest {
+	s.TaskId = &v
+	return s
+}
+
+type GetPrivateStoreTaskFileInfosByPageResponseBody struct {
+	Items []*GetPrivateStoreTaskFileInfosByPageResponseBodyItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 123abc
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 100
+	Total *int32 `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s GetPrivateStoreTaskFileInfosByPageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrivateStoreTaskFileInfosByPageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageResponseBody) SetItems(v []*GetPrivateStoreTaskFileInfosByPageResponseBodyItems) *GetPrivateStoreTaskFileInfosByPageResponseBody {
+	s.Items = v
+	return s
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageResponseBody) SetNextToken(v string) *GetPrivateStoreTaskFileInfosByPageResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageResponseBody) SetTotal(v int32) *GetPrivateStoreTaskFileInfosByPageResponseBody {
+	s.Total = &v
+	return s
+}
+
+type GetPrivateStoreTaskFileInfosByPageResponseBodyItems struct {
+	// example:
+	//
+	// 普通文件
+	ClassTagName *string `json:"classTagName,omitempty" xml:"classTagName,omitempty"`
+	// example:
+	//
+	// 1234
+	DentryId *string `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	// example:
+	//
+	// 1234566
+	FileCreateTime *int64 `json:"fileCreateTime,omitempty" xml:"fileCreateTime,omitempty"`
+	// example:
+	//
+	// 安装包
+	FileFormatName *string `json:"fileFormatName,omitempty" xml:"fileFormatName,omitempty"`
+	// example:
+	//
+	// 1234566
+	FileModifiedTime *int64 `json:"fileModifiedTime,omitempty" xml:"fileModifiedTime,omitempty"`
+	// example:
+	//
+	// 我的表格.xls
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// example:
+	//
+	// 钉钉云盘
+	FileScopeName *string `json:"fileScopeName,omitempty" xml:"fileScopeName,omitempty"`
+	// example:
+	//
+	// 1GB
+	FileSizeName *string `json:"fileSizeName,omitempty" xml:"fileSizeName,omitempty"`
+	// example:
+	//
+	// 1234
+	SpaceId *int64 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s GetPrivateStoreTaskFileInfosByPageResponseBodyItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrivateStoreTaskFileInfosByPageResponseBodyItems) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageResponseBodyItems) SetClassTagName(v string) *GetPrivateStoreTaskFileInfosByPageResponseBodyItems {
+	s.ClassTagName = &v
+	return s
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageResponseBodyItems) SetDentryId(v string) *GetPrivateStoreTaskFileInfosByPageResponseBodyItems {
+	s.DentryId = &v
+	return s
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageResponseBodyItems) SetFileCreateTime(v int64) *GetPrivateStoreTaskFileInfosByPageResponseBodyItems {
+	s.FileCreateTime = &v
+	return s
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageResponseBodyItems) SetFileFormatName(v string) *GetPrivateStoreTaskFileInfosByPageResponseBodyItems {
+	s.FileFormatName = &v
+	return s
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageResponseBodyItems) SetFileModifiedTime(v int64) *GetPrivateStoreTaskFileInfosByPageResponseBodyItems {
+	s.FileModifiedTime = &v
+	return s
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageResponseBodyItems) SetFileName(v string) *GetPrivateStoreTaskFileInfosByPageResponseBodyItems {
+	s.FileName = &v
+	return s
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageResponseBodyItems) SetFileScopeName(v string) *GetPrivateStoreTaskFileInfosByPageResponseBodyItems {
+	s.FileScopeName = &v
+	return s
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageResponseBodyItems) SetFileSizeName(v string) *GetPrivateStoreTaskFileInfosByPageResponseBodyItems {
+	s.FileSizeName = &v
+	return s
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageResponseBodyItems) SetSpaceId(v int64) *GetPrivateStoreTaskFileInfosByPageResponseBodyItems {
+	s.SpaceId = &v
+	return s
+}
+
+type GetPrivateStoreTaskFileInfosByPageResponse struct {
+	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetPrivateStoreTaskFileInfosByPageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetPrivateStoreTaskFileInfosByPageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPrivateStoreTaskFileInfosByPageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageResponse) SetHeaders(v map[string]*string) *GetPrivateStoreTaskFileInfosByPageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageResponse) SetStatusCode(v int32) *GetPrivateStoreTaskFileInfosByPageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetPrivateStoreTaskFileInfosByPageResponse) SetBody(v *GetPrivateStoreTaskFileInfosByPageResponseBody) *GetPrivateStoreTaskFileInfosByPageResponse {
 	s.Body = v
 	return s
 }
@@ -23929,6 +24593,83 @@ func (client *Client) ExclusiveCreateDingPortal(request *ExclusiveCreateDingPort
 
 // Summary:
 //
+// 文件加密回调
+//
+// @param request - FileEncryptCallbackRequest
+//
+// @param headers - FileEncryptCallbackHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return FileEncryptCallbackResponse
+func (client *Client) FileEncryptCallbackWithOptions(request *FileEncryptCallbackRequest, headers *FileEncryptCallbackHeaders, runtime *util.RuntimeOptions) (_result *FileEncryptCallbackResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Timestamp)) {
+		body["timestamp"] = request.Timestamp
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("FileEncryptCallback"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/clientDecrypt/encrypt/callback"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &FileEncryptCallbackResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 文件加密回调
+//
+// @param request - FileEncryptCallbackRequest
+//
+// @return FileEncryptCallbackResponse
+func (client *Client) FileEncryptCallback(request *FileEncryptCallbackRequest) (_result *FileEncryptCallbackResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &FileEncryptCallbackHeaders{}
+	_result = &FileEncryptCallbackResponse{}
+	_body, _err := client.FileEncryptCallbackWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 专属文件第一次设置，激活配置
 //
 // @param request - FileStorageActiveStorageRequest
@@ -26788,6 +27529,14 @@ func (client *Client) GetPrivateStoreFileInfosByPageWithOptions(request *GetPriv
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ContentType)) {
+		body["contentType"] = request.ContentType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptIds)) {
+		body["deptIds"] = request.DeptIds
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.FileCreateTime)) {
 		body["fileCreateTime"] = request.FileCreateTime
 	}
@@ -26800,6 +27549,10 @@ func (client *Client) GetPrivateStoreFileInfosByPageWithOptions(request *GetPriv
 		body["maxResults"] = request.MaxResults
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
 		body["nextToken"] = request.NextToken
 	}
@@ -26808,8 +27561,16 @@ func (client *Client) GetPrivateStoreFileInfosByPageWithOptions(request *GetPriv
 		body["order"] = request.Order
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.SceneType)) {
+		body["sceneType"] = request.SceneType
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.TargetCorpId)) {
 		body["targetCorpId"] = request.TargetCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
 	}
 
 	realHeaders := make(map[string]*string)
@@ -26934,6 +27695,168 @@ func (client *Client) GetPrivateStoreFilePath(request *GetPrivateStoreFilePathRe
 	headers := &GetPrivateStoreFilePathHeaders{}
 	_result = &GetPrivateStoreFilePathResponse{}
 	_body, _err := client.GetPrivateStoreFilePathWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页获取专属存储文件处理任务信息
+//
+// @param request - GetPrivateStoreFileTaskInfosByPageRequest
+//
+// @param headers - GetPrivateStoreFileTaskInfosByPageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPrivateStoreFileTaskInfosByPageResponse
+func (client *Client) GetPrivateStoreFileTaskInfosByPageWithOptions(request *GetPrivateStoreFileTaskInfosByPageRequest, headers *GetPrivateStoreFileTaskInfosByPageHeaders, runtime *util.RuntimeOptions) (_result *GetPrivateStoreFileTaskInfosByPageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskStatus)) {
+		body["taskStatus"] = request.TaskStatus
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetPrivateStoreFileTaskInfosByPage"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/privateStores/taskInfos/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetPrivateStoreFileTaskInfosByPageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页获取专属存储文件处理任务信息
+//
+// @param request - GetPrivateStoreFileTaskInfosByPageRequest
+//
+// @return GetPrivateStoreFileTaskInfosByPageResponse
+func (client *Client) GetPrivateStoreFileTaskInfosByPage(request *GetPrivateStoreFileTaskInfosByPageRequest) (_result *GetPrivateStoreFileTaskInfosByPageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPrivateStoreFileTaskInfosByPageHeaders{}
+	_result = &GetPrivateStoreFileTaskInfosByPageResponse{}
+	_body, _err := client.GetPrivateStoreFileTaskInfosByPageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页获取专属存储任务文件信息
+//
+// @param request - GetPrivateStoreTaskFileInfosByPageRequest
+//
+// @param headers - GetPrivateStoreTaskFileInfosByPageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPrivateStoreTaskFileInfosByPageResponse
+func (client *Client) GetPrivateStoreTaskFileInfosByPageWithOptions(request *GetPrivateStoreTaskFileInfosByPageRequest, headers *GetPrivateStoreTaskFileInfosByPageHeaders, runtime *util.RuntimeOptions) (_result *GetPrivateStoreTaskFileInfosByPageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetPrivateStoreTaskFileInfosByPage"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/privateStores/taskInfos/file/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetPrivateStoreTaskFileInfosByPageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页获取专属存储任务文件信息
+//
+// @param request - GetPrivateStoreTaskFileInfosByPageRequest
+//
+// @return GetPrivateStoreTaskFileInfosByPageResponse
+func (client *Client) GetPrivateStoreTaskFileInfosByPage(request *GetPrivateStoreTaskFileInfosByPageRequest) (_result *GetPrivateStoreTaskFileInfosByPageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPrivateStoreTaskFileInfosByPageHeaders{}
+	_result = &GetPrivateStoreTaskFileInfosByPageResponse{}
+	_body, _err := client.GetPrivateStoreTaskFileInfosByPageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

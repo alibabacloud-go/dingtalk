@@ -13707,6 +13707,8 @@ func (s *SetRightPanelHeaders) SetXAcsDingtalkAccessToken(v string) *SetRightPan
 }
 
 type SetRightPanelRequest struct {
+	ForceExpand *bool `json:"forceExpand,omitempty" xml:"forceExpand,omitempty"`
+	IsQtWnd     *bool `json:"isQtWnd,omitempty" xml:"isQtWnd,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -13743,6 +13745,16 @@ func (s SetRightPanelRequest) String() string {
 
 func (s SetRightPanelRequest) GoString() string {
 	return s.String()
+}
+
+func (s *SetRightPanelRequest) SetForceExpand(v bool) *SetRightPanelRequest {
+	s.ForceExpand = &v
+	return s
+}
+
+func (s *SetRightPanelRequest) SetIsQtWnd(v bool) *SetRightPanelRequest {
+	s.IsQtWnd = &v
+	return s
 }
 
 func (s *SetRightPanelRequest) SetOpenConversationId(v string) *SetRightPanelRequest {
@@ -24447,6 +24459,14 @@ func (client *Client) SetRightPanelWithOptions(request *SetRightPanelRequest, he
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ForceExpand)) {
+		body["forceExpand"] = request.ForceExpand
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsQtWnd)) {
+		body["isQtWnd"] = request.IsQtWnd
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
 		body["openConversationId"] = request.OpenConversationId
 	}

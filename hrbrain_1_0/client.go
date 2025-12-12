@@ -9,6 +9,152 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type HrbrainBizDataQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainBizDataQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainBizDataQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainBizDataQueryHeaders) SetCommonHeaders(v map[string]*string) *HrbrainBizDataQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainBizDataQueryHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainBizDataQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainBizDataQueryRequest struct {
+	// This parameter is required.
+	BizCode    *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s HrbrainBizDataQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainBizDataQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainBizDataQueryRequest) SetBizCode(v string) *HrbrainBizDataQueryRequest {
+	s.BizCode = &v
+	return s
+}
+
+func (s *HrbrainBizDataQueryRequest) SetMaxResults(v int64) *HrbrainBizDataQueryRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *HrbrainBizDataQueryRequest) SetNextToken(v string) *HrbrainBizDataQueryRequest {
+	s.NextToken = &v
+	return s
+}
+
+type HrbrainBizDataQueryResponseBody struct {
+	Content   *HrbrainBizDataQueryResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                                 `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool                                   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool                                   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainBizDataQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainBizDataQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainBizDataQueryResponseBody) SetContent(v *HrbrainBizDataQueryResponseBodyContent) *HrbrainBizDataQueryResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *HrbrainBizDataQueryResponseBody) SetRequestId(v string) *HrbrainBizDataQueryResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainBizDataQueryResponseBody) SetResult(v bool) *HrbrainBizDataQueryResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainBizDataQueryResponseBody) SetSuccess(v bool) *HrbrainBizDataQueryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainBizDataQueryResponseBodyContent struct {
+	BizInfos   []map[string]interface{} `json:"bizInfos,omitempty" xml:"bizInfos,omitempty" type:"Repeated"`
+	MaxResults *int64                   `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string                  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s HrbrainBizDataQueryResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainBizDataQueryResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainBizDataQueryResponseBodyContent) SetBizInfos(v []map[string]interface{}) *HrbrainBizDataQueryResponseBodyContent {
+	s.BizInfos = v
+	return s
+}
+
+func (s *HrbrainBizDataQueryResponseBodyContent) SetMaxResults(v int64) *HrbrainBizDataQueryResponseBodyContent {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *HrbrainBizDataQueryResponseBodyContent) SetNextToken(v string) *HrbrainBizDataQueryResponseBodyContent {
+	s.NextToken = &v
+	return s
+}
+
+type HrbrainBizDataQueryResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainBizDataQueryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainBizDataQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainBizDataQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainBizDataQueryResponse) SetHeaders(v map[string]*string) *HrbrainBizDataQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainBizDataQueryResponse) SetStatusCode(v int32) *HrbrainBizDataQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainBizDataQueryResponse) SetBody(v *HrbrainBizDataQueryResponseBody) *HrbrainBizDataQueryResponse {
+	s.Body = v
+	return s
+}
+
 type HrbrainDeleteAwardRecordsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7015,6 +7161,87 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+// Summary:
+//
+// 业务数据开放
+//
+// @param request - HrbrainBizDataQueryRequest
+//
+// @param headers - HrbrainBizDataQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainBizDataQueryResponse
+func (client *Client) HrbrainBizDataQueryWithOptions(request *HrbrainBizDataQueryRequest, headers *HrbrainBizDataQueryHeaders, runtime *util.RuntimeOptions) (_result *HrbrainBizDataQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		query["bizCode"] = request.BizCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainBizDataQuery"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/bizData/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainBizDataQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 业务数据开放
+//
+// @param request - HrbrainBizDataQueryRequest
+//
+// @return HrbrainBizDataQueryResponse
+func (client *Client) HrbrainBizDataQuery(request *HrbrainBizDataQueryRequest) (_result *HrbrainBizDataQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainBizDataQueryHeaders{}
+	_result = &HrbrainBizDataQueryResponse{}
+	_body, _err := client.HrbrainBizDataQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 // Summary:

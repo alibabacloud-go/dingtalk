@@ -168,6 +168,192 @@ func (s *CreateDeviceVideoConferenceResponse) SetBody(v *CreateDeviceVideoConfer
 	return s
 }
 
+type CreateExportDeviceStatisticTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateExportDeviceStatisticTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateExportDeviceStatisticTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateExportDeviceStatisticTaskHeaders) SetCommonHeaders(v map[string]*string) *CreateExportDeviceStatisticTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateExportDeviceStatisticTaskHeaders) SetXAcsDingtalkAccessToken(v string) *CreateExportDeviceStatisticTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateExportDeviceStatisticTaskRequest struct {
+	AiSheetTemplateId *int64  `json:"aiSheetTemplateId,omitempty" xml:"aiSheetTemplateId,omitempty"`
+	CreatorCorpId     *string `json:"creatorCorpId,omitempty" xml:"creatorCorpId,omitempty"`
+	CreatorUnionId    *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	TaskName          *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
+}
+
+func (s CreateExportDeviceStatisticTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateExportDeviceStatisticTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateExportDeviceStatisticTaskRequest) SetAiSheetTemplateId(v int64) *CreateExportDeviceStatisticTaskRequest {
+	s.AiSheetTemplateId = &v
+	return s
+}
+
+func (s *CreateExportDeviceStatisticTaskRequest) SetCreatorCorpId(v string) *CreateExportDeviceStatisticTaskRequest {
+	s.CreatorCorpId = &v
+	return s
+}
+
+func (s *CreateExportDeviceStatisticTaskRequest) SetCreatorUnionId(v string) *CreateExportDeviceStatisticTaskRequest {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *CreateExportDeviceStatisticTaskRequest) SetTaskName(v string) *CreateExportDeviceStatisticTaskRequest {
+	s.TaskName = &v
+	return s
+}
+
+type CreateExportDeviceStatisticTaskResponseBody struct {
+	ExportStatisticTaskDTO *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTO `json:"exportStatisticTaskDTO,omitempty" xml:"exportStatisticTaskDTO,omitempty" type:"Struct"`
+}
+
+func (s CreateExportDeviceStatisticTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateExportDeviceStatisticTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateExportDeviceStatisticTaskResponseBody) SetExportStatisticTaskDTO(v *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTO) *CreateExportDeviceStatisticTaskResponseBody {
+	s.ExportStatisticTaskDTO = v
+	return s
+}
+
+type CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTO struct {
+	AiSheetDocumentOpenDTO *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTOAiSheetDocumentOpenDTO `json:"aiSheetDocumentOpenDTO,omitempty" xml:"aiSheetDocumentOpenDTO,omitempty" type:"Struct"`
+	CorpId                 *string                                                                                  `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	TaskId                 *string                                                                                  `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskName               *string                                                                                  `json:"taskName,omitempty" xml:"taskName,omitempty"`
+	UnionId                *string                                                                                  `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTO) GoString() string {
+	return s.String()
+}
+
+func (s *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTO) SetAiSheetDocumentOpenDTO(v *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTOAiSheetDocumentOpenDTO) *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTO {
+	s.AiSheetDocumentOpenDTO = v
+	return s
+}
+
+func (s *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTO) SetCorpId(v string) *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTO {
+	s.CorpId = &v
+	return s
+}
+
+func (s *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTO) SetTaskId(v string) *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTO {
+	s.TaskId = &v
+	return s
+}
+
+func (s *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTO) SetTaskName(v string) *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTO {
+	s.TaskName = &v
+	return s
+}
+
+func (s *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTO) SetUnionId(v string) *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTO {
+	s.UnionId = &v
+	return s
+}
+
+type CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTOAiSheetDocumentOpenDTO struct {
+	AiSheetTemplateId *int64  `json:"aiSheetTemplateId,omitempty" xml:"aiSheetTemplateId,omitempty"`
+	CorpId            *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DocumentId        *string `json:"documentId,omitempty" xml:"documentId,omitempty"`
+	DocumentName      *string `json:"documentName,omitempty" xml:"documentName,omitempty"`
+	DocumentUrl       *string `json:"documentUrl,omitempty" xml:"documentUrl,omitempty"`
+}
+
+func (s CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTOAiSheetDocumentOpenDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTOAiSheetDocumentOpenDTO) GoString() string {
+	return s.String()
+}
+
+func (s *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTOAiSheetDocumentOpenDTO) SetAiSheetTemplateId(v int64) *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTOAiSheetDocumentOpenDTO {
+	s.AiSheetTemplateId = &v
+	return s
+}
+
+func (s *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTOAiSheetDocumentOpenDTO) SetCorpId(v string) *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTOAiSheetDocumentOpenDTO {
+	s.CorpId = &v
+	return s
+}
+
+func (s *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTOAiSheetDocumentOpenDTO) SetDocumentId(v string) *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTOAiSheetDocumentOpenDTO {
+	s.DocumentId = &v
+	return s
+}
+
+func (s *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTOAiSheetDocumentOpenDTO) SetDocumentName(v string) *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTOAiSheetDocumentOpenDTO {
+	s.DocumentName = &v
+	return s
+}
+
+func (s *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTOAiSheetDocumentOpenDTO) SetDocumentUrl(v string) *CreateExportDeviceStatisticTaskResponseBodyExportStatisticTaskDTOAiSheetDocumentOpenDTO {
+	s.DocumentUrl = &v
+	return s
+}
+
+type CreateExportDeviceStatisticTaskResponse struct {
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateExportDeviceStatisticTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateExportDeviceStatisticTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateExportDeviceStatisticTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateExportDeviceStatisticTaskResponse) SetHeaders(v map[string]*string) *CreateExportDeviceStatisticTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateExportDeviceStatisticTaskResponse) SetStatusCode(v int32) *CreateExportDeviceStatisticTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateExportDeviceStatisticTaskResponse) SetBody(v *CreateExportDeviceStatisticTaskResponseBody) *CreateExportDeviceStatisticTaskResponse {
+	s.Body = v
+	return s
+}
+
 type ExtractFacialFeatureHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -799,6 +985,133 @@ func (s *TextToImageResponse) SetBody(v *TextToImageResponseBody) *TextToImageRe
 	return s
 }
 
+type UpdateExportDeviceStatisticHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateExportDeviceStatisticHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateExportDeviceStatisticHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateExportDeviceStatisticHeaders) SetCommonHeaders(v map[string]*string) *UpdateExportDeviceStatisticHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateExportDeviceStatisticHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateExportDeviceStatisticHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateExportDeviceStatisticRequest struct {
+	CreatorCorpId  *string                                      `json:"creatorCorpId,omitempty" xml:"creatorCorpId,omitempty"`
+	CreatorUnionId *string                                      `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	Records        []*UpdateExportDeviceStatisticRequestRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	TaskId         *string                                      `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s UpdateExportDeviceStatisticRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateExportDeviceStatisticRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateExportDeviceStatisticRequest) SetCreatorCorpId(v string) *UpdateExportDeviceStatisticRequest {
+	s.CreatorCorpId = &v
+	return s
+}
+
+func (s *UpdateExportDeviceStatisticRequest) SetCreatorUnionId(v string) *UpdateExportDeviceStatisticRequest {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *UpdateExportDeviceStatisticRequest) SetRecords(v []*UpdateExportDeviceStatisticRequestRecords) *UpdateExportDeviceStatisticRequest {
+	s.Records = v
+	return s
+}
+
+func (s *UpdateExportDeviceStatisticRequest) SetTaskId(v string) *UpdateExportDeviceStatisticRequest {
+	s.TaskId = &v
+	return s
+}
+
+type UpdateExportDeviceStatisticRequestRecords struct {
+	Fields    map[string]interface{} `json:"fields,omitempty" xml:"fields,omitempty"`
+	SheetName *string                `json:"sheetName,omitempty" xml:"sheetName,omitempty"`
+}
+
+func (s UpdateExportDeviceStatisticRequestRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateExportDeviceStatisticRequestRecords) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateExportDeviceStatisticRequestRecords) SetFields(v map[string]interface{}) *UpdateExportDeviceStatisticRequestRecords {
+	s.Fields = v
+	return s
+}
+
+func (s *UpdateExportDeviceStatisticRequestRecords) SetSheetName(v string) *UpdateExportDeviceStatisticRequestRecords {
+	s.SheetName = &v
+	return s
+}
+
+type UpdateExportDeviceStatisticResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateExportDeviceStatisticResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateExportDeviceStatisticResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateExportDeviceStatisticResponseBody) SetSuccess(v bool) *UpdateExportDeviceStatisticResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateExportDeviceStatisticResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateExportDeviceStatisticResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateExportDeviceStatisticResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateExportDeviceStatisticResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateExportDeviceStatisticResponse) SetHeaders(v map[string]*string) *UpdateExportDeviceStatisticResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateExportDeviceStatisticResponse) SetStatusCode(v int32) *UpdateExportDeviceStatisticResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateExportDeviceStatisticResponse) SetBody(v *UpdateExportDeviceStatisticResponseBody) *UpdateExportDeviceStatisticResponse {
+	s.Body = v
+	return s
+}
+
 type VoiceCloneHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1110,6 +1423,91 @@ func (client *Client) CreateDeviceVideoConference(deviceId *string, request *Cre
 	headers := &CreateDeviceVideoConferenceHeaders{}
 	_result = &CreateDeviceVideoConferenceResponse{}
 	_body, _err := client.CreateDeviceVideoConferenceWithOptions(deviceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建导出设备数据任务
+//
+// @param request - CreateExportDeviceStatisticTaskRequest
+//
+// @param headers - CreateExportDeviceStatisticTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateExportDeviceStatisticTaskResponse
+func (client *Client) CreateExportDeviceStatisticTaskWithOptions(request *CreateExportDeviceStatisticTaskRequest, headers *CreateExportDeviceStatisticTaskHeaders, runtime *util.RuntimeOptions) (_result *CreateExportDeviceStatisticTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AiSheetTemplateId)) {
+		body["aiSheetTemplateId"] = request.AiSheetTemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreatorCorpId)) {
+		body["creatorCorpId"] = request.CreatorCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreatorUnionId)) {
+		body["creatorUnionId"] = request.CreatorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskName)) {
+		body["taskName"] = request.TaskName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateExportDeviceStatisticTask"),
+		Version:     tea.String("smartDevice_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/smartDevice/statistic/create"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateExportDeviceStatisticTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建导出设备数据任务
+//
+// @param request - CreateExportDeviceStatisticTaskRequest
+//
+// @return CreateExportDeviceStatisticTaskResponse
+func (client *Client) CreateExportDeviceStatisticTask(request *CreateExportDeviceStatisticTaskRequest) (_result *CreateExportDeviceStatisticTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateExportDeviceStatisticTaskHeaders{}
+	_result = &CreateExportDeviceStatisticTaskResponse{}
+	_body, _err := client.CreateExportDeviceStatisticTaskWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1582,6 +1980,91 @@ func (client *Client) TextToImage(request *TextToImageRequest) (_result *TextToI
 	headers := &TextToImageHeaders{}
 	_result = &TextToImageResponse{}
 	_body, _err := client.TextToImageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新导出设备数据
+//
+// @param request - UpdateExportDeviceStatisticRequest
+//
+// @param headers - UpdateExportDeviceStatisticHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateExportDeviceStatisticResponse
+func (client *Client) UpdateExportDeviceStatisticWithOptions(request *UpdateExportDeviceStatisticRequest, headers *UpdateExportDeviceStatisticHeaders, runtime *util.RuntimeOptions) (_result *UpdateExportDeviceStatisticResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CreatorCorpId)) {
+		body["creatorCorpId"] = request.CreatorCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreatorUnionId)) {
+		body["creatorUnionId"] = request.CreatorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Records)) {
+		body["records"] = request.Records
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateExportDeviceStatistic"),
+		Version:     tea.String("smartDevice_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/smartDevice/statistic"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateExportDeviceStatisticResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新导出设备数据
+//
+// @param request - UpdateExportDeviceStatisticRequest
+//
+// @return UpdateExportDeviceStatisticResponse
+func (client *Client) UpdateExportDeviceStatistic(request *UpdateExportDeviceStatisticRequest) (_result *UpdateExportDeviceStatisticResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateExportDeviceStatisticHeaders{}
+	_result = &UpdateExportDeviceStatisticResponse{}
+	_body, _err := client.UpdateExportDeviceStatisticWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

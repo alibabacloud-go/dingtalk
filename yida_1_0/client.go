@@ -6572,6 +6572,13 @@ type GetInstancesRequest struct {
 	//
 	// 2018-02-01
 	CreateToTimeGMT *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc, sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -6653,6 +6660,11 @@ func (s *GetInstancesRequest) SetCreateFromTimeGMT(v string) *GetInstancesReques
 
 func (s *GetInstancesRequest) SetCreateToTimeGMT(v string) *GetInstancesRequest {
 	s.CreateToTimeGMT = &v
+	return s
+}
+
+func (s *GetInstancesRequest) SetEnv(v string) *GetInstancesRequest {
+	s.Env = &v
 	return s
 }
 
@@ -8382,6 +8394,13 @@ type GetOperationRecordsRequest struct {
 	//
 	// APP_PBKT0MFBEBTDO8T7SLVP
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// example:
 	//
 	// zh_CN
@@ -8416,6 +8435,11 @@ func (s GetOperationRecordsRequest) GoString() string {
 
 func (s *GetOperationRecordsRequest) SetAppType(v string) *GetOperationRecordsRequest {
 	s.AppType = &v
+	return s
+}
+
+func (s *GetOperationRecordsRequest) SetEnv(v string) *GetOperationRecordsRequest {
+	s.Env = &v
 	return s
 }
 
@@ -19137,6 +19161,13 @@ type SearchFormDatasRequest struct {
 	//
 	// {"numberField_1ac":"+"}, 表示按照字段numberField_1ac升序排列
 	DynamicOrder *string `json:"dynamicOrder,omitempty" xml:"dynamicOrder,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -19209,6 +19240,11 @@ func (s *SearchFormDatasRequest) SetCurrentPage(v int32) *SearchFormDatasRequest
 
 func (s *SearchFormDatasRequest) SetDynamicOrder(v string) *SearchFormDatasRequest {
 	s.DynamicOrder = &v
+	return s
+}
+
+func (s *SearchFormDatasRequest) SetEnv(v string) *SearchFormDatasRequest {
+	s.Env = &v
 	return s
 }
 
@@ -20129,6 +20165,13 @@ type UpdateFormDataRequest struct {
 	//
 	// APP_PBKT0MFBEBTDO8T7SLVP
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -20169,6 +20212,11 @@ func (s UpdateFormDataRequest) GoString() string {
 
 func (s *UpdateFormDataRequest) SetAppType(v string) *UpdateFormDataRequest {
 	s.AppType = &v
+	return s
+}
+
+func (s *UpdateFormDataRequest) SetEnv(v string) *UpdateFormDataRequest {
+	s.Env = &v
 	return s
 }
 
@@ -24524,6 +24572,10 @@ func (client *Client) GetInstancesWithOptions(request *GetInstancesRequest, head
 		body["createToTimeGMT"] = request.CreateToTimeGMT
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
 		body["formUuid"] = request.FormUuid
 	}
@@ -25052,6 +25104,10 @@ func (client *Client) GetOperationRecordsWithOptions(request *GetOperationRecord
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AppType)) {
 		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Language)) {
@@ -29341,6 +29397,10 @@ func (client *Client) SearchFormDatasWithOptions(request *SearchFormDatasRequest
 		body["dynamicOrder"] = request.DynamicOrder
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
 		body["formUuid"] = request.FormUuid
 	}
@@ -29812,6 +29872,10 @@ func (client *Client) UpdateFormDataWithOptions(request *UpdateFormDataRequest, 
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AppType)) {
 		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.FormInstanceId)) {

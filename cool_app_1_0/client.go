@@ -512,6 +512,135 @@ func (s *QueryCoolAppShortcutOrderResponse) SetBody(v *QueryCoolAppShortcutOrder
 	return s
 }
 
+type QueryInstalledCoolAppsInConversationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryInstalledCoolAppsInConversationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstalledCoolAppsInConversationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstalledCoolAppsInConversationHeaders) SetCommonHeaders(v map[string]*string) *QueryInstalledCoolAppsInConversationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryInstalledCoolAppsInConversationHeaders) SetXAcsDingtalkAccessToken(v string) *QueryInstalledCoolAppsInConversationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryInstalledCoolAppsInConversationRequest struct {
+	// example:
+	//
+	// cidxxx
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s QueryInstalledCoolAppsInConversationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstalledCoolAppsInConversationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstalledCoolAppsInConversationRequest) SetOpenConversationId(v string) *QueryInstalledCoolAppsInConversationRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type QueryInstalledCoolAppsInConversationResponseBody struct {
+	Result *QueryInstalledCoolAppsInConversationResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryInstalledCoolAppsInConversationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstalledCoolAppsInConversationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstalledCoolAppsInConversationResponseBody) SetResult(v *QueryInstalledCoolAppsInConversationResponseBodyResult) *QueryInstalledCoolAppsInConversationResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryInstalledCoolAppsInConversationResponseBodyResult struct {
+	CoolApps []*QueryInstalledCoolAppsInConversationResponseBodyResultCoolApps `json:"coolApps,omitempty" xml:"coolApps,omitempty" type:"Repeated"`
+}
+
+func (s QueryInstalledCoolAppsInConversationResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstalledCoolAppsInConversationResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstalledCoolAppsInConversationResponseBodyResult) SetCoolApps(v []*QueryInstalledCoolAppsInConversationResponseBodyResultCoolApps) *QueryInstalledCoolAppsInConversationResponseBodyResult {
+	s.CoolApps = v
+	return s
+}
+
+type QueryInstalledCoolAppsInConversationResponseBodyResultCoolApps struct {
+	CoolAppCode *string `json:"coolAppCode,omitempty" xml:"coolAppCode,omitempty"`
+	CoolAppName *string `json:"coolAppName,omitempty" xml:"coolAppName,omitempty"`
+}
+
+func (s QueryInstalledCoolAppsInConversationResponseBodyResultCoolApps) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstalledCoolAppsInConversationResponseBodyResultCoolApps) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstalledCoolAppsInConversationResponseBodyResultCoolApps) SetCoolAppCode(v string) *QueryInstalledCoolAppsInConversationResponseBodyResultCoolApps {
+	s.CoolAppCode = &v
+	return s
+}
+
+func (s *QueryInstalledCoolAppsInConversationResponseBodyResultCoolApps) SetCoolAppName(v string) *QueryInstalledCoolAppsInConversationResponseBodyResultCoolApps {
+	s.CoolAppName = &v
+	return s
+}
+
+type QueryInstalledCoolAppsInConversationResponse struct {
+	Headers    map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryInstalledCoolAppsInConversationResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryInstalledCoolAppsInConversationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryInstalledCoolAppsInConversationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryInstalledCoolAppsInConversationResponse) SetHeaders(v map[string]*string) *QueryInstalledCoolAppsInConversationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryInstalledCoolAppsInConversationResponse) SetStatusCode(v int32) *QueryInstalledCoolAppsInConversationResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryInstalledCoolAppsInConversationResponse) SetBody(v *QueryInstalledCoolAppsInConversationResponseBody) *QueryInstalledCoolAppsInConversationResponse {
+	s.Body = v
+	return s
+}
+
 type UninstallCoolAppFromGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -907,6 +1036,79 @@ func (client *Client) QueryCoolAppShortcutOrder(request *QueryCoolAppShortcutOrd
 	headers := &QueryCoolAppShortcutOrderHeaders{}
 	_result = &QueryCoolAppShortcutOrderResponse{}
 	_body, _err := client.QueryCoolAppShortcutOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询会话内已安装的酷应用
+//
+// @param request - QueryInstalledCoolAppsInConversationRequest
+//
+// @param headers - QueryInstalledCoolAppsInConversationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryInstalledCoolAppsInConversationResponse
+func (client *Client) QueryInstalledCoolAppsInConversationWithOptions(request *QueryInstalledCoolAppsInConversationRequest, headers *QueryInstalledCoolAppsInConversationHeaders, runtime *util.RuntimeOptions) (_result *QueryInstalledCoolAppsInConversationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryInstalledCoolAppsInConversation"),
+		Version:     tea.String("coolApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/coolApp/installedInConversation/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryInstalledCoolAppsInConversationResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询会话内已安装的酷应用
+//
+// @param request - QueryInstalledCoolAppsInConversationRequest
+//
+// @return QueryInstalledCoolAppsInConversationResponse
+func (client *Client) QueryInstalledCoolAppsInConversation(request *QueryInstalledCoolAppsInConversationRequest) (_result *QueryInstalledCoolAppsInConversationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryInstalledCoolAppsInConversationHeaders{}
+	_result = &QueryInstalledCoolAppsInConversationResponse{}
+	_body, _err := client.QueryInstalledCoolAppsInConversationWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

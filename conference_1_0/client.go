@@ -1160,11 +1160,17 @@ type CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtra
 	// example:
 	//
 	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
-	MinutesOwnerUnionId          *string                                                                                                           `json:"minutesOwnerUnionId,omitempty" xml:"minutesOwnerUnionId,omitempty"`
-	MoziConfExtensionAppSettings []*CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings `json:"moziConfExtensionAppSettings,omitempty" xml:"moziConfExtensionAppSettings,omitempty" type:"Repeated"`
-	PushAllMeetingRecords        *bool                                                                                                             `json:"pushAllMeetingRecords,omitempty" xml:"pushAllMeetingRecords,omitempty"`
-	PushCloudRecordCard          *bool                                                                                                             `json:"pushCloudRecordCard,omitempty" xml:"pushCloudRecordCard,omitempty"`
-	PushMinutesCard              *bool                                                                                                             `json:"pushMinutesCard,omitempty" xml:"pushMinutesCard,omitempty"`
+	MinutesOwnerUnionId *string `json:"minutesOwnerUnionId,omitempty" xml:"minutesOwnerUnionId,omitempty"`
+	// example:
+	//
+	// 1
+	MinutesSummaryDiyTemplateVersion *string                                                                                                           `json:"minutesSummaryDiyTemplateVersion,omitempty" xml:"minutesSummaryDiyTemplateVersion,omitempty"`
+	MinutesSummaryTemplateId         *string                                                                                                           `json:"minutesSummaryTemplateId,omitempty" xml:"minutesSummaryTemplateId,omitempty"`
+	MinutesSummaryTemplateType       *string                                                                                                           `json:"minutesSummaryTemplateType,omitempty" xml:"minutesSummaryTemplateType,omitempty"`
+	MoziConfExtensionAppSettings     []*CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings `json:"moziConfExtensionAppSettings,omitempty" xml:"moziConfExtensionAppSettings,omitempty" type:"Repeated"`
+	PushAllMeetingRecords            *bool                                                                                                             `json:"pushAllMeetingRecords,omitempty" xml:"pushAllMeetingRecords,omitempty"`
+	PushCloudRecordCard              *bool                                                                                                             `json:"pushCloudRecordCard,omitempty" xml:"pushCloudRecordCard,omitempty"`
+	PushMinutesCard                  *bool                                                                                                             `json:"pushMinutesCard,omitempty" xml:"pushMinutesCard,omitempty"`
 	// example:
 	//
 	// 0：未开启 1：开启
@@ -1211,6 +1217,21 @@ func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualE
 
 func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetMinutesOwnerUnionId(v string) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
 	s.MinutesOwnerUnionId = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetMinutesSummaryDiyTemplateVersion(v string) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.MinutesSummaryDiyTemplateVersion = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetMinutesSummaryTemplateId(v string) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.MinutesSummaryTemplateId = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetMinutesSummaryTemplateType(v string) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.MinutesSummaryTemplateType = &v
 	return s
 }
 
@@ -2819,6 +2840,119 @@ func (s *GetUserMetricDataResponse) SetStatusCode(v int32) *GetUserMetricDataRes
 }
 
 func (s *GetUserMetricDataResponse) SetBody(v *GetUserMetricDataResponseBody) *GetUserMetricDataResponse {
+	s.Body = v
+	return s
+}
+
+type InviteMcuHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s InviteMcuHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InviteMcuHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *InviteMcuHeaders) SetCommonHeaders(v map[string]*string) *InviteMcuHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *InviteMcuHeaders) SetXAcsDingtalkAccessToken(v string) *InviteMcuHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type InviteMcuRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 123456
+	McuRoomCode *string `json:"mcuRoomCode,omitempty" xml:"mcuRoomCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234567890
+	RoomCode *string `json:"roomCode,omitempty" xml:"roomCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// qzR1iSMDvzR9iPXXXXXXXXXXXXXX
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s InviteMcuRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InviteMcuRequest) GoString() string {
+	return s.String()
+}
+
+func (s *InviteMcuRequest) SetMcuRoomCode(v string) *InviteMcuRequest {
+	s.McuRoomCode = &v
+	return s
+}
+
+func (s *InviteMcuRequest) SetRoomCode(v string) *InviteMcuRequest {
+	s.RoomCode = &v
+	return s
+}
+
+func (s *InviteMcuRequest) SetUnionId(v string) *InviteMcuRequest {
+	s.UnionId = &v
+	return s
+}
+
+type InviteMcuResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s InviteMcuResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InviteMcuResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *InviteMcuResponseBody) SetSuccess(v bool) *InviteMcuResponseBody {
+	s.Success = &v
+	return s
+}
+
+type InviteMcuResponse struct {
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *InviteMcuResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s InviteMcuResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InviteMcuResponse) GoString() string {
+	return s.String()
+}
+
+func (s *InviteMcuResponse) SetHeaders(v map[string]*string) *InviteMcuResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *InviteMcuResponse) SetStatusCode(v int32) *InviteMcuResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *InviteMcuResponse) SetBody(v *InviteMcuResponseBody) *InviteMcuResponse {
 	s.Body = v
 	return s
 }
@@ -9534,6 +9668,87 @@ func (client *Client) GetUserMetricData(conferenceId *string, request *GetUserMe
 	headers := &GetUserMetricDataHeaders{}
 	_result = &GetUserMetricDataResponse{}
 	_body, _err := client.GetUserMetricDataWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 邀请MCU入会
+//
+// @param request - InviteMcuRequest
+//
+// @param headers - InviteMcuHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InviteMcuResponse
+func (client *Client) InviteMcuWithOptions(request *InviteMcuRequest, headers *InviteMcuHeaders, runtime *util.RuntimeOptions) (_result *InviteMcuResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.McuRoomCode)) {
+		body["mcuRoomCode"] = request.McuRoomCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoomCode)) {
+		body["roomCode"] = request.RoomCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("InviteMcu"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/mcus/invite"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &InviteMcuResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 邀请MCU入会
+//
+// @param request - InviteMcuRequest
+//
+// @return InviteMcuResponse
+func (client *Client) InviteMcu(request *InviteMcuRequest) (_result *InviteMcuResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &InviteMcuHeaders{}
+	_result = &InviteMcuResponse{}
+	_body, _err := client.InviteMcuWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

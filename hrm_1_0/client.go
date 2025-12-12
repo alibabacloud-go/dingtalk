@@ -26,6 +26,380 @@ func (s *ResultValue) SetStatus(v string) *ResultValue {
 	return s
 }
 
+type AddCustomRosterFieldHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddCustomRosterFieldHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCustomRosterFieldHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddCustomRosterFieldHeaders) SetCommonHeaders(v map[string]*string) *AddCustomRosterFieldHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddCustomRosterFieldHeaders) SetXAcsDingtalkAccessToken(v string) *AddCustomRosterFieldHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddCustomRosterFieldRequest struct {
+	// This parameter is required.
+	EditFromEmployeeFlag *bool `json:"editFromEmployeeFlag,omitempty" xml:"editFromEmployeeFlag,omitempty"`
+	// This parameter is required.
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	// This parameter is required.
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	// This parameter is required.
+	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// This parameter is required.
+	HiddenFromEmployeeFlag *bool   `json:"hiddenFromEmployeeFlag,omitempty" xml:"hiddenFromEmployeeFlag,omitempty"`
+	Hint                   *string `json:"hint,omitempty" xml:"hint,omitempty"`
+	NoWatermark            *bool   `json:"noWatermark,omitempty" xml:"noWatermark,omitempty"`
+	NumberDecimalPlace     *int32  `json:"numberDecimalPlace,omitempty" xml:"numberDecimalPlace,omitempty"`
+	NumberFormatType       *string `json:"numberFormatType,omitempty" xml:"numberFormatType,omitempty"`
+	NumberValueType        *string `json:"numberValueType,omitempty" xml:"numberValueType,omitempty"`
+	OptionText             *string `json:"optionText,omitempty" xml:"optionText,omitempty"`
+	// This parameter is required.
+	Required *bool `json:"required,omitempty" xml:"required,omitempty"`
+	// This parameter is required.
+	VisibleByEmp *bool `json:"visibleByEmp,omitempty" xml:"visibleByEmp,omitempty"`
+}
+
+func (s AddCustomRosterFieldRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCustomRosterFieldRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddCustomRosterFieldRequest) SetEditFromEmployeeFlag(v bool) *AddCustomRosterFieldRequest {
+	s.EditFromEmployeeFlag = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldRequest) SetFieldName(v string) *AddCustomRosterFieldRequest {
+	s.FieldName = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldRequest) SetFieldType(v string) *AddCustomRosterFieldRequest {
+	s.FieldType = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldRequest) SetGroupId(v string) *AddCustomRosterFieldRequest {
+	s.GroupId = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldRequest) SetHiddenFromEmployeeFlag(v bool) *AddCustomRosterFieldRequest {
+	s.HiddenFromEmployeeFlag = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldRequest) SetHint(v string) *AddCustomRosterFieldRequest {
+	s.Hint = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldRequest) SetNoWatermark(v bool) *AddCustomRosterFieldRequest {
+	s.NoWatermark = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldRequest) SetNumberDecimalPlace(v int32) *AddCustomRosterFieldRequest {
+	s.NumberDecimalPlace = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldRequest) SetNumberFormatType(v string) *AddCustomRosterFieldRequest {
+	s.NumberFormatType = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldRequest) SetNumberValueType(v string) *AddCustomRosterFieldRequest {
+	s.NumberValueType = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldRequest) SetOptionText(v string) *AddCustomRosterFieldRequest {
+	s.OptionText = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldRequest) SetRequired(v bool) *AddCustomRosterFieldRequest {
+	s.Required = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldRequest) SetVisibleByEmp(v bool) *AddCustomRosterFieldRequest {
+	s.VisibleByEmp = &v
+	return s
+}
+
+type AddCustomRosterFieldResponseBody struct {
+	DingOpenErrcode *int32                                  `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	ErrorMsg        *string                                 `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result          *AddCustomRosterFieldResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success         *bool                                   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AddCustomRosterFieldResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCustomRosterFieldResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddCustomRosterFieldResponseBody) SetDingOpenErrcode(v int32) *AddCustomRosterFieldResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBody) SetErrorMsg(v string) *AddCustomRosterFieldResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBody) SetResult(v *AddCustomRosterFieldResponseBodyResult) *AddCustomRosterFieldResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBody) SetSuccess(v bool) *AddCustomRosterFieldResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AddCustomRosterFieldResponseBodyResult struct {
+	ContactClientFlag      *bool   `json:"contactClientFlag,omitempty" xml:"contactClientFlag,omitempty"`
+	ContactFlag            *bool   `json:"contactFlag,omitempty" xml:"contactFlag,omitempty"`
+	ContactSource          *int32  `json:"contactSource,omitempty" xml:"contactSource,omitempty"`
+	ContactSystemFlag      *bool   `json:"contactSystemFlag,omitempty" xml:"contactSystemFlag,omitempty"`
+	Deleted                *bool   `json:"deleted,omitempty" xml:"deleted,omitempty"`
+	Derived                *bool   `json:"derived,omitempty" xml:"derived,omitempty"`
+	Disabled               *int32  `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	EditFromEmployeeFlag   *bool   `json:"editFromEmployeeFlag,omitempty" xml:"editFromEmployeeFlag,omitempty"`
+	EditableByHr           *bool   `json:"editableByHr,omitempty" xml:"editableByHr,omitempty"`
+	FieldCode              *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	FieldName              *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	FieldTip               *string `json:"fieldTip,omitempty" xml:"fieldTip,omitempty"`
+	FieldType              *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	GroupId                *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	HiddenFromEmployeeFlag *bool   `json:"hiddenFromEmployeeFlag,omitempty" xml:"hiddenFromEmployeeFlag,omitempty"`
+	Hint                   *string `json:"hint,omitempty" xml:"hint,omitempty"`
+	HistoryField           *bool   `json:"historyField,omitempty" xml:"historyField,omitempty"`
+	Index                  *int32  `json:"index,omitempty" xml:"index,omitempty"`
+	ModifyOptions          *bool   `json:"modifyOptions,omitempty" xml:"modifyOptions,omitempty"`
+	NoWatermark            *bool   `json:"noWatermark,omitempty" xml:"noWatermark,omitempty"`
+	NumberDecimalPlace     *string `json:"numberDecimalPlace,omitempty" xml:"numberDecimalPlace,omitempty"`
+	NumberFormatType       *string `json:"numberFormatType,omitempty" xml:"numberFormatType,omitempty"`
+	NumberValueType        *string `json:"numberValueType,omitempty" xml:"numberValueType,omitempty"`
+	OptionText             *string `json:"optionText,omitempty" xml:"optionText,omitempty"`
+	Required               *bool   `json:"required,omitempty" xml:"required,omitempty"`
+	SourceFieldCode        *string `json:"sourceFieldCode,omitempty" xml:"sourceFieldCode,omitempty"`
+	SystemFlag             *bool   `json:"systemFlag,omitempty" xml:"systemFlag,omitempty"`
+	TextToSelectField      *bool   `json:"textToSelectField,omitempty" xml:"textToSelectField,omitempty"`
+	Value                  *string `json:"value,omitempty" xml:"value,omitempty"`
+	VisibleByEmp           *bool   `json:"visibleByEmp,omitempty" xml:"visibleByEmp,omitempty"`
+}
+
+func (s AddCustomRosterFieldResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCustomRosterFieldResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetContactClientFlag(v bool) *AddCustomRosterFieldResponseBodyResult {
+	s.ContactClientFlag = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetContactFlag(v bool) *AddCustomRosterFieldResponseBodyResult {
+	s.ContactFlag = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetContactSource(v int32) *AddCustomRosterFieldResponseBodyResult {
+	s.ContactSource = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetContactSystemFlag(v bool) *AddCustomRosterFieldResponseBodyResult {
+	s.ContactSystemFlag = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetDeleted(v bool) *AddCustomRosterFieldResponseBodyResult {
+	s.Deleted = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetDerived(v bool) *AddCustomRosterFieldResponseBodyResult {
+	s.Derived = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetDisabled(v int32) *AddCustomRosterFieldResponseBodyResult {
+	s.Disabled = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetEditFromEmployeeFlag(v bool) *AddCustomRosterFieldResponseBodyResult {
+	s.EditFromEmployeeFlag = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetEditableByHr(v bool) *AddCustomRosterFieldResponseBodyResult {
+	s.EditableByHr = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetFieldCode(v string) *AddCustomRosterFieldResponseBodyResult {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetFieldName(v string) *AddCustomRosterFieldResponseBodyResult {
+	s.FieldName = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetFieldTip(v string) *AddCustomRosterFieldResponseBodyResult {
+	s.FieldTip = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetFieldType(v string) *AddCustomRosterFieldResponseBodyResult {
+	s.FieldType = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetGroupId(v string) *AddCustomRosterFieldResponseBodyResult {
+	s.GroupId = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetHiddenFromEmployeeFlag(v bool) *AddCustomRosterFieldResponseBodyResult {
+	s.HiddenFromEmployeeFlag = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetHint(v string) *AddCustomRosterFieldResponseBodyResult {
+	s.Hint = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetHistoryField(v bool) *AddCustomRosterFieldResponseBodyResult {
+	s.HistoryField = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetIndex(v int32) *AddCustomRosterFieldResponseBodyResult {
+	s.Index = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetModifyOptions(v bool) *AddCustomRosterFieldResponseBodyResult {
+	s.ModifyOptions = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetNoWatermark(v bool) *AddCustomRosterFieldResponseBodyResult {
+	s.NoWatermark = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetNumberDecimalPlace(v string) *AddCustomRosterFieldResponseBodyResult {
+	s.NumberDecimalPlace = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetNumberFormatType(v string) *AddCustomRosterFieldResponseBodyResult {
+	s.NumberFormatType = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetNumberValueType(v string) *AddCustomRosterFieldResponseBodyResult {
+	s.NumberValueType = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetOptionText(v string) *AddCustomRosterFieldResponseBodyResult {
+	s.OptionText = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetRequired(v bool) *AddCustomRosterFieldResponseBodyResult {
+	s.Required = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetSourceFieldCode(v string) *AddCustomRosterFieldResponseBodyResult {
+	s.SourceFieldCode = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetSystemFlag(v bool) *AddCustomRosterFieldResponseBodyResult {
+	s.SystemFlag = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetTextToSelectField(v bool) *AddCustomRosterFieldResponseBodyResult {
+	s.TextToSelectField = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetValue(v string) *AddCustomRosterFieldResponseBodyResult {
+	s.Value = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponseBodyResult) SetVisibleByEmp(v bool) *AddCustomRosterFieldResponseBodyResult {
+	s.VisibleByEmp = &v
+	return s
+}
+
+type AddCustomRosterFieldResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddCustomRosterFieldResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AddCustomRosterFieldResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddCustomRosterFieldResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddCustomRosterFieldResponse) SetHeaders(v map[string]*string) *AddCustomRosterFieldResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponse) SetStatusCode(v int32) *AddCustomRosterFieldResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddCustomRosterFieldResponse) SetBody(v *AddCustomRosterFieldResponseBody) *AddCustomRosterFieldResponse {
+	s.Body = v
+	return s
+}
+
 type AddHrmLegalEntityHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -712,6 +1086,213 @@ func (s *AddHrmPreentryResponse) SetBody(v *AddHrmPreentryResponseBody) *AddHrmP
 	return s
 }
 
+type AddRosterFieldFormHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddRosterFieldFormHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRosterFieldFormHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddRosterFieldFormHeaders) SetCommonHeaders(v map[string]*string) *AddRosterFieldFormHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddRosterFieldFormHeaders) SetXAcsDingtalkAccessToken(v string) *AddRosterFieldFormHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddRosterFieldFormRequest struct {
+	// This parameter is required.
+	Detail *bool `json:"detail,omitempty" xml:"detail,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s AddRosterFieldFormRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRosterFieldFormRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddRosterFieldFormRequest) SetDetail(v bool) *AddRosterFieldFormRequest {
+	s.Detail = &v
+	return s
+}
+
+func (s *AddRosterFieldFormRequest) SetName(v string) *AddRosterFieldFormRequest {
+	s.Name = &v
+	return s
+}
+
+type AddRosterFieldFormResponseBody struct {
+	DingOpenErrcode *int32                                `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	ErrorMsg        *string                               `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result          *AddRosterFieldFormResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success         *bool                                 `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AddRosterFieldFormResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRosterFieldFormResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddRosterFieldFormResponseBody) SetDingOpenErrcode(v int32) *AddRosterFieldFormResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *AddRosterFieldFormResponseBody) SetErrorMsg(v string) *AddRosterFieldFormResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *AddRosterFieldFormResponseBody) SetResult(v *AddRosterFieldFormResponseBodyResult) *AddRosterFieldFormResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *AddRosterFieldFormResponseBody) SetSuccess(v bool) *AddRosterFieldFormResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AddRosterFieldFormResponseBodyResult struct {
+	BizGroupId  *int64      `json:"bizGroupId,omitempty" xml:"bizGroupId,omitempty"`
+	Content     *string     `json:"content,omitempty" xml:"content,omitempty"`
+	CorpId      *string     `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DeleteFlag  *string     `json:"deleteFlag,omitempty" xml:"deleteFlag,omitempty"`
+	Detail      *bool       `json:"detail,omitempty" xml:"detail,omitempty"`
+	FormId      *string     `json:"formId,omitempty" xml:"formId,omitempty"`
+	GmtCreate   interface{} `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified interface{} `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	Icon        *string     `json:"icon,omitempty" xml:"icon,omitempty"`
+	Id          *int64      `json:"id,omitempty" xml:"id,omitempty"`
+	Memo        *string     `json:"memo,omitempty" xml:"memo,omitempty"`
+	Name        *string     `json:"name,omitempty" xml:"name,omitempty"`
+	SortOrder   *int32      `json:"sortOrder,omitempty" xml:"sortOrder,omitempty"`
+	VersionId   *int32      `json:"versionId,omitempty" xml:"versionId,omitempty"`
+}
+
+func (s AddRosterFieldFormResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRosterFieldFormResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AddRosterFieldFormResponseBodyResult) SetBizGroupId(v int64) *AddRosterFieldFormResponseBodyResult {
+	s.BizGroupId = &v
+	return s
+}
+
+func (s *AddRosterFieldFormResponseBodyResult) SetContent(v string) *AddRosterFieldFormResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+func (s *AddRosterFieldFormResponseBodyResult) SetCorpId(v string) *AddRosterFieldFormResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *AddRosterFieldFormResponseBodyResult) SetDeleteFlag(v string) *AddRosterFieldFormResponseBodyResult {
+	s.DeleteFlag = &v
+	return s
+}
+
+func (s *AddRosterFieldFormResponseBodyResult) SetDetail(v bool) *AddRosterFieldFormResponseBodyResult {
+	s.Detail = &v
+	return s
+}
+
+func (s *AddRosterFieldFormResponseBodyResult) SetFormId(v string) *AddRosterFieldFormResponseBodyResult {
+	s.FormId = &v
+	return s
+}
+
+func (s *AddRosterFieldFormResponseBodyResult) SetGmtCreate(v interface{}) *AddRosterFieldFormResponseBodyResult {
+	s.GmtCreate = v
+	return s
+}
+
+func (s *AddRosterFieldFormResponseBodyResult) SetGmtModified(v interface{}) *AddRosterFieldFormResponseBodyResult {
+	s.GmtModified = v
+	return s
+}
+
+func (s *AddRosterFieldFormResponseBodyResult) SetIcon(v string) *AddRosterFieldFormResponseBodyResult {
+	s.Icon = &v
+	return s
+}
+
+func (s *AddRosterFieldFormResponseBodyResult) SetId(v int64) *AddRosterFieldFormResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *AddRosterFieldFormResponseBodyResult) SetMemo(v string) *AddRosterFieldFormResponseBodyResult {
+	s.Memo = &v
+	return s
+}
+
+func (s *AddRosterFieldFormResponseBodyResult) SetName(v string) *AddRosterFieldFormResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *AddRosterFieldFormResponseBodyResult) SetSortOrder(v int32) *AddRosterFieldFormResponseBodyResult {
+	s.SortOrder = &v
+	return s
+}
+
+func (s *AddRosterFieldFormResponseBodyResult) SetVersionId(v int32) *AddRosterFieldFormResponseBodyResult {
+	s.VersionId = &v
+	return s
+}
+
+type AddRosterFieldFormResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddRosterFieldFormResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AddRosterFieldFormResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRosterFieldFormResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddRosterFieldFormResponse) SetHeaders(v map[string]*string) *AddRosterFieldFormResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddRosterFieldFormResponse) SetStatusCode(v int32) *AddRosterFieldFormResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddRosterFieldFormResponse) SetBody(v *AddRosterFieldFormResponseBody) *AddRosterFieldFormResponse {
+	s.Body = v
+	return s
+}
+
 type CreateRecordHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1184,6 +1765,229 @@ func (s *CreateRecordResponse) SetStatusCode(v int32) *CreateRecordResponse {
 }
 
 func (s *CreateRecordResponse) SetBody(v *CreateRecordResponseBody) *CreateRecordResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteCustomRosterFieldHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteCustomRosterFieldHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCustomRosterFieldHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCustomRosterFieldHeaders) SetCommonHeaders(v map[string]*string) *DeleteCustomRosterFieldHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteCustomRosterFieldHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteCustomRosterFieldHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteCustomRosterFieldRequest struct {
+	// This parameter is required.
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// This parameter is required.
+	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+}
+
+func (s DeleteCustomRosterFieldRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCustomRosterFieldRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCustomRosterFieldRequest) SetFieldCode(v string) *DeleteCustomRosterFieldRequest {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *DeleteCustomRosterFieldRequest) SetGroupId(v string) *DeleteCustomRosterFieldRequest {
+	s.GroupId = &v
+	return s
+}
+
+type DeleteCustomRosterFieldResponseBody struct {
+	DingOpenErrcode *int32  `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	ErrorMsg        *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result          *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success         *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteCustomRosterFieldResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCustomRosterFieldResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCustomRosterFieldResponseBody) SetDingOpenErrcode(v int32) *DeleteCustomRosterFieldResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *DeleteCustomRosterFieldResponseBody) SetErrorMsg(v string) *DeleteCustomRosterFieldResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *DeleteCustomRosterFieldResponseBody) SetResult(v bool) *DeleteCustomRosterFieldResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *DeleteCustomRosterFieldResponseBody) SetSuccess(v bool) *DeleteCustomRosterFieldResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteCustomRosterFieldResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteCustomRosterFieldResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteCustomRosterFieldResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCustomRosterFieldResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCustomRosterFieldResponse) SetHeaders(v map[string]*string) *DeleteCustomRosterFieldResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteCustomRosterFieldResponse) SetStatusCode(v int32) *DeleteCustomRosterFieldResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteCustomRosterFieldResponse) SetBody(v *DeleteCustomRosterFieldResponseBody) *DeleteCustomRosterFieldResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteRosterFieldFormHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteRosterFieldFormHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteRosterFieldFormHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteRosterFieldFormHeaders) SetCommonHeaders(v map[string]*string) *DeleteRosterFieldFormHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteRosterFieldFormHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteRosterFieldFormHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteRosterFieldFormRequest struct {
+	// This parameter is required.
+	FormId *string `json:"formId,omitempty" xml:"formId,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DeleteRosterFieldFormRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteRosterFieldFormRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteRosterFieldFormRequest) SetFormId(v string) *DeleteRosterFieldFormRequest {
+	s.FormId = &v
+	return s
+}
+
+func (s *DeleteRosterFieldFormRequest) SetUserId(v string) *DeleteRosterFieldFormRequest {
+	s.UserId = &v
+	return s
+}
+
+type DeleteRosterFieldFormResponseBody struct {
+	DingOpenErrcode *int32  `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	ErrorMsg        *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result          *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success         *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteRosterFieldFormResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteRosterFieldFormResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteRosterFieldFormResponseBody) SetDingOpenErrcode(v int32) *DeleteRosterFieldFormResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *DeleteRosterFieldFormResponseBody) SetErrorMsg(v string) *DeleteRosterFieldFormResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *DeleteRosterFieldFormResponseBody) SetResult(v bool) *DeleteRosterFieldFormResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *DeleteRosterFieldFormResponseBody) SetSuccess(v bool) *DeleteRosterFieldFormResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteRosterFieldFormResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteRosterFieldFormResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteRosterFieldFormResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteRosterFieldFormResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteRosterFieldFormResponse) SetHeaders(v map[string]*string) *DeleteRosterFieldFormResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteRosterFieldFormResponse) SetStatusCode(v int32) *DeleteRosterFieldFormResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteRosterFieldFormResponse) SetBody(v *DeleteRosterFieldFormResponseBody) *DeleteRosterFieldFormResponse {
 	s.Body = v
 	return s
 }
@@ -9376,6 +10180,165 @@ func (s *SendIsvCardMessageResponse) SetBody(v *SendIsvCardMessageResponseBody) 
 	return s
 }
 
+type SendRealAuthInviteMessageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SendRealAuthInviteMessageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRealAuthInviteMessageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SendRealAuthInviteMessageHeaders) SetCommonHeaders(v map[string]*string) *SendRealAuthInviteMessageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SendRealAuthInviteMessageHeaders) SetXAcsDingtalkAccessToken(v string) *SendRealAuthInviteMessageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SendRealAuthInviteMessageRequest struct {
+	// This parameter is required.
+	InviterId *string `json:"inviterId,omitempty" xml:"inviterId,omitempty"`
+	// This parameter is required.
+	OnWorkingEmpSearchVO *SendRealAuthInviteMessageRequestOnWorkingEmpSearchVO `json:"onWorkingEmpSearchVO,omitempty" xml:"onWorkingEmpSearchVO,omitempty" type:"Struct"`
+}
+
+func (s SendRealAuthInviteMessageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRealAuthInviteMessageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SendRealAuthInviteMessageRequest) SetInviterId(v string) *SendRealAuthInviteMessageRequest {
+	s.InviterId = &v
+	return s
+}
+
+func (s *SendRealAuthInviteMessageRequest) SetOnWorkingEmpSearchVO(v *SendRealAuthInviteMessageRequestOnWorkingEmpSearchVO) *SendRealAuthInviteMessageRequest {
+	s.OnWorkingEmpSearchVO = v
+	return s
+}
+
+type SendRealAuthInviteMessageRequestOnWorkingEmpSearchVO struct {
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s SendRealAuthInviteMessageRequestOnWorkingEmpSearchVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRealAuthInviteMessageRequestOnWorkingEmpSearchVO) GoString() string {
+	return s.String()
+}
+
+func (s *SendRealAuthInviteMessageRequestOnWorkingEmpSearchVO) SetUserIds(v []*string) *SendRealAuthInviteMessageRequestOnWorkingEmpSearchVO {
+	s.UserIds = v
+	return s
+}
+
+type SendRealAuthInviteMessageResponseBody struct {
+	DingOpenErrcode *int32                                       `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	ErrorMsg        *string                                      `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result          *SendRealAuthInviteMessageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success         *bool                                        `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SendRealAuthInviteMessageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRealAuthInviteMessageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SendRealAuthInviteMessageResponseBody) SetDingOpenErrcode(v int32) *SendRealAuthInviteMessageResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *SendRealAuthInviteMessageResponseBody) SetErrorMsg(v string) *SendRealAuthInviteMessageResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *SendRealAuthInviteMessageResponseBody) SetResult(v *SendRealAuthInviteMessageResponseBodyResult) *SendRealAuthInviteMessageResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SendRealAuthInviteMessageResponseBody) SetSuccess(v bool) *SendRealAuthInviteMessageResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SendRealAuthInviteMessageResponseBodyResult struct {
+	HadInvitedNum  *int32 `json:"hadInvitedNum,omitempty" xml:"hadInvitedNum,omitempty"`
+	HadRealAuthNum *int32 `json:"hadRealAuthNum,omitempty" xml:"hadRealAuthNum,omitempty"`
+	SuccessNum     *int32 `json:"successNum,omitempty" xml:"successNum,omitempty"`
+}
+
+func (s SendRealAuthInviteMessageResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRealAuthInviteMessageResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SendRealAuthInviteMessageResponseBodyResult) SetHadInvitedNum(v int32) *SendRealAuthInviteMessageResponseBodyResult {
+	s.HadInvitedNum = &v
+	return s
+}
+
+func (s *SendRealAuthInviteMessageResponseBodyResult) SetHadRealAuthNum(v int32) *SendRealAuthInviteMessageResponseBodyResult {
+	s.HadRealAuthNum = &v
+	return s
+}
+
+func (s *SendRealAuthInviteMessageResponseBodyResult) SetSuccessNum(v int32) *SendRealAuthInviteMessageResponseBodyResult {
+	s.SuccessNum = &v
+	return s
+}
+
+type SendRealAuthInviteMessageResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SendRealAuthInviteMessageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SendRealAuthInviteMessageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SendRealAuthInviteMessageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SendRealAuthInviteMessageResponse) SetHeaders(v map[string]*string) *SendRealAuthInviteMessageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SendRealAuthInviteMessageResponse) SetStatusCode(v int32) *SendRealAuthInviteMessageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SendRealAuthInviteMessageResponse) SetBody(v *SendRealAuthInviteMessageResponseBody) *SendRealAuthInviteMessageResponse {
+	s.Body = v
+	return s
+}
+
 type SolutionTaskInitHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10086,6 +11049,490 @@ func (s *SyncTaskTemplateResponse) SetStatusCode(v int32) *SyncTaskTemplateRespo
 }
 
 func (s *SyncTaskTemplateResponse) SetBody(v *SyncTaskTemplateResponseBody) *SyncTaskTemplateResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateCustomRosterFieldHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateCustomRosterFieldHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomRosterFieldHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomRosterFieldHeaders) SetCommonHeaders(v map[string]*string) *UpdateCustomRosterFieldHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateCustomRosterFieldHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateCustomRosterFieldRequest struct {
+	ContactClientFlag *bool  `json:"contactClientFlag,omitempty" xml:"contactClientFlag,omitempty"`
+	ContactFlag       *bool  `json:"contactFlag,omitempty" xml:"contactFlag,omitempty"`
+	ContactSource     *int32 `json:"contactSource,omitempty" xml:"contactSource,omitempty"`
+	ContactSystemFlag *bool  `json:"contactSystemFlag,omitempty" xml:"contactSystemFlag,omitempty"`
+	Deleted           *bool  `json:"deleted,omitempty" xml:"deleted,omitempty"`
+	Derived           *bool  `json:"derived,omitempty" xml:"derived,omitempty"`
+	Disabled          *int32 `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	// This parameter is required.
+	EditFromEmployeeFlag *bool `json:"editFromEmployeeFlag,omitempty" xml:"editFromEmployeeFlag,omitempty"`
+	EditableByHr         *bool `json:"editableByHr,omitempty" xml:"editableByHr,omitempty"`
+	// This parameter is required.
+	FieldCode *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	// This parameter is required.
+	FieldName *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	FieldTip  *string `json:"fieldTip,omitempty" xml:"fieldTip,omitempty"`
+	// This parameter is required.
+	FieldType *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	// This parameter is required.
+	GroupId *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	// This parameter is required.
+	HiddenFromEmployeeFlag *bool   `json:"hiddenFromEmployeeFlag,omitempty" xml:"hiddenFromEmployeeFlag,omitempty"`
+	Hint                   *string `json:"hint,omitempty" xml:"hint,omitempty"`
+	HistoryField           *bool   `json:"historyField,omitempty" xml:"historyField,omitempty"`
+	Index                  *int32  `json:"index,omitempty" xml:"index,omitempty"`
+	ModifyOptions          *bool   `json:"modifyOptions,omitempty" xml:"modifyOptions,omitempty"`
+	NoWatermark            *bool   `json:"noWatermark,omitempty" xml:"noWatermark,omitempty"`
+	NumberDecimalPlace     *int32  `json:"numberDecimalPlace,omitempty" xml:"numberDecimalPlace,omitempty"`
+	NumberFormatType       *string `json:"numberFormatType,omitempty" xml:"numberFormatType,omitempty"`
+	NumberValueType        *string `json:"numberValueType,omitempty" xml:"numberValueType,omitempty"`
+	OptionText             *string `json:"optionText,omitempty" xml:"optionText,omitempty"`
+	// This parameter is required.
+	Required          *bool   `json:"required,omitempty" xml:"required,omitempty"`
+	SourceFieldCode   *string `json:"sourceFieldCode,omitempty" xml:"sourceFieldCode,omitempty"`
+	SystemFlag        *bool   `json:"systemFlag,omitempty" xml:"systemFlag,omitempty"`
+	TextToSelectField *bool   `json:"textToSelectField,omitempty" xml:"textToSelectField,omitempty"`
+	// This parameter is required.
+	UpdateUserId *string `json:"updateUserId,omitempty" xml:"updateUserId,omitempty"`
+	Value        *string `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	VisibleByEmp *bool `json:"visibleByEmp,omitempty" xml:"visibleByEmp,omitempty"`
+}
+
+func (s UpdateCustomRosterFieldRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomRosterFieldRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetContactClientFlag(v bool) *UpdateCustomRosterFieldRequest {
+	s.ContactClientFlag = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetContactFlag(v bool) *UpdateCustomRosterFieldRequest {
+	s.ContactFlag = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetContactSource(v int32) *UpdateCustomRosterFieldRequest {
+	s.ContactSource = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetContactSystemFlag(v bool) *UpdateCustomRosterFieldRequest {
+	s.ContactSystemFlag = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetDeleted(v bool) *UpdateCustomRosterFieldRequest {
+	s.Deleted = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetDerived(v bool) *UpdateCustomRosterFieldRequest {
+	s.Derived = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetDisabled(v int32) *UpdateCustomRosterFieldRequest {
+	s.Disabled = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetEditFromEmployeeFlag(v bool) *UpdateCustomRosterFieldRequest {
+	s.EditFromEmployeeFlag = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetEditableByHr(v bool) *UpdateCustomRosterFieldRequest {
+	s.EditableByHr = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetFieldCode(v string) *UpdateCustomRosterFieldRequest {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetFieldName(v string) *UpdateCustomRosterFieldRequest {
+	s.FieldName = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetFieldTip(v string) *UpdateCustomRosterFieldRequest {
+	s.FieldTip = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetFieldType(v string) *UpdateCustomRosterFieldRequest {
+	s.FieldType = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetGroupId(v string) *UpdateCustomRosterFieldRequest {
+	s.GroupId = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetHiddenFromEmployeeFlag(v bool) *UpdateCustomRosterFieldRequest {
+	s.HiddenFromEmployeeFlag = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetHint(v string) *UpdateCustomRosterFieldRequest {
+	s.Hint = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetHistoryField(v bool) *UpdateCustomRosterFieldRequest {
+	s.HistoryField = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetIndex(v int32) *UpdateCustomRosterFieldRequest {
+	s.Index = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetModifyOptions(v bool) *UpdateCustomRosterFieldRequest {
+	s.ModifyOptions = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetNoWatermark(v bool) *UpdateCustomRosterFieldRequest {
+	s.NoWatermark = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetNumberDecimalPlace(v int32) *UpdateCustomRosterFieldRequest {
+	s.NumberDecimalPlace = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetNumberFormatType(v string) *UpdateCustomRosterFieldRequest {
+	s.NumberFormatType = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetNumberValueType(v string) *UpdateCustomRosterFieldRequest {
+	s.NumberValueType = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetOptionText(v string) *UpdateCustomRosterFieldRequest {
+	s.OptionText = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetRequired(v bool) *UpdateCustomRosterFieldRequest {
+	s.Required = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetSourceFieldCode(v string) *UpdateCustomRosterFieldRequest {
+	s.SourceFieldCode = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetSystemFlag(v bool) *UpdateCustomRosterFieldRequest {
+	s.SystemFlag = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetTextToSelectField(v bool) *UpdateCustomRosterFieldRequest {
+	s.TextToSelectField = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetUpdateUserId(v string) *UpdateCustomRosterFieldRequest {
+	s.UpdateUserId = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetValue(v string) *UpdateCustomRosterFieldRequest {
+	s.Value = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldRequest) SetVisibleByEmp(v bool) *UpdateCustomRosterFieldRequest {
+	s.VisibleByEmp = &v
+	return s
+}
+
+type UpdateCustomRosterFieldResponseBody struct {
+	DingOpenErrcode *int32                                     `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	ErrorMsg        *string                                    `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result          *UpdateCustomRosterFieldResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success         *bool                                      `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateCustomRosterFieldResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomRosterFieldResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomRosterFieldResponseBody) SetDingOpenErrcode(v int32) *UpdateCustomRosterFieldResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBody) SetErrorMsg(v string) *UpdateCustomRosterFieldResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBody) SetResult(v *UpdateCustomRosterFieldResponseBodyResult) *UpdateCustomRosterFieldResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBody) SetSuccess(v bool) *UpdateCustomRosterFieldResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateCustomRosterFieldResponseBodyResult struct {
+	ContactClientFlag      *bool   `json:"contactClientFlag,omitempty" xml:"contactClientFlag,omitempty"`
+	ContactFlag            *bool   `json:"contactFlag,omitempty" xml:"contactFlag,omitempty"`
+	ContactSource          *int32  `json:"contactSource,omitempty" xml:"contactSource,omitempty"`
+	ContactSystemFlag      *bool   `json:"contactSystemFlag,omitempty" xml:"contactSystemFlag,omitempty"`
+	Deleted                *bool   `json:"deleted,omitempty" xml:"deleted,omitempty"`
+	Derived                *bool   `json:"derived,omitempty" xml:"derived,omitempty"`
+	Disabled               *int32  `json:"disabled,omitempty" xml:"disabled,omitempty"`
+	EditFromEmployeeFlag   *bool   `json:"editFromEmployeeFlag,omitempty" xml:"editFromEmployeeFlag,omitempty"`
+	EditableByHr           *bool   `json:"editableByHr,omitempty" xml:"editableByHr,omitempty"`
+	FieldCode              *string `json:"fieldCode,omitempty" xml:"fieldCode,omitempty"`
+	FieldName              *string `json:"fieldName,omitempty" xml:"fieldName,omitempty"`
+	FieldTip               *string `json:"fieldTip,omitempty" xml:"fieldTip,omitempty"`
+	FieldType              *string `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	GroupId                *string `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	HiddenFromEmployeeFlag *bool   `json:"hiddenFromEmployeeFlag,omitempty" xml:"hiddenFromEmployeeFlag,omitempty"`
+	Hint                   *string `json:"hint,omitempty" xml:"hint,omitempty"`
+	HistoryField           *bool   `json:"historyField,omitempty" xml:"historyField,omitempty"`
+	Index                  *int32  `json:"index,omitempty" xml:"index,omitempty"`
+	ModifyOptions          *bool   `json:"modifyOptions,omitempty" xml:"modifyOptions,omitempty"`
+	NoWatermark            *bool   `json:"noWatermark,omitempty" xml:"noWatermark,omitempty"`
+	NumberDecimalPlace     *string `json:"numberDecimalPlace,omitempty" xml:"numberDecimalPlace,omitempty"`
+	NumberFormatType       *string `json:"numberFormatType,omitempty" xml:"numberFormatType,omitempty"`
+	NumberValueType        *string `json:"numberValueType,omitempty" xml:"numberValueType,omitempty"`
+	OptionText             *string `json:"optionText,omitempty" xml:"optionText,omitempty"`
+	Required               *bool   `json:"required,omitempty" xml:"required,omitempty"`
+	SourceFieldCode        *string `json:"sourceFieldCode,omitempty" xml:"sourceFieldCode,omitempty"`
+	SystemFlag             *bool   `json:"systemFlag,omitempty" xml:"systemFlag,omitempty"`
+	TextToSelectField      *bool   `json:"textToSelectField,omitempty" xml:"textToSelectField,omitempty"`
+	Value                  *string `json:"value,omitempty" xml:"value,omitempty"`
+	VisibleByEmp           *bool   `json:"visibleByEmp,omitempty" xml:"visibleByEmp,omitempty"`
+}
+
+func (s UpdateCustomRosterFieldResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomRosterFieldResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetContactClientFlag(v bool) *UpdateCustomRosterFieldResponseBodyResult {
+	s.ContactClientFlag = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetContactFlag(v bool) *UpdateCustomRosterFieldResponseBodyResult {
+	s.ContactFlag = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetContactSource(v int32) *UpdateCustomRosterFieldResponseBodyResult {
+	s.ContactSource = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetContactSystemFlag(v bool) *UpdateCustomRosterFieldResponseBodyResult {
+	s.ContactSystemFlag = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetDeleted(v bool) *UpdateCustomRosterFieldResponseBodyResult {
+	s.Deleted = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetDerived(v bool) *UpdateCustomRosterFieldResponseBodyResult {
+	s.Derived = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetDisabled(v int32) *UpdateCustomRosterFieldResponseBodyResult {
+	s.Disabled = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetEditFromEmployeeFlag(v bool) *UpdateCustomRosterFieldResponseBodyResult {
+	s.EditFromEmployeeFlag = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetEditableByHr(v bool) *UpdateCustomRosterFieldResponseBodyResult {
+	s.EditableByHr = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetFieldCode(v string) *UpdateCustomRosterFieldResponseBodyResult {
+	s.FieldCode = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetFieldName(v string) *UpdateCustomRosterFieldResponseBodyResult {
+	s.FieldName = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetFieldTip(v string) *UpdateCustomRosterFieldResponseBodyResult {
+	s.FieldTip = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetFieldType(v string) *UpdateCustomRosterFieldResponseBodyResult {
+	s.FieldType = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetGroupId(v string) *UpdateCustomRosterFieldResponseBodyResult {
+	s.GroupId = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetHiddenFromEmployeeFlag(v bool) *UpdateCustomRosterFieldResponseBodyResult {
+	s.HiddenFromEmployeeFlag = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetHint(v string) *UpdateCustomRosterFieldResponseBodyResult {
+	s.Hint = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetHistoryField(v bool) *UpdateCustomRosterFieldResponseBodyResult {
+	s.HistoryField = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetIndex(v int32) *UpdateCustomRosterFieldResponseBodyResult {
+	s.Index = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetModifyOptions(v bool) *UpdateCustomRosterFieldResponseBodyResult {
+	s.ModifyOptions = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetNoWatermark(v bool) *UpdateCustomRosterFieldResponseBodyResult {
+	s.NoWatermark = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetNumberDecimalPlace(v string) *UpdateCustomRosterFieldResponseBodyResult {
+	s.NumberDecimalPlace = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetNumberFormatType(v string) *UpdateCustomRosterFieldResponseBodyResult {
+	s.NumberFormatType = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetNumberValueType(v string) *UpdateCustomRosterFieldResponseBodyResult {
+	s.NumberValueType = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetOptionText(v string) *UpdateCustomRosterFieldResponseBodyResult {
+	s.OptionText = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetRequired(v bool) *UpdateCustomRosterFieldResponseBodyResult {
+	s.Required = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetSourceFieldCode(v string) *UpdateCustomRosterFieldResponseBodyResult {
+	s.SourceFieldCode = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetSystemFlag(v bool) *UpdateCustomRosterFieldResponseBodyResult {
+	s.SystemFlag = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetTextToSelectField(v bool) *UpdateCustomRosterFieldResponseBodyResult {
+	s.TextToSelectField = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetValue(v string) *UpdateCustomRosterFieldResponseBodyResult {
+	s.Value = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponseBodyResult) SetVisibleByEmp(v bool) *UpdateCustomRosterFieldResponseBodyResult {
+	s.VisibleByEmp = &v
+	return s
+}
+
+type UpdateCustomRosterFieldResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateCustomRosterFieldResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateCustomRosterFieldResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomRosterFieldResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomRosterFieldResponse) SetHeaders(v map[string]*string) *UpdateCustomRosterFieldResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponse) SetStatusCode(v int32) *UpdateCustomRosterFieldResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateCustomRosterFieldResponse) SetBody(v *UpdateCustomRosterFieldResponseBody) *UpdateCustomRosterFieldResponse {
 	s.Body = v
 	return s
 }
@@ -11200,6 +12647,131 @@ func (s *UpdateIsvCardMessageResponse) SetBody(v *UpdateIsvCardMessageResponseBo
 	return s
 }
 
+type UpdateRosterFieldFormHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateRosterFieldFormHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRosterFieldFormHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRosterFieldFormHeaders) SetCommonHeaders(v map[string]*string) *UpdateRosterFieldFormHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateRosterFieldFormHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRosterFieldFormHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateRosterFieldFormRequest struct {
+	// This parameter is required.
+	Detail *bool `json:"detail,omitempty" xml:"detail,omitempty"`
+	// This parameter is required.
+	FormId *string `json:"formId,omitempty" xml:"formId,omitempty"`
+	// This parameter is required.
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateRosterFieldFormRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRosterFieldFormRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRosterFieldFormRequest) SetDetail(v bool) *UpdateRosterFieldFormRequest {
+	s.Detail = &v
+	return s
+}
+
+func (s *UpdateRosterFieldFormRequest) SetFormId(v string) *UpdateRosterFieldFormRequest {
+	s.FormId = &v
+	return s
+}
+
+func (s *UpdateRosterFieldFormRequest) SetName(v string) *UpdateRosterFieldFormRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateRosterFieldFormRequest) SetUserId(v string) *UpdateRosterFieldFormRequest {
+	s.UserId = &v
+	return s
+}
+
+type UpdateRosterFieldFormResponseBody struct {
+	DingOpenErrcode *int32  `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	ErrorMsg        *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result          *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success         *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateRosterFieldFormResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRosterFieldFormResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRosterFieldFormResponseBody) SetDingOpenErrcode(v int32) *UpdateRosterFieldFormResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *UpdateRosterFieldFormResponseBody) SetErrorMsg(v string) *UpdateRosterFieldFormResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *UpdateRosterFieldFormResponseBody) SetResult(v bool) *UpdateRosterFieldFormResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *UpdateRosterFieldFormResponseBody) SetSuccess(v bool) *UpdateRosterFieldFormResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateRosterFieldFormResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateRosterFieldFormResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateRosterFieldFormResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRosterFieldFormResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRosterFieldFormResponse) SetHeaders(v map[string]*string) *UpdateRosterFieldFormResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateRosterFieldFormResponse) SetStatusCode(v int32) *UpdateRosterFieldFormResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateRosterFieldFormResponse) SetBody(v *UpdateRosterFieldFormResponseBody) *UpdateRosterFieldFormResponse {
+	s.Body = v
+	return s
+}
+
 type UploadAttachmentHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11332,6 +12904,127 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+// Summary:
+//
+// 添加自定义花名册字段
+//
+// @param request - AddCustomRosterFieldRequest
+//
+// @param headers - AddCustomRosterFieldHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddCustomRosterFieldResponse
+func (client *Client) AddCustomRosterFieldWithOptions(request *AddCustomRosterFieldRequest, headers *AddCustomRosterFieldHeaders, runtime *util.RuntimeOptions) (_result *AddCustomRosterFieldResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EditFromEmployeeFlag)) {
+		body["editFromEmployeeFlag"] = request.EditFromEmployeeFlag
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FieldName)) {
+		body["fieldName"] = request.FieldName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FieldType)) {
+		body["fieldType"] = request.FieldType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupId)) {
+		body["groupId"] = request.GroupId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HiddenFromEmployeeFlag)) {
+		body["hiddenFromEmployeeFlag"] = request.HiddenFromEmployeeFlag
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Hint)) {
+		body["hint"] = request.Hint
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NoWatermark)) {
+		body["noWatermark"] = request.NoWatermark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NumberDecimalPlace)) {
+		body["numberDecimalPlace"] = request.NumberDecimalPlace
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NumberFormatType)) {
+		body["numberFormatType"] = request.NumberFormatType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NumberValueType)) {
+		body["numberValueType"] = request.NumberValueType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OptionText)) {
+		body["optionText"] = request.OptionText
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Required)) {
+		body["required"] = request.Required
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VisibleByEmp)) {
+		body["visibleByEmp"] = request.VisibleByEmp
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddCustomRosterField"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/customRosterField/add"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddCustomRosterFieldResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 添加自定义花名册字段
+//
+// @param request - AddCustomRosterFieldRequest
+//
+// @return AddCustomRosterFieldResponse
+func (client *Client) AddCustomRosterField(request *AddCustomRosterFieldRequest) (_result *AddCustomRosterFieldResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddCustomRosterFieldHeaders{}
+	_result = &AddCustomRosterFieldResponse{}
+	_body, _err := client.AddCustomRosterFieldWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 // Summary:
@@ -11532,6 +13225,83 @@ func (client *Client) AddHrmPreentry(request *AddHrmPreentryRequest) (_result *A
 
 // Summary:
 //
+// 新建花名册字段分组
+//
+// @param request - AddRosterFieldFormRequest
+//
+// @param headers - AddRosterFieldFormHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddRosterFieldFormResponse
+func (client *Client) AddRosterFieldFormWithOptions(request *AddRosterFieldFormRequest, headers *AddRosterFieldFormHeaders, runtime *util.RuntimeOptions) (_result *AddRosterFieldFormResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Detail)) {
+		body["detail"] = request.Detail
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddRosterFieldForm"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/rosterFieldForm/add"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddRosterFieldFormResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 新建花名册字段分组
+//
+// @param request - AddRosterFieldFormRequest
+//
+// @return AddRosterFieldFormResponse
+func (client *Client) AddRosterFieldForm(request *AddRosterFieldFormRequest) (_result *AddRosterFieldFormResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddRosterFieldFormHeaders{}
+	_result = &AddRosterFieldFormResponse{}
+	_body, _err := client.AddRosterFieldFormWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 创建电子签签署记录
 //
 // @param request - CreateRecordRequest
@@ -11640,6 +13410,160 @@ func (client *Client) CreateRecord(request *CreateRecordRequest) (_result *Creat
 	headers := &CreateRecordHeaders{}
 	_result = &CreateRecordResponse{}
 	_body, _err := client.CreateRecordWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除花名册自定义字段
+//
+// @param request - DeleteCustomRosterFieldRequest
+//
+// @param headers - DeleteCustomRosterFieldHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteCustomRosterFieldResponse
+func (client *Client) DeleteCustomRosterFieldWithOptions(request *DeleteCustomRosterFieldRequest, headers *DeleteCustomRosterFieldHeaders, runtime *util.RuntimeOptions) (_result *DeleteCustomRosterFieldResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FieldCode)) {
+		body["fieldCode"] = request.FieldCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupId)) {
+		body["groupId"] = request.GroupId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteCustomRosterField"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/customRosterField/delete"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteCustomRosterFieldResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除花名册自定义字段
+//
+// @param request - DeleteCustomRosterFieldRequest
+//
+// @return DeleteCustomRosterFieldResponse
+func (client *Client) DeleteCustomRosterField(request *DeleteCustomRosterFieldRequest) (_result *DeleteCustomRosterFieldResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteCustomRosterFieldHeaders{}
+	_result = &DeleteCustomRosterFieldResponse{}
+	_body, _err := client.DeleteCustomRosterFieldWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除花名册字段分组
+//
+// @param request - DeleteRosterFieldFormRequest
+//
+// @param headers - DeleteRosterFieldFormHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteRosterFieldFormResponse
+func (client *Client) DeleteRosterFieldFormWithOptions(request *DeleteRosterFieldFormRequest, headers *DeleteRosterFieldFormHeaders, runtime *util.RuntimeOptions) (_result *DeleteRosterFieldFormResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FormId)) {
+		body["formId"] = request.FormId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteRosterFieldForm"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/rosterFieldForm/delete"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteRosterFieldFormResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除花名册字段分组
+//
+// @param request - DeleteRosterFieldFormRequest
+//
+// @return DeleteRosterFieldFormResponse
+func (client *Client) DeleteRosterFieldForm(request *DeleteRosterFieldFormRequest) (_result *DeleteRosterFieldFormResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteRosterFieldFormHeaders{}
+	_result = &DeleteRosterFieldFormResponse{}
+	_body, _err := client.DeleteRosterFieldFormWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15282,6 +17206,83 @@ func (client *Client) SendIsvCardMessage(request *SendIsvCardMessageRequest) (_r
 
 // Summary:
 //
+// 发送实人认证邀请消息
+//
+// @param request - SendRealAuthInviteMessageRequest
+//
+// @param headers - SendRealAuthInviteMessageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SendRealAuthInviteMessageResponse
+func (client *Client) SendRealAuthInviteMessageWithOptions(request *SendRealAuthInviteMessageRequest, headers *SendRealAuthInviteMessageHeaders, runtime *util.RuntimeOptions) (_result *SendRealAuthInviteMessageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InviterId)) {
+		body["inviterId"] = request.InviterId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OnWorkingEmpSearchVO)) {
+		body["onWorkingEmpSearchVO"] = request.OnWorkingEmpSearchVO
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SendRealAuthInviteMessage"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/realAuth/send"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SendRealAuthInviteMessageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 发送实人认证邀请消息
+//
+// @param request - SendRealAuthInviteMessageRequest
+//
+// @return SendRealAuthInviteMessageResponse
+func (client *Client) SendRealAuthInviteMessage(request *SendRealAuthInviteMessageRequest) (_result *SendRealAuthInviteMessageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SendRealAuthInviteMessageHeaders{}
+	_result = &SendRealAuthInviteMessageResponse{}
+	_body, _err := client.SendRealAuthInviteMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 初始化解决方案任务
 //
 // @param request - SolutionTaskInitRequest
@@ -15695,6 +17696,199 @@ func (client *Client) SyncTaskTemplate(request *SyncTaskTemplateRequest) (_resul
 	headers := &SyncTaskTemplateHeaders{}
 	_result = &SyncTaskTemplateResponse{}
 	_body, _err := client.SyncTaskTemplateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新花名册自定义字段
+//
+// @param request - UpdateCustomRosterFieldRequest
+//
+// @param headers - UpdateCustomRosterFieldHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateCustomRosterFieldResponse
+func (client *Client) UpdateCustomRosterFieldWithOptions(request *UpdateCustomRosterFieldRequest, headers *UpdateCustomRosterFieldHeaders, runtime *util.RuntimeOptions) (_result *UpdateCustomRosterFieldResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ContactClientFlag)) {
+		body["contactClientFlag"] = request.ContactClientFlag
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContactFlag)) {
+		body["contactFlag"] = request.ContactFlag
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContactSource)) {
+		body["contactSource"] = request.ContactSource
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContactSystemFlag)) {
+		body["contactSystemFlag"] = request.ContactSystemFlag
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Deleted)) {
+		body["deleted"] = request.Deleted
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Derived)) {
+		body["derived"] = request.Derived
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Disabled)) {
+		body["disabled"] = request.Disabled
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EditFromEmployeeFlag)) {
+		body["editFromEmployeeFlag"] = request.EditFromEmployeeFlag
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EditableByHr)) {
+		body["editableByHr"] = request.EditableByHr
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FieldCode)) {
+		body["fieldCode"] = request.FieldCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FieldName)) {
+		body["fieldName"] = request.FieldName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FieldTip)) {
+		body["fieldTip"] = request.FieldTip
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FieldType)) {
+		body["fieldType"] = request.FieldType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupId)) {
+		body["groupId"] = request.GroupId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HiddenFromEmployeeFlag)) {
+		body["hiddenFromEmployeeFlag"] = request.HiddenFromEmployeeFlag
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Hint)) {
+		body["hint"] = request.Hint
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HistoryField)) {
+		body["historyField"] = request.HistoryField
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Index)) {
+		body["index"] = request.Index
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ModifyOptions)) {
+		body["modifyOptions"] = request.ModifyOptions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NoWatermark)) {
+		body["noWatermark"] = request.NoWatermark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NumberDecimalPlace)) {
+		body["numberDecimalPlace"] = request.NumberDecimalPlace
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NumberFormatType)) {
+		body["numberFormatType"] = request.NumberFormatType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NumberValueType)) {
+		body["numberValueType"] = request.NumberValueType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OptionText)) {
+		body["optionText"] = request.OptionText
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Required)) {
+		body["required"] = request.Required
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceFieldCode)) {
+		body["sourceFieldCode"] = request.SourceFieldCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemFlag)) {
+		body["systemFlag"] = request.SystemFlag
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TextToSelectField)) {
+		body["textToSelectField"] = request.TextToSelectField
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UpdateUserId)) {
+		body["updateUserId"] = request.UpdateUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Value)) {
+		body["value"] = request.Value
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VisibleByEmp)) {
+		body["visibleByEmp"] = request.VisibleByEmp
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateCustomRosterField"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/customRosterField/update"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateCustomRosterFieldResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新花名册自定义字段
+//
+// @param request - UpdateCustomRosterFieldRequest
+//
+// @return UpdateCustomRosterFieldResponse
+func (client *Client) UpdateCustomRosterField(request *UpdateCustomRosterFieldRequest) (_result *UpdateCustomRosterFieldResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateCustomRosterFieldHeaders{}
+	_result = &UpdateCustomRosterFieldResponse{}
+	_body, _err := client.UpdateCustomRosterFieldWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -16144,6 +18338,91 @@ func (client *Client) UpdateIsvCardMessage(request *UpdateIsvCardMessageRequest)
 	headers := &UpdateIsvCardMessageHeaders{}
 	_result = &UpdateIsvCardMessageResponse{}
 	_body, _err := client.UpdateIsvCardMessageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新花名册字段分组
+//
+// @param request - UpdateRosterFieldFormRequest
+//
+// @param headers - UpdateRosterFieldFormHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateRosterFieldFormResponse
+func (client *Client) UpdateRosterFieldFormWithOptions(request *UpdateRosterFieldFormRequest, headers *UpdateRosterFieldFormHeaders, runtime *util.RuntimeOptions) (_result *UpdateRosterFieldFormResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Detail)) {
+		body["detail"] = request.Detail
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormId)) {
+		body["formId"] = request.FormId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateRosterFieldForm"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/rosterFieldForm/update"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateRosterFieldFormResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新花名册字段分组
+//
+// @param request - UpdateRosterFieldFormRequest
+//
+// @return UpdateRosterFieldFormResponse
+func (client *Client) UpdateRosterFieldForm(request *UpdateRosterFieldFormRequest) (_result *UpdateRosterFieldFormResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateRosterFieldFormHeaders{}
+	_result = &UpdateRosterFieldFormResponse{}
+	_body, _err := client.UpdateRosterFieldFormWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

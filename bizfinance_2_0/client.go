@@ -3839,6 +3839,7 @@ type QueryAccountTradeByPageResponseBodyResult struct {
 	TradeNo          *string                                               `json:"tradeNo,omitempty" xml:"tradeNo,omitempty"`
 	TradeTime        *int64                                                `json:"tradeTime,omitempty" xml:"tradeTime,omitempty"`
 	TradeType        *string                                               `json:"tradeType,omitempty" xml:"tradeType,omitempty"`
+	Usage            *string                                               `json:"usage,omitempty" xml:"usage,omitempty"`
 }
 
 func (s QueryAccountTradeByPageResponseBodyResult) String() string {
@@ -3911,6 +3912,11 @@ func (s *QueryAccountTradeByPageResponseBodyResult) SetTradeTime(v int64) *Query
 
 func (s *QueryAccountTradeByPageResponseBodyResult) SetTradeType(v string) *QueryAccountTradeByPageResponseBodyResult {
 	s.TradeType = &v
+	return s
+}
+
+func (s *QueryAccountTradeByPageResponseBodyResult) SetUsage(v string) *QueryAccountTradeByPageResponseBodyResult {
+	s.Usage = &v
 	return s
 }
 

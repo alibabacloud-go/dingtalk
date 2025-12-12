@@ -6424,7 +6424,9 @@ func (s *GetResourceDownloadInfoResponseBody) SetSuccess(v bool) *GetResourceDow
 }
 
 type GetResourceDownloadInfoResponseBodyResult struct {
-	DownloadUrl *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	DownloadUrl  *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	ResourceName *string `json:"resourceName,omitempty" xml:"resourceName,omitempty"`
+	Size         *int64  `json:"size,omitempty" xml:"size,omitempty"`
 }
 
 func (s GetResourceDownloadInfoResponseBodyResult) String() string {
@@ -6437,6 +6439,16 @@ func (s GetResourceDownloadInfoResponseBodyResult) GoString() string {
 
 func (s *GetResourceDownloadInfoResponseBodyResult) SetDownloadUrl(v string) *GetResourceDownloadInfoResponseBodyResult {
 	s.DownloadUrl = &v
+	return s
+}
+
+func (s *GetResourceDownloadInfoResponseBodyResult) SetResourceName(v string) *GetResourceDownloadInfoResponseBodyResult {
+	s.ResourceName = &v
+	return s
+}
+
+func (s *GetResourceDownloadInfoResponseBodyResult) SetSize(v int64) *GetResourceDownloadInfoResponseBodyResult {
+	s.Size = &v
 	return s
 }
 
