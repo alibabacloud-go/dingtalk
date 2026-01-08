@@ -7860,6 +7860,484 @@ func (s *GetMsgLocationResponse) SetBody(v *GetMsgLocationResponseBody) *GetMsgL
 	return s
 }
 
+type GetMsgRecordDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetMsgRecordDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgRecordDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgRecordDetailHeaders) SetCommonHeaders(v map[string]*string) *GetMsgRecordDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetMsgRecordDetailHeaders) SetXAcsDingtalkAccessToken(v string) *GetMsgRecordDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetMsgRecordDetailRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// pushkxQ2b2DTDAb0qkTjNdKLmwiEiE
+	TaskId *string `json:"task_id,omitempty" xml:"task_id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// jYdrJoCmTo0iE
+	Unionid *string `json:"unionid,omitempty" xml:"unionid,omitempty"`
+}
+
+func (s GetMsgRecordDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgRecordDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgRecordDetailRequest) SetTaskId(v string) *GetMsgRecordDetailRequest {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailRequest) SetUnionid(v string) *GetMsgRecordDetailRequest {
+	s.Unionid = &v
+	return s
+}
+
+type GetMsgRecordDetailResponseBody struct {
+	Errmsg    *string                               `json:"errmsg,omitempty" xml:"errmsg,omitempty"`
+	Errorcode *string                               `json:"errorcode,omitempty" xml:"errorcode,omitempty"`
+	Result    *GetMsgRecordDetailResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetMsgRecordDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgRecordDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgRecordDetailResponseBody) SetErrmsg(v string) *GetMsgRecordDetailResponseBody {
+	s.Errmsg = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBody) SetErrorcode(v string) *GetMsgRecordDetailResponseBody {
+	s.Errorcode = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBody) SetResult(v *GetMsgRecordDetailResponseBodyResult) *GetMsgRecordDetailResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetMsgRecordDetailResponseBodyResult struct {
+	ActionCard   *GetMsgRecordDetailResponseBodyResultActionCard `json:"action_card,omitempty" xml:"action_card,omitempty" type:"Struct"`
+	AllowComment *bool                                           `json:"allow_comment,omitempty" xml:"allow_comment,omitempty"`
+	AllowForward *bool                                           `json:"allow_forward,omitempty" xml:"allow_forward,omitempty"`
+	Articles     []*GetMsgRecordDetailResponseBodyResultArticles `json:"articles,omitempty" xml:"articles,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1766028831000
+	CreateTime *int64    `json:"create_time,omitempty" xml:"create_time,omitempty"`
+	DepIdList  []*string `json:"dep_id_list,omitempty" xml:"dep_id_list,omitempty" type:"Repeated"`
+	// This parameter is required.
+	IsToAll  *bool                                         `json:"is_to_all,omitempty" xml:"is_to_all,omitempty"`
+	Link     *GetMsgRecordDetailResponseBodyResultLink     `json:"link,omitempty" xml:"link,omitempty" type:"Struct"`
+	Markdown *GetMsgRecordDetailResponseBodyResultMarkdown `json:"markdown,omitempty" xml:"markdown,omitempty" type:"Struct"`
+	// example:
+	//
+	// @sdafgffxxrgdssa1123
+	MediaId *string `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// text
+	MsgType *string `json:"msg_type,omitempty" xml:"msg_type,omitempty"`
+	// example:
+	//
+	// 2569131246
+	OperatorUserId *string   `json:"operator_user_id,omitempty" xml:"operator_user_id,omitempty"`
+	RoleIdList     []*string `json:"roleIdList,omitempty" xml:"roleIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1766028831000
+	SendTime *int64 `json:"send_time,omitempty" xml:"send_time,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// pushkxQ2b2DTDAb0qkTjNdKLmwiEiE
+	TaskId *string `json:"task_id,omitempty" xml:"task_id,omitempty"`
+	// example:
+	//
+	// 文本消息
+	TextContent *string `json:"textContent,omitempty" xml:"textContent,omitempty"`
+	// example:
+	//
+	// 文本消息
+	Title         *string   `json:"title,omitempty" xml:"title,omitempty"`
+	UseridList    []*string `json:"userid_list,omitempty" xml:"userid_list,omitempty" type:"Repeated"`
+	ViewScopeType *string   `json:"view_scope_type,omitempty" xml:"view_scope_type,omitempty"`
+}
+
+func (s GetMsgRecordDetailResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgRecordDetailResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetActionCard(v *GetMsgRecordDetailResponseBodyResultActionCard) *GetMsgRecordDetailResponseBodyResult {
+	s.ActionCard = v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetAllowComment(v bool) *GetMsgRecordDetailResponseBodyResult {
+	s.AllowComment = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetAllowForward(v bool) *GetMsgRecordDetailResponseBodyResult {
+	s.AllowForward = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetArticles(v []*GetMsgRecordDetailResponseBodyResultArticles) *GetMsgRecordDetailResponseBodyResult {
+	s.Articles = v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetCreateTime(v int64) *GetMsgRecordDetailResponseBodyResult {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetDepIdList(v []*string) *GetMsgRecordDetailResponseBodyResult {
+	s.DepIdList = v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetIsToAll(v bool) *GetMsgRecordDetailResponseBodyResult {
+	s.IsToAll = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetLink(v *GetMsgRecordDetailResponseBodyResultLink) *GetMsgRecordDetailResponseBodyResult {
+	s.Link = v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetMarkdown(v *GetMsgRecordDetailResponseBodyResultMarkdown) *GetMsgRecordDetailResponseBodyResult {
+	s.Markdown = v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetMediaId(v string) *GetMsgRecordDetailResponseBodyResult {
+	s.MediaId = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetMsgType(v string) *GetMsgRecordDetailResponseBodyResult {
+	s.MsgType = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetOperatorUserId(v string) *GetMsgRecordDetailResponseBodyResult {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetRoleIdList(v []*string) *GetMsgRecordDetailResponseBodyResult {
+	s.RoleIdList = v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetSendTime(v int64) *GetMsgRecordDetailResponseBodyResult {
+	s.SendTime = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetTaskId(v string) *GetMsgRecordDetailResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetTextContent(v string) *GetMsgRecordDetailResponseBodyResult {
+	s.TextContent = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetTitle(v string) *GetMsgRecordDetailResponseBodyResult {
+	s.Title = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetUseridList(v []*string) *GetMsgRecordDetailResponseBodyResult {
+	s.UseridList = v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResult) SetViewScopeType(v string) *GetMsgRecordDetailResponseBodyResult {
+	s.ViewScopeType = &v
+	return s
+}
+
+type GetMsgRecordDetailResponseBodyResultActionCard struct {
+	BntOrientation *string                                                     `json:"bnt_orientation,omitempty" xml:"bnt_orientation,omitempty"`
+	ButtonList     []*GetMsgRecordDetailResponseBodyResultActionCardButtonList `json:"button_list,omitempty" xml:"button_list,omitempty" type:"Repeated"`
+	Markdown       *string                                                     `json:"markdown,omitempty" xml:"markdown,omitempty"`
+	SingleTitle    *string                                                     `json:"single_title,omitempty" xml:"single_title,omitempty"`
+	SingleUrl      *string                                                     `json:"single_url,omitempty" xml:"single_url,omitempty"`
+	Title          *string                                                     `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetMsgRecordDetailResponseBodyResultActionCard) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgRecordDetailResponseBodyResultActionCard) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultActionCard) SetBntOrientation(v string) *GetMsgRecordDetailResponseBodyResultActionCard {
+	s.BntOrientation = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultActionCard) SetButtonList(v []*GetMsgRecordDetailResponseBodyResultActionCardButtonList) *GetMsgRecordDetailResponseBodyResultActionCard {
+	s.ButtonList = v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultActionCard) SetMarkdown(v string) *GetMsgRecordDetailResponseBodyResultActionCard {
+	s.Markdown = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultActionCard) SetSingleTitle(v string) *GetMsgRecordDetailResponseBodyResultActionCard {
+	s.SingleTitle = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultActionCard) SetSingleUrl(v string) *GetMsgRecordDetailResponseBodyResultActionCard {
+	s.SingleUrl = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultActionCard) SetTitle(v string) *GetMsgRecordDetailResponseBodyResultActionCard {
+	s.Title = &v
+	return s
+}
+
+type GetMsgRecordDetailResponseBodyResultActionCardButtonList struct {
+	ActionUrl *string `json:"action_url,omitempty" xml:"action_url,omitempty"`
+	Title     *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetMsgRecordDetailResponseBodyResultActionCardButtonList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgRecordDetailResponseBodyResultActionCardButtonList) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultActionCardButtonList) SetActionUrl(v string) *GetMsgRecordDetailResponseBodyResultActionCardButtonList {
+	s.ActionUrl = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultActionCardButtonList) SetTitle(v string) *GetMsgRecordDetailResponseBodyResultActionCardButtonList {
+	s.Title = &v
+	return s
+}
+
+type GetMsgRecordDetailResponseBodyResultArticles struct {
+	// example:
+	//
+	// 129003
+	ArticleId     *int64  `json:"article_id,omitempty" xml:"article_id,omitempty"`
+	Content       *string `json:"content,omitempty" xml:"content,omitempty"`
+	CreateTime    *int64  `json:"create_time,omitempty" xml:"create_time,omitempty"`
+	Digest        *string `json:"digest,omitempty" xml:"digest,omitempty"`
+	PublishStatus *int64  `json:"publish_status,omitempty" xml:"publish_status,omitempty"`
+	PublishTime   *int64  `json:"publish_time,omitempty" xml:"publish_time,omitempty"`
+	ThumbMediaId  *string `json:"thumb_media_id,omitempty" xml:"thumb_media_id,omitempty"`
+	Title         *string `json:"title,omitempty" xml:"title,omitempty"`
+	UpdateTime    *int64  `json:"update_time,omitempty" xml:"update_time,omitempty"`
+	Url           *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s GetMsgRecordDetailResponseBodyResultArticles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgRecordDetailResponseBodyResultArticles) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultArticles) SetArticleId(v int64) *GetMsgRecordDetailResponseBodyResultArticles {
+	s.ArticleId = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultArticles) SetContent(v string) *GetMsgRecordDetailResponseBodyResultArticles {
+	s.Content = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultArticles) SetCreateTime(v int64) *GetMsgRecordDetailResponseBodyResultArticles {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultArticles) SetDigest(v string) *GetMsgRecordDetailResponseBodyResultArticles {
+	s.Digest = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultArticles) SetPublishStatus(v int64) *GetMsgRecordDetailResponseBodyResultArticles {
+	s.PublishStatus = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultArticles) SetPublishTime(v int64) *GetMsgRecordDetailResponseBodyResultArticles {
+	s.PublishTime = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultArticles) SetThumbMediaId(v string) *GetMsgRecordDetailResponseBodyResultArticles {
+	s.ThumbMediaId = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultArticles) SetTitle(v string) *GetMsgRecordDetailResponseBodyResultArticles {
+	s.Title = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultArticles) SetUpdateTime(v int64) *GetMsgRecordDetailResponseBodyResultArticles {
+	s.UpdateTime = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultArticles) SetUrl(v string) *GetMsgRecordDetailResponseBodyResultArticles {
+	s.Url = &v
+	return s
+}
+
+type GetMsgRecordDetailResponseBodyResultLink struct {
+	CoverImageMediaId *string `json:"cover_image_media_id,omitempty" xml:"cover_image_media_id,omitempty"`
+	LinkUrl           *string `json:"link_url,omitempty" xml:"link_url,omitempty"`
+	OpenType          *int32  `json:"open_type,omitempty" xml:"open_type,omitempty"`
+	Summary           *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	Title             *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetMsgRecordDetailResponseBodyResultLink) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgRecordDetailResponseBodyResultLink) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultLink) SetCoverImageMediaId(v string) *GetMsgRecordDetailResponseBodyResultLink {
+	s.CoverImageMediaId = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultLink) SetLinkUrl(v string) *GetMsgRecordDetailResponseBodyResultLink {
+	s.LinkUrl = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultLink) SetOpenType(v int32) *GetMsgRecordDetailResponseBodyResultLink {
+	s.OpenType = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultLink) SetSummary(v string) *GetMsgRecordDetailResponseBodyResultLink {
+	s.Summary = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultLink) SetTitle(v string) *GetMsgRecordDetailResponseBodyResultLink {
+	s.Title = &v
+	return s
+}
+
+type GetMsgRecordDetailResponseBodyResultMarkdown struct {
+	Text  *string `json:"text,omitempty" xml:"text,omitempty"`
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetMsgRecordDetailResponseBodyResultMarkdown) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgRecordDetailResponseBodyResultMarkdown) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultMarkdown) SetText(v string) *GetMsgRecordDetailResponseBodyResultMarkdown {
+	s.Text = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponseBodyResultMarkdown) SetTitle(v string) *GetMsgRecordDetailResponseBodyResultMarkdown {
+	s.Title = &v
+	return s
+}
+
+type GetMsgRecordDetailResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetMsgRecordDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetMsgRecordDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetMsgRecordDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetMsgRecordDetailResponse) SetHeaders(v map[string]*string) *GetMsgRecordDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponse) SetStatusCode(v int32) *GetMsgRecordDetailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetMsgRecordDetailResponse) SetBody(v *GetMsgRecordDetailResponseBody) *GetMsgRecordDetailResponse {
+	s.Body = v
+	return s
+}
+
 type GetOaOperatorLogListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -15875,6 +16353,266 @@ func (s *QueryExclusiveBenefitsResponse) SetStatusCode(v int32) *QueryExclusiveB
 }
 
 func (s *QueryExclusiveBenefitsResponse) SetBody(v *QueryExclusiveBenefitsResponseBody) *QueryExclusiveBenefitsResponse {
+	s.Body = v
+	return s
+}
+
+type QueryMsgSendRecordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryMsgSendRecordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMsgSendRecordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMsgSendRecordsHeaders) SetCommonHeaders(v map[string]*string) *QueryMsgSendRecordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryMsgSendRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMsgSendRecordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryMsgSendRecordsRequest struct {
+	// example:
+	//
+	// 1766479616000
+	EndTime     *int64    `json:"end_time,omitempty" xml:"end_time,omitempty"`
+	MsgTypeList []*string `json:"msgTypeList,omitempty" xml:"msgTypeList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"page_number,omitempty" xml:"page_number,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"page_size,omitempty" xml:"page_size,omitempty"`
+	// example:
+	//
+	// 1766479616000
+	StartTime *int64 `json:"start_time,omitempty" xml:"start_time,omitempty"`
+	// example:
+	//
+	// 2
+	Status *int32 `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// jYdrJoCmTo0iE
+	Unionid *string `json:"unionid,omitempty" xml:"unionid,omitempty"`
+}
+
+func (s QueryMsgSendRecordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMsgSendRecordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMsgSendRecordsRequest) SetEndTime(v int64) *QueryMsgSendRecordsRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryMsgSendRecordsRequest) SetMsgTypeList(v []*string) *QueryMsgSendRecordsRequest {
+	s.MsgTypeList = v
+	return s
+}
+
+func (s *QueryMsgSendRecordsRequest) SetPageNumber(v int32) *QueryMsgSendRecordsRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *QueryMsgSendRecordsRequest) SetPageSize(v int32) *QueryMsgSendRecordsRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryMsgSendRecordsRequest) SetStartTime(v int64) *QueryMsgSendRecordsRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryMsgSendRecordsRequest) SetStatus(v int32) *QueryMsgSendRecordsRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryMsgSendRecordsRequest) SetUnionid(v string) *QueryMsgSendRecordsRequest {
+	s.Unionid = &v
+	return s
+}
+
+type QueryMsgSendRecordsResponseBody struct {
+	Errmsg    *string                                `json:"errmsg,omitempty" xml:"errmsg,omitempty"`
+	Errorcode *string                                `json:"errorcode,omitempty" xml:"errorcode,omitempty"`
+	Result    *QueryMsgSendRecordsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryMsgSendRecordsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMsgSendRecordsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMsgSendRecordsResponseBody) SetErrmsg(v string) *QueryMsgSendRecordsResponseBody {
+	s.Errmsg = &v
+	return s
+}
+
+func (s *QueryMsgSendRecordsResponseBody) SetErrorcode(v string) *QueryMsgSendRecordsResponseBody {
+	s.Errorcode = &v
+	return s
+}
+
+func (s *QueryMsgSendRecordsResponseBody) SetResult(v *QueryMsgSendRecordsResponseBodyResult) *QueryMsgSendRecordsResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryMsgSendRecordsResponseBodyResult struct {
+	ItemCount  *int32                                        `json:"item_count,omitempty" xml:"item_count,omitempty"`
+	Items      []*QueryMsgSendRecordsResponseBodyResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	TotalCount *int32                                        `json:"total_count,omitempty" xml:"total_count,omitempty"`
+}
+
+func (s QueryMsgSendRecordsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMsgSendRecordsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMsgSendRecordsResponseBodyResult) SetItemCount(v int32) *QueryMsgSendRecordsResponseBodyResult {
+	s.ItemCount = &v
+	return s
+}
+
+func (s *QueryMsgSendRecordsResponseBodyResult) SetItems(v []*QueryMsgSendRecordsResponseBodyResultItems) *QueryMsgSendRecordsResponseBodyResult {
+	s.Items = v
+	return s
+}
+
+func (s *QueryMsgSendRecordsResponseBodyResult) SetTotalCount(v int32) *QueryMsgSendRecordsResponseBodyResult {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryMsgSendRecordsResponseBodyResultItems struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1766028831000
+	CreateTime *int64 `json:"create_time,omitempty" xml:"create_time,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// text
+	MsgType *string `json:"msg_type,omitempty" xml:"msg_type,omitempty"`
+	// example:
+	//
+	// 2569131246
+	OperatorUserId *string `json:"operator_user_id,omitempty" xml:"operator_user_id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1766028831000
+	SendTime *int64 `json:"send_time,omitempty" xml:"send_time,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// pushkxQ2b2DTDAb0qkTjNdKLmwiEiE
+	TaskId *string `json:"task_id,omitempty" xml:"task_id,omitempty"`
+	// example:
+	//
+	// 文本消息
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QueryMsgSendRecordsResponseBodyResultItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMsgSendRecordsResponseBodyResultItems) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMsgSendRecordsResponseBodyResultItems) SetCreateTime(v int64) *QueryMsgSendRecordsResponseBodyResultItems {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QueryMsgSendRecordsResponseBodyResultItems) SetMsgType(v string) *QueryMsgSendRecordsResponseBodyResultItems {
+	s.MsgType = &v
+	return s
+}
+
+func (s *QueryMsgSendRecordsResponseBodyResultItems) SetOperatorUserId(v string) *QueryMsgSendRecordsResponseBodyResultItems {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *QueryMsgSendRecordsResponseBodyResultItems) SetSendTime(v int64) *QueryMsgSendRecordsResponseBodyResultItems {
+	s.SendTime = &v
+	return s
+}
+
+func (s *QueryMsgSendRecordsResponseBodyResultItems) SetTaskId(v string) *QueryMsgSendRecordsResponseBodyResultItems {
+	s.TaskId = &v
+	return s
+}
+
+func (s *QueryMsgSendRecordsResponseBodyResultItems) SetTitle(v string) *QueryMsgSendRecordsResponseBodyResultItems {
+	s.Title = &v
+	return s
+}
+
+type QueryMsgSendRecordsResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryMsgSendRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryMsgSendRecordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMsgSendRecordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMsgSendRecordsResponse) SetHeaders(v map[string]*string) *QueryMsgSendRecordsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryMsgSendRecordsResponse) SetStatusCode(v int32) *QueryMsgSendRecordsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryMsgSendRecordsResponse) SetBody(v *QueryMsgSendRecordsResponseBody) *QueryMsgSendRecordsResponse {
 	s.Body = v
 	return s
 }
@@ -27131,6 +27869,83 @@ func (client *Client) GetMsgLocation(request *GetMsgLocationRequest) (_result *G
 
 // Summary:
 //
+// 查询群发消息id对应的消息记录详情
+//
+// @param request - GetMsgRecordDetailRequest
+//
+// @param headers - GetMsgRecordDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetMsgRecordDetailResponse
+func (client *Client) GetMsgRecordDetailWithOptions(request *GetMsgRecordDetailRequest, headers *GetMsgRecordDetailHeaders, runtime *util.RuntimeOptions) (_result *GetMsgRecordDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["task_id"] = request.TaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Unionid)) {
+		body["unionid"] = request.Unionid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetMsgRecordDetail"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/follow/message/getMsgRecordDetail"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetMsgRecordDetailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询群发消息id对应的消息记录详情
+//
+// @param request - GetMsgRecordDetailRequest
+//
+// @return GetMsgRecordDetailResponse
+func (client *Client) GetMsgRecordDetail(request *GetMsgRecordDetailRequest) (_result *GetMsgRecordDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetMsgRecordDetailHeaders{}
+	_result = &GetMsgRecordDetailResponse{}
+	_body, _err := client.GetMsgRecordDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 获取oa后台操作日志记录
 //
 // @param request - GetOaOperatorLogListRequest
@@ -30771,6 +31586,103 @@ func (client *Client) QueryExclusiveBenefits() (_result *QueryExclusiveBenefitsR
 	headers := &QueryExclusiveBenefitsHeaders{}
 	_result = &QueryExclusiveBenefitsResponse{}
 	_body, _err := client.QueryExclusiveBenefitsWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询指定UID的服务窗推送记录
+//
+// @param request - QueryMsgSendRecordsRequest
+//
+// @param headers - QueryMsgSendRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMsgSendRecordsResponse
+func (client *Client) QueryMsgSendRecordsWithOptions(request *QueryMsgSendRecordsRequest, headers *QueryMsgSendRecordsHeaders, runtime *util.RuntimeOptions) (_result *QueryMsgSendRecordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["end_time"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgTypeList)) {
+		body["msgTypeList"] = request.MsgTypeList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		body["page_number"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["page_size"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["start_time"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Unionid)) {
+		body["unionid"] = request.Unionid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMsgSendRecords"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/follow/message/queryMsgSendRecords"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryMsgSendRecordsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询指定UID的服务窗推送记录
+//
+// @param request - QueryMsgSendRecordsRequest
+//
+// @return QueryMsgSendRecordsResponse
+func (client *Client) QueryMsgSendRecords(request *QueryMsgSendRecordsRequest) (_result *QueryMsgSendRecordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryMsgSendRecordsHeaders{}
+	_result = &QueryMsgSendRecordsResponse{}
+	_body, _err := client.QueryMsgSendRecordsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

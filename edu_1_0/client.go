@@ -7595,6 +7595,175 @@ func (s *CreateAppOrderResponse) SetBody(v *CreateAppOrderResponseBody) *CreateA
 	return s
 }
 
+type CreateAwaitingCorrectionDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateAwaitingCorrectionDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAwaitingCorrectionDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAwaitingCorrectionDataHeaders) SetCommonHeaders(v map[string]*string) *CreateAwaitingCorrectionDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateAwaitingCorrectionDataHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAwaitingCorrectionDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateAwaitingCorrectionDataRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://example.com/files/corrected_math_hw_T250401-001.pdf
+	AllAssignmentPdfUrl *string `json:"allAssignmentPdfUrl,omitempty" xml:"allAssignmentPdfUrl,omitempty"`
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// 501
+	ClassName *string `json:"className,omitempty" xml:"className,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding8196cd122f5cc6abecb851
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {\"paperSize\":\"A4\",\"duplex\":false,\"color\":true}
+	PrintInfo *string `json:"printInfo,omitempty" xml:"printInfo,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// PRINTER1
+	PrinterCode *string `json:"printerCode,omitempty" xml:"printerCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 数学
+	SubjectName *string `json:"subjectName,omitempty" xml:"subjectName,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DING_GRADING_1
+	TaskCode *string `json:"taskCode,omitempty" xml:"taskCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 80
+	TotalPages *int32 `json:"totalPages,omitempty" xml:"totalPages,omitempty"`
+}
+
+func (s CreateAwaitingCorrectionDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAwaitingCorrectionDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAwaitingCorrectionDataRequest) SetAllAssignmentPdfUrl(v string) *CreateAwaitingCorrectionDataRequest {
+	s.AllAssignmentPdfUrl = &v
+	return s
+}
+
+func (s *CreateAwaitingCorrectionDataRequest) SetClassName(v string) *CreateAwaitingCorrectionDataRequest {
+	s.ClassName = &v
+	return s
+}
+
+func (s *CreateAwaitingCorrectionDataRequest) SetCorpId(v string) *CreateAwaitingCorrectionDataRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *CreateAwaitingCorrectionDataRequest) SetPrintInfo(v string) *CreateAwaitingCorrectionDataRequest {
+	s.PrintInfo = &v
+	return s
+}
+
+func (s *CreateAwaitingCorrectionDataRequest) SetPrinterCode(v string) *CreateAwaitingCorrectionDataRequest {
+	s.PrinterCode = &v
+	return s
+}
+
+func (s *CreateAwaitingCorrectionDataRequest) SetSubjectName(v string) *CreateAwaitingCorrectionDataRequest {
+	s.SubjectName = &v
+	return s
+}
+
+func (s *CreateAwaitingCorrectionDataRequest) SetTaskCode(v string) *CreateAwaitingCorrectionDataRequest {
+	s.TaskCode = &v
+	return s
+}
+
+func (s *CreateAwaitingCorrectionDataRequest) SetTotalPages(v int32) *CreateAwaitingCorrectionDataRequest {
+	s.TotalPages = &v
+	return s
+}
+
+type CreateAwaitingCorrectionDataResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateAwaitingCorrectionDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAwaitingCorrectionDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAwaitingCorrectionDataResponseBody) SetSuccess(v bool) *CreateAwaitingCorrectionDataResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateAwaitingCorrectionDataResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateAwaitingCorrectionDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateAwaitingCorrectionDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAwaitingCorrectionDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAwaitingCorrectionDataResponse) SetHeaders(v map[string]*string) *CreateAwaitingCorrectionDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateAwaitingCorrectionDataResponse) SetStatusCode(v int32) *CreateAwaitingCorrectionDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateAwaitingCorrectionDataResponse) SetBody(v *CreateAwaitingCorrectionDataResponseBody) *CreateAwaitingCorrectionDataResponse {
+	s.Body = v
+	return s
+}
+
 type CreateCollegeContactDeptHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8144,6 +8313,107 @@ func (s *CreateCollegeContactSceneStruResponse) SetStatusCode(v int32) *CreateCo
 }
 
 func (s *CreateCollegeContactSceneStruResponse) SetBody(v *CreateCollegeContactSceneStruResponseBody) *CreateCollegeContactSceneStruResponse {
+	s.Body = v
+	return s
+}
+
+type CreateCorrectionDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateCorrectionDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCorrectionDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCorrectionDataHeaders) SetCommonHeaders(v map[string]*string) *CreateCorrectionDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateCorrectionDataHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCorrectionDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateCorrectionDataRequest struct {
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	CorrectedDataJsonUrl *string `json:"correctedDataJsonUrl,omitempty" xml:"correctedDataJsonUrl,omitempty"`
+	// This parameter is required.
+	TaskCode *string `json:"taskCode,omitempty" xml:"taskCode,omitempty"`
+}
+
+func (s CreateCorrectionDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCorrectionDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCorrectionDataRequest) SetCorpId(v string) *CreateCorrectionDataRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *CreateCorrectionDataRequest) SetCorrectedDataJsonUrl(v string) *CreateCorrectionDataRequest {
+	s.CorrectedDataJsonUrl = &v
+	return s
+}
+
+func (s *CreateCorrectionDataRequest) SetTaskCode(v string) *CreateCorrectionDataRequest {
+	s.TaskCode = &v
+	return s
+}
+
+type CreateCorrectionDataResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateCorrectionDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCorrectionDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCorrectionDataResponseBody) SetSuccess(v bool) *CreateCorrectionDataResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateCorrectionDataResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateCorrectionDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateCorrectionDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCorrectionDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCorrectionDataResponse) SetHeaders(v map[string]*string) *CreateCorrectionDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateCorrectionDataResponse) SetStatusCode(v int32) *CreateCorrectionDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateCorrectionDataResponse) SetBody(v *CreateCorrectionDataResponseBody) *CreateCorrectionDataResponse {
 	s.Body = v
 	return s
 }
@@ -30397,6 +30667,323 @@ func (s *QuerySchoolUserFaceResponse) SetBody(v *QuerySchoolUserFaceResponseBody
 	return s
 }
 
+type QuerySelfBuildGroupBaseInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QuerySelfBuildGroupBaseInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySelfBuildGroupBaseInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySelfBuildGroupBaseInfoHeaders) SetCommonHeaders(v map[string]*string) *QuerySelfBuildGroupBaseInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QuerySelfBuildGroupBaseInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySelfBuildGroupBaseInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QuerySelfBuildGroupBaseInfoRequest struct {
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+}
+
+func (s QuerySelfBuildGroupBaseInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySelfBuildGroupBaseInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySelfBuildGroupBaseInfoRequest) SetCorpId(v string) *QuerySelfBuildGroupBaseInfoRequest {
+	s.CorpId = &v
+	return s
+}
+
+type QuerySelfBuildGroupBaseInfoResponseBody struct {
+	Result  *QuerySelfBuildGroupBaseInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                          `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QuerySelfBuildGroupBaseInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySelfBuildGroupBaseInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySelfBuildGroupBaseInfoResponseBody) SetResult(v *QuerySelfBuildGroupBaseInfoResponseBodyResult) *QuerySelfBuildGroupBaseInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QuerySelfBuildGroupBaseInfoResponseBody) SetSuccess(v bool) *QuerySelfBuildGroupBaseInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QuerySelfBuildGroupBaseInfoResponseBodyResult struct {
+	ClassId    *int64  `json:"classId,omitempty" xml:"classId,omitempty"`
+	ClassName  *string `json:"className,omitempty" xml:"className,omitempty"`
+	CorpId     *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	GradeLevel *int32  `json:"gradeLevel,omitempty" xml:"gradeLevel,omitempty"`
+	GroupType  *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	PeriodCode *string `json:"periodCode,omitempty" xml:"periodCode,omitempty"`
+	RequestId  *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s QuerySelfBuildGroupBaseInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySelfBuildGroupBaseInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySelfBuildGroupBaseInfoResponseBodyResult) SetClassId(v int64) *QuerySelfBuildGroupBaseInfoResponseBodyResult {
+	s.ClassId = &v
+	return s
+}
+
+func (s *QuerySelfBuildGroupBaseInfoResponseBodyResult) SetClassName(v string) *QuerySelfBuildGroupBaseInfoResponseBodyResult {
+	s.ClassName = &v
+	return s
+}
+
+func (s *QuerySelfBuildGroupBaseInfoResponseBodyResult) SetCorpId(v string) *QuerySelfBuildGroupBaseInfoResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QuerySelfBuildGroupBaseInfoResponseBodyResult) SetGradeLevel(v int32) *QuerySelfBuildGroupBaseInfoResponseBodyResult {
+	s.GradeLevel = &v
+	return s
+}
+
+func (s *QuerySelfBuildGroupBaseInfoResponseBodyResult) SetGroupType(v string) *QuerySelfBuildGroupBaseInfoResponseBodyResult {
+	s.GroupType = &v
+	return s
+}
+
+func (s *QuerySelfBuildGroupBaseInfoResponseBodyResult) SetPeriodCode(v string) *QuerySelfBuildGroupBaseInfoResponseBodyResult {
+	s.PeriodCode = &v
+	return s
+}
+
+func (s *QuerySelfBuildGroupBaseInfoResponseBodyResult) SetRequestId(v string) *QuerySelfBuildGroupBaseInfoResponseBodyResult {
+	s.RequestId = &v
+	return s
+}
+
+type QuerySelfBuildGroupBaseInfoResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QuerySelfBuildGroupBaseInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QuerySelfBuildGroupBaseInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySelfBuildGroupBaseInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySelfBuildGroupBaseInfoResponse) SetHeaders(v map[string]*string) *QuerySelfBuildGroupBaseInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QuerySelfBuildGroupBaseInfoResponse) SetStatusCode(v int32) *QuerySelfBuildGroupBaseInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QuerySelfBuildGroupBaseInfoResponse) SetBody(v *QuerySelfBuildGroupBaseInfoResponseBody) *QuerySelfBuildGroupBaseInfoResponse {
+	s.Body = v
+	return s
+}
+
+type QuerySelfBuildGroupUserInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QuerySelfBuildGroupUserInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySelfBuildGroupUserInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySelfBuildGroupUserInfoHeaders) SetCommonHeaders(v map[string]*string) *QuerySelfBuildGroupUserInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QuerySelfBuildGroupUserInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySelfBuildGroupUserInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QuerySelfBuildGroupUserInfoRequest struct {
+	// This parameter is required.
+	ClassId *int64 `json:"classId,omitempty" xml:"classId,omitempty"`
+	// This parameter is required.
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	Roles []*string `json:"roles,omitempty" xml:"roles,omitempty" type:"Repeated"`
+}
+
+func (s QuerySelfBuildGroupUserInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySelfBuildGroupUserInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySelfBuildGroupUserInfoRequest) SetClassId(v int64) *QuerySelfBuildGroupUserInfoRequest {
+	s.ClassId = &v
+	return s
+}
+
+func (s *QuerySelfBuildGroupUserInfoRequest) SetCorpId(v string) *QuerySelfBuildGroupUserInfoRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QuerySelfBuildGroupUserInfoRequest) SetRoles(v []*string) *QuerySelfBuildGroupUserInfoRequest {
+	s.Roles = v
+	return s
+}
+
+type QuerySelfBuildGroupUserInfoResponseBody struct {
+	Result  *QuerySelfBuildGroupUserInfoResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                          `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QuerySelfBuildGroupUserInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySelfBuildGroupUserInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySelfBuildGroupUserInfoResponseBody) SetResult(v *QuerySelfBuildGroupUserInfoResponseBodyResult) *QuerySelfBuildGroupUserInfoResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QuerySelfBuildGroupUserInfoResponseBody) SetSuccess(v bool) *QuerySelfBuildGroupUserInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QuerySelfBuildGroupUserInfoResponseBodyResult struct {
+	ClassId   *int64                                                   `json:"classId,omitempty" xml:"classId,omitempty"`
+	CorpId    *string                                                  `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	RequestId *string                                                  `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	UserList  []*QuerySelfBuildGroupUserInfoResponseBodyResultUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+}
+
+func (s QuerySelfBuildGroupUserInfoResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySelfBuildGroupUserInfoResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySelfBuildGroupUserInfoResponseBodyResult) SetClassId(v int64) *QuerySelfBuildGroupUserInfoResponseBodyResult {
+	s.ClassId = &v
+	return s
+}
+
+func (s *QuerySelfBuildGroupUserInfoResponseBodyResult) SetCorpId(v string) *QuerySelfBuildGroupUserInfoResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QuerySelfBuildGroupUserInfoResponseBodyResult) SetRequestId(v string) *QuerySelfBuildGroupUserInfoResponseBodyResult {
+	s.RequestId = &v
+	return s
+}
+
+func (s *QuerySelfBuildGroupUserInfoResponseBodyResult) SetUserList(v []*QuerySelfBuildGroupUserInfoResponseBodyResultUserList) *QuerySelfBuildGroupUserInfoResponseBodyResult {
+	s.UserList = v
+	return s
+}
+
+type QuerySelfBuildGroupUserInfoResponseBodyResultUserList struct {
+	Role     *string `json:"role,omitempty" xml:"role,omitempty"`
+	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserName *string `json:"userName,omitempty" xml:"userName,omitempty"`
+}
+
+func (s QuerySelfBuildGroupUserInfoResponseBodyResultUserList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySelfBuildGroupUserInfoResponseBodyResultUserList) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySelfBuildGroupUserInfoResponseBodyResultUserList) SetRole(v string) *QuerySelfBuildGroupUserInfoResponseBodyResultUserList {
+	s.Role = &v
+	return s
+}
+
+func (s *QuerySelfBuildGroupUserInfoResponseBodyResultUserList) SetUserId(v string) *QuerySelfBuildGroupUserInfoResponseBodyResultUserList {
+	s.UserId = &v
+	return s
+}
+
+func (s *QuerySelfBuildGroupUserInfoResponseBodyResultUserList) SetUserName(v string) *QuerySelfBuildGroupUserInfoResponseBodyResultUserList {
+	s.UserName = &v
+	return s
+}
+
+type QuerySelfBuildGroupUserInfoResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QuerySelfBuildGroupUserInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QuerySelfBuildGroupUserInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySelfBuildGroupUserInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySelfBuildGroupUserInfoResponse) SetHeaders(v map[string]*string) *QuerySelfBuildGroupUserInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QuerySelfBuildGroupUserInfoResponse) SetStatusCode(v int32) *QuerySelfBuildGroupUserInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QuerySelfBuildGroupUserInfoResponse) SetBody(v *QuerySelfBuildGroupUserInfoResponseBody) *QuerySelfBuildGroupUserInfoResponse {
+	s.Body = v
+	return s
+}
+
 type QuerySnsOrderHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -43311,6 +43898,107 @@ func (client *Client) CreateAppOrder(request *CreateAppOrderRequest) (_result *C
 
 // Summary:
 //
+// 作业批改-新增待批改数据
+//
+// @param request - CreateAwaitingCorrectionDataRequest
+//
+// @param headers - CreateAwaitingCorrectionDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateAwaitingCorrectionDataResponse
+func (client *Client) CreateAwaitingCorrectionDataWithOptions(request *CreateAwaitingCorrectionDataRequest, headers *CreateAwaitingCorrectionDataHeaders, runtime *util.RuntimeOptions) (_result *CreateAwaitingCorrectionDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AllAssignmentPdfUrl)) {
+		body["allAssignmentPdfUrl"] = request.AllAssignmentPdfUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ClassName)) {
+		body["className"] = request.ClassName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PrintInfo)) {
+		body["printInfo"] = request.PrintInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PrinterCode)) {
+		body["printerCode"] = request.PrinterCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubjectName)) {
+		body["subjectName"] = request.SubjectName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskCode)) {
+		body["taskCode"] = request.TaskCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TotalPages)) {
+		body["totalPages"] = request.TotalPages
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateAwaitingCorrectionData"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/assignment/createAwaitingCorrectionData"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateAwaitingCorrectionDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-新增待批改数据
+//
+// @param request - CreateAwaitingCorrectionDataRequest
+//
+// @return CreateAwaitingCorrectionDataResponse
+func (client *Client) CreateAwaitingCorrectionData(request *CreateAwaitingCorrectionDataRequest) (_result *CreateAwaitingCorrectionDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateAwaitingCorrectionDataHeaders{}
+	_result = &CreateAwaitingCorrectionDataResponse{}
+	_body, _err := client.CreateAwaitingCorrectionDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 创建高校通讯录组织单元
 //
 // @param request - CreateCollegeContactDeptRequest
@@ -43560,6 +44248,87 @@ func (client *Client) CreateCollegeContactSceneStru(request *CreateCollegeContac
 	headers := &CreateCollegeContactSceneStruHeaders{}
 	_result = &CreateCollegeContactSceneStruResponse{}
 	_body, _err := client.CreateCollegeContactSceneStruWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-新增已批改数据
+//
+// @param request - CreateCorrectionDataRequest
+//
+// @param headers - CreateCorrectionDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateCorrectionDataResponse
+func (client *Client) CreateCorrectionDataWithOptions(request *CreateCorrectionDataRequest, headers *CreateCorrectionDataHeaders, runtime *util.RuntimeOptions) (_result *CreateCorrectionDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorrectedDataJsonUrl)) {
+		body["correctedDataJsonUrl"] = request.CorrectedDataJsonUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskCode)) {
+		body["taskCode"] = request.TaskCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateCorrectionData"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/assignment/createCorrectionData"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateCorrectionDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-新增已批改数据
+//
+// @param request - CreateCorrectionDataRequest
+//
+// @return CreateCorrectionDataResponse
+func (client *Client) CreateCorrectionData(request *CreateCorrectionDataRequest) (_result *CreateCorrectionDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateCorrectionDataHeaders{}
+	_result = &CreateCorrectionDataResponse{}
+	_body, _err := client.CreateCorrectionDataWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -54092,6 +54861,160 @@ func (client *Client) QuerySchoolUserFace(request *QuerySchoolUserFaceRequest) (
 	headers := &QuerySchoolUserFaceHeaders{}
 	_result = &QuerySchoolUserFaceResponse{}
 	_body, _err := client.QuerySchoolUserFaceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询自建群组织和班级信息
+//
+// @param request - QuerySelfBuildGroupBaseInfoRequest
+//
+// @param headers - QuerySelfBuildGroupBaseInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QuerySelfBuildGroupBaseInfoResponse
+func (client *Client) QuerySelfBuildGroupBaseInfoWithOptions(request *QuerySelfBuildGroupBaseInfoRequest, headers *QuerySelfBuildGroupBaseInfoHeaders, runtime *util.RuntimeOptions) (_result *QuerySelfBuildGroupBaseInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QuerySelfBuildGroupBaseInfo"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/self/group/base/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QuerySelfBuildGroupBaseInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询自建群组织和班级信息
+//
+// @param request - QuerySelfBuildGroupBaseInfoRequest
+//
+// @return QuerySelfBuildGroupBaseInfoResponse
+func (client *Client) QuerySelfBuildGroupBaseInfo(request *QuerySelfBuildGroupBaseInfoRequest) (_result *QuerySelfBuildGroupBaseInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QuerySelfBuildGroupBaseInfoHeaders{}
+	_result = &QuerySelfBuildGroupBaseInfoResponse{}
+	_body, _err := client.QuerySelfBuildGroupBaseInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询自建群用户信息
+//
+// @param request - QuerySelfBuildGroupUserInfoRequest
+//
+// @param headers - QuerySelfBuildGroupUserInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QuerySelfBuildGroupUserInfoResponse
+func (client *Client) QuerySelfBuildGroupUserInfoWithOptions(request *QuerySelfBuildGroupUserInfoRequest, headers *QuerySelfBuildGroupUserInfoHeaders, runtime *util.RuntimeOptions) (_result *QuerySelfBuildGroupUserInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ClassId)) {
+		body["classId"] = request.ClassId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Roles)) {
+		body["roles"] = request.Roles
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QuerySelfBuildGroupUserInfo"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/self/group/user/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QuerySelfBuildGroupUserInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询自建群用户信息
+//
+// @param request - QuerySelfBuildGroupUserInfoRequest
+//
+// @return QuerySelfBuildGroupUserInfoResponse
+func (client *Client) QuerySelfBuildGroupUserInfo(request *QuerySelfBuildGroupUserInfoRequest) (_result *QuerySelfBuildGroupUserInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QuerySelfBuildGroupUserInfoHeaders{}
+	_result = &QuerySelfBuildGroupUserInfoResponse{}
+	_body, _err := client.QuerySelfBuildGroupUserInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

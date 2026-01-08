@@ -397,6 +397,214 @@ func (s *GetCustomerInfoResponse) SetBody(v *GetCustomerInfoResponseBody) *GetCu
 	return s
 }
 
+type GetCustomerInsightHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCustomerInsightHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerInsightHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerInsightHeaders) SetCommonHeaders(v map[string]*string) *GetCustomerInsightHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCustomerInsightHeaders) SetXAcsDingtalkAccessToken(v string) *GetCustomerInsightHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCustomerInsightRequest struct {
+	// This parameter is required.
+	CustomerId *string `json:"customerId,omitempty" xml:"customerId,omitempty"`
+}
+
+func (s GetCustomerInsightRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerInsightRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerInsightRequest) SetCustomerId(v string) *GetCustomerInsightRequest {
+	s.CustomerId = &v
+	return s
+}
+
+type GetCustomerInsightResponseBody struct {
+	Result *GetCustomerInsightResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetCustomerInsightResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerInsightResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerInsightResponseBody) SetResult(v *GetCustomerInsightResponseBodyResult) *GetCustomerInsightResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetCustomerInsightResponseBodyResult struct {
+	Intention *GetCustomerInsightResponseBodyResultIntention `json:"intention,omitempty" xml:"intention,omitempty" type:"Struct"`
+	Tag       *GetCustomerInsightResponseBodyResultTag       `json:"tag,omitempty" xml:"tag,omitempty" type:"Struct"`
+}
+
+func (s GetCustomerInsightResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerInsightResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerInsightResponseBodyResult) SetIntention(v *GetCustomerInsightResponseBodyResultIntention) *GetCustomerInsightResponseBodyResult {
+	s.Intention = v
+	return s
+}
+
+func (s *GetCustomerInsightResponseBodyResult) SetTag(v *GetCustomerInsightResponseBodyResultTag) *GetCustomerInsightResponseBodyResult {
+	s.Tag = v
+	return s
+}
+
+type GetCustomerInsightResponseBodyResultIntention struct {
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	Intention   *string `json:"intention,omitempty" xml:"intention,omitempty"`
+}
+
+func (s GetCustomerInsightResponseBodyResultIntention) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerInsightResponseBodyResultIntention) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerInsightResponseBodyResultIntention) SetDescription(v string) *GetCustomerInsightResponseBodyResultIntention {
+	s.Description = &v
+	return s
+}
+
+func (s *GetCustomerInsightResponseBodyResultIntention) SetIntention(v string) *GetCustomerInsightResponseBodyResultIntention {
+	s.Intention = &v
+	return s
+}
+
+type GetCustomerInsightResponseBodyResultTag struct {
+	AiTag   []*GetCustomerInsightResponseBodyResultTagAiTag   `json:"aiTag,omitempty" xml:"aiTag,omitempty" type:"Repeated"`
+	UserTag []*GetCustomerInsightResponseBodyResultTagUserTag `json:"userTag,omitempty" xml:"userTag,omitempty" type:"Repeated"`
+}
+
+func (s GetCustomerInsightResponseBodyResultTag) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerInsightResponseBodyResultTag) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerInsightResponseBodyResultTag) SetAiTag(v []*GetCustomerInsightResponseBodyResultTagAiTag) *GetCustomerInsightResponseBodyResultTag {
+	s.AiTag = v
+	return s
+}
+
+func (s *GetCustomerInsightResponseBodyResultTag) SetUserTag(v []*GetCustomerInsightResponseBodyResultTagUserTag) *GetCustomerInsightResponseBodyResultTag {
+	s.UserTag = v
+	return s
+}
+
+type GetCustomerInsightResponseBodyResultTagAiTag struct {
+	Code  *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetCustomerInsightResponseBodyResultTagAiTag) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerInsightResponseBodyResultTagAiTag) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerInsightResponseBodyResultTagAiTag) SetCode(v string) *GetCustomerInsightResponseBodyResultTagAiTag {
+	s.Code = &v
+	return s
+}
+
+func (s *GetCustomerInsightResponseBodyResultTagAiTag) SetName(v string) *GetCustomerInsightResponseBodyResultTagAiTag {
+	s.Name = &v
+	return s
+}
+
+func (s *GetCustomerInsightResponseBodyResultTagAiTag) SetValue(v string) *GetCustomerInsightResponseBodyResultTagAiTag {
+	s.Value = &v
+	return s
+}
+
+type GetCustomerInsightResponseBodyResultTagUserTag struct {
+	Code  *string `json:"code,omitempty" xml:"code,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s GetCustomerInsightResponseBodyResultTagUserTag) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerInsightResponseBodyResultTagUserTag) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerInsightResponseBodyResultTagUserTag) SetCode(v string) *GetCustomerInsightResponseBodyResultTagUserTag {
+	s.Code = &v
+	return s
+}
+
+func (s *GetCustomerInsightResponseBodyResultTagUserTag) SetValue(v string) *GetCustomerInsightResponseBodyResultTagUserTag {
+	s.Value = &v
+	return s
+}
+
+type GetCustomerInsightResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetCustomerInsightResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetCustomerInsightResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCustomerInsightResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCustomerInsightResponse) SetHeaders(v map[string]*string) *GetCustomerInsightResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCustomerInsightResponse) SetStatusCode(v int32) *GetCustomerInsightResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetCustomerInsightResponse) SetBody(v *GetCustomerInsightResponseBody) *GetCustomerInsightResponse {
+	s.Body = v
+	return s
+}
+
 type GetServiceChapterSummaryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -811,6 +1019,7 @@ func (s *GetServiceQualityInspectionResponseBodyResultGroupList) SetName(v strin
 type GetServiceQualityInspectionResponseBodyResultGroupListItemList struct {
 	FlowName *string `json:"flowName,omitempty" xml:"flowName,omitempty"`
 	IsHit    *string `json:"isHit,omitempty" xml:"isHit,omitempty"`
+	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
 	Reason   *string `json:"reason,omitempty" xml:"reason,omitempty"`
 	Score    *int32  `json:"score,omitempty" xml:"score,omitempty"`
 	Script   *string `json:"script,omitempty" xml:"script,omitempty"`
@@ -831,6 +1040,11 @@ func (s *GetServiceQualityInspectionResponseBodyResultGroupListItemList) SetFlow
 
 func (s *GetServiceQualityInspectionResponseBodyResultGroupListItemList) SetIsHit(v string) *GetServiceQualityInspectionResponseBodyResultGroupListItemList {
 	s.IsHit = &v
+	return s
+}
+
+func (s *GetServiceQualityInspectionResponseBodyResultGroupListItemList) SetName(v string) *GetServiceQualityInspectionResponseBodyResultGroupListItemList {
+	s.Name = &v
 	return s
 }
 
@@ -2931,6 +3145,239 @@ func (s *SubmitAsrTaskResponse) SetBody(v *SubmitAsrTaskResponseBody) *SubmitAsr
 	return s
 }
 
+type VideoCustomerSplitHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s VideoCustomerSplitHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VideoCustomerSplitHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *VideoCustomerSplitHeaders) SetCommonHeaders(v map[string]*string) *VideoCustomerSplitHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *VideoCustomerSplitHeaders) SetXAcsDingtalkAccessToken(v string) *VideoCustomerSplitHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type VideoCustomerSplitRequest struct {
+	// This parameter is required.
+	Customer *VideoCustomerSplitRequestCustomer `json:"customer,omitempty" xml:"customer,omitempty" type:"Struct"`
+	// This parameter is required.
+	SegmentId *string `json:"segmentId,omitempty" xml:"segmentId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s VideoCustomerSplitRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VideoCustomerSplitRequest) GoString() string {
+	return s.String()
+}
+
+func (s *VideoCustomerSplitRequest) SetCustomer(v *VideoCustomerSplitRequestCustomer) *VideoCustomerSplitRequest {
+	s.Customer = v
+	return s
+}
+
+func (s *VideoCustomerSplitRequest) SetSegmentId(v string) *VideoCustomerSplitRequest {
+	s.SegmentId = &v
+	return s
+}
+
+func (s *VideoCustomerSplitRequest) SetUserId(v string) *VideoCustomerSplitRequest {
+	s.UserId = &v
+	return s
+}
+
+type VideoCustomerSplitRequestCustomer struct {
+	// This parameter is required.
+	Customers []*VideoCustomerSplitRequestCustomerCustomers `json:"customers,omitempty" xml:"customers,omitempty" type:"Repeated"`
+}
+
+func (s VideoCustomerSplitRequestCustomer) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VideoCustomerSplitRequestCustomer) GoString() string {
+	return s.String()
+}
+
+func (s *VideoCustomerSplitRequestCustomer) SetCustomers(v []*VideoCustomerSplitRequestCustomerCustomers) *VideoCustomerSplitRequestCustomer {
+	s.Customers = v
+	return s
+}
+
+type VideoCustomerSplitRequestCustomerCustomers struct {
+	// This parameter is required.
+	Appearance *VideoCustomerSplitRequestCustomerCustomersAppearance `json:"appearance,omitempty" xml:"appearance,omitempty" type:"Struct"`
+	// This parameter is required.
+	CustomerId *string `json:"customerId,omitempty" xml:"customerId,omitempty"`
+}
+
+func (s VideoCustomerSplitRequestCustomerCustomers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VideoCustomerSplitRequestCustomerCustomers) GoString() string {
+	return s.String()
+}
+
+func (s *VideoCustomerSplitRequestCustomerCustomers) SetAppearance(v *VideoCustomerSplitRequestCustomerCustomersAppearance) *VideoCustomerSplitRequestCustomerCustomers {
+	s.Appearance = v
+	return s
+}
+
+func (s *VideoCustomerSplitRequestCustomerCustomers) SetCustomerId(v string) *VideoCustomerSplitRequestCustomerCustomers {
+	s.CustomerId = &v
+	return s
+}
+
+type VideoCustomerSplitRequestCustomerCustomersAppearance struct {
+	// This parameter is required.
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	StartTime *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	VideoId   *string `json:"videoId,omitempty" xml:"videoId,omitempty"`
+}
+
+func (s VideoCustomerSplitRequestCustomerCustomersAppearance) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VideoCustomerSplitRequestCustomerCustomersAppearance) GoString() string {
+	return s.String()
+}
+
+func (s *VideoCustomerSplitRequestCustomerCustomersAppearance) SetEndTime(v int64) *VideoCustomerSplitRequestCustomerCustomersAppearance {
+	s.EndTime = &v
+	return s
+}
+
+func (s *VideoCustomerSplitRequestCustomerCustomersAppearance) SetStartTime(v int64) *VideoCustomerSplitRequestCustomerCustomersAppearance {
+	s.StartTime = &v
+	return s
+}
+
+func (s *VideoCustomerSplitRequestCustomerCustomersAppearance) SetVideoId(v string) *VideoCustomerSplitRequestCustomerCustomersAppearance {
+	s.VideoId = &v
+	return s
+}
+
+type VideoCustomerSplitResponseBody struct {
+	ErrorCode *string                               `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string                               `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result    *VideoCustomerSplitResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success   *string                               `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s VideoCustomerSplitResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VideoCustomerSplitResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *VideoCustomerSplitResponseBody) SetErrorCode(v string) *VideoCustomerSplitResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *VideoCustomerSplitResponseBody) SetErrorMsg(v string) *VideoCustomerSplitResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *VideoCustomerSplitResponseBody) SetResult(v *VideoCustomerSplitResponseBodyResult) *VideoCustomerSplitResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *VideoCustomerSplitResponseBody) SetSuccess(v string) *VideoCustomerSplitResponseBody {
+	s.Success = &v
+	return s
+}
+
+type VideoCustomerSplitResponseBodyResult struct {
+	CreateServiceRecordResult []*VideoCustomerSplitResponseBodyResultCreateServiceRecordResult `json:"createServiceRecordResult,omitempty" xml:"createServiceRecordResult,omitempty" type:"Repeated"`
+}
+
+func (s VideoCustomerSplitResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VideoCustomerSplitResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *VideoCustomerSplitResponseBodyResult) SetCreateServiceRecordResult(v []*VideoCustomerSplitResponseBodyResultCreateServiceRecordResult) *VideoCustomerSplitResponseBodyResult {
+	s.CreateServiceRecordResult = v
+	return s
+}
+
+type VideoCustomerSplitResponseBodyResultCreateServiceRecordResult struct {
+	RecordIds []*string `json:"recordIds,omitempty" xml:"recordIds,omitempty" type:"Repeated"`
+	SegmentId *string   `json:"segmentId,omitempty" xml:"segmentId,omitempty"`
+}
+
+func (s VideoCustomerSplitResponseBodyResultCreateServiceRecordResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VideoCustomerSplitResponseBodyResultCreateServiceRecordResult) GoString() string {
+	return s.String()
+}
+
+func (s *VideoCustomerSplitResponseBodyResultCreateServiceRecordResult) SetRecordIds(v []*string) *VideoCustomerSplitResponseBodyResultCreateServiceRecordResult {
+	s.RecordIds = v
+	return s
+}
+
+func (s *VideoCustomerSplitResponseBodyResultCreateServiceRecordResult) SetSegmentId(v string) *VideoCustomerSplitResponseBodyResultCreateServiceRecordResult {
+	s.SegmentId = &v
+	return s
+}
+
+type VideoCustomerSplitResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *VideoCustomerSplitResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s VideoCustomerSplitResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s VideoCustomerSplitResponse) GoString() string {
+	return s.String()
+}
+
+func (s *VideoCustomerSplitResponse) SetHeaders(v map[string]*string) *VideoCustomerSplitResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *VideoCustomerSplitResponse) SetStatusCode(v int32) *VideoCustomerSplitResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *VideoCustomerSplitResponse) SetBody(v *VideoCustomerSplitResponseBody) *VideoCustomerSplitResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -3180,6 +3627,79 @@ func (client *Client) GetCustomerInfo(request *GetCustomerInfoRequest) (_result 
 	headers := &GetCustomerInfoHeaders{}
 	_result = &GetCustomerInfoResponse{}
 	_body, _err := client.GetCustomerInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取客户洞察信息
+//
+// @param request - GetCustomerInsightRequest
+//
+// @param headers - GetCustomerInsightHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCustomerInsightResponse
+func (client *Client) GetCustomerInsightWithOptions(request *GetCustomerInsightRequest, headers *GetCustomerInsightHeaders, runtime *util.RuntimeOptions) (_result *GetCustomerInsightResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CustomerId)) {
+		query["customerId"] = request.CustomerId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetCustomerInsight"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/customers/insights"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetCustomerInsightResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取客户洞察信息
+//
+// @param request - GetCustomerInsightRequest
+//
+// @return GetCustomerInsightResponse
+func (client *Client) GetCustomerInsight(request *GetCustomerInsightRequest) (_result *GetCustomerInsightResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCustomerInsightHeaders{}
+	_result = &GetCustomerInsightResponse{}
+	_body, _err := client.GetCustomerInsightWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4314,6 +4834,87 @@ func (client *Client) SubmitAsrTask(request *SubmitAsrTaskRequest) (_result *Sub
 	headers := &SubmitAsrTaskHeaders{}
 	_result = &SubmitAsrTaskResponse{}
 	_body, _err := client.SubmitAsrTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// asr离线任务
+//
+// @param request - VideoCustomerSplitRequest
+//
+// @param headers - VideoCustomerSplitHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return VideoCustomerSplitResponse
+func (client *Client) VideoCustomerSplitWithOptions(request *VideoCustomerSplitRequest, headers *VideoCustomerSplitHeaders, runtime *util.RuntimeOptions) (_result *VideoCustomerSplitResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Customer)) {
+		body["customer"] = request.Customer
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SegmentId)) {
+		body["segmentId"] = request.SegmentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("VideoCustomerSplit"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/service/audiosplit"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &VideoCustomerSplitResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// asr离线任务
+//
+// @param request - VideoCustomerSplitRequest
+//
+// @return VideoCustomerSplitResponse
+func (client *Client) VideoCustomerSplit(request *VideoCustomerSplitRequest) (_result *VideoCustomerSplitResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &VideoCustomerSplitHeaders{}
+	_result = &VideoCustomerSplitResponse{}
+	_body, _err := client.VideoCustomerSplitWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

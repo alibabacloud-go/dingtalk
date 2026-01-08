@@ -381,7 +381,12 @@ type AddRecordPermissionRequest struct {
 	// example:
 	//
 	// lJcRnm39OsU4jlFFXXXXXXX
-	OwnerUnionId *string `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
+	OwnerUnionId       *string   `json:"ownerUnionId,omitempty" xml:"ownerUnionId,omitempty"`
+	RoleSubResourceIds []*string `json:"roleSubResourceIds,omitempty" xml:"roleSubResourceIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 0
+	ShareScope *int32 `json:"shareScope,omitempty" xml:"shareScope,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -408,6 +413,16 @@ func (s *AddRecordPermissionRequest) SetOwnerUnionId(v string) *AddRecordPermiss
 	return s
 }
 
+func (s *AddRecordPermissionRequest) SetRoleSubResourceIds(v []*string) *AddRecordPermissionRequest {
+	s.RoleSubResourceIds = v
+	return s
+}
+
+func (s *AddRecordPermissionRequest) SetShareScope(v int32) *AddRecordPermissionRequest {
+	s.ShareScope = &v
+	return s
+}
+
 func (s *AddRecordPermissionRequest) SetUnionId(v string) *AddRecordPermissionRequest {
 	s.UnionId = &v
 	return s
@@ -415,6 +430,10 @@ func (s *AddRecordPermissionRequest) SetUnionId(v string) *AddRecordPermissionRe
 
 type AddRecordPermissionResponseBody struct {
 	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	// example:
+	//
+	// 76327xxxxxxx353936325f35
+	TaskUuid *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
 }
 
 func (s AddRecordPermissionResponseBody) String() string {
@@ -427,6 +446,11 @@ func (s AddRecordPermissionResponseBody) GoString() string {
 
 func (s *AddRecordPermissionResponseBody) SetCode(v string) *AddRecordPermissionResponseBody {
 	s.Code = &v
+	return s
+}
+
+func (s *AddRecordPermissionResponseBody) SetTaskUuid(v string) *AddRecordPermissionResponseBody {
+	s.TaskUuid = &v
 	return s
 }
 
@@ -775,6 +799,131 @@ func (s *CohostsResponse) SetStatusCode(v int32) *CohostsResponse {
 }
 
 func (s *CohostsResponse) SetBody(v *CohostsResponseBody) *CohostsResponse {
+	s.Body = v
+	return s
+}
+
+type CreateAutoLoginUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateAutoLoginUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAutoLoginUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAutoLoginUrlHeaders) SetCommonHeaders(v map[string]*string) *CreateAutoLoginUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateAutoLoginUrlHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAutoLoginUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateAutoLoginUrlRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://meeting.dingtalk.com/j/xxxx
+	MeetingUrl *string `json:"meetingUrl,omitempty" xml:"meetingUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// qzR1iSMDvzR9iPXXXXXXXXXXXXXX
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s CreateAutoLoginUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAutoLoginUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAutoLoginUrlRequest) SetMeetingUrl(v string) *CreateAutoLoginUrlRequest {
+	s.MeetingUrl = &v
+	return s
+}
+
+func (s *CreateAutoLoginUrlRequest) SetUnionId(v string) *CreateAutoLoginUrlRequest {
+	s.UnionId = &v
+	return s
+}
+
+type CreateAutoLoginUrlResponseBody struct {
+	LoginInfo *CreateAutoLoginUrlResponseBodyLoginInfo `json:"loginInfo,omitempty" xml:"loginInfo,omitempty" type:"Struct"`
+	Success   *bool                                    `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateAutoLoginUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAutoLoginUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAutoLoginUrlResponseBody) SetLoginInfo(v *CreateAutoLoginUrlResponseBodyLoginInfo) *CreateAutoLoginUrlResponseBody {
+	s.LoginInfo = v
+	return s
+}
+
+func (s *CreateAutoLoginUrlResponseBody) SetSuccess(v bool) *CreateAutoLoginUrlResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateAutoLoginUrlResponseBodyLoginInfo struct {
+	LoginUrl *string `json:"loginUrl,omitempty" xml:"loginUrl,omitempty"`
+}
+
+func (s CreateAutoLoginUrlResponseBodyLoginInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAutoLoginUrlResponseBodyLoginInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAutoLoginUrlResponseBodyLoginInfo) SetLoginUrl(v string) *CreateAutoLoginUrlResponseBodyLoginInfo {
+	s.LoginUrl = &v
+	return s
+}
+
+type CreateAutoLoginUrlResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateAutoLoginUrlResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateAutoLoginUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAutoLoginUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAutoLoginUrlResponse) SetHeaders(v map[string]*string) *CreateAutoLoginUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateAutoLoginUrlResponse) SetStatusCode(v int32) *CreateAutoLoginUrlResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateAutoLoginUrlResponse) SetBody(v *CreateAutoLoginUrlResponseBody) *CreateAutoLoginUrlResponse {
 	s.Body = v
 	return s
 }
@@ -8558,6 +8707,14 @@ func (client *Client) AddRecordPermissionWithOptions(conferenceId *string, reque
 		body["ownerUnionId"] = request.OwnerUnionId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.RoleSubResourceIds)) {
+		body["roleSubResourceIds"] = request.RoleSubResourceIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ShareScope)) {
+		body["shareScope"] = request.ShareScope
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
 		body["unionId"] = request.UnionId
 	}
@@ -8834,6 +8991,83 @@ func (client *Client) Cohosts(conferenceId *string, request *CohostsRequest) (_r
 	headers := &CohostsHeaders{}
 	_result = &CohostsResponse{}
 	_body, _err := client.CohostsWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 生成会议自动登录url
+//
+// @param request - CreateAutoLoginUrlRequest
+//
+// @param headers - CreateAutoLoginUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateAutoLoginUrlResponse
+func (client *Client) CreateAutoLoginUrlWithOptions(request *CreateAutoLoginUrlRequest, headers *CreateAutoLoginUrlHeaders, runtime *util.RuntimeOptions) (_result *CreateAutoLoginUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MeetingUrl)) {
+		body["meetingUrl"] = request.MeetingUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateAutoLoginUrl"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/createAutoLoginUrl"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateAutoLoginUrlResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 生成会议自动登录url
+//
+// @param request - CreateAutoLoginUrlRequest
+//
+// @return CreateAutoLoginUrlResponse
+func (client *Client) CreateAutoLoginUrl(request *CreateAutoLoginUrlRequest) (_result *CreateAutoLoginUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateAutoLoginUrlHeaders{}
+	_result = &CreateAutoLoginUrlResponse{}
+	_body, _err := client.CreateAutoLoginUrlWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

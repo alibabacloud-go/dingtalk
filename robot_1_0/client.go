@@ -1185,8 +1185,9 @@ type OrgGroupQueryResponseBody struct {
 	// example:
 	//
 	// Kna29Ra5pdJznx1ghavbumkQKwDzgfxZLapw55G7x0Q=
-	NextToken   *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	ReadUserIds []*string `json:"readUserIds,omitempty" xml:"readUserIds,omitempty" type:"Repeated"`
+	NextToken   *string                               `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	ReadUserIds []*string                             `json:"readUserIds,omitempty" xml:"readUserIds,omitempty" type:"Repeated"`
+	ReadUsers   []*OrgGroupQueryResponseBodyReadUsers `json:"readUsers,omitempty" xml:"readUsers,omitempty" type:"Repeated"`
 	// example:
 	//
 	// SUCCESS
@@ -1216,8 +1217,36 @@ func (s *OrgGroupQueryResponseBody) SetReadUserIds(v []*string) *OrgGroupQueryRe
 	return s
 }
 
+func (s *OrgGroupQueryResponseBody) SetReadUsers(v []*OrgGroupQueryResponseBodyReadUsers) *OrgGroupQueryResponseBody {
+	s.ReadUsers = v
+	return s
+}
+
 func (s *OrgGroupQueryResponseBody) SetSendStatus(v string) *OrgGroupQueryResponseBody {
 	s.SendStatus = &v
+	return s
+}
+
+type OrgGroupQueryResponseBodyReadUsers struct {
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s OrgGroupQueryResponseBodyReadUsers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrgGroupQueryResponseBodyReadUsers) GoString() string {
+	return s.String()
+}
+
+func (s *OrgGroupQueryResponseBodyReadUsers) SetUnionId(v string) *OrgGroupQueryResponseBodyReadUsers {
+	s.UnionId = &v
+	return s
+}
+
+func (s *OrgGroupQueryResponseBodyReadUsers) SetUserId(v string) *OrgGroupQueryResponseBodyReadUsers {
+	s.UserId = &v
 	return s
 }
 

@@ -1773,6 +1773,151 @@ func (s *TitleMention) SetUser(v *OpenAgoalUserDTO) *TitleMention {
 	return s
 }
 
+type AgoalBizDataQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AgoalBizDataQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalBizDataQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalBizDataQueryHeaders) SetCommonHeaders(v map[string]*string) *AgoalBizDataQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AgoalBizDataQueryHeaders) SetXAcsDingtalkAccessToken(v string) *AgoalBizDataQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AgoalBizDataQueryRequest struct {
+	BizCode    *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s AgoalBizDataQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalBizDataQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalBizDataQueryRequest) SetBizCode(v string) *AgoalBizDataQueryRequest {
+	s.BizCode = &v
+	return s
+}
+
+func (s *AgoalBizDataQueryRequest) SetMaxResults(v int64) *AgoalBizDataQueryRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *AgoalBizDataQueryRequest) SetNextToken(v string) *AgoalBizDataQueryRequest {
+	s.NextToken = &v
+	return s
+}
+
+type AgoalBizDataQueryResponseBody struct {
+	Content   *AgoalBizDataQueryResponseBodyContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
+	RequestId *string                               `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool                                 `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool                                 `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AgoalBizDataQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalBizDataQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalBizDataQueryResponseBody) SetContent(v *AgoalBizDataQueryResponseBodyContent) *AgoalBizDataQueryResponseBody {
+	s.Content = v
+	return s
+}
+
+func (s *AgoalBizDataQueryResponseBody) SetRequestId(v string) *AgoalBizDataQueryResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *AgoalBizDataQueryResponseBody) SetResult(v bool) *AgoalBizDataQueryResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *AgoalBizDataQueryResponseBody) SetSuccess(v bool) *AgoalBizDataQueryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AgoalBizDataQueryResponseBodyContent struct {
+	BizInfos   []map[string]interface{} `json:"bizInfos,omitempty" xml:"bizInfos,omitempty" type:"Repeated"`
+	MaxResults *int64                   `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string                  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s AgoalBizDataQueryResponseBodyContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalBizDataQueryResponseBodyContent) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalBizDataQueryResponseBodyContent) SetBizInfos(v []map[string]interface{}) *AgoalBizDataQueryResponseBodyContent {
+	s.BizInfos = v
+	return s
+}
+
+func (s *AgoalBizDataQueryResponseBodyContent) SetMaxResults(v int64) *AgoalBizDataQueryResponseBodyContent {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *AgoalBizDataQueryResponseBodyContent) SetNextToken(v string) *AgoalBizDataQueryResponseBodyContent {
+	s.NextToken = &v
+	return s
+}
+
+type AgoalBizDataQueryResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AgoalBizDataQueryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AgoalBizDataQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AgoalBizDataQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AgoalBizDataQueryResponse) SetHeaders(v map[string]*string) *AgoalBizDataQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AgoalBizDataQueryResponse) SetStatusCode(v int32) *AgoalBizDataQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AgoalBizDataQueryResponse) SetBody(v *AgoalBizDataQueryResponseBody) *AgoalBizDataQueryResponse {
+	s.Body = v
+	return s
+}
+
 type AgoalCreateProgressHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4932,6 +5077,87 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+// Summary:
+//
+// 业务数据开放
+//
+// @param request - AgoalBizDataQueryRequest
+//
+// @param headers - AgoalBizDataQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AgoalBizDataQueryResponse
+func (client *Client) AgoalBizDataQueryWithOptions(request *AgoalBizDataQueryRequest, headers *AgoalBizDataQueryHeaders, runtime *util.RuntimeOptions) (_result *AgoalBizDataQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		query["bizCode"] = request.BizCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AgoalBizDataQuery"),
+		Version:     tea.String("agoal_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/agoal/bizData/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AgoalBizDataQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 业务数据开放
+//
+// @param request - AgoalBizDataQueryRequest
+//
+// @return AgoalBizDataQueryResponse
+func (client *Client) AgoalBizDataQuery(request *AgoalBizDataQueryRequest) (_result *AgoalBizDataQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AgoalBizDataQueryHeaders{}
+	_result = &AgoalBizDataQueryResponse{}
+	_body, _err := client.AgoalBizDataQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 // Summary:

@@ -3413,62 +3413,20 @@ func (s *FinanceLoanNotifyRegisterHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type FinanceLoanNotifyRegisterRequest struct {
-	// example:
-	//
-	// 2024-06-18 14:53:33
-	CompleteTime *string `json:"completeTime,omitempty" xml:"completeTime,omitempty"`
-	// example:
-	//
-	// {}
-	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
-	// example:
-	//
-	// 330725189509101234
-	IdCardNo *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
-	// example:
-	//
-	// 中原消费金融
-	OpenChannelName *string `json:"openChannelName,omitempty" xml:"openChannelName,omitempty"`
-	// example:
-	//
-	// XFD201909210001
-	OpenProductCode *string `json:"openProductCode,omitempty" xml:"openProductCode,omitempty"`
-	// example:
-	//
-	// 员工贷
-	OpenProductName *string `json:"openProductName,omitempty" xml:"openProductName,omitempty"`
-	// example:
-	//
-	// ZYXJ_XFD
-	OpenProductType *string `json:"openProductType,omitempty" xml:"openProductType,omitempty"`
-	// example:
-	//
-	// 0
+	CompleteTime     *string `json:"completeTime,omitempty" xml:"completeTime,omitempty"`
+	Extension        *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	IdCardNo         *string `json:"idCardNo,omitempty" xml:"idCardNo,omitempty"`
+	OpenChannelName  *string `json:"openChannelName,omitempty" xml:"openChannelName,omitempty"`
+	OpenProductCode  *string `json:"openProductCode,omitempty" xml:"openProductCode,omitempty"`
+	OpenProductName  *string `json:"openProductName,omitempty" xml:"openProductName,omitempty"`
+	OpenProductType  *string `json:"openProductType,omitempty" xml:"openProductType,omitempty"`
 	ProcessingStatus *string `json:"processingStatus,omitempty" xml:"processingStatus,omitempty"`
-	// example:
-	//
-	// ZRSB2020
-	RefuseCode *string `json:"refuseCode,omitempty" xml:"refuseCode,omitempty"`
-	// example:
-	//
-	// 进件准入失败
-	RefuseReason *string `json:"refuseReason,omitempty" xml:"refuseReason,omitempty"`
-	// example:
-	//
-	// 2024061814654041710801
-	RegisterNo *string `json:"registerNo,omitempty" xml:"registerNo,omitempty"`
-	// example:
-	//
-	// 0
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
-	// example:
-	//
-	// 2024-06-18 14:53:33
-	SubmitTime *string `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
-	// example:
-	//
-	// 18092149430
-	UserMobile *string `json:"userMobile,omitempty" xml:"userMobile,omitempty"`
+	RefuseCode       *string `json:"refuseCode,omitempty" xml:"refuseCode,omitempty"`
+	RefuseReason     *string `json:"refuseReason,omitempty" xml:"refuseReason,omitempty"`
+	RegisterNo       *string `json:"registerNo,omitempty" xml:"registerNo,omitempty"`
+	Status           *string `json:"status,omitempty" xml:"status,omitempty"`
+	SubmitTime       *string `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
+	UserMobile       *string `json:"userMobile,omitempty" xml:"userMobile,omitempty"`
 }
 
 func (s FinanceLoanNotifyRegisterRequest) String() string {

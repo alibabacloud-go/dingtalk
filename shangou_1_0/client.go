@@ -34,11 +34,11 @@ func (s *AddCateringCommentHeaders) SetXAcsDingtalkAccessToken(v string) *AddCat
 
 type AddCateringCommentRequest struct {
 	// This parameter is required.
-	CommentId   *string `json:"commentId,omitempty" xml:"commentId,omitempty"`
-	OrderId     *string `json:"orderId,omitempty" xml:"orderId,omitempty"`
-	RateContent *string `json:"rateContent,omitempty" xml:"rateContent,omitempty"`
-	RatedAt     *int64  `json:"ratedAt,omitempty" xml:"ratedAt,omitempty"`
-	Rating      *int32  `json:"rating,omitempty" xml:"rating,omitempty"`
+	CommentId   *string  `json:"commentId,omitempty" xml:"commentId,omitempty"`
+	OrderId     *string  `json:"orderId,omitempty" xml:"orderId,omitempty"`
+	RateContent *string  `json:"rateContent,omitempty" xml:"rateContent,omitempty"`
+	RatedAt     *int64   `json:"ratedAt,omitempty" xml:"ratedAt,omitempty"`
+	Rating      *float64 `json:"rating,omitempty" xml:"rating,omitempty"`
 	// This parameter is required.
 	ShopId *string `json:"shopId,omitempty" xml:"shopId,omitempty"`
 	// This parameter is required.
@@ -74,7 +74,7 @@ func (s *AddCateringCommentRequest) SetRatedAt(v int64) *AddCateringCommentReque
 	return s
 }
 
-func (s *AddCateringCommentRequest) SetRating(v int32) *AddCateringCommentRequest {
+func (s *AddCateringCommentRequest) SetRating(v float64) *AddCateringCommentRequest {
 	s.Rating = &v
 	return s
 }

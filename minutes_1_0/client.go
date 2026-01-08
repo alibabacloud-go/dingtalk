@@ -325,6 +325,110 @@ func (s *CreateMinutesByUploadFileResponse) SetBody(v *CreateMinutesByUploadFile
 	return s
 }
 
+type CreateSmartDeviceAiSummaryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateSmartDeviceAiSummaryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSmartDeviceAiSummaryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSmartDeviceAiSummaryHeaders) SetCommonHeaders(v map[string]*string) *CreateSmartDeviceAiSummaryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateSmartDeviceAiSummaryHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSmartDeviceAiSummaryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateSmartDeviceAiSummaryRequest struct {
+	AgentId    *string `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	IsvContext *string `json:"isvContext,omitempty" xml:"isvContext,omitempty"`
+	OpenFileId *string `json:"openFileId,omitempty" xml:"openFileId,omitempty"`
+}
+
+func (s CreateSmartDeviceAiSummaryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSmartDeviceAiSummaryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSmartDeviceAiSummaryRequest) SetAgentId(v string) *CreateSmartDeviceAiSummaryRequest {
+	s.AgentId = &v
+	return s
+}
+
+func (s *CreateSmartDeviceAiSummaryRequest) SetInstanceId(v string) *CreateSmartDeviceAiSummaryRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *CreateSmartDeviceAiSummaryRequest) SetIsvContext(v string) *CreateSmartDeviceAiSummaryRequest {
+	s.IsvContext = &v
+	return s
+}
+
+func (s *CreateSmartDeviceAiSummaryRequest) SetOpenFileId(v string) *CreateSmartDeviceAiSummaryRequest {
+	s.OpenFileId = &v
+	return s
+}
+
+type CreateSmartDeviceAiSummaryResponseBody struct {
+	Async *bool `json:"async,omitempty" xml:"async,omitempty"`
+}
+
+func (s CreateSmartDeviceAiSummaryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSmartDeviceAiSummaryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSmartDeviceAiSummaryResponseBody) SetAsync(v bool) *CreateSmartDeviceAiSummaryResponseBody {
+	s.Async = &v
+	return s
+}
+
+type CreateSmartDeviceAiSummaryResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateSmartDeviceAiSummaryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateSmartDeviceAiSummaryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSmartDeviceAiSummaryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSmartDeviceAiSummaryResponse) SetHeaders(v map[string]*string) *CreateSmartDeviceAiSummaryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateSmartDeviceAiSummaryResponse) SetStatusCode(v int32) *CreateSmartDeviceAiSummaryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateSmartDeviceAiSummaryResponse) SetBody(v *CreateSmartDeviceAiSummaryResponseBody) *CreateSmartDeviceAiSummaryResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteMinutesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -559,6 +663,134 @@ func (s *ExportMinutesTaskResultResponse) SetStatusCode(v int32) *ExportMinutesT
 }
 
 func (s *ExportMinutesTaskResultResponse) SetBody(v *ExportMinutesTaskResultResponseBody) *ExportMinutesTaskResultResponse {
+	s.Body = v
+	return s
+}
+
+type GenerateSummaryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GenerateSummaryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateSummaryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateSummaryHeaders) SetCommonHeaders(v map[string]*string) *GenerateSummaryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GenerateSummaryHeaders) SetXAcsDingtalkAccessToken(v string) *GenerateSummaryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GenerateSummaryRequest struct {
+	// example:
+	//
+	// 1
+	DiyTemplateVersion *string `json:"diyTemplateVersion,omitempty" xml:"diyTemplateVersion,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// meeting-assistant
+	SummaryTemplateId *string `json:"summaryTemplateId,omitempty" xml:"summaryTemplateId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	SummaryTemplateType *string `json:"summaryTemplateType,omitempty" xml:"summaryTemplateType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lJcRnm39OsU4jlFVmRGXXXXX
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GenerateSummaryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateSummaryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateSummaryRequest) SetDiyTemplateVersion(v string) *GenerateSummaryRequest {
+	s.DiyTemplateVersion = &v
+	return s
+}
+
+func (s *GenerateSummaryRequest) SetSummaryTemplateId(v string) *GenerateSummaryRequest {
+	s.SummaryTemplateId = &v
+	return s
+}
+
+func (s *GenerateSummaryRequest) SetSummaryTemplateType(v string) *GenerateSummaryRequest {
+	s.SummaryTemplateType = &v
+	return s
+}
+
+func (s *GenerateSummaryRequest) SetUnionId(v string) *GenerateSummaryRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GenerateSummaryResponseBody struct {
+	SummaryText *string `json:"summaryText,omitempty" xml:"summaryText,omitempty"`
+	TaskUuid    *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
+}
+
+func (s GenerateSummaryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateSummaryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateSummaryResponseBody) SetSummaryText(v string) *GenerateSummaryResponseBody {
+	s.SummaryText = &v
+	return s
+}
+
+func (s *GenerateSummaryResponseBody) SetTaskUuid(v string) *GenerateSummaryResponseBody {
+	s.TaskUuid = &v
+	return s
+}
+
+type GenerateSummaryResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GenerateSummaryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GenerateSummaryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GenerateSummaryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GenerateSummaryResponse) SetHeaders(v map[string]*string) *GenerateSummaryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GenerateSummaryResponse) SetStatusCode(v int32) *GenerateSummaryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GenerateSummaryResponse) SetBody(v *GenerateSummaryResponseBody) *GenerateSummaryResponse {
 	s.Body = v
 	return s
 }
@@ -1739,6 +1971,7 @@ type QueryMinutesTextResponseBodyParagraphList struct {
 	RecordId     *int64                                                   `json:"recordId,omitempty" xml:"recordId,omitempty"`
 	SentenceList []*QueryMinutesTextResponseBodyParagraphListSentenceList `json:"sentenceList,omitempty" xml:"sentenceList,omitempty" type:"Repeated"`
 	StartTime    *int64                                                   `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	SubSpeakerId *string                                                  `json:"subSpeakerId,omitempty" xml:"subSpeakerId,omitempty"`
 	UnionId      *string                                                  `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
 
@@ -1782,6 +2015,11 @@ func (s *QueryMinutesTextResponseBodyParagraphList) SetSentenceList(v []*QueryMi
 
 func (s *QueryMinutesTextResponseBodyParagraphList) SetStartTime(v int64) *QueryMinutesTextResponseBodyParagraphList {
 	s.StartTime = &v
+	return s
+}
+
+func (s *QueryMinutesTextResponseBodyParagraphList) SetSubSpeakerId(v string) *QueryMinutesTextResponseBodyParagraphList {
+	s.SubSpeakerId = &v
 	return s
 }
 
@@ -2145,6 +2383,291 @@ func (s *QueryScheduleConfMinutesResponse) SetBody(v *QueryScheduleConfMinutesRe
 	return s
 }
 
+type QuerySmartDeviceAiSummaryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QuerySmartDeviceAiSummaryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSummaryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSummaryHeaders) SetCommonHeaders(v map[string]*string) *QuerySmartDeviceAiSummaryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSummaryHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySmartDeviceAiSummaryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QuerySmartDeviceAiSummaryRequest struct {
+	AgentId    *string `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	OpenFileId *string `json:"openFileId,omitempty" xml:"openFileId,omitempty"`
+}
+
+func (s QuerySmartDeviceAiSummaryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSummaryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSummaryRequest) SetAgentId(v string) *QuerySmartDeviceAiSummaryRequest {
+	s.AgentId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSummaryRequest) SetOpenFileId(v string) *QuerySmartDeviceAiSummaryRequest {
+	s.OpenFileId = &v
+	return s
+}
+
+type QuerySmartDeviceAiSummaryResponseBody struct {
+	AiSummaryList []*QuerySmartDeviceAiSummaryResponseBodyAiSummaryList `json:"aiSummaryList,omitempty" xml:"aiSummaryList,omitempty" type:"Repeated"`
+	State         *int32                                                `json:"state,omitempty" xml:"state,omitempty"`
+}
+
+func (s QuerySmartDeviceAiSummaryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSummaryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSummaryResponseBody) SetAiSummaryList(v []*QuerySmartDeviceAiSummaryResponseBodyAiSummaryList) *QuerySmartDeviceAiSummaryResponseBody {
+	s.AiSummaryList = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSummaryResponseBody) SetState(v int32) *QuerySmartDeviceAiSummaryResponseBody {
+	s.State = &v
+	return s
+}
+
+type QuerySmartDeviceAiSummaryResponseBodyAiSummaryList struct {
+	AgentId              *string `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	AiSceneRuleAvatarUrl *string `json:"aiSceneRuleAvatarUrl,omitempty" xml:"aiSceneRuleAvatarUrl,omitempty"`
+	CreatorUnionId       *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	InstanceId           *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	OpenFileId           *string `json:"openFileId,omitempty" xml:"openFileId,omitempty"`
+	Order                *int32  `json:"order,omitempty" xml:"order,omitempty"`
+	Summary              *string `json:"summary,omitempty" xml:"summary,omitempty"`
+	TemplateId           *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Title                *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QuerySmartDeviceAiSummaryResponseBodyAiSummaryList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSummaryResponseBodyAiSummaryList) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList) SetAgentId(v string) *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList {
+	s.AgentId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList) SetAiSceneRuleAvatarUrl(v string) *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList {
+	s.AiSceneRuleAvatarUrl = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList) SetCreatorUnionId(v string) *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList) SetInstanceId(v string) *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList) SetOpenFileId(v string) *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList {
+	s.OpenFileId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList) SetOrder(v int32) *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList {
+	s.Order = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList) SetSummary(v string) *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList {
+	s.Summary = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList) SetTemplateId(v string) *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList) SetTitle(v string) *QuerySmartDeviceAiSummaryResponseBodyAiSummaryList {
+	s.Title = &v
+	return s
+}
+
+type QuerySmartDeviceAiSummaryResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QuerySmartDeviceAiSummaryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QuerySmartDeviceAiSummaryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSummaryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSummaryResponse) SetHeaders(v map[string]*string) *QuerySmartDeviceAiSummaryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSummaryResponse) SetStatusCode(v int32) *QuerySmartDeviceAiSummaryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSummaryResponse) SetBody(v *QuerySmartDeviceAiSummaryResponseBody) *QuerySmartDeviceAiSummaryResponse {
+	s.Body = v
+	return s
+}
+
+type QuerySummaryWithTemplateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QuerySummaryWithTemplateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySummaryWithTemplateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySummaryWithTemplateHeaders) SetCommonHeaders(v map[string]*string) *QuerySummaryWithTemplateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QuerySummaryWithTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySummaryWithTemplateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QuerySummaryWithTemplateRequest struct {
+	// example:
+	//
+	// 1
+	DiyTemplateVersion *string `json:"diyTemplateVersion,omitempty" xml:"diyTemplateVersion,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// meeting-assistant
+	SummaryTemplateId *string `json:"summaryTemplateId,omitempty" xml:"summaryTemplateId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	SummaryTemplateType *string `json:"summaryTemplateType,omitempty" xml:"summaryTemplateType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lJcRnm39OsU4jlFVmRGXXXXX
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QuerySummaryWithTemplateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySummaryWithTemplateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySummaryWithTemplateRequest) SetDiyTemplateVersion(v string) *QuerySummaryWithTemplateRequest {
+	s.DiyTemplateVersion = &v
+	return s
+}
+
+func (s *QuerySummaryWithTemplateRequest) SetSummaryTemplateId(v string) *QuerySummaryWithTemplateRequest {
+	s.SummaryTemplateId = &v
+	return s
+}
+
+func (s *QuerySummaryWithTemplateRequest) SetSummaryTemplateType(v string) *QuerySummaryWithTemplateRequest {
+	s.SummaryTemplateType = &v
+	return s
+}
+
+func (s *QuerySummaryWithTemplateRequest) SetUnionId(v string) *QuerySummaryWithTemplateRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QuerySummaryWithTemplateResponseBody struct {
+	SummaryText *string `json:"summaryText,omitempty" xml:"summaryText,omitempty"`
+}
+
+func (s QuerySummaryWithTemplateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySummaryWithTemplateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySummaryWithTemplateResponseBody) SetSummaryText(v string) *QuerySummaryWithTemplateResponseBody {
+	s.SummaryText = &v
+	return s
+}
+
+type QuerySummaryWithTemplateResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QuerySummaryWithTemplateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QuerySummaryWithTemplateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySummaryWithTemplateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySummaryWithTemplateResponse) SetHeaders(v map[string]*string) *QuerySummaryWithTemplateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QuerySummaryWithTemplateResponse) SetStatusCode(v int32) *QuerySummaryWithTemplateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QuerySummaryWithTemplateResponse) SetBody(v *QuerySummaryWithTemplateResponseBody) *QuerySummaryWithTemplateResponse {
+	s.Body = v
+	return s
+}
+
 type QueryUploadVideoPlayInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2367,6 +2890,212 @@ func (s *UpdateMinutesTitleResponse) SetBody(v *UpdateMinutesTitleResponseBody) 
 	return s
 }
 
+type UpdatePermissionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdatePermissionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePermissionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePermissionHeaders) SetCommonHeaders(v map[string]*string) *UpdatePermissionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdatePermissionHeaders) SetXAcsDingtalkAccessToken(v string) *UpdatePermissionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdatePermissionRequest struct {
+	MemberInfoList []*UpdatePermissionRequestMemberInfoList `json:"memberInfoList,omitempty" xml:"memberInfoList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 0
+	OpType *int32 `json:"opType,omitempty" xml:"opType,omitempty"`
+	// example:
+	//
+	// 1000
+	RoleCode           *string   `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	RoleSubResourceIds []*string `json:"roleSubResourceIds,omitempty" xml:"roleSubResourceIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 0
+	ShareScope *int32 `json:"shareScope,omitempty" xml:"shareScope,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lJcRnm39OsU4jlFVmRGXXXXX
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s UpdatePermissionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePermissionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePermissionRequest) SetMemberInfoList(v []*UpdatePermissionRequestMemberInfoList) *UpdatePermissionRequest {
+	s.MemberInfoList = v
+	return s
+}
+
+func (s *UpdatePermissionRequest) SetOpType(v int32) *UpdatePermissionRequest {
+	s.OpType = &v
+	return s
+}
+
+func (s *UpdatePermissionRequest) SetRoleCode(v string) *UpdatePermissionRequest {
+	s.RoleCode = &v
+	return s
+}
+
+func (s *UpdatePermissionRequest) SetRoleSubResourceIds(v []*string) *UpdatePermissionRequest {
+	s.RoleSubResourceIds = v
+	return s
+}
+
+func (s *UpdatePermissionRequest) SetShareScope(v int32) *UpdatePermissionRequest {
+	s.ShareScope = &v
+	return s
+}
+
+func (s *UpdatePermissionRequest) SetUnionId(v string) *UpdatePermissionRequest {
+	s.UnionId = &v
+	return s
+}
+
+type UpdatePermissionRequestMemberInfoList struct {
+	// example:
+	//
+	// 2
+	MemberType *int32 `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// example:
+	//
+	// lJcRnm39OsU4jlFVmRGXXXXX
+	MemberUnionId *string `json:"memberUnionId,omitempty" xml:"memberUnionId,omitempty"`
+	// example:
+	//
+	// 2
+	PolicyId *int64 `json:"policyId,omitempty" xml:"policyId,omitempty"`
+}
+
+func (s UpdatePermissionRequestMemberInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePermissionRequestMemberInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePermissionRequestMemberInfoList) SetMemberType(v int32) *UpdatePermissionRequestMemberInfoList {
+	s.MemberType = &v
+	return s
+}
+
+func (s *UpdatePermissionRequestMemberInfoList) SetMemberUnionId(v string) *UpdatePermissionRequestMemberInfoList {
+	s.MemberUnionId = &v
+	return s
+}
+
+func (s *UpdatePermissionRequestMemberInfoList) SetPolicyId(v int64) *UpdatePermissionRequestMemberInfoList {
+	s.PolicyId = &v
+	return s
+}
+
+type UpdatePermissionResponseBody struct {
+	FailMemberInfoList []*UpdatePermissionResponseBodyFailMemberInfoList `json:"failMemberInfoList,omitempty" xml:"failMemberInfoList,omitempty" type:"Repeated"`
+}
+
+func (s UpdatePermissionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePermissionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePermissionResponseBody) SetFailMemberInfoList(v []*UpdatePermissionResponseBodyFailMemberInfoList) *UpdatePermissionResponseBody {
+	s.FailMemberInfoList = v
+	return s
+}
+
+type UpdatePermissionResponseBodyFailMemberInfoList struct {
+	// example:
+	//
+	// 2
+	MemberType *int32 `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// example:
+	//
+	// lJcRnm39OsU4jlFVmRGXXXXX
+	MemberUnionId *string `json:"memberUnionId,omitempty" xml:"memberUnionId,omitempty"`
+	// example:
+	//
+	// 2
+	PolicyId *int64 `json:"policyId,omitempty" xml:"policyId,omitempty"`
+}
+
+func (s UpdatePermissionResponseBodyFailMemberInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePermissionResponseBodyFailMemberInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePermissionResponseBodyFailMemberInfoList) SetMemberType(v int32) *UpdatePermissionResponseBodyFailMemberInfoList {
+	s.MemberType = &v
+	return s
+}
+
+func (s *UpdatePermissionResponseBodyFailMemberInfoList) SetMemberUnionId(v string) *UpdatePermissionResponseBodyFailMemberInfoList {
+	s.MemberUnionId = &v
+	return s
+}
+
+func (s *UpdatePermissionResponseBodyFailMemberInfoList) SetPolicyId(v int64) *UpdatePermissionResponseBodyFailMemberInfoList {
+	s.PolicyId = &v
+	return s
+}
+
+type UpdatePermissionResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdatePermissionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdatePermissionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePermissionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePermissionResponse) SetHeaders(v map[string]*string) *UpdatePermissionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdatePermissionResponse) SetStatusCode(v int32) *UpdatePermissionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdatePermissionResponse) SetBody(v *UpdatePermissionResponseBody) *UpdatePermissionResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -2572,6 +3301,91 @@ func (client *Client) CreateMinutesByUploadFile(request *CreateMinutesByUploadFi
 
 // Summary:
 //
+// 创建DingTalkA1小助理分析
+//
+// @param request - CreateSmartDeviceAiSummaryRequest
+//
+// @param headers - CreateSmartDeviceAiSummaryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateSmartDeviceAiSummaryResponse
+func (client *Client) CreateSmartDeviceAiSummaryWithOptions(request *CreateSmartDeviceAiSummaryRequest, headers *CreateSmartDeviceAiSummaryHeaders, runtime *util.RuntimeOptions) (_result *CreateSmartDeviceAiSummaryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentId)) {
+		body["agentId"] = request.AgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		body["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsvContext)) {
+		body["isvContext"] = request.IsvContext
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenFileId)) {
+		body["openFileId"] = request.OpenFileId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateSmartDeviceAiSummary"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/smartdevice/aisummary/create"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateSmartDeviceAiSummaryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建DingTalkA1小助理分析
+//
+// @param request - CreateSmartDeviceAiSummaryRequest
+//
+// @return CreateSmartDeviceAiSummaryResponse
+func (client *Client) CreateSmartDeviceAiSummary(request *CreateSmartDeviceAiSummaryRequest) (_result *CreateSmartDeviceAiSummaryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateSmartDeviceAiSummaryHeaders{}
+	_result = &CreateSmartDeviceAiSummaryResponse{}
+	_body, _err := client.CreateSmartDeviceAiSummaryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 删除闪记
 //
 // @param request - DeleteMinutesRequest
@@ -2727,6 +3541,93 @@ func (client *Client) ExportMinutesTaskResult(request *ExportMinutesTaskResultRe
 	headers := &ExportMinutesTaskResultHeaders{}
 	_result = &ExportMinutesTaskResultResponse{}
 	_body, _err := client.ExportMinutesTaskResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 生成摘要
+//
+// @param request - GenerateSummaryRequest
+//
+// @param headers - GenerateSummaryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GenerateSummaryResponse
+func (client *Client) GenerateSummaryWithOptions(taskUuid *string, request *GenerateSummaryRequest, headers *GenerateSummaryHeaders, runtime *util.RuntimeOptions) (_result *GenerateSummaryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DiyTemplateVersion)) {
+		body["diyTemplateVersion"] = request.DiyTemplateVersion
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SummaryTemplateId)) {
+		body["summaryTemplateId"] = request.SummaryTemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SummaryTemplateType)) {
+		body["summaryTemplateType"] = request.SummaryTemplateType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GenerateSummary"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/flashMinutes/tasks/" + tea.StringValue(taskUuid) + "/summary"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GenerateSummaryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 生成摘要
+//
+// @param request - GenerateSummaryRequest
+//
+// @return GenerateSummaryResponse
+func (client *Client) GenerateSummary(taskUuid *string, request *GenerateSummaryRequest) (_result *GenerateSummaryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GenerateSummaryHeaders{}
+	_result = &GenerateSummaryResponse{}
+	_body, _err := client.GenerateSummaryWithOptions(taskUuid, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3591,6 +4492,168 @@ func (client *Client) QueryScheduleConfMinutes(scheduleConferenceId *string, req
 
 // Summary:
 //
+// 查询DingTalkA1小助理分析
+//
+// @param request - QuerySmartDeviceAiSummaryRequest
+//
+// @param headers - QuerySmartDeviceAiSummaryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QuerySmartDeviceAiSummaryResponse
+func (client *Client) QuerySmartDeviceAiSummaryWithOptions(request *QuerySmartDeviceAiSummaryRequest, headers *QuerySmartDeviceAiSummaryHeaders, runtime *util.RuntimeOptions) (_result *QuerySmartDeviceAiSummaryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentId)) {
+		body["agentId"] = request.AgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenFileId)) {
+		body["openFileId"] = request.OpenFileId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QuerySmartDeviceAiSummary"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/smartdevice/aisummary"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QuerySmartDeviceAiSummaryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询DingTalkA1小助理分析
+//
+// @param request - QuerySmartDeviceAiSummaryRequest
+//
+// @return QuerySmartDeviceAiSummaryResponse
+func (client *Client) QuerySmartDeviceAiSummary(request *QuerySmartDeviceAiSummaryRequest) (_result *QuerySmartDeviceAiSummaryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QuerySmartDeviceAiSummaryHeaders{}
+	_result = &QuerySmartDeviceAiSummaryResponse{}
+	_body, _err := client.QuerySmartDeviceAiSummaryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据模板id查询摘要
+//
+// @param request - QuerySummaryWithTemplateRequest
+//
+// @param headers - QuerySummaryWithTemplateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QuerySummaryWithTemplateResponse
+func (client *Client) QuerySummaryWithTemplateWithOptions(taskUuid *string, request *QuerySummaryWithTemplateRequest, headers *QuerySummaryWithTemplateHeaders, runtime *util.RuntimeOptions) (_result *QuerySummaryWithTemplateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DiyTemplateVersion)) {
+		query["diyTemplateVersion"] = request.DiyTemplateVersion
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SummaryTemplateId)) {
+		query["summaryTemplateId"] = request.SummaryTemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SummaryTemplateType)) {
+		query["summaryTemplateType"] = request.SummaryTemplateType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QuerySummaryWithTemplate"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/flashMinutes/tasks/" + tea.StringValue(taskUuid) + "/summary/template"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QuerySummaryWithTemplateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据模板id查询摘要
+//
+// @param request - QuerySummaryWithTemplateRequest
+//
+// @return QuerySummaryWithTemplateResponse
+func (client *Client) QuerySummaryWithTemplate(taskUuid *string, request *QuerySummaryWithTemplateRequest) (_result *QuerySummaryWithTemplateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QuerySummaryWithTemplateHeaders{}
+	_result = &QuerySummaryWithTemplateResponse{}
+	_body, _err := client.QuerySummaryWithTemplateWithOptions(taskUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 查询上传视频播放信息
 //
 // @param request - QueryUploadVideoPlayInfoRequest
@@ -3732,6 +4795,101 @@ func (client *Client) UpdateMinutesTitle(taskUuid *string, request *UpdateMinute
 	headers := &UpdateMinutesTitleHeaders{}
 	_result = &UpdateMinutesTitleResponse{}
 	_body, _err := client.UpdateMinutesTitleWithOptions(taskUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新闪记权限
+//
+// @param request - UpdatePermissionRequest
+//
+// @param headers - UpdatePermissionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdatePermissionResponse
+func (client *Client) UpdatePermissionWithOptions(taskUuid *string, request *UpdatePermissionRequest, headers *UpdatePermissionHeaders, runtime *util.RuntimeOptions) (_result *UpdatePermissionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MemberInfoList)) {
+		body["memberInfoList"] = request.MemberInfoList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpType)) {
+		body["opType"] = request.OpType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleCode)) {
+		body["roleCode"] = request.RoleCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleSubResourceIds)) {
+		body["roleSubResourceIds"] = request.RoleSubResourceIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ShareScope)) {
+		body["shareScope"] = request.ShareScope
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdatePermission"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/" + tea.StringValue(taskUuid) + "/permission"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdatePermissionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新闪记权限
+//
+// @param request - UpdatePermissionRequest
+//
+// @return UpdatePermissionResponse
+func (client *Client) UpdatePermission(taskUuid *string, request *UpdatePermissionRequest) (_result *UpdatePermissionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdatePermissionHeaders{}
+	_result = &UpdatePermissionResponse{}
+	_body, _err := client.UpdatePermissionWithOptions(taskUuid, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

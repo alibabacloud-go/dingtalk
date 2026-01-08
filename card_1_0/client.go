@@ -876,6 +876,7 @@ func (s *CopyTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *CopyTemplate
 }
 
 type CopyTemplateRequest struct {
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// This parameter is required.
 	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
 }
@@ -886,6 +887,11 @@ func (s CopyTemplateRequest) String() string {
 
 func (s CopyTemplateRequest) GoString() string {
 	return s.String()
+}
+
+func (s *CopyTemplateRequest) SetName(v string) *CopyTemplateRequest {
+	s.Name = &v
+	return s
 }
 
 func (s *CopyTemplateRequest) SetTemplateId(v string) *CopyTemplateRequest {
@@ -4040,8 +4046,9 @@ func (s *CreateTemplateHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTemp
 }
 
 type CreateTemplateRequest struct {
-	AppId     *string `json:"appId,omitempty" xml:"appId,omitempty"`
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	AppId         *string `json:"appId,omitempty" xml:"appId,omitempty"`
+	BlockTemplate *bool   `json:"blockTemplate,omitempty" xml:"blockTemplate,omitempty"`
+	CreatorId     *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
 	// This parameter is required.
 	ExtendType *string `json:"extendType,omitempty" xml:"extendType,omitempty"`
 	// This parameter is required.
@@ -4060,6 +4067,11 @@ func (s CreateTemplateRequest) GoString() string {
 
 func (s *CreateTemplateRequest) SetAppId(v string) *CreateTemplateRequest {
 	s.AppId = &v
+	return s
+}
+
+func (s *CreateTemplateRequest) SetBlockTemplate(v bool) *CreateTemplateRequest {
+	s.BlockTemplate = &v
 	return s
 }
 
@@ -5068,6 +5080,7 @@ func (s *GetTemplateResponseBody) SetSuccess(v bool) *GetTemplateResponseBody {
 }
 
 type GetTemplateResponseBodyData struct {
+	BlockTemplate      *bool       `json:"blockTemplate,omitempty" xml:"blockTemplate,omitempty"`
 	CommonVariableList interface{} `json:"commonVariableList,omitempty" xml:"commonVariableList,omitempty"`
 	CreatorId          *string     `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
 	ExpVariableList    interface{} `json:"expVariableList,omitempty" xml:"expVariableList,omitempty"`
@@ -5089,6 +5102,11 @@ func (s GetTemplateResponseBodyData) String() string {
 
 func (s GetTemplateResponseBodyData) GoString() string {
 	return s.String()
+}
+
+func (s *GetTemplateResponseBodyData) SetBlockTemplate(v bool) *GetTemplateResponseBodyData {
+	s.BlockTemplate = &v
+	return s
 }
 
 func (s *GetTemplateResponseBodyData) SetCommonVariableList(v interface{}) *GetTemplateResponseBodyData {
@@ -5250,6 +5268,7 @@ func (s *ListTemplateResponseBody) SetSuccess(v bool) *ListTemplateResponseBody 
 }
 
 type ListTemplateResponseBodyData struct {
+	BlockTemplate      *bool       `json:"blockTemplate,omitempty" xml:"blockTemplate,omitempty"`
 	CommonVariableList interface{} `json:"commonVariableList,omitempty" xml:"commonVariableList,omitempty"`
 	CreatorId          *string     `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
 	ExpVariableList    interface{} `json:"expVariableList,omitempty" xml:"expVariableList,omitempty"`
@@ -5271,6 +5290,11 @@ func (s ListTemplateResponseBodyData) String() string {
 
 func (s ListTemplateResponseBodyData) GoString() string {
 	return s.String()
+}
+
+func (s *ListTemplateResponseBodyData) SetBlockTemplate(v bool) *ListTemplateResponseBodyData {
+	s.BlockTemplate = &v
+	return s
 }
 
 func (s *ListTemplateResponseBodyData) SetCommonVariableList(v interface{}) *ListTemplateResponseBodyData {
@@ -5444,6 +5468,7 @@ func (s *PublishTemplateResponseBody) SetSuccess(v bool) *PublishTemplateRespons
 }
 
 type PublishTemplateResponseBodyData struct {
+	BlockTemplate      *bool       `json:"blockTemplate,omitempty" xml:"blockTemplate,omitempty"`
 	CommonVariableList interface{} `json:"commonVariableList,omitempty" xml:"commonVariableList,omitempty"`
 	CreatorId          *string     `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
 	ExpVariableList    interface{} `json:"expVariableList,omitempty" xml:"expVariableList,omitempty"`
@@ -5465,6 +5490,11 @@ func (s PublishTemplateResponseBodyData) String() string {
 
 func (s PublishTemplateResponseBodyData) GoString() string {
 	return s.String()
+}
+
+func (s *PublishTemplateResponseBodyData) SetBlockTemplate(v bool) *PublishTemplateResponseBodyData {
+	s.BlockTemplate = &v
+	return s
 }
 
 func (s *PublishTemplateResponseBodyData) SetCommonVariableList(v interface{}) *PublishTemplateResponseBodyData {
@@ -5929,6 +5959,7 @@ func (s *SaveTemplateResponseBody) SetSuccess(v bool) *SaveTemplateResponseBody 
 }
 
 type SaveTemplateResponseBodyData struct {
+	BlockTemplate      *bool       `json:"blockTemplate,omitempty" xml:"blockTemplate,omitempty"`
 	CommonVariableList interface{} `json:"commonVariableList,omitempty" xml:"commonVariableList,omitempty"`
 	CreatorId          *string     `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
 	ExpVariableList    interface{} `json:"expVariableList,omitempty" xml:"expVariableList,omitempty"`
@@ -5950,6 +5981,11 @@ func (s SaveTemplateResponseBodyData) String() string {
 
 func (s SaveTemplateResponseBodyData) GoString() string {
 	return s.String()
+}
+
+func (s *SaveTemplateResponseBodyData) SetBlockTemplate(v bool) *SaveTemplateResponseBodyData {
+	s.BlockTemplate = &v
+	return s
 }
 
 func (s *SaveTemplateResponseBodyData) SetCommonVariableList(v interface{}) *SaveTemplateResponseBodyData {
@@ -6801,6 +6837,10 @@ func (client *Client) CopyTemplateWithOptions(request *CopyTemplateRequest, head
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
 		body["templateId"] = request.TemplateId
 	}
@@ -7440,6 +7480,10 @@ func (client *Client) CreateTemplateWithOptions(request *CreateTemplateRequest, 
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AppId)) {
 		body["appId"] = request.AppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BlockTemplate)) {
+		body["blockTemplate"] = request.BlockTemplate
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.CreatorId)) {

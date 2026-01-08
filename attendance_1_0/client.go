@@ -9057,6 +9057,107 @@ func (s *ProcessApproveFinishResponse) SetBody(v *ProcessApproveFinishResponseBo
 	return s
 }
 
+type ProcessHhOemUpdateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ProcessHhOemUpdateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessHhOemUpdateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessHhOemUpdateHeaders) SetCommonHeaders(v map[string]*string) *ProcessHhOemUpdateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ProcessHhOemUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *ProcessHhOemUpdateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ProcessHhOemUpdateRequest struct {
+	// This parameter is required.
+	BindOemApp *bool `json:"bindOemApp,omitempty" xml:"bindOemApp,omitempty"`
+	// This parameter is required.
+	CorpIdList []*string `json:"corpIdList,omitempty" xml:"corpIdList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	UseOemApp *bool `json:"useOemApp,omitempty" xml:"useOemApp,omitempty"`
+}
+
+func (s ProcessHhOemUpdateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessHhOemUpdateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessHhOemUpdateRequest) SetBindOemApp(v bool) *ProcessHhOemUpdateRequest {
+	s.BindOemApp = &v
+	return s
+}
+
+func (s *ProcessHhOemUpdateRequest) SetCorpIdList(v []*string) *ProcessHhOemUpdateRequest {
+	s.CorpIdList = v
+	return s
+}
+
+func (s *ProcessHhOemUpdateRequest) SetUseOemApp(v bool) *ProcessHhOemUpdateRequest {
+	s.UseOemApp = &v
+	return s
+}
+
+type ProcessHhOemUpdateResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ProcessHhOemUpdateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessHhOemUpdateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessHhOemUpdateResponseBody) SetSuccess(v bool) *ProcessHhOemUpdateResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ProcessHhOemUpdateResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ProcessHhOemUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ProcessHhOemUpdateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ProcessHhOemUpdateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ProcessHhOemUpdateResponse) SetHeaders(v map[string]*string) *ProcessHhOemUpdateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ProcessHhOemUpdateResponse) SetStatusCode(v int32) *ProcessHhOemUpdateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ProcessHhOemUpdateResponse) SetBody(v *ProcessHhOemUpdateResponseBody) *ProcessHhOemUpdateResponse {
+	s.Body = v
+	return s
+}
+
 type ReduceQuotaWithLeaveRecordHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -14736,6 +14837,87 @@ func (client *Client) ProcessApproveFinish(request *ProcessApproveFinishRequest)
 	headers := &ProcessApproveFinishHeaders{}
 	_result = &ProcessApproveFinishResponse{}
 	_body, _err := client.ProcessApproveFinishWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 考勤高级排班OEM应用升级
+//
+// @param request - ProcessHhOemUpdateRequest
+//
+// @param headers - ProcessHhOemUpdateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ProcessHhOemUpdateResponse
+func (client *Client) ProcessHhOemUpdateWithOptions(request *ProcessHhOemUpdateRequest, headers *ProcessHhOemUpdateHeaders, runtime *util.RuntimeOptions) (_result *ProcessHhOemUpdateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BindOemApp)) {
+		body["bindOemApp"] = request.BindOemApp
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpIdList)) {
+		body["corpIdList"] = request.CorpIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UseOemApp)) {
+		body["useOemApp"] = request.UseOemApp
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ProcessHhOemUpdate"),
+		Version:     tea.String("attendance_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/attendance/oemApps"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ProcessHhOemUpdateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 考勤高级排班OEM应用升级
+//
+// @param request - ProcessHhOemUpdateRequest
+//
+// @return ProcessHhOemUpdateResponse
+func (client *Client) ProcessHhOemUpdate(request *ProcessHhOemUpdateRequest) (_result *ProcessHhOemUpdateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ProcessHhOemUpdateHeaders{}
+	_result = &ProcessHhOemUpdateResponse{}
+	_body, _err := client.ProcessHhOemUpdateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

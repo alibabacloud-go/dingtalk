@@ -73,6 +73,151 @@ func (s *PrivateDataValue) SetCardMediaIdParamMap(v map[string]*string) *Private
 	return s
 }
 
+type AddConvNavTabHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddConvNavTabHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddConvNavTabHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddConvNavTabHeaders) SetCommonHeaders(v map[string]*string) *AddConvNavTabHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddConvNavTabHeaders) SetXAcsDingtalkAccessToken(v string) *AddConvNavTabHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddConvNavTabRequest struct {
+	// example:
+	//
+	// www.dingtalk.com
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// example:
+	//
+	// cidc4iLyQBuHFQRvzxznz204Q==
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// example:
+	//
+	// www.dingtalk.com
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// example:
+	//
+	// 示例标签页
+	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+	UserEditable *bool   `json:"userEditable,omitempty" xml:"userEditable,omitempty"`
+}
+
+func (s AddConvNavTabRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddConvNavTabRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddConvNavTabRequest) SetMobileUrl(v string) *AddConvNavTabRequest {
+	s.MobileUrl = &v
+	return s
+}
+
+func (s *AddConvNavTabRequest) SetOpenConversationId(v string) *AddConvNavTabRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *AddConvNavTabRequest) SetPcUrl(v string) *AddConvNavTabRequest {
+	s.PcUrl = &v
+	return s
+}
+
+func (s *AddConvNavTabRequest) SetTitle(v string) *AddConvNavTabRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *AddConvNavTabRequest) SetUserEditable(v bool) *AddConvNavTabRequest {
+	s.UserEditable = &v
+	return s
+}
+
+type AddConvNavTabResponseBody struct {
+	Result  *AddConvNavTabResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *string                          `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AddConvNavTabResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddConvNavTabResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddConvNavTabResponseBody) SetResult(v *AddConvNavTabResponseBodyResult) *AddConvNavTabResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *AddConvNavTabResponseBody) SetSuccess(v string) *AddConvNavTabResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AddConvNavTabResponseBodyResult struct {
+	TabId *string `json:"tabId,omitempty" xml:"tabId,omitempty"`
+}
+
+func (s AddConvNavTabResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddConvNavTabResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AddConvNavTabResponseBodyResult) SetTabId(v string) *AddConvNavTabResponseBodyResult {
+	s.TabId = &v
+	return s
+}
+
+type AddConvNavTabResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddConvNavTabResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AddConvNavTabResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddConvNavTabResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddConvNavTabResponse) SetHeaders(v map[string]*string) *AddConvNavTabResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddConvNavTabResponse) SetStatusCode(v int32) *AddConvNavTabResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddConvNavTabResponse) SetBody(v *AddConvNavTabResponseBody) *AddConvNavTabResponse {
+	s.Body = v
+	return s
+}
+
 type AddOrgTextEmotionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2873,6 +3018,101 @@ func (s *DebugUnfurlingRegisterResponse) SetStatusCode(v int32) *DebugUnfurlingR
 }
 
 func (s *DebugUnfurlingRegisterResponse) SetBody(v *DebugUnfurlingRegisterResponseBody) *DebugUnfurlingRegisterResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteConvNavTabHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteConvNavTabHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteConvNavTabHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteConvNavTabHeaders) SetCommonHeaders(v map[string]*string) *DeleteConvNavTabHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteConvNavTabHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteConvNavTabHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteConvNavTabRequest struct {
+	// example:
+	//
+	// cidc4iLyQBuHFQRvzxznz204Q
+	OpenConversationId *string   `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	TabIds             []*string `json:"tabIds,omitempty" xml:"tabIds,omitempty" type:"Repeated"`
+}
+
+func (s DeleteConvNavTabRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteConvNavTabRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteConvNavTabRequest) SetOpenConversationId(v string) *DeleteConvNavTabRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *DeleteConvNavTabRequest) SetTabIds(v []*string) *DeleteConvNavTabRequest {
+	s.TabIds = v
+	return s
+}
+
+type DeleteConvNavTabResponseBody struct {
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteConvNavTabResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteConvNavTabResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteConvNavTabResponseBody) SetSuccess(v string) *DeleteConvNavTabResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteConvNavTabResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteConvNavTabResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteConvNavTabResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteConvNavTabResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteConvNavTabResponse) SetHeaders(v map[string]*string) *DeleteConvNavTabResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteConvNavTabResponse) SetStatusCode(v int32) *DeleteConvNavTabResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteConvNavTabResponse) SetBody(v *DeleteConvNavTabResponseBody) *DeleteConvNavTabResponse {
 	s.Body = v
 	return s
 }
@@ -6596,6 +6836,165 @@ func (s *InteractiveCardCreateInstanceResponse) SetStatusCode(v int32) *Interact
 }
 
 func (s *InteractiveCardCreateInstanceResponse) SetBody(v *InteractiveCardCreateInstanceResponseBody) *InteractiveCardCreateInstanceResponse {
+	s.Body = v
+	return s
+}
+
+type ListConvNavTabHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListConvNavTabHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListConvNavTabHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListConvNavTabHeaders) SetCommonHeaders(v map[string]*string) *ListConvNavTabHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListConvNavTabHeaders) SetXAcsDingtalkAccessToken(v string) *ListConvNavTabHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListConvNavTabRequest struct {
+	// example:
+	//
+	// cidc4iLyQBuHFQRvzxznz204Q==
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s ListConvNavTabRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListConvNavTabRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListConvNavTabRequest) SetOpenConversationId(v string) *ListConvNavTabRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type ListConvNavTabResponseBody struct {
+	Result  *ListConvNavTabResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *string                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ListConvNavTabResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListConvNavTabResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListConvNavTabResponseBody) SetResult(v *ListConvNavTabResponseBodyResult) *ListConvNavTabResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *ListConvNavTabResponseBody) SetSuccess(v string) *ListConvNavTabResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ListConvNavTabResponseBodyResult struct {
+	ConvNavTabInfos []*ListConvNavTabResponseBodyResultConvNavTabInfos `json:"convNavTabInfos,omitempty" xml:"convNavTabInfos,omitempty" type:"Repeated"`
+}
+
+func (s ListConvNavTabResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListConvNavTabResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListConvNavTabResponseBodyResult) SetConvNavTabInfos(v []*ListConvNavTabResponseBodyResultConvNavTabInfos) *ListConvNavTabResponseBodyResult {
+	s.ConvNavTabInfos = v
+	return s
+}
+
+type ListConvNavTabResponseBodyResultConvNavTabInfos struct {
+	MobileUrl    *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	PcUrl        *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	TabId        *string `json:"tabId,omitempty" xml:"tabId,omitempty"`
+	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+	Type         *string `json:"type,omitempty" xml:"type,omitempty"`
+	UserEditable *bool   `json:"userEditable,omitempty" xml:"userEditable,omitempty"`
+}
+
+func (s ListConvNavTabResponseBodyResultConvNavTabInfos) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListConvNavTabResponseBodyResultConvNavTabInfos) GoString() string {
+	return s.String()
+}
+
+func (s *ListConvNavTabResponseBodyResultConvNavTabInfos) SetMobileUrl(v string) *ListConvNavTabResponseBodyResultConvNavTabInfos {
+	s.MobileUrl = &v
+	return s
+}
+
+func (s *ListConvNavTabResponseBodyResultConvNavTabInfos) SetPcUrl(v string) *ListConvNavTabResponseBodyResultConvNavTabInfos {
+	s.PcUrl = &v
+	return s
+}
+
+func (s *ListConvNavTabResponseBodyResultConvNavTabInfos) SetTabId(v string) *ListConvNavTabResponseBodyResultConvNavTabInfos {
+	s.TabId = &v
+	return s
+}
+
+func (s *ListConvNavTabResponseBodyResultConvNavTabInfos) SetTitle(v string) *ListConvNavTabResponseBodyResultConvNavTabInfos {
+	s.Title = &v
+	return s
+}
+
+func (s *ListConvNavTabResponseBodyResultConvNavTabInfos) SetType(v string) *ListConvNavTabResponseBodyResultConvNavTabInfos {
+	s.Type = &v
+	return s
+}
+
+func (s *ListConvNavTabResponseBodyResultConvNavTabInfos) SetUserEditable(v bool) *ListConvNavTabResponseBodyResultConvNavTabInfos {
+	s.UserEditable = &v
+	return s
+}
+
+type ListConvNavTabResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListConvNavTabResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListConvNavTabResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListConvNavTabResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListConvNavTabResponse) SetHeaders(v map[string]*string) *ListConvNavTabResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListConvNavTabResponse) SetStatusCode(v int32) *ListConvNavTabResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListConvNavTabResponse) SetBody(v *ListConvNavTabResponseBody) *ListConvNavTabResponse {
 	s.Body = v
 	return s
 }
@@ -14405,6 +14804,137 @@ func (s *UpdateClientServiceResponse) SetBody(v *UpdateClientServiceResponseBody
 	return s
 }
 
+type UpdateConvNavTabHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateConvNavTabHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateConvNavTabHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateConvNavTabHeaders) SetCommonHeaders(v map[string]*string) *UpdateConvNavTabHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateConvNavTabHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateConvNavTabHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateConvNavTabRequest struct {
+	// example:
+	//
+	// www.dingtalk.com
+	MobileUrl *string `json:"mobileUrl,omitempty" xml:"mobileUrl,omitempty"`
+	// example:
+	//
+	// cidc4iLyQBuHFQRvzxznz204Q
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// example:
+	//
+	// www.dingtalk.com
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// example:
+	//
+	// 409021
+	TabId *string `json:"tabId,omitempty" xml:"tabId,omitempty"`
+	// example:
+	//
+	// 示例标签页
+	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+	UserEditable *bool   `json:"userEditable,omitempty" xml:"userEditable,omitempty"`
+}
+
+func (s UpdateConvNavTabRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateConvNavTabRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateConvNavTabRequest) SetMobileUrl(v string) *UpdateConvNavTabRequest {
+	s.MobileUrl = &v
+	return s
+}
+
+func (s *UpdateConvNavTabRequest) SetOpenConversationId(v string) *UpdateConvNavTabRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *UpdateConvNavTabRequest) SetPcUrl(v string) *UpdateConvNavTabRequest {
+	s.PcUrl = &v
+	return s
+}
+
+func (s *UpdateConvNavTabRequest) SetTabId(v string) *UpdateConvNavTabRequest {
+	s.TabId = &v
+	return s
+}
+
+func (s *UpdateConvNavTabRequest) SetTitle(v string) *UpdateConvNavTabRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *UpdateConvNavTabRequest) SetUserEditable(v bool) *UpdateConvNavTabRequest {
+	s.UserEditable = &v
+	return s
+}
+
+type UpdateConvNavTabResponseBody struct {
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateConvNavTabResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateConvNavTabResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateConvNavTabResponseBody) SetSuccess(v string) *UpdateConvNavTabResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateConvNavTabResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateConvNavTabResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateConvNavTabResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateConvNavTabResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateConvNavTabResponse) SetHeaders(v map[string]*string) *UpdateConvNavTabResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateConvNavTabResponse) SetStatusCode(v int32) *UpdateConvNavTabResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateConvNavTabResponse) SetBody(v *UpdateConvNavTabResponseBody) *UpdateConvNavTabResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateGroupAvatarHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -16828,6 +17358,95 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 
 // Summary:
 //
+// 群维度添加群标签页
+//
+// @param request - AddConvNavTabRequest
+//
+// @param headers - AddConvNavTabHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddConvNavTabResponse
+func (client *Client) AddConvNavTabWithOptions(request *AddConvNavTabRequest, headers *AddConvNavTabHeaders, runtime *util.RuntimeOptions) (_result *AddConvNavTabResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MobileUrl)) {
+		body["mobileUrl"] = request.MobileUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PcUrl)) {
+		body["pcUrl"] = request.PcUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserEditable)) {
+		body["userEditable"] = request.UserEditable
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddConvNavTab"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/convNavTabs/add"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddConvNavTabResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 群维度添加群标签页
+//
+// @param request - AddConvNavTabRequest
+//
+// @return AddConvNavTabResponse
+func (client *Client) AddConvNavTab(request *AddConvNavTabRequest) (_result *AddConvNavTabResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddConvNavTabHeaders{}
+	_result = &AddConvNavTabResponse{}
+	_body, _err := client.AddConvNavTabWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 添加企业文字表情
 //
 // @param request - AddOrgTextEmotionRequest
@@ -18524,6 +19143,83 @@ func (client *Client) DebugUnfurlingRegister(request *DebugUnfurlingRegisterRequ
 	headers := &DebugUnfurlingRegisterHeaders{}
 	_result = &DebugUnfurlingRegisterResponse{}
 	_body, _err := client.DebugUnfurlingRegisterWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 群维度批量删除群标签页
+//
+// @param request - DeleteConvNavTabRequest
+//
+// @param headers - DeleteConvNavTabHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteConvNavTabResponse
+func (client *Client) DeleteConvNavTabWithOptions(request *DeleteConvNavTabRequest, headers *DeleteConvNavTabHeaders, runtime *util.RuntimeOptions) (_result *DeleteConvNavTabResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TabIds)) {
+		body["tabIds"] = request.TabIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteConvNavTab"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/convNavTabs/delete"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteConvNavTabResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 群维度批量删除群标签页
+//
+// @param request - DeleteConvNavTabRequest
+//
+// @return DeleteConvNavTabResponse
+func (client *Client) DeleteConvNavTab(request *DeleteConvNavTabRequest) (_result *DeleteConvNavTabResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteConvNavTabHeaders{}
+	_result = &DeleteConvNavTabResponse{}
+	_body, _err := client.DeleteConvNavTabWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -20618,6 +21314,79 @@ func (client *Client) InteractiveCardCreateInstance(request *InteractiveCardCrea
 	headers := &InteractiveCardCreateInstanceHeaders{}
 	_result = &InteractiveCardCreateInstanceResponse{}
 	_body, _err := client.InteractiveCardCreateInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取群维度标签页
+//
+// @param request - ListConvNavTabRequest
+//
+// @param headers - ListConvNavTabHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListConvNavTabResponse
+func (client *Client) ListConvNavTabWithOptions(request *ListConvNavTabRequest, headers *ListConvNavTabHeaders, runtime *util.RuntimeOptions) (_result *ListConvNavTabResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListConvNavTab"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/convNavTabs/list"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListConvNavTabResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取群维度标签页
+//
+// @param request - ListConvNavTabRequest
+//
+// @return ListConvNavTabResponse
+func (client *Client) ListConvNavTab(request *ListConvNavTabRequest) (_result *ListConvNavTabResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListConvNavTabHeaders{}
+	_result = &ListConvNavTabResponse{}
+	_body, _err := client.ListConvNavTabWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -24981,6 +25750,99 @@ func (client *Client) UpdateClientService(request *UpdateClientServiceRequest) (
 	headers := &UpdateClientServiceHeaders{}
 	_result = &UpdateClientServiceResponse{}
 	_body, _err := client.UpdateClientServiceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 群维度更新群标签页
+//
+// @param request - UpdateConvNavTabRequest
+//
+// @param headers - UpdateConvNavTabHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateConvNavTabResponse
+func (client *Client) UpdateConvNavTabWithOptions(request *UpdateConvNavTabRequest, headers *UpdateConvNavTabHeaders, runtime *util.RuntimeOptions) (_result *UpdateConvNavTabResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MobileUrl)) {
+		body["mobileUrl"] = request.MobileUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PcUrl)) {
+		body["pcUrl"] = request.PcUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TabId)) {
+		body["tabId"] = request.TabId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserEditable)) {
+		body["userEditable"] = request.UserEditable
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateConvNavTab"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/convNavTabs/update"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateConvNavTabResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 群维度更新群标签页
+//
+// @param request - UpdateConvNavTabRequest
+//
+// @return UpdateConvNavTabResponse
+func (client *Client) UpdateConvNavTab(request *UpdateConvNavTabRequest) (_result *UpdateConvNavTabResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateConvNavTabHeaders{}
+	_result = &UpdateConvNavTabResponse{}
+	_body, _err := client.UpdateConvNavTabWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

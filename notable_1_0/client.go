@@ -9,6 +9,283 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type ToRoleMemberDTOMapValue struct {
+	// This parameter is required.
+	MemberId *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	// This parameter is required.
+	MemberType *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// This parameter is required.
+	MemberIdBelongOrgId *int64  `json:"memberIdBelongOrgId,omitempty" xml:"memberIdBelongOrgId,omitempty"`
+	Avatar              *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
+	Name                *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s ToRoleMemberDTOMapValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ToRoleMemberDTOMapValue) GoString() string {
+	return s.String()
+}
+
+func (s *ToRoleMemberDTOMapValue) SetMemberId(v string) *ToRoleMemberDTOMapValue {
+	s.MemberId = &v
+	return s
+}
+
+func (s *ToRoleMemberDTOMapValue) SetMemberType(v string) *ToRoleMemberDTOMapValue {
+	s.MemberType = &v
+	return s
+}
+
+func (s *ToRoleMemberDTOMapValue) SetMemberIdBelongOrgId(v int64) *ToRoleMemberDTOMapValue {
+	s.MemberIdBelongOrgId = &v
+	return s
+}
+
+func (s *ToRoleMemberDTOMapValue) SetAvatar(v string) *ToRoleMemberDTOMapValue {
+	s.Avatar = &v
+	return s
+}
+
+func (s *ToRoleMemberDTOMapValue) SetName(v string) *ToRoleMemberDTOMapValue {
+	s.Name = &v
+	return s
+}
+
+type AddRoleMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddRoleMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRoleMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddRoleMemberHeaders) SetCommonHeaders(v map[string]*string) *AddRoleMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddRoleMemberHeaders) SetXAcsDingtalkAccessToken(v string) *AddRoleMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddRoleMemberRequest struct {
+	RoleMemberList []*AddRoleMemberRequestRoleMemberList `json:"roleMemberList,omitempty" xml:"roleMemberList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s AddRoleMemberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRoleMemberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddRoleMemberRequest) SetRoleMemberList(v []*AddRoleMemberRequestRoleMemberList) *AddRoleMemberRequest {
+	s.RoleMemberList = v
+	return s
+}
+
+func (s *AddRoleMemberRequest) SetOperatorId(v string) *AddRoleMemberRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type AddRoleMemberRequestRoleMemberList struct {
+	MemberId            *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	MemberIdBelongOrgId *int64  `json:"memberIdBelongOrgId,omitempty" xml:"memberIdBelongOrgId,omitempty"`
+	MemberType          *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	RoleId              *string `json:"roleId,omitempty" xml:"roleId,omitempty"`
+}
+
+func (s AddRoleMemberRequestRoleMemberList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRoleMemberRequestRoleMemberList) GoString() string {
+	return s.String()
+}
+
+func (s *AddRoleMemberRequestRoleMemberList) SetMemberId(v string) *AddRoleMemberRequestRoleMemberList {
+	s.MemberId = &v
+	return s
+}
+
+func (s *AddRoleMemberRequestRoleMemberList) SetMemberIdBelongOrgId(v int64) *AddRoleMemberRequestRoleMemberList {
+	s.MemberIdBelongOrgId = &v
+	return s
+}
+
+func (s *AddRoleMemberRequestRoleMemberList) SetMemberType(v string) *AddRoleMemberRequestRoleMemberList {
+	s.MemberType = &v
+	return s
+}
+
+func (s *AddRoleMemberRequestRoleMemberList) SetRoleId(v string) *AddRoleMemberRequestRoleMemberList {
+	s.RoleId = &v
+	return s
+}
+
+type AddRoleMemberResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AddRoleMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRoleMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddRoleMemberResponseBody) SetSuccess(v bool) *AddRoleMemberResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AddRoleMemberResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddRoleMemberResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AddRoleMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddRoleMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddRoleMemberResponse) SetHeaders(v map[string]*string) *AddRoleMemberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddRoleMemberResponse) SetStatusCode(v int32) *AddRoleMemberResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddRoleMemberResponse) SetBody(v *AddRoleMemberResponseBody) *AddRoleMemberResponse {
+	s.Body = v
+	return s
+}
+
+type ChangeSwitchHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChangeSwitchHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChangeSwitchHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChangeSwitchHeaders) SetCommonHeaders(v map[string]*string) *ChangeSwitchHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChangeSwitchHeaders) SetXAcsDingtalkAccessToken(v string) *ChangeSwitchHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChangeSwitchRequest struct {
+	// This parameter is required.
+	Value *bool `json:"value,omitempty" xml:"value,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s ChangeSwitchRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChangeSwitchRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChangeSwitchRequest) SetValue(v bool) *ChangeSwitchRequest {
+	s.Value = &v
+	return s
+}
+
+func (s *ChangeSwitchRequest) SetOperatorId(v string) *ChangeSwitchRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type ChangeSwitchResponseBody struct {
+	// example:
+	//
+	// true
+	Enabled *bool `json:"enabled,omitempty" xml:"enabled,omitempty"`
+}
+
+func (s ChangeSwitchResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChangeSwitchResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ChangeSwitchResponseBody) SetEnabled(v bool) *ChangeSwitchResponseBody {
+	s.Enabled = &v
+	return s
+}
+
+type ChangeSwitchResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ChangeSwitchResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ChangeSwitchResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChangeSwitchResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChangeSwitchResponse) SetHeaders(v map[string]*string) *ChangeSwitchResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChangeSwitchResponse) SetStatusCode(v int32) *ChangeSwitchResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChangeSwitchResponse) SetBody(v *ChangeSwitchResponseBody) *ChangeSwitchResponse {
+	s.Body = v
+	return s
+}
+
 type CreateFieldHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -184,6 +461,236 @@ func (s *CreateFieldResponse) SetStatusCode(v int32) *CreateFieldResponse {
 }
 
 func (s *CreateFieldResponse) SetBody(v *CreateFieldResponseBody) *CreateFieldResponse {
+	s.Body = v
+	return s
+}
+
+type CreateRoleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateRoleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRoleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRoleHeaders) SetCommonHeaders(v map[string]*string) *CreateRoleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateRoleHeaders) SetXAcsDingtalkAccessToken(v string) *CreateRoleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateRoleRequest struct {
+	FlowType *string `json:"flowType,omitempty" xml:"flowType,omitempty"`
+	Id       *int64  `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	RoleType *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
+	// This parameter is required.
+	SubRoles []*CreateRoleRequestSubRoles `json:"subRoles,omitempty" xml:"subRoles,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s CreateRoleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRoleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRoleRequest) SetFlowType(v string) *CreateRoleRequest {
+	s.FlowType = &v
+	return s
+}
+
+func (s *CreateRoleRequest) SetId(v int64) *CreateRoleRequest {
+	s.Id = &v
+	return s
+}
+
+func (s *CreateRoleRequest) SetName(v string) *CreateRoleRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateRoleRequest) SetRoleType(v string) *CreateRoleRequest {
+	s.RoleType = &v
+	return s
+}
+
+func (s *CreateRoleRequest) SetSubRoles(v []*CreateRoleRequestSubRoles) *CreateRoleRequest {
+	s.SubRoles = v
+	return s
+}
+
+func (s *CreateRoleRequest) SetOperatorId(v string) *CreateRoleRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type CreateRoleRequestSubRoles struct {
+	AuthLevel *int32  `json:"authLevel,omitempty" xml:"authLevel,omitempty"`
+	BizType   *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Config    *string `json:"config,omitempty" xml:"config,omitempty"`
+	GmtCreate *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	Id        *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s CreateRoleRequestSubRoles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRoleRequestSubRoles) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRoleRequestSubRoles) SetAuthLevel(v int32) *CreateRoleRequestSubRoles {
+	s.AuthLevel = &v
+	return s
+}
+
+func (s *CreateRoleRequestSubRoles) SetBizType(v int32) *CreateRoleRequestSubRoles {
+	s.BizType = &v
+	return s
+}
+
+func (s *CreateRoleRequestSubRoles) SetConfig(v string) *CreateRoleRequestSubRoles {
+	s.Config = &v
+	return s
+}
+
+func (s *CreateRoleRequestSubRoles) SetGmtCreate(v int64) *CreateRoleRequestSubRoles {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *CreateRoleRequestSubRoles) SetId(v string) *CreateRoleRequestSubRoles {
+	s.Id = &v
+	return s
+}
+
+type CreateRoleResponseBody struct {
+	FlowType *string                           `json:"flowType,omitempty" xml:"flowType,omitempty"`
+	Id       *int64                            `json:"id,omitempty" xml:"id,omitempty"`
+	Name     *string                           `json:"name,omitempty" xml:"name,omitempty"`
+	RoleType *string                           `json:"roleType,omitempty" xml:"roleType,omitempty"`
+	SubRoles []*CreateRoleResponseBodySubRoles `json:"subRoles,omitempty" xml:"subRoles,omitempty" type:"Repeated"`
+}
+
+func (s CreateRoleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRoleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRoleResponseBody) SetFlowType(v string) *CreateRoleResponseBody {
+	s.FlowType = &v
+	return s
+}
+
+func (s *CreateRoleResponseBody) SetId(v int64) *CreateRoleResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *CreateRoleResponseBody) SetName(v string) *CreateRoleResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateRoleResponseBody) SetRoleType(v string) *CreateRoleResponseBody {
+	s.RoleType = &v
+	return s
+}
+
+func (s *CreateRoleResponseBody) SetSubRoles(v []*CreateRoleResponseBodySubRoles) *CreateRoleResponseBody {
+	s.SubRoles = v
+	return s
+}
+
+type CreateRoleResponseBodySubRoles struct {
+	AuthLevel *int32  `json:"authLevel,omitempty" xml:"authLevel,omitempty"`
+	BizType   *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Config    *string `json:"config,omitempty" xml:"config,omitempty"`
+	GmtCreate *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	Id        *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s CreateRoleResponseBodySubRoles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRoleResponseBodySubRoles) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRoleResponseBodySubRoles) SetAuthLevel(v int32) *CreateRoleResponseBodySubRoles {
+	s.AuthLevel = &v
+	return s
+}
+
+func (s *CreateRoleResponseBodySubRoles) SetBizType(v int32) *CreateRoleResponseBodySubRoles {
+	s.BizType = &v
+	return s
+}
+
+func (s *CreateRoleResponseBodySubRoles) SetConfig(v string) *CreateRoleResponseBodySubRoles {
+	s.Config = &v
+	return s
+}
+
+func (s *CreateRoleResponseBodySubRoles) SetGmtCreate(v int64) *CreateRoleResponseBodySubRoles {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *CreateRoleResponseBodySubRoles) SetId(v string) *CreateRoleResponseBodySubRoles {
+	s.Id = &v
+	return s
+}
+
+type CreateRoleResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateRoleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateRoleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRoleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRoleResponse) SetHeaders(v map[string]*string) *CreateRoleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateRoleResponse) SetStatusCode(v int32) *CreateRoleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateRoleResponse) SetBody(v *CreateRoleResponseBody) *CreateRoleResponse {
 	s.Body = v
 	return s
 }
@@ -544,6 +1051,104 @@ func (s *DeleteRecordsResponse) SetStatusCode(v int32) *DeleteRecordsResponse {
 }
 
 func (s *DeleteRecordsResponse) SetBody(v *DeleteRecordsResponseBody) *DeleteRecordsResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteRoleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteRoleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteRoleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteRoleHeaders) SetCommonHeaders(v map[string]*string) *DeleteRoleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteRoleHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteRoleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteRoleRequest struct {
+	// This parameter is required.
+	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DeleteRoleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteRoleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteRoleRequest) SetRoleId(v int64) *DeleteRoleRequest {
+	s.RoleId = &v
+	return s
+}
+
+func (s *DeleteRoleRequest) SetOperatorId(v string) *DeleteRoleRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DeleteRoleResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteRoleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteRoleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteRoleResponseBody) SetSuccess(v bool) *DeleteRoleResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteRoleResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteRoleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteRoleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteRoleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteRoleResponse) SetHeaders(v map[string]*string) *DeleteRoleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteRoleResponse) SetStatusCode(v int32) *DeleteRoleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteRoleResponse) SetBody(v *DeleteRoleResponseBody) *DeleteRoleResponse {
 	s.Body = v
 	return s
 }
@@ -1361,6 +1966,286 @@ func (s *GetSheetResponse) SetBody(v *GetSheetResponseBody) *GetSheetResponse {
 	return s
 }
 
+type GetSwitchHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSwitchHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSwitchHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSwitchHeaders) SetCommonHeaders(v map[string]*string) *GetSwitchHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSwitchHeaders) SetXAcsDingtalkAccessToken(v string) *GetSwitchHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSwitchRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetSwitchRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSwitchRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSwitchRequest) SetOperatorId(v string) *GetSwitchRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetSwitchResponseBody struct {
+	// example:
+	//
+	// true
+	Enabled *bool `json:"enabled,omitempty" xml:"enabled,omitempty"`
+}
+
+func (s GetSwitchResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSwitchResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSwitchResponseBody) SetEnabled(v bool) *GetSwitchResponseBody {
+	s.Enabled = &v
+	return s
+}
+
+type GetSwitchResponse struct {
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSwitchResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetSwitchResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSwitchResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSwitchResponse) SetHeaders(v map[string]*string) *GetSwitchResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSwitchResponse) SetStatusCode(v int32) *GetSwitchResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetSwitchResponse) SetBody(v *GetSwitchResponseBody) *GetSwitchResponse {
+	s.Body = v
+	return s
+}
+
+type GetUserDocRolesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetUserDocRolesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserDocRolesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserDocRolesHeaders) SetCommonHeaders(v map[string]*string) *GetUserDocRolesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetUserDocRolesHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserDocRolesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetUserDocRolesRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetUserDocRolesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserDocRolesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserDocRolesRequest) SetOperatorId(v string) *GetUserDocRolesRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *GetUserDocRolesRequest) SetUnionId(v string) *GetUserDocRolesRequest {
+	s.UnionId = &v
+	return s
+}
+
+type GetUserDocRolesResponseBody struct {
+	Enabled *bool                               `json:"enabled,omitempty" xml:"enabled,omitempty"`
+	Roles   []*GetUserDocRolesResponseBodyRoles `json:"roles,omitempty" xml:"roles,omitempty" type:"Repeated"`
+}
+
+func (s GetUserDocRolesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserDocRolesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserDocRolesResponseBody) SetEnabled(v bool) *GetUserDocRolesResponseBody {
+	s.Enabled = &v
+	return s
+}
+
+func (s *GetUserDocRolesResponseBody) SetRoles(v []*GetUserDocRolesResponseBodyRoles) *GetUserDocRolesResponseBody {
+	s.Roles = v
+	return s
+}
+
+type GetUserDocRolesResponseBodyRoles struct {
+	FlowType *string                                     `json:"flowType,omitempty" xml:"flowType,omitempty"`
+	Id       *int64                                      `json:"id,omitempty" xml:"id,omitempty"`
+	Name     *string                                     `json:"name,omitempty" xml:"name,omitempty"`
+	RoleType *string                                     `json:"roleType,omitempty" xml:"roleType,omitempty"`
+	SubRoles []*GetUserDocRolesResponseBodyRolesSubRoles `json:"subRoles,omitempty" xml:"subRoles,omitempty" type:"Repeated"`
+}
+
+func (s GetUserDocRolesResponseBodyRoles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserDocRolesResponseBodyRoles) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserDocRolesResponseBodyRoles) SetFlowType(v string) *GetUserDocRolesResponseBodyRoles {
+	s.FlowType = &v
+	return s
+}
+
+func (s *GetUserDocRolesResponseBodyRoles) SetId(v int64) *GetUserDocRolesResponseBodyRoles {
+	s.Id = &v
+	return s
+}
+
+func (s *GetUserDocRolesResponseBodyRoles) SetName(v string) *GetUserDocRolesResponseBodyRoles {
+	s.Name = &v
+	return s
+}
+
+func (s *GetUserDocRolesResponseBodyRoles) SetRoleType(v string) *GetUserDocRolesResponseBodyRoles {
+	s.RoleType = &v
+	return s
+}
+
+func (s *GetUserDocRolesResponseBodyRoles) SetSubRoles(v []*GetUserDocRolesResponseBodyRolesSubRoles) *GetUserDocRolesResponseBodyRoles {
+	s.SubRoles = v
+	return s
+}
+
+type GetUserDocRolesResponseBodyRolesSubRoles struct {
+	AuthLevel *int32  `json:"authLevel,omitempty" xml:"authLevel,omitempty"`
+	BizType   *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Config    *string `json:"config,omitempty" xml:"config,omitempty"`
+	GmtCreate *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	Id        *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s GetUserDocRolesResponseBodyRolesSubRoles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserDocRolesResponseBodyRolesSubRoles) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserDocRolesResponseBodyRolesSubRoles) SetAuthLevel(v int32) *GetUserDocRolesResponseBodyRolesSubRoles {
+	s.AuthLevel = &v
+	return s
+}
+
+func (s *GetUserDocRolesResponseBodyRolesSubRoles) SetBizType(v int32) *GetUserDocRolesResponseBodyRolesSubRoles {
+	s.BizType = &v
+	return s
+}
+
+func (s *GetUserDocRolesResponseBodyRolesSubRoles) SetConfig(v string) *GetUserDocRolesResponseBodyRolesSubRoles {
+	s.Config = &v
+	return s
+}
+
+func (s *GetUserDocRolesResponseBodyRolesSubRoles) SetGmtCreate(v int64) *GetUserDocRolesResponseBodyRolesSubRoles {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *GetUserDocRolesResponseBodyRolesSubRoles) SetId(v string) *GetUserDocRolesResponseBodyRolesSubRoles {
+	s.Id = &v
+	return s
+}
+
+type GetUserDocRolesResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetUserDocRolesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetUserDocRolesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserDocRolesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserDocRolesResponse) SetHeaders(v map[string]*string) *GetUserDocRolesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetUserDocRolesResponse) SetStatusCode(v int32) *GetUserDocRolesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetUserDocRolesResponse) SetBody(v *GetUserDocRolesResponseBody) *GetUserDocRolesResponse {
+	s.Body = v
+	return s
+}
+
 type InsertRecordsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1895,6 +2780,412 @@ func (s *PrepareSetRichTextResponse) SetBody(v *PrepareSetRichTextResponseBody) 
 	return s
 }
 
+type QueryDocAllRolesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryDocAllRolesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDocAllRolesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDocAllRolesHeaders) SetCommonHeaders(v map[string]*string) *QueryDocAllRolesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryDocAllRolesHeaders) SetXAcsDingtalkAccessToken(v string) *QueryDocAllRolesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryDocAllRolesRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s QueryDocAllRolesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDocAllRolesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDocAllRolesRequest) SetOperatorId(v string) *QueryDocAllRolesRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type QueryDocAllRolesResponseBody struct {
+	AllRoles    []*QueryDocAllRolesResponseBodyAllRoles  `json:"allRoles,omitempty" xml:"allRoles,omitempty" type:"Repeated"`
+	DefaultRole *QueryDocAllRolesResponseBodyDefaultRole `json:"defaultRole,omitempty" xml:"defaultRole,omitempty" type:"Struct"`
+	Enabled     *bool                                    `json:"enabled,omitempty" xml:"enabled,omitempty"`
+	SystemRoles []*int64                                 `json:"systemRoles,omitempty" xml:"systemRoles,omitempty" type:"Repeated"`
+}
+
+func (s QueryDocAllRolesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDocAllRolesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDocAllRolesResponseBody) SetAllRoles(v []*QueryDocAllRolesResponseBodyAllRoles) *QueryDocAllRolesResponseBody {
+	s.AllRoles = v
+	return s
+}
+
+func (s *QueryDocAllRolesResponseBody) SetDefaultRole(v *QueryDocAllRolesResponseBodyDefaultRole) *QueryDocAllRolesResponseBody {
+	s.DefaultRole = v
+	return s
+}
+
+func (s *QueryDocAllRolesResponseBody) SetEnabled(v bool) *QueryDocAllRolesResponseBody {
+	s.Enabled = &v
+	return s
+}
+
+func (s *QueryDocAllRolesResponseBody) SetSystemRoles(v []*int64) *QueryDocAllRolesResponseBody {
+	s.SystemRoles = v
+	return s
+}
+
+type QueryDocAllRolesResponseBodyAllRoles struct {
+	Members []*QueryDocAllRolesResponseBodyAllRolesMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	Role    *QueryDocAllRolesResponseBodyAllRolesRole      `json:"role,omitempty" xml:"role,omitempty" type:"Struct"`
+}
+
+func (s QueryDocAllRolesResponseBodyAllRoles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDocAllRolesResponseBodyAllRoles) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDocAllRolesResponseBodyAllRoles) SetMembers(v []*QueryDocAllRolesResponseBodyAllRolesMembers) *QueryDocAllRolesResponseBodyAllRoles {
+	s.Members = v
+	return s
+}
+
+func (s *QueryDocAllRolesResponseBodyAllRoles) SetRole(v *QueryDocAllRolesResponseBodyAllRolesRole) *QueryDocAllRolesResponseBodyAllRoles {
+	s.Role = v
+	return s
+}
+
+type QueryDocAllRolesResponseBodyAllRolesMembers struct {
+	Avatar              *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
+	MemberId            *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	MemberIdBelongOrgId *int64  `json:"memberIdBelongOrgId,omitempty" xml:"memberIdBelongOrgId,omitempty"`
+	MemberType          *string `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	Name                *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s QueryDocAllRolesResponseBodyAllRolesMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDocAllRolesResponseBodyAllRolesMembers) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDocAllRolesResponseBodyAllRolesMembers) SetAvatar(v string) *QueryDocAllRolesResponseBodyAllRolesMembers {
+	s.Avatar = &v
+	return s
+}
+
+func (s *QueryDocAllRolesResponseBodyAllRolesMembers) SetMemberId(v string) *QueryDocAllRolesResponseBodyAllRolesMembers {
+	s.MemberId = &v
+	return s
+}
+
+func (s *QueryDocAllRolesResponseBodyAllRolesMembers) SetMemberIdBelongOrgId(v int64) *QueryDocAllRolesResponseBodyAllRolesMembers {
+	s.MemberIdBelongOrgId = &v
+	return s
+}
+
+func (s *QueryDocAllRolesResponseBodyAllRolesMembers) SetMemberType(v string) *QueryDocAllRolesResponseBodyAllRolesMembers {
+	s.MemberType = &v
+	return s
+}
+
+func (s *QueryDocAllRolesResponseBodyAllRolesMembers) SetName(v string) *QueryDocAllRolesResponseBodyAllRolesMembers {
+	s.Name = &v
+	return s
+}
+
+type QueryDocAllRolesResponseBodyAllRolesRole struct {
+	FlowType *string                                             `json:"flowType,omitempty" xml:"flowType,omitempty"`
+	Id       *int64                                              `json:"id,omitempty" xml:"id,omitempty"`
+	Name     *string                                             `json:"name,omitempty" xml:"name,omitempty"`
+	RoleType *string                                             `json:"roleType,omitempty" xml:"roleType,omitempty"`
+	SubRoles []*QueryDocAllRolesResponseBodyAllRolesRoleSubRoles `json:"subRoles,omitempty" xml:"subRoles,omitempty" type:"Repeated"`
+}
+
+func (s QueryDocAllRolesResponseBodyAllRolesRole) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDocAllRolesResponseBodyAllRolesRole) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDocAllRolesResponseBodyAllRolesRole) SetFlowType(v string) *QueryDocAllRolesResponseBodyAllRolesRole {
+	s.FlowType = &v
+	return s
+}
+
+func (s *QueryDocAllRolesResponseBodyAllRolesRole) SetId(v int64) *QueryDocAllRolesResponseBodyAllRolesRole {
+	s.Id = &v
+	return s
+}
+
+func (s *QueryDocAllRolesResponseBodyAllRolesRole) SetName(v string) *QueryDocAllRolesResponseBodyAllRolesRole {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryDocAllRolesResponseBodyAllRolesRole) SetRoleType(v string) *QueryDocAllRolesResponseBodyAllRolesRole {
+	s.RoleType = &v
+	return s
+}
+
+func (s *QueryDocAllRolesResponseBodyAllRolesRole) SetSubRoles(v []*QueryDocAllRolesResponseBodyAllRolesRoleSubRoles) *QueryDocAllRolesResponseBodyAllRolesRole {
+	s.SubRoles = v
+	return s
+}
+
+type QueryDocAllRolesResponseBodyAllRolesRoleSubRoles struct {
+	AuthLevel *int32  `json:"authLevel,omitempty" xml:"authLevel,omitempty"`
+	BizType   *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Config    *string `json:"config,omitempty" xml:"config,omitempty"`
+	GmtCreate *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	Id        *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s QueryDocAllRolesResponseBodyAllRolesRoleSubRoles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDocAllRolesResponseBodyAllRolesRoleSubRoles) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDocAllRolesResponseBodyAllRolesRoleSubRoles) SetAuthLevel(v int32) *QueryDocAllRolesResponseBodyAllRolesRoleSubRoles {
+	s.AuthLevel = &v
+	return s
+}
+
+func (s *QueryDocAllRolesResponseBodyAllRolesRoleSubRoles) SetBizType(v int32) *QueryDocAllRolesResponseBodyAllRolesRoleSubRoles {
+	s.BizType = &v
+	return s
+}
+
+func (s *QueryDocAllRolesResponseBodyAllRolesRoleSubRoles) SetConfig(v string) *QueryDocAllRolesResponseBodyAllRolesRoleSubRoles {
+	s.Config = &v
+	return s
+}
+
+func (s *QueryDocAllRolesResponseBodyAllRolesRoleSubRoles) SetGmtCreate(v int64) *QueryDocAllRolesResponseBodyAllRolesRoleSubRoles {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QueryDocAllRolesResponseBodyAllRolesRoleSubRoles) SetId(v string) *QueryDocAllRolesResponseBodyAllRolesRoleSubRoles {
+	s.Id = &v
+	return s
+}
+
+type QueryDocAllRolesResponseBodyDefaultRole struct {
+	Mode   *int32 `json:"mode,omitempty" xml:"mode,omitempty"`
+	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+}
+
+func (s QueryDocAllRolesResponseBodyDefaultRole) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDocAllRolesResponseBodyDefaultRole) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDocAllRolesResponseBodyDefaultRole) SetMode(v int32) *QueryDocAllRolesResponseBodyDefaultRole {
+	s.Mode = &v
+	return s
+}
+
+func (s *QueryDocAllRolesResponseBodyDefaultRole) SetRoleId(v int64) *QueryDocAllRolesResponseBodyDefaultRole {
+	s.RoleId = &v
+	return s
+}
+
+type QueryDocAllRolesResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryDocAllRolesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryDocAllRolesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryDocAllRolesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryDocAllRolesResponse) SetHeaders(v map[string]*string) *QueryDocAllRolesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryDocAllRolesResponse) SetStatusCode(v int32) *QueryDocAllRolesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryDocAllRolesResponse) SetBody(v *QueryDocAllRolesResponseBody) *QueryDocAllRolesResponse {
+	s.Body = v
+	return s
+}
+
+type RebuildRoleMembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RebuildRoleMembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RebuildRoleMembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RebuildRoleMembersHeaders) SetCommonHeaders(v map[string]*string) *RebuildRoleMembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RebuildRoleMembersHeaders) SetXAcsDingtalkAccessToken(v string) *RebuildRoleMembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RebuildRoleMembersRequest struct {
+	// This parameter is required.
+	DefaultRoleDTO *RebuildRoleMembersRequestDefaultRoleDTO `json:"defaultRoleDTO,omitempty" xml:"defaultRoleDTO,omitempty" type:"Struct"`
+	// This parameter is required.
+	ToRoleMemberDTOMap map[string][]*ToRoleMemberDTOMapValue `json:"toRoleMemberDTOMap,omitempty" xml:"toRoleMemberDTOMap,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s RebuildRoleMembersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RebuildRoleMembersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RebuildRoleMembersRequest) SetDefaultRoleDTO(v *RebuildRoleMembersRequestDefaultRoleDTO) *RebuildRoleMembersRequest {
+	s.DefaultRoleDTO = v
+	return s
+}
+
+func (s *RebuildRoleMembersRequest) SetToRoleMemberDTOMap(v map[string][]*ToRoleMemberDTOMapValue) *RebuildRoleMembersRequest {
+	s.ToRoleMemberDTOMap = v
+	return s
+}
+
+func (s *RebuildRoleMembersRequest) SetOperatorId(v string) *RebuildRoleMembersRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type RebuildRoleMembersRequestDefaultRoleDTO struct {
+	Mode   *int32 `json:"mode,omitempty" xml:"mode,omitempty"`
+	RoleId *int64 `json:"roleId,omitempty" xml:"roleId,omitempty"`
+}
+
+func (s RebuildRoleMembersRequestDefaultRoleDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RebuildRoleMembersRequestDefaultRoleDTO) GoString() string {
+	return s.String()
+}
+
+func (s *RebuildRoleMembersRequestDefaultRoleDTO) SetMode(v int32) *RebuildRoleMembersRequestDefaultRoleDTO {
+	s.Mode = &v
+	return s
+}
+
+func (s *RebuildRoleMembersRequestDefaultRoleDTO) SetRoleId(v int64) *RebuildRoleMembersRequestDefaultRoleDTO {
+	s.RoleId = &v
+	return s
+}
+
+type RebuildRoleMembersResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s RebuildRoleMembersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RebuildRoleMembersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RebuildRoleMembersResponseBody) SetSuccess(v bool) *RebuildRoleMembersResponseBody {
+	s.Success = &v
+	return s
+}
+
+type RebuildRoleMembersResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RebuildRoleMembersResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s RebuildRoleMembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RebuildRoleMembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RebuildRoleMembersResponse) SetHeaders(v map[string]*string) *RebuildRoleMembersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RebuildRoleMembersResponse) SetStatusCode(v int32) *RebuildRoleMembersResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RebuildRoleMembersResponse) SetBody(v *RebuildRoleMembersResponseBody) *RebuildRoleMembersResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateFieldHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2164,6 +3455,237 @@ func (s *UpdateRecordsResponse) SetBody(v *UpdateRecordsResponseBody) *UpdateRec
 	return s
 }
 
+type UpdateRoleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateRoleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRoleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRoleHeaders) SetCommonHeaders(v map[string]*string) *UpdateRoleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateRoleHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRoleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateRoleRequest struct {
+	FlowType *string `json:"flowType,omitempty" xml:"flowType,omitempty"`
+	// This parameter is required.
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	RoleType *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
+	// This parameter is required.
+	SubRoles []*UpdateRoleRequestSubRoles `json:"subRoles,omitempty" xml:"subRoles,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s UpdateRoleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRoleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRoleRequest) SetFlowType(v string) *UpdateRoleRequest {
+	s.FlowType = &v
+	return s
+}
+
+func (s *UpdateRoleRequest) SetId(v int64) *UpdateRoleRequest {
+	s.Id = &v
+	return s
+}
+
+func (s *UpdateRoleRequest) SetName(v string) *UpdateRoleRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateRoleRequest) SetRoleType(v string) *UpdateRoleRequest {
+	s.RoleType = &v
+	return s
+}
+
+func (s *UpdateRoleRequest) SetSubRoles(v []*UpdateRoleRequestSubRoles) *UpdateRoleRequest {
+	s.SubRoles = v
+	return s
+}
+
+func (s *UpdateRoleRequest) SetOperatorId(v string) *UpdateRoleRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type UpdateRoleRequestSubRoles struct {
+	AuthLevel *int32  `json:"authLevel,omitempty" xml:"authLevel,omitempty"`
+	BizType   *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Config    *string `json:"config,omitempty" xml:"config,omitempty"`
+	GmtCreate *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	Id        *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s UpdateRoleRequestSubRoles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRoleRequestSubRoles) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRoleRequestSubRoles) SetAuthLevel(v int32) *UpdateRoleRequestSubRoles {
+	s.AuthLevel = &v
+	return s
+}
+
+func (s *UpdateRoleRequestSubRoles) SetBizType(v int32) *UpdateRoleRequestSubRoles {
+	s.BizType = &v
+	return s
+}
+
+func (s *UpdateRoleRequestSubRoles) SetConfig(v string) *UpdateRoleRequestSubRoles {
+	s.Config = &v
+	return s
+}
+
+func (s *UpdateRoleRequestSubRoles) SetGmtCreate(v int64) *UpdateRoleRequestSubRoles {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *UpdateRoleRequestSubRoles) SetId(v string) *UpdateRoleRequestSubRoles {
+	s.Id = &v
+	return s
+}
+
+type UpdateRoleResponseBody struct {
+	FlowType *string                           `json:"flowType,omitempty" xml:"flowType,omitempty"`
+	Id       *int64                            `json:"id,omitempty" xml:"id,omitempty"`
+	Name     *string                           `json:"name,omitempty" xml:"name,omitempty"`
+	RoleType *string                           `json:"roleType,omitempty" xml:"roleType,omitempty"`
+	SubRoles []*UpdateRoleResponseBodySubRoles `json:"subRoles,omitempty" xml:"subRoles,omitempty" type:"Repeated"`
+}
+
+func (s UpdateRoleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRoleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRoleResponseBody) SetFlowType(v string) *UpdateRoleResponseBody {
+	s.FlowType = &v
+	return s
+}
+
+func (s *UpdateRoleResponseBody) SetId(v int64) *UpdateRoleResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *UpdateRoleResponseBody) SetName(v string) *UpdateRoleResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateRoleResponseBody) SetRoleType(v string) *UpdateRoleResponseBody {
+	s.RoleType = &v
+	return s
+}
+
+func (s *UpdateRoleResponseBody) SetSubRoles(v []*UpdateRoleResponseBodySubRoles) *UpdateRoleResponseBody {
+	s.SubRoles = v
+	return s
+}
+
+type UpdateRoleResponseBodySubRoles struct {
+	AuthLevel *int32  `json:"authLevel,omitempty" xml:"authLevel,omitempty"`
+	BizType   *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	Config    *string `json:"config,omitempty" xml:"config,omitempty"`
+	GmtCreate *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	Id        *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s UpdateRoleResponseBodySubRoles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRoleResponseBodySubRoles) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRoleResponseBodySubRoles) SetAuthLevel(v int32) *UpdateRoleResponseBodySubRoles {
+	s.AuthLevel = &v
+	return s
+}
+
+func (s *UpdateRoleResponseBodySubRoles) SetBizType(v int32) *UpdateRoleResponseBodySubRoles {
+	s.BizType = &v
+	return s
+}
+
+func (s *UpdateRoleResponseBodySubRoles) SetConfig(v string) *UpdateRoleResponseBodySubRoles {
+	s.Config = &v
+	return s
+}
+
+func (s *UpdateRoleResponseBodySubRoles) SetGmtCreate(v int64) *UpdateRoleResponseBodySubRoles {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *UpdateRoleResponseBodySubRoles) SetId(v string) *UpdateRoleResponseBodySubRoles {
+	s.Id = &v
+	return s
+}
+
+type UpdateRoleResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateRoleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateRoleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRoleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRoleResponse) SetHeaders(v map[string]*string) *UpdateRoleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateRoleResponse) SetStatusCode(v int32) *UpdateRoleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateRoleResponse) SetBody(v *UpdateRoleResponseBody) *UpdateRoleResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateSheetHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2299,6 +3821,164 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 
 // Summary:
 //
+// 添加角色成员
+//
+// @param request - AddRoleMemberRequest
+//
+// @param headers - AddRoleMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddRoleMemberResponse
+func (client *Client) AddRoleMemberWithOptions(baseId *string, request *AddRoleMemberRequest, headers *AddRoleMemberHeaders, runtime *util.RuntimeOptions) (_result *AddRoleMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RoleMemberList)) {
+		body["roleMemberList"] = request.RoleMemberList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddRoleMember"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/auth/role/member/" + tea.StringValue(baseId)),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddRoleMemberResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 添加角色成员
+//
+// @param request - AddRoleMemberRequest
+//
+// @return AddRoleMemberResponse
+func (client *Client) AddRoleMember(baseId *string, request *AddRoleMemberRequest) (_result *AddRoleMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddRoleMemberHeaders{}
+	_result = &AddRoleMemberResponse{}
+	_body, _err := client.AddRoleMemberWithOptions(baseId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 修改高级权限设置开关
+//
+// @param request - ChangeSwitchRequest
+//
+// @param headers - ChangeSwitchHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChangeSwitchResponse
+func (client *Client) ChangeSwitchWithOptions(baseId *string, request *ChangeSwitchRequest, headers *ChangeSwitchHeaders, runtime *util.RuntimeOptions) (_result *ChangeSwitchResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Value)) {
+		body["value"] = request.Value
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChangeSwitch"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/auth/" + tea.StringValue(baseId)),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChangeSwitchResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 修改高级权限设置开关
+//
+// @param request - ChangeSwitchRequest
+//
+// @return ChangeSwitchResponse
+func (client *Client) ChangeSwitch(baseId *string, request *ChangeSwitchRequest) (_result *ChangeSwitchResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChangeSwitchHeaders{}
+	_result = &ChangeSwitchResponse{}
+	_body, _err := client.ChangeSwitchWithOptions(baseId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 新增数据表字段
 //
 // @param request - CreateFieldRequest
@@ -2377,6 +4057,101 @@ func (client *Client) CreateField(baseId *string, sheetIdOrName *string, request
 	headers := &CreateFieldHeaders{}
 	_result = &CreateFieldResponse{}
 	_body, _err := client.CreateFieldWithOptions(baseId, sheetIdOrName, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建角色
+//
+// @param request - CreateRoleRequest
+//
+// @param headers - CreateRoleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateRoleResponse
+func (client *Client) CreateRoleWithOptions(baseId *string, request *CreateRoleRequest, headers *CreateRoleHeaders, runtime *util.RuntimeOptions) (_result *CreateRoleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FlowType)) {
+		body["flowType"] = request.FlowType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Id)) {
+		body["id"] = request.Id
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleType)) {
+		body["roleType"] = request.RoleType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubRoles)) {
+		body["subRoles"] = request.SubRoles
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateRole"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/auth/role/" + tea.StringValue(baseId)),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateRoleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建角色
+//
+// @param request - CreateRoleRequest
+//
+// @return CreateRoleResponse
+func (client *Client) CreateRole(baseId *string, request *CreateRoleRequest) (_result *CreateRoleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateRoleHeaders{}
+	_result = &CreateRoleResponse{}
+	_body, _err := client.CreateRoleWithOptions(baseId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -2612,6 +4387,85 @@ func (client *Client) DeleteRecords(baseId *string, sheetIdOrName *string, reque
 	headers := &DeleteRecordsHeaders{}
 	_result = &DeleteRecordsResponse{}
 	_body, _err := client.DeleteRecordsWithOptions(baseId, sheetIdOrName, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除角色
+//
+// @param request - DeleteRoleRequest
+//
+// @param headers - DeleteRoleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteRoleResponse
+func (client *Client) DeleteRoleWithOptions(baseId *string, request *DeleteRoleRequest, headers *DeleteRoleHeaders, runtime *util.RuntimeOptions) (_result *DeleteRoleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RoleId)) {
+		body["roleId"] = request.RoleId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteRole"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/auth/role/" + tea.StringValue(baseId)),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteRoleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除角色
+//
+// @param request - DeleteRoleRequest
+//
+// @return DeleteRoleResponse
+func (client *Client) DeleteRole(baseId *string, request *DeleteRoleRequest) (_result *DeleteRoleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteRoleHeaders{}
+	_result = &DeleteRoleResponse{}
+	_body, _err := client.DeleteRoleWithOptions(baseId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -3067,6 +4921,156 @@ func (client *Client) GetSheet(baseId *string, sheetIdOrName *string, request *G
 
 // Summary:
 //
+// 获取高级权限设置开关
+//
+// @param request - GetSwitchRequest
+//
+// @param headers - GetSwitchHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSwitchResponse
+func (client *Client) GetSwitchWithOptions(baseId *string, request *GetSwitchRequest, headers *GetSwitchHeaders, runtime *util.RuntimeOptions) (_result *GetSwitchResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSwitch"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/auth/" + tea.StringValue(baseId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetSwitchResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取高级权限设置开关
+//
+// @param request - GetSwitchRequest
+//
+// @return GetSwitchResponse
+func (client *Client) GetSwitch(baseId *string, request *GetSwitchRequest) (_result *GetSwitchResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSwitchHeaders{}
+	_result = &GetSwitchResponse{}
+	_body, _err := client.GetSwitchWithOptions(baseId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取指定用户的高级权限角色配置列表
+//
+// @param request - GetUserDocRolesRequest
+//
+// @param headers - GetUserDocRolesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserDocRolesResponse
+func (client *Client) GetUserDocRolesWithOptions(baseId *string, request *GetUserDocRolesRequest, headers *GetUserDocRolesHeaders, runtime *util.RuntimeOptions) (_result *GetUserDocRolesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUserDocRoles"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/auth/role/" + tea.StringValue(baseId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetUserDocRolesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取指定用户的高级权限角色配置列表
+//
+// @param request - GetUserDocRolesRequest
+//
+// @return GetUserDocRolesResponse
+func (client *Client) GetUserDocRoles(baseId *string, request *GetUserDocRolesRequest) (_result *GetUserDocRolesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetUserDocRolesHeaders{}
+	_result = &GetUserDocRolesResponse{}
+	_body, _err := client.GetUserDocRolesWithOptions(baseId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 新增记录
 //
 // @param request - InsertRecordsRequest
@@ -3316,6 +5320,162 @@ func (client *Client) PrepareSetRichText(baseId *string, request *PrepareSetRich
 
 // Summary:
 //
+// 查询文档所有角色和角色成员
+//
+// @param request - QueryDocAllRolesRequest
+//
+// @param headers - QueryDocAllRolesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryDocAllRolesResponse
+func (client *Client) QueryDocAllRolesWithOptions(baseId *string, request *QueryDocAllRolesRequest, headers *QueryDocAllRolesHeaders, runtime *util.RuntimeOptions) (_result *QueryDocAllRolesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryDocAllRoles"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/auth/role/member/" + tea.StringValue(baseId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryDocAllRolesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询文档所有角色和角色成员
+//
+// @param request - QueryDocAllRolesRequest
+//
+// @return QueryDocAllRolesResponse
+func (client *Client) QueryDocAllRoles(baseId *string, request *QueryDocAllRolesRequest) (_result *QueryDocAllRolesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryDocAllRolesHeaders{}
+	_result = &QueryDocAllRolesResponse{}
+	_body, _err := client.QueryDocAllRolesWithOptions(baseId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 重建角色成员
+//
+// @param request - RebuildRoleMembersRequest
+//
+// @param headers - RebuildRoleMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RebuildRoleMembersResponse
+func (client *Client) RebuildRoleMembersWithOptions(baseId *string, request *RebuildRoleMembersRequest, headers *RebuildRoleMembersHeaders, runtime *util.RuntimeOptions) (_result *RebuildRoleMembersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DefaultRoleDTO)) {
+		body["defaultRoleDTO"] = request.DefaultRoleDTO
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ToRoleMemberDTOMap)) {
+		body["toRoleMemberDTOMap"] = request.ToRoleMemberDTOMap
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RebuildRoleMembers"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/auth/role/member/" + tea.StringValue(baseId)),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RebuildRoleMembersResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 重建角色成员
+//
+// @param request - RebuildRoleMembersRequest
+//
+// @return RebuildRoleMembersResponse
+func (client *Client) RebuildRoleMembers(baseId *string, request *RebuildRoleMembersRequest) (_result *RebuildRoleMembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RebuildRoleMembersHeaders{}
+	_result = &RebuildRoleMembersResponse{}
+	_body, _err := client.RebuildRoleMembersWithOptions(baseId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 更新数据表字段
 //
 // @param request - UpdateFieldRequest
@@ -3469,6 +5629,101 @@ func (client *Client) UpdateRecords(baseId *string, sheetIdOrName *string, reque
 	headers := &UpdateRecordsHeaders{}
 	_result = &UpdateRecordsResponse{}
 	_body, _err := client.UpdateRecordsWithOptions(baseId, sheetIdOrName, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新角色
+//
+// @param request - UpdateRoleRequest
+//
+// @param headers - UpdateRoleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateRoleResponse
+func (client *Client) UpdateRoleWithOptions(baseId *string, request *UpdateRoleRequest, headers *UpdateRoleHeaders, runtime *util.RuntimeOptions) (_result *UpdateRoleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FlowType)) {
+		body["flowType"] = request.FlowType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Id)) {
+		body["id"] = request.Id
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleType)) {
+		body["roleType"] = request.RoleType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubRoles)) {
+		body["subRoles"] = request.SubRoles
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateRole"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/auth/role/" + tea.StringValue(baseId)),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateRoleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新角色
+//
+// @param request - UpdateRoleRequest
+//
+// @return UpdateRoleResponse
+func (client *Client) UpdateRole(baseId *string, request *UpdateRoleRequest) (_result *UpdateRoleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateRoleHeaders{}
+	_result = &UpdateRoleResponse{}
+	_body, _err := client.UpdateRoleWithOptions(baseId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

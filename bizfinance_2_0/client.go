@@ -1010,6 +1010,98 @@ func (s *BatchSyncBankReceiptResponse) SetBody(v *BatchSyncBankReceiptResponseBo
 	return s
 }
 
+type CancelSignEnterpriseAccountHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CancelSignEnterpriseAccountHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelSignEnterpriseAccountHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CancelSignEnterpriseAccountHeaders) SetCommonHeaders(v map[string]*string) *CancelSignEnterpriseAccountHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CancelSignEnterpriseAccountHeaders) SetXAcsDingtalkAccessToken(v string) *CancelSignEnterpriseAccountHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CancelSignEnterpriseAccountRequest struct {
+	AccountCode *string `json:"accountCode,omitempty" xml:"accountCode,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CancelSignEnterpriseAccountRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelSignEnterpriseAccountRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CancelSignEnterpriseAccountRequest) SetAccountCode(v string) *CancelSignEnterpriseAccountRequest {
+	s.AccountCode = &v
+	return s
+}
+
+func (s *CancelSignEnterpriseAccountRequest) SetUserId(v string) *CancelSignEnterpriseAccountRequest {
+	s.UserId = &v
+	return s
+}
+
+type CancelSignEnterpriseAccountResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CancelSignEnterpriseAccountResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelSignEnterpriseAccountResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CancelSignEnterpriseAccountResponseBody) SetResult(v bool) *CancelSignEnterpriseAccountResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CancelSignEnterpriseAccountResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CancelSignEnterpriseAccountResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CancelSignEnterpriseAccountResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelSignEnterpriseAccountResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CancelSignEnterpriseAccountResponse) SetHeaders(v map[string]*string) *CancelSignEnterpriseAccountResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CancelSignEnterpriseAccountResponse) SetStatusCode(v int32) *CancelSignEnterpriseAccountResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CancelSignEnterpriseAccountResponse) SetBody(v *CancelSignEnterpriseAccountResponseBody) *CancelSignEnterpriseAccountResponse {
+	s.Body = v
+	return s
+}
+
 type CheckVoucherStatusHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1681,6 +1773,362 @@ func (s *CreatePaymentOrderResponse) SetBody(v *CreatePaymentOrderResponseBody) 
 	return s
 }
 
+type DeleteCompanyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteCompanyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCompanyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCompanyHeaders) SetCommonHeaders(v map[string]*string) *DeleteCompanyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteCompanyHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteCompanyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteCompanyRequest struct {
+	CompanyCode *string `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
+}
+
+func (s DeleteCompanyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCompanyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCompanyRequest) SetCompanyCode(v string) *DeleteCompanyRequest {
+	s.CompanyCode = &v
+	return s
+}
+
+type DeleteCompanyResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteCompanyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCompanyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCompanyResponseBody) SetResult(v bool) *DeleteCompanyResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeleteCompanyResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteCompanyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteCompanyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCompanyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCompanyResponse) SetHeaders(v map[string]*string) *DeleteCompanyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteCompanyResponse) SetStatusCode(v int32) *DeleteCompanyResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteCompanyResponse) SetBody(v *DeleteCompanyResponseBody) *DeleteCompanyResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteEnterpriseAccountHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteEnterpriseAccountHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteEnterpriseAccountHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteEnterpriseAccountHeaders) SetCommonHeaders(v map[string]*string) *DeleteEnterpriseAccountHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteEnterpriseAccountHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteEnterpriseAccountHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteEnterpriseAccountRequest struct {
+	AccountCode *string `json:"accountCode,omitempty" xml:"accountCode,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DeleteEnterpriseAccountRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteEnterpriseAccountRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteEnterpriseAccountRequest) SetAccountCode(v string) *DeleteEnterpriseAccountRequest {
+	s.AccountCode = &v
+	return s
+}
+
+func (s *DeleteEnterpriseAccountRequest) SetUserId(v string) *DeleteEnterpriseAccountRequest {
+	s.UserId = &v
+	return s
+}
+
+type DeleteEnterpriseAccountResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteEnterpriseAccountResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteEnterpriseAccountResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteEnterpriseAccountResponseBody) SetResult(v bool) *DeleteEnterpriseAccountResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeleteEnterpriseAccountResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteEnterpriseAccountResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteEnterpriseAccountResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteEnterpriseAccountResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteEnterpriseAccountResponse) SetHeaders(v map[string]*string) *DeleteEnterpriseAccountResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteEnterpriseAccountResponse) SetStatusCode(v int32) *DeleteEnterpriseAccountResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteEnterpriseAccountResponse) SetBody(v *DeleteEnterpriseAccountResponseBody) *DeleteEnterpriseAccountResponse {
+	s.Body = v
+	return s
+}
+
+type EnableCompanyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s EnableCompanyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnableCompanyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *EnableCompanyHeaders) SetCommonHeaders(v map[string]*string) *EnableCompanyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *EnableCompanyHeaders) SetXAcsDingtalkAccessToken(v string) *EnableCompanyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type EnableCompanyRequest struct {
+	CompanyCode *string `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
+}
+
+func (s EnableCompanyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnableCompanyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *EnableCompanyRequest) SetCompanyCode(v string) *EnableCompanyRequest {
+	s.CompanyCode = &v
+	return s
+}
+
+type EnableCompanyResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s EnableCompanyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnableCompanyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *EnableCompanyResponseBody) SetResult(v bool) *EnableCompanyResponseBody {
+	s.Result = &v
+	return s
+}
+
+type EnableCompanyResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EnableCompanyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s EnableCompanyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnableCompanyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *EnableCompanyResponse) SetHeaders(v map[string]*string) *EnableCompanyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *EnableCompanyResponse) SetStatusCode(v int32) *EnableCompanyResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *EnableCompanyResponse) SetBody(v *EnableCompanyResponseBody) *EnableCompanyResponse {
+	s.Body = v
+	return s
+}
+
+type EnableEnterpriseAccountHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s EnableEnterpriseAccountHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnableEnterpriseAccountHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *EnableEnterpriseAccountHeaders) SetCommonHeaders(v map[string]*string) *EnableEnterpriseAccountHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *EnableEnterpriseAccountHeaders) SetXAcsDingtalkAccessToken(v string) *EnableEnterpriseAccountHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type EnableEnterpriseAccountRequest struct {
+	AccountCode *string `json:"accountCode,omitempty" xml:"accountCode,omitempty"`
+	UserId      *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s EnableEnterpriseAccountRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnableEnterpriseAccountRequest) GoString() string {
+	return s.String()
+}
+
+func (s *EnableEnterpriseAccountRequest) SetAccountCode(v string) *EnableEnterpriseAccountRequest {
+	s.AccountCode = &v
+	return s
+}
+
+func (s *EnableEnterpriseAccountRequest) SetUserId(v string) *EnableEnterpriseAccountRequest {
+	s.UserId = &v
+	return s
+}
+
+type EnableEnterpriseAccountResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s EnableEnterpriseAccountResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnableEnterpriseAccountResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *EnableEnterpriseAccountResponseBody) SetResult(v bool) *EnableEnterpriseAccountResponseBody {
+	s.Result = &v
+	return s
+}
+
+type EnableEnterpriseAccountResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EnableEnterpriseAccountResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s EnableEnterpriseAccountResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnableEnterpriseAccountResponse) GoString() string {
+	return s.String()
+}
+
+func (s *EnableEnterpriseAccountResponse) SetHeaders(v map[string]*string) *EnableEnterpriseAccountResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *EnableEnterpriseAccountResponse) SetStatusCode(v int32) *EnableEnterpriseAccountResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *EnableEnterpriseAccountResponse) SetBody(v *EnableEnterpriseAccountResponseBody) *EnableEnterpriseAccountResponse {
+	s.Body = v
+	return s
+}
+
 type GetCategoryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2264,6 +2712,8 @@ type GetFinanceAccountResponseBody struct {
 	OfficialName   *string `json:"officialName,omitempty" xml:"officialName,omitempty"`
 	OfficialNumber *string `json:"officialNumber,omitempty" xml:"officialNumber,omitempty"`
 	SignStatus     *string `json:"signStatus,omitempty" xml:"signStatus,omitempty"`
+	Source         *string `json:"source,omitempty" xml:"source,omitempty"`
+	Status         *string `json:"status,omitempty" xml:"status,omitempty"`
 }
 
 func (s GetFinanceAccountResponseBody) String() string {
@@ -2341,6 +2791,16 @@ func (s *GetFinanceAccountResponseBody) SetOfficialNumber(v string) *GetFinanceA
 
 func (s *GetFinanceAccountResponseBody) SetSignStatus(v string) *GetFinanceAccountResponseBody {
 	s.SignStatus = &v
+	return s
+}
+
+func (s *GetFinanceAccountResponseBody) SetSource(v string) *GetFinanceAccountResponseBody {
+	s.Source = &v
+	return s
+}
+
+func (s *GetFinanceAccountResponseBody) SetStatus(v string) *GetFinanceAccountResponseBody {
+	s.Status = &v
 	return s
 }
 
@@ -3645,6 +4105,134 @@ func (s *OrderBillingResponse) SetStatusCode(v int32) *OrderBillingResponse {
 }
 
 func (s *OrderBillingResponse) SetBody(v *OrderBillingResponseBody) *OrderBillingResponse {
+	s.Body = v
+	return s
+}
+
+type PageQueryCorpPayAccountsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PageQueryCorpPayAccountsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageQueryCorpPayAccountsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PageQueryCorpPayAccountsHeaders) SetCommonHeaders(v map[string]*string) *PageQueryCorpPayAccountsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PageQueryCorpPayAccountsHeaders) SetXAcsDingtalkAccessToken(v string) *PageQueryCorpPayAccountsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PageQueryCorpPayAccountsResponseBody struct {
+	Accounts []*PageQueryCorpPayAccountsResponseBodyAccounts `json:"accounts,omitempty" xml:"accounts,omitempty" type:"Repeated"`
+}
+
+func (s PageQueryCorpPayAccountsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageQueryCorpPayAccountsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PageQueryCorpPayAccountsResponseBody) SetAccounts(v []*PageQueryCorpPayAccountsResponseBodyAccounts) *PageQueryCorpPayAccountsResponseBody {
+	s.Accounts = v
+	return s
+}
+
+type PageQueryCorpPayAccountsResponseBodyAccounts struct {
+	AccountClass   *string `json:"accountClass,omitempty" xml:"accountClass,omitempty"`
+	AccountId      *string `json:"accountId,omitempty" xml:"accountId,omitempty"`
+	AccountName    *string `json:"accountName,omitempty" xml:"accountName,omitempty"`
+	AccountNo      *string `json:"accountNo,omitempty" xml:"accountNo,omitempty"`
+	AccountRemark  *string `json:"accountRemark,omitempty" xml:"accountRemark,omitempty"`
+	AccountType    *string `json:"accountType,omitempty" xml:"accountType,omitempty"`
+	CreatorUid     *int64  `json:"creatorUid,omitempty" xml:"creatorUid,omitempty"`
+	HasSignReceipt *bool   `json:"hasSignReceipt,omitempty" xml:"hasSignReceipt,omitempty"`
+}
+
+func (s PageQueryCorpPayAccountsResponseBodyAccounts) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageQueryCorpPayAccountsResponseBodyAccounts) GoString() string {
+	return s.String()
+}
+
+func (s *PageQueryCorpPayAccountsResponseBodyAccounts) SetAccountClass(v string) *PageQueryCorpPayAccountsResponseBodyAccounts {
+	s.AccountClass = &v
+	return s
+}
+
+func (s *PageQueryCorpPayAccountsResponseBodyAccounts) SetAccountId(v string) *PageQueryCorpPayAccountsResponseBodyAccounts {
+	s.AccountId = &v
+	return s
+}
+
+func (s *PageQueryCorpPayAccountsResponseBodyAccounts) SetAccountName(v string) *PageQueryCorpPayAccountsResponseBodyAccounts {
+	s.AccountName = &v
+	return s
+}
+
+func (s *PageQueryCorpPayAccountsResponseBodyAccounts) SetAccountNo(v string) *PageQueryCorpPayAccountsResponseBodyAccounts {
+	s.AccountNo = &v
+	return s
+}
+
+func (s *PageQueryCorpPayAccountsResponseBodyAccounts) SetAccountRemark(v string) *PageQueryCorpPayAccountsResponseBodyAccounts {
+	s.AccountRemark = &v
+	return s
+}
+
+func (s *PageQueryCorpPayAccountsResponseBodyAccounts) SetAccountType(v string) *PageQueryCorpPayAccountsResponseBodyAccounts {
+	s.AccountType = &v
+	return s
+}
+
+func (s *PageQueryCorpPayAccountsResponseBodyAccounts) SetCreatorUid(v int64) *PageQueryCorpPayAccountsResponseBodyAccounts {
+	s.CreatorUid = &v
+	return s
+}
+
+func (s *PageQueryCorpPayAccountsResponseBodyAccounts) SetHasSignReceipt(v bool) *PageQueryCorpPayAccountsResponseBodyAccounts {
+	s.HasSignReceipt = &v
+	return s
+}
+
+type PageQueryCorpPayAccountsResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PageQueryCorpPayAccountsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PageQueryCorpPayAccountsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageQueryCorpPayAccountsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PageQueryCorpPayAccountsResponse) SetHeaders(v map[string]*string) *PageQueryCorpPayAccountsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PageQueryCorpPayAccountsResponse) SetStatusCode(v int32) *PageQueryCorpPayAccountsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PageQueryCorpPayAccountsResponse) SetBody(v *PageQueryCorpPayAccountsResponseBody) *PageQueryCorpPayAccountsResponse {
 	s.Body = v
 	return s
 }
@@ -5000,6 +5588,8 @@ type QueryEnterpriseAccountByPageResponseBodyList struct {
 	OfficialName       *string `json:"officialName,omitempty" xml:"officialName,omitempty"`
 	OfficialNumber     *string `json:"officialNumber,omitempty" xml:"officialNumber,omitempty"`
 	SignStatus         *string `json:"signStatus,omitempty" xml:"signStatus,omitempty"`
+	Source             *string `json:"source,omitempty" xml:"source,omitempty"`
+	Status             *string `json:"status,omitempty" xml:"status,omitempty"`
 	SupportReceipt     *bool   `json:"supportReceipt,omitempty" xml:"supportReceipt,omitempty"`
 	SupportTradeDetail *bool   `json:"supportTradeDetail,omitempty" xml:"supportTradeDetail,omitempty"`
 }
@@ -5079,6 +5669,16 @@ func (s *QueryEnterpriseAccountByPageResponseBodyList) SetOfficialNumber(v strin
 
 func (s *QueryEnterpriseAccountByPageResponseBodyList) SetSignStatus(v string) *QueryEnterpriseAccountByPageResponseBodyList {
 	s.SignStatus = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetSource(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.Source = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageResponseBodyList) SetStatus(v string) *QueryEnterpriseAccountByPageResponseBodyList {
+	s.Status = &v
 	return s
 }
 
@@ -9951,6 +10551,83 @@ func (client *Client) BatchSyncBankReceipt(request *BatchSyncBankReceiptRequest)
 
 // Summary:
 //
+// 已签约的企业账户解约
+//
+// @param request - CancelSignEnterpriseAccountRequest
+//
+// @param headers - CancelSignEnterpriseAccountHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CancelSignEnterpriseAccountResponse
+func (client *Client) CancelSignEnterpriseAccountWithOptions(request *CancelSignEnterpriseAccountRequest, headers *CancelSignEnterpriseAccountHeaders, runtime *util.RuntimeOptions) (_result *CancelSignEnterpriseAccountResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccountCode)) {
+		query["accountCode"] = request.AccountCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CancelSignEnterpriseAccount"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/enterpriseAccounts/cancelSign"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CancelSignEnterpriseAccountResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 已签约的企业账户解约
+//
+// @param request - CancelSignEnterpriseAccountRequest
+//
+// @return CancelSignEnterpriseAccountResponse
+func (client *Client) CancelSignEnterpriseAccount(request *CancelSignEnterpriseAccountRequest) (_result *CancelSignEnterpriseAccountResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CancelSignEnterpriseAccountHeaders{}
+	_result = &CancelSignEnterpriseAccountResponse{}
+	_body, _err := client.CancelSignEnterpriseAccountWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 查验发票是否生成凭证
 //
 // @param request - CheckVoucherStatusRequest
@@ -10318,6 +10995,306 @@ func (client *Client) CreatePaymentOrder(request *CreatePaymentOrderRequest) (_r
 	headers := &CreatePaymentOrderHeaders{}
 	_result = &CreatePaymentOrderResponse{}
 	_body, _err := client.CreatePaymentOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 停用企业主体
+//
+// @param request - DeleteCompanyRequest
+//
+// @param headers - DeleteCompanyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteCompanyResponse
+func (client *Client) DeleteCompanyWithOptions(request *DeleteCompanyRequest, headers *DeleteCompanyHeaders, runtime *util.RuntimeOptions) (_result *DeleteCompanyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CompanyCode)) {
+		query["companyCode"] = request.CompanyCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteCompany"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/companies/delete"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteCompanyResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 停用企业主体
+//
+// @param request - DeleteCompanyRequest
+//
+// @return DeleteCompanyResponse
+func (client *Client) DeleteCompany(request *DeleteCompanyRequest) (_result *DeleteCompanyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteCompanyHeaders{}
+	_result = &DeleteCompanyResponse{}
+	_body, _err := client.DeleteCompanyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 停用企业账户
+//
+// @param request - DeleteEnterpriseAccountRequest
+//
+// @param headers - DeleteEnterpriseAccountHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteEnterpriseAccountResponse
+func (client *Client) DeleteEnterpriseAccountWithOptions(request *DeleteEnterpriseAccountRequest, headers *DeleteEnterpriseAccountHeaders, runtime *util.RuntimeOptions) (_result *DeleteEnterpriseAccountResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccountCode)) {
+		body["accountCode"] = request.AccountCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteEnterpriseAccount"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/enterpriseAccounts/delete"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteEnterpriseAccountResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 停用企业账户
+//
+// @param request - DeleteEnterpriseAccountRequest
+//
+// @return DeleteEnterpriseAccountResponse
+func (client *Client) DeleteEnterpriseAccount(request *DeleteEnterpriseAccountRequest) (_result *DeleteEnterpriseAccountResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteEnterpriseAccountHeaders{}
+	_result = &DeleteEnterpriseAccountResponse{}
+	_body, _err := client.DeleteEnterpriseAccountWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 启用企业主体
+//
+// @param request - EnableCompanyRequest
+//
+// @param headers - EnableCompanyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EnableCompanyResponse
+func (client *Client) EnableCompanyWithOptions(request *EnableCompanyRequest, headers *EnableCompanyHeaders, runtime *util.RuntimeOptions) (_result *EnableCompanyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CompanyCode)) {
+		query["companyCode"] = request.CompanyCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("EnableCompany"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/companies/enable"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &EnableCompanyResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 启用企业主体
+//
+// @param request - EnableCompanyRequest
+//
+// @return EnableCompanyResponse
+func (client *Client) EnableCompany(request *EnableCompanyRequest) (_result *EnableCompanyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &EnableCompanyHeaders{}
+	_result = &EnableCompanyResponse{}
+	_body, _err := client.EnableCompanyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 启用企业账户
+//
+// @param request - EnableEnterpriseAccountRequest
+//
+// @param headers - EnableEnterpriseAccountHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EnableEnterpriseAccountResponse
+func (client *Client) EnableEnterpriseAccountWithOptions(request *EnableEnterpriseAccountRequest, headers *EnableEnterpriseAccountHeaders, runtime *util.RuntimeOptions) (_result *EnableEnterpriseAccountResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AccountCode)) {
+		body["accountCode"] = request.AccountCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("EnableEnterpriseAccount"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/enterpriseAccounts/enable"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &EnableEnterpriseAccountResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 启用企业账户
+//
+// @param request - EnableEnterpriseAccountRequest
+//
+// @return EnableEnterpriseAccountResponse
+func (client *Client) EnableEnterpriseAccount(request *EnableEnterpriseAccountRequest) (_result *EnableEnterpriseAccountResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &EnableEnterpriseAccountHeaders{}
+	_result = &EnableEnterpriseAccountResponse{}
+	_body, _err := client.EnableEnterpriseAccountWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -11184,6 +12161,65 @@ func (client *Client) OrderBilling(request *OrderBillingRequest) (_result *Order
 	headers := &OrderBillingHeaders{}
 	_result = &OrderBillingResponse{}
 	_body, _err := client.OrderBillingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业支付绑定的付款账户列表
+//
+// @param headers - PageQueryCorpPayAccountsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PageQueryCorpPayAccountsResponse
+func (client *Client) PageQueryCorpPayAccountsWithOptions(headers *PageQueryCorpPayAccountsHeaders, runtime *util.RuntimeOptions) (_result *PageQueryCorpPayAccountsResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PageQueryCorpPayAccounts"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/corpPayAccounts/batch"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PageQueryCorpPayAccountsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业支付绑定的付款账户列表
+//
+// @return PageQueryCorpPayAccountsResponse
+func (client *Client) PageQueryCorpPayAccounts() (_result *PageQueryCorpPayAccountsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PageQueryCorpPayAccountsHeaders{}
+	_result = &PageQueryCorpPayAccountsResponse{}
+	_body, _err := client.PageQueryCorpPayAccountsWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
