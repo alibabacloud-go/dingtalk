@@ -1541,14 +1541,10 @@ func (s *CreateTrustedDeviceBatchHeaders) SetXAcsDingtalkAccessToken(v string) *
 type CreateTrustedDeviceBatchRequest struct {
 	DetailList     []*CreateTrustedDeviceBatchRequestDetailList `json:"detailList,omitempty" xml:"detailList,omitempty" type:"Repeated"`
 	MacAddressList []*string                                    `json:"macAddressList,omitempty" xml:"macAddressList,omitempty" type:"Repeated"`
-	// This parameter is required.
-	//
 	// example:
 	//
 	// Win
 	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
-	// This parameter is required.
-	//
 	// example:
 	//
 	// 123
@@ -1584,9 +1580,13 @@ func (s *CreateTrustedDeviceBatchRequest) SetUserId(v string) *CreateTrustedDevi
 }
 
 type CreateTrustedDeviceBatchRequestDetailList struct {
+	Did          *string `json:"did,omitempty" xml:"did,omitempty"`
 	MacAddress   *string `json:"macAddress,omitempty" xml:"macAddress,omitempty"`
+	Platform     *string `json:"platform,omitempty" xml:"platform,omitempty"`
 	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	Status       *int64  `json:"status,omitempty" xml:"status,omitempty"`
 	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s CreateTrustedDeviceBatchRequestDetailList) String() string {
@@ -1597,8 +1597,18 @@ func (s CreateTrustedDeviceBatchRequestDetailList) GoString() string {
 	return s.String()
 }
 
+func (s *CreateTrustedDeviceBatchRequestDetailList) SetDid(v string) *CreateTrustedDeviceBatchRequestDetailList {
+	s.Did = &v
+	return s
+}
+
 func (s *CreateTrustedDeviceBatchRequestDetailList) SetMacAddress(v string) *CreateTrustedDeviceBatchRequestDetailList {
 	s.MacAddress = &v
+	return s
+}
+
+func (s *CreateTrustedDeviceBatchRequestDetailList) SetPlatform(v string) *CreateTrustedDeviceBatchRequestDetailList {
+	s.Platform = &v
 	return s
 }
 
@@ -1607,8 +1617,18 @@ func (s *CreateTrustedDeviceBatchRequestDetailList) SetSerialNumber(v string) *C
 	return s
 }
 
+func (s *CreateTrustedDeviceBatchRequestDetailList) SetStatus(v int64) *CreateTrustedDeviceBatchRequestDetailList {
+	s.Status = &v
+	return s
+}
+
 func (s *CreateTrustedDeviceBatchRequestDetailList) SetTitle(v string) *CreateTrustedDeviceBatchRequestDetailList {
 	s.Title = &v
+	return s
+}
+
+func (s *CreateTrustedDeviceBatchRequestDetailList) SetUserId(v string) *CreateTrustedDeviceBatchRequestDetailList {
+	s.UserId = &v
 	return s
 }
 
@@ -2041,7 +2061,8 @@ func (s *DeleteTrustedDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *Delet
 }
 
 type DeleteTrustedDeviceRequest struct {
-	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+	Did *string `json:"did,omitempty" xml:"did,omitempty"`
+	Id  *int64  `json:"id,omitempty" xml:"id,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -2066,6 +2087,11 @@ func (s DeleteTrustedDeviceRequest) String() string {
 
 func (s DeleteTrustedDeviceRequest) GoString() string {
 	return s.String()
+}
+
+func (s *DeleteTrustedDeviceRequest) SetDid(v string) *DeleteTrustedDeviceRequest {
+	s.Did = &v
+	return s
 }
 
 func (s *DeleteTrustedDeviceRequest) SetId(v int64) *DeleteTrustedDeviceRequest {
@@ -2603,6 +2629,232 @@ func (s *ExclusiveCreateDingPortalResponse) SetStatusCode(v int32) *ExclusiveCre
 }
 
 func (s *ExclusiveCreateDingPortalResponse) SetBody(v *ExclusiveCreateDingPortalResponseBody) *ExclusiveCreateDingPortalResponse {
+	s.Body = v
+	return s
+}
+
+type ExclusivePcAlertHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ExclusivePcAlertHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusivePcAlertHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusivePcAlertHeaders) SetCommonHeaders(v map[string]*string) *ExclusivePcAlertHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ExclusivePcAlertHeaders) SetXAcsDingtalkAccessToken(v string) *ExclusivePcAlertHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ExclusivePcAlertRequest struct {
+	// This parameter is required.
+	ImageMediaId *string `json:"imageMediaId,omitempty" xml:"imageMediaId,omitempty"`
+	OpenLink     *string `json:"openLink,omitempty" xml:"openLink,omitempty"`
+	// This parameter is required.
+	UserList []*string `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+}
+
+func (s ExclusivePcAlertRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusivePcAlertRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusivePcAlertRequest) SetImageMediaId(v string) *ExclusivePcAlertRequest {
+	s.ImageMediaId = &v
+	return s
+}
+
+func (s *ExclusivePcAlertRequest) SetOpenLink(v string) *ExclusivePcAlertRequest {
+	s.OpenLink = &v
+	return s
+}
+
+func (s *ExclusivePcAlertRequest) SetUserList(v []*string) *ExclusivePcAlertRequest {
+	s.UserList = v
+	return s
+}
+
+type ExclusivePcAlertResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ExclusivePcAlertResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusivePcAlertResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusivePcAlertResponseBody) SetResult(v bool) *ExclusivePcAlertResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *ExclusivePcAlertResponseBody) SetSuccess(v bool) *ExclusivePcAlertResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ExclusivePcAlertResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ExclusivePcAlertResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ExclusivePcAlertResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusivePcAlertResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusivePcAlertResponse) SetHeaders(v map[string]*string) *ExclusivePcAlertResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ExclusivePcAlertResponse) SetStatusCode(v int32) *ExclusivePcAlertResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ExclusivePcAlertResponse) SetBody(v *ExclusivePcAlertResponseBody) *ExclusivePcAlertResponse {
+	s.Body = v
+	return s
+}
+
+type ExclusivePopupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ExclusivePopupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusivePopupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusivePopupHeaders) SetCommonHeaders(v map[string]*string) *ExclusivePopupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ExclusivePopupHeaders) SetXAcsDingtalkAccessToken(v string) *ExclusivePopupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ExclusivePopupRequest struct {
+	// This parameter is required.
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	ImageMediaId *string `json:"imageMediaId,omitempty" xml:"imageMediaId,omitempty"`
+	OpenLink     *string `json:"openLink,omitempty" xml:"openLink,omitempty"`
+	// This parameter is required.
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	UserList []*string `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+}
+
+func (s ExclusivePopupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusivePopupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusivePopupRequest) SetEndTime(v int64) *ExclusivePopupRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *ExclusivePopupRequest) SetImageMediaId(v string) *ExclusivePopupRequest {
+	s.ImageMediaId = &v
+	return s
+}
+
+func (s *ExclusivePopupRequest) SetOpenLink(v string) *ExclusivePopupRequest {
+	s.OpenLink = &v
+	return s
+}
+
+func (s *ExclusivePopupRequest) SetStartTime(v int64) *ExclusivePopupRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *ExclusivePopupRequest) SetUserList(v []*string) *ExclusivePopupRequest {
+	s.UserList = v
+	return s
+}
+
+type ExclusivePopupResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ExclusivePopupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusivePopupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusivePopupResponseBody) SetResult(v bool) *ExclusivePopupResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *ExclusivePopupResponseBody) SetSuccess(v bool) *ExclusivePopupResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ExclusivePopupResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ExclusivePopupResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ExclusivePopupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusivePopupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusivePopupResponse) SetHeaders(v map[string]*string) *ExclusivePopupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ExclusivePopupResponse) SetStatusCode(v int32) *ExclusivePopupResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ExclusivePopupResponse) SetBody(v *ExclusivePopupResponseBody) *ExclusivePopupResponse {
 	s.Body = v
 	return s
 }
@@ -10000,7 +10252,8 @@ type GetPublicDevicesRequest struct {
 	// example:
 	//
 	// 11-22-33-44
-	SerialNumber *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	SerialNumber     *string   `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	SerialNumberList []*string `json:"serialNumberList,omitempty" xml:"serialNumberList,omitempty" type:"Repeated"`
 	// example:
 	//
 	// 1671767361000
@@ -10054,12 +10307,112 @@ func (s *GetPublicDevicesRequest) SetSerialNumber(v string) *GetPublicDevicesReq
 	return s
 }
 
+func (s *GetPublicDevicesRequest) SetSerialNumberList(v []*string) *GetPublicDevicesRequest {
+	s.SerialNumberList = v
+	return s
+}
+
 func (s *GetPublicDevicesRequest) SetStartTime(v int64) *GetPublicDevicesRequest {
 	s.StartTime = &v
 	return s
 }
 
 func (s *GetPublicDevicesRequest) SetTitle(v string) *GetPublicDevicesRequest {
+	s.Title = &v
+	return s
+}
+
+type GetPublicDevicesShrinkRequest struct {
+	DeviceUuid *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	// example:
+	//
+	// 1671767361000
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// example:
+	//
+	// 88:66:5a:07:2b:04
+	MacAddress *string `json:"macAddress,omitempty" xml:"macAddress,omitempty"`
+	// example:
+	//
+	// 1
+	PageNumber *int32 `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	// example:
+	//
+	// 100
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// example:
+	//
+	// Mac
+	Platform *string `json:"platform,omitempty" xml:"platform,omitempty"`
+	// example:
+	//
+	// 11-22-33-44
+	SerialNumber           *string `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	SerialNumberListShrink *string `json:"serialNumberList,omitempty" xml:"serialNumberList,omitempty"`
+	// example:
+	//
+	// 1671767361000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// 这是标题
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetPublicDevicesShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPublicDevicesShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPublicDevicesShrinkRequest) SetDeviceUuid(v string) *GetPublicDevicesShrinkRequest {
+	s.DeviceUuid = &v
+	return s
+}
+
+func (s *GetPublicDevicesShrinkRequest) SetEndTime(v int64) *GetPublicDevicesShrinkRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetPublicDevicesShrinkRequest) SetMacAddress(v string) *GetPublicDevicesShrinkRequest {
+	s.MacAddress = &v
+	return s
+}
+
+func (s *GetPublicDevicesShrinkRequest) SetPageNumber(v int32) *GetPublicDevicesShrinkRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *GetPublicDevicesShrinkRequest) SetPageSize(v int32) *GetPublicDevicesShrinkRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *GetPublicDevicesShrinkRequest) SetPlatform(v string) *GetPublicDevicesShrinkRequest {
+	s.Platform = &v
+	return s
+}
+
+func (s *GetPublicDevicesShrinkRequest) SetSerialNumber(v string) *GetPublicDevicesShrinkRequest {
+	s.SerialNumber = &v
+	return s
+}
+
+func (s *GetPublicDevicesShrinkRequest) SetSerialNumberListShrink(v string) *GetPublicDevicesShrinkRequest {
+	s.SerialNumberListShrink = &v
+	return s
+}
+
+func (s *GetPublicDevicesShrinkRequest) SetStartTime(v int64) *GetPublicDevicesShrinkRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetPublicDevicesShrinkRequest) SetTitle(v string) *GetPublicDevicesShrinkRequest {
 	s.Title = &v
 	return s
 }
@@ -10108,6 +10461,7 @@ type GetPublicDevicesResponseBodyData struct {
 	DeviceScopeType *int32                                          `json:"deviceScopeType,omitempty" xml:"deviceScopeType,omitempty"`
 	DeviceStaffs    []*GetPublicDevicesResponseBodyDataDeviceStaffs `json:"deviceStaffs,omitempty" xml:"deviceStaffs,omitempty" type:"Repeated"`
 	DeviceUuid      *string                                         `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	Did             *string                                         `json:"did,omitempty" xml:"did,omitempty"`
 	// example:
 	//
 	// 1671767361000
@@ -10166,6 +10520,11 @@ func (s *GetPublicDevicesResponseBodyData) SetDeviceStaffs(v []*GetPublicDevices
 
 func (s *GetPublicDevicesResponseBodyData) SetDeviceUuid(v string) *GetPublicDevicesResponseBodyData {
 	s.DeviceUuid = &v
+	return s
+}
+
+func (s *GetPublicDevicesResponseBodyData) SetDid(v string) *GetPublicDevicesResponseBodyData {
+	s.Did = &v
 	return s
 }
 
@@ -11568,10 +11927,11 @@ type GetTrustDeviceListRequest struct {
 	// example:
 	//
 	// Android
-	Platform     *string   `json:"platform,omitempty" xml:"platform,omitempty"`
-	SerialNumber *string   `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
-	Status       *int32    `json:"status,omitempty" xml:"status,omitempty"`
-	UserIds      []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+	Platform         *string   `json:"platform,omitempty" xml:"platform,omitempty"`
+	SerialNumber     *string   `json:"serialNumber,omitempty" xml:"serialNumber,omitempty"`
+	SerialNumberList []*string `json:"serialNumberList,omitempty" xml:"serialNumberList,omitempty" type:"Repeated"`
+	Status           *int32    `json:"status,omitempty" xml:"status,omitempty"`
+	UserIds          []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
 func (s GetTrustDeviceListRequest) String() string {
@@ -11632,6 +11992,11 @@ func (s *GetTrustDeviceListRequest) SetSerialNumber(v string) *GetTrustDeviceLis
 	return s
 }
 
+func (s *GetTrustDeviceListRequest) SetSerialNumberList(v []*string) *GetTrustDeviceListRequest {
+	s.SerialNumberList = v
+	return s
+}
+
 func (s *GetTrustDeviceListRequest) SetStatus(v int32) *GetTrustDeviceListRequest {
 	s.Status = &v
 	return s
@@ -11684,6 +12049,7 @@ type GetTrustDeviceListResponseBodyData struct {
 	// 1628650483
 	CreateTime *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	DeviceUuid *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	Did        *string `json:"did,omitempty" xml:"did,omitempty"`
 	Id         *int64  `json:"id,omitempty" xml:"id,omitempty"`
 	// example:
 	//
@@ -11727,6 +12093,11 @@ func (s *GetTrustDeviceListResponseBodyData) SetCreateTime(v int64) *GetTrustDev
 
 func (s *GetTrustDeviceListResponseBodyData) SetDeviceUuid(v string) *GetTrustDeviceListResponseBodyData {
 	s.DeviceUuid = &v
+	return s
+}
+
+func (s *GetTrustDeviceListResponseBodyData) SetDid(v string) *GetTrustDeviceListResponseBodyData {
+	s.Did = &v
 	return s
 }
 
@@ -15613,6 +15984,10 @@ type PushBadgeRequest struct {
 	//
 	// 0
 	PushType *string `json:"pushType,omitempty" xml:"pushType,omitempty"`
+	// example:
+	//
+	// 1767225600000
+	Version *int64 `json:"version,omitempty" xml:"version,omitempty"`
 }
 
 func (s PushBadgeRequest) String() string {
@@ -15635,6 +16010,11 @@ func (s *PushBadgeRequest) SetBadgeItems(v []*PushBadgeRequestBadgeItems) *PushB
 
 func (s *PushBadgeRequest) SetPushType(v string) *PushBadgeRequest {
 	s.PushType = &v
+	return s
+}
+
+func (s *PushBadgeRequest) SetVersion(v int64) *PushBadgeRequest {
+	s.Version = &v
 	return s
 }
 
@@ -24925,6 +25305,10 @@ func (client *Client) DeleteTrustedDeviceWithOptions(request *DeleteTrustedDevic
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Did)) {
+		body["did"] = request.Did
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Id)) {
 		body["id"] = request.Id
 	}
@@ -25322,6 +25706,176 @@ func (client *Client) ExclusiveCreateDingPortal(request *ExclusiveCreateDingPort
 	headers := &ExclusiveCreateDingPortalHeaders{}
 	_result = &ExclusiveCreateDingPortalResponse{}
 	_body, _err := client.ExclusiveCreateDingPortalWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能运营桌面端弹窗
+//
+// @param request - ExclusivePcAlertRequest
+//
+// @param headers - ExclusivePcAlertHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExclusivePcAlertResponse
+func (client *Client) ExclusivePcAlertWithOptions(request *ExclusivePcAlertRequest, headers *ExclusivePcAlertHeaders, runtime *util.RuntimeOptions) (_result *ExclusivePcAlertResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ImageMediaId)) {
+		body["imageMediaId"] = request.ImageMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenLink)) {
+		body["openLink"] = request.OpenLink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserList)) {
+		body["userList"] = request.UserList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ExclusivePcAlert"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/customize/marketing/pcAlert"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ExclusivePcAlertResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能运营桌面端弹窗
+//
+// @param request - ExclusivePcAlertRequest
+//
+// @return ExclusivePcAlertResponse
+func (client *Client) ExclusivePcAlert(request *ExclusivePcAlertRequest) (_result *ExclusivePcAlertResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ExclusivePcAlertHeaders{}
+	_result = &ExclusivePcAlertResponse{}
+	_body, _err := client.ExclusivePcAlertWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能运营移动端首页弹窗
+//
+// @param request - ExclusivePopupRequest
+//
+// @param headers - ExclusivePopupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExclusivePopupResponse
+func (client *Client) ExclusivePopupWithOptions(request *ExclusivePopupRequest, headers *ExclusivePopupHeaders, runtime *util.RuntimeOptions) (_result *ExclusivePopupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImageMediaId)) {
+		body["imageMediaId"] = request.ImageMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenLink)) {
+		body["openLink"] = request.OpenLink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserList)) {
+		body["userList"] = request.UserList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ExclusivePopup"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/customize/marketing/popup"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ExclusivePopupResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能运营移动端首页弹窗
+//
+// @param request - ExclusivePopupRequest
+//
+// @return ExclusivePopupResponse
+func (client *Client) ExclusivePopup(request *ExclusivePopupRequest) (_result *ExclusivePopupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ExclusivePopupHeaders{}
+	_result = &ExclusivePopupResponse{}
+	_body, _err := client.ExclusivePopupWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -28683,18 +29237,24 @@ func (client *Client) GetPrivateStoreTaskFileInfosByPage(request *GetPrivateStor
 //
 // 获取公共设备列表。
 //
-// @param request - GetPublicDevicesRequest
+// @param tmpReq - GetPublicDevicesRequest
 //
 // @param headers - GetPublicDevicesHeaders
 //
 // @param runtime - runtime options for this request RuntimeOptions
 //
 // @return GetPublicDevicesResponse
-func (client *Client) GetPublicDevicesWithOptions(request *GetPublicDevicesRequest, headers *GetPublicDevicesHeaders, runtime *util.RuntimeOptions) (_result *GetPublicDevicesResponse, _err error) {
-	_err = util.ValidateModel(request)
+func (client *Client) GetPublicDevicesWithOptions(tmpReq *GetPublicDevicesRequest, headers *GetPublicDevicesHeaders, runtime *util.RuntimeOptions) (_result *GetPublicDevicesResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
 	if _err != nil {
 		return _result, _err
 	}
+	request := &GetPublicDevicesShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.SerialNumberList)) {
+		request.SerialNumberListShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.SerialNumberList, tea.String("serialNumberList"), tea.String("json"))
+	}
+
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DeviceUuid)) {
 		query["deviceUuid"] = request.DeviceUuid
@@ -28722,6 +29282,10 @@ func (client *Client) GetPublicDevicesWithOptions(request *GetPublicDevicesReque
 
 	if !tea.BoolValue(util.IsUnset(request.SerialNumber)) {
 		query["serialNumber"] = request.SerialNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SerialNumberListShrink)) {
+		query["serialNumberList"] = request.SerialNumberListShrink
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
@@ -29349,6 +29913,10 @@ func (client *Client) GetTrustDeviceListWithOptions(request *GetTrustDeviceListR
 
 	if !tea.BoolValue(util.IsUnset(request.SerialNumber)) {
 		body["serialNumber"] = request.SerialNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SerialNumberList)) {
+		body["serialNumberList"] = request.SerialNumberList
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Status)) {
@@ -31245,6 +31813,10 @@ func (client *Client) PushBadgeWithOptions(request *PushBadgeRequest, headers *P
 
 	if !tea.BoolValue(util.IsUnset(request.PushType)) {
 		body["pushType"] = request.PushType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Version)) {
+		body["version"] = request.Version
 	}
 
 	realHeaders := make(map[string]*string)

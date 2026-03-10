@@ -2425,6 +2425,368 @@ func (s *RobotRecallDingResponse) SetBody(v *RobotRecallDingResponseBody) *Robot
 	return s
 }
 
+type RobotRecallEmotionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RobotRecallEmotionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotRecallEmotionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RobotRecallEmotionHeaders) SetCommonHeaders(v map[string]*string) *RobotRecallEmotionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RobotRecallEmotionHeaders) SetXAcsDingtalkAccessToken(v string) *RobotRecallEmotionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RobotRecallEmotionRequest struct {
+	// example:
+	//
+	// OK
+	EmotionName *string `json:"emotionName,omitempty" xml:"emotionName,omitempty"`
+	EmotionType *int32  `json:"emotionType,omitempty" xml:"emotionType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxx
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// msgxxxx
+	OpenMsgId *string `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 213123
+	RobotCode   *string                               `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	TextEmotion *RobotRecallEmotionRequestTextEmotion `json:"textEmotion,omitempty" xml:"textEmotion,omitempty" type:"Struct"`
+}
+
+func (s RobotRecallEmotionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotRecallEmotionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RobotRecallEmotionRequest) SetEmotionName(v string) *RobotRecallEmotionRequest {
+	s.EmotionName = &v
+	return s
+}
+
+func (s *RobotRecallEmotionRequest) SetEmotionType(v int32) *RobotRecallEmotionRequest {
+	s.EmotionType = &v
+	return s
+}
+
+func (s *RobotRecallEmotionRequest) SetOpenConversationId(v string) *RobotRecallEmotionRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *RobotRecallEmotionRequest) SetOpenMsgId(v string) *RobotRecallEmotionRequest {
+	s.OpenMsgId = &v
+	return s
+}
+
+func (s *RobotRecallEmotionRequest) SetRobotCode(v string) *RobotRecallEmotionRequest {
+	s.RobotCode = &v
+	return s
+}
+
+func (s *RobotRecallEmotionRequest) SetTextEmotion(v *RobotRecallEmotionRequestTextEmotion) *RobotRecallEmotionRequest {
+	s.TextEmotion = v
+	return s
+}
+
+type RobotRecallEmotionRequestTextEmotion struct {
+	// example:
+	//
+	// im_bg_1
+	BackgroundId *string `json:"backgroundId,omitempty" xml:"backgroundId,omitempty"`
+	// example:
+	//
+	// 12345
+	EmotionId *string `json:"emotionId,omitempty" xml:"emotionId,omitempty"`
+	// example:
+	//
+	// OK
+	EmotionName *string `json:"emotionName,omitempty" xml:"emotionName,omitempty"`
+	// example:
+	//
+	// OK
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s RobotRecallEmotionRequestTextEmotion) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotRecallEmotionRequestTextEmotion) GoString() string {
+	return s.String()
+}
+
+func (s *RobotRecallEmotionRequestTextEmotion) SetBackgroundId(v string) *RobotRecallEmotionRequestTextEmotion {
+	s.BackgroundId = &v
+	return s
+}
+
+func (s *RobotRecallEmotionRequestTextEmotion) SetEmotionId(v string) *RobotRecallEmotionRequestTextEmotion {
+	s.EmotionId = &v
+	return s
+}
+
+func (s *RobotRecallEmotionRequestTextEmotion) SetEmotionName(v string) *RobotRecallEmotionRequestTextEmotion {
+	s.EmotionName = &v
+	return s
+}
+
+func (s *RobotRecallEmotionRequestTextEmotion) SetText(v string) *RobotRecallEmotionRequestTextEmotion {
+	s.Text = &v
+	return s
+}
+
+type RobotRecallEmotionResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s RobotRecallEmotionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotRecallEmotionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RobotRecallEmotionResponseBody) SetSuccess(v bool) *RobotRecallEmotionResponseBody {
+	s.Success = &v
+	return s
+}
+
+type RobotRecallEmotionResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RobotRecallEmotionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s RobotRecallEmotionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotRecallEmotionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RobotRecallEmotionResponse) SetHeaders(v map[string]*string) *RobotRecallEmotionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RobotRecallEmotionResponse) SetStatusCode(v int32) *RobotRecallEmotionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RobotRecallEmotionResponse) SetBody(v *RobotRecallEmotionResponseBody) *RobotRecallEmotionResponse {
+	s.Body = v
+	return s
+}
+
+type RobotReplyEmotionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RobotReplyEmotionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotReplyEmotionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RobotReplyEmotionHeaders) SetCommonHeaders(v map[string]*string) *RobotReplyEmotionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RobotReplyEmotionHeaders) SetXAcsDingtalkAccessToken(v string) *RobotReplyEmotionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RobotReplyEmotionRequest struct {
+	// example:
+	//
+	// OK
+	EmotionName *string `json:"emotionName,omitempty" xml:"emotionName,omitempty"`
+	EmotionType *int32  `json:"emotionType,omitempty" xml:"emotionType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxx
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// msgxxxx
+	OpenMsgId *string `json:"openMsgId,omitempty" xml:"openMsgId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 213123
+	RobotCode   *string                              `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	TextEmotion *RobotReplyEmotionRequestTextEmotion `json:"textEmotion,omitempty" xml:"textEmotion,omitempty" type:"Struct"`
+}
+
+func (s RobotReplyEmotionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotReplyEmotionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RobotReplyEmotionRequest) SetEmotionName(v string) *RobotReplyEmotionRequest {
+	s.EmotionName = &v
+	return s
+}
+
+func (s *RobotReplyEmotionRequest) SetEmotionType(v int32) *RobotReplyEmotionRequest {
+	s.EmotionType = &v
+	return s
+}
+
+func (s *RobotReplyEmotionRequest) SetOpenConversationId(v string) *RobotReplyEmotionRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *RobotReplyEmotionRequest) SetOpenMsgId(v string) *RobotReplyEmotionRequest {
+	s.OpenMsgId = &v
+	return s
+}
+
+func (s *RobotReplyEmotionRequest) SetRobotCode(v string) *RobotReplyEmotionRequest {
+	s.RobotCode = &v
+	return s
+}
+
+func (s *RobotReplyEmotionRequest) SetTextEmotion(v *RobotReplyEmotionRequestTextEmotion) *RobotReplyEmotionRequest {
+	s.TextEmotion = v
+	return s
+}
+
+type RobotReplyEmotionRequestTextEmotion struct {
+	// example:
+	//
+	// im_bg_1
+	BackgroundId *string `json:"backgroundId,omitempty" xml:"backgroundId,omitempty"`
+	// example:
+	//
+	// 12345
+	EmotionId *string `json:"emotionId,omitempty" xml:"emotionId,omitempty"`
+	// example:
+	//
+	// OK
+	EmotionName *string `json:"emotionName,omitempty" xml:"emotionName,omitempty"`
+	// example:
+	//
+	// OK
+	Text *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s RobotReplyEmotionRequestTextEmotion) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotReplyEmotionRequestTextEmotion) GoString() string {
+	return s.String()
+}
+
+func (s *RobotReplyEmotionRequestTextEmotion) SetBackgroundId(v string) *RobotReplyEmotionRequestTextEmotion {
+	s.BackgroundId = &v
+	return s
+}
+
+func (s *RobotReplyEmotionRequestTextEmotion) SetEmotionId(v string) *RobotReplyEmotionRequestTextEmotion {
+	s.EmotionId = &v
+	return s
+}
+
+func (s *RobotReplyEmotionRequestTextEmotion) SetEmotionName(v string) *RobotReplyEmotionRequestTextEmotion {
+	s.EmotionName = &v
+	return s
+}
+
+func (s *RobotReplyEmotionRequestTextEmotion) SetText(v string) *RobotReplyEmotionRequestTextEmotion {
+	s.Text = &v
+	return s
+}
+
+type RobotReplyEmotionResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s RobotReplyEmotionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotReplyEmotionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RobotReplyEmotionResponseBody) SetSuccess(v bool) *RobotReplyEmotionResponseBody {
+	s.Success = &v
+	return s
+}
+
+type RobotReplyEmotionResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RobotReplyEmotionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s RobotReplyEmotionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RobotReplyEmotionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RobotReplyEmotionResponse) SetHeaders(v map[string]*string) *RobotReplyEmotionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RobotReplyEmotionResponse) SetStatusCode(v int32) *RobotReplyEmotionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RobotReplyEmotionResponse) SetBody(v *RobotReplyEmotionResponseBody) *RobotReplyEmotionResponse {
+	s.Body = v
+	return s
+}
+
 type RobotSendDingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4527,6 +4889,192 @@ func (client *Client) RobotRecallDing(request *RobotRecallDingRequest) (_result 
 	headers := &RobotRecallDingHeaders{}
 	_result = &RobotRecallDingResponse{}
 	_body, _err := client.RobotRecallDingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 机器人撤回贴表情
+//
+// @param request - RobotRecallEmotionRequest
+//
+// @param headers - RobotRecallEmotionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RobotRecallEmotionResponse
+func (client *Client) RobotRecallEmotionWithOptions(request *RobotRecallEmotionRequest, headers *RobotRecallEmotionHeaders, runtime *util.RuntimeOptions) (_result *RobotRecallEmotionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EmotionName)) {
+		body["emotionName"] = request.EmotionName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EmotionType)) {
+		body["emotionType"] = request.EmotionType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenMsgId)) {
+		body["openMsgId"] = request.OpenMsgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TextEmotion)) {
+		body["textEmotion"] = request.TextEmotion
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RobotRecallEmotion"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/emotion/recall"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RobotRecallEmotionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 机器人撤回贴表情
+//
+// @param request - RobotRecallEmotionRequest
+//
+// @return RobotRecallEmotionResponse
+func (client *Client) RobotRecallEmotion(request *RobotRecallEmotionRequest) (_result *RobotRecallEmotionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RobotRecallEmotionHeaders{}
+	_result = &RobotRecallEmotionResponse{}
+	_body, _err := client.RobotRecallEmotionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 机器人贴表情
+//
+// @param request - RobotReplyEmotionRequest
+//
+// @param headers - RobotReplyEmotionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RobotReplyEmotionResponse
+func (client *Client) RobotReplyEmotionWithOptions(request *RobotReplyEmotionRequest, headers *RobotReplyEmotionHeaders, runtime *util.RuntimeOptions) (_result *RobotReplyEmotionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EmotionName)) {
+		body["emotionName"] = request.EmotionName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EmotionType)) {
+		body["emotionType"] = request.EmotionType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenMsgId)) {
+		body["openMsgId"] = request.OpenMsgId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TextEmotion)) {
+		body["textEmotion"] = request.TextEmotion
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RobotReplyEmotion"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/emotion/reply"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RobotReplyEmotionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 机器人贴表情
+//
+// @param request - RobotReplyEmotionRequest
+//
+// @return RobotReplyEmotionResponse
+func (client *Client) RobotReplyEmotion(request *RobotReplyEmotionRequest) (_result *RobotReplyEmotionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RobotReplyEmotionHeaders{}
+	_result = &RobotReplyEmotionResponse{}
+	_body, _err := client.RobotReplyEmotionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

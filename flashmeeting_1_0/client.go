@@ -374,6 +374,138 @@ func (s *ExportShanhuiToDocResponse) SetBody(v *ExportShanhuiToDocResponseBody) 
 	return s
 }
 
+type GetShanhuiAttachmentsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetShanhuiAttachmentsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShanhuiAttachmentsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetShanhuiAttachmentsHeaders) SetCommonHeaders(v map[string]*string) *GetShanhuiAttachmentsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetShanhuiAttachmentsHeaders) SetXAcsDingtalkAccessToken(v string) *GetShanhuiAttachmentsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetShanhuiAttachmentsRequest struct {
+	ShanhuiKey *string `json:"shanhuiKey,omitempty" xml:"shanhuiKey,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetShanhuiAttachmentsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShanhuiAttachmentsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetShanhuiAttachmentsRequest) SetShanhuiKey(v string) *GetShanhuiAttachmentsRequest {
+	s.ShanhuiKey = &v
+	return s
+}
+
+func (s *GetShanhuiAttachmentsRequest) SetUserId(v string) *GetShanhuiAttachmentsRequest {
+	s.UserId = &v
+	return s
+}
+
+type GetShanhuiAttachmentsResponseBody struct {
+	Result  *GetShanhuiAttachmentsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                    `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetShanhuiAttachmentsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShanhuiAttachmentsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetShanhuiAttachmentsResponseBody) SetResult(v *GetShanhuiAttachmentsResponseBodyResult) *GetShanhuiAttachmentsResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetShanhuiAttachmentsResponseBody) SetSuccess(v bool) *GetShanhuiAttachmentsResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetShanhuiAttachmentsResponseBodyResult struct {
+	Attachments []*GetShanhuiAttachmentsResponseBodyResultAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+}
+
+func (s GetShanhuiAttachmentsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShanhuiAttachmentsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetShanhuiAttachmentsResponseBodyResult) SetAttachments(v []*GetShanhuiAttachmentsResponseBodyResultAttachments) *GetShanhuiAttachmentsResponseBodyResult {
+	s.Attachments = v
+	return s
+}
+
+type GetShanhuiAttachmentsResponseBodyResultAttachments struct {
+	ResourceUrl *string `json:"resourceUrl,omitempty" xml:"resourceUrl,omitempty"`
+}
+
+func (s GetShanhuiAttachmentsResponseBodyResultAttachments) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShanhuiAttachmentsResponseBodyResultAttachments) GoString() string {
+	return s.String()
+}
+
+func (s *GetShanhuiAttachmentsResponseBodyResultAttachments) SetResourceUrl(v string) *GetShanhuiAttachmentsResponseBodyResultAttachments {
+	s.ResourceUrl = &v
+	return s
+}
+
+type GetShanhuiAttachmentsResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetShanhuiAttachmentsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetShanhuiAttachmentsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetShanhuiAttachmentsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetShanhuiAttachmentsResponse) SetHeaders(v map[string]*string) *GetShanhuiAttachmentsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetShanhuiAttachmentsResponse) SetStatusCode(v int32) *GetShanhuiAttachmentsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetShanhuiAttachmentsResponse) SetBody(v *GetShanhuiAttachmentsResponseBody) *GetShanhuiAttachmentsResponse {
+	s.Body = v
+	return s
+}
+
 type GetShanhuiByCalendarHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1322,6 +1454,83 @@ func (client *Client) ExportShanhuiToDoc(request *ExportShanhuiToDocRequest) (_r
 	headers := &ExportShanhuiToDocHeaders{}
 	_result = &ExportShanhuiToDocResponse{}
 	_body, _err := client.ExportShanhuiToDocWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取闪会内上传的附件
+//
+// @param request - GetShanhuiAttachmentsRequest
+//
+// @param headers - GetShanhuiAttachmentsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetShanhuiAttachmentsResponse
+func (client *Client) GetShanhuiAttachmentsWithOptions(request *GetShanhuiAttachmentsRequest, headers *GetShanhuiAttachmentsHeaders, runtime *util.RuntimeOptions) (_result *GetShanhuiAttachmentsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ShanhuiKey)) {
+		body["shanhuiKey"] = request.ShanhuiKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetShanhuiAttachments"),
+		Version:     tea.String("flashmeeting_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/flashmeeting/meetings/getShanhuiAttachments"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetShanhuiAttachmentsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取闪会内上传的附件
+//
+// @param request - GetShanhuiAttachmentsRequest
+//
+// @return GetShanhuiAttachmentsResponse
+func (client *Client) GetShanhuiAttachments(request *GetShanhuiAttachmentsRequest) (_result *GetShanhuiAttachmentsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetShanhuiAttachmentsHeaders{}
+	_result = &GetShanhuiAttachmentsResponse{}
+	_body, _err := client.GetShanhuiAttachmentsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

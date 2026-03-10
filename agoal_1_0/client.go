@@ -4772,6 +4772,7 @@ func (s *GetIndicatorDetailHeaders) SetXAcsDingtalkAccessToken(v string) *GetInd
 }
 
 type GetIndicatorDetailRequest struct {
+	// This parameter is required.
 	IndicatorId *string `json:"indicatorId,omitempty" xml:"indicatorId,omitempty"`
 	MonthNum    *int64  `json:"monthNum,omitempty" xml:"monthNum,omitempty"`
 }

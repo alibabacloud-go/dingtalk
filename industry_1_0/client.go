@@ -16084,6 +16084,205 @@ func (s *ExternalQueryExternalOrgsResponse) SetBody(v *ExternalQueryExternalOrgs
 	return s
 }
 
+type GetConvertResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetConvertResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConvertResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetConvertResultHeaders) SetCommonHeaders(v map[string]*string) *GetConvertResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetConvertResultHeaders) SetXAcsDingtalkAccessToken(v string) *GetConvertResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetConvertResultRequest struct {
+	// This parameter is required.
+	TaskBizId *string `json:"taskBizId,omitempty" xml:"taskBizId,omitempty"`
+}
+
+func (s GetConvertResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConvertResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetConvertResultRequest) SetTaskBizId(v string) *GetConvertResultRequest {
+	s.TaskBizId = &v
+	return s
+}
+
+type GetConvertResultResponseBody struct {
+	DingOpenErrcode *int64                              `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	ErrorMsg        *string                             `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result          *GetConvertResultResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success         *bool                               `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetConvertResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConvertResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetConvertResultResponseBody) SetDingOpenErrcode(v int64) *GetConvertResultResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *GetConvertResultResponseBody) SetErrorMsg(v string) *GetConvertResultResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *GetConvertResultResponseBody) SetResult(v *GetConvertResultResponseBodyResult) *GetConvertResultResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetConvertResultResponseBody) SetSuccess(v bool) *GetConvertResultResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetConvertResultResponseBodyResult struct {
+	CorpId      *string                                       `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CreateTime  *float32                                      `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	CreatorName *string                                       `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
+	OutputInfo  *GetConvertResultResponseBodyResultOutputInfo `json:"outputInfo,omitempty" xml:"outputInfo,omitempty" type:"Struct"`
+	Status      *string                                       `json:"status,omitempty" xml:"status,omitempty"`
+	TaskBizId   *string                                       `json:"taskBizId,omitempty" xml:"taskBizId,omitempty"`
+	Title       *string                                       `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetConvertResultResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConvertResultResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetConvertResultResponseBodyResult) SetCorpId(v string) *GetConvertResultResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetConvertResultResponseBodyResult) SetCreateTime(v float32) *GetConvertResultResponseBodyResult {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *GetConvertResultResponseBodyResult) SetCreatorName(v string) *GetConvertResultResponseBodyResult {
+	s.CreatorName = &v
+	return s
+}
+
+func (s *GetConvertResultResponseBodyResult) SetOutputInfo(v *GetConvertResultResponseBodyResultOutputInfo) *GetConvertResultResponseBodyResult {
+	s.OutputInfo = v
+	return s
+}
+
+func (s *GetConvertResultResponseBodyResult) SetStatus(v string) *GetConvertResultResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *GetConvertResultResponseBodyResult) SetTaskBizId(v string) *GetConvertResultResponseBodyResult {
+	s.TaskBizId = &v
+	return s
+}
+
+func (s *GetConvertResultResponseBodyResult) SetTitle(v string) *GetConvertResultResponseBodyResult {
+	s.Title = &v
+	return s
+}
+
+type GetConvertResultResponseBodyResultOutputInfo struct {
+	Content  *string  `json:"content,omitempty" xml:"content,omitempty"`
+	FileName *string  `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize *float32 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	FileType *string  `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	FileUrl  *string  `json:"fileUrl,omitempty" xml:"fileUrl,omitempty"`
+}
+
+func (s GetConvertResultResponseBodyResultOutputInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConvertResultResponseBodyResultOutputInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetConvertResultResponseBodyResultOutputInfo) SetContent(v string) *GetConvertResultResponseBodyResultOutputInfo {
+	s.Content = &v
+	return s
+}
+
+func (s *GetConvertResultResponseBodyResultOutputInfo) SetFileName(v string) *GetConvertResultResponseBodyResultOutputInfo {
+	s.FileName = &v
+	return s
+}
+
+func (s *GetConvertResultResponseBodyResultOutputInfo) SetFileSize(v float32) *GetConvertResultResponseBodyResultOutputInfo {
+	s.FileSize = &v
+	return s
+}
+
+func (s *GetConvertResultResponseBodyResultOutputInfo) SetFileType(v string) *GetConvertResultResponseBodyResultOutputInfo {
+	s.FileType = &v
+	return s
+}
+
+func (s *GetConvertResultResponseBodyResultOutputInfo) SetFileUrl(v string) *GetConvertResultResponseBodyResultOutputInfo {
+	s.FileUrl = &v
+	return s
+}
+
+type GetConvertResultResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetConvertResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetConvertResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetConvertResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetConvertResultResponse) SetHeaders(v map[string]*string) *GetConvertResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetConvertResultResponse) SetStatusCode(v int32) *GetConvertResultResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetConvertResultResponse) SetBody(v *GetConvertResultResponseBody) *GetConvertResultResponse {
+	s.Body = v
+	return s
+}
+
 type GetTaskPackageResultHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -21029,6 +21228,149 @@ func (s *IndustryMmanufactureMaterialCostGetResponse) SetBody(v *IndustryMmanufa
 	return s
 }
 
+type OrderConvertHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s OrderConvertHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrderConvertHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *OrderConvertHeaders) SetCommonHeaders(v map[string]*string) *OrderConvertHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *OrderConvertHeaders) SetXAcsDingtalkAccessToken(v string) *OrderConvertHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type OrderConvertRequest struct {
+	Attachments []*OrderConvertRequestAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+	// This parameter is required.
+	OperateUserId *string `json:"operateUserId,omitempty" xml:"operateUserId,omitempty"`
+	// This parameter is required.
+	RuleBizId *string `json:"ruleBizId,omitempty" xml:"ruleBizId,omitempty"`
+}
+
+func (s OrderConvertRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrderConvertRequest) GoString() string {
+	return s.String()
+}
+
+func (s *OrderConvertRequest) SetAttachments(v []*OrderConvertRequestAttachments) *OrderConvertRequest {
+	s.Attachments = v
+	return s
+}
+
+func (s *OrderConvertRequest) SetOperateUserId(v string) *OrderConvertRequest {
+	s.OperateUserId = &v
+	return s
+}
+
+func (s *OrderConvertRequest) SetRuleBizId(v string) *OrderConvertRequest {
+	s.RuleBizId = &v
+	return s
+}
+
+type OrderConvertRequestAttachments struct {
+	// This parameter is required.
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// This parameter is required.
+	FileUrl *string `json:"fileUrl,omitempty" xml:"fileUrl,omitempty"`
+}
+
+func (s OrderConvertRequestAttachments) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrderConvertRequestAttachments) GoString() string {
+	return s.String()
+}
+
+func (s *OrderConvertRequestAttachments) SetFileName(v string) *OrderConvertRequestAttachments {
+	s.FileName = &v
+	return s
+}
+
+func (s *OrderConvertRequestAttachments) SetFileUrl(v string) *OrderConvertRequestAttachments {
+	s.FileUrl = &v
+	return s
+}
+
+type OrderConvertResponseBody struct {
+	DingOpenErrcode *int64  `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	ErrorMsg        *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result          *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success         *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s OrderConvertResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrderConvertResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *OrderConvertResponseBody) SetDingOpenErrcode(v int64) *OrderConvertResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *OrderConvertResponseBody) SetErrorMsg(v string) *OrderConvertResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *OrderConvertResponseBody) SetResult(v string) *OrderConvertResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *OrderConvertResponseBody) SetSuccess(v bool) *OrderConvertResponseBody {
+	s.Success = &v
+	return s
+}
+
+type OrderConvertResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *OrderConvertResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s OrderConvertResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OrderConvertResponse) GoString() string {
+	return s.String()
+}
+
+func (s *OrderConvertResponse) SetHeaders(v map[string]*string) *OrderConvertResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *OrderConvertResponse) SetStatusCode(v int32) *OrderConvertResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *OrderConvertResponse) SetBody(v *OrderConvertResponseBody) *OrderConvertResponse {
+	s.Body = v
+	return s
+}
+
 type PushDingMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -23158,6 +23500,306 @@ func (s *QueryChatAIOXMInfoResponse) SetBody(v *QueryChatAIOXMInfoResponseBody) 
 	return s
 }
 
+type QueryConvertRulesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryConvertRulesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConvertRulesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConvertRulesHeaders) SetCommonHeaders(v map[string]*string) *QueryConvertRulesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryConvertRulesHeaders) SetXAcsDingtalkAccessToken(v string) *QueryConvertRulesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryConvertRulesRequest struct {
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	// This parameter is required.
+	PageNo *int64 `json:"pageNo,omitempty" xml:"pageNo,omitempty"`
+	// This parameter is required.
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s QueryConvertRulesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConvertRulesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConvertRulesRequest) SetKeyword(v string) *QueryConvertRulesRequest {
+	s.Keyword = &v
+	return s
+}
+
+func (s *QueryConvertRulesRequest) SetPageNo(v int64) *QueryConvertRulesRequest {
+	s.PageNo = &v
+	return s
+}
+
+func (s *QueryConvertRulesRequest) SetPageSize(v int64) *QueryConvertRulesRequest {
+	s.PageSize = &v
+	return s
+}
+
+type QueryConvertRulesResponseBody struct {
+	DingOpenErrcode *int64                               `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	ErrorMsg        *string                              `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result          *QueryConvertRulesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success         *bool                                `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryConvertRulesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConvertRulesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConvertRulesResponseBody) SetDingOpenErrcode(v int64) *QueryConvertRulesResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBody) SetErrorMsg(v string) *QueryConvertRulesResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBody) SetResult(v *QueryConvertRulesResponseBodyResult) *QueryConvertRulesResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBody) SetSuccess(v bool) *QueryConvertRulesResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryConvertRulesResponseBodyResult struct {
+	Items      []*QueryConvertRulesResponseBodyResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	PageNo     *float32                                    `json:"pageNo,omitempty" xml:"pageNo,omitempty"`
+	PageSize   *float32                                    `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	TotalCount *float32                                    `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	TotalPages *float32                                    `json:"totalPages,omitempty" xml:"totalPages,omitempty"`
+}
+
+func (s QueryConvertRulesResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConvertRulesResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConvertRulesResponseBodyResult) SetItems(v []*QueryConvertRulesResponseBodyResultItems) *QueryConvertRulesResponseBodyResult {
+	s.Items = v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResult) SetPageNo(v float32) *QueryConvertRulesResponseBodyResult {
+	s.PageNo = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResult) SetPageSize(v float32) *QueryConvertRulesResponseBodyResult {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResult) SetTotalCount(v float32) *QueryConvertRulesResponseBodyResult {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResult) SetTotalPages(v float32) *QueryConvertRulesResponseBodyResult {
+	s.TotalPages = &v
+	return s
+}
+
+type QueryConvertRulesResponseBodyResultItems struct {
+	CorpId      *string                                                `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Description *string                                                `json:"description,omitempty" xml:"description,omitempty"`
+	GmtCreate   *float32                                               `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified *float32                                               `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	Name        *string                                                `json:"name,omitempty" xml:"name,omitempty"`
+	RuleBizId   *string                                                `json:"ruleBizId,omitempty" xml:"ruleBizId,omitempty"`
+	SourceFiles []*QueryConvertRulesResponseBodyResultItemsSourceFiles `json:"sourceFiles,omitempty" xml:"sourceFiles,omitempty" type:"Repeated"`
+	TargetFiles []*QueryConvertRulesResponseBodyResultItemsTargetFiles `json:"targetFiles,omitempty" xml:"targetFiles,omitempty" type:"Repeated"`
+}
+
+func (s QueryConvertRulesResponseBodyResultItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConvertRulesResponseBodyResultItems) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConvertRulesResponseBodyResultItems) SetCorpId(v string) *QueryConvertRulesResponseBodyResultItems {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResultItems) SetDescription(v string) *QueryConvertRulesResponseBodyResultItems {
+	s.Description = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResultItems) SetGmtCreate(v float32) *QueryConvertRulesResponseBodyResultItems {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResultItems) SetGmtModified(v float32) *QueryConvertRulesResponseBodyResultItems {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResultItems) SetName(v string) *QueryConvertRulesResponseBodyResultItems {
+	s.Name = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResultItems) SetRuleBizId(v string) *QueryConvertRulesResponseBodyResultItems {
+	s.RuleBizId = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResultItems) SetSourceFiles(v []*QueryConvertRulesResponseBodyResultItemsSourceFiles) *QueryConvertRulesResponseBodyResultItems {
+	s.SourceFiles = v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResultItems) SetTargetFiles(v []*QueryConvertRulesResponseBodyResultItemsTargetFiles) *QueryConvertRulesResponseBodyResultItems {
+	s.TargetFiles = v
+	return s
+}
+
+type QueryConvertRulesResponseBodyResultItemsSourceFiles struct {
+	FileName   *string  `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize   *float32 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	FileTag    *string  `json:"fileTag,omitempty" xml:"fileTag,omitempty"`
+	MediaId    *string  `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	PreviewUrl *string  `json:"previewUrl,omitempty" xml:"previewUrl,omitempty"`
+}
+
+func (s QueryConvertRulesResponseBodyResultItemsSourceFiles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConvertRulesResponseBodyResultItemsSourceFiles) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConvertRulesResponseBodyResultItemsSourceFiles) SetFileName(v string) *QueryConvertRulesResponseBodyResultItemsSourceFiles {
+	s.FileName = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResultItemsSourceFiles) SetFileSize(v float32) *QueryConvertRulesResponseBodyResultItemsSourceFiles {
+	s.FileSize = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResultItemsSourceFiles) SetFileTag(v string) *QueryConvertRulesResponseBodyResultItemsSourceFiles {
+	s.FileTag = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResultItemsSourceFiles) SetMediaId(v string) *QueryConvertRulesResponseBodyResultItemsSourceFiles {
+	s.MediaId = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResultItemsSourceFiles) SetPreviewUrl(v string) *QueryConvertRulesResponseBodyResultItemsSourceFiles {
+	s.PreviewUrl = &v
+	return s
+}
+
+type QueryConvertRulesResponseBodyResultItemsTargetFiles struct {
+	FileName   *string  `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize   *float32 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	FileTag    *string  `json:"fileTag,omitempty" xml:"fileTag,omitempty"`
+	MediaId    *string  `json:"mediaId,omitempty" xml:"mediaId,omitempty"`
+	PreviewUrl *string  `json:"previewUrl,omitempty" xml:"previewUrl,omitempty"`
+}
+
+func (s QueryConvertRulesResponseBodyResultItemsTargetFiles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConvertRulesResponseBodyResultItemsTargetFiles) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConvertRulesResponseBodyResultItemsTargetFiles) SetFileName(v string) *QueryConvertRulesResponseBodyResultItemsTargetFiles {
+	s.FileName = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResultItemsTargetFiles) SetFileSize(v float32) *QueryConvertRulesResponseBodyResultItemsTargetFiles {
+	s.FileSize = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResultItemsTargetFiles) SetFileTag(v string) *QueryConvertRulesResponseBodyResultItemsTargetFiles {
+	s.FileTag = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResultItemsTargetFiles) SetMediaId(v string) *QueryConvertRulesResponseBodyResultItemsTargetFiles {
+	s.MediaId = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponseBodyResultItemsTargetFiles) SetPreviewUrl(v string) *QueryConvertRulesResponseBodyResultItemsTargetFiles {
+	s.PreviewUrl = &v
+	return s
+}
+
+type QueryConvertRulesResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryConvertRulesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryConvertRulesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryConvertRulesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryConvertRulesResponse) SetHeaders(v map[string]*string) *QueryConvertRulesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryConvertRulesResponse) SetStatusCode(v int32) *QueryConvertRulesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryConvertRulesResponse) SetBody(v *QueryConvertRulesResponseBody) *QueryConvertRulesResponse {
+	s.Body = v
+	return s
+}
+
 type QueryDepartmentExtendInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -25268,6 +25910,289 @@ func (s *QueryMedicalEventsResponse) SetStatusCode(v int32) *QueryMedicalEventsR
 }
 
 func (s *QueryMedicalEventsResponse) SetBody(v *QueryMedicalEventsResponseBody) *QueryMedicalEventsResponse {
+	s.Body = v
+	return s
+}
+
+type QueryOrderConvertResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryOrderConvertResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrderConvertResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrderConvertResultHeaders) SetCommonHeaders(v map[string]*string) *QueryOrderConvertResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryOrderConvertResultHeaders) SetXAcsDingtalkAccessToken(v string) *QueryOrderConvertResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryOrderConvertResultRequest struct {
+	ContentSearch   *string `json:"contentSearch,omitempty" xml:"contentSearch,omitempty"`
+	CreateTimeEnd   *int64  `json:"createTimeEnd,omitempty" xml:"createTimeEnd,omitempty"`
+	CreateTimeStart *int64  `json:"createTimeStart,omitempty" xml:"createTimeStart,omitempty"`
+	// This parameter is required.
+	PageNo *int64 `json:"pageNo,omitempty" xml:"pageNo,omitempty"`
+	// This parameter is required.
+	PageSize *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	Status   *string `json:"status,omitempty" xml:"status,omitempty"`
+	Title    *string `json:"title,omitempty" xml:"title,omitempty"`
+	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryOrderConvertResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrderConvertResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrderConvertResultRequest) SetContentSearch(v string) *QueryOrderConvertResultRequest {
+	s.ContentSearch = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultRequest) SetCreateTimeEnd(v int64) *QueryOrderConvertResultRequest {
+	s.CreateTimeEnd = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultRequest) SetCreateTimeStart(v int64) *QueryOrderConvertResultRequest {
+	s.CreateTimeStart = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultRequest) SetPageNo(v int64) *QueryOrderConvertResultRequest {
+	s.PageNo = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultRequest) SetPageSize(v int64) *QueryOrderConvertResultRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultRequest) SetStatus(v string) *QueryOrderConvertResultRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultRequest) SetTitle(v string) *QueryOrderConvertResultRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultRequest) SetUserId(v string) *QueryOrderConvertResultRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryOrderConvertResultResponseBody struct {
+	DingOpenErrcode *int64                                     `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	ErrorMsg        *string                                    `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result          *QueryOrderConvertResultResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success         *bool                                      `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryOrderConvertResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrderConvertResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrderConvertResultResponseBody) SetDingOpenErrcode(v int64) *QueryOrderConvertResultResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponseBody) SetErrorMsg(v string) *QueryOrderConvertResultResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponseBody) SetResult(v *QueryOrderConvertResultResponseBodyResult) *QueryOrderConvertResultResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponseBody) SetSuccess(v bool) *QueryOrderConvertResultResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryOrderConvertResultResponseBodyResult struct {
+	Items      []*QueryOrderConvertResultResponseBodyResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	PageNo     *float32                                          `json:"pageNo,omitempty" xml:"pageNo,omitempty"`
+	PageSize   *float32                                          `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	TotalCount *float32                                          `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+	TotalPages *float32                                          `json:"totalPages,omitempty" xml:"totalPages,omitempty"`
+}
+
+func (s QueryOrderConvertResultResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrderConvertResultResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrderConvertResultResponseBodyResult) SetItems(v []*QueryOrderConvertResultResponseBodyResultItems) *QueryOrderConvertResultResponseBodyResult {
+	s.Items = v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponseBodyResult) SetPageNo(v float32) *QueryOrderConvertResultResponseBodyResult {
+	s.PageNo = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponseBodyResult) SetPageSize(v float32) *QueryOrderConvertResultResponseBodyResult {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponseBodyResult) SetTotalCount(v float32) *QueryOrderConvertResultResponseBodyResult {
+	s.TotalCount = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponseBodyResult) SetTotalPages(v float32) *QueryOrderConvertResultResponseBodyResult {
+	s.TotalPages = &v
+	return s
+}
+
+type QueryOrderConvertResultResponseBodyResultItems struct {
+	CorpId      *string                                                   `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CreateTime  *int64                                                    `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	CreatorName *string                                                   `json:"creatorName,omitempty" xml:"creatorName,omitempty"`
+	OutputInfo  *QueryOrderConvertResultResponseBodyResultItemsOutputInfo `json:"outputInfo,omitempty" xml:"outputInfo,omitempty" type:"Struct"`
+	Status      *string                                                   `json:"status,omitempty" xml:"status,omitempty"`
+	TaskBizId   *string                                                   `json:"taskBizId,omitempty" xml:"taskBizId,omitempty"`
+	Title       *string                                                   `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QueryOrderConvertResultResponseBodyResultItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrderConvertResultResponseBodyResultItems) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrderConvertResultResponseBodyResultItems) SetCorpId(v string) *QueryOrderConvertResultResponseBodyResultItems {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponseBodyResultItems) SetCreateTime(v int64) *QueryOrderConvertResultResponseBodyResultItems {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponseBodyResultItems) SetCreatorName(v string) *QueryOrderConvertResultResponseBodyResultItems {
+	s.CreatorName = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponseBodyResultItems) SetOutputInfo(v *QueryOrderConvertResultResponseBodyResultItemsOutputInfo) *QueryOrderConvertResultResponseBodyResultItems {
+	s.OutputInfo = v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponseBodyResultItems) SetStatus(v string) *QueryOrderConvertResultResponseBodyResultItems {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponseBodyResultItems) SetTaskBizId(v string) *QueryOrderConvertResultResponseBodyResultItems {
+	s.TaskBizId = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponseBodyResultItems) SetTitle(v string) *QueryOrderConvertResultResponseBodyResultItems {
+	s.Title = &v
+	return s
+}
+
+type QueryOrderConvertResultResponseBodyResultItemsOutputInfo struct {
+	Content  *string `json:"content,omitempty" xml:"content,omitempty"`
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	FileUrl  *string `json:"fileUrl,omitempty" xml:"fileUrl,omitempty"`
+}
+
+func (s QueryOrderConvertResultResponseBodyResultItemsOutputInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrderConvertResultResponseBodyResultItemsOutputInfo) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrderConvertResultResponseBodyResultItemsOutputInfo) SetContent(v string) *QueryOrderConvertResultResponseBodyResultItemsOutputInfo {
+	s.Content = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponseBodyResultItemsOutputInfo) SetFileName(v string) *QueryOrderConvertResultResponseBodyResultItemsOutputInfo {
+	s.FileName = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponseBodyResultItemsOutputInfo) SetFileSize(v string) *QueryOrderConvertResultResponseBodyResultItemsOutputInfo {
+	s.FileSize = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponseBodyResultItemsOutputInfo) SetFileType(v string) *QueryOrderConvertResultResponseBodyResultItemsOutputInfo {
+	s.FileType = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponseBodyResultItemsOutputInfo) SetFileUrl(v string) *QueryOrderConvertResultResponseBodyResultItemsOutputInfo {
+	s.FileUrl = &v
+	return s
+}
+
+type QueryOrderConvertResultResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryOrderConvertResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryOrderConvertResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrderConvertResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrderConvertResultResponse) SetHeaders(v map[string]*string) *QueryOrderConvertResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponse) SetStatusCode(v int32) *QueryOrderConvertResultResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryOrderConvertResultResponse) SetBody(v *QueryOrderConvertResultResponseBody) *QueryOrderConvertResultResponse {
 	s.Body = v
 	return s
 }
@@ -39246,6 +40171,79 @@ func (client *Client) ExternalQueryExternalOrgs(request *ExternalQueryExternalOr
 
 // Summary:
 //
+// 获取转换结果
+//
+// @param request - GetConvertResultRequest
+//
+// @param headers - GetConvertResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetConvertResultResponse
+func (client *Client) GetConvertResultWithOptions(request *GetConvertResultRequest, headers *GetConvertResultHeaders, runtime *util.RuntimeOptions) (_result *GetConvertResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskBizId)) {
+		body["taskBizId"] = request.TaskBizId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetConvertResult"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/order/convert/get"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetConvertResultResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取转换结果
+//
+// @param request - GetConvertResultRequest
+//
+// @return GetConvertResultResponse
+func (client *Client) GetConvertResult(request *GetConvertResultRequest) (_result *GetConvertResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetConvertResultHeaders{}
+	_result = &GetConvertResultResponse{}
+	_body, _err := client.GetConvertResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // getTaskPackageResult
 //
 // @param request - GetTaskPackageResultRequest
@@ -41407,6 +42405,87 @@ func (client *Client) IndustryMmanufactureMaterialCostGet(request *IndustryMmanu
 
 // Summary:
 //
+// 查询订单转换结果
+//
+// @param request - OrderConvertRequest
+//
+// @param headers - OrderConvertHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return OrderConvertResponse
+func (client *Client) OrderConvertWithOptions(request *OrderConvertRequest, headers *OrderConvertHeaders, runtime *util.RuntimeOptions) (_result *OrderConvertResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Attachments)) {
+		body["attachments"] = request.Attachments
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperateUserId)) {
+		body["operateUserId"] = request.OperateUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RuleBizId)) {
+		body["ruleBizId"] = request.RuleBizId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("OrderConvert"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/order/convert/execute"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &OrderConvertResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询订单转换结果
+//
+// @param request - OrderConvertRequest
+//
+// @return OrderConvertResponse
+func (client *Client) OrderConvert(request *OrderConvertRequest) (_result *OrderConvertResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &OrderConvertHeaders{}
+	_result = &OrderConvertResponse{}
+	_body, _err := client.OrderConvertWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 提供text和card两种形式工作通知消息
 //
 // @param request - PushDingMessageRequest
@@ -42136,6 +43215,87 @@ func (client *Client) QueryChatAIOXMInfo(request *QueryChatAIOXMInfoRequest) (_r
 
 // Summary:
 //
+// 查询订单转换规则
+//
+// @param request - QueryConvertRulesRequest
+//
+// @param headers - QueryConvertRulesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryConvertRulesResponse
+func (client *Client) QueryConvertRulesWithOptions(request *QueryConvertRulesRequest, headers *QueryConvertRulesHeaders, runtime *util.RuntimeOptions) (_result *QueryConvertRulesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
+		body["keyword"] = request.Keyword
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNo)) {
+		body["pageNo"] = request.PageNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryConvertRules"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/order/rule/page"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryConvertRulesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询订单转换规则
+//
+// @param request - QueryConvertRulesRequest
+//
+// @return QueryConvertRulesResponse
+func (client *Client) QueryConvertRules(request *QueryConvertRulesRequest) (_result *QueryConvertRulesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryConvertRulesHeaders{}
+	_result = &QueryConvertRulesResponse{}
+	_body, _err := client.QueryConvertRulesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 查询科室和医疗组的扩展信息
 //
 // @param request - QueryDepartmentExtendInfoRequest
@@ -42785,6 +43945,107 @@ func (client *Client) QueryMedicalEvents() (_result *QueryMedicalEventsResponse,
 	headers := &QueryMedicalEventsHeaders{}
 	_result = &QueryMedicalEventsResponse{}
 	_body, _err := client.QueryMedicalEventsWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询订单转换结果
+//
+// @param request - QueryOrderConvertResultRequest
+//
+// @param headers - QueryOrderConvertResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryOrderConvertResultResponse
+func (client *Client) QueryOrderConvertResultWithOptions(request *QueryOrderConvertResultRequest, headers *QueryOrderConvertResultHeaders, runtime *util.RuntimeOptions) (_result *QueryOrderConvertResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ContentSearch)) {
+		body["contentSearch"] = request.ContentSearch
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateTimeEnd)) {
+		body["createTimeEnd"] = request.CreateTimeEnd
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateTimeStart)) {
+		body["createTimeStart"] = request.CreateTimeStart
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNo)) {
+		body["pageNo"] = request.PageNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryOrderConvertResult"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/order/convert/list"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryOrderConvertResultResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询订单转换结果
+//
+// @param request - QueryOrderConvertResultRequest
+//
+// @return QueryOrderConvertResultResponse
+func (client *Client) QueryOrderConvertResult(request *QueryOrderConvertResultRequest) (_result *QueryOrderConvertResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryOrderConvertResultHeaders{}
+	_result = &QueryOrderConvertResultResponse{}
+	_body, _err := client.QueryOrderConvertResultWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

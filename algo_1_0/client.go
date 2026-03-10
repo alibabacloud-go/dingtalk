@@ -525,6 +525,289 @@ func (s *OkrOpenRecommendResponse) SetBody(v *OkrOpenRecommendResponseBody) *Okr
 	return s
 }
 
+type WeiqiaoAluminumQueryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s WeiqiaoAluminumQueryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WeiqiaoAluminumQueryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *WeiqiaoAluminumQueryHeaders) SetCommonHeaders(v map[string]*string) *WeiqiaoAluminumQueryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *WeiqiaoAluminumQueryHeaders) SetXAcsDingtalkAccessToken(v string) *WeiqiaoAluminumQueryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type WeiqiaoAluminumQueryRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	TaskId *string `json:"task_id,omitempty" xml:"task_id,omitempty"`
+}
+
+func (s WeiqiaoAluminumQueryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WeiqiaoAluminumQueryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *WeiqiaoAluminumQueryRequest) SetTaskId(v string) *WeiqiaoAluminumQueryRequest {
+	s.TaskId = &v
+	return s
+}
+
+type WeiqiaoAluminumQueryResponseBody struct {
+	Code    *int64  `json:"code,omitempty" xml:"code,omitempty"`
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	// example:
+	//
+	// {"Al-Si-Material": 1626, "Al-Fe-Material": 1575}
+	Result map[string]interface{} `json:"result,omitempty" xml:"result,omitempty"`
+	// example:
+	//
+	// finish
+	Status  *string `json:"status,omitempty" xml:"status,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s WeiqiaoAluminumQueryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WeiqiaoAluminumQueryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *WeiqiaoAluminumQueryResponseBody) SetCode(v int64) *WeiqiaoAluminumQueryResponseBody {
+	s.Code = &v
+	return s
+}
+
+func (s *WeiqiaoAluminumQueryResponseBody) SetMessage(v string) *WeiqiaoAluminumQueryResponseBody {
+	s.Message = &v
+	return s
+}
+
+func (s *WeiqiaoAluminumQueryResponseBody) SetResult(v map[string]interface{}) *WeiqiaoAluminumQueryResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *WeiqiaoAluminumQueryResponseBody) SetStatus(v string) *WeiqiaoAluminumQueryResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *WeiqiaoAluminumQueryResponseBody) SetSuccess(v bool) *WeiqiaoAluminumQueryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type WeiqiaoAluminumQueryResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *WeiqiaoAluminumQueryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s WeiqiaoAluminumQueryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WeiqiaoAluminumQueryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *WeiqiaoAluminumQueryResponse) SetHeaders(v map[string]*string) *WeiqiaoAluminumQueryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *WeiqiaoAluminumQueryResponse) SetStatusCode(v int32) *WeiqiaoAluminumQueryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *WeiqiaoAluminumQueryResponse) SetBody(v *WeiqiaoAluminumQueryResponseBody) *WeiqiaoAluminumQueryResponse {
+	s.Body = v
+	return s
+}
+
+type WeiqiaoAluminumSubmitHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s WeiqiaoAluminumSubmitHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WeiqiaoAluminumSubmitHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *WeiqiaoAluminumSubmitHeaders) SetCommonHeaders(v map[string]*string) *WeiqiaoAluminumSubmitHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *WeiqiaoAluminumSubmitHeaders) SetXAcsDingtalkAccessToken(v string) *WeiqiaoAluminumSubmitHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type WeiqiaoAluminumSubmitRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {         "sample_1": {             \"Weight\": 102000,             \"Al\": 97, \"Si\": 0.05, \"Fe\": 0.05         },         "sample_2": {             \"Weight\": 102000,             \"Al\": 98, \"Si\": 0.04, \"Fe\": 0.05         }     }
+	CurrentFurnace interface{} `json:"current_furnace,omitempty" xml:"current_furnace,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {}
+	DilutionConfig interface{} `json:"dilution_config,omitempty" xml:"dilution_config,omitempty"`
+	HistoryFurnace interface{} `json:"history_furnace,omitempty" xml:"history_furnace,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// [         {             \"Name\": \"Al-Si-Material\",             \"Primary_element\": \"Si\",             \"Si\": 10.0, \"Al\": 90.0         },         {             \"Name\": \"Al-Fe-Material\",             \"Primary_element\": \"Fe\",             \"Fe\": 10.0, \"Al\": 90.0         }     ]
+	RawMaterials interface{} `json:"raw_materials,omitempty" xml:"raw_materials,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// test_batch_001
+	Target interface{} `json:"target,omitempty" xml:"target,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// {         \"Si\": [0.1, 0.2, 0.3],         \"Fe\": [0.1, 0.2, 0.3]     }
+	TargetRanges interface{} `json:"target_ranges,omitempty" xml:"target_ranges,omitempty"`
+}
+
+func (s WeiqiaoAluminumSubmitRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WeiqiaoAluminumSubmitRequest) GoString() string {
+	return s.String()
+}
+
+func (s *WeiqiaoAluminumSubmitRequest) SetCurrentFurnace(v interface{}) *WeiqiaoAluminumSubmitRequest {
+	s.CurrentFurnace = v
+	return s
+}
+
+func (s *WeiqiaoAluminumSubmitRequest) SetDilutionConfig(v interface{}) *WeiqiaoAluminumSubmitRequest {
+	s.DilutionConfig = v
+	return s
+}
+
+func (s *WeiqiaoAluminumSubmitRequest) SetHistoryFurnace(v interface{}) *WeiqiaoAluminumSubmitRequest {
+	s.HistoryFurnace = v
+	return s
+}
+
+func (s *WeiqiaoAluminumSubmitRequest) SetRawMaterials(v interface{}) *WeiqiaoAluminumSubmitRequest {
+	s.RawMaterials = v
+	return s
+}
+
+func (s *WeiqiaoAluminumSubmitRequest) SetTarget(v interface{}) *WeiqiaoAluminumSubmitRequest {
+	s.Target = v
+	return s
+}
+
+func (s *WeiqiaoAluminumSubmitRequest) SetTargetRanges(v interface{}) *WeiqiaoAluminumSubmitRequest {
+	s.TargetRanges = v
+	return s
+}
+
+type WeiqiaoAluminumSubmitResponseBody struct {
+	Code    *int64  `json:"code,omitempty" xml:"code,omitempty"`
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	// example:
+	//
+	// xxx
+	TaskId *string `json:"task_id,omitempty" xml:"task_id,omitempty"`
+}
+
+func (s WeiqiaoAluminumSubmitResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WeiqiaoAluminumSubmitResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *WeiqiaoAluminumSubmitResponseBody) SetCode(v int64) *WeiqiaoAluminumSubmitResponseBody {
+	s.Code = &v
+	return s
+}
+
+func (s *WeiqiaoAluminumSubmitResponseBody) SetMessage(v string) *WeiqiaoAluminumSubmitResponseBody {
+	s.Message = &v
+	return s
+}
+
+func (s *WeiqiaoAluminumSubmitResponseBody) SetSuccess(v bool) *WeiqiaoAluminumSubmitResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *WeiqiaoAluminumSubmitResponseBody) SetTaskId(v string) *WeiqiaoAluminumSubmitResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+type WeiqiaoAluminumSubmitResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *WeiqiaoAluminumSubmitResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s WeiqiaoAluminumSubmitResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s WeiqiaoAluminumSubmitResponse) GoString() string {
+	return s.String()
+}
+
+func (s *WeiqiaoAluminumSubmitResponse) SetHeaders(v map[string]*string) *WeiqiaoAluminumSubmitResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *WeiqiaoAluminumSubmitResponse) SetStatusCode(v int32) *WeiqiaoAluminumSubmitResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *WeiqiaoAluminumSubmitResponse) SetBody(v *WeiqiaoAluminumSubmitResponseBody) *WeiqiaoAluminumSubmitResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -721,6 +1004,172 @@ func (client *Client) OkrOpenRecommend(request *OkrOpenRecommendRequest) (_resul
 	headers := &OkrOpenRecommendHeaders{}
 	_result = &OkrOpenRecommendResponse{}
 	_body, _err := client.OkrOpenRecommendWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 魏桥铝原料预测任务查询
+//
+// @param request - WeiqiaoAluminumQueryRequest
+//
+// @param headers - WeiqiaoAluminumQueryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return WeiqiaoAluminumQueryResponse
+func (client *Client) WeiqiaoAluminumQueryWithOptions(request *WeiqiaoAluminumQueryRequest, headers *WeiqiaoAluminumQueryHeaders, runtime *util.RuntimeOptions) (_result *WeiqiaoAluminumQueryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["task_id"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("WeiqiaoAluminumQuery"),
+		Version:     tea.String("algo_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/algo/industry/weiqiao/aluminum/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &WeiqiaoAluminumQueryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 魏桥铝原料预测任务查询
+//
+// @param request - WeiqiaoAluminumQueryRequest
+//
+// @return WeiqiaoAluminumQueryResponse
+func (client *Client) WeiqiaoAluminumQuery(request *WeiqiaoAluminumQueryRequest) (_result *WeiqiaoAluminumQueryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &WeiqiaoAluminumQueryHeaders{}
+	_result = &WeiqiaoAluminumQueryResponse{}
+	_body, _err := client.WeiqiaoAluminumQueryWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 魏桥铝原料预测任务提交
+//
+// @param request - WeiqiaoAluminumSubmitRequest
+//
+// @param headers - WeiqiaoAluminumSubmitHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return WeiqiaoAluminumSubmitResponse
+func (client *Client) WeiqiaoAluminumSubmitWithOptions(request *WeiqiaoAluminumSubmitRequest, headers *WeiqiaoAluminumSubmitHeaders, runtime *util.RuntimeOptions) (_result *WeiqiaoAluminumSubmitResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CurrentFurnace)) {
+		body["current_furnace"] = request.CurrentFurnace
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DilutionConfig)) {
+		body["dilution_config"] = request.DilutionConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HistoryFurnace)) {
+		body["history_furnace"] = request.HistoryFurnace
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RawMaterials)) {
+		body["raw_materials"] = request.RawMaterials
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Target)) {
+		body["target"] = request.Target
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetRanges)) {
+		body["target_ranges"] = request.TargetRanges
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("WeiqiaoAluminumSubmit"),
+		Version:     tea.String("algo_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/algo/industry/weiqiao/aluminum/submit"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &WeiqiaoAluminumSubmitResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 魏桥铝原料预测任务提交
+//
+// @param request - WeiqiaoAluminumSubmitRequest
+//
+// @return WeiqiaoAluminumSubmitResponse
+func (client *Client) WeiqiaoAluminumSubmit(request *WeiqiaoAluminumSubmitRequest) (_result *WeiqiaoAluminumSubmitResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &WeiqiaoAluminumSubmitHeaders{}
+	_result = &WeiqiaoAluminumSubmitResponse{}
+	_body, _err := client.WeiqiaoAluminumSubmitWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -1667,75 +1667,19 @@ func (s *GetInnerAppHeaders) SetXAcsDingtalkAccessToken(v string) *GetInnerAppHe
 	return s
 }
 
-type GetInnerAppRequest struct {
-	// example:
-	//
-	// corpxxxx
-	EcologicalCorpId *string `json:"ecologicalCorpId,omitempty" xml:"ecologicalCorpId,omitempty"`
-	// example:
-	//
-	// xxxx
-	OpUnionId *string `json:"opUnionId,omitempty" xml:"opUnionId,omitempty"`
-}
-
-func (s GetInnerAppRequest) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetInnerAppRequest) GoString() string {
-	return s.String()
-}
-
-func (s *GetInnerAppRequest) SetEcologicalCorpId(v string) *GetInnerAppRequest {
-	s.EcologicalCorpId = &v
-	return s
-}
-
-func (s *GetInnerAppRequest) SetOpUnionId(v string) *GetInnerAppRequest {
-	s.OpUnionId = &v
-	return s
-}
-
 type GetInnerAppResponseBody struct {
-	// example:
-	//
-	// 1
-	AgentId *int64 `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	// example:
-	//
-	// aooxxx
-	AppKey *string `json:"appKey,omitempty" xml:"appKey,omitempty"`
-	// This parameter is required.
-	//
-	// example:
-	//
-	// aaaxxxxx
-	AppSecret *string `json:"appSecret,omitempty" xml:"appSecret,omitempty"`
-	// example:
-	//
-	// desc
-	Desc *string `json:"desc,omitempty" xml:"desc,omitempty"`
-	// example:
-	//
-	// https://www.dingtalk.com
-	HomepageLink *string `json:"homepageLink,omitempty" xml:"homepageLink,omitempty"`
-	// example:
-	//
-	// icon
-	Icon        *string   `json:"icon,omitempty" xml:"icon,omitempty"`
-	IpWhiteList []*string `json:"ipWhiteList,omitempty" xml:"ipWhiteList,omitempty" type:"Repeated"`
-	// example:
-	//
-	// name
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
-	// example:
-	//
-	// https://www.dingtalk.com
-	OmpLink *string `json:"ompLink,omitempty" xml:"ompLink,omitempty"`
-	// example:
-	//
-	// https://www.dingtalk.com
-	PcHomepageLink *string `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
+	AgentId                   *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	AppName                   *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	CustomerAppId             *string `json:"customerAppId,omitempty" xml:"customerAppId,omitempty"`
+	MobileLoginAddressKey     *string `json:"mobileLoginAddressKey,omitempty" xml:"mobileLoginAddressKey,omitempty"`
+	MobileLoginLoginUrl       *string `json:"mobileLoginLoginUrl,omitempty" xml:"mobileLoginLoginUrl,omitempty"`
+	MobileOriginalHomepageUrl *string `json:"mobileOriginalHomepageUrl,omitempty" xml:"mobileOriginalHomepageUrl,omitempty"`
+	MobileTransferUrl         *string `json:"mobileTransferUrl,omitempty" xml:"mobileTransferUrl,omitempty"`
+	PcEffectiveHomepageUrl    *string `json:"pcEffectiveHomepageUrl,omitempty" xml:"pcEffectiveHomepageUrl,omitempty"`
+	PcLoginAddressKey         *string `json:"pcLoginAddressKey,omitempty" xml:"pcLoginAddressKey,omitempty"`
+	PcLoginLoginUrl           *string `json:"pcLoginLoginUrl,omitempty" xml:"pcLoginLoginUrl,omitempty"`
+	PcOriginalHomepageUrl     *string `json:"pcOriginalHomepageUrl,omitempty" xml:"pcOriginalHomepageUrl,omitempty"`
+	PcTransferUrl             *string `json:"pcTransferUrl,omitempty" xml:"pcTransferUrl,omitempty"`
 }
 
 func (s GetInnerAppResponseBody) String() string {
@@ -1751,48 +1695,58 @@ func (s *GetInnerAppResponseBody) SetAgentId(v int64) *GetInnerAppResponseBody {
 	return s
 }
 
-func (s *GetInnerAppResponseBody) SetAppKey(v string) *GetInnerAppResponseBody {
-	s.AppKey = &v
+func (s *GetInnerAppResponseBody) SetAppName(v string) *GetInnerAppResponseBody {
+	s.AppName = &v
 	return s
 }
 
-func (s *GetInnerAppResponseBody) SetAppSecret(v string) *GetInnerAppResponseBody {
-	s.AppSecret = &v
+func (s *GetInnerAppResponseBody) SetCustomerAppId(v string) *GetInnerAppResponseBody {
+	s.CustomerAppId = &v
 	return s
 }
 
-func (s *GetInnerAppResponseBody) SetDesc(v string) *GetInnerAppResponseBody {
-	s.Desc = &v
+func (s *GetInnerAppResponseBody) SetMobileLoginAddressKey(v string) *GetInnerAppResponseBody {
+	s.MobileLoginAddressKey = &v
 	return s
 }
 
-func (s *GetInnerAppResponseBody) SetHomepageLink(v string) *GetInnerAppResponseBody {
-	s.HomepageLink = &v
+func (s *GetInnerAppResponseBody) SetMobileLoginLoginUrl(v string) *GetInnerAppResponseBody {
+	s.MobileLoginLoginUrl = &v
 	return s
 }
 
-func (s *GetInnerAppResponseBody) SetIcon(v string) *GetInnerAppResponseBody {
-	s.Icon = &v
+func (s *GetInnerAppResponseBody) SetMobileOriginalHomepageUrl(v string) *GetInnerAppResponseBody {
+	s.MobileOriginalHomepageUrl = &v
 	return s
 }
 
-func (s *GetInnerAppResponseBody) SetIpWhiteList(v []*string) *GetInnerAppResponseBody {
-	s.IpWhiteList = v
+func (s *GetInnerAppResponseBody) SetMobileTransferUrl(v string) *GetInnerAppResponseBody {
+	s.MobileTransferUrl = &v
 	return s
 }
 
-func (s *GetInnerAppResponseBody) SetName(v string) *GetInnerAppResponseBody {
-	s.Name = &v
+func (s *GetInnerAppResponseBody) SetPcEffectiveHomepageUrl(v string) *GetInnerAppResponseBody {
+	s.PcEffectiveHomepageUrl = &v
 	return s
 }
 
-func (s *GetInnerAppResponseBody) SetOmpLink(v string) *GetInnerAppResponseBody {
-	s.OmpLink = &v
+func (s *GetInnerAppResponseBody) SetPcLoginAddressKey(v string) *GetInnerAppResponseBody {
+	s.PcLoginAddressKey = &v
 	return s
 }
 
-func (s *GetInnerAppResponseBody) SetPcHomepageLink(v string) *GetInnerAppResponseBody {
-	s.PcHomepageLink = &v
+func (s *GetInnerAppResponseBody) SetPcLoginLoginUrl(v string) *GetInnerAppResponseBody {
+	s.PcLoginLoginUrl = &v
+	return s
+}
+
+func (s *GetInnerAppResponseBody) SetPcOriginalHomepageUrl(v string) *GetInnerAppResponseBody {
+	s.PcOriginalHomepageUrl = &v
+	return s
+}
+
+func (s *GetInnerAppResponseBody) SetPcTransferUrl(v string) *GetInnerAppResponseBody {
+	s.PcTransferUrl = &v
 	return s
 }
 
@@ -1821,6 +1775,153 @@ func (s *GetInnerAppResponse) SetStatusCode(v int32) *GetInnerAppResponse {
 }
 
 func (s *GetInnerAppResponse) SetBody(v *GetInnerAppResponseBody) *GetInnerAppResponse {
+	s.Body = v
+	return s
+}
+
+type GetInnerAppInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetInnerAppInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInnerAppInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetInnerAppInfoHeaders) SetCommonHeaders(v map[string]*string) *GetInnerAppInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetInnerAppInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetInnerAppInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetInnerAppInfoResponseBody struct {
+	AgentId                   *int64  `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	AppName                   *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	CustomerAppId             *string `json:"customerAppId,omitempty" xml:"customerAppId,omitempty"`
+	MobileLoginAddressKey     *string `json:"mobileLoginAddressKey,omitempty" xml:"mobileLoginAddressKey,omitempty"`
+	MobileLoginLoginUrl       *string `json:"mobileLoginLoginUrl,omitempty" xml:"mobileLoginLoginUrl,omitempty"`
+	MobileLoginRequestMethod  *string `json:"mobileLoginRequestMethod,omitempty" xml:"mobileLoginRequestMethod,omitempty"`
+	MobileOriginalHomepageUrl *string `json:"mobileOriginalHomepageUrl,omitempty" xml:"mobileOriginalHomepageUrl,omitempty"`
+	MobileTransferUrl         *string `json:"mobileTransferUrl,omitempty" xml:"mobileTransferUrl,omitempty"`
+	PcEffectiveHomepageUrl    *string `json:"pcEffectiveHomepageUrl,omitempty" xml:"pcEffectiveHomepageUrl,omitempty"`
+	PcLoginAddressKey         *string `json:"pcLoginAddressKey,omitempty" xml:"pcLoginAddressKey,omitempty"`
+	PcLoginLoginUrl           *string `json:"pcLoginLoginUrl,omitempty" xml:"pcLoginLoginUrl,omitempty"`
+	PcLoginRequestMethod      *string `json:"pcLoginRequestMethod,omitempty" xml:"pcLoginRequestMethod,omitempty"`
+	PcOriginalHomepageUrl     *string `json:"pcOriginalHomepageUrl,omitempty" xml:"pcOriginalHomepageUrl,omitempty"`
+	PcTransferUrl             *string `json:"pcTransferUrl,omitempty" xml:"pcTransferUrl,omitempty"`
+}
+
+func (s GetInnerAppInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInnerAppInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetInnerAppInfoResponseBody) SetAgentId(v int64) *GetInnerAppInfoResponseBody {
+	s.AgentId = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetAppName(v string) *GetInnerAppInfoResponseBody {
+	s.AppName = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetCustomerAppId(v string) *GetInnerAppInfoResponseBody {
+	s.CustomerAppId = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetMobileLoginAddressKey(v string) *GetInnerAppInfoResponseBody {
+	s.MobileLoginAddressKey = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetMobileLoginLoginUrl(v string) *GetInnerAppInfoResponseBody {
+	s.MobileLoginLoginUrl = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetMobileLoginRequestMethod(v string) *GetInnerAppInfoResponseBody {
+	s.MobileLoginRequestMethod = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetMobileOriginalHomepageUrl(v string) *GetInnerAppInfoResponseBody {
+	s.MobileOriginalHomepageUrl = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetMobileTransferUrl(v string) *GetInnerAppInfoResponseBody {
+	s.MobileTransferUrl = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetPcEffectiveHomepageUrl(v string) *GetInnerAppInfoResponseBody {
+	s.PcEffectiveHomepageUrl = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetPcLoginAddressKey(v string) *GetInnerAppInfoResponseBody {
+	s.PcLoginAddressKey = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetPcLoginLoginUrl(v string) *GetInnerAppInfoResponseBody {
+	s.PcLoginLoginUrl = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetPcLoginRequestMethod(v string) *GetInnerAppInfoResponseBody {
+	s.PcLoginRequestMethod = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetPcOriginalHomepageUrl(v string) *GetInnerAppInfoResponseBody {
+	s.PcOriginalHomepageUrl = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetPcTransferUrl(v string) *GetInnerAppInfoResponseBody {
+	s.PcTransferUrl = &v
+	return s
+}
+
+type GetInnerAppInfoResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetInnerAppInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetInnerAppInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInnerAppInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetInnerAppInfoResponse) SetHeaders(v map[string]*string) *GetInnerAppInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetInnerAppInfoResponse) SetStatusCode(v int32) *GetInnerAppInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponse) SetBody(v *GetInnerAppInfoResponseBody) *GetInnerAppInfoResponse {
 	s.Body = v
 	return s
 }
@@ -6206,29 +6307,14 @@ func (client *Client) GetAppRoleScopeByRoleId(agentId *string, roleId *string) (
 
 // Summary:
 //
-// 获取企业内部H5应用
-//
-// @param request - GetInnerAppRequest
+// 获取企业内部应用
 //
 // @param headers - GetInnerAppHeaders
 //
 // @param runtime - runtime options for this request RuntimeOptions
 //
 // @return GetInnerAppResponse
-func (client *Client) GetInnerAppWithOptions(agentId *string, request *GetInnerAppRequest, headers *GetInnerAppHeaders, runtime *util.RuntimeOptions) (_result *GetInnerAppResponse, _err error) {
-	_err = util.ValidateModel(request)
-	if _err != nil {
-		return _result, _err
-	}
-	query := map[string]interface{}{}
-	if !tea.BoolValue(util.IsUnset(request.EcologicalCorpId)) {
-		query["ecologicalCorpId"] = request.EcologicalCorpId
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OpUnionId)) {
-		query["opUnionId"] = request.OpUnionId
-	}
-
+func (client *Client) GetInnerAppWithOptions(agentId *string, headers *GetInnerAppHeaders, runtime *util.RuntimeOptions) (_result *GetInnerAppResponse, _err error) {
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -6240,13 +6326,12 @@ func (client *Client) GetInnerAppWithOptions(agentId *string, request *GetInnerA
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
 	}
 	params := &openapi.Params{
 		Action:      tea.String("GetInnerApp"),
 		Version:     tea.String("microApp_1.0"),
 		Protocol:    tea.String("HTTP"),
-		Pathname:    tea.String("/v1.0/microApp/apps/" + tea.StringValue(agentId)),
+		Pathname:    tea.String("/v1.0/microApp/apps/inner/" + tea.StringValue(agentId)),
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
@@ -6264,16 +6349,73 @@ func (client *Client) GetInnerAppWithOptions(agentId *string, request *GetInnerA
 
 // Summary:
 //
-// 获取企业内部H5应用
-//
-// @param request - GetInnerAppRequest
+// 获取企业内部应用
 //
 // @return GetInnerAppResponse
-func (client *Client) GetInnerApp(agentId *string, request *GetInnerAppRequest) (_result *GetInnerAppResponse, _err error) {
+func (client *Client) GetInnerApp(agentId *string) (_result *GetInnerAppResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetInnerAppHeaders{}
 	_result = &GetInnerAppResponse{}
-	_body, _err := client.GetInnerAppWithOptions(agentId, request, headers, runtime)
+	_body, _err := client.GetInnerAppWithOptions(agentId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取企业内部应用信息
+//
+// @param headers - GetInnerAppInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetInnerAppInfoResponse
+func (client *Client) GetInnerAppInfoWithOptions(agentId *string, headers *GetInnerAppInfoHeaders, runtime *util.RuntimeOptions) (_result *GetInnerAppInfoResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetInnerAppInfo"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/apps/innerapps/" + tea.StringValue(agentId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetInnerAppInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取企业内部应用信息
+//
+// @return GetInnerAppInfoResponse
+func (client *Client) GetInnerAppInfo(agentId *string) (_result *GetInnerAppInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetInnerAppInfoHeaders{}
+	_result = &GetInnerAppInfoResponse{}
+	_body, _err := client.GetInnerAppInfoWithOptions(agentId, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

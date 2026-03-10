@@ -1293,6 +1293,159 @@ func (s *AddRosterFieldFormResponse) SetBody(v *AddRosterFieldFormResponseBody) 
 	return s
 }
 
+type ConvertUnionIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ConvertUnionIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConvertUnionIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ConvertUnionIdHeaders) SetCommonHeaders(v map[string]*string) *ConvertUnionIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ConvertUnionIdHeaders) SetXAcsDingtalkAccessToken(v string) *ConvertUnionIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ConvertUnionIdRequest struct {
+	UnionIdList []*string `json:"unionIdList,omitempty" xml:"unionIdList,omitempty" type:"Repeated"`
+	UserIdList  []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s ConvertUnionIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConvertUnionIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ConvertUnionIdRequest) SetUnionIdList(v []*string) *ConvertUnionIdRequest {
+	s.UnionIdList = v
+	return s
+}
+
+func (s *ConvertUnionIdRequest) SetUserIdList(v []*string) *ConvertUnionIdRequest {
+	s.UserIdList = v
+	return s
+}
+
+type ConvertUnionIdResponseBody struct {
+	Result  *ConvertUnionIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                             `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ConvertUnionIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConvertUnionIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ConvertUnionIdResponseBody) SetResult(v *ConvertUnionIdResponseBodyResult) *ConvertUnionIdResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *ConvertUnionIdResponseBody) SetSuccess(v bool) *ConvertUnionIdResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ConvertUnionIdResponseBodyResult struct {
+	// example:
+	//
+	// corpId123
+	CorpId               *string                                                 `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	IsvUserUnionIdVOList []*ConvertUnionIdResponseBodyResultIsvUserUnionIdVOList `json:"isvUserUnionIdVOList,omitempty" xml:"isvUserUnionIdVOList,omitempty" type:"Repeated"`
+}
+
+func (s ConvertUnionIdResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConvertUnionIdResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ConvertUnionIdResponseBodyResult) SetCorpId(v string) *ConvertUnionIdResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ConvertUnionIdResponseBodyResult) SetIsvUserUnionIdVOList(v []*ConvertUnionIdResponseBodyResultIsvUserUnionIdVOList) *ConvertUnionIdResponseBodyResult {
+	s.IsvUserUnionIdVOList = v
+	return s
+}
+
+type ConvertUnionIdResponseBodyResultIsvUserUnionIdVOList struct {
+	// example:
+	//
+	// unionId123
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+	// example:
+	//
+	// userId123
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ConvertUnionIdResponseBodyResultIsvUserUnionIdVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConvertUnionIdResponseBodyResultIsvUserUnionIdVOList) GoString() string {
+	return s.String()
+}
+
+func (s *ConvertUnionIdResponseBodyResultIsvUserUnionIdVOList) SetUnionId(v string) *ConvertUnionIdResponseBodyResultIsvUserUnionIdVOList {
+	s.UnionId = &v
+	return s
+}
+
+func (s *ConvertUnionIdResponseBodyResultIsvUserUnionIdVOList) SetUserId(v string) *ConvertUnionIdResponseBodyResultIsvUserUnionIdVOList {
+	s.UserId = &v
+	return s
+}
+
+type ConvertUnionIdResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ConvertUnionIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ConvertUnionIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ConvertUnionIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ConvertUnionIdResponse) SetHeaders(v map[string]*string) *ConvertUnionIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ConvertUnionIdResponse) SetStatusCode(v int32) *ConvertUnionIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ConvertUnionIdResponse) SetBody(v *ConvertUnionIdResponseBody) *ConvertUnionIdResponse {
+	s.Body = v
+	return s
+}
+
 type CreateRecordHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2830,6 +2983,162 @@ func (s *GetAllDismissionReasonsResponse) SetStatusCode(v int32) *GetAllDismissi
 }
 
 func (s *GetAllDismissionReasonsResponse) SetBody(v *GetAllDismissionReasonsResponseBody) *GetAllDismissionReasonsResponse {
+	s.Body = v
+	return s
+}
+
+type GetDismissionRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetDismissionRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDismissionRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetDismissionRecordHeaders) SetCommonHeaders(v map[string]*string) *GetDismissionRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetDismissionRecordHeaders) SetXAcsDingtalkAccessToken(v string) *GetDismissionRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetDismissionRecordRequest struct {
+	// example:
+	//
+	// 0
+	NextToken *int64 `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// example:
+	//
+	// 30
+	Size *int32 `json:"size,omitempty" xml:"size,omitempty"`
+}
+
+func (s GetDismissionRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDismissionRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetDismissionRecordRequest) SetNextToken(v int64) *GetDismissionRecordRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetDismissionRecordRequest) SetSize(v int32) *GetDismissionRecordRequest {
+	s.Size = &v
+	return s
+}
+
+type GetDismissionRecordResponseBody struct {
+	Result  *GetDismissionRecordResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                  `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetDismissionRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDismissionRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetDismissionRecordResponseBody) SetResult(v *GetDismissionRecordResponseBodyResult) *GetDismissionRecordResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetDismissionRecordResponseBody) SetSuccess(v bool) *GetDismissionRecordResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetDismissionRecordResponseBodyResult struct {
+	HasMore    *bool                                      `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List       *GetDismissionRecordResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Struct"`
+	NextCursor *int64                                     `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+}
+
+func (s GetDismissionRecordResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDismissionRecordResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetDismissionRecordResponseBodyResult) SetHasMore(v bool) *GetDismissionRecordResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetDismissionRecordResponseBodyResult) SetList(v *GetDismissionRecordResponseBodyResultList) *GetDismissionRecordResponseBodyResult {
+	s.List = v
+	return s
+}
+
+func (s *GetDismissionRecordResponseBodyResult) SetNextCursor(v int64) *GetDismissionRecordResponseBodyResult {
+	s.NextCursor = &v
+	return s
+}
+
+type GetDismissionRecordResponseBodyResultList struct {
+	LastWorkDay *int64  `json:"lastWorkDay,omitempty" xml:"lastWorkDay,omitempty"`
+	StaffId     *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
+}
+
+func (s GetDismissionRecordResponseBodyResultList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDismissionRecordResponseBodyResultList) GoString() string {
+	return s.String()
+}
+
+func (s *GetDismissionRecordResponseBodyResultList) SetLastWorkDay(v int64) *GetDismissionRecordResponseBodyResultList {
+	s.LastWorkDay = &v
+	return s
+}
+
+func (s *GetDismissionRecordResponseBodyResultList) SetStaffId(v string) *GetDismissionRecordResponseBodyResultList {
+	s.StaffId = &v
+	return s
+}
+
+type GetDismissionRecordResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetDismissionRecordResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetDismissionRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDismissionRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetDismissionRecordResponse) SetHeaders(v map[string]*string) *GetDismissionRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetDismissionRecordResponse) SetStatusCode(v int32) *GetDismissionRecordResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetDismissionRecordResponse) SetBody(v *GetDismissionRecordResponseBody) *GetDismissionRecordResponse {
 	s.Body = v
 	return s
 }
@@ -13302,6 +13611,83 @@ func (client *Client) AddRosterFieldForm(request *AddRosterFieldFormRequest) (_r
 
 // Summary:
 //
+// 用于提供给独立部署的一方应用转换unionId（白名单策略）
+//
+// @param request - ConvertUnionIdRequest
+//
+// @param headers - ConvertUnionIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ConvertUnionIdResponse
+func (client *Client) ConvertUnionIdWithOptions(request *ConvertUnionIdRequest, headers *ConvertUnionIdHeaders, runtime *util.RuntimeOptions) (_result *ConvertUnionIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionIdList)) {
+		body["unionIdList"] = request.UnionIdList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdList)) {
+		body["userIdList"] = request.UserIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ConvertUnionId"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/isv/convertUnionId"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ConvertUnionIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 用于提供给独立部署的一方应用转换unionId（白名单策略）
+//
+// @param request - ConvertUnionIdRequest
+//
+// @return ConvertUnionIdResponse
+func (client *Client) ConvertUnionId(request *ConvertUnionIdRequest) (_result *ConvertUnionIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ConvertUnionIdHeaders{}
+	_result = &ConvertUnionIdResponse{}
+	_body, _err := client.ConvertUnionIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 创建电子签签署记录
 //
 // @param request - CreateRecordRequest
@@ -14065,6 +14451,83 @@ func (client *Client) GetAllDismissionReasons() (_result *GetAllDismissionReason
 	headers := &GetAllDismissionReasonsHeaders{}
 	_result = &GetAllDismissionReasonsResponse{}
 	_body, _err := client.GetAllDismissionReasonsWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取离职记录
+//
+// @param request - GetDismissionRecordRequest
+//
+// @param headers - GetDismissionRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetDismissionRecordResponse
+func (client *Client) GetDismissionRecordWithOptions(request *GetDismissionRecordRequest, headers *GetDismissionRecordHeaders, runtime *util.RuntimeOptions) (_result *GetDismissionRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Size)) {
+		query["size"] = request.Size
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetDismissionRecord"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/dismission/record/get"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetDismissionRecordResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取离职记录
+//
+// @param request - GetDismissionRecordRequest
+//
+// @return GetDismissionRecordResponse
+func (client *Client) GetDismissionRecord(request *GetDismissionRecordRequest) (_result *GetDismissionRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetDismissionRecordHeaders{}
+	_result = &GetDismissionRecordResponse{}
+	_body, _err := client.GetDismissionRecordWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

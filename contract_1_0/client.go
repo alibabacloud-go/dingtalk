@@ -9,6 +9,104 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type CancelContractReviewHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CancelContractReviewHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelContractReviewHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CancelContractReviewHeaders) SetCommonHeaders(v map[string]*string) *CancelContractReviewHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CancelContractReviewHeaders) SetXAcsDingtalkAccessToken(v string) *CancelContractReviewHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CancelContractReviewRequest struct {
+	ReviewType *string `json:"reviewType,omitempty" xml:"reviewType,omitempty"`
+	TaskId     *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s CancelContractReviewRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelContractReviewRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CancelContractReviewRequest) SetReviewType(v string) *CancelContractReviewRequest {
+	s.ReviewType = &v
+	return s
+}
+
+func (s *CancelContractReviewRequest) SetTaskId(v string) *CancelContractReviewRequest {
+	s.TaskId = &v
+	return s
+}
+
+type CancelContractReviewResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CancelContractReviewResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelContractReviewResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CancelContractReviewResponseBody) SetResult(v bool) *CancelContractReviewResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *CancelContractReviewResponseBody) SetSuccess(v bool) *CancelContractReviewResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CancelContractReviewResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CancelContractReviewResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CancelContractReviewResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CancelContractReviewResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CancelContractReviewResponse) SetHeaders(v map[string]*string) *CancelContractReviewResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CancelContractReviewResponse) SetStatusCode(v int32) *CancelContractReviewResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CancelContractReviewResponse) SetBody(v *CancelContractReviewResponseBody) *CancelContractReviewResponse {
+	s.Body = v
+	return s
+}
+
 type CancelReviewOrderHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2113,6 +2211,206 @@ func (s *CreateContractExtractTaskResponse) SetBody(v *CreateContractExtractTask
 	return s
 }
 
+type CreateContractReviewHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateContractReviewHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateContractReviewHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateContractReviewHeaders) SetCommonHeaders(v map[string]*string) *CreateContractReviewHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateContractReviewHeaders) SetXAcsDingtalkAccessToken(v string) *CreateContractReviewHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateContractReviewRequest struct {
+	CompanyList       []*string                            `json:"companyList,omitempty" xml:"companyList,omitempty" type:"Repeated"`
+	CustomReviewRules *string                              `json:"customReviewRules,omitempty" xml:"customReviewRules,omitempty"`
+	FileInfo          *CreateContractReviewRequestFileInfo `json:"fileInfo,omitempty" xml:"fileInfo,omitempty" type:"Struct"`
+	OriginatorUserId  *string                              `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
+	ReviewPosition    *string                              `json:"reviewPosition,omitempty" xml:"reviewPosition,omitempty"`
+	ReviewResultType  *string                              `json:"reviewResultType,omitempty" xml:"reviewResultType,omitempty"`
+	ReviewType        *string                              `json:"reviewType,omitempty" xml:"reviewType,omitempty"`
+}
+
+func (s CreateContractReviewRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateContractReviewRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateContractReviewRequest) SetCompanyList(v []*string) *CreateContractReviewRequest {
+	s.CompanyList = v
+	return s
+}
+
+func (s *CreateContractReviewRequest) SetCustomReviewRules(v string) *CreateContractReviewRequest {
+	s.CustomReviewRules = &v
+	return s
+}
+
+func (s *CreateContractReviewRequest) SetFileInfo(v *CreateContractReviewRequestFileInfo) *CreateContractReviewRequest {
+	s.FileInfo = v
+	return s
+}
+
+func (s *CreateContractReviewRequest) SetOriginatorUserId(v string) *CreateContractReviewRequest {
+	s.OriginatorUserId = &v
+	return s
+}
+
+func (s *CreateContractReviewRequest) SetReviewPosition(v string) *CreateContractReviewRequest {
+	s.ReviewPosition = &v
+	return s
+}
+
+func (s *CreateContractReviewRequest) SetReviewResultType(v string) *CreateContractReviewRequest {
+	s.ReviewResultType = &v
+	return s
+}
+
+func (s *CreateContractReviewRequest) SetReviewType(v string) *CreateContractReviewRequest {
+	s.ReviewType = &v
+	return s
+}
+
+type CreateContractReviewRequestFileInfo struct {
+	// This parameter is required.
+	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// This parameter is required.
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s CreateContractReviewRequestFileInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateContractReviewRequestFileInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CreateContractReviewRequestFileInfo) SetFileId(v string) *CreateContractReviewRequestFileInfo {
+	s.FileId = &v
+	return s
+}
+
+func (s *CreateContractReviewRequestFileInfo) SetFileName(v string) *CreateContractReviewRequestFileInfo {
+	s.FileName = &v
+	return s
+}
+
+func (s *CreateContractReviewRequestFileInfo) SetFileSize(v string) *CreateContractReviewRequestFileInfo {
+	s.FileSize = &v
+	return s
+}
+
+func (s *CreateContractReviewRequestFileInfo) SetFileType(v string) *CreateContractReviewRequestFileInfo {
+	s.FileType = &v
+	return s
+}
+
+func (s *CreateContractReviewRequestFileInfo) SetSpaceId(v string) *CreateContractReviewRequestFileInfo {
+	s.SpaceId = &v
+	return s
+}
+
+type CreateContractReviewResponseBody struct {
+	Result  *CreateContractReviewResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateContractReviewResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateContractReviewResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateContractReviewResponseBody) SetResult(v *CreateContractReviewResponseBodyResult) *CreateContractReviewResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *CreateContractReviewResponseBody) SetSuccess(v bool) *CreateContractReviewResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateContractReviewResponseBodyResult struct {
+	PlanFinishTime *int64  `json:"planFinishTime,omitempty" xml:"planFinishTime,omitempty"`
+	ReviewType     *string `json:"reviewType,omitempty" xml:"reviewType,omitempty"`
+	TaskId         *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s CreateContractReviewResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateContractReviewResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateContractReviewResponseBodyResult) SetPlanFinishTime(v int64) *CreateContractReviewResponseBodyResult {
+	s.PlanFinishTime = &v
+	return s
+}
+
+func (s *CreateContractReviewResponseBodyResult) SetReviewType(v string) *CreateContractReviewResponseBodyResult {
+	s.ReviewType = &v
+	return s
+}
+
+func (s *CreateContractReviewResponseBodyResult) SetTaskId(v string) *CreateContractReviewResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+type CreateContractReviewResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateContractReviewResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateContractReviewResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateContractReviewResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateContractReviewResponse) SetHeaders(v map[string]*string) *CreateContractReviewResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateContractReviewResponse) SetStatusCode(v int32) *CreateContractReviewResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateContractReviewResponse) SetBody(v *CreateContractReviewResponseBody) *CreateContractReviewResponse {
+	s.Body = v
+	return s
+}
+
 type CreateContractReviewTaskHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3288,6 +3586,780 @@ func (s *FinishReviewOrderResponse) SetStatusCode(v int32) *FinishReviewOrderRes
 }
 
 func (s *FinishReviewOrderResponse) SetBody(v *FinishReviewOrderResponseBody) *FinishReviewOrderResponse {
+	s.Body = v
+	return s
+}
+
+type GetContractAnalysisResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetContractAnalysisResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractAnalysisResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractAnalysisResultHeaders) SetCommonHeaders(v map[string]*string) *GetContractAnalysisResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetContractAnalysisResultHeaders) SetXAcsDingtalkAccessToken(v string) *GetContractAnalysisResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetContractAnalysisResultRequest struct {
+	FileInfo         *GetContractAnalysisResultRequestFileInfo `json:"fileInfo,omitempty" xml:"fileInfo,omitempty" type:"Struct"`
+	OriginatorUserId *string                                   `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
+}
+
+func (s GetContractAnalysisResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractAnalysisResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractAnalysisResultRequest) SetFileInfo(v *GetContractAnalysisResultRequestFileInfo) *GetContractAnalysisResultRequest {
+	s.FileInfo = v
+	return s
+}
+
+func (s *GetContractAnalysisResultRequest) SetOriginatorUserId(v string) *GetContractAnalysisResultRequest {
+	s.OriginatorUserId = &v
+	return s
+}
+
+type GetContractAnalysisResultRequestFileInfo struct {
+	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	SpaceId  *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s GetContractAnalysisResultRequestFileInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractAnalysisResultRequestFileInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractAnalysisResultRequestFileInfo) SetFileId(v string) *GetContractAnalysisResultRequestFileInfo {
+	s.FileId = &v
+	return s
+}
+
+func (s *GetContractAnalysisResultRequestFileInfo) SetFileName(v string) *GetContractAnalysisResultRequestFileInfo {
+	s.FileName = &v
+	return s
+}
+
+func (s *GetContractAnalysisResultRequestFileInfo) SetFileSize(v int64) *GetContractAnalysisResultRequestFileInfo {
+	s.FileSize = &v
+	return s
+}
+
+func (s *GetContractAnalysisResultRequestFileInfo) SetFileType(v string) *GetContractAnalysisResultRequestFileInfo {
+	s.FileType = &v
+	return s
+}
+
+func (s *GetContractAnalysisResultRequestFileInfo) SetSpaceId(v string) *GetContractAnalysisResultRequestFileInfo {
+	s.SpaceId = &v
+	return s
+}
+
+type GetContractAnalysisResultResponseBody struct {
+	CompanyList     []*string `json:"companyList,omitempty" xml:"companyList,omitempty" type:"Repeated"`
+	ReviewPositions []*string `json:"reviewPositions,omitempty" xml:"reviewPositions,omitempty" type:"Repeated"`
+	ReviewType      *string   `json:"reviewType,omitempty" xml:"reviewType,omitempty"`
+	WordCount       *int32    `json:"wordCount,omitempty" xml:"wordCount,omitempty"`
+}
+
+func (s GetContractAnalysisResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractAnalysisResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractAnalysisResultResponseBody) SetCompanyList(v []*string) *GetContractAnalysisResultResponseBody {
+	s.CompanyList = v
+	return s
+}
+
+func (s *GetContractAnalysisResultResponseBody) SetReviewPositions(v []*string) *GetContractAnalysisResultResponseBody {
+	s.ReviewPositions = v
+	return s
+}
+
+func (s *GetContractAnalysisResultResponseBody) SetReviewType(v string) *GetContractAnalysisResultResponseBody {
+	s.ReviewType = &v
+	return s
+}
+
+func (s *GetContractAnalysisResultResponseBody) SetWordCount(v int32) *GetContractAnalysisResultResponseBody {
+	s.WordCount = &v
+	return s
+}
+
+type GetContractAnalysisResultResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetContractAnalysisResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetContractAnalysisResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractAnalysisResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractAnalysisResultResponse) SetHeaders(v map[string]*string) *GetContractAnalysisResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetContractAnalysisResultResponse) SetStatusCode(v int32) *GetContractAnalysisResultResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetContractAnalysisResultResponse) SetBody(v *GetContractAnalysisResultResponseBody) *GetContractAnalysisResultResponse {
+	s.Body = v
+	return s
+}
+
+type GetContractReviewBenefitHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetContractReviewBenefitHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractReviewBenefitHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractReviewBenefitHeaders) SetCommonHeaders(v map[string]*string) *GetContractReviewBenefitHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetContractReviewBenefitHeaders) SetXAcsDingtalkAccessToken(v string) *GetContractReviewBenefitHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetContractReviewBenefitRequest struct {
+	// This parameter is required.
+	ReviewType *string `json:"reviewType,omitempty" xml:"reviewType,omitempty"`
+	// This parameter is required.
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s GetContractReviewBenefitRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractReviewBenefitRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractReviewBenefitRequest) SetReviewType(v string) *GetContractReviewBenefitRequest {
+	s.ReviewType = &v
+	return s
+}
+
+func (s *GetContractReviewBenefitRequest) SetTaskId(v string) *GetContractReviewBenefitRequest {
+	s.TaskId = &v
+	return s
+}
+
+type GetContractReviewBenefitResponseBody struct {
+	Result  *GetContractReviewBenefitResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                       `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetContractReviewBenefitResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractReviewBenefitResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractReviewBenefitResponseBody) SetResult(v *GetContractReviewBenefitResponseBodyResult) *GetContractReviewBenefitResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetContractReviewBenefitResponseBody) SetSuccess(v bool) *GetContractReviewBenefitResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetContractReviewBenefitResponseBodyResult struct {
+	BenefitResponses []*GetContractReviewBenefitResponseBodyResultBenefitResponses `json:"benefitResponses,omitempty" xml:"benefitResponses,omitempty" type:"Repeated"`
+}
+
+func (s GetContractReviewBenefitResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractReviewBenefitResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractReviewBenefitResponseBodyResult) SetBenefitResponses(v []*GetContractReviewBenefitResponseBodyResultBenefitResponses) *GetContractReviewBenefitResponseBodyResult {
+	s.BenefitResponses = v
+	return s
+}
+
+type GetContractReviewBenefitResponseBodyResultBenefitResponses struct {
+	Code        *string `json:"code,omitempty" xml:"code,omitempty"`
+	RestBenefit *int64  `json:"restBenefit,omitempty" xml:"restBenefit,omitempty"`
+	UsedBenefit *int64  `json:"usedBenefit,omitempty" xml:"usedBenefit,omitempty"`
+}
+
+func (s GetContractReviewBenefitResponseBodyResultBenefitResponses) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractReviewBenefitResponseBodyResultBenefitResponses) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractReviewBenefitResponseBodyResultBenefitResponses) SetCode(v string) *GetContractReviewBenefitResponseBodyResultBenefitResponses {
+	s.Code = &v
+	return s
+}
+
+func (s *GetContractReviewBenefitResponseBodyResultBenefitResponses) SetRestBenefit(v int64) *GetContractReviewBenefitResponseBodyResultBenefitResponses {
+	s.RestBenefit = &v
+	return s
+}
+
+func (s *GetContractReviewBenefitResponseBodyResultBenefitResponses) SetUsedBenefit(v int64) *GetContractReviewBenefitResponseBodyResultBenefitResponses {
+	s.UsedBenefit = &v
+	return s
+}
+
+type GetContractReviewBenefitResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetContractReviewBenefitResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetContractReviewBenefitResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractReviewBenefitResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractReviewBenefitResponse) SetHeaders(v map[string]*string) *GetContractReviewBenefitResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetContractReviewBenefitResponse) SetStatusCode(v int32) *GetContractReviewBenefitResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetContractReviewBenefitResponse) SetBody(v *GetContractReviewBenefitResponseBody) *GetContractReviewBenefitResponse {
+	s.Body = v
+	return s
+}
+
+type GetContractReviewResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetContractReviewResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractReviewResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractReviewResultHeaders) SetCommonHeaders(v map[string]*string) *GetContractReviewResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetContractReviewResultHeaders) SetXAcsDingtalkAccessToken(v string) *GetContractReviewResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetContractReviewResultRequest struct {
+	Body *GetContractReviewResultRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Struct"`
+}
+
+func (s GetContractReviewResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractReviewResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractReviewResultRequest) SetBody(v *GetContractReviewResultRequestBody) *GetContractReviewResultRequest {
+	s.Body = v
+	return s
+}
+
+type GetContractReviewResultRequestBody struct {
+	// This parameter is required.
+	ReviewType *string `json:"reviewType,omitempty" xml:"reviewType,omitempty"`
+	// This parameter is required.
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s GetContractReviewResultRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractReviewResultRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractReviewResultRequestBody) SetReviewType(v string) *GetContractReviewResultRequestBody {
+	s.ReviewType = &v
+	return s
+}
+
+func (s *GetContractReviewResultRequestBody) SetTaskId(v string) *GetContractReviewResultRequestBody {
+	s.TaskId = &v
+	return s
+}
+
+type GetContractReviewResultShrinkRequest struct {
+	BodyShrink *string `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetContractReviewResultShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractReviewResultShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractReviewResultShrinkRequest) SetBodyShrink(v string) *GetContractReviewResultShrinkRequest {
+	s.BodyShrink = &v
+	return s
+}
+
+type GetContractReviewResultResponseBody struct {
+	Result  *GetContractReviewResultResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                      `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetContractReviewResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractReviewResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractReviewResultResponseBody) SetResult(v *GetContractReviewResultResponseBodyResult) *GetContractReviewResultResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetContractReviewResultResponseBody) SetSuccess(v bool) *GetContractReviewResultResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetContractReviewResultResponseBodyResult struct {
+	Annotations   []*GetContractReviewResultResponseBodyResultAnnotations `json:"annotations,omitempty" xml:"annotations,omitempty" type:"Repeated"`
+	ClearWordPath *string                                                 `json:"clearWordPath,omitempty" xml:"clearWordPath,omitempty"`
+	ReviewType    *string                                                 `json:"reviewType,omitempty" xml:"reviewType,omitempty"`
+	Status        *string                                                 `json:"status,omitempty" xml:"status,omitempty"`
+	Summary       *GetContractReviewResultResponseBodyResultSummary       `json:"summary,omitempty" xml:"summary,omitempty" type:"Struct"`
+	WordPath      *string                                                 `json:"wordPath,omitempty" xml:"wordPath,omitempty"`
+}
+
+func (s GetContractReviewResultResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractReviewResultResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractReviewResultResponseBodyResult) SetAnnotations(v []*GetContractReviewResultResponseBodyResultAnnotations) *GetContractReviewResultResponseBodyResult {
+	s.Annotations = v
+	return s
+}
+
+func (s *GetContractReviewResultResponseBodyResult) SetClearWordPath(v string) *GetContractReviewResultResponseBodyResult {
+	s.ClearWordPath = &v
+	return s
+}
+
+func (s *GetContractReviewResultResponseBodyResult) SetReviewType(v string) *GetContractReviewResultResponseBodyResult {
+	s.ReviewType = &v
+	return s
+}
+
+func (s *GetContractReviewResultResponseBodyResult) SetStatus(v string) *GetContractReviewResultResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *GetContractReviewResultResponseBodyResult) SetSummary(v *GetContractReviewResultResponseBodyResultSummary) *GetContractReviewResultResponseBodyResult {
+	s.Summary = v
+	return s
+}
+
+func (s *GetContractReviewResultResponseBodyResult) SetWordPath(v string) *GetContractReviewResultResponseBodyResult {
+	s.WordPath = &v
+	return s
+}
+
+type GetContractReviewResultResponseBodyResultAnnotations struct {
+	CommentTexts []*GetContractReviewResultResponseBodyResultAnnotationsCommentTexts `json:"commentTexts,omitempty" xml:"commentTexts,omitempty" type:"Repeated"`
+	Id           *int64                                                              `json:"id,omitempty" xml:"id,omitempty"`
+	OriginalText *string                                                             `json:"originalText,omitempty" xml:"originalText,omitempty"`
+	Paragraph    *string                                                             `json:"paragraph,omitempty" xml:"paragraph,omitempty"`
+	RiskLevel    *string                                                             `json:"riskLevel,omitempty" xml:"riskLevel,omitempty"`
+	Status       *bool                                                               `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s GetContractReviewResultResponseBodyResultAnnotations) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractReviewResultResponseBodyResultAnnotations) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractReviewResultResponseBodyResultAnnotations) SetCommentTexts(v []*GetContractReviewResultResponseBodyResultAnnotationsCommentTexts) *GetContractReviewResultResponseBodyResultAnnotations {
+	s.CommentTexts = v
+	return s
+}
+
+func (s *GetContractReviewResultResponseBodyResultAnnotations) SetId(v int64) *GetContractReviewResultResponseBodyResultAnnotations {
+	s.Id = &v
+	return s
+}
+
+func (s *GetContractReviewResultResponseBodyResultAnnotations) SetOriginalText(v string) *GetContractReviewResultResponseBodyResultAnnotations {
+	s.OriginalText = &v
+	return s
+}
+
+func (s *GetContractReviewResultResponseBodyResultAnnotations) SetParagraph(v string) *GetContractReviewResultResponseBodyResultAnnotations {
+	s.Paragraph = &v
+	return s
+}
+
+func (s *GetContractReviewResultResponseBodyResultAnnotations) SetRiskLevel(v string) *GetContractReviewResultResponseBodyResultAnnotations {
+	s.RiskLevel = &v
+	return s
+}
+
+func (s *GetContractReviewResultResponseBodyResultAnnotations) SetStatus(v bool) *GetContractReviewResultResponseBodyResultAnnotations {
+	s.Status = &v
+	return s
+}
+
+type GetContractReviewResultResponseBodyResultAnnotationsCommentTexts struct {
+	Remark    *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	RiskLevel *string `json:"riskLevel,omitempty" xml:"riskLevel,omitempty"`
+	Text      *string `json:"text,omitempty" xml:"text,omitempty"`
+}
+
+func (s GetContractReviewResultResponseBodyResultAnnotationsCommentTexts) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractReviewResultResponseBodyResultAnnotationsCommentTexts) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractReviewResultResponseBodyResultAnnotationsCommentTexts) SetRemark(v string) *GetContractReviewResultResponseBodyResultAnnotationsCommentTexts {
+	s.Remark = &v
+	return s
+}
+
+func (s *GetContractReviewResultResponseBodyResultAnnotationsCommentTexts) SetRiskLevel(v string) *GetContractReviewResultResponseBodyResultAnnotationsCommentTexts {
+	s.RiskLevel = &v
+	return s
+}
+
+func (s *GetContractReviewResultResponseBodyResultAnnotationsCommentTexts) SetText(v string) *GetContractReviewResultResponseBodyResultAnnotationsCommentTexts {
+	s.Text = &v
+	return s
+}
+
+type GetContractReviewResultResponseBodyResultSummary struct {
+	RiskLevel *string `json:"riskLevel,omitempty" xml:"riskLevel,omitempty"`
+	Summary   *string `json:"summary,omitempty" xml:"summary,omitempty"`
+}
+
+func (s GetContractReviewResultResponseBodyResultSummary) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractReviewResultResponseBodyResultSummary) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractReviewResultResponseBodyResultSummary) SetRiskLevel(v string) *GetContractReviewResultResponseBodyResultSummary {
+	s.RiskLevel = &v
+	return s
+}
+
+func (s *GetContractReviewResultResponseBodyResultSummary) SetSummary(v string) *GetContractReviewResultResponseBodyResultSummary {
+	s.Summary = &v
+	return s
+}
+
+type GetContractReviewResultResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetContractReviewResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetContractReviewResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractReviewResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractReviewResultResponse) SetHeaders(v map[string]*string) *GetContractReviewResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetContractReviewResultResponse) SetStatusCode(v int32) *GetContractReviewResultResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetContractReviewResultResponse) SetBody(v *GetContractReviewResultResponseBody) *GetContractReviewResultResponse {
+	s.Body = v
+	return s
+}
+
+type GetContractSubjectRiskResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetContractSubjectRiskResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractSubjectRiskResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractSubjectRiskResultHeaders) SetCommonHeaders(v map[string]*string) *GetContractSubjectRiskResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultHeaders) SetXAcsDingtalkAccessToken(v string) *GetContractSubjectRiskResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetContractSubjectRiskResultRequest struct {
+	ReviewType *string `json:"reviewType,omitempty" xml:"reviewType,omitempty"`
+	TaskId     *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s GetContractSubjectRiskResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractSubjectRiskResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractSubjectRiskResultRequest) SetReviewType(v string) *GetContractSubjectRiskResultRequest {
+	s.ReviewType = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultRequest) SetTaskId(v string) *GetContractSubjectRiskResultRequest {
+	s.TaskId = &v
+	return s
+}
+
+type GetContractSubjectRiskResultResponseBody struct {
+	SubjectRiskResponses []*GetContractSubjectRiskResultResponseBodySubjectRiskResponses `json:"subjectRiskResponses,omitempty" xml:"subjectRiskResponses,omitempty" type:"Repeated"`
+	Success              *bool                                                           `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetContractSubjectRiskResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractSubjectRiskResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractSubjectRiskResultResponseBody) SetSubjectRiskResponses(v []*GetContractSubjectRiskResultResponseBodySubjectRiskResponses) *GetContractSubjectRiskResultResponseBody {
+	s.SubjectRiskResponses = v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBody) SetSuccess(v bool) *GetContractSubjectRiskResultResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetContractSubjectRiskResultResponseBodySubjectRiskResponses struct {
+	SubjectBaseInfoResponse *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse `json:"subjectBaseInfoResponse,omitempty" xml:"subjectBaseInfoResponse,omitempty" type:"Struct"`
+	SubjectName             *string                                                                              `json:"subjectName,omitempty" xml:"subjectName,omitempty"`
+	SubjectRiskListResponse *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectRiskListResponse `json:"subjectRiskListResponse,omitempty" xml:"subjectRiskListResponse,omitempty" type:"Struct"`
+}
+
+func (s GetContractSubjectRiskResultResponseBodySubjectRiskResponses) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractSubjectRiskResultResponseBodySubjectRiskResponses) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponses) SetSubjectBaseInfoResponse(v *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) *GetContractSubjectRiskResultResponseBodySubjectRiskResponses {
+	s.SubjectBaseInfoResponse = v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponses) SetSubjectName(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponses {
+	s.SubjectName = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponses) SetSubjectRiskListResponse(v *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectRiskListResponse) *GetContractSubjectRiskResultResponseBodySubjectRiskResponses {
+	s.SubjectRiskListResponse = v
+	return s
+}
+
+type GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse struct {
+	CreditCode      *string `json:"creditCode,omitempty" xml:"creditCode,omitempty"`
+	EstablishTime   *int64  `json:"establishTime,omitempty" xml:"establishTime,omitempty"`
+	LegalPersonName *string `json:"legalPersonName,omitempty" xml:"legalPersonName,omitempty"`
+	RegLocation     *string `json:"regLocation,omitempty" xml:"regLocation,omitempty"`
+}
+
+func (s GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetCreditCode(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.CreditCode = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetEstablishTime(v int64) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.EstablishTime = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetLegalPersonName(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.LegalPersonName = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetRegLocation(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.RegLocation = &v
+	return s
+}
+
+type GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectRiskListResponse struct {
+	IsSubjectExist  *bool                  `json:"isSubjectExist,omitempty" xml:"isSubjectExist,omitempty"`
+	RiskTypes       []*string              `json:"riskTypes,omitempty" xml:"riskTypes,omitempty" type:"Repeated"`
+	Risks           map[string]interface{} `json:"risks,omitempty" xml:"risks,omitempty"`
+	TotalRiskNumber *int32                 `json:"totalRiskNumber,omitempty" xml:"totalRiskNumber,omitempty"`
+}
+
+func (s GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectRiskListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectRiskListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectRiskListResponse) SetIsSubjectExist(v bool) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectRiskListResponse {
+	s.IsSubjectExist = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectRiskListResponse) SetRiskTypes(v []*string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectRiskListResponse {
+	s.RiskTypes = v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectRiskListResponse) SetRisks(v map[string]interface{}) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectRiskListResponse {
+	s.Risks = v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectRiskListResponse) SetTotalRiskNumber(v int32) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectRiskListResponse {
+	s.TotalRiskNumber = &v
+	return s
+}
+
+type GetContractSubjectRiskResultResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetContractSubjectRiskResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetContractSubjectRiskResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractSubjectRiskResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractSubjectRiskResultResponse) SetHeaders(v map[string]*string) *GetContractSubjectRiskResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponse) SetStatusCode(v int32) *GetContractSubjectRiskResultResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponse) SetBody(v *GetContractSubjectRiskResultResponseBody) *GetContractSubjectRiskResultResponse {
 	s.Body = v
 	return s
 }
@@ -6330,6 +7402,83 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 
 // Summary:
 //
+// 智能法务取消合同审查
+//
+// @param request - CancelContractReviewRequest
+//
+// @param headers - CancelContractReviewHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CancelContractReviewResponse
+func (client *Client) CancelContractReviewWithOptions(request *CancelContractReviewRequest, headers *CancelContractReviewHeaders, runtime *util.RuntimeOptions) (_result *CancelContractReviewResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ReviewType)) {
+		body["reviewType"] = request.ReviewType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CancelContractReview"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/review/cancel"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CancelContractReviewResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能法务取消合同审查
+//
+// @param request - CancelContractReviewRequest
+//
+// @return CancelContractReviewResponse
+func (client *Client) CancelContractReview(request *CancelContractReviewRequest) (_result *CancelContractReviewResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CancelContractReviewHeaders{}
+	_result = &CancelContractReviewResponse{}
+	_body, _err := client.CancelContractReviewWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 取消审查工单接口
 //
 // @param request - CancelReviewOrderRequest
@@ -7288,6 +8437,103 @@ func (client *Client) CreateContractExtractTask(request *CreateContractExtractTa
 
 // Summary:
 //
+// 智能法务发起合同审查
+//
+// @param request - CreateContractReviewRequest
+//
+// @param headers - CreateContractReviewHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateContractReviewResponse
+func (client *Client) CreateContractReviewWithOptions(request *CreateContractReviewRequest, headers *CreateContractReviewHeaders, runtime *util.RuntimeOptions) (_result *CreateContractReviewResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CompanyList)) {
+		body["companyList"] = request.CompanyList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CustomReviewRules)) {
+		body["customReviewRules"] = request.CustomReviewRules
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileInfo)) {
+		body["fileInfo"] = request.FileInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OriginatorUserId)) {
+		body["originatorUserId"] = request.OriginatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReviewPosition)) {
+		body["reviewPosition"] = request.ReviewPosition
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReviewResultType)) {
+		body["reviewResultType"] = request.ReviewResultType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReviewType)) {
+		body["reviewType"] = request.ReviewType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateContractReview"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/review/create"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateContractReviewResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能法务发起合同审查
+//
+// @param request - CreateContractReviewRequest
+//
+// @return CreateContractReviewResponse
+func (client *Client) CreateContractReview(request *CreateContractReviewRequest) (_result *CreateContractReviewResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateContractReviewHeaders{}
+	_result = &CreateContractReviewResponse{}
+	_body, _err := client.CreateContractReviewWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 创建合同审查任务
 //
 // @param request - CreateContractReviewTaskRequest
@@ -7870,6 +9116,316 @@ func (client *Client) FinishReviewOrder(request *FinishReviewOrderRequest) (_res
 	headers := &FinishReviewOrderHeaders{}
 	_result = &FinishReviewOrderResponse{}
 	_body, _err := client.FinishReviewOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取合同解析结果
+//
+// @param request - GetContractAnalysisResultRequest
+//
+// @param headers - GetContractAnalysisResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetContractAnalysisResultResponse
+func (client *Client) GetContractAnalysisResultWithOptions(request *GetContractAnalysisResultRequest, headers *GetContractAnalysisResultHeaders, runtime *util.RuntimeOptions) (_result *GetContractAnalysisResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FileInfo)) {
+		body["fileInfo"] = request.FileInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OriginatorUserId)) {
+		body["originatorUserId"] = request.OriginatorUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetContractAnalysisResult"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/review/getContractAnalysisResult"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetContractAnalysisResultResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取合同解析结果
+//
+// @param request - GetContractAnalysisResultRequest
+//
+// @return GetContractAnalysisResultResponse
+func (client *Client) GetContractAnalysisResult(request *GetContractAnalysisResultRequest) (_result *GetContractAnalysisResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetContractAnalysisResultHeaders{}
+	_result = &GetContractAnalysisResultResponse{}
+	_body, _err := client.GetContractAnalysisResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能法务查询合同审查权益
+//
+// @param request - GetContractReviewBenefitRequest
+//
+// @param headers - GetContractReviewBenefitHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetContractReviewBenefitResponse
+func (client *Client) GetContractReviewBenefitWithOptions(request *GetContractReviewBenefitRequest, headers *GetContractReviewBenefitHeaders, runtime *util.RuntimeOptions) (_result *GetContractReviewBenefitResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ReviewType)) {
+		body["reviewType"] = request.ReviewType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetContractReviewBenefit"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/review/getBenefit"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetContractReviewBenefitResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能法务查询合同审查权益
+//
+// @param request - GetContractReviewBenefitRequest
+//
+// @return GetContractReviewBenefitResponse
+func (client *Client) GetContractReviewBenefit(request *GetContractReviewBenefitRequest) (_result *GetContractReviewBenefitResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetContractReviewBenefitHeaders{}
+	_result = &GetContractReviewBenefitResponse{}
+	_body, _err := client.GetContractReviewBenefitWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能法务查询合同审查结果
+//
+// @param tmpReq - GetContractReviewResultRequest
+//
+// @param headers - GetContractReviewResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetContractReviewResultResponse
+func (client *Client) GetContractReviewResultWithOptions(tmpReq *GetContractReviewResultRequest, headers *GetContractReviewResultHeaders, runtime *util.RuntimeOptions) (_result *GetContractReviewResultResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &GetContractReviewResultShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.Body)) {
+		request.BodyShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.Body, tea.String("body"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BodyShrink)) {
+		query["body"] = request.BodyShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetContractReviewResult"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/review/getResult"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetContractReviewResultResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 智能法务查询合同审查结果
+//
+// @param request - GetContractReviewResultRequest
+//
+// @return GetContractReviewResultResponse
+func (client *Client) GetContractReviewResult(request *GetContractReviewResultRequest) (_result *GetContractReviewResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetContractReviewResultHeaders{}
+	_result = &GetContractReviewResultResponse{}
+	_body, _err := client.GetContractReviewResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取合同主体风险结果
+//
+// @param request - GetContractSubjectRiskResultRequest
+//
+// @param headers - GetContractSubjectRiskResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetContractSubjectRiskResultResponse
+func (client *Client) GetContractSubjectRiskResultWithOptions(request *GetContractSubjectRiskResultRequest, headers *GetContractSubjectRiskResultHeaders, runtime *util.RuntimeOptions) (_result *GetContractSubjectRiskResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ReviewType)) {
+		body["reviewType"] = request.ReviewType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetContractSubjectRiskResult"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/review/getSubjectRiskResult"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetContractSubjectRiskResultResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取合同主体风险结果
+//
+// @param request - GetContractSubjectRiskResultRequest
+//
+// @return GetContractSubjectRiskResultResponse
+func (client *Client) GetContractSubjectRiskResult(request *GetContractSubjectRiskResultRequest) (_result *GetContractSubjectRiskResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetContractSubjectRiskResultHeaders{}
+	_result = &GetContractSubjectRiskResultResponse{}
+	_body, _err := client.GetContractSubjectRiskResultWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

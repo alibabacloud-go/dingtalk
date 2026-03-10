@@ -3305,6 +3305,169 @@ func (s *CreateShortcutResponse) SetBody(v *CreateShortcutResponseBody) *CreateS
 	return s
 }
 
+type CreateShortcutForMigrateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateShortcutForMigrateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateShortcutForMigrateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateShortcutForMigrateHeaders) SetCommonHeaders(v map[string]*string) *CreateShortcutForMigrateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateShortcutForMigrateHeaders) SetXAcsDingtalkAccessToken(v string) *CreateShortcutForMigrateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateShortcutForMigrateRequest struct {
+	OperatorId         *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	SourceResourceId   *string `json:"sourceResourceId,omitempty" xml:"sourceResourceId,omitempty"`
+	SourceResourceType *string `json:"sourceResourceType,omitempty" xml:"sourceResourceType,omitempty"`
+	TargetResourceId   *string `json:"targetResourceId,omitempty" xml:"targetResourceId,omitempty"`
+	TargetResourceName *string `json:"targetResourceName,omitempty" xml:"targetResourceName,omitempty"`
+	TargetResourceType *string `json:"targetResourceType,omitempty" xml:"targetResourceType,omitempty"`
+}
+
+func (s CreateShortcutForMigrateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateShortcutForMigrateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateShortcutForMigrateRequest) SetOperatorId(v string) *CreateShortcutForMigrateRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *CreateShortcutForMigrateRequest) SetSourceResourceId(v string) *CreateShortcutForMigrateRequest {
+	s.SourceResourceId = &v
+	return s
+}
+
+func (s *CreateShortcutForMigrateRequest) SetSourceResourceType(v string) *CreateShortcutForMigrateRequest {
+	s.SourceResourceType = &v
+	return s
+}
+
+func (s *CreateShortcutForMigrateRequest) SetTargetResourceId(v string) *CreateShortcutForMigrateRequest {
+	s.TargetResourceId = &v
+	return s
+}
+
+func (s *CreateShortcutForMigrateRequest) SetTargetResourceName(v string) *CreateShortcutForMigrateRequest {
+	s.TargetResourceName = &v
+	return s
+}
+
+func (s *CreateShortcutForMigrateRequest) SetTargetResourceType(v string) *CreateShortcutForMigrateRequest {
+	s.TargetResourceType = &v
+	return s
+}
+
+type CreateShortcutForMigrateResponseBody struct {
+	OpenDentryInfo *CreateShortcutForMigrateResponseBodyOpenDentryInfo `json:"openDentryInfo,omitempty" xml:"openDentryInfo,omitempty" type:"Struct"`
+}
+
+func (s CreateShortcutForMigrateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateShortcutForMigrateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateShortcutForMigrateResponseBody) SetOpenDentryInfo(v *CreateShortcutForMigrateResponseBodyOpenDentryInfo) *CreateShortcutForMigrateResponseBody {
+	s.OpenDentryInfo = v
+	return s
+}
+
+type CreateShortcutForMigrateResponseBodyOpenDentryInfo struct {
+	DentryUuid    *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	DriveDentryId *string `json:"driveDentryId,omitempty" xml:"driveDentryId,omitempty"`
+	DriveSpaceId  *string `json:"driveSpaceId,omitempty" xml:"driveSpaceId,omitempty"`
+	Extension     *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	Name          *string `json:"name,omitempty" xml:"name,omitempty"`
+	Url           *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s CreateShortcutForMigrateResponseBodyOpenDentryInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateShortcutForMigrateResponseBodyOpenDentryInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CreateShortcutForMigrateResponseBodyOpenDentryInfo) SetDentryUuid(v string) *CreateShortcutForMigrateResponseBodyOpenDentryInfo {
+	s.DentryUuid = &v
+	return s
+}
+
+func (s *CreateShortcutForMigrateResponseBodyOpenDentryInfo) SetDriveDentryId(v string) *CreateShortcutForMigrateResponseBodyOpenDentryInfo {
+	s.DriveDentryId = &v
+	return s
+}
+
+func (s *CreateShortcutForMigrateResponseBodyOpenDentryInfo) SetDriveSpaceId(v string) *CreateShortcutForMigrateResponseBodyOpenDentryInfo {
+	s.DriveSpaceId = &v
+	return s
+}
+
+func (s *CreateShortcutForMigrateResponseBodyOpenDentryInfo) SetExtension(v string) *CreateShortcutForMigrateResponseBodyOpenDentryInfo {
+	s.Extension = &v
+	return s
+}
+
+func (s *CreateShortcutForMigrateResponseBodyOpenDentryInfo) SetName(v string) *CreateShortcutForMigrateResponseBodyOpenDentryInfo {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateShortcutForMigrateResponseBodyOpenDentryInfo) SetUrl(v string) *CreateShortcutForMigrateResponseBodyOpenDentryInfo {
+	s.Url = &v
+	return s
+}
+
+type CreateShortcutForMigrateResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateShortcutForMigrateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateShortcutForMigrateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateShortcutForMigrateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateShortcutForMigrateResponse) SetHeaders(v map[string]*string) *CreateShortcutForMigrateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateShortcutForMigrateResponse) SetStatusCode(v int32) *CreateShortcutForMigrateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateShortcutForMigrateResponse) SetBody(v *CreateShortcutForMigrateResponseBody) *CreateShortcutForMigrateResponse {
+	s.Body = v
+	return s
+}
+
 type CreateSpaceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -13586,6 +13749,99 @@ func (client *Client) CreateShortcut(request *CreateShortcutRequest) (_result *C
 	headers := &CreateShortcutHeaders{}
 	_result = &CreateShortcutResponse{}
 	_body, _err := client.CreateShortcutWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建快捷方式V2版(顺丰迁移使用)
+//
+// @param request - CreateShortcutForMigrateRequest
+//
+// @param headers - CreateShortcutForMigrateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateShortcutForMigrateResponse
+func (client *Client) CreateShortcutForMigrateWithOptions(request *CreateShortcutForMigrateRequest, headers *CreateShortcutForMigrateHeaders, runtime *util.RuntimeOptions) (_result *CreateShortcutForMigrateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceResourceId)) {
+		body["sourceResourceId"] = request.SourceResourceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceResourceType)) {
+		body["sourceResourceType"] = request.SourceResourceType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetResourceId)) {
+		body["targetResourceId"] = request.TargetResourceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetResourceName)) {
+		body["targetResourceName"] = request.TargetResourceName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetResourceType)) {
+		body["targetResourceType"] = request.TargetResourceType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateShortcutForMigrate"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/resource/shortcut/createV2"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateShortcutForMigrateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建快捷方式V2版(顺丰迁移使用)
+//
+// @param request - CreateShortcutForMigrateRequest
+//
+// @return CreateShortcutForMigrateResponse
+func (client *Client) CreateShortcutForMigrate(request *CreateShortcutForMigrateRequest) (_result *CreateShortcutForMigrateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateShortcutForMigrateHeaders{}
+	_result = &CreateShortcutForMigrateResponse{}
+	_body, _err := client.CreateShortcutForMigrateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

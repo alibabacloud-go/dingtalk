@@ -4262,6 +4262,324 @@ func (s *BatchOrgCreateHWResponse) SetBody(v *BatchOrgCreateHWResponseBody) *Bat
 	return s
 }
 
+type CallMultimodalModelHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CallMultimodalModelHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CallMultimodalModelHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CallMultimodalModelHeaders) SetCommonHeaders(v map[string]*string) *CallMultimodalModelHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CallMultimodalModelHeaders) SetXAcsDingtalkAccessToken(v string) *CallMultimodalModelHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CallMultimodalModelRequest struct {
+	ChatMessageModelList []*CallMultimodalModelRequestChatMessageModelList `json:"chatMessageModelList,omitempty" xml:"chatMessageModelList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding819xxxxxx
+	CorpId         *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	EnableThinking *bool   `json:"enableThinking,omitempty" xml:"enableThinking,omitempty"`
+	// example:
+	//
+	// 10000
+	MaxTokens *int32 `json:"maxTokens,omitempty" xml:"maxTokens,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// qwen3.5-plus
+	Model *string `json:"model,omitempty" xml:"model,omitempty"`
+	// example:
+	//
+	// https://example.cxxxx1.json
+	ReqLlmModelParamUrl *string `json:"reqLlmModelParamUrl,omitempty" xml:"reqLlmModelParamUrl,omitempty"`
+	// example:
+	//
+	// {\"name\":\"手写文字识别\",\"schema\":{\"type\":\"object\",\"properties\":{\"type\":\"object\",\"required\":[\"题目1\",\"题目2\"],\"properties\":{\"题目1\":{\"type\":\"object\",\"properties\":{\"正确答案\":{\"type\":\"string\",\"description\":\"请根据题目描述正确答案\"},\"学生手写回答\":{\"type\":\"string\",\"description\":\"尽一切可能识别学生手写回答,对于有涂改的内容请识别其最终答案，当无法识别时返回 NAN\"},\"学生回答评价\":{\"type\":\"string\",\"description\":\"评价学生手写回答是否工整，请勿包含双引号\"}},\"required\":[\"正确答案\",\"学生手写回答\",\"学生回答评价\"],\"additionalProperties\":false},\"题目2\":{\"type\":\"object\",\"properties\":{\"正确答案\":{\"type\":\"string\",\"description\":\"请根据题目描述正确答案\"},\"学生手写回答\":{\"type\":\"string\",\"description\":\"尽一切可能识别学生手写回答,对于有涂改的内容请识别其最终答案，当无法识别时返回 NAN\"},\"学生回答评价\":{\"type\":\"string\",\"description\":\"评价学生手写回答是否工整，请勿包含双引号\"}},\"required\":[\"正确答案\",\"学生手写回答\",\"学生回答评价\"],\"additionalProperties\":false}}}},\"additionalProperties\":fals
+	ResponseFormat *string `json:"responseFormat,omitempty" xml:"responseFormat,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DING_xxxxxxxxxx
+	TaskCode *string `json:"taskCode,omitempty" xml:"taskCode,omitempty"`
+	// example:
+	//
+	// 1.0
+	Temperature *float64 `json:"temperature,omitempty" xml:"temperature,omitempty"`
+	// example:
+	//
+	// 0.8
+	TopP *float64 `json:"topP,omitempty" xml:"topP,omitempty"`
+}
+
+func (s CallMultimodalModelRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CallMultimodalModelRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CallMultimodalModelRequest) SetChatMessageModelList(v []*CallMultimodalModelRequestChatMessageModelList) *CallMultimodalModelRequest {
+	s.ChatMessageModelList = v
+	return s
+}
+
+func (s *CallMultimodalModelRequest) SetCorpId(v string) *CallMultimodalModelRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *CallMultimodalModelRequest) SetEnableThinking(v bool) *CallMultimodalModelRequest {
+	s.EnableThinking = &v
+	return s
+}
+
+func (s *CallMultimodalModelRequest) SetMaxTokens(v int32) *CallMultimodalModelRequest {
+	s.MaxTokens = &v
+	return s
+}
+
+func (s *CallMultimodalModelRequest) SetModel(v string) *CallMultimodalModelRequest {
+	s.Model = &v
+	return s
+}
+
+func (s *CallMultimodalModelRequest) SetReqLlmModelParamUrl(v string) *CallMultimodalModelRequest {
+	s.ReqLlmModelParamUrl = &v
+	return s
+}
+
+func (s *CallMultimodalModelRequest) SetResponseFormat(v string) *CallMultimodalModelRequest {
+	s.ResponseFormat = &v
+	return s
+}
+
+func (s *CallMultimodalModelRequest) SetTaskCode(v string) *CallMultimodalModelRequest {
+	s.TaskCode = &v
+	return s
+}
+
+func (s *CallMultimodalModelRequest) SetTemperature(v float64) *CallMultimodalModelRequest {
+	s.Temperature = &v
+	return s
+}
+
+func (s *CallMultimodalModelRequest) SetTopP(v float64) *CallMultimodalModelRequest {
+	s.TopP = &v
+	return s
+}
+
+type CallMultimodalModelRequestChatMessageModelList struct {
+	ContentList []*CallMultimodalModelRequestChatMessageModelListContentList `json:"contentList,omitempty" xml:"contentList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// user
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
+}
+
+func (s CallMultimodalModelRequestChatMessageModelList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CallMultimodalModelRequestChatMessageModelList) GoString() string {
+	return s.String()
+}
+
+func (s *CallMultimodalModelRequestChatMessageModelList) SetContentList(v []*CallMultimodalModelRequestChatMessageModelListContentList) *CallMultimodalModelRequestChatMessageModelList {
+	s.ContentList = v
+	return s
+}
+
+func (s *CallMultimodalModelRequestChatMessageModelList) SetRole(v string) *CallMultimodalModelRequestChatMessageModelList {
+	s.Role = &v
+	return s
+}
+
+type CallMultimodalModelRequestChatMessageModelListContentList struct {
+	ImageModel *CallMultimodalModelRequestChatMessageModelListContentListImageModel `json:"imageModel,omitempty" xml:"imageModel,omitempty" type:"Struct"`
+	Text       *string                                                              `json:"text,omitempty" xml:"text,omitempty"`
+	Type       *string                                                              `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s CallMultimodalModelRequestChatMessageModelListContentList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CallMultimodalModelRequestChatMessageModelListContentList) GoString() string {
+	return s.String()
+}
+
+func (s *CallMultimodalModelRequestChatMessageModelListContentList) SetImageModel(v *CallMultimodalModelRequestChatMessageModelListContentListImageModel) *CallMultimodalModelRequestChatMessageModelListContentList {
+	s.ImageModel = v
+	return s
+}
+
+func (s *CallMultimodalModelRequestChatMessageModelListContentList) SetText(v string) *CallMultimodalModelRequestChatMessageModelListContentList {
+	s.Text = &v
+	return s
+}
+
+func (s *CallMultimodalModelRequestChatMessageModelListContentList) SetType(v string) *CallMultimodalModelRequestChatMessageModelListContentList {
+	s.Type = &v
+	return s
+}
+
+type CallMultimodalModelRequestChatMessageModelListContentListImageModel struct {
+	Detail *string `json:"detail,omitempty" xml:"detail,omitempty"`
+	Url    *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s CallMultimodalModelRequestChatMessageModelListContentListImageModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CallMultimodalModelRequestChatMessageModelListContentListImageModel) GoString() string {
+	return s.String()
+}
+
+func (s *CallMultimodalModelRequestChatMessageModelListContentListImageModel) SetDetail(v string) *CallMultimodalModelRequestChatMessageModelListContentListImageModel {
+	s.Detail = &v
+	return s
+}
+
+func (s *CallMultimodalModelRequestChatMessageModelListContentListImageModel) SetUrl(v string) *CallMultimodalModelRequestChatMessageModelListContentListImageModel {
+	s.Url = &v
+	return s
+}
+
+type CallMultimodalModelResponseBody struct {
+	Result  *CallMultimodalModelResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                  `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CallMultimodalModelResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CallMultimodalModelResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CallMultimodalModelResponseBody) SetResult(v *CallMultimodalModelResponseBodyResult) *CallMultimodalModelResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *CallMultimodalModelResponseBody) SetSuccess(v bool) *CallMultimodalModelResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CallMultimodalModelResponseBodyResult struct {
+	// example:
+	//
+	// ```json\n{\n  \"题目1\": {\n    \"左侧括号内学生答案\": \"√\",\n    \"右侧括号内学生答案\": \"\"\n  },\n  \"题目2\": {\n    \"左侧括号内学生答案\": \"√\",\n    \"右侧括号内学生答案\": \"\"\n  }\n}\n```
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// example:
+	//
+	// requestxxxxxxx
+	ReqId *string                                     `json:"reqId,omitempty" xml:"reqId,omitempty"`
+	Usage *CallMultimodalModelResponseBodyResultUsage `json:"usage,omitempty" xml:"usage,omitempty" type:"Struct"`
+}
+
+func (s CallMultimodalModelResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CallMultimodalModelResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CallMultimodalModelResponseBodyResult) SetContent(v string) *CallMultimodalModelResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+func (s *CallMultimodalModelResponseBodyResult) SetReqId(v string) *CallMultimodalModelResponseBodyResult {
+	s.ReqId = &v
+	return s
+}
+
+func (s *CallMultimodalModelResponseBodyResult) SetUsage(v *CallMultimodalModelResponseBodyResultUsage) *CallMultimodalModelResponseBodyResult {
+	s.Usage = v
+	return s
+}
+
+type CallMultimodalModelResponseBodyResultUsage struct {
+	// example:
+	//
+	// 100
+	InputTokens *int32 `json:"inputTokens,omitempty" xml:"inputTokens,omitempty"`
+	// example:
+	//
+	// 20
+	OutputTokens *int32 `json:"outputTokens,omitempty" xml:"outputTokens,omitempty"`
+}
+
+func (s CallMultimodalModelResponseBodyResultUsage) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CallMultimodalModelResponseBodyResultUsage) GoString() string {
+	return s.String()
+}
+
+func (s *CallMultimodalModelResponseBodyResultUsage) SetInputTokens(v int32) *CallMultimodalModelResponseBodyResultUsage {
+	s.InputTokens = &v
+	return s
+}
+
+func (s *CallMultimodalModelResponseBodyResultUsage) SetOutputTokens(v int32) *CallMultimodalModelResponseBodyResultUsage {
+	s.OutputTokens = &v
+	return s
+}
+
+type CallMultimodalModelResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CallMultimodalModelResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CallMultimodalModelResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CallMultimodalModelResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CallMultimodalModelResponse) SetHeaders(v map[string]*string) *CallMultimodalModelResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CallMultimodalModelResponse) SetStatusCode(v int32) *CallMultimodalModelResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CallMultimodalModelResponse) SetBody(v *CallMultimodalModelResponseBody) *CallMultimodalModelResponse {
+	s.Body = v
+	return s
+}
+
 type CancelKitTaskHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7639,6 +7957,8 @@ type CreateAwaitingCorrectionDataRequest struct {
 	// ding8196cd122f5cc6abecb851
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// This parameter is required.
+	PaperName *string `json:"paperName,omitempty" xml:"paperName,omitempty"`
+	// This parameter is required.
 	//
 	// example:
 	//
@@ -7651,6 +7971,8 @@ type CreateAwaitingCorrectionDataRequest struct {
 	// PRINTER1
 	PrinterCode *string `json:"printerCode,omitempty" xml:"printerCode,omitempty"`
 	// This parameter is required.
+	ScanFileOssSaveTime *int64 `json:"scanFileOssSaveTime,omitempty" xml:"scanFileOssSaveTime,omitempty"`
+	// This parameter is required.
 	//
 	// example:
 	//
@@ -7662,6 +7984,8 @@ type CreateAwaitingCorrectionDataRequest struct {
 	//
 	// DING_GRADING_1
 	TaskCode *string `json:"taskCode,omitempty" xml:"taskCode,omitempty"`
+	// This parameter is required.
+	TotalAssignments *int32 `json:"totalAssignments,omitempty" xml:"totalAssignments,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -7693,6 +8017,11 @@ func (s *CreateAwaitingCorrectionDataRequest) SetCorpId(v string) *CreateAwaitin
 	return s
 }
 
+func (s *CreateAwaitingCorrectionDataRequest) SetPaperName(v string) *CreateAwaitingCorrectionDataRequest {
+	s.PaperName = &v
+	return s
+}
+
 func (s *CreateAwaitingCorrectionDataRequest) SetPrintInfo(v string) *CreateAwaitingCorrectionDataRequest {
 	s.PrintInfo = &v
 	return s
@@ -7703,6 +8032,11 @@ func (s *CreateAwaitingCorrectionDataRequest) SetPrinterCode(v string) *CreateAw
 	return s
 }
 
+func (s *CreateAwaitingCorrectionDataRequest) SetScanFileOssSaveTime(v int64) *CreateAwaitingCorrectionDataRequest {
+	s.ScanFileOssSaveTime = &v
+	return s
+}
+
 func (s *CreateAwaitingCorrectionDataRequest) SetSubjectName(v string) *CreateAwaitingCorrectionDataRequest {
 	s.SubjectName = &v
 	return s
@@ -7710,6 +8044,11 @@ func (s *CreateAwaitingCorrectionDataRequest) SetSubjectName(v string) *CreateAw
 
 func (s *CreateAwaitingCorrectionDataRequest) SetTaskCode(v string) *CreateAwaitingCorrectionDataRequest {
 	s.TaskCode = &v
+	return s
+}
+
+func (s *CreateAwaitingCorrectionDataRequest) SetTotalAssignments(v int32) *CreateAwaitingCorrectionDataRequest {
+	s.TotalAssignments = &v
 	return s
 }
 
@@ -9257,6 +9596,258 @@ func (s *CreateEduAssetSpaceResponse) SetStatusCode(v int32) *CreateEduAssetSpac
 }
 
 func (s *CreateEduAssetSpaceResponse) SetBody(v *CreateEduAssetSpaceResponseBody) *CreateEduAssetSpaceResponse {
+	s.Body = v
+	return s
+}
+
+type CreateEduLlmModelReqHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateEduLlmModelReqHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEduLlmModelReqHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEduLlmModelReqHeaders) SetCommonHeaders(v map[string]*string) *CreateEduLlmModelReqHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateEduLlmModelReqHeaders) SetXAcsDingtalkAccessToken(v string) *CreateEduLlmModelReqHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateEduLlmModelReqRequest struct {
+	ChatMessageModelList []*CreateEduLlmModelReqRequestChatMessageModelList `json:"chatMessageModelList,omitempty" xml:"chatMessageModelList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding819xxxxxx
+	CorpId         *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	EnableThinking *bool   `json:"enableThinking,omitempty" xml:"enableThinking,omitempty"`
+	// example:
+	//
+	// 8192
+	MaxTokens *int32 `json:"maxTokens,omitempty" xml:"maxTokens,omitempty"`
+	// example:
+	//
+	// qwen-vl-max
+	Model *string `json:"model,omitempty" xml:"model,omitempty"`
+	// example:
+	//
+	// https://example.cxxxx1.json
+	ReqLlmModelParamUrl *string `json:"reqLlmModelParamUrl,omitempty" xml:"reqLlmModelParamUrl,omitempty"`
+	// example:
+	//
+	// {\"name\":\"手写文字识别\",\"schema\":{\"type\":\"object\",\"properties\":{\"type\":\"object\",\"required\":[\"题目1\",\"题目2\"],\"properties\":{\"题目1\":{\"type\":\"object\",\"properties\":{\"正确答案\":{\"type\":\"string\",\"description\":\"请根据题目描述正确答案\"},\"学生手写回答\":{\"type\":\"string\",\"description\":\"尽一切可能识别学生手写回答,对于有涂改的内容请识别其最终答案，当无法识别时返回 NAN\"},\"学生回答评价\":{\"type\":\"string\",\"description\":\"评价学生手写回答是否工整，请勿包含双引号\"}},\"required\":[\"正确答案\",\"学生手写回答\",\"学生回答评价\"],\"additionalProperties\":false},\"题目2\":{\"type\":\"object\",\"properties\":{\"正确答案\":{\"type\":\"string\",\"description\":\"请根据题目描述正确答案\"},\"学生手写回答\":{\"type\":\"string\",\"description\":\"尽一切可能识别学生手写回答,对于有涂改的内容请识别其最终答案，当无法识别时返回 NAN\"},\"学生回答评价\":{\"type\":\"string\",\"description\":\"评价学生手写回答是否工整，请勿包含双引号\"}},\"required\":[\"正确答案\",\"学生手写回答\",\"学生回答评价\"],\"additionalProperties\":false}}}},\"additionalProperties\":false}
+	ResponseFormat *string `json:"responseFormat,omitempty" xml:"responseFormat,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DING_xxxxxxxxxx
+	TaskCode *string `json:"taskCode,omitempty" xml:"taskCode,omitempty"`
+	// example:
+	//
+	// 0.1
+	Temperature *float64 `json:"temperature,omitempty" xml:"temperature,omitempty"`
+	// example:
+	//
+	// 1.0
+	TopP *float64 `json:"topP,omitempty" xml:"topP,omitempty"`
+}
+
+func (s CreateEduLlmModelReqRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEduLlmModelReqRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEduLlmModelReqRequest) SetChatMessageModelList(v []*CreateEduLlmModelReqRequestChatMessageModelList) *CreateEduLlmModelReqRequest {
+	s.ChatMessageModelList = v
+	return s
+}
+
+func (s *CreateEduLlmModelReqRequest) SetCorpId(v string) *CreateEduLlmModelReqRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *CreateEduLlmModelReqRequest) SetEnableThinking(v bool) *CreateEduLlmModelReqRequest {
+	s.EnableThinking = &v
+	return s
+}
+
+func (s *CreateEduLlmModelReqRequest) SetMaxTokens(v int32) *CreateEduLlmModelReqRequest {
+	s.MaxTokens = &v
+	return s
+}
+
+func (s *CreateEduLlmModelReqRequest) SetModel(v string) *CreateEduLlmModelReqRequest {
+	s.Model = &v
+	return s
+}
+
+func (s *CreateEduLlmModelReqRequest) SetReqLlmModelParamUrl(v string) *CreateEduLlmModelReqRequest {
+	s.ReqLlmModelParamUrl = &v
+	return s
+}
+
+func (s *CreateEduLlmModelReqRequest) SetResponseFormat(v string) *CreateEduLlmModelReqRequest {
+	s.ResponseFormat = &v
+	return s
+}
+
+func (s *CreateEduLlmModelReqRequest) SetTaskCode(v string) *CreateEduLlmModelReqRequest {
+	s.TaskCode = &v
+	return s
+}
+
+func (s *CreateEduLlmModelReqRequest) SetTemperature(v float64) *CreateEduLlmModelReqRequest {
+	s.Temperature = &v
+	return s
+}
+
+func (s *CreateEduLlmModelReqRequest) SetTopP(v float64) *CreateEduLlmModelReqRequest {
+	s.TopP = &v
+	return s
+}
+
+type CreateEduLlmModelReqRequestChatMessageModelList struct {
+	ContentList []*CreateEduLlmModelReqRequestChatMessageModelListContentList `json:"contentList,omitempty" xml:"contentList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// user
+	Role *string `json:"role,omitempty" xml:"role,omitempty"`
+}
+
+func (s CreateEduLlmModelReqRequestChatMessageModelList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEduLlmModelReqRequestChatMessageModelList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEduLlmModelReqRequestChatMessageModelList) SetContentList(v []*CreateEduLlmModelReqRequestChatMessageModelListContentList) *CreateEduLlmModelReqRequestChatMessageModelList {
+	s.ContentList = v
+	return s
+}
+
+func (s *CreateEduLlmModelReqRequestChatMessageModelList) SetRole(v string) *CreateEduLlmModelReqRequestChatMessageModelList {
+	s.Role = &v
+	return s
+}
+
+type CreateEduLlmModelReqRequestChatMessageModelListContentList struct {
+	ImageModel *CreateEduLlmModelReqRequestChatMessageModelListContentListImageModel `json:"imageModel,omitempty" xml:"imageModel,omitempty" type:"Struct"`
+	Text       *string                                                               `json:"text,omitempty" xml:"text,omitempty"`
+	Type       *string                                                               `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s CreateEduLlmModelReqRequestChatMessageModelListContentList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEduLlmModelReqRequestChatMessageModelListContentList) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEduLlmModelReqRequestChatMessageModelListContentList) SetImageModel(v *CreateEduLlmModelReqRequestChatMessageModelListContentListImageModel) *CreateEduLlmModelReqRequestChatMessageModelListContentList {
+	s.ImageModel = v
+	return s
+}
+
+func (s *CreateEduLlmModelReqRequestChatMessageModelListContentList) SetText(v string) *CreateEduLlmModelReqRequestChatMessageModelListContentList {
+	s.Text = &v
+	return s
+}
+
+func (s *CreateEduLlmModelReqRequestChatMessageModelListContentList) SetType(v string) *CreateEduLlmModelReqRequestChatMessageModelListContentList {
+	s.Type = &v
+	return s
+}
+
+type CreateEduLlmModelReqRequestChatMessageModelListContentListImageModel struct {
+	Detail *string `json:"detail,omitempty" xml:"detail,omitempty"`
+	Url    *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s CreateEduLlmModelReqRequestChatMessageModelListContentListImageModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEduLlmModelReqRequestChatMessageModelListContentListImageModel) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEduLlmModelReqRequestChatMessageModelListContentListImageModel) SetDetail(v string) *CreateEduLlmModelReqRequestChatMessageModelListContentListImageModel {
+	s.Detail = &v
+	return s
+}
+
+func (s *CreateEduLlmModelReqRequestChatMessageModelListContentListImageModel) SetUrl(v string) *CreateEduLlmModelReqRequestChatMessageModelListContentListImageModel {
+	s.Url = &v
+	return s
+}
+
+type CreateEduLlmModelReqResponseBody struct {
+	Result  *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateEduLlmModelReqResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEduLlmModelReqResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEduLlmModelReqResponseBody) SetResult(v string) *CreateEduLlmModelReqResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *CreateEduLlmModelReqResponseBody) SetSuccess(v bool) *CreateEduLlmModelReqResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateEduLlmModelReqResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateEduLlmModelReqResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateEduLlmModelReqResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEduLlmModelReqResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEduLlmModelReqResponse) SetHeaders(v map[string]*string) *CreateEduLlmModelReqResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateEduLlmModelReqResponse) SetStatusCode(v int32) *CreateEduLlmModelReqResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateEduLlmModelReqResponse) SetBody(v *CreateEduLlmModelReqResponseBody) *CreateEduLlmModelReqResponse {
 	s.Body = v
 	return s
 }
@@ -28596,6 +29187,206 @@ func (s *QueryEduAssetSpacesResponse) SetBody(v *QueryEduAssetSpacesResponseBody
 	return s
 }
 
+type QueryEduLlmModelResponseHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryEduLlmModelResponseHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEduLlmModelResponseHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEduLlmModelResponseHeaders) SetCommonHeaders(v map[string]*string) *QueryEduLlmModelResponseHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryEduLlmModelResponseHeaders) SetXAcsDingtalkAccessToken(v string) *QueryEduLlmModelResponseHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryEduLlmModelResponseRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding819xxxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// request_xxxxxxxxxx
+	ReqId *string `json:"reqId,omitempty" xml:"reqId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DING_xxxxxxxxxx
+	TaskCode *string `json:"taskCode,omitempty" xml:"taskCode,omitempty"`
+}
+
+func (s QueryEduLlmModelResponseRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEduLlmModelResponseRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEduLlmModelResponseRequest) SetCorpId(v string) *QueryEduLlmModelResponseRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryEduLlmModelResponseRequest) SetReqId(v string) *QueryEduLlmModelResponseRequest {
+	s.ReqId = &v
+	return s
+}
+
+func (s *QueryEduLlmModelResponseRequest) SetTaskCode(v string) *QueryEduLlmModelResponseRequest {
+	s.TaskCode = &v
+	return s
+}
+
+type QueryEduLlmModelResponseResponseBody struct {
+	Result  *QueryEduLlmModelResponseResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                       `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryEduLlmModelResponseResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEduLlmModelResponseResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEduLlmModelResponseResponseBody) SetResult(v *QueryEduLlmModelResponseResponseBodyResult) *QueryEduLlmModelResponseResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryEduLlmModelResponseResponseBody) SetSuccess(v bool) *QueryEduLlmModelResponseResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryEduLlmModelResponseResponseBodyResult struct {
+	ModelResult *QueryEduLlmModelResponseResponseBodyResultModelResult `json:"modelResult,omitempty" xml:"modelResult,omitempty" type:"Struct"`
+	// example:
+	//
+	// requestxxxxxxx
+	ReqId *string `json:"reqId,omitempty" xml:"reqId,omitempty"`
+}
+
+func (s QueryEduLlmModelResponseResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEduLlmModelResponseResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEduLlmModelResponseResponseBodyResult) SetModelResult(v *QueryEduLlmModelResponseResponseBodyResultModelResult) *QueryEduLlmModelResponseResponseBodyResult {
+	s.ModelResult = v
+	return s
+}
+
+func (s *QueryEduLlmModelResponseResponseBodyResult) SetReqId(v string) *QueryEduLlmModelResponseResponseBodyResult {
+	s.ReqId = &v
+	return s
+}
+
+type QueryEduLlmModelResponseResponseBodyResultModelResult struct {
+	// example:
+	//
+	// ```json\n{\n  \"题目1\": {\n    \"左侧括号内学生答案\": \"√\",\n    \"右侧括号内学生答案\": \"\"\n  },\n  \"题目2\": {\n    \"左侧括号内学生答案\": \"√\",\n    \"右侧括号内学生答案\": \"\"\n  },\n  \"题目3\": {\n    \"左侧括号内学生答案\": \"√\",\n    \"右侧括号内学生答案\": \"\"\n  },\n  \"题目4\": {\n    \"左侧括号内学生答案\": \"√\",\n    \"右侧括号内学生答案\": \"√\"\n  },\n  \"题目5\": {\n    \"左侧括号内学生答案\": \"\",\n    \"右侧括号内学生答案\": \"√\"\n  },\n  \"题目6\": {\n    \"左侧括号内学生答案\": \"√\",\n    \"右侧括号内学生答案\": \"\"\n  }\n}\n```
+	Content *string                                                     `json:"content,omitempty" xml:"content,omitempty"`
+	Usage   *QueryEduLlmModelResponseResponseBodyResultModelResultUsage `json:"usage,omitempty" xml:"usage,omitempty" type:"Struct"`
+}
+
+func (s QueryEduLlmModelResponseResponseBodyResultModelResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEduLlmModelResponseResponseBodyResultModelResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEduLlmModelResponseResponseBodyResultModelResult) SetContent(v string) *QueryEduLlmModelResponseResponseBodyResultModelResult {
+	s.Content = &v
+	return s
+}
+
+func (s *QueryEduLlmModelResponseResponseBodyResultModelResult) SetUsage(v *QueryEduLlmModelResponseResponseBodyResultModelResultUsage) *QueryEduLlmModelResponseResponseBodyResultModelResult {
+	s.Usage = v
+	return s
+}
+
+type QueryEduLlmModelResponseResponseBodyResultModelResultUsage struct {
+	// example:
+	//
+	// 888
+	InputTokens *int32 `json:"inputTokens,omitempty" xml:"inputTokens,omitempty"`
+	// example:
+	//
+	// 666
+	OutputTokens *int32 `json:"outputTokens,omitempty" xml:"outputTokens,omitempty"`
+}
+
+func (s QueryEduLlmModelResponseResponseBodyResultModelResultUsage) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEduLlmModelResponseResponseBodyResultModelResultUsage) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEduLlmModelResponseResponseBodyResultModelResultUsage) SetInputTokens(v int32) *QueryEduLlmModelResponseResponseBodyResultModelResultUsage {
+	s.InputTokens = &v
+	return s
+}
+
+func (s *QueryEduLlmModelResponseResponseBodyResultModelResultUsage) SetOutputTokens(v int32) *QueryEduLlmModelResponseResponseBodyResultModelResultUsage {
+	s.OutputTokens = &v
+	return s
+}
+
+type QueryEduLlmModelResponseResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryEduLlmModelResponseResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryEduLlmModelResponseResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryEduLlmModelResponseResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryEduLlmModelResponseResponse) SetHeaders(v map[string]*string) *QueryEduLlmModelResponseResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryEduLlmModelResponseResponse) SetStatusCode(v int32) *QueryEduLlmModelResponseResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryEduLlmModelResponseResponse) SetBody(v *QueryEduLlmModelResponseResponseBody) *QueryEduLlmModelResponseResponse {
+	s.Body = v
+	return s
+}
+
 type QueryGroupIdHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -33155,6 +33946,136 @@ func (s *QueryUserPayInfoResponse) SetBody(v *QueryUserPayInfoResponseBody) *Que
 	return s
 }
 
+type RecordActionPointHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RecordActionPointHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RecordActionPointHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RecordActionPointHeaders) SetCommonHeaders(v map[string]*string) *RecordActionPointHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RecordActionPointHeaders) SetXAcsDingtalkAccessToken(v string) *RecordActionPointHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RecordActionPointRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// UPLOAD
+	ActionCode *string `json:"actionCode,omitempty" xml:"actionCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1770361351000
+	ActionTime *int64 `json:"actionTime,omitempty" xml:"actionTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding819xxxxxx
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DING_xxxxxxxxxx
+	TaskCode *string `json:"taskCode,omitempty" xml:"taskCode,omitempty"`
+}
+
+func (s RecordActionPointRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RecordActionPointRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RecordActionPointRequest) SetActionCode(v string) *RecordActionPointRequest {
+	s.ActionCode = &v
+	return s
+}
+
+func (s *RecordActionPointRequest) SetActionTime(v int64) *RecordActionPointRequest {
+	s.ActionTime = &v
+	return s
+}
+
+func (s *RecordActionPointRequest) SetCorpId(v string) *RecordActionPointRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *RecordActionPointRequest) SetTaskCode(v string) *RecordActionPointRequest {
+	s.TaskCode = &v
+	return s
+}
+
+type RecordActionPointResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s RecordActionPointResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RecordActionPointResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RecordActionPointResponseBody) SetResult(v bool) *RecordActionPointResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *RecordActionPointResponseBody) SetSuccess(v bool) *RecordActionPointResponseBody {
+	s.Success = &v
+	return s
+}
+
+type RecordActionPointResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RecordActionPointResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s RecordActionPointResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RecordActionPointResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RecordActionPointResponse) SetHeaders(v map[string]*string) *RecordActionPointResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RecordActionPointResponse) SetStatusCode(v int32) *RecordActionPointResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RecordActionPointResponse) SetBody(v *RecordActionPointResponseBody) *RecordActionPointResponse {
+	s.Body = v
+	return s
+}
+
 type RemoveDeviceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -37680,6 +38601,126 @@ func (s *UpdateCollegeUserEmpTypeResponse) SetStatusCode(v int32) *UpdateCollege
 }
 
 func (s *UpdateCollegeUserEmpTypeResponse) SetBody(v *UpdateCollegeUserEmpTypeResponseBody) *UpdateCollegeUserEmpTypeResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateCorrectingDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateCorrectingDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCorrectingDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCorrectingDataHeaders) SetCommonHeaders(v map[string]*string) *UpdateCorrectingDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateCorrectingDataHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateCorrectingDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateCorrectingDataRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding8196cd122f5cc6abecb851
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	DataDetail *string `json:"dataDetail,omitempty" xml:"dataDetail,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// terminate_correcting
+	DataType *string `json:"dataType,omitempty" xml:"dataType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// DING_SCAN_CORRECT_0***0001
+	TaskCode *string `json:"taskCode,omitempty" xml:"taskCode,omitempty"`
+}
+
+func (s UpdateCorrectingDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCorrectingDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCorrectingDataRequest) SetCorpId(v string) *UpdateCorrectingDataRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *UpdateCorrectingDataRequest) SetDataDetail(v string) *UpdateCorrectingDataRequest {
+	s.DataDetail = &v
+	return s
+}
+
+func (s *UpdateCorrectingDataRequest) SetDataType(v string) *UpdateCorrectingDataRequest {
+	s.DataType = &v
+	return s
+}
+
+func (s *UpdateCorrectingDataRequest) SetTaskCode(v string) *UpdateCorrectingDataRequest {
+	s.TaskCode = &v
+	return s
+}
+
+type UpdateCorrectingDataResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateCorrectingDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCorrectingDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCorrectingDataResponseBody) SetSuccess(v bool) *UpdateCorrectingDataResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateCorrectingDataResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateCorrectingDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateCorrectingDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCorrectingDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCorrectingDataResponse) SetHeaders(v map[string]*string) *UpdateCorrectingDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateCorrectingDataResponse) SetStatusCode(v int32) *UpdateCorrectingDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateCorrectingDataResponse) SetBody(v *UpdateCorrectingDataResponseBody) *UpdateCorrectingDataResponse {
 	s.Body = v
 	return s
 }
@@ -42422,6 +43463,115 @@ func (client *Client) BatchOrgCreateHW(request *BatchOrgCreateHWRequest) (_resul
 
 // Summary:
 //
+// 调用多模态模型
+//
+// @param request - CallMultimodalModelRequest
+//
+// @param headers - CallMultimodalModelHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CallMultimodalModelResponse
+func (client *Client) CallMultimodalModelWithOptions(request *CallMultimodalModelRequest, headers *CallMultimodalModelHeaders, runtime *util.RuntimeOptions) (_result *CallMultimodalModelResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChatMessageModelList)) {
+		body["chatMessageModelList"] = request.ChatMessageModelList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableThinking)) {
+		body["enableThinking"] = request.EnableThinking
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxTokens)) {
+		body["maxTokens"] = request.MaxTokens
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Model)) {
+		body["model"] = request.Model
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReqLlmModelParamUrl)) {
+		body["reqLlmModelParamUrl"] = request.ReqLlmModelParamUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ResponseFormat)) {
+		body["responseFormat"] = request.ResponseFormat
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskCode)) {
+		body["taskCode"] = request.TaskCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Temperature)) {
+		body["temperature"] = request.Temperature
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TopP)) {
+		body["topP"] = request.TopP
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CallMultimodalModel"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/multimodal/model/call"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CallMultimodalModelResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 调用多模态模型
+//
+// @param request - CallMultimodalModelRequest
+//
+// @return CallMultimodalModelResponse
+func (client *Client) CallMultimodalModel(request *CallMultimodalModelRequest) (_result *CallMultimodalModelResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CallMultimodalModelHeaders{}
+	_result = &CallMultimodalModelResponse{}
+	_body, _err := client.CallMultimodalModelWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 套件-取消套件任务
 //
 // @param request - CancelKitTaskRequest
@@ -43925,6 +45075,10 @@ func (client *Client) CreateAwaitingCorrectionDataWithOptions(request *CreateAwa
 		body["corpId"] = request.CorpId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.PaperName)) {
+		body["paperName"] = request.PaperName
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.PrintInfo)) {
 		body["printInfo"] = request.PrintInfo
 	}
@@ -43933,12 +45087,20 @@ func (client *Client) CreateAwaitingCorrectionDataWithOptions(request *CreateAwa
 		body["printerCode"] = request.PrinterCode
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.ScanFileOssSaveTime)) {
+		body["scanFileOssSaveTime"] = request.ScanFileOssSaveTime
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.SubjectName)) {
 		body["subjectName"] = request.SubjectName
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.TaskCode)) {
 		body["taskCode"] = request.TaskCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TotalAssignments)) {
+		body["totalAssignments"] = request.TotalAssignments
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.TotalPages)) {
@@ -44745,6 +45907,115 @@ func (client *Client) CreateEduAssetSpace(request *CreateEduAssetSpaceRequest) (
 	headers := &CreateEduAssetSpaceHeaders{}
 	_result = &CreateEduAssetSpaceResponse{}
 	_body, _err := client.CreateEduAssetSpaceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-新增模型批改请求
+//
+// @param request - CreateEduLlmModelReqRequest
+//
+// @param headers - CreateEduLlmModelReqHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateEduLlmModelReqResponse
+func (client *Client) CreateEduLlmModelReqWithOptions(request *CreateEduLlmModelReqRequest, headers *CreateEduLlmModelReqHeaders, runtime *util.RuntimeOptions) (_result *CreateEduLlmModelReqResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChatMessageModelList)) {
+		body["chatMessageModelList"] = request.ChatMessageModelList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableThinking)) {
+		body["enableThinking"] = request.EnableThinking
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxTokens)) {
+		body["maxTokens"] = request.MaxTokens
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Model)) {
+		body["model"] = request.Model
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReqLlmModelParamUrl)) {
+		body["reqLlmModelParamUrl"] = request.ReqLlmModelParamUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ResponseFormat)) {
+		body["responseFormat"] = request.ResponseFormat
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskCode)) {
+		body["taskCode"] = request.TaskCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Temperature)) {
+		body["temperature"] = request.Temperature
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TopP)) {
+		body["topP"] = request.TopP
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateEduLlmModelReq"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/assignment/createEduLlmModelReq"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateEduLlmModelReqResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-新增模型批改请求
+//
+// @param request - CreateEduLlmModelReqRequest
+//
+// @return CreateEduLlmModelReqResponse
+func (client *Client) CreateEduLlmModelReq(request *CreateEduLlmModelReqRequest) (_result *CreateEduLlmModelReqResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateEduLlmModelReqHeaders{}
+	_result = &CreateEduLlmModelReqResponse{}
+	_body, _err := client.CreateEduLlmModelReqWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -53924,6 +55195,87 @@ func (client *Client) QueryEduAssetSpaces(request *QueryEduAssetSpacesRequest) (
 
 // Summary:
 //
+// 作业批改-查询模型返回结果
+//
+// @param request - QueryEduLlmModelResponseRequest
+//
+// @param headers - QueryEduLlmModelResponseHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryEduLlmModelResponseResponse
+func (client *Client) QueryEduLlmModelResponseWithOptions(request *QueryEduLlmModelResponseRequest, headers *QueryEduLlmModelResponseHeaders, runtime *util.RuntimeOptions) (_result *QueryEduLlmModelResponseResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReqId)) {
+		body["reqId"] = request.ReqId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskCode)) {
+		body["taskCode"] = request.TaskCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryEduLlmModelResponse"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/assignment/queryEduLlmModelResponse"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryEduLlmModelResponseResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-查询模型返回结果
+//
+// @param request - QueryEduLlmModelResponseRequest
+//
+// @return QueryEduLlmModelResponseResponse
+func (client *Client) QueryEduLlmModelResponse(request *QueryEduLlmModelResponseRequest) (_result *QueryEduLlmModelResponseResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryEduLlmModelResponseHeaders{}
+	_result = &QueryEduLlmModelResponseResponse{}
+	_body, _err := client.QueryEduLlmModelResponseWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 根据设备SN信息查询学校人脸库
 //
 // @param request - QueryGroupIdRequest
@@ -55839,6 +57191,91 @@ func (client *Client) QueryUserPayInfo(request *QueryUserPayInfoRequest) (_resul
 	headers := &QueryUserPayInfoHeaders{}
 	_result = &QueryUserPayInfoResponse{}
 	_body, _err := client.QueryUserPayInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-记录行动点
+//
+// @param request - RecordActionPointRequest
+//
+// @param headers - RecordActionPointHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RecordActionPointResponse
+func (client *Client) RecordActionPointWithOptions(request *RecordActionPointRequest, headers *RecordActionPointHeaders, runtime *util.RuntimeOptions) (_result *RecordActionPointResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActionCode)) {
+		body["actionCode"] = request.ActionCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ActionTime)) {
+		body["actionTime"] = request.ActionTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskCode)) {
+		body["taskCode"] = request.TaskCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RecordActionPoint"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/assignment/recordActionPoint"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RecordActionPointResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-记录行动点
+//
+// @param request - RecordActionPointRequest
+//
+// @return RecordActionPointResponse
+func (client *Client) RecordActionPoint(request *RecordActionPointRequest) (_result *RecordActionPointResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RecordActionPointHeaders{}
+	_result = &RecordActionPointResponse{}
+	_body, _err := client.RecordActionPointWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -58441,6 +59878,91 @@ func (client *Client) UpdateCollegeUserEmpType(request *UpdateCollegeUserEmpType
 	headers := &UpdateCollegeUserEmpTypeHeaders{}
 	_result = &UpdateCollegeUserEmpTypeResponse{}
 	_body, _err := client.UpdateCollegeUserEmpTypeWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-更新批改中数据
+//
+// @param request - UpdateCorrectingDataRequest
+//
+// @param headers - UpdateCorrectingDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateCorrectingDataResponse
+func (client *Client) UpdateCorrectingDataWithOptions(request *UpdateCorrectingDataRequest, headers *UpdateCorrectingDataHeaders, runtime *util.RuntimeOptions) (_result *UpdateCorrectingDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DataDetail)) {
+		body["dataDetail"] = request.DataDetail
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DataType)) {
+		body["dataType"] = request.DataType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskCode)) {
+		body["taskCode"] = request.TaskCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateCorrectingData"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/assignment/updateCorrectingData"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateCorrectingDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-更新批改中数据
+//
+// @param request - UpdateCorrectingDataRequest
+//
+// @return UpdateCorrectingDataResponse
+func (client *Client) UpdateCorrectingData(request *UpdateCorrectingDataRequest) (_result *UpdateCorrectingDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateCorrectingDataHeaders{}
+	_result = &UpdateCorrectingDataResponse{}
+	_body, _err := client.UpdateCorrectingDataWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

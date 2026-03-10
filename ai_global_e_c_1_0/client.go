@@ -9,6 +9,105 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type BusinessCodeCallbackHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BusinessCodeCallbackHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BusinessCodeCallbackHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BusinessCodeCallbackHeaders) SetCommonHeaders(v map[string]*string) *BusinessCodeCallbackHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BusinessCodeCallbackHeaders) SetXAcsDingtalkAccessToken(v string) *BusinessCodeCallbackHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BusinessCodeCallbackRequest struct {
+	// This parameter is required.
+	BusinessCode *string `json:"businessCode,omitempty" xml:"businessCode,omitempty"`
+	EventType    *string `json:"eventType,omitempty" xml:"eventType,omitempty"`
+	Status       *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s BusinessCodeCallbackRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BusinessCodeCallbackRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BusinessCodeCallbackRequest) SetBusinessCode(v string) *BusinessCodeCallbackRequest {
+	s.BusinessCode = &v
+	return s
+}
+
+func (s *BusinessCodeCallbackRequest) SetEventType(v string) *BusinessCodeCallbackRequest {
+	s.EventType = &v
+	return s
+}
+
+func (s *BusinessCodeCallbackRequest) SetStatus(v string) *BusinessCodeCallbackRequest {
+	s.Status = &v
+	return s
+}
+
+type BusinessCodeCallbackResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s BusinessCodeCallbackResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BusinessCodeCallbackResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BusinessCodeCallbackResponseBody) SetSuccess(v bool) *BusinessCodeCallbackResponseBody {
+	s.Success = &v
+	return s
+}
+
+type BusinessCodeCallbackResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BusinessCodeCallbackResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s BusinessCodeCallbackResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BusinessCodeCallbackResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BusinessCodeCallbackResponse) SetHeaders(v map[string]*string) *BusinessCodeCallbackResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BusinessCodeCallbackResponse) SetStatusCode(v int32) *BusinessCodeCallbackResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BusinessCodeCallbackResponse) SetBody(v *BusinessCodeCallbackResponseBody) *BusinessCodeCallbackResponse {
+	s.Body = v
+	return s
+}
+
 type ConnectionOmniChannelTiktokMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -548,6 +647,152 @@ func (s *LaunchResponse) SetBody(v *LaunchResponseBody) *LaunchResponse {
 	return s
 }
 
+type QueryBusinessCodeInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryBusinessCodeInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBusinessCodeInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBusinessCodeInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryBusinessCodeInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryBusinessCodeInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryBusinessCodeInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryBusinessCodeInfoRequest struct {
+	// This parameter is required.
+	BusinessCode *string `json:"businessCode,omitempty" xml:"businessCode,omitempty"`
+	EventType    *string `json:"eventType,omitempty" xml:"eventType,omitempty"`
+	Status       *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QueryBusinessCodeInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBusinessCodeInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBusinessCodeInfoRequest) SetBusinessCode(v string) *QueryBusinessCodeInfoRequest {
+	s.BusinessCode = &v
+	return s
+}
+
+func (s *QueryBusinessCodeInfoRequest) SetEventType(v string) *QueryBusinessCodeInfoRequest {
+	s.EventType = &v
+	return s
+}
+
+func (s *QueryBusinessCodeInfoRequest) SetStatus(v string) *QueryBusinessCodeInfoRequest {
+	s.Status = &v
+	return s
+}
+
+type QueryBusinessCodeInfoResponseBody struct {
+	BusinessCode *string                                     `json:"businessCode,omitempty" xml:"businessCode,omitempty"`
+	ImageType    *string                                     `json:"imageType,omitempty" xml:"imageType,omitempty"`
+	ImageUrls    []*string                                   `json:"imageUrls,omitempty" xml:"imageUrls,omitempty" type:"Repeated"`
+	ProductId    *string                                     `json:"productId,omitempty" xml:"productId,omitempty"`
+	SkuList      []*QueryBusinessCodeInfoResponseBodySkuList `json:"skuList,omitempty" xml:"skuList,omitempty" type:"Repeated"`
+}
+
+func (s QueryBusinessCodeInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBusinessCodeInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBusinessCodeInfoResponseBody) SetBusinessCode(v string) *QueryBusinessCodeInfoResponseBody {
+	s.BusinessCode = &v
+	return s
+}
+
+func (s *QueryBusinessCodeInfoResponseBody) SetImageType(v string) *QueryBusinessCodeInfoResponseBody {
+	s.ImageType = &v
+	return s
+}
+
+func (s *QueryBusinessCodeInfoResponseBody) SetImageUrls(v []*string) *QueryBusinessCodeInfoResponseBody {
+	s.ImageUrls = v
+	return s
+}
+
+func (s *QueryBusinessCodeInfoResponseBody) SetProductId(v string) *QueryBusinessCodeInfoResponseBody {
+	s.ProductId = &v
+	return s
+}
+
+func (s *QueryBusinessCodeInfoResponseBody) SetSkuList(v []*QueryBusinessCodeInfoResponseBodySkuList) *QueryBusinessCodeInfoResponseBody {
+	s.SkuList = v
+	return s
+}
+
+type QueryBusinessCodeInfoResponseBodySkuList struct {
+	ImageUrl *string `json:"imageUrl,omitempty" xml:"imageUrl,omitempty"`
+	SkuId    *string `json:"skuId,omitempty" xml:"skuId,omitempty"`
+}
+
+func (s QueryBusinessCodeInfoResponseBodySkuList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBusinessCodeInfoResponseBodySkuList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBusinessCodeInfoResponseBodySkuList) SetImageUrl(v string) *QueryBusinessCodeInfoResponseBodySkuList {
+	s.ImageUrl = &v
+	return s
+}
+
+func (s *QueryBusinessCodeInfoResponseBodySkuList) SetSkuId(v string) *QueryBusinessCodeInfoResponseBodySkuList {
+	s.SkuId = &v
+	return s
+}
+
+type QueryBusinessCodeInfoResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryBusinessCodeInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryBusinessCodeInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBusinessCodeInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBusinessCodeInfoResponse) SetHeaders(v map[string]*string) *QueryBusinessCodeInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryBusinessCodeInfoResponse) SetStatusCode(v int32) *QueryBusinessCodeInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryBusinessCodeInfoResponse) SetBody(v *QueryBusinessCodeInfoResponseBody) *QueryBusinessCodeInfoResponse {
+	s.Body = v
+	return s
+}
+
 type QueryNotableInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -902,6 +1147,87 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 
 // Summary:
 //
+// 业务code回调
+//
+// @param request - BusinessCodeCallbackRequest
+//
+// @param headers - BusinessCodeCallbackHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BusinessCodeCallbackResponse
+func (client *Client) BusinessCodeCallbackWithOptions(request *BusinessCodeCallbackRequest, headers *BusinessCodeCallbackHeaders, runtime *util.RuntimeOptions) (_result *BusinessCodeCallbackResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BusinessCode)) {
+		body["businessCode"] = request.BusinessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EventType)) {
+		body["eventType"] = request.EventType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BusinessCodeCallback"),
+		Version:     tea.String("aiGlobalEC_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiGlobalEC/businessCode/callback"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BusinessCodeCallbackResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 业务code回调
+//
+// @param request - BusinessCodeCallbackRequest
+//
+// @return BusinessCodeCallbackResponse
+func (client *Client) BusinessCodeCallback(request *BusinessCodeCallbackRequest) (_result *BusinessCodeCallbackResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BusinessCodeCallbackHeaders{}
+	_result = &BusinessCodeCallbackResponse{}
+	_body, _err := client.BusinessCodeCallbackWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 全渠道运营客服tiktok消息接入
 //
 // @param request - ConnectionOmniChannelTiktokMessageRequest
@@ -1229,6 +1555,87 @@ func (client *Client) Launch(request *LaunchRequest) (_result *LaunchResponse, _
 	headers := &LaunchHeaders{}
 	_result = &LaunchResponse{}
 	_body, _err := client.LaunchWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据businessCode查询商品图片信息
+//
+// @param request - QueryBusinessCodeInfoRequest
+//
+// @param headers - QueryBusinessCodeInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryBusinessCodeInfoResponse
+func (client *Client) QueryBusinessCodeInfoWithOptions(request *QueryBusinessCodeInfoRequest, headers *QueryBusinessCodeInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryBusinessCodeInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BusinessCode)) {
+		body["businessCode"] = request.BusinessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EventType)) {
+		body["eventType"] = request.EventType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryBusinessCodeInfo"),
+		Version:     tea.String("aiGlobalEC_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/aiGlobalEC/businessCode/queryInfo"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryBusinessCodeInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据businessCode查询商品图片信息
+//
+// @param request - QueryBusinessCodeInfoRequest
+//
+// @return QueryBusinessCodeInfoResponse
+func (client *Client) QueryBusinessCodeInfo(request *QueryBusinessCodeInfoRequest) (_result *QueryBusinessCodeInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryBusinessCodeInfoHeaders{}
+	_result = &QueryBusinessCodeInfoResponse{}
+	_body, _err := client.QueryBusinessCodeInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

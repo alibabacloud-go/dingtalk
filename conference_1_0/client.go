@@ -3726,6 +3726,192 @@ func (s *MuteMembersResponse) SetBody(v *MuteMembersResponseBody) *MuteMembersRe
 	return s
 }
 
+type OptRecordWhiteAccountHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s OptRecordWhiteAccountHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OptRecordWhiteAccountHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *OptRecordWhiteAccountHeaders) SetCommonHeaders(v map[string]*string) *OptRecordWhiteAccountHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *OptRecordWhiteAccountHeaders) SetXAcsDingtalkAccessToken(v string) *OptRecordWhiteAccountHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type OptRecordWhiteAccountRequest struct {
+	RequestBody *OptRecordWhiteAccountRequestRequestBody `json:"requestBody,omitempty" xml:"requestBody,omitempty" type:"Struct"`
+}
+
+func (s OptRecordWhiteAccountRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OptRecordWhiteAccountRequest) GoString() string {
+	return s.String()
+}
+
+func (s *OptRecordWhiteAccountRequest) SetRequestBody(v *OptRecordWhiteAccountRequestRequestBody) *OptRecordWhiteAccountRequest {
+	s.RequestBody = v
+	return s
+}
+
+type OptRecordWhiteAccountRequestRequestBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cloud_record
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	Operation        *int32                                                     `json:"operation,omitempty" xml:"operation,omitempty"`
+	SettingRangeList []*OptRecordWhiteAccountRequestRequestBodySettingRangeList `json:"settingRangeList,omitempty" xml:"settingRangeList,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// vLXXXiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s OptRecordWhiteAccountRequestRequestBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OptRecordWhiteAccountRequestRequestBody) GoString() string {
+	return s.String()
+}
+
+func (s *OptRecordWhiteAccountRequestRequestBody) SetBizType(v string) *OptRecordWhiteAccountRequestRequestBody {
+	s.BizType = &v
+	return s
+}
+
+func (s *OptRecordWhiteAccountRequestRequestBody) SetOperation(v int32) *OptRecordWhiteAccountRequestRequestBody {
+	s.Operation = &v
+	return s
+}
+
+func (s *OptRecordWhiteAccountRequestRequestBody) SetSettingRangeList(v []*OptRecordWhiteAccountRequestRequestBodySettingRangeList) *OptRecordWhiteAccountRequestRequestBody {
+	s.SettingRangeList = v
+	return s
+}
+
+func (s *OptRecordWhiteAccountRequestRequestBody) SetUnionId(v string) *OptRecordWhiteAccountRequestRequestBody {
+	s.UnionId = &v
+	return s
+}
+
+type OptRecordWhiteAccountRequestRequestBodySettingRangeList struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// vLY8xxxxxxxQiEiE
+	SettingRangeId *string `json:"settingRangeId,omitempty" xml:"settingRangeId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 3
+	SettingRangeType *int32 `json:"settingRangeType,omitempty" xml:"settingRangeType,omitempty"`
+}
+
+func (s OptRecordWhiteAccountRequestRequestBodySettingRangeList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OptRecordWhiteAccountRequestRequestBodySettingRangeList) GoString() string {
+	return s.String()
+}
+
+func (s *OptRecordWhiteAccountRequestRequestBodySettingRangeList) SetSettingRangeId(v string) *OptRecordWhiteAccountRequestRequestBodySettingRangeList {
+	s.SettingRangeId = &v
+	return s
+}
+
+func (s *OptRecordWhiteAccountRequestRequestBodySettingRangeList) SetSettingRangeType(v int32) *OptRecordWhiteAccountRequestRequestBodySettingRangeList {
+	s.SettingRangeType = &v
+	return s
+}
+
+type OptRecordWhiteAccountShrinkRequest struct {
+	RequestBodyShrink *string `json:"requestBody,omitempty" xml:"requestBody,omitempty"`
+}
+
+func (s OptRecordWhiteAccountShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OptRecordWhiteAccountShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *OptRecordWhiteAccountShrinkRequest) SetRequestBodyShrink(v string) *OptRecordWhiteAccountShrinkRequest {
+	s.RequestBodyShrink = &v
+	return s
+}
+
+type OptRecordWhiteAccountResponseBody struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+}
+
+func (s OptRecordWhiteAccountResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OptRecordWhiteAccountResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *OptRecordWhiteAccountResponseBody) SetCode(v string) *OptRecordWhiteAccountResponseBody {
+	s.Code = &v
+	return s
+}
+
+type OptRecordWhiteAccountResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *OptRecordWhiteAccountResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s OptRecordWhiteAccountResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OptRecordWhiteAccountResponse) GoString() string {
+	return s.String()
+}
+
+func (s *OptRecordWhiteAccountResponse) SetHeaders(v map[string]*string) *OptRecordWhiteAccountResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *OptRecordWhiteAccountResponse) SetStatusCode(v int32) *OptRecordWhiteAccountResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *OptRecordWhiteAccountResponse) SetBody(v *OptRecordWhiteAccountResponseBody) *OptRecordWhiteAccountResponse {
+	s.Body = v
+	return s
+}
+
 type QueryCloudRecordTextHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5115,6 +5301,7 @@ type QueryConferenceMembersResponseBodyMemberModels struct {
 	ConferenceId   *string `json:"conferenceId,omitempty" xml:"conferenceId,omitempty"`
 	Duration       *int64  `json:"duration,omitempty" xml:"duration,omitempty"`
 	Host           *bool   `json:"host,omitempty" xml:"host,omitempty"`
+	JobNumber      *string `json:"jobNumber,omitempty" xml:"jobNumber,omitempty"`
 	JoinTime       *int64  `json:"joinTime,omitempty" xml:"joinTime,omitempty"`
 	LeaveTime      *int64  `json:"leaveTime,omitempty" xml:"leaveTime,omitempty"`
 	OuterOrgMember *bool   `json:"outerOrgMember,omitempty" xml:"outerOrgMember,omitempty"`
@@ -5159,6 +5346,11 @@ func (s *QueryConferenceMembersResponseBodyMemberModels) SetDuration(v int64) *Q
 
 func (s *QueryConferenceMembersResponseBodyMemberModels) SetHost(v bool) *QueryConferenceMembersResponseBodyMemberModels {
 	s.Host = &v
+	return s
+}
+
+func (s *QueryConferenceMembersResponseBodyMemberModels) SetJobNumber(v string) *QueryConferenceMembersResponseBodyMemberModels {
+	s.JobNumber = &v
 	return s
 }
 
@@ -6532,6 +6724,7 @@ func (s *QueryRecordMinutesUrlResponseBody) SetRecordMinutesUrls(v []*QueryRecor
 
 type QueryRecordMinutesUrlResponseBodyRecordMinutesUrls struct {
 	RecordMinutesUrl *string `json:"recordMinutesUrl,omitempty" xml:"recordMinutesUrl,omitempty"`
+	TaskUuid         *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
 }
 
 func (s QueryRecordMinutesUrlResponseBodyRecordMinutesUrls) String() string {
@@ -6544,6 +6737,11 @@ func (s QueryRecordMinutesUrlResponseBodyRecordMinutesUrls) GoString() string {
 
 func (s *QueryRecordMinutesUrlResponseBodyRecordMinutesUrls) SetRecordMinutesUrl(v string) *QueryRecordMinutesUrlResponseBodyRecordMinutesUrls {
 	s.RecordMinutesUrl = &v
+	return s
+}
+
+func (s *QueryRecordMinutesUrlResponseBodyRecordMinutesUrls) SetTaskUuid(v string) *QueryRecordMinutesUrlResponseBodyRecordMinutesUrls {
+	s.TaskUuid = &v
 	return s
 }
 
@@ -8158,11 +8356,17 @@ type UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExt
 	// example:
 	//
 	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
-	MinutesOwnerUnionId          *string                                                                                                             `json:"minutesOwnerUnionId,omitempty" xml:"minutesOwnerUnionId,omitempty"`
-	MoziConfExtensionAppSettings []*UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings `json:"moziConfExtensionAppSettings,omitempty" xml:"moziConfExtensionAppSettings,omitempty" type:"Repeated"`
-	PushAllMeetingRecords        *bool                                                                                                               `json:"pushAllMeetingRecords,omitempty" xml:"pushAllMeetingRecords,omitempty"`
-	PushCloudRecordCard          *bool                                                                                                               `json:"pushCloudRecordCard,omitempty" xml:"pushCloudRecordCard,omitempty"`
-	PushMinutesCard              *bool                                                                                                               `json:"pushMinutesCard,omitempty" xml:"pushMinutesCard,omitempty"`
+	MinutesOwnerUnionId *string `json:"minutesOwnerUnionId,omitempty" xml:"minutesOwnerUnionId,omitempty"`
+	// example:
+	//
+	// 1
+	MinutesSummaryDiyTemplateVersion *string                                                                                                             `json:"minutesSummaryDiyTemplateVersion,omitempty" xml:"minutesSummaryDiyTemplateVersion,omitempty"`
+	MinutesSummaryTemplateId         *string                                                                                                             `json:"minutesSummaryTemplateId,omitempty" xml:"minutesSummaryTemplateId,omitempty"`
+	MinutesSummaryTemplateType       *string                                                                                                             `json:"minutesSummaryTemplateType,omitempty" xml:"minutesSummaryTemplateType,omitempty"`
+	MoziConfExtensionAppSettings     []*UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings `json:"moziConfExtensionAppSettings,omitempty" xml:"moziConfExtensionAppSettings,omitempty" type:"Repeated"`
+	PushAllMeetingRecords            *bool                                                                                                               `json:"pushAllMeetingRecords,omitempty" xml:"pushAllMeetingRecords,omitempty"`
+	PushCloudRecordCard              *bool                                                                                                               `json:"pushCloudRecordCard,omitempty" xml:"pushCloudRecordCard,omitempty"`
+	PushMinutesCard                  *bool                                                                                                               `json:"pushMinutesCard,omitempty" xml:"pushMinutesCard,omitempty"`
 	// example:
 	//
 	// 0：未开启 1：开启
@@ -8209,6 +8413,21 @@ func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtua
 
 func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetMinutesOwnerUnionId(v string) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
 	s.MinutesOwnerUnionId = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetMinutesSummaryDiyTemplateVersion(v string) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.MinutesSummaryDiyTemplateVersion = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetMinutesSummaryTemplateId(v string) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.MinutesSummaryTemplateId = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetMinutesSummaryTemplateType(v string) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.MinutesSummaryTemplateType = &v
 	return s
 }
 
@@ -10368,6 +10587,85 @@ func (client *Client) MuteMembers(conferenceId *string, request *MuteMembersRequ
 	headers := &MuteMembersHeaders{}
 	_result = &MuteMembersResponse{}
 	_body, _err := client.MuteMembersWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 操作云/本地录制白名单企业设置
+//
+// @param tmpReq - OptRecordWhiteAccountRequest
+//
+// @param headers - OptRecordWhiteAccountHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return OptRecordWhiteAccountResponse
+func (client *Client) OptRecordWhiteAccountWithOptions(tmpReq *OptRecordWhiteAccountRequest, headers *OptRecordWhiteAccountHeaders, runtime *util.RuntimeOptions) (_result *OptRecordWhiteAccountResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &OptRecordWhiteAccountShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.RequestBody)) {
+		request.RequestBodyShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.RequestBody, tea.String("requestBody"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RequestBodyShrink)) {
+		query["requestBody"] = request.RequestBodyShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("OptRecordWhiteAccount"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/enterpriseSetting/record/whiteAccount"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &OptRecordWhiteAccountResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 操作云/本地录制白名单企业设置
+//
+// @param request - OptRecordWhiteAccountRequest
+//
+// @return OptRecordWhiteAccountResponse
+func (client *Client) OptRecordWhiteAccount(request *OptRecordWhiteAccountRequest) (_result *OptRecordWhiteAccountResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &OptRecordWhiteAccountHeaders{}
+	_result = &OptRecordWhiteAccountResponse{}
+	_body, _err := client.OptRecordWhiteAccountWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

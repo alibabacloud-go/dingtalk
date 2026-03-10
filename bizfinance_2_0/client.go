@@ -1951,6 +1951,202 @@ func (s *DeleteEnterpriseAccountResponse) SetBody(v *DeleteEnterpriseAccountResp
 	return s
 }
 
+type DeleteProcessInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteProcessInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteProcessInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteProcessInstanceHeaders) SetCommonHeaders(v map[string]*string) *DeleteProcessInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteProcessInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteProcessInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteProcessInstanceRequest struct {
+	// example:
+	//
+	// xxxx
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// example:
+	//
+	// xxxx
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DeleteProcessInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteProcessInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteProcessInstanceRequest) SetInstanceId(v string) *DeleteProcessInstanceRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *DeleteProcessInstanceRequest) SetUserId(v string) *DeleteProcessInstanceRequest {
+	s.UserId = &v
+	return s
+}
+
+type DeleteProcessInstanceResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteProcessInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteProcessInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteProcessInstanceResponseBody) SetResult(v bool) *DeleteProcessInstanceResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeleteProcessInstanceResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteProcessInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteProcessInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteProcessInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteProcessInstanceResponse) SetHeaders(v map[string]*string) *DeleteProcessInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteProcessInstanceResponse) SetStatusCode(v int32) *DeleteProcessInstanceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteProcessInstanceResponse) SetBody(v *DeleteProcessInstanceResponseBody) *DeleteProcessInstanceResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteWorkflowInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteWorkflowInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteWorkflowInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteWorkflowInstanceHeaders) SetCommonHeaders(v map[string]*string) *DeleteWorkflowInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteWorkflowInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteWorkflowInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteWorkflowInstanceRequest struct {
+	// example:
+	//
+	// xxxx
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	// example:
+	//
+	// xxxxx
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DeleteWorkflowInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteWorkflowInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteWorkflowInstanceRequest) SetInstanceId(v string) *DeleteWorkflowInstanceRequest {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *DeleteWorkflowInstanceRequest) SetUserId(v string) *DeleteWorkflowInstanceRequest {
+	s.UserId = &v
+	return s
+}
+
+type DeleteWorkflowInstanceResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteWorkflowInstanceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteWorkflowInstanceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteWorkflowInstanceResponseBody) SetResult(v bool) *DeleteWorkflowInstanceResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeleteWorkflowInstanceResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteWorkflowInstanceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteWorkflowInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteWorkflowInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteWorkflowInstanceResponse) SetHeaders(v map[string]*string) *DeleteWorkflowInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteWorkflowInstanceResponse) SetStatusCode(v int32) *DeleteWorkflowInstanceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteWorkflowInstanceResponse) SetBody(v *DeleteWorkflowInstanceResponseBody) *DeleteWorkflowInstanceResponse {
+	s.Body = v
+	return s
+}
+
 type EnableCompanyHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6995,6 +7191,163 @@ func (s *QueryPaymentRecallFileResponse) SetBody(v *QueryPaymentRecallFileRespon
 	return s
 }
 
+type QueryPaymentRecallFileVTwoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryPaymentRecallFileVTwoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPaymentRecallFileVTwoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPaymentRecallFileVTwoHeaders) SetCommonHeaders(v map[string]*string) *QueryPaymentRecallFileVTwoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryPaymentRecallFileVTwoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryPaymentRecallFileVTwoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryPaymentRecallFileVTwoRequest struct {
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryPaymentRecallFileVTwoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPaymentRecallFileVTwoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPaymentRecallFileVTwoRequest) SetUserId(v string) *QueryPaymentRecallFileVTwoRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryPaymentRecallFileVTwoResponseBody struct {
+	CorpId                *string                                                        `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	PaymentRecallFileList []*QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList `json:"paymentRecallFileList,omitempty" xml:"paymentRecallFileList,omitempty" type:"Repeated"`
+}
+
+func (s QueryPaymentRecallFileVTwoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPaymentRecallFileVTwoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPaymentRecallFileVTwoResponseBody) SetCorpId(v string) *QueryPaymentRecallFileVTwoResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryPaymentRecallFileVTwoResponseBody) SetPaymentRecallFileList(v []*QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList) *QueryPaymentRecallFileVTwoResponseBody {
+	s.PaymentRecallFileList = v
+	return s
+}
+
+type QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList struct {
+	FileId        *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName      *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize      *string `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	FileType      *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	InstanceId    *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+	OrderNo       *string `json:"orderNo,omitempty" xml:"orderNo,omitempty"`
+	PreviewUrl    *string `json:"previewUrl,omitempty" xml:"previewUrl,omitempty"`
+	RecallFileUrl *string `json:"recallFileUrl,omitempty" xml:"recallFileUrl,omitempty"`
+	SpaceId       *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList) SetFileId(v string) *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList {
+	s.FileId = &v
+	return s
+}
+
+func (s *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList) SetFileName(v string) *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList {
+	s.FileName = &v
+	return s
+}
+
+func (s *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList) SetFileSize(v string) *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList {
+	s.FileSize = &v
+	return s
+}
+
+func (s *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList) SetFileType(v string) *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList {
+	s.FileType = &v
+	return s
+}
+
+func (s *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList) SetInstanceId(v string) *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList {
+	s.InstanceId = &v
+	return s
+}
+
+func (s *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList) SetOrderNo(v string) *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList {
+	s.OrderNo = &v
+	return s
+}
+
+func (s *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList) SetPreviewUrl(v string) *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList {
+	s.PreviewUrl = &v
+	return s
+}
+
+func (s *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList) SetRecallFileUrl(v string) *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList {
+	s.RecallFileUrl = &v
+	return s
+}
+
+func (s *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList) SetSpaceId(v string) *QueryPaymentRecallFileVTwoResponseBodyPaymentRecallFileList {
+	s.SpaceId = &v
+	return s
+}
+
+type QueryPaymentRecallFileVTwoResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryPaymentRecallFileVTwoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryPaymentRecallFileVTwoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryPaymentRecallFileVTwoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryPaymentRecallFileVTwoResponse) SetHeaders(v map[string]*string) *QueryPaymentRecallFileVTwoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryPaymentRecallFileVTwoResponse) SetStatusCode(v int32) *QueryPaymentRecallFileVTwoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryPaymentRecallFileVTwoResponse) SetBody(v *QueryPaymentRecallFileVTwoResponseBody) *QueryPaymentRecallFileVTwoResponse {
+	s.Body = v
+	return s
+}
+
 type QueryPaymentStatusHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11154,6 +11507,160 @@ func (client *Client) DeleteEnterpriseAccount(request *DeleteEnterpriseAccountRe
 
 // Summary:
 //
+// 删除智能财务OA审批单，有权限控制
+//
+// @param request - DeleteProcessInstanceRequest
+//
+// @param headers - DeleteProcessInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteProcessInstanceResponse
+func (client *Client) DeleteProcessInstanceWithOptions(request *DeleteProcessInstanceRequest, headers *DeleteProcessInstanceHeaders, runtime *util.RuntimeOptions) (_result *DeleteProcessInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		query["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteProcessInstance"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/processInstance/delete"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteProcessInstanceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除智能财务OA审批单，有权限控制
+//
+// @param request - DeleteProcessInstanceRequest
+//
+// @return DeleteProcessInstanceResponse
+func (client *Client) DeleteProcessInstance(request *DeleteProcessInstanceRequest) (_result *DeleteProcessInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteProcessInstanceHeaders{}
+	_result = &DeleteProcessInstanceResponse{}
+	_body, _err := client.DeleteProcessInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除工作流流程实例
+//
+// @param request - DeleteWorkflowInstanceRequest
+//
+// @param headers - DeleteWorkflowInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteWorkflowInstanceResponse
+func (client *Client) DeleteWorkflowInstanceWithOptions(request *DeleteWorkflowInstanceRequest, headers *DeleteWorkflowInstanceHeaders, runtime *util.RuntimeOptions) (_result *DeleteWorkflowInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InstanceId)) {
+		query["instanceId"] = request.InstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteWorkflowInstance"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/workflowInstance/delete"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteWorkflowInstanceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除工作流流程实例
+//
+// @param request - DeleteWorkflowInstanceRequest
+//
+// @return DeleteWorkflowInstanceResponse
+func (client *Client) DeleteWorkflowInstance(request *DeleteWorkflowInstanceRequest) (_result *DeleteWorkflowInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteWorkflowInstanceHeaders{}
+	_result = &DeleteWorkflowInstanceResponse{}
+	_body, _err := client.DeleteWorkflowInstanceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 启用企业主体
 //
 // @param request - EnableCompanyRequest
@@ -13367,6 +13874,79 @@ func (client *Client) QueryPaymentRecallFile(instanceId *string, request *QueryP
 	headers := &QueryPaymentRecallFileHeaders{}
 	_result = &QueryPaymentRecallFileResponse{}
 	_body, _err := client.QueryPaymentRecallFileWithOptions(instanceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询支付回单信息，权限集与QueryPaymentRecallFile不同
+//
+// @param request - QueryPaymentRecallFileVTwoRequest
+//
+// @param headers - QueryPaymentRecallFileVTwoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryPaymentRecallFileVTwoResponse
+func (client *Client) QueryPaymentRecallFileVTwoWithOptions(instanceId *string, request *QueryPaymentRecallFileVTwoRequest, headers *QueryPaymentRecallFileVTwoHeaders, runtime *util.RuntimeOptions) (_result *QueryPaymentRecallFileVTwoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryPaymentRecallFileVTwo"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/payments/recallFilesV2/" + tea.StringValue(instanceId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryPaymentRecallFileVTwoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询支付回单信息，权限集与QueryPaymentRecallFile不同
+//
+// @param request - QueryPaymentRecallFileVTwoRequest
+//
+// @return QueryPaymentRecallFileVTwoResponse
+func (client *Client) QueryPaymentRecallFileVTwo(instanceId *string, request *QueryPaymentRecallFileVTwoRequest) (_result *QueryPaymentRecallFileVTwoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryPaymentRecallFileVTwoHeaders{}
+	_result = &QueryPaymentRecallFileVTwoResponse{}
+	_body, _err := client.QueryPaymentRecallFileVTwoWithOptions(instanceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

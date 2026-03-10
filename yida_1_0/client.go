@@ -14620,7 +14620,7 @@ type PageAutoFlowLogRequest struct {
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
 	// example:
 	//
-	// 2021-01-01
+	// 1770189343
 	EndTimeGMT *int64 `json:"endTimeGMT,omitempty" xml:"endTimeGMT,omitempty"`
 	// example:
 	//
@@ -14641,9 +14641,12 @@ type PageAutoFlowLogRequest struct {
 	// example:
 	//
 	// 100
-	PageSize     *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
-	ProcessCode  *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
-	StartTimeGMT *int64  `json:"startTimeGMT,omitempty" xml:"startTimeGMT,omitempty"`
+	PageSize    *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// example:
+	//
+	// 1770189343
+	StartTimeGMT *int64 `json:"startTimeGMT,omitempty" xml:"startTimeGMT,omitempty"`
 	// example:
 	//
 	// running

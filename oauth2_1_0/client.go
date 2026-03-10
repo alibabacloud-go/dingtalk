@@ -1147,6 +1147,110 @@ func (s *GetUserTokenResponse) SetBody(v *GetUserTokenResponseBody) *GetUserToke
 	return s
 }
 
+type KickoffByDeviceIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s KickoffByDeviceIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s KickoffByDeviceIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *KickoffByDeviceIdHeaders) SetCommonHeaders(v map[string]*string) *KickoffByDeviceIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *KickoffByDeviceIdHeaders) SetXAcsDingtalkAccessToken(v string) *KickoffByDeviceIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type KickoffByDeviceIdRequest struct {
+	OpenDeviceId *string `json:"openDeviceId,omitempty" xml:"openDeviceId,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s KickoffByDeviceIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s KickoffByDeviceIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *KickoffByDeviceIdRequest) SetOpenDeviceId(v string) *KickoffByDeviceIdRequest {
+	s.OpenDeviceId = &v
+	return s
+}
+
+func (s *KickoffByDeviceIdRequest) SetUserId(v string) *KickoffByDeviceIdRequest {
+	s.UserId = &v
+	return s
+}
+
+type KickoffByDeviceIdResponseBody struct {
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s KickoffByDeviceIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s KickoffByDeviceIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *KickoffByDeviceIdResponseBody) SetErrorCode(v string) *KickoffByDeviceIdResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *KickoffByDeviceIdResponseBody) SetErrorMsg(v string) *KickoffByDeviceIdResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *KickoffByDeviceIdResponseBody) SetSuccess(v bool) *KickoffByDeviceIdResponseBody {
+	s.Success = &v
+	return s
+}
+
+type KickoffByDeviceIdResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *KickoffByDeviceIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s KickoffByDeviceIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s KickoffByDeviceIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *KickoffByDeviceIdResponse) SetHeaders(v map[string]*string) *KickoffByDeviceIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *KickoffByDeviceIdResponse) SetStatusCode(v int32) *KickoffByDeviceIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *KickoffByDeviceIdResponse) SetBody(v *KickoffByDeviceIdResponseBody) *KickoffByDeviceIdResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -1870,6 +1974,83 @@ func (client *Client) GetUserToken(request *GetUserTokenRequest) (_result *GetUs
 	headers := make(map[string]*string)
 	_result = &GetUserTokenResponse{}
 	_body, _err := client.GetUserTokenWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据 deviceId 将设备踢出登录
+//
+// @param request - KickoffByDeviceIdRequest
+//
+// @param headers - KickoffByDeviceIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return KickoffByDeviceIdResponse
+func (client *Client) KickoffByDeviceIdWithOptions(request *KickoffByDeviceIdRequest, headers *KickoffByDeviceIdHeaders, runtime *util.RuntimeOptions) (_result *KickoffByDeviceIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenDeviceId)) {
+		body["openDeviceId"] = request.OpenDeviceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("KickoffByDeviceId"),
+		Version:     tea.String("oauth2_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/oauth2/kickoffByDeviceId"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &KickoffByDeviceIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据 deviceId 将设备踢出登录
+//
+// @param request - KickoffByDeviceIdRequest
+//
+// @return KickoffByDeviceIdResponse
+func (client *Client) KickoffByDeviceId(request *KickoffByDeviceIdRequest) (_result *KickoffByDeviceIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &KickoffByDeviceIdHeaders{}
+	_result = &KickoffByDeviceIdResponse{}
+	_body, _err := client.KickoffByDeviceIdWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

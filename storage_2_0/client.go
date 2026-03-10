@@ -156,6 +156,10 @@ type AddPermissionRequestMembers struct {
 	//
 	// member_id
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+	// example:
+	//
+	// member_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -179,6 +183,11 @@ func (s *AddPermissionRequestMembers) SetCorpId(v string) *AddPermissionRequestM
 
 func (s *AddPermissionRequestMembers) SetId(v string) *AddPermissionRequestMembers {
 	s.Id = &v
+	return s
+}
+
+func (s *AddPermissionRequestMembers) SetName(v string) *AddPermissionRequestMembers {
+	s.Name = &v
 	return s
 }
 
@@ -350,6 +359,93 @@ func (s *BatchQueryRolesResponse) SetStatusCode(v int32) *BatchQueryRolesRespons
 }
 
 func (s *BatchQueryRolesResponse) SetBody(v *BatchQueryRolesResponseBody) *BatchQueryRolesResponse {
+	s.Body = v
+	return s
+}
+
+type CleanFileRequest struct {
+	CleanReason *string `json:"cleanReason,omitempty" xml:"cleanReason,omitempty"`
+	DentryId    *int64  `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	OperatorId  *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	SpaceId     *int64  `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s CleanFileRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CleanFileRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CleanFileRequest) SetCleanReason(v string) *CleanFileRequest {
+	s.CleanReason = &v
+	return s
+}
+
+func (s *CleanFileRequest) SetDentryId(v int64) *CleanFileRequest {
+	s.DentryId = &v
+	return s
+}
+
+func (s *CleanFileRequest) SetOperatorId(v string) *CleanFileRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *CleanFileRequest) SetSpaceId(v int64) *CleanFileRequest {
+	s.SpaceId = &v
+	return s
+}
+
+type CleanFileResponseBody struct {
+	FailureIds []*int64 `json:"failureIds,omitempty" xml:"failureIds,omitempty" type:"Repeated"`
+	SuccessIds []*int64 `json:"successIds,omitempty" xml:"successIds,omitempty" type:"Repeated"`
+}
+
+func (s CleanFileResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CleanFileResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CleanFileResponseBody) SetFailureIds(v []*int64) *CleanFileResponseBody {
+	s.FailureIds = v
+	return s
+}
+
+func (s *CleanFileResponseBody) SetSuccessIds(v []*int64) *CleanFileResponseBody {
+	s.SuccessIds = v
+	return s
+}
+
+type CleanFileResponse struct {
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CleanFileResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CleanFileResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CleanFileResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CleanFileResponse) SetHeaders(v map[string]*string) *CleanFileResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CleanFileResponse) SetStatusCode(v int32) *CleanFileResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CleanFileResponse) SetBody(v *CleanFileResponseBody) *CleanFileResponse {
 	s.Body = v
 	return s
 }
@@ -1744,7 +1840,8 @@ func (s *ListPermissionsRequest) SetUnionId(v string) *ListPermissionsRequest {
 }
 
 type ListPermissionsRequestOption struct {
-	FilterRoleIds []*string `json:"filterRoleIds,omitempty" xml:"filterRoleIds,omitempty" type:"Repeated"`
+	FilterMemberTypes []*string `json:"filterMemberTypes,omitempty" xml:"filterMemberTypes,omitempty" type:"Repeated"`
+	FilterRoleIds     []*string `json:"filterRoleIds,omitempty" xml:"filterRoleIds,omitempty" type:"Repeated"`
 	// example:
 	//
 	// 30
@@ -1761,6 +1858,11 @@ func (s ListPermissionsRequestOption) String() string {
 
 func (s ListPermissionsRequestOption) GoString() string {
 	return s.String()
+}
+
+func (s *ListPermissionsRequestOption) SetFilterMemberTypes(v []*string) *ListPermissionsRequestOption {
+	s.FilterMemberTypes = v
+	return s
 }
 
 func (s *ListPermissionsRequestOption) SetFilterRoleIds(v []*string) *ListPermissionsRequestOption {
@@ -1856,6 +1958,10 @@ type ListPermissionsResponseBodyPermissionsMember struct {
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 	// example:
 	//
+	// member_name
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// example:
+	//
 	// USER
 	Type *string `json:"type,omitempty" xml:"type,omitempty"`
 }
@@ -1875,6 +1981,11 @@ func (s *ListPermissionsResponseBodyPermissionsMember) SetCorpId(v string) *List
 
 func (s *ListPermissionsResponseBodyPermissionsMember) SetId(v string) *ListPermissionsResponseBodyPermissionsMember {
 	s.Id = &v
+	return s
+}
+
+func (s *ListPermissionsResponseBodyPermissionsMember) SetName(v string) *ListPermissionsResponseBodyPermissionsMember {
+	s.Name = &v
 	return s
 }
 
@@ -3352,6 +3463,7 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	client.Spi = gatewayClient
+	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -3519,6 +3631,82 @@ func (client *Client) BatchQueryRoles(request *BatchQueryRolesRequest) (_result 
 	headers := &BatchQueryRolesHeaders{}
 	_result = &BatchQueryRolesResponse{}
 	_body, _err := client.BatchQueryRolesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 企业文件管理——删除文件接口
+//
+// @param request - CleanFileRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CleanFileResponse
+func (client *Client) CleanFileWithOptions(request *CleanFileRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CleanFileResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CleanReason)) {
+		body["cleanReason"] = request.CleanReason
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DentryId)) {
+		body["dentryId"] = request.DentryId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SpaceId)) {
+		body["spaceId"] = request.SpaceId
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CleanFile"),
+		Version:     tea.String("storage_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/storage/filemanager/clean"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CleanFileResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 企业文件管理——删除文件接口
+//
+// @param request - CleanFileRequest
+//
+// @return CleanFileResponse
+func (client *Client) CleanFile(request *CleanFileRequest) (_result *CleanFileResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &CleanFileResponse{}
+	_body, _err := client.CleanFileWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

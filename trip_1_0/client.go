@@ -2324,6 +2324,202 @@ func (s *QueryTripTrainOrderByPageResponse) SetBody(v *QueryTripTrainOrderByPage
 	return s
 }
 
+type SubmitTripApprovalProcessHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SubmitTripApprovalProcessHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitTripApprovalProcessHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitTripApprovalProcessHeaders) SetCommonHeaders(v map[string]*string) *SubmitTripApprovalProcessHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SubmitTripApprovalProcessHeaders) SetXAcsDingtalkAccessToken(v string) *SubmitTripApprovalProcessHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SubmitTripApprovalProcessRequest struct {
+	Itineraries []*SubmitTripApprovalProcessRequestItineraries `json:"itineraries,omitempty" xml:"itineraries,omitempty" type:"Repeated"`
+	// example:
+	//
+	// PROC_XXXX
+	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
+	// example:
+	//
+	// 拜访客户
+	Reason *string `json:"reason,omitempty" xml:"reason,omitempty"`
+	// example:
+	//
+	// 5046195764756652
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SubmitTripApprovalProcessRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitTripApprovalProcessRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitTripApprovalProcessRequest) SetItineraries(v []*SubmitTripApprovalProcessRequestItineraries) *SubmitTripApprovalProcessRequest {
+	s.Itineraries = v
+	return s
+}
+
+func (s *SubmitTripApprovalProcessRequest) SetProcessCode(v string) *SubmitTripApprovalProcessRequest {
+	s.ProcessCode = &v
+	return s
+}
+
+func (s *SubmitTripApprovalProcessRequest) SetReason(v string) *SubmitTripApprovalProcessRequest {
+	s.Reason = &v
+	return s
+}
+
+func (s *SubmitTripApprovalProcessRequest) SetUserId(v string) *SubmitTripApprovalProcessRequest {
+	s.UserId = &v
+	return s
+}
+
+type SubmitTripApprovalProcessRequestItineraries struct {
+	// example:
+	//
+	// 2026-01-20 09:00
+	DepartureTime *string `json:"departureTime,omitempty" xml:"departureTime,omitempty"`
+	// example:
+	//
+	// 北京
+	Destination *string `json:"destination,omitempty" xml:"destination,omitempty"`
+	// example:
+	//
+	// 望京阿里巴巴园区
+	DestinationDetail *string `json:"destinationDetail,omitempty" xml:"destinationDetail,omitempty"`
+	// example:
+	//
+	// 杭州
+	PlaceOfDeparture *string `json:"placeOfDeparture,omitempty" xml:"placeOfDeparture,omitempty"`
+	// example:
+	//
+	// 余杭区文一西路969号
+	PlaceOfDepartureDetail *string `json:"placeOfDepartureDetail,omitempty" xml:"placeOfDepartureDetail,omitempty"`
+	// example:
+	//
+	// 2026-01-22 09:00
+	ReturnTime *string `json:"returnTime,omitempty" xml:"returnTime,omitempty"`
+	// example:
+	//
+	// 单程
+	SingleOrReturn *string `json:"singleOrReturn,omitempty" xml:"singleOrReturn,omitempty"`
+	// example:
+	//
+	// 飞机
+	Vehicle *string `json:"vehicle,omitempty" xml:"vehicle,omitempty"`
+}
+
+func (s SubmitTripApprovalProcessRequestItineraries) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitTripApprovalProcessRequestItineraries) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitTripApprovalProcessRequestItineraries) SetDepartureTime(v string) *SubmitTripApprovalProcessRequestItineraries {
+	s.DepartureTime = &v
+	return s
+}
+
+func (s *SubmitTripApprovalProcessRequestItineraries) SetDestination(v string) *SubmitTripApprovalProcessRequestItineraries {
+	s.Destination = &v
+	return s
+}
+
+func (s *SubmitTripApprovalProcessRequestItineraries) SetDestinationDetail(v string) *SubmitTripApprovalProcessRequestItineraries {
+	s.DestinationDetail = &v
+	return s
+}
+
+func (s *SubmitTripApprovalProcessRequestItineraries) SetPlaceOfDeparture(v string) *SubmitTripApprovalProcessRequestItineraries {
+	s.PlaceOfDeparture = &v
+	return s
+}
+
+func (s *SubmitTripApprovalProcessRequestItineraries) SetPlaceOfDepartureDetail(v string) *SubmitTripApprovalProcessRequestItineraries {
+	s.PlaceOfDepartureDetail = &v
+	return s
+}
+
+func (s *SubmitTripApprovalProcessRequestItineraries) SetReturnTime(v string) *SubmitTripApprovalProcessRequestItineraries {
+	s.ReturnTime = &v
+	return s
+}
+
+func (s *SubmitTripApprovalProcessRequestItineraries) SetSingleOrReturn(v string) *SubmitTripApprovalProcessRequestItineraries {
+	s.SingleOrReturn = &v
+	return s
+}
+
+func (s *SubmitTripApprovalProcessRequestItineraries) SetVehicle(v string) *SubmitTripApprovalProcessRequestItineraries {
+	s.Vehicle = &v
+	return s
+}
+
+type SubmitTripApprovalProcessResponseBody struct {
+	InstanceId *string `json:"instanceId,omitempty" xml:"instanceId,omitempty"`
+}
+
+func (s SubmitTripApprovalProcessResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitTripApprovalProcessResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitTripApprovalProcessResponseBody) SetInstanceId(v string) *SubmitTripApprovalProcessResponseBody {
+	s.InstanceId = &v
+	return s
+}
+
+type SubmitTripApprovalProcessResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SubmitTripApprovalProcessResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SubmitTripApprovalProcessResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitTripApprovalProcessResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitTripApprovalProcessResponse) SetHeaders(v map[string]*string) *SubmitTripApprovalProcessResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SubmitTripApprovalProcessResponse) SetStatusCode(v int32) *SubmitTripApprovalProcessResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SubmitTripApprovalProcessResponse) SetBody(v *SubmitTripApprovalProcessResponseBody) *SubmitTripApprovalProcessResponse {
+	s.Body = v
+	return s
+}
+
 type SyncBusinessSignInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5851,6 +6047,91 @@ func (client *Client) QueryTripTrainOrderByPage(request *QueryTripTrainOrderByPa
 	headers := &QueryTripTrainOrderByPageHeaders{}
 	_result = &QueryTripTrainOrderByPageResponse{}
 	_body, _err := client.QueryTripTrainOrderByPageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 提交差旅出差申请单
+//
+// @param request - SubmitTripApprovalProcessRequest
+//
+// @param headers - SubmitTripApprovalProcessHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SubmitTripApprovalProcessResponse
+func (client *Client) SubmitTripApprovalProcessWithOptions(request *SubmitTripApprovalProcessRequest, headers *SubmitTripApprovalProcessHeaders, runtime *util.RuntimeOptions) (_result *SubmitTripApprovalProcessResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Itineraries)) {
+		body["itineraries"] = request.Itineraries
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
+		body["processCode"] = request.ProcessCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Reason)) {
+		body["reason"] = request.Reason
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SubmitTripApprovalProcess"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/approvals"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SubmitTripApprovalProcessResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 提交差旅出差申请单
+//
+// @param request - SubmitTripApprovalProcessRequest
+//
+// @return SubmitTripApprovalProcessResponse
+func (client *Client) SubmitTripApprovalProcess(request *SubmitTripApprovalProcessRequest) (_result *SubmitTripApprovalProcessResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SubmitTripApprovalProcessHeaders{}
+	_result = &SubmitTripApprovalProcessResponse{}
+	_body, _err := client.SubmitTripApprovalProcessWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -1415,6 +1415,10 @@ type CalculateDurationRequest struct {
 	LeaveCode *string `json:"leaveCode,omitempty" xml:"leaveCode,omitempty"`
 	// example:
 	//
+	// America/Los_Angeles
+	TimeZoneId *string `json:"timeZoneId,omitempty" xml:"timeZoneId,omitempty"`
+	// example:
+	//
 	// 2019-08-15
 	ToTime *string `json:"toTime,omitempty" xml:"toTime,omitempty"`
 	// example:
@@ -1453,6 +1457,11 @@ func (s *CalculateDurationRequest) SetFromTime(v string) *CalculateDurationReque
 
 func (s *CalculateDurationRequest) SetLeaveCode(v string) *CalculateDurationRequest {
 	s.LeaveCode = &v
+	return s
+}
+
+func (s *CalculateDurationRequest) SetTimeZoneId(v string) *CalculateDurationRequest {
+	s.TimeZoneId = &v
 	return s
 }
 
@@ -5517,6 +5526,7 @@ type GetShiftResponseBodyResult struct {
 	//
 	// user123
 	Owner        *string                               `json:"owner,omitempty" xml:"owner,omitempty"`
+	OwnerList    []*string                             `json:"ownerList,omitempty" xml:"ownerList,omitempty" type:"Repeated"`
 	Sections     []*GetShiftResponseBodyResultSections `json:"sections,omitempty" xml:"sections,omitempty" type:"Repeated"`
 	ShiftGroupId *int64                                `json:"shiftGroupId,omitempty" xml:"shiftGroupId,omitempty"`
 	// example:
@@ -5551,6 +5561,11 @@ func (s *GetShiftResponseBodyResult) SetName(v string) *GetShiftResponseBodyResu
 
 func (s *GetShiftResponseBodyResult) SetOwner(v string) *GetShiftResponseBodyResult {
 	s.Owner = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResult) SetOwnerList(v []*string) *GetShiftResponseBodyResult {
+	s.OwnerList = v
 	return s
 }
 
@@ -12027,6 +12042,10 @@ func (client *Client) CalculateDurationWithOptions(request *CalculateDurationReq
 
 	if !tea.BoolValue(util.IsUnset(request.LeaveCode)) {
 		body["leaveCode"] = request.LeaveCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TimeZoneId)) {
+		body["timeZoneId"] = request.TimeZoneId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ToTime)) {

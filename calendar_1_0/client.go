@@ -8798,6 +8798,175 @@ func (s *ListInstancesResponse) SetBody(v *ListInstancesResponseBody) *ListInsta
 	return s
 }
 
+type ListOrgPluginsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	DingAccessTokenType     *string            `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
+	DingClientId            *string            `json:"dingClientId,omitempty" xml:"dingClientId,omitempty"`
+	DingIsvOrgId            *string            `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOpenAppOrgId        *string            `json:"dingOpenAppOrgId,omitempty" xml:"dingOpenAppOrgId,omitempty"`
+	DingOrgId               *string            `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey            *string            `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListOrgPluginsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrgPluginsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrgPluginsHeaders) SetCommonHeaders(v map[string]*string) *ListOrgPluginsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListOrgPluginsHeaders) SetDingAccessTokenType(v string) *ListOrgPluginsHeaders {
+	s.DingAccessTokenType = &v
+	return s
+}
+
+func (s *ListOrgPluginsHeaders) SetDingClientId(v string) *ListOrgPluginsHeaders {
+	s.DingClientId = &v
+	return s
+}
+
+func (s *ListOrgPluginsHeaders) SetDingIsvOrgId(v string) *ListOrgPluginsHeaders {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *ListOrgPluginsHeaders) SetDingOpenAppOrgId(v string) *ListOrgPluginsHeaders {
+	s.DingOpenAppOrgId = &v
+	return s
+}
+
+func (s *ListOrgPluginsHeaders) SetDingOrgId(v string) *ListOrgPluginsHeaders {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *ListOrgPluginsHeaders) SetDingSuiteKey(v string) *ListOrgPluginsHeaders {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *ListOrgPluginsHeaders) SetXAcsDingtalkAccessToken(v string) *ListOrgPluginsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListOrgPluginsResponseBody struct {
+	Plugins []*ListOrgPluginsResponseBodyPlugins `json:"plugins,omitempty" xml:"plugins,omitempty" type:"Repeated"`
+}
+
+func (s ListOrgPluginsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrgPluginsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrgPluginsResponseBody) SetPlugins(v []*ListOrgPluginsResponseBodyPlugins) *ListOrgPluginsResponseBody {
+	s.Plugins = v
+	return s
+}
+
+type ListOrgPluginsResponseBodyPlugins struct {
+	Logo                 *string                                       `json:"logo,omitempty" xml:"logo,omitempty"`
+	Name                 *string                                       `json:"name,omitempty" xml:"name,omitempty"`
+	PluginClassification *string                                       `json:"pluginClassification,omitempty" xml:"pluginClassification,omitempty"`
+	PluginId             *string                                       `json:"pluginId,omitempty" xml:"pluginId,omitempty"`
+	Subscribers          *ListOrgPluginsResponseBodyPluginsSubscribers `json:"subscribers,omitempty" xml:"subscribers,omitempty" type:"Struct"`
+}
+
+func (s ListOrgPluginsResponseBodyPlugins) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrgPluginsResponseBodyPlugins) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrgPluginsResponseBodyPlugins) SetLogo(v string) *ListOrgPluginsResponseBodyPlugins {
+	s.Logo = &v
+	return s
+}
+
+func (s *ListOrgPluginsResponseBodyPlugins) SetName(v string) *ListOrgPluginsResponseBodyPlugins {
+	s.Name = &v
+	return s
+}
+
+func (s *ListOrgPluginsResponseBodyPlugins) SetPluginClassification(v string) *ListOrgPluginsResponseBodyPlugins {
+	s.PluginClassification = &v
+	return s
+}
+
+func (s *ListOrgPluginsResponseBodyPlugins) SetPluginId(v string) *ListOrgPluginsResponseBodyPlugins {
+	s.PluginId = &v
+	return s
+}
+
+func (s *ListOrgPluginsResponseBodyPlugins) SetSubscribers(v *ListOrgPluginsResponseBodyPluginsSubscribers) *ListOrgPluginsResponseBodyPlugins {
+	s.Subscribers = v
+	return s
+}
+
+type ListOrgPluginsResponseBodyPluginsSubscribers struct {
+	DeptIds  []*string `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	UnionIds []*string `json:"unionIds,omitempty" xml:"unionIds,omitempty" type:"Repeated"`
+}
+
+func (s ListOrgPluginsResponseBodyPluginsSubscribers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrgPluginsResponseBodyPluginsSubscribers) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrgPluginsResponseBodyPluginsSubscribers) SetDeptIds(v []*string) *ListOrgPluginsResponseBodyPluginsSubscribers {
+	s.DeptIds = v
+	return s
+}
+
+func (s *ListOrgPluginsResponseBodyPluginsSubscribers) SetUnionIds(v []*string) *ListOrgPluginsResponseBodyPluginsSubscribers {
+	s.UnionIds = v
+	return s
+}
+
+type ListOrgPluginsResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListOrgPluginsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListOrgPluginsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListOrgPluginsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListOrgPluginsResponse) SetHeaders(v map[string]*string) *ListOrgPluginsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListOrgPluginsResponse) SetStatusCode(v int32) *ListOrgPluginsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListOrgPluginsResponse) SetBody(v *ListOrgPluginsResponseBody) *ListOrgPluginsResponse {
+	s.Body = v
+	return s
+}
+
 type MeetingRoomRespondHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	UserAgent               *string            `json:"userAgent,omitempty" xml:"userAgent,omitempty"`
@@ -10538,6 +10707,98 @@ func (s *UnsubscribeCalendarResponse) SetStatusCode(v int32) *UnsubscribeCalenda
 }
 
 func (s *UnsubscribeCalendarResponse) SetBody(v *UnsubscribeCalendarResponseBody) *UnsubscribeCalendarResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateOrgPluginSubscribersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateOrgPluginSubscribersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrgPluginSubscribersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrgPluginSubscribersHeaders) SetCommonHeaders(v map[string]*string) *UpdateOrgPluginSubscribersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateOrgPluginSubscribersHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateOrgPluginSubscribersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateOrgPluginSubscribersRequest struct {
+	DeptIds  []*string `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	UnionIds []*string `json:"unionIds,omitempty" xml:"unionIds,omitempty" type:"Repeated"`
+}
+
+func (s UpdateOrgPluginSubscribersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrgPluginSubscribersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrgPluginSubscribersRequest) SetDeptIds(v []*string) *UpdateOrgPluginSubscribersRequest {
+	s.DeptIds = v
+	return s
+}
+
+func (s *UpdateOrgPluginSubscribersRequest) SetUnionIds(v []*string) *UpdateOrgPluginSubscribersRequest {
+	s.UnionIds = v
+	return s
+}
+
+type UpdateOrgPluginSubscribersResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateOrgPluginSubscribersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrgPluginSubscribersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrgPluginSubscribersResponseBody) SetResult(v bool) *UpdateOrgPluginSubscribersResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateOrgPluginSubscribersResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateOrgPluginSubscribersResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateOrgPluginSubscribersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateOrgPluginSubscribersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateOrgPluginSubscribersResponse) SetHeaders(v map[string]*string) *UpdateOrgPluginSubscribersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateOrgPluginSubscribersResponse) SetStatusCode(v int32) *UpdateOrgPluginSubscribersResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateOrgPluginSubscribersResponse) SetBody(v *UpdateOrgPluginSubscribersResponseBody) *UpdateOrgPluginSubscribersResponse {
 	s.Body = v
 	return s
 }
@@ -13151,6 +13412,89 @@ func (client *Client) ListInstances(userId *string, calendarId *string, eventId 
 
 // Summary:
 //
+// 拉取企业内插件列表
+//
+// @param headers - ListOrgPluginsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListOrgPluginsResponse
+func (client *Client) ListOrgPluginsWithOptions(headers *ListOrgPluginsHeaders, runtime *util.RuntimeOptions) (_result *ListOrgPluginsResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.DingAccessTokenType)) {
+		realHeaders["dingAccessTokenType"] = util.ToJSONString(headers.DingAccessTokenType)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.DingClientId)) {
+		realHeaders["dingClientId"] = util.ToJSONString(headers.DingClientId)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.DingIsvOrgId)) {
+		realHeaders["dingIsvOrgId"] = util.ToJSONString(headers.DingIsvOrgId)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.DingOpenAppOrgId)) {
+		realHeaders["dingOpenAppOrgId"] = util.ToJSONString(headers.DingOpenAppOrgId)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.DingOrgId)) {
+		realHeaders["dingOrgId"] = util.ToJSONString(headers.DingOrgId)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.DingSuiteKey)) {
+		realHeaders["dingSuiteKey"] = util.ToJSONString(headers.DingSuiteKey)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListOrgPlugins"),
+		Version:     tea.String("calendar_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/calendar/plugins"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListOrgPluginsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 拉取企业内插件列表
+//
+// @return ListOrgPluginsResponse
+func (client *Client) ListOrgPlugins() (_result *ListOrgPluginsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListOrgPluginsHeaders{}
+	_result = &ListOrgPluginsResponse{}
+	_body, _err := client.ListOrgPluginsWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 设置会议室在日程中的响应状态
 //
 // @param request - MeetingRoomRespondRequest
@@ -13916,6 +14260,83 @@ func (client *Client) UnsubscribeCalendar(userId *string, calendarId *string) (_
 	headers := &UnsubscribeCalendarHeaders{}
 	_result = &UnsubscribeCalendarResponse{}
 	_body, _err := client.UnsubscribeCalendarWithOptions(userId, calendarId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新插件订阅人群
+//
+// @param request - UpdateOrgPluginSubscribersRequest
+//
+// @param headers - UpdateOrgPluginSubscribersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateOrgPluginSubscribersResponse
+func (client *Client) UpdateOrgPluginSubscribersWithOptions(pluginId *string, request *UpdateOrgPluginSubscribersRequest, headers *UpdateOrgPluginSubscribersHeaders, runtime *util.RuntimeOptions) (_result *UpdateOrgPluginSubscribersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptIds)) {
+		body["deptIds"] = request.DeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionIds)) {
+		body["unionIds"] = request.UnionIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateOrgPluginSubscribers"),
+		Version:     tea.String("calendar_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/calendar/plugins/" + tea.StringValue(pluginId) + "/subscribers"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateOrgPluginSubscribersResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新插件订阅人群
+//
+// @param request - UpdateOrgPluginSubscribersRequest
+//
+// @return UpdateOrgPluginSubscribersResponse
+func (client *Client) UpdateOrgPluginSubscribers(pluginId *string, request *UpdateOrgPluginSubscribersRequest) (_result *UpdateOrgPluginSubscribersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateOrgPluginSubscribersHeaders{}
+	_result = &UpdateOrgPluginSubscribersResponse{}
+	_body, _err := client.UpdateOrgPluginSubscribersWithOptions(pluginId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

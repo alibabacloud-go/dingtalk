@@ -9,6 +9,347 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type ControlRecordingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ControlRecordingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ControlRecordingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ControlRecordingHeaders) SetCommonHeaders(v map[string]*string) *ControlRecordingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ControlRecordingHeaders) SetXAcsDingtalkAccessToken(v string) *ControlRecordingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ControlRecordingRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// bind
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
+	Agree    *bool   `json:"agree,omitempty" xml:"agree,omitempty"`
+	TeamCode *string `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ControlRecordingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ControlRecordingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ControlRecordingRequest) SetAction(v string) *ControlRecordingRequest {
+	s.Action = &v
+	return s
+}
+
+func (s *ControlRecordingRequest) SetAgree(v bool) *ControlRecordingRequest {
+	s.Agree = &v
+	return s
+}
+
+func (s *ControlRecordingRequest) SetTeamCode(v string) *ControlRecordingRequest {
+	s.TeamCode = &v
+	return s
+}
+
+func (s *ControlRecordingRequest) SetUserId(v string) *ControlRecordingRequest {
+	s.UserId = &v
+	return s
+}
+
+type ControlRecordingResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s ControlRecordingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ControlRecordingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ControlRecordingResponseBody) SetResult(v bool) *ControlRecordingResponseBody {
+	s.Result = &v
+	return s
+}
+
+type ControlRecordingResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ControlRecordingResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ControlRecordingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ControlRecordingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ControlRecordingResponse) SetHeaders(v map[string]*string) *ControlRecordingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ControlRecordingResponse) SetStatusCode(v int32) *ControlRecordingResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ControlRecordingResponse) SetBody(v *ControlRecordingResponseBody) *ControlRecordingResponse {
+	s.Body = v
+	return s
+}
+
+type CreateRecordingScheduleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateRecordingScheduleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRecordingScheduleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRecordingScheduleHeaders) SetCommonHeaders(v map[string]*string) *CreateRecordingScheduleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateRecordingScheduleHeaders) SetXAcsDingtalkAccessToken(v string) *CreateRecordingScheduleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateRecordingScheduleRequest struct {
+	// This parameter is required.
+	Schedules []*CreateRecordingScheduleRequestSchedules `json:"schedules,omitempty" xml:"schedules,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+}
+
+func (s CreateRecordingScheduleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRecordingScheduleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRecordingScheduleRequest) SetSchedules(v []*CreateRecordingScheduleRequestSchedules) *CreateRecordingScheduleRequest {
+	s.Schedules = v
+	return s
+}
+
+func (s *CreateRecordingScheduleRequest) SetSn(v string) *CreateRecordingScheduleRequest {
+	s.Sn = &v
+	return s
+}
+
+type CreateRecordingScheduleRequestSchedules struct {
+	// This parameter is required.
+	BusinessOrder *string `json:"businessOrder,omitempty" xml:"businessOrder,omitempty"`
+	// This parameter is required.
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s CreateRecordingScheduleRequestSchedules) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRecordingScheduleRequestSchedules) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRecordingScheduleRequestSchedules) SetBusinessOrder(v string) *CreateRecordingScheduleRequestSchedules {
+	s.BusinessOrder = &v
+	return s
+}
+
+func (s *CreateRecordingScheduleRequestSchedules) SetEndTime(v int64) *CreateRecordingScheduleRequestSchedules {
+	s.EndTime = &v
+	return s
+}
+
+func (s *CreateRecordingScheduleRequestSchedules) SetStartTime(v int64) *CreateRecordingScheduleRequestSchedules {
+	s.StartTime = &v
+	return s
+}
+
+type CreateRecordingScheduleResponseBody struct {
+	Result []*CreateRecordingScheduleResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s CreateRecordingScheduleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRecordingScheduleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRecordingScheduleResponseBody) SetResult(v []*CreateRecordingScheduleResponseBodyResult) *CreateRecordingScheduleResponseBody {
+	s.Result = v
+	return s
+}
+
+type CreateRecordingScheduleResponseBodyResult struct {
+	BusinessOrder *string `json:"businessOrder,omitempty" xml:"businessOrder,omitempty"`
+	EndTime       *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	StartTime     *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	TaskId        *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s CreateRecordingScheduleResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRecordingScheduleResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRecordingScheduleResponseBodyResult) SetBusinessOrder(v string) *CreateRecordingScheduleResponseBodyResult {
+	s.BusinessOrder = &v
+	return s
+}
+
+func (s *CreateRecordingScheduleResponseBodyResult) SetEndTime(v int64) *CreateRecordingScheduleResponseBodyResult {
+	s.EndTime = &v
+	return s
+}
+
+func (s *CreateRecordingScheduleResponseBodyResult) SetStartTime(v int64) *CreateRecordingScheduleResponseBodyResult {
+	s.StartTime = &v
+	return s
+}
+
+func (s *CreateRecordingScheduleResponseBodyResult) SetTaskId(v string) *CreateRecordingScheduleResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+type CreateRecordingScheduleResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateRecordingScheduleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateRecordingScheduleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateRecordingScheduleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateRecordingScheduleResponse) SetHeaders(v map[string]*string) *CreateRecordingScheduleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateRecordingScheduleResponse) SetStatusCode(v int32) *CreateRecordingScheduleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateRecordingScheduleResponse) SetBody(v *CreateRecordingScheduleResponseBody) *CreateRecordingScheduleResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteRecordingScheduleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteRecordingScheduleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteRecordingScheduleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteRecordingScheduleHeaders) SetCommonHeaders(v map[string]*string) *DeleteRecordingScheduleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteRecordingScheduleHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteRecordingScheduleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteRecordingScheduleResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteRecordingScheduleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteRecordingScheduleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteRecordingScheduleResponseBody) SetSuccess(v bool) *DeleteRecordingScheduleResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteRecordingScheduleResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteRecordingScheduleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteRecordingScheduleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteRecordingScheduleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteRecordingScheduleResponse) SetHeaders(v map[string]*string) *DeleteRecordingScheduleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteRecordingScheduleResponse) SetStatusCode(v int32) *DeleteRecordingScheduleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteRecordingScheduleResponse) SetBody(v *DeleteRecordingScheduleResponseBody) *DeleteRecordingScheduleResponse {
+	s.Body = v
+	return s
+}
+
 type GetAudioFileDownloadInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -194,12 +535,13 @@ func (s *GetAudioFileInfoResponseBody) SetResult(v *GetAudioFileInfoResponseBody
 }
 
 type GetAudioFileInfoResponseBodyResult struct {
-	CreateTime    *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	Duration      *int64  `json:"duration,omitempty" xml:"duration,omitempty"`
-	FileId        *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	FileName      *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FileSize      *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	Attributes    map[string]interface{} `json:"attributes,omitempty" xml:"attributes,omitempty"`
+	CreateTime    *int64                 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	CreatorUserId *string                `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	Duration      *int64                 `json:"duration,omitempty" xml:"duration,omitempty"`
+	FileId        *string                `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName      *string                `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize      *int64                 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
 }
 
 func (s GetAudioFileInfoResponseBodyResult) String() string {
@@ -208,6 +550,11 @@ func (s GetAudioFileInfoResponseBodyResult) String() string {
 
 func (s GetAudioFileInfoResponseBodyResult) GoString() string {
 	return s.String()
+}
+
+func (s *GetAudioFileInfoResponseBodyResult) SetAttributes(v map[string]interface{}) *GetAudioFileInfoResponseBodyResult {
+	s.Attributes = v
+	return s
 }
 
 func (s *GetAudioFileInfoResponseBodyResult) SetCreateTime(v int64) *GetAudioFileInfoResponseBodyResult {
@@ -601,6 +948,122 @@ func (s *GetCustomerInsightResponse) SetStatusCode(v int32) *GetCustomerInsightR
 }
 
 func (s *GetCustomerInsightResponse) SetBody(v *GetCustomerInsightResponseBody) *GetCustomerInsightResponse {
+	s.Body = v
+	return s
+}
+
+type GetRecordingScheduleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetRecordingScheduleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecordingScheduleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecordingScheduleHeaders) SetCommonHeaders(v map[string]*string) *GetRecordingScheduleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetRecordingScheduleHeaders) SetXAcsDingtalkAccessToken(v string) *GetRecordingScheduleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetRecordingScheduleResponseBody struct {
+	Result *GetRecordingScheduleResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetRecordingScheduleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecordingScheduleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecordingScheduleResponseBody) SetResult(v *GetRecordingScheduleResponseBodyResult) *GetRecordingScheduleResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetRecordingScheduleResponseBodyResult struct {
+	BusinessOrder *string `json:"businessOrder,omitempty" xml:"businessOrder,omitempty"`
+	EndTime       *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	Sn            *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	StartTime     *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Status        *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	TaskId        *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s GetRecordingScheduleResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecordingScheduleResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecordingScheduleResponseBodyResult) SetBusinessOrder(v string) *GetRecordingScheduleResponseBodyResult {
+	s.BusinessOrder = &v
+	return s
+}
+
+func (s *GetRecordingScheduleResponseBodyResult) SetEndTime(v int64) *GetRecordingScheduleResponseBodyResult {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetRecordingScheduleResponseBodyResult) SetSn(v string) *GetRecordingScheduleResponseBodyResult {
+	s.Sn = &v
+	return s
+}
+
+func (s *GetRecordingScheduleResponseBodyResult) SetStartTime(v int64) *GetRecordingScheduleResponseBodyResult {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetRecordingScheduleResponseBodyResult) SetStatus(v int32) *GetRecordingScheduleResponseBodyResult {
+	s.Status = &v
+	return s
+}
+
+func (s *GetRecordingScheduleResponseBodyResult) SetTaskId(v string) *GetRecordingScheduleResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+type GetRecordingScheduleResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetRecordingScheduleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetRecordingScheduleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetRecordingScheduleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetRecordingScheduleResponse) SetHeaders(v map[string]*string) *GetRecordingScheduleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetRecordingScheduleResponse) SetStatusCode(v int32) *GetRecordingScheduleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetRecordingScheduleResponse) SetBody(v *GetRecordingScheduleResponseBody) *GetRecordingScheduleResponse {
 	s.Body = v
 	return s
 }
@@ -1587,6 +2050,177 @@ func (s *ListCustomerResponse) SetBody(v *ListCustomerResponseBody) *ListCustome
 	return s
 }
 
+type ListDeviceRecordingDurationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListDeviceRecordingDurationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListDeviceRecordingDurationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListDeviceRecordingDurationHeaders) SetCommonHeaders(v map[string]*string) *ListDeviceRecordingDurationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListDeviceRecordingDurationHeaders) SetXAcsDingtalkAccessToken(v string) *ListDeviceRecordingDurationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListDeviceRecordingDurationRequest struct {
+	// This parameter is required.
+	EndTime    *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Sn         *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// This parameter is required.
+	StartTime *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	TeamCode  *string `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListDeviceRecordingDurationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListDeviceRecordingDurationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListDeviceRecordingDurationRequest) SetEndTime(v int64) *ListDeviceRecordingDurationRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *ListDeviceRecordingDurationRequest) SetMaxResults(v int32) *ListDeviceRecordingDurationRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListDeviceRecordingDurationRequest) SetNextToken(v string) *ListDeviceRecordingDurationRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListDeviceRecordingDurationRequest) SetSn(v string) *ListDeviceRecordingDurationRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *ListDeviceRecordingDurationRequest) SetStartTime(v int64) *ListDeviceRecordingDurationRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *ListDeviceRecordingDurationRequest) SetTeamCode(v string) *ListDeviceRecordingDurationRequest {
+	s.TeamCode = &v
+	return s
+}
+
+func (s *ListDeviceRecordingDurationRequest) SetUserId(v string) *ListDeviceRecordingDurationRequest {
+	s.UserId = &v
+	return s
+}
+
+type ListDeviceRecordingDurationResponseBody struct {
+	NextToken  *string                                          `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result     []*ListDeviceRecordingDurationResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *int32                                           `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s ListDeviceRecordingDurationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListDeviceRecordingDurationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListDeviceRecordingDurationResponseBody) SetNextToken(v string) *ListDeviceRecordingDurationResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListDeviceRecordingDurationResponseBody) SetResult(v []*ListDeviceRecordingDurationResponseBodyResult) *ListDeviceRecordingDurationResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *ListDeviceRecordingDurationResponseBody) SetTotalCount(v int32) *ListDeviceRecordingDurationResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type ListDeviceRecordingDurationResponseBodyResult struct {
+	Duration       *string `json:"duration,omitempty" xml:"duration,omitempty"`
+	EndTimestamp   *int64  `json:"endTimestamp,omitempty" xml:"endTimestamp,omitempty"`
+	RecordId       *string `json:"recordId,omitempty" xml:"recordId,omitempty"`
+	StartTimestamp *int64  `json:"startTimestamp,omitempty" xml:"startTimestamp,omitempty"`
+}
+
+func (s ListDeviceRecordingDurationResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListDeviceRecordingDurationResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListDeviceRecordingDurationResponseBodyResult) SetDuration(v string) *ListDeviceRecordingDurationResponseBodyResult {
+	s.Duration = &v
+	return s
+}
+
+func (s *ListDeviceRecordingDurationResponseBodyResult) SetEndTimestamp(v int64) *ListDeviceRecordingDurationResponseBodyResult {
+	s.EndTimestamp = &v
+	return s
+}
+
+func (s *ListDeviceRecordingDurationResponseBodyResult) SetRecordId(v string) *ListDeviceRecordingDurationResponseBodyResult {
+	s.RecordId = &v
+	return s
+}
+
+func (s *ListDeviceRecordingDurationResponseBodyResult) SetStartTimestamp(v int64) *ListDeviceRecordingDurationResponseBodyResult {
+	s.StartTimestamp = &v
+	return s
+}
+
+type ListDeviceRecordingDurationResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListDeviceRecordingDurationResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListDeviceRecordingDurationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListDeviceRecordingDurationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListDeviceRecordingDurationResponse) SetHeaders(v map[string]*string) *ListDeviceRecordingDurationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListDeviceRecordingDurationResponse) SetStatusCode(v int32) *ListDeviceRecordingDurationResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListDeviceRecordingDurationResponse) SetBody(v *ListDeviceRecordingDurationResponseBody) *ListDeviceRecordingDurationResponse {
+	s.Body = v
+	return s
+}
+
 type ListServiceRecordHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2059,8 +2693,9 @@ func (s *ListTeamResponseBody) SetTotalCount(v int32) *ListTeamResponseBody {
 }
 
 type ListTeamResponseBodyResult struct {
-	Code *string `json:"code,omitempty" xml:"code,omitempty"`
-	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	Code    *string                              `json:"code,omitempty" xml:"code,omitempty"`
+	Name    *string                              `json:"name,omitempty" xml:"name,omitempty"`
+	TagList []*ListTeamResponseBodyResultTagList `json:"tagList,omitempty" xml:"tagList,omitempty" type:"Repeated"`
 }
 
 func (s ListTeamResponseBodyResult) String() string {
@@ -2077,6 +2712,63 @@ func (s *ListTeamResponseBodyResult) SetCode(v string) *ListTeamResponseBodyResu
 }
 
 func (s *ListTeamResponseBodyResult) SetName(v string) *ListTeamResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *ListTeamResponseBodyResult) SetTagList(v []*ListTeamResponseBodyResultTagList) *ListTeamResponseBodyResult {
+	s.TagList = v
+	return s
+}
+
+type ListTeamResponseBodyResultTagList struct {
+	Code      *string                                       `json:"code,omitempty" xml:"code,omitempty"`
+	Name      *string                                       `json:"name,omitempty" xml:"name,omitempty"`
+	ValueList []*ListTeamResponseBodyResultTagListValueList `json:"valueList,omitempty" xml:"valueList,omitempty" type:"Repeated"`
+}
+
+func (s ListTeamResponseBodyResultTagList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTeamResponseBodyResultTagList) GoString() string {
+	return s.String()
+}
+
+func (s *ListTeamResponseBodyResultTagList) SetCode(v string) *ListTeamResponseBodyResultTagList {
+	s.Code = &v
+	return s
+}
+
+func (s *ListTeamResponseBodyResultTagList) SetName(v string) *ListTeamResponseBodyResultTagList {
+	s.Name = &v
+	return s
+}
+
+func (s *ListTeamResponseBodyResultTagList) SetValueList(v []*ListTeamResponseBodyResultTagListValueList) *ListTeamResponseBodyResultTagList {
+	s.ValueList = v
+	return s
+}
+
+type ListTeamResponseBodyResultTagListValueList struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s ListTeamResponseBodyResultTagListValueList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListTeamResponseBodyResultTagListValueList) GoString() string {
+	return s.String()
+}
+
+func (s *ListTeamResponseBodyResultTagListValueList) SetCode(v string) *ListTeamResponseBodyResultTagListValueList {
+	s.Code = &v
+	return s
+}
+
+func (s *ListTeamResponseBodyResultTagListValueList) SetName(v string) *ListTeamResponseBodyResultTagListValueList {
 	s.Name = &v
 	return s
 }
@@ -2505,12 +3197,13 @@ func (s *QueryAudioFileResponseBody) SetTotalCount(v int64) *QueryAudioFileRespo
 }
 
 type QueryAudioFileResponseBodyResult struct {
-	CreateTime    *int64  `json:"createTime,omitempty" xml:"createTime,omitempty"`
-	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
-	Duration      *int64  `json:"duration,omitempty" xml:"duration,omitempty"`
-	FileId        *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
-	FileName      *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
-	FileSize      *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	Attributes    map[string]interface{} `json:"attributes,omitempty" xml:"attributes,omitempty"`
+	CreateTime    *int64                 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	CreatorUserId *string                `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	Duration      *int64                 `json:"duration,omitempty" xml:"duration,omitempty"`
+	FileId        *string                `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName      *string                `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize      *int64                 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
 }
 
 func (s QueryAudioFileResponseBodyResult) String() string {
@@ -2519,6 +3212,11 @@ func (s QueryAudioFileResponseBodyResult) String() string {
 
 func (s QueryAudioFileResponseBodyResult) GoString() string {
 	return s.String()
+}
+
+func (s *QueryAudioFileResponseBodyResult) SetAttributes(v map[string]interface{}) *QueryAudioFileResponseBodyResult {
+	s.Attributes = v
+	return s
 }
 
 func (s *QueryAudioFileResponseBodyResult) SetCreateTime(v int64) *QueryAudioFileResponseBodyResult {
@@ -3145,6 +3843,217 @@ func (s *SubmitAsrTaskResponse) SetBody(v *SubmitAsrTaskResponseBody) *SubmitAsr
 	return s
 }
 
+type UpdateDeviceBindingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateDeviceBindingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateDeviceBindingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateDeviceBindingHeaders) SetCommonHeaders(v map[string]*string) *UpdateDeviceBindingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateDeviceBindingHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateDeviceBindingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateDeviceBindingRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// bind
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// This parameter is required.
+	TeamCode *string `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateDeviceBindingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateDeviceBindingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateDeviceBindingRequest) SetAction(v string) *UpdateDeviceBindingRequest {
+	s.Action = &v
+	return s
+}
+
+func (s *UpdateDeviceBindingRequest) SetSn(v string) *UpdateDeviceBindingRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *UpdateDeviceBindingRequest) SetTeamCode(v string) *UpdateDeviceBindingRequest {
+	s.TeamCode = &v
+	return s
+}
+
+func (s *UpdateDeviceBindingRequest) SetUserId(v string) *UpdateDeviceBindingRequest {
+	s.UserId = &v
+	return s
+}
+
+type UpdateDeviceBindingResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateDeviceBindingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateDeviceBindingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateDeviceBindingResponseBody) SetResult(v bool) *UpdateDeviceBindingResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateDeviceBindingResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateDeviceBindingResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateDeviceBindingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateDeviceBindingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateDeviceBindingResponse) SetHeaders(v map[string]*string) *UpdateDeviceBindingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateDeviceBindingResponse) SetStatusCode(v int32) *UpdateDeviceBindingResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateDeviceBindingResponse) SetBody(v *UpdateDeviceBindingResponseBody) *UpdateDeviceBindingResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateRecordingScheduleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateRecordingScheduleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRecordingScheduleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRecordingScheduleHeaders) SetCommonHeaders(v map[string]*string) *UpdateRecordingScheduleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateRecordingScheduleHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRecordingScheduleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateRecordingScheduleRequest struct {
+	EndTime   *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s UpdateRecordingScheduleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRecordingScheduleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRecordingScheduleRequest) SetEndTime(v int64) *UpdateRecordingScheduleRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *UpdateRecordingScheduleRequest) SetStartTime(v int64) *UpdateRecordingScheduleRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *UpdateRecordingScheduleRequest) SetTaskId(v string) *UpdateRecordingScheduleRequest {
+	s.TaskId = &v
+	return s
+}
+
+type UpdateRecordingScheduleResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateRecordingScheduleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRecordingScheduleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRecordingScheduleResponseBody) SetSuccess(v bool) *UpdateRecordingScheduleResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateRecordingScheduleResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateRecordingScheduleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateRecordingScheduleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRecordingScheduleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRecordingScheduleResponse) SetHeaders(v map[string]*string) *UpdateRecordingScheduleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateRecordingScheduleResponse) SetStatusCode(v int32) *UpdateRecordingScheduleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateRecordingScheduleResponse) SetBody(v *UpdateRecordingScheduleResponseBody) *UpdateRecordingScheduleResponse {
+	s.Body = v
+	return s
+}
+
 type VideoCustomerSplitHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3405,6 +4314,227 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+// Summary:
+//
+// 设备录音启停控制
+//
+// @param request - ControlRecordingRequest
+//
+// @param headers - ControlRecordingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ControlRecordingResponse
+func (client *Client) ControlRecordingWithOptions(request *ControlRecordingRequest, headers *ControlRecordingHeaders, runtime *util.RuntimeOptions) (_result *ControlRecordingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Action)) {
+		body["action"] = request.Action
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Agree)) {
+		body["agree"] = request.Agree
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TeamCode)) {
+		body["teamCode"] = request.TeamCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ControlRecording"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/devices/recording/control"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ControlRecordingResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 设备录音启停控制
+//
+// @param request - ControlRecordingRequest
+//
+// @return ControlRecordingResponse
+func (client *Client) ControlRecording(request *ControlRecordingRequest) (_result *ControlRecordingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ControlRecordingHeaders{}
+	_result = &ControlRecordingResponse{}
+	_body, _err := client.ControlRecordingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建录制计划
+//
+// @param request - CreateRecordingScheduleRequest
+//
+// @param headers - CreateRecordingScheduleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateRecordingScheduleResponse
+func (client *Client) CreateRecordingScheduleWithOptions(request *CreateRecordingScheduleRequest, headers *CreateRecordingScheduleHeaders, runtime *util.RuntimeOptions) (_result *CreateRecordingScheduleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Schedules)) {
+		body["schedules"] = request.Schedules
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateRecordingSchedule"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/devices/recording/schedules"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateRecordingScheduleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建录制计划
+//
+// @param request - CreateRecordingScheduleRequest
+//
+// @return CreateRecordingScheduleResponse
+func (client *Client) CreateRecordingSchedule(request *CreateRecordingScheduleRequest) (_result *CreateRecordingScheduleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateRecordingScheduleHeaders{}
+	_result = &CreateRecordingScheduleResponse{}
+	_body, _err := client.CreateRecordingScheduleWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除录制计划
+//
+// @param headers - DeleteRecordingScheduleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteRecordingScheduleResponse
+func (client *Client) DeleteRecordingScheduleWithOptions(taskId *string, headers *DeleteRecordingScheduleHeaders, runtime *util.RuntimeOptions) (_result *DeleteRecordingScheduleResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteRecordingSchedule"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/devices/recording/schedules/" + tea.StringValue(taskId)),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteRecordingScheduleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除录制计划
+//
+// @return DeleteRecordingScheduleResponse
+func (client *Client) DeleteRecordingSchedule(taskId *string) (_result *DeleteRecordingScheduleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteRecordingScheduleHeaders{}
+	_result = &DeleteRecordingScheduleResponse{}
+	_body, _err := client.DeleteRecordingScheduleWithOptions(taskId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 // Summary:
@@ -3700,6 +4830,65 @@ func (client *Client) GetCustomerInsight(request *GetCustomerInsightRequest) (_r
 	headers := &GetCustomerInsightHeaders{}
 	_result = &GetCustomerInsightResponse{}
 	_body, _err := client.GetCustomerInsightWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取录制计划
+//
+// @param headers - GetRecordingScheduleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetRecordingScheduleResponse
+func (client *Client) GetRecordingScheduleWithOptions(taskId *string, headers *GetRecordingScheduleHeaders, runtime *util.RuntimeOptions) (_result *GetRecordingScheduleResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetRecordingSchedule"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/devices/recording/schedules/" + tea.StringValue(taskId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetRecordingScheduleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取录制计划
+//
+// @return GetRecordingScheduleResponse
+func (client *Client) GetRecordingSchedule(taskId *string) (_result *GetRecordingScheduleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetRecordingScheduleHeaders{}
+	_result = &GetRecordingScheduleResponse{}
+	_body, _err := client.GetRecordingScheduleWithOptions(taskId, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4162,6 +5351,103 @@ func (client *Client) ListCustomer(request *ListCustomerRequest) (_result *ListC
 	headers := &ListCustomerHeaders{}
 	_result = &ListCustomerResponse{}
 	_body, _err := client.ListCustomerWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询设备录音时长
+//
+// @param request - ListDeviceRecordingDurationRequest
+//
+// @param headers - ListDeviceRecordingDurationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListDeviceRecordingDurationResponse
+func (client *Client) ListDeviceRecordingDurationWithOptions(request *ListDeviceRecordingDurationRequest, headers *ListDeviceRecordingDurationHeaders, runtime *util.RuntimeOptions) (_result *ListDeviceRecordingDurationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		query["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TeamCode)) {
+		query["teamCode"] = request.TeamCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListDeviceRecordingDuration"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/devices/recording-durations"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListDeviceRecordingDurationResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询设备录音时长
+//
+// @param request - ListDeviceRecordingDurationRequest
+//
+// @return ListDeviceRecordingDurationResponse
+func (client *Client) ListDeviceRecordingDuration(request *ListDeviceRecordingDurationRequest) (_result *ListDeviceRecordingDurationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListDeviceRecordingDurationHeaders{}
+	_result = &ListDeviceRecordingDurationResponse{}
+	_body, _err := client.ListDeviceRecordingDurationWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4834,6 +6120,172 @@ func (client *Client) SubmitAsrTask(request *SubmitAsrTaskRequest) (_result *Sub
 	headers := &SubmitAsrTaskHeaders{}
 	_result = &SubmitAsrTaskResponse{}
 	_body, _err := client.SubmitAsrTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新设备绑定关系
+//
+// @param request - UpdateDeviceBindingRequest
+//
+// @param headers - UpdateDeviceBindingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateDeviceBindingResponse
+func (client *Client) UpdateDeviceBindingWithOptions(request *UpdateDeviceBindingRequest, headers *UpdateDeviceBindingHeaders, runtime *util.RuntimeOptions) (_result *UpdateDeviceBindingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Action)) {
+		body["action"] = request.Action
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TeamCode)) {
+		body["teamCode"] = request.TeamCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateDeviceBinding"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/devices/binding/update"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateDeviceBindingResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新设备绑定关系
+//
+// @param request - UpdateDeviceBindingRequest
+//
+// @return UpdateDeviceBindingResponse
+func (client *Client) UpdateDeviceBinding(request *UpdateDeviceBindingRequest) (_result *UpdateDeviceBindingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateDeviceBindingHeaders{}
+	_result = &UpdateDeviceBindingResponse{}
+	_body, _err := client.UpdateDeviceBindingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新录制计划
+//
+// @param request - UpdateRecordingScheduleRequest
+//
+// @param headers - UpdateRecordingScheduleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateRecordingScheduleResponse
+func (client *Client) UpdateRecordingScheduleWithOptions(request *UpdateRecordingScheduleRequest, headers *UpdateRecordingScheduleHeaders, runtime *util.RuntimeOptions) (_result *UpdateRecordingScheduleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateRecordingSchedule"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/devices/recording/schedules"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateRecordingScheduleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新录制计划
+//
+// @param request - UpdateRecordingScheduleRequest
+//
+// @return UpdateRecordingScheduleResponse
+func (client *Client) UpdateRecordingSchedule(request *UpdateRecordingScheduleRequest) (_result *UpdateRecordingScheduleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateRecordingScheduleHeaders{}
+	_result = &UpdateRecordingScheduleResponse{}
+	_body, _err := client.UpdateRecordingScheduleWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -1419,6 +1419,102 @@ func (s *ChangeMainAdminResponse) SetStatusCode(v int32) *ChangeMainAdminRespons
 	return s
 }
 
+type ChangeMainOrgHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ChangeMainOrgHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChangeMainOrgHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ChangeMainOrgHeaders) SetCommonHeaders(v map[string]*string) *ChangeMainOrgHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ChangeMainOrgHeaders) SetXAcsDingtalkAccessToken(v string) *ChangeMainOrgHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ChangeMainOrgRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// corpIdCCC
+	NewMainCorpId *string `json:"newMainCorpId,omitempty" xml:"newMainCorpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// userIdAA
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ChangeMainOrgRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChangeMainOrgRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ChangeMainOrgRequest) SetNewMainCorpId(v string) *ChangeMainOrgRequest {
+	s.NewMainCorpId = &v
+	return s
+}
+
+func (s *ChangeMainOrgRequest) SetUserId(v string) *ChangeMainOrgRequest {
+	s.UserId = &v
+	return s
+}
+
+type ChangeMainOrgResponseBody struct {
+}
+
+func (s ChangeMainOrgResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChangeMainOrgResponseBody) GoString() string {
+	return s.String()
+}
+
+type ChangeMainOrgResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ChangeMainOrgResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ChangeMainOrgResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ChangeMainOrgResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ChangeMainOrgResponse) SetHeaders(v map[string]*string) *ChangeMainOrgResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ChangeMainOrgResponse) SetStatusCode(v int32) *ChangeMainOrgResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ChangeMainOrgResponse) SetBody(v *ChangeMainOrgResponseBody) *ChangeMainOrgResponse {
+	s.Body = v
+	return s
+}
+
 type CourseFinishCourseHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9466,6 +9562,142 @@ func (s *SortUserResponse) SetBody(v *SortUserResponseBody) *SortUserResponse {
 	return s
 }
 
+type SubmitHandoverResourceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SubmitHandoverResourceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitHandoverResourceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitHandoverResourceHeaders) SetCommonHeaders(v map[string]*string) *SubmitHandoverResourceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SubmitHandoverResourceHeaders) SetXAcsDingtalkAccessToken(v string) *SubmitHandoverResourceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SubmitHandoverResourceRequest struct {
+	// This parameter is required.
+	Tasks []*SubmitHandoverResourceRequestTasks `json:"tasks,omitempty" xml:"tasks,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// userIdXXX
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SubmitHandoverResourceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitHandoverResourceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitHandoverResourceRequest) SetTasks(v []*SubmitHandoverResourceRequestTasks) *SubmitHandoverResourceRequest {
+	s.Tasks = v
+	return s
+}
+
+func (s *SubmitHandoverResourceRequest) SetUserId(v string) *SubmitHandoverResourceRequest {
+	s.UserId = &v
+	return s
+}
+
+type SubmitHandoverResourceRequestTasks struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// handover
+	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// example:
+	//
+	// userIdYYY
+	ReceiverStaffId *string `json:"receiverStaffId,omitempty" xml:"receiverStaffId,omitempty"`
+	// This parameter is required.
+	ResourceTypeId *int64 `json:"resourceTypeId,omitempty" xml:"resourceTypeId,omitempty"`
+}
+
+func (s SubmitHandoverResourceRequestTasks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitHandoverResourceRequestTasks) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitHandoverResourceRequestTasks) SetActionType(v string) *SubmitHandoverResourceRequestTasks {
+	s.ActionType = &v
+	return s
+}
+
+func (s *SubmitHandoverResourceRequestTasks) SetReceiverStaffId(v string) *SubmitHandoverResourceRequestTasks {
+	s.ReceiverStaffId = &v
+	return s
+}
+
+func (s *SubmitHandoverResourceRequestTasks) SetResourceTypeId(v int64) *SubmitHandoverResourceRequestTasks {
+	s.ResourceTypeId = &v
+	return s
+}
+
+type SubmitHandoverResourceResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SubmitHandoverResourceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitHandoverResourceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitHandoverResourceResponseBody) SetSuccess(v bool) *SubmitHandoverResourceResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SubmitHandoverResourceResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SubmitHandoverResourceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SubmitHandoverResourceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitHandoverResourceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitHandoverResourceResponse) SetHeaders(v map[string]*string) *SubmitHandoverResourceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SubmitHandoverResourceResponse) SetStatusCode(v int32) *SubmitHandoverResourceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SubmitHandoverResourceResponse) SetBody(v *SubmitHandoverResourceResponseBody) *SubmitHandoverResourceResponse {
+	s.Body = v
+	return s
+}
+
 type TransformToExclusiveAccountHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -12604,6 +12836,83 @@ func (client *Client) ChangeMainAdmin(request *ChangeMainAdminRequest) (_result 
 	headers := &ChangeMainAdminHeaders{}
 	_result = &ChangeMainAdminResponse{}
 	_body, _err := client.ChangeMainAdminWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 企业账号修改主企业
+//
+// @param request - ChangeMainOrgRequest
+//
+// @param headers - ChangeMainOrgHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ChangeMainOrgResponse
+func (client *Client) ChangeMainOrgWithOptions(request *ChangeMainOrgRequest, headers *ChangeMainOrgHeaders, runtime *util.RuntimeOptions) (_result *ChangeMainOrgResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.NewMainCorpId)) {
+		body["newMainCorpId"] = request.NewMainCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ChangeMainOrg"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/orgAccounts/mainOrgs/change"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ChangeMainOrgResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 企业账号修改主企业
+//
+// @param request - ChangeMainOrgRequest
+//
+// @return ChangeMainOrgResponse
+func (client *Client) ChangeMainOrg(request *ChangeMainOrgRequest) (_result *ChangeMainOrgResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ChangeMainOrgHeaders{}
+	_result = &ChangeMainOrgResponse{}
+	_body, _err := client.ChangeMainOrgWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -17179,6 +17488,83 @@ func (client *Client) SortUser(request *SortUserRequest) (_result *SortUserRespo
 	headers := &SortUserHeaders{}
 	_result = &SortUserResponse{}
 	_body, _err := client.SortUserWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 提交资源转交
+//
+// @param request - SubmitHandoverResourceRequest
+//
+// @param headers - SubmitHandoverResourceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SubmitHandoverResourceResponse
+func (client *Client) SubmitHandoverResourceWithOptions(request *SubmitHandoverResourceRequest, headers *SubmitHandoverResourceHeaders, runtime *util.RuntimeOptions) (_result *SubmitHandoverResourceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Tasks)) {
+		body["tasks"] = request.Tasks
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SubmitHandoverResource"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/assets/submitHandoverResource"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SubmitHandoverResourceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 提交资源转交
+//
+// @param request - SubmitHandoverResourceRequest
+//
+// @return SubmitHandoverResourceResponse
+func (client *Client) SubmitHandoverResource(request *SubmitHandoverResourceRequest) (_result *SubmitHandoverResourceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SubmitHandoverResourceHeaders{}
+	_result = &SubmitHandoverResourceResponse{}
+	_body, _err := client.SubmitHandoverResourceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

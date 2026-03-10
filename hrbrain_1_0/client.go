@@ -7078,6 +7078,7 @@ func (s *HrbrainLabelMetaHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainL
 
 type HrbrainLabelMetaRequest struct {
 	CategoryCodes []*string `json:"categoryCodes,omitempty" xml:"categoryCodes,omitempty" type:"Repeated"`
+	LabelCode     *string   `json:"labelCode,omitempty" xml:"labelCode,omitempty"`
 	MaxResults    *int64    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken     *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
@@ -7092,6 +7093,11 @@ func (s HrbrainLabelMetaRequest) GoString() string {
 
 func (s *HrbrainLabelMetaRequest) SetCategoryCodes(v []*string) *HrbrainLabelMetaRequest {
 	s.CategoryCodes = v
+	return s
+}
+
+func (s *HrbrainLabelMetaRequest) SetLabelCode(v string) *HrbrainLabelMetaRequest {
+	s.LabelCode = &v
 	return s
 }
 
@@ -12386,6 +12392,10 @@ func (client *Client) HrbrainLabelMetaWithOptions(request *HrbrainLabelMetaReque
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CategoryCodes)) {
 		body["categoryCodes"] = request.CategoryCodes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LabelCode)) {
+		body["labelCode"] = request.LabelCode
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
