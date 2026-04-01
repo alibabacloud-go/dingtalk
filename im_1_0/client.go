@@ -1033,9 +1033,11 @@ type BatchQueryGroupMemberResponseBody struct {
 	// example:
 	//
 	// 92233720368
-	NextToken   *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
-	Success     *bool     `json:"success,omitempty" xml:"success,omitempty"`
-	UnionIdList []*string `json:"unionIdList,omitempty" xml:"unionIdList,omitempty" type:"Repeated"`
+	NextToken      *string            `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	StaffIdNickMap map[string]*string `json:"staffIdNickMap,omitempty" xml:"staffIdNickMap,omitempty"`
+	Success        *bool              `json:"success,omitempty" xml:"success,omitempty"`
+	UnionIdList    []*string          `json:"unionIdList,omitempty" xml:"unionIdList,omitempty" type:"Repeated"`
+	UnionIdNickMap map[string]*string `json:"unionIdNickMap,omitempty" xml:"unionIdNickMap,omitempty"`
 }
 
 func (s BatchQueryGroupMemberResponseBody) String() string {
@@ -1061,6 +1063,11 @@ func (s *BatchQueryGroupMemberResponseBody) SetNextToken(v string) *BatchQueryGr
 	return s
 }
 
+func (s *BatchQueryGroupMemberResponseBody) SetStaffIdNickMap(v map[string]*string) *BatchQueryGroupMemberResponseBody {
+	s.StaffIdNickMap = v
+	return s
+}
+
 func (s *BatchQueryGroupMemberResponseBody) SetSuccess(v bool) *BatchQueryGroupMemberResponseBody {
 	s.Success = &v
 	return s
@@ -1068,6 +1075,11 @@ func (s *BatchQueryGroupMemberResponseBody) SetSuccess(v bool) *BatchQueryGroupM
 
 func (s *BatchQueryGroupMemberResponseBody) SetUnionIdList(v []*string) *BatchQueryGroupMemberResponseBody {
 	s.UnionIdList = v
+	return s
+}
+
+func (s *BatchQueryGroupMemberResponseBody) SetUnionIdNickMap(v map[string]*string) *BatchQueryGroupMemberResponseBody {
+	s.UnionIdNickMap = v
 	return s
 }
 
@@ -2145,6 +2157,238 @@ func (s *CreateCoupleGroupConversationResponse) SetBody(v *CreateCoupleGroupConv
 	return s
 }
 
+type CreateCustomGroupRoleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateCustomGroupRoleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomGroupRoleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomGroupRoleHeaders) SetCommonHeaders(v map[string]*string) *CreateCustomGroupRoleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateCustomGroupRoleHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCustomGroupRoleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateCustomGroupRoleRequest struct {
+	// This parameter is required.
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// This parameter is required.
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateCustomGroupRoleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomGroupRoleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomGroupRoleRequest) SetOpenConversationId(v string) *CreateCustomGroupRoleRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *CreateCustomGroupRoleRequest) SetRoleName(v string) *CreateCustomGroupRoleRequest {
+	s.RoleName = &v
+	return s
+}
+
+func (s *CreateCustomGroupRoleRequest) SetUserId(v string) *CreateCustomGroupRoleRequest {
+	s.UserId = &v
+	return s
+}
+
+type CreateCustomGroupRoleResponseBody struct {
+	Result  *CreateCustomGroupRoleResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                    `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateCustomGroupRoleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomGroupRoleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomGroupRoleResponseBody) SetResult(v *CreateCustomGroupRoleResponseBodyResult) *CreateCustomGroupRoleResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *CreateCustomGroupRoleResponseBody) SetSuccess(v bool) *CreateCustomGroupRoleResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateCustomGroupRoleResponseBodyResult struct {
+	OpenRoleId *string `json:"openRoleId,omitempty" xml:"openRoleId,omitempty"`
+}
+
+func (s CreateCustomGroupRoleResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomGroupRoleResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomGroupRoleResponseBodyResult) SetOpenRoleId(v string) *CreateCustomGroupRoleResponseBodyResult {
+	s.OpenRoleId = &v
+	return s
+}
+
+type CreateCustomGroupRoleResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateCustomGroupRoleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateCustomGroupRoleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomGroupRoleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomGroupRoleResponse) SetHeaders(v map[string]*string) *CreateCustomGroupRoleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateCustomGroupRoleResponse) SetStatusCode(v int32) *CreateCustomGroupRoleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateCustomGroupRoleResponse) SetBody(v *CreateCustomGroupRoleResponseBody) *CreateCustomGroupRoleResponse {
+	s.Body = v
+	return s
+}
+
+type CreateCustomUserRolesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateCustomUserRolesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomUserRolesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomUserRolesHeaders) SetCommonHeaders(v map[string]*string) *CreateCustomUserRolesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateCustomUserRolesHeaders) SetXAcsDingtalkAccessToken(v string) *CreateCustomUserRolesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateCustomUserRolesRequest struct {
+	// This parameter is required.
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// This parameter is required.
+	OpenRoleIds []*string `json:"openRoleIds,omitempty" xml:"openRoleIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	TargetUserId *string `json:"targetUserId,omitempty" xml:"targetUserId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateCustomUserRolesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomUserRolesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomUserRolesRequest) SetOpenConversationId(v string) *CreateCustomUserRolesRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *CreateCustomUserRolesRequest) SetOpenRoleIds(v []*string) *CreateCustomUserRolesRequest {
+	s.OpenRoleIds = v
+	return s
+}
+
+func (s *CreateCustomUserRolesRequest) SetTargetUserId(v string) *CreateCustomUserRolesRequest {
+	s.TargetUserId = &v
+	return s
+}
+
+func (s *CreateCustomUserRolesRequest) SetUserId(v string) *CreateCustomUserRolesRequest {
+	s.UserId = &v
+	return s
+}
+
+type CreateCustomUserRolesResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateCustomUserRolesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomUserRolesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomUserRolesResponseBody) SetSuccess(v bool) *CreateCustomUserRolesResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateCustomUserRolesResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateCustomUserRolesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateCustomUserRolesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateCustomUserRolesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateCustomUserRolesResponse) SetHeaders(v map[string]*string) *CreateCustomUserRolesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateCustomUserRolesResponse) SetStatusCode(v int32) *CreateCustomUserRolesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateCustomUserRolesResponse) SetBody(v *CreateCustomUserRolesResponseBody) *CreateCustomUserRolesResponse {
+	s.Body = v
+	return s
+}
+
 type CreateGroupConversationHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2325,6 +2569,125 @@ func (s *CreateGroupConversationResponse) SetStatusCode(v int32) *CreateGroupCon
 }
 
 func (s *CreateGroupConversationResponse) SetBody(v *CreateGroupConversationResponseBody) *CreateGroupConversationResponse {
+	s.Body = v
+	return s
+}
+
+type CreateGroupFromOldGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateGroupFromOldGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupFromOldGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupFromOldGroupHeaders) SetCommonHeaders(v map[string]*string) *CreateGroupFromOldGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateGroupFromOldGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGroupFromOldGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateGroupFromOldGroupRequest struct {
+	NotQuitWhenEmpLeave *int64  `json:"notQuitWhenEmpLeave,omitempty" xml:"notQuitWhenEmpLeave,omitempty"`
+	SrcCorpId           *string `json:"srcCorpId,omitempty" xml:"srcCorpId,omitempty"`
+	// This parameter is required.
+	SrcOpenConversationId *string `json:"srcOpenConversationId,omitempty" xml:"srcOpenConversationId,omitempty"`
+	// This parameter is required.
+	TemplateId *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	// This parameter is required.
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s CreateGroupFromOldGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupFromOldGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupFromOldGroupRequest) SetNotQuitWhenEmpLeave(v int64) *CreateGroupFromOldGroupRequest {
+	s.NotQuitWhenEmpLeave = &v
+	return s
+}
+
+func (s *CreateGroupFromOldGroupRequest) SetSrcCorpId(v string) *CreateGroupFromOldGroupRequest {
+	s.SrcCorpId = &v
+	return s
+}
+
+func (s *CreateGroupFromOldGroupRequest) SetSrcOpenConversationId(v string) *CreateGroupFromOldGroupRequest {
+	s.SrcOpenConversationId = &v
+	return s
+}
+
+func (s *CreateGroupFromOldGroupRequest) SetTemplateId(v string) *CreateGroupFromOldGroupRequest {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *CreateGroupFromOldGroupRequest) SetUuid(v string) *CreateGroupFromOldGroupRequest {
+	s.Uuid = &v
+	return s
+}
+
+type CreateGroupFromOldGroupResponseBody struct {
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	Success            *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateGroupFromOldGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupFromOldGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupFromOldGroupResponseBody) SetOpenConversationId(v string) *CreateGroupFromOldGroupResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *CreateGroupFromOldGroupResponseBody) SetSuccess(v bool) *CreateGroupFromOldGroupResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateGroupFromOldGroupResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateGroupFromOldGroupResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateGroupFromOldGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupFromOldGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupFromOldGroupResponse) SetHeaders(v map[string]*string) *CreateGroupFromOldGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateGroupFromOldGroupResponse) SetStatusCode(v int32) *CreateGroupFromOldGroupResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateGroupFromOldGroupResponse) SetBody(v *CreateGroupFromOldGroupResponseBody) *CreateGroupFromOldGroupResponse {
 	s.Body = v
 	return s
 }
@@ -3311,6 +3674,93 @@ func (s *DismissGroupConversationResponse) SetStatusCode(v int32) *DismissGroupC
 }
 
 func (s *DismissGroupConversationResponse) SetBody(v *DismissGroupConversationResponseBody) *DismissGroupConversationResponse {
+	s.Body = v
+	return s
+}
+
+type DsbandOpenSceneGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DsbandOpenSceneGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DsbandOpenSceneGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DsbandOpenSceneGroupHeaders) SetCommonHeaders(v map[string]*string) *DsbandOpenSceneGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DsbandOpenSceneGroupHeaders) SetXAcsDingtalkAccessToken(v string) *DsbandOpenSceneGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DsbandOpenSceneGroupRequest struct {
+	// This parameter is required.
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s DsbandOpenSceneGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DsbandOpenSceneGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DsbandOpenSceneGroupRequest) SetOpenConversationId(v string) *DsbandOpenSceneGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type DsbandOpenSceneGroupResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DsbandOpenSceneGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DsbandOpenSceneGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DsbandOpenSceneGroupResponseBody) SetSuccess(v bool) *DsbandOpenSceneGroupResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DsbandOpenSceneGroupResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DsbandOpenSceneGroupResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DsbandOpenSceneGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DsbandOpenSceneGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DsbandOpenSceneGroupResponse) SetHeaders(v map[string]*string) *DsbandOpenSceneGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DsbandOpenSceneGroupResponse) SetStatusCode(v int32) *DsbandOpenSceneGroupResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DsbandOpenSceneGroupResponse) SetBody(v *DsbandOpenSceneGroupResponseBody) *DsbandOpenSceneGroupResponse {
 	s.Body = v
 	return s
 }
@@ -9251,6 +9701,293 @@ func (s *PutMsgCardTopByIntelligentResponse) SetBody(v *PutMsgCardTopByIntellige
 	return s
 }
 
+type QueryCustomGroupRolesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCustomGroupRolesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomGroupRolesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomGroupRolesHeaders) SetCommonHeaders(v map[string]*string) *QueryCustomGroupRolesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCustomGroupRolesHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCustomGroupRolesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCustomGroupRolesRequest struct {
+	// This parameter is required.
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryCustomGroupRolesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomGroupRolesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomGroupRolesRequest) SetOpenConversationId(v string) *QueryCustomGroupRolesRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QueryCustomGroupRolesRequest) SetUserId(v string) *QueryCustomGroupRolesRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryCustomGroupRolesResponseBody struct {
+	Result  *QueryCustomGroupRolesResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *string                                  `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryCustomGroupRolesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomGroupRolesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomGroupRolesResponseBody) SetResult(v *QueryCustomGroupRolesResponseBodyResult) *QueryCustomGroupRolesResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryCustomGroupRolesResponseBody) SetSuccess(v string) *QueryCustomGroupRolesResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryCustomGroupRolesResponseBodyResult struct {
+	GroupRoles []*QueryCustomGroupRolesResponseBodyResultGroupRoles `json:"groupRoles,omitempty" xml:"groupRoles,omitempty" type:"Repeated"`
+}
+
+func (s QueryCustomGroupRolesResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomGroupRolesResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomGroupRolesResponseBodyResult) SetGroupRoles(v []*QueryCustomGroupRolesResponseBodyResultGroupRoles) *QueryCustomGroupRolesResponseBodyResult {
+	s.GroupRoles = v
+	return s
+}
+
+type QueryCustomGroupRolesResponseBodyResultGroupRoles struct {
+	OpenRoleId *string `json:"openRoleId,omitempty" xml:"openRoleId,omitempty"`
+	RoleName   *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+}
+
+func (s QueryCustomGroupRolesResponseBodyResultGroupRoles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomGroupRolesResponseBodyResultGroupRoles) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomGroupRolesResponseBodyResultGroupRoles) SetOpenRoleId(v string) *QueryCustomGroupRolesResponseBodyResultGroupRoles {
+	s.OpenRoleId = &v
+	return s
+}
+
+func (s *QueryCustomGroupRolesResponseBodyResultGroupRoles) SetRoleName(v string) *QueryCustomGroupRolesResponseBodyResultGroupRoles {
+	s.RoleName = &v
+	return s
+}
+
+type QueryCustomGroupRolesResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCustomGroupRolesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryCustomGroupRolesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomGroupRolesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomGroupRolesResponse) SetHeaders(v map[string]*string) *QueryCustomGroupRolesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCustomGroupRolesResponse) SetStatusCode(v int32) *QueryCustomGroupRolesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryCustomGroupRolesResponse) SetBody(v *QueryCustomGroupRolesResponseBody) *QueryCustomGroupRolesResponse {
+	s.Body = v
+	return s
+}
+
+type QueryCustomGroupRolesByUserHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCustomGroupRolesByUserHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomGroupRolesByUserHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomGroupRolesByUserHeaders) SetCommonHeaders(v map[string]*string) *QueryCustomGroupRolesByUserHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCustomGroupRolesByUserHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCustomGroupRolesByUserHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCustomGroupRolesByUserRequest struct {
+	// This parameter is required.
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	// This parameter is required.
+	ViewedUserId *string `json:"viewedUserId,omitempty" xml:"viewedUserId,omitempty"`
+}
+
+func (s QueryCustomGroupRolesByUserRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomGroupRolesByUserRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomGroupRolesByUserRequest) SetOpenConversationId(v string) *QueryCustomGroupRolesByUserRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QueryCustomGroupRolesByUserRequest) SetUserId(v string) *QueryCustomGroupRolesByUserRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *QueryCustomGroupRolesByUserRequest) SetViewedUserId(v string) *QueryCustomGroupRolesByUserRequest {
+	s.ViewedUserId = &v
+	return s
+}
+
+type QueryCustomGroupRolesByUserResponseBody struct {
+	Result  *QueryCustomGroupRolesByUserResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *string                                        `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryCustomGroupRolesByUserResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomGroupRolesByUserResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomGroupRolesByUserResponseBody) SetResult(v *QueryCustomGroupRolesByUserResponseBodyResult) *QueryCustomGroupRolesByUserResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryCustomGroupRolesByUserResponseBody) SetSuccess(v string) *QueryCustomGroupRolesByUserResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryCustomGroupRolesByUserResponseBodyResult struct {
+	GroupRoles []*QueryCustomGroupRolesByUserResponseBodyResultGroupRoles `json:"groupRoles,omitempty" xml:"groupRoles,omitempty" type:"Repeated"`
+}
+
+func (s QueryCustomGroupRolesByUserResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomGroupRolesByUserResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomGroupRolesByUserResponseBodyResult) SetGroupRoles(v []*QueryCustomGroupRolesByUserResponseBodyResultGroupRoles) *QueryCustomGroupRolesByUserResponseBodyResult {
+	s.GroupRoles = v
+	return s
+}
+
+type QueryCustomGroupRolesByUserResponseBodyResultGroupRoles struct {
+	OpenRoleId *string `json:"openRoleId,omitempty" xml:"openRoleId,omitempty"`
+	RoleName   *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+}
+
+func (s QueryCustomGroupRolesByUserResponseBodyResultGroupRoles) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomGroupRolesByUserResponseBodyResultGroupRoles) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomGroupRolesByUserResponseBodyResultGroupRoles) SetOpenRoleId(v string) *QueryCustomGroupRolesByUserResponseBodyResultGroupRoles {
+	s.OpenRoleId = &v
+	return s
+}
+
+func (s *QueryCustomGroupRolesByUserResponseBodyResultGroupRoles) SetRoleName(v string) *QueryCustomGroupRolesByUserResponseBodyResultGroupRoles {
+	s.RoleName = &v
+	return s
+}
+
+type QueryCustomGroupRolesByUserResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCustomGroupRolesByUserResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryCustomGroupRolesByUserResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCustomGroupRolesByUserResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCustomGroupRolesByUserResponse) SetHeaders(v map[string]*string) *QueryCustomGroupRolesByUserResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCustomGroupRolesByUserResponse) SetStatusCode(v int32) *QueryCustomGroupRolesByUserResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryCustomGroupRolesByUserResponse) SetBody(v *QueryCustomGroupRolesByUserResponseBody) *QueryCustomGroupRolesByUserResponse {
+	s.Body = v
+	return s
+}
+
 type QueryGroupInfoByAppCidsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -13319,6 +14056,215 @@ func (s *ReleaseUnfurlingRegisterResponse) SetBody(v *ReleaseUnfurlingRegisterRe
 	return s
 }
 
+type RemoveCustomGroupRoleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RemoveCustomGroupRoleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveCustomGroupRoleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveCustomGroupRoleHeaders) SetCommonHeaders(v map[string]*string) *RemoveCustomGroupRoleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveCustomGroupRoleHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveCustomGroupRoleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RemoveCustomGroupRoleRequest struct {
+	// This parameter is required.
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// This parameter is required.
+	OpenRoleId *string `json:"openRoleId,omitempty" xml:"openRoleId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s RemoveCustomGroupRoleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveCustomGroupRoleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveCustomGroupRoleRequest) SetOpenConversationId(v string) *RemoveCustomGroupRoleRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *RemoveCustomGroupRoleRequest) SetOpenRoleId(v string) *RemoveCustomGroupRoleRequest {
+	s.OpenRoleId = &v
+	return s
+}
+
+func (s *RemoveCustomGroupRoleRequest) SetUserId(v string) *RemoveCustomGroupRoleRequest {
+	s.UserId = &v
+	return s
+}
+
+type RemoveCustomGroupRoleResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s RemoveCustomGroupRoleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveCustomGroupRoleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveCustomGroupRoleResponseBody) SetSuccess(v bool) *RemoveCustomGroupRoleResponseBody {
+	s.Success = &v
+	return s
+}
+
+type RemoveCustomGroupRoleResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RemoveCustomGroupRoleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s RemoveCustomGroupRoleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveCustomGroupRoleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveCustomGroupRoleResponse) SetHeaders(v map[string]*string) *RemoveCustomGroupRoleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RemoveCustomGroupRoleResponse) SetStatusCode(v int32) *RemoveCustomGroupRoleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RemoveCustomGroupRoleResponse) SetBody(v *RemoveCustomGroupRoleResponseBody) *RemoveCustomGroupRoleResponse {
+	s.Body = v
+	return s
+}
+
+type RemoveCustomUserRolesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RemoveCustomUserRolesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveCustomUserRolesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveCustomUserRolesHeaders) SetCommonHeaders(v map[string]*string) *RemoveCustomUserRolesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveCustomUserRolesHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveCustomUserRolesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RemoveCustomUserRolesRequest struct {
+	// This parameter is required.
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// This parameter is required.
+	OpenRoleIds []*string `json:"openRoleIds,omitempty" xml:"openRoleIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	TargetUserId *string `json:"targetUserId,omitempty" xml:"targetUserId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s RemoveCustomUserRolesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveCustomUserRolesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveCustomUserRolesRequest) SetOpenConversationId(v string) *RemoveCustomUserRolesRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *RemoveCustomUserRolesRequest) SetOpenRoleIds(v []*string) *RemoveCustomUserRolesRequest {
+	s.OpenRoleIds = v
+	return s
+}
+
+func (s *RemoveCustomUserRolesRequest) SetTargetUserId(v string) *RemoveCustomUserRolesRequest {
+	s.TargetUserId = &v
+	return s
+}
+
+func (s *RemoveCustomUserRolesRequest) SetUserId(v string) *RemoveCustomUserRolesRequest {
+	s.UserId = &v
+	return s
+}
+
+type RemoveCustomUserRolesResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s RemoveCustomUserRolesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveCustomUserRolesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveCustomUserRolesResponseBody) SetSuccess(v bool) *RemoveCustomUserRolesResponseBody {
+	s.Success = &v
+	return s
+}
+
+type RemoveCustomUserRolesResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RemoveCustomUserRolesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s RemoveCustomUserRolesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveCustomUserRolesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveCustomUserRolesResponse) SetHeaders(v map[string]*string) *RemoveCustomUserRolesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RemoveCustomUserRolesResponse) SetStatusCode(v int32) *RemoveCustomUserRolesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RemoveCustomUserRolesResponse) SetBody(v *RemoveCustomUserRolesResponseBody) *RemoveCustomUserRolesResponse {
+	s.Body = v
+	return s
+}
+
 type RemoveRobotFromConversationHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -15701,6 +16647,114 @@ func (s *UpdateConvNavTabResponse) SetStatusCode(v int32) *UpdateConvNavTabRespo
 }
 
 func (s *UpdateConvNavTabResponse) SetBody(v *UpdateConvNavTabResponseBody) *UpdateConvNavTabResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateCustomGroupRoleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateCustomGroupRoleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomGroupRoleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomGroupRoleHeaders) SetCommonHeaders(v map[string]*string) *UpdateCustomGroupRoleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateCustomGroupRoleHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateCustomGroupRoleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateCustomGroupRoleRequest struct {
+	// This parameter is required.
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// This parameter is required.
+	OpenRoleId *string `json:"openRoleId,omitempty" xml:"openRoleId,omitempty"`
+	// This parameter is required.
+	RoleName *string `json:"roleName,omitempty" xml:"roleName,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateCustomGroupRoleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomGroupRoleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomGroupRoleRequest) SetOpenConversationId(v string) *UpdateCustomGroupRoleRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *UpdateCustomGroupRoleRequest) SetOpenRoleId(v string) *UpdateCustomGroupRoleRequest {
+	s.OpenRoleId = &v
+	return s
+}
+
+func (s *UpdateCustomGroupRoleRequest) SetRoleName(v string) *UpdateCustomGroupRoleRequest {
+	s.RoleName = &v
+	return s
+}
+
+func (s *UpdateCustomGroupRoleRequest) SetUserId(v string) *UpdateCustomGroupRoleRequest {
+	s.UserId = &v
+	return s
+}
+
+type UpdateCustomGroupRoleResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateCustomGroupRoleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomGroupRoleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomGroupRoleResponseBody) SetSuccess(v bool) *UpdateCustomGroupRoleResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateCustomGroupRoleResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateCustomGroupRoleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateCustomGroupRoleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomGroupRoleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomGroupRoleResponse) SetHeaders(v map[string]*string) *UpdateCustomGroupRoleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateCustomGroupRoleResponse) SetStatusCode(v int32) *UpdateCustomGroupRoleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateCustomGroupRoleResponse) SetBody(v *UpdateCustomGroupRoleResponseBody) *UpdateCustomGroupRoleResponse {
 	s.Body = v
 	return s
 }
@@ -19471,6 +20525,172 @@ func (client *Client) CreateCoupleGroupConversation(request *CreateCoupleGroupCo
 
 // Summary:
 //
+// 创建群角色
+//
+// @param request - CreateCustomGroupRoleRequest
+//
+// @param headers - CreateCustomGroupRoleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateCustomGroupRoleResponse
+func (client *Client) CreateCustomGroupRoleWithOptions(request *CreateCustomGroupRoleRequest, headers *CreateCustomGroupRoleHeaders, runtime *util.RuntimeOptions) (_result *CreateCustomGroupRoleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleName)) {
+		body["roleName"] = request.RoleName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateCustomGroupRole"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/customGroupRole/create"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateCustomGroupRoleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建群角色
+//
+// @param request - CreateCustomGroupRoleRequest
+//
+// @return CreateCustomGroupRoleResponse
+func (client *Client) CreateCustomGroupRole(request *CreateCustomGroupRoleRequest) (_result *CreateCustomGroupRoleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateCustomGroupRoleHeaders{}
+	_result = &CreateCustomGroupRoleResponse{}
+	_body, _err := client.CreateCustomGroupRoleWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 设置成员的角色
+//
+// @param request - CreateCustomUserRolesRequest
+//
+// @param headers - CreateCustomUserRolesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateCustomUserRolesResponse
+func (client *Client) CreateCustomUserRolesWithOptions(request *CreateCustomUserRolesRequest, headers *CreateCustomUserRolesHeaders, runtime *util.RuntimeOptions) (_result *CreateCustomUserRolesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenRoleIds)) {
+		body["openRoleIds"] = request.OpenRoleIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetUserId)) {
+		body["targetUserId"] = request.TargetUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateCustomUserRoles"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/customUserRoles/create"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateCustomUserRolesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 设置成员的角色
+//
+// @param request - CreateCustomUserRolesRequest
+//
+// @return CreateCustomUserRolesResponse
+func (client *Client) CreateCustomUserRoles(request *CreateCustomUserRolesRequest) (_result *CreateCustomUserRolesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateCustomUserRolesHeaders{}
+	_result = &CreateCustomUserRolesResponse{}
+	_body, _err := client.CreateCustomUserRolesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 创建互通群（支持普通互通群、跨钉两人群）
 //
 // @param request - CreateGroupConversationRequest
@@ -19563,6 +20783,95 @@ func (client *Client) CreateGroupConversation(request *CreateGroupConversationRe
 	headers := &CreateGroupConversationHeaders{}
 	_result = &CreateGroupConversationResponse{}
 	_body, _err := client.CreateGroupConversationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 内部群转外部群
+//
+// @param request - CreateGroupFromOldGroupRequest
+//
+// @param headers - CreateGroupFromOldGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateGroupFromOldGroupResponse
+func (client *Client) CreateGroupFromOldGroupWithOptions(request *CreateGroupFromOldGroupRequest, headers *CreateGroupFromOldGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupFromOldGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.NotQuitWhenEmpLeave)) {
+		body["notQuitWhenEmpLeave"] = request.NotQuitWhenEmpLeave
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SrcCorpId)) {
+		body["srcCorpId"] = request.SrcCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SrcOpenConversationId)) {
+		body["srcOpenConversationId"] = request.SrcOpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["templateId"] = request.TemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		body["uuid"] = request.Uuid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateGroupFromOldGroup"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroups/createGroupFromOldGroup"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateGroupFromOldGroupResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 内部群转外部群
+//
+// @param request - CreateGroupFromOldGroupRequest
+//
+// @return CreateGroupFromOldGroupResponse
+func (client *Client) CreateGroupFromOldGroup(request *CreateGroupFromOldGroupRequest) (_result *CreateGroupFromOldGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateGroupFromOldGroupHeaders{}
+	_result = &CreateGroupFromOldGroupResponse{}
+	_body, _err := client.CreateGroupFromOldGroupWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -20150,6 +21459,79 @@ func (client *Client) DismissGroupConversation(request *DismissGroupConversation
 	headers := &DismissGroupConversationHeaders{}
 	_result = &DismissGroupConversationResponse{}
 	_body, _err := client.DismissGroupConversationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 解散群
+//
+// @param request - DsbandOpenSceneGroupRequest
+//
+// @param headers - DsbandOpenSceneGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DsbandOpenSceneGroupResponse
+func (client *Client) DsbandOpenSceneGroupWithOptions(request *DsbandOpenSceneGroupRequest, headers *DsbandOpenSceneGroupHeaders, runtime *util.RuntimeOptions) (_result *DsbandOpenSceneGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DsbandOpenSceneGroup"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/chat/scenegroup/disband"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DsbandOpenSceneGroupResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 解散群
+//
+// @param request - DsbandOpenSceneGroupRequest
+//
+// @return DsbandOpenSceneGroupResponse
+func (client *Client) DsbandOpenSceneGroup(request *DsbandOpenSceneGroupRequest) (_result *DsbandOpenSceneGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DsbandOpenSceneGroupHeaders{}
+	_result = &DsbandOpenSceneGroupResponse{}
+	_body, _err := client.DsbandOpenSceneGroupWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -23462,6 +24844,164 @@ func (client *Client) PutMsgCardTopByIntelligent(request *PutMsgCardTopByIntelli
 
 // Summary:
 //
+// 查询群内所有角色
+//
+// @param request - QueryCustomGroupRolesRequest
+//
+// @param headers - QueryCustomGroupRolesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCustomGroupRolesResponse
+func (client *Client) QueryCustomGroupRolesWithOptions(request *QueryCustomGroupRolesRequest, headers *QueryCustomGroupRolesHeaders, runtime *util.RuntimeOptions) (_result *QueryCustomGroupRolesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryCustomGroupRoles"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/customGroupRole/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryCustomGroupRolesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询群内所有角色
+//
+// @param request - QueryCustomGroupRolesRequest
+//
+// @return QueryCustomGroupRolesResponse
+func (client *Client) QueryCustomGroupRoles(request *QueryCustomGroupRolesRequest) (_result *QueryCustomGroupRolesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCustomGroupRolesHeaders{}
+	_result = &QueryCustomGroupRolesResponse{}
+	_body, _err := client.QueryCustomGroupRolesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询成员的角色
+//
+// @param request - QueryCustomGroupRolesByUserRequest
+//
+// @param headers - QueryCustomGroupRolesByUserHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCustomGroupRolesByUserResponse
+func (client *Client) QueryCustomGroupRolesByUserWithOptions(request *QueryCustomGroupRolesByUserRequest, headers *QueryCustomGroupRolesByUserHeaders, runtime *util.RuntimeOptions) (_result *QueryCustomGroupRolesByUserResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ViewedUserId)) {
+		body["viewedUserId"] = request.ViewedUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryCustomGroupRolesByUser"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/customUserRoles/queryByUser"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryCustomGroupRolesByUserResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询成员的角色
+//
+// @param request - QueryCustomGroupRolesByUserRequest
+//
+// @return QueryCustomGroupRolesByUserResponse
+func (client *Client) QueryCustomGroupRolesByUser(request *QueryCustomGroupRolesByUserRequest) (_result *QueryCustomGroupRolesByUserResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCustomGroupRolesByUserHeaders{}
+	_result = &QueryCustomGroupRolesByUserResponse{}
+	_body, _err := client.QueryCustomGroupRolesByUserWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 根据IM会话Cid查询群信息
 //
 // @param request - QueryGroupInfoByAppCidsRequest
@@ -25618,6 +27158,172 @@ func (client *Client) ReleaseUnfurlingRegister(request *ReleaseUnfurlingRegister
 
 // Summary:
 //
+// 删除群角色
+//
+// @param request - RemoveCustomGroupRoleRequest
+//
+// @param headers - RemoveCustomGroupRoleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RemoveCustomGroupRoleResponse
+func (client *Client) RemoveCustomGroupRoleWithOptions(request *RemoveCustomGroupRoleRequest, headers *RemoveCustomGroupRoleHeaders, runtime *util.RuntimeOptions) (_result *RemoveCustomGroupRoleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenRoleId)) {
+		body["openRoleId"] = request.OpenRoleId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RemoveCustomGroupRole"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/customGroupRole/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RemoveCustomGroupRoleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除群角色
+//
+// @param request - RemoveCustomGroupRoleRequest
+//
+// @return RemoveCustomGroupRoleResponse
+func (client *Client) RemoveCustomGroupRole(request *RemoveCustomGroupRoleRequest) (_result *RemoveCustomGroupRoleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RemoveCustomGroupRoleHeaders{}
+	_result = &RemoveCustomGroupRoleResponse{}
+	_body, _err := client.RemoveCustomGroupRoleWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除成员的角色
+//
+// @param request - RemoveCustomUserRolesRequest
+//
+// @param headers - RemoveCustomUserRolesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RemoveCustomUserRolesResponse
+func (client *Client) RemoveCustomUserRolesWithOptions(request *RemoveCustomUserRolesRequest, headers *RemoveCustomUserRolesHeaders, runtime *util.RuntimeOptions) (_result *RemoveCustomUserRolesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenRoleIds)) {
+		body["openRoleIds"] = request.OpenRoleIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetUserId)) {
+		body["targetUserId"] = request.TargetUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RemoveCustomUserRoles"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/customUserRoles/remove"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RemoveCustomUserRolesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除成员的角色
+//
+// @param request - RemoveCustomUserRolesRequest
+//
+// @return RemoveCustomUserRolesResponse
+func (client *Client) RemoveCustomUserRoles(request *RemoveCustomUserRolesRequest) (_result *RemoveCustomUserRolesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RemoveCustomUserRolesHeaders{}
+	_result = &RemoveCustomUserRolesResponse{}
+	_body, _err := client.RemoveCustomUserRolesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 移除会话机器人
 //
 // @param request - RemoveRobotFromConversationRequest
@@ -27125,6 +28831,91 @@ func (client *Client) UpdateConvNavTab(request *UpdateConvNavTabRequest) (_resul
 	headers := &UpdateConvNavTabHeaders{}
 	_result = &UpdateConvNavTabResponse{}
 	_body, _err := client.UpdateConvNavTabWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新群角色
+//
+// @param request - UpdateCustomGroupRoleRequest
+//
+// @param headers - UpdateCustomGroupRoleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateCustomGroupRoleResponse
+func (client *Client) UpdateCustomGroupRoleWithOptions(request *UpdateCustomGroupRoleRequest, headers *UpdateCustomGroupRoleHeaders, runtime *util.RuntimeOptions) (_result *UpdateCustomGroupRoleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenRoleId)) {
+		body["openRoleId"] = request.OpenRoleId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RoleName)) {
+		body["roleName"] = request.RoleName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateCustomGroupRole"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/customGroupRole/update"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateCustomGroupRoleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新群角色
+//
+// @param request - UpdateCustomGroupRoleRequest
+//
+// @return UpdateCustomGroupRoleResponse
+func (client *Client) UpdateCustomGroupRole(request *UpdateCustomGroupRoleRequest) (_result *UpdateCustomGroupRoleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateCustomGroupRoleHeaders{}
+	_result = &UpdateCustomGroupRoleResponse{}
+	_body, _err := client.UpdateCustomGroupRoleWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -38,6 +38,10 @@ type CountTodoTasksRequest struct {
 	IsRecycled  *bool       `json:"isRecycled,omitempty" xml:"isRecycled,omitempty"`
 	RoleTypes   [][]*string `json:"roleTypes,omitempty" xml:"roleTypes,omitempty" type:"Repeated"`
 	ToDueTime   *int64      `json:"toDueTime,omitempty" xml:"toDueTime,omitempty"`
+	// example:
+	//
+	// TODO
+	TodoType *string `json:"todoType,omitempty" xml:"todoType,omitempty"`
 }
 
 func (s CountTodoTasksRequest) String() string {
@@ -70,6 +74,11 @@ func (s *CountTodoTasksRequest) SetRoleTypes(v [][]*string) *CountTodoTasksReque
 
 func (s *CountTodoTasksRequest) SetToDueTime(v int64) *CountTodoTasksRequest {
 	s.ToDueTime = &v
+	return s
+}
+
+func (s *CountTodoTasksRequest) SetTodoType(v string) *CountTodoTasksRequest {
+	s.TodoType = &v
 	return s
 }
 
@@ -1755,6 +1764,10 @@ type GetTodoTaskDetailResponseBody struct {
 	TenantId           *string                                        `json:"tenantId,omitempty" xml:"tenantId,omitempty"`
 	TenantType         *string                                        `json:"tenantType,omitempty" xml:"tenantType,omitempty"`
 	TodoCardView       *GetTodoTaskDetailResponseBodyTodoCardView     `json:"todoCardView,omitempty" xml:"todoCardView,omitempty" type:"Struct"`
+	// example:
+	//
+	// TODO
+	TodoType *string `json:"todoType,omitempty" xml:"todoType,omitempty"`
 }
 
 func (s GetTodoTaskDetailResponseBody) String() string {
@@ -1895,6 +1908,11 @@ func (s *GetTodoTaskDetailResponseBody) SetTodoCardView(v *GetTodoTaskDetailResp
 	return s
 }
 
+func (s *GetTodoTaskDetailResponseBody) SetTodoType(v string) *GetTodoTaskDetailResponseBody {
+	s.TodoType = &v
+	return s
+}
+
 type GetTodoTaskDetailResponseBodyDetailUrl struct {
 	AppUrl *string `json:"appUrl,omitempty" xml:"appUrl,omitempty"`
 	PcUrl  *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
@@ -1919,8 +1937,9 @@ func (s *GetTodoTaskDetailResponseBodyDetailUrl) SetPcUrl(v string) *GetTodoTask
 }
 
 type GetTodoTaskDetailResponseBodyExecutorStatus struct {
-	IsDone *bool   `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	FinishTime *int64  `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	IsDone     *bool   `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetTodoTaskDetailResponseBodyExecutorStatus) String() string {
@@ -1929,6 +1948,11 @@ func (s GetTodoTaskDetailResponseBodyExecutorStatus) String() string {
 
 func (s GetTodoTaskDetailResponseBodyExecutorStatus) GoString() string {
 	return s.String()
+}
+
+func (s *GetTodoTaskDetailResponseBodyExecutorStatus) SetFinishTime(v int64) *GetTodoTaskDetailResponseBodyExecutorStatus {
+	s.FinishTime = &v
+	return s
 }
 
 func (s *GetTodoTaskDetailResponseBodyExecutorStatus) SetIsDone(v bool) *GetTodoTaskDetailResponseBodyExecutorStatus {
@@ -2288,6 +2312,75 @@ func (s *GetTodoTypeConfigResponse) SetStatusCode(v int32) *GetTodoTypeConfigRes
 }
 
 func (s *GetTodoTypeConfigResponse) SetBody(v *GetTodoTypeConfigResponseBody) *GetTodoTypeConfigResponse {
+	s.Body = v
+	return s
+}
+
+type HideUserTodoTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HideUserTodoTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HideUserTodoTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HideUserTodoTaskHeaders) SetCommonHeaders(v map[string]*string) *HideUserTodoTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HideUserTodoTaskHeaders) SetXAcsDingtalkAccessToken(v string) *HideUserTodoTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HideUserTodoTaskResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HideUserTodoTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HideUserTodoTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HideUserTodoTaskResponseBody) SetSuccess(v bool) *HideUserTodoTaskResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HideUserTodoTaskResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HideUserTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HideUserTodoTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HideUserTodoTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HideUserTodoTaskResponse) SetHeaders(v map[string]*string) *HideUserTodoTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HideUserTodoTaskResponse) SetStatusCode(v int32) *HideUserTodoTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HideUserTodoTaskResponse) SetBody(v *HideUserTodoTaskResponseBody) *HideUserTodoTaskResponse {
 	s.Body = v
 	return s
 }
@@ -4210,6 +4303,10 @@ func (client *Client) CountTodoTasksWithOptions(unionId *string, request *CountT
 		body["toDueTime"] = request.ToDueTime
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.TodoType)) {
+		body["todoType"] = request.TodoType
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -4907,6 +5004,65 @@ func (client *Client) GetTodoTypeConfig(unionId *string, cardTypeId *string) (_r
 	headers := &GetTodoTypeConfigHeaders{}
 	_result = &GetTodoTypeConfigResponse{}
 	_body, _err := client.GetTodoTypeConfigWithOptions(unionId, cardTypeId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据待办ID删除用户的某条待办任务。该操作仅删除某个用户自己的待办视图，该待办本身依然还存在，其他执行者依然可以看见该待办。
+//
+// @param headers - HideUserTodoTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HideUserTodoTaskResponse
+func (client *Client) HideUserTodoTaskWithOptions(unionId *string, taskId *string, headers *HideUserTodoTaskHeaders, runtime *util.RuntimeOptions) (_result *HideUserTodoTaskResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HideUserTodoTask"),
+		Version:     tea.String("todo_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/todo/users/" + tea.StringValue(unionId) + "/tasks/" + tea.StringValue(taskId) + "/hide"),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HideUserTodoTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据待办ID删除用户的某条待办任务。该操作仅删除某个用户自己的待办视图，该待办本身依然还存在，其他执行者依然可以看见该待办。
+//
+// @return HideUserTodoTaskResponse
+func (client *Client) HideUserTodoTask(unionId *string, taskId *string) (_result *HideUserTodoTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HideUserTodoTaskHeaders{}
+	_result = &HideUserTodoTaskResponse{}
+	_body, _err := client.HideUserTodoTaskWithOptions(unionId, taskId, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

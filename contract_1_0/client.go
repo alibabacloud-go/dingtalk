@@ -9,6 +9,139 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AsyncCreateContractAnalysisHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AsyncCreateContractAnalysisHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AsyncCreateContractAnalysisHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AsyncCreateContractAnalysisHeaders) SetCommonHeaders(v map[string]*string) *AsyncCreateContractAnalysisHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AsyncCreateContractAnalysisHeaders) SetXAcsDingtalkAccessToken(v string) *AsyncCreateContractAnalysisHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AsyncCreateContractAnalysisRequest struct {
+	FileInfo         *AsyncCreateContractAnalysisRequestFileInfo `json:"fileInfo,omitempty" xml:"fileInfo,omitempty" type:"Struct"`
+	OriginatorUserId *string                                     `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
+}
+
+func (s AsyncCreateContractAnalysisRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AsyncCreateContractAnalysisRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AsyncCreateContractAnalysisRequest) SetFileInfo(v *AsyncCreateContractAnalysisRequestFileInfo) *AsyncCreateContractAnalysisRequest {
+	s.FileInfo = v
+	return s
+}
+
+func (s *AsyncCreateContractAnalysisRequest) SetOriginatorUserId(v string) *AsyncCreateContractAnalysisRequest {
+	s.OriginatorUserId = &v
+	return s
+}
+
+type AsyncCreateContractAnalysisRequestFileInfo struct {
+	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	SpaceId  *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s AsyncCreateContractAnalysisRequestFileInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AsyncCreateContractAnalysisRequestFileInfo) GoString() string {
+	return s.String()
+}
+
+func (s *AsyncCreateContractAnalysisRequestFileInfo) SetFileId(v string) *AsyncCreateContractAnalysisRequestFileInfo {
+	s.FileId = &v
+	return s
+}
+
+func (s *AsyncCreateContractAnalysisRequestFileInfo) SetFileName(v string) *AsyncCreateContractAnalysisRequestFileInfo {
+	s.FileName = &v
+	return s
+}
+
+func (s *AsyncCreateContractAnalysisRequestFileInfo) SetFileType(v string) *AsyncCreateContractAnalysisRequestFileInfo {
+	s.FileType = &v
+	return s
+}
+
+func (s *AsyncCreateContractAnalysisRequestFileInfo) SetSpaceId(v string) *AsyncCreateContractAnalysisRequestFileInfo {
+	s.SpaceId = &v
+	return s
+}
+
+type AsyncCreateContractAnalysisResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AsyncCreateContractAnalysisResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AsyncCreateContractAnalysisResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AsyncCreateContractAnalysisResponseBody) SetResult(v bool) *AsyncCreateContractAnalysisResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *AsyncCreateContractAnalysisResponseBody) SetSuccess(v bool) *AsyncCreateContractAnalysisResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AsyncCreateContractAnalysisResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AsyncCreateContractAnalysisResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AsyncCreateContractAnalysisResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AsyncCreateContractAnalysisResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AsyncCreateContractAnalysisResponse) SetHeaders(v map[string]*string) *AsyncCreateContractAnalysisResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AsyncCreateContractAnalysisResponse) SetStatusCode(v int32) *AsyncCreateContractAnalysisResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AsyncCreateContractAnalysisResponse) SetBody(v *AsyncCreateContractAnalysisResponseBody) *AsyncCreateContractAnalysisResponse {
+	s.Body = v
+	return s
+}
+
 type CancelContractReviewHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3586,6 +3719,163 @@ func (s *FinishReviewOrderResponse) SetStatusCode(v int32) *FinishReviewOrderRes
 }
 
 func (s *FinishReviewOrderResponse) SetBody(v *FinishReviewOrderResponseBody) *FinishReviewOrderResponse {
+	s.Body = v
+	return s
+}
+
+type GetAsyncCreateContractAnalysisHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAsyncCreateContractAnalysisHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAsyncCreateContractAnalysisHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAsyncCreateContractAnalysisHeaders) SetCommonHeaders(v map[string]*string) *GetAsyncCreateContractAnalysisHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAsyncCreateContractAnalysisHeaders) SetXAcsDingtalkAccessToken(v string) *GetAsyncCreateContractAnalysisHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAsyncCreateContractAnalysisRequest struct {
+	FileInfo         *GetAsyncCreateContractAnalysisRequestFileInfo `json:"fileInfo,omitempty" xml:"fileInfo,omitempty" type:"Struct"`
+	OriginatorUserId *string                                        `json:"originatorUserId,omitempty" xml:"originatorUserId,omitempty"`
+}
+
+func (s GetAsyncCreateContractAnalysisRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAsyncCreateContractAnalysisRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAsyncCreateContractAnalysisRequest) SetFileInfo(v *GetAsyncCreateContractAnalysisRequestFileInfo) *GetAsyncCreateContractAnalysisRequest {
+	s.FileInfo = v
+	return s
+}
+
+func (s *GetAsyncCreateContractAnalysisRequest) SetOriginatorUserId(v string) *GetAsyncCreateContractAnalysisRequest {
+	s.OriginatorUserId = &v
+	return s
+}
+
+type GetAsyncCreateContractAnalysisRequestFileInfo struct {
+	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	SpaceId  *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s GetAsyncCreateContractAnalysisRequestFileInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAsyncCreateContractAnalysisRequestFileInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetAsyncCreateContractAnalysisRequestFileInfo) SetFileId(v string) *GetAsyncCreateContractAnalysisRequestFileInfo {
+	s.FileId = &v
+	return s
+}
+
+func (s *GetAsyncCreateContractAnalysisRequestFileInfo) SetFileName(v string) *GetAsyncCreateContractAnalysisRequestFileInfo {
+	s.FileName = &v
+	return s
+}
+
+func (s *GetAsyncCreateContractAnalysisRequestFileInfo) SetFileSize(v int64) *GetAsyncCreateContractAnalysisRequestFileInfo {
+	s.FileSize = &v
+	return s
+}
+
+func (s *GetAsyncCreateContractAnalysisRequestFileInfo) SetFileType(v string) *GetAsyncCreateContractAnalysisRequestFileInfo {
+	s.FileType = &v
+	return s
+}
+
+func (s *GetAsyncCreateContractAnalysisRequestFileInfo) SetSpaceId(v string) *GetAsyncCreateContractAnalysisRequestFileInfo {
+	s.SpaceId = &v
+	return s
+}
+
+type GetAsyncCreateContractAnalysisResponseBody struct {
+	AnalysisStatus  *string   `json:"analysisStatus,omitempty" xml:"analysisStatus,omitempty"`
+	CompanyList     []*string `json:"companyList,omitempty" xml:"companyList,omitempty" type:"Repeated"`
+	ReviewPositions []*string `json:"reviewPositions,omitempty" xml:"reviewPositions,omitempty" type:"Repeated"`
+	ReviewType      *string   `json:"reviewType,omitempty" xml:"reviewType,omitempty"`
+	WordCount       *int32    `json:"wordCount,omitempty" xml:"wordCount,omitempty"`
+}
+
+func (s GetAsyncCreateContractAnalysisResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAsyncCreateContractAnalysisResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAsyncCreateContractAnalysisResponseBody) SetAnalysisStatus(v string) *GetAsyncCreateContractAnalysisResponseBody {
+	s.AnalysisStatus = &v
+	return s
+}
+
+func (s *GetAsyncCreateContractAnalysisResponseBody) SetCompanyList(v []*string) *GetAsyncCreateContractAnalysisResponseBody {
+	s.CompanyList = v
+	return s
+}
+
+func (s *GetAsyncCreateContractAnalysisResponseBody) SetReviewPositions(v []*string) *GetAsyncCreateContractAnalysisResponseBody {
+	s.ReviewPositions = v
+	return s
+}
+
+func (s *GetAsyncCreateContractAnalysisResponseBody) SetReviewType(v string) *GetAsyncCreateContractAnalysisResponseBody {
+	s.ReviewType = &v
+	return s
+}
+
+func (s *GetAsyncCreateContractAnalysisResponseBody) SetWordCount(v int32) *GetAsyncCreateContractAnalysisResponseBody {
+	s.WordCount = &v
+	return s
+}
+
+type GetAsyncCreateContractAnalysisResponse struct {
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetAsyncCreateContractAnalysisResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetAsyncCreateContractAnalysisResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAsyncCreateContractAnalysisResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAsyncCreateContractAnalysisResponse) SetHeaders(v map[string]*string) *GetAsyncCreateContractAnalysisResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAsyncCreateContractAnalysisResponse) SetStatusCode(v int32) *GetAsyncCreateContractAnalysisResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetAsyncCreateContractAnalysisResponse) SetBody(v *GetAsyncCreateContractAnalysisResponseBody) *GetAsyncCreateContractAnalysisResponse {
 	s.Body = v
 	return s
 }
@@ -7402,6 +7692,83 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 
 // Summary:
 //
+// 异步发起合同解析
+//
+// @param request - AsyncCreateContractAnalysisRequest
+//
+// @param headers - AsyncCreateContractAnalysisHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AsyncCreateContractAnalysisResponse
+func (client *Client) AsyncCreateContractAnalysisWithOptions(request *AsyncCreateContractAnalysisRequest, headers *AsyncCreateContractAnalysisHeaders, runtime *util.RuntimeOptions) (_result *AsyncCreateContractAnalysisResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FileInfo)) {
+		body["fileInfo"] = request.FileInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OriginatorUserId)) {
+		body["originatorUserId"] = request.OriginatorUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AsyncCreateContractAnalysis"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/review/asyncCreateContractAnalysis"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AsyncCreateContractAnalysisResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 异步发起合同解析
+//
+// @param request - AsyncCreateContractAnalysisRequest
+//
+// @return AsyncCreateContractAnalysisResponse
+func (client *Client) AsyncCreateContractAnalysis(request *AsyncCreateContractAnalysisRequest) (_result *AsyncCreateContractAnalysisResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AsyncCreateContractAnalysisHeaders{}
+	_result = &AsyncCreateContractAnalysisResponse{}
+	_body, _err := client.AsyncCreateContractAnalysisWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 智能法务取消合同审查
 //
 // @param request - CancelContractReviewRequest
@@ -9116,6 +9483,83 @@ func (client *Client) FinishReviewOrder(request *FinishReviewOrderRequest) (_res
 	headers := &FinishReviewOrderHeaders{}
 	_result = &FinishReviewOrderResponse{}
 	_body, _err := client.FinishReviewOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 异步发起合同解析结果
+//
+// @param request - GetAsyncCreateContractAnalysisRequest
+//
+// @param headers - GetAsyncCreateContractAnalysisHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAsyncCreateContractAnalysisResponse
+func (client *Client) GetAsyncCreateContractAnalysisWithOptions(request *GetAsyncCreateContractAnalysisRequest, headers *GetAsyncCreateContractAnalysisHeaders, runtime *util.RuntimeOptions) (_result *GetAsyncCreateContractAnalysisResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FileInfo)) {
+		body["fileInfo"] = request.FileInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OriginatorUserId)) {
+		body["originatorUserId"] = request.OriginatorUserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetAsyncCreateContractAnalysis"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/review/getAsyncContractAnalysisResult"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetAsyncCreateContractAnalysisResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 异步发起合同解析结果
+//
+// @param request - GetAsyncCreateContractAnalysisRequest
+//
+// @return GetAsyncCreateContractAnalysisResponse
+func (client *Client) GetAsyncCreateContractAnalysis(request *GetAsyncCreateContractAnalysisRequest) (_result *GetAsyncCreateContractAnalysisResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAsyncCreateContractAnalysisHeaders{}
+	_result = &GetAsyncCreateContractAnalysisResponse{}
+	_body, _err := client.GetAsyncCreateContractAnalysisWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

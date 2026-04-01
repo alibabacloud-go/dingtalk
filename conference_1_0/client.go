@@ -1296,6 +1296,10 @@ type CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtra
 	EnableWebAnonymousJoin *bool `json:"enableWebAnonymousJoin,omitempty" xml:"enableWebAnonymousJoin,omitempty"`
 	// example:
 	//
+	// true：隐藏发起者姓名 false：不隐藏（默认）
+	HiddenOwnerNick *bool `json:"hiddenOwnerNick,omitempty" xml:"hiddenOwnerNick,omitempty"`
+	// example:
+	//
 	// 0：未开启 1：开启
 	JoinBeforeHost *int32 `json:"joinBeforeHost,omitempty" xml:"joinBeforeHost,omitempty"`
 	// example:
@@ -1346,6 +1350,11 @@ func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualE
 
 func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetEnableWebAnonymousJoin(v bool) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
 	s.EnableWebAnonymousJoin = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetHiddenOwnerNick(v bool) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.HiddenOwnerNick = &v
 	return s
 }
 
@@ -8145,6 +8154,108 @@ func (s *StopStreamOutResponse) SetBody(v *StopStreamOutResponseBody) *StopStrea
 	return s
 }
 
+type UpdateMemberNickHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateMemberNickHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMemberNickHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMemberNickHeaders) SetCommonHeaders(v map[string]*string) *UpdateMemberNickHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateMemberNickHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateMemberNickHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateMemberNickRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 新昵称
+	Nick *string `json:"nick,omitempty" xml:"nick,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// qzR1iSMDvzR9iP7Pxxxxxxxxxxxxxxx
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s UpdateMemberNickRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMemberNickRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMemberNickRequest) SetNick(v string) *UpdateMemberNickRequest {
+	s.Nick = &v
+	return s
+}
+
+func (s *UpdateMemberNickRequest) SetUnionId(v string) *UpdateMemberNickRequest {
+	s.UnionId = &v
+	return s
+}
+
+type UpdateMemberNickResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateMemberNickResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMemberNickResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMemberNickResponseBody) SetSuccess(v bool) *UpdateMemberNickResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateMemberNickResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateMemberNickResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateMemberNickResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateMemberNickResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateMemberNickResponse) SetHeaders(v map[string]*string) *UpdateMemberNickResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateMemberNickResponse) SetStatusCode(v int32) *UpdateMemberNickResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateMemberNickResponse) SetBody(v *UpdateMemberNickResponseBody) *UpdateMemberNickResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateScheduleConfSettingsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8343,6 +8454,10 @@ type UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExt
 	EnableWebAnonymousJoin *bool `json:"enableWebAnonymousJoin,omitempty" xml:"enableWebAnonymousJoin,omitempty"`
 	// example:
 	//
+	// true：隐藏发起者姓名 false：不隐藏（默认）
+	HiddenOwnerNick *bool `json:"hiddenOwnerNick,omitempty" xml:"hiddenOwnerNick,omitempty"`
+	// example:
+	//
 	// 0：未开启 1：开启
 	JoinBeforeHost *int32 `json:"joinBeforeHost,omitempty" xml:"joinBeforeHost,omitempty"`
 	// example:
@@ -8393,6 +8508,11 @@ func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtua
 
 func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetEnableWebAnonymousJoin(v bool) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
 	s.EnableWebAnonymousJoin = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting) SetHiddenOwnerNick(v bool) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting {
+	s.HiddenOwnerNick = &v
 	return s
 }
 
@@ -12585,6 +12705,83 @@ func (client *Client) StopStreamOut(conferenceId *string, request *StopStreamOut
 	headers := &StopStreamOutHeaders{}
 	_result = &StopStreamOutResponse{}
 	_body, _err := client.StopStreamOutWithOptions(conferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新参会人昵称
+//
+// @param request - UpdateMemberNickRequest
+//
+// @param headers - UpdateMemberNickHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateMemberNickResponse
+func (client *Client) UpdateMemberNickWithOptions(conferenceId *string, request *UpdateMemberNickRequest, headers *UpdateMemberNickHeaders, runtime *util.RuntimeOptions) (_result *UpdateMemberNickResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Nick)) {
+		body["nick"] = request.Nick
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateMemberNick"),
+		Version:     tea.String("conference_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/conference/videoConferences/" + tea.StringValue(conferenceId) + "/members/updateNick"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateMemberNickResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新参会人昵称
+//
+// @param request - UpdateMemberNickRequest
+//
+// @return UpdateMemberNickResponse
+func (client *Client) UpdateMemberNick(conferenceId *string, request *UpdateMemberNickRequest) (_result *UpdateMemberNickResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateMemberNickHeaders{}
+	_result = &UpdateMemberNickResponse{}
+	_body, _err := client.UpdateMemberNickWithOptions(conferenceId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

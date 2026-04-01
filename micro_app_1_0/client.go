@@ -2436,7 +2436,8 @@ type ListAllAppResponseBodyAppList struct {
 	// example:
 	//
 	// 0
-	DevelopType *int32 `json:"developType,omitempty" xml:"developType,omitempty"`
+	DevelopType *int32  `json:"developType,omitempty" xml:"developType,omitempty"`
+	H5PageType  *string `json:"h5PageType,omitempty" xml:"h5PageType,omitempty"`
 	// example:
 	//
 	// https://www.dingtalk.com
@@ -2489,6 +2490,11 @@ func (s *ListAllAppResponseBodyAppList) SetDesc(v string) *ListAllAppResponseBod
 
 func (s *ListAllAppResponseBodyAppList) SetDevelopType(v int32) *ListAllAppResponseBodyAppList {
 	s.DevelopType = &v
+	return s
+}
+
+func (s *ListAllAppResponseBodyAppList) SetH5PageType(v string) *ListAllAppResponseBodyAppList {
+	s.H5PageType = &v
 	return s
 }
 

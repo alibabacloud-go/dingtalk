@@ -679,6 +679,7 @@ type GetCustomerInfoResponseBodyResult struct {
 	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
 	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
 	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	Phone       *string `json:"phone,omitempty" xml:"phone,omitempty"`
 	TeamCode    *string `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
 }
 
@@ -707,6 +708,11 @@ func (s *GetCustomerInfoResponseBodyResult) SetName(v string) *GetCustomerInfoRe
 
 func (s *GetCustomerInfoResponseBodyResult) SetOwnerUserId(v string) *GetCustomerInfoResponseBodyResult {
 	s.OwnerUserId = &v
+	return s
+}
+
+func (s *GetCustomerInfoResponseBodyResult) SetPhone(v string) *GetCustomerInfoResponseBodyResult {
+	s.Phone = &v
 	return s
 }
 
@@ -1985,6 +1991,7 @@ type ListCustomerResponseBodyResult struct {
 	Id          *string `json:"id,omitempty" xml:"id,omitempty"`
 	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
 	OwnerUserId *string `json:"ownerUserId,omitempty" xml:"ownerUserId,omitempty"`
+	Phone       *string `json:"phone,omitempty" xml:"phone,omitempty"`
 	TeamCode    *string `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
 }
 
@@ -2013,6 +2020,11 @@ func (s *ListCustomerResponseBodyResult) SetName(v string) *ListCustomerResponse
 
 func (s *ListCustomerResponseBodyResult) SetOwnerUserId(v string) *ListCustomerResponseBodyResult {
 	s.OwnerUserId = &v
+	return s
+}
+
+func (s *ListCustomerResponseBodyResult) SetPhone(v string) *ListCustomerResponseBodyResult {
+	s.Phone = &v
 	return s
 }
 
@@ -2046,6 +2058,163 @@ func (s *ListCustomerResponse) SetStatusCode(v int32) *ListCustomerResponse {
 }
 
 func (s *ListCustomerResponse) SetBody(v *ListCustomerResponseBody) *ListCustomerResponse {
+	s.Body = v
+	return s
+}
+
+type ListDeviceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListDeviceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListDeviceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListDeviceHeaders) SetCommonHeaders(v map[string]*string) *ListDeviceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListDeviceHeaders) SetXAcsDingtalkAccessToken(v string) *ListDeviceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListDeviceRequest struct {
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Sn         *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	TeamCode   *string `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListDeviceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListDeviceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListDeviceRequest) SetMaxResults(v int32) *ListDeviceRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListDeviceRequest) SetNextToken(v string) *ListDeviceRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListDeviceRequest) SetSn(v string) *ListDeviceRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *ListDeviceRequest) SetTeamCode(v string) *ListDeviceRequest {
+	s.TeamCode = &v
+	return s
+}
+
+func (s *ListDeviceRequest) SetUserId(v string) *ListDeviceRequest {
+	s.UserId = &v
+	return s
+}
+
+type ListDeviceResponseBody struct {
+	NextToken  *string                         `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result     []*ListDeviceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	TotalCount *int32                          `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s ListDeviceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListDeviceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListDeviceResponseBody) SetNextToken(v string) *ListDeviceResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListDeviceResponseBody) SetResult(v []*ListDeviceResponseBodyResult) *ListDeviceResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *ListDeviceResponseBody) SetTotalCount(v int32) *ListDeviceResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type ListDeviceResponseBodyResult struct {
+	BindTimestamp *int64  `json:"bindTimestamp,omitempty" xml:"bindTimestamp,omitempty"`
+	Sn            *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	TeamCode      *string `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
+	UserId        *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListDeviceResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListDeviceResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListDeviceResponseBodyResult) SetBindTimestamp(v int64) *ListDeviceResponseBodyResult {
+	s.BindTimestamp = &v
+	return s
+}
+
+func (s *ListDeviceResponseBodyResult) SetSn(v string) *ListDeviceResponseBodyResult {
+	s.Sn = &v
+	return s
+}
+
+func (s *ListDeviceResponseBodyResult) SetTeamCode(v string) *ListDeviceResponseBodyResult {
+	s.TeamCode = &v
+	return s
+}
+
+func (s *ListDeviceResponseBodyResult) SetUserId(v string) *ListDeviceResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+type ListDeviceResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListDeviceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListDeviceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListDeviceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListDeviceResponse) SetHeaders(v map[string]*string) *ListDeviceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListDeviceResponse) SetStatusCode(v int32) *ListDeviceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListDeviceResponse) SetBody(v *ListDeviceResponseBody) *ListDeviceResponse {
 	s.Body = v
 	return s
 }
@@ -2245,6 +2414,7 @@ func (s *ListServiceRecordHeaders) SetXAcsDingtalkAccessToken(v string) *ListSer
 }
 
 type ListServiceRecordRequest struct {
+	CustomerId *string `json:"customerId,omitempty" xml:"customerId,omitempty"`
 	EndTime    *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
 	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
@@ -2259,6 +2429,11 @@ func (s ListServiceRecordRequest) String() string {
 
 func (s ListServiceRecordRequest) GoString() string {
 	return s.String()
+}
+
+func (s *ListServiceRecordRequest) SetCustomerId(v string) *ListServiceRecordRequest {
+	s.CustomerId = &v
+	return s
 }
 
 func (s *ListServiceRecordRequest) SetEndTime(v int64) *ListServiceRecordRequest {
@@ -2329,6 +2504,7 @@ type ListServiceRecordResponseBodyResult struct {
 	StartTimestamp *int64                                   `json:"startTimestamp,omitempty" xml:"startTimestamp,omitempty"`
 	Team           *ListServiceRecordResponseBodyResultTeam `json:"team,omitempty" xml:"team,omitempty" type:"Struct"`
 	User           *ListServiceRecordResponseBodyResultUser `json:"user,omitempty" xml:"user,omitempty" type:"Struct"`
+	Valid          *bool                                    `json:"valid,omitempty" xml:"valid,omitempty"`
 }
 
 func (s ListServiceRecordResponseBodyResult) String() string {
@@ -2376,6 +2552,11 @@ func (s *ListServiceRecordResponseBodyResult) SetTeam(v *ListServiceRecordRespon
 
 func (s *ListServiceRecordResponseBodyResult) SetUser(v *ListServiceRecordResponseBodyResultUser) *ListServiceRecordResponseBodyResult {
 	s.User = v
+	return s
+}
+
+func (s *ListServiceRecordResponseBodyResult) SetValid(v bool) *ListServiceRecordResponseBodyResult {
+	s.Valid = &v
 	return s
 }
 
@@ -5360,6 +5541,95 @@ func (client *Client) ListCustomer(request *ListCustomerRequest) (_result *ListC
 
 // Summary:
 //
+// 分页查询设备列表
+//
+// @param request - ListDeviceRequest
+//
+// @param headers - ListDeviceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListDeviceResponse
+func (client *Client) ListDeviceWithOptions(request *ListDeviceRequest, headers *ListDeviceHeaders, runtime *util.RuntimeOptions) (_result *ListDeviceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		query["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TeamCode)) {
+		query["teamCode"] = request.TeamCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListDevice"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/devices"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListDeviceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询设备列表
+//
+// @param request - ListDeviceRequest
+//
+// @return ListDeviceResponse
+func (client *Client) ListDevice(request *ListDeviceRequest) (_result *ListDeviceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListDeviceHeaders{}
+	_result = &ListDeviceResponse{}
+	_body, _err := client.ListDeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 分页查询设备录音时长
 //
 // @param request - ListDeviceRecordingDurationRequest
@@ -5472,6 +5742,10 @@ func (client *Client) ListServiceRecordWithOptions(request *ListServiceRecordReq
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CustomerId)) {
+		query["customerId"] = request.CustomerId
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
 		query["endTime"] = request.EndTime
 	}

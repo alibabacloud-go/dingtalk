@@ -676,6 +676,278 @@ func (s *ListSalaryCalculationResponse) SetBody(v *ListSalaryCalculationResponse
 	return s
 }
 
+type RevokeSalaryArchivesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RevokeSalaryArchivesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RevokeSalaryArchivesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RevokeSalaryArchivesHeaders) SetCommonHeaders(v map[string]*string) *RevokeSalaryArchivesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RevokeSalaryArchivesHeaders) SetXAcsDingtalkAccessToken(v string) *RevokeSalaryArchivesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RevokeSalaryArchivesRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2025-06-01
+	EffectiveDate *string `json:"effectiveDate,omitempty" xml:"effectiveDate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user001
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s RevokeSalaryArchivesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RevokeSalaryArchivesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RevokeSalaryArchivesRequest) SetEffectiveDate(v string) *RevokeSalaryArchivesRequest {
+	s.EffectiveDate = &v
+	return s
+}
+
+func (s *RevokeSalaryArchivesRequest) SetOpUserId(v string) *RevokeSalaryArchivesRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *RevokeSalaryArchivesRequest) SetUserId(v string) *RevokeSalaryArchivesRequest {
+	s.UserId = &v
+	return s
+}
+
+type RevokeSalaryArchivesResponseBody struct {
+	Result map[string]interface{} `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s RevokeSalaryArchivesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RevokeSalaryArchivesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RevokeSalaryArchivesResponseBody) SetResult(v map[string]interface{}) *RevokeSalaryArchivesResponseBody {
+	s.Result = v
+	return s
+}
+
+type RevokeSalaryArchivesResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RevokeSalaryArchivesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s RevokeSalaryArchivesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RevokeSalaryArchivesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RevokeSalaryArchivesResponse) SetHeaders(v map[string]*string) *RevokeSalaryArchivesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RevokeSalaryArchivesResponse) SetStatusCode(v int32) *RevokeSalaryArchivesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RevokeSalaryArchivesResponse) SetBody(v *RevokeSalaryArchivesResponseBody) *RevokeSalaryArchivesResponse {
+	s.Body = v
+	return s
+}
+
+type SaveSalaryArchivesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SaveSalaryArchivesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveSalaryArchivesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SaveSalaryArchivesHeaders) SetCommonHeaders(v map[string]*string) *SaveSalaryArchivesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SaveSalaryArchivesHeaders) SetXAcsDingtalkAccessToken(v string) *SaveSalaryArchivesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SaveSalaryArchivesRequest struct {
+	// example:
+	//
+	// 转正
+	AdjustMemo *string                              `json:"adjustMemo,omitempty" xml:"adjustMemo,omitempty"`
+	Contents   []*SaveSalaryArchivesRequestContents `json:"contents,omitempty" xml:"contents,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2025-06-01
+	EffectiveDate *string `json:"effectiveDate,omitempty" xml:"effectiveDate,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user001
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// user001
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SaveSalaryArchivesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveSalaryArchivesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SaveSalaryArchivesRequest) SetAdjustMemo(v string) *SaveSalaryArchivesRequest {
+	s.AdjustMemo = &v
+	return s
+}
+
+func (s *SaveSalaryArchivesRequest) SetContents(v []*SaveSalaryArchivesRequestContents) *SaveSalaryArchivesRequest {
+	s.Contents = v
+	return s
+}
+
+func (s *SaveSalaryArchivesRequest) SetEffectiveDate(v string) *SaveSalaryArchivesRequest {
+	s.EffectiveDate = &v
+	return s
+}
+
+func (s *SaveSalaryArchivesRequest) SetOpUserId(v string) *SaveSalaryArchivesRequest {
+	s.OpUserId = &v
+	return s
+}
+
+func (s *SaveSalaryArchivesRequest) SetUserId(v string) *SaveSalaryArchivesRequest {
+	s.UserId = &v
+	return s
+}
+
+type SaveSalaryArchivesRequestContents struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// SalaryItemXXX
+	SalaryItemId *string `json:"salaryItemId,omitempty" xml:"salaryItemId,omitempty"`
+	// example:
+	//
+	// 26
+	SalaryItemValue *string `json:"salaryItemValue,omitempty" xml:"salaryItemValue,omitempty"`
+}
+
+func (s SaveSalaryArchivesRequestContents) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveSalaryArchivesRequestContents) GoString() string {
+	return s.String()
+}
+
+func (s *SaveSalaryArchivesRequestContents) SetSalaryItemId(v string) *SaveSalaryArchivesRequestContents {
+	s.SalaryItemId = &v
+	return s
+}
+
+func (s *SaveSalaryArchivesRequestContents) SetSalaryItemValue(v string) *SaveSalaryArchivesRequestContents {
+	s.SalaryItemValue = &v
+	return s
+}
+
+type SaveSalaryArchivesResponseBody struct {
+	Result map[string]interface{} `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s SaveSalaryArchivesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveSalaryArchivesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SaveSalaryArchivesResponseBody) SetResult(v map[string]interface{}) *SaveSalaryArchivesResponseBody {
+	s.Result = v
+	return s
+}
+
+type SaveSalaryArchivesResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SaveSalaryArchivesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SaveSalaryArchivesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SaveSalaryArchivesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SaveSalaryArchivesResponse) SetHeaders(v map[string]*string) *SaveSalaryArchivesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SaveSalaryArchivesResponse) SetStatusCode(v int32) *SaveSalaryArchivesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SaveSalaryArchivesResponse) SetBody(v *SaveSalaryArchivesResponseBody) *SaveSalaryArchivesResponse {
+	s.Body = v
+	return s
+}
+
 type WriteSalaryCalculationHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1207,6 +1479,176 @@ func (client *Client) ListSalaryCalculation(request *ListSalaryCalculationReques
 	headers := &ListSalaryCalculationHeaders{}
 	_result = &ListSalaryCalculationResponse{}
 	_body, _err := client.ListSalaryCalculationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 小微薪酬撤销定调薪数据
+//
+// @param request - RevokeSalaryArchivesRequest
+//
+// @param headers - RevokeSalaryArchivesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RevokeSalaryArchivesResponse
+func (client *Client) RevokeSalaryArchivesWithOptions(request *RevokeSalaryArchivesRequest, headers *RevokeSalaryArchivesHeaders, runtime *util.RuntimeOptions) (_result *RevokeSalaryArchivesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EffectiveDate)) {
+		body["effectiveDate"] = request.EffectiveDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RevokeSalaryArchives"),
+		Version:     tea.String("salary_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/salary/archives"),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RevokeSalaryArchivesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 小微薪酬撤销定调薪数据
+//
+// @param request - RevokeSalaryArchivesRequest
+//
+// @return RevokeSalaryArchivesResponse
+func (client *Client) RevokeSalaryArchives(request *RevokeSalaryArchivesRequest) (_result *RevokeSalaryArchivesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RevokeSalaryArchivesHeaders{}
+	_result = &RevokeSalaryArchivesResponse{}
+	_body, _err := client.RevokeSalaryArchivesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 小微薪酬保存定调薪数据
+//
+// @param request - SaveSalaryArchivesRequest
+//
+// @param headers - SaveSalaryArchivesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SaveSalaryArchivesResponse
+func (client *Client) SaveSalaryArchivesWithOptions(request *SaveSalaryArchivesRequest, headers *SaveSalaryArchivesHeaders, runtime *util.RuntimeOptions) (_result *SaveSalaryArchivesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AdjustMemo)) {
+		body["adjustMemo"] = request.AdjustMemo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Contents)) {
+		body["contents"] = request.Contents
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EffectiveDate)) {
+		body["effectiveDate"] = request.EffectiveDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		body["opUserId"] = request.OpUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SaveSalaryArchives"),
+		Version:     tea.String("salary_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/salary/archives"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SaveSalaryArchivesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 小微薪酬保存定调薪数据
+//
+// @param request - SaveSalaryArchivesRequest
+//
+// @return SaveSalaryArchivesResponse
+func (client *Client) SaveSalaryArchives(request *SaveSalaryArchivesRequest) (_result *SaveSalaryArchivesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SaveSalaryArchivesHeaders{}
+	_result = &SaveSalaryArchivesResponse{}
+	_body, _err := client.SaveSalaryArchivesWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

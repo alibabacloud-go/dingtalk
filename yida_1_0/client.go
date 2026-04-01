@@ -690,6 +690,13 @@ type BatchSaveFormDataRequest struct {
 	//
 	// true
 	AsynchronousExecution *bool `json:"asynchronousExecution,omitempty" xml:"asynchronousExecution,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -739,6 +746,11 @@ func (s *BatchSaveFormDataRequest) SetAppType(v string) *BatchSaveFormDataReques
 
 func (s *BatchSaveFormDataRequest) SetAsynchronousExecution(v bool) *BatchSaveFormDataRequest {
 	s.AsynchronousExecution = &v
+	return s
+}
+
+func (s *BatchSaveFormDataRequest) SetEnv(v string) *BatchSaveFormDataRequest {
+	s.Env = &v
 	return s
 }
 
@@ -852,6 +864,13 @@ type BatchUpdateFormDataByInstanceIdRequest struct {
 	//
 	// true
 	AsynchronousExecution *bool `json:"asynchronousExecution,omitempty" xml:"asynchronousExecution,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -911,6 +930,11 @@ func (s *BatchUpdateFormDataByInstanceIdRequest) SetAppType(v string) *BatchUpda
 
 func (s *BatchUpdateFormDataByInstanceIdRequest) SetAsynchronousExecution(v bool) *BatchUpdateFormDataByInstanceIdRequest {
 	s.AsynchronousExecution = &v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceIdRequest) SetEnv(v string) *BatchUpdateFormDataByInstanceIdRequest {
+	s.Env = &v
 	return s
 }
 
@@ -1034,6 +1058,13 @@ type BatchUpdateFormDataByInstanceMapRequest struct {
 	//
 	// true
 	AsynchronousExecution *bool `json:"asynchronousExecution,omitempty" xml:"asynchronousExecution,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -1087,6 +1118,11 @@ func (s *BatchUpdateFormDataByInstanceMapRequest) SetAppType(v string) *BatchUpd
 
 func (s *BatchUpdateFormDataByInstanceMapRequest) SetAsynchronousExecution(v bool) *BatchUpdateFormDataByInstanceMapRequest {
 	s.AsynchronousExecution = &v
+	return s
+}
+
+func (s *BatchUpdateFormDataByInstanceMapRequest) SetEnv(v string) *BatchUpdateFormDataByInstanceMapRequest {
+	s.Env = &v
 	return s
 }
 
@@ -1800,6 +1836,13 @@ type DeleteFormDataRequest struct {
 	//
 	// APP_PBKT0MFBEBTDO8T7SLVP
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -1834,6 +1877,11 @@ func (s DeleteFormDataRequest) GoString() string {
 
 func (s *DeleteFormDataRequest) SetAppType(v string) *DeleteFormDataRequest {
 	s.AppType = &v
+	return s
+}
+
+func (s *DeleteFormDataRequest) SetEnv(v string) *DeleteFormDataRequest {
+	s.Env = &v
 	return s
 }
 
@@ -21532,6 +21580,10 @@ func (client *Client) BatchSaveFormDataWithOptions(request *BatchSaveFormDataReq
 		body["asynchronousExecution"] = request.AsynchronousExecution
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.FormDataJsonList)) {
 		body["formDataJsonList"] = request.FormDataJsonList
 	}
@@ -21631,6 +21683,10 @@ func (client *Client) BatchUpdateFormDataByInstanceIdWithOptions(request *BatchU
 
 	if !tea.BoolValue(util.IsUnset(request.AsynchronousExecution)) {
 		body["asynchronousExecution"] = request.AsynchronousExecution
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.FormInstanceIdList)) {
@@ -21740,6 +21796,10 @@ func (client *Client) BatchUpdateFormDataByInstanceMapWithOptions(request *Batch
 
 	if !tea.BoolValue(util.IsUnset(request.AsynchronousExecution)) {
 		body["asynchronousExecution"] = request.AsynchronousExecution
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
@@ -22237,6 +22297,10 @@ func (client *Client) DeleteFormDataWithOptions(request *DeleteFormDataRequest, 
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AppType)) {
 		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.FormInstanceId)) {

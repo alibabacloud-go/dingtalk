@@ -1840,8 +1840,7 @@ func (s *ListPermissionsRequest) SetUnionId(v string) *ListPermissionsRequest {
 }
 
 type ListPermissionsRequestOption struct {
-	FilterMemberTypes []*string `json:"filterMemberTypes,omitempty" xml:"filterMemberTypes,omitempty" type:"Repeated"`
-	FilterRoleIds     []*string `json:"filterRoleIds,omitempty" xml:"filterRoleIds,omitempty" type:"Repeated"`
+	FilterRoleIds []*string `json:"filterRoleIds,omitempty" xml:"filterRoleIds,omitempty" type:"Repeated"`
 	// example:
 	//
 	// 30
@@ -1858,11 +1857,6 @@ func (s ListPermissionsRequestOption) String() string {
 
 func (s ListPermissionsRequestOption) GoString() string {
 	return s.String()
-}
-
-func (s *ListPermissionsRequestOption) SetFilterMemberTypes(v []*string) *ListPermissionsRequestOption {
-	s.FilterMemberTypes = v
-	return s
 }
 
 func (s *ListPermissionsRequestOption) SetFilterRoleIds(v []*string) *ListPermissionsRequestOption {

@@ -7937,8 +7937,6 @@ func (s *CreateAwaitingCorrectionDataHeaders) SetXAcsDingtalkAccessToken(v strin
 }
 
 type CreateAwaitingCorrectionDataRequest struct {
-	// This parameter is required.
-	//
 	// example:
 	//
 	// https://example.com/files/corrected_math_hw_T250401-001.pdf

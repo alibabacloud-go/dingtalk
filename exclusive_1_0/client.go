@@ -935,6 +935,127 @@ func (s *CheckControlHitStatusResponse) SetBody(v *CheckControlHitStatusResponse
 	return s
 }
 
+type CleanFileHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CleanFileHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CleanFileHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CleanFileHeaders) SetCommonHeaders(v map[string]*string) *CleanFileHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CleanFileHeaders) SetXAcsDingtalkAccessToken(v string) *CleanFileHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CleanFileRequest struct {
+	DentryIds []*CleanFileRequestDentryIds `json:"dentryIds,omitempty" xml:"dentryIds,omitempty" type:"Repeated"`
+	StaffId   *string                      `json:"staffId,omitempty" xml:"staffId,omitempty"`
+}
+
+func (s CleanFileRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CleanFileRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CleanFileRequest) SetDentryIds(v []*CleanFileRequestDentryIds) *CleanFileRequest {
+	s.DentryIds = v
+	return s
+}
+
+func (s *CleanFileRequest) SetStaffId(v string) *CleanFileRequest {
+	s.StaffId = &v
+	return s
+}
+
+type CleanFileRequestDentryIds struct {
+	DentryId *int64 `json:"dentryId,omitempty" xml:"dentryId,omitempty"`
+	SpaceId  *int64 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s CleanFileRequestDentryIds) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CleanFileRequestDentryIds) GoString() string {
+	return s.String()
+}
+
+func (s *CleanFileRequestDentryIds) SetDentryId(v int64) *CleanFileRequestDentryIds {
+	s.DentryId = &v
+	return s
+}
+
+func (s *CleanFileRequestDentryIds) SetSpaceId(v int64) *CleanFileRequestDentryIds {
+	s.SpaceId = &v
+	return s
+}
+
+type CleanFileResponseBody struct {
+	FailureIds []*int64 `json:"failureIds,omitempty" xml:"failureIds,omitempty" type:"Repeated"`
+	SuccessIds []*int64 `json:"successIds,omitempty" xml:"successIds,omitempty" type:"Repeated"`
+}
+
+func (s CleanFileResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CleanFileResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CleanFileResponseBody) SetFailureIds(v []*int64) *CleanFileResponseBody {
+	s.FailureIds = v
+	return s
+}
+
+func (s *CleanFileResponseBody) SetSuccessIds(v []*int64) *CleanFileResponseBody {
+	s.SuccessIds = v
+	return s
+}
+
+type CleanFileResponse struct {
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CleanFileResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CleanFileResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CleanFileResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CleanFileResponse) SetHeaders(v map[string]*string) *CleanFileResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CleanFileResponse) SetStatusCode(v int32) *CleanFileResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CleanFileResponse) SetBody(v *CleanFileResponseBody) *CleanFileResponse {
+	s.Body = v
+	return s
+}
+
 type CreateCategoryAndBindingGroupsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -24499,6 +24620,83 @@ func (client *Client) CheckControlHitStatus(request *CheckControlHitStatusReques
 	headers := &CheckControlHitStatusHeaders{}
 	_result = &CheckControlHitStatusResponse{}
 	_body, _err := client.CheckControlHitStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除钉钉文档
+//
+// @param request - CleanFileRequest
+//
+// @param headers - CleanFileHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CleanFileResponse
+func (client *Client) CleanFileWithOptions(request *CleanFileRequest, headers *CleanFileHeaders, runtime *util.RuntimeOptions) (_result *CleanFileResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DentryIds)) {
+		body["dentryIds"] = request.DentryIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StaffId)) {
+		body["staffId"] = request.StaffId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CleanFile"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/privateStores/files/clean"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CleanFileResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除钉钉文档
+//
+// @param request - CleanFileRequest
+//
+// @return CleanFileResponse
+func (client *Client) CleanFile(request *CleanFileRequest) (_result *CleanFileResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CleanFileHeaders{}
+	_result = &CleanFileResponse{}
+	_body, _err := client.CleanFileWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -324,6 +324,110 @@ func (s *AddRetentionRecordResponse) SetBody(v *AddRetentionRecordResponseBody) 
 	return s
 }
 
+type AiVoucherHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AiVoucherHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiVoucherHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AiVoucherHeaders) SetCommonHeaders(v map[string]*string) *AiVoucherHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AiVoucherHeaders) SetXAcsDingtalkAccessToken(v string) *AiVoucherHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AiVoucherRequest struct {
+	ChatMessages   *string `json:"chatMessages,omitempty" xml:"chatMessages,omitempty"`
+	EnableThinking *bool   `json:"enableThinking,omitempty" xml:"enableThinking,omitempty"`
+	ExtendInfo     *string `json:"extendInfo,omitempty" xml:"extendInfo,omitempty"`
+	Prompt         *string `json:"prompt,omitempty" xml:"prompt,omitempty"`
+}
+
+func (s AiVoucherRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiVoucherRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AiVoucherRequest) SetChatMessages(v string) *AiVoucherRequest {
+	s.ChatMessages = &v
+	return s
+}
+
+func (s *AiVoucherRequest) SetEnableThinking(v bool) *AiVoucherRequest {
+	s.EnableThinking = &v
+	return s
+}
+
+func (s *AiVoucherRequest) SetExtendInfo(v string) *AiVoucherRequest {
+	s.ExtendInfo = &v
+	return s
+}
+
+func (s *AiVoucherRequest) SetPrompt(v string) *AiVoucherRequest {
+	s.Prompt = &v
+	return s
+}
+
+type AiVoucherResponseBody struct {
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s AiVoucherResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiVoucherResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AiVoucherResponseBody) SetContent(v string) *AiVoucherResponseBody {
+	s.Content = &v
+	return s
+}
+
+type AiVoucherResponse struct {
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AiVoucherResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AiVoucherResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AiVoucherResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AiVoucherResponse) SetHeaders(v map[string]*string) *AiVoucherResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AiVoucherResponse) SetStatusCode(v int32) *AiVoucherResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AiVoucherResponse) SetBody(v *AiVoucherResponseBody) *AiVoucherResponse {
+	s.Body = v
+	return s
+}
+
 type BankGatewayInvokeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4889,6 +4993,225 @@ func (s *QueryAlipayUserIdResponse) SetBody(v *QueryAlipayUserIdResponseBody) *Q
 	return s
 }
 
+type QueryBankHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryBankHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBankHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBankHeaders) SetCommonHeaders(v map[string]*string) *QueryBankHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryBankHeaders) SetXAcsDingtalkAccessToken(v string) *QueryBankHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryBankResponseBody struct {
+	SupportBanks []*QueryBankResponseBodySupportBanks `json:"supportBanks,omitempty" xml:"supportBanks,omitempty" type:"Repeated"`
+}
+
+func (s QueryBankResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBankResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBankResponseBody) SetSupportBanks(v []*QueryBankResponseBodySupportBanks) *QueryBankResponseBody {
+	s.SupportBanks = v
+	return s
+}
+
+type QueryBankResponseBodySupportBanks struct {
+	BankAbbr        *string `json:"bankAbbr,omitempty" xml:"bankAbbr,omitempty"`
+	BankFirstPinYin *string `json:"bankFirstPinYin,omitempty" xml:"bankFirstPinYin,omitempty"`
+	BankName        *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
+}
+
+func (s QueryBankResponseBodySupportBanks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBankResponseBodySupportBanks) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBankResponseBodySupportBanks) SetBankAbbr(v string) *QueryBankResponseBodySupportBanks {
+	s.BankAbbr = &v
+	return s
+}
+
+func (s *QueryBankResponseBodySupportBanks) SetBankFirstPinYin(v string) *QueryBankResponseBodySupportBanks {
+	s.BankFirstPinYin = &v
+	return s
+}
+
+func (s *QueryBankResponseBodySupportBanks) SetBankName(v string) *QueryBankResponseBodySupportBanks {
+	s.BankName = &v
+	return s
+}
+
+type QueryBankResponse struct {
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryBankResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryBankResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBankResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBankResponse) SetHeaders(v map[string]*string) *QueryBankResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryBankResponse) SetStatusCode(v int32) *QueryBankResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryBankResponse) SetBody(v *QueryBankResponseBody) *QueryBankResponse {
+	s.Body = v
+	return s
+}
+
+type QueryBranchHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryBranchHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBranchHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBranchHeaders) SetCommonHeaders(v map[string]*string) *QueryBranchHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryBranchHeaders) SetXAcsDingtalkAccessToken(v string) *QueryBranchHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryBranchRequest struct {
+	BankName *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	City     *string `json:"city,omitempty" xml:"city,omitempty"`
+	Province *string `json:"province,omitempty" xml:"province,omitempty"`
+}
+
+func (s QueryBranchRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBranchRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBranchRequest) SetBankName(v string) *QueryBranchRequest {
+	s.BankName = &v
+	return s
+}
+
+func (s *QueryBranchRequest) SetCity(v string) *QueryBranchRequest {
+	s.City = &v
+	return s
+}
+
+func (s *QueryBranchRequest) SetProvince(v string) *QueryBranchRequest {
+	s.Province = &v
+	return s
+}
+
+type QueryBranchResponseBody struct {
+	SupportSubBanks []*QueryBranchResponseBodySupportSubBanks `json:"supportSubBanks,omitempty" xml:"supportSubBanks,omitempty" type:"Repeated"`
+}
+
+func (s QueryBranchResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBranchResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBranchResponseBody) SetSupportSubBanks(v []*QueryBranchResponseBodySupportSubBanks) *QueryBranchResponseBody {
+	s.SupportSubBanks = v
+	return s
+}
+
+type QueryBranchResponseBodySupportSubBanks struct {
+	BranchCode *string `json:"branchCode,omitempty" xml:"branchCode,omitempty"`
+	BranchName *string `json:"branchName,omitempty" xml:"branchName,omitempty"`
+}
+
+func (s QueryBranchResponseBodySupportSubBanks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBranchResponseBodySupportSubBanks) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBranchResponseBodySupportSubBanks) SetBranchCode(v string) *QueryBranchResponseBodySupportSubBanks {
+	s.BranchCode = &v
+	return s
+}
+
+func (s *QueryBranchResponseBodySupportSubBanks) SetBranchName(v string) *QueryBranchResponseBodySupportSubBanks {
+	s.BranchName = &v
+	return s
+}
+
+type QueryBranchResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryBranchResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryBranchResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryBranchResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryBranchResponse) SetHeaders(v map[string]*string) *QueryBranchResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryBranchResponse) SetStatusCode(v int32) *QueryBranchResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryBranchResponse) SetBody(v *QueryBranchResponseBody) *QueryBranchResponse {
+	s.Body = v
+	return s
+}
+
 type QueryCategoryByPageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5091,6 +5414,109 @@ func (s *QueryCategoryByPageResponse) SetStatusCode(v int32) *QueryCategoryByPag
 }
 
 func (s *QueryCategoryByPageResponse) SetBody(v *QueryCategoryByPageResponseBody) *QueryCategoryByPageResponse {
+	s.Body = v
+	return s
+}
+
+type QueryCityHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCityHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCityHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCityHeaders) SetCommonHeaders(v map[string]*string) *QueryCityHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCityHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCityHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCityRequest struct {
+	Province *string `json:"province,omitempty" xml:"province,omitempty"`
+}
+
+func (s QueryCityRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCityRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCityRequest) SetProvince(v string) *QueryCityRequest {
+	s.Province = &v
+	return s
+}
+
+type QueryCityResponseBody struct {
+	Citys []*QueryCityResponseBodyCitys `json:"citys,omitempty" xml:"citys,omitempty" type:"Repeated"`
+}
+
+func (s QueryCityResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCityResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCityResponseBody) SetCitys(v []*QueryCityResponseBodyCitys) *QueryCityResponseBody {
+	s.Citys = v
+	return s
+}
+
+type QueryCityResponseBodyCitys struct {
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s QueryCityResponseBodyCitys) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCityResponseBodyCitys) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCityResponseBodyCitys) SetName(v string) *QueryCityResponseBodyCitys {
+	s.Name = &v
+	return s
+}
+
+type QueryCityResponse struct {
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCityResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryCityResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCityResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCityResponse) SetHeaders(v map[string]*string) *QueryCityResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCityResponse) SetStatusCode(v int32) *QueryCityResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryCityResponse) SetBody(v *QueryCityResponseBody) *QueryCityResponse {
 	s.Body = v
 	return s
 }
@@ -8107,6 +8533,92 @@ func (s *QueryProjectByPageResponse) SetBody(v *QueryProjectByPageResponseBody) 
 	return s
 }
 
+type QueryProvinceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryProvinceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryProvinceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryProvinceHeaders) SetCommonHeaders(v map[string]*string) *QueryProvinceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryProvinceHeaders) SetXAcsDingtalkAccessToken(v string) *QueryProvinceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryProvinceResponseBody struct {
+	Provinces []*QueryProvinceResponseBodyProvinces `json:"provinces,omitempty" xml:"provinces,omitempty" type:"Repeated"`
+}
+
+func (s QueryProvinceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryProvinceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryProvinceResponseBody) SetProvinces(v []*QueryProvinceResponseBodyProvinces) *QueryProvinceResponseBody {
+	s.Provinces = v
+	return s
+}
+
+type QueryProvinceResponseBodyProvinces struct {
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s QueryProvinceResponseBodyProvinces) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryProvinceResponseBodyProvinces) GoString() string {
+	return s.String()
+}
+
+func (s *QueryProvinceResponseBodyProvinces) SetName(v string) *QueryProvinceResponseBodyProvinces {
+	s.Name = &v
+	return s
+}
+
+type QueryProvinceResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryProvinceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryProvinceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryProvinceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryProvinceResponse) SetHeaders(v map[string]*string) *QueryProvinceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryProvinceResponse) SetStatusCode(v int32) *QueryProvinceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryProvinceResponse) SetBody(v *QueryProvinceResponseBody) *QueryProvinceResponse {
+	s.Body = v
+	return s
+}
+
 type QueryReceiptForInvoiceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10520,6 +11032,91 @@ func (client *Client) AddRetentionRecord(request *AddRetentionRecordRequest) (_r
 
 // Summary:
 //
+// 调用大模型生成ai凭证
+//
+// @param request - AiVoucherRequest
+//
+// @param headers - AiVoucherHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AiVoucherResponse
+func (client *Client) AiVoucherWithOptions(request *AiVoucherRequest, headers *AiVoucherHeaders, runtime *util.RuntimeOptions) (_result *AiVoucherResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChatMessages)) {
+		body["chatMessages"] = request.ChatMessages
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnableThinking)) {
+		body["enableThinking"] = request.EnableThinking
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExtendInfo)) {
+		body["extendInfo"] = request.ExtendInfo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Prompt)) {
+		body["prompt"] = request.Prompt
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AiVoucher"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/aiVoucher/execute"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AiVoucherResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 调用大模型生成ai凭证
+//
+// @param request - AiVoucherRequest
+//
+// @return AiVoucherResponse
+func (client *Client) AiVoucher(request *AiVoucherRequest) (_result *AiVoucherResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AiVoucherHeaders{}
+	_result = &AiVoucherResponse{}
+	_body, _err := client.AiVoucherWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 银行接入层通用接口
 //
 // @param request - BankGatewayInvokeRequest
@@ -12906,6 +13503,146 @@ func (client *Client) QueryAlipayUserId(request *QueryAlipayUserIdRequest) (_res
 
 // Summary:
 //
+// 查询银行列表
+//
+// @param headers - QueryBankHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryBankResponse
+func (client *Client) QueryBankWithOptions(headers *QueryBankHeaders, runtime *util.RuntimeOptions) (_result *QueryBankResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryBank"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/bankinfo/bank"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryBankResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询银行列表
+//
+// @return QueryBankResponse
+func (client *Client) QueryBank() (_result *QueryBankResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryBankHeaders{}
+	_result = &QueryBankResponse{}
+	_body, _err := client.QueryBankWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询支行名
+//
+// @param request - QueryBranchRequest
+//
+// @param headers - QueryBranchHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryBranchResponse
+func (client *Client) QueryBranchWithOptions(request *QueryBranchRequest, headers *QueryBranchHeaders, runtime *util.RuntimeOptions) (_result *QueryBranchResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BankName)) {
+		query["bankName"] = request.BankName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.City)) {
+		query["city"] = request.City
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Province)) {
+		query["province"] = request.Province
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryBranch"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/bankinfo/branch"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryBranchResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询支行名
+//
+// @param request - QueryBranchRequest
+//
+// @return QueryBranchResponse
+func (client *Client) QueryBranch(request *QueryBranchRequest) (_result *QueryBranchResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryBranchHeaders{}
+	_result = &QueryBranchResponse{}
+	_body, _err := client.QueryBranchWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 批量获取费用类别
 //
 // @param request - QueryCategoryByPageRequest
@@ -12978,6 +13715,79 @@ func (client *Client) QueryCategoryByPage(request *QueryCategoryByPageRequest) (
 	headers := &QueryCategoryByPageHeaders{}
 	_result = &QueryCategoryByPageResponse{}
 	_body, _err := client.QueryCategoryByPageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询城市列表
+//
+// @param request - QueryCityRequest
+//
+// @param headers - QueryCityHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCityResponse
+func (client *Client) QueryCityWithOptions(request *QueryCityRequest, headers *QueryCityHeaders, runtime *util.RuntimeOptions) (_result *QueryCityResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Province)) {
+		query["province"] = request.Province
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryCity"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/bankinfo/city"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryCityResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询城市列表
+//
+// @param request - QueryCityRequest
+//
+// @return QueryCityResponse
+func (client *Client) QueryCity(request *QueryCityRequest) (_result *QueryCityResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCityHeaders{}
+	_result = &QueryCityResponse{}
+	_body, _err := client.QueryCityWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14241,6 +15051,65 @@ func (client *Client) QueryProjectByPage(request *QueryProjectByPageRequest) (_r
 	headers := &QueryProjectByPageHeaders{}
 	_result = &QueryProjectByPageResponse{}
 	_body, _err := client.QueryProjectByPageWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询省份列表
+//
+// @param headers - QueryProvinceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryProvinceResponse
+func (client *Client) QueryProvinceWithOptions(headers *QueryProvinceHeaders, runtime *util.RuntimeOptions) (_result *QueryProvinceResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryProvince"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/bankinfo/province"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryProvinceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询省份列表
+//
+// @return QueryProvinceResponse
+func (client *Client) QueryProvince() (_result *QueryProvinceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryProvinceHeaders{}
+	_result = &QueryProvinceResponse{}
+	_body, _err := client.QueryProvinceWithOptions(headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

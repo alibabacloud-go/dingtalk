@@ -7239,6 +7239,23 @@ func (s *QueryMultiCompanyInfoHeaders) SetXAcsDingtalkAccessToken(v string) *Que
 	return s
 }
 
+type QueryMultiCompanyInfoRequest struct {
+	StartStatus *bool `json:"startStatus,omitempty" xml:"startStatus,omitempty"`
+}
+
+func (s QueryMultiCompanyInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMultiCompanyInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMultiCompanyInfoRequest) SetStartStatus(v bool) *QueryMultiCompanyInfoRequest {
+	s.StartStatus = &v
+	return s
+}
+
 type QueryMultiCompanyInfoResponseBody struct {
 	List []*QueryMultiCompanyInfoResponseBodyList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
 }
@@ -20185,12 +20202,23 @@ func (client *Client) QueryInvoiceRelationCount() (_result *QueryInvoiceRelation
 //
 // 查询钉钉智能财务多主体信息
 //
+// @param request - QueryMultiCompanyInfoRequest
+//
 // @param headers - QueryMultiCompanyInfoHeaders
 //
 // @param runtime - runtime options for this request RuntimeOptions
 //
 // @return QueryMultiCompanyInfoResponse
-func (client *Client) QueryMultiCompanyInfoWithOptions(headers *QueryMultiCompanyInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryMultiCompanyInfoResponse, _err error) {
+func (client *Client) QueryMultiCompanyInfoWithOptions(request *QueryMultiCompanyInfoRequest, headers *QueryMultiCompanyInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryMultiCompanyInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.StartStatus)) {
+		query["startStatus"] = request.StartStatus
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -20202,6 +20230,7 @@ func (client *Client) QueryMultiCompanyInfoWithOptions(headers *QueryMultiCompan
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
 	}
 	params := &openapi.Params{
 		Action:      tea.String("QueryMultiCompanyInfo"),
@@ -20227,12 +20256,14 @@ func (client *Client) QueryMultiCompanyInfoWithOptions(headers *QueryMultiCompan
 //
 // 查询钉钉智能财务多主体信息
 //
+// @param request - QueryMultiCompanyInfoRequest
+//
 // @return QueryMultiCompanyInfoResponse
-func (client *Client) QueryMultiCompanyInfo() (_result *QueryMultiCompanyInfoResponse, _err error) {
+func (client *Client) QueryMultiCompanyInfo(request *QueryMultiCompanyInfoRequest) (_result *QueryMultiCompanyInfoResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &QueryMultiCompanyInfoHeaders{}
 	_result = &QueryMultiCompanyInfoResponse{}
-	_body, _err := client.QueryMultiCompanyInfoWithOptions(headers, runtime)
+	_body, _err := client.QueryMultiCompanyInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

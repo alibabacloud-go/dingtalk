@@ -9,6 +9,141 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type CheckOrderHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CheckOrderHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckOrderHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CheckOrderHeaders) SetCommonHeaders(v map[string]*string) *CheckOrderHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CheckOrderHeaders) SetXAcsDingtalkAccessToken(v string) *CheckOrderHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CheckOrderRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// corp1234
+	ChannelCorpId *string `json:"channelCorpId,omitempty" xml:"channelCorpId,omitempty"`
+	// example:
+	//
+	// be5f1dce-5a15-451a-8be5-2bfe8836b2c3
+	JourneyBizNo *string `json:"journeyBizNo,omitempty" xml:"journeyBizNo,omitempty"`
+	// This parameter is required.
+	OrderType *string `json:"orderType,omitempty" xml:"orderType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ljzvGcPYSkyqZ6FsbziK4w10171764232149
+	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1234
+	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
+}
+
+func (s CheckOrderRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckOrderRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CheckOrderRequest) SetChannelCorpId(v string) *CheckOrderRequest {
+	s.ChannelCorpId = &v
+	return s
+}
+
+func (s *CheckOrderRequest) SetJourneyBizNo(v string) *CheckOrderRequest {
+	s.JourneyBizNo = &v
+	return s
+}
+
+func (s *CheckOrderRequest) SetOrderType(v string) *CheckOrderRequest {
+	s.OrderType = &v
+	return s
+}
+
+func (s *CheckOrderRequest) SetProcessInstanceId(v string) *CheckOrderRequest {
+	s.ProcessInstanceId = &v
+	return s
+}
+
+func (s *CheckOrderRequest) SetStaffId(v string) *CheckOrderRequest {
+	s.StaffId = &v
+	return s
+}
+
+type CheckOrderResponseBody struct {
+	ErrMsg *string `json:"errMsg,omitempty" xml:"errMsg,omitempty"`
+	Result *bool   `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s CheckOrderResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckOrderResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CheckOrderResponseBody) SetErrMsg(v string) *CheckOrderResponseBody {
+	s.ErrMsg = &v
+	return s
+}
+
+func (s *CheckOrderResponseBody) SetResult(v bool) *CheckOrderResponseBody {
+	s.Result = &v
+	return s
+}
+
+type CheckOrderResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CheckOrderResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CheckOrderResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CheckOrderResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CheckOrderResponse) SetHeaders(v map[string]*string) *CheckOrderResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CheckOrderResponse) SetStatusCode(v int32) *CheckOrderResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CheckOrderResponse) SetBody(v *CheckOrderResponseBody) *CheckOrderResponse {
+	s.Body = v
+	return s
+}
+
 type GetTravelProcessDetailHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5544,6 +5679,95 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+// Summary:
+//
+// 下单前校验是否符合业务标准
+//
+// @param request - CheckOrderRequest
+//
+// @param headers - CheckOrderHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CheckOrderResponse
+func (client *Client) CheckOrderWithOptions(request *CheckOrderRequest, headers *CheckOrderHeaders, runtime *util.RuntimeOptions) (_result *CheckOrderResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChannelCorpId)) {
+		body["channelCorpId"] = request.ChannelCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.JourneyBizNo)) {
+		body["journeyBizNo"] = request.JourneyBizNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderType)) {
+		body["orderType"] = request.OrderType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessInstanceId)) {
+		body["processInstanceId"] = request.ProcessInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StaffId)) {
+		body["staffId"] = request.StaffId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CheckOrder"),
+		Version:     tea.String("trip_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trip/tripOrder/check"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CheckOrderResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 下单前校验是否符合业务标准
+//
+// @param request - CheckOrderRequest
+//
+// @return CheckOrderResponse
+func (client *Client) CheckOrder(request *CheckOrderRequest) (_result *CheckOrderResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CheckOrderHeaders{}
+	_result = &CheckOrderResponse{}
+	_body, _err := client.CheckOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 // Summary:

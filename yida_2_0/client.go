@@ -672,6 +672,13 @@ type CreateOrUpdateFormDataRequest struct {
 	//
 	// APP_XCE0EVXS6DYG3YDYC5RD
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -722,6 +729,11 @@ func (s CreateOrUpdateFormDataRequest) GoString() string {
 
 func (s *CreateOrUpdateFormDataRequest) SetAppType(v string) *CreateOrUpdateFormDataRequest {
 	s.AppType = &v
+	return s
+}
+
+func (s *CreateOrUpdateFormDataRequest) SetEnv(v string) *CreateOrUpdateFormDataRequest {
+	s.Env = &v
 	return s
 }
 
@@ -3433,6 +3445,13 @@ type SaveFormDataRequest struct {
 	//
 	// APP_PBKT0MFBEBTDO8T7SLVP
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -3473,6 +3492,11 @@ func (s SaveFormDataRequest) GoString() string {
 
 func (s *SaveFormDataRequest) SetAppType(v string) *SaveFormDataRequest {
 	s.AppType = &v
+	return s
+}
+
+func (s *SaveFormDataRequest) SetEnv(v string) *SaveFormDataRequest {
+	s.Env = &v
 	return s
 }
 
@@ -3794,6 +3818,13 @@ type SearchFormDataSecondGenerationRequest struct {
 	//
 	// 2021-05-01
 	CreateToTimeGMT *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -3866,6 +3897,11 @@ func (s *SearchFormDataSecondGenerationRequest) SetCreateFromTimeGMT(v string) *
 
 func (s *SearchFormDataSecondGenerationRequest) SetCreateToTimeGMT(v string) *SearchFormDataSecondGenerationRequest {
 	s.CreateToTimeGMT = &v
+	return s
+}
+
+func (s *SearchFormDataSecondGenerationRequest) SetEnv(v string) *SearchFormDataSecondGenerationRequest {
+	s.Env = &v
 	return s
 }
 
@@ -6047,6 +6083,10 @@ func (client *Client) CreateOrUpdateFormDataWithOptions(request *CreateOrUpdateF
 		body["appType"] = request.AppType
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.FormDataJson)) {
 		body["formDataJson"] = request.FormDataJson
 	}
@@ -7166,6 +7206,10 @@ func (client *Client) SaveFormDataWithOptions(request *SaveFormDataRequest, head
 		body["appType"] = request.AppType
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.FormDataJson)) {
 		body["formDataJson"] = request.FormDataJson
 	}
@@ -7388,6 +7432,10 @@ func (client *Client) SearchFormDataSecondGenerationWithOptions(request *SearchF
 
 	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
 		body["createToTimeGMT"] = request.CreateToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {

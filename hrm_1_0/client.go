@@ -3063,9 +3063,9 @@ func (s *GetDismissionRecordResponseBody) SetSuccess(v bool) *GetDismissionRecor
 }
 
 type GetDismissionRecordResponseBodyResult struct {
-	HasMore    *bool                                      `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
-	List       *GetDismissionRecordResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Struct"`
-	NextCursor *int64                                     `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	HasMore    *bool                                        `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	List       []*GetDismissionRecordResponseBodyResultList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	NextCursor *int64                                       `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
 }
 
 func (s GetDismissionRecordResponseBodyResult) String() string {
@@ -3081,7 +3081,7 @@ func (s *GetDismissionRecordResponseBodyResult) SetHasMore(v bool) *GetDismissio
 	return s
 }
 
-func (s *GetDismissionRecordResponseBodyResult) SetList(v *GetDismissionRecordResponseBodyResultList) *GetDismissionRecordResponseBodyResult {
+func (s *GetDismissionRecordResponseBodyResult) SetList(v []*GetDismissionRecordResponseBodyResultList) *GetDismissionRecordResponseBodyResult {
 	s.List = v
 	return s
 }

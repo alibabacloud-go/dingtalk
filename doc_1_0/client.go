@@ -495,9 +495,30 @@ func (s *AppendRowsRequest) SetOperatorId(v string) *AppendRowsRequest {
 	return s
 }
 
+type AppendRowsResponseBody struct {
+	// example:
+	//
+	// a1_notation
+	A1Notation *string `json:"a1Notation,omitempty" xml:"a1Notation,omitempty"`
+}
+
+func (s AppendRowsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AppendRowsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AppendRowsResponseBody) SetA1Notation(v string) *AppendRowsResponseBody {
+	s.A1Notation = &v
+	return s
+}
+
 type AppendRowsResponse struct {
-	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
-	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AppendRowsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s AppendRowsResponse) String() string {
@@ -515,6 +536,11 @@ func (s *AppendRowsResponse) SetHeaders(v map[string]*string) *AppendRowsRespons
 
 func (s *AppendRowsResponse) SetStatusCode(v int32) *AppendRowsResponse {
 	s.StatusCode = &v
+	return s
+}
+
+func (s *AppendRowsResponse) SetBody(v *AppendRowsResponseBody) *AppendRowsResponse {
+	s.Body = v
 	return s
 }
 
@@ -11091,7 +11117,7 @@ func (client *Client) AppendRowsWithOptions(workbookId *string, sheetId *string,
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
 		ReqBodyType: tea.String("none"),
-		BodyType:    tea.String("none"),
+		BodyType:    tea.String("json"),
 	}
 	_result = &AppendRowsResponse{}
 	_body, _err := client.Execute(params, req, runtime)

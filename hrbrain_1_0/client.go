@@ -37,6 +37,7 @@ type HrbrainBizDataQueryRequest struct {
 	BizCode    *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
 	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s HrbrainBizDataQueryRequest) String() string {
@@ -59,6 +60,11 @@ func (s *HrbrainBizDataQueryRequest) SetMaxResults(v int64) *HrbrainBizDataQuery
 
 func (s *HrbrainBizDataQueryRequest) SetNextToken(v string) *HrbrainBizDataQueryRequest {
 	s.NextToken = &v
+	return s
+}
+
+func (s *HrbrainBizDataQueryRequest) SetUserId(v string) *HrbrainBizDataQueryRequest {
+	s.UserId = &v
 	return s
 }
 
@@ -2546,6 +2552,7 @@ type HrbrainEmpPoolQueryRequest struct {
 	Labels     []*string `json:"labels,omitempty" xml:"labels,omitempty" type:"Repeated"`
 	MaxResults *int32    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *int32    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	UserId     *string   `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s HrbrainEmpPoolQueryRequest) String() string {
@@ -2573,6 +2580,11 @@ func (s *HrbrainEmpPoolQueryRequest) SetMaxResults(v int32) *HrbrainEmpPoolQuery
 
 func (s *HrbrainEmpPoolQueryRequest) SetNextToken(v int32) *HrbrainEmpPoolQueryRequest {
 	s.NextToken = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolQueryRequest) SetUserId(v string) *HrbrainEmpPoolQueryRequest {
+	s.UserId = &v
 	return s
 }
 
@@ -2760,6 +2772,7 @@ type HrbrainEmpPoolUserRequest struct {
 	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *int32  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	PoolCode   *string `json:"poolCode,omitempty" xml:"poolCode,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s HrbrainEmpPoolUserRequest) String() string {
@@ -2782,6 +2795,11 @@ func (s *HrbrainEmpPoolUserRequest) SetNextToken(v int32) *HrbrainEmpPoolUserReq
 
 func (s *HrbrainEmpPoolUserRequest) SetPoolCode(v string) *HrbrainEmpPoolUserRequest {
 	s.PoolCode = &v
+	return s
+}
+
+func (s *HrbrainEmpPoolUserRequest) SetUserId(v string) *HrbrainEmpPoolUserRequest {
+	s.UserId = &v
 	return s
 }
 
@@ -9068,6 +9086,10 @@ func (client *Client) HrbrainBizDataQueryWithOptions(request *HrbrainBizDataQuer
 		query["nextToken"] = request.NextToken
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -10471,6 +10493,10 @@ func (client *Client) HrbrainEmpPoolQueryWithOptions(request *HrbrainEmpPoolQuer
 		body["nextToken"] = request.NextToken
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -10550,6 +10576,10 @@ func (client *Client) HrbrainEmpPoolUserWithOptions(request *HrbrainEmpPoolUserR
 
 	if !tea.BoolValue(util.IsUnset(request.PoolCode)) {
 		body["poolCode"] = request.PoolCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
 	}
 
 	realHeaders := make(map[string]*string)

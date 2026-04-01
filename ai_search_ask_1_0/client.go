@@ -401,17 +401,13 @@ func (s *RetrieveHeaders) SetXAcsDingtalkAccessToken(v string) *RetrieveHeaders 
 
 type RetrieveRequest struct {
 	// This parameter is required.
-	Answerer *string `json:"answerer,omitempty" xml:"answerer,omitempty"`
-	// This parameter is required.
-	CorpId             *string                            `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Answerer           *string                            `json:"answerer,omitempty" xml:"answerer,omitempty"`
 	DragRequestContext *RetrieveRequestDragRequestContext `json:"dragRequestContext,omitempty" xml:"dragRequestContext,omitempty" type:"Struct"`
 	KeywordList        []*string                          `json:"keywordList,omitempty" xml:"keywordList,omitempty" type:"Repeated"`
 	// This parameter is required.
 	Limit *int32 `json:"limit,omitempty" xml:"limit,omitempty"`
 	// This parameter is required.
 	Question *string `json:"question,omitempty" xml:"question,omitempty"`
-	// This parameter is required.
-	Questioner *string `json:"questioner,omitempty" xml:"questioner,omitempty"`
 	// This parameter is required.
 	RetrievalExtendParams  map[string]*RetrievalExtendParamsValue `json:"retrievalExtendParams,omitempty" xml:"retrievalExtendParams,omitempty"`
 	RetrieveScoreThreshold *float64                               `json:"retrieveScoreThreshold,omitempty" xml:"retrieveScoreThreshold,omitempty"`
@@ -435,11 +431,6 @@ func (s *RetrieveRequest) SetAnswerer(v string) *RetrieveRequest {
 	return s
 }
 
-func (s *RetrieveRequest) SetCorpId(v string) *RetrieveRequest {
-	s.CorpId = &v
-	return s
-}
-
 func (s *RetrieveRequest) SetDragRequestContext(v *RetrieveRequestDragRequestContext) *RetrieveRequest {
 	s.DragRequestContext = v
 	return s
@@ -457,11 +448,6 @@ func (s *RetrieveRequest) SetLimit(v int32) *RetrieveRequest {
 
 func (s *RetrieveRequest) SetQuestion(v string) *RetrieveRequest {
 	s.Question = &v
-	return s
-}
-
-func (s *RetrieveRequest) SetQuestioner(v string) *RetrieveRequest {
-	s.Questioner = &v
 	return s
 }
 
@@ -2268,10 +2254,6 @@ func (client *Client) RetrieveWithOptions(request *RetrieveRequest, headers *Ret
 		body["answerer"] = request.Answerer
 	}
 
-	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
-		body["corpId"] = request.CorpId
-	}
-
 	if !tea.BoolValue(util.IsUnset(request.DragRequestContext)) {
 		body["dragRequestContext"] = request.DragRequestContext
 	}
@@ -2286,10 +2268,6 @@ func (client *Client) RetrieveWithOptions(request *RetrieveRequest, headers *Ret
 
 	if !tea.BoolValue(util.IsUnset(request.Question)) {
 		body["question"] = request.Question
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.Questioner)) {
-		body["questioner"] = request.Questioner
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.RetrievalExtendParams)) {

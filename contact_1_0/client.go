@@ -9396,7 +9396,8 @@ func (s *SignOutHeaders) SetXAcsDingtalkAccessToken(v string) *SignOutHeaders {
 }
 
 type SignOutRequest struct {
-	Reason *string `json:"reason,omitempty" xml:"reason,omitempty"`
+	Reason                *string            `json:"reason,omitempty" xml:"reason,omitempty"`
+	ReasonI18nForEmployee map[string]*string `json:"reasonI18nForEmployee,omitempty" xml:"reasonI18nForEmployee,omitempty"`
 	// This parameter is required.
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -9411,6 +9412,11 @@ func (s SignOutRequest) GoString() string {
 
 func (s *SignOutRequest) SetReason(v string) *SignOutRequest {
 	s.Reason = &v
+	return s
+}
+
+func (s *SignOutRequest) SetReasonI18nForEmployee(v map[string]*string) *SignOutRequest {
+	s.ReasonI18nForEmployee = v
 	return s
 }
 
@@ -9694,6 +9700,1570 @@ func (s *SubmitHandoverResourceResponse) SetStatusCode(v int32) *SubmitHandoverR
 }
 
 func (s *SubmitHandoverResourceResponse) SetBody(v *SubmitHandoverResourceResponseBody) *SubmitHandoverResourceResponse {
+	s.Body = v
+	return s
+}
+
+type TalentAddCustomTagHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TalentAddCustomTagHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentAddCustomTagHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TalentAddCustomTagHeaders) SetCommonHeaders(v map[string]*string) *TalentAddCustomTagHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TalentAddCustomTagHeaders) SetXAcsDingtalkAccessToken(v string) *TalentAddCustomTagHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TalentAddCustomTagRequest struct {
+	SortOrder *int32  `json:"sortOrder,omitempty" xml:"sortOrder,omitempty"`
+	TagCode   *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	// This parameter is required.
+	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s TalentAddCustomTagRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentAddCustomTagRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TalentAddCustomTagRequest) SetSortOrder(v int32) *TalentAddCustomTagRequest {
+	s.SortOrder = &v
+	return s
+}
+
+func (s *TalentAddCustomTagRequest) SetTagCode(v string) *TalentAddCustomTagRequest {
+	s.TagCode = &v
+	return s
+}
+
+func (s *TalentAddCustomTagRequest) SetTagName(v string) *TalentAddCustomTagRequest {
+	s.TagName = &v
+	return s
+}
+
+func (s *TalentAddCustomTagRequest) SetUserId(v string) *TalentAddCustomTagRequest {
+	s.UserId = &v
+	return s
+}
+
+type TalentAddCustomTagResponseBody struct {
+	Result *TalentAddCustomTagResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s TalentAddCustomTagResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentAddCustomTagResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TalentAddCustomTagResponseBody) SetResult(v *TalentAddCustomTagResponseBodyResult) *TalentAddCustomTagResponseBody {
+	s.Result = v
+	return s
+}
+
+type TalentAddCustomTagResponseBodyResult struct {
+	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+}
+
+func (s TalentAddCustomTagResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentAddCustomTagResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *TalentAddCustomTagResponseBodyResult) SetTagCode(v string) *TalentAddCustomTagResponseBodyResult {
+	s.TagCode = &v
+	return s
+}
+
+func (s *TalentAddCustomTagResponseBodyResult) SetTagName(v string) *TalentAddCustomTagResponseBodyResult {
+	s.TagName = &v
+	return s
+}
+
+type TalentAddCustomTagResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TalentAddCustomTagResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TalentAddCustomTagResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentAddCustomTagResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TalentAddCustomTagResponse) SetHeaders(v map[string]*string) *TalentAddCustomTagResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TalentAddCustomTagResponse) SetStatusCode(v int32) *TalentAddCustomTagResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TalentAddCustomTagResponse) SetBody(v *TalentAddCustomTagResponseBody) *TalentAddCustomTagResponse {
+	s.Body = v
+	return s
+}
+
+type TalentAddObjectiveTagHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TalentAddObjectiveTagHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentAddObjectiveTagHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TalentAddObjectiveTagHeaders) SetCommonHeaders(v map[string]*string) *TalentAddObjectiveTagHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TalentAddObjectiveTagHeaders) SetXAcsDingtalkAccessToken(v string) *TalentAddObjectiveTagHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TalentAddObjectiveTagRequest struct {
+	SortOrder *int32  `json:"sortOrder,omitempty" xml:"sortOrder,omitempty"`
+	TagCode   *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	// This parameter is required.
+	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s TalentAddObjectiveTagRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentAddObjectiveTagRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TalentAddObjectiveTagRequest) SetSortOrder(v int32) *TalentAddObjectiveTagRequest {
+	s.SortOrder = &v
+	return s
+}
+
+func (s *TalentAddObjectiveTagRequest) SetTagCode(v string) *TalentAddObjectiveTagRequest {
+	s.TagCode = &v
+	return s
+}
+
+func (s *TalentAddObjectiveTagRequest) SetTagName(v string) *TalentAddObjectiveTagRequest {
+	s.TagName = &v
+	return s
+}
+
+func (s *TalentAddObjectiveTagRequest) SetUserId(v string) *TalentAddObjectiveTagRequest {
+	s.UserId = &v
+	return s
+}
+
+type TalentAddObjectiveTagResponseBody struct {
+	Result *TalentAddObjectiveTagResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s TalentAddObjectiveTagResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentAddObjectiveTagResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TalentAddObjectiveTagResponseBody) SetResult(v *TalentAddObjectiveTagResponseBodyResult) *TalentAddObjectiveTagResponseBody {
+	s.Result = v
+	return s
+}
+
+type TalentAddObjectiveTagResponseBodyResult struct {
+	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+}
+
+func (s TalentAddObjectiveTagResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentAddObjectiveTagResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *TalentAddObjectiveTagResponseBodyResult) SetTagCode(v string) *TalentAddObjectiveTagResponseBodyResult {
+	s.TagCode = &v
+	return s
+}
+
+func (s *TalentAddObjectiveTagResponseBodyResult) SetTagName(v string) *TalentAddObjectiveTagResponseBodyResult {
+	s.TagName = &v
+	return s
+}
+
+type TalentAddObjectiveTagResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TalentAddObjectiveTagResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TalentAddObjectiveTagResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentAddObjectiveTagResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TalentAddObjectiveTagResponse) SetHeaders(v map[string]*string) *TalentAddObjectiveTagResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TalentAddObjectiveTagResponse) SetStatusCode(v int32) *TalentAddObjectiveTagResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TalentAddObjectiveTagResponse) SetBody(v *TalentAddObjectiveTagResponseBody) *TalentAddObjectiveTagResponse {
+	s.Body = v
+	return s
+}
+
+type TalentAddPersonalityTagHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TalentAddPersonalityTagHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentAddPersonalityTagHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TalentAddPersonalityTagHeaders) SetCommonHeaders(v map[string]*string) *TalentAddPersonalityTagHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TalentAddPersonalityTagHeaders) SetXAcsDingtalkAccessToken(v string) *TalentAddPersonalityTagHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TalentAddPersonalityTagRequest struct {
+	CategoryCode *string `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
+	// This parameter is required.
+	CategoryName      *string `json:"categoryName,omitempty" xml:"categoryName,omitempty"`
+	CategorySortOrder *int32  `json:"categorySortOrder,omitempty" xml:"categorySortOrder,omitempty"`
+	SortOrder         *int32  `json:"sortOrder,omitempty" xml:"sortOrder,omitempty"`
+	TagCode           *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	// This parameter is required.
+	TagName *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+}
+
+func (s TalentAddPersonalityTagRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentAddPersonalityTagRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TalentAddPersonalityTagRequest) SetCategoryCode(v string) *TalentAddPersonalityTagRequest {
+	s.CategoryCode = &v
+	return s
+}
+
+func (s *TalentAddPersonalityTagRequest) SetCategoryName(v string) *TalentAddPersonalityTagRequest {
+	s.CategoryName = &v
+	return s
+}
+
+func (s *TalentAddPersonalityTagRequest) SetCategorySortOrder(v int32) *TalentAddPersonalityTagRequest {
+	s.CategorySortOrder = &v
+	return s
+}
+
+func (s *TalentAddPersonalityTagRequest) SetSortOrder(v int32) *TalentAddPersonalityTagRequest {
+	s.SortOrder = &v
+	return s
+}
+
+func (s *TalentAddPersonalityTagRequest) SetTagCode(v string) *TalentAddPersonalityTagRequest {
+	s.TagCode = &v
+	return s
+}
+
+func (s *TalentAddPersonalityTagRequest) SetTagName(v string) *TalentAddPersonalityTagRequest {
+	s.TagName = &v
+	return s
+}
+
+type TalentAddPersonalityTagResponseBody struct {
+	Result *TalentAddPersonalityTagResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s TalentAddPersonalityTagResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentAddPersonalityTagResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TalentAddPersonalityTagResponseBody) SetResult(v *TalentAddPersonalityTagResponseBodyResult) *TalentAddPersonalityTagResponseBody {
+	s.Result = v
+	return s
+}
+
+type TalentAddPersonalityTagResponseBodyResult struct {
+	CategoryCode *string `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
+	CategoryName *string `json:"categoryName,omitempty" xml:"categoryName,omitempty"`
+	TagCode      *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	TagName      *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+}
+
+func (s TalentAddPersonalityTagResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentAddPersonalityTagResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *TalentAddPersonalityTagResponseBodyResult) SetCategoryCode(v string) *TalentAddPersonalityTagResponseBodyResult {
+	s.CategoryCode = &v
+	return s
+}
+
+func (s *TalentAddPersonalityTagResponseBodyResult) SetCategoryName(v string) *TalentAddPersonalityTagResponseBodyResult {
+	s.CategoryName = &v
+	return s
+}
+
+func (s *TalentAddPersonalityTagResponseBodyResult) SetTagCode(v string) *TalentAddPersonalityTagResponseBodyResult {
+	s.TagCode = &v
+	return s
+}
+
+func (s *TalentAddPersonalityTagResponseBodyResult) SetTagName(v string) *TalentAddPersonalityTagResponseBodyResult {
+	s.TagName = &v
+	return s
+}
+
+type TalentAddPersonalityTagResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TalentAddPersonalityTagResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TalentAddPersonalityTagResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentAddPersonalityTagResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TalentAddPersonalityTagResponse) SetHeaders(v map[string]*string) *TalentAddPersonalityTagResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TalentAddPersonalityTagResponse) SetStatusCode(v int32) *TalentAddPersonalityTagResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TalentAddPersonalityTagResponse) SetBody(v *TalentAddPersonalityTagResponseBody) *TalentAddPersonalityTagResponse {
+	s.Body = v
+	return s
+}
+
+type TalentDeleteCustomTagHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TalentDeleteCustomTagHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentDeleteCustomTagHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TalentDeleteCustomTagHeaders) SetCommonHeaders(v map[string]*string) *TalentDeleteCustomTagHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TalentDeleteCustomTagHeaders) SetXAcsDingtalkAccessToken(v string) *TalentDeleteCustomTagHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TalentDeleteCustomTagRequest struct {
+	// This parameter is required.
+	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s TalentDeleteCustomTagRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentDeleteCustomTagRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TalentDeleteCustomTagRequest) SetTagCode(v string) *TalentDeleteCustomTagRequest {
+	s.TagCode = &v
+	return s
+}
+
+func (s *TalentDeleteCustomTagRequest) SetUserId(v string) *TalentDeleteCustomTagRequest {
+	s.UserId = &v
+	return s
+}
+
+type TalentDeleteCustomTagResponseBody struct {
+	Result *TalentDeleteCustomTagResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s TalentDeleteCustomTagResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentDeleteCustomTagResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TalentDeleteCustomTagResponseBody) SetResult(v *TalentDeleteCustomTagResponseBodyResult) *TalentDeleteCustomTagResponseBody {
+	s.Result = v
+	return s
+}
+
+type TalentDeleteCustomTagResponseBodyResult struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s TalentDeleteCustomTagResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentDeleteCustomTagResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *TalentDeleteCustomTagResponseBodyResult) SetSuccess(v bool) *TalentDeleteCustomTagResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type TalentDeleteCustomTagResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TalentDeleteCustomTagResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TalentDeleteCustomTagResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentDeleteCustomTagResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TalentDeleteCustomTagResponse) SetHeaders(v map[string]*string) *TalentDeleteCustomTagResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TalentDeleteCustomTagResponse) SetStatusCode(v int32) *TalentDeleteCustomTagResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TalentDeleteCustomTagResponse) SetBody(v *TalentDeleteCustomTagResponseBody) *TalentDeleteCustomTagResponse {
+	s.Body = v
+	return s
+}
+
+type TalentDeleteObjectiveTagHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TalentDeleteObjectiveTagHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentDeleteObjectiveTagHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TalentDeleteObjectiveTagHeaders) SetCommonHeaders(v map[string]*string) *TalentDeleteObjectiveTagHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TalentDeleteObjectiveTagHeaders) SetXAcsDingtalkAccessToken(v string) *TalentDeleteObjectiveTagHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TalentDeleteObjectiveTagRequest struct {
+	// This parameter is required.
+	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s TalentDeleteObjectiveTagRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentDeleteObjectiveTagRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TalentDeleteObjectiveTagRequest) SetTagCode(v string) *TalentDeleteObjectiveTagRequest {
+	s.TagCode = &v
+	return s
+}
+
+func (s *TalentDeleteObjectiveTagRequest) SetUserId(v string) *TalentDeleteObjectiveTagRequest {
+	s.UserId = &v
+	return s
+}
+
+type TalentDeleteObjectiveTagResponseBody struct {
+	Result *TalentDeleteObjectiveTagResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s TalentDeleteObjectiveTagResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentDeleteObjectiveTagResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TalentDeleteObjectiveTagResponseBody) SetResult(v *TalentDeleteObjectiveTagResponseBodyResult) *TalentDeleteObjectiveTagResponseBody {
+	s.Result = v
+	return s
+}
+
+type TalentDeleteObjectiveTagResponseBodyResult struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s TalentDeleteObjectiveTagResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentDeleteObjectiveTagResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *TalentDeleteObjectiveTagResponseBodyResult) SetSuccess(v bool) *TalentDeleteObjectiveTagResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type TalentDeleteObjectiveTagResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TalentDeleteObjectiveTagResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TalentDeleteObjectiveTagResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentDeleteObjectiveTagResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TalentDeleteObjectiveTagResponse) SetHeaders(v map[string]*string) *TalentDeleteObjectiveTagResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TalentDeleteObjectiveTagResponse) SetStatusCode(v int32) *TalentDeleteObjectiveTagResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TalentDeleteObjectiveTagResponse) SetBody(v *TalentDeleteObjectiveTagResponseBody) *TalentDeleteObjectiveTagResponse {
+	s.Body = v
+	return s
+}
+
+type TalentDeletePersonalityTagHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TalentDeletePersonalityTagHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentDeletePersonalityTagHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TalentDeletePersonalityTagHeaders) SetCommonHeaders(v map[string]*string) *TalentDeletePersonalityTagHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TalentDeletePersonalityTagHeaders) SetXAcsDingtalkAccessToken(v string) *TalentDeletePersonalityTagHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TalentDeletePersonalityTagRequest struct {
+	// This parameter is required.
+	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+}
+
+func (s TalentDeletePersonalityTagRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentDeletePersonalityTagRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TalentDeletePersonalityTagRequest) SetTagCode(v string) *TalentDeletePersonalityTagRequest {
+	s.TagCode = &v
+	return s
+}
+
+type TalentDeletePersonalityTagResponseBody struct {
+	Result *TalentDeletePersonalityTagResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s TalentDeletePersonalityTagResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentDeletePersonalityTagResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TalentDeletePersonalityTagResponseBody) SetResult(v *TalentDeletePersonalityTagResponseBodyResult) *TalentDeletePersonalityTagResponseBody {
+	s.Result = v
+	return s
+}
+
+type TalentDeletePersonalityTagResponseBodyResult struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s TalentDeletePersonalityTagResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentDeletePersonalityTagResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *TalentDeletePersonalityTagResponseBodyResult) SetSuccess(v bool) *TalentDeletePersonalityTagResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type TalentDeletePersonalityTagResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TalentDeletePersonalityTagResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TalentDeletePersonalityTagResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentDeletePersonalityTagResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TalentDeletePersonalityTagResponse) SetHeaders(v map[string]*string) *TalentDeletePersonalityTagResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TalentDeletePersonalityTagResponse) SetStatusCode(v int32) *TalentDeletePersonalityTagResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TalentDeletePersonalityTagResponse) SetBody(v *TalentDeletePersonalityTagResponseBody) *TalentDeletePersonalityTagResponse {
+	s.Body = v
+	return s
+}
+
+type TalentLikeTagHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TalentLikeTagHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentLikeTagHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TalentLikeTagHeaders) SetCommonHeaders(v map[string]*string) *TalentLikeTagHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TalentLikeTagHeaders) SetXAcsDingtalkAccessToken(v string) *TalentLikeTagHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TalentLikeTagRequest struct {
+	// This parameter is required.
+	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// This parameter is required.
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s TalentLikeTagRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentLikeTagRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TalentLikeTagRequest) SetActionType(v string) *TalentLikeTagRequest {
+	s.ActionType = &v
+	return s
+}
+
+func (s *TalentLikeTagRequest) SetOperatorUserId(v string) *TalentLikeTagRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *TalentLikeTagRequest) SetTagCode(v string) *TalentLikeTagRequest {
+	s.TagCode = &v
+	return s
+}
+
+func (s *TalentLikeTagRequest) SetUserId(v string) *TalentLikeTagRequest {
+	s.UserId = &v
+	return s
+}
+
+type TalentLikeTagResponseBody struct {
+	Result *TalentLikeTagResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s TalentLikeTagResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentLikeTagResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TalentLikeTagResponseBody) SetResult(v *TalentLikeTagResponseBodyResult) *TalentLikeTagResponseBody {
+	s.Result = v
+	return s
+}
+
+type TalentLikeTagResponseBodyResult struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s TalentLikeTagResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentLikeTagResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *TalentLikeTagResponseBodyResult) SetSuccess(v bool) *TalentLikeTagResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type TalentLikeTagResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TalentLikeTagResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TalentLikeTagResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentLikeTagResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TalentLikeTagResponse) SetHeaders(v map[string]*string) *TalentLikeTagResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TalentLikeTagResponse) SetStatusCode(v int32) *TalentLikeTagResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TalentLikeTagResponse) SetBody(v *TalentLikeTagResponseBody) *TalentLikeTagResponse {
+	s.Body = v
+	return s
+}
+
+type TalentQueryCustomTagHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TalentQueryCustomTagHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryCustomTagHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryCustomTagHeaders) SetCommonHeaders(v map[string]*string) *TalentQueryCustomTagHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TalentQueryCustomTagHeaders) SetXAcsDingtalkAccessToken(v string) *TalentQueryCustomTagHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TalentQueryCustomTagRequest struct {
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s TalentQueryCustomTagRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryCustomTagRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryCustomTagRequest) SetUserId(v string) *TalentQueryCustomTagRequest {
+	s.UserId = &v
+	return s
+}
+
+type TalentQueryCustomTagResponseBody struct {
+	Result *TalentQueryCustomTagResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s TalentQueryCustomTagResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryCustomTagResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryCustomTagResponseBody) SetResult(v *TalentQueryCustomTagResponseBodyResult) *TalentQueryCustomTagResponseBody {
+	s.Result = v
+	return s
+}
+
+type TalentQueryCustomTagResponseBodyResult struct {
+	Tags []*TalentQueryCustomTagResponseBodyResultTags `json:"tags,omitempty" xml:"tags,omitempty" type:"Repeated"`
+}
+
+func (s TalentQueryCustomTagResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryCustomTagResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryCustomTagResponseBodyResult) SetTags(v []*TalentQueryCustomTagResponseBodyResultTags) *TalentQueryCustomTagResponseBodyResult {
+	s.Tags = v
+	return s
+}
+
+type TalentQueryCustomTagResponseBodyResultTags struct {
+	SortOrder *int32  `json:"sortOrder,omitempty" xml:"sortOrder,omitempty"`
+	TagCode   *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	TagName   *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+}
+
+func (s TalentQueryCustomTagResponseBodyResultTags) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryCustomTagResponseBodyResultTags) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryCustomTagResponseBodyResultTags) SetSortOrder(v int32) *TalentQueryCustomTagResponseBodyResultTags {
+	s.SortOrder = &v
+	return s
+}
+
+func (s *TalentQueryCustomTagResponseBodyResultTags) SetTagCode(v string) *TalentQueryCustomTagResponseBodyResultTags {
+	s.TagCode = &v
+	return s
+}
+
+func (s *TalentQueryCustomTagResponseBodyResultTags) SetTagName(v string) *TalentQueryCustomTagResponseBodyResultTags {
+	s.TagName = &v
+	return s
+}
+
+type TalentQueryCustomTagResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TalentQueryCustomTagResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TalentQueryCustomTagResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryCustomTagResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryCustomTagResponse) SetHeaders(v map[string]*string) *TalentQueryCustomTagResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TalentQueryCustomTagResponse) SetStatusCode(v int32) *TalentQueryCustomTagResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TalentQueryCustomTagResponse) SetBody(v *TalentQueryCustomTagResponseBody) *TalentQueryCustomTagResponse {
+	s.Body = v
+	return s
+}
+
+type TalentQueryObjectiveTagHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TalentQueryObjectiveTagHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryObjectiveTagHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryObjectiveTagHeaders) SetCommonHeaders(v map[string]*string) *TalentQueryObjectiveTagHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TalentQueryObjectiveTagHeaders) SetXAcsDingtalkAccessToken(v string) *TalentQueryObjectiveTagHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TalentQueryObjectiveTagRequest struct {
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s TalentQueryObjectiveTagRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryObjectiveTagRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryObjectiveTagRequest) SetUserId(v string) *TalentQueryObjectiveTagRequest {
+	s.UserId = &v
+	return s
+}
+
+type TalentQueryObjectiveTagResponseBody struct {
+	Result *TalentQueryObjectiveTagResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s TalentQueryObjectiveTagResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryObjectiveTagResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryObjectiveTagResponseBody) SetResult(v *TalentQueryObjectiveTagResponseBodyResult) *TalentQueryObjectiveTagResponseBody {
+	s.Result = v
+	return s
+}
+
+type TalentQueryObjectiveTagResponseBodyResult struct {
+	Tags []*TalentQueryObjectiveTagResponseBodyResultTags `json:"tags,omitempty" xml:"tags,omitempty" type:"Repeated"`
+}
+
+func (s TalentQueryObjectiveTagResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryObjectiveTagResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryObjectiveTagResponseBodyResult) SetTags(v []*TalentQueryObjectiveTagResponseBodyResultTags) *TalentQueryObjectiveTagResponseBodyResult {
+	s.Tags = v
+	return s
+}
+
+type TalentQueryObjectiveTagResponseBodyResultTags struct {
+	SortOrder *int32  `json:"sortOrder,omitempty" xml:"sortOrder,omitempty"`
+	TagCode   *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	TagName   *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+}
+
+func (s TalentQueryObjectiveTagResponseBodyResultTags) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryObjectiveTagResponseBodyResultTags) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryObjectiveTagResponseBodyResultTags) SetSortOrder(v int32) *TalentQueryObjectiveTagResponseBodyResultTags {
+	s.SortOrder = &v
+	return s
+}
+
+func (s *TalentQueryObjectiveTagResponseBodyResultTags) SetTagCode(v string) *TalentQueryObjectiveTagResponseBodyResultTags {
+	s.TagCode = &v
+	return s
+}
+
+func (s *TalentQueryObjectiveTagResponseBodyResultTags) SetTagName(v string) *TalentQueryObjectiveTagResponseBodyResultTags {
+	s.TagName = &v
+	return s
+}
+
+type TalentQueryObjectiveTagResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TalentQueryObjectiveTagResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TalentQueryObjectiveTagResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryObjectiveTagResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryObjectiveTagResponse) SetHeaders(v map[string]*string) *TalentQueryObjectiveTagResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TalentQueryObjectiveTagResponse) SetStatusCode(v int32) *TalentQueryObjectiveTagResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TalentQueryObjectiveTagResponse) SetBody(v *TalentQueryObjectiveTagResponseBody) *TalentQueryObjectiveTagResponse {
+	s.Body = v
+	return s
+}
+
+type TalentQueryPersonalityTagHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TalentQueryPersonalityTagHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryPersonalityTagHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryPersonalityTagHeaders) SetCommonHeaders(v map[string]*string) *TalentQueryPersonalityTagHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TalentQueryPersonalityTagHeaders) SetXAcsDingtalkAccessToken(v string) *TalentQueryPersonalityTagHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TalentQueryPersonalityTagResponseBody struct {
+	Result *TalentQueryPersonalityTagResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s TalentQueryPersonalityTagResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryPersonalityTagResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryPersonalityTagResponseBody) SetResult(v *TalentQueryPersonalityTagResponseBodyResult) *TalentQueryPersonalityTagResponseBody {
+	s.Result = v
+	return s
+}
+
+type TalentQueryPersonalityTagResponseBodyResult struct {
+	Tags []*TalentQueryPersonalityTagResponseBodyResultTags `json:"tags,omitempty" xml:"tags,omitempty" type:"Repeated"`
+}
+
+func (s TalentQueryPersonalityTagResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryPersonalityTagResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryPersonalityTagResponseBodyResult) SetTags(v []*TalentQueryPersonalityTagResponseBodyResultTags) *TalentQueryPersonalityTagResponseBodyResult {
+	s.Tags = v
+	return s
+}
+
+type TalentQueryPersonalityTagResponseBodyResultTags struct {
+	CategoryCode      *string `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
+	CategoryName      *string `json:"categoryName,omitempty" xml:"categoryName,omitempty"`
+	CategorySortOrder *int32  `json:"categorySortOrder,omitempty" xml:"categorySortOrder,omitempty"`
+	SortOrder         *int32  `json:"sortOrder,omitempty" xml:"sortOrder,omitempty"`
+	TagCode           *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	TagName           *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+}
+
+func (s TalentQueryPersonalityTagResponseBodyResultTags) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryPersonalityTagResponseBodyResultTags) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryPersonalityTagResponseBodyResultTags) SetCategoryCode(v string) *TalentQueryPersonalityTagResponseBodyResultTags {
+	s.CategoryCode = &v
+	return s
+}
+
+func (s *TalentQueryPersonalityTagResponseBodyResultTags) SetCategoryName(v string) *TalentQueryPersonalityTagResponseBodyResultTags {
+	s.CategoryName = &v
+	return s
+}
+
+func (s *TalentQueryPersonalityTagResponseBodyResultTags) SetCategorySortOrder(v int32) *TalentQueryPersonalityTagResponseBodyResultTags {
+	s.CategorySortOrder = &v
+	return s
+}
+
+func (s *TalentQueryPersonalityTagResponseBodyResultTags) SetSortOrder(v int32) *TalentQueryPersonalityTagResponseBodyResultTags {
+	s.SortOrder = &v
+	return s
+}
+
+func (s *TalentQueryPersonalityTagResponseBodyResultTags) SetTagCode(v string) *TalentQueryPersonalityTagResponseBodyResultTags {
+	s.TagCode = &v
+	return s
+}
+
+func (s *TalentQueryPersonalityTagResponseBodyResultTags) SetTagName(v string) *TalentQueryPersonalityTagResponseBodyResultTags {
+	s.TagName = &v
+	return s
+}
+
+type TalentQueryPersonalityTagResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TalentQueryPersonalityTagResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TalentQueryPersonalityTagResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryPersonalityTagResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryPersonalityTagResponse) SetHeaders(v map[string]*string) *TalentQueryPersonalityTagResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TalentQueryPersonalityTagResponse) SetStatusCode(v int32) *TalentQueryPersonalityTagResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TalentQueryPersonalityTagResponse) SetBody(v *TalentQueryPersonalityTagResponseBody) *TalentQueryPersonalityTagResponse {
+	s.Body = v
+	return s
+}
+
+type TalentQueryTagLikeDetailListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TalentQueryTagLikeDetailListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryTagLikeDetailListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryTagLikeDetailListHeaders) SetCommonHeaders(v map[string]*string) *TalentQueryTagLikeDetailListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TalentQueryTagLikeDetailListHeaders) SetXAcsDingtalkAccessToken(v string) *TalentQueryTagLikeDetailListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TalentQueryTagLikeDetailListRequest struct {
+	Cursor *int64 `json:"cursor,omitempty" xml:"cursor,omitempty"`
+	Size   *int32 `json:"size,omitempty" xml:"size,omitempty"`
+	// This parameter is required.
+	TagCode *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s TalentQueryTagLikeDetailListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryTagLikeDetailListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryTagLikeDetailListRequest) SetCursor(v int64) *TalentQueryTagLikeDetailListRequest {
+	s.Cursor = &v
+	return s
+}
+
+func (s *TalentQueryTagLikeDetailListRequest) SetSize(v int32) *TalentQueryTagLikeDetailListRequest {
+	s.Size = &v
+	return s
+}
+
+func (s *TalentQueryTagLikeDetailListRequest) SetTagCode(v string) *TalentQueryTagLikeDetailListRequest {
+	s.TagCode = &v
+	return s
+}
+
+func (s *TalentQueryTagLikeDetailListRequest) SetUserId(v string) *TalentQueryTagLikeDetailListRequest {
+	s.UserId = &v
+	return s
+}
+
+type TalentQueryTagLikeDetailListResponseBody struct {
+	Result *TalentQueryTagLikeDetailListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s TalentQueryTagLikeDetailListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryTagLikeDetailListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryTagLikeDetailListResponseBody) SetResult(v *TalentQueryTagLikeDetailListResponseBodyResult) *TalentQueryTagLikeDetailListResponseBody {
+	s.Result = v
+	return s
+}
+
+type TalentQueryTagLikeDetailListResponseBodyResult struct {
+	HasMore     *bool                                                        `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	LikeDetails []*TalentQueryTagLikeDetailListResponseBodyResultLikeDetails `json:"likeDetails,omitempty" xml:"likeDetails,omitempty" type:"Repeated"`
+	NextCursor  *int64                                                       `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+}
+
+func (s TalentQueryTagLikeDetailListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryTagLikeDetailListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryTagLikeDetailListResponseBodyResult) SetHasMore(v bool) *TalentQueryTagLikeDetailListResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *TalentQueryTagLikeDetailListResponseBodyResult) SetLikeDetails(v []*TalentQueryTagLikeDetailListResponseBodyResultLikeDetails) *TalentQueryTagLikeDetailListResponseBodyResult {
+	s.LikeDetails = v
+	return s
+}
+
+func (s *TalentQueryTagLikeDetailListResponseBodyResult) SetNextCursor(v int64) *TalentQueryTagLikeDetailListResponseBodyResult {
+	s.NextCursor = &v
+	return s
+}
+
+type TalentQueryTagLikeDetailListResponseBodyResultLikeDetails struct {
+	LikeTimestamp  *int64  `json:"likeTimestamp,omitempty" xml:"likeTimestamp,omitempty"`
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+}
+
+func (s TalentQueryTagLikeDetailListResponseBodyResultLikeDetails) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryTagLikeDetailListResponseBodyResultLikeDetails) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryTagLikeDetailListResponseBodyResultLikeDetails) SetLikeTimestamp(v int64) *TalentQueryTagLikeDetailListResponseBodyResultLikeDetails {
+	s.LikeTimestamp = &v
+	return s
+}
+
+func (s *TalentQueryTagLikeDetailListResponseBodyResultLikeDetails) SetOperatorUserId(v string) *TalentQueryTagLikeDetailListResponseBodyResultLikeDetails {
+	s.OperatorUserId = &v
+	return s
+}
+
+type TalentQueryTagLikeDetailListResponse struct {
+	Headers    map[string]*string                        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TalentQueryTagLikeDetailListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TalentQueryTagLikeDetailListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryTagLikeDetailListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryTagLikeDetailListResponse) SetHeaders(v map[string]*string) *TalentQueryTagLikeDetailListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TalentQueryTagLikeDetailListResponse) SetStatusCode(v int32) *TalentQueryTagLikeDetailListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TalentQueryTagLikeDetailListResponse) SetBody(v *TalentQueryTagLikeDetailListResponseBody) *TalentQueryTagLikeDetailListResponse {
+	s.Body = v
+	return s
+}
+
+type TalentQueryTagLikeListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TalentQueryTagLikeListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryTagLikeListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryTagLikeListHeaders) SetCommonHeaders(v map[string]*string) *TalentQueryTagLikeListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TalentQueryTagLikeListHeaders) SetXAcsDingtalkAccessToken(v string) *TalentQueryTagLikeListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TalentQueryTagLikeListRequest struct {
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s TalentQueryTagLikeListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryTagLikeListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryTagLikeListRequest) SetOperatorUserId(v string) *TalentQueryTagLikeListRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *TalentQueryTagLikeListRequest) SetUserId(v string) *TalentQueryTagLikeListRequest {
+	s.UserId = &v
+	return s
+}
+
+type TalentQueryTagLikeListResponseBody struct {
+	Result *TalentQueryTagLikeListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s TalentQueryTagLikeListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryTagLikeListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryTagLikeListResponseBody) SetResult(v *TalentQueryTagLikeListResponseBodyResult) *TalentQueryTagLikeListResponseBody {
+	s.Result = v
+	return s
+}
+
+type TalentQueryTagLikeListResponseBodyResult struct {
+	TagLikes []*TalentQueryTagLikeListResponseBodyResultTagLikes `json:"tagLikes,omitempty" xml:"tagLikes,omitempty" type:"Repeated"`
+}
+
+func (s TalentQueryTagLikeListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryTagLikeListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryTagLikeListResponseBodyResult) SetTagLikes(v []*TalentQueryTagLikeListResponseBodyResultTagLikes) *TalentQueryTagLikeListResponseBodyResult {
+	s.TagLikes = v
+	return s
+}
+
+type TalentQueryTagLikeListResponseBodyResultTagLikes struct {
+	HasLiked  *bool   `json:"hasLiked,omitempty" xml:"hasLiked,omitempty"`
+	LikeCount *int32  `json:"likeCount,omitempty" xml:"likeCount,omitempty"`
+	TagCode   *string `json:"tagCode,omitempty" xml:"tagCode,omitempty"`
+	TagName   *string `json:"tagName,omitempty" xml:"tagName,omitempty"`
+}
+
+func (s TalentQueryTagLikeListResponseBodyResultTagLikes) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryTagLikeListResponseBodyResultTagLikes) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryTagLikeListResponseBodyResultTagLikes) SetHasLiked(v bool) *TalentQueryTagLikeListResponseBodyResultTagLikes {
+	s.HasLiked = &v
+	return s
+}
+
+func (s *TalentQueryTagLikeListResponseBodyResultTagLikes) SetLikeCount(v int32) *TalentQueryTagLikeListResponseBodyResultTagLikes {
+	s.LikeCount = &v
+	return s
+}
+
+func (s *TalentQueryTagLikeListResponseBodyResultTagLikes) SetTagCode(v string) *TalentQueryTagLikeListResponseBodyResultTagLikes {
+	s.TagCode = &v
+	return s
+}
+
+func (s *TalentQueryTagLikeListResponseBodyResultTagLikes) SetTagName(v string) *TalentQueryTagLikeListResponseBodyResultTagLikes {
+	s.TagName = &v
+	return s
+}
+
+type TalentQueryTagLikeListResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TalentQueryTagLikeListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TalentQueryTagLikeListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TalentQueryTagLikeListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TalentQueryTagLikeListResponse) SetHeaders(v map[string]*string) *TalentQueryTagLikeListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TalentQueryTagLikeListResponse) SetStatusCode(v int32) *TalentQueryTagLikeListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TalentQueryTagLikeListResponse) SetBody(v *TalentQueryTagLikeListResponseBody) *TalentQueryTagLikeListResponse {
 	s.Body = v
 	return s
 }
@@ -17362,6 +18932,10 @@ func (client *Client) SignOutWithOptions(request *SignOutRequest, headers *SignO
 		body["reason"] = request.Reason
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.ReasonI18nForEmployee)) {
+		body["reasonI18nForEmployee"] = request.ReasonI18nForEmployee
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		body["userId"] = request.UserId
 	}
@@ -17565,6 +19139,948 @@ func (client *Client) SubmitHandoverResource(request *SubmitHandoverResourceRequ
 	headers := &SubmitHandoverResourceHeaders{}
 	_result = &SubmitHandoverResourceResponse{}
 	_body, _err := client.SubmitHandoverResourceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：添加员工自定义标签
+//
+// @param request - TalentAddCustomTagRequest
+//
+// @param headers - TalentAddCustomTagHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TalentAddCustomTagResponse
+func (client *Client) TalentAddCustomTagWithOptions(request *TalentAddCustomTagRequest, headers *TalentAddCustomTagHeaders, runtime *util.RuntimeOptions) (_result *TalentAddCustomTagResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SortOrder)) {
+		body["sortOrder"] = request.SortOrder
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TagCode)) {
+		body["tagCode"] = request.TagCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TagName)) {
+		body["tagName"] = request.TagName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TalentAddCustomTag"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/talentTags/addCustomTag"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TalentAddCustomTagResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：添加员工自定义标签
+//
+// @param request - TalentAddCustomTagRequest
+//
+// @return TalentAddCustomTagResponse
+func (client *Client) TalentAddCustomTag(request *TalentAddCustomTagRequest) (_result *TalentAddCustomTagResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TalentAddCustomTagHeaders{}
+	_result = &TalentAddCustomTagResponse{}
+	_body, _err := client.TalentAddCustomTagWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：添加员工客观标签
+//
+// @param request - TalentAddObjectiveTagRequest
+//
+// @param headers - TalentAddObjectiveTagHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TalentAddObjectiveTagResponse
+func (client *Client) TalentAddObjectiveTagWithOptions(request *TalentAddObjectiveTagRequest, headers *TalentAddObjectiveTagHeaders, runtime *util.RuntimeOptions) (_result *TalentAddObjectiveTagResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SortOrder)) {
+		body["sortOrder"] = request.SortOrder
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TagCode)) {
+		body["tagCode"] = request.TagCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TagName)) {
+		body["tagName"] = request.TagName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TalentAddObjectiveTag"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/talentTags/addObjectiveTag"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TalentAddObjectiveTagResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：添加员工客观标签
+//
+// @param request - TalentAddObjectiveTagRequest
+//
+// @return TalentAddObjectiveTagResponse
+func (client *Client) TalentAddObjectiveTag(request *TalentAddObjectiveTagRequest) (_result *TalentAddObjectiveTagResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TalentAddObjectiveTagHeaders{}
+	_result = &TalentAddObjectiveTagResponse{}
+	_body, _err := client.TalentAddObjectiveTagWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：添加企业个性标签
+//
+// @param request - TalentAddPersonalityTagRequest
+//
+// @param headers - TalentAddPersonalityTagHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TalentAddPersonalityTagResponse
+func (client *Client) TalentAddPersonalityTagWithOptions(request *TalentAddPersonalityTagRequest, headers *TalentAddPersonalityTagHeaders, runtime *util.RuntimeOptions) (_result *TalentAddPersonalityTagResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CategoryCode)) {
+		body["categoryCode"] = request.CategoryCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CategoryName)) {
+		body["categoryName"] = request.CategoryName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CategorySortOrder)) {
+		body["categorySortOrder"] = request.CategorySortOrder
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SortOrder)) {
+		body["sortOrder"] = request.SortOrder
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TagCode)) {
+		body["tagCode"] = request.TagCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TagName)) {
+		body["tagName"] = request.TagName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TalentAddPersonalityTag"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/talentTags/addPersonalityTag"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TalentAddPersonalityTagResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：添加企业个性标签
+//
+// @param request - TalentAddPersonalityTagRequest
+//
+// @return TalentAddPersonalityTagResponse
+func (client *Client) TalentAddPersonalityTag(request *TalentAddPersonalityTagRequest) (_result *TalentAddPersonalityTagResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TalentAddPersonalityTagHeaders{}
+	_result = &TalentAddPersonalityTagResponse{}
+	_body, _err := client.TalentAddPersonalityTagWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：删除员工自定义标签并清除所有点赞记录
+//
+// @param request - TalentDeleteCustomTagRequest
+//
+// @param headers - TalentDeleteCustomTagHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TalentDeleteCustomTagResponse
+func (client *Client) TalentDeleteCustomTagWithOptions(request *TalentDeleteCustomTagRequest, headers *TalentDeleteCustomTagHeaders, runtime *util.RuntimeOptions) (_result *TalentDeleteCustomTagResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TagCode)) {
+		body["tagCode"] = request.TagCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TalentDeleteCustomTag"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/talentTags/deleteCustomTagWithClearLike"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TalentDeleteCustomTagResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：删除员工自定义标签并清除所有点赞记录
+//
+// @param request - TalentDeleteCustomTagRequest
+//
+// @return TalentDeleteCustomTagResponse
+func (client *Client) TalentDeleteCustomTag(request *TalentDeleteCustomTagRequest) (_result *TalentDeleteCustomTagResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TalentDeleteCustomTagHeaders{}
+	_result = &TalentDeleteCustomTagResponse{}
+	_body, _err := client.TalentDeleteCustomTagWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：删除员工客观标签
+//
+// @param request - TalentDeleteObjectiveTagRequest
+//
+// @param headers - TalentDeleteObjectiveTagHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TalentDeleteObjectiveTagResponse
+func (client *Client) TalentDeleteObjectiveTagWithOptions(request *TalentDeleteObjectiveTagRequest, headers *TalentDeleteObjectiveTagHeaders, runtime *util.RuntimeOptions) (_result *TalentDeleteObjectiveTagResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TagCode)) {
+		body["tagCode"] = request.TagCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TalentDeleteObjectiveTag"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/talentTags/deleteObjectiveTag"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TalentDeleteObjectiveTagResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：删除员工客观标签
+//
+// @param request - TalentDeleteObjectiveTagRequest
+//
+// @return TalentDeleteObjectiveTagResponse
+func (client *Client) TalentDeleteObjectiveTag(request *TalentDeleteObjectiveTagRequest) (_result *TalentDeleteObjectiveTagResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TalentDeleteObjectiveTagHeaders{}
+	_result = &TalentDeleteObjectiveTagResponse{}
+	_body, _err := client.TalentDeleteObjectiveTagWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：删除企业个性标签
+//
+// @param request - TalentDeletePersonalityTagRequest
+//
+// @param headers - TalentDeletePersonalityTagHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TalentDeletePersonalityTagResponse
+func (client *Client) TalentDeletePersonalityTagWithOptions(request *TalentDeletePersonalityTagRequest, headers *TalentDeletePersonalityTagHeaders, runtime *util.RuntimeOptions) (_result *TalentDeletePersonalityTagResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TagCode)) {
+		body["tagCode"] = request.TagCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TalentDeletePersonalityTag"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/talentTags/deletePersonalityTag"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TalentDeletePersonalityTagResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：删除企业个性标签
+//
+// @param request - TalentDeletePersonalityTagRequest
+//
+// @return TalentDeletePersonalityTagResponse
+func (client *Client) TalentDeletePersonalityTag(request *TalentDeletePersonalityTagRequest) (_result *TalentDeletePersonalityTagResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TalentDeletePersonalityTagHeaders{}
+	_result = &TalentDeletePersonalityTagResponse{}
+	_body, _err := client.TalentDeletePersonalityTagWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：点赞/取消点赞标签
+//
+// @param request - TalentLikeTagRequest
+//
+// @param headers - TalentLikeTagHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TalentLikeTagResponse
+func (client *Client) TalentLikeTagWithOptions(request *TalentLikeTagRequest, headers *TalentLikeTagHeaders, runtime *util.RuntimeOptions) (_result *TalentLikeTagResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActionType)) {
+		body["actionType"] = request.ActionType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TagCode)) {
+		body["tagCode"] = request.TagCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TalentLikeTag"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/talentTags/likeTag"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TalentLikeTagResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：点赞/取消点赞标签
+//
+// @param request - TalentLikeTagRequest
+//
+// @return TalentLikeTagResponse
+func (client *Client) TalentLikeTag(request *TalentLikeTagRequest) (_result *TalentLikeTagResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TalentLikeTagHeaders{}
+	_result = &TalentLikeTagResponse{}
+	_body, _err := client.TalentLikeTagWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：查询员工自定义标签
+//
+// @param request - TalentQueryCustomTagRequest
+//
+// @param headers - TalentQueryCustomTagHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TalentQueryCustomTagResponse
+func (client *Client) TalentQueryCustomTagWithOptions(request *TalentQueryCustomTagRequest, headers *TalentQueryCustomTagHeaders, runtime *util.RuntimeOptions) (_result *TalentQueryCustomTagResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TalentQueryCustomTag"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/talentTags/queryCustomTag"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TalentQueryCustomTagResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：查询员工自定义标签
+//
+// @param request - TalentQueryCustomTagRequest
+//
+// @return TalentQueryCustomTagResponse
+func (client *Client) TalentQueryCustomTag(request *TalentQueryCustomTagRequest) (_result *TalentQueryCustomTagResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TalentQueryCustomTagHeaders{}
+	_result = &TalentQueryCustomTagResponse{}
+	_body, _err := client.TalentQueryCustomTagWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：查询员工客观标签
+//
+// @param request - TalentQueryObjectiveTagRequest
+//
+// @param headers - TalentQueryObjectiveTagHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TalentQueryObjectiveTagResponse
+func (client *Client) TalentQueryObjectiveTagWithOptions(request *TalentQueryObjectiveTagRequest, headers *TalentQueryObjectiveTagHeaders, runtime *util.RuntimeOptions) (_result *TalentQueryObjectiveTagResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TalentQueryObjectiveTag"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/talentTags/queryObjectiveTag"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TalentQueryObjectiveTagResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：查询员工客观标签
+//
+// @param request - TalentQueryObjectiveTagRequest
+//
+// @return TalentQueryObjectiveTagResponse
+func (client *Client) TalentQueryObjectiveTag(request *TalentQueryObjectiveTagRequest) (_result *TalentQueryObjectiveTagResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TalentQueryObjectiveTagHeaders{}
+	_result = &TalentQueryObjectiveTagResponse{}
+	_body, _err := client.TalentQueryObjectiveTagWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：查询企业个性标签
+//
+// @param headers - TalentQueryPersonalityTagHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TalentQueryPersonalityTagResponse
+func (client *Client) TalentQueryPersonalityTagWithOptions(headers *TalentQueryPersonalityTagHeaders, runtime *util.RuntimeOptions) (_result *TalentQueryPersonalityTagResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TalentQueryPersonalityTag"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/talentTags/queryPersonalityTag"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TalentQueryPersonalityTagResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：查询企业个性标签
+//
+// @return TalentQueryPersonalityTagResponse
+func (client *Client) TalentQueryPersonalityTag() (_result *TalentQueryPersonalityTagResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TalentQueryPersonalityTagHeaders{}
+	_result = &TalentQueryPersonalityTagResponse{}
+	_body, _err := client.TalentQueryPersonalityTagWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：分页查询指定标签的点赞记录
+//
+// @param request - TalentQueryTagLikeDetailListRequest
+//
+// @param headers - TalentQueryTagLikeDetailListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TalentQueryTagLikeDetailListResponse
+func (client *Client) TalentQueryTagLikeDetailListWithOptions(request *TalentQueryTagLikeDetailListRequest, headers *TalentQueryTagLikeDetailListHeaders, runtime *util.RuntimeOptions) (_result *TalentQueryTagLikeDetailListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Cursor)) {
+		query["cursor"] = request.Cursor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Size)) {
+		query["size"] = request.Size
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TagCode)) {
+		query["tagCode"] = request.TagCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TalentQueryTagLikeDetailList"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/talentTags/queryTagLikeDetailList"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TalentQueryTagLikeDetailListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：分页查询指定标签的点赞记录
+//
+// @param request - TalentQueryTagLikeDetailListRequest
+//
+// @return TalentQueryTagLikeDetailListResponse
+func (client *Client) TalentQueryTagLikeDetailList(request *TalentQueryTagLikeDetailListRequest) (_result *TalentQueryTagLikeDetailListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TalentQueryTagLikeDetailListHeaders{}
+	_result = &TalentQueryTagLikeDetailListResponse{}
+	_body, _err := client.TalentQueryTagLikeDetailListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：查询点赞标签列表
+//
+// @param request - TalentQueryTagLikeListRequest
+//
+// @param headers - TalentQueryTagLikeListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TalentQueryTagLikeListResponse
+func (client *Client) TalentQueryTagLikeListWithOptions(request *TalentQueryTagLikeListRequest, headers *TalentQueryTagLikeListHeaders, runtime *util.RuntimeOptions) (_result *TalentQueryTagLikeListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		query["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TalentQueryTagLikeList"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/talentTags/queryTagLikeList"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TalentQueryTagLikeListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 人才标签：查询点赞标签列表
+//
+// @param request - TalentQueryTagLikeListRequest
+//
+// @return TalentQueryTagLikeListResponse
+func (client *Client) TalentQueryTagLikeList(request *TalentQueryTagLikeListRequest) (_result *TalentQueryTagLikeListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TalentQueryTagLikeListHeaders{}
+	_result = &TalentQueryTagLikeListResponse{}
+	_body, _err := client.TalentQueryTagLikeListWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

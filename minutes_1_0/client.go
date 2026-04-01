@@ -9,6 +9,241 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AdminSearchMinutesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AdminSearchMinutesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AdminSearchMinutesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AdminSearchMinutesHeaders) SetCommonHeaders(v map[string]*string) *AdminSearchMinutesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AdminSearchMinutesHeaders) SetXAcsDingtalkAccessToken(v string) *AdminSearchMinutesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AdminSearchMinutesRequest struct {
+	CreatorUnionIds []*string `json:"creatorUnionIds,omitempty" xml:"creatorUnionIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 1700100000000
+	EndTime   *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	PageSize *int32 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 会议纪要
+	Query *string `json:"query,omitempty" xml:"query,omitempty"`
+	// example:
+	//
+	// fulltext
+	SearchType *string `json:"searchType,omitempty" xml:"searchType,omitempty"`
+	// example:
+	//
+	// 1700000000000
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lJcRnm39OsU4jlFVmRGXXXXX
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s AdminSearchMinutesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AdminSearchMinutesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AdminSearchMinutesRequest) SetCreatorUnionIds(v []*string) *AdminSearchMinutesRequest {
+	s.CreatorUnionIds = v
+	return s
+}
+
+func (s *AdminSearchMinutesRequest) SetEndTime(v int64) *AdminSearchMinutesRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *AdminSearchMinutesRequest) SetNextToken(v string) *AdminSearchMinutesRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *AdminSearchMinutesRequest) SetPageSize(v int32) *AdminSearchMinutesRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *AdminSearchMinutesRequest) SetQuery(v string) *AdminSearchMinutesRequest {
+	s.Query = &v
+	return s
+}
+
+func (s *AdminSearchMinutesRequest) SetSearchType(v string) *AdminSearchMinutesRequest {
+	s.SearchType = &v
+	return s
+}
+
+func (s *AdminSearchMinutesRequest) SetStartTime(v int64) *AdminSearchMinutesRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *AdminSearchMinutesRequest) SetUnionId(v string) *AdminSearchMinutesRequest {
+	s.UnionId = &v
+	return s
+}
+
+type AdminSearchMinutesResponseBody struct {
+	HasMore     *bool                                        `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	MinutesList []*AdminSearchMinutesResponseBodyMinutesList `json:"minutesList,omitempty" xml:"minutesList,omitempty" type:"Repeated"`
+	NextToken   *string                                      `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s AdminSearchMinutesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AdminSearchMinutesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AdminSearchMinutesResponseBody) SetHasMore(v bool) *AdminSearchMinutesResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *AdminSearchMinutesResponseBody) SetMinutesList(v []*AdminSearchMinutesResponseBodyMinutesList) *AdminSearchMinutesResponseBody {
+	s.MinutesList = v
+	return s
+}
+
+func (s *AdminSearchMinutesResponseBody) SetNextToken(v string) *AdminSearchMinutesResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type AdminSearchMinutesResponseBodyMinutesList struct {
+	BizType         *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	CreatorNick     *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
+	CreatorUnionId  *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	Duration        *int64  `json:"duration,omitempty" xml:"duration,omitempty"`
+	FullTextSummary *string `json:"fullTextSummary,omitempty" xml:"fullTextSummary,omitempty"`
+	OriginalText    *string `json:"originalText,omitempty" xml:"originalText,omitempty"`
+	StartTime       *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Status          *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	TaskUuid        *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
+	Title           *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s AdminSearchMinutesResponseBodyMinutesList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AdminSearchMinutesResponseBodyMinutesList) GoString() string {
+	return s.String()
+}
+
+func (s *AdminSearchMinutesResponseBodyMinutesList) SetBizType(v int32) *AdminSearchMinutesResponseBodyMinutesList {
+	s.BizType = &v
+	return s
+}
+
+func (s *AdminSearchMinutesResponseBodyMinutesList) SetCreatorNick(v string) *AdminSearchMinutesResponseBodyMinutesList {
+	s.CreatorNick = &v
+	return s
+}
+
+func (s *AdminSearchMinutesResponseBodyMinutesList) SetCreatorUnionId(v string) *AdminSearchMinutesResponseBodyMinutesList {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *AdminSearchMinutesResponseBodyMinutesList) SetDuration(v int64) *AdminSearchMinutesResponseBodyMinutesList {
+	s.Duration = &v
+	return s
+}
+
+func (s *AdminSearchMinutesResponseBodyMinutesList) SetFullTextSummary(v string) *AdminSearchMinutesResponseBodyMinutesList {
+	s.FullTextSummary = &v
+	return s
+}
+
+func (s *AdminSearchMinutesResponseBodyMinutesList) SetOriginalText(v string) *AdminSearchMinutesResponseBodyMinutesList {
+	s.OriginalText = &v
+	return s
+}
+
+func (s *AdminSearchMinutesResponseBodyMinutesList) SetStartTime(v int64) *AdminSearchMinutesResponseBodyMinutesList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *AdminSearchMinutesResponseBodyMinutesList) SetStatus(v int32) *AdminSearchMinutesResponseBodyMinutesList {
+	s.Status = &v
+	return s
+}
+
+func (s *AdminSearchMinutesResponseBodyMinutesList) SetTaskUuid(v string) *AdminSearchMinutesResponseBodyMinutesList {
+	s.TaskUuid = &v
+	return s
+}
+
+func (s *AdminSearchMinutesResponseBodyMinutesList) SetTitle(v string) *AdminSearchMinutesResponseBodyMinutesList {
+	s.Title = &v
+	return s
+}
+
+type AdminSearchMinutesResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AdminSearchMinutesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AdminSearchMinutesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AdminSearchMinutesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AdminSearchMinutesResponse) SetHeaders(v map[string]*string) *AdminSearchMinutesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AdminSearchMinutesResponse) SetStatusCode(v int32) *AdminSearchMinutesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AdminSearchMinutesResponse) SetBody(v *AdminSearchMinutesResponseBody) *AdminSearchMinutesResponse {
+	s.Body = v
+	return s
+}
+
 type BatchGetMinutesDetailsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -205,7 +440,16 @@ type CreateMinutesByUploadFileRequest struct {
 	// example:
 	//
 	// lJcRnm39OsU4jlFVmRGXXXXX
-	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	CreatorId    *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	CustomPrompt *string `json:"customPrompt,omitempty" xml:"customPrompt,omitempty"`
+	// example:
+	//
+	// true
+	EnablePushCard *bool `json:"enablePushCard,omitempty" xml:"enablePushCard,omitempty"`
+	// example:
+	//
+	// false
+	HiddenMinutes *bool `json:"hiddenMinutes,omitempty" xml:"hiddenMinutes,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -247,6 +491,21 @@ func (s *CreateMinutesByUploadFileRequest) SetBizId(v string) *CreateMinutesByUp
 
 func (s *CreateMinutesByUploadFileRequest) SetCreatorId(v string) *CreateMinutesByUploadFileRequest {
 	s.CreatorId = &v
+	return s
+}
+
+func (s *CreateMinutesByUploadFileRequest) SetCustomPrompt(v string) *CreateMinutesByUploadFileRequest {
+	s.CustomPrompt = &v
+	return s
+}
+
+func (s *CreateMinutesByUploadFileRequest) SetEnablePushCard(v bool) *CreateMinutesByUploadFileRequest {
+	s.EnablePushCard = &v
+	return s
+}
+
+func (s *CreateMinutesByUploadFileRequest) SetHiddenMinutes(v bool) *CreateMinutesByUploadFileRequest {
+	s.HiddenMinutes = &v
 	return s
 }
 
@@ -3578,6 +3837,110 @@ func (s *QueryUserMinutesPermissionResponse) SetBody(v *QueryUserMinutesPermissi
 	return s
 }
 
+type RegenerateChaptersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RegenerateChaptersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegenerateChaptersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RegenerateChaptersHeaders) SetCommonHeaders(v map[string]*string) *RegenerateChaptersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RegenerateChaptersHeaders) SetXAcsDingtalkAccessToken(v string) *RegenerateChaptersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RegenerateChaptersRequest struct {
+	CustomPrompt *string `json:"customPrompt,omitempty" xml:"customPrompt,omitempty"`
+	// This parameter is required.
+	TaskUuid *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lJcRnm39OsU4jlFVmRGXXXXX
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s RegenerateChaptersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegenerateChaptersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RegenerateChaptersRequest) SetCustomPrompt(v string) *RegenerateChaptersRequest {
+	s.CustomPrompt = &v
+	return s
+}
+
+func (s *RegenerateChaptersRequest) SetTaskUuid(v string) *RegenerateChaptersRequest {
+	s.TaskUuid = &v
+	return s
+}
+
+func (s *RegenerateChaptersRequest) SetUnionId(v string) *RegenerateChaptersRequest {
+	s.UnionId = &v
+	return s
+}
+
+type RegenerateChaptersResponseBody struct {
+	TaskUuid *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
+}
+
+func (s RegenerateChaptersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegenerateChaptersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RegenerateChaptersResponseBody) SetTaskUuid(v string) *RegenerateChaptersResponseBody {
+	s.TaskUuid = &v
+	return s
+}
+
+type RegenerateChaptersResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RegenerateChaptersResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s RegenerateChaptersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RegenerateChaptersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RegenerateChaptersResponse) SetHeaders(v map[string]*string) *RegenerateChaptersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RegenerateChaptersResponse) SetStatusCode(v int32) *RegenerateChaptersResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RegenerateChaptersResponse) SetBody(v *RegenerateChaptersResponseBody) *RegenerateChaptersResponse {
+	s.Body = v
+	return s
+}
+
 type SetDetailPageCustomTabHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4339,6 +4702,109 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 
 // Summary:
 //
+// 搜索企业内听记
+//
+// @param request - AdminSearchMinutesRequest
+//
+// @param headers - AdminSearchMinutesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AdminSearchMinutesResponse
+func (client *Client) AdminSearchMinutesWithOptions(request *AdminSearchMinutesRequest, headers *AdminSearchMinutesHeaders, runtime *util.RuntimeOptions) (_result *AdminSearchMinutesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CreatorUnionIds)) {
+		body["creatorUnionIds"] = request.CreatorUnionIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Query)) {
+		body["query"] = request.Query
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SearchType)) {
+		body["searchType"] = request.SearchType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AdminSearchMinutes"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/flashMinutes/adminSearch"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AdminSearchMinutesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 搜索企业内听记
+//
+// @param request - AdminSearchMinutesRequest
+//
+// @return AdminSearchMinutesResponse
+func (client *Client) AdminSearchMinutes(request *AdminSearchMinutesRequest) (_result *AdminSearchMinutesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AdminSearchMinutesHeaders{}
+	_result = &AdminSearchMinutesResponse{}
+	_body, _err := client.AdminSearchMinutesWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 批量获取闪记详情
 //
 // @param request - BatchGetMinutesDetailsRequest
@@ -4444,6 +4910,18 @@ func (client *Client) CreateMinutesByUploadFileWithOptions(request *CreateMinute
 
 	if !tea.BoolValue(util.IsUnset(request.CreatorId)) {
 		body["creatorId"] = request.CreatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CustomPrompt)) {
+		body["customPrompt"] = request.CustomPrompt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnablePushCard)) {
+		body["enablePushCard"] = request.EnablePushCard
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HiddenMinutes)) {
+		body["hiddenMinutes"] = request.HiddenMinutes
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.MediaFileUrl)) {
@@ -6224,6 +6702,89 @@ func (client *Client) QueryUserMinutesPermission(taskUuid *string, unionId *stri
 	headers := &QueryUserMinutesPermissionHeaders{}
 	_result = &QueryUserMinutesPermissionResponse{}
 	_body, _err := client.QueryUserMinutesPermissionWithOptions(taskUuid, unionId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 重新生成听记智能章节
+//
+// @param request - RegenerateChaptersRequest
+//
+// @param headers - RegenerateChaptersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RegenerateChaptersResponse
+func (client *Client) RegenerateChaptersWithOptions(request *RegenerateChaptersRequest, headers *RegenerateChaptersHeaders, runtime *util.RuntimeOptions) (_result *RegenerateChaptersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskUuid)) {
+		query["taskUuid"] = request.TaskUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CustomPrompt)) {
+		body["customPrompt"] = request.CustomPrompt
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RegenerateChapters"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/chapters/regenerate"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RegenerateChaptersResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 重新生成听记智能章节
+//
+// @param request - RegenerateChaptersRequest
+//
+// @return RegenerateChaptersResponse
+func (client *Client) RegenerateChapters(request *RegenerateChaptersRequest) (_result *RegenerateChaptersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RegenerateChaptersHeaders{}
+	_result = &RegenerateChaptersResponse{}
+	_body, _err := client.RegenerateChaptersWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

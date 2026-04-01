@@ -42405,7 +42405,7 @@ func (client *Client) IndustryMmanufactureMaterialCostGet(request *IndustryMmanu
 
 // Summary:
 //
-// 查询订单转换结果
+// 订单转换
 //
 // @param request - OrderConvertRequest
 //
@@ -42467,7 +42467,7 @@ func (client *Client) OrderConvertWithOptions(request *OrderConvertRequest, head
 
 // Summary:
 //
-// 查询订单转换结果
+// 订单转换
 //
 // @param request - OrderConvertRequest
 //
