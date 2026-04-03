@@ -5050,6 +5050,145 @@ func (s *ListAclsResponse) SetBody(v *ListAclsResponseBody) *ListAclsResponse {
 	return s
 }
 
+type ListAiMinutesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	DingAccessTokenType     *string            `json:"dingAccessTokenType,omitempty" xml:"dingAccessTokenType,omitempty"`
+	DingIsvOrgId            *string            `json:"dingIsvOrgId,omitempty" xml:"dingIsvOrgId,omitempty"`
+	DingOrgId               *string            `json:"dingOrgId,omitempty" xml:"dingOrgId,omitempty"`
+	DingSuiteKey            *string            `json:"dingSuiteKey,omitempty" xml:"dingSuiteKey,omitempty"`
+	DingUid                 *string            `json:"dingUid,omitempty" xml:"dingUid,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListAiMinutesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAiMinutesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListAiMinutesHeaders) SetCommonHeaders(v map[string]*string) *ListAiMinutesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListAiMinutesHeaders) SetDingAccessTokenType(v string) *ListAiMinutesHeaders {
+	s.DingAccessTokenType = &v
+	return s
+}
+
+func (s *ListAiMinutesHeaders) SetDingIsvOrgId(v string) *ListAiMinutesHeaders {
+	s.DingIsvOrgId = &v
+	return s
+}
+
+func (s *ListAiMinutesHeaders) SetDingOrgId(v string) *ListAiMinutesHeaders {
+	s.DingOrgId = &v
+	return s
+}
+
+func (s *ListAiMinutesHeaders) SetDingSuiteKey(v string) *ListAiMinutesHeaders {
+	s.DingSuiteKey = &v
+	return s
+}
+
+func (s *ListAiMinutesHeaders) SetDingUid(v string) *ListAiMinutesHeaders {
+	s.DingUid = &v
+	return s
+}
+
+func (s *ListAiMinutesHeaders) SetXAcsDingtalkAccessToken(v string) *ListAiMinutesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListAiMinutesRequest struct {
+	FetchAll *bool `json:"fetchAll,omitempty" xml:"fetchAll,omitempty"`
+}
+
+func (s ListAiMinutesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAiMinutesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListAiMinutesRequest) SetFetchAll(v bool) *ListAiMinutesRequest {
+	s.FetchAll = &v
+	return s
+}
+
+type ListAiMinutesResponseBody struct {
+	Minutes []*ListAiMinutesResponseBodyMinutes `json:"minutes,omitempty" xml:"minutes,omitempty" type:"Repeated"`
+}
+
+func (s ListAiMinutesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAiMinutesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListAiMinutesResponseBody) SetMinutes(v []*ListAiMinutesResponseBodyMinutes) *ListAiMinutesResponseBody {
+	s.Minutes = v
+	return s
+}
+
+type ListAiMinutesResponseBodyMinutes struct {
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	MinutesId     *string `json:"minutesId,omitempty" xml:"minutesId,omitempty"`
+}
+
+func (s ListAiMinutesResponseBodyMinutes) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAiMinutesResponseBodyMinutes) GoString() string {
+	return s.String()
+}
+
+func (s *ListAiMinutesResponseBodyMinutes) SetCreatorUserId(v string) *ListAiMinutesResponseBodyMinutes {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *ListAiMinutesResponseBodyMinutes) SetMinutesId(v string) *ListAiMinutesResponseBodyMinutes {
+	s.MinutesId = &v
+	return s
+}
+
+type ListAiMinutesResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListAiMinutesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListAiMinutesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListAiMinutesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListAiMinutesResponse) SetHeaders(v map[string]*string) *ListAiMinutesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListAiMinutesResponse) SetStatusCode(v int32) *ListAiMinutesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListAiMinutesResponse) SetBody(v *ListAiMinutesResponseBody) *ListAiMinutesResponse {
+	s.Body = v
+	return s
+}
+
 type ListAttendeesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -12747,6 +12886,99 @@ func (client *Client) ListAcls(userId *string, calendarId *string) (_result *Lis
 	headers := &ListAclsHeaders{}
 	_result = &ListAclsResponse{}
 	_body, _err := client.ListAclsWithOptions(userId, calendarId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 拉取日程中绑定的听记信息
+//
+// @param request - ListAiMinutesRequest
+//
+// @param headers - ListAiMinutesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListAiMinutesResponse
+func (client *Client) ListAiMinutesWithOptions(userId *string, calendarId *string, eventId *string, request *ListAiMinutesRequest, headers *ListAiMinutesHeaders, runtime *util.RuntimeOptions) (_result *ListAiMinutesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FetchAll)) {
+		query["fetchAll"] = request.FetchAll
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.DingAccessTokenType)) {
+		realHeaders["dingAccessTokenType"] = util.ToJSONString(headers.DingAccessTokenType)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.DingIsvOrgId)) {
+		realHeaders["dingIsvOrgId"] = util.ToJSONString(headers.DingIsvOrgId)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.DingOrgId)) {
+		realHeaders["dingOrgId"] = util.ToJSONString(headers.DingOrgId)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.DingSuiteKey)) {
+		realHeaders["dingSuiteKey"] = util.ToJSONString(headers.DingSuiteKey)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.DingUid)) {
+		realHeaders["dingUid"] = util.ToJSONString(headers.DingUid)
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListAiMinutes"),
+		Version:     tea.String("calendar_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/calendar/users/" + tea.StringValue(userId) + "/calendars/" + tea.StringValue(calendarId) + "/events/" + tea.StringValue(eventId) + "/minutes"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListAiMinutesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 拉取日程中绑定的听记信息
+//
+// @param request - ListAiMinutesRequest
+//
+// @return ListAiMinutesResponse
+func (client *Client) ListAiMinutes(userId *string, calendarId *string, eventId *string, request *ListAiMinutesRequest) (_result *ListAiMinutesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListAiMinutesHeaders{}
+	_result = &ListAiMinutesResponse{}
+	_body, _err := client.ListAiMinutesWithOptions(userId, calendarId, eventId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

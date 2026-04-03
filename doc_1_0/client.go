@@ -7726,7 +7726,7 @@ type InsertContentRequest struct {
 	// example:
 	//
 	// content
-	Content map[string]interface{} `json:"content,omitempty" xml:"content,omitempty"`
+	Content *InsertContentRequestContent `json:"content,omitempty" xml:"content,omitempty" type:"Struct"`
 	// example:
 	//
 	// index
@@ -7751,7 +7751,7 @@ func (s InsertContentRequest) GoString() string {
 	return s.String()
 }
 
-func (s *InsertContentRequest) SetContent(v map[string]interface{}) *InsertContentRequest {
+func (s *InsertContentRequest) SetContent(v *InsertContentRequestContent) *InsertContentRequest {
 	s.Content = v
 	return s
 }
@@ -7768,6 +7768,39 @@ func (s *InsertContentRequest) SetPath(v []*int32) *InsertContentRequest {
 
 func (s *InsertContentRequest) SetOperatorId(v string) *InsertContentRequest {
 	s.OperatorId = &v
+	return s
+}
+
+type InsertContentRequestContent struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// content
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// markdown
+	Type *string `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s InsertContentRequestContent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InsertContentRequestContent) GoString() string {
+	return s.String()
+}
+
+func (s *InsertContentRequestContent) SetContent(v string) *InsertContentRequestContent {
+	s.Content = &v
+	return s
+}
+
+func (s *InsertContentRequestContent) SetType(v string) *InsertContentRequestContent {
+	s.Type = &v
 	return s
 }
 
@@ -10518,8 +10551,14 @@ func (s *UpdateSheetHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateSheetHe
 }
 
 type UpdateSheetRequest struct {
+	// example:
+	//
+	// frozen_column_count
 	FrozenColumnCount *int64 `json:"frozenColumnCount,omitempty" xml:"frozenColumnCount,omitempty"`
-	FrozenRowCount    *int64 `json:"frozenRowCount,omitempty" xml:"frozenRowCount,omitempty"`
+	// example:
+	//
+	// frozen_row_count
+	FrozenRowCount *int64 `json:"frozenRowCount,omitempty" xml:"frozenRowCount,omitempty"`
 	// example:
 	//
 	// sheet_name
@@ -10569,9 +10608,30 @@ func (s *UpdateSheetRequest) SetOperatorId(v string) *UpdateSheetRequest {
 	return s
 }
 
+type UpdateSheetResponseBody struct {
+	// example:
+	//
+	// sheet_id
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s UpdateSheetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSheetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSheetResponseBody) SetId(v string) *UpdateSheetResponseBody {
+	s.Id = &v
+	return s
+}
+
 type UpdateSheetResponse struct {
-	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
-	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateSheetResponseBody `json:"body,omitempty" xml:"body,omitempty"`
 }
 
 func (s UpdateSheetResponse) String() string {
@@ -10589,6 +10649,11 @@ func (s *UpdateSheetResponse) SetHeaders(v map[string]*string) *UpdateSheetRespo
 
 func (s *UpdateSheetResponse) SetStatusCode(v int32) *UpdateSheetResponse {
 	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateSheetResponse) SetBody(v *UpdateSheetResponseBody) *UpdateSheetResponse {
+	s.Body = v
 	return s
 }
 
@@ -16942,7 +17007,7 @@ func (client *Client) UpdateSheetWithOptions(workbookId *string, sheetId *string
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
 		ReqBodyType: tea.String("none"),
-		BodyType:    tea.String("none"),
+		BodyType:    tea.String("json"),
 	}
 	_result = &UpdateSheetResponse{}
 	_body, _err := client.Execute(params, req, runtime)

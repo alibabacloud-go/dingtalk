@@ -1811,6 +1811,12 @@ type GetInnerAppInfoResponseBody struct {
 	MobileLoginRequestMethod  *string `json:"mobileLoginRequestMethod,omitempty" xml:"mobileLoginRequestMethod,omitempty"`
 	MobileOriginalHomepageUrl *string `json:"mobileOriginalHomepageUrl,omitempty" xml:"mobileOriginalHomepageUrl,omitempty"`
 	MobileTransferUrl         *string `json:"mobileTransferUrl,omitempty" xml:"mobileTransferUrl,omitempty"`
+	PadEffectiveHomepageUrl   *string `json:"padEffectiveHomepageUrl,omitempty" xml:"padEffectiveHomepageUrl,omitempty"`
+	PadLoginAddressKey        *string `json:"padLoginAddressKey,omitempty" xml:"padLoginAddressKey,omitempty"`
+	PadLoginLoginUrl          *string `json:"padLoginLoginUrl,omitempty" xml:"padLoginLoginUrl,omitempty"`
+	PadLoginRequestMethod     *string `json:"padLoginRequestMethod,omitempty" xml:"padLoginRequestMethod,omitempty"`
+	PadOriginalHomepageUrl    *string `json:"padOriginalHomepageUrl,omitempty" xml:"padOriginalHomepageUrl,omitempty"`
+	PadTransferUrl            *string `json:"padTransferUrl,omitempty" xml:"padTransferUrl,omitempty"`
 	PcEffectiveHomepageUrl    *string `json:"pcEffectiveHomepageUrl,omitempty" xml:"pcEffectiveHomepageUrl,omitempty"`
 	PcLoginAddressKey         *string `json:"pcLoginAddressKey,omitempty" xml:"pcLoginAddressKey,omitempty"`
 	PcLoginLoginUrl           *string `json:"pcLoginLoginUrl,omitempty" xml:"pcLoginLoginUrl,omitempty"`
@@ -1864,6 +1870,36 @@ func (s *GetInnerAppInfoResponseBody) SetMobileOriginalHomepageUrl(v string) *Ge
 
 func (s *GetInnerAppInfoResponseBody) SetMobileTransferUrl(v string) *GetInnerAppInfoResponseBody {
 	s.MobileTransferUrl = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetPadEffectiveHomepageUrl(v string) *GetInnerAppInfoResponseBody {
+	s.PadEffectiveHomepageUrl = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetPadLoginAddressKey(v string) *GetInnerAppInfoResponseBody {
+	s.PadLoginAddressKey = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetPadLoginLoginUrl(v string) *GetInnerAppInfoResponseBody {
+	s.PadLoginLoginUrl = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetPadLoginRequestMethod(v string) *GetInnerAppInfoResponseBody {
+	s.PadLoginRequestMethod = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetPadOriginalHomepageUrl(v string) *GetInnerAppInfoResponseBody {
+	s.PadOriginalHomepageUrl = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetPadTransferUrl(v string) *GetInnerAppInfoResponseBody {
+	s.PadTransferUrl = &v
 	return s
 }
 

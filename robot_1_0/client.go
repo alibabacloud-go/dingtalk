@@ -747,6 +747,114 @@ func (s *ClearRobotPluginResponse) SetBody(v *ClearRobotPluginResponseBody) *Cle
 	return s
 }
 
+type DeleteCustomRobotHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteCustomRobotHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCustomRobotHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCustomRobotHeaders) SetCommonHeaders(v map[string]*string) *DeleteCustomRobotHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteCustomRobotHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteCustomRobotHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteCustomRobotRequest struct {
+	// This parameter is required.
+	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
+	// This parameter is required.
+	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	// This parameter is required.
+	SendNotification *bool `json:"sendNotification,omitempty" xml:"sendNotification,omitempty"`
+	// This parameter is required.
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+}
+
+func (s DeleteCustomRobotRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCustomRobotRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCustomRobotRequest) SetActionType(v string) *DeleteCustomRobotRequest {
+	s.ActionType = &v
+	return s
+}
+
+func (s *DeleteCustomRobotRequest) SetOperatorUserId(v string) *DeleteCustomRobotRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *DeleteCustomRobotRequest) SetSendNotification(v bool) *DeleteCustomRobotRequest {
+	s.SendNotification = &v
+	return s
+}
+
+func (s *DeleteCustomRobotRequest) SetToken(v string) *DeleteCustomRobotRequest {
+	s.Token = &v
+	return s
+}
+
+type DeleteCustomRobotResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeleteCustomRobotResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCustomRobotResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCustomRobotResponseBody) SetResult(v bool) *DeleteCustomRobotResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeleteCustomRobotResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteCustomRobotResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteCustomRobotResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteCustomRobotResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteCustomRobotResponse) SetHeaders(v map[string]*string) *DeleteCustomRobotResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteCustomRobotResponse) SetStatusCode(v int32) *DeleteCustomRobotResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteCustomRobotResponse) SetBody(v *DeleteCustomRobotResponseBody) *DeleteCustomRobotResponse {
+	s.Body = v
+	return s
+}
+
 type ExecuteRobotAiSkillHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3824,6 +3932,91 @@ func (client *Client) ClearRobotPlugin(request *ClearRobotPluginRequest) (_resul
 	headers := &ClearRobotPluginHeaders{}
 	_result = &ClearRobotPluginResponse{}
 	_body, _err := client.ClearRobotPluginWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除自定义机器人
+//
+// @param request - DeleteCustomRobotRequest
+//
+// @param headers - DeleteCustomRobotHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteCustomRobotResponse
+func (client *Client) DeleteCustomRobotWithOptions(request *DeleteCustomRobotRequest, headers *DeleteCustomRobotHeaders, runtime *util.RuntimeOptions) (_result *DeleteCustomRobotResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ActionType)) {
+		body["actionType"] = request.ActionType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SendNotification)) {
+		body["sendNotification"] = request.SendNotification
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		body["token"] = request.Token
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteCustomRobot"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/custom/delete"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteCustomRobotResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除自定义机器人
+//
+// @param request - DeleteCustomRobotRequest
+//
+// @return DeleteCustomRobotResponse
+func (client *Client) DeleteCustomRobot(request *DeleteCustomRobotRequest) (_result *DeleteCustomRobotResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteCustomRobotHeaders{}
+	_result = &DeleteCustomRobotResponse{}
+	_body, _err := client.DeleteCustomRobotWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

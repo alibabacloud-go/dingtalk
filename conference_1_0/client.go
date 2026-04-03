@@ -1161,7 +1161,8 @@ func (s *CreateScheduleConferenceRequest) SetTitle(v string) *CreateScheduleConf
 }
 
 type CreateScheduleConferenceRequestScheduleConfSettingModel struct {
-	CohostUnionIds []*string `json:"cohostUnionIds,omitempty" xml:"cohostUnionIds,omitempty" type:"Repeated"`
+	AiAgentSummarySetting *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting `json:"aiAgentSummarySetting,omitempty" xml:"aiAgentSummarySetting,omitempty" type:"Struct"`
+	CohostUnionIds        []*string                                                                     `json:"cohostUnionIds,omitempty" xml:"cohostUnionIds,omitempty" type:"Repeated"`
 	// example:
 	//
 	// dingc02f685fa06381c44ac5d6980864d335
@@ -1192,6 +1193,11 @@ func (s CreateScheduleConferenceRequestScheduleConfSettingModel) String() string
 
 func (s CreateScheduleConferenceRequestScheduleConfSettingModel) GoString() string {
 	return s.String()
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModel) SetAiAgentSummarySetting(v *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting) *CreateScheduleConferenceRequestScheduleConfSettingModel {
+	s.AiAgentSummarySetting = v
+	return s
 }
 
 func (s *CreateScheduleConferenceRequestScheduleConfSettingModel) SetCohostUnionIds(v []*string) *CreateScheduleConferenceRequestScheduleConfSettingModel {
@@ -1234,6 +1240,50 @@ func (s *CreateScheduleConferenceRequestScheduleConfSettingModel) SetScreenShare
 	return s
 }
 
+type CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting struct {
+	AllowAllParticipantsStart       *int32 `json:"allowAllParticipantsStart,omitempty" xml:"allowAllParticipantsStart,omitempty"`
+	ReceiverType                    *int32 `json:"receiverType,omitempty" xml:"receiverType,omitempty"`
+	RestrictShareMinutesSummaryOnly *int32 `json:"restrictShareMinutesSummaryOnly,omitempty" xml:"restrictShareMinutesSummaryOnly,omitempty"`
+	StartType                       *int32 `json:"startType,omitempty" xml:"startType,omitempty"`
+	// example:
+	//
+	// disable
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting) GoString() string {
+	return s.String()
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting) SetAllowAllParticipantsStart(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting {
+	s.AllowAllParticipantsStart = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting) SetReceiverType(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting {
+	s.ReceiverType = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting) SetRestrictShareMinutesSummaryOnly(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting {
+	s.RestrictShareMinutesSummaryOnly = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting) SetStartType(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting {
+	s.StartType = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting) SetValue(v string) *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting {
+	s.Value = &v
+	return s
+}
+
 type CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting struct {
 	// example:
 	//
@@ -1250,7 +1300,8 @@ type CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSe
 	// example:
 	//
 	// 0：我以主持人身份入会后自动开启 1：其他人以联席主持人身份入会后开启 2：任何人以任何身份入会后开启
-	RecordAutoStartType *int32 `json:"recordAutoStartType,omitempty" xml:"recordAutoStartType,omitempty"`
+	RecordAutoStartType             *int32 `json:"recordAutoStartType,omitempty" xml:"recordAutoStartType,omitempty"`
+	RestrictShareMinutesSummaryOnly *int32 `json:"restrictShareMinutesSummaryOnly,omitempty" xml:"restrictShareMinutesSummaryOnly,omitempty"`
 }
 
 func (s CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting) String() string {
@@ -1278,6 +1329,11 @@ func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenReco
 
 func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting) SetRecordAutoStartType(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting {
 	s.RecordAutoStartType = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting) SetRestrictShareMinutesSummaryOnly(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting {
+	s.RestrictShareMinutesSummaryOnly = &v
 	return s
 }
 
@@ -8319,7 +8375,8 @@ func (s *UpdateScheduleConfSettingsRequest) SetScheduleConferenceId(v string) *U
 }
 
 type UpdateScheduleConfSettingsRequestScheduleConfSettingModel struct {
-	CohostUnionIds []*string `json:"cohostUnionIds,omitempty" xml:"cohostUnionIds,omitempty" type:"Repeated"`
+	AiAgentSummarySetting *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting `json:"aiAgentSummarySetting,omitempty" xml:"aiAgentSummarySetting,omitempty" type:"Struct"`
+	CohostUnionIds        []*string                                                                       `json:"cohostUnionIds,omitempty" xml:"cohostUnionIds,omitempty" type:"Repeated"`
 	// example:
 	//
 	// dingc02f685fa06381c44ac5d6980864d335
@@ -8350,6 +8407,11 @@ func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModel) String() stri
 
 func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModel) GoString() string {
 	return s.String()
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) SetAiAgentSummarySetting(v *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting) *UpdateScheduleConfSettingsRequestScheduleConfSettingModel {
+	s.AiAgentSummarySetting = v
+	return s
 }
 
 func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) SetCohostUnionIds(v []*string) *UpdateScheduleConfSettingsRequestScheduleConfSettingModel {
@@ -8392,6 +8454,47 @@ func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) SetScreenSha
 	return s
 }
 
+type UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting struct {
+	AllowAllParticipantsStart       *int32  `json:"allowAllParticipantsStart,omitempty" xml:"allowAllParticipantsStart,omitempty"`
+	ReceiverType                    *int32  `json:"receiverType,omitempty" xml:"receiverType,omitempty"`
+	RestrictShareMinutesSummaryOnly *int32  `json:"restrictShareMinutesSummaryOnly,omitempty" xml:"restrictShareMinutesSummaryOnly,omitempty"`
+	StartType                       *int32  `json:"startType,omitempty" xml:"startType,omitempty"`
+	Value                           *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting) SetAllowAllParticipantsStart(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting {
+	s.AllowAllParticipantsStart = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting) SetReceiverType(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting {
+	s.ReceiverType = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting) SetRestrictShareMinutesSummaryOnly(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting {
+	s.RestrictShareMinutesSummaryOnly = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting) SetStartType(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting {
+	s.StartType = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting) SetValue(v string) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting {
+	s.Value = &v
+	return s
+}
+
 type UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting struct {
 	// example:
 	//
@@ -8408,7 +8511,8 @@ type UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecord
 	// example:
 	//
 	// 0：我以主持人身份入会后自动开启 1：其他人以联席主持人身份入会后开启 2：任何人以任何身份入会后开启
-	RecordAutoStartType *int32 `json:"recordAutoStartType,omitempty" xml:"recordAutoStartType,omitempty"`
+	RecordAutoStartType             *int32 `json:"recordAutoStartType,omitempty" xml:"recordAutoStartType,omitempty"`
+	RestrictShareMinutesSummaryOnly *int32 `json:"restrictShareMinutesSummaryOnly,omitempty" xml:"restrictShareMinutesSummaryOnly,omitempty"`
 }
 
 func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting) String() string {
@@ -8436,6 +8540,11 @@ func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRe
 
 func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting) SetRecordAutoStartType(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting {
 	s.RecordAutoStartType = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting) SetRestrictShareMinutesSummaryOnly(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting {
+	s.RestrictShareMinutesSummaryOnly = &v
 	return s
 }
 
