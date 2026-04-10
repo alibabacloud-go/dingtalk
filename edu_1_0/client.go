@@ -36632,6 +36632,139 @@ func (s *SubscribeUniversityCourseGroupResponse) SetBody(v *SubscribeUniversityC
 	return s
 }
 
+type SyncCheckedDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SyncCheckedDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncCheckedDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SyncCheckedDataHeaders) SetCommonHeaders(v map[string]*string) *SyncCheckedDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SyncCheckedDataHeaders) SetXAcsDingtalkAccessToken(v string) *SyncCheckedDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SyncCheckedDataRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://...
+	CheckJsonUrl *string `json:"checkJsonUrl,omitempty" xml:"checkJsonUrl,omitempty"`
+	// This parameter is required.
+	//
+	// if can be null:
+	// false
+	//
+	// example:
+	//
+	// https:.....
+	CheckUrl *string `json:"checkUrl,omitempty" xml:"checkUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding123...
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding_scan_correct_...
+	TaskCode *string `json:"taskCode,omitempty" xml:"taskCode,omitempty"`
+}
+
+func (s SyncCheckedDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncCheckedDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SyncCheckedDataRequest) SetCheckJsonUrl(v string) *SyncCheckedDataRequest {
+	s.CheckJsonUrl = &v
+	return s
+}
+
+func (s *SyncCheckedDataRequest) SetCheckUrl(v string) *SyncCheckedDataRequest {
+	s.CheckUrl = &v
+	return s
+}
+
+func (s *SyncCheckedDataRequest) SetCorpId(v string) *SyncCheckedDataRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *SyncCheckedDataRequest) SetTaskCode(v string) *SyncCheckedDataRequest {
+	s.TaskCode = &v
+	return s
+}
+
+type SyncCheckedDataResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SyncCheckedDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncCheckedDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SyncCheckedDataResponseBody) SetResult(v bool) *SyncCheckedDataResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *SyncCheckedDataResponseBody) SetSuccess(v bool) *SyncCheckedDataResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SyncCheckedDataResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SyncCheckedDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SyncCheckedDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SyncCheckedDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SyncCheckedDataResponse) SetHeaders(v map[string]*string) *SyncCheckedDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SyncCheckedDataResponse) SetStatusCode(v int32) *SyncCheckedDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SyncCheckedDataResponse) SetBody(v *SyncCheckedDataResponseBody) *SyncCheckedDataResponse {
+	s.Body = v
+	return s
+}
+
 type UnsubscribeUniversityCourseGroupHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -58809,6 +58942,91 @@ func (client *Client) SubscribeUniversityCourseGroup(request *SubscribeUniversit
 	headers := &SubscribeUniversityCourseGroupHeaders{}
 	_result = &SubscribeUniversityCourseGroupResponse{}
 	_body, _err := client.SubscribeUniversityCourseGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-同步抽检数据
+//
+// @param request - SyncCheckedDataRequest
+//
+// @param headers - SyncCheckedDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SyncCheckedDataResponse
+func (client *Client) SyncCheckedDataWithOptions(request *SyncCheckedDataRequest, headers *SyncCheckedDataHeaders, runtime *util.RuntimeOptions) (_result *SyncCheckedDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CheckJsonUrl)) {
+		body["checkJsonUrl"] = request.CheckJsonUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CheckUrl)) {
+		body["checkUrl"] = request.CheckUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskCode)) {
+		body["taskCode"] = request.TaskCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SyncCheckedData"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/assignment/syncCheckedData"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SyncCheckedDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-同步抽检数据
+//
+// @param request - SyncCheckedDataRequest
+//
+// @return SyncCheckedDataResponse
+func (client *Client) SyncCheckedData(request *SyncCheckedDataRequest) (_result *SyncCheckedDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SyncCheckedDataHeaders{}
+	_result = &SyncCheckedDataResponse{}
+	_body, _err := client.SyncCheckedDataWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -2272,6 +2272,10 @@ func (s *InsertRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *InsertRecor
 type InsertRecordsRequest struct {
 	// This parameter is required.
 	Records []*InsertRecordsRequestRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	// example:
+	//
+	// union_id
+	ClientToken *string `json:"clientToken,omitempty" xml:"clientToken,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -2290,6 +2294,11 @@ func (s InsertRecordsRequest) GoString() string {
 
 func (s *InsertRecordsRequest) SetRecords(v []*InsertRecordsRequestRecords) *InsertRecordsRequest {
 	s.Records = v
+	return s
+}
+
+func (s *InsertRecordsRequest) SetClientToken(v string) *InsertRecordsRequest {
+	s.ClientToken = &v
 	return s
 }
 
@@ -2403,9 +2412,10 @@ func (s *ListRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *ListRecordsHe
 }
 
 type ListRecordsRequest struct {
-	Filter     *ListRecordsRequestFilter `json:"filter,omitempty" xml:"filter,omitempty" type:"Struct"`
-	MaxResults *int32                    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken  *string                   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	FieldIdOrNames []*string                 `json:"fieldIdOrNames,omitempty" xml:"fieldIdOrNames,omitempty" type:"Repeated"`
+	Filter         *ListRecordsRequestFilter `json:"filter,omitempty" xml:"filter,omitempty" type:"Struct"`
+	MaxResults     *int32                    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken      *string                   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -2420,6 +2430,11 @@ func (s ListRecordsRequest) String() string {
 
 func (s ListRecordsRequest) GoString() string {
 	return s.String()
+}
+
+func (s *ListRecordsRequest) SetFieldIdOrNames(v []*string) *ListRecordsRequest {
+	s.FieldIdOrNames = v
+	return s
 }
 
 func (s *ListRecordsRequest) SetFilter(v *ListRecordsRequestFilter) *ListRecordsRequest {
@@ -5080,6 +5095,10 @@ func (client *Client) InsertRecordsWithOptions(baseId *string, sheetIdOrName *st
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ClientToken)) {
+		query["clientToken"] = request.ClientToken
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
 		query["operatorId"] = request.OperatorId
 	}
@@ -5164,6 +5183,10 @@ func (client *Client) ListRecordsWithOptions(baseId *string, sheetIdOrName *stri
 	}
 
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FieldIdOrNames)) {
+		body["fieldIdOrNames"] = request.FieldIdOrNames
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Filter)) {
 		body["filter"] = request.Filter
 	}

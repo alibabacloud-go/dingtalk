@@ -11364,6 +11364,93 @@ func (s *TransformToExclusiveAccountResponse) SetStatusCode(v int32) *TransformT
 	return s
 }
 
+type TransformToNormalAccountHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TransformToNormalAccountHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TransformToNormalAccountHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TransformToNormalAccountHeaders) SetCommonHeaders(v map[string]*string) *TransformToNormalAccountHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TransformToNormalAccountHeaders) SetXAcsDingtalkAccessToken(v string) *TransformToNormalAccountHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TransformToNormalAccountRequest struct {
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s TransformToNormalAccountRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TransformToNormalAccountRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TransformToNormalAccountRequest) SetUserId(v string) *TransformToNormalAccountRequest {
+	s.UserId = &v
+	return s
+}
+
+type TransformToNormalAccountResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s TransformToNormalAccountResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TransformToNormalAccountResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TransformToNormalAccountResponseBody) SetSuccess(v bool) *TransformToNormalAccountResponseBody {
+	s.Success = &v
+	return s
+}
+
+type TransformToNormalAccountResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TransformToNormalAccountResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TransformToNormalAccountResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TransformToNormalAccountResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TransformToNormalAccountResponse) SetHeaders(v map[string]*string) *TransformToNormalAccountResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TransformToNormalAccountResponse) SetStatusCode(v int32) *TransformToNormalAccountResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TransformToNormalAccountResponse) SetBody(v *TransformToNormalAccountResponseBody) *TransformToNormalAccountResponse {
+	s.Body = v
+	return s
+}
+
 type TranslateFileHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -20170,6 +20257,79 @@ func (client *Client) TransformToExclusiveAccount(request *TransformToExclusiveA
 	headers := &TransformToExclusiveAccountHeaders{}
 	_result = &TransformToExclusiveAccountResponse{}
 	_body, _err := client.TransformToExclusiveAccountWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 企业账号转换为普通账号
+//
+// @param request - TransformToNormalAccountRequest
+//
+// @param headers - TransformToNormalAccountHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TransformToNormalAccountResponse
+func (client *Client) TransformToNormalAccountWithOptions(request *TransformToNormalAccountRequest, headers *TransformToNormalAccountHeaders, runtime *util.RuntimeOptions) (_result *TransformToNormalAccountResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TransformToNormalAccount"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/orgAccounts/transformToNormalAccount"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TransformToNormalAccountResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 企业账号转换为普通账号
+//
+// @param request - TransformToNormalAccountRequest
+//
+// @return TransformToNormalAccountResponse
+func (client *Client) TransformToNormalAccount(request *TransformToNormalAccountRequest) (_result *TransformToNormalAccountResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TransformToNormalAccountHeaders{}
+	_result = &TransformToNormalAccountResponse{}
+	_body, _err := client.TransformToNormalAccountWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -1244,7 +1244,6 @@ type CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySettin
 	AllowAllParticipantsStart       *int32 `json:"allowAllParticipantsStart,omitempty" xml:"allowAllParticipantsStart,omitempty"`
 	ReceiverType                    *int32 `json:"receiverType,omitempty" xml:"receiverType,omitempty"`
 	RestrictShareMinutesSummaryOnly *int32 `json:"restrictShareMinutesSummaryOnly,omitempty" xml:"restrictShareMinutesSummaryOnly,omitempty"`
-	StartType                       *int32 `json:"startType,omitempty" xml:"startType,omitempty"`
 	// example:
 	//
 	// disable
@@ -1271,11 +1270,6 @@ func (s *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySe
 
 func (s *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting) SetRestrictShareMinutesSummaryOnly(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting {
 	s.RestrictShareMinutesSummaryOnly = &v
-	return s
-}
-
-func (s *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting) SetStartType(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting {
-	s.StartType = &v
 	return s
 }
 
@@ -8458,7 +8452,6 @@ type UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySett
 	AllowAllParticipantsStart       *int32  `json:"allowAllParticipantsStart,omitempty" xml:"allowAllParticipantsStart,omitempty"`
 	ReceiverType                    *int32  `json:"receiverType,omitempty" xml:"receiverType,omitempty"`
 	RestrictShareMinutesSummaryOnly *int32  `json:"restrictShareMinutesSummaryOnly,omitempty" xml:"restrictShareMinutesSummaryOnly,omitempty"`
-	StartType                       *int32  `json:"startType,omitempty" xml:"startType,omitempty"`
 	Value                           *string `json:"value,omitempty" xml:"value,omitempty"`
 }
 
@@ -8482,11 +8475,6 @@ func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummary
 
 func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting) SetRestrictShareMinutesSummaryOnly(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting {
 	s.RestrictShareMinutesSummaryOnly = &v
-	return s
-}
-
-func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting) SetStartType(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting {
-	s.StartType = &v
 	return s
 }
 

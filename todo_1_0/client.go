@@ -1180,6 +1180,75 @@ func (s *CreateTodoTypeConfigResponse) SetBody(v *CreateTodoTypeConfigResponseBo
 	return s
 }
 
+type DeletePersonalTodoTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeletePersonalTodoTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePersonalTodoTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePersonalTodoTaskHeaders) SetCommonHeaders(v map[string]*string) *DeletePersonalTodoTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeletePersonalTodoTaskHeaders) SetXAcsDingtalkAccessToken(v string) *DeletePersonalTodoTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeletePersonalTodoTaskResponseBody struct {
+	Success *string `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeletePersonalTodoTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePersonalTodoTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePersonalTodoTaskResponseBody) SetSuccess(v string) *DeletePersonalTodoTaskResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeletePersonalTodoTaskResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeletePersonalTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeletePersonalTodoTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeletePersonalTodoTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeletePersonalTodoTaskResponse) SetHeaders(v map[string]*string) *DeletePersonalTodoTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeletePersonalTodoTaskResponse) SetStatusCode(v int32) *DeletePersonalTodoTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeletePersonalTodoTaskResponse) SetBody(v *DeletePersonalTodoTaskResponseBody) *DeletePersonalTodoTaskResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteTodoTaskHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3799,6 +3868,208 @@ func (s *SetOrgConfigResponse) SetBody(v *SetOrgConfigResponseBody) *SetOrgConfi
 	return s
 }
 
+type UpdatePersonalTodoTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdatePersonalTodoTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePersonalTodoTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePersonalTodoTaskHeaders) SetCommonHeaders(v map[string]*string) *UpdatePersonalTodoTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdatePersonalTodoTaskHeaders) SetXAcsDingtalkAccessToken(v string) *UpdatePersonalTodoTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdatePersonalTodoTaskRequest struct {
+	Description    *string   `json:"description,omitempty" xml:"description,omitempty"`
+	Done           *bool     `json:"done,omitempty" xml:"done,omitempty"`
+	DueTime        *int64    `json:"dueTime,omitempty" xml:"dueTime,omitempty"`
+	ExecutorIds    []*string `json:"executorIds,omitempty" xml:"executorIds,omitempty" type:"Repeated"`
+	ParticipantIds []*string `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
+	Subject        *string   `json:"subject,omitempty" xml:"subject,omitempty"`
+}
+
+func (s UpdatePersonalTodoTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePersonalTodoTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePersonalTodoTaskRequest) SetDescription(v string) *UpdatePersonalTodoTaskRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *UpdatePersonalTodoTaskRequest) SetDone(v bool) *UpdatePersonalTodoTaskRequest {
+	s.Done = &v
+	return s
+}
+
+func (s *UpdatePersonalTodoTaskRequest) SetDueTime(v int64) *UpdatePersonalTodoTaskRequest {
+	s.DueTime = &v
+	return s
+}
+
+func (s *UpdatePersonalTodoTaskRequest) SetExecutorIds(v []*string) *UpdatePersonalTodoTaskRequest {
+	s.ExecutorIds = v
+	return s
+}
+
+func (s *UpdatePersonalTodoTaskRequest) SetParticipantIds(v []*string) *UpdatePersonalTodoTaskRequest {
+	s.ParticipantIds = v
+	return s
+}
+
+func (s *UpdatePersonalTodoTaskRequest) SetSubject(v string) *UpdatePersonalTodoTaskRequest {
+	s.Subject = &v
+	return s
+}
+
+type UpdatePersonalTodoTaskResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdatePersonalTodoTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePersonalTodoTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePersonalTodoTaskResponseBody) SetSuccess(v bool) *UpdatePersonalTodoTaskResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdatePersonalTodoTaskResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdatePersonalTodoTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdatePersonalTodoTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePersonalTodoTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePersonalTodoTaskResponse) SetHeaders(v map[string]*string) *UpdatePersonalTodoTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdatePersonalTodoTaskResponse) SetStatusCode(v int32) *UpdatePersonalTodoTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdatePersonalTodoTaskResponse) SetBody(v *UpdatePersonalTodoTaskResponseBody) *UpdatePersonalTodoTaskResponse {
+	s.Body = v
+	return s
+}
+
+type UpdatePersonalTodoTaskExecutorStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdatePersonalTodoTaskExecutorStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePersonalTodoTaskExecutorStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePersonalTodoTaskExecutorStatusHeaders) SetCommonHeaders(v map[string]*string) *UpdatePersonalTodoTaskExecutorStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdatePersonalTodoTaskExecutorStatusHeaders) SetXAcsDingtalkAccessToken(v string) *UpdatePersonalTodoTaskExecutorStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdatePersonalTodoTaskExecutorStatusRequest struct {
+	Done *bool `json:"done,omitempty" xml:"done,omitempty"`
+}
+
+func (s UpdatePersonalTodoTaskExecutorStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePersonalTodoTaskExecutorStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePersonalTodoTaskExecutorStatusRequest) SetDone(v bool) *UpdatePersonalTodoTaskExecutorStatusRequest {
+	s.Done = &v
+	return s
+}
+
+type UpdatePersonalTodoTaskExecutorStatusResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdatePersonalTodoTaskExecutorStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePersonalTodoTaskExecutorStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePersonalTodoTaskExecutorStatusResponseBody) SetSuccess(v bool) *UpdatePersonalTodoTaskExecutorStatusResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdatePersonalTodoTaskExecutorStatusResponse struct {
+	Headers    map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdatePersonalTodoTaskExecutorStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdatePersonalTodoTaskExecutorStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePersonalTodoTaskExecutorStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePersonalTodoTaskExecutorStatusResponse) SetHeaders(v map[string]*string) *UpdatePersonalTodoTaskExecutorStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdatePersonalTodoTaskExecutorStatusResponse) SetStatusCode(v int32) *UpdatePersonalTodoTaskExecutorStatusResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdatePersonalTodoTaskExecutorStatusResponse) SetBody(v *UpdatePersonalTodoTaskExecutorStatusResponseBody) *UpdatePersonalTodoTaskExecutorStatusResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateTodoTaskHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3823,13 +4094,14 @@ func (s *UpdateTodoTaskHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTodo
 }
 
 type UpdateTodoTaskRequest struct {
-	Description    *string   `json:"description,omitempty" xml:"description,omitempty"`
-	Done           *bool     `json:"done,omitempty" xml:"done,omitempty"`
-	DueTime        *int64    `json:"dueTime,omitempty" xml:"dueTime,omitempty"`
-	ExecutorIds    []*string `json:"executorIds,omitempty" xml:"executorIds,omitempty" type:"Repeated"`
-	ParticipantIds []*string `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
-	Subject        *string   `json:"subject,omitempty" xml:"subject,omitempty"`
-	OperatorId     *string   `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	ContentFieldList []*UpdateTodoTaskRequestContentFieldList `json:"contentFieldList,omitempty" xml:"contentFieldList,omitempty" type:"Repeated"`
+	Description      *string                                  `json:"description,omitempty" xml:"description,omitempty"`
+	Done             *bool                                    `json:"done,omitempty" xml:"done,omitempty"`
+	DueTime          *int64                                   `json:"dueTime,omitempty" xml:"dueTime,omitempty"`
+	ExecutorIds      []*string                                `json:"executorIds,omitempty" xml:"executorIds,omitempty" type:"Repeated"`
+	ParticipantIds   []*string                                `json:"participantIds,omitempty" xml:"participantIds,omitempty" type:"Repeated"`
+	Subject          *string                                  `json:"subject,omitempty" xml:"subject,omitempty"`
+	OperatorId       *string                                  `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
 }
 
 func (s UpdateTodoTaskRequest) String() string {
@@ -3838,6 +4110,11 @@ func (s UpdateTodoTaskRequest) String() string {
 
 func (s UpdateTodoTaskRequest) GoString() string {
 	return s.String()
+}
+
+func (s *UpdateTodoTaskRequest) SetContentFieldList(v []*UpdateTodoTaskRequestContentFieldList) *UpdateTodoTaskRequest {
+	s.ContentFieldList = v
+	return s
 }
 
 func (s *UpdateTodoTaskRequest) SetDescription(v string) *UpdateTodoTaskRequest {
@@ -3872,6 +4149,29 @@ func (s *UpdateTodoTaskRequest) SetSubject(v string) *UpdateTodoTaskRequest {
 
 func (s *UpdateTodoTaskRequest) SetOperatorId(v string) *UpdateTodoTaskRequest {
 	s.OperatorId = &v
+	return s
+}
+
+type UpdateTodoTaskRequestContentFieldList struct {
+	FieldKey   *string `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
+	FieldValue *string `json:"fieldValue,omitempty" xml:"fieldValue,omitempty"`
+}
+
+func (s UpdateTodoTaskRequestContentFieldList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTodoTaskRequestContentFieldList) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTodoTaskRequestContentFieldList) SetFieldKey(v string) *UpdateTodoTaskRequestContentFieldList {
+	s.FieldKey = &v
+	return s
+}
+
+func (s *UpdateTodoTaskRequestContentFieldList) SetFieldValue(v string) *UpdateTodoTaskRequestContentFieldList {
+	s.FieldValue = &v
 	return s
 }
 
@@ -4695,6 +4995,65 @@ func (client *Client) CreateTodoTypeConfig(unionId *string, request *CreateTodoT
 	headers := &CreateTodoTypeConfigHeaders{}
 	_result = &CreateTodoTypeConfigResponse{}
 	_body, _err := client.CreateTodoTypeConfigWithOptions(unionId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 以用户个人身份删除待办
+//
+// @param headers - DeletePersonalTodoTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeletePersonalTodoTaskResponse
+func (client *Client) DeletePersonalTodoTaskWithOptions(taskId *string, headers *DeletePersonalTodoTaskHeaders, runtime *util.RuntimeOptions) (_result *DeletePersonalTodoTaskResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeletePersonalTodoTask"),
+		Version:     tea.String("todo_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/todo/users/me/tasks/" + tea.StringValue(taskId) + "/remove"),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeletePersonalTodoTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 以用户个人身份删除待办
+//
+// @return DeletePersonalTodoTaskResponse
+func (client *Client) DeletePersonalTodoTask(taskId *string) (_result *DeletePersonalTodoTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeletePersonalTodoTaskHeaders{}
+	_result = &DeletePersonalTodoTaskResponse{}
+	_body, _err := client.DeletePersonalTodoTaskWithOptions(taskId, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5740,6 +6099,172 @@ func (client *Client) SetOrgConfig(request *SetOrgConfigRequest) (_result *SetOr
 
 // Summary:
 //
+// 以用户个人身份更新待办
+//
+// @param request - UpdatePersonalTodoTaskRequest
+//
+// @param headers - UpdatePersonalTodoTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdatePersonalTodoTaskResponse
+func (client *Client) UpdatePersonalTodoTaskWithOptions(taskId *string, request *UpdatePersonalTodoTaskRequest, headers *UpdatePersonalTodoTaskHeaders, runtime *util.RuntimeOptions) (_result *UpdatePersonalTodoTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Done)) {
+		body["done"] = request.Done
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DueTime)) {
+		body["dueTime"] = request.DueTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExecutorIds)) {
+		body["executorIds"] = request.ExecutorIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ParticipantIds)) {
+		body["participantIds"] = request.ParticipantIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Subject)) {
+		body["subject"] = request.Subject
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdatePersonalTodoTask"),
+		Version:     tea.String("todo_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/todo/users/me/tasks/" + tea.StringValue(taskId) + "/update"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdatePersonalTodoTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 以用户个人身份更新待办
+//
+// @param request - UpdatePersonalTodoTaskRequest
+//
+// @return UpdatePersonalTodoTaskResponse
+func (client *Client) UpdatePersonalTodoTask(taskId *string, request *UpdatePersonalTodoTaskRequest) (_result *UpdatePersonalTodoTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdatePersonalTodoTaskHeaders{}
+	_result = &UpdatePersonalTodoTaskResponse{}
+	_body, _err := client.UpdatePersonalTodoTaskWithOptions(taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 以用户个人身份更新自己作为执行者的状态
+//
+// @param request - UpdatePersonalTodoTaskExecutorStatusRequest
+//
+// @param headers - UpdatePersonalTodoTaskExecutorStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdatePersonalTodoTaskExecutorStatusResponse
+func (client *Client) UpdatePersonalTodoTaskExecutorStatusWithOptions(taskId *string, request *UpdatePersonalTodoTaskExecutorStatusRequest, headers *UpdatePersonalTodoTaskExecutorStatusHeaders, runtime *util.RuntimeOptions) (_result *UpdatePersonalTodoTaskExecutorStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Done)) {
+		query["done"] = request.Done
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdatePersonalTodoTaskExecutorStatus"),
+		Version:     tea.String("todo_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/todo/users/me/tasks/" + tea.StringValue(taskId) + "/updateExecutorStatus"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdatePersonalTodoTaskExecutorStatusResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 以用户个人身份更新自己作为执行者的状态
+//
+// @param request - UpdatePersonalTodoTaskExecutorStatusRequest
+//
+// @return UpdatePersonalTodoTaskExecutorStatusResponse
+func (client *Client) UpdatePersonalTodoTaskExecutorStatus(taskId *string, request *UpdatePersonalTodoTaskExecutorStatusRequest) (_result *UpdatePersonalTodoTaskExecutorStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdatePersonalTodoTaskExecutorStatusHeaders{}
+	_result = &UpdatePersonalTodoTaskExecutorStatusResponse{}
+	_body, _err := client.UpdatePersonalTodoTaskExecutorStatusWithOptions(taskId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 更新待办
 //
 // @param request - UpdateTodoTaskRequest
@@ -5760,6 +6285,10 @@ func (client *Client) UpdateTodoTaskWithOptions(unionId *string, taskId *string,
 	}
 
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ContentFieldList)) {
+		body["contentFieldList"] = request.ContentFieldList
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Description)) {
 		body["description"] = request.Description
 	}

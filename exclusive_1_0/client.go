@@ -2980,6 +2980,81 @@ func (s *ExclusivePopupResponse) SetBody(v *ExclusivePopupResponseBody) *Exclusi
 	return s
 }
 
+type FileDecryptCallbackRequest struct {
+	BizId           *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	DecryptFileSize *int64  `json:"decryptFileSize,omitempty" xml:"decryptFileSize,omitempty"`
+	Timestamp       *int64  `json:"timestamp,omitempty" xml:"timestamp,omitempty"`
+}
+
+func (s FileDecryptCallbackRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileDecryptCallbackRequest) GoString() string {
+	return s.String()
+}
+
+func (s *FileDecryptCallbackRequest) SetBizId(v string) *FileDecryptCallbackRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *FileDecryptCallbackRequest) SetDecryptFileSize(v int64) *FileDecryptCallbackRequest {
+	s.DecryptFileSize = &v
+	return s
+}
+
+func (s *FileDecryptCallbackRequest) SetTimestamp(v int64) *FileDecryptCallbackRequest {
+	s.Timestamp = &v
+	return s
+}
+
+type FileDecryptCallbackResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s FileDecryptCallbackResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileDecryptCallbackResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *FileDecryptCallbackResponseBody) SetSuccess(v bool) *FileDecryptCallbackResponseBody {
+	s.Success = &v
+	return s
+}
+
+type FileDecryptCallbackResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *FileDecryptCallbackResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s FileDecryptCallbackResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FileDecryptCallbackResponse) GoString() string {
+	return s.String()
+}
+
+func (s *FileDecryptCallbackResponse) SetHeaders(v map[string]*string) *FileDecryptCallbackResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *FileDecryptCallbackResponse) SetStatusCode(v int32) *FileDecryptCallbackResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *FileDecryptCallbackResponse) SetBody(v *FileDecryptCallbackResponseBody) *FileDecryptCallbackResponse {
+	s.Body = v
+	return s
+}
+
 type FileEncryptCallbackHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -24097,6 +24172,7 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	client.Spi = gatewayClient
+	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
@@ -26074,6 +26150,78 @@ func (client *Client) ExclusivePopup(request *ExclusivePopupRequest) (_result *E
 	headers := &ExclusivePopupHeaders{}
 	_result = &ExclusivePopupResponse{}
 	_body, _err := client.ExclusivePopupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 文件解密回调
+//
+// @param request - FileDecryptCallbackRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return FileDecryptCallbackResponse
+func (client *Client) FileDecryptCallbackWithOptions(request *FileDecryptCallbackRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *FileDecryptCallbackResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		body["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DecryptFileSize)) {
+		body["decryptFileSize"] = request.DecryptFileSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Timestamp)) {
+		body["timestamp"] = request.Timestamp
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("FileDecryptCallback"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/clientDecrypt/decrypt/callback"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &FileDecryptCallbackResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 文件解密回调
+//
+// @param request - FileDecryptCallbackRequest
+//
+// @return FileDecryptCallbackResponse
+func (client *Client) FileDecryptCallback(request *FileDecryptCallbackRequest) (_result *FileDecryptCallbackResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &FileDecryptCallbackResponse{}
+	_body, _err := client.FileDecryptCallbackWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
